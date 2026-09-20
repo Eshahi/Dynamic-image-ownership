@@ -72,7 +72,7 @@
     },
     {
       "path": "fixtures/github-issue-seed-38.json",
-      "sha256": "f73a8e6f97dc0bec43f9afb60f012212bde0973a14ed9c8176d8c41a268c7754"
+      "sha256": "0bbe1ffb071b498ebbebffdc353bd3bb6fd1447fd9e4e2d93243434438b69f64"
     },
     {
       "path": "fixtures/guide-plan-38.json",
@@ -192,7 +192,7 @@
     },
     {
       "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/plan.py",
-      "sha256": "be03879e60b7da878200f9ff2c8526e759349a1c615dae58b5a87a61580614f0"
+      "sha256": "1310c0ea1b2dd4dee4700930779ac5a8f43132e3d1ad1af9f9fdf8364b89cb65"
     },
     {
       "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/research.py",
@@ -316,7 +316,7 @@
     },
     {
       "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/plan.py",
-      "sha256": "be03879e60b7da878200f9ff2c8526e759349a1c615dae58b5a87a61580614f0"
+      "sha256": "1310c0ea1b2dd4dee4700930779ac5a8f43132e3d1ad1af9f9fdf8364b89cb65"
     },
     {
       "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/research.py",
@@ -424,7 +424,7 @@
     },
     {
       "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/plan.py",
-      "sha256": "be03879e60b7da878200f9ff2c8526e759349a1c615dae58b5a87a61580614f0"
+      "sha256": "1310c0ea1b2dd4dee4700930779ac5a8f43132e3d1ad1af9f9fdf8364b89cb65"
     },
     {
       "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/research.py",
@@ -532,7 +532,7 @@
     },
     {
       "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/plan.py",
-      "sha256": "be03879e60b7da878200f9ff2c8526e759349a1c615dae58b5a87a61580614f0"
+      "sha256": "1310c0ea1b2dd4dee4700930779ac5a8f43132e3d1ad1af9f9fdf8364b89cb65"
     },
     {
       "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/research.py",
@@ -640,7 +640,7 @@
     },
     {
       "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/plan.py",
-      "sha256": "be03879e60b7da878200f9ff2c8526e759349a1c615dae58b5a87a61580614f0"
+      "sha256": "1310c0ea1b2dd4dee4700930779ac5a8f43132e3d1ad1af9f9fdf8364b89cb65"
     },
     {
       "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/research.py",
@@ -748,7 +748,7 @@
     },
     {
       "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/plan.py",
-      "sha256": "be03879e60b7da878200f9ff2c8526e759349a1c615dae58b5a87a61580614f0"
+      "sha256": "1310c0ea1b2dd4dee4700930779ac5a8f43132e3d1ad1af9f9fdf8364b89cb65"
     },
     {
       "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/research.py",
@@ -860,7 +860,7 @@
     },
     {
       "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/plan.py",
-      "sha256": "be03879e60b7da878200f9ff2c8526e759349a1c615dae58b5a87a61580614f0"
+      "sha256": "1310c0ea1b2dd4dee4700930779ac5a8f43132e3d1ad1af9f9fdf8364b89cb65"
     },
     {
       "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/research.py",
@@ -972,7 +972,7 @@
     },
     {
       "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/plan.py",
-      "sha256": "be03879e60b7da878200f9ff2c8526e759349a1c615dae58b5a87a61580614f0"
+      "sha256": "1310c0ea1b2dd4dee4700930779ac5a8f43132e3d1ad1af9f9fdf8364b89cb65"
     },
     {
       "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/research.py",
@@ -1100,7 +1100,7 @@
     },
     {
       "path": "src/thesis_agents/plan.py",
-      "sha256": "be03879e60b7da878200f9ff2c8526e759349a1c615dae58b5a87a61580614f0"
+      "sha256": "1310c0ea1b2dd4dee4700930779ac5a8f43132e3d1ad1af9f9fdf8364b89cb65"
     },
     {
       "path": "src/thesis_agents/research.py",
@@ -1160,7 +1160,7 @@
     },
     {
       "path": "tests/test_contracts.py",
-      "sha256": "8dd92ee4298551da1d13ea318b5a7cc0ee8cb9bf82cb1e5a889a3eba4d3e9f76"
+      "sha256": "955e7e28b735080a444050c78a67cf66f0da2dba6bbad0df4551b57303e35529"
     },
     {
       "path": "tests/test_forward_compute.py",

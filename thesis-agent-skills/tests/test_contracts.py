@@ -10,6 +10,7 @@ import subprocess
 import sys
 import tempfile
 import shutil
+import re
 import unittest
 from unittest.mock import patch
 from thesis_agents.common import ContractError, contained, digest, read, redact, relative, safe_env, validate, write
@@ -98,6 +99,8 @@ class Contracts(unittest.TestCase):
         self.assertEqual(len(seed["issues"]),38)
         self.assertEqual({issue["local_task_id"] for issue in seed["issues"]},{task["id"] for task in plan["tasks"]})
         self.assertTrue(all("Link commits and pull request" in issue["body"] for issue in seed["issues"]))
+        github_text=json.dumps({"milestones":seed["milestones"],"issues":seed["issues"],"governance":seed["governance"]},ensure_ascii=False)
+        self.assertIsNone(re.search(r"[\u0600-\u06ff]",github_text),"GitHub-facing task content must be English")
         self.assertIn("explicit repository scope",seed["governance"]["external_mutation"])
 
     def test_redaction_and_strict_unknown_fields(self):

@@ -32,7 +32,7 @@ models/
 *.pth
 *.safetensors
 
-# Private source document: retain locally; track only hashes/derived records
+# Source-language proposal: retain locally until an approved English version exists
 پروپوزال 2.docx
 
 # Editor and operating-system files

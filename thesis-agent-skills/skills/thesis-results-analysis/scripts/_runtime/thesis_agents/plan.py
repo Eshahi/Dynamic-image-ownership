@@ -68,6 +68,165 @@ HUMAN_GATES = [
 ]
 
 
+# GitHub is the collaboration surface for this project.  The imported guide is
+# intentionally preserved in its source language for provenance, while every
+# issue generated from it uses a reviewed English operational summary.
+ISSUE_ENGLISH = {
+    "A1": (
+        "Initialize the thesis repository, ingest the approved proposal without altering it, and extract a traceable text representation.",
+        "Repository structure, proposal hashes, extracted text, tables, and equations are consistent with the approved source document.",
+    ),
+    "A2a": (
+        "Extract the approved research questions, requirements, claims, scope boundaries, datasets, methods, and metrics into traceable records.",
+        "Every approved question and requirement has a source locator; unresolved ambiguity is explicit and no new claim is introduced.",
+    ),
+    "A3": (
+        "Specify pipeline inputs, outputs, notation, secrets, detector knowledge, protected assets, attackers, and attack success conditions.",
+        "All pipeline interfaces are compatible and each security claim maps to an explicit scenario, control, and threat assumption.",
+    ),
+    "A2b": (
+        "Map every requirement to components, datasets, baselines, metrics, experiments, controls, and planned evidence while enforcing scope-change rules.",
+        "Coverage matches the complete claim inventory and planned work is not represented as implemented or experimentally verified.",
+    ),
+    "A4": (
+        "Define measurable acceptance criteria, analysis units, sample sizes, seeds, stopping rules, failure policy, and resource bounds before experiments.",
+        "Criteria are falsifiable, statistically coherent, fixed before results, and distinguish technical failure from a negative scientific result.",
+    ),
+    "A5": (
+        "Document the end-to-end architecture, trust boundaries, data flow, ownership/key path, embedding path, detector path, and evidence outputs.",
+        "The architecture is consistent with the I/O specification and threat model, and every component has defined responsibilities and interfaces.",
+    ),
+    "A6": (
+        "Lock the reproducible software and hardware environment, dependency versions, deterministic settings, and environment-capture procedure.",
+        "A clean installation can reproduce the declared environment and records the exact GPU, driver, framework, and dependency versions.",
+    ),
+    "B1": (
+        "Run the documented literature-search protocol and build a deduplicated literature matrix, evidence ledger, and verified bibliography.",
+        "Queries, dates, databases, inclusion decisions, inspected artifacts, contradictions, and citation metadata are traceable and reproducible.",
+    ),
+    "B2": (
+        "Select defensible baselines and perform a reproducibility review of their code, data, licenses, checkpoints, metrics, and evaluation assumptions.",
+        "Each selected or rejected baseline has an evidence-based rationale and no unavailable reproduction is presented as completed.",
+    ),
+    "B3": (
+        "Create the dataset manifest, license record, provenance ledger, integrity hashes, and dataset datasheet for every planned data source.",
+        "Dataset identity, version, license, acquisition path, checksum, permitted use, and known limitations are recorded.",
+    ),
+    "B4": (
+        "Define deterministic sampling, train/validation/test separation, leakage controls, grouping rules, and an untouched out-of-distribution holdout.",
+        "Split manifests are immutable, reproducible from recorded seeds, and demonstrate group separation and holdout isolation.",
+    ),
+    "B5": (
+        "Implement versioned preprocessing with explicit image, caption, color-space, normalization, resizing, and cache rules.",
+        "Preprocessing is deterministic, tested on representative inputs, and recorded by version and checksum in downstream runs.",
+    ),
+    "B6": (
+        "Create the thesis outline and integrate the official university template, section requirements, bibliography style, and figure/table conventions.",
+        "The outline covers the approved research questions and the template compiles or renders without undocumented formatting substitutions.",
+    ),
+    "C1": (
+        "Implement validated configuration loading and immutable run logging for code, data, environment, seeds, parameters, outputs, and failures.",
+        "Every run receives a unique identifier and complete manifest; invalid configurations fail before execution and failed runs remain visible.",
+    ),
+    "C3a": (
+        "Specify and implement owner identity encoding, secret handling, key derivation, namespaces, rotation, and wrong-owner controls.",
+        "The protocol separates public owner identity from secret key material and produces deterministic, domain-separated test vectors.",
+    ),
+    "C2": (
+        "Implement the semantic-key construction from the approved feature representation with normalization and deterministic serialization.",
+        "Equivalent semantic inputs meet the declared stability target while distinct controls expose collision and sensitivity behavior.",
+    ),
+    "C3b": (
+        "Implement instance-key derivation and the reviewed fusion rule that combines owner, semantic, and instance information.",
+        "Fusion is deterministic, shape-safe, domain-separated, and verified with correct-key, wrong-key, and changed-instance tests.",
+    ),
+    "C4": (
+        "Implement the watermark embedding module with explicit strength, domain, tensor contracts, clipping, reconstruction, and logging behavior.",
+        "The module preserves required shapes and ranges, produces finite outputs, and passes identity, determinism, and perturbation tests.",
+    ),
+    "C5": (
+        "Implement the detector and perform threshold/calibration selection using validation data only, with clean and wrong-key controls.",
+        "No test or holdout data influences calibration, and detector outputs, thresholds, ROC inputs, and error cases are reproducibly recorded.",
+    ),
+    "C6": (
+        "Measure semantic and instance key stability, sensitivity, collision rates, owner separation, and failure cases across preregistered perturbations.",
+        "The report includes denominators, confidence intervals where planned, collision examples, and comparison against declared acceptance criteria.",
+    ),
+    "C7": (
+        "Implement a classical DCT watermark as a positive control using the same data, ownership protocol, attacks, and reporting conventions.",
+        "The control is independently testable and its capacity, quality, and detection behavior are measured without tuning on test data.",
+    ),
+    "C8": (
+        "Reproduce the selected reference latent-watermark baseline under pinned code, model, data, configuration, and evaluation conditions.",
+        "Reproduction differences, unavailable assets, deviations, and observed metrics are fully recorded instead of silently substituted.",
+    ),
+    "C9": (
+        "Test the latent-to-DCT bridge hypothesis with explicit transforms, controls, capacity checks, reconstruction paths, and failure diagnostics.",
+        "The bridge is accepted or rejected using preregistered criteria, including quality, detectability, stability, and incompatible-domain failures.",
+    ),
+    "C10": (
+        "Integrate the complete pipeline and run unit, contract, negative, and end-to-end smoke tests before full evaluation.",
+        "All components exchange valid artifacts, failures are reproducible, smoke outputs are audited, and the technical gate decision is documented.",
+    ),
+    "D1": (
+        "Freeze the method and preregister evaluation datasets, conditions, metrics, comparisons, exclusions, seeds, stopping rules, and analysis code.",
+        "The preregistration is timestamped before result inspection and every later deviation must be labeled and justified.",
+    ),
+    "D2": (
+        "Run paired image-quality, detection, capacity, memory, and runtime evaluation across methods using the locked samples and seeds.",
+        "Pairing is preserved, denominators and failed runs are reported, and all raw metrics link to immutable manifests and artifacts.",
+    ),
+    "D3": (
+        "Evaluate the preregistered benign transformation grid, including severity levels and asymmetric geometry where in scope.",
+        "Each attack cell has complete run coverage or an explicit failure record, with quality and detection metrics at every severity.",
+    ),
+    "D4": (
+        "Evaluate preregistered regeneration and removal attacks with controlled models, prompts, seeds, budgets, and quality constraints.",
+        "Attack success is separated from unacceptable quality degradation and all model/version/query details are recorded.",
+    ),
+    "D5": (
+        "Evaluate forgery, copy-paste, wrong-owner, wrong-key, clean, and hard-negative cases under the declared query and attribution protocol.",
+        "False attribution and forgery results include the number of owners, keys, queries, negatives, and exact success criteria.",
+    ),
+    "D9": (
+        "Run only the preregistered ablations needed to isolate semantic, instance, owner, fusion, embedding, and calibration contributions.",
+        "Ablations use matched data and seeds, retain negative results, and do not expand post hoc to favor the proposed method.",
+    ),
+    "D6": (
+        "Perform result quality control across all primary evaluation and ablation outputs, including missing runs, corruption, exclusions, and leakage checks.",
+        "Every expected run is accounted for and exclusions follow preregistered rules without hiding failures or unfavorable results.",
+    ),
+    "D7": (
+        "Compute clustered or paired bootstrap confidence intervals at the preregistered independent analysis unit.",
+        "Resampling preserves pairing and clustering, uses recorded seeds, reports sample counts, and withholds invalid intervals.",
+    ),
+    "D8": (
+        "Run the preregistered statistical comparisons, report effect sizes, and apply Holm correction to the declared hypothesis family.",
+        "Assumptions, family definition, adjusted values, effect sizes, uncertainty, and exploratory deviations are reported transparently.",
+    ),
+    "E1": (
+        "Draft the methods and experimental-protocol chapters from the frozen implementation, manifests, preregistration, and reproducibility evidence.",
+        "Every technical statement links to code or evidence, notation is consistent, and unsupported details remain explicitly marked.",
+    ),
+    "E2": (
+        "Draft the results chapter with complete tables, uncertainty, negative findings, failed runs, and representative failure figures.",
+        "Narrative values match audited outputs and no table, figure, seed, condition, or comparison is selectively omitted.",
+    ),
+    "E3": (
+        "Draft the discussion, limitations, threat-to-validity analysis, and novelty reaudit against the final evidence and literature matrix.",
+        "Claims remain within the tested scope, contradictory evidence is addressed, and limitations are not rewritten as future guarantees.",
+    ),
+    "E4": (
+        "Rerun a representative locked experiment from a clean environment and assemble the code, manifests, hashes, instructions, and evidence package.",
+        "An independent user can reproduce the selected result or obtain a fully diagnosed failure using only the documented package.",
+    ),
+    "E5": (
+        "Prepare the first-review handoff with chapter inventory, evidence links, open decisions, reproducibility status, and the academic submission checklist.",
+        "The package identifies every unresolved item, passes citation and formatting checks, and does not claim final acceptance on behalf of reviewers.",
+    ),
+}
+
+
 def _unique(values):
     result, seen = [], set()
     for value in values:
@@ -168,15 +327,23 @@ def github_issue_seed(plan):
     milestones = {item["id"]: item for item in plan["milestones"]}
     issues = []
     for task in plan["tasks"]:
+        if task["id"] not in ISSUE_ENGLISH:
+            raise ContractError(f"Missing English GitHub summary for {task['id']}")
+        objective, acceptance = ISSUE_ENGLISH[task["id"]]
         outputs = [item[0] if isinstance(item, list) else str(item) for item in task["outputs"]]
         body = [
             f"Source tasks: {', '.join(task['source_task_ids'])}",
             f"Depends on local tasks: {', '.join(task['dependencies']) or 'none'}",
             f"Execution class: {task['execution']}",
+            "", "## Objective",
+            objective,
             "", "## Work checklist",
-            *[f"- [ ] {item['text']} _(source: {item['source_task_id']})_" for item in task["steps"]],
+            f"- [ ] Complete the reviewed scope summarized above for source tasks: {', '.join(task['source_task_ids'])}.",
+            "- [ ] Preserve input, code, environment, decision, and output provenance for every produced artifact.",
+            "- [ ] Produce every declared output below, or record a blocking reason without claiming completion.",
             "", "## Evidence required",
-            *[f"- [ ] {item}" for item in task["evidence_requirements"]],
+            f"- [ ] {acceptance}",
+            "- [ ] Link the relevant manifests, checksums, tests, reviews, and negative or failed-run evidence.",
             "", "## Declared outputs",
             *[f"- `{item}`" for item in outputs],
             "", "## Completion record",
