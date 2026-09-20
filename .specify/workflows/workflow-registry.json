@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "workflows": {
+    "thesis-lifecycle": {
+      "name": "Traceable thesis lifecycle",
+      "version": "1.1.0",
+      "description": "A 38-task thesis execution profile with five milestones and seven human gates",
+      "source": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\thesis-agent-skills\\spec-kit\\workflows\\thesis-lifecycle",
+      "installed_at": "2026-09-20T12:41:32.965407+00:00",
+      "updated_at": "2026-09-20T12:41:32.965407+00:00"
+    },
+    "thesis-smoke": {
+      "name": "Thesis local evidence smoke test",
+      "version": "1.0.0",
+      "description": "Synthetic no-op evidence through real Spec Kit gates",
+      "source": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\thesis-agent-skills\\spec-kit\\workflows\\thesis-smoke",
+      "installed_at": "2026-09-20T12:41:33.705571+00:00",
+      "updated_at": "2026-09-20T12:41:33.705571+00:00"
+    }
+  }
+}

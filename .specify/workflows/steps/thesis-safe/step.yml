@@ -1,0 +1,7 @@
+schema_version: "1.0"
+step:
+  id: thesis-safe
+  type_key: thesis-safe
+  name: Thesis deterministic smoke stages
+  version: "1.0.0"
+  description: Fixed local synthetic evidence operations without shell execution or live services.
