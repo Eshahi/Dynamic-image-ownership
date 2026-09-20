@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools==82.0.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thesis-agent-skills"
+version = "1.0.0"
+description = "Traceable thesis skills and resumable Spec Kit workflow adapters"
+requires-python = ">=3.11,<3.13"
+dependencies = ["jsonschema==4.26.0", "PyYAML==6.0.3"]
+
+[project.scripts]
+thesis-helper = "thesis_agents.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+thesis_agents = ["schemas/*.json"]

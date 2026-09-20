@@ -1,0 +1,1203 @@
+{
+  "schema_version": "1.0",
+  "name": "thesis-agent-skills",
+  "version": "1.0.0",
+  "skills": [
+    "thesis-compute-runner",
+    "thesis-evidence-audit",
+    "thesis-experiment-design",
+    "thesis-literature-synthesis",
+    "thesis-research-handoff",
+    "thesis-results-analysis",
+    "thesis-workflow-control",
+    "thesis-writing"
+  ],
+  "profiles": {
+    "controller": [
+      "thesis-workflow-control",
+      "thesis-research-handoff"
+    ],
+    "worker": "all-eight",
+    "reviewer": [
+      "thesis-literature-synthesis",
+      "thesis-results-analysis",
+      "thesis-evidence-audit",
+      "thesis-writing"
+    ]
+  },
+  "spec_kit": {
+    "commit": "d4229c071c7ea3885b43e8a7739847300f618f13",
+    "version": "1.0.9.dev0",
+    "schema_version": "1.0"
+  },
+  "tests": {
+    "timestamp": "2026-09-20T10:09:44.406802+00:00",
+    "python": "3.12.14",
+    "platform": "win32",
+    "tests_run": 44,
+    "failures": [],
+    "errors": [],
+    "skipped": [],
+    "passed": true,
+    "duration_seconds": 52.187,
+    "live_services_contacted": false,
+    "scope": "Offline synthetic fixtures, real local Spec Kit CLI, CPU no-op only"
+  },
+  "capabilities": {
+    "local_execution": true,
+    "mock_runpod": true,
+    "live_runpod_creation": false,
+    "live_runpod_artifact_transfer": false
+  },
+  "files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "aebd0b3bd94027147d4a90afdf3e5143d5a60cf1a552c97bd77c54698edc9a33"
+    },
+    {
+      "path": "BUILD_REPORT.md",
+      "sha256": "b7385eb63158c5864e0130339c28e1303dd579103f93bdf04fc451c572087215"
+    },
+    {
+      "path": "DIRECTORY_TREE.txt",
+      "sha256": "bc1806030e27b570de4b737f8c965a5cf3e4f464caa1972b059bc20a9ee801c5"
+    },
+    {
+      "path": "fixtures/execution-manifest.json",
+      "sha256": "a7af4c2e41f820b4fc654ce7bd6f1d3a45830c8494eb4a91afe77092d715fc04"
+    },
+    {
+      "path": "fixtures/experiment-spec.json",
+      "sha256": "48e53cd6b320803282d1816e4b32fdc228e9552c94adf92ab8ddd190dc67ed5a"
+    },
+    {
+      "path": "fixtures/github-issue-seed-38.json",
+      "sha256": "f73a8e6f97dc0bec43f9afb60f012212bde0973a14ed9c8176d8c41a268c7754"
+    },
+    {
+      "path": "fixtures/guide-plan-38.json",
+      "sha256": "8189886640effbdf411aef3e949f3bdbb12fdf8179d0cf9553888180fc324b69"
+    },
+    {
+      "path": "fixtures/guide-tasks.json",
+      "sha256": "9239485e1f52a35168347116412a486cc48f67264f409553ea40491840ec1423"
+    },
+    {
+      "path": "fixtures/nvidia-smi.csv",
+      "sha256": "5f226db8e76a8d5b25603d3ea49a9daaf8a0451a09e2a459fc435a69c226f9b2"
+    },
+    {
+      "path": "fixtures/README.md",
+      "sha256": "57b1c4a0161cb96474a6333144d86881b5e717bc8a4dd480341ff735fc344936"
+    },
+    {
+      "path": "fixtures/results.json",
+      "sha256": "802318d915ce38e1d3de34c64ab9e1ae75ae7e5a782bb1ee6fabf12611a32dcf"
+    },
+    {
+      "path": "fixtures/scripts/noop.py",
+      "sha256": "cc4b629b5124fb9fc4776d5af8ccc640b571939879a25c68c72694f1562c3341"
+    },
+    {
+      "path": "hermes/controller-profile/config.yaml",
+      "sha256": "921739f0a7999de322a7d2176eceae85b7460f2698941d625708e6fcaa871f7f"
+    },
+    {
+      "path": "hermes/controller-profile/system-prompt.md",
+      "sha256": "07bef43dd6ca11990ccc865ac82e50bf2f2348a5ee07aeffb50f003e967e00c5"
+    },
+    {
+      "path": "hermes/examples/cron-prompt.md",
+      "sha256": "4cb4f21f58bcac2e15873b15a44af8c95a67b9e5cc1a73cbcd54d6a8086a4c45"
+    },
+    {
+      "path": "INSTALL.md",
+      "sha256": "97eacc5a29ebc3256dc170175e7c1d393b528f635d60e08519b033cb147fc213"
+    },
+    {
+      "path": "installers/install.ps1",
+      "sha256": "ad8a20a9244edb22cdd35fffac31f9b098e3564301672dab0c09ac80a7215968"
+    },
+    {
+      "path": "installers/install.py",
+      "sha256": "5d4640858984ac42a7f9a91c83bfe694e85a25cc90dc2a006a90ee2014ab639d"
+    },
+    {
+      "path": "installers/install.sh",
+      "sha256": "a534dfb6a4e777de0175df4f509c776ab73255afabf14ac8f15df7a3e6bd12ec"
+    },
+    {
+      "path": "installers/install_workflows.py",
+      "sha256": "3e7953bd5791f034f76b11b0cf712effdaea3985a1822602714d8a9c9977d4c6"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "1a500c0b5ec0f34d2d4898885ffe64e272d8b5112ab18d140109a62c88812677"
+    },
+    {
+      "path": "requirements-spec-kit.txt",
+      "sha256": "f4d96fb9a06df426f67e6cca09a3cafbce8753969f63350d9de374bdae59e2af"
+    },
+    {
+      "path": "requirements-tested.txt",
+      "sha256": "16d86a834ec5b48301c3ad724df8cbb3fa2f7fad476a2dbecbe3c93b4c1812d3"
+    },
+    {
+      "path": "RESEARCH_NOTES.md",
+      "sha256": "606546e2df50dae635833c8c654025a2ca8587a5b6d0e071e846a76e15bc93f2"
+    },
+    {
+      "path": "skills/thesis-compute-runner/agents/openai.yaml",
+      "sha256": "21627d505b02de0409315b720649448dbfb7bcccd215c185e3291d4f00eac2b1"
+    },
+    {
+      "path": "skills/thesis-compute-runner/references/execution.md",
+      "sha256": "0111164011c097275775249b83d81ba67006a4e887a6cb5dafe3b34a248979a0"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/__init__.py",
+      "sha256": "f7452c632feb2dcc0ac88862d6502b7ccf4c49894b9a292c6ba6c66af8e0c1e7"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/__main__.py",
+      "sha256": "f33c88c1da9bea73dd154244aec333b27c51376149e8a30a1b6e1a0422ea8c6b"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/analysis.py",
+      "sha256": "1510bb98a13834084bfbe9cdda1dd0701ff6c9ad523ea49be1a0f7c97ec26ba1"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/audit.py",
+      "sha256": "029070ca5f8229db1d9466b40b8e586a656db267ae9600c667f0987a4ecdada4"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/common.py",
+      "sha256": "0c5bbcba998cf58d76961c4ba62674788d27e50882dd0740e114899ca3b84749"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/compute.py",
+      "sha256": "4b98e5429d57bda48dbe7b239602b1c7ef60c7cbb19058e17136b29a09437d30"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/control.py",
+      "sha256": "14bec2770976bf5a34968db9d273f836bb04547bd458b483e98ca22c8704ea1d"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/design.py",
+      "sha256": "363c7f52ef2fa2821c16bcbb9684107fe5b4aeef1328d13bd0c78e050c2c985e"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/guide.py",
+      "sha256": "f36bee42ec2a4e7f9ef3cd52fdf64346dc1b41379441f0630478591bff4aa3c7"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/plan.py",
+      "sha256": "be03879e60b7da878200f9ff2c8526e759349a1c615dae58b5a87a61580614f0"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/research.py",
+      "sha256": "f4343a78eef7d640a611a1203dca3645b83ff4eec5120dfb649d138f09fcaae1"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/runpod.py",
+      "sha256": "971cc5c3f24ff861c159653d8d063d3c05aa9b9a1b751f1449b82d5fae2ff163"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/schemas/approval.schema.json",
+      "sha256": "a4e58ad1dbff5d0135784ea236b1ba2a3f78a5812ddf34f4162f185be9daad33"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/schemas/claims.schema.json",
+      "sha256": "488d23a5c931656644b87f5ed45903824b49c24b287cc212b85c1f02b8b7a9c9"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/schemas/evidence.schema.json",
+      "sha256": "edfdf3278993f45276777898e7df856c56fc9105ff3e0f02ce084b090f718a03"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/schemas/execution.schema.json",
+      "sha256": "bb935080e74a657adb9f23e2c3ed3b9ce93968768bcc13635baac161267d27ed"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/schemas/experiment.schema.json",
+      "sha256": "b20b4eb3c71a6e345b12c9f62a644c5068d5f4186e968772e2332db6a6cf9da4"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/schemas/gate-decision.schema.json",
+      "sha256": "b6846ce6e14e279913d3e33b057a5b3a4c234f814d31a4f25e7bad15dd229007"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/schemas/paper.schema.json",
+      "sha256": "29da03ba5927324a97cb2ce0e31dc6d7104b5a2b9f58f847e9fb1523e5ee0961"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/schemas/research-response.schema.json",
+      "sha256": "98c156bfb955933d2884ed8b3c1d8f2e8f8a91135abc7861123263708f94e30f"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/schemas/run.schema.json",
+      "sha256": "5e35def2cc95b62349e8d54ae3c9077fd7de39a6d9b6c650c2c273e852ea9252"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/smoke.py",
+      "sha256": "61044835c9cb0186568b58a8762d74b79e447631fead6e3c958b94558af65bbf"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/validate_bundle.py",
+      "sha256": "284c391e664f41caf47d8349305f16cec45fd411d18d5ed2b266f4cc1f66c8eb"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/writing.py",
+      "sha256": "cd33b79411665f3584fdc562ce23a30fd9b78eb11d2bbf464653ffab8a4293f6"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/check_local_gpu.py",
+      "sha256": "b383af48b6c04ecde8d03e3f903419d6b733c90e3babc0e5acd7e8cd5f97c7e2"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/collect_artifacts.py",
+      "sha256": "b383af48b6c04ecde8d03e3f903419d6b733c90e3babc0e5acd7e8cd5f97c7e2"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/dispatch_experiment.py",
+      "sha256": "b383af48b6c04ecde8d03e3f903419d6b733c90e3babc0e5acd7e8cd5f97c7e2"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/runpod_backend.py",
+      "sha256": "6c26b99c777044a8bf712bbe8f4cba93757a84dfdda6858e1b4aa7790da89660"
+    },
+    {
+      "path": "skills/thesis-compute-runner/scripts/validate_approval.py",
+      "sha256": "b383af48b6c04ecde8d03e3f903419d6b733c90e3babc0e5acd7e8cd5f97c7e2"
+    },
+    {
+      "path": "skills/thesis-compute-runner/SKILL.md",
+      "sha256": "04dfa5ff772fcf40fa66603b39a3ca02c9e210d2d081733c64b12d7cd2081593"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/agents/openai.yaml",
+      "sha256": "e2b7753cbb981ab0e679f6b7baa841d682b4bdbb6902412b250d552361f8cc4a"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/__init__.py",
+      "sha256": "f7452c632feb2dcc0ac88862d6502b7ccf4c49894b9a292c6ba6c66af8e0c1e7"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/__main__.py",
+      "sha256": "f33c88c1da9bea73dd154244aec333b27c51376149e8a30a1b6e1a0422ea8c6b"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/analysis.py",
+      "sha256": "1510bb98a13834084bfbe9cdda1dd0701ff6c9ad523ea49be1a0f7c97ec26ba1"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/audit.py",
+      "sha256": "029070ca5f8229db1d9466b40b8e586a656db267ae9600c667f0987a4ecdada4"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/common.py",
+      "sha256": "0c5bbcba998cf58d76961c4ba62674788d27e50882dd0740e114899ca3b84749"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/compute.py",
+      "sha256": "4b98e5429d57bda48dbe7b239602b1c7ef60c7cbb19058e17136b29a09437d30"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/control.py",
+      "sha256": "14bec2770976bf5a34968db9d273f836bb04547bd458b483e98ca22c8704ea1d"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/design.py",
+      "sha256": "363c7f52ef2fa2821c16bcbb9684107fe5b4aeef1328d13bd0c78e050c2c985e"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/guide.py",
+      "sha256": "f36bee42ec2a4e7f9ef3cd52fdf64346dc1b41379441f0630478591bff4aa3c7"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/plan.py",
+      "sha256": "be03879e60b7da878200f9ff2c8526e759349a1c615dae58b5a87a61580614f0"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/research.py",
+      "sha256": "f4343a78eef7d640a611a1203dca3645b83ff4eec5120dfb649d138f09fcaae1"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/runpod.py",
+      "sha256": "971cc5c3f24ff861c159653d8d063d3c05aa9b9a1b751f1449b82d5fae2ff163"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/schemas/approval.schema.json",
+      "sha256": "a4e58ad1dbff5d0135784ea236b1ba2a3f78a5812ddf34f4162f185be9daad33"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/schemas/claims.schema.json",
+      "sha256": "488d23a5c931656644b87f5ed45903824b49c24b287cc212b85c1f02b8b7a9c9"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/schemas/evidence.schema.json",
+      "sha256": "edfdf3278993f45276777898e7df856c56fc9105ff3e0f02ce084b090f718a03"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/schemas/execution.schema.json",
+      "sha256": "bb935080e74a657adb9f23e2c3ed3b9ce93968768bcc13635baac161267d27ed"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/schemas/experiment.schema.json",
+      "sha256": "b20b4eb3c71a6e345b12c9f62a644c5068d5f4186e968772e2332db6a6cf9da4"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/schemas/gate-decision.schema.json",
+      "sha256": "b6846ce6e14e279913d3e33b057a5b3a4c234f814d31a4f25e7bad15dd229007"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/schemas/paper.schema.json",
+      "sha256": "29da03ba5927324a97cb2ce0e31dc6d7104b5a2b9f58f847e9fb1523e5ee0961"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/schemas/research-response.schema.json",
+      "sha256": "98c156bfb955933d2884ed8b3c1d8f2e8f8a91135abc7861123263708f94e30f"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/schemas/run.schema.json",
+      "sha256": "5e35def2cc95b62349e8d54ae3c9077fd7de39a6d9b6c650c2c273e852ea9252"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/smoke.py",
+      "sha256": "61044835c9cb0186568b58a8762d74b79e447631fead6e3c958b94558af65bbf"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/validate_bundle.py",
+      "sha256": "284c391e664f41caf47d8349305f16cec45fd411d18d5ed2b266f4cc1f66c8eb"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/writing.py",
+      "sha256": "cd33b79411665f3584fdc562ce23a30fd9b78eb11d2bbf464653ffab8a4293f6"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/scripts/audit_evidence.py",
+      "sha256": "1ce80e9eb40e65e56701a3f196830a474d3cc4e2c312be5846d1821226269222"
+    },
+    {
+      "path": "skills/thesis-evidence-audit/SKILL.md",
+      "sha256": "b26c16ff694c216fba9770c187546dbbdf8068a0051c4bbefbc86812057a9310"
+    },
+    {
+      "path": "skills/thesis-experiment-design/agents/openai.yaml",
+      "sha256": "5c55e47b2f3f5a697d4ebe8f41fd681b4f9deeedc7a8aa38e62662268d61611e"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/__init__.py",
+      "sha256": "f7452c632feb2dcc0ac88862d6502b7ccf4c49894b9a292c6ba6c66af8e0c1e7"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/__main__.py",
+      "sha256": "f33c88c1da9bea73dd154244aec333b27c51376149e8a30a1b6e1a0422ea8c6b"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/analysis.py",
+      "sha256": "1510bb98a13834084bfbe9cdda1dd0701ff6c9ad523ea49be1a0f7c97ec26ba1"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/audit.py",
+      "sha256": "029070ca5f8229db1d9466b40b8e586a656db267ae9600c667f0987a4ecdada4"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/common.py",
+      "sha256": "0c5bbcba998cf58d76961c4ba62674788d27e50882dd0740e114899ca3b84749"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/compute.py",
+      "sha256": "4b98e5429d57bda48dbe7b239602b1c7ef60c7cbb19058e17136b29a09437d30"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/control.py",
+      "sha256": "14bec2770976bf5a34968db9d273f836bb04547bd458b483e98ca22c8704ea1d"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/design.py",
+      "sha256": "363c7f52ef2fa2821c16bcbb9684107fe5b4aeef1328d13bd0c78e050c2c985e"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/guide.py",
+      "sha256": "f36bee42ec2a4e7f9ef3cd52fdf64346dc1b41379441f0630478591bff4aa3c7"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/plan.py",
+      "sha256": "be03879e60b7da878200f9ff2c8526e759349a1c615dae58b5a87a61580614f0"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/research.py",
+      "sha256": "f4343a78eef7d640a611a1203dca3645b83ff4eec5120dfb649d138f09fcaae1"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/runpod.py",
+      "sha256": "971cc5c3f24ff861c159653d8d063d3c05aa9b9a1b751f1449b82d5fae2ff163"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/schemas/approval.schema.json",
+      "sha256": "a4e58ad1dbff5d0135784ea236b1ba2a3f78a5812ddf34f4162f185be9daad33"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/schemas/claims.schema.json",
+      "sha256": "488d23a5c931656644b87f5ed45903824b49c24b287cc212b85c1f02b8b7a9c9"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/schemas/evidence.schema.json",
+      "sha256": "edfdf3278993f45276777898e7df856c56fc9105ff3e0f02ce084b090f718a03"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/schemas/execution.schema.json",
+      "sha256": "bb935080e74a657adb9f23e2c3ed3b9ce93968768bcc13635baac161267d27ed"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/schemas/experiment.schema.json",
+      "sha256": "b20b4eb3c71a6e345b12c9f62a644c5068d5f4186e968772e2332db6a6cf9da4"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/schemas/gate-decision.schema.json",
+      "sha256": "b6846ce6e14e279913d3e33b057a5b3a4c234f814d31a4f25e7bad15dd229007"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/schemas/paper.schema.json",
+      "sha256": "29da03ba5927324a97cb2ce0e31dc6d7104b5a2b9f58f847e9fb1523e5ee0961"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/schemas/research-response.schema.json",
+      "sha256": "98c156bfb955933d2884ed8b3c1d8f2e8f8a91135abc7861123263708f94e30f"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/schemas/run.schema.json",
+      "sha256": "5e35def2cc95b62349e8d54ae3c9077fd7de39a6d9b6c650c2c273e852ea9252"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/smoke.py",
+      "sha256": "61044835c9cb0186568b58a8762d74b79e447631fead6e3c958b94558af65bbf"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/validate_bundle.py",
+      "sha256": "284c391e664f41caf47d8349305f16cec45fd411d18d5ed2b266f4cc1f66c8eb"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/writing.py",
+      "sha256": "cd33b79411665f3584fdc562ce23a30fd9b78eb11d2bbf464653ffab8a4293f6"
+    },
+    {
+      "path": "skills/thesis-experiment-design/scripts/design_experiment.py",
+      "sha256": "13376a113e4b2e6a4ecab87a32dd1ac3f0cc0404187cd596d3df739bb9c27d49"
+    },
+    {
+      "path": "skills/thesis-experiment-design/SKILL.md",
+      "sha256": "00393f5f9261e2964b26b9b5f9fb594b4337c575a464a0b1c3cb1fd3972ab297"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/agents/openai.yaml",
+      "sha256": "1e2a6d79582d4fb548dff395eca6c4b702b1aef4ae16e7b66928ee2e9096f522"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/__init__.py",
+      "sha256": "f7452c632feb2dcc0ac88862d6502b7ccf4c49894b9a292c6ba6c66af8e0c1e7"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/__main__.py",
+      "sha256": "f33c88c1da9bea73dd154244aec333b27c51376149e8a30a1b6e1a0422ea8c6b"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/analysis.py",
+      "sha256": "1510bb98a13834084bfbe9cdda1dd0701ff6c9ad523ea49be1a0f7c97ec26ba1"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/audit.py",
+      "sha256": "029070ca5f8229db1d9466b40b8e586a656db267ae9600c667f0987a4ecdada4"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/common.py",
+      "sha256": "0c5bbcba998cf58d76961c4ba62674788d27e50882dd0740e114899ca3b84749"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/compute.py",
+      "sha256": "4b98e5429d57bda48dbe7b239602b1c7ef60c7cbb19058e17136b29a09437d30"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/control.py",
+      "sha256": "14bec2770976bf5a34968db9d273f836bb04547bd458b483e98ca22c8704ea1d"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/design.py",
+      "sha256": "363c7f52ef2fa2821c16bcbb9684107fe5b4aeef1328d13bd0c78e050c2c985e"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/guide.py",
+      "sha256": "f36bee42ec2a4e7f9ef3cd52fdf64346dc1b41379441f0630478591bff4aa3c7"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/plan.py",
+      "sha256": "be03879e60b7da878200f9ff2c8526e759349a1c615dae58b5a87a61580614f0"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/research.py",
+      "sha256": "f4343a78eef7d640a611a1203dca3645b83ff4eec5120dfb649d138f09fcaae1"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/runpod.py",
+      "sha256": "971cc5c3f24ff861c159653d8d063d3c05aa9b9a1b751f1449b82d5fae2ff163"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/schemas/approval.schema.json",
+      "sha256": "a4e58ad1dbff5d0135784ea236b1ba2a3f78a5812ddf34f4162f185be9daad33"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/schemas/claims.schema.json",
+      "sha256": "488d23a5c931656644b87f5ed45903824b49c24b287cc212b85c1f02b8b7a9c9"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/schemas/evidence.schema.json",
+      "sha256": "edfdf3278993f45276777898e7df856c56fc9105ff3e0f02ce084b090f718a03"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/schemas/execution.schema.json",
+      "sha256": "bb935080e74a657adb9f23e2c3ed3b9ce93968768bcc13635baac161267d27ed"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/schemas/experiment.schema.json",
+      "sha256": "b20b4eb3c71a6e345b12c9f62a644c5068d5f4186e968772e2332db6a6cf9da4"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/schemas/gate-decision.schema.json",
+      "sha256": "b6846ce6e14e279913d3e33b057a5b3a4c234f814d31a4f25e7bad15dd229007"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/schemas/paper.schema.json",
+      "sha256": "29da03ba5927324a97cb2ce0e31dc6d7104b5a2b9f58f847e9fb1523e5ee0961"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/schemas/research-response.schema.json",
+      "sha256": "98c156bfb955933d2884ed8b3c1d8f2e8f8a91135abc7861123263708f94e30f"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/schemas/run.schema.json",
+      "sha256": "5e35def2cc95b62349e8d54ae3c9077fd7de39a6d9b6c650c2c273e852ea9252"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/smoke.py",
+      "sha256": "61044835c9cb0186568b58a8762d74b79e447631fead6e3c958b94558af65bbf"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/validate_bundle.py",
+      "sha256": "284c391e664f41caf47d8349305f16cec45fd411d18d5ed2b266f4cc1f66c8eb"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/writing.py",
+      "sha256": "cd33b79411665f3584fdc562ce23a30fd9b78eb11d2bbf464653ffab8a4293f6"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/scripts/validate_literature.py",
+      "sha256": "3268cb18e1247c66431f122d0b8fcc1bc445502873c12e6725077a92657e4629"
+    },
+    {
+      "path": "skills/thesis-literature-synthesis/SKILL.md",
+      "sha256": "8da74641b04f6c79da5701322fb18b9373389d18df3e3df3870e69b37781184d"
+    },
+    {
+      "path": "skills/thesis-research-handoff/agents/openai.yaml",
+      "sha256": "7cc811c84c855d0e5c9d8292c607c2c2572821259bb11e2a5da9f39f22a5cbf8"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/__init__.py",
+      "sha256": "f7452c632feb2dcc0ac88862d6502b7ccf4c49894b9a292c6ba6c66af8e0c1e7"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/__main__.py",
+      "sha256": "f33c88c1da9bea73dd154244aec333b27c51376149e8a30a1b6e1a0422ea8c6b"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/analysis.py",
+      "sha256": "1510bb98a13834084bfbe9cdda1dd0701ff6c9ad523ea49be1a0f7c97ec26ba1"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/audit.py",
+      "sha256": "029070ca5f8229db1d9466b40b8e586a656db267ae9600c667f0987a4ecdada4"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/common.py",
+      "sha256": "0c5bbcba998cf58d76961c4ba62674788d27e50882dd0740e114899ca3b84749"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/compute.py",
+      "sha256": "4b98e5429d57bda48dbe7b239602b1c7ef60c7cbb19058e17136b29a09437d30"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/control.py",
+      "sha256": "14bec2770976bf5a34968db9d273f836bb04547bd458b483e98ca22c8704ea1d"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/design.py",
+      "sha256": "363c7f52ef2fa2821c16bcbb9684107fe5b4aeef1328d13bd0c78e050c2c985e"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/guide.py",
+      "sha256": "f36bee42ec2a4e7f9ef3cd52fdf64346dc1b41379441f0630478591bff4aa3c7"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/plan.py",
+      "sha256": "be03879e60b7da878200f9ff2c8526e759349a1c615dae58b5a87a61580614f0"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/research.py",
+      "sha256": "f4343a78eef7d640a611a1203dca3645b83ff4eec5120dfb649d138f09fcaae1"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/runpod.py",
+      "sha256": "971cc5c3f24ff861c159653d8d063d3c05aa9b9a1b751f1449b82d5fae2ff163"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/schemas/approval.schema.json",
+      "sha256": "a4e58ad1dbff5d0135784ea236b1ba2a3f78a5812ddf34f4162f185be9daad33"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/schemas/claims.schema.json",
+      "sha256": "488d23a5c931656644b87f5ed45903824b49c24b287cc212b85c1f02b8b7a9c9"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/schemas/evidence.schema.json",
+      "sha256": "edfdf3278993f45276777898e7df856c56fc9105ff3e0f02ce084b090f718a03"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/schemas/execution.schema.json",
+      "sha256": "bb935080e74a657adb9f23e2c3ed3b9ce93968768bcc13635baac161267d27ed"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/schemas/experiment.schema.json",
+      "sha256": "b20b4eb3c71a6e345b12c9f62a644c5068d5f4186e968772e2332db6a6cf9da4"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/schemas/gate-decision.schema.json",
+      "sha256": "b6846ce6e14e279913d3e33b057a5b3a4c234f814d31a4f25e7bad15dd229007"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/schemas/paper.schema.json",
+      "sha256": "29da03ba5927324a97cb2ce0e31dc6d7104b5a2b9f58f847e9fb1523e5ee0961"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/schemas/research-response.schema.json",
+      "sha256": "98c156bfb955933d2884ed8b3c1d8f2e8f8a91135abc7861123263708f94e30f"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/schemas/run.schema.json",
+      "sha256": "5e35def2cc95b62349e8d54ae3c9077fd7de39a6d9b6c650c2c273e852ea9252"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/smoke.py",
+      "sha256": "61044835c9cb0186568b58a8762d74b79e447631fead6e3c958b94558af65bbf"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/validate_bundle.py",
+      "sha256": "284c391e664f41caf47d8349305f16cec45fd411d18d5ed2b266f4cc1f66c8eb"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/writing.py",
+      "sha256": "cd33b79411665f3584fdc562ce23a30fd9b78eb11d2bbf464653ffab8a4293f6"
+    },
+    {
+      "path": "skills/thesis-research-handoff/scripts/research_handoff.py",
+      "sha256": "3268cb18e1247c66431f122d0b8fcc1bc445502873c12e6725077a92657e4629"
+    },
+    {
+      "path": "skills/thesis-research-handoff/SKILL.md",
+      "sha256": "7fee23fa7863cacb9c5a247f1b66ce336f557cc30bb3b5ea7a58f5346d28adbc"
+    },
+    {
+      "path": "skills/thesis-results-analysis/agents/openai.yaml",
+      "sha256": "6f4ae3254a4d06011321899a919aa70297f82a6ced3d4c561bb1b31a414683b5"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/__init__.py",
+      "sha256": "f7452c632feb2dcc0ac88862d6502b7ccf4c49894b9a292c6ba6c66af8e0c1e7"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/__main__.py",
+      "sha256": "f33c88c1da9bea73dd154244aec333b27c51376149e8a30a1b6e1a0422ea8c6b"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/analysis.py",
+      "sha256": "1510bb98a13834084bfbe9cdda1dd0701ff6c9ad523ea49be1a0f7c97ec26ba1"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/audit.py",
+      "sha256": "029070ca5f8229db1d9466b40b8e586a656db267ae9600c667f0987a4ecdada4"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/common.py",
+      "sha256": "0c5bbcba998cf58d76961c4ba62674788d27e50882dd0740e114899ca3b84749"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/compute.py",
+      "sha256": "4b98e5429d57bda48dbe7b239602b1c7ef60c7cbb19058e17136b29a09437d30"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/control.py",
+      "sha256": "14bec2770976bf5a34968db9d273f836bb04547bd458b483e98ca22c8704ea1d"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/design.py",
+      "sha256": "363c7f52ef2fa2821c16bcbb9684107fe5b4aeef1328d13bd0c78e050c2c985e"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/guide.py",
+      "sha256": "f36bee42ec2a4e7f9ef3cd52fdf64346dc1b41379441f0630478591bff4aa3c7"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/plan.py",
+      "sha256": "be03879e60b7da878200f9ff2c8526e759349a1c615dae58b5a87a61580614f0"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/research.py",
+      "sha256": "f4343a78eef7d640a611a1203dca3645b83ff4eec5120dfb649d138f09fcaae1"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/runpod.py",
+      "sha256": "971cc5c3f24ff861c159653d8d063d3c05aa9b9a1b751f1449b82d5fae2ff163"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/schemas/approval.schema.json",
+      "sha256": "a4e58ad1dbff5d0135784ea236b1ba2a3f78a5812ddf34f4162f185be9daad33"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/schemas/claims.schema.json",
+      "sha256": "488d23a5c931656644b87f5ed45903824b49c24b287cc212b85c1f02b8b7a9c9"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/schemas/evidence.schema.json",
+      "sha256": "edfdf3278993f45276777898e7df856c56fc9105ff3e0f02ce084b090f718a03"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/schemas/execution.schema.json",
+      "sha256": "bb935080e74a657adb9f23e2c3ed3b9ce93968768bcc13635baac161267d27ed"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/schemas/experiment.schema.json",
+      "sha256": "b20b4eb3c71a6e345b12c9f62a644c5068d5f4186e968772e2332db6a6cf9da4"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/schemas/gate-decision.schema.json",
+      "sha256": "b6846ce6e14e279913d3e33b057a5b3a4c234f814d31a4f25e7bad15dd229007"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/schemas/paper.schema.json",
+      "sha256": "29da03ba5927324a97cb2ce0e31dc6d7104b5a2b9f58f847e9fb1523e5ee0961"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/schemas/research-response.schema.json",
+      "sha256": "98c156bfb955933d2884ed8b3c1d8f2e8f8a91135abc7861123263708f94e30f"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/schemas/run.schema.json",
+      "sha256": "5e35def2cc95b62349e8d54ae3c9077fd7de39a6d9b6c650c2c273e852ea9252"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/smoke.py",
+      "sha256": "61044835c9cb0186568b58a8762d74b79e447631fead6e3c958b94558af65bbf"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/validate_bundle.py",
+      "sha256": "284c391e664f41caf47d8349305f16cec45fd411d18d5ed2b266f4cc1f66c8eb"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/writing.py",
+      "sha256": "cd33b79411665f3584fdc562ce23a30fd9b78eb11d2bbf464653ffab8a4293f6"
+    },
+    {
+      "path": "skills/thesis-results-analysis/scripts/analyze_results.py",
+      "sha256": "60f018dd7a8bd7140e24df81fb16a06a3835c53b863cb2bbcc1329940707f996"
+    },
+    {
+      "path": "skills/thesis-results-analysis/SKILL.md",
+      "sha256": "b8b4c2f3b830a472ecb2c67deda8358fad9b87a0520de451b82df52591c76c0b"
+    },
+    {
+      "path": "skills/thesis-workflow-control/agents/openai.yaml",
+      "sha256": "178d6f0340b68498fa4b44bfc80fc2494e97b38d81644fcee939c40b990d8739"
+    },
+    {
+      "path": "skills/thesis-workflow-control/references/task-plan.md",
+      "sha256": "7a7a6d94febe5ef7c9eb75b944f48f1c80559cd4bdbf0b17cb3d6e4a5ccd1851"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/__init__.py",
+      "sha256": "f7452c632feb2dcc0ac88862d6502b7ccf4c49894b9a292c6ba6c66af8e0c1e7"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/__main__.py",
+      "sha256": "f33c88c1da9bea73dd154244aec333b27c51376149e8a30a1b6e1a0422ea8c6b"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/analysis.py",
+      "sha256": "1510bb98a13834084bfbe9cdda1dd0701ff6c9ad523ea49be1a0f7c97ec26ba1"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/audit.py",
+      "sha256": "029070ca5f8229db1d9466b40b8e586a656db267ae9600c667f0987a4ecdada4"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/common.py",
+      "sha256": "0c5bbcba998cf58d76961c4ba62674788d27e50882dd0740e114899ca3b84749"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/compute.py",
+      "sha256": "4b98e5429d57bda48dbe7b239602b1c7ef60c7cbb19058e17136b29a09437d30"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/control.py",
+      "sha256": "14bec2770976bf5a34968db9d273f836bb04547bd458b483e98ca22c8704ea1d"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/design.py",
+      "sha256": "363c7f52ef2fa2821c16bcbb9684107fe5b4aeef1328d13bd0c78e050c2c985e"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/guide.py",
+      "sha256": "f36bee42ec2a4e7f9ef3cd52fdf64346dc1b41379441f0630478591bff4aa3c7"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/plan.py",
+      "sha256": "be03879e60b7da878200f9ff2c8526e759349a1c615dae58b5a87a61580614f0"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/research.py",
+      "sha256": "f4343a78eef7d640a611a1203dca3645b83ff4eec5120dfb649d138f09fcaae1"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/runpod.py",
+      "sha256": "971cc5c3f24ff861c159653d8d063d3c05aa9b9a1b751f1449b82d5fae2ff163"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/schemas/approval.schema.json",
+      "sha256": "a4e58ad1dbff5d0135784ea236b1ba2a3f78a5812ddf34f4162f185be9daad33"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/schemas/claims.schema.json",
+      "sha256": "488d23a5c931656644b87f5ed45903824b49c24b287cc212b85c1f02b8b7a9c9"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/schemas/evidence.schema.json",
+      "sha256": "edfdf3278993f45276777898e7df856c56fc9105ff3e0f02ce084b090f718a03"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/schemas/execution.schema.json",
+      "sha256": "bb935080e74a657adb9f23e2c3ed3b9ce93968768bcc13635baac161267d27ed"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/schemas/experiment.schema.json",
+      "sha256": "b20b4eb3c71a6e345b12c9f62a644c5068d5f4186e968772e2332db6a6cf9da4"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/schemas/gate-decision.schema.json",
+      "sha256": "b6846ce6e14e279913d3e33b057a5b3a4c234f814d31a4f25e7bad15dd229007"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/schemas/paper.schema.json",
+      "sha256": "29da03ba5927324a97cb2ce0e31dc6d7104b5a2b9f58f847e9fb1523e5ee0961"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/schemas/research-response.schema.json",
+      "sha256": "98c156bfb955933d2884ed8b3c1d8f2e8f8a91135abc7861123263708f94e30f"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/schemas/run.schema.json",
+      "sha256": "5e35def2cc95b62349e8d54ae3c9077fd7de39a6d9b6c650c2c273e852ea9252"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/smoke.py",
+      "sha256": "61044835c9cb0186568b58a8762d74b79e447631fead6e3c958b94558af65bbf"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/validate_bundle.py",
+      "sha256": "284c391e664f41caf47d8349305f16cec45fd411d18d5ed2b266f4cc1f66c8eb"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/writing.py",
+      "sha256": "cd33b79411665f3584fdc562ce23a30fd9b78eb11d2bbf464653ffab8a4293f6"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/import_thesis_guide.py",
+      "sha256": "eb7b3ea3c2d5c48fc91b655733aecb1ffefadd7e12f66664b504251fc9426fc5"
+    },
+    {
+      "path": "skills/thesis-workflow-control/scripts/spec_control.py",
+      "sha256": "61b3b01cd0115f6fe8a7cf7dc9e19e3d6382add8338ad46459cbe3114e24ff91"
+    },
+    {
+      "path": "skills/thesis-workflow-control/SKILL.md",
+      "sha256": "b512045753c0d291ce676a0d60c2708f964410890feab1a681b75ecb2e1cb529"
+    },
+    {
+      "path": "skills/thesis-writing/agents/openai.yaml",
+      "sha256": "d31b16520113663d7ecba5115c5ddfe5f4c04a7080040c2656d3b2e63d15a7c9"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/__init__.py",
+      "sha256": "f7452c632feb2dcc0ac88862d6502b7ccf4c49894b9a292c6ba6c66af8e0c1e7"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/__main__.py",
+      "sha256": "f33c88c1da9bea73dd154244aec333b27c51376149e8a30a1b6e1a0422ea8c6b"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/analysis.py",
+      "sha256": "1510bb98a13834084bfbe9cdda1dd0701ff6c9ad523ea49be1a0f7c97ec26ba1"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/audit.py",
+      "sha256": "029070ca5f8229db1d9466b40b8e586a656db267ae9600c667f0987a4ecdada4"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/common.py",
+      "sha256": "0c5bbcba998cf58d76961c4ba62674788d27e50882dd0740e114899ca3b84749"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/compute.py",
+      "sha256": "4b98e5429d57bda48dbe7b239602b1c7ef60c7cbb19058e17136b29a09437d30"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/control.py",
+      "sha256": "14bec2770976bf5a34968db9d273f836bb04547bd458b483e98ca22c8704ea1d"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/design.py",
+      "sha256": "363c7f52ef2fa2821c16bcbb9684107fe5b4aeef1328d13bd0c78e050c2c985e"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/guide.py",
+      "sha256": "f36bee42ec2a4e7f9ef3cd52fdf64346dc1b41379441f0630478591bff4aa3c7"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/plan.py",
+      "sha256": "be03879e60b7da878200f9ff2c8526e759349a1c615dae58b5a87a61580614f0"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/research.py",
+      "sha256": "f4343a78eef7d640a611a1203dca3645b83ff4eec5120dfb649d138f09fcaae1"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/runpod.py",
+      "sha256": "971cc5c3f24ff861c159653d8d063d3c05aa9b9a1b751f1449b82d5fae2ff163"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/schemas/approval.schema.json",
+      "sha256": "a4e58ad1dbff5d0135784ea236b1ba2a3f78a5812ddf34f4162f185be9daad33"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/schemas/claims.schema.json",
+      "sha256": "488d23a5c931656644b87f5ed45903824b49c24b287cc212b85c1f02b8b7a9c9"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/schemas/evidence.schema.json",
+      "sha256": "edfdf3278993f45276777898e7df856c56fc9105ff3e0f02ce084b090f718a03"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/schemas/execution.schema.json",
+      "sha256": "bb935080e74a657adb9f23e2c3ed3b9ce93968768bcc13635baac161267d27ed"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/schemas/experiment.schema.json",
+      "sha256": "b20b4eb3c71a6e345b12c9f62a644c5068d5f4186e968772e2332db6a6cf9da4"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/schemas/gate-decision.schema.json",
+      "sha256": "b6846ce6e14e279913d3e33b057a5b3a4c234f814d31a4f25e7bad15dd229007"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/schemas/paper.schema.json",
+      "sha256": "29da03ba5927324a97cb2ce0e31dc6d7104b5a2b9f58f847e9fb1523e5ee0961"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/schemas/research-response.schema.json",
+      "sha256": "98c156bfb955933d2884ed8b3c1d8f2e8f8a91135abc7861123263708f94e30f"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/schemas/run.schema.json",
+      "sha256": "5e35def2cc95b62349e8d54ae3c9077fd7de39a6d9b6c650c2c273e852ea9252"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/smoke.py",
+      "sha256": "61044835c9cb0186568b58a8762d74b79e447631fead6e3c958b94558af65bbf"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/validate_bundle.py",
+      "sha256": "284c391e664f41caf47d8349305f16cec45fd411d18d5ed2b266f4cc1f66c8eb"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/writing.py",
+      "sha256": "cd33b79411665f3584fdc562ce23a30fd9b78eb11d2bbf464653ffab8a4293f6"
+    },
+    {
+      "path": "skills/thesis-writing/scripts/write_section.py",
+      "sha256": "6f4b75a03d92fb4f481ad61ba23ed8a1f9e5c96eafa75f20a4cf6306d061e21f"
+    },
+    {
+      "path": "skills/thesis-writing/SKILL.md",
+      "sha256": "999a4bdd4b238bc940de6691de611515c782e2f0d6385c18ddf60c20487cc2a7"
+    },
+    {
+      "path": "spec-kit/overlays/read-only-review.yml",
+      "sha256": "7871518ebf8529bd59da69f89589dee00280d5e0e1c65e18817ff1a92c1c92b2"
+    },
+    {
+      "path": "spec-kit/steps/thesis-safe/__init__.py",
+      "sha256": "81480cb7398a4c2887132e899069ef2148e055cd96ac1b76110bfed1fe205834"
+    },
+    {
+      "path": "spec-kit/steps/thesis-safe/step.yml",
+      "sha256": "b68dc92d26b5f90080dda950593816d4e78fdbd8833a30197b1c95304eda5193"
+    },
+    {
+      "path": "spec-kit/templates/constitution.md",
+      "sha256": "fda57e06c050c3e4c116a4e66193117d840128901448ff1a1013528ada7cc67d"
+    },
+    {
+      "path": "spec-kit/workflows/thesis-lifecycle/workflow.yml",
+      "sha256": "09640e1752e28b0417b30b679f48eddcca24d998cb59bd2f94d268a553483bb6"
+    },
+    {
+      "path": "spec-kit/workflows/thesis-smoke/workflow.yml",
+      "sha256": "0f256a1a6168166bbb559ae23bb009ae8131f24901c64004df092fc73b8c22a1"
+    },
+    {
+      "path": "src/thesis_agents/__init__.py",
+      "sha256": "f7452c632feb2dcc0ac88862d6502b7ccf4c49894b9a292c6ba6c66af8e0c1e7"
+    },
+    {
+      "path": "src/thesis_agents/__main__.py",
+      "sha256": "f33c88c1da9bea73dd154244aec333b27c51376149e8a30a1b6e1a0422ea8c6b"
+    },
+    {
+      "path": "src/thesis_agents/analysis.py",
+      "sha256": "1510bb98a13834084bfbe9cdda1dd0701ff6c9ad523ea49be1a0f7c97ec26ba1"
+    },
+    {
+      "path": "src/thesis_agents/audit.py",
+      "sha256": "029070ca5f8229db1d9466b40b8e586a656db267ae9600c667f0987a4ecdada4"
+    },
+    {
+      "path": "src/thesis_agents/common.py",
+      "sha256": "0c5bbcba998cf58d76961c4ba62674788d27e50882dd0740e114899ca3b84749"
+    },
+    {
+      "path": "src/thesis_agents/compute.py",
+      "sha256": "4b98e5429d57bda48dbe7b239602b1c7ef60c7cbb19058e17136b29a09437d30"
+    },
+    {
+      "path": "src/thesis_agents/control.py",
+      "sha256": "14bec2770976bf5a34968db9d273f836bb04547bd458b483e98ca22c8704ea1d"
+    },
+    {
+      "path": "src/thesis_agents/design.py",
+      "sha256": "363c7f52ef2fa2821c16bcbb9684107fe5b4aeef1328d13bd0c78e050c2c985e"
+    },
+    {
+      "path": "src/thesis_agents/guide.py",
+      "sha256": "f36bee42ec2a4e7f9ef3cd52fdf64346dc1b41379441f0630478591bff4aa3c7"
+    },
+    {
+      "path": "src/thesis_agents/plan.py",
+      "sha256": "be03879e60b7da878200f9ff2c8526e759349a1c615dae58b5a87a61580614f0"
+    },
+    {
+      "path": "src/thesis_agents/research.py",
+      "sha256": "f4343a78eef7d640a611a1203dca3645b83ff4eec5120dfb649d138f09fcaae1"
+    },
+    {
+      "path": "src/thesis_agents/runpod.py",
+      "sha256": "971cc5c3f24ff861c159653d8d063d3c05aa9b9a1b751f1449b82d5fae2ff163"
+    },
+    {
+      "path": "src/thesis_agents/schemas/approval.schema.json",
+      "sha256": "a4e58ad1dbff5d0135784ea236b1ba2a3f78a5812ddf34f4162f185be9daad33"
+    },
+    {
+      "path": "src/thesis_agents/schemas/claims.schema.json",
+      "sha256": "488d23a5c931656644b87f5ed45903824b49c24b287cc212b85c1f02b8b7a9c9"
+    },
+    {
+      "path": "src/thesis_agents/schemas/evidence.schema.json",
+      "sha256": "edfdf3278993f45276777898e7df856c56fc9105ff3e0f02ce084b090f718a03"
+    },
+    {
+      "path": "src/thesis_agents/schemas/execution.schema.json",
+      "sha256": "bb935080e74a657adb9f23e2c3ed3b9ce93968768bcc13635baac161267d27ed"
+    },
+    {
+      "path": "src/thesis_agents/schemas/experiment.schema.json",
+      "sha256": "b20b4eb3c71a6e345b12c9f62a644c5068d5f4186e968772e2332db6a6cf9da4"
+    },
+    {
+      "path": "src/thesis_agents/schemas/gate-decision.schema.json",
+      "sha256": "b6846ce6e14e279913d3e33b057a5b3a4c234f814d31a4f25e7bad15dd229007"
+    },
+    {
+      "path": "src/thesis_agents/schemas/paper.schema.json",
+      "sha256": "29da03ba5927324a97cb2ce0e31dc6d7104b5a2b9f58f847e9fb1523e5ee0961"
+    },
+    {
+      "path": "src/thesis_agents/schemas/research-response.schema.json",
+      "sha256": "98c156bfb955933d2884ed8b3c1d8f2e8f8a91135abc7861123263708f94e30f"
+    },
+    {
+      "path": "src/thesis_agents/schemas/run.schema.json",
+      "sha256": "5e35def2cc95b62349e8d54ae3c9077fd7de39a6d9b6c650c2c273e852ea9252"
+    },
+    {
+      "path": "src/thesis_agents/smoke.py",
+      "sha256": "61044835c9cb0186568b58a8762d74b79e447631fead6e3c958b94558af65bbf"
+    },
+    {
+      "path": "src/thesis_agents/validate_bundle.py",
+      "sha256": "284c391e664f41caf47d8349305f16cec45fd411d18d5ed2b266f4cc1f66c8eb"
+    },
+    {
+      "path": "src/thesis_agents/writing.py",
+      "sha256": "cd33b79411665f3584fdc562ce23a30fd9b78eb11d2bbf464653ffab8a4293f6"
+    },
+    {
+      "path": "tests/test_contracts.py",
+      "sha256": "8dd92ee4298551da1d13ea318b5a7cc0ee8cb9bf82cb1e5a889a3eba4d3e9f76"
+    },
+    {
+      "path": "tests/test_forward_compute.py",
+      "sha256": "4d2240c7e2dd1df3f9f46206f8de123d2a961187f72dd52238ebf5c91fec19bf"
+    },
+    {
+      "path": "tests/test_forward_evidence.py",
+      "sha256": "a5a88d952362d714775b990f03a8268a7f148de65b9c67f24a7ae20bbe25ff1a"
+    },
+    {
+      "path": "tests/test_forward_workflow.py",
+      "sha256": "9a85c767341fb9622c91b247ba0a7e5739b9e23400731b254e563fe34f828772"
+    },
+    {
+      "path": "tests/validation-results.json",
+      "sha256": "2707d261f8bf7f46d9419b990521eb9edbe696a9a2b1889fcf27ceae4450e6b4"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "8baedad3899397aecee5b1db738e14ce128351f6f0d431563fee5807cd5dd882"
+    },
+    {
+      "path": "tools/build_assets.py",
+      "sha256": "8796ecb8c32da6d80f7edfc60dab2382f5497458e220bb18989ea68aab13f032"
+    },
+    {
+      "path": "tools/build_schemas.py",
+      "sha256": "c98616d25a2a41645ac237c824bdc2472aa4dd99c8c3048821dea3052f09b573"
+    },
+    {
+      "path": "tools/package.py",
+      "sha256": "d8c9cb3e1dd70b75a779582817abca44af3a54d297c78386a8d1a0c70b6e29e8"
+    },
+    {
+      "path": "tools/run_validation.py",
+      "sha256": "7d53fe2d3c2a1ca35f987cc0fc78f2fa6bc6d9d445fae626022e7c7552e84354"
+    }
+  ],
+  "checksum_policy": "Manifest lists payload excluding itself and CHECKSUMS.sha256; checksum file includes manifest but excludes itself; archive has an external checksum"
+}

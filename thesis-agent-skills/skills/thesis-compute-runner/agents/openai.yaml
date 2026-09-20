@@ -1,0 +1,6 @@
+interface:
+  display_name: "Thesis Compute Runner"
+  short_description: "Preview and execute approved version-controlled experiments"
+  default_prompt: "Use $thesis-compute-runner for this thesis task."
+policy:
+  allow_implicit_invocation: true

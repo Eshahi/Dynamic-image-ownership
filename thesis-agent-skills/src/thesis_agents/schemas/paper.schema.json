@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "paper",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "enum": [
+        "1.0"
+      ]
+    },
+    "paper_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$"
+    },
+    "citation_key": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$"
+    },
+    "doi": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^10\\.\\d{4,9}/\\S+$"
+    },
+    "canonical_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "year": {
+      "type": "integer",
+      "minimum": 1500,
+      "maximum": 2200
+    },
+    "venue": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "access_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "source_type": {
+      "enum": [
+        "paper",
+        "preprint",
+        "report",
+        "dataset",
+        "web"
+      ]
+    },
+    "verification": {
+      "enum": [
+        "verified",
+        "unverified",
+        "inaccessible"
+      ]
+    },
+    "inspected_content": {
+      "enum": [
+        "full-text",
+        "abstract",
+        "metadata",
+        "snippet",
+        "none"
+      ]
+    },
+    "inspection": {
+      "type": "object",
+      "properties": {
+        "artifact": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "artifact",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "schema_version",
+    "paper_id",
+    "citation_key",
+    "doi",
+    "canonical_url",
+    "title",
+    "authors",
+    "year",
+    "venue",
+    "access_date",
+    "source_type",
+    "verification",
+    "inspected_content",
+    "limitations"
+  ],
+  "additionalProperties": false
+}

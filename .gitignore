@@ -1,0 +1,43 @@
+# Local build and virtual environments
+.thesis-build/
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Secrets and local credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Runtime state and large experiment artifacts
+.specify/workflows/runs/
+.specify/thesis-decisions/
+artifacts/
+runs/
+outputs/
+checkpoints/
+datasets/
+data/raw/
+data/cache/
+models/
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+
+# Private source document: retain locally; track only hashes/derived records
+پروپوزال 2.docx
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini

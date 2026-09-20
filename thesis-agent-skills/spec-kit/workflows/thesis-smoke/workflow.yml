@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "workflow": {
+    "id": "thesis-smoke",
+    "name": "Thesis local evidence smoke test",
+    "version": "1.0.0",
+    "author": "Thesis Automation",
+    "description": "Synthetic no-op evidence through real Spec Kit gates"
+  },
+  "requires": {
+    "speckit_version": ">=1.0.9.dev0"
+  },
+  "inputs": {
+    "evidence_review_verdict": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "",
+        "approve",
+        "reject"
+      ]
+    },
+    "compute_approval_verdict": {
+      "type": "string",
+      "default": "",
+      "enum": [
+        "",
+        "approve",
+        "reject"
+      ]
+    }
+  },
+  "steps": [
+    {
+      "id": "research",
+      "type": "thesis-safe",
+      "action": "research"
+    },
+    {
+      "id": "evidence-review",
+      "type": "gate",
+      "message": "Review synthetic evidence under smoke-output for this run. No scientific claims are approved.",
+      "options": [
+        "approve",
+        "reject"
+      ],
+      "on_reject": "abort",
+      "verdict_input": "evidence_review_verdict"
+    },
+    {
+      "id": "design",
+      "type": "thesis-safe",
+      "action": "design"
+    },
+    {
+      "id": "compute-approval",
+      "type": "gate",
+      "message": "Approve local synthetic no-op only: zero GPU work, zero cloud spend.",
+      "options": [
+        "approve",
+        "reject"
+      ],
+      "on_reject": "abort",
+      "verdict_input": "compute_approval_verdict"
+    },
+    {
+      "id": "execute",
+      "type": "thesis-safe",
+      "action": "execute"
+    },
+    {
+      "id": "analysis",
+      "type": "thesis-safe",
+      "action": "analysis"
+    },
+    {
+      "id": "audit",
+      "type": "thesis-safe",
+      "action": "audit"
+    },
+    {
+      "id": "complete",
+      "type": "thesis-safe",
+      "action": "complete"
+    }
+  ]
+}

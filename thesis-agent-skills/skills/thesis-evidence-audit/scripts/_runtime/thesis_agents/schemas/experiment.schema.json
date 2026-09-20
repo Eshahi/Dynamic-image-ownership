@@ -1,0 +1,253 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "experiment",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "enum": [
+        "1.0"
+      ]
+    },
+    "experiment_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$"
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$"
+    },
+    "question": {
+      "type": "string",
+      "minLength": 1
+    },
+    "hypothesis": {
+      "type": "string",
+      "minLength": 1
+    },
+    "primary_outcome": {
+      "type": "string",
+      "minLength": 1
+    },
+    "secondary_outcomes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "datasets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "license": {
+            "type": "string",
+            "minLength": 1
+          },
+          "split": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "version",
+          "license",
+          "split"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "leakage_risks": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "preprocessing": {
+      "type": "string",
+      "minLength": 1
+    },
+    "baselines": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "controls": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "ablations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "seeds": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "minItems": 1
+    },
+    "stopping_rule": {
+      "type": "string",
+      "minLength": 1
+    },
+    "acceptance_rule": {
+      "type": "string",
+      "minLength": 1
+    },
+    "negative_result_policy": {
+      "type": "string",
+      "minLength": 1
+    },
+    "analysis": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "enum": [
+            "preregistered",
+            "exploratory"
+          ]
+        },
+        "metric": {
+          "type": "string",
+          "minLength": 1
+        },
+        "direction": {
+          "enum": [
+            "higher",
+            "lower"
+          ]
+        },
+        "conditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "expected_runs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "run_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$"
+              },
+              "condition": {
+                "type": "string",
+                "minLength": 1
+              },
+              "seed": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "run_id",
+              "condition",
+              "seed"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "comparison": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "confidence_interval": {
+          "enum": [
+            "none",
+            "paired-bootstrap"
+          ]
+        },
+        "bootstrap_samples": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 100000
+        },
+        "random_seed": {
+          "type": "integer"
+        },
+        "multiple_comparisons": {
+          "enum": [
+            "none-single-comparison"
+          ]
+        },
+        "exclusion_rule": {
+          "enum": [
+            "none"
+          ]
+        }
+      },
+      "required": [
+        "mode",
+        "metric",
+        "direction",
+        "conditions",
+        "expected_runs",
+        "comparison",
+        "confidence_interval",
+        "bootstrap_samples",
+        "random_seed",
+        "multiple_comparisons",
+        "exclusion_rule"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "experiment_id",
+    "task_id",
+    "question",
+    "hypothesis",
+    "primary_outcome",
+    "secondary_outcomes",
+    "datasets",
+    "leakage_risks",
+    "preprocessing",
+    "baselines",
+    "controls",
+    "ablations",
+    "seeds",
+    "stopping_rule",
+    "acceptance_rule",
+    "negative_result_policy",
+    "analysis"
+  ],
+  "additionalProperties": false
+}

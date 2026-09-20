@@ -1,0 +1,6 @@
+interface:
+  display_name: "Thesis Workflow Control"
+  short_description: "Operate installed thesis Spec Kit runs, inspect JSON state, and"
+  default_prompt: "Use $thesis-workflow-control for this thesis task."
+policy:
+  allow_implicit_invocation: true

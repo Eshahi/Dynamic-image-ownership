@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "approval",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "enum": [
+        "1.0"
+      ]
+    },
+    "experiment_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$"
+    },
+    "execution_target": {
+      "enum": [
+        "local",
+        "runpod",
+        "mock"
+      ]
+    },
+    "manifest_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "decision": {
+      "enum": [
+        "approve",
+        "reject"
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "max_seconds": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "max_usd": {
+      "type": "number",
+      "minimum": 0
+    },
+    "actor": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_ref": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "experiment_id",
+    "run_id",
+    "execution_target",
+    "manifest_sha256",
+    "decision",
+    "timestamp",
+    "expires_at",
+    "max_seconds",
+    "max_usd",
+    "actor",
+    "source_ref"
+  ],
+  "additionalProperties": false
+}

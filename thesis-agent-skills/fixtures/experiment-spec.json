@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "synthetic-noop",
+  "task_id": "smoke",
+  "question": "Does the synthetic no-op emit every declared run?",
+  "hypothesis": "All declared synthetic runs emit the fixed value zero.",
+  "primary_outcome": "value",
+  "secondary_outcomes": [],
+  "datasets": [],
+  "leakage_risks": [
+    "Synthetic fixture; no scientific interpretation"
+  ],
+  "preprocessing": "None",
+  "baselines": [
+    "Fixed zero"
+  ],
+  "controls": [
+    "No network and no GPU"
+  ],
+  "ablations": [],
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "stopping_rule": "Five synthetic records only",
+  "acceptance_rule": "Every declared run is present; this tests infrastructure only",
+  "negative_result_policy": "Preserve all failed or missing records",
+  "analysis": {
+    "mode": "preregistered",
+    "metric": "value",
+    "direction": "lower",
+    "conditions": [
+      "noop"
+    ],
+    "expected_runs": [
+      {
+        "run_id": "seed-1",
+        "condition": "noop",
+        "seed": 1
+      },
+      {
+        "run_id": "seed-2",
+        "condition": "noop",
+        "seed": 2
+      },
+      {
+        "run_id": "seed-3",
+        "condition": "noop",
+        "seed": 3
+      },
+      {
+        "run_id": "seed-4",
+        "condition": "noop",
+        "seed": 4
+      },
+      {
+        "run_id": "seed-5",
+        "condition": "noop",
+        "seed": 5
+      }
+    ],
+    "comparison": null,
+    "confidence_interval": "none",
+    "bootstrap_samples": 1000,
+    "random_seed": 0,
+    "multiple_comparisons": "none-single-comparison",
+    "exclusion_rule": "none"
+  }
+}

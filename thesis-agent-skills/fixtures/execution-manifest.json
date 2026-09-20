@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "synthetic-noop",
+  "run_id": "synthetic-run",
+  "stage_id": "smoke",
+  "task_id": "smoke",
+  "execution_target": "mock",
+  "reviewed_script": "scripts/noop.py",
+  "script_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "git_commit": "0000000000000000000000000000000000000000",
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "datasets": [],
+  "inputs": [],
+  "outputs": [
+    "metrics/values.json"
+  ],
+  "metrics": [
+    "value"
+  ],
+  "budget": {
+    "max_seconds": 30,
+    "max_usd": 0,
+    "hourly_usd": 0
+  },
+  "resources": {
+    "vram_mib": 0,
+    "ram_mib": 64,
+    "disk_mib": 5
+  },
+  "cleanup_policy": "delete-after-verified"
+}

@@ -1,0 +1,232 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "execution",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "enum": [
+        "1.0"
+      ]
+    },
+    "experiment_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$"
+    },
+    "stage_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$"
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$"
+    },
+    "execution_target": {
+      "enum": [
+        "local",
+        "runpod",
+        "mock"
+      ]
+    },
+    "reviewed_script": {
+      "type": "string",
+      "minLength": 1
+    },
+    "script_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "git_commit": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "seeds": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "minItems": 1
+    },
+    "datasets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "license": {
+            "type": "string",
+            "minLength": 1
+          },
+          "split": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "version",
+          "license",
+          "split"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "metrics": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "budget": {
+      "type": "object",
+      "properties": {
+        "max_seconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 86400
+        },
+        "max_usd": {
+          "type": "number",
+          "minimum": 0
+        },
+        "hourly_usd": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "max_seconds",
+        "max_usd",
+        "hourly_usd"
+      ],
+      "additionalProperties": false
+    },
+    "resources": {
+      "type": "object",
+      "properties": {
+        "vram_mib": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ram_mib": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "disk_mib": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "required": [
+        "vram_mib",
+        "ram_mib",
+        "disk_mib"
+      ],
+      "additionalProperties": false
+    },
+    "remote": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "type": "string",
+          "minLength": 1
+        },
+        "gpu_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "gpu_count": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8
+        },
+        "artifact_base_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "terminate_after_seconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 86400
+        }
+      },
+      "required": [
+        "image",
+        "gpu_type",
+        "gpu_count",
+        "artifact_base_url",
+        "terminate_after_seconds"
+      ],
+      "additionalProperties": false
+    },
+    "cleanup_policy": {
+      "enum": [
+        "delete-after-verified",
+        "stop-for-recovery"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "experiment_id",
+    "run_id",
+    "stage_id",
+    "task_id",
+    "execution_target",
+    "reviewed_script",
+    "script_sha256",
+    "git_commit",
+    "seeds",
+    "datasets",
+    "inputs",
+    "outputs",
+    "metrics",
+    "budget",
+    "resources",
+    "cleanup_policy"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Thesis Writing"
+  short_description: "Draft or revise bounded Markdown or LaTeX thesis sections using"
+  default_prompt: "Use $thesis-writing for this thesis task."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-09-20T10:09:44.406802+00:00",
+  "python": "3.12.14",
+  "platform": "win32",
+  "tests_run": 44,
+  "failures": [],
+  "errors": [],
+  "skipped": [],
+  "passed": true,
+  "duration_seconds": 52.187,
+  "live_services_contacted": false,
+  "scope": "Offline synthetic fixtures, real local Spec Kit CLI, CPU no-op only"
+}

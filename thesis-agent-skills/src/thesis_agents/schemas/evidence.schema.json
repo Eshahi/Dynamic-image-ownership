@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "evidence",
+  "type": "object",
+  "properties": {
+    "claim_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$"
+    },
+    "claim": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$"
+    },
+    "kind": {
+      "enum": [
+        "direct-evidence",
+        "author-interpretation",
+        "agent-inference",
+        "open-assumption"
+      ]
+    },
+    "stance": {
+      "enum": [
+        "supporting",
+        "contradicting",
+        "inconclusive"
+      ]
+    },
+    "locator": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "confidence": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "claim_id",
+    "claim",
+    "source_id",
+    "kind",
+    "stance",
+    "locator",
+    "confidence",
+    "limitations",
+    "assumptions"
+  ],
+  "additionalProperties": false
+}

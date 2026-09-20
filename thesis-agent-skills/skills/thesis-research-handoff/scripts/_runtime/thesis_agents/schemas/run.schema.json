@@ -1,0 +1,303 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "run",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "enum": [
+        "1.0"
+      ]
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$"
+    },
+    "stage_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$"
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$"
+    },
+    "experiment_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,127}$"
+    },
+    "status": {
+      "enum": [
+        "running",
+        "completed",
+        "failed",
+        "interrupted",
+        "recovery-required"
+      ]
+    },
+    "executor": {
+      "type": "string",
+      "minLength": 1
+    },
+    "execution_target": {
+      "enum": [
+        "local",
+        "runpod",
+        "mock"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "started_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ended_at": {
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "date-time"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "git_commit": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "git_dirty": {
+      "type": "boolean"
+    },
+    "command": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "environment": {
+      "type": "object",
+      "properties": {
+        "python": {
+          "type": "string",
+          "minLength": 1
+        },
+        "platform": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "python",
+        "platform"
+      ],
+      "additionalProperties": false
+    },
+    "system": {
+      "type": "object",
+      "properties": {
+        "gpu": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "minItems": 0
+        },
+        "cpu_count": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "gpu",
+        "cpu_count"
+      ],
+      "additionalProperties": false
+    },
+    "seeds": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "minItems": 1
+    },
+    "datasets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "license": {
+            "type": "string",
+            "minLength": 1
+          },
+          "split": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "version",
+          "license",
+          "split"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "input_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "output_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "declared_metrics": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "budget_limits": {
+      "type": "object",
+      "properties": {
+        "max_seconds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 86400
+        },
+        "max_usd": {
+          "type": "number",
+          "minimum": 0
+        },
+        "hourly_usd": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "max_seconds",
+        "max_usd",
+        "hourly_usd"
+      ],
+      "additionalProperties": false
+    },
+    "approval_reference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "execution_manifest_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "cleanup_status": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pod_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "exit_status": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_id",
+    "stage_id",
+    "task_id",
+    "experiment_id",
+    "status",
+    "executor",
+    "execution_target",
+    "created_at",
+    "started_at",
+    "ended_at",
+    "git_commit",
+    "git_dirty",
+    "command",
+    "environment",
+    "system",
+    "seeds",
+    "datasets",
+    "input_artifacts",
+    "output_artifacts",
+    "declared_metrics",
+    "budget_limits",
+    "approval_reference",
+    "execution_manifest_sha256",
+    "errors",
+    "cleanup_status",
+    "pod_id",
+    "exit_status"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,23 @@
+# Exact resolved dependency versions used on Windows / Python 3.12.
+# Other supported platforms may need platform-specific wheels; use CI to verify.
+annotated-doc==0.0.5
+attrs==26.1.0
+click==8.5.0
+colorama==0.4.6
+json5==0.15.0
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
+markdown-it-py==4.2.0
+mdurl==0.1.2
+packaging==26.3
+pathspec==1.1.1
+platformdirs==4.11.11
+Pygments==2.21.0
+PyYAML==6.0.3
+readchar==4.2.2
+referencing==0.37.0
+rich==15.0.0
+rpds-py==2026.6.3
+shellingham==1.5.4
+typer==0.27.2
+typing_extensions==4.16.0

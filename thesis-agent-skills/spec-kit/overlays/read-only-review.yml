@@ -1,0 +1,17 @@
+{
+  "id": "extra-read-review",
+  "extends": "thesis-lifecycle",
+  "priority": 20,
+  "edits": [
+    {
+      "replace": "before-convergence",
+      "step": {
+        "id": "before-convergence",
+        "type": "prompt",
+        "integration": "codex",
+        "prompt": "Independently read thesis-runs evidence. Write findings only to a new audit directory; do not edit claims, code, evidence or gates.",
+        "timeout": 1800
+      }
+    }
+  ]
+}

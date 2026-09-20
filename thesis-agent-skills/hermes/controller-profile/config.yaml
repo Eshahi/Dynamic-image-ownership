@@ -1,0 +1,12 @@
+# Merge into a dedicated Hermes profile only after reviewing current settings.
+# This file neither installs nor starts a gateway or scheduled job.
+approvals:
+  mode: manual
+  cron_mode: deny
+  single_query_mode: deny
+  unattended_mode: deny
+checkpoints:
+  enabled: true
+unauthorized_dm_behavior: pair
+gateway:
+  allow_all_users: false

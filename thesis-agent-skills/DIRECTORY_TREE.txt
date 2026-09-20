@@ -1,0 +1,362 @@
+thesis-agent-skills/
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── fixtures/
+│   ├── scripts/
+│   │   └── noop.py
+│   ├── README.md
+│   ├── execution-manifest.json
+│   ├── experiment-spec.json
+│   ├── github-issue-seed-38.json
+│   ├── guide-plan-38.json
+│   ├── guide-tasks.json
+│   ├── nvidia-smi.csv
+│   └── results.json
+├── hermes/
+│   ├── controller-profile/
+│   │   ├── config.yaml
+│   │   └── system-prompt.md
+│   └── examples/
+│       └── cron-prompt.md
+├── installers/
+│   ├── install.ps1
+│   ├── install.py
+│   ├── install.sh
+│   └── install_workflows.py
+├── skills/
+│   ├── thesis-compute-runner/
+│   │   ├── agents/
+│   │   │   └── openai.yaml
+│   │   ├── references/
+│   │   │   └── execution.md
+│   │   ├── scripts/
+│   │   │   ├── _runtime/
+│   │   │   │   └── thesis_agents/
+│   │   │   │       ├── schemas/
+│   │   │   │       │   ├── approval.schema.json
+│   │   │   │       │   ├── claims.schema.json
+│   │   │   │       │   ├── evidence.schema.json
+│   │   │   │       │   ├── execution.schema.json
+│   │   │   │       │   ├── experiment.schema.json
+│   │   │   │       │   ├── gate-decision.schema.json
+│   │   │   │       │   ├── paper.schema.json
+│   │   │   │       │   ├── research-response.schema.json
+│   │   │   │       │   └── run.schema.json
+│   │   │   │       ├── __init__.py
+│   │   │   │       ├── __main__.py
+│   │   │   │       ├── analysis.py
+│   │   │   │       ├── audit.py
+│   │   │   │       ├── common.py
+│   │   │   │       ├── compute.py
+│   │   │   │       ├── control.py
+│   │   │   │       ├── design.py
+│   │   │   │       ├── guide.py
+│   │   │   │       ├── plan.py
+│   │   │   │       ├── research.py
+│   │   │   │       ├── runpod.py
+│   │   │   │       ├── smoke.py
+│   │   │   │       ├── validate_bundle.py
+│   │   │   │       └── writing.py
+│   │   │   ├── check_local_gpu.py
+│   │   │   ├── collect_artifacts.py
+│   │   │   ├── dispatch_experiment.py
+│   │   │   ├── runpod_backend.py
+│   │   │   └── validate_approval.py
+│   │   └── SKILL.md
+│   ├── thesis-evidence-audit/
+│   │   ├── agents/
+│   │   │   └── openai.yaml
+│   │   ├── scripts/
+│   │   │   ├── _runtime/
+│   │   │   │   └── thesis_agents/
+│   │   │   │       ├── schemas/
+│   │   │   │       │   ├── approval.schema.json
+│   │   │   │       │   ├── claims.schema.json
+│   │   │   │       │   ├── evidence.schema.json
+│   │   │   │       │   ├── execution.schema.json
+│   │   │   │       │   ├── experiment.schema.json
+│   │   │   │       │   ├── gate-decision.schema.json
+│   │   │   │       │   ├── paper.schema.json
+│   │   │   │       │   ├── research-response.schema.json
+│   │   │   │       │   └── run.schema.json
+│   │   │   │       ├── __init__.py
+│   │   │   │       ├── __main__.py
+│   │   │   │       ├── analysis.py
+│   │   │   │       ├── audit.py
+│   │   │   │       ├── common.py
+│   │   │   │       ├── compute.py
+│   │   │   │       ├── control.py
+│   │   │   │       ├── design.py
+│   │   │   │       ├── guide.py
+│   │   │   │       ├── plan.py
+│   │   │   │       ├── research.py
+│   │   │   │       ├── runpod.py
+│   │   │   │       ├── smoke.py
+│   │   │   │       ├── validate_bundle.py
+│   │   │   │       └── writing.py
+│   │   │   └── audit_evidence.py
+│   │   └── SKILL.md
+│   ├── thesis-experiment-design/
+│   │   ├── agents/
+│   │   │   └── openai.yaml
+│   │   ├── scripts/
+│   │   │   ├── _runtime/
+│   │   │   │   └── thesis_agents/
+│   │   │   │       ├── schemas/
+│   │   │   │       │   ├── approval.schema.json
+│   │   │   │       │   ├── claims.schema.json
+│   │   │   │       │   ├── evidence.schema.json
+│   │   │   │       │   ├── execution.schema.json
+│   │   │   │       │   ├── experiment.schema.json
+│   │   │   │       │   ├── gate-decision.schema.json
+│   │   │   │       │   ├── paper.schema.json
+│   │   │   │       │   ├── research-response.schema.json
+│   │   │   │       │   └── run.schema.json
+│   │   │   │       ├── __init__.py
+│   │   │   │       ├── __main__.py
+│   │   │   │       ├── analysis.py
+│   │   │   │       ├── audit.py
+│   │   │   │       ├── common.py
+│   │   │   │       ├── compute.py
+│   │   │   │       ├── control.py
+│   │   │   │       ├── design.py
+│   │   │   │       ├── guide.py
+│   │   │   │       ├── plan.py
+│   │   │   │       ├── research.py
+│   │   │   │       ├── runpod.py
+│   │   │   │       ├── smoke.py
+│   │   │   │       ├── validate_bundle.py
+│   │   │   │       └── writing.py
+│   │   │   └── design_experiment.py
+│   │   └── SKILL.md
+│   ├── thesis-literature-synthesis/
+│   │   ├── agents/
+│   │   │   └── openai.yaml
+│   │   ├── scripts/
+│   │   │   ├── _runtime/
+│   │   │   │   └── thesis_agents/
+│   │   │   │       ├── schemas/
+│   │   │   │       │   ├── approval.schema.json
+│   │   │   │       │   ├── claims.schema.json
+│   │   │   │       │   ├── evidence.schema.json
+│   │   │   │       │   ├── execution.schema.json
+│   │   │   │       │   ├── experiment.schema.json
+│   │   │   │       │   ├── gate-decision.schema.json
+│   │   │   │       │   ├── paper.schema.json
+│   │   │   │       │   ├── research-response.schema.json
+│   │   │   │       │   └── run.schema.json
+│   │   │   │       ├── __init__.py
+│   │   │   │       ├── __main__.py
+│   │   │   │       ├── analysis.py
+│   │   │   │       ├── audit.py
+│   │   │   │       ├── common.py
+│   │   │   │       ├── compute.py
+│   │   │   │       ├── control.py
+│   │   │   │       ├── design.py
+│   │   │   │       ├── guide.py
+│   │   │   │       ├── plan.py
+│   │   │   │       ├── research.py
+│   │   │   │       ├── runpod.py
+│   │   │   │       ├── smoke.py
+│   │   │   │       ├── validate_bundle.py
+│   │   │   │       └── writing.py
+│   │   │   └── validate_literature.py
+│   │   └── SKILL.md
+│   ├── thesis-research-handoff/
+│   │   ├── agents/
+│   │   │   └── openai.yaml
+│   │   ├── scripts/
+│   │   │   ├── _runtime/
+│   │   │   │   └── thesis_agents/
+│   │   │   │       ├── schemas/
+│   │   │   │       │   ├── approval.schema.json
+│   │   │   │       │   ├── claims.schema.json
+│   │   │   │       │   ├── evidence.schema.json
+│   │   │   │       │   ├── execution.schema.json
+│   │   │   │       │   ├── experiment.schema.json
+│   │   │   │       │   ├── gate-decision.schema.json
+│   │   │   │       │   ├── paper.schema.json
+│   │   │   │       │   ├── research-response.schema.json
+│   │   │   │       │   └── run.schema.json
+│   │   │   │       ├── __init__.py
+│   │   │   │       ├── __main__.py
+│   │   │   │       ├── analysis.py
+│   │   │   │       ├── audit.py
+│   │   │   │       ├── common.py
+│   │   │   │       ├── compute.py
+│   │   │   │       ├── control.py
+│   │   │   │       ├── design.py
+│   │   │   │       ├── guide.py
+│   │   │   │       ├── plan.py
+│   │   │   │       ├── research.py
+│   │   │   │       ├── runpod.py
+│   │   │   │       ├── smoke.py
+│   │   │   │       ├── validate_bundle.py
+│   │   │   │       └── writing.py
+│   │   │   └── research_handoff.py
+│   │   └── SKILL.md
+│   ├── thesis-results-analysis/
+│   │   ├── agents/
+│   │   │   └── openai.yaml
+│   │   ├── scripts/
+│   │   │   ├── _runtime/
+│   │   │   │   └── thesis_agents/
+│   │   │   │       ├── schemas/
+│   │   │   │       │   ├── approval.schema.json
+│   │   │   │       │   ├── claims.schema.json
+│   │   │   │       │   ├── evidence.schema.json
+│   │   │   │       │   ├── execution.schema.json
+│   │   │   │       │   ├── experiment.schema.json
+│   │   │   │       │   ├── gate-decision.schema.json
+│   │   │   │       │   ├── paper.schema.json
+│   │   │   │       │   ├── research-response.schema.json
+│   │   │   │       │   └── run.schema.json
+│   │   │   │       ├── __init__.py
+│   │   │   │       ├── __main__.py
+│   │   │   │       ├── analysis.py
+│   │   │   │       ├── audit.py
+│   │   │   │       ├── common.py
+│   │   │   │       ├── compute.py
+│   │   │   │       ├── control.py
+│   │   │   │       ├── design.py
+│   │   │   │       ├── guide.py
+│   │   │   │       ├── plan.py
+│   │   │   │       ├── research.py
+│   │   │   │       ├── runpod.py
+│   │   │   │       ├── smoke.py
+│   │   │   │       ├── validate_bundle.py
+│   │   │   │       └── writing.py
+│   │   │   └── analyze_results.py
+│   │   └── SKILL.md
+│   ├── thesis-workflow-control/
+│   │   ├── agents/
+│   │   │   └── openai.yaml
+│   │   ├── references/
+│   │   │   └── task-plan.md
+│   │   ├── scripts/
+│   │   │   ├── _runtime/
+│   │   │   │   └── thesis_agents/
+│   │   │   │       ├── schemas/
+│   │   │   │       │   ├── approval.schema.json
+│   │   │   │       │   ├── claims.schema.json
+│   │   │   │       │   ├── evidence.schema.json
+│   │   │   │       │   ├── execution.schema.json
+│   │   │   │       │   ├── experiment.schema.json
+│   │   │   │       │   ├── gate-decision.schema.json
+│   │   │   │       │   ├── paper.schema.json
+│   │   │   │       │   ├── research-response.schema.json
+│   │   │   │       │   └── run.schema.json
+│   │   │   │       ├── __init__.py
+│   │   │   │       ├── __main__.py
+│   │   │   │       ├── analysis.py
+│   │   │   │       ├── audit.py
+│   │   │   │       ├── common.py
+│   │   │   │       ├── compute.py
+│   │   │   │       ├── control.py
+│   │   │   │       ├── design.py
+│   │   │   │       ├── guide.py
+│   │   │   │       ├── plan.py
+│   │   │   │       ├── research.py
+│   │   │   │       ├── runpod.py
+│   │   │   │       ├── smoke.py
+│   │   │   │       ├── validate_bundle.py
+│   │   │   │       └── writing.py
+│   │   │   ├── import_thesis_guide.py
+│   │   │   └── spec_control.py
+│   │   └── SKILL.md
+│   └── thesis-writing/
+│       ├── agents/
+│       │   └── openai.yaml
+│       ├── scripts/
+│       │   ├── _runtime/
+│       │   │   └── thesis_agents/
+│       │   │       ├── schemas/
+│       │   │       │   ├── approval.schema.json
+│       │   │       │   ├── claims.schema.json
+│       │   │       │   ├── evidence.schema.json
+│       │   │       │   ├── execution.schema.json
+│       │   │       │   ├── experiment.schema.json
+│       │   │       │   ├── gate-decision.schema.json
+│       │   │       │   ├── paper.schema.json
+│       │   │       │   ├── research-response.schema.json
+│       │   │       │   └── run.schema.json
+│       │   │       ├── __init__.py
+│       │   │       ├── __main__.py
+│       │   │       ├── analysis.py
+│       │   │       ├── audit.py
+│       │   │       ├── common.py
+│       │   │       ├── compute.py
+│       │   │       ├── control.py
+│       │   │       ├── design.py
+│       │   │       ├── guide.py
+│       │   │       ├── plan.py
+│       │   │       ├── research.py
+│       │   │       ├── runpod.py
+│       │   │       ├── smoke.py
+│       │   │       ├── validate_bundle.py
+│       │   │       └── writing.py
+│       │   └── write_section.py
+│       └── SKILL.md
+├── spec-kit/
+│   ├── overlays/
+│   │   └── read-only-review.yml
+│   ├── steps/
+│   │   └── thesis-safe/
+│   │       ├── __init__.py
+│   │       └── step.yml
+│   ├── templates/
+│   │   └── constitution.md
+│   └── workflows/
+│       ├── thesis-lifecycle/
+│       │   └── workflow.yml
+│       └── thesis-smoke/
+│           └── workflow.yml
+├── src/
+│   └── thesis_agents/
+│       ├── schemas/
+│       │   ├── approval.schema.json
+│       │   ├── claims.schema.json
+│       │   ├── evidence.schema.json
+│       │   ├── execution.schema.json
+│       │   ├── experiment.schema.json
+│       │   ├── gate-decision.schema.json
+│       │   ├── paper.schema.json
+│       │   ├── research-response.schema.json
+│       │   └── run.schema.json
+│       ├── __init__.py
+│       ├── __main__.py
+│       ├── analysis.py
+│       ├── audit.py
+│       ├── common.py
+│       ├── compute.py
+│       ├── control.py
+│       ├── design.py
+│       ├── guide.py
+│       ├── plan.py
+│       ├── research.py
+│       ├── runpod.py
+│       ├── smoke.py
+│       ├── validate_bundle.py
+│       └── writing.py
+├── tests/
+│   ├── test_contracts.py
+│   ├── test_forward_compute.py
+│   ├── test_forward_evidence.py
+│   ├── test_forward_workflow.py
+│   └── validation-results.json
+├── tools/
+│   ├── build_assets.py
+│   ├── build_schemas.py
+│   ├── package.py
+│   └── run_validation.py
+├── BUILD_REPORT.md
+├── CHECKSUMS.sha256
+├── DIRECTORY_TREE.txt
+├── INSTALL.md
+├── RESEARCH_NOTES.md
+├── THIRD_PARTY_NOTICES.md
+├── bundle-manifest.json
+├── pyproject.toml
+├── requirements-spec-kit.txt
+└── requirements-tested.txt
