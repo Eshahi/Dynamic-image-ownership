@@ -32,7 +32,7 @@ subsets can run independently. Keep Python dependencies installed in the worker 
 PowerShell examples (targets are local project directories):
 
 ```powershell
-./installers/install.ps1 -Profile controller -Target './local-hermes-skills' -DryRun
+./installers/install.ps1 -Profile controller -Target './local-controller-skills' -DryRun
 ./installers/install.ps1 -Profile worker -Target './.agents/skills' -DryRun
 ./installers/install.ps1 -Profile reviewer -Target './reviewer-skills' -DryRun
 ```
@@ -40,14 +40,14 @@ PowerShell examples (targets are local project directories):
 Bash equivalents:
 
 ```bash
-bash installers/install.sh --profile controller --target './local-hermes-skills' --dry-run
+bash installers/install.sh --profile controller --target './local-controller-skills' --dry-run
 bash installers/install.sh --profile worker --target './.agents/skills' --dry-run
 bash installers/install.sh --profile reviewer --target './reviewer-skills' --dry-run
 ```
 
 Controller includes workflow-control and research-handoff. Worker includes all eight.
 Reviewer includes literature-synthesis, results-analysis, evidence-audit and writing.
-For actual user-wide `~/.codex/skills` or `~/.hermes/skills`, explicitly add `--allow-global`
+For actual user-wide `~/.codex/skills` or another protected agent directory, explicitly add `--allow-global`
 (PowerShell `-AllowGlobal`) as well as execution. No global install was made during build.
 Reviewer configuration is behavioral guidance, not an OS read-only sandbox.
 
@@ -109,18 +109,21 @@ python -m unittest discover -s tests -v
 The tests exercise the actual Spec Kit smoke gates and complete research → review → design
 → compute gate → no-op → analysis → independent audit → completion.
 
-## Hermes and secrets
+## Telegram bridge and secrets
 
-Create a dedicated Hermes profile using its installed version's profile interface. Review and
-merge `hermes/controller-profile/config.yaml`, load the companion system prompt, and install
-the controller skill profile. Keep dangerous-command approval enabled. Pair the Telegram user
-or set `TELEGRAM_ALLOWED_USERS` in Hermes's private environment file; never enable allow-all.
-Do not commit Telegram credentials or API tokens. `RUNPOD_API_KEY`, if ever needed by a future
-reviewed live provider, is read only from the environment. No sample credential values ship.
+The optional bridge uses the Telegram Bot API directly, without Hermes or an LLM. Review
+`telegram/README.md`, then set the three `THESIS_TELEGRAM_*` values in the bridge process
+environment. Never commit a bot token, real user ID or private environment file. Run `check`
+before a live `send`, then start `run` only while the selected thesis project should be watched.
 
-No cron job is registered. `hermes/examples/cron-prompt.md` remains disabled until explicitly
-enabled through Hermes's supported cron interface. Watch-once is read-only; the delivery
-cursor is updated by Hermes only after a successful message. Do not schedule gate resumption.
+The bridge accepts commands only from the exact allowlisted user in the exact allowlisted private
+chat. Free-form text is rejected. `/approve` and `/reject` must include the current Spec Kit run
+and step IDs, and every accepted decision is archived by the controller. Delivery and polling do
+not grant approval. Local cursor state is written under ignored `.thesis-notify/`; a cursor moves
+only after successful delivery. If the bridge is offline, Spec Kit remains paused at a gate.
+
+`RUNPOD_API_KEY`, if ever needed by a future reviewed live provider, is also read only from the
+environment. No sample credential values ship.
 
 ## Safety and current limits
 

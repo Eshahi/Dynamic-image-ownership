@@ -19,9 +19,11 @@ __pycache__/
 # Runtime state and large experiment artifacts
 .specify/workflows/runs/
 .specify/thesis-decisions/
+.thesis-notify/
 artifacts/
 runs/
 outputs/
+smoke-output/
 checkpoints/
 datasets/
 data/raw/

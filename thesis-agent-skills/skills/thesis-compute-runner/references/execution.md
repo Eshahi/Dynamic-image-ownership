@@ -11,7 +11,8 @@ Approve the complete canonical JSON manifest SHA-256, exact experiment/run/targe
 maximum seconds and USD, issued time, expiry, actor and source message reference.
 Approval artifacts must be stored outside an agent-writable directory where practical.
 Hashes and actor strings do not authenticate a malicious author; filesystem permissions
-and Hermes access controls are the trust boundary. No casual 'looks good' interpretation.
+and the allowlisted Telegram process plus filesystem access controls are the trust boundary.
+No casual 'looks good' interpretation.
 
 Reviewed Python scripts receive exactly `--manifest FILE --output-dir DIRECTORY`.
 The clean repository commit and script checksum must match. No arbitrary command/args/env

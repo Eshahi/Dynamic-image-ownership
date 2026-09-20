@@ -8,13 +8,12 @@ Implementation followed review of these primary sources and the checked-out pinn
   reviewed workflow definitions, validator, run/resume/status payloads, custom step loader,
   gate semantics, prompt integration and shell executor. The shell executor uses a shell,
   so this bundle uses prompt/gate/slot plus one fixed Python extension for smoke operations.
-- [Hermes skill authoring](https://hermes-agent.nousresearch.com/docs/developer-guide/creating-skills),
-  [skill usage](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills),
-  [security](https://hermes-agent.nousresearch.com/docs/user-guide/security/),
-  [cron](https://hermes-agent.nousresearch.com/docs/user-guide/features/cron/),
-  [MCP](https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp/),
-  [Codex runtime](https://hermes-agent.nousresearch.com/docs/user-guide/features/codex-app-server-runtime/):
-  retain native messaging/approval/cron mechanisms; no second gateway, MCP server or scheduler.
+- [Telegram Bot API](https://core.telegram.org/bots/api): use `sendMessage` for outbound events
+  and bounded `getUpdates` long polling locally. Authenticate exact numeric private user/chat IDs;
+  do not interpret free-form messages or introduce another workflow engine.
+- Hermes documentation and source were evaluated for messaging, approval and Codex runtime use.
+  It was removed from the critical path because this project's Telegram transport needs no model
+  inference or agent runtime. The installed application can remain available independently.
 - [RunPod REST create](https://docs.runpod.io/api-reference/pods/POST/pods),
   [official CLI](https://github.com/runpod/runpodctl),
   [timer removal](https://github.com/runpod/runpodctl/pull/330):
@@ -27,10 +26,10 @@ Implementation followed review of these primary sources and the checked-out pinn
 
 The local trusted catalog includes skill-creator, PDF, documents, spreadsheets, presentations,
 computer-use and openai-docs. Reuse skill-creator for format/validation. Do not copy document
-renderers into a Markdown/LaTeX evidence package. Hermes official arXiv and research-paper-writing
-capabilities can gather papers or guide general writing; they do not enforce this project's
-task IDs, approval/artifact schemas or evidence gates. Use them interactively if installed,
-then import inspected evidence into these contracts. No unreviewed skill is auto-installed.
+renderers into a Markdown/LaTeX evidence package. External research capabilities may gather
+papers or guide general writing, but they do not enforce this project's task IDs,
+approval/artifact schemas or evidence gates. Import inspected evidence into these contracts.
+No unreviewed skill is auto-installed.
 
 RunPod's official runpodctl skill was inspected as a capability reference, not copied. Its
 deadline advice is stale relative to PR 330 and the current CLI source; this is why blindly
@@ -39,4 +38,5 @@ research skills are domain-specific and do not provide a ready-made thesis lifec
 
 Custom additions are limited to missing thesis contracts: literal-guide import, file exchange,
 source/claim validation, scoped approvals, deterministic analysis, exact-run controller adapter,
-and fixed non-shell smoke stages. Upstream owns workflow execution and gateway messaging.
+fixed non-shell smoke stages and a narrow Bot API transport. Spec Kit remains the only workflow
+engine; the transport stores only delivery offsets and notification fingerprints.

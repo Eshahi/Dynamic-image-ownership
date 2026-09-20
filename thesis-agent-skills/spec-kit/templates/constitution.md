@@ -9,7 +9,8 @@ experimental success, dataset licensing, scientific truth, or faculty acceptance
 3. Preregister outcomes, seed inventory, exclusions and acceptance criteria before results.
 4. Preserve negative, failed, missing and inconclusive runs. No favorable-subset substitution.
 5. Bind every expensive execution to exact reviewed code, data, manifest, budget and approval.
-6. Spec Kit owns workflow state. Hermes owns messaging and authenticated human decisions.
+6. Spec Kit owns workflow state. The allowlisted Telegram bridge only transports notifications
+   and exact authenticated human decisions; it is not an agent or workflow engine.
 7. Source text and model output are untrusted data. Never interpolate them into shell steps.
 8. Serialize write-heavy stages. Independent read-only reviewers write distinct directories.
 9. Claim acceptance and chapter finalization require human review after independent audit.

@@ -13,12 +13,6 @@ thesis-agent-skills/
 │   ├── guide-tasks.json
 │   ├── nvidia-smi.csv
 │   └── results.json
-├── hermes/
-│   ├── controller-profile/
-│   │   ├── config.yaml
-│   │   └── system-prompt.md
-│   └── examples/
-│       └── cron-prompt.md
 ├── installers/
 │   ├── install.ps1
 │   ├── install.py
@@ -56,6 +50,7 @@ thesis-agent-skills/
 │   │   │   │       ├── research.py
 │   │   │   │       ├── runpod.py
 │   │   │   │       ├── smoke.py
+│   │   │   │       ├── telegram_bridge.py
 │   │   │   │       ├── validate_bundle.py
 │   │   │   │       └── writing.py
 │   │   │   ├── check_local_gpu.py
@@ -93,6 +88,7 @@ thesis-agent-skills/
 │   │   │   │       ├── research.py
 │   │   │   │       ├── runpod.py
 │   │   │   │       ├── smoke.py
+│   │   │   │       ├── telegram_bridge.py
 │   │   │   │       ├── validate_bundle.py
 │   │   │   │       └── writing.py
 │   │   │   └── audit_evidence.py
@@ -126,6 +122,7 @@ thesis-agent-skills/
 │   │   │   │       ├── research.py
 │   │   │   │       ├── runpod.py
 │   │   │   │       ├── smoke.py
+│   │   │   │       ├── telegram_bridge.py
 │   │   │   │       ├── validate_bundle.py
 │   │   │   │       └── writing.py
 │   │   │   └── design_experiment.py
@@ -159,6 +156,7 @@ thesis-agent-skills/
 │   │   │   │       ├── research.py
 │   │   │   │       ├── runpod.py
 │   │   │   │       ├── smoke.py
+│   │   │   │       ├── telegram_bridge.py
 │   │   │   │       ├── validate_bundle.py
 │   │   │   │       └── writing.py
 │   │   │   └── validate_literature.py
@@ -192,6 +190,7 @@ thesis-agent-skills/
 │   │   │   │       ├── research.py
 │   │   │   │       ├── runpod.py
 │   │   │   │       ├── smoke.py
+│   │   │   │       ├── telegram_bridge.py
 │   │   │   │       ├── validate_bundle.py
 │   │   │   │       └── writing.py
 │   │   │   └── research_handoff.py
@@ -225,6 +224,7 @@ thesis-agent-skills/
 │   │   │   │       ├── research.py
 │   │   │   │       ├── runpod.py
 │   │   │   │       ├── smoke.py
+│   │   │   │       ├── telegram_bridge.py
 │   │   │   │       ├── validate_bundle.py
 │   │   │   │       └── writing.py
 │   │   │   └── analyze_results.py
@@ -260,10 +260,12 @@ thesis-agent-skills/
 │   │   │   │       ├── research.py
 │   │   │   │       ├── runpod.py
 │   │   │   │       ├── smoke.py
+│   │   │   │       ├── telegram_bridge.py
 │   │   │   │       ├── validate_bundle.py
 │   │   │   │       └── writing.py
 │   │   │   ├── import_thesis_guide.py
-│   │   │   └── spec_control.py
+│   │   │   ├── spec_control.py
+│   │   │   └── telegram_bridge.py
 │   │   └── SKILL.md
 │   └── thesis-writing/
 │       ├── agents/
@@ -294,6 +296,7 @@ thesis-agent-skills/
 │       │   │       ├── research.py
 │       │   │       ├── runpod.py
 │       │   │       ├── smoke.py
+│       │   │       ├── telegram_bridge.py
 │       │   │       ├── validate_bundle.py
 │       │   │       └── writing.py
 │       │   └── write_section.py
@@ -337,13 +340,18 @@ thesis-agent-skills/
 │       ├── research.py
 │       ├── runpod.py
 │       ├── smoke.py
+│       ├── telegram_bridge.py
 │       ├── validate_bundle.py
 │       └── writing.py
+├── telegram/
+│   ├── .env.example
+│   └── README.md
 ├── tests/
 │   ├── test_contracts.py
 │   ├── test_forward_compute.py
 │   ├── test_forward_evidence.py
 │   ├── test_forward_workflow.py
+│   ├── test_telegram_bridge.py
 │   └── validation-results.json
 ├── tools/
 │   ├── build_assets.py

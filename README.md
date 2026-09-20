@@ -9,7 +9,8 @@ This repository contains the reproducible research harness and execution plan fo
 - Eight reusable agent skills cover workflow control, research handoff, literature synthesis, experiment design, compute execution, results analysis, evidence audit, and thesis writing.
 - Local and mock-provider execution are implemented and tested.
 - Live RunPod creation remains disabled until an enforceable time and spending boundary is validated.
-- Hermes and Telegram integration is prepared but not connected to live credentials.
+- A deterministic Telegram bridge is implemented without Hermes or an LLM; live credentials
+  remain local and are not stored in the repository.
 
 ## Repository policy
 
@@ -32,6 +33,7 @@ The deterministic issue seed is stored at `thesis-agent-skills/fixtures/github-i
 ## Local setup
 
 See `thesis-agent-skills/INSTALL.md` for environment preparation, skill installation, Spec Kit workflow installation, and the synthetic smoke test.
+The direct Telegram transport is documented in `thesis-agent-skills/telegram/README.md`.
 
 ## Scientific status
 

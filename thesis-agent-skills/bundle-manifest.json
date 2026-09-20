@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "name": "thesis-agent-skills",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "skills": [
     "thesis-compute-runner",
     "thesis-evidence-audit",
@@ -31,21 +31,22 @@
     "schema_version": "1.0"
   },
   "tests": {
-    "timestamp": "2026-09-20T10:09:44.406802+00:00",
+    "timestamp": "2026-09-20T15:18:46.480568+00:00",
     "python": "3.12.14",
     "platform": "win32",
-    "tests_run": 44,
+    "tests_run": 50,
     "failures": [],
     "errors": [],
     "skipped": [],
     "passed": true,
-    "duration_seconds": 52.187,
+    "duration_seconds": 59.969,
     "live_services_contacted": false,
     "scope": "Offline synthetic fixtures, real local Spec Kit CLI, CPU no-op only"
   },
   "capabilities": {
     "local_execution": true,
     "mock_runpod": true,
+    "telegram_bridge": true,
     "live_runpod_creation": false,
     "live_runpod_artifact_transfer": false
   },
@@ -56,11 +57,11 @@
     },
     {
       "path": "BUILD_REPORT.md",
-      "sha256": "b7385eb63158c5864e0130339c28e1303dd579103f93bdf04fc451c572087215"
+      "sha256": "7e0875db4abb3e98f5589ac36ce90c9479c48b594941af21cc3c6f9706d0c1d5"
     },
     {
       "path": "DIRECTORY_TREE.txt",
-      "sha256": "bc1806030e27b570de4b737f8c965a5cf3e4f464caa1972b059bc20a9ee801c5"
+      "sha256": "d9ec17c142e2517599c7ce143bc53fe08b06bebc4c57e2a028a9f68806aa44b7"
     },
     {
       "path": "fixtures/execution-manifest.json",
@@ -99,20 +100,8 @@
       "sha256": "cc4b629b5124fb9fc4776d5af8ccc640b571939879a25c68c72694f1562c3341"
     },
     {
-      "path": "hermes/controller-profile/config.yaml",
-      "sha256": "921739f0a7999de322a7d2176eceae85b7460f2698941d625708e6fcaa871f7f"
-    },
-    {
-      "path": "hermes/controller-profile/system-prompt.md",
-      "sha256": "07bef43dd6ca11990ccc865ac82e50bf2f2348a5ee07aeffb50f003e967e00c5"
-    },
-    {
-      "path": "hermes/examples/cron-prompt.md",
-      "sha256": "4cb4f21f58bcac2e15873b15a44af8c95a67b9e5cc1a73cbcd54d6a8086a4c45"
-    },
-    {
       "path": "INSTALL.md",
-      "sha256": "97eacc5a29ebc3256dc170175e7c1d393b528f635d60e08519b033cb147fc213"
+      "sha256": "36ae16354eb7bcc99880bc2344b1918c6d2717eab4902790f67f3660bef33b7f"
     },
     {
       "path": "installers/install.ps1",
@@ -132,7 +121,7 @@
     },
     {
       "path": "pyproject.toml",
-      "sha256": "1a500c0b5ec0f34d2d4898885ffe64e272d8b5112ab18d140109a62c88812677"
+      "sha256": "0a00b0750dbab98f6d88b32c7f702b356e25e9f541e3765f848c373db30be924"
     },
     {
       "path": "requirements-spec-kit.txt",
@@ -144,7 +133,7 @@
     },
     {
       "path": "RESEARCH_NOTES.md",
-      "sha256": "606546e2df50dae635833c8c654025a2ca8587a5b6d0e071e846a76e15bc93f2"
+      "sha256": "e8ebf25fd440bf2fd6efef31eedc2c371ea5d8d38cb10a0f9b35037c3fcd292d"
     },
     {
       "path": "skills/thesis-compute-runner/agents/openai.yaml",
@@ -152,15 +141,15 @@
     },
     {
       "path": "skills/thesis-compute-runner/references/execution.md",
-      "sha256": "0111164011c097275775249b83d81ba67006a4e887a6cb5dafe3b34a248979a0"
+      "sha256": "b708248253114ec1ecfeb233f25ceeddd9cc27233831e0b101682a8a6859825f"
     },
     {
       "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/__init__.py",
-      "sha256": "f7452c632feb2dcc0ac88862d6502b7ccf4c49894b9a292c6ba6c66af8e0c1e7"
+      "sha256": "65d0108a06898eab5f27c4c675e4ff80e7e373170af88f0dacf5c2e38a5642a8"
     },
     {
       "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/__main__.py",
-      "sha256": "f33c88c1da9bea73dd154244aec333b27c51376149e8a30a1b6e1a0422ea8c6b"
+      "sha256": "0153d70a7704e4523da665ce0f2349e9654927f2ed323d1d92c0d8976c43cabd"
     },
     {
       "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/analysis.py",
@@ -176,7 +165,7 @@
     },
     {
       "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/compute.py",
-      "sha256": "4b98e5429d57bda48dbe7b239602b1c7ef60c7cbb19058e17136b29a09437d30"
+      "sha256": "7bcbdd07b99029b3e065bc3408c1d2af3ae4209b8d82a73ce77dd6127399950a"
     },
     {
       "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/control.py",
@@ -243,6 +232,10 @@
       "sha256": "61044835c9cb0186568b58a8762d74b79e447631fead6e3c958b94558af65bbf"
     },
     {
+      "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/telegram_bridge.py",
+      "sha256": "4fa9c95cdf68ca78768b6d15d2d3fae01b3d665602ca4b8e591ccda406e2df3e"
+    },
+    {
       "path": "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/validate_bundle.py",
       "sha256": "284c391e664f41caf47d8349305f16cec45fd411d18d5ed2b266f4cc1f66c8eb"
     },
@@ -280,11 +273,11 @@
     },
     {
       "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/__init__.py",
-      "sha256": "f7452c632feb2dcc0ac88862d6502b7ccf4c49894b9a292c6ba6c66af8e0c1e7"
+      "sha256": "65d0108a06898eab5f27c4c675e4ff80e7e373170af88f0dacf5c2e38a5642a8"
     },
     {
       "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/__main__.py",
-      "sha256": "f33c88c1da9bea73dd154244aec333b27c51376149e8a30a1b6e1a0422ea8c6b"
+      "sha256": "0153d70a7704e4523da665ce0f2349e9654927f2ed323d1d92c0d8976c43cabd"
     },
     {
       "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/analysis.py",
@@ -300,7 +293,7 @@
     },
     {
       "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/compute.py",
-      "sha256": "4b98e5429d57bda48dbe7b239602b1c7ef60c7cbb19058e17136b29a09437d30"
+      "sha256": "7bcbdd07b99029b3e065bc3408c1d2af3ae4209b8d82a73ce77dd6127399950a"
     },
     {
       "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/control.py",
@@ -367,6 +360,10 @@
       "sha256": "61044835c9cb0186568b58a8762d74b79e447631fead6e3c958b94558af65bbf"
     },
     {
+      "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/telegram_bridge.py",
+      "sha256": "4fa9c95cdf68ca78768b6d15d2d3fae01b3d665602ca4b8e591ccda406e2df3e"
+    },
+    {
       "path": "skills/thesis-evidence-audit/scripts/_runtime/thesis_agents/validate_bundle.py",
       "sha256": "284c391e664f41caf47d8349305f16cec45fd411d18d5ed2b266f4cc1f66c8eb"
     },
@@ -388,11 +385,11 @@
     },
     {
       "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/__init__.py",
-      "sha256": "f7452c632feb2dcc0ac88862d6502b7ccf4c49894b9a292c6ba6c66af8e0c1e7"
+      "sha256": "65d0108a06898eab5f27c4c675e4ff80e7e373170af88f0dacf5c2e38a5642a8"
     },
     {
       "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/__main__.py",
-      "sha256": "f33c88c1da9bea73dd154244aec333b27c51376149e8a30a1b6e1a0422ea8c6b"
+      "sha256": "0153d70a7704e4523da665ce0f2349e9654927f2ed323d1d92c0d8976c43cabd"
     },
     {
       "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/analysis.py",
@@ -408,7 +405,7 @@
     },
     {
       "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/compute.py",
-      "sha256": "4b98e5429d57bda48dbe7b239602b1c7ef60c7cbb19058e17136b29a09437d30"
+      "sha256": "7bcbdd07b99029b3e065bc3408c1d2af3ae4209b8d82a73ce77dd6127399950a"
     },
     {
       "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/control.py",
@@ -475,6 +472,10 @@
       "sha256": "61044835c9cb0186568b58a8762d74b79e447631fead6e3c958b94558af65bbf"
     },
     {
+      "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/telegram_bridge.py",
+      "sha256": "4fa9c95cdf68ca78768b6d15d2d3fae01b3d665602ca4b8e591ccda406e2df3e"
+    },
+    {
       "path": "skills/thesis-experiment-design/scripts/_runtime/thesis_agents/validate_bundle.py",
       "sha256": "284c391e664f41caf47d8349305f16cec45fd411d18d5ed2b266f4cc1f66c8eb"
     },
@@ -496,11 +497,11 @@
     },
     {
       "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/__init__.py",
-      "sha256": "f7452c632feb2dcc0ac88862d6502b7ccf4c49894b9a292c6ba6c66af8e0c1e7"
+      "sha256": "65d0108a06898eab5f27c4c675e4ff80e7e373170af88f0dacf5c2e38a5642a8"
     },
     {
       "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/__main__.py",
-      "sha256": "f33c88c1da9bea73dd154244aec333b27c51376149e8a30a1b6e1a0422ea8c6b"
+      "sha256": "0153d70a7704e4523da665ce0f2349e9654927f2ed323d1d92c0d8976c43cabd"
     },
     {
       "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/analysis.py",
@@ -516,7 +517,7 @@
     },
     {
       "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/compute.py",
-      "sha256": "4b98e5429d57bda48dbe7b239602b1c7ef60c7cbb19058e17136b29a09437d30"
+      "sha256": "7bcbdd07b99029b3e065bc3408c1d2af3ae4209b8d82a73ce77dd6127399950a"
     },
     {
       "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/control.py",
@@ -583,6 +584,10 @@
       "sha256": "61044835c9cb0186568b58a8762d74b79e447631fead6e3c958b94558af65bbf"
     },
     {
+      "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/telegram_bridge.py",
+      "sha256": "4fa9c95cdf68ca78768b6d15d2d3fae01b3d665602ca4b8e591ccda406e2df3e"
+    },
+    {
       "path": "skills/thesis-literature-synthesis/scripts/_runtime/thesis_agents/validate_bundle.py",
       "sha256": "284c391e664f41caf47d8349305f16cec45fd411d18d5ed2b266f4cc1f66c8eb"
     },
@@ -604,11 +609,11 @@
     },
     {
       "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/__init__.py",
-      "sha256": "f7452c632feb2dcc0ac88862d6502b7ccf4c49894b9a292c6ba6c66af8e0c1e7"
+      "sha256": "65d0108a06898eab5f27c4c675e4ff80e7e373170af88f0dacf5c2e38a5642a8"
     },
     {
       "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/__main__.py",
-      "sha256": "f33c88c1da9bea73dd154244aec333b27c51376149e8a30a1b6e1a0422ea8c6b"
+      "sha256": "0153d70a7704e4523da665ce0f2349e9654927f2ed323d1d92c0d8976c43cabd"
     },
     {
       "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/analysis.py",
@@ -624,7 +629,7 @@
     },
     {
       "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/compute.py",
-      "sha256": "4b98e5429d57bda48dbe7b239602b1c7ef60c7cbb19058e17136b29a09437d30"
+      "sha256": "7bcbdd07b99029b3e065bc3408c1d2af3ae4209b8d82a73ce77dd6127399950a"
     },
     {
       "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/control.py",
@@ -691,6 +696,10 @@
       "sha256": "61044835c9cb0186568b58a8762d74b79e447631fead6e3c958b94558af65bbf"
     },
     {
+      "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/telegram_bridge.py",
+      "sha256": "4fa9c95cdf68ca78768b6d15d2d3fae01b3d665602ca4b8e591ccda406e2df3e"
+    },
+    {
       "path": "skills/thesis-research-handoff/scripts/_runtime/thesis_agents/validate_bundle.py",
       "sha256": "284c391e664f41caf47d8349305f16cec45fd411d18d5ed2b266f4cc1f66c8eb"
     },
@@ -712,11 +721,11 @@
     },
     {
       "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/__init__.py",
-      "sha256": "f7452c632feb2dcc0ac88862d6502b7ccf4c49894b9a292c6ba6c66af8e0c1e7"
+      "sha256": "65d0108a06898eab5f27c4c675e4ff80e7e373170af88f0dacf5c2e38a5642a8"
     },
     {
       "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/__main__.py",
-      "sha256": "f33c88c1da9bea73dd154244aec333b27c51376149e8a30a1b6e1a0422ea8c6b"
+      "sha256": "0153d70a7704e4523da665ce0f2349e9654927f2ed323d1d92c0d8976c43cabd"
     },
     {
       "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/analysis.py",
@@ -732,7 +741,7 @@
     },
     {
       "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/compute.py",
-      "sha256": "4b98e5429d57bda48dbe7b239602b1c7ef60c7cbb19058e17136b29a09437d30"
+      "sha256": "7bcbdd07b99029b3e065bc3408c1d2af3ae4209b8d82a73ce77dd6127399950a"
     },
     {
       "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/control.py",
@@ -799,6 +808,10 @@
       "sha256": "61044835c9cb0186568b58a8762d74b79e447631fead6e3c958b94558af65bbf"
     },
     {
+      "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/telegram_bridge.py",
+      "sha256": "4fa9c95cdf68ca78768b6d15d2d3fae01b3d665602ca4b8e591ccda406e2df3e"
+    },
+    {
       "path": "skills/thesis-results-analysis/scripts/_runtime/thesis_agents/validate_bundle.py",
       "sha256": "284c391e664f41caf47d8349305f16cec45fd411d18d5ed2b266f4cc1f66c8eb"
     },
@@ -816,7 +829,7 @@
     },
     {
       "path": "skills/thesis-workflow-control/agents/openai.yaml",
-      "sha256": "178d6f0340b68498fa4b44bfc80fc2494e97b38d81644fcee939c40b990d8739"
+      "sha256": "47c3eb8636cd3b8cccc4b4724a6231e665fee45b295a69ac1593e4a15947330e"
     },
     {
       "path": "skills/thesis-workflow-control/references/task-plan.md",
@@ -824,11 +837,11 @@
     },
     {
       "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/__init__.py",
-      "sha256": "f7452c632feb2dcc0ac88862d6502b7ccf4c49894b9a292c6ba6c66af8e0c1e7"
+      "sha256": "65d0108a06898eab5f27c4c675e4ff80e7e373170af88f0dacf5c2e38a5642a8"
     },
     {
       "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/__main__.py",
-      "sha256": "f33c88c1da9bea73dd154244aec333b27c51376149e8a30a1b6e1a0422ea8c6b"
+      "sha256": "0153d70a7704e4523da665ce0f2349e9654927f2ed323d1d92c0d8976c43cabd"
     },
     {
       "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/analysis.py",
@@ -844,7 +857,7 @@
     },
     {
       "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/compute.py",
-      "sha256": "4b98e5429d57bda48dbe7b239602b1c7ef60c7cbb19058e17136b29a09437d30"
+      "sha256": "7bcbdd07b99029b3e065bc3408c1d2af3ae4209b8d82a73ce77dd6127399950a"
     },
     {
       "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/control.py",
@@ -911,6 +924,10 @@
       "sha256": "61044835c9cb0186568b58a8762d74b79e447631fead6e3c958b94558af65bbf"
     },
     {
+      "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/telegram_bridge.py",
+      "sha256": "4fa9c95cdf68ca78768b6d15d2d3fae01b3d665602ca4b8e591ccda406e2df3e"
+    },
+    {
       "path": "skills/thesis-workflow-control/scripts/_runtime/thesis_agents/validate_bundle.py",
       "sha256": "284c391e664f41caf47d8349305f16cec45fd411d18d5ed2b266f4cc1f66c8eb"
     },
@@ -927,8 +944,12 @@
       "sha256": "61b3b01cd0115f6fe8a7cf7dc9e19e3d6382add8338ad46459cbe3114e24ff91"
     },
     {
+      "path": "skills/thesis-workflow-control/scripts/telegram_bridge.py",
+      "sha256": "8cd922a0dc4d25bbaa869a2a823ac8fa401abec45d3c186fa3760c3323592845"
+    },
+    {
       "path": "skills/thesis-workflow-control/SKILL.md",
-      "sha256": "b512045753c0d291ce676a0d60c2708f964410890feab1a681b75ecb2e1cb529"
+      "sha256": "c3a1ed3b515413ee4bc3c7c62f5e36dd4a6eb6924f98f29382ff46ef4a5599db"
     },
     {
       "path": "skills/thesis-writing/agents/openai.yaml",
@@ -936,11 +957,11 @@
     },
     {
       "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/__init__.py",
-      "sha256": "f7452c632feb2dcc0ac88862d6502b7ccf4c49894b9a292c6ba6c66af8e0c1e7"
+      "sha256": "65d0108a06898eab5f27c4c675e4ff80e7e373170af88f0dacf5c2e38a5642a8"
     },
     {
       "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/__main__.py",
-      "sha256": "f33c88c1da9bea73dd154244aec333b27c51376149e8a30a1b6e1a0422ea8c6b"
+      "sha256": "0153d70a7704e4523da665ce0f2349e9654927f2ed323d1d92c0d8976c43cabd"
     },
     {
       "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/analysis.py",
@@ -956,7 +977,7 @@
     },
     {
       "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/compute.py",
-      "sha256": "4b98e5429d57bda48dbe7b239602b1c7ef60c7cbb19058e17136b29a09437d30"
+      "sha256": "7bcbdd07b99029b3e065bc3408c1d2af3ae4209b8d82a73ce77dd6127399950a"
     },
     {
       "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/control.py",
@@ -1023,6 +1044,10 @@
       "sha256": "61044835c9cb0186568b58a8762d74b79e447631fead6e3c958b94558af65bbf"
     },
     {
+      "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/telegram_bridge.py",
+      "sha256": "4fa9c95cdf68ca78768b6d15d2d3fae01b3d665602ca4b8e591ccda406e2df3e"
+    },
+    {
       "path": "skills/thesis-writing/scripts/_runtime/thesis_agents/validate_bundle.py",
       "sha256": "284c391e664f41caf47d8349305f16cec45fd411d18d5ed2b266f4cc1f66c8eb"
     },
@@ -1052,7 +1077,7 @@
     },
     {
       "path": "spec-kit/templates/constitution.md",
-      "sha256": "fda57e06c050c3e4c116a4e66193117d840128901448ff1a1013528ada7cc67d"
+      "sha256": "9cbd12bc22fe0e010b6ea11a1edc3548d3d81a4e01a66ceba21089f252c97d28"
     },
     {
       "path": "spec-kit/workflows/thesis-lifecycle/workflow.yml",
@@ -1064,11 +1089,11 @@
     },
     {
       "path": "src/thesis_agents/__init__.py",
-      "sha256": "f7452c632feb2dcc0ac88862d6502b7ccf4c49894b9a292c6ba6c66af8e0c1e7"
+      "sha256": "65d0108a06898eab5f27c4c675e4ff80e7e373170af88f0dacf5c2e38a5642a8"
     },
     {
       "path": "src/thesis_agents/__main__.py",
-      "sha256": "f33c88c1da9bea73dd154244aec333b27c51376149e8a30a1b6e1a0422ea8c6b"
+      "sha256": "0153d70a7704e4523da665ce0f2349e9654927f2ed323d1d92c0d8976c43cabd"
     },
     {
       "path": "src/thesis_agents/analysis.py",
@@ -1084,7 +1109,7 @@
     },
     {
       "path": "src/thesis_agents/compute.py",
-      "sha256": "4b98e5429d57bda48dbe7b239602b1c7ef60c7cbb19058e17136b29a09437d30"
+      "sha256": "7bcbdd07b99029b3e065bc3408c1d2af3ae4209b8d82a73ce77dd6127399950a"
     },
     {
       "path": "src/thesis_agents/control.py",
@@ -1151,6 +1176,10 @@
       "sha256": "61044835c9cb0186568b58a8762d74b79e447631fead6e3c958b94558af65bbf"
     },
     {
+      "path": "src/thesis_agents/telegram_bridge.py",
+      "sha256": "4fa9c95cdf68ca78768b6d15d2d3fae01b3d665602ca4b8e591ccda406e2df3e"
+    },
+    {
       "path": "src/thesis_agents/validate_bundle.py",
       "sha256": "284c391e664f41caf47d8349305f16cec45fd411d18d5ed2b266f4cc1f66c8eb"
     },
@@ -1159,8 +1188,16 @@
       "sha256": "cd33b79411665f3584fdc562ce23a30fd9b78eb11d2bbf464653ffab8a4293f6"
     },
     {
+      "path": "telegram/.env.example",
+      "sha256": "c1f9a125a9cc4c583f7ca460d5dca4e3f6f5a8c7441c05cbb62b29e0678aa3da"
+    },
+    {
+      "path": "telegram/README.md",
+      "sha256": "20384a176f189baf93a7f61c1111e2c627e53dafbd9f84794024776c1f0d6f72"
+    },
+    {
       "path": "tests/test_contracts.py",
-      "sha256": "955e7e28b735080a444050c78a67cf66f0da2dba6bbad0df4551b57303e35529"
+      "sha256": "88919ca364e270f08d6cb437ec4d3fbc3dc204d7f8af61bdfb431910a3c9817a"
     },
     {
       "path": "tests/test_forward_compute.py",
@@ -1175,16 +1212,20 @@
       "sha256": "9a85c767341fb9622c91b247ba0a7e5739b9e23400731b254e563fe34f828772"
     },
     {
+      "path": "tests/test_telegram_bridge.py",
+      "sha256": "ee7635bc12a4791a645a4feda9093a72ca5d955a8ad66e6fbc6096ce2a3bca39"
+    },
+    {
       "path": "tests/validation-results.json",
-      "sha256": "2707d261f8bf7f46d9419b990521eb9edbe696a9a2b1889fcf27ceae4450e6b4"
+      "sha256": "33db5757cddfc9e9d7c4793304faad386d397ec11c693c68456d225f7cc2cc6c"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
-      "sha256": "8baedad3899397aecee5b1db738e14ce128351f6f0d431563fee5807cd5dd882"
+      "sha256": "e2dd99140550bea7d5c0cb51dcba56de1e51e55ddc890b665fa831bde71a7a94"
     },
     {
       "path": "tools/build_assets.py",
-      "sha256": "8796ecb8c32da6d80f7edfc60dab2382f5497458e220bb18989ea68aab13f032"
+      "sha256": "a46de82d9d9af30af3b9c5a6c2d7b346ea4f67fd32751c8b2a8f6e3bf45c2a6b"
     },
     {
       "path": "tools/build_schemas.py",
@@ -1192,7 +1233,7 @@
     },
     {
       "path": "tools/package.py",
-      "sha256": "d8c9cb3e1dd70b75a779582817abca44af3a54d297c78386a8d1a0c70b6e29e8"
+      "sha256": "ebd7aedcb4ef8bc1c24ce0f9e9c29ce6a1f0ae6eb9cb3abe62fdf5fe90a08618"
     },
     {
       "path": "tools/run_validation.py",

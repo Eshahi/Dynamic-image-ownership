@@ -3,7 +3,7 @@ import importlib
 import sys
 from .common import cli_entry
 
-MODULES={"control","guide","research","design","compute","analysis","audit","writing","runpod","smoke","validate_bundle"}
+MODULES={"control","guide","research","design","compute","analysis","audit","writing","runpod","smoke","telegram_bridge","validate_bundle"}
 def main():
     p=argparse.ArgumentParser(description="Thesis agent deterministic helpers")
     p.add_argument("helper",choices=sorted(MODULES))
