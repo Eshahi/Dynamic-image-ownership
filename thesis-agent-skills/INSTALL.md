@@ -115,6 +115,8 @@ The optional bridge uses the Telegram Bot API directly, without Hermes or an LLM
 `telegram/README.md`, then set the three `THESIS_TELEGRAM_*` values in the bridge process
 environment. Never commit a bot token, real user ID or private environment file. Run `check`
 before a live `send`, then start `run` only while the selected thesis project should be watched.
+The `identify` action can inspect a fresh private `/start` update using only the token; verify the
+returned IDs before placing them in the allowlist.
 
 The bridge accepts commands only from the exact allowlisted user in the exact allowlisted private
 chat. Free-form text is rejected. `/approve` and `/reject` must include the current Spec Kit run

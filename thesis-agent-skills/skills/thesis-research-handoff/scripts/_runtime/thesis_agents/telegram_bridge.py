@@ -41,13 +41,18 @@ def _positive_id(value: str | None, name: str) -> int:
     return result
 
 
-def configuration(env=None):
+def token_configuration(env=None):
     env = os.environ if env is None else env
     token = env.get(TOKEN_ENV, "")
     if not re.fullmatch(r"[0-9]+:[A-Za-z0-9_-]{20,}", token):
         raise ContractError(f"Set {TOKEN_ENV} to the BotFather token outside source control")
+    return token
+
+
+def configuration(env=None):
+    env = os.environ if env is None else env
     return {
-        "token": token,
+        "token": token_configuration(env),
         "user_id": _positive_id(env.get(USER_ENV), USER_ENV),
         "chat_id": _positive_id(env.get(CHAT_ENV), CHAT_ENV),
     }
@@ -144,6 +149,27 @@ def authorized_message(update, config):
     return text.strip()
 
 
+def identity_candidates(updates):
+    candidates = set()
+    for update in updates:
+        if not isinstance(update, dict):
+            continue
+        message = update.get("message")
+        if not isinstance(message, dict) or message.get("text") not in ("/start", "/help"):
+            continue
+        sender = message.get("from") or {}
+        chat = message.get("chat") or {}
+        if (
+            isinstance(sender.get("id"), int)
+            and sender["id"] > 0
+            and isinstance(chat.get("id"), int)
+            and chat["id"] > 0
+            and chat.get("type") == "private"
+        ):
+            candidates.add((sender["id"], chat["id"]))
+    return [{"user_id": user_id, "chat_id": chat_id} for user_id, chat_id in sorted(candidates)]
+
+
 def _decision(update, package, verdict, config):
     current = datetime.now(timezone.utc)
     message = update["message"]
@@ -235,6 +261,8 @@ def main():
     cli.add_argument("--project", required=True)
     cli.add_argument("--state-file", default=STATE_DEFAULT)
     actions = cli.add_subparsers(dest="action", required=True)
+    identify = actions.add_parser("identify")
+    identify.add_argument("--timeout", type=int, default=20, choices=range(0, 31), metavar="0..30")
     actions.add_parser("check")
     send = actions.add_parser("send")
     send.add_argument("message")
@@ -249,8 +277,15 @@ def main():
     project = Path(args.project).resolve()
     if not project.is_dir():
         raise ContractError("Project directory does not exist")
+    token = token_configuration()
+    api = TelegramAPI(token)
+    if args.action == "identify":
+        return {
+            "candidates": identity_candidates(api.updates(0, args.timeout)),
+            "instruction": "Set the allowlisted user/chat IDs only after verifying they belong to you.",
+            "token_exposed": False,
+        }
     config = configuration()
-    api = TelegramAPI(config["token"])
     state_path, state = load_state(project, args.state_file)
     if args.action == "check":
         return {

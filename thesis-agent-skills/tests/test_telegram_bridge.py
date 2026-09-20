@@ -11,6 +11,7 @@ from thesis_agents.telegram_bridge import (
     USER_ENV,
     authorized_message,
     configuration,
+    identity_candidates,
     load_state,
     poll_once,
     process_command,
@@ -62,6 +63,15 @@ class TelegramBridgeTests(unittest.TestCase):
         self.assertIsNone(authorized_message(update("/help", user_id=41), CONFIG))
         self.assertIsNone(authorized_message(update("/help", chat_id=41), CONFIG))
         self.assertIsNone(authorized_message(update("/help", chat_type="group"), CONFIG))
+
+    def test_identity_discovery_returns_only_explicit_private_start_or_help(self):
+        candidates = identity_candidates([
+            update("/start", update_id=1),
+            update("free text", update_id=2, user_id=50, chat_id=50),
+            update("/help", update_id=3, user_id=51, chat_id=51, chat_type="group"),
+            update("/help", update_id=4, user_id=52, chat_id=52),
+        ])
+        self.assertEqual(candidates, [{"user_id": 42, "chat_id": 42}, {"user_id": 52, "chat_id": 52}])
 
     def test_command_parser_rejects_free_form_text(self):
         with tempfile.TemporaryDirectory() as directory:

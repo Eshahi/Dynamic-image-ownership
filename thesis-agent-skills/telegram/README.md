@@ -13,6 +13,16 @@ THESIS_TELEGRAM_ALLOWED_USER_ID
 THESIS_TELEGRAM_ALLOWED_CHAT_ID
 ```
 
+To discover the numeric IDs without a third-party bot, set only the token, send `/start` to your
+bot in a private chat, then run:
+
+```text
+python skills/thesis-workflow-control/scripts/telegram_bridge.py --project <project> identify
+```
+
+Verify that the returned IDs belong to your account before allowlisting them. Discovery never
+executes a command or changes Spec Kit state.
+
 Validate local configuration without contacting Telegram:
 
 ```text

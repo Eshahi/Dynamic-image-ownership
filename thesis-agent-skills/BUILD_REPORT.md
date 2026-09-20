@@ -108,7 +108,7 @@ repository pins, licenses and reused-files/modifications records are in THIRD_PA
 
 ## Validations performed
 
-- **50 automated tests passed**, zero failures, errors or skips, on Windows with Python 3.12.14.
+- **51 automated tests passed**, zero failures, errors or skips, on Windows with Python 3.12.14.
   The exact test result is recorded in tests/validation-results.json.
 - All **eight skills passed the provided Codex skill-creator quick_validate.py**, and the bundle
   validator checked frontmatter, naming, UI policy, references and unfinished skill scaffolds.
@@ -136,9 +136,10 @@ repository pins, licenses and reused-files/modifications records are in THIRD_PA
   draft markers and finalization refusal.
 - Python source parsed with the Python 3.11 grammar; this is syntax compatibility, not a 3.11
   execution claim. All nine JSON Schema definitions passed the schema validator.
-- Telegram tests covered missing/malformed configuration, exact private user/chat authorization,
-  free-form command rejection, gate binding, unauthorized-update consumption, and the rule that
-  notification cursors advance only after successful delivery. No live Telegram call was made.
+- Telegram tests covered missing/malformed configuration, safe ID discovery, exact private
+  user/chat authorization, free-form command rejection, gate binding, unauthorized-update
+  consumption, and the rule that notification cursors advance only after successful delivery.
+  No live Telegram call was made.
 - The package builder verifies ZIP CRC and every archived file hash against the local payload.
   CHECKSUMS.sha256 includes bundle-manifest.json and excludes itself. The ZIP has an external
   SHA-256 file, avoiding self-referential checksum claims.
