@@ -10,9 +10,10 @@ controller records the explicit decision; the runner has no approval-creation co
 Approve the complete canonical JSON manifest SHA-256, exact experiment/run/target,
 maximum seconds and USD, issued time, expiry, actor and source message reference.
 Approval artifacts must be stored outside an agent-writable directory where practical.
-Hashes and actor strings do not authenticate a malicious author; filesystem permissions
-and the allowlisted Telegram process plus filesystem access controls are the trust boundary.
-No casual 'looks good' interpretation.
+Hashes and actor strings do not authenticate a malicious author; the authenticated Codex account,
+current task provenance and filesystem access controls are the operational trust boundary. A
+built-in Codex command/action approval is not compute approval. No casual 'looks good'
+interpretation.
 
 Reviewed Python scripts receive exactly `--manifest FILE --output-dir DIRECTORY`.
 The clean repository commit and script checksum must match. No arbitrary command/args/env

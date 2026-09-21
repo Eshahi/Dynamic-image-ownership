@@ -48,7 +48,8 @@ bash installers/install.sh --profile reviewer --target './reviewer-skills' --dry
 Controller includes workflow-control and research-handoff. Worker includes all eight.
 Reviewer includes literature-synthesis, results-analysis, evidence-audit and writing.
 For actual user-wide `~/.codex/skills` or another protected agent directory, explicitly add `--allow-global`
-(PowerShell `-AllowGlobal`) as well as execution. No global install was made during build.
+(PowerShell `-AllowGlobal`) as well as execution. Validation uses isolated temporary targets; make
+a backup before a deliberate user-wide installation.
 Reviewer configuration is behavioral guidance, not an OS read-only sandbox.
 
 ## Spec Kit workflows
@@ -109,22 +110,21 @@ python -m unittest discover -s tests -v
 The tests exercise the actual Spec Kit smoke gates and complete research → review → design
 → compute gate → no-op → analysis → independent audit → completion.
 
-## Telegram bridge and secrets
+## Codex Remote and human gates
 
-The optional bridge uses the Telegram Bot API directly, without Hermes or an LLM. Review
-`telegram/README.md`, then set the three `THESIS_TELEGRAM_*` values in the bridge process
-environment. Never commit a bot token, real user ID or private environment file. Run `check`
-before a live `send`, then start `run` only while the selected thesis project should be watched.
-The `identify` action can inspect a fresh private `/start` update using only the token; verify the
-returned IDs before placing them in the allowlist.
+No project-specific bot, gateway, messaging secret or polling service is required. Use the same
+authenticated Codex task on desktop or through Codex Remote. The connected host must keep the
+ChatGPT desktop app running and remain awake, online, and signed in to the same account and
+workspace as the remote client.
 
-The bridge accepts commands only from the exact allowlisted user in the exact allowlisted private
-chat. Free-form text is rejected. `/approve` and `/reject` must include the current Spec Kit run
-and step IDs, and every accepted decision is archived by the controller. Delivery and polling do
-not grant approval. Local cursor state is written under ignored `.thesis-notify/`; a cursor moves
-only after successful delivery. If the bridge is offline, Spec Kit remains paused at a gate.
+At a Spec Kit gate, review the package and referenced artifacts, then send an explicit decision in
+the current task using the exact run ID, step ID, and either `approve` or `reject`. Only after that
+message may the agent serialize the decision record and resume the run. A built-in Codex approval
+for a command or action is separate and does not approve thesis progress or compute spending.
+If Remote is unavailable, Spec Kit remains paused and the same decision can be supplied later from
+the desktop task.
 
-`RUNPOD_API_KEY`, if ever needed by a future reviewed live provider, is also read only from the
+`RUNPOD_API_KEY`, if ever needed by a future reviewed live provider, is read only from the
 environment. No sample credential values ship.
 
 ## Safety and current limits

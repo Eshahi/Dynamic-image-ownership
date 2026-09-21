@@ -20,7 +20,7 @@ unavailable for the documented upstream deadline reason below. No cloud workload
 - An official-schema `thesis-lifecycle` v1.1.0 workflow with 21 steps and 7 human gates, plus the
   8-step/2-gate `thesis-smoke`. A fixed non-shell `thesis-safe` extension executes synthetic
   smoke stages inside Spec Kit; it is not a separate state engine.
-- Constitution, read-only overlay example, deterministic Telegram transport,
+- Constitution, read-only overlay example, Codex Remote human-channel contract,
   controller/worker/reviewer installers, reproducible packaging and checksums.
 - Local execution, mock provider lifecycle/recovery, source/evidence validation, seed-aware
   analysis, audit classification and conservative writing/finalization guards.
@@ -46,7 +46,7 @@ thesis-agent-skills/
 │             scripts/_runtime/thesis_agents/{modules,schemas}
 ├── src/thesis_agents/
 │   ├── common.py, control.py, guide.py, plan.py, research.py, design.py
-│   ├── compute.py, runpod.py, analysis.py, audit.py, writing.py, telegram_bridge.py
+│   ├── compute.py, runpod.py, analysis.py, audit.py, writing.py
 │   ├── smoke.py, validate_bundle.py, __init__.py, __main__.py
 │   └── schemas/ (nine strict schemas)
 ├── spec-kit/
@@ -54,10 +54,9 @@ thesis-agent-skills/
 │   ├── steps/thesis-safe/{step.yml,__init__.py}
 │   ├── templates/constitution.md
 │   └── overlays/read-only-review.yml
-├── telegram/{README.md,.env.example}
 ├── installers/{install.ps1,install.sh,install.py,install_workflows.py}
 ├── tests/{test_contracts.py,test_forward_compute.py,test_forward_evidence.py,
-│          test_forward_workflow.py,test_telegram_bridge.py,validation-results.json}
+│          test_forward_workflow.py,validation-results.json}
 ├── fixtures/{guide-tasks.json,guide-plan-38.json,github-issue-seed-38.json,
 │             experiment-spec.json,execution-manifest.json,results.json,
 │             nvidia-smi.csv,scripts/noop.py,README.md}
@@ -74,9 +73,9 @@ thesis-agent-skills/
 ## Design and reuse decisions
 
 Spec Kit owns run state and resumability. Controller helpers invoke its CLI with fixed argument
-arrays and preserve run IDs. A narrow standard-library Telegram client transports notifications
-and exact commands but is not a scheduler, agent or state engine. The current upstream shell step
-uses shell execution, so no shipped workflow uses it. Full lifecycle
+arrays and preserve run IDs. The current authenticated Codex task is the human interaction channel;
+Codex Remote can surface that task on mobile but is not a scheduler or state engine. The current
+upstream shell step uses shell execution, so no shipped workflow uses it. Full lifecycle
 stages use the official Codex prompt integration and explicit human gates. Writer stages are
 sequential; the independent audit prompt can delegate to a distinct read-focused subagent.
 
@@ -86,11 +85,11 @@ retry and stop as gate verdicts because this workflow does not implement those m
 Spec Kit CLI can stop a running process or roll back an earlier stage. Revision starts a newly
 reviewed attempt while retaining previous evidence.
 
-Watch-once is read-only and emits nothing for the same meaningful-state fingerprint. The bridge
-stores its cursor under ignored project-local state; only successful delivery advances a workflow
-cursor. Incoming commands require exact allowlisted private user/chat IDs and exact run/step IDs.
-Free-form text is rejected. Human approval is never inferred from notification delivery. Execute
-and install default to preview. Remote/local target changes require an updated manifest and approval.
+Watch-once is read-only and emits nothing for the same meaningful-state fingerprint. At a human
+gate, the user must explicitly name the exact run ID, step ID and approve/reject verdict in the
+current task. The agent may then serialize that decision, but may never choose or infer the verdict.
+Built-in Codex command/action approval is distinct from workflow and compute approval. Execute and
+install default to preview. Remote/local target changes require an updated manifest and approval.
 
 JSON is used as a valid YAML 1.2 serialization for generated experiment and workflow files.
 Deterministic helpers use the standard library except pinned PyYAML and jsonschema. Optional
@@ -108,7 +107,7 @@ repository pins, licenses and reused-files/modifications records are in THIRD_PA
 
 ## Validations performed
 
-- **51 automated tests passed**, zero failures, errors or skips, on Windows with Python 3.12.14.
+- **44 automated tests passed**, zero failures, errors or skips, on Windows with Python 3.12.14.
   The exact test result is recorded in tests/validation-results.json.
 - All **eight skills passed the provided Codex skill-creator quick_validate.py**, and the bundle
   validator checked frontmatter, naming, UI policy, references and unfinished skill scaffolds.
@@ -124,7 +123,8 @@ repository pins, licenses and reused-files/modifications records are in THIRD_PA
   subprocess environment preserves the non-secret Program Files roots required by NVML.
 - PowerShell installer dry-run was exercised, with an explicit path containing spaces.
   Python installer tests exercised copy plans, actual controller installation, embedded helper
-  execution and preservation of modified skills. No global skill installation occurred.
+  execution and preservation of modified skills. Validation used temporary targets; after it
+  passed, the controller profile was refreshed in the user's Codex skill directory with a backup.
 - Tests checked Windows/POSIX relative paths, traversal/injection rejection, unknown fields,
   approval scope/hash/expiry/budget, no-approval/wrong-run refusal, mock create/status/stop/delete,
   exact Pod identity, omitted artifacts, checksum tampering, recovery and secret redaction.
@@ -136,10 +136,8 @@ repository pins, licenses and reused-files/modifications records are in THIRD_PA
   draft markers and finalization refusal.
 - Python source parsed with the Python 3.11 grammar; this is syntax compatibility, not a 3.11
   execution claim. All nine JSON Schema definitions passed the schema validator.
-- Telegram tests covered missing/malformed configuration, safe ID discovery, exact private
-  user/chat authorization, free-form command rejection, gate binding, unauthorized-update
-  consumption, and the rule that notification cursors advance only after successful delivery.
-  No live Telegram call was made.
+- Workflow tests cover exact run/step/state-hash binding, decision expiry, mismatched gate refusal,
+  pause/resume behavior and the separation between synthetic test decisions and real approval.
 - The package builder verifies ZIP CRC and every archived file hash against the local payload.
   CHECKSUMS.sha256 includes bundle-manifest.json and excludes itself. The ZIP has an external
   SHA-256 file, avoiding self-referential checksum claims.
@@ -162,7 +160,7 @@ the controller now supplies an empty pipe so unattended gates pause instead of r
 | PowerShell | 7.6.5 |
 | Git | 2.53.0.windows.3 |
 | Spec Kit | 1.0.9.dev0, d4229c071c7ea3885b43e8a7739847300f618f13 |
-| Telegram Bot API | Official HTTP API; docs accessed 2026-09-20 |
+| Codex Remote | Official OpenAI documentation accessed 2026-09-20; user-confirmed mobile connection |
 | RunPod CLI reference | 4351fca9ec454b1bdc8572aaad5d3e5a61ead0fa |
 | JSON Schema validator | jsonschema 4.26.0 |
 | YAML parser | PyYAML 6.0.3 |
@@ -185,17 +183,17 @@ tag hashes were checked against their official repositories; the CI matrix has n
 2. Python 3.11, native Linux, WSL2, RunPod images and the Bash installer were not executed here.
    WSL is not installed on this host. Portable code and a pinned CI matrix are provided; runtime
    support on those systems remains a validation task. The Bash wrapper is small but untested.
-3. Live Telegram delivery and polling were not exercised because no credential was supplied to
-   the build. The implemented deployment is a local long-polling process; serverless/webhook
-   operation remains optional and unvalidated. Do not run another poller or webhook for the same bot.
+3. Codex Remote is a hosted interaction surface outside this bundle. The user confirmed the mobile
+   connection, but notification delivery, account authentication and service availability are not
+   controlled or automatically tested by this repository. The connected host must remain available.
 4. The full lifecycle validates structurally but was not run against real thesis inputs or a live
    Codex provider. Prompt completion is not proof of scientific success; gates must inspect actual
    evidence. Interrupted helper writes may need a fresh reviewed attempt directory; evidence is
    preserved rather than automatically overwritten.
-5. Telegram gate records are authenticated operationally by exact numeric private user/chat IDs,
-   the bot token and filesystem ownership, not cryptographic signatures. A malicious process with
-   those credentials or write access to approvals/code can forge records. Use protected process
-   secrets, approval storage and OS isolation as appropriate.
+5. Gate records rely operationally on the authenticated Codex task, preserved source reference and
+   filesystem ownership; they are not cryptographic signatures. A malicious process with write
+   access to approvals/code can forge records. Protect approval storage and use OS isolation as
+   appropriate.
 6. Source/schema validation cannot establish that a plausible paper or claim is true. A human or
    independent reviewer must inspect sources and check entailment. Automatic 'verified' means
    traceability checks passed. Input hashes require original artifacts; unavailable inputs produce
@@ -216,12 +214,12 @@ tag hashes were checked against their official repositories; the CI matrix has n
 
 ## Assumptions and decisions still needed
 
-The workspace was used as OUTPUT_DIR. The original HTML and README were left unchanged.
+The workspace was used as OUTPUT_DIR. The original HTML provenance artifact was left unchanged.
 The actual proposal, thesis source, datasets and experiment implementation were not supplied;
 only the guide and explicitly synthetic infrastructure fixtures were used.
 
 Before operational use, select the target thesis project and installation profile/directories,
-provide missing thesis inputs, ratify scope/constitution, configure and live-test the Telegram
-bridge, and supply explicit human decisions at gates. Real budgets, target hardware, dataset licenses,
+provide missing thesis inputs, ratify scope/constitution, keep Codex Remote and its host available,
+and supply explicit human decisions at gates. Real budgets, target hardware, dataset licenses,
 statistical plans and publication decisions remain human choices. Live RunPod enablement must
 wait for a separately reviewed enforceable spending boundary; no unsafe default was selected.

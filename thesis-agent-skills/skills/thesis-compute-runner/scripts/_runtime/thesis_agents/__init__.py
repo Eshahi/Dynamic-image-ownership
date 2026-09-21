@@ -1,2 +1,2 @@
 """Portable thesis evidence tools. No network operations on import."""
-__version__ = "1.1.0"
+__version__ = "1.2.0"

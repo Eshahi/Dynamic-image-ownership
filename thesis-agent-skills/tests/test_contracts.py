@@ -133,7 +133,7 @@ class Contracts(unittest.TestCase):
             with self.subTest(script=script.name):
                 p=subprocess.run([sys.executable,str(script),"--help"],capture_output=True,text=True,timeout=30)
                 self.assertEqual(p.returncode,0,p.stderr)
-        for module in ("control","guide","research","design","compute","analysis","audit","writing","runpod","smoke","telegram_bridge","validate_bundle"):
+        for module in ("control","guide","research","design","compute","analysis","audit","writing","runpod","smoke","validate_bundle"):
             with self.subTest(module=module):
                 p=subprocess.run([sys.executable,"-m","thesis_agents",module,"--help"],capture_output=True,text=True,timeout=30)
                 self.assertEqual(p.returncode,0,p.stderr)

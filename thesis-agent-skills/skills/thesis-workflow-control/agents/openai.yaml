@@ -1,6 +1,6 @@
 interface:
   display_name: "Thesis Workflow Control"
-  short_description: "Operate installed thesis Spec Kit runs and relay exact human"
+  short_description: "Operate installed thesis Spec Kit runs and record exact human"
   default_prompt: "Use $thesis-workflow-control for this thesis task."
 policy:
   allow_implicit_invocation: true

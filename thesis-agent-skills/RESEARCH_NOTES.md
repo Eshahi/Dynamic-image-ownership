@@ -8,12 +8,13 @@ Implementation followed review of these primary sources and the checked-out pinn
   reviewed workflow definitions, validator, run/resume/status payloads, custom step loader,
   gate semantics, prompt integration and shell executor. The shell executor uses a shell,
   so this bundle uses prompt/gate/slot plus one fixed Python extension for smoke operations.
-- [Telegram Bot API](https://core.telegram.org/bots/api): use `sendMessage` for outbound events
-  and bounded `getUpdates` long polling locally. Authenticate exact numeric private user/chat IDs;
-  do not interpret free-form messages or introduce another workflow engine.
-- Hermes documentation and source were evaluated for messaging, approval and Codex runtime use.
-  It was removed from the critical path because this project's Telegram transport needs no model
-  inference or agent runtime. The installed application can remain available independently.
+- [Codex Remote connections](https://learn.chatgpt.com/docs/remote-connections): the connected
+  Codex task already supports follow-up instructions, action approvals, review and attention
+  notifications from mobile. The host must remain awake, online and signed in. Remote is treated
+  as an interaction surface, while Spec Kit remains the workflow state owner.
+- Hermes and a custom Telegram bridge were evaluated for messaging and approval. Both were removed
+  from the project path because Codex Remote supplies the required user channel without another
+  agent runtime, bot credential, polling process or delivery-state store.
 - [RunPod REST create](https://docs.runpod.io/api-reference/pods/POST/pods),
   [official CLI](https://github.com/runpod/runpodctl),
   [timer removal](https://github.com/runpod/runpodctl/pull/330):
@@ -37,6 +38,6 @@ reusing that instruction would violate this bundle's spending requirement. OpenA
 research skills are domain-specific and do not provide a ready-made thesis lifecycle contract.
 
 Custom additions are limited to missing thesis contracts: literal-guide import, file exchange,
-source/claim validation, scoped approvals, deterministic analysis, exact-run controller adapter,
-fixed non-shell smoke stages and a narrow Bot API transport. Spec Kit remains the only workflow
-engine; the transport stores only delivery offsets and notification fingerprints.
+source/claim validation, scoped approvals, deterministic analysis, exact-run controller adapter
+and fixed non-shell smoke stages. Spec Kit remains the only workflow engine. The authenticated
+Codex task carries human messages but stores no separate project delivery state.
