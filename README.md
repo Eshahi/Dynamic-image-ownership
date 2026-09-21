@@ -37,3 +37,9 @@ See `thesis-agent-skills/INSTALL.md` for environment preparation, skill installa
 ## Scientific status
 
 The repository provides infrastructure and a research plan. It does not, by itself, prove the proposed method, validate a scientific claim, or constitute university approval.
+
+## Approved proposal provenance
+
+Task A1 preserves the approved Persian proposal as immutable local source material. The source file is intentionally excluded from Git, while its identity, SHA-256 checksum, size, extraction method, content inventory, and known extraction limitations are recorded in `inputs/proposal-source.json`. A mechanically extracted, non-translated text representation is stored in `inputs/proposal-text.md`.
+
+The extracted representation retains document-order paragraphs and explicitly labelled table cells. Equations and embedded visuals that could not be converted reliably are represented by numbered placeholders and remain authoritative only in the original proposal file. No scientific claims in the proposal are treated as experimentally validated by ingestion.

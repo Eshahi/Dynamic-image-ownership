@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "original_filename": "پروپوزال 2.docx",
+  "source_reference": "پروپوزال 2.docx",
+  "source_reference_type": "repository-relative local path",
+  "sha256": "15a02877be74f5118cc7b3d3ded9ab447cc07551773486264ac4755119adfeff",
+  "file_size_bytes": 1414836,
+  "extraction_timestamp_utc": "2026-09-21T20:33:51+00:00",
+  "extraction_method": "Direct OOXML extraction from DOCX (word/document.xml plus header/footer parts) using Python lxml; document-order paragraphs and tables preserved with explicit annotations.",
+  "source_language": "fa (Persian), with embedded English technical terms",
+  "immutable_source": true,
+  "inventory": {
+    "tables_extracted": 16,
+    "equation_elements_detected": 7,
+    "figure_placeholders_emitted": 7,
+    "embedded_media_parts": [
+      "word/media/image1.png",
+      "word/media/image2.png",
+      "word/media/image3.png",
+      "word/media/image4.jpeg",
+      "word/media/image5.png"
+    ],
+    "drawingml_objects_main_document": 4,
+    "vml_pict_objects_main_document": 1,
+    "drawingml_objects_all_story_parts": 6,
+    "vml_pict_objects_all_story_parts": 1,
+    "tracked_insertions": 32,
+    "tracked_deletions": 0,
+    "header_text_extracted": true,
+    "footer_text_extracted": false
+  },
+  "extraction_limitations_or_missing_elements": [
+    "The Markdown extraction preserves visible character content and document-order block structure, but not exact Word pagination, styles, fonts, spacing, right-to-left layout, fields, or merged-cell geometry.",
+    "Tables are flattened into explicitly labelled row/cell blocks; merged cells and layout-dependent reading order may not be represented exactly.",
+    "7 Office Math element(s) were detected and recorded as numbered placeholders; equation notation was not transliterated from OMML and must be inspected in the source document.",
+    "5 embedded media part(s), 6 DrawingML object(s), and 1 VML pict object(s) across the main document, header, and footer were inventoried; figures were not OCRed or semantically transcribed.",
+    "Tracked insertions (32) are included in extracted visible text; tracked deletions detected: 0.",
+    "Visual rendering could not be completed because the required bundled LibreOffice executable was unavailable in the workspace runtime; page-level layout and glyph fidelity remain unverified."
+  ],
+  "extracted_text_reference": "inputs/proposal-text.md"
+}

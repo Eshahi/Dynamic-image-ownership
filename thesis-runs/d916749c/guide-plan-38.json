@@ -1,0 +1,3286 @@
+{
+  "schema_version": "1.1",
+  "profile": "thesis-38",
+  "source_plan_sha256": "f401a92a903111960adbc32ca6b2d8862db1bb3f900fc31a39b438d9d89d5210",
+  "source_task_count": 58,
+  "tasks": [
+    {
+      "id": "A1",
+      "title": "Repository and proposal ingestion",
+      "milestone_id": "spec",
+      "source_task_ids": [
+        "eng-1"
+      ],
+      "source_phase_ids": [
+        "engineering"
+      ],
+      "dependencies": [],
+      "gates": [],
+      "evidence_requirements": [
+        "فایل منبع و کپی Hash یکسان دارند؛ متن و Equation با DOCX تطبیق شده‌اند.",
+        "هیچ داده یا تغییر موجود حذف نشده؛ Git Root همان پژوهش است، نه Website."
+      ],
+      "inputs": [
+        "مسیر Workspace مجاز دانشجو و فایل اصلی پروپوزال؛ این وب‌سایت Repository پژوهش نیست."
+      ],
+      "outputs": [
+        [
+          "README.md",
+          "Root واقعی، منبع اصلی، راهنمای مسیرها و وضعیت اجرا"
+        ],
+        [
+          "inputs/proposal-source.json",
+          "source_path, copied_path, sha256, extracted_at"
+        ],
+        [
+          "inputs/proposal-text.md",
+          "متن/جدول/Equation با Section Locator؛ موارد استخراج‌نشده صریح"
+        ],
+        [
+          ".gitignore",
+          "Secret، داده خام و خروجی حجیم Track نشوند"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "eng-1",
+          "text": "THESIS_ROOT را در Workspace مجاز با نام thesis-watermarking تعیین کن؛ اگر موجود است اول محتوا و Git status را بخوان، دوباره Initialize نکن."
+        },
+        {
+          "source_task_id": "eng-1",
+          "text": "پوشه‌های inputs، research، configs، data، src، scripts، tests، runs، reports، thesis، handoffs و state/tasks را بساز؛ داده خام و Credential وارد Git نشوند."
+        },
+        {
+          "source_task_id": "eng-1",
+          "text": "نسخه اصلی پروپوزال را بدون تغییر در inputs/approved-proposal.docx کپی و SHA256 منبع و کپی را مقایسه کن."
+        },
+        {
+          "source_task_id": "eng-1",
+          "text": "متن، جدول‌ها و Equationهای DOCX را استخراج کن؛ Equationهای OMML را فقط با استخراج متن ساده حذف نکن. ارتباط هر بند با بخش/جدول اصلی حفظ شود."
+        },
+        {
+          "source_task_id": "eng-1",
+          "text": "README را با Root واقعی، مسیر منبع، ساختار پوشه‌ها و توضیح PLANNED بنویس؛ .gitignore شامل .env*، داده خام، Credential و Runهای حجیم باشد."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "eng-1",
+          "text": "اگر پروپوزال یا Workspace در دسترس نیست، BLOCKED_INPUT؛ مسیر لازم را بخواه. سند جایگزین تولید نکن."
+        }
+      ],
+      "execution": "CPU"
+    },
+    {
+      "id": "A2a",
+      "title": "Claims and operational scope",
+      "milestone_id": "spec",
+      "source_task_ids": [
+        "contract-1",
+        "repair-1"
+      ],
+      "source_phase_ids": [
+        "contract",
+        "proposal-repair"
+      ],
+      "dependencies": [
+        "A1"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "هر ردیف Source Locator دارد و هیچ سؤال مصوب جا نیفتاده.",
+        "اعداد Dataset و Quality از اصل سند آمده‌اند؛ هیچ Claim تازه اضافه نشده.",
+        "عنوان و سؤال مصوب تغییر نکرده‌اند.",
+        "هر Exclusion با تعهدهای مصوب Cross-check شده یا به‌عنوان ابهام علامت دارد."
+      ],
+      "inputs": [
+        "inputs/approved-proposal.docx",
+        "inputs/proposal-text.md و inputs/proposal-source.json",
+        "research/claims.csv"
+      ],
+      "outputs": [
+        [
+          "research/claims.csv",
+          "id, kind, source_locator, approved_text, operational_reading, unresolved_issue"
+        ],
+        [
+          "research/scope.md",
+          "approved_scope, implementation_boundary, exclusions, unresolved_conflicts"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "contract-1",
+          "text": "اهداف، سؤال‌ها، Hypothesisها، Datasetها، روش، Metricها و Claimهای متن مصوب را بندبه‌بند بخوان."
+        },
+        {
+          "source_task_id": "contract-1",
+          "text": "برای هر تعهد یک ID مانند RQ-01 یا REQ-01 و Section Locator بساز؛ نقل متن کوتاه و تفسیر اجرایی را در دو ستون جدا نگه دار."
+        },
+        {
+          "source_task_id": "contract-1",
+          "text": "Ws، Wi، CLIP، pHash، OwnerID، Initial Noise/Latent و Image-DCT را به همان بند مصوب وصل کن."
+        },
+        {
+          "source_task_id": "contract-1",
+          "text": "ابهام یا ناسازگاری را با Status=UNRESOLVED ثبت کن؛ وعده اثبات‌نشده را به نتیجه تبدیل نکن."
+        },
+        {
+          "source_task_id": "repair-1",
+          "text": "Problem، In-scope، Out-of-scope و تعهد تحویل را از مصوب استخراج کن."
+        },
+        {
+          "source_task_id": "repair-1",
+          "text": "تفاوت Core Method با Alternative/Related Work را مشخص کن."
+        },
+        {
+          "source_task_id": "repair-1",
+          "text": "اشاره روایی Ownership Transfer را در صورت وجود ثبت کن؛ از آن پروتکل تازه نساز و متن مصوب را هم انکار نکن."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "contract-1",
+          "text": "اگر Equation/بند ناخواناست، شناسه و محل دقیق را ثبت کن؛ ادامه همان ردیف BLOCKED_INPUT است."
+        },
+        {
+          "source_task_id": "repair-1",
+          "text": "تعارض بین متن مصوب و Exclusion نیازمند تصمیم دانشجو/استاد است؛ با تغییر عنوان حلش نکن."
+        }
+      ],
+      "execution": "DOCUMENT"
+    },
+    {
+      "id": "A3",
+      "title": "I/O, notation and threat model",
+      "milestone_id": "spec",
+      "source_task_ids": [
+        "contract-2",
+        "contract-3"
+      ],
+      "source_phase_ids": [
+        "contract"
+      ],
+      "dependencies": [
+        "A2a"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "هیچ اتصال Pipeline بدون Output و Input سازگار نیست.",
+        "Original Image، Reference، OwnerID و Secret احتمالی در I/O Detector صریح‌اند.",
+        "هر ادعای امنیتی حداقل یک سناریو و Control متناظر دارد.",
+        "معلوم است کدام Secret واقعاً محرمانه است و کدام داده عمومی."
+      ],
+      "inputs": [
+        "research/claims.csv",
+        "inputs/approved-proposal.docx",
+        "research/io-spec.md"
+      ],
+      "outputs": [
+        [
+          "research/io-spec.md",
+          "Function signature، Input/Output table و مسیر Data Flow"
+        ],
+        [
+          "research/notation.csv",
+          "symbol, meaning, dtype, shape, units, source, status"
+        ],
+        [
+          "research/threat-model.md",
+          "scenario_id, attacker_knowledge, allowed_actions, budget, success_rule, quality_constraint"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "contract-2",
+          "text": "هر Stage روش را به Function تبدیل کن: Feature Extraction، Key Generation، Embedding و Detection."
+        },
+        {
+          "source_task_id": "contract-2",
+          "text": "برای هر ورودی/خروجی نام، dtype، Shape، Range، Color Space، واحد و منبع تعریف کن؛ موارد نامعلوم TBD بمانند."
+        },
+        {
+          "source_task_id": "contract-2",
+          "text": "ورودی Image اصلی، Caption/Prompt و Generated Image را متمایز کن؛ مشخص کن Detector به کدام اطلاعات دسترسی دارد."
+        },
+        {
+          "source_task_id": "contract-2",
+          "text": "Ws/Wi و Hash/KDF را جدا از Featureها تعریف کن؛ OwnerID را Secret فرض نکن."
+        },
+        {
+          "source_task_id": "contract-3",
+          "text": "Asset مورد حفاظت، مالک مشروع، Attacker و هدف حمله را تعریف کن؛ Watermark Presence، Owner Attribution، Instance Binding و Semantic Binding را چهار Claim متفاوت بدان."
+        },
+        {
+          "source_task_id": "contract-3",
+          "text": "سناریوهای Benign، Removal، Regeneration و Copy-Paste را جدا بنویس."
+        },
+        {
+          "source_task_id": "contract-3",
+          "text": "برای هر سناریو دسترسی به Model/Detector/Key/نمونه‌ها، Query Budget، Quality Constraint و Success Condition را مشخص کن."
+        },
+        {
+          "source_task_id": "contract-3",
+          "text": "Wrong-owner، Wrong-key و Clean Negative را از Forgery موفق تفکیک کن؛ چند Owner/Key آزموده‌شده برای یک تصویر بر False Attribution اثر دارد و Query Count باید معلوم باشد."
+        },
+        {
+          "source_task_id": "contract-3",
+          "text": "Adaptive/White-box، Asymmetric Geometry و Composite Attack را IN_SCOPE یا EXCLUDED_WITH_REASON ثبت کن؛ Exclusion با مصوب تعارض نداشته باشد و در نتیجه‌گیری امنیت کلی ادعا نشود."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "contract-2",
+          "text": "Shape یا ورودی پژوهشی نامعلوم را حدس نزن؛ به repair-4 منتقل و BLOCKED_DECISION مربوطه ثبت کن."
+        },
+        {
+          "source_task_id": "contract-3",
+          "text": "اگر سطح دسترسی یا هدف حمله مبهم است، همان سناریو BLOCKED_DECISION؛ امنیت کلی ادعا نکن."
+        }
+      ],
+      "execution": "DOCUMENT"
+    },
+    {
+      "id": "A2b",
+      "title": "Traceability, research contract and scope guard",
+      "milestone_id": "spec",
+      "source_task_ids": [
+        "repair-2",
+        "contract-4",
+        "method-6"
+      ],
+      "source_phase_ids": [
+        "proposal-repair",
+        "contract",
+        "method"
+      ],
+      "dependencies": [
+        "A2a",
+        "A3"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "همه Requirementها پوشش دارند؛ ردیف بدون Metric یا Control توضیح دارد.",
+        "هیچ نتیجه‌ای پیشاپیش ثبت نشده.",
+        "هیچ Approval فرضی نیست؛ کارهای مستقل و مجاز مشخص‌اند.",
+        "تعهد داده و روش به دلیل سرعت بی‌سروصدا کم نشده است.",
+        "تعهدهای مصوب حذف نشده‌اند و Method توسعه صنعتی ندارد."
+      ],
+      "inputs": [
+        "research/claims.csv",
+        "research/io-spec.md",
+        "research/threat-model.md",
+        "research/scope.md",
+        "research/scope-matrix.csv",
+        "research/research-contract.md"
+      ],
+      "outputs": [
+        [
+          "research/scope-matrix.csv",
+          "requirement_id, source_locator, input_route(real|generated), protected_unit, claim_type, component, dataset, baseline, metric, experiment_id, control_ids, evidence_path, implementation_status, evidence_status"
+        ],
+        [
+          "research/research-contract.md",
+          "Scope، Data/Method commitments، تصمیم‌های باز و وضعیت Approval"
+        ],
+        [
+          "research/scope-guard.md",
+          "allowed_method, forbidden_automatic_changes, unresolved_scope_conflicts"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "repair-2",
+          "text": "برای هر REQ/RQ یک ردیف بساز و Component، Dataset، Baseline، Metric و Experiment ID پیشنهاد کن."
+        },
+        {
+          "source_task_id": "repair-2",
+          "text": "برای هر Experiment Control مثبت/منفی و Evidence Path برنامه‌ریزی‌شده تعیین کن."
+        },
+        {
+          "source_task_id": "repair-2",
+          "text": "ستون implementation_status و evidence_status را PLANNED بگذار؛ فایل هنوز ساخته‌نشده را Completed ننام."
+        },
+        {
+          "source_task_id": "repair-2",
+          "text": "Coverage را با تمام شناسه‌های claims.csv تطبیق بده."
+        },
+        {
+          "source_task_id": "contract-4",
+          "text": "هر Component و Experiment را با Source Locator پروپوزال تطبیق بده."
+        },
+        {
+          "source_task_id": "contract-4",
+          "text": "اختلاف‌های صرفاً اجرایی را از تغییر اساسی روش تفکیک کن."
+        },
+        {
+          "source_task_id": "contract-4",
+          "text": "Research Contract را با حدود تغییر مجاز و فهرست تصمیم‌های لازم ببند؛ تأیید استاد فقط با Evidence واقعی ثبت شود."
+        },
+        {
+          "source_task_id": "method-6",
+          "text": "Scope Guard را در README و Method Specification اضافه کن: روش مصوب، عدم توسعه Transfer/Ledger و منع تغییر خودکار Detector."
+        },
+        {
+          "source_task_id": "method-6",
+          "text": "برای هر Alternative مرز «فقط مقایسه» یا «نیازمند Approval» را بنویس."
+        },
+        {
+          "source_task_id": "method-6",
+          "text": "اشاره روایی پروپوزال را از پروتکل پیاده‌سازی‌شده جدا کن."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "repair-2",
+          "text": "Requirement بدون Experiment قابل آزمون را BLOCKED_DECISION کن؛ از Matrix حذف نکن."
+        },
+        {
+          "source_task_id": "contract-4",
+          "text": "در تعارض هسته‌ای، فقط مسیر وابسته BLOCKED_DECISION؛ توقف اداری برای کار بی‌تعارض نساز."
+        },
+        {
+          "source_task_id": "method-6",
+          "text": "تعارض واقعی Scope را با Source Locator برای تصمیم ارسال کن."
+        }
+      ],
+      "execution": "DOCUMENT"
+    },
+    {
+      "id": "A4",
+      "title": "Acceptance criteria, sample size and stop rules",
+      "milestone_id": "spec",
+      "source_task_ids": [
+        "repair-3",
+        "contract-5"
+      ],
+      "source_phase_ids": [
+        "proposal-repair",
+        "contract"
+      ],
+      "dependencies": [
+        "A2a",
+        "A5"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "هر Target یا منبع مصوب دارد یا Explicit Draft Decision است؛ RQ و Metric مصوب حذف نشده.",
+        "Precision/FPR با محاسبه قابل بازتولید و فرض استقلال مشخص‌اند؛ عدد دلخواه به عنوان شرط دانشگاه معرفی نشده.",
+        "Stop Rule سنجش/انتخاب GPU یا خرید Server ندارد.",
+        "Fallback آموختنی/تغییر Detector بدون تصمیم مجاز اعلام نشده."
+      ],
+      "inputs": [
+        "research/claims.csv",
+        "research/acceptance.md",
+        "research/method-spec.md"
+      ],
+      "outputs": [
+        [
+          "research/acceptance.md",
+          "claim_id, primary_or_secondary, metric_definition, target_source, criterion, analysis_unit, comparator, direction, practical_margin, family_id"
+        ],
+        [
+          "research/sample-size.md",
+          "approved_counts, planned_independent_counts_by_split_domain_class, design_method, assumptions, precision_or_effect, confidence_level, sensitivity_table, fpr_resolution, unresolved_decisions"
+        ],
+        [
+          "research/stop-rules.md",
+          "trigger, evidence_required, status, allowed_next_action"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "repair-3",
+          "text": "برای هر Claim مصوب، Endpoint، Comparator، جهت اثر، اهمیت عملی و Criteria را ثبت کن؛ یک Primary Endpoint مطالعه و Endpoint هر RQ با Family مشخص انتخاب کن، نه RQ تازه."
+        },
+        {
+          "source_task_id": "repair-3",
+          "text": "PSNR > 35، SSIM > 0.9 و LPIPS < 0.1 را Target مصوب بنام، نه قانون جهانی. ACC، AUC، Detection Rate و Runtime مصوب حفظ شوند؛ TPR در Threshold قفل‌شده با Target FPR پیشنهاد تکمیلی است."
+        },
+        {
+          "source_task_id": "repair-3",
+          "text": "برای Key، معیار Exact Agreement و False-match/Collision، Positive/Hard-negative Pair، Domain و Rule پاس/رد بنویس؛ برای Noise→DCT معیار جدایی از Controls تعریف کن. پارامترهای حل‌نشده Draft/BLOCKED_DECISION بمانند."
+        },
+        {
+          "source_task_id": "repair-3",
+          "text": "Sample-size Plan را بدون نیاز به Pilot جدا تدوین کن: N تعهدشده، N مستقل هر Split/Domain/Positive/Negative، سطح CI، Precision مطلوب یا Minimum Detectable Effect، فرض‌ها و Sensitivity Table. می‌توان Precision را با فرض محافظه‌کارانه Binomial p=0.5 طراحی و سپس با Wilson/Exact محاسبه کرد؛ برای Paired/Cluster تحلیل متناسب لازم است."
+        },
+        {
+          "source_task_id": "repair-3",
+          "text": "برای Fixed N، دقت قابل حصول را محاسبه کن و کافی‌نبودن را گزارش بده؛ Bootstrap اطلاعات جدید نمی‌سازد. N داده‌های کل با N مستقل هر Cell یکی نیست و Sample Size مصوب یک‌جانبه کم نشود."
+        },
+        {
+          "source_task_id": "repair-3",
+          "text": "FPR Target را با Negative Count تطبیق بده: برای صفر FP در n آزمون Bernoulli مستقل با Threshold از قبل ثابت، حد بالای یک‌طرفه 95% برابر 1−0.05^(1/n) است؛ مثلاً n=1000 حدود 0.003 است نه صفر. این فرمول روی همان داده انتخاب Threshold یا Pairهای وابسته معتبر نیست."
+        },
+        {
+          "source_task_id": "repair-3",
+          "text": "برای Non-inferiority یک Margin موجه قبل از Test و توان/Precision متناسب تعریف کن؛ p غیرمعنادار اثبات برابری نیست. Family، Alpha و CI Rule پیش‌نویس ثبت و در eval-1 Freeze شوند."
+        },
+        {
+          "source_task_id": "contract-5",
+          "text": "کنترل‌های فنی را تعیین کن: Determinism، Finite Output، Shape، Control مثبت/منفی و ممنوعیت Leakage."
+        },
+        {
+          "source_task_id": "contract-5",
+          "text": "شرط شروع Evaluation انبوه را سلامت Pipeline و Freeze Protocol قرار بده؛ زمان‌بندی به‌تنهایی Gate نیست."
+        },
+        {
+          "source_task_id": "contract-5",
+          "text": "شرط STOP برای Method Change، داده ناموجود یا Error تکراری را بنویس؛ فهرست کارهای مستقل قابل ادامه را مشخص کن."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "repair-3",
+          "text": "Endpoint/Target نامشخص یا N نامتناسب: BLOCKED_DECISION با محاسبه و گزینه‌های داخل Scope؛ برای عبور از Gate نتیجه دلخواه یا Pilot اجباری اختراع نکن."
+        },
+        {
+          "source_task_id": "contract-5",
+          "text": "Threshold پژوهشی unresolved را عددسازی نکن؛ Task وابسته پیش از Freeze متوقف بماند."
+        }
+      ],
+      "execution": "DOCUMENT"
+    },
+    {
+      "id": "A5",
+      "title": "Architecture specification",
+      "milestone_id": "spec",
+      "source_task_ids": [
+        "repair-4"
+      ],
+      "source_phase_ids": [
+        "proposal-repair"
+      ],
+      "dependencies": [
+        "A3"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "Algorithm از ورودی تا Score قابل دنبال‌کردن است؛ تمام Shapeها سازگارند.",
+        "موارد حل‌نشده واضح‌اند؛ DCT، Noise Bridge و Semantic Key Stability حدس زده نشده‌اند."
+      ],
+      "inputs": [
+        "research/io-spec.md",
+        "research/notation.csv",
+        "research/threat-model.md",
+        "inputs/approved-proposal.docx"
+      ],
+      "outputs": [
+        [
+          "research/method-spec.md",
+          "Algorithmها، معادلات، Model Revision، Inputs، Decision Rule و unresolved decisions"
+        ],
+        [
+          "configs/method.schema.json",
+          "types, required keys, ranges; ممنوعیت Unknown/TBD در Config نهایی"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "repair-4",
+          "text": "دو Algorithm جدا برای Embedding و Verification با Equation/Pseudocode، dtype/Shape و ترتیب عملیات بنویس؛ Existing Image حتی اگر از DiffusionDB باشد با Prompt-to-image یکی نیست. در Generated Route دور وابستگی Feature تصویر نهایی به Noise اولیه باید حل‌شده یا UNRESOLVED باشد."
+        },
+        {
+          "source_task_id": "repair-4",
+          "text": "مدل/Revision، CLIP preprocessing، Normalization، Quantization/LSH Algorithm، Projection Seed، Bit Length، Distance، Serialization و Fusion دقیق Ws/Wi/OwnerID را بنویس. Raw Float Hash یا صرف نام LSH کافی نیست؛ اثر Avalanche پس از Hash و شرط بازیابی همان Pattern مشخص شود."
+        },
+        {
+          "source_task_id": "repair-4",
+          "text": "تزریق Noise/Latent را با فرمول، Shape، Mask و Strength و Detector Image-DCT را با Channel، Padding، بلوک 8×8، Mid-band Index، Template، Normalization و Score Equation تعریف کن."
+        },
+        {
+          "source_task_id": "repair-4",
+          "text": "Bridge را به زنجیره قابل آزمون Pattern→Noise→Image→DCT تبدیل کن؛ Template باید بدون اطلاعات ممنوع قابل ساخت باشد. مقداردهی Parameters انتخاب روش پژوهشی است، نه پرکردن دلخواه جای خالی."
+        },
+        {
+          "source_task_id": "repair-4",
+          "text": "برای Existing-image، Reconstruction/Optimization/Inversion احتمالی و Reference کیفیت صریح باشد؛ Caption و Regeneration جای حفاظت همان Instance نیست. اگر Full Verification به CLIP نیاز دارد کل Pipeline را Model-free ننام."
+        },
+        {
+          "source_task_id": "repair-4",
+          "text": "Decision Rule، Validation Calibration، Scope اعتبار و unresolved decisions را ثبت کن؛ Ws-only علت Regeneration را به‌تنهایی اثبات نمی‌کند. Config Schema بنویس و TBD هسته‌ای را پیش از اجرای نهایی مسدود کن."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "repair-4",
+          "text": "این Task شامل تصمیم پژوهشی است. اگر الگوریتم کامل از متن/تصمیم معتبر قابل استخراج نیست، BLOCKED_DECISION با گزینه‌ها و پیامد تغییر Scope؛ ادامه کور ممنوع."
+        }
+      ],
+      "execution": "DOCUMENT"
+    },
+    {
+      "id": "A6",
+      "title": "Environment lock",
+      "milestone_id": "spec",
+      "source_task_ids": [
+        "eng-2"
+      ],
+      "source_phase_ids": [
+        "engineering"
+      ],
+      "dependencies": [
+        "A1",
+        "A5"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "Environment از Lockfile قابل ساخت و Importهای لازم موفق‌اند.",
+        "هیچ Task خرید یا صلاحیت‌سنجی GPU اجرا نشده است."
+      ],
+      "inputs": [
+        "README.md",
+        "research/method-spec.md",
+        "Workspace و Runtime مجاز؛ دسترسی GPU برای اجراهای GPU بعداً توسط دانشجو ارائه می‌شود."
+      ],
+      "outputs": [
+        [
+          "requirements.lock",
+          "نسخه دقیق Dependencyها یا معادل Lockfile همان Package Manager"
+        ],
+        [
+          "research/environment.md",
+          "Python/package versions, setup commands؛ بدون Credential"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "eng-2",
+          "text": "Environment جدا برای Repository بساز؛ نسخه Python و Packageهای لازم از Model/Official Code منتخب بیاید."
+        },
+        {
+          "source_task_id": "eng-2",
+          "text": "Dependencyها را با نسخه دقیق Lock کن؛ سیستم میزبان، Driver یا تنظیمات امنیتی را بی‌اجازه تغییر نده."
+        },
+        {
+          "source_task_id": "eng-2",
+          "text": "Importهای لازم و Unit Testهای CPU قابل اجرا را بررسی کن؛ Stress Test، VRAM Sweep و Benchmark GPU انجام نده."
+        },
+        {
+          "source_task_id": "eng-2",
+          "text": "Command Setup و نسخه‌های Runtime را در README ثبت کن؛ اگر Environment راه دور هنوز در دسترس نیست آن ورودی را Pending بنویس."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "eng-2",
+          "text": "Package/Permission ناموجود: BLOCKED_INPUT با Error دقیق. نیاز به Admin یا تغییر Driver را خودکار انجام نده."
+        }
+      ],
+      "execution": "CPU"
+    },
+    {
+      "id": "B1",
+      "title": "Search protocol, literature matrix and bibliography",
+      "milestone_id": "data",
+      "source_task_ids": [
+        "lit-1",
+        "lit-2",
+        "repair-5"
+      ],
+      "source_phase_ids": [
+        "literature",
+        "proposal-repair"
+      ],
+      "dependencies": [
+        "A2a"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "جست‌وجوی واقعی از پیشنهاد جست‌وجو متمایز است.",
+        "نبود نتیجه مساوی اثبات عدم وجود مشابه نیست.",
+        "هر مقایسه به منبع قابل بازبینی وصل است.",
+        "نام مشابه یا دو Key به‌تنهایی معادل روش یکسان تلقی نشده.",
+        "BibTeX Parse می‌شود؛ Duplicate Key و Citation ساختگی وجود ندارد."
+      ],
+      "inputs": [
+        "research/claims.csv",
+        "گزارش Novelty قبلی دانشجو، اگر در دسترس است؛ جایگزین منبع اصلی نیست.",
+        "research/search-results.csv",
+        "Full Text منابع منتخب یا Abstract با برچسب محدودیت",
+        "research/literature-matrix.csv"
+      ],
+      "outputs": [
+        [
+          "research/literature-protocol.md",
+          "queries, databases, dates, criteria, access_limits"
+        ],
+        [
+          "research/search-results.csv",
+          "title, authors, year, doi_or_url, query_id, inclusion_status"
+        ],
+        [
+          "research/literature-matrix.csv",
+          "paper_id, source, status, embedding_space, detector, content_binding, data, attacks, metrics, locator, limitation"
+        ],
+        [
+          "research/references.bib",
+          "BibTeX با Key یکتا و DOI/URL معتبر"
+        ],
+        [
+          "research/citation-audit.csv",
+          "citation_key, verified_fields, source_url, access_depth"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "lit-1",
+          "text": "Queryها را بر اساس Semantic/Instance Binding، Diffusion Watermarking، Image-DCT Detection و Regeneration بنویس."
+        },
+        {
+          "source_task_id": "lit-1",
+          "text": "Database، Search Date، بازه زمانی، Inclusion/Exclusion و سطح دسترسی را قبل از انتخاب مقاله ثبت کن."
+        },
+        {
+          "source_task_id": "lit-1",
+          "text": "نتایج اولیه را با Title، Authors، Year، DOI/URL و Query ذخیره و Deduplicate کن؛ عدم دسترسی به پایگاه را صریح بنویس."
+        },
+        {
+          "source_task_id": "lit-2",
+          "text": "برای نزدیک‌ترین روش‌ها از جمله SEAL و آثار نزدیک شناسایی‌شده در Audit، متن اصلی را بخوان."
+        },
+        {
+          "source_task_id": "lit-2",
+          "text": "Embedding Space، Detector، نیاز Inversion/Model، Content Binding، Dataset، Attack و Metric را استخراج کن."
+        },
+        {
+          "source_task_id": "lit-2",
+          "text": "برای هر گزاره Page/Section و Evidence Depth ثبت کن؛ Preprint را Peer-reviewed معرفی نکن."
+        },
+        {
+          "source_task_id": "lit-2",
+          "text": "تفاوت Image-DCT با Latent-DCT و تفاوت Model-free با Inversion-free را در ستون جدا بنویس."
+        },
+        {
+          "source_task_id": "repair-5",
+          "text": "برای منابع استفاده‌شده BibTeX معتبر از ناشر/صفحه اصلی تهیه کن."
+        },
+        {
+          "source_task_id": "repair-5",
+          "text": "DOI، عنوان، Authors، سال و Publication Status را با منبع تطبیق بده."
+        },
+        {
+          "source_task_id": "repair-5",
+          "text": "Citation Key یکتا ایجاد و منابع بدون دسترسی کامل را علامت بزن."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "lit-1",
+          "text": "اگر Search Access موجود نیست، BLOCKED_INPUT؛ نتیجه جست‌وجو یا Citation اختراع نکن."
+        },
+        {
+          "source_task_id": "lit-2",
+          "text": "PDF ناموجود: فقط اطلاعات قابل احراز را ثبت و بقیه را UNKNOWN بگذار."
+        },
+        {
+          "source_task_id": "repair-5",
+          "text": "منبع تأییدنشده وارد ادعای قطعی نشود؛ فیلدهای ناقص را گزارش کن."
+        }
+      ],
+      "execution": "DOCUMENT"
+    },
+    {
+      "id": "B2",
+      "title": "Baseline selection and reproducibility review",
+      "milestone_id": "data",
+      "source_task_ids": [
+        "lit-4",
+        "lit-3",
+        "lit-5"
+      ],
+      "source_phase_ids": [
+        "literature"
+      ],
+      "dependencies": [
+        "B1",
+        "A3",
+        "A2b"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "هر Ready Card به کد و مجوز واقعی وصل است.",
+        "Unavailable و تفاوت Reimplementation با Official واضح است.",
+        "هیچ Baseline سخت فقط برای بهترشدن نتیجه حذف نشده.",
+        "سه خانواده روش اجبار اضافه محسوب نشده؛ تعهد اصلی حفظ شده است.",
+        "Contribution از نبود مقاله در یک Search نتیجه نشده.",
+        "معلوم است کدام بخش Hypothesis است و کدام prior work."
+      ],
+      "inputs": [
+        "research/literature-matrix.csv",
+        "Official Repository و Model Card منابع مرتبط",
+        "research/baseline-readiness.json",
+        "research/threat-model.md",
+        "research/scope-matrix.csv"
+      ],
+      "outputs": [
+        [
+          "research/baseline-readiness.json",
+          "paper_id, code_url, commit, checkpoint, license, example_command, status, evidence_url"
+        ],
+        [
+          "research/baseline-selection.md",
+          "required_vs_optional, selected_method, fairness_conditions, exclusion_reason"
+        ],
+        [
+          "configs/baselines.json",
+          "method_id, source_commit, checkpoint_ref, adapter_entrypoint, resolved_parameters"
+        ],
+        [
+          "research/novelty-claim.md",
+          "candidate_claim, closest_work, differences, falsification_test, search_limits"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "lit-4",
+          "text": "برای SEAL و Candidateهای مرتبط، Official Code URL، Commit، Checkpoint URL/Hash و License را پیدا کن."
+        },
+        {
+          "source_task_id": "lit-4",
+          "text": "I/O، Model Dependency، Detector Requirements و Command رسمی Example را بخوان؛ هنوز خرید یا سنجش GPU انجام نده."
+        },
+        {
+          "source_task_id": "lit-4",
+          "text": "برای هر مورد OFFICIAL_AVAILABLE، REIMPLEMENTATION_NEEDED یا UNAVAILABLE ثبت کن؛ URL ناموجود را حدس نزن."
+        },
+        {
+          "source_task_id": "lit-3",
+          "text": "Baselineهای تعهدشده را از Candidate تکمیلی جدا کن؛ سه نقش را بررسی کن: Direct-DCT Control، نزدیک‌ترین Semantic Method مانند SEAL و روش قوی Existing-image/Latent متناسب با Scope. سه نقش الزاماً سه روش مجزا نیستند."
+        },
+        {
+          "source_task_id": "lit-3",
+          "text": "برای هر RQ، Comparator مناسب و دلیل کفایت را بنویس؛ ZoDiac یا روش دیگر صرفاً Candidate است، نه روش اصلی جایگزین. اگر مقایسه کافی نیست Claim برتری را بدون مجوز گسترش نده."
+        },
+        {
+          "source_task_id": "lit-3",
+          "text": "Domain و Input Route، Payload/Detection Task، Quality Budget، Test IDs و Detector Access را هم‌تراز کن؛ روش Generated-only را روی Real-image به‌زور قابل مقایسه ننام."
+        },
+        {
+          "source_task_id": "lit-3",
+          "text": "انتخاب/رد را قبل از Test ثبت کن؛ جدول جدا برای مقایسه مستقیم، مقایسه محدود و صرفاً Related Work بساز. Revision مقاله/Code Pin شود؛ Baseline ناموجود دلیل حذف بی‌اجازه تعهد نیست."
+        },
+        {
+          "source_task_id": "lit-5",
+          "text": "نزدیک‌ترین روش‌ها را با ترکیب دقیق Method مصوب مقایسه کن."
+        },
+        {
+          "source_task_id": "lit-5",
+          "text": "Claim بالقوه Contribution را در ۱۵۰–۲۵۰ کلمه همراه محدودیت و آزمون لازم بنویس."
+        },
+        {
+          "source_task_id": "lit-5",
+          "text": "عبارت first/novel را فقط در دامنه بررسی‌شده و با Evidence استفاده کن؛ این متن پس از نتایج دوباره ممیزی شود."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "lit-4",
+          "text": "اگر کد/Checkpoint مسدود است همان روش BLOCKED_INPUT؛ جایگزین را بدون توجیه انتخاب نکن."
+        },
+        {
+          "source_task_id": "lit-3",
+          "text": "ناسازگاری Domain را با جدول جدا و محدودیت گزارش کن؛ برتری مستقیم نامنصفانه نتیجه نگیر."
+        },
+        {
+          "source_task_id": "lit-5",
+          "text": "همپوشانی جدی را پنهان نکن؛ با Citation دقیق BLOCKED_DECISION مربوط به Claim ثبت کن."
+        }
+      ],
+      "execution": "DOCUMENT"
+    },
+    {
+      "id": "B3",
+      "title": "Data manifest, licensing and datasheet",
+      "milestone_id": "data",
+      "source_task_ids": [
+        "data-1",
+        "data-4"
+      ],
+      "source_phase_ids": [
+        "data"
+      ],
+      "dependencies": [
+        "A6",
+        "A2a"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "هر ID یکتا و هر مسیر موجود است؛ Corrupt File بی‌صدا حذف نشده.",
+        "Subset توسعه و اندازه نهایی جدا هستند؛ GPU Capacity ارزیابی نشده.",
+        "منبع و حق استفاده مشخص است؛ تصویر واقعی با Prompt تولیدی جایگزین نشده."
+      ],
+      "inputs": [
+        "data/datasheet.md",
+        "دسترسی مجاز به Datasetها",
+        "research/claims.csv",
+        "صفحات رسمی COCO، DIV2K، DiffusionDB و License مربوطه"
+      ],
+      "outputs": [
+        [
+          "data/manifest.csv",
+          "image_id, sha256, dataset, version, raw_path, width, height, license_ref, decode_status"
+        ],
+        [
+          "data/dev-ids.json",
+          "seed, ids, selection_rule"
+        ],
+        [
+          "data/datasheet.md",
+          "dataset, version, source, license, citation, commitments, content_handling"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "data-1",
+          "text": "Datasetها را فقط از Source ثبت‌شده دریافت یا مسیر نسخه موجود را Resolve کن؛ اصل فایل‌ها Read-only بماند."
+        },
+        {
+          "source_task_id": "data-1",
+          "text": "برای هر تصویر ID پایدار، SHA256، Dataset/Version، Dimensions، File Path و License Reference بساز."
+        },
+        {
+          "source_task_id": "data-1",
+          "text": "Subset کوچک Development را با Seed و فهرست ID ثابت مشخص کن؛ این Subset جای Evaluation نهایی نیست."
+        },
+        {
+          "source_task_id": "data-1",
+          "text": "خرابی Decode و Duplicate Exact را ثبت کن؛ تعداد دریافت‌شده با Commitmentها تطبیق داده شود."
+        },
+        {
+          "source_task_id": "data-4",
+          "text": "Version، Download Source، Citation و License هر Dataset را از منبع اصلی ثبت کن."
+        },
+        {
+          "source_task_id": "data-4",
+          "text": "اندازه و Splitهای ذکرشده در پروپوزال را عیناً به جدول Commitment منتقل کن؛ اصطلاح Version نامعتبر را برای تصمیم علامت بزن."
+        },
+        {
+          "source_task_id": "data-4",
+          "text": "محدودیت Redistribution، محتوای حساس و نمایش تصویر در پایان‌نامه را ثبت کن؛ License را خودکار نپذیر اگر اختیار لازم وجود ندارد."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "data-1",
+          "text": "دانلود ناقص را Complete ننام؛ فهرست Missing ID و Source را برای ادامه ذخیره کن."
+        },
+        {
+          "source_task_id": "data-4",
+          "text": "ابهام License/Version: BLOCKED_INPUT یا BLOCKED_DECISION برای همان منبع؛ دانلود حدسی نکن."
+        }
+      ],
+      "execution": "CPU"
+    },
+    {
+      "id": "B4",
+      "title": "Sampling, split lock and OOD holdout",
+      "milestone_id": "data",
+      "source_task_ids": [
+        "data-2",
+        "data-3"
+      ],
+      "source_phase_ids": [
+        "data"
+      ],
+      "dependencies": [
+        "B5",
+        "A4",
+        "A2b"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "python -m pytest tests/test_splits.py موفق است.",
+        "N مستقل هر Domain/Split/Class با Sample-size Plan تطبیق و در data/sample-size-check.json ثبت شده؛ کمبود صریح است.",
+        "Test IDها برای انتخاب Method استفاده نمی‌شوند؛ Dev IDs قبلاً دیده‌شده هرگز وارد Validation/Test نشده‌اند.",
+        "Claim تعمیم خارج‌دامنه بدون Holdout معتبر مطرح نمی‌شود.",
+        "required=false دارای دلیل قابل تطبیق با Scope است."
+      ],
+      "inputs": [
+        "data/manifest.csv",
+        "data/dev-ids.json",
+        "configs/data.json",
+        "research/sample-size.md",
+        "research/scope-matrix.csv",
+        "data/splits.csv",
+        "data/datasheet.md"
+      ],
+      "outputs": [
+        [
+          "configs/splits.json",
+          "seed, counts, grouping_rule, near_duplicate_threshold, pair_dependency_policy"
+        ],
+        [
+          "data/splits.csv",
+          "image_id, group_id, split, dataset"
+        ],
+        [
+          "data/sample-size-check.json",
+          "plan_hash, split_hash, cells[{domain,split,class,planned_n,actual_independent_n,row_count,status}], shortfalls[]"
+        ],
+        [
+          "tests/test_splits.py",
+          "no ID/group leakage, dev IDs retained, exact counts"
+        ],
+        [
+          "data/holdout.json",
+          "required, claim_ids, domain, ids, exclusion_from_dev, reason_if_not_required"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "data-2",
+          "text": "قاعده Sampling و Count هر Split/Domain/Class را از sample-size.md در configs/splits.json ثبت کن؛ تعهدهای مصوب رعایت شوند."
+        },
+        {
+          "source_task_id": "data-2",
+          "text": "Exact/Near Duplicateها را Group کن؛ آستانه و Algorithm ثبت شود و گروه بین Splitها تقسیم نشود. Dev IDs قبلاً دیده‌شده با کل گروه در Development باقی بمانند."
+        },
+        {
+          "source_task_id": "data-2",
+          "text": "Development، Validation و Test را با ID ثابت بساز؛ برای Forgery سیاست استفاده مشترک Donor/Recipient و Grouping تحلیل و برای Generated Data Source/Prompt Group را ثبت کن."
+        },
+        {
+          "source_task_id": "data-2",
+          "text": "N مستقل، N Row و N Positive/Negative را مقابل طراحی آماری کنترل و sample-size-check.json بنویس؛ کمبود هر Cell را صریح ثبت کن."
+        },
+        {
+          "source_task_id": "data-2",
+          "text": "Test عدم همپوشانی ID/Group، حفظ Dev IDs و Countها را اجرا و Manifest Freeze کن؛ حساب‌کردن Seedها به عنوان تصاویر مستقل ممنوع."
+        },
+        {
+          "source_task_id": "data-3",
+          "text": "بررسی کن Cross-model Holdout برای کدام Claim لازم است."
+        },
+        {
+          "source_task_id": "data-3",
+          "text": "اگر لازم است Model/Domain جدا و IDهای Test آن را بدون استفاده در Development تعیین کن."
+        },
+        {
+          "source_task_id": "data-3",
+          "text": "اگر در Scope لازم نیست، دلیل N/A را بنویس؛ حذف تعهد مصوب با N/A مجاز نیست."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "data-2",
+          "text": "Leakage یا N ناکافی: پیش از Test با ثبت نسخه و بدون کاهش تعهد اصلاح کن؛ استفاده قبلی Test را گزارش کن. کمبود حل‌نشده BLOCKED_DECISION است."
+        },
+        {
+          "source_task_id": "data-3",
+          "text": "داده Holdout لازم اما ناموجود: BLOCKED_INPUT؛ مطالعه تک‌مدلی را Cross-model نام‌گذاری نکن."
+        }
+      ],
+      "execution": "CPU"
+    },
+    {
+      "id": "B5",
+      "title": "Versioned preprocessing",
+      "milestone_id": "data",
+      "source_task_ids": [
+        "data-5"
+      ],
+      "source_phase_ids": [
+        "data"
+      ],
+      "dependencies": [
+        "B3",
+        "A5"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "python -m pytest tests/test_preprocess.py موفق است؛ Command/Output در Handoff ثبت شود.",
+        "Hash داده خام قبل/بعد ثابت است."
+      ],
+      "inputs": [
+        "data/manifest.csv",
+        "research/method-spec.md"
+      ],
+      "outputs": [
+        [
+          "src/data/preprocess.py",
+          "تابع با I/O منطبق با io-spec"
+        ],
+        [
+          "configs/data.json",
+          "resize, crop, color_space, normalization, preprocessing_version"
+        ],
+        [
+          "tests/test_preprocess.py",
+          "Shape، Range، Original Preservation و Determinism"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "data-5",
+          "text": "Preprocessing قطعی برای Resize/Crop، RGB، Range و Normalization از Specification تعریف کن."
+        },
+        {
+          "source_task_id": "data-5",
+          "text": "تابع src/data/preprocess.py را بنویس؛ ورودی اصلی را تغییر نده و خروجی در مسیر مشتق جدا باشد."
+        },
+        {
+          "source_task_id": "data-5",
+          "text": "Config و Code Hash را به Manifest خروجی اضافه کن."
+        },
+        {
+          "source_task_id": "data-5",
+          "text": "Test برای Dimensions، Channel Order، Range و تکرارپذیری بنویس و اجرا کن."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "data-5",
+          "text": "Mismatch Shape/Range را در همین تابع رفع کن؛ Model/Metric را برای پنهان‌کردن خطا تغییر نده."
+        }
+      ],
+      "execution": "CPU"
+    },
+    {
+      "id": "B6",
+      "title": "Thesis outline and university template",
+      "milestone_id": "data",
+      "source_task_ids": [
+        "write-1",
+        "repair-6"
+      ],
+      "source_phase_ids": [
+        "writing",
+        "proposal-repair"
+      ],
+      "dependencies": [
+        "A2b",
+        "A1"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "تمام RQها بخش پاسخ دارند؛ Chapter Count از قالب دانشگاه آمده نه عدد ثابت دلخواه.",
+        "منبع قالب مشخص است؛ Equation و متن RTL در خروجی سالم‌اند."
+      ],
+      "inputs": [
+        "research/scope-matrix.csv",
+        "thesis/template.docx",
+        "قالب و دستورالعمل واقعی دانشکده شهید بهشتی؛ از دانشجو یا منبع رسمی"
+      ],
+      "outputs": [
+        [
+          "thesis/outline.md",
+          "chapter, section, requirement_ids, expected_figures, evidence_task_ids"
+        ],
+        [
+          "thesis/template.docx",
+          "Template مبتنی بر دستورالعمل واقعی"
+        ],
+        [
+          "thesis/format-checklist.md",
+          "rule, source_locator, implemented, evidence"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "write-1",
+          "text": "فصل‌ها را طبق قالب واقعی دانشکده بچین؛ Problem، Related Work، Method، Evaluation، Results و Discussion پوشش داده شوند."
+        },
+        {
+          "source_task_id": "write-1",
+          "text": "برای هر RQ محل پاسخ، جدول، شکل و Experiment را مشخص کن."
+        },
+        {
+          "source_task_id": "write-1",
+          "text": "بخش‌های بدون Evidence را TODO با شناسه Task مسئول بنویس؛ جمله نتیجه‌گیری پیشاپیش ننویس."
+        },
+        {
+          "source_task_id": "repair-6",
+          "text": "قالب فعلی را همراه تاریخ/منبع نگه دار؛ قواعد دانشگاه دیگر را جایگزین نکن."
+        },
+        {
+          "source_task_id": "repair-6",
+          "text": "Heading، Caption، Equation، Cross-reference، Citation و Font را در Template پیاده کن."
+        },
+        {
+          "source_task_id": "repair-6",
+          "text": "یک صفحه نمونه با فارسی، English، Equation و جدول Render کن و خوانایی را بررسی کن."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "write-1",
+          "text": "قالب رسمی ناموجود: Outline موقت با برچسب DRAFT؛ انطباق رسمی را تأیید نکن."
+        },
+        {
+          "source_task_id": "repair-6",
+          "text": "قالب ناموجود: BLOCKED_INPUT برای تطبیق رسمی؛ Draft ساختاری مستقل می‌تواند ادامه یابد ولی Approved نامیده نشود."
+        }
+      ],
+      "execution": "DOCUMENT"
+    },
+    {
+      "id": "C1",
+      "title": "Configuration and run logging",
+      "milestone_id": "method",
+      "source_task_ids": [
+        "eng-3"
+      ],
+      "source_phase_ids": [
+        "engineering"
+      ],
+      "dependencies": [
+        "A6",
+        "A3"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "python -m pytest tests/test_runtime.py موفق است.",
+        "Run دوم خروجی Run اول را تغییر نمی‌دهد."
+      ],
+      "inputs": [
+        "research/io-spec.md",
+        "requirements.lock"
+      ],
+      "outputs": [
+        [
+          "src/runtime/config.py",
+          "Load و Validate Config"
+        ],
+        [
+          "src/runtime/logging.py",
+          "Run directory، JSONL، Metadata و Resume Guard"
+        ],
+        [
+          "tests/test_runtime.py",
+          "invalid config rejection, no overwrite, resume mismatch rejection"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "eng-3",
+          "text": "Config Loader با Schema Validation بساز؛ Unknown Field، NaN و TBD در Config اجرایی رد شوند."
+        },
+        {
+          "source_task_id": "eng-3",
+          "text": "برای هر Run یک run_id یکتا و پوشه runs/<run_id>/ بساز؛ Resume فقط با Config و Input Hash یکسان."
+        },
+        {
+          "source_task_id": "eng-3",
+          "text": "JSONL Logger با image_id, method_id, attack_id, seed, score, status, error بنویس؛ Credential در Log نباشد."
+        },
+        {
+          "source_task_id": "eng-3",
+          "text": "هر Run Config Snapshot، Code Commit و نسخه Environment را ذخیره کند؛ Result نهایی را Append/Overwrite مبهم نکن."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "eng-3",
+          "text": "Config ناسازگار را Error صریح کن؛ Default پنهانی نگذار."
+        }
+      ],
+      "execution": "CPU"
+    },
+    {
+      "id": "C3a",
+      "title": "Owner identity and key protocol",
+      "milestone_id": "method",
+      "source_task_ids": [
+        "method-3"
+      ],
+      "source_phase_ids": [
+        "method"
+      ],
+      "dependencies": [
+        "A5",
+        "A3",
+        "C1"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "python -m pytest tests/test_owner.py موفق است.",
+        "OwnerID عمومی Secret تلقی نشده است."
+      ],
+      "inputs": [
+        "research/method-spec.md",
+        "research/threat-model.md"
+      ],
+      "outputs": [
+        [
+          "src/signatures/owner.py",
+          "OwnerID serialization و Key Derivation مصوب"
+        ],
+        [
+          "tests/test_owner.py",
+          "deterministic vectors و domain separation"
+        ],
+        [
+          "research/key-test-vectors.json",
+          "فقط Synthetic Public Test Values"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "method-3",
+          "text": "Serialization دقیق OwnerID و داده Hash/KDF را با Encoding و Domain Separation از Specification پیاده کن."
+        },
+        {
+          "source_task_id": "method-3",
+          "text": "کلید Secret فقط در صورت وجود در روش از Secret Store دریافت شود؛ هیچ Secret Test واقعی Commit نشود."
+        },
+        {
+          "source_task_id": "method-3",
+          "text": "Test Vector عمومی/مصنوعی برای Same Input، Different Owner و Different Key بساز."
+        },
+        {
+          "source_task_id": "method-3",
+          "text": "API و Version Field را مستند کن؛ تغییر طرح رمزنگاری را اختراع نکن."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "method-3",
+          "text": "KDF/Serialization حل‌نشده: BLOCKED_DECISION به repair-4؛ Algorithm دلخواه انتخاب نکن."
+        }
+      ],
+      "execution": "CPU"
+    },
+    {
+      "id": "C2",
+      "title": "Semantic key",
+      "milestone_id": "method",
+      "source_task_ids": [
+        "method-1"
+      ],
+      "source_phase_ids": [
+        "method"
+      ],
+      "dependencies": [
+        "C3a",
+        "A5",
+        "C1",
+        "B4"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "python -m pytest tests/test_semantic.py موفق است؛ مثال‌های واقعی و Failure ثبت شده‌اند.",
+        "هیچ Threshold از Test Set انتخاب نشده است."
+      ],
+      "inputs": [
+        "research/method-spec.md",
+        "configs/data.json",
+        "data/splits.csv",
+        "Model Revision و دسترسی GPU مجاز"
+      ],
+      "outputs": [
+        [
+          "src/signatures/semantic.py",
+          "extract_features و derive_ws با I/O مشخص"
+        ],
+        [
+          "tests/test_semantic.py",
+          "Shape، Determinism، Cache Isolation"
+        ],
+        [
+          "reports/dev/semantic-examples.json",
+          "image_id, transform, feature_distance, key_distance, config_hash"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "method-1",
+          "text": "CLIP و Preprocessing دقیق نسخه مصوب Specification را Load و Embedding را با Shape و Normalization ثبت‌شده استخراج کن."
+        },
+        {
+          "source_task_id": "method-1",
+          "text": "تبدیل Embedding به نمایش پایدار و سپس Ws را دقیقاً مطابق Specification پیاده کن؛ Hash خام Float بدون پایداری را راه‌حل فرض نکن."
+        },
+        {
+          "source_task_id": "method-1",
+          "text": "Cache را با Model/Preprocessing/Input Hash Key کن تا Embedding نسخه دیگر مصرف نشود."
+        },
+        {
+          "source_task_id": "method-1",
+          "text": "Unit Test و Development Examples برای Same Image، Benign Transform و Different Content اجرا کن؛ Stability یک نتیجه اندازه‌گیری‌شده است."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "method-1",
+          "text": "GPU Access ناموجود: BLOCKED_INPUT. Algorithm پایداری تعریف‌نشده: BLOCKED_DECISION؛ نتیجه مقاوم فرض نکن."
+        }
+      ],
+      "execution": "GPU"
+    },
+    {
+      "id": "C3b",
+      "title": "Instance key and fusion",
+      "milestone_id": "method",
+      "source_task_ids": [
+        "method-2"
+      ],
+      "source_phase_ids": [
+        "method"
+      ],
+      "dependencies": [
+        "C2"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "python -m pytest tests/test_instance.py موفق است.",
+        "pHash به‌عنوان Fingerprint بدون Collision معرفی نشده."
+      ],
+      "inputs": [
+        "research/method-spec.md",
+        "src/signatures/semantic.py",
+        "data/dev-ids.json"
+      ],
+      "outputs": [
+        [
+          "src/signatures/instance.py",
+          "phash و derive_wi"
+        ],
+        [
+          "tests/test_instance.py",
+          "Bit ordering، ثابت‌بودن طول، Differing Owner/Instance"
+        ],
+        [
+          "reports/dev/instance-examples.json",
+          "Synthetic/Development test cases و Key Distance"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "method-2",
+          "text": "pHash با Resize، DCT، Bit Ordering و Length دقیق Specification بساز."
+        },
+        {
+          "source_task_id": "method-2",
+          "text": "Wi را از Semantic Representation، pHash و OwnerID طبق Serialization مشخص استخراج کن."
+        },
+        {
+          "source_task_id": "method-2",
+          "text": "Fusion/Combination را در Function مستقل نگه دار تا Ws-only و Wi-only قابل Ablation باشند."
+        },
+        {
+          "source_task_id": "method-2",
+          "text": "نمونه Same-content/Different-instance، Same-owner و Wrong-owner را با Output Shape و Key Distance ثبت کن."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "method-2",
+          "text": "Fusion مبهم: BLOCKED_DECISION؛ با Concatenation نامشخص جلو نرو."
+        }
+      ],
+      "execution": "CPU"
+    },
+    {
+      "id": "C4",
+      "title": "Embedding module",
+      "milestone_id": "method",
+      "source_task_ids": [
+        "method-4"
+      ],
+      "source_phase_ids": [
+        "method"
+      ],
+      "dependencies": [
+        "C3b",
+        "A5",
+        "B4"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "python -m pytest tests/test_embedding.py و Example CLI موفق‌اند.",
+        "Control و Watermarked Image جفت Reference تعریف‌شده دارند."
+      ],
+      "inputs": [
+        "research/method-spec.md",
+        "src/signatures/semantic.py",
+        "src/signatures/instance.py",
+        "data/dev-ids.json"
+      ],
+      "outputs": [
+        [
+          "src/embedding/proposed.py",
+          "Embedding طبق method-spec؛ بدون Detector جایگزین"
+        ],
+        [
+          "scripts/embed.py",
+          "CLI --config با Error Code مشخص"
+        ],
+        [
+          "tests/test_embedding.py",
+          "Shape، finite output، strength=0 control"
+        ],
+        [
+          "reports/dev/embedding-manifest.csv",
+          "source_id, seed, config_hash, output_path, output_hash"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "method-4",
+          "text": "Embedding Function را برای Noise/Latent مشخص‌شده با Model Revision و Seed ثابت پیاده کن."
+        },
+        {
+          "source_task_id": "method-4",
+          "text": "Ws/Wi Pattern، Strength و Mask را از Config بخوان؛ صفرکردن Strength باید Control بدون Watermark تولید کند."
+        },
+        {
+          "source_task_id": "method-4",
+          "text": "روش Images موجود را جدا از Prompt-to-image اجرا کن؛ Caption یک عکس جای Watermarking خود عکس نیست."
+        },
+        {
+          "source_task_id": "method-4",
+          "text": "Output Image و Metadata شامل source_id، seed، config_hash و output_hash ذخیره کن؛ Original دست‌نخورده بماند."
+        },
+        {
+          "source_task_id": "method-4",
+          "text": "CLI scripts/embed.py با --config بساز و روی Development Sample اجرا کن."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "method-4",
+          "text": "مسیر Real Image یا Noise Bridge نامشخص: BLOCKED_DECISION؛ فقط Generated اجراشده را پوشش همه تصاویر معرفی نکن."
+        }
+      ],
+      "execution": "GPU"
+    },
+    {
+      "id": "C5",
+      "title": "Detector and validation-only calibration",
+      "milestone_id": "method",
+      "source_task_ids": [
+        "method-5"
+      ],
+      "source_phase_ids": [
+        "method"
+      ],
+      "dependencies": [
+        "C4",
+        "A4"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "python -m pytest tests/test_detection.py موفق است.",
+        "Score finite، Key Length درست و Threshold به Validation Manifest قابل ردیابی است."
+      ],
+      "inputs": [
+        "research/method-spec.md",
+        "research/acceptance.md",
+        "reports/dev/embedding-manifest.csv",
+        "data/splits.csv"
+      ],
+      "outputs": [
+        [
+          "src/detection/dct.py",
+          "Image-DCT و continuous scores"
+        ],
+        [
+          "scripts/detect.py",
+          "CLI --config؛ Score و Label جدا"
+        ],
+        [
+          "scripts/calibrate.py",
+          "Validation-only fitting"
+        ],
+        [
+          "configs/calibration.json",
+          "thresholds, target_fpr, validation_ids_hash, method_config_hash"
+        ],
+        [
+          "tests/test_detection.py",
+          "DCT roundtrip، known pattern، wrong key، no leakage"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "method-5",
+          "text": "Image-DCT بلوک 8×8 را با Channel، Padding و Mid-band Indexهای ثابت بساز؛ Latent-DCT جایگزین نشود."
+        },
+        {
+          "source_task_id": "method-5",
+          "text": "Ws/Wi مورد انتظار از Suspect Image را با Feature Pipeline مجاز بازسازی و Correlation Score پیوسته تولید کن."
+        },
+        {
+          "source_task_id": "method-5",
+          "text": "Calibration Script را مستقل بساز؛ فقط Validation برای Threshold و Target FPR و مطابق Rule قبلی استفاده شود؛ قانون tie و تعداد Owner/Key Query را ثبت کن. Empirical FPR همان Calibration Set گواه Generalization نیست."
+        },
+        {
+          "source_task_id": "method-5",
+          "text": "Decision Rule برای Authentic/Regenerated/Rejected/Forgery طبق Specification با Negative Control پیاده شود؛ Ws-only یا Missing Expected Key به‌تنهایی اثبات علت نیست."
+        },
+        {
+          "source_task_id": "method-5",
+          "text": "CLI scripts/detect.py بساز؛ Scoreها و Labelها را جدا ذخیره کن؛ Threshold و Key-distance Operating Point، Validation N مستقل و Hashها Freeze شوند."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "method-5",
+          "text": "نبود Signal یا Rule اثبات‌نشده را Debug و ثبت کن؛ Detector دیگر را مخفیانه فعال نکن."
+        }
+      ],
+      "execution": "GPU"
+    },
+    {
+      "id": "C6",
+      "title": "Key stability and collision study",
+      "milestone_id": "method",
+      "source_task_ids": [
+        "feas-1"
+      ],
+      "source_phase_ids": [
+        "feasibility"
+      ],
+      "dependencies": [
+        "C3b",
+        "B4",
+        "A4"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "همه زوج‌ها ID/Label مشخص دارند؛ مقدار گمشده پنهان نشده.",
+        "Stability و Collision جدا و روی دو سوی Hash اندازه‌گیری شده‌اند؛ معیارها Evidence دارند."
+      ],
+      "inputs": [
+        "data/dev-ids.json",
+        "src/signatures/semantic.py",
+        "src/signatures/instance.py",
+        "research/acceptance.md",
+        "research/method-spec.md"
+      ],
+      "outputs": [
+        [
+          "scripts/check_keys.py",
+          "Development key stability runner"
+        ],
+        [
+          "reports/dev/key-stability.csv",
+          "image_id, group_id, pair_id, domain, transform, representation_distance, ws_distance, wi_distance, exact_match, label"
+        ],
+        [
+          "reports/dev/key-stability-summary.md",
+          "criteria، stability/collision rates، CI، independent counts، dependency assumptions، failures"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "feas-1",
+          "text": "زوج‌های Development را با ID، Domain و Dependency Group بساز: Same-image/Benign، Same-topic Different-instance، Near-instance، Unrelated و Wrong-owner؛ Test ممنوع."
+        },
+        {
+          "source_task_id": "feas-1",
+          "text": "Feature Similarity، فاصله Representation پیش از Hash، Hamming Distance کلید نهایی و Exact Key Agreement را جدا ثبت کن؛ نزدیکی Representation پس از Cryptographic Hash لزوماً باقی نمی‌ماند."
+        },
+        {
+          "source_task_id": "feas-1",
+          "text": "برای Ws/Wi جدا، Stability روی Positive Pair و Collision/False-match روی Negative Pair را با N مستقل، CI و توزیع Distance برحسب Domain گزارش کن؛ Pairهای دارای تصویر مشترک مستقل نیستند."
+        },
+        {
+          "source_task_id": "feas-1",
+          "text": "پارامترهای Algorithm را فقط روی Development انتخاب کن؛ Operating Point با Rule از پیش نوشته روی Validation در method-5 تعیین می‌شود. نتیجه Development شاهد اولیه است، نه تأیید Test."
+        },
+        {
+          "source_task_id": "feas-1",
+          "text": "هر معیار acceptance.md را PASS/FAIL/UNRESOLVED کن؛ اگر Key متفاوت Pattern تصادفی مستقل می‌سازد، Hamming کوچک قبل از Hash را موفقیت Detection تلقی نکن."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "feas-1",
+          "text": "Key ناپایدار را مقاوم ننام؛ نمونه شکست به method-1/2 برگردد. تغییر Algorithm باید نسخه‌دار و داخل Scope باشد."
+        }
+      ],
+      "execution": "GPU"
+    },
+    {
+      "id": "C7",
+      "title": "Classical DCT positive control",
+      "milestone_id": "method",
+      "source_task_ids": [
+        "feas-2"
+      ],
+      "source_phase_ids": [
+        "feasibility"
+      ],
+      "dependencies": [
+        "C1",
+        "B4",
+        "A4"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "python -m pytest tests/test_dct_baseline.py موفق است.",
+        "Baseline مستقیم از Noise→Image-DCT Method جدا نام‌گذاری شده."
+      ],
+      "inputs": [
+        "research/method-spec.md",
+        "research/acceptance.md",
+        "data/dev-ids.json"
+      ],
+      "outputs": [
+        [
+          "src/embedding/dct_baseline.py",
+          "Direct Image-DCT baseline"
+        ],
+        [
+          "configs/dct-baseline.json",
+          "band, strength_grid, payload, seed"
+        ],
+        [
+          "tests/test_dct_baseline.py",
+          "known-pattern recovery و zero-strength control"
+        ],
+        [
+          "reports/dev/dct-baseline.csv",
+          "sample, strength, score, quality, label"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "feas-2",
+          "text": "Baseline کلاسیک مستقیم Image-DCT با همان Block، Band و Score Convention پیاده کن؛ این جای Method پیشنهادی نیست."
+        },
+        {
+          "source_task_id": "feas-2",
+          "text": "Strengthهای Draft ثبت‌شده را روی Development با Original/Wrong-key Control اجرا کن."
+        },
+        {
+          "source_task_id": "feas-2",
+          "text": "Known Pattern Injection/Recovery، Quality و Score Distribution را ثبت کن."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "feas-2",
+          "text": "Control ساده DCT خراب است: ابتدا DCT/Normalization را رفع کن؛ مشکل را به Diffusion نسبت نده."
+        }
+      ],
+      "execution": "CPU"
+    },
+    {
+      "id": "C8",
+      "title": "Reference latent-watermark reproduction",
+      "milestone_id": "method",
+      "source_task_ids": [
+        "feas-3"
+      ],
+      "source_phase_ids": [
+        "feasibility"
+      ],
+      "dependencies": [
+        "B2",
+        "B4",
+        "C1"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "Official Example و Adapter هر دو اجرا شده‌اند.",
+        "Result و Error به Run واقعی قابل ردیابی‌اند."
+      ],
+      "inputs": [
+        "configs/baselines.json",
+        "research/baseline-readiness.json",
+        "data/dev-ids.json"
+      ],
+      "outputs": [
+        [
+          "src/baselines/adapters.py",
+          "Method adapter با embed/detect و access requirements"
+        ],
+        [
+          "reports/dev/baseline-reproduction.md",
+          "source_commit, patches, checkpoint_hash, commands, actual_results"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "feas-3",
+          "text": "کد منتخب را در مسیر Baseline مستقل با Commit ثبت‌شده آماده کن؛ Patchهای لازم را جدا Log کن."
+        },
+        {
+          "source_task_id": "feas-3",
+          "text": "Official Example را با Checkpoint معتبر اجرا و سپس Adapter با I/O یکسان بساز."
+        },
+        {
+          "source_task_id": "feas-3",
+          "text": "همان Development Sampleها را از Adapter عبور بده؛ Detector نیازمند Reference/Inversion را صریح اعلام کن."
+        },
+        {
+          "source_task_id": "feas-3",
+          "text": "Source Commit، Command و نتیجه واقعی Reproduction ثبت شود؛ نتیجه مقاله را جای نتیجه خودت ننویس."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "feas-3",
+          "text": "Unavailable/License/Checkpoint Error: BLOCKED_INPUT؛ روش تعهدشده بدون تصمیم با ضعیف‌تر جایگزین نشود."
+        }
+      ],
+      "execution": "GPU"
+    },
+    {
+      "id": "C9",
+      "title": "Latent-to-DCT bridge test",
+      "milestone_id": "method",
+      "source_task_ids": [
+        "feas-4"
+      ],
+      "source_phase_ids": [
+        "feasibility"
+      ],
+      "dependencies": [
+        "C5",
+        "C7"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "Control مثبت/منفی موجود و Scoreها finite هستند؛ جدایی طبق معیار از پیش نوشته ارزیابی شده.",
+        "این نتیجه Development با Evaluation نهایی اشتباه نشده؛ Missing Bridge با Control ساده پاس نشده."
+      ],
+      "inputs": [
+        "src/embedding/proposed.py",
+        "src/detection/dct.py",
+        "reports/dev/dct-baseline.csv",
+        "data/dev-ids.json"
+      ],
+      "outputs": [
+        [
+          "scripts/check_noise_dct.py",
+          "Development integration runner"
+        ],
+        [
+          "reports/dev/noise-dct.csv",
+          "image_id, group_id, input_route, seed, strength, control_type, ws_score, wi_score"
+        ],
+        [
+          "reports/dev/noise-dct-trace.md",
+          "Trace عددی، Controls، paired effect/CI، independent counts، معیار جدایی و خطاهای احتمالی"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "feas-4",
+          "text": "با Seed/Prompt/Source یکسان و Strengthهای Development، strength=0 و Watermarked Imageهای جفت بساز؛ Real و Generated جدا گزارش شوند."
+        },
+        {
+          "source_task_id": "feas-4",
+          "text": "Image-DCT Score را برای Correct Key، Wrong Key، Shuffled Pattern و Clean Control ذخیره کن؛ Direct-DCT فقط Positive Control جداگانه است."
+        },
+        {
+          "source_task_id": "feas-4",
+          "text": "Template از کلید و Specification ساخته شود، نه برازش به تصویر Test یا Watermark Residual مشاهده‌شده. Detector فقط اطلاعات مجاز threat-model را ببیند."
+        },
+        {
+          "source_task_id": "feas-4",
+          "text": "توزیع Score، ROC و اختلاف Paired با CI/واحد وابستگی را گزارش کن؛ جدایی در Development اثبات Robustness نهایی یا علت یگانه نیست."
+        },
+        {
+          "source_task_id": "feas-4",
+          "text": "مسیر Key→Pattern→Noise/Latent→Generated/Reconstructed Image→Image-DCT→Score را با Shape، Config Hash و مقادیر نمونه Trace کن؛ سلامت Control با موفقیت Hypothesis تفکیک شود."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "feas-4",
+          "text": "نبود جدایی واقعی: آن را ثبت کن و Technical Blocker بساز؛ داده گزینشی یا Decoder جایگزین ممنوع."
+        }
+      ],
+      "execution": "GPU"
+    },
+    {
+      "id": "C10",
+      "title": "Integrated tests, end-to-end smoke and technical gate",
+      "milestone_id": "method",
+      "source_task_ids": [
+        "eng-4",
+        "feas-5",
+        "eng-5"
+      ],
+      "source_phase_ids": [
+        "engineering",
+        "feasibility"
+      ],
+      "dependencies": [
+        "C5",
+        "A2b",
+        "C6",
+        "C9",
+        "C8",
+        "B4"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "python -m pytest -m \"not gpu\" اجرا شده و Fail بدون توضیح ندارد.",
+        "Skip تست GPU معادل پاس‌شدن آن نیست.",
+        "تمام Ruleها Evidence دارند؛ Fail مانع اجرا با یک تیک نادیده گرفته نشده.",
+        "python scripts/smoke_test.py --config configs/smoke.json موفق است.",
+        "Embedding، Attack، Detection و Metric واقعاً اجرا شده‌اند؛ Mock Result تحویل نشده."
+      ],
+      "inputs": [
+        "tests/ و Source ماژول‌های ساخته‌شده",
+        "research/scope-guard.md",
+        "reports/dev/key-stability.csv",
+        "reports/dev/noise-dct.csv",
+        "reports/unit-tests.txt",
+        "research/stop-rules.md",
+        "research/technical-gate.json",
+        "src/baselines/adapters.py",
+        "data/dev-ids.json"
+      ],
+      "outputs": [
+        [
+          "tests/conftest.py",
+          "Fixtureها و Markerها"
+        ],
+        [
+          "pytest.ini",
+          "marker definitions و test paths"
+        ],
+        [
+          "reports/unit-tests.txt",
+          "Command، pass/fail/skip و دلیل Skip"
+        ],
+        [
+          "research/technical-gate.json",
+          "checks[{id,status,evidence}], unresolved[], permits_integration, permits_final_eval=false تا تکمیل eval-1؛ مجوز فنی به‌تنهایی مجوز Test نیست"
+        ],
+        [
+          "reports/dev/technical-gate.md",
+          "Evidence summary و تصمیم‌های لازم"
+        ],
+        [
+          "scripts/smoke_test.py",
+          "CLI --config با exit nonzero برای Failure"
+        ],
+        [
+          "configs/smoke.json",
+          "dev_ids, seed, methods, attack, comparison_tolerance"
+        ],
+        [
+          "reports/smoke-report.md",
+          "Command، Run ID، نتیجه هر Stage و تکرارپذیری"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "eng-4",
+          "text": "Testهای Unit ماژول‌ها را جمع کن؛ Fixtureهای کوچک Synthetic و بدون دانلود Model برای تست CPU نگه دار."
+        },
+        {
+          "source_task_id": "eng-4",
+          "text": "CPU Unitها و GPU Integrationها را با Marker جدا کن؛ خروجی همه Testها در گزارش ثبت شود."
+        },
+        {
+          "source_task_id": "eng-4",
+          "text": "مرزهای empty input، wrong dimensions، NaN، corrupt image و wrong config را تست کن."
+        },
+        {
+          "source_task_id": "eng-4",
+          "text": "Command رسمی اجرای Suite در README ثبت شود؛ Test معیوب را فقط برای سبزشدن حذف نکن."
+        },
+        {
+          "source_task_id": "feas-5",
+          "text": "هر Stop Rule را مقابل Evidence واقعی PASS/FAIL/UNRESOLVED کن."
+        },
+        {
+          "source_task_id": "feas-5",
+          "text": "خرابی Software، Hypothesis ناموفق و ابهام Method را جدا دسته‌بندی کن."
+        },
+        {
+          "source_task_id": "feas-5",
+          "text": "برای هر Fail یک Reproduction و Task مسئول مشخص کن؛ Taskهای مستقل را نام ببر."
+        },
+        {
+          "source_task_id": "feas-5",
+          "text": "فقط اگر کنترل فنی مانع ندارد اجازه Integration بده؛ permits_final_eval در این Gate false می‌ماند. مجوز Test بعداً با Evidence در eval-1 ثبت می‌شود؛ نتیجه منفی Method را Success ننام."
+        },
+        {
+          "source_task_id": "eng-5",
+          "text": "scripts/smoke_test.py را بساز: Load→Embed→یک Attack→Detect→Metric→Report."
+        },
+        {
+          "source_task_id": "eng-5",
+          "text": "چند Sample ثابت Development و Config کامل را انتخاب کن؛ هیچ برآورد توان GPU یا خرید انجام نده."
+        },
+        {
+          "source_task_id": "eng-5",
+          "text": "روش پیشنهادی و Baseline را با Interface یکسان اجرا کن؛ Original حفظ شود."
+        },
+        {
+          "source_task_id": "eng-5",
+          "text": "اجرای دوم با همان Config و Seed را با Tolerance ثبت‌شده مقایسه کن."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "eng-4",
+          "text": "Minimal Reproduction برای Failure ذخیره و Task ماژول مربوطه را ارجاع بده."
+        },
+        {
+          "source_task_id": "feas-5",
+          "text": "Gate Failed: Status=BLOCKED_DECISION/FAILED متناسب با علت؛ روش اصلی را تغییر نده."
+        },
+        {
+          "source_task_id": "eng-5",
+          "text": "Pipeline Stage خراب را با ID و Error مشخص کن؛ فقط همان Stage را تعمیر و Run جدید بساز."
+        }
+      ],
+      "execution": "GPU"
+    },
+    {
+      "id": "D1",
+      "title": "Method freeze and evaluation preregistration",
+      "milestone_id": "eval",
+      "source_task_ids": [
+        "method-7",
+        "eval-1"
+      ],
+      "source_phase_ids": [
+        "method",
+        "evaluation"
+      ],
+      "dependencies": [
+        "C10",
+        "B2",
+        "B4",
+        "A4"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "هیچ Config نهایی unresolved نیست؛ Hashها به فایل موجود اشاره دارند.",
+        "Technical Gate مجاز است و Method با مصوب سازگار مانده.",
+        "Protocol بدون نیاز به انتخاب پارامتر در زمان Test قابل اجراست.",
+        "Test Class Labels و Thresholdها مستقل تعریف شده‌اند؛ Gate پیش از Test Evidence دارد."
+      ],
+      "inputs": [
+        "reports/smoke-report.md",
+        "research/method-spec.md",
+        "configs/calibration.json",
+        "research/technical-gate.json",
+        "research/method-freeze.json",
+        "research/acceptance.md",
+        "research/sample-size.md",
+        "data/sample-size-check.json",
+        "data/splits.csv",
+        "data/holdout.json",
+        "configs/baselines.json",
+        "research/scope-matrix.csv",
+        "research/threat-model.md"
+      ],
+      "outputs": [
+        [
+          "configs/method-frozen.json",
+          "تمام پارامترها و Model Revision نهایی"
+        ],
+        [
+          "research/method-freeze.json",
+          "freeze_id, code_commit, config_hash, checkpoint_hash_or_reason, calibration_hash"
+        ],
+        [
+          "research/model-card.md",
+          "I/O، دامنه، محدودیت و Frozen Version"
+        ],
+        [
+          "research/evaluation-protocol.md",
+          "Experiment definitions، controls، sampling، quality budgets، primary/secondary endpoints و statistics plan"
+        ],
+        [
+          "configs/eval-frozen.json",
+          "resolved methods, ids, seeds, attacks, metrics, thresholds, aggregation_weights, quality_rules"
+        ],
+        [
+          "research/expected-cells.csv",
+          "experiment_id, input_route, method, dataset, attack, severity, expected_n_positive, expected_n_negative, expected_n_groups"
+        ],
+        [
+          "research/evaluation-ready.json",
+          "checks[{id,status,evidence,sha256}], unresolved[], protocol_hash, permits_final_eval؛ فقط با تمام Evidenceهای معتبر true"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "method-7",
+          "text": "Specification، Source، Model Revision و Calibration را Cross-check کن."
+        },
+        {
+          "source_task_id": "method-7",
+          "text": "همه پارامترها را به configs/method-frozen.json منتقل و Schema Validation اجرا کن؛ TBD ممنوع."
+        },
+        {
+          "source_task_id": "method-7",
+          "text": "Code Commit، Checkpoint Hash یا Not-trained دلیل‌دار و Config Hash را در Model Card بنویس."
+        },
+        {
+          "source_task_id": "method-7",
+          "text": "Freeze Identifier جدید بساز؛ نتیجه Test برای تغییر آن مصرف نشود."
+        },
+        {
+          "source_task_id": "eval-1",
+          "text": "Experiment ID برای Quality، Benign، Regeneration، Forgery، Runtime و Ablation را به RQ مصوب وصل کن؛ Primary Endpoint و Secondary/Exploratory، Comparator، جهت اثر، Margin و Test Family مشخص باشند."
+        },
+        {
+          "source_task_id": "eval-1",
+          "text": "Test IDs، Seeds، Strength Grid، Model Revision، Attack Quality Budget، Aggregation Weights، Thresholdهای قفل‌شده و CI Method را قبل از Test Freeze کن؛ threshold از Test ROC استخراج نشود."
+        },
+        {
+          "source_task_id": "eval-1",
+          "text": "sample-size.md و sample-size-check.json را با تعداد مستقل Positive/Negative و هر Domain/Cell تطبیق بده؛ کمبود N با تکثیر Attack/Seed حل نمی‌شود. Target FPR و Achievable Precision جدا ثبت شوند."
+        },
+        {
+          "source_task_id": "eval-1",
+          "text": "قاعده Failed/Missing Run، Quality-ineligible Attack و Denominatorها را Freeze کن؛ Cell نامطلوب پس از Test حذف نشود. Rule برای هیچ Attack واجد Quality نیز N/A صریح باشد."
+        },
+        {
+          "source_task_id": "eval-1",
+          "text": "Schema Result را تثبیت کن: run_id, image_id, group_id, dataset, input_route, split, method, seed, attack, severity, control, label, ws_score, wi_score, prediction, quality, quality_eligible, latency_ms, status, error."
+        },
+        {
+          "source_task_id": "eval-1",
+          "text": "چهار Evidence را کنترل کن: Traceability به DOCX، Key Stability، Noise→Image-DCT Bridge و Endpoint/Sample-size Plan؛ Method Freeze، Calibration، Baseline Fairness و Scope حملات هم کامل باشند."
+        },
+        {
+          "source_task_id": "eval-1",
+          "text": "Protocol و Config را با Hash ثبت کن؛ evaluation-ready.json فقط با کنترل واقعی تمام شروط permits_final_eval=true شود. هدف نامحقق را برای عبور از Gate بی‌صدا آسان نکن."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "method-7",
+          "text": "Mismatch Source/Spec یا Gate ناموفق: Freeze نکن؛ وابستگی مربوطه را باز کن."
+        },
+        {
+          "source_task_id": "eval-1",
+          "text": "Cell، تصمیم یا Evidence ناموجود را حذف نکن؛ Evaluation وابسته BLOCKED_INPUT/DECISION بماند. نتیجه منفی Development حفظ شود."
+        }
+      ],
+      "execution": "CPU"
+    },
+    {
+      "id": "D2",
+      "title": "Paired quality and runtime evaluation",
+      "milestone_id": "eval",
+      "source_task_ids": [
+        "eval-2",
+        "eval-6"
+      ],
+      "source_phase_ids": [
+        "evaluation"
+      ],
+      "dependencies": [
+        "D1",
+        "C8"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "python -m pytest tests/test_quality.py و python scripts/evaluate.py --config configs/eval-frozen.json --experiment quality اجرا شده‌اند.",
+        "Count واقعی با expected-cells برابر یا Missing/Failure با دلیل گزارش شده است.",
+        "python scripts/benchmark_method.py --config configs/eval-frozen.json اجرا شده.",
+        "روش‌ها Device، Batch و Timing Scope برابر دارند؛ تفاوت ناگزیر گزارش شده است."
+      ],
+      "inputs": [
+        "configs/eval-frozen.json",
+        "data/splits.csv",
+        "research/method-freeze.json",
+        "research/evaluation-ready.json",
+        "Method و Baseline adapters روی محیط اجرای یکسان"
+      ],
+      "outputs": [
+        [
+          "scripts/evaluate.py",
+          "CLI --config --experiment؛ Resume با Hash Guard"
+        ],
+        [
+          "src/evaluation/quality.py",
+          "Metric wrapper با Range و Reference صریح"
+        ],
+        [
+          "tests/test_quality.py",
+          "identity/synthetic perturbation/shape checks"
+        ],
+        [
+          "runs/<run_id>/quality.jsonl",
+          "Result Schema Protocol، Reference ID و Metricهای Per-image"
+        ],
+        [
+          "scripts/benchmark_method.py",
+          "CLI --config؛ فقط timing الگوریتم"
+        ],
+        [
+          "runs/<run_id>/runtime.jsonl",
+          "method, sample_id, repeat, latency_ms, timed_scope, device, precision, batch"
+        ],
+        [
+          "reports/runtime-summary.csv",
+          "method, n, median_ms, p95_ms, timed_scope"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "eval-2",
+          "text": "scripts/evaluate.py را با --config و --experiment بساز؛ Config Freeze و evaluation-ready.json با Evidence/Hash معتبر و permits_final_eval=true لازم‌اند؛ تیک UI کافی نیست."
+        },
+        {
+          "source_task_id": "eval-2",
+          "text": "تمام Test Sampleهای Quality Experiment را برای Method و Baseline اجرا کن."
+        },
+        {
+          "source_task_id": "eval-2",
+          "text": "PSNR/SSIM/LPIPS را نسبت به Reference صحیح و Range/Color Space واحد محاسبه کن؛ Reference تولیدی و عکس اصلی طبق Protocol تفکیک شوند."
+        },
+        {
+          "source_task_id": "eval-2",
+          "text": "Per-image Result و Failed Sample ثبت شود؛ هم میانگین و هم توزیع را نگه دار، نه فقط بهترین تصویر."
+        },
+        {
+          "source_task_id": "eval-6",
+          "text": "فقط Runtime الگوریتم را اندازه بگیر؛ GPU Benchmark، Stress Test، Provider Comparison یا آزمون توان لپ‌تاپ اجرا نکن."
+        },
+        {
+          "source_task_id": "eval-6",
+          "text": "بازه زمانی را تعریف کن: Full Verification شامل Feature Extraction/Preprocessing؛ Detector-only اگر لازم است جدا."
+        },
+        {
+          "source_task_id": "eval-6",
+          "text": "Warm-up Count، Repeat Count، Batch Size و Precision را از Protocol بخوان؛ برای GPU Timing همگام‌سازی صحیح انجام بده."
+        },
+        {
+          "source_task_id": "eval-6",
+          "text": "Per-sample Latency و مشخصات دستگاه/Software را برای Reproducibility ثبت کن؛ Median و p95 را از همان Rows بساز."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "eval-2",
+          "text": "Reference نامعتبر: Metric را Invalid کن؛ تصویر دیگری را برای بهترشدن PSNR جایگزین نکن."
+        },
+        {
+          "source_task_id": "eval-6",
+          "text": "Timing نامعتبر یا Background Interference: Run جدید با دلیل؛ از نتیجه برای انتخاب/خرید GPU استفاده نکن."
+        }
+      ],
+      "execution": "GPU"
+    },
+    {
+      "id": "D3",
+      "title": "Benign attack grid",
+      "milestone_id": "eval",
+      "source_task_ids": [
+        "eval-3"
+      ],
+      "source_phase_ids": [
+        "evaluation"
+      ],
+      "dependencies": [
+        "D2"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "python -m pytest tests/test_attacks.py و CLI با --experiment benign اجرا شده‌اند.",
+        "Severityها انتخاب پس از مشاهده نتیجه نیستند."
+      ],
+      "inputs": [
+        "configs/eval-frozen.json",
+        "Watermarked/Clean outputs و Detector Freeze"
+      ],
+      "outputs": [
+        [
+          "src/attacks/benign.py",
+          "deterministic attack transforms"
+        ],
+        [
+          "tests/test_attacks.py",
+          "shape/range/severity/seed tests"
+        ],
+        [
+          "runs/<run_id>/benign.jsonl",
+          "Per-sample Result Schema + attack parameters"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "eval-3",
+          "text": "JPEG، Resize، Crop، Noise و سایر Attackهای Freeze‌شده را با Seed و Severity ثابت پیاده کن."
+        },
+        {
+          "source_task_id": "eval-3",
+          "text": "Test Dimensions، JPEG decode، Crop area و Determinism را بنویس؛ Orientation/Alignment مطابق Protocol باشد."
+        },
+        {
+          "source_task_id": "eval-3",
+          "text": "همان Attack را به ورودی‌های روش‌ها و Controlها با شرایط هم‌تراز اعمال کن."
+        },
+        {
+          "source_task_id": "eval-3",
+          "text": "Score، Prediction و Attack Quality را برای همه Cellها ثبت و Run Resume را بدون Duplicate Row انجام بده."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "eval-3",
+          "text": "Error حمله را به‌عنوان شکست Detector حساب نکن؛ status=attack_error جدا ثبت شود."
+        }
+      ],
+      "execution": "GPU"
+    },
+    {
+      "id": "D4",
+      "title": "Regeneration attacks",
+      "milestone_id": "eval",
+      "source_task_ids": [
+        "eval-4"
+      ],
+      "source_phase_ids": [
+        "evaluation"
+      ],
+      "dependencies": [
+        "D2"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "CLI با --experiment regeneration اجرا شده و Matrix Count تطبیق داده شده.",
+        "Cross-model Claim فقط با Model مستقل واقعی گزارش می‌شود."
+      ],
+      "inputs": [
+        "configs/eval-frozen.json",
+        "Regeneration Model/Revisionهای مشخص Protocol و دسترسی مجاز"
+      ],
+      "outputs": [
+        [
+          "src/attacks/regeneration.py",
+          "model-pinned regeneration adapter"
+        ],
+        [
+          "runs/<run_id>/regeneration.jsonl",
+          "Result Schema + attack_model_revision + semantic_similarity"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "eval-4",
+          "text": "Regeneration Adapter با Model، Scheduler، Strength، Seed و Prompt Rule ثبت‌شده بساز."
+        },
+        {
+          "source_task_id": "eval-4",
+          "text": "همه ترکیب‌های Freeze‌شده Model/Strength را روی همان Sampleها اجرا کن؛ دو Config یک Model را دو معماری مستقل ننام."
+        },
+        {
+          "source_task_id": "eval-4",
+          "text": "Quality افت ناشی از Attack را نسبت به ورودی Watermarked همان Attack و Fidelity نهایی را نسبت به Reference اصلی جدا ذخیره کن؛ Semantic Similarity جای Fidelity پیکسلی نیست."
+        },
+        {
+          "source_task_id": "eval-4",
+          "text": "quality_eligible را فقط با Rule قبلی تعیین کن؛ تعداد کل، واجد Quality، شکست اجرا و خروجی نامعتبر را گزارش کن، نه حذف خاموش موارد نامطلوب."
+        },
+        {
+          "source_task_id": "eval-4",
+          "text": "Survival-versus-quality Frontier و Curve برحسب Strength را برای هر Model/Domain بساز؛ Embedding Quality Target را خودکار Attack Quality Budget فرض نکن."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "eval-4",
+          "text": "Model/License ناموجود: BLOCKED_INPUT برای Cell؛ تغییر روش حمله نیازمند Protocol Revision ثبت‌شده است."
+        }
+      ],
+      "execution": "GPU"
+    },
+    {
+      "id": "D5",
+      "title": "Forgery, copy-paste and hard negatives",
+      "milestone_id": "eval",
+      "source_task_ids": [
+        "eval-5"
+      ],
+      "source_phase_ids": [
+        "evaluation"
+      ],
+      "dependencies": [
+        "D2"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "CLI با --experiment forgery اجرا شده؛ Label Leakage وجود ندارد.",
+        "Original، Regenerated و Forged با Ground Truth تعریف‌شده تفکیک شده‌اند."
+      ],
+      "inputs": [
+        "research/threat-model.md",
+        "configs/eval-frozen.json",
+        "Donor/Recipient IDs و Owner/Key labels"
+      ],
+      "outputs": [
+        [
+          "data/forgery-pairs.csv",
+          "pair_id, donor_id, recipient_id, owners, category, label"
+        ],
+        [
+          "src/attacks/forgery.py",
+          "attack طبق Threat Model"
+        ],
+        [
+          "runs/<run_id>/forgery.jsonl",
+          "pair_id + Result Schema + transferred_region"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "eval-5",
+          "text": "Pair Manifest با Donor، Recipient، Owner و دسته Random/Same-topic/Near-instance بساز؛ Label قبل از Detection تعیین شود."
+        },
+        {
+          "source_task_id": "eval-5",
+          "text": "Copy-Paste یا Pattern Transfer را دقیقاً طبق Threat Model اجرا و Mask/Region/Strength ثبت کن."
+        },
+        {
+          "source_task_id": "eval-5",
+          "text": "Clean، Wrong-key و Wrong-owner Controls را جدا اجرا کن."
+        },
+        {
+          "source_task_id": "eval-5",
+          "text": "Ws/Wi Score و Prediction را ذخیره کن؛ False Rejection را به‌تنهایی اثبات Watermark خارجی ندان."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "eval-5",
+          "text": "تعریف Forgery ناقص: BLOCKED_DECISION؛ عدم Detection را خودکار Forgery Label نزن."
+        }
+      ],
+      "execution": "GPU"
+    },
+    {
+      "id": "D9",
+      "title": "Preregistered ablation",
+      "milestone_id": "eval",
+      "source_task_ids": [
+        "stats-5"
+      ],
+      "source_phase_ids": [
+        "statistics"
+      ],
+      "dependencies": [
+        "D1",
+        "D2"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "CLI با --experiment ablation اجرا شده و فقط Component هدف تغییر کرده.",
+        "Ablation غیرمرتبط/خارج Scope بی‌دلیل اضافه نشده."
+      ],
+      "inputs": [
+        "configs/eval-frozen.json",
+        "research/method-freeze.json",
+        "Ablation definitions و adapters"
+      ],
+      "outputs": [
+        [
+          "configs/ablations.json",
+          "variant_id, changed_component, fixed_parameters, calibration_rule, claim_id"
+        ],
+        [
+          "runs/<run_id>/ablation.jsonl",
+          "variant_id + Result Schema"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "stats-5",
+          "text": "Ablation اصلی Ws-only، Wi-only و Ws+Wi را از Config بخوان؛ سایر Ablationها فقط برای Component موجود و Claim مشخص."
+        },
+        {
+          "source_task_id": "stats-5",
+          "text": "همان IDs، Seeds، Attackها و Budget/Quality Convention را ثابت نگه دار."
+        },
+        {
+          "source_task_id": "stats-5",
+          "text": "اگر Variant نیاز به Calibration دارد، فقط Validation و با همان قاعده Protocol؛ Test Tuning ممنوع."
+        },
+        {
+          "source_task_id": "stats-5",
+          "text": "Variant Config Hash و Resultهای Per-image را ذخیره کن؛ تغییر Detector را Ablation مصوب فرض نکن."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "stats-5",
+          "text": "Variant غیرقابل جداسازی: Coupling را گزارش کن؛ ادعای اثر علّی مستقل نکن."
+        }
+      ],
+      "execution": "GPU"
+    },
+    {
+      "id": "D6",
+      "title": "Result quality control and exclusions",
+      "milestone_id": "eval",
+      "source_task_ids": [
+        "stats-1"
+      ],
+      "source_phase_ids": [
+        "statistics"
+      ],
+      "dependencies": [
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D9"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "python scripts/validate_results.py --config configs/eval-frozen.json اجرا شده.",
+        "هر Exclusion دلیل دارد؛ Denominator ناموفق‌ها پنهان نشده."
+      ],
+      "inputs": [
+        "research/expected-cells.csv",
+        "تمام Result JSONLها و Run Metadata"
+      ],
+      "outputs": [
+        [
+          "scripts/validate_results.py",
+          "Schema/count/duplicate/data-quality checker"
+        ],
+        [
+          "reports/analysis-ready.csv",
+          "Rows معتبر با Source Run Reference"
+        ],
+        [
+          "reports/exclusions.csv",
+          "row_id, reason, rule_id, included_in_denominator"
+        ],
+        [
+          "reports/data-quality.md",
+          "missing/failed/duplicate summary"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "stats-1",
+          "text": "Resultها را با Schema واحد Parse و Keyهای تکراری یا Missing را گزارش کن."
+        },
+        {
+          "source_task_id": "stats-1",
+          "text": "Observed Count و Failure Count را با Expected Count هر Cell مقایسه کن."
+        },
+        {
+          "source_task_id": "stats-1",
+          "text": "NaN، Class Imbalance و Outlier را Flag کن؛ حذف فقط با Rule قبلی و Audit Trail."
+        },
+        {
+          "source_task_id": "stats-1",
+          "text": "Dataset تحلیلی را بدون تغییر Raw Results تولید کن؛ جدول Exclusion بساز."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "stats-1",
+          "text": "Missing Evidence بحرانی: Analysis وابسته BLOCKED_INPUT؛ عدد برآوردی جایگزین نکن."
+        }
+      ],
+      "execution": "CPU"
+    },
+    {
+      "id": "D7",
+      "title": "Clustered bootstrap confidence intervals",
+      "milestone_id": "eval",
+      "source_task_ids": [
+        "stats-2"
+      ],
+      "source_phase_ids": [
+        "statistics"
+      ],
+      "dependencies": [
+        "D6"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "python -m pytest tests/test_statistics.py موفق است؛ Script روی داده واقعی اجرا شده.",
+        "تکرار Attack یک تصویر به‌عنوان Sample مستقل شمرده نشده."
+      ],
+      "inputs": [
+        "reports/analysis-ready.csv",
+        "research/evaluation-protocol.md"
+      ],
+      "outputs": [
+        [
+          "scripts/analyze_ci.py",
+          "cluster/paired bootstrap طبق Protocol"
+        ],
+        [
+          "tests/test_statistics.py",
+          "toy data، dependence preservation، deterministic seed"
+        ],
+        [
+          "reports/metrics-ci.csv",
+          "metric, method, cell, estimate, ci_low, ci_high, n_units, n_rows"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "stats-2",
+          "text": "Bootstrap را با Seed ثابت و تعداد Resample ثبت‌شده پیاده کن؛ واحد مستقل Image یا Dependency Group است، نه تعداد ردیف‌ها."
+        },
+        {
+          "source_task_id": "stats-2",
+          "text": "همه Attack/Seed Rowهای یک Image را کنار هم نگه دار؛ روش‌ها Paired بمانند. در Forgery اشتراک Donor/Recipient و در Generated Data اشتراک Source/Prompt Group طبق Protocol لحاظ شود؛ Pairها خودکار مستقل نیستند."
+        },
+        {
+          "source_task_id": "stats-2",
+          "text": "برای Metricهای مصوب CI، N مستقل و Row Count جدا گزارش کن. TPR و FPR روی Test در Threshold ثابت Validation گزارش شوند؛ Target FPR را Achieved FPR ننام."
+        },
+        {
+          "source_task_id": "stats-2",
+          "text": "برای Binomial مستقل با رخداد کم یا صفر از Wilson/Exact طبق Protocol استفاده کن؛ Zero-FP و Bootstrap همه‌صفر گواه FPR=0 نیست. برای Cluster، Binomial ساده را بدون فرض استقلال اعمال نکن."
+        },
+        {
+          "source_task_id": "stats-2",
+          "text": "CI با Threshold ثابت را Conditional بنام؛ اگر Protocol عدم‌قطعیت Calibration را می‌خواهد Validation و Test را مستقل Resample و Calibration Rule را بدون Test Tuning تکرار کن."
+        },
+        {
+          "source_task_id": "stats-2",
+          "text": "ROC/AUC به هر دو Class نیاز دارد؛ در Resample تک‌کلاسی Rule شفاف اعمال و Count گزارش کن. CI نامطمئن یا N ناکافی را Limit بنویس."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "stats-2",
+          "text": "N ناکافی یا CI نامعتبر: Limit را صریح بنویس؛ CI ساختگی یا صفر نگذار."
+        }
+      ],
+      "execution": "CPU"
+    },
+    {
+      "id": "D8",
+      "title": "Preregistered tests, effect sizes and Holm correction",
+      "milestone_id": "eval",
+      "source_task_ids": [
+        "stats-3",
+        "stats-4"
+      ],
+      "source_phase_ids": [
+        "statistics"
+      ],
+      "dependencies": [
+        "D7"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "N Pairها و Missing Pairها گزارش شده‌اند.",
+        "Significance با اهمیت عملی یکی فرض نشده.",
+        "همه Testهای هر Family وارد Correction شده‌اند.",
+        "برای N/A دلیل وجود دارد؛ فقط p مطلوب نمایش داده نشده."
+      ],
+      "inputs": [
+        "reports/analysis-ready.csv",
+        "research/acceptance.md",
+        "research/evaluation-protocol.md",
+        "reports/hypothesis-tests.csv"
+      ],
+      "outputs": [
+        [
+          "scripts/test_hypotheses.py",
+          "paired comparison طبق Protocol"
+        ],
+        [
+          "reports/hypothesis-tests.csv",
+          "claim_id, comparison, test, effect, ci, p_raw, n_pairs, exploratory"
+        ],
+        [
+          "scripts/adjust_tests.py",
+          "multiple-comparison correction"
+        ],
+        [
+          "reports/adjusted-tests.csv",
+          "comparison, family_id, p_raw, p_adjusted, alpha, decision"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "stats-3",
+          "text": "فقط Comparisonهای از پیش تعریف‌شده را Primary Test بدان؛ بقیه Exploratory علامت بخورند."
+        },
+        {
+          "source_task_id": "stats-3",
+          "text": "Pairing را با image_id/group_id هم‌تراز کن؛ اختلاف Per-unit را محاسبه کن."
+        },
+        {
+          "source_task_id": "stats-3",
+          "text": "Test ثبت‌شده و فرض‌های آن را بررسی و Effect Size با CI گزارش کن؛ Test را برای کوچک‌شدن p عوض نکن."
+        },
+        {
+          "source_task_id": "stats-4",
+          "text": "Family ID هر Comparison را از Protocol بخوان؛ پس از دیدن p Family را خرد نکن."
+        },
+        {
+          "source_task_id": "stats-4",
+          "text": "Holm یا Correction ثبت‌شده را روی همان Family اعمال کن."
+        },
+        {
+          "source_task_id": "stats-4",
+          "text": "p_raw، p_adjusted، Alpha و تصمیم را همراه Effect حفظ کن؛ مقدار NaN را توضیح بده."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "stats-3",
+          "text": "فرض آزمون نقض شده: طبق Alternative قبلی عمل کن یا deviation را ثبت کن؛ انتخاب پسینی پنهان ممنوع."
+        },
+        {
+          "source_task_id": "stats-4",
+          "text": "Family تعریف‌نشده: تحلیل Confirmatory را قطعی اعلام نکن؛ deviation/exploratory ثبت کن."
+        }
+      ],
+      "execution": "CPU"
+    },
+    {
+      "id": "E1",
+      "title": "Method and protocol chapters",
+      "milestone_id": "review",
+      "source_task_ids": [
+        "write-2"
+      ],
+      "source_phase_ids": [
+        "writing"
+      ],
+      "dependencies": [
+        "D1",
+        "B6",
+        "B1"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "هر Model/Hyperparameter با Config تطبیق دارد.",
+        "متن Method اجراشده را توصیف می‌کند، نه Alternative اجرا‌نشده."
+      ],
+      "inputs": [
+        "thesis/outline.md",
+        "research/method-spec.md",
+        "research/evaluation-protocol.md",
+        "research/references.bib",
+        "research/literature-matrix.csv"
+      ],
+      "outputs": [
+        [
+          "thesis/chapters/background.md",
+          "Problem و Related Work با Citation Key"
+        ],
+        [
+          "thesis/chapters/method.md",
+          "Algorithm و Specification اجراشده"
+        ],
+        [
+          "thesis/chapters/protocol.md",
+          "Frozen Evaluation Protocol و Dataset definitions"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "write-2",
+          "text": "Problem و Related Work را از منابع تأییدشده بنویس؛ هر Claim خارجی Citation داشته باشد."
+        },
+        {
+          "source_task_id": "write-2",
+          "text": "Method را از Source/Specification با Algorithm، I/O، Equation و Limitها بنویس."
+        },
+        {
+          "source_task_id": "write-2",
+          "text": "Data، Split، Attackها و Evaluation را از Config Freeze منتقل کن؛ هیچ پارامتر دستی متناقض ننویس."
+        },
+        {
+          "source_task_id": "write-2",
+          "text": "Equation، Citation و Cross-reference را در Template واقعی Render و بررسی کن."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "write-2",
+          "text": "تعارض متن و کد: به Task مسئول برگردان؛ با اصلاح صرف جمله، Method متفاوت را مصوب جا نزن."
+        }
+      ],
+      "execution": "DOCUMENT"
+    },
+    {
+      "id": "E2",
+      "title": "Results chapter and failure figures",
+      "milestone_id": "review",
+      "source_task_ids": [
+        "stats-6",
+        "write-3"
+      ],
+      "source_phase_ids": [
+        "statistics",
+        "writing"
+      ],
+      "dependencies": [
+        "D6",
+        "D7",
+        "D8",
+        "D9",
+        "E1"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "Selection Rule ثابت است؛ فقط نمونه زیبا انتخاب نشده.",
+        "هر مثال به Raw Result و تصویر صحیح وصل است.",
+        "python scripts/make_report.py --config configs/eval-frozen.json اجرا شده.",
+        "هر عدد اصلی قابل ردیابی و با جدول Source برابر است."
+      ],
+      "inputs": [
+        "reports/analysis-ready.csv",
+        "Image/Attack Manifestها",
+        "reports/metrics-ci.csv",
+        "reports/adjusted-tests.csv",
+        "runs/<run_id>/ablation.jsonl",
+        "thesis/outline.md"
+      ],
+      "outputs": [
+        [
+          "reports/failure-cases.csv",
+          "image_id, error_type, category, score, threshold, run_id"
+        ],
+        [
+          "reports/failure-atlas.html",
+          "مثال‌ها با Caption و Selection Rule"
+        ],
+        [
+          "scripts/make_report.py",
+          "CLI --config برای Tables/Figures"
+        ],
+        [
+          "reports/figures/",
+          "شکل‌های نهایی و Source Manifest"
+        ],
+        [
+          "reports/tables/",
+          "جدول‌های تولیدشده از Evidence"
+        ],
+        [
+          "thesis/chapters/results.md",
+          "RQ-based results with artifact references"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "stats-6",
+          "text": "FP/FN را با Ground Truth و Threshold Freeze استخراج کن."
+        },
+        {
+          "source_task_id": "stats-6",
+          "text": "بر اساس Attack، Dataset، Texture، Semantic Similarity و Model دسته‌بندی کن."
+        },
+        {
+          "source_task_id": "stats-6",
+          "text": "قاعده انتخاب مثال را ثبت کن؛ نمونه‌های موفق و ناموفق با Source ID و Score نشان بده."
+        },
+        {
+          "source_task_id": "stats-6",
+          "text": "قالب شکل‌ها را بدون افشای محتوای حساس یا License غیرمجاز بساز."
+        },
+        {
+          "source_task_id": "write-3",
+          "text": "scripts/make_report.py را بساز تا جدول‌ها و شکل‌های نهایی را از Resultهای نسخه‌دار تولید کند."
+        },
+        {
+          "source_task_id": "write-3",
+          "text": "برای هر RQ ترتیب Metric→Result→CI→Baseline→پاسخ کوتاه را رعایت کن."
+        },
+        {
+          "source_task_id": "write-3",
+          "text": "N مستقل، Attack Strength و Config/Run Reference در Caption یا جدول همراه باشد."
+        },
+        {
+          "source_task_id": "write-3",
+          "text": "منفی‌ها و No Improvement را گزارش کن؛ عدد دستی را جای خروجی Script ننویس."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "stats-6",
+          "text": "تصویر قابل نمایش نیست: ID و Metric را گزارش و از جایگزین مجاز با برچسب استفاده کن."
+        },
+        {
+          "source_task_id": "write-3",
+          "text": "Result کم/نامعتبر: فصل نتیجه محدودیت را نشان دهد؛ عدد یا ادعای برتری تولید نکن."
+        }
+      ],
+      "execution": "CPU"
+    },
+    {
+      "id": "E3",
+      "title": "Discussion, limitations and novelty reaudit",
+      "milestone_id": "review",
+      "source_task_ids": [
+        "write-4"
+      ],
+      "source_phase_ids": [
+        "writing"
+      ],
+      "dependencies": [
+        "E2",
+        "B2"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "تمام Claimهای اصلی Evidence و Limit دارند.",
+        "Not-supported پنهان یا به Supported بازنویسی نشده."
+      ],
+      "inputs": [
+        "thesis/chapters/results.md",
+        "reports/failure-cases.csv",
+        "research/novelty-claim.md",
+        "research/scope-matrix.csv"
+      ],
+      "outputs": [
+        [
+          "thesis/chapters/discussion.md",
+          "interpretation, validity threats, failure analysis"
+        ],
+        [
+          "thesis/chapters/conclusion.md",
+          "actual contribution و محدودیت"
+        ],
+        [
+          "research/claim-evidence.csv",
+          "claim_id, final_statement, evidence, supported_status"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "write-4",
+          "text": "Hypothesisها را با Evidence Supported/Not-supported/Unresolved طبقه‌بندی کن."
+        },
+        {
+          "source_task_id": "write-4",
+          "text": "Limitهای Key Stability، Noise→DCT، Classification، Domain و Threat Model را مطابق نتایج توضیح بده."
+        },
+        {
+          "source_task_id": "write-4",
+          "text": "Novelty Claim را با Related Work و نتیجه واقعی محدود کن؛ اولویت زمانی یا پذیرش دانشگاه تضمین نشود."
+        },
+        {
+          "source_task_id": "write-4",
+          "text": "Conclusion و Future Work را از Contribution انجام‌شده جدا بنویس؛ Transfer یا Decoder جدید را دستاورد اجراشده معرفی نکن."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "write-4",
+          "text": "تعهد مصوب انجام‌نشده را برای استاد صریح ثبت کن؛ Complete Thesis ادعا نکن."
+        }
+      ],
+      "execution": "DOCUMENT"
+    },
+    {
+      "id": "E4",
+      "title": "Representative rerun and reproducibility package",
+      "milestone_id": "review",
+      "source_task_ids": [
+        "eval-7",
+        "write-5"
+      ],
+      "source_phase_ids": [
+        "evaluation",
+        "writing"
+      ],
+      "dependencies": [
+        "D3",
+        "D4",
+        "D5",
+        "D2",
+        "D9",
+        "E3"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "Exact Repeat با Different-seed Robustness قاطی نشده.",
+        "Original Results بدون Overwrite حفظ شده‌اند.",
+        "Package بدون Credential و با Hash قابل بررسی است.",
+        "Example از Package اجرا و PDF بدون بخش پنهان/فرمول شکسته بازبینی شده."
+      ],
+      "inputs": [
+        "Run Manifestهای نهایی",
+        "Frozen Configها",
+        "requirements.lock",
+        "Source و Frozen Configها",
+        "reports/reproducibility.md",
+        "Data Licenseها"
+      ],
+      "outputs": [
+        [
+          "reports/reproducibility.md",
+          "reference_run, repeat_run, ids, seed, differences, tolerance, pass_fail"
+        ],
+        [
+          "release/manifest.json",
+          "files[{path,sha256}], code_commit, config_hashes, external_data_refs"
+        ],
+        [
+          "release/reproducibility-package.zip",
+          "فقط فایل‌های مجاز و لازم"
+        ],
+        [
+          "thesis/thesis-first-review.pdf",
+          "Draft کامل Renderشده؛ نه تأیید نهایی"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "eval-7",
+          "text": "Subset نماینده را طبق Protocol از Runها انتخاب کن؛ Sample انتخابی نباید فقط موفق باشد."
+        },
+        {
+          "source_task_id": "eval-7",
+          "text": "همان Seed را در Environment بازسازی‌شده با همان Config اجرا و اختلاف را با Tolerance ثبت‌شده بسنج."
+        },
+        {
+          "source_task_id": "eval-7",
+          "text": "برای Randomness، Seedهای اضافی مصوب را جدا از Exact Reproduction اجرا و ثبت کن."
+        },
+        {
+          "source_task_id": "eval-7",
+          "text": "برای هر تفاوت، Source/Config/Version و علت احتمالی را بررسی کن؛ تکرار کل Matrix بدون الزام لازم نیست."
+        },
+        {
+          "source_task_id": "write-5",
+          "text": "README را با Setup، Example، Evaluation و تولید گزارش به‌روز کن."
+        },
+        {
+          "source_task_id": "write-5",
+          "text": "Code، Config، Manifest، Environment و Hash Modelها را در Release Manifest فهرست کن."
+        },
+        {
+          "source_task_id": "write-5",
+          "text": "Secret و داده غیرقابل Redistribution از Package کنار بمانند؛ مسیر Download مجاز جایگزین شود."
+        },
+        {
+          "source_task_id": "write-5",
+          "text": "Package پژوهش را در مسیر خروجی جدید بساز، محتوا را List و یک Example از نسخه بازشده اجرا کن."
+        },
+        {
+          "source_task_id": "write-5",
+          "text": "Draft فصل‌ها را در Template ادغام و PDF First Review Render کن؛ نمایش Formula/RTL/Table بررسی شود."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "eval-7",
+          "text": "عدم تکرارپذیری را گزارش کن؛ بهترین Run را به‌عنوان تنها Result نگه ندار."
+        },
+        {
+          "source_task_id": "write-5",
+          "text": "License یا Secret Scan نامطمئن: Package را منتشر نکن؛ تحویل خصوصی هم جای اجازه Redistribution نیست."
+        }
+      ],
+      "execution": "GPU"
+    },
+    {
+      "id": "E5",
+      "title": "First-review handoff and academic checklist",
+      "milestone_id": "review",
+      "source_task_ids": [
+        "write-6",
+        "write-7"
+      ],
+      "source_phase_ids": [
+        "writing"
+      ],
+      "dependencies": [
+        "E4"
+      ],
+      "gates": [],
+      "evidence_requirements": [
+        "خلاصه با Draft و Raw Results سازگار است.",
+        "ادعای Approval یا Submission قبل از وقوع وجود ندارد.",
+        "هر مورد رسمی Source دارد و NOT_VERIFIED با PASS یکی نشده.",
+        "تحویل First Review از اجازه دفاع جداست."
+      ],
+      "inputs": [
+        "thesis/thesis-first-review.pdf",
+        "research/claim-evidence.csv",
+        "release/manifest.json",
+        "قواعد رسمی جاری دانشکده، Similarity و AI Disclosure"
+      ],
+      "outputs": [
+        [
+          "thesis/first-review-summary.md",
+          "Technical summary با لینک Evidence"
+        ],
+        [
+          "thesis/questions-for-supervisor.md",
+          "question, evidence, options, scope_impact"
+        ],
+        [
+          "thesis/academic-checklist.csv",
+          "criterion, source, status, evidence, remaining_action"
+        ],
+        [
+          "thesis/first-review-handoff.md",
+          "deliverables, limitations, unresolved_items, next_revision_tasks"
+        ]
+      ],
+      "steps": [
+        {
+          "source_task_id": "write-6",
+          "text": "خلاصه فنی شامل Problem، Algorithm، Evaluation، نتایج واقعی و Limitها بنویس."
+        },
+        {
+          "source_task_id": "write-6",
+          "text": "برای استاد سؤال‌های مشخص با گزینه، Evidence و تأثیر Scope آماده کن."
+        },
+        {
+          "source_task_id": "write-6",
+          "text": "چک‌لیست تعهدهای انجام‌نشده یا نیازمند اصلاح را جدا قرار بده؛ ارسال خودکار به استاد مجاز نیست."
+        },
+        {
+          "source_task_id": "write-7",
+          "text": "پوشش همه تعهدها، Citationها، License شکل‌ها، شماره‌گذاری و Cross-reference را ممیزی کن."
+        },
+        {
+          "source_task_id": "write-7",
+          "text": "قواعد دانشگاه درباره Similarity و AI را از منبع رسمی بررسی کن؛ درصد قبولی دلخواه نساز."
+        },
+        {
+          "source_task_id": "write-7",
+          "text": "برای هر معیار وضعیت PASS/FAIL/NOT_VERIFIED و Evidence ثبت کن."
+        },
+        {
+          "source_task_id": "write-7",
+          "text": "بسته First Review را با فهرست Remaining Work تحویل دانشجو بده؛ ارسال رسمی/Approval انسانی را خودکار انجام نده."
+        }
+      ],
+      "failure_modes": [
+        {
+          "source_task_id": "write-6",
+          "text": "Evidence ناقص را در سؤال استاد مشخص کن؛ نسخه ظاهراً کامل با عدد جعلی نساز."
+        },
+        {
+          "source_task_id": "write-7",
+          "text": "قانون/Approval ناموجود: NOT_VERIFIED؛ مانع را گزارش کن، تأیید آکادمیک تضمین نکن."
+        }
+      ],
+      "execution": "DOCUMENT"
+    }
+  ],
+  "milestones": [
+    {
+      "id": "spec",
+      "title": "Specification",
+      "task_ids": [
+        "A1",
+        "A2a",
+        "A3",
+        "A2b",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "acceptance_checks": [
+        "یک همکار می‌تواند فقط با README یک run کوچک بسازد.",
+        "همه خروجی‌ها config و commit hash دارند.",
+        "seed ثابت نتایج همسان یا در tolerance ثبت‌شده تولید می‌کند.",
+        "داده خام read-only است.",
+        "Claim اجرایی با متن پروپوزال مصوب Trace شده است.",
+        "Ownership Transfer صریحاً خارج از Scope اجرایی ثبت شده است.",
+        "مسیر Latent Watermark تا Detector به‌عنوان Feasibility Test تعریف شده است.",
+        "ابهام‌های نیازمند تصمیم ثبت شده‌اند؛ Approval استاد جعل نشده است.",
+        "هر سؤال مصوب به یک Experiment و Metric متصل است.",
+        "Architecture Specification قابل پیاده‌سازی است.",
+        "Dataset Version و Split پیش از Experiment کامل مشخص شده است.",
+        "هیچ Component خارج از Scope، از جمله Ownership Transfer، اضافه نشده است."
+      ]
+    },
+    {
+      "id": "data",
+      "title": "Data & Literature",
+      "task_ids": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6"
+      ],
+      "acceptance_checks": [
+        "روش‌های baseline قبل از دیدن نتایج روش پیشنهادی انتخاب شده‌اند.",
+        "برای هر روش نسخه کد/checkpoint و license ثبت شده است.",
+        "نوآوری با یک جمله قابل falsify بیان شده است.",
+        "مرور شامل آثار مخالف/حملات حذف واترمارک نیز هست.",
+        "هر سؤال مصوب به یک Experiment و Metric متصل است.",
+        "Architecture Specification قابل پیاده‌سازی است.",
+        "Dataset Version و Split پیش از Experiment کامل مشخص شده است.",
+        "هیچ Component خارج از Scope، از جمله Ownership Transfer، اضافه نشده است.",
+        "هر فایل شناسه، hash، منبع، license و split دارد.",
+        "هیچ نزدیک‌تکراری بین dev و test وجود ندارد.",
+        "test set تا پایان توسعه قفل است.",
+        "Pipeline روی Subset توسعه بدون خطای مانع Evaluation اجرا شده است.",
+        "هر claim به یک شکل/جدول و یک آزمایش قابل ردیابی است.",
+        "کد و نتایج نهایی از tag ثابت تولید می‌شوند.",
+        "تمام منابع، شکل‌ها، مجوزها و محدودیت‌ها ذکر شده‌اند.",
+        "PDF نهایی روی چند دستگاه خوانا و بدون شکستگی فرمول/فونت است."
+      ]
+    },
+    {
+      "id": "method",
+      "title": "Implementation",
+      "task_ids": [
+        "C1",
+        "C3a",
+        "C2",
+        "C3b",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "C10"
+      ],
+      "acceptance_checks": [
+        "یک همکار می‌تواند فقط با README یک run کوچک بسازد.",
+        "همه خروجی‌ها config و commit hash دارند.",
+        "seed ثابت نتایج همسان یا در tolerance ثبت‌شده تولید می‌کند.",
+        "داده خام read-only است.",
+        "هر ماژول ورودی/خروجی و آزمون مستقل دارد.",
+        "همه پارامترهای sweep در config ثبت شده‌اند.",
+        "threshold روی test تنظیم نشده است.",
+        "هر feature نوآورانه قابل خاموش‌کردن برای ablation است.",
+        "negative control و wrong-owner control وجود دارد.",
+        "ROC از Scoreهای پیوسته ساخته شود؛ Operating Threshold فقط روی Validation تنظیم شود.",
+        "کیفیت و detectability همزمان بررسی شده‌اند.",
+        "روش مصوب حفظ شده یا تعارض روش برای تصمیم گزارش شده است."
+      ]
+    },
+    {
+      "id": "eval",
+      "title": "Evaluation & Statistics",
+      "task_ids": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D9",
+        "D6",
+        "D7",
+        "D8"
+      ],
+      "acceptance_checks": [
+        "clean negatives، wrong key و wrong owner اندازه‌گیری شده‌اند.",
+        "برای هر روش بودجه حمله و کیفیت خروجی حمله برابر/قابل مقایسه است.",
+        "latency با شرایط سخت‌افزاری و پروتکل کامل گزارش شده است.",
+        "نتایج test پس از freeze فقط یک‌بار مصرف شده‌اند.",
+        "تمام اعداد اصلی interval و sample size دارند.",
+        "نتیجه فرضیه با effect size و اهمیت عملی تفسیر شده است.",
+        "ablation علت سهم هر ماژول را نشان می‌دهد.",
+        "شکست‌ها و نتایج منفی نیز گزارش شده‌اند."
+      ]
+    },
+    {
+      "id": "review",
+      "title": "First Review",
+      "task_ids": [
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5"
+      ],
+      "acceptance_checks": [
+        "هر claim به یک شکل/جدول و یک آزمایش قابل ردیابی است.",
+        "کد و نتایج نهایی از tag ثابت تولید می‌شوند.",
+        "تمام منابع، شکل‌ها، مجوزها و محدودیت‌ها ذکر شده‌اند.",
+        "PDF نهایی روی چند دستگاه خوانا و بدون شکستگی فرمول/فونت است."
+      ]
+    }
+  ],
+  "human_gates": [
+    {
+      "id": "scope-acceptance",
+      "purpose": "Accept scope and unresolved proposal inputs."
+    },
+    {
+      "id": "evidence-review",
+      "purpose": "Review inspected literature evidence and contradictions."
+    },
+    {
+      "id": "plan-acceptance",
+      "purpose": "Accept preregistration, negative-result policy and compute estimate."
+    },
+    {
+      "id": "compute-approval",
+      "purpose": "Authorize the exact execution manifest, target, duration and budget."
+    },
+    {
+      "id": "results-acceptance",
+      "purpose": "Review complete results including failed and missing runs."
+    },
+    {
+      "id": "claims-acceptance",
+      "purpose": "Accept the exact independently audited claim inventory."
+    },
+    {
+      "id": "chapter-finalization",
+      "purpose": "Accept the exact chapter and evidence hashes."
+    }
+  ],
+  "topological_order": [
+    "A1",
+    "A2a",
+    "A3",
+    "B1",
+    "A2b",
+    "A5",
+    "A4",
+    "A6",
+    "B2",
+    "B6",
+    "B3",
+    "C1",
+    "B5",
+    "C3a",
+    "B4",
+    "C2",
+    "C7",
+    "C8",
+    "C3b",
+    "C4",
+    "C6",
+    "C5",
+    "C9",
+    "C10",
+    "D1",
+    "D2",
+    "E1",
+    "D3",
+    "D4",
+    "D5",
+    "D9",
+    "D6",
+    "D7",
+    "D8",
+    "E2",
+    "E3",
+    "E4",
+    "E5"
+  ],
+  "dependency_changes": [
+    {
+      "removed": [
+        "eval-7",
+        "stats-1"
+      ],
+      "replacement_dependencies": [
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D9"
+      ],
+      "reason": "The representative rerun confirms results in E4; primary QC must follow the actual evaluation and ablation outputs."
+    }
+  ],
+  "availability": {
+    "proposal": "not supplied",
+    "results": "not supplied"
+  }
+}

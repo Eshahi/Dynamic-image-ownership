@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "run_id": "d916749c",
+  "stage_id": "intake-scope",
+  "present": {
+    "proposal": {
+      "path": "پروپوزال 2.docx",
+      "sha256": "15a02877be74f5118cc7b3d3ded9ab447cc07551773486264ac4755119adfeff",
+      "size_bytes": 1414836,
+      "language": "Persian with English technical terms",
+      "extracted_text": "inputs/proposal-text.md",
+      "source_record": "inputs/proposal-source.json",
+      "inventory": {
+        "tables": 16,
+        "office_math_elements": 7,
+        "embedded_media_parts": 5,
+        "figure_placeholders": 7,
+        "tracked_insertions": 32,
+        "tracked_deletions": 0
+      },
+      "limitations": [
+        "Office Math notation was not converted and requires inspection in the original DOCX.",
+        "Embedded figures were inventoried but not transcribed or interpreted.",
+        "Pagination, layout and glyph fidelity were not visually verified because the required bundled LibreOffice renderer is unavailable.",
+        "The extracted text is a mechanical representation, not a translation or scientific interpretation."
+      ]
+    },
+    "proposal_bibliography": {
+      "entry_count": 6,
+      "status": "citation strings only; source papers are not present or inspected",
+      "entries": [
+        {"id": "[1]", "locator": "doi:10.1155/2024/6618382"},
+        {"id": "[2]", "locator": "doi:10.1080/13682199.2023.2223080"},
+        {"id": "[3]", "locator": "doi:10.1109/ICCE59016.2024.10444317"},
+        {"id": "[4]", "locator": "doi:10.1109/CSCI62032.2023.00185"},
+        {"id": "[5]", "locator": "arXiv:2411.07795"},
+        {"id": "[6]", "locator": "arXiv:2503.12172"}
+      ]
+    },
+    "guide": {
+      "committed_source_sha256": "1ea21a525138d1f2de5927d5ab75639b343c378e8206409b68f7de8e3a58c91b",
+      "working_tree_sha256": "fdba83a7d1aec198a0e7654fb3ce04f26b101292005f614e784e919f7d8e460e",
+      "generated_profile": "thesis-runs/d916749c/guide-plan-38.json"
+    },
+    "workflow_state": {
+      "authoritative_path": ".specify/workflows/runs/d916749c",
+      "workflow_id": "thesis-lifecycle",
+      "status": "running",
+      "current_step_id": "intake-scope",
+      "gate_verdicts": "all empty"
+    },
+    "research_harness": {
+      "path": "thesis-agent-skills",
+      "classification": "workflow and validation infrastructure, not thesis method implementation or experimental evidence"
+    }
+  },
+  "proposal_declares_but_does_not_supply": {
+    "datasets": [
+      "1,000 MS-COCO images, described as version 2020 or newer",
+      "DIV2K 800 training and 100 validation images, with a stated possibility of change for hardware reasons",
+      "5,000 DiffusionDB images"
+    ],
+    "quality_targets": ["PSNR greater than 35 dB", "SSIM greater than 0.9", "LPIPS less than 0.1"],
+    "other_metrics": ["detection rate", "regeneration robustness", "forgery detection ACC", "forgery detection AUC", "inference time"]
+  },
+  "missing": {
+    "proposal_approval_evidence": "No separate signed approval or supervisor scope-decision artifact was found; the current task describes the proposal as approved.",
+    "source_papers": "No paper PDFs, inspected-source records, literature matrix or claim-to-source ledger was found.",
+    "datasets": "No raw data, dataset manifest, checksums, licenses, version pins, sampling record or split manifest was found.",
+    "scientific_code": "No implementation of the proposed CLIP, pHash, latent embedding, DCT extraction or detector pipeline was found.",
+    "models": "No model checkpoints, model manifests, exact model identifiers or preprocessing specifications were found.",
+    "experiment_design": "No preregistration, threat model, statistical analysis plan, sample-size justification or experiment manifest was found.",
+    "results": "No run outputs, measurements, failed runs, figures, tables or analyzed results were found.",
+    "compute_authorization": "No approved compute manifest, target, duration or spending limit was found.",
+    "university_requirements": "No current official formatting, ethics, similarity or AI-disclosure requirements were supplied."
+  }
+}
