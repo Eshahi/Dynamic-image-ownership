@@ -1,5 +1,9 @@
 # Scope Decision Package for Run d916749c
 
+## Superseding decision, 2026-09-22
+
+The user explicitly delegated the scope decision to Codex for a solo MSc project with no university hardware, a three-week system target, and a subsequent paper objective. [The bounded execution decision](../../research/scope-execution-decision.md) records the approved scope, rationale, limitations, and one-gate delegation. The original pre-decision review below is retained as history. Its missing-verdict statements describe the intake state, not the current delegated decision. The controller decision is recorded separately in `scope-approval.json`, attributed to Codex under delegation.
+
 ## Decision context
 
 This package is for the currently paused `scope-acceptance` human gate following the completed `intake-scope` step. It records what is actually available, what the proposal states, and which scientific requirements remain unspecified. It does not supply, recommend, or infer an approval verdict. The verdict must remain blank until the named run and gate are reviewed in the authenticated Codex task.
