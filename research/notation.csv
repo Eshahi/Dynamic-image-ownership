@@ -1,0 +1,23 @@
+symbol,meaning,dtype,shape,units,source,status
+I,Source image,float32,"[3,H,W]","sRGB [0,1]","METHOD-02; io-spec.md API convention",SPECIFIED_INTERFACE
+I_w,Watermarked output,float32,"[3,H_w,W_w]","sRGB [0,1]",METHOD-06,SPECIFIED_INTERFACE
+I_ref,Unmarked matched model reconstruction,float32,"[3,H_w,W_w]","sRGB [0,1]",io-spec.md evaluation design,PLANNED_CONTROL
+J,Suspect or transformed image,float32,"[3,H_j,W_j]","sRGB [0,1]",METHOD-07,SPECIFIED_INTERFACE
+E,Semantic representation,floating TBD,[d_E],normalization TBD,METHOD-02,BLOCKED_DECISION_A5
+H_p,Perceptual hash,bool,[b_H],bits,METHOD-03,BLOCKED_DECISION_A5
+OwnerID,Public claimed owner identifier,bytes,[L_owner],identifier,METHOD-04 and METHOD-05,ENCODING_TBD_A5
+secret_ref,Optional reference to secret material,optional string,scalar,identifier,io-spec.md profile boundary,ABSENT_IN_PUBLIC_PROFILE
+W_s,Semantic signature,bytes,[L_s],bytes,METHOD-04,BLOCKED_DECISION_A5
+W_i,Instance signature,bytes,[L_i],bytes,METHOD-05,BLOCKED_DECISION_A5
+z,Model noise or latent state,floating TBD,"[C_z,h_z,w_z]",latent scale TBD,METHOD-06,BLOCKED_DECISION_A5
+P_lat,Latent watermark injection pattern,floating TBD,"[C_z,h_z,w_z]",latent scale TBD,METHOD-06,BLOCKED_DECISION_A5
+C_J,Image DCT coefficients,floating TBD,"[N_blocks,8,8] per selected channel",normalization TBD,METHOD-08,BLOCKED_DECISION_A5
+T_s,Expected semantic image-domain pattern,floating TBD,"[N_blocks,K_mid]",score domain TBD,METHOD-08,BLOCKED_DECISION_A5
+T_i,Expected instance image-domain pattern,floating TBD,"[N_blocks,K_mid]",score domain TBD,METHOD-08,BLOCKED_DECISION_A5
+score_s,Semantic matching score,real scalar,[],score units TBD,METHOD-09,BLOCKED_DECISION_A5
+score_i,Instance matching score,real scalar,[],score units TBD,METHOD-09,BLOCKED_DECISION_A5
+tau_s,Frozen semantic threshold,real scalar,[],score units TBD,io-spec.md validation policy,PREREGISTRATION_REQUIRED
+tau_i,Frozen instance threshold,real scalar,[],score units TBD,io-spec.md validation policy,PREREGISTRATION_REQUIRED
+Q,Attacker detector query budget,nonnegative integer,[],queries per source/target,threat-model.md,PREREGISTRATION_REQUIRED
+K,Number of tested owner/key candidates,positive integer,[],candidates per image,threat-model.md,PREREGISTRATION_REQUIRED
+seed,Random generator seed,integer,[],seed identifier,io-spec.md provenance,ENGINEERING_CONVENTION
