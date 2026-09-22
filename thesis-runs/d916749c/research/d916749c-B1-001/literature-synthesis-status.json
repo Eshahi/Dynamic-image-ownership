@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "run_id": "d916749c",
+  "stage_id": "literature-synthesis",
+  "task_id": "B1",
+  "request_id": "d916749c-B1-001",
+  "recorded_at": "2026-09-22T22:04:24Z",
+  "status": "BLOCKED_INPUT",
+  "approved_scope": {
+    "scope_approval_path": "thesis-runs/d916749c/scope-approval.json",
+    "scope_approval_sha256": "b792e8fdaa9fcb48430bcbdb561b59683ab616f2d3a9a16010d8e828673039e7",
+    "scope_decision_path": "research/scope-execution-decision.md",
+    "scope_decision_sha256": "f79873238bcc3b32c27599495f93a18fe9f0794522afb4d465099978f53d0273",
+    "boundary": "Literature task B1 only. Proposal hypotheses and novelty statements are not findings. No dataset acquisition, method implementation, experiment execution, external publication, spending, or inference of missing artifacts is authorized by this stage."
+  },
+  "inspected_inputs": [
+    {
+      "path": "thesis-runs/d916749c/artifact-inventory.json",
+      "sha256": "a31013abab4c63a7edf70fcb279880f7095f0e604f3c4df99a1b0df5f3960cd0",
+      "role": "declared artifact inventory"
+    },
+    {
+      "path": "thesis-runs/d916749c/research/d916749c-B1-001/request.json",
+      "sha256": "fe3563049e468ade146202a30987f85fa0d8cd49a46899f94241b15947f6e315",
+      "role": "research request"
+    },
+    {
+      "path": "thesis-runs/d916749c/research/d916749c-B1-001/response-contract.json",
+      "sha256": "16e09e5c1ef56b279bddb1d7258f677b45c2c5510aed86e710389d8c337c3c4c",
+      "role": "required response schema"
+    }
+  ],
+  "available_research_package_files": [
+    "github-issue.md",
+    "perplexity-prompt.md",
+    "request.json",
+    "request.md",
+    "response-contract.json"
+  ],
+  "missing_dependencies": [
+    {
+      "path": "thesis-runs/d916749c/research/d916749c-B1-001/response.json",
+      "required": true,
+      "reason": "No returned research response is available to validate or synthesize."
+    },
+    {
+      "path": "thesis-runs/d916749c/research/d916749c-B1-001/<evidence-root>",
+      "required": true,
+      "reason": "No permitted inspected-source artifacts are available for checksum verification of any source marked verified."
+    }
+  ],
+  "source_evidence_status": {
+    "returned_papers": 0,
+    "verified_inspected_sources": 0,
+    "accepted_evidence_entries": 0,
+    "proposal_bibliography_treatment": "Six locator strings remain uninspected metadata and were not converted into paper cards, findings, or BibTeX entries."
+  },
+  "validation": {
+    "attempted": false,
+    "reason": "The required response.json is absent; there is no response contract instance to validate.",
+    "runtime_note": "Neither python nor py is installed or discoverable, so validate_literature.py also cannot be executed in the current environment."
+  },
+  "synthesis": {
+    "attempted": false,
+    "reason": "Synthesis is prohibited until a matching response validates and inspected-source checksums resolve under an explicit evidence root.",
+    "not_created": [
+      "findings.md",
+      "literature-matrix.csv",
+      "evidence-ledger.jsonl",
+      "open-questions.md",
+      "references.bib",
+      "papers/<paper-id>.json"
+    ]
+  },
+  "external_actions": {
+    "performed": false,
+    "details": "Nothing was sent, uploaded, posted, purchased, downloaded, or executed externally."
+  },
+  "resume_condition": "Supply response.json for request d916749c-B1-001 and the referenced permitted inspected-source artifacts under an explicit local evidence root. Then run validate_literature.py validate with the same request ID before synthesizing to a new unused output directory."
+}
