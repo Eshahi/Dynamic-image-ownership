@@ -9,6 +9,15 @@
   "extraction_method": "Direct OOXML extraction from DOCX (word/document.xml plus header/footer parts) using Python lxml; document-order paragraphs and tables preserved with explicit annotations.",
   "source_language": "fa (Persian), with embedded English technical terms",
   "immutable_source": true,
+  "visual_verification": {
+    "verified_at_utc": "2026-09-22T15:14:40Z",
+    "record": "thesis-runs/d916749c/proposal-visual-verification.json",
+    "page_count": 13,
+    "status": "pass_with_source_preservation",
+    "render_path": "Read-only Microsoft Word 16.0.20326.20158 export to PDF, followed by pypdfium2 5.13.0 rasterization at scale 2.5",
+    "bundled_renderer_status": "The workspace runtime does not include LibreOffice soffice.exe; the canonical bundled render attempt failed before conversion.",
+    "review_scope": "All 13 pages were inspected at original rendered resolution for RTL text, tables, equations, figures, clipping, overlap and missing glyphs."
+  },
   "inventory": {
     "tables_extracted": 16,
     "equation_elements_detected": 7,
@@ -32,10 +41,10 @@
   "extraction_limitations_or_missing_elements": [
     "The Markdown extraction preserves visible character content and document-order block structure, but not exact Word pagination, styles, fonts, spacing, right-to-left layout, fields, or merged-cell geometry.",
     "Tables are flattened into explicitly labelled row/cell blocks; merged cells and layout-dependent reading order may not be represented exactly.",
-    "7 Office Math element(s) were detected and recorded as numbered placeholders; equation notation was not transliterated from OMML and must be inspected in the source document.",
+    "7 Office Math element(s) were detected and recorded as numbered placeholders; their visible Ws/Wi notation and five containing paragraphs were cross-checked against the rendered source, but the notation remains authoritative only in the DOCX.",
     "5 embedded media part(s), 6 DrawingML object(s), and 1 VML pict object(s) across the main document, header, and footer were inventoried; figures were not OCRed or semantically transcribed.",
     "Tracked insertions (32) are included in extracted visible text; tracked deletions detected: 0.",
-    "Visual rendering could not be completed because the required bundled LibreOffice executable was unavailable in the workspace runtime; page-level layout and glyph fidelity remain unverified."
+    "The canonical bundled LibreOffice renderer was unavailable. A read-only Microsoft Word export was therefore used for visual verification; this validates the current Windows rendering path, not cross-renderer fidelity."
   ],
   "extracted_text_reference": "inputs/proposal-text.md"
 }

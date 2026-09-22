@@ -10,6 +10,7 @@
       "language": "Persian with English technical terms",
       "extracted_text": "inputs/proposal-text.md",
       "source_record": "inputs/proposal-source.json",
+      "visual_verification_record": "thesis-runs/d916749c/proposal-visual-verification.json",
       "inventory": {
         "tables": 16,
         "office_math_elements": 7,
@@ -19,9 +20,9 @@
         "tracked_deletions": 0
       },
       "limitations": [
-        "Office Math notation was not converted and requires inspection in the original DOCX.",
+        "Office Math notation was not converted into Markdown; all seven visible Ws/Wi elements and their five containing paragraphs were cross-checked against the rendered DOCX.",
         "Embedded figures were inventoried but not transcribed or interpreted.",
-        "Pagination, layout and glyph fidelity were not visually verified because the required bundled LibreOffice renderer is unavailable.",
+        "All 13 pages passed visual inspection through a read-only Microsoft Word export. Cross-renderer fidelity remains unverified because the bundled LibreOffice executable is unavailable.",
         "The extracted text is a mechanical representation, not a translation or scientific interpretation."
       ]
     },
@@ -45,8 +46,8 @@
     "workflow_state": {
       "authoritative_path": ".specify/workflows/runs/d916749c",
       "workflow_id": "thesis-lifecycle",
-      "status": "running",
-      "current_step_id": "intake-scope",
+      "status": "paused",
+      "current_step_id": "scope-acceptance",
       "gate_verdicts": "all empty"
     },
     "research_harness": {

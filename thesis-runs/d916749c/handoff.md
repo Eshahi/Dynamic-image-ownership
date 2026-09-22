@@ -4,7 +4,7 @@
 
 The `intake-scope` review artifacts have been prepared without changing Spec Kit workflow state, creating external issues, contacting anyone, acquiring data, running scientific code, starting compute or authorizing spending.
 
-The reviewed `thesis-38` profile is valid and traceable to all 58 source tasks. The proposal and its mechanical extraction are present. Bibliographic citations are present only as uninspected strings. Scientific data, method code, model/config manifests, preregistration and results are absent.
+The reviewed `thesis-38` profile is valid and traceable to all 58 source tasks. The proposal and its mechanical extraction are present. All 13 proposal pages were visually inspected through a read-only Microsoft Word export; equation placeholders and embedded visuals were accounted for, with the bundled LibreOffice renderer limitation retained explicitly. Bibliographic citations are present only as uninspected strings. Scientific data, method code, model/config manifests, preregistration and results are absent.
 
 ## Stop condition
 

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "run_id": "d916749c",
+  "stage_id": "intake-scope",
+  "source": {
+    "path": "پروپوزال 2.docx",
+    "sha256": "15a02877be74f5118cc7b3d3ded9ab447cc07551773486264ac4755119adfeff",
+    "opened_read_only": true,
+    "modified": false
+  },
+  "verified_at_utc": "2026-09-22T15:14:40Z",
+  "canonical_renderer_attempt": {
+    "tool": "documents/render_docx.py",
+    "result": "unavailable",
+    "reason": "LibreOffice soffice.exe is not present in the bundled workspace runtime"
+  },
+  "fallback_render": {
+    "document_renderer": "Microsoft Word",
+    "document_renderer_version": "16.0.20326.20158",
+    "operation": "read-only export to PDF",
+    "rasterizer": "pypdfium2 5.13.0",
+    "raster_scale": 2.5,
+    "page_count": 13,
+    "temporary_outputs_committed": false
+  },
+  "inspection": {
+    "pages_reviewed": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+    "reviewed_at_original_rendered_resolution": true,
+    "rtl_text_readable": true,
+    "tables_visible_without_clipping_or_overlap": true,
+    "embedded_visuals_visible_without_clipping_or_overlap": true,
+    "missing_glyphs_observed": false,
+    "office_math": {
+      "element_count": 7,
+      "visible_tokens_in_document_order": ["Ws", "Wi", "Wi", "Ws", "Wi", "Ws", "Ws"],
+      "containing_paragraph_count": 5,
+      "markdown_placeholders_cross_checked": true,
+      "pages": [6, 7]
+    },
+    "scientific_diagram_pages": [6, 7, 8],
+    "result": "pass"
+  },
+  "preserved_limitations": [
+    "The Markdown extraction intentionally does not transliterate OMML equations or semantically transcribe embedded figures.",
+    "The DOCX remains authoritative for equation notation, figures, pagination, merged-cell geometry and layout.",
+    "The visual check validates the Microsoft Word rendering path only; cross-renderer fidelity could not be tested without the bundled LibreOffice executable.",
+    "Visual inspection verifies faithful rendering and extraction accounting, not the scientific validity of proposal claims."
+  ]
+}

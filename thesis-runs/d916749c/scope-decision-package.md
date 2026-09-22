@@ -2,11 +2,11 @@
 
 ## Decision context
 
-This package is for the `scope-acceptance` human gate that follows the current `intake-scope` step. It records what is actually available, what the proposal states, and which scientific requirements remain unspecified. It does not supply, recommend, or infer an approval verdict. The verdict must remain blank until the named run and gate are reviewed in the authenticated Codex task.
+This package is for the currently paused `scope-acceptance` human gate following the completed `intake-scope` step. It records what is actually available, what the proposal states, and which scientific requirements remain unspecified. It does not supply, recommend, or infer an approval verdict. The verdict must remain blank until the named run and gate are reviewed in the authenticated Codex task.
 
-Run ID: `d916749c`  
-Current workflow step: `intake-scope`  
-Next gate: `scope-acceptance`  
+Run ID: `d916749c`
+Completed workflow step: `intake-scope`
+Current workflow gate: `scope-acceptance`
 Human verdict: **not provided**
 
 ## Reviewed execution profile
@@ -47,7 +47,7 @@ These statements are proposal commitments or hypotheses, not validated findings.
 
 The proposal bibliography contains six citation strings: four DOI locators and two arXiv identifiers. No source PDFs or inspected-source records are present. Consequently, the literature statements and novelty language are unverified source claims and cannot yet support thesis claims.
 
-Seven Office Math elements and seven figure placeholders require inspection in the original DOCX. The extracted Markdown does not preserve notation, figure meaning, pagination or exact layout. No visual rendering was available through the required bundled renderer, so layout and glyph fidelity remain unverified.
+The extracted Markdown does not preserve equation notation, figure meaning, pagination or exact layout. A read-only Microsoft Word export of the immutable source produced 13 pages, all of which were inspected at original rendered resolution. The seven visible Office Math elements, their five containing paragraphs, tables, embedded diagrams, RTL text and recurring page art were accounted for without clipping, overlap or missing glyphs. The canonical bundled LibreOffice renderer remains unavailable, so cross-renderer fidelity is not claimed. Full provenance and findings are recorded in `proposal-visual-verification.json`.
 
 No thesis datasets, data manifests, method implementation, model manifests, checkpoints, experiment design, run outputs or results are present. The `thesis-agent-skills` tree is workflow infrastructure and synthetic fixtures; it is not scientific implementation or evidence for this thesis.
 
@@ -112,6 +112,7 @@ The reviewer should either provide the missing decisions and artifacts for a rev
 - `guide-plan-38.json` — derived execution profile
 - `mapping-verification.json` — full task-to-source mapping and validation checks
 - `artifact-inventory.json` — present and missing artifacts
+- `proposal-visual-verification.json` — page-level rendering and equation/figure verification
 - `handoff.md` — stage boundary and next authorized action
 - `../../inputs/proposal-source.json` — proposal provenance and extraction limitations
 - `../../inputs/proposal-text.md` — non-translated mechanical extraction
