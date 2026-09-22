@@ -149,4 +149,3 @@ The JSON Unicode escapes below preserve the exact normalized task text without d
 - Explicitly distinguish image-domain DCT from latent-domain DCT, model-free from inversion-free, watermark presence from owner attribution, and semantic similarity from instance binding.
 - Preserve contradictions and negative evidence. Absence from search results is not evidence that no prior work exists.
 - Do not infer any missing proposal detail, dataset choice, implementation, result, novelty conclusion, or university approval.
-

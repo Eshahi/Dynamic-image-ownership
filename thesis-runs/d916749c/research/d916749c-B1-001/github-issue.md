@@ -153,4 +153,3 @@ The JSON Unicode escapes below preserve the exact normalized task text without d
 Recommended labels: thesis, research, needs-evidence.
 
 This is a local draft only. Creating an issue or sending this request requires explicit authorization.
-

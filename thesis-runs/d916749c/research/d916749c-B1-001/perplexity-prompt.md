@@ -169,4 +169,3 @@ Return:
 For every evidence statement, record an exact page, section, figure, table, or other stable locator. Separate direct evidence, author interpretation, agent inference, and open assumptions. Record access date `2026-09-22` or the actual later inspection date. Mark inaccessible or abstract-only sources honestly. Do not invent DOI values, citations, quotations, bibliographic fields, source access, datasets, code, results, or novelty conclusions.
 
 The response contract requires at least one paper and one evidence item. Use the exact request ID `d916749c-B1-001`. Each verified paper must identify an inspected artifact and its SHA-256. Report contradictions, inaccessible sources, unresolved questions, and limitations. No API entitlement is assumed, and this request does not authorize spending, messages, issue creation, dataset acquisition, code execution, or experimentation.
-

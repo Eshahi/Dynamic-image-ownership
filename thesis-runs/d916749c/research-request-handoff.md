@@ -25,4 +25,3 @@ The package was checked locally for JSON parseability, request/task identity, ex
 ## Next dependency
 
 A human may copy the contents of `perplexity-prompt.md` and attach the package through an explicitly chosen Perplexity channel. The next literature-synthesis stage requires a returned `response.json` plus permitted inspected-source artifacts. Validate that response against the same request ID and an explicit evidence root before accepting any source claim.
-
