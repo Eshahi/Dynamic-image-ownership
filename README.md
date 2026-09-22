@@ -5,12 +5,14 @@ This repository contains the reproducible research harness and execution plan fo
 ## Current status
 
 - The thesis workflow has been reduced from 58 source tasks to 38 traceable execution issues.
-- Five milestones and seven human-review gates define the delivery lifecycle.
+- Five milestones and seven lifecycle gates define delivery. Routine technical acceptance is delegated; user decisions are reserved for material scope changes, compute authorization, and final acceptance. See [approval policy](research/approval-policy.md).
 - Eight reusable agent skills cover workflow control, research handoff, literature synthesis, experiment design, compute execution, results analysis, evidence audit, and thesis writing.
 - Local and mock-provider execution are implemented and tested.
 - Live RunPod creation remains disabled until an enforceable time and spending boundary is validated.
 - Codex Remote is the human interaction channel for progress notifications, review, and explicit
-  gate decisions; no project-specific messaging bot or gateway is required.
+  necessary decisions; no project-specific messaging bot or gateway is required.
+
+Read [the continuation record](thesis-runs/d916749c/continuation.md) for actual task readiness. A completed workflow prompt does not prove its scientific outputs are complete.
 
 ## Repository policy
 

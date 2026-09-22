@@ -2,6 +2,8 @@
 
 ## Status and authority
 
+**Current policy:** [Approval policy](approval-policy.md) records the user's continuing-work delegation and the milestone audit correction: a transfer/registry demo is not a required system deliverable. The proposal's dynamic-ownership conflict remains explicit for the research contract. The original scope decision is retained below as history.
+
 **Execution update, 2026-09-22:** The delegated decision in [scope-execution-decision.md](scope-execution-decision.md) approves a bounded solo-MSc implementation with a three-week system target. It resolves the project-level ownership-transfer boundary and assigns the remaining technical specifications. The sections below preserve the original A2a proposal interpretation and its pre-decision gaps; consult that decision for current execution authority. Institutional amendment approval is not asserted.
 
 This document operationalizes the approved proposal for task `A2a`. The authoritative source remains `پروپوزال 2.docx`, identified by SHA-256 `15a02877be74f5118cc7b3d3ded9ab447cc07551773486264ac4755119adfeff`. `inputs/proposal-text.md` is a traceable mechanical extraction, and `research/claims.csv` separates short approved text from operational readings and unresolved issues.
