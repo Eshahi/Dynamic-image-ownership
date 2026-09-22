@@ -1,0 +1,10 @@
+{
+  "run_id": "d916749c",
+  "step_id": "scope-acceptance",
+  "verdict": "approve",
+  "state_sha256": "541ce02d0acbc523100e564f44edef69dee586286078cea0214316cd4046ba96",
+  "timestamp": "2026-09-22T21:55:42Z",
+  "expires_at": "2026-09-22T22:55:42Z",
+  "actor": "Codex acting under Soroush's explicit delegation for scope acceptance only",
+  "source_ref": "Authenticated Codex task 01a0b9bd-fd47-7cf1-8123-ff77a4ca9dd8, user scope-delegation message dated 2026-09-22; research/scope-execution-decision.md SHA-256 f79873238bcc3b32c27599495f93a18fe9f0794522afb4d465099978f53d0273"
+}
