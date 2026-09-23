@@ -25,7 +25,7 @@
     },
     {
       "method_id": "invismark-100-no-ecc",
-      "role": "required_neural_decoder_candidate",
+      "role": "deferred_neural_decoder_candidate_pre_test_access_fallback",
       "implementation_class": "OFFICIAL_CODE_UNVERIFIED_CHECKPOINT",
       "source_commit": "8d5ce55705ada1c2daf642c97f7ff3ae6dbd1825",
       "checkpoint_ref": "https://1drv.ms/f/c/7882afab383c8474/Ei_Lasu5CrpHsrNIkYRLenYBmx662VSAovq5hD8r-NsB5A?e=gbHNVX",
@@ -36,14 +36,14 @@
     },
     {
       "method_id": "trustmark-q-neural-fallback",
-      "role": "conditional_neural_decoder_fallback_not_selected",
+      "role": "first_neural_decoder_pre_acquisition_candidate_not_run_ready",
       "implementation_class": "OFFICIAL_CODE_AND_MODEL_RIGHTS_STATED_BYTES_UNVERIFIED",
       "source_commit": "2ecb73ad28d1a3f66ac9dc19e1b667711f14314f",
       "checkpoint_ref": "https://cai-watermark.adobe.net/watermarking/trustmark-models/",
       "adapter_entrypoint": null,
-      "resolved_parameters": {"input_route": "existing image", "candidate_variant": "Q", "default_ecc": "BCH_5", "default_protected_payload_bits": 61, "weight_rights_statement": "Pinned README says MIT covers code and downloaded model files"},
-      "unresolved_parameters": ["Exact Q config/encoder/decoder SHA-256 receipts and dependency rights", "Safe inference-only adapter without implicit downloads or unrestricted torch.load", "Frozen ECC/strength, image profile, negative controls and calibrated score", "Environment compatibility and full verifier timing"],
-      "execution_blockers": ["Not selected as InvisMark substitute", "No checkpoint bytes/hash receipt", "No safe isolated adapter", "No compatible locked environment", "No exact authorized scientific manifest"]
+      "resolved_parameters": {"input_route": "existing image", "candidate_variant": "Q", "candidate_ecc": "BCH_5", "candidate_mode": "binary", "candidate_protected_payload_bits": 61, "candidate_strength": 1.0, "candidate_load_remover": false, "candidate_load_bbox_detector": false, "candidate_detect_first": false, "candidate_rotation": false, "weight_rights_statement": "Pinned README says MIT covers code and downloaded model files"},
+      "unresolved_parameters": ["Exact Q config/encoder/decoder SHA-256 receipts and dependency rights", "Safe inference-only adapter without implicit downloads or unrestricted torch.load", "Frozen image profile, 61-bit payload generation, unmarked/wrong-payload controls and Boolean presence path", "Continuous image-level score is not exposed by the inspected public decode path", "Environment compatibility and full verifier timing"],
+      "execution_blockers": ["Pre-acquisition priority is not a runnable selection", "No checkpoint bytes/hash receipt", "No safe isolated adapter", "No compatible locked environment", "No exact authorized scientific manifest"]
     },
     {
       "method_id": "zodiac-existing-image-inversion",

@@ -24,7 +24,7 @@
     {
       "paper_id": "invismark-v2",
       "method_id": "invismark-100-no-ecc",
-      "role": "neural_decoder",
+      "role": "deferred_neural_decoder_candidate_pre_test_access_fallback",
       "code_url": "https://github.com/microsoft/InvisMark",
       "commit": "8d5ce55705ada1c2daf642c97f7ff3ae6dbd1825",
       "checkpoint": {"ref": "https://1drv.ms/f/c/7882afab383c8474/Ei_Lasu5CrpHsrNIkYRLenYBmx662VSAovq5hD8r-NsB5A?e=gbHNVX", "sha256": null, "rights_verified": false},
@@ -40,7 +40,7 @@
     {
       "paper_id": "trustmark-arxiv2023-iccv2025",
       "method_id": "trustmark-q-neural-fallback",
-      "role": "conditional_existing_image_neural_decoder_fallback",
+      "role": "first_existing_image_neural_decoder_pre_acquisition_candidate",
       "code_url": "https://github.com/adobe/trustmark",
       "commit": "2ecb73ad28d1a3f66ac9dc19e1b667711f14314f",
       "checkpoint": {"ref": "https://cai-watermark.adobe.net/watermarking/trustmark-models/", "sha256": null, "rights_verified": false},
@@ -51,7 +51,7 @@
       "source_inspection_level": "PINNED_README_LICENSE_CONFIG_AND_TARGETED_LOADER_DECODE; CHECKPOINT_HEAD_ONLY",
       "execution_readiness": "BLOCKED_CHECKPOINT_SAFE_ADAPTER_ENVIRONMENT_AND_SELECTION",
       "evidence_url": ["https://arxiv.org/abs/2311.18297", "https://github.com/adobe/trustmark/blob/2ecb73ad28d1a3f66ac9dc19e1b667711f14314f/README.md", "https://github.com/adobe/trustmark/blob/2ecb73ad28d1a3f66ac9dc19e1b667711f14314f/python/CONFIG.md", "research/b2-public-code-preflight-20260923.md"],
-      "known_requirements": ["Use a frozen Q variant and explicitly chosen ECC/strength before test; the default BCH_5 protects only 61 payload bits in its 100-bit frame.", "Read-only HEAD returned 200 for Q config/encoder/decoder but no bytes or SHA-256 were acquired; upstream checks are MD5 only.", "The non-ECC decode path reports presence true without calibration; use a declared ECC or continuous-score rule with negative controls.", "Prevent implicit model downloads and unrestricted pickle loading in a reviewed inference-only adapter; verify original-image, output-size, license/dependency and timing parity."]
+      "known_requirements": ["Pre-results access-first priority is Q/BCH_5 at strength 1.0, not a runnable selection or performance ranking; the 100-bit frame protects only 61 payload bits.", "Pinned constructor defaults to loading an unnecessary remover: prospective profile explicitly sets loadRemover=False and loadBBoxDetector=False, with unrotated decode and no localization.", "Read-only HEAD returned 200 for Q config/encoder/decoder but no bytes or SHA-256 were acquired; upstream checks are MD5 only.", "The ECC decode path returns Boolean validity, but the inspected public path exposes no continuous image-level score; do not claim ROC/AUC without separate validation.", "Prevent implicit model downloads and unrestricted pickle loading in a reviewed inference-only adapter; verify original-image, output-size, license/dependency and timing parity."]
     },
     {
       "paper_id": "zodiac-neurips2024",
