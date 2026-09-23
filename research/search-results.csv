@@ -16,3 +16,11 @@ B1-S14,2026-09-23,Crossref REST,https://api.crossref.org/works/10.1109/CSCI62032
 B1-S15,2026-09-23,arXiv direct open,https://arxiv.org/abs/2310.05395,https://arxiv.org/abs/2310.05395v1,include,abstract,Preprint card separate from conference identity; no equivalence assumption
 B1-S16,2026-09-23,arXiv direct open,https://arxiv.org/abs/2411.07795v2,https://arxiv.org/abs/2411.07795v2,include,abstract,Versioned InvisMark card admitted
 B1-S17,2026-09-23,GitHub direct open,https://github.com/cent664/SSRIW,https://github.com/cent664/SSRIW,pending,lead,Repository linked paper and citation; no code execution or license audit
+B1-S18,2026-09-23,arXiv direct open,https://arxiv.org/html/2411.07795v2,https://arxiv.org/abs/2411.07795v2,include,targeted_full_text,Method and evaluation/attack sections; same version deeper reading
+B1-S19,2026-09-23,GitHub direct open,https://github.com/microsoft/InvisMark,https://github.com/microsoft/InvisMark,include,read_only_preflight,README plus pinned LICENSE requirements config model fragment and notebook cells; no execution
+B1-S20,2026-09-23,GitHub REST,https://api.github.com/repos/microsoft/InvisMark/commits/main,https://github.com/microsoft/InvisMark/commit/8d5ce55705ada1c2daf642c97f7ff3ae6dbd1825,include,revision_pin,Raw files subsequently fetched at this exact commit
+B1-S21,2026-09-23,public web search,site:arxiv.org Black-Box Forgery Attacks on Semantic Watermarks,https://arxiv.org/abs/2412.03283,include,lead_followed,Followed primary versioned methods
+B1-S22,2026-09-23,arXiv direct open,https://arxiv.org/html/2412.03283v1,https://arxiv.org/abs/2412.03283v1,include,targeted_full_text,Sections 3 and 4.1 and Table1; later revisions still pending
+B1-S23,2026-09-23,arXiv direct open,https://arxiv.org/abs/2412.03283v1,https://arxiv.org/abs/2412.03283v1,include,metadata,Authors title DOI and history checked
+B1-S24,2026-09-23,public web search,site:arxiv.org Invisible Image Watermarks Are Provably Removable,https://arxiv.org/abs/2306.01953,pending,lead,Regeneration source not yet admitted
+B1-S25,2026-09-23,public web search,site:arxiv.org Black-Box Forgery Attacks on Semantic Watermarks,https://arxiv.org/abs/2606.29807,pending,lead,Potential contrary or qualifying evidence; not yet inspected
