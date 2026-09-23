@@ -1,0 +1,88 @@
+{
+  "request_id": "d916749c-B1-002",
+  "papers": [
+    {
+      "schema_version": "1.0",
+      "paper_id": "zhao-regeneration-v3",
+      "citation_key": "Zhao2023Regenerationv3",
+      "doi": "10.48550/arXiv.2306.01953",
+      "canonical_url": "https://arxiv.org/abs/2306.01953v3",
+      "title": "Invisible Image Watermarks Are Provably Removable Using Generative AI",
+      "authors": [
+        "Xuandong Zhao",
+        "Kexun Zhang",
+        "Zihao Su",
+        "Saastha Vasan",
+        "Ilya Grishchenko",
+        "Christopher Kruegel",
+        "Giovanni Vigna",
+        "Yu-Xiang Wang",
+        "Lei Li"
+      ],
+      "year": 2023,
+      "venue": null,
+      "source_type": "preprint",
+      "access_date": "2026-09-23",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "research/literature/inspections/zhao-regeneration-v3.md",
+        "sha256": "2d4713c1959c94f3f56c54a5ecddc701df13d4b26511987da6580bb127e477e4"
+      },
+      "limitations": [
+        "Targeted sections only; proofs/code unverified and no experiment reproduced.",
+        "2023 is first submission; inspected v3 is 2024-10-31.",
+        "Checksum identifies observer record, not remote paper."
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "B1-REGEN-METHOD",
+      "claim": "The attack noises an embedding and reconstructs without detector queries.",
+      "source_id": "zhao-regeneration-v3",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Section 2.2 and Algorithm 1",
+      "confidence": "high",
+      "limitations": [
+        "Conditional source-specific evidence; not a reproduced thesis result."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "B1-REGEN-BOUND",
+      "claim": "Removal and utility guarantees have explicit perturbation, embedding and denoising conditions.",
+      "source_id": "zhao-regeneration-v3",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Theorems 4.3 and 4.4",
+      "confidence": "high",
+      "limitations": [
+        "Conditional source-specific evidence; not a reproduced thesis result."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "B1-REGEN-DEFENSE",
+      "claim": "Reported Tree-Ring resilience does not establish the thesis's matched-quality latent advantage.",
+      "source_id": "zhao-regeneration-v3",
+      "kind": "agent-inference",
+      "stance": "supporting",
+      "locator": "Appendix E.1-E.2",
+      "confidence": "high",
+      "limitations": [
+        "Conditional source-specific evidence; not a reproduced thesis result."
+      ],
+      "assumptions": [
+        "Prompt/caption regeneration with changed appearance is not a matched perturbation comparison for the proposed input-image route."
+      ]
+    }
+  ],
+  "assumptions": [],
+  "open_questions": [
+    "Map theorem assumptions to the proposed mechanism rather than assume universal applicability.",
+    "Preregister matched quality and operating-point comparisons for RQ-02/HYP-02.",
+    "Inspect attack code and resource requirements before authorized execution."
+  ]
+}

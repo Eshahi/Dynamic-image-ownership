@@ -14,6 +14,14 @@ Updated 2026-09-23. Authority: `research/approval-policy.md`.
 
 ## Next authorized work
 
+Latest new source: `response-regeneration.json` and incremental `research/literature/regeneration/` add Zhao v3 with three source-specific evidence entries. Current corpus is eight distinct DOI cards / thirteen entries across method-checkpoint plus regeneration; earlier cumulative snapshots are historical subsets. Validator/synthesis pass without warnings for the new package; the earlier Kumari limitation remains. Regeneration threat and conditional bounds are now inspected, including qualifying defense results; no general impossibility or thesis advantage inferred. PROB-02/RQ-02/HYP-02/METRIC-05 relevance is recorded in the incremental README, pending namespace consolidation.
+
+Next: finish SEAL revision/code preflight and inspect remaining qualifying-source lead as needed; then consolidate current evidence into root B1 outputs and whole-package review. Do not re-open source identities already audited. A5 may proceed independently with its exact method/feasibility specification under the scope guard. No compute or evidence-gate acceptance occurred.
+
+## Historical checkpoints — superseded counts and next-step notes
+
+The following checkpoint descriptions preserve earlier observations, not current corpus counts or competing execution instructions. Use the latest new-source paragraph above for current state.
+
 Latest reconciliation: `research/claim-evidence-map.csv` covers all 42 original IDs/kinds with validated references to the existing ten B1 evidence IDs, or explicit no-admitted-mapping entries. `research/evidence-gap-assessment.md` prioritizes the DCT bridge, stable key recomputation, distinct comparator roles, and attack-access limits. No new source or experimental result was added in this checkpoint. Original claims and proposal unchanged. This closes an initial traceability gap, not B1 or the evidence gate.
 
 Immediate next task is primary regeneration/contrary-source inspection and SEAL revision/code checks, then bounded evidence consolidation; avoid another mapping-only checkpoint. A5 remains a ready independent architecture branch requiring the scope guard and actual executable mechanism, not a placeholder. Current B1 corpus remains seven cards and ten evidence entries from response-methods.json.
