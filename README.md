@@ -36,6 +36,16 @@ The deterministic issue seed is stored at `thesis-agent-skills/fixtures/github-i
 
 See `thesis-agent-skills/INSTALL.md` for environment preparation, skill installation, Spec Kit workflow installation, Codex Remote requirements, and the synthetic smoke test.
 
+On this Windows host, use the verified Python 3.12 interpreter to create an ignored CPU workflow/contract-test venv and install the [pinned workflow lock](requirements.lock). For another host or a fresh clone, substitute its verified Python 3.12 executable for the first command:
+
+```powershell
+& '.thesis-build/venv/Scripts/python.exe' -m venv '.thesis-build/a6-cpu-venv'
+& '.thesis-build/a6-cpu-venv/Scripts/python.exe' -m pip install -r requirements.lock
+& '.thesis-build/a6-cpu-venv/Scripts/python.exe' -m pip check
+```
+
+See the [environment record](research/environment.md) for the exact verified tests and still-blocked scientific ML/GPU runtime. This workflow lock does not install PyTorch, model weights, datasets, or a RunPod environment.
+
 ## Scientific status
 
 The [research contract](research/research-contract.md) and [scope guard](research/scope-guard.md) bind implementation to the source method. Transfer/ledger development and automatic substitutions of the embedding or detector are outside routine execution authority. Unresolved scientific choices remain explicit downstream prerequisites; traceability coverage is not experimental validation.

@@ -1,0 +1,34 @@
+# A6 environment lock and reproducibility boundary
+
+Status 2026-09-23: **clean CPU workflow environment verified; scientific ML environment blocked**. Issue #7, source task `eng-2`. This record applies [research-contract.md](research-contract.md), [scope-guard.md](scope-guard.md), and [method-spec.md](method-spec.md). `requirements.lock` covers existing workflow/contract-validation code only. It is not a claim that embedding, CLIP, diffusion, baseline reproduction, GPU fit, or scientific runs are available. No model checkpoint or dataset was acquired, and no GPU benchmark or stress test was performed.
+
+## Host observation and isolation
+
+Read-only observation on the user's Windows 11 host: Python 3.12.14; NVIDIA GeForce RTX 5070 Ti Laptop GPU; driver 610.88; `nvidia-smi` reports 12,227 MiB total GPU memory. These values are machine observations, **not** suitability or performance results. The existing `.thesis-build/venv` has `jsonschema==4.26.0` but lacks `torch`, `torchvision`, `diffusers`, `transformers`, Pillow, NumPy and SciPy. It reports installed `thesis-agent-skills==1.0.0` while repository `thesis-agent-skills/pyproject.toml` declares version 1.2.0, so that pre-existing venv is not accepted as a clean project lock verification. Do not install scientific packages into it or change host drivers/security settings.
+
+The clean CPU environment is `.thesis-build/a6-cpu-venv`, an ignored repository-local venv created from the verified 3.12.14 interpreter. `requirements.lock` pins pip and the exact transitive workflow versions tested by `thesis-agent-skills/requirements-tested.txt`, the official Spec Kit commit in `requirements-spec-kit.txt`, and the local thesis-agent-skills package from this repository. Reproduction must record the checkout commit as well as the lock SHA-256: an editable local package path alone does not identify source bytes. The tested input checkout was `4390b75a3acb7d2525620331a7eef672ee3fd14a`; the verified lock SHA-256 is `c26d467d208f6cfecf6dcfb6ac8a21a18824ff7f7ad56e5bbdfb7adeb6de0aaf`.
+
+From the repository root in PowerShell, without credentials or model downloads:
+
+```powershell
+& '.thesis-build/venv/Scripts/python.exe' -m venv '.thesis-build/a6-cpu-venv'
+& '.thesis-build/a6-cpu-venv/Scripts/python.exe' -m pip install -r requirements.lock
+& '.thesis-build/a6-cpu-venv/Scripts/python.exe' -m pip check
+& '.thesis-build/a6-cpu-venv/Scripts/python.exe' -c "import jsonschema, yaml, thesis_agents; print('CPU workflow imports OK')"
+& '.thesis-build/a6-cpu-venv/Scripts/python.exe' -m unittest discover -s scripts -p 'test_*.py'
+& '.thesis-build/a6-cpu-venv/Scripts/python.exe' -m unittest discover -s thesis-agent-skills/tests -p 'test_*.py'
+```
+
+At 2026-09-23 11:06 UTC, the clean install succeeded; the final pip-pinned lock was reinstalled and both test suites rerun successfully. `pip check` reported no broken requirements; imports of `jsonschema`, `yaml` and `thesis_agents` succeeded; installed versions were Python 3.12.14, `pip==25.0.1`, `jsonschema==4.26.0`, `PyYAML==6.0.3`, `thesis-agent-skills==1.2.0` and `specify-cli==1.0.9.dev0`; `specify --version` returned `1.0.9.dev0`. All 18 repository `scripts/test_*.py` tests and all 44 `thesis-agent-skills/tests/test_*.py` tests passed. These are CPU software tests, not model or GPU tests. The install used PyPI and the pinned public GitHub Spec Kit repository; it did not fetch private proposal material. Do not claim offline reproducibility or bit-for-bit wheel identity from version pins alone. A later artifact lock may add package hashes/wheel receipts. If a repeat clean setup fails, record the exact dependency/error and leave A6 open. It is inappropriate to copy an unverified site-packages tree and call it reproducible.
+
+## Scientific runtime not yet locked
+
+The A5 architecture pins official `openai/CLIP` source commit `d05afc436d78f1c48dc0dbf8e5980a9d471f35f6`, with an expected ViT-B/32 checkpoint digest, and Diffusers `v0.35.1` commit `0f252be0ed42006c125ef4429156cb13ae6c1d60`. Its proposed Stable Diffusion 1.5 model is an unaffiliated mirror revision whose weight identity, rights and equivalence remain unresolved. The CLIP checkpoint was not downloaded. Official [CLIP requirements](https://github.com/openai/CLIP/blob/d05afc436d78f1c48dc0dbf8e5980a9d471f35f6/requirements.txt) include PyTorch, TorchVision, ftfy, regex and tqdm. [Diffusers installation guidance](https://huggingface.co/docs/diffusers/v0.35.1/en/installation) requires a compatible PyTorch environment and recommends isolation. This does not prove any particular Windows/CUDA wheel works on this GPU.
+
+For future compatibility testing, a **candidate, not an installed lock** is PyTorch `2.12.1+cu130` with TorchVision `0.27.1+cu130`: the official [PyTorch](https://download.pytorch.org/whl/cu130/torch/) and [TorchVision](https://download.pytorch.org/whl/cu130/torchvision/) indexes list Windows CPython 3.12 wheels, and the [TorchVision compatibility table](https://github.com/pytorch/vision#installation) pairs the 2.12/0.27 series. The [PyTorch 2.12 release note](https://pytorch.org/blog/pytorch-2-12-release-blog/) recommends CUDA 13.0+ wheels for Blackwell and gives Windows driver minimum 580.88; observed driver 610.88 exceeds that minimum. **Inference:** this is a plausible installation candidate, not proof that this laptop's full method, gradients or memory footprint will work. The user previously preferred to perform substantial downloads, so no PyTorch/model wheel is downloaded in this CPU checkpoint.
+
+The following remain **unresolved**, not silently assigned latest versions: tested PyTorch/TorchVision GPU compatibility; compatible Diffusers/Transformers/Accelerate/Safetensors versions; Pillow/LibLCMS image and ICC behavior; NumPy/DCT implementation and numerical parity; the model/tokenizer/scheduler/CLIP checkpoint file hashes and terms; LPIPS/SSIM implementation pins; and a remote RunPod image/driver/runtime. A6 must verify exact installed versions, artifact checksums, required CPU imports and deterministic test vectors before scientific manifests. It must separately record `torch.version.cuda`, device capability, driver, model-loading failures, numerical drift and remote differences when a sanctioned environment exists. Driver presence and memory listing are not GPU qualification. No scientific or paid compute is authorized by this document.
+
+## Current acceptance limit
+
+A6/issue #7 may only close when the clean setup and CPU import/unit-test evidence exists **and** the declared scientific environment is resolved or its explicit blocked scope is accepted under the issue's completion criteria. The present file is a reproducible preparation checkpoint, not task completion. The official Spec Kit `plan-acceptance` gate remains pending independent evidence review; this record alone cannot advance it.
