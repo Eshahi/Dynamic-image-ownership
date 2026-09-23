@@ -27,3 +27,7 @@ B1-S25,2026-09-23,public web search,site:arxiv.org Black-Box Forgery Attacks on 
 B1-S26,2026-09-23,arXiv direct open,https://arxiv.org/abs/2306.01953,https://arxiv.org/abs/2306.01953v3,include,metadata,History identifies v3 dated 2024-10-31
 B1-S27,2026-09-23,arXiv direct open,https://arxiv.org/html/2306.01953v4,https://arxiv.org/abs/2306.01953,pending,404,Incorrect revision attempted before metadata result read; not evidence
 B1-S28,2026-09-23,arXiv direct open,https://arxiv.org/html/2306.01953v3,https://arxiv.org/abs/2306.01953v3,include,targeted_full_text,Threat model attack algorithm theorem statements and defense appendix inspected
+B1-S29,2026-09-23,arXiv direct open,https://arxiv.org/html/2503.12172v1,https://arxiv.org/html/2503.12172v1,include,supplemental_revision_check,Section3.2 core pipeline comparison; no distinct publication counted
+B1-S30,2026-09-23,GitHub REST,https://api.github.com/repos/Kasraarabi/SEAL/commits/main,https://github.com/Kasraarabi/SEAL,pending,422,Wrong branch assumption; subsequent dependent read failures404
+B1-S31,2026-09-23,GitHub REST,https://api.github.com/repos/Kasraarabi/SEAL,https://github.com/Kasraarabi/SEAL,include,metadata,Default branch is master
+B1-S32,2026-09-23,GitHub REST,https://api.github.com/repos/Kasraarabi/SEAL/commits/master,https://github.com/Kasraarabi/SEAL/commit/92d31b31b93a6e373fe88a584c640beafb68c6fa,include,revision_pin,Tree and read-only files inspected at pinned commit
