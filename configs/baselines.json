@@ -30,8 +30,19 @@
       "checkpoint_ref": "https://1drv.ms/f/c/7882afab383c8474/Ei_Lasu5CrpHsrNIkYRLenYBmx662VSAovq5hD8r-NsB5A?e=gbHNVX",
       "adapter_entrypoint": null,
       "resolved_parameters": {"advertised_checkpoint_payload_bits": 100, "advertised_checkpoint_ecc": false},
-      "unresolved_parameters": ["Checkpoint file identity, SHA-256, terms, image_shape and actual config", "Safe inference-only loading without unrestricted torch.load, pretrained implicit downloads or training-side effects", "Image-level presence score, negative controls and validation calibration", "Runtime and model dependency versions"],
+      "unresolved_parameters": ["Checkpoint file identity, SHA-256, terms, image_shape and actual config", "Whether its 100-bit UUID4 frame's six fixed positions match the actual checkpoint training profile", "Safe inference-only loading without unrestricted torch.load, pretrained implicit downloads or training-side effects", "Image-level presence score, negative controls and validation calibration", "Runtime and model dependency versions"],
       "execution_blockers": ["External checkpoint not inspected", "No safe isolated adapter", "No compatible locked environment", "No exact authorized scientific manifest"]
+    },
+    {
+      "method_id": "trustmark-q-neural-fallback",
+      "role": "conditional_neural_decoder_fallback_not_selected",
+      "implementation_class": "OFFICIAL_CODE_AND_MODEL_RIGHTS_STATED_BYTES_UNVERIFIED",
+      "source_commit": "2ecb73ad28d1a3f66ac9dc19e1b667711f14314f",
+      "checkpoint_ref": "https://cai-watermark.adobe.net/watermarking/trustmark-models/",
+      "adapter_entrypoint": null,
+      "resolved_parameters": {"input_route": "existing image", "candidate_variant": "Q", "default_ecc": "BCH_5", "default_protected_payload_bits": 61, "weight_rights_statement": "Pinned README says MIT covers code and downloaded model files"},
+      "unresolved_parameters": ["Exact Q config/encoder/decoder SHA-256 receipts and dependency rights", "Safe inference-only adapter without implicit downloads or unrestricted torch.load", "Frozen ECC/strength, image profile, negative controls and calibrated score", "Environment compatibility and full verifier timing"],
+      "execution_blockers": ["Not selected as InvisMark substitute", "No checkpoint bytes/hash receipt", "No safe isolated adapter", "No compatible locked environment", "No exact authorized scientific manifest"]
     },
     {
       "method_id": "zodiac-existing-image-inversion",

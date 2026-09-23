@@ -35,7 +35,23 @@
       "source_inspection_level": "TARGETED_PINNED_README_LICENSE_CONFIG_MODEL_NOTEBOOK_AND_ENCODE_DECODE_TRACE; SAFE_ADAPTER_UNVERIFIED",
       "execution_readiness": "BLOCKED_CHECKPOINT_ADAPTER_AND_ENVIRONMENT",
       "evidence_url": ["https://github.com/microsoft/InvisMark/blob/8d5ce55705ada1c2daf642c97f7ff3ae6dbd1825/README.md", "https://github.com/microsoft/InvisMark/blob/8d5ce55705ada1c2daf642c97f7ff3ae6dbd1825/LICENSE", "research/baseline-readiness.md"],
-      "known_requirements": ["Published weights are 100-bit without ECC, not the unverified configs.py 128-bit/ECC default. The actual checkpoint config and image_shape are unknown.", "Demo normalizes to [-1,1], loads an external checkpoint, encodes a UUID-derived 100-bit secret, and reports first-batch bit accuracy; it does not define image-level presence/FPR calibration.", "Compare watermark presence, false positives, quality and full decoder time with a safe isolated adapter; do not claim its detector tests OwnerID or instance binding."]
+      "known_requirements": ["Published weights are 100-bit without ECC, not the unverified configs.py 128-bit/ECC default. The actual checkpoint config and image_shape are unknown.", "The pinned demo and training utility slice the first 100 bits of UUID4, including six fixed version/variant positions; the 100-bit frame is not 100 independent random bits. Actual checkpoint training remains unverified.", "An upstream issue reports the OneDrive checkpoint link broken; a fresh unauthenticated GET reached only an HTML shell, not weight bytes. Do not call present access verified or conclusively broken.", "Demo normalizes to [-1,1], loads an external checkpoint, and reports first-batch bit accuracy; it does not define image-level presence/FPR calibration.", "Compare watermark presence, false positives, quality and full decoder time with a safe isolated adapter; do not claim its detector tests OwnerID or instance binding."]
+    },
+    {
+      "paper_id": "trustmark-arxiv2023-iccv2025",
+      "method_id": "trustmark-q-neural-fallback",
+      "role": "conditional_existing_image_neural_decoder_fallback",
+      "code_url": "https://github.com/adobe/trustmark",
+      "commit": "2ecb73ad28d1a3f66ac9dc19e1b667711f14314f",
+      "checkpoint": {"ref": "https://cai-watermark.adobe.net/watermarking/trustmark-models/", "sha256": null, "rights_verified": false},
+      "license": {"code_spdx": "MIT", "checkpoint": "README states MIT covers downloaded model files; exact bytes not acquired", "note": "Repository README and LICENSE inspected at the pinned commit; this is not legal clearance of dependencies or an artifact receipt."},
+      "example_command": null,
+      "example_note": "Official test-decode.py/TrustMark constructor auto-downloads model files and uses torch.load; not a safe approved smoke test.",
+      "status": "OFFICIAL_AVAILABLE",
+      "source_inspection_level": "PINNED_README_LICENSE_CONFIG_AND_TARGETED_LOADER_DECODE; CHECKPOINT_HEAD_ONLY",
+      "execution_readiness": "BLOCKED_CHECKPOINT_SAFE_ADAPTER_ENVIRONMENT_AND_SELECTION",
+      "evidence_url": ["https://arxiv.org/abs/2311.18297", "https://github.com/adobe/trustmark/blob/2ecb73ad28d1a3f66ac9dc19e1b667711f14314f/README.md", "https://github.com/adobe/trustmark/blob/2ecb73ad28d1a3f66ac9dc19e1b667711f14314f/python/CONFIG.md", "research/b2-public-code-preflight-20260923.md"],
+      "known_requirements": ["Use a frozen Q variant and explicitly chosen ECC/strength before test; the default BCH_5 protects only 61 payload bits in its 100-bit frame.", "Read-only HEAD returned 200 for Q config/encoder/decoder but no bytes or SHA-256 were acquired; upstream checks are MD5 only.", "The non-ECC decode path reports presence true without calibration; use a declared ECC or continuous-score rule with negative controls.", "Prevent implicit model downloads and unrestricted pickle loading in a reviewed inference-only adapter; verify original-image, output-size, license/dependency and timing parity."]
     },
     {
       "paper_id": "zodiac-neurips2024",
