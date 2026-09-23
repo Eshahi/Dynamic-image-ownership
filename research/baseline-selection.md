@@ -1,6 +1,6 @@
 # B2 prospective comparator selection and fairness contract
 
-Status 2026-09-23: **selection proposal with execution blockers**, issue #9, not scientific reproduction or a frozen A4/A6 run manifest. Read with `baseline-readiness.json`, `baseline-readiness.md`, `b2-public-code-preflight-20260923.md`, `research-contract.md`, `scope-guard.md`, and A3/A5. No weights, source code package or datasets have been acquired; no scientific experiment has run. The paper/code versions and permissions must be rechecked before any implementation. Source proposal comparators are not removed because a candidate is inconvenient or license-unclear.
+Status 2026-09-23: **selection proposal with execution blockers**, issue #9, not scientific reproduction or a frozen A4/A6 run manifest. Read with `baseline-readiness.json`, `baseline-readiness.md`, `b2-public-code-preflight-20260923.md`, `research-contract.md`, `scope-guard.md`, and A3/A5. No weights, source code package or datasets have been acquired; no scientific experiment has run. The paper/code versions and permissions must be rechecked before any implementation. Source proposal comparators are not removed because a candidate is inconvenient or license-unclear. A bounded check of MarkDiffusion and Stable Signature found no demonstrated existing-image replacement; ZoDiac's pinned tree still has no detected code license and its named model repository returned HTTP 401 to unauthenticated inspection. See the public-code preflight for the exact limits of these observations.
 
 ## Required versus optional roles
 
