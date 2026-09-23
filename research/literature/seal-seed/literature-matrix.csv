@@ -1,0 +1,2 @@
+paper_id,citation_key,title,year,doi,canonical_url,verification,inspected_content,limitations
+seal-v4,Arabi2025SEALv4,SEAL: Semantic Aware Image Watermarking,2025,10.48550/arXiv.2503.12172,https://arxiv.org/abs/2503.12172v4,verified,full-text,"Targeted section 3.2 inspection, not whole-paper or code verification.; 2025 is first-submission year; inspected v4 is dated 2026-05-18.; Local checksum covers excerpt/observer record, not a full-text snapshot.; Verified denotes source inspection, not reproduced scientific validity."
