@@ -1,0 +1,20 @@
+{
+  "audit_id": "a5-noise-path-review-20260923",
+  "reviewer": "/root/bridge_review",
+  "author": "/root",
+  "audit_type": "manual-documentary-code-algebra-review-not-experiment-helper-schema",
+  "recommendation": "accept-partial-candidate-integrity-only",
+  "blocking_findings": [],
+  "warnings": [
+    {"id": "W1", "detail": "Scalar tests do not establish model gradients numerical parity hardware fit or resolved VAE scaling."},
+    {"id": "W2", "detail": "Full method parameters stability objective templates and resource limits remain unresolved."},
+    {"id": "W3", "detail": "Mirror weights and frozen acquisition license provenance remain unverified."}
+  ],
+  "ordinary_tests_passed": 6,
+  "independently_matched_source_hashes": 5,
+  "scientific_execution": false,
+  "a5_complete": false,
+  "gate_accepted": false,
+  "source_edits": false,
+  "hash_manifest": "audit-report.md"
+}

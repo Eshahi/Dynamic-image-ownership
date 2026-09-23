@@ -1,0 +1,9 @@
+claim_id,claim,classification,basis,limit
+NP-01,Initial additive-noise perturbation scales in latent units,verified,Declared equation and scalar test,Not an image experiment
+NP-02,Leading schedule and final-alpha convention match pinned DDIM,verified,Source lines 180-270 and 290-521 plus six ordinary tests,Numerical Torch parity not tested
+NP-03,Candidate model configuration uses PNDM not DDIM,verified,Pinned scheduler config independently fetched and hashed,DDIM adaptation is design choice
+NP-04,Mirror configuration equals original publisher weights,unverifiable,No weights inspected and repository declares unaffiliated mirror,Source explicitly denies asserting equivalence
+NP-05,Existing-image suffix is terminal pure-noise generation,unsupported,Nonzero image contribution and suffix definition,Source explicitly distinguishes these routes
+NP-06,Safety handling remains required,verified,Source note and pinned card safety section,No component pipeline implemented
+NP-07,Gradient and resource feasibility demonstrated,unverifiable,No real model graph or experiment,Source makes no such claim
+NP-08,A5 and gate completion established,unsupported,Full schema algorithms and preregistration incomplete,Source explicitly retains open status
