@@ -2,7 +2,8 @@
 import unittest
 
 from a4_protocol_reference import (
-    Candidate, DOMAINS, GRID, both_match, calibrate, owner_and_seed,
+    Candidate, DOMAINS, GRID, both_match, calibrate, exact_one_sided_bound,
+    owner_and_seed, primary_joint_objective,
 )
 
 
@@ -78,6 +79,43 @@ class A4ProtocolReferenceTests(unittest.TestCase):
                     calibrate(self.sources, self.observations)
         with self.assertRaises(ValueError):
             both_match((Candidate(None, (float("nan"),)),), .48, .48)
+
+    def test_exact_bounds_match_boundary_formulas_and_small_cells(self):
+        self.assertEqual(exact_one_sided_bound(0, 300, lower=True), 0)
+        self.assertEqual(exact_one_sided_bound(300, 300, lower=False), 1)
+        self.assertAlmostEqual(exact_one_sided_bound(0, 300, lower=False),
+                               1 - .05 ** (1 / 300), places=12)
+        self.assertAlmostEqual(exact_one_sided_bound(300, 300, lower=True),
+                               .05 ** (1 / 300), places=12)
+        # At n=2, x=1 both bounds have closed-form solutions.
+        self.assertAlmostEqual(exact_one_sided_bound(1, 2, lower=True),
+                               1 - .95 ** .5, places=12)
+        self.assertAlmostEqual(exact_one_sided_bound(1, 2, lower=False),
+                               .95 ** .5, places=12)
+        self.assertGreater(exact_one_sided_bound(0, 298, lower=False), .01)
+        self.assertLessEqual(exact_one_sided_bound(0, 299, lower=False), .01)
+        self.assertGreater(exact_one_sided_bound(1, 300, lower=False), .01)
+        for x, n in ((-1, 3), (4, 3), (0, 0), (True, 3), (0, 3.0)):
+            with self.subTest(x=x, n=n), self.assertRaises(ValueError):
+                exact_one_sided_bound(x, n, lower=False)
+
+    def test_joint_objective_requires_every_domain_and_negative_cell(self):
+        planned = {domain: 300 for domain in DOMAINS}
+        positives = {domain: 300 for domain in DOMAINS}
+        negatives = {domain: {condition: 0 for condition in
+                             ("C0-source", "C0-reconstruction", "C2")}
+                     for domain in DOMAINS}
+        passed, bounds = primary_joint_objective(planned, positives, negatives)
+        self.assertTrue(passed)
+        self.assertEqual(len(bounds), 3)
+        negatives["DIV2K"]["C2"] = 1
+        self.assertFalse(primary_joint_objective(planned, positives, negatives)[0])
+        negatives["DIV2K"]["C2"] = 0
+        positives["MS-COCO"] = 0
+        self.assertFalse(primary_joint_objective(planned, positives, negatives)[0])
+        del negatives["DIV2K"]["C2"]
+        with self.assertRaises(ValueError):
+            primary_joint_objective(planned, positives, negatives)
 
 
 if __name__ == "__main__":

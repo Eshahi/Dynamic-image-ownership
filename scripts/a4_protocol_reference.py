@@ -19,6 +19,7 @@ DOMAINS = ("MS-COCO", "DIV2K", "DiffusionDB")
 CONDITIONS = ("C1", "C0-source", "C0-reconstruction", "C2")
 NEGATIVE_CONDITIONS = CONDITIONS[1:]
 GRID = tuple((j - 50) / 50 for j in range(101))
+ONE_SIDED_ALPHA = 0.05
 
 
 def _source_bytes(source_uid: str) -> bytes:
@@ -182,3 +183,83 @@ def calibrate(
         {domain: {condition: counts[domain][condition][sem_index][inst_index] for condition in NEGATIVE_CONDITIONS} for domain in DOMAINS},
         planned,
     )
+
+
+def _binomial_tail(successes: int, trials: int, probability: float, *, upper: bool) -> float:
+    """Exact binomial tail summed in log space; upper includes ``successes``."""
+    if probability == 0:
+        return float(successes == 0) if upper else 1.0
+    if probability == 1:
+        return 1.0 if upper else float(successes == trials)
+    first, last = (successes, trials) if upper else (0, successes)
+    log_p, log_q = math.log(probability), math.log1p(-probability)
+    log_term = (math.lgamma(trials + 1) - math.lgamma(first + 1)
+                - math.lgamma(trials - first + 1)
+                + first * log_p + (trials - first) * log_q)
+    maximum, scaled_sum = log_term, 1.0
+    for k in range(first, last):
+        log_term += math.log(trials - k) - math.log(k + 1) + log_p - log_q
+        if log_term > maximum:
+            scaled_sum = scaled_sum * math.exp(maximum - log_term) + 1.0
+            maximum = log_term
+        else:
+            scaled_sum += math.exp(log_term - maximum)
+    return min(1.0, math.exp(maximum) * scaled_sum)
+
+
+def exact_one_sided_bound(successes: int, trials: int, *, lower: bool) -> float:
+    """One-sided 95% Clopper-Pearson bound for an independent binomial cell.
+
+    This is count arithmetic only. It cannot validate the independence,
+    eligibility, frozen threshold, or adverse missingness coding of the inputs.
+    """
+    if (not isinstance(lower, bool) or isinstance(successes, bool) or isinstance(trials, bool)
+            or not isinstance(successes, int) or not isinstance(trials, int)
+            or trials <= 0 or not 0 <= successes <= trials):
+        raise ValueError("require integer 0 <= successes <= positive trials")
+    if lower:
+        if successes == 0:
+            return 0.0
+        if successes == trials:
+            return ONE_SIDED_ALPHA ** (1 / trials)
+    else:
+        if successes == trials:
+            return 1.0
+        if successes == 0:
+            return -math.expm1(math.log(ONE_SIDED_ALPHA) / trials)
+    lo, hi = 0.0, 1.0
+    for _ in range(53):
+        mid = (lo + hi) / 2
+        tail = _binomial_tail(successes, trials, mid, upper=lower)
+        if (tail < ONE_SIDED_ALPHA) == lower:
+            lo = mid
+        else:
+            hi = mid
+    return (lo + hi) / 2
+
+
+def primary_joint_objective(
+    planned_counts: dict[str, int],
+    positive_counts: dict[str, int],
+    negative_counts: dict[str, dict[str, int]],
+) -> tuple[bool, dict[str, dict[str, float]]]:
+    """Apply the preregistered 12-cell conjunction to adverse-coded test counts."""
+    if (set(planned_counts) != set(DOMAINS)
+            or set(positive_counts) != set(DOMAINS)
+            or set(negative_counts) != set(DOMAINS)
+            or any(set(negative_counts[domain]) != set(NEGATIVE_CONDITIONS)
+                   for domain in DOMAINS)):
+        raise ValueError("all three domains and their four cells are required")
+    bounds = {}
+    for domain in DOMAINS:
+        n = planned_counts[domain]
+        cells = {"C1": exact_one_sided_bound(positive_counts[domain], n, lower=True)}
+        cells.update({condition: exact_one_sided_bound(negative_counts[domain][condition], n, lower=False)
+                      for condition in NEGATIVE_CONDITIONS})
+        bounds[domain] = cells
+    success = all(
+        bounds[domain]["C1"] >= 0.80
+        and all(bounds[domain][condition] <= 0.01 for condition in NEGATIVE_CONDITIONS)
+        for domain in DOMAINS
+    )
+    return success, bounds
