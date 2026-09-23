@@ -46,6 +46,75 @@ def owner_and_seed(source_uid: str) -> tuple[str, str, int]:
 
 
 @dataclass(frozen=True)
+class SourceGroup:
+    """One already-frozen, eligible locked-test source/content group."""
+
+    domain: str
+    group_id: str
+    source_uids: tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class T1Selection:
+    domain: str
+    group_id: str
+    representative_uid: str
+    priority_sha256: str
+
+
+@dataclass(frozen=True)
+class T1Cohort:
+    selected: dict[str, tuple[T1Selection, ...]]
+    shortfall: dict[str, int]
+
+
+def select_t1_cohort(groups: tuple[SourceGroup, ...], *, per_domain: int = 300) -> T1Cohort:
+    """Apply the preregistered T1 ranking to supplied eligible test groups.
+
+    This cannot establish that a supplied group is eligible, deduplicated or
+    locked-test; B3/B4 provenance and split isolation remain external gates.
+    A short domain is reported, never filled from another domain.
+    """
+    if not isinstance(groups, tuple) or isinstance(per_domain, bool) or not isinstance(per_domain, int) or per_domain <= 0:
+        raise ValueError("require a tuple of groups and positive per-domain count")
+    ranked = {domain: [] for domain in DOMAINS}
+    seen_groups: set[str] = set()
+    seen_uids: set[str] = set()
+    for group in groups:
+        if not isinstance(group, SourceGroup) or group.domain not in DOMAINS:
+            raise ValueError("unknown domain or malformed source group")
+        _source_bytes(group.group_id)
+        if group.group_id in seen_groups:
+            raise ValueError("duplicate content-group ID")
+        seen_groups.add(group.group_id)
+        if not isinstance(group.source_uids, tuple) or not group.source_uids:
+            raise ValueError("group requires nonempty source UID tuple")
+        members = []
+        for uid in group.source_uids:
+            raw = _source_bytes(uid)
+            if uid in seen_uids:
+                raise ValueError("source UID appears in multiple groups")
+            seen_uids.add(uid)
+            members.append((raw, uid))
+        representative_raw, representative_uid = min(members)
+        priority = hashlib.sha256(
+            b"a4-t1-cohort-v1\x00" + len(representative_raw).to_bytes(4, "big")
+            + representative_raw
+        ).digest()
+        ranked[group.domain].append((
+            priority, representative_raw,
+            T1Selection(group.domain, group.group_id, representative_uid, priority.hex()),
+        ))
+    selected = {}
+    shortfall = {}
+    for domain in DOMAINS:
+        ordered = sorted(ranked[domain], key=lambda item: (item[0], item[1]))
+        selected[domain] = tuple(item[2] for item in ordered[:per_domain])
+        shortfall[domain] = max(0, per_domain - len(ordered))
+    return T1Cohort(selected, shortfall)
+
+
+@dataclass(frozen=True)
 class Candidate:
     """One common-q candidate; None denotes a vetoed component score."""
 

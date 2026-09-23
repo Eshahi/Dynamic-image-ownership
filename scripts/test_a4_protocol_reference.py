@@ -2,8 +2,9 @@
 import unittest
 
 from a4_protocol_reference import (
-    Candidate, DOMAINS, GRID, both_match, calibrate, exact_one_sided_bound,
-    owner_and_seed, primary_joint_objective,
+    Candidate, DOMAINS, GRID, SourceGroup, both_match, calibrate,
+    exact_one_sided_bound, owner_and_seed, primary_joint_objective,
+    select_t1_cohort,
 )
 
 
@@ -28,6 +29,42 @@ class A4ProtocolReferenceTests(unittest.TestCase):
         for uid in ("", "e\u0301", None):
             with self.subTest(uid=uid), self.assertRaises(ValueError):
                 owner_and_seed(uid)
+
+    def test_t1_cohort_ranking_representative_and_shortfall(self):
+        groups = (
+            SourceGroup("MS-COCO", "g-2", ("coco:b", "coco:a")),
+            SourceGroup("MS-COCO", "g-1", ("coco:c",)),
+        )
+        result = select_t1_cohort(groups, per_domain=2)
+        self.assertEqual(result, select_t1_cohort(tuple(reversed(groups)), per_domain=2))
+        self.assertEqual(
+            [(entry.group_id, entry.representative_uid, entry.priority_sha256)
+             for entry in result.selected["MS-COCO"]],
+            [
+                ("g-1", "coco:c", "7d11fd623aebd1ecae000fb3f388852aa9d3eda065b26635b8de122b40dcc994"),
+                ("g-2", "coco:a", "be19317f882c59f56cef98253c620ecd04a3a22beb28a847d13ffff96c5960e8"),
+            ],
+        )
+        self.assertEqual(result.shortfall, {"MS-COCO": 0, "DIV2K": 2, "DiffusionDB": 2})
+        self.assertEqual(select_t1_cohort(groups, per_domain=1).shortfall["DIV2K"], 1)
+
+    def test_t1_cohort_rejects_malformed_or_duplicated_groups(self):
+        valid = SourceGroup("DIV2K", "group-1", ("div2k:1",))
+        invalid_cases = (
+            (valid, valid),
+            (valid, SourceGroup("MS-COCO", "group-2", ("div2k:1",))),
+            (SourceGroup("unknown", "group-2", ("u",)),),
+            (SourceGroup("DIV2K", "", ("u",)),),
+            (SourceGroup("DIV2K", "group-2", ()),),
+            (SourceGroup("DIV2K", "group-2", ("e\u0301",)),),
+            (SourceGroup("DIV2K", "group-2", ["u"]),),
+        )
+        for groups in invalid_cases:
+            with self.subTest(groups=groups), self.assertRaises(ValueError):
+                select_t1_cohort(groups, per_domain=1)
+        for count in (True, 0, 1.5):
+            with self.subTest(count=count), self.assertRaises(ValueError):
+                select_t1_cohort((valid,), per_domain=count)
 
     def test_common_q_and_strict_thresholds(self):
         self.assertFalse(both_match((Candidate(.9, (.1,)), Candidate(.1, (.9,))), .5, .5))
