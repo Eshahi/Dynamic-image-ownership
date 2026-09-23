@@ -3,7 +3,7 @@
 import math
 import unittest
 
-from pixel_dct_control import dct8, embed_pixel_dct, idct8, templates_from_keys
+from pixel_dct_control import dct8, embed_pixel_dct, idct8, score_pixel_dct, templates_from_keys
 
 
 class PixelDCTControlTests(unittest.TestCase):
@@ -75,6 +75,24 @@ class PixelDCTControlTests(unittest.TestCase):
         for width, height in ((31, 32), (32, 0), (True, 32), (0x100000000, 32)):
             with self.subTest(size=(width, height)), self.assertRaises(ValueError):
                 templates_from_keys(key, key, key, width, height)
+
+    def test_synthetic_component_score_and_zero_variance_veto(self):
+        source = bytes([128] * (32 * 32 * 3))
+        semantic, instance = templates_from_keys(bytes(range(32)), bytes(range(32, 64)),
+                                                  bytes([0xA5]) * 32, 32, 32)
+        self.assertEqual(score_pixel_dct(source, 32, 32, semantic, "semantic"), (0.0, True))
+        self.assertEqual(score_pixel_dct(source, 32, 32, instance, "instance"), (0.0, True))
+        marked = embed_pixel_dct(source, 32, 32, semantic, instance, .2, .2)
+        for template, component in ((semantic, "semantic"), (instance, "instance")):
+            with self.subTest(component=component):
+                score, veto = score_pixel_dct(marked, 32, 32, template, component)
+                self.assertFalse(veto)
+                self.assertGreater(score, .9)
+        flat_template = tuple((1, 1, 1, 1) for _ in range(16))
+        self.assertEqual(score_pixel_dct(marked, 32, 32, flat_template, "semantic"),
+                         (0.0, True))
+        with self.assertRaises(ValueError):
+            score_pixel_dct(marked, 32, 32, semantic, "unknown")
 
 
 if __name__ == "__main__":

@@ -86,6 +86,26 @@ def _validate_template(template: tuple[tuple[int, ...], ...], blocks: int) -> No
         raise ValueError("template must have one four-sign tuple per padded block")
 
 
+def _validate_rgb8(rgb8: bytes, width: int, height: int) -> tuple[int, int]:
+    if (type(width) is not int or type(height) is not int
+            or width < 32 or height < 32):
+        raise ValueError("RGB8 dimensions must be integers at least 32")
+    if not isinstance(rgb8, bytes) or len(rgb8) != width * height * 3:
+        raise ValueError("RGB8 byte length does not match dimensions")
+    return (width + 7) // 8, (height + 7) // 8
+
+
+def _luminance_block(rgb8: bytes, width: int, height: int,
+                     block_x: int, block_y: int) -> tuple[tuple[float, ...], ...]:
+    def value(x: int, y: int) -> float:
+        pixel = 3 * (min(y, height - 1) * width + min(x, width - 1))
+        return (0.299 * rgb8[pixel] + 0.587 * rgb8[pixel + 1]
+                + 0.114 * rgb8[pixel + 2]) / 255
+
+    return tuple(tuple(value(block_x * 8 + x, block_y * 8 + y)
+                       for x in range(8)) for y in range(8))
+
+
 def embed_pixel_dct(
     rgb8: bytes, width: int, height: int,
     semantic_template: tuple[tuple[int, ...], ...],
@@ -99,35 +119,21 @@ def embed_pixel_dct(
     equally to R/G/B, then clamped and ties-to-even rounded to RGB8. There is
     exactly one attempt: no score/quality feedback or strength retries.
     """
-    if (type(width) is not int or type(height) is not int
-            or width < 32 or height < 32):
-        raise ValueError("RGB8 dimensions must be integers at least 32")
-    if not isinstance(rgb8, bytes) or len(rgb8) != width * height * 3:
-        raise ValueError("RGB8 byte length does not match dimensions")
+    block_columns, block_rows = _validate_rgb8(rgb8, width, height)
     for gain in (semantic_gain, instance_gain):
         if isinstance(gain, bool) or not isinstance(gain, (int, float)) or not math.isfinite(gain) or gain < 0:
             raise ValueError("gains must be finite and nonnegative")
-    block_columns, block_rows = (width + 7) // 8, (height + 7) // 8
     blocks = block_columns * block_rows
     _validate_template(semantic_template, blocks)
     _validate_template(instance_template, blocks)
     if semantic_gain == 0 and instance_gain == 0:
         return rgb8
 
-    def luminance_at(x: int, y: int) -> float:
-        pixel = 3 * (y * width + x)
-        return (0.299 * rgb8[pixel] + 0.587 * rgb8[pixel + 1]
-                + 0.114 * rgb8[pixel + 2]) / 255
-
     output = bytearray(rgb8)
     for block_y in range(block_rows):
         for block_x in range(block_columns):
             block_index = block_y * block_columns + block_x
-            luminance = tuple(tuple(
-                luminance_at(min(block_x * 8 + x, width - 1),
-                             min(block_y * 8 + y, height - 1))
-                for x in range(8)
-            ) for y in range(8))
+            luminance = _luminance_block(rgb8, width, height, block_x, block_y)
             coefficients = [list(row) for row in dct8(luminance)]
             for frequencies, template, gain in (
                 (SEMANTIC_FREQUENCIES, semantic_template[block_index], semantic_gain),
@@ -150,3 +156,41 @@ def embed_pixel_dct(
                         value = rgb8[pixel + channel] / 255 + delta
                         output[pixel + channel] = round(255 * min(1.0, max(0.0, value)))
     return bytes(output)
+
+
+def score_pixel_dct(
+    rgb8: bytes, width: int, height: int,
+    template: tuple[tuple[int, ...], ...], component: str,
+) -> tuple[float, bool]:
+    """A5's one-component centered DCT cosine on supplied RGB8 and template.
+
+    Returns (score, zero_variance). This is an oracle-component reference:
+    supplying the enrollment template bypasses the blind q/H key search, so
+    it must never be reported as the full A5 verification outcome or latency.
+    """
+    block_columns, block_rows = _validate_rgb8(rgb8, width, height)
+    blocks = block_columns * block_rows
+    _validate_template(template, blocks)
+    if component == "semantic":
+        frequencies = SEMANTIC_FREQUENCIES
+    elif component == "instance":
+        frequencies = INSTANCE_FREQUENCIES
+    else:
+        raise ValueError("component must be semantic or instance")
+    observed = []
+    for block_y in range(block_rows):
+        for block_x in range(block_columns):
+            coefficients = dct8(_luminance_block(rgb8, width, height, block_x, block_y))
+            observed.append(tuple(coefficients[u][v] for u, v in frequencies))
+    observed_means = tuple(math.fsum(row[f] for row in observed) / blocks for f in range(4))
+    template_means = tuple(math.fsum(row[f] for row in template) / blocks for f in range(4))
+    centered_observed = tuple(row[f] - observed_means[f] for row in observed for f in range(4))
+    centered_template = tuple(row[f] - template_means[f] for row in template for f in range(4))
+    observed_norm = math.sqrt(math.fsum(value * value for value in centered_observed))
+    template_norm = math.sqrt(math.fsum(value * value for value in centered_template))
+    if observed_norm <= 1e-12 or template_norm <= 1e-12:
+        return 0.0, True
+    score = math.fsum(x * y for x, y in zip(centered_observed, centered_template)) / (observed_norm * template_norm)
+    if not math.isfinite(score) or abs(score) > 1 + 1e-9:
+        raise ValueError("invalid DCT correlation")
+    return max(-1.0, min(1.0, score)), False
