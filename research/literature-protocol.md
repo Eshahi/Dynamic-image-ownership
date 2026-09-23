@@ -12,9 +12,9 @@ For each admitted source produce a strict response card, a local inspection arti
 
 ## Coverage still required
 
-- Finish identity/access audit of all six proposal references, including author versus academic-editor roles and online versus issue years.
+- Initial identity/access audit of all six proposal references is recorded in citation-audit.csv; remaining access/version qualifications are explicit.
 - Inspect full methods of plausible neural-decoder and inversion comparators separately; inspect their official code, licenses and resource requirements before committing to a baseline.
-- Inspect primary regeneration/forgery evidence and contrary results. Connect source claims to the original claim ledger without overwriting it.
+- Finish primary regeneration/forgery and contrary-evidence coverage. claim-evidence-map.csv connects all 42 original IDs to the currently admitted source claims or explicit unmapped status; this does not establish the thesis propositions.
 - Complete reproducible query log, citation audit and consolidated B1 matrix/BibTeX. The initial synthesis is a seed, not these completed deliverables.
 - Obtain independent evidence review and use the official workflow controller only if the entire evidence gate is satisfied.
 
