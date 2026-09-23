@@ -5,7 +5,7 @@ Issue #8; downstream RQ-03, HYP-03, METRIC-07. Inspected 2026-09-23 UTC.
 | Role | Candidate | Evidence | Remaining blocker |
 | --- | --- | --- | --- |
 | Neural-decoder comparison | InvisMark v2 | Targeted methods in literature/inspections/invismark-v2-method.md | Checkpoint provenance/configuration, environment and resource preflight, common evaluation endpoints |
-| Inversion comparison | SEAL | Existing seal-v4 inspection | Proposal-era comparison, pinned code/checkpoint and resource inspection |
+| Inversion comparison | SEAL | seal-v4 inspection plus targeted v1 comparison; seal-code-preflight.md | Code/paper secret-model reconciliation, permission and model/environment/resource checks |
 
 These are distinct roles; neither paper proves the proposed image-domain DCT detector works. Candidate status does not approve model acquisition or scientific compute.
 
