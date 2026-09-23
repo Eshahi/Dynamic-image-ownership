@@ -1,0 +1,23 @@
+{
+  "audit_id": "a5-bridge-review-20260923",
+  "reviewer": "/root/bridge_review",
+  "author": "/root",
+  "audit_type": "manual-documentary-mathematical-review-not-experiment-helper-schema",
+  "recommendation": "accept-partial-analysis-integrity-only",
+  "reviewed_artifact": "research/bridge-design-options.md",
+  "reviewed_sha256": "91d647f76121f4b8b2fe8054a8f6689794d75b22a94ae40fc608cbfd55452855",
+  "additional_artifact": "research/diffusers-img2img-preflight.md",
+  "additional_sha256": "713261c0e0bcc612e11229ae45251c7158945f67368ed070be6c4b60e790e442",
+  "blocking_findings": [],
+  "warnings": [
+    {"id": "W1", "detail": "Exact pinned differentiable initial-noise implementation and resource feasibility remain unverified."},
+    {"id": "W2", "detail": "Key stability, transfer and robustness have no empirical evidence; retain failures and no oracle substitution."},
+    {"id": "W3", "detail": "A5 outputs, A4 preregistration and exact compute authorization remain incomplete."}
+  ],
+  "a5_completion": false,
+  "scientific_acceptance": false,
+  "gate_acceptance": false,
+  "controller_transition_performed": false,
+  "source_artifacts_edited": false,
+  "hash_manifest": "audit-report.md"
+}
