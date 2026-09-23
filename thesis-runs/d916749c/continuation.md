@@ -2,6 +2,13 @@
 
 Updated 2026-09-23. Authority: `research/approval-policy.md`.
 
+## Latest bounded progress, 2026-09-23
+
+- A4/issue #5 remains open on draft PR #56, branch `codex/5-experiment-preregistration` (latest commit `ddc1d70`). Its documentary design now fixes a 101×101 threshold grid, conservative primary failure denominators, K=1 synthetic OwnerID roster and per-source uint64 seed schedule **before validation data**. Independent reviewer `/root/a4_protocol_review` checked the final hash-bound amendments in `audits/a4-protocol-review-20260923/` and `audits/a4-owner-seed-review-20260923/`. These reviews did not accept the lifecycle gate or scientific efficacy. Actual B3/B4 source IDs/grouping, runtime parity, quality metric implementations, attacks/comparator margins, resources and exact execution authorization remain open.
+- B2/issue #9 remains open on draft PR #57, branch `codex/9-baseline-readiness` (latest commit `f6412de`). The required neural-decoder and existing-image inversion roles have only prospective candidates. A bounded public alternative screen did not establish a direct existing-image replacement; ZoDiac code/weight rights and model access remain unverified. No baseline code, checkpoint or dataset was acquired or run.
+- A6/issue #7 remains open on draft PR #58, branch `codex/7-environment-lock` (latest known commit `7902f7c`). CPU-only environment checks passed; GPU model dependencies, checkpoint provenance, numerical parity and measured workload remain unresolved. Do not infer B3/C1 dependency readiness from this partial environment document.
+- Official Spec Kit status was re-read through the installed controller at this checkpoint: run `d916749c` remains paused at `plan-acceptance`, workflow SHA-256 `772a1a3b1a4ff674c878b0532485820f860e81490e026441a0bb384a3aebda51`. No scientific compute or gate transition occurred. The older "Next authorized work" and historical sections below describe earlier checkpoints where they conflict with this paragraph; follow actual GitHub/branch state and the dependency graph.
+
 ## Verified state
 
 - GitHub authentication was restored through an authorized Git Credential Manager device flow on 2026-09-23. The host's configured `helper-selector` still hangs on push checks; a per-command `git -c credential.helper= -c credential.helper=manager ...` override succeeded without changing global credential settings or exposing tokens. Branches for A4, B2 and A6 are pushed, and draft PRs #56, #57 and #58 plus English progress comments on issues #5, #9 and #7 are verified. Do not repeat the login flow or create duplicate PRs. Keep those issues open until their actual acceptance criteria are satisfied.
