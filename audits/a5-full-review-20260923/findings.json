@@ -1,0 +1,24 @@
+{
+  "audit_id": "a5-full-review-20260923",
+  "reviewer": "/root/a5_full_review",
+  "author": "/root",
+  "review_time_utc": "2026-09-23T10:13:00Z",
+  "audit_type": "independent-manual-documentary-architecture-review",
+  "recommendation": "accept-A5-documentary-architecture-only",
+  "blocking_findings": [],
+  "warnings": [
+    {"id": "W1", "detail": "No model weights, actual differentiable component path, image run, GPU-fit result or latent-to-DCT feasibility measurement is supplied; the bridge is a falsifiable design."},
+    {"id": "W2", "detail": "No final parameter/threshold configuration or validation-manifest receipt exists; A4 calibration, sample size, controls and stop rules remain pending."},
+    {"id": "W3", "detail": "The selected model repository is an unaffiliated mirror; exact component bytes, original-weight equivalence, acquisition terms and tokenizer constituent hashes require verification before execution."},
+    {"id": "W4", "detail": "RGB8 input policy can reject some final-source images; dataset inventory must count every unsupported item and a reviewed resolution is needed before claiming full coverage."},
+    {"id": "W5", "detail": "Cross-runtime CLIP preprocessing, ICC conversion, JSON numeric canonicalization, DCT, SHAKE/Box-Muller and PNG rounding parity require implementation vectors and environment locks."},
+    {"id": "W6", "detail": "Public OwnerID permits unauthorized re-embedding; neither component mismatch nor a positive score proves legal ownership, regeneration or transfer."},
+    {"id": "W7", "detail": "The repository's audit_evidence.py helper is absent, so this documentary review was manual; automated evidence-helper success is not claimed."}
+  ],
+  "ordinary_tests_passed": 14,
+  "scientific_execution": false,
+  "a5_documentary_complete": true,
+  "plan_gate_accepted": false,
+  "source_edits": false,
+  "hash_manifest": "audit-report.md"
+}
