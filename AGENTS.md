@@ -4,6 +4,7 @@ Read `research/approval-policy.md` and `thesis-runs/d916749c/continuation.md` be
 
 - Preserve the original proposal, claim ledger, source plan, and existing user edits. The modified `THESIS_GUIDE_OFFLINE.html` is not an authorized edit target for routine work.
 - Follow the 38-task dependency graph. Milestones are acceptance checklists, not automatic requests for human approval. A completed prompt invocation is not evidence that its scientific deliverables exist.
+- Apply `research/research-contract.md` and `research/scope-guard.md` to all method work. A5's `research/method-spec.md` must explicitly link and apply this guard; do not create a placeholder architecture and claim A5 complete.
 - Write GitHub issues, commits, PRs, and project documentation in English. Keep source quotations in their original language. Use Persian for communication with the user.
 - Continue authorized research, documentation, implementation, and ordinary tests without asking to start each task. Record checks and known failures before closing its issue. Link work to the existing GitHub issue; do not create duplicates.
 - For technical gate acceptance under the recorded delegation, request a bounded independent, read-focused subagent review of the exact artifacts. Reviewer and author must differ; resolve blocking findings before a state-bound decision. Never fabricate a human verdict or mark missing evidence accepted.
