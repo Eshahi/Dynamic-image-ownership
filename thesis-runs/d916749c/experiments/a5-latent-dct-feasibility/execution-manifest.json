@@ -1,0 +1,72 @@
+{
+  "schema_version": "blocked-manifest-1",
+  "experiment_id": "a5-latent-dct-feasibility",
+  "task_id": "A4",
+  "status": "BLOCKED_NOT_EXECUTABLE",
+  "execution_authorized": false,
+  "reason": "The reviewed version-controlled Python entrypoint, method/config freeze, dataset artifacts, seeds and final statistical contract do not exist.",
+  "required_cli": [
+    "--manifest",
+    "--output-dir"
+  ],
+  "arbitrary_command_strings_allowed": false,
+  "execution_target": null,
+  "reviewed_script": null,
+  "script_sha256": null,
+  "git_commit": "fd6b24a6db45725a586987fdc0853e35fb228cc9",
+  "git_state": {
+    "clean": false,
+    "observed_changes": [
+      "modified pre-existing user file: THESIS_GUIDE_OFFLINE.html",
+      "untracked stage output: thesis-runs/d916749c/experiment-design-handoff.md",
+      "untracked stage output tree: thesis-runs/d916749c/experiments/"
+    ],
+    "execution_effect": "Runner clean-commit requirement is not satisfied; the user edit was preserved and not touched."
+  },
+  "seeds": [],
+  "datasets": [],
+  "inputs": [
+    {
+      "path": "research/research-contract.md",
+      "sha256": "4ff8f58a808d5b50a7f1ce4ab90dba6416930d25be6715b0a261bf7790b28679"
+    },
+    {
+      "path": "research/scope-guard.md",
+      "sha256": "c8c6af9d5349cd9a194d7594fe84c02679e79592f581d14392447cd4b6fea833"
+    },
+    {
+      "path": "research/io-spec.md",
+      "sha256": "9c257f7bd5101c51f7bdd15859ca21b969be9c3e3028df4b93c3746abd4eb27a"
+    },
+    {
+      "path": "research/threat-model.md",
+      "sha256": "41073eb15f891dffd822477cadbc70026ff34e96e116065053355184166b9e7e"
+    }
+  ],
+  "expected_outputs": [
+    "manifest snapshot and environment provenance",
+    "complete run inventory including failed/interrupted seeds",
+    "per-image continuous component scores and frozen decisions",
+    "quality, detection, latency and memory metrics",
+    "hashed logs, metrics and declared output artifacts"
+  ],
+  "metrics": [
+    "primary frozen DCT score separation (definition pending A5/A4)",
+    "PSNR",
+    "SSIM",
+    "LPIPS",
+    "component detection scores",
+    "end-to-end verification latency",
+    "peak VRAM/RAM"
+  ],
+  "resource_budget_reference": "compute-estimate.json",
+  "cleanup_policy": "stop-for-recovery",
+  "remote": {
+    "enabled": false,
+    "reason": "No scoped spending approval exists, no live price is recorded, and the current runner deliberately blocks live RunPod creation because upstream deadlines are not enforced."
+  },
+  "validation": {
+    "strict_execution_schema_expected": "FAIL",
+    "reason": "Null reviewed-script/hash/target and empty seeds/datasets are deliberate blockers; this document must not be passed to the runner as an executable manifest."
+  }
+}
