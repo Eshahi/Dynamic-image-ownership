@@ -1,0 +1,8 @@
+claim_id,classification,support,limit
+A5-algorithm,verified,"method-spec.md sections Canonical features; Embedding algorithm; Verification algorithm; guide-plan-38.json A5","Documentary candidate only; no implementation or run"
+A5-feature-signature,verified,"method-spec.md Canonical features and signatures; method.schema.json feature/signature","Stability and false attribution remain unmeasured"
+A5-image-detector,verified,"method-spec.md Image-domain templates and statistic; method.schema.json dct","No calibrated thresholds or measured detector result"
+A5-noise-bridge,partially supported,"method-spec.md Embedding algorithm and bridge; initial-noise-path.md; bridge-design-options.md","Equation and optimization path specified; gradient transfer and success unmeasured"
+A5-config-contract,verified,"method.schema.json; validate_method_config.py; eight synthetic contract tests","Structural syntax only; artifact existence and approved parameter selection unverified"
+A5-proposal-security-and-quality,unverifiable,"inputs/proposal-text.md Table 8; research-contract.md; no experiment artifacts","No claim of robustness quality ownership authentication or cost advantage is accepted"
+A5-scope-limits,verified,"method-spec.md Review and execution boundary; scope-guard.md","Prompt-only route and transfer implementation remain unresolved/out of scope"

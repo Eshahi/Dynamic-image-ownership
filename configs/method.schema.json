@@ -1,0 +1,187 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Eshahi/Dynamic-image-ownership/blob/main/configs/method.schema.json",
+  "title": "A5 public-derived existing-image method configuration",
+  "description": "A valid object is necessary but insufficient for scientific execution; runtime verifies artifact hashes, dataset rights, candidate ID and approval.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "profile", "image_io", "feature", "signature", "dct", "embedding", "calibration"],
+  "properties": {
+    "schema_version": {"const": "a5-method-v1"},
+    "profile": {"const": "public-derived-existing-image"},
+    "image_io": {
+      "type": "object", "additionalProperties": false,
+      "required": ["input", "unsupported_input", "output", "rounding", "verification_input"],
+      "properties": {
+        "input": {"const": "exif-oriented-rgb8-icc-to-srgb-or-assume-srgb"},
+        "unsupported_input": {"const": "record-failure-no-silent-conversion"},
+        "output": {"const": "png-rgb8-no-ancillary-srgb-assumed"},
+        "rounding": {"const": "clamp-scale255-ties-to-even"},
+        "verification_input": {"const": "decoded-saved-png-rgb8"}
+      }
+    },
+    "feature": {
+      "type": "object", "additionalProperties": false,
+      "required": ["clip", "phash"],
+      "properties": {
+        "clip": {
+          "type": "object", "additionalProperties": false,
+          "required": ["model", "source_commit", "checkpoint_sha256", "projection_dim", "resize_short_edge", "crop_size", "interpolation", "image_mean", "image_std", "projection_seed"],
+          "properties": {
+            "model": {"const": "ViT-B/32"},
+            "source_commit": {"const": "d05afc436d78f1c48dc0dbf8e5980a9d471f35f6"},
+            "checkpoint_sha256": {"const": "40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af"},
+            "projection_dim": {"const": 512},
+            "resize_short_edge": {"const": 224},
+            "crop_size": {"const": 224},
+            "interpolation": {"const": "bicubic"},
+            "image_mean": {"const": [0.48145466, 0.4578275, 0.40821073]},
+            "image_std": {"const": [0.26862954, 0.26130258, 0.27577711]},
+            "projection_seed": {"$ref": "#/$defs/sha256"}
+          }
+        },
+        "phash": {
+          "type": "object", "additionalProperties": false,
+          "required": ["algorithm", "luminance", "resize", "interpolation", "dct", "bits"],
+          "properties": {
+            "algorithm": {"const": "median-top-left8-zigzag32-v1"},
+            "luminance": {"const": "srgb-601-full-range"},
+            "resize": {"const": [32, 32]},
+            "interpolation": {"const": "bilinear-pixel-center-clamp"},
+            "dct": {"const": "orthonormal-dct-ii"},
+            "bits": {"const": 32}
+          }
+        }
+      }
+    },
+    "signature": {
+      "type": "object", "additionalProperties": false,
+      "required": ["q_bits", "q_radius", "phash_radius", "owner_encoding", "owner_max_bytes", "hash", "bit_order", "search_policy"],
+      "properties": {
+        "q_bits": {"const": 12},
+        "q_radius": {"const": 1},
+        "phash_radius": {"const": 1},
+        "owner_encoding": {"const": "unicode-nfc-utf8"},
+        "owner_max_bytes": {"const": 256},
+        "hash": {"const": "sha256-domain-separated-length-prefixed"},
+        "bit_order": {"const": "little-bit-first"},
+        "search_policy": {"const": "bounded-hamming-common-q"}
+      }
+    },
+    "dct": {
+      "type": "object", "additionalProperties": false,
+      "required": ["channel", "block", "edge", "transform", "semantic_frequencies", "instance_frequencies", "score", "min_image_side", "zero_variance_epsilon", "config_id"],
+      "properties": {
+        "channel": {"const": "srgb-601-full-range"},
+        "block": {"const": [8, 8]},
+        "edge": {"const": "replicate-right-bottom"},
+        "transform": {"const": "orthonormal-dct-ii"},
+        "semantic_frequencies": {"const": [[1, 2], [2, 1], [2, 2], [1, 3]]},
+        "instance_frequencies": {"const": [[3, 1], [2, 3], [3, 2], [1, 4]]},
+        "score": {"const": "per-frequency-centered-cosine"},
+        "min_image_side": {"const": 32},
+        "zero_variance_epsilon": {"const": 1e-12},
+        "config_id": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "embedding": {
+      "type": "object", "additionalProperties": false,
+      "required": ["diffusers_commit", "model_repository", "model_revision", "model_component_hashes", "vae_scale", "scheduler", "route", "working_image", "conditioning", "guidance_scale", "safety_policy", "noise_seed", "alpha_s", "alpha_i", "rho", "optimizer", "loss"],
+      "properties": {
+        "diffusers_commit": {"const": "0f252be0ed42006c125ef4429156cb13ae6c1d60"},
+        "model_repository": {"const": "stable-diffusion-v1-5/stable-diffusion-v1-5"},
+        "model_revision": {"const": "451f4fe16113bff5a5d2269ed5ad43b0592e9a14"},
+        "model_component_hashes": {
+          "type": "object", "additionalProperties": false,
+          "required": ["vae", "unet", "text_encoder", "tokenizer", "safety_checker"],
+          "properties": {
+            "vae": {"$ref": "#/$defs/sha256"},
+            "unet": {"$ref": "#/$defs/sha256"},
+            "text_encoder": {"$ref": "#/$defs/sha256"},
+            "tokenizer": {"$ref": "#/$defs/sha256"},
+            "safety_checker": {"$ref": "#/$defs/sha256"}
+          }
+        },
+        "vae_scale": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+        "scheduler": {
+          "type": "object", "additionalProperties": false,
+          "required": ["name", "training_steps", "beta_schedule", "beta_start", "beta_end", "prediction", "spacing", "steps_offset", "set_alpha_to_one", "clip_sample", "thresholding", "rescale_zero_snr", "eta", "inference_steps", "strength"],
+          "properties": {
+            "name": {"const": "DDIM"},
+            "training_steps": {"const": 1000},
+            "beta_schedule": {"const": "scaled_linear"},
+            "beta_start": {"const": 0.00085},
+            "beta_end": {"const": 0.012},
+            "prediction": {"const": "epsilon"},
+            "spacing": {"const": "leading"},
+            "steps_offset": {"const": 1},
+            "set_alpha_to_one": {"const": false},
+            "clip_sample": {"const": false},
+            "thresholding": {"const": false},
+            "rescale_zero_snr": {"const": false},
+            "eta": {"const": 0},
+            "inference_steps": {"type": "integer", "minimum": 1, "maximum": 999},
+            "strength": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}
+          }
+        },
+        "route": {"const": "image-conditioned-initial-noise-suffix"},
+        "working_image": {
+          "type": "object", "additionalProperties": false,
+          "required": ["policy", "maximum_side", "alignment_reference"],
+          "properties": {
+            "policy": {"const": "replicate-pad-64-crop-original"},
+            "maximum_side": {"type": "integer", "minimum": 256, "maximum": 8192, "multipleOf": 64},
+            "alignment_reference": {"const": "original-pixel-grid"}
+          }
+        },
+        "conditioning": {"const": "fixed-empty-string-pinned-tokenizer"},
+        "guidance_scale": {"const": 1},
+        "safety_policy": {"const": "check-log-and-fail-flagged"},
+        "noise_seed": {"type": "integer", "minimum": 0, "maximum": 18446744073709551615},
+        "alpha_s": {"type": "number", "minimum": 0},
+        "alpha_i": {"type": "number", "minimum": 0},
+        "rho": {"type": "number", "exclusiveMinimum": 0},
+        "optimizer": {
+          "type": "object", "additionalProperties": false,
+          "required": ["algorithm", "learning_rate", "iterations", "beta1", "beta2", "epsilon", "stop_rule"],
+          "properties": {
+            "algorithm": {"const": "projected-adam"},
+            "learning_rate": {"type": "number", "exclusiveMinimum": 0},
+            "iterations": {"type": "integer", "minimum": 1, "maximum": 10000},
+            "beta1": {"const": 0.9},
+            "beta2": {"const": 0.999},
+            "epsilon": {"const": 1e-8},
+            "stop_rule": {"const": "fixed-iteration-cap"}
+          }
+        },
+        "loss": {
+          "type": "object", "additionalProperties": false,
+          "required": ["lambda_q", "lambda_r", "lambda_s", "lambda_i", "margin_s", "margin_i"],
+          "properties": {
+            "lambda_q": {"type": "number", "exclusiveMinimum": 0},
+            "lambda_r": {"type": "number", "exclusiveMinimum": 0},
+            "lambda_s": {"type": "number", "exclusiveMinimum": 0},
+            "lambda_i": {"type": "number", "exclusiveMinimum": 0},
+            "margin_s": {"type": "number", "minimum": -1, "maximum": 1},
+            "margin_i": {"type": "number", "minimum": -1, "maximum": 1}
+          }
+        }
+      }
+    },
+    "calibration": {
+      "type": "object", "additionalProperties": false,
+      "required": ["validation_manifest_sha256", "threshold_version", "tau_s", "tau_i", "owner_trials", "candidate_policy"],
+      "properties": {
+        "validation_manifest_sha256": {"$ref": "#/$defs/sha256"},
+        "threshold_version": {"type": "string", "pattern": "^(?!TBD$)(?!UNKNOWN$)(?!PLACEHOLDER$)[A-Za-z0-9._-]{1,64}$"},
+        "tau_s": {"type": "number", "minimum": -1, "maximum": 1},
+        "tau_i": {"type": "number", "minimum": -1, "maximum": 1},
+        "owner_trials": {"type": "integer", "minimum": 1, "maximum": 10000},
+        "candidate_policy": {"const": "all-tested-candidates-and-owners"}
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^(?!0{64}$)[0-9a-f]{64}$"}
+  }
+}
