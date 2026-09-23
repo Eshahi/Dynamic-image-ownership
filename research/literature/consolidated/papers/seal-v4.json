@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "seal-v4",
+  "citation_key": "Arabi2025SEALv4",
+  "doi": "10.48550/arXiv.2503.12172",
+  "canonical_url": "https://arxiv.org/abs/2503.12172v4",
+  "title": "SEAL: Semantic Aware Image Watermarking",
+  "authors": [
+    "Kasra Arabi",
+    "R. Teal Witter",
+    "Chinmay Hegde",
+    "Niv Cohen"
+  ],
+  "year": 2025,
+  "venue": null,
+  "access_date": "2026-09-23",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "research/literature/inspections/seal-v4.md",
+    "sha256": "3be925baa74ba9ca5b9b00194a4c1fc0dc45fbf87f96915178643e3f086b71ff"
+  },
+  "limitations": [
+    "Targeted section 3.2 inspection, not whole-paper or code verification.",
+    "2025 is first-submission year; inspected v4 is dated 2026-05-18.",
+    "Local checksum covers excerpt/observer record, not a full-text snapshot.",
+    "Verified denotes source inspection, not reproduced scientific validity."
+  ]
+}
