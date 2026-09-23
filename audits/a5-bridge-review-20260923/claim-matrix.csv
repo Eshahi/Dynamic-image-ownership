@@ -1,0 +1,10 @@
+claim_id,claim,classification,basis,limit
+BR-01,Sign margin is sufficient for bit stability,verified,Cauchy-Schwarz under stated sign rule,No measured margins or actual stability rate
+BR-02,Whole-code hash templates require identical input codes ignoring collisions,verified,Deterministic serialization and explicit collision qualification,No discrimination or resilience guarantee
+BR-03,Matching random seeds and shapes do not guarantee DCT alignment,verified,Jacobian transfer dimensions and linear counterexamples,Not a diffusion impossibility theorem
+BR-04,Linear-template ascent has nonnegative first-order gain,verified,Gradient A transpose t and squared norm directional derivative,Local differentiable fixed-template unnormalized objective only
+BR-05,L1 is compatible with a latent-only candidate family,partially supported,Variable is declared initial noise and no postdecoded pixel residual,Specific implementation and exact source compatibility require review before adoption
+BR-06,Recomputation templates need no forbidden detector information,verified,Declared J and OwnerID plus frozen public configuration,Exact executable template and configuration still absent
+BR-07,L1 hardware feasibility and robust detection,unverifiable,No model run or executable implementation,Source explicitly makes no such positive claim
+BR-08,A5 and plan acceptance are complete,unsupported,Required complete algorithms schema and preregistration not present,Source explicitly denies completion
+BR-09,Pinned img2img public call is not directly the differentiable noise optimizer,verified,Independent pinned source inspection of no-grad call and latent preparation,No claim that separate component implementation is impossible
