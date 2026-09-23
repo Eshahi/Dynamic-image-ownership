@@ -14,6 +14,10 @@ Updated 2026-09-23. Authority: `research/approval-policy.md`.
 
 ## Next authorized work
 
+Newest checkpoint: root `research/literature-matrix.csv`, `research/references.bib`, and `research/evidence-ledger.jsonl` consolidate eight distinct cards and thirteen entries from the disjoint method/regeneration packages. `response-consolidated.json` validates with the expected metadata-only Kumari warning. The claim map now incorporates regeneration relevance without accepting any hypothesis. See `research/literature/consolidated/README.md` for explicit selection dispositions. B1 and evidence-review remain open: inspect qualifying forgery lead arXiv:2606.29807 and resolve the material later-version screen, then obtain whole-package acceptance review. A5 may proceed independently under the scope guard. No scientific compute authorized or executed.
+
+The preflight/consolidation next-step paragraphs below are prior checkpoints, superseded by this paragraph where they overlap.
+
 Newest preflight: `research/seal-code-preflight.md` pins official master commit 92d31b31b93a6e373fe88a584c640beafb68c6fa and records Linux setup, unguarded W&B initialization in SEAL.py, network-capable model/data loads, fixed example seed and unresolved reuse permission. No code executed or copied. `literature/inspections/seal-revision-check.md` confirms proxy/caption/secret-salt/inversion components already occur in v1 section3.2; exact proposal-consulted revision and full revision equivalence remain unknown. Corpus count stays eight distinct DOI cards; supplemental revision note is not a duplicate source card.
 
 Next bounded task: consolidate method-checkpoint plus regeneration into declared root B1 outputs, integrate new evidence relationships, and assess coverage through independent whole-package review. Remaining qualifying-source lead and metadata-only access need explicit inclusion/exclusion decisions, not indefinite browsing. Start A5's executable architecture/early feasibility specification independently where dependencies allow. Preserve all pending compute and scope boundaries; no evidence gate was accepted.

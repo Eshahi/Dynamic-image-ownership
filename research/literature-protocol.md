@@ -10,12 +10,14 @@ Include methods relevant to the source research questions, and negative evidence
 
 For each admitted source produce a strict response card, a local inspection artifact with SHA-256, and typed evidence entries. The hash verifies the local record, not publisher authenticity. Validate and synthesize with the installed literature helper into a fresh directory. Generated metadata/BibTeX still requires human-readable inspection and independent review before technical acceptance.
 
-## Coverage still required
+## Consolidation checkpoint and coverage still required
+
+The root matrix, evidence ledger and working bibliography now consolidate eight disjoint DOI cards and thirteen source-specific entries from B1-002. Seven inspected sources enter the bibliography; metadata-only Kumari remains visible but is not scientific support. See `literature/consolidated/README.md` for source dispositions and version boundaries. This is a targeted proposal-led search, not an exhaustive systematic review.
 
 - Initial identity/access audit of all six proposal references is recorded in citation-audit.csv; remaining access/version qualifications are explicit.
 - Inspect full methods of plausible neural-decoder and inversion comparators separately; inspect their official code, licenses and resource requirements before committing to a baseline.
 - Finish primary regeneration/forgery and contrary-evidence coverage. claim-evidence-map.csv connects all 42 original IDs to the currently admitted source claims or explicit unmapped status; this does not establish the thesis propositions.
-- Complete reproducible query log, citation audit and consolidated B1 matrix/BibTeX. The initial synthesis is a seed, not these completed deliverables.
+- The chronological query log, six-reference citation audit and consolidated B1 matrix/BibTeX exist. Their presence does not resolve the qualifying forgery lead or later-version screening; retain those as coverage obligations before B1 closure.
 - Obtain independent evidence review and use the official workflow controller only if the entire evidence gate is satisfied.
 
 ## Initial executed inspection

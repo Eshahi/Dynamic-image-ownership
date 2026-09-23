@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "zhao-regeneration-v3",
+  "citation_key": "Zhao2023Regenerationv3",
+  "doi": "10.48550/arXiv.2306.01953",
+  "canonical_url": "https://arxiv.org/abs/2306.01953v3",
+  "title": "Invisible Image Watermarks Are Provably Removable Using Generative AI",
+  "authors": [
+    "Xuandong Zhao",
+    "Kexun Zhang",
+    "Zihao Su",
+    "Saastha Vasan",
+    "Ilya Grishchenko",
+    "Christopher Kruegel",
+    "Giovanni Vigna",
+    "Yu-Xiang Wang",
+    "Lei Li"
+  ],
+  "year": 2023,
+  "venue": null,
+  "source_type": "preprint",
+  "access_date": "2026-09-23",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "research/literature/inspections/zhao-regeneration-v3.md",
+    "sha256": "2d4713c1959c94f3f56c54a5ecddc701df13d4b26511987da6580bb127e477e4"
+  },
+  "limitations": [
+    "Targeted sections only; proofs/code unverified and no experiment reproduced.",
+    "2023 is first submission; inspected v3 is 2024-10-31.",
+    "Checksum identifies observer record, not remote paper."
+  ]
+}
