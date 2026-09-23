@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "wu2024",
+  "citation_key": "Wu2024DWTSVD",
+  "doi": "10.1155/2024/6618382",
+  "canonical_url": "https://onlinelibrary.wiley.com/doi/abs/10.1155/2024/6618382",
+  "title": "Image Robust Watermarking Method Based on DWT-SVD Transform and Chaotic Map",
+  "authors": [
+    "Weishuai Wu",
+    "Yujiao Dong",
+    "Guangyi Wang"
+  ],
+  "year": 2024,
+  "venue": "Complexity",
+  "access_date": "2026-09-23",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "abstract",
+  "inspection": {
+    "artifact": "research/literature/inspections/wu2024.md",
+    "sha256": "f0faa40ccbf05b69952fe2c185596f9811a093cbbf3a3c214e9452b092ec1688"
+  },
+  "limitations": [
+    "Local checksum identifies observer notes, not remote full text.",
+    "No code inspection or experimental reproduction.",
+    "Abstract-only method description; full methods and robustness unverified."
+  ]
+}
