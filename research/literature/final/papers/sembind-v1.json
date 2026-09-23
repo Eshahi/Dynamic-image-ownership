@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "sembind-v1",
+  "citation_key": "Zhang2026SemBindv1",
+  "doi": "10.48550/arXiv.2601.20310",
+  "canonical_url": "https://arxiv.org/abs/2601.20310v1",
+  "title": "SemBind: Binding Diffusion Watermarks to Semantics Against Black-Box Forgery Attacks",
+  "authors": [
+    "Xin Zhang",
+    "Zijin Yang",
+    "Kejiang Chen",
+    "Linfeng Ma",
+    "Weiming Zhang",
+    "Nenghai Yu"
+  ],
+  "year": 2026,
+  "venue": null,
+  "source_type": "preprint",
+  "access_date": "2026-09-23",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "research/literature/inspections/sembind-v1.md",
+    "sha256": "8e7fa910dacb897ac34b3aed2535bc570105e81ae3b8a4bfac40f5b762057533"
+  },
+  "limitations": [
+    "Targeted method reading only; no code/proof/performance reproduction.",
+    "Not evidence of the thesis method's effectiveness or novelty."
+  ]
+}

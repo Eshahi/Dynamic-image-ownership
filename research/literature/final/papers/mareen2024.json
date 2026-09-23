@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "mareen2024",
+  "citation_key": "Mareen2024Geometric",
+  "doi": "10.1109/ICCE59016.2024.10444317",
+  "canonical_url": "https://biblio.ugent.be/publication/01HRESBXED003D2NHEAW9DN2FQ",
+  "title": "Blind deep-learning-based image watermarking robust against geometric transformations",
+  "authors": [
+    "Hannes Mareen",
+    "Lucas Antchougov",
+    "Glenn Van Wallendael",
+    "Peter Lambert"
+  ],
+  "year": 2024,
+  "venue": "2024 IEEE International Conference on Consumer Electronics (ICCE)",
+  "access_date": "2026-09-23",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "abstract",
+  "inspection": {
+    "artifact": "research/literature/inspections/mareen2024.md",
+    "sha256": "75d28468f670435e58dd039029ca9d4ad78c5a4ffc839dbd51c0582926489bdc"
+  },
+  "limitations": [
+    "Local checksum identifies observer notes, not remote full text.",
+    "No code inspection or experimental reproduction.",
+    "Abstract-only method description; full methods and robustness unverified."
+  ]
+}

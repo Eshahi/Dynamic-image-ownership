@@ -1,0 +1,10 @@
+{
+  "run_id": "d916749c",
+  "step_id": "evidence-review",
+  "verdict": "approve",
+  "state_sha256": "21b0bf4c4ca19ed50f1aa404789493bba7f311e663aab69f1d800a5e87d14ed5",
+  "timestamp": "2026-09-23T07:40:06.000Z",
+  "expires_at": "2026-09-23T08:40:06.000Z",
+  "actor": "Codex /root under Soroush's explicit delegated technical-review authority; independent reviewer /root/b1_seed_review",
+  "source_ref": "Authenticated Codex task 01a0b9bd-fd47-7cf1-8123-ff77a4ca9dd8; user delegation 2026-09-22 recorded in research/approval-policy.md; thesis-runs/d916749c/evidence-decision-package.md SHA-256 a8f0db844907a62b06c2db8e942e7012694cc9273e4af5ba6a7e080ccbe069eb; audits/b1-evidence-review-20260923-r2/audit-report.md SHA-256 29ac62c8005a1280aa00578d96b00d033e6597382a1cc21c664a1cb50aa68492; delegated agent verdict, not user-typed acceptance"
+}

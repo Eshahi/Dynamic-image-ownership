@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "paunwala2012",
+  "citation_key": "Paunwala2012DCT",
+  "doi": "10.5402/2012/781940",
+  "canonical_url": "https://onlinelibrary.wiley.com/doi/full/10.5402/2012/781940",
+  "title": "DCT Watermarking Approach for Security Enhancement of Multimodal System",
+  "authors": [
+    "Mita Paunwala",
+    "S. Patnaik"
+  ],
+  "year": 2012,
+  "venue": "International Scholarly Research Notices",
+  "source_type": "paper",
+  "access_date": "2026-09-23",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "research/literature/inspections/paunwala2012.md",
+    "sha256": "a753b4b33df0ba6934e0b1af33733347e382c6e81b55aae5630f4d2b321dab27"
+  },
+  "limitations": [
+    "Targeted method reading only; no code/proof/performance reproduction.",
+    "Not evidence of the thesis method's effectiveness or novelty."
+  ]
+}

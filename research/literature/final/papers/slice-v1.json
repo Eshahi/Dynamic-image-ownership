@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "slice-v1",
+  "citation_key": "Gao2026SLICEv1",
+  "doi": "10.48550/arXiv.2603.12749",
+  "canonical_url": "https://arxiv.org/abs/2603.12749v1",
+  "title": "SLICE: Semantic Latent Injection via Compartmentalized Embedding for Image Watermarking",
+  "authors": [
+    "Zheng Gao",
+    "Yifan Yang",
+    "Xiaoyu Li",
+    "Xiaoyan Feng",
+    "Haoran Fan",
+    "Yang Song",
+    "Jiaojiao Jiang"
+  ],
+  "year": 2026,
+  "venue": null,
+  "source_type": "preprint",
+  "access_date": "2026-09-23",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "research/literature/inspections/slice-v1.md",
+    "sha256": "0acc528beddf14fbf815c9d1ec02fd8ce7e877b7fb14bdb13849b57952602263"
+  },
+  "limitations": [
+    "Targeted method reading only; no code/proof/performance reproduction.",
+    "Not evidence of the thesis method's effectiveness or novelty."
+  ]
+}

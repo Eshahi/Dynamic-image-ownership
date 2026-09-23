@@ -1,0 +1,120 @@
+{
+  "schema_version": "draft-blocked-1",
+  "experiment_id": "a5-latent-dct-feasibility",
+  "task_id": "A4",
+  "status": "BLOCKED_PREREGISTRATION",
+  "classification": "prospective design draft; not a completed preregistration and not execution authorization",
+  "question": "Can the proposal-faithful latent/noise watermark path produce a recomputable image-domain 8x8-DCT signal, for supplied existing images, that separates marked outputs from required controls without violating the declared detector knowledge profile?",
+  "falsifiable_hypothesis": "After A5 fixes the complete pattern-to-noise-to-image-to-DCT mechanism, a validation-frozen score will separate untouched marked outputs from unmarked/matched-unmarked and wrong-owner core controls on held-out images, while retaining the wrong-pattern control only as a separately labeled oracle diagnostic. Failure to show separation under the frozen design counts against feasibility; it does not authorize substitution of an image-space embedder, inversion detector, or neural decoder.",
+  "primary_outcome": {
+    "status": "BLOCKED_DECISION",
+    "candidate": "two separately reported held-out comparisons of the frozen DCT score: C1 versus C0 and C1 versus C2; C3 is a separately labeled oracle diagnostic and is not pooled into core-detector evidence",
+    "missing_freeze_items": [
+      "score equation and direction",
+      "validation-only threshold procedure and target false-positive rate",
+      "analysis unit and paired comparison",
+      "practical margin and confidence-interval rule"
+    ]
+  },
+  "secondary_outcomes": [
+    "PSNR, SSIM and LPIPS of marked image versus source image, with any matched reconstruction reference reported separately",
+    "semantic-key and instance-key component scores retained separately",
+    "end-to-end verification runtime and peak memory, distinct from DCT-only component timing",
+    "failure inventory including non-finite output, shape mismatch, reconstruction failure and unsupported route"
+  ],
+  "unit_of_analysis": {
+    "status": "BLOCKED_DECISION",
+    "candidate": "one independently selected source image with all paired conditions evaluated under one frozen method configuration",
+    "warning": "Repeated attacks, owner candidates, blocks and bootstrap draws are not independent images."
+  },
+  "datasets": [],
+  "dataset_blockers": [
+    "No dataset release, immutable snapshot, item IDs, license record, study split or deduplication artifact is present.",
+    "The proposal commitments remain 1,000 MS-COCO images, DIV2K 800 train plus 100 validation images, and 5,000 DiffusionDB images; no subset is inferred here.",
+    "The authorized 32-image feasibility pilot is development-only and cannot replace final counts or support final generalization claims."
+  ],
+  "leakage_risks": [
+    "threshold or parameter selection on held-out test images",
+    "source or near-duplicate images crossing validation/test or domain strata",
+    "multiple transformed versions of one source counted as independent images",
+    "detector access to original image, enrollment features, original keys, prompts or oracle metadata outside a labeled diagnostic",
+    "using attack outputs or owner candidates selected after observing detector scores",
+    "pooling camera-originated and pre-existing generated-image domains without stratified reporting"
+  ],
+  "preprocessing": {
+    "status": "BLOCKED_A5",
+    "fixed_constraints": [
+      "decode to finite float32 RGB in [0,1] with source bytes and SHA-256 retained",
+      "record orientation, color-profile and any alignment conversion; do not silently resize",
+      "existing-image inputs remain distinct from prompt-only generation"
+    ],
+    "missing": [
+      "semantic model revision and preprocessing",
+      "pHash implementation, resize, color space and bit length",
+      "image-conditioned latent/noise route and matched reconstruction policy",
+      "DCT channel, padding, block origin, synchronization and mid-band indices"
+    ]
+  },
+  "baselines": {
+    "required_roles": [
+      "unmarked/matched-unmarked control",
+      "wrong-owner core control and separately labeled wrong-pattern oracle diagnostic",
+      "spatial/image-domain watermark comparator for RQ-02, labeled as a comparator",
+      "neural-decoder comparator for RQ-03",
+      "inversion-based comparator for HYP-03/METRIC-07"
+    ],
+    "status": "BLOCKED_B2_A5",
+    "early_feasibility_scope": "C0, C1 and C2 are core controls; C3 is a separately labeled diagnostic.",
+    "full_study_scope": "The spatial, neural-decoder and inversion comparator roles are later full-study obligations, not prerequisites for the narrow bridge smoke/feasibility check.",
+    "note": "Inspected literature identifies roles but no reviewed runnable revisions/checkpoints are available. One implementation may fill two roles only after inspected evidence proves both contracts."
+  },
+  "controls": [
+    "C0 unmarked real/generated sources and matched unmarked reconstructions",
+    "C1 untouched marked output with correct OwnerID",
+    "C2 same image with wrong public OwnerID",
+    "C3 wrong expected pattern/key oracle diagnostic, separately labeled",
+    "C4 distinct semantically similar and dissimilar instances",
+    "C5 donor-target no-transfer and transfer pair",
+    "C6 semantic-only, perceptual-only, combined and binding-disabled ablations"
+  ],
+  "ablations": [
+    "semantic-only signature",
+    "perceptual-only signature",
+    "combined semantic and perceptual signature",
+    "binding-disabled condition"
+  ],
+  "seeds": {
+    "status": "UNASSIGNED",
+    "reason": "No reviewed entrypoint or stochastic-stage inventory exists; inventing a seed list would not create reproducibility."
+  },
+  "planned_statistical_comparison": {
+    "status": "BLOCKED_A4_A5",
+    "design": "paired by independent source image, stratified by source domain; retain continuous scores and estimate uncertainty without treating blocks, attacks or owner trials as independent images",
+    "test_or_interval": "not selected",
+    "multiplicity": "families and adjustment rule not frozen",
+    "sample_size": "not calculated because the primary endpoint, target FPR, practical margin and valid dataset splits are unresolved"
+  },
+  "exclusions": [
+    "No post-outcome exclusion is allowed.",
+    "Invalid/unsupported inputs and every failed seed remain in the run inventory and denominator policy must be frozen before execution.",
+    "Attack inadmissibility may be applied only through predeclared quality/content rules; inadmissible outputs remain logged."
+  ],
+  "stopping_rule": [
+    "Do not start scientific execution until A5 method specification and config schema, A4 acceptance/sample-size/stop rules, data identities/splits/licenses, reviewed entrypoint and hashes all exist.",
+    "Stop before bulk evaluation if deterministic smoke checks, shape/finite-output checks, positive/negative controls or the latent-to-DCT bridge fail.",
+    "A failed feasibility result is retained as evidence and triggers analysis or a scoped amendment; it does not trigger automatic method replacement.",
+    "No stopping rule may select a GPU purchase, paid provider or favorable seed/result."
+  ],
+  "minimum_evidence_for_acceptance": {
+    "status": "BLOCKED_DECISION",
+    "required_structure": [
+      "reviewed A5 algorithm traces Pattern -> Noise/Latent -> Image -> 8x8 DCT score without forbidden detector inputs",
+      "validation-frozen endpoint, threshold, margin and independent sample-size calculation",
+      "complete paired control inventory with all failures retained",
+      "held-out uncertainty interval and domain-stratified reporting",
+      "quality targets reported as proposal targets rather than assumed achievements"
+    ]
+  },
+  "negative_result_policy": "Report null, adverse and failed-bridge results without relabeling the hypothesis, suppressing seeds or changing thresholds on test data. A negative result may support a scoped amendment request but does not authorize one.",
+  "existing_results_policy": "No scientific result artifacts were found in the available workspace. Any later-discovered prior results are exploratory relative to this draft and cannot be used to retrospectively tune a confirmatory preregistration."
+}

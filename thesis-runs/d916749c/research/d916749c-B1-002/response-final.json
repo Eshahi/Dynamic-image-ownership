@@ -1,0 +1,604 @@
+{
+  "request_id": "d916749c-B1-002",
+  "papers": [
+    {
+      "schema_version": "1.0",
+      "paper_id": "seal-v4",
+      "citation_key": "Arabi2025SEALv4",
+      "doi": "10.48550/arXiv.2503.12172",
+      "canonical_url": "https://arxiv.org/abs/2503.12172v4",
+      "title": "SEAL: Semantic Aware Image Watermarking",
+      "authors": [
+        "Kasra Arabi",
+        "R. Teal Witter",
+        "Chinmay Hegde",
+        "Niv Cohen"
+      ],
+      "year": 2025,
+      "venue": null,
+      "access_date": "2026-09-23",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "research/literature/inspections/seal-v4.md",
+        "sha256": "3be925baa74ba9ca5b9b00194a4c1fc0dc45fbf87f96915178643e3f086b71ff"
+      },
+      "limitations": [
+        "Targeted section 3.2 inspection, not whole-paper or code verification.",
+        "2025 is first-submission year; inspected v4 is dated 2026-05-18.",
+        "Local checksum covers excerpt/observer record, not a full-text snapshot.",
+        "Verified denotes source inspection, not reproduced scientific validity."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "wu2024",
+      "citation_key": "Wu2024DWTSVD",
+      "doi": "10.1155/2024/6618382",
+      "canonical_url": "https://onlinelibrary.wiley.com/doi/abs/10.1155/2024/6618382",
+      "title": "Image Robust Watermarking Method Based on DWT-SVD Transform and Chaotic Map",
+      "authors": [
+        "Weishuai Wu",
+        "Yujiao Dong",
+        "Guangyi Wang"
+      ],
+      "year": 2024,
+      "venue": "Complexity",
+      "access_date": "2026-09-23",
+      "source_type": "paper",
+      "verification": "verified",
+      "inspected_content": "abstract",
+      "inspection": {
+        "artifact": "research/literature/inspections/wu2024.md",
+        "sha256": "f0faa40ccbf05b69952fe2c185596f9811a093cbbf3a3c214e9452b092ec1688"
+      },
+      "limitations": [
+        "Local checksum identifies observer notes, not remote full text.",
+        "No code inspection or experimental reproduction.",
+        "Abstract-only method description; full methods and robustness unverified."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "kumari2024",
+      "citation_key": "Kumari2024DWTSVD",
+      "doi": "10.1080/13682199.2023.2223080",
+      "canonical_url": "https://api.crossref.org/works/10.1080/13682199.2023.2223080",
+      "title": "Deep learning-based image watermarking technique with hybrid DWT-SVD",
+      "authors": [
+        "R. Radha Kumari",
+        "V. Vijaya Kumar",
+        "K. Rama Naidu"
+      ],
+      "year": 2024,
+      "venue": "The Imaging Science Journal",
+      "access_date": "2026-09-23",
+      "source_type": "paper",
+      "verification": "unverified",
+      "inspected_content": "metadata",
+      "inspection": {
+        "artifact": "research/literature/inspections/kumari2024.md",
+        "sha256": "3a1623414cf4da5e5d8bb7a07466da6b2933933b56f5d9522eb4eb975dc318cc"
+      },
+      "limitations": [
+        "Local checksum identifies observer notes, not remote full text.",
+        "No code inspection or experimental reproduction.",
+        "Metadata only; no scientific claim admitted. Online 2023, print 2024."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "mareen2024",
+      "citation_key": "Mareen2024Geometric",
+      "doi": "10.1109/ICCE59016.2024.10444317",
+      "canonical_url": "https://biblio.ugent.be/publication/01HRESBXED003D2NHEAW9DN2FQ",
+      "title": "Blind deep-learning-based image watermarking robust against geometric transformations",
+      "authors": [
+        "Hannes Mareen",
+        "Lucas Antchougov",
+        "Glenn Van Wallendael",
+        "Peter Lambert"
+      ],
+      "year": 2024,
+      "venue": "2024 IEEE International Conference on Consumer Electronics (ICCE)",
+      "access_date": "2026-09-23",
+      "source_type": "paper",
+      "verification": "verified",
+      "inspected_content": "abstract",
+      "inspection": {
+        "artifact": "research/literature/inspections/mareen2024.md",
+        "sha256": "75d28468f670435e58dd039029ca9d4ad78c5a4ffc839dbd51c0582926489bdc"
+      },
+      "limitations": [
+        "Local checksum identifies observer notes, not remote full text.",
+        "No code inspection or experimental reproduction.",
+        "Abstract-only method description; full methods and robustness unverified."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "dasgupta2023",
+      "citation_key": "Dasgupta2023CrossAttention",
+      "doi": "10.48550/arXiv.2310.05395",
+      "canonical_url": "https://arxiv.org/abs/2310.05395v1",
+      "title": "Robust Image Watermarking based on Cross-Attention and Invariant Domain Learning",
+      "authors": [
+        "Agnibh Dasgupta",
+        "Xin Zhong"
+      ],
+      "year": 2023,
+      "venue": null,
+      "access_date": "2026-09-23",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "abstract",
+      "inspection": {
+        "artifact": "research/literature/inspections/dasgupta2023.md",
+        "sha256": "883c10af764c8a9364009362576fddac0a7145767609102758c0422a8a03b19e"
+      },
+      "limitations": [
+        "Local checksum identifies observer notes, not remote full text.",
+        "No code inspection or experimental reproduction.",
+        "Abstract-only method description; full methods and robustness unverified.",
+        "Preprint inspected, not conference full text; no version equivalence asserted."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "invismark-v2",
+      "citation_key": "Xu2024InvisMarkv2",
+      "doi": "10.48550/arXiv.2411.07795",
+      "canonical_url": "https://arxiv.org/abs/2411.07795v2",
+      "title": "InvisMark: Invisible and Robust Watermarking for AI-generated Image Provenance",
+      "authors": [
+        "Rui Xu",
+        "Mengya Hu",
+        "Deren Lei",
+        "Yaxi Li",
+        "David Lowe",
+        "Alex Gorevski",
+        "Mingyu Wang",
+        "Emily Ching",
+        "Alex Deng"
+      ],
+      "year": 2024,
+      "venue": null,
+      "access_date": "2026-09-23",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "research/literature/inspections/invismark-v2-method.md",
+        "sha256": "24c4440c7bf986eaf1833f883625e43fd39116c19c27b908aff90e5f91f2dee7"
+      },
+      "limitations": [
+        "Targeted sections 2.1-2.4.1 and 3 evaluation setup/3.3-3.5; not complete paper inspection.",
+        "Same v2 previously read at abstract depth; no version merge.",
+        "Notes checksum is not remote content authentication; no experiment reproduced."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "muller-forgery-v1",
+      "citation_key": "Muller2024Forgeryv1",
+      "doi": "10.48550/arXiv.2412.03283",
+      "canonical_url": "https://arxiv.org/abs/2412.03283v1",
+      "title": "Black-Box Forgery Attacks on Semantic Watermarks for Diffusion Models",
+      "authors": [
+        "Andreas Müller",
+        "Denis Lukovnikov",
+        "Jonas Thietke",
+        "Asja Fischer",
+        "Erwin Quiring"
+      ],
+      "year": 2024,
+      "venue": null,
+      "access_date": "2026-09-23",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "research/literature/inspections/muller-forgery-v1.md",
+        "sha256": "59f41dee03f4f642f6ec5bfd631ddacdc39bfb921a0d599e70bda98bee73f7ff"
+      },
+      "limitations": [
+        "Targeted sections 3.1-3.2 and 4.1/Table 1 only.",
+        "v1 not latest v3 or conference version.",
+        "Observer-record hash only; no experimental reproduction."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "zhao-regeneration-v3",
+      "citation_key": "Zhao2023Regenerationv3",
+      "doi": "10.48550/arXiv.2306.01953",
+      "canonical_url": "https://arxiv.org/abs/2306.01953v3",
+      "title": "Invisible Image Watermarks Are Provably Removable Using Generative AI",
+      "authors": [
+        "Xuandong Zhao",
+        "Kexun Zhang",
+        "Zihao Su",
+        "Saastha Vasan",
+        "Ilya Grishchenko",
+        "Christopher Kruegel",
+        "Giovanni Vigna",
+        "Yu-Xiang Wang",
+        "Lei Li"
+      ],
+      "year": 2023,
+      "venue": null,
+      "source_type": "preprint",
+      "access_date": "2026-09-23",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "research/literature/inspections/zhao-regeneration-v3.md",
+        "sha256": "2d4713c1959c94f3f56c54a5ecddc701df13d4b26511987da6580bb127e477e4"
+      },
+      "limitations": [
+        "Targeted sections only; proofs/code unverified and no experiment reproduced.",
+        "2023 is first submission; inspected v3 is 2024-10-31.",
+        "Checksum identifies observer record, not remote paper."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "lee-geometric-v1",
+      "citation_key": "Lee2026Geometricv1",
+      "doi": "10.48550/arXiv.2606.29807",
+      "canonical_url": "https://arxiv.org/abs/2606.29807v1",
+      "title": "Rethinking Forgery Attacks on Semantic Watermarks in Black-Box Settings: A Geometric Distortion Perspective",
+      "authors": [
+        "Cheng-Yi Lee",
+        "Yichi Zhang",
+        "Yuchen Yang",
+        "Chun-Shien Lu",
+        "Jun-Cheng Chen"
+      ],
+      "year": 2026,
+      "venue": null,
+      "source_type": "preprint",
+      "access_date": "2026-09-23",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "research/literature/inspections/lee-geometric-v1.md",
+        "sha256": "3b2ad1e8aab1172d807db01f7f825bad7826eaa85c52f9b9db940a885bc58d95"
+      },
+      "limitations": [
+        "Targeted sections only; proofs/code/results not independently reproduced.",
+        "Reference-latent availability not audited; not a drop-in thesis detector.",
+        "Local notes hash only; proceedings not verified."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "sembind-v1",
+      "citation_key": "Zhang2026SemBindv1",
+      "doi": "10.48550/arXiv.2601.20310",
+      "canonical_url": "https://arxiv.org/abs/2601.20310v1",
+      "title": "SemBind: Binding Diffusion Watermarks to Semantics Against Black-Box Forgery Attacks",
+      "authors": [
+        "Xin Zhang",
+        "Zijin Yang",
+        "Kejiang Chen",
+        "Linfeng Ma",
+        "Weiming Zhang",
+        "Nenghai Yu"
+      ],
+      "year": 2026,
+      "venue": null,
+      "source_type": "preprint",
+      "access_date": "2026-09-23",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "research/literature/inspections/sembind-v1.md",
+        "sha256": "8e7fa910dacb897ac34b3aed2535bc570105e81ae3b8a4bfac40f5b762057533"
+      },
+      "limitations": [
+        "Targeted method reading only; no code/proof/performance reproduction.",
+        "Not evidence of the thesis method's effectiveness or novelty."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "slice-v1",
+      "citation_key": "Gao2026SLICEv1",
+      "doi": "10.48550/arXiv.2603.12749",
+      "canonical_url": "https://arxiv.org/abs/2603.12749v1",
+      "title": "SLICE: Semantic Latent Injection via Compartmentalized Embedding for Image Watermarking",
+      "authors": [
+        "Zheng Gao",
+        "Yifan Yang",
+        "Xiaoyu Li",
+        "Xiaoyan Feng",
+        "Haoran Fan",
+        "Yang Song",
+        "Jiaojiao Jiang"
+      ],
+      "year": 2026,
+      "venue": null,
+      "source_type": "preprint",
+      "access_date": "2026-09-23",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "research/literature/inspections/slice-v1.md",
+        "sha256": "0acc528beddf14fbf815c9d1ec02fd8ce7e877b7fb14bdb13849b57952602263"
+      },
+      "limitations": [
+        "Targeted method reading only; no code/proof/performance reproduction.",
+        "Not evidence of the thesis method's effectiveness or novelty."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "paunwala2012",
+      "citation_key": "Paunwala2012DCT",
+      "doi": "10.5402/2012/781940",
+      "canonical_url": "https://onlinelibrary.wiley.com/doi/full/10.5402/2012/781940",
+      "title": "DCT Watermarking Approach for Security Enhancement of Multimodal System",
+      "authors": [
+        "Mita Paunwala",
+        "S. Patnaik"
+      ],
+      "year": 2012,
+      "venue": "International Scholarly Research Notices",
+      "source_type": "paper",
+      "access_date": "2026-09-23",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "research/literature/inspections/paunwala2012.md",
+        "sha256": "a753b4b33df0ba6934e0b1af33733347e382c6e81b55aae5630f4d2b321dab27"
+      },
+      "limitations": [
+        "Targeted method reading only; no code/proof/performance reproduction.",
+        "Not evidence of the thesis method's effectiveness or novelty."
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "B1-SEAL-METHOD",
+      "claim": "SEAL v4 uses caption embeddings, SimHash and inverse-diffusion detection.",
+      "source_id": "seal-v4",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Section 3.2, Algorithms 1-3 and Watermark Generation/Detection",
+      "confidence": "high",
+      "limitations": [
+        "Only method description checked; no implementation execution."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "B1-DCT-BRIDGE",
+      "claim": "The inspected SEAL v4 detector does not establish the thesis's latent-to-image-DCT bridge.",
+      "source_id": "seal-v4",
+      "kind": "agent-inference",
+      "stance": "supporting",
+      "locator": "Section 3.2, Algorithm 3",
+      "confidence": "high",
+      "limitations": [
+        "This inspected mechanism does not establish that bridge; it does not prove infeasibility."
+      ],
+      "assumptions": [
+        "Comparison is limited to the inspected Algorithm 3 and the proposal's image-domain DCT detector, not all possible variants."
+      ]
+    },
+    {
+      "claim_id": "B1-WU-METHOD",
+      "claim": "The abstract describes semiblind DWT-SVD watermarking with chaotic maps.",
+      "source_id": "wu2024",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Abstract",
+      "confidence": "high",
+      "limitations": [
+        "Description only; reported robustness not independently verified."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "B1-MAREEN-METHOD",
+      "claim": "The abstract describes HiDDeN-based neural watermark encoding and decoding with geometric noise layers.",
+      "source_id": "mareen2024",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Abstract",
+      "confidence": "high",
+      "limitations": [
+        "Description only; reported robustness not independently verified."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "B1-DASGUPTA-METHOD",
+      "claim": "The preprint abstract describes cross-attention embedding and invariant-domain learning.",
+      "source_id": "dasgupta2023",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Abstract",
+      "confidence": "high",
+      "limitations": [
+        "Description only; reported robustness not independently verified."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "B1-INVISMARK-DECODER",
+      "claim": "InvisMark uses a trained ConvNeXT-base decoder.",
+      "source_id": "invismark-v2",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Section 2.2",
+      "confidence": "high",
+      "limitations": [
+        "Source-specific description, not reproduced performance or general security guarantee."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "B1-INVISMARK-DATA",
+      "claim": "InvisMark evaluates DIV2K; this qualifies but does not refute the proposal's concern about comprehensive real-image evaluation.",
+      "source_id": "invismark-v2",
+      "kind": "agent-inference",
+      "stance": "supporting",
+      "locator": "Sections 2.4.1 and 3; proposal extraction line 177",
+      "confidence": "high",
+      "limitations": [
+        "Source-specific description, not reproduced performance or general security guarantee."
+      ],
+      "assumptions": [
+        "Assessment concerns evaluation inclusion, not comprehensive coverage of all real-image distributions."
+      ]
+    },
+    {
+      "claim_id": "B1-INVISMARK-FORGERY",
+      "claim": "Authors report residual-transfer forgery under public encoder access.",
+      "source_id": "invismark-v2",
+      "kind": "author-interpretation",
+      "stance": "supporting",
+      "locator": "Section 3.3",
+      "confidence": "high",
+      "limitations": [
+        "Source-specific description, not reproduced performance or general security guarantee."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "B1-PROXY-FORGERY",
+      "claim": "Imprinting and reprompting use a proxy diffusion model and a reference watermarked image.",
+      "source_id": "muller-forgery-v1",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Sections 3.1-3.2",
+      "confidence": "high",
+      "limitations": [
+        "Source-specific description, not reproduced performance or general security guarantee."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "B1-OPERATING-POINTS",
+      "claim": "Table 1 is not automatically a matched-FPR comparison.",
+      "source_id": "muller-forgery-v1",
+      "kind": "agent-inference",
+      "stance": "supporting",
+      "locator": "Table 1 and Section 4.1",
+      "confidence": "high",
+      "limitations": [
+        "Source-specific description, not reproduced performance or general security guarantee."
+      ],
+      "assumptions": [
+        "Comparison fairness requires explicitly aligned operating points; paper uses distinct nominal FPRs."
+      ]
+    },
+    {
+      "claim_id": "B1-REGEN-METHOD",
+      "claim": "The attack noises an embedding and reconstructs without detector queries.",
+      "source_id": "zhao-regeneration-v3",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Section 2.2 and Algorithm 1",
+      "confidence": "high",
+      "limitations": [
+        "Conditional source-specific evidence; not a reproduced thesis result."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "B1-REGEN-BOUND",
+      "claim": "Removal and utility guarantees have explicit perturbation, embedding and denoising conditions.",
+      "source_id": "zhao-regeneration-v3",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Theorems 4.3 and 4.4",
+      "confidence": "high",
+      "limitations": [
+        "Conditional source-specific evidence; not a reproduced thesis result."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "B1-REGEN-DEFENSE",
+      "claim": "Reported Tree-Ring resilience does not establish the thesis's matched-quality latent advantage.",
+      "source_id": "zhao-regeneration-v3",
+      "kind": "agent-inference",
+      "stance": "supporting",
+      "locator": "Appendix E.1-E.2",
+      "confidence": "high",
+      "limitations": [
+        "Conditional source-specific evidence; not a reproduced thesis result."
+      ],
+      "assumptions": [
+        "Prompt/caption regeneration with changed appearance is not a matched perturbation comparison for the proposed input-image route."
+      ]
+    },
+    {
+      "claim_id": "B1-FORGERY-DEFENSE",
+      "claim": "Geometric pre-verification offers a conditional defense, not universal forgery immunity.",
+      "source_id": "lee-geometric-v1",
+      "kind": "author-interpretation",
+      "stance": "supporting",
+      "locator": "Sections 4.1-4.3.4 and 6.3-6.4",
+      "confidence": "medium",
+      "limitations": [
+        "No reproduction or proof audit; finite-dimensional overlap remains possible."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "B1-SEMBIND",
+      "claim": "SemBind combines learned semantic masking with latent watermarking and inversion.",
+      "source_id": "sembind-v1",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Sections 3.1-3.3 and 4.1",
+      "confidence": "high",
+      "limitations": [
+        "Source-specific mechanism context only."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "B1-SLICE",
+      "claim": "SLICE verifies factorized semantic binding through diffusion inversion.",
+      "source_id": "slice-v1",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Sections 3.1-3.3",
+      "confidence": "high",
+      "limitations": [
+        "Source-specific mechanism context only."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "B1-IMAGE-DCT",
+      "claim": "This image-DCT method does not establish the proposed latent-to-image bridge.",
+      "source_id": "paunwala2012",
+      "kind": "agent-inference",
+      "stance": "supporting",
+      "locator": "Section 3",
+      "confidence": "high",
+      "limitations": [
+        "Source-specific mechanism context only."
+      ],
+      "assumptions": [
+        "Image-transform embedding is not diffusion-latent embedding."
+      ]
+    }
+  ],
+  "assumptions": [],
+  "open_questions": [
+    "A5: establish the proposed latent-to-image-DCT mechanism; no inspected source proves its feasibility.",
+    "B2/A5: finalize comparators and inspect exact execution configurations, reference knowledge and access budgets.",
+    "A4: map conditional attack assumptions and preregister quality/operating-point comparisons.",
+    "A6/compute package: verify environment, checkpoint provenance, licenses and resource requirements before separately approved execution.",
+    "Before final writing: enrich bibliography metadata/format, preserve revision distinctions and resolve institutional scope boundaries."
+  ]
+}

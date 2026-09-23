@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "kumari2024",
+  "citation_key": "Kumari2024DWTSVD",
+  "doi": "10.1080/13682199.2023.2223080",
+  "canonical_url": "https://api.crossref.org/works/10.1080/13682199.2023.2223080",
+  "title": "Deep learning-based image watermarking technique with hybrid DWT-SVD",
+  "authors": [
+    "R. Radha Kumari",
+    "V. Vijaya Kumar",
+    "K. Rama Naidu"
+  ],
+  "year": 2024,
+  "venue": "The Imaging Science Journal",
+  "access_date": "2026-09-23",
+  "source_type": "paper",
+  "verification": "unverified",
+  "inspected_content": "metadata",
+  "inspection": {
+    "artifact": "research/literature/inspections/kumari2024.md",
+    "sha256": "3a1623414cf4da5e5d8bb7a07466da6b2933933b56f5d9522eb4eb975dc318cc"
+  },
+  "limitations": [
+    "Local checksum identifies observer notes, not remote full text.",
+    "No code inspection or experimental reproduction.",
+    "Metadata only; no scientific claim admitted. Online 2023, print 2024."
+  ]
+}

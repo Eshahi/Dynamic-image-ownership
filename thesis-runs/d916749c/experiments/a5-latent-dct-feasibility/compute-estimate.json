@@ -1,0 +1,48 @@
+{
+  "schema_version": "planning-estimate-1",
+  "experiment_id": "a5-latent-dct-feasibility",
+  "status": "PRELIMINARY_CAPACITY_ENVELOPE_NOT_A_WORKLOAD_ESTIMATE",
+  "observed_at_utc": "2026-09-23T07:41:55.4073596Z",
+  "observed_local": {
+    "gpu_name": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "gpu_total_mib": 12227,
+    "gpu_free_mib": 11499,
+    "gpu_driver": "610.88",
+    "disk_total_mib": 249999.0,
+    "disk_free_mib": 246243.3,
+    "ram_total_mib": null,
+    "ram_free_mib": null,
+    "ram_measurement_error": "Win32_OperatingSystem query returned Access denied; no RAM availability is inferred."
+  },
+  "provisional_non_executable_limits": {
+    "vram_mib": 10240,
+    "vram_basis": "skill default cap; it is lower than measured free VRAM minus 1,024 MiB headroom",
+    "ram_ceiling_mib": 28672,
+    "ram_basis": "design-helper upper-bound guard only; this is not measured availability and not an executable allocation",
+    "disk_mib": 51200,
+    "disk_basis": "provisional reservation ceiling below observed free space; model/data/cache needs are not yet known"
+  },
+  "duration": {
+    "estimated_seconds": null,
+    "upper_bound_seconds": null,
+    "reason": "No model revision, image resolution, dataset split, entrypoint, seed inventory or benchmark exists. A numeric runtime would be fabricated."
+  },
+  "budget": {
+    "approved_remote_usd": 0.0,
+    "approved_paid_api_usd": 0.0,
+    "estimated_local_direct_compute_usd": 0.0,
+    "local_cost_scope": "No incremental service charge; electricity, hardware depreciation and researcher time are unmeasured and excluded.",
+    "remote_hourly_usd": null,
+    "remote_compute_usd": null,
+    "remote_storage_usd": null,
+    "remote_egress_usd": null,
+    "reason": "No live quote was requested or obtained, and remote execution is not recommended or executable at this stage."
+  },
+  "target_assessment": {
+    "current_target": "none",
+    "conditional_candidate": "local",
+    "condition": "Only after the reviewed workload is measured to fit all safe ceilings and actual RAM/disk availability is reconfirmed immediately before execution.",
+    "remote_limitation": "Current live RunPod creation is blocked by the runner because upstream stop/termination deadlines are not enforced."
+  },
+  "estimate_revision_trigger": "Replace this envelope with measured RAM/disk availability and a workload estimate after A5, A4, dataset manifests, environment lock and reviewed entrypoint exist. Any target change requires a new manifest and approval."
+}

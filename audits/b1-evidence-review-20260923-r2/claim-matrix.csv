@@ -1,0 +1,18 @@
+claim_id,classification,scope_of_classification
+B1-SEAL-METHOD,verified,Source method description only
+B1-DCT-BRIDGE,verified,Limited inference about inspected mechanism; not global absence
+B1-WU-METHOD,verified,Abstract method description only
+B1-MAREEN-METHOD,verified,Abstract method description only
+B1-DASGUPTA-METHOD,verified,Preprint abstract method description only
+B1-INVISMARK-DECODER,verified,Source decoder description only
+B1-INVISMARK-DATA,verified,DIV2K inclusion and qualified proposal reading
+B1-INVISMARK-FORGERY,partially supported,Author reported result with access conditions; no reproduction
+B1-PROXY-FORGERY,verified,Source attack mechanism only
+B1-OPERATING-POINTS,verified,Limited inference from distinct nominal FPRs
+B1-REGEN-METHOD,verified,Source attack mechanism only
+B1-REGEN-BOUND,partially supported,Conditional theorem statements inspected; proofs not audited
+B1-REGEN-DEFENSE,verified,Limited inference; does not establish thesis advantage
+B1-FORGERY-DEFENSE,partially supported,Conditional author interpretation; proofs and results not reproduced
+B1-SEMBIND,verified,Targeted source mechanism description only
+B1-SLICE,verified,Targeted source mechanism description only; not instance identity
+B1-IMAGE-DCT,verified,Limited domain distinction; not global absence or infeasibility

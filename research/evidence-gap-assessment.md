@@ -1,12 +1,12 @@
 # Claim-to-evidence reconciliation — partial B1
 
-Issue #8. 2026-09-23. This maps all 42 immutable `claims.csv` IDs to the consolidated root `evidence-ledger.jsonl`. It is an assessment layer, not a replacement claim ledger or experiment result. Source statements and their locators/limitations remain in that ledger and the `literature/consolidated/papers/` cards.
+Issue #8. 2026-09-23. This maps all 42 immutable `claims.csv` IDs to the root `evidence-ledger.jsonl`. It is an assessment layer, not a replacement claim ledger or experiment result. Source statements and their locators/limitations remain in that ledger and the `literature/final/papers/` cards.
 
 ## How to read the map
 
 `thesis_status` refers to the thesis requirement/result, not the reliability of the cited publication. `REQUIREMENT_NOT_RESULT` preserves a title, scope, dataset or metric commitment. `UNRESOLVED` marks unanswered questions or incomplete implementation/evaluation. `UNTESTED` covers hypotheses and planned claims. None means accepted scientific performance.
 
-Every relationship is an author inference about relevance, not direct support of the original thesis proposition. In particular, comparator existence and threat motivation do not validate the proposed mechanism. Empty evidence IDs mean no admitted mapping in this eight-card package, not proof of a global literature gap. The response's separate B1 claim IDs are retained and referenced explicitly. Requirements need provenance and implementation/design work; they need not all be proved by literature.
+Every relationship is an author inference about relevance, not direct support of the original thesis proposition. In particular, comparator existence and threat motivation do not validate the proposed mechanism. Empty evidence IDs mean no admitted mapping in this twelve-card package, not proof of a global literature gap. The response's separate B1 claim IDs are retained and referenced explicitly. Requirements need provenance and implementation/design work; they need not all be proved by literature.
 
 ## Priority scientific gaps
 
@@ -21,4 +21,4 @@ No prior claim, dataset count or scope is removed. Transfer/history remains the 
 
 ## Next evidence work
 
-Regeneration, SEAL preflight and root consolidation are recorded. See `literature/consolidated/README.md` for explicit source selection and remaining qualifying-source/version screening. Independently review the whole package before acceptance. This mapping's completeness is documentary coverage only, not readiness for the evidence gate or permission for compute.
+Regeneration, SEAL preflight, qualifying defense inspection and narrow forgery revision screening are recorded. See `literature/final/README.md` for final source dispositions within this targeted search. B1 completion review is separate from feasibility and compute acceptance. Remaining mechanism/signature gaps belong to A5; comparative implementation choices to B2; statistical and attack-operating rules to A4; environment/resource checks to A6 and the compute package. Inspect additional sources when those concrete decisions require them, rather than treating positive experimental results as a prerequisite for closing a documentary search task.
