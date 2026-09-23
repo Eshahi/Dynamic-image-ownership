@@ -1,14 +1,16 @@
 """Synthetic, model-free pixel-DCT comparator reference for B2.
 
-Templates are generated from supplied A5 signature digests and a validated
-detector-configuration digest. This module does not derive OwnerIDs/signatures,
-choose gains, calibrate thresholds, load images, or execute an experiment.
+Signatures are derived from supplied A5 q/H codes and public OwnerID; templates
+also need a validated detector-configuration digest. This module does not
+extract q/H from images, choose gains, calibrate thresholds, load images, or
+execute an experiment.
 """
 
 from __future__ import annotations
 
 import hashlib
 import math
+import unicodedata
 
 
 SEMANTIC_FREQUENCIES = ((1, 2), (2, 1), (2, 2), (1, 3))
@@ -18,6 +20,33 @@ _BASIS = tuple(
           for n in range(8))
     for k in range(8)
 )
+
+
+def _pack(fields: tuple[bytes, ...]) -> bytes:
+    return b"".join(len(field).to_bytes(4, "big") + field for field in fields)
+
+
+def keys_from_codes(q_bytes: bytes, phash_bytes: bytes, owner_id: str) -> tuple[bytes, bytes]:
+    """Derive A5's public Ws/Wi digests from already-extracted source codes.
+
+    This does not authenticate owner enrollment or establish image-to-code
+    stability. Those are separate experimental and trust-model obligations.
+    """
+    if not isinstance(q_bytes, bytes) or len(q_bytes) != 2 or q_bytes[1] & 0xF0:
+        raise ValueError("q must be a canonical packed 12-bit code")
+    if not isinstance(phash_bytes, bytes) or len(phash_bytes) != 4:
+        raise ValueError("pHash must be a packed 32-bit code")
+    if not isinstance(owner_id, str) or unicodedata.normalize("NFC", owner_id) != owner_id:
+        raise ValueError("OwnerID must be NFC text")
+    try:
+        owner = owner_id.encode("utf-8")
+    except UnicodeEncodeError as error:
+        raise ValueError("OwnerID must be valid UTF-8 text") from error
+    if not 1 <= len(owner) <= 256:
+        raise ValueError("OwnerID must have 1..256 UTF-8 bytes")
+    semantic = hashlib.sha256(_pack((b"a5-ws-v1", q_bytes, owner))).digest()
+    instance = hashlib.sha256(_pack((b"a5-wi-v1", q_bytes, phash_bytes, owner))).digest()
+    return semantic, instance
 
 
 def templates_from_keys(
@@ -39,11 +68,8 @@ def templates_from_keys(
             raise ValueError(f"{name} must be a raw 32-byte digest")
     blocks = ((width + 7) // 8) * ((height + 7) // 8)
 
-    def pack(fields: tuple[bytes, ...]) -> bytes:
-        return b"".join(len(field).to_bytes(4, "big") + field for field in fields)
-
     def one(component: bytes, key: bytes) -> tuple[tuple[int, ...], ...]:
-        payload = pack((b"a5-template-v1", component, key,
+        payload = _pack((b"a5-template-v1", component, key,
                         height.to_bytes(4, "big"), width.to_bytes(4, "big"),
                         detector_config_id))
         stream = hashlib.shake_256(payload).digest((blocks * 4 + 7) // 8)

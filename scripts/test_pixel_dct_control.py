@@ -3,7 +3,10 @@
 import math
 import unittest
 
-from pixel_dct_control import dct8, embed_pixel_dct, idct8, score_pixel_dct, templates_from_keys
+from pixel_dct_control import (
+    dct8, embed_pixel_dct, idct8, keys_from_codes, score_pixel_dct,
+    templates_from_keys,
+)
 
 
 class PixelDCTControlTests(unittest.TestCase):
@@ -93,6 +96,32 @@ class PixelDCTControlTests(unittest.TestCase):
                          (0.0, True))
         with self.assertRaises(ValueError):
             score_pixel_dct(marked, 32, 32, semantic, "unknown")
+
+    def test_a5_public_signature_serialization_vector(self):
+        q, phash = bytes.fromhex("a503"), bytes.fromhex("12345678")
+        semantic_key, instance_key = keys_from_codes(q, phash, "thesis:owner:09")
+        self.assertEqual(semantic_key.hex(),
+                         "a78246e2ca130a081f3662f285aca26943108c7c62e98b8538a22f8248e73a24")
+        self.assertEqual(instance_key.hex(),
+                         "f2cc43448a9bcd2ecace0be3c51d0c0c256293d27661c9e549105a58be97a000")
+        self.assertNotEqual(semantic_key, keys_from_codes(q, phash, "thesis:owner:10")[0])
+        self.assertNotEqual(instance_key, keys_from_codes(q, bytes(4), "thesis:owner:09")[1])
+        templates = templates_from_keys(semantic_key, instance_key, bytes([0xA5]) * 32, 32, 32)
+        source = bytes([128] * (32 * 32 * 3))
+        marked = embed_pixel_dct(source, 32, 32, *templates, .2, .2)
+        self.assertGreater(score_pixel_dct(marked, 32, 32, templates[0], "semantic")[0], .9)
+
+    def test_a5_public_signature_rejects_ambiguous_inputs(self):
+        q, phash = bytes.fromhex("a503"), bytes(4)
+        for malformed in (b"", b"\x00", b"\x00\xf0", "a503"):
+            with self.subTest(q=malformed), self.assertRaises(ValueError):
+                keys_from_codes(malformed, phash, "owner")
+        for malformed in (bytes(3), "00000000"):
+            with self.subTest(phash=malformed), self.assertRaises(ValueError):
+                keys_from_codes(q, malformed, "owner")
+        for malformed in ("", "e\u0301", "a" * 257, None, "\ud800"):
+            with self.subTest(owner=repr(malformed)), self.assertRaises(ValueError):
+                keys_from_codes(q, phash, malformed)
 
 
 if __name__ == "__main__":
