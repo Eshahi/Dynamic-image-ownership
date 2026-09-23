@@ -4,7 +4,7 @@ import unittest
 from a4_protocol_reference import (
     Candidate, DOMAINS, GRID, SourceGroup, both_match, calibrate,
     exact_one_sided_bound, owner_and_seed, primary_joint_objective,
-    select_t1_cohort,
+    select_t1_cohort, t1_noise_rgb8,
 )
 
 
@@ -65,6 +65,27 @@ class A4ProtocolReferenceTests(unittest.TestCase):
         for count in (True, 0, 1.5):
             with self.subTest(count=count), self.assertRaises(ValueError):
                 select_t1_cohort((valid,), per_domain=count)
+
+    def test_t1_noise_known_answer_and_source_isolation(self):
+        pixels = bytes((0, 128, 255, 64, 128, 192))
+        self.assertEqual(t1_noise_rgb8("coco:000000000001", 2, 1, pixels),
+                         bytes((2, 124, 255, 64, 126, 190)))
+        self.assertEqual(t1_noise_rgb8("coco:000000000001", 1, 1, pixels[:3]),
+                         bytes((2, 124, 255)))
+        self.assertEqual(t1_noise_rgb8("coco:000000000002", 2, 1, pixels),
+                         bytes((2, 131, 254, 63, 128, 189)))
+        self.assertEqual(pixels, bytes((0, 128, 255, 64, 128, 192)))
+
+    def test_t1_noise_rejects_invalid_shape_or_identity(self):
+        pixels = bytes((1, 2, 3))
+        for uid, width, height, data in (
+            ("", 1, 1, pixels), ("e\u0301", 1, 1, pixels),
+            ("valid", 0, 1, pixels), ("valid", True, 1, pixels),
+            ("valid", 1, -1, pixels), ("valid", 1.0, 1, pixels),
+            ("valid", 1, 1, pixels[:2]), ("valid", 1, 1, bytearray(pixels)),
+        ):
+            with self.subTest(uid=uid, width=width, height=height, data=data), self.assertRaises(ValueError):
+                t1_noise_rgb8(uid, width, height, data)
 
     def test_common_q_and_strict_thresholds(self):
         self.assertFalse(both_match((Candidate(.9, (.1,)), Candidate(.1, (.9,))), .5, .5))

@@ -114,6 +114,40 @@ def select_t1_cohort(groups: tuple[SourceGroup, ...], *, per_domain: int = 300) 
     return T1Cohort(selected, shortfall)
 
 
+def t1_noise_rgb8(source_uid: str, width: int, height: int, pixels: bytes) -> bytes:
+    """Reference T1 additive-noise bytes for supplied canonical row-major RGB8.
+
+    This is intentionally scalar and not a production image decoder or runner.
+    It cannot establish input provenance, color conversion or scientific parity.
+    """
+    raw = _source_bytes(source_uid)
+    if (isinstance(width, bool) or not isinstance(width, int) or width <= 0
+            or isinstance(height, bool) or not isinstance(height, int) or height <= 0
+            or not isinstance(pixels, bytes) or len(pixels) != 3 * width * height):
+        raise ValueError("require positive dimensions and exact RGB8 bytes")
+    seed = owner_and_seed(source_uid)[2]
+    prefix = (b"a4-t1-noise-v1\x00" + seed.to_bytes(8, "big")
+              + len(raw).to_bytes(4, "big") + raw)
+    stream = hashlib.shake_256(prefix).digest(16 * ((len(pixels) + 1) // 2))
+    output = bytearray(len(pixels))
+    for index in range(0, len(pixels), 2):
+        offset = 8 * index
+        x1 = int.from_bytes(stream[offset:offset + 8], "big")
+        x2 = int.from_bytes(stream[offset + 8:offset + 16], "big")
+        u1 = (x1 + 0.5) / 2**64
+        u2 = (x2 + 0.5) / 2**64
+        radius = math.sqrt(-2 * math.log(u1))
+        phase = 2 * math.pi * u2
+        normals = (radius * math.cos(phase), radius * math.sin(phase))
+        for channel, normal in enumerate(normals):
+            position = index + channel
+            if position >= len(pixels):
+                break
+            unit = min(1.0, max(0.0, pixels[position] / 255 + 0.01 * normal))
+            output[position] = round(255 * unit)
+    return bytes(output)
+
+
 @dataclass(frozen=True)
 class Candidate:
     """One common-q candidate; None denotes a vetoed component score."""
