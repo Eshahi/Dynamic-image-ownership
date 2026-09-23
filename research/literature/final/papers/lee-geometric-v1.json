@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "lee-geometric-v1",
+  "citation_key": "Lee2026Geometricv1",
+  "doi": "10.48550/arXiv.2606.29807",
+  "canonical_url": "https://arxiv.org/abs/2606.29807v1",
+  "title": "Rethinking Forgery Attacks on Semantic Watermarks in Black-Box Settings: A Geometric Distortion Perspective",
+  "authors": [
+    "Cheng-Yi Lee",
+    "Yichi Zhang",
+    "Yuchen Yang",
+    "Chun-Shien Lu",
+    "Jun-Cheng Chen"
+  ],
+  "year": 2026,
+  "venue": null,
+  "source_type": "preprint",
+  "access_date": "2026-09-23",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "research/literature/inspections/lee-geometric-v1.md",
+    "sha256": "3b2ad1e8aab1172d807db01f7f825bad7826eaa85c52f9b9db940a885bc58d95"
+  },
+  "limitations": [
+    "Targeted sections only; proofs/code/results not independently reproduced.",
+    "Reference-latent availability not audited; not a drop-in thesis detector.",
+    "Local notes hash only; proceedings not verified."
+  ]
+}

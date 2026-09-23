@@ -1,5 +1,7 @@
 # Consolidated B1 corpus
 
+Historical eight-card checkpoint. Current root outputs are derived from `literature/screened/` and response-screened.json; use its README for current source dispositions. Counts and outstanding-work statements below describe this earlier snapshot.
+
 2026-09-23; issue #8; request d916749c-B1-002. This is a bounded documentary consolidation, not B1 closure or evidence-gate acceptance.
 
 `response-consolidated.json` concatenates the disjoint cards and evidence from response-methods.json and response-regeneration.json without changing them. Eight distinct DOI cards, thirteen evidence entries: four targeted full-text inspections, three abstract inspections, one metadata-only record. Earlier snapshots are historical subsets, not extra publications or independent confirmations. SEAL v1/code notes remain supplemental records, not merged paper versions.

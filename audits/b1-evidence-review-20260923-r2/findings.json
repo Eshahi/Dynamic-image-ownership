@@ -1,0 +1,17 @@
+{
+  "audit_id": "b1-evidence-review-20260923-r2",
+  "reviewer": "/root/b1_seed_review",
+  "author": "/root",
+  "audit_type": "manual-documentary-review-not-experiment-helper-schema",
+  "b1_recommendation": "accept",
+  "evidence_review_recommendation": "accept-for-subsequent-planning-only",
+  "scientific_acceptance": false,
+  "blocking_findings": [],
+  "resolved_findings": ["B1-01 comparative fields", "B1-02 thematic queries and time-range disclosure", "Re-review matrix limitation/image_dct column swap"],
+  "warnings": [
+    {"id": "R2-W1", "detail": "SLICE 4.1/4.2 are Assumptions in Section 4, not sections; intended conditional statements remain identifiable."},
+    {"id": "R2-W2", "detail": "Partial inspection, metadata-only/deferred sources, unreproduced results and conditional proofs limit downstream use; no scientific execution authorized."}
+  ],
+  "controller_transition_performed": false,
+  "hash_manifest": "audit-report.md"
+}

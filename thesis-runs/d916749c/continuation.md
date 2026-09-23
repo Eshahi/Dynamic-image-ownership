@@ -14,6 +14,12 @@ Updated 2026-09-23. Authority: `research/approval-policy.md`.
 
 ## Next authorized work
 
+Current package: response-final.json and research/literature/final/ hold twelve DOI cards / seventeen evidence entries; root matrix includes the immutable B1 comparative schema, 51 search-log rows retain all query/access outcomes, and eleven inspected sources enter the bibliography. Initial whole-package review correctly held completion for missing comparative dimensions/thematic queries; those repairs and a detected matrix-column error have been addressed and are undergoing independent re-review. Do not infer acceptance until the final audit/controller/GitHub states below are verified. A5/issue #6 is the next ready architecture task; see experiment-design-readiness.md before allowing lifecycle prompt completion to stand for A4/A5 deliverables.
+
+New source dispositions: Lee qualifying defense admitted; Muller v3 narrow screen identifies prior PSNR correction without merging versions. SemBind and SLICE are related semantic-binding methods, not proof of semantic-plus-instance equivalence; Paunwala is image-DCT context, not a latent bridge. IRIS is withdrawn and excluded from scientific support. Source/claim requirements and scientific compute boundaries remain unchanged.
+
+All checkpoint paragraphs below are historical where they overlap with the current package.
+
 Newest checkpoint: root `research/literature-matrix.csv`, `research/references.bib`, and `research/evidence-ledger.jsonl` consolidate eight distinct cards and thirteen entries from the disjoint method/regeneration packages. `response-consolidated.json` validates with the expected metadata-only Kumari warning. The claim map now incorporates regeneration relevance without accepting any hypothesis. See `research/literature/consolidated/README.md` for explicit selection dispositions. B1 and evidence-review remain open: inspect qualifying forgery lead arXiv:2606.29807 and resolve the material later-version screen, then obtain whole-package acceptance review. A5 may proceed independently under the scope guard. No scientific compute authorized or executed.
 
 The preflight/consolidation next-step paragraphs below are prior checkpoints, superseded by this paragraph where they overlap.

@@ -1,0 +1,15 @@
+{
+  "reviewer": "/root/b1_seed_review",
+  "audit_type": "manual_documentary_literature_review",
+  "date_utc": "2026-09-23",
+  "b1_completion_recommendation": "hold",
+  "evidence_gate_recommendation": "hold",
+  "blocking": [
+    {"id": "B1-01", "finding": "Required comparative literature dimensions absent from metadata-only root matrix", "basis": "guide-plan-38.json B1 outputs and lit-2 steps"},
+    {"id": "B1-02", "finding": "Required semantic/instance-binding and image-DCT thematic query execution and time-range disclosure absent", "basis": "guide-plan-38.json B1 lit-1 steps"}
+  ],
+  "warnings": ["Add explicit search metadata and citation-key joins", "Generic BibTeX remains provisional"],
+  "scientific_runs_expected_at_stage": 0,
+  "controller_transition_performed": false,
+  "note": "Manual audit record, not output from the experiment audit helper and not a fabricated human acceptance."
+}
