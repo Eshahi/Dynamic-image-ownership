@@ -35,6 +35,38 @@ def _pack(fields: tuple[bytes, ...]) -> bytes:
     return b"".join(len(field).to_bytes(4, "big") + field for field in fields)
 
 
+def semantic_code_from_normalized_embedding(
+    embedding: tuple[float, ...], projection_seed: bytes,
+) -> bytes:
+    """A5's 12-bit q from a supplied, already-normalized CLIP embedding.
+
+    No CLIP model, checkpoint, preprocessing or float32 normalization is
+    provided here. This is an arithmetic reference for public projections.
+    """
+    if not isinstance(embedding, tuple) or len(embedding) != 512:
+        raise ValueError("embedding must be a 512-element tuple")
+    if any(isinstance(value, bool) or not isinstance(value, (int, float))
+           or not math.isfinite(value) for value in embedding):
+        raise ValueError("embedding elements must be finite real numbers")
+    norm = math.sqrt(math.fsum(value * value for value in embedding))
+    if abs(norm - 1.0) > 1e-5:
+        raise ValueError("embedding must already be unit-normalized")
+    if not isinstance(projection_seed, bytes) or len(projection_seed) != 32:
+        raise ValueError("projection seed must be 32 raw bytes")
+    stream = hashlib.shake_256(_pack((b"a5-semproj-v1", projection_seed))).digest(12 * 512 // 8)
+    row_scale = 1 / math.sqrt(512)
+    bits = 0
+    for row in range(12):
+        projection = 0.0
+        for column, value in enumerate(embedding):
+            index = row * 512 + column
+            sign = -1 if (stream[index // 8] >> (index % 8)) & 1 else 1
+            projection += value * sign * row_scale
+        if projection >= 0:
+            bits |= 1 << row
+    return bits.to_bytes(2, "little")
+
+
 def keys_from_codes(q_bytes: bytes, phash_bytes: bytes, owner_id: str) -> tuple[bytes, bytes]:
     """Derive A5's public Ws/Wi digests from already-extracted source codes.
 

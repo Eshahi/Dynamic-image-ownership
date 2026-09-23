@@ -1,15 +1,45 @@
 """Synthetic B2 comparator reference tests; no datasets or model weights."""
 
+import hashlib
 import math
 import unittest
 
 from pixel_dct_control import (
-    dct8, embed_pixel_dct, idct8, keys_from_codes, phash_from_rgb8, score_pixel_dct,
+    dct8, embed_pixel_dct, idct8, keys_from_codes, phash_from_rgb8,
+    score_pixel_dct, semantic_code_from_normalized_embedding,
     templates_from_keys,
 )
 
 
 class PixelDCTControlTests(unittest.TestCase):
+    def test_a5_semantic_projection_one_hot_bit_order(self):
+        seed = bytes(range(32))
+        one_hot = (1.0,) + (0.0,) * 511
+        domain = b"a5-semproj-v1"
+        payload = (len(domain).to_bytes(4, "big") + domain
+                   + len(seed).to_bytes(4, "big") + seed)
+        stream = hashlib.shake_256(payload).digest(12 * 512 // 8)
+        expected = sum(1 << row for row in range(12)
+                       if not (stream[row * 64] & 1)).to_bytes(2, "little")
+        actual = semantic_code_from_normalized_embedding(one_hot, seed)
+        self.assertEqual(actual, expected)
+        self.assertEqual(actual[1] & 0xF0, 0)
+        self.assertEqual(
+            semantic_code_from_normalized_embedding((-1.0,) + (0.0,) * 511, seed),
+            (int.from_bytes(actual, "little") ^ 0xFFF).to_bytes(2, "little"),
+        )
+
+    def test_a5_semantic_projection_rejects_noncanonical_input(self):
+        seed = bytes(32)
+        valid = (1.0,) + (0.0,) * 511
+        for malformed in (valid[:-1], list(valid), (0.0,) * 512,
+                          (float("nan"),) + valid[1:], (True,) + valid[1:]):
+            with self.subTest(kind=type(malformed).__name__), self.assertRaises(ValueError):
+                semantic_code_from_normalized_embedding(malformed, seed)
+        for malformed in (bytes(31), "00" * 32, bytearray(32)):
+            with self.subTest(seed=type(malformed).__name__), self.assertRaises(ValueError):
+                semantic_code_from_normalized_embedding(valid, malformed)
+
     def test_phash_constant_and_invalid_canonical_buffer(self):
         for width, height in ((32, 32), (33, 35), (64, 32)):
             with self.subTest(size=(width, height)):
