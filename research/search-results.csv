@@ -1,0 +1,8 @@
+search_id,date_utc,service,query_or_url,canonical_url,selection,status,reason
+B1-S01,2026-09-23,public web search,10.1155/2024/6618382,https://onlinelibrary.wiley.com/doi/10.1155/2024/6618382,pending,lead,Proposal reference 1; confirm author versus academic-editor metadata before citation repair
+B1-S02,2026-09-23,public web search,10.1080/13682199.2023.2223080,https://www.tandfonline.com/doi/abs/10.1080/13682199.2023.2223080,pending,lead,Proposal reference 2; distinguish online year from volume year
+B1-S03,2026-09-23,public web search,10.1109/ICCE59016.2024.10444317,https://biblio.ugent.be/publication/01HRESBXED003D2NHEAW9DN2FQ,pending,lead,Proposal reference 3; institutional metadata and author manuscript available for further inspection
+B1-S04,2026-09-23,public web search,10.1109/CSCI62032.2023.00185,https://doi.org/10.1109/CSCI62032.2023.00185,pending,unresolved,Proposal reference 4; no admitted inspection artifact yet
+B1-S05,2026-09-23,arXiv direct open,https://arxiv.org/abs/2411.07795,https://arxiv.org/abs/2411.07795,pending,lead,Proposal reference 5; abstract opened but versioned card and full-method inspection remain
+B1-S06,2026-09-23,arXiv direct open,https://arxiv.org/html/2503.12172v4,https://arxiv.org/abs/2503.12172v4,include,partial_full_text,Proposal reference 6; section 3.2 admitted with revision caveat in seal-seed
+B1-S07,2026-09-23,arXiv direct open,https://arxiv.org/abs/2303.15435,https://arxiv.org/abs/2303.15435,pending,lead,Stable Signature comparator lead; no admitted evidence yet
