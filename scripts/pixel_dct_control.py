@@ -1,12 +1,13 @@
 """Synthetic, model-free pixel-DCT comparator reference for B2.
 
-Templates must be supplied by the A5 signature/config implementation. This
-module does not derive OwnerIDs, choose gains, calibrate detection thresholds,
-load images, or execute a scientific experiment.
+Templates are generated from supplied A5 signature digests and a validated
+detector-configuration digest. This module does not derive OwnerIDs/signatures,
+choose gains, calibrate thresholds, load images, or execute an experiment.
 """
 
 from __future__ import annotations
 
+import hashlib
 import math
 
 
@@ -17,6 +18,40 @@ _BASIS = tuple(
           for n in range(8))
     for k in range(8)
 )
+
+
+def templates_from_keys(
+    semantic_key: bytes, instance_key: bytes, detector_config_id: bytes,
+    width: int, height: int,
+) -> tuple[tuple[tuple[int, ...], ...], tuple[tuple[int, ...], ...]]:
+    """A5 SHAKE256 Rademacher templates on the original image block grid.
+
+    All three digests are raw 32-byte values, not hex text; the caller must
+    decode the schema's 64-character config-ID hex after verifying it, and
+    derive the keys from canonical q/H/OwnerID. This
+    function deliberately cannot authenticate those claims.
+    """
+    if type(width) is not int or type(height) is not int or not 32 <= width <= 0xFFFFFFFF or not 32 <= height <= 0xFFFFFFFF:
+        raise ValueError("image dimensions must fit uint32 and be at least 32")
+    for name, digest in (("semantic_key", semantic_key), ("instance_key", instance_key),
+                         ("detector_config_id", detector_config_id)):
+        if not isinstance(digest, bytes) or len(digest) != 32:
+            raise ValueError(f"{name} must be a raw 32-byte digest")
+    blocks = ((width + 7) // 8) * ((height + 7) // 8)
+
+    def pack(fields: tuple[bytes, ...]) -> bytes:
+        return b"".join(len(field).to_bytes(4, "big") + field for field in fields)
+
+    def one(component: bytes, key: bytes) -> tuple[tuple[int, ...], ...]:
+        payload = pack((b"a5-template-v1", component, key,
+                        height.to_bytes(4, "big"), width.to_bytes(4, "big"),
+                        detector_config_id))
+        stream = hashlib.shake_256(payload).digest((blocks * 4 + 7) // 8)
+        signs = tuple(1 if (stream[j // 8] >> (j % 8)) & 1 else -1
+                      for j in range(blocks * 4))
+        return tuple(signs[4 * block:4 * block + 4] for block in range(blocks))
+
+    return one(b"s", semantic_key), one(b"i", instance_key)
 
 
 def dct8(block: tuple[tuple[float, ...], ...]) -> tuple[tuple[float, ...], ...]:

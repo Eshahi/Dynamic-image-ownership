@@ -3,7 +3,7 @@
 import math
 import unittest
 
-from pixel_dct_control import dct8, embed_pixel_dct, idct8
+from pixel_dct_control import dct8, embed_pixel_dct, idct8, templates_from_keys
 
 
 class PixelDCTControlTests(unittest.TestCase):
@@ -43,6 +43,38 @@ class PixelDCTControlTests(unittest.TestCase):
         for gain in (-1, float("nan"), float("inf"), True):
             with self.subTest(gain=gain), self.assertRaises(ValueError):
                 embed_pixel_dct(*args, gain, .1)
+
+    def test_a5_template_packing_bit_order_and_domain_separation(self):
+        semantic_key = bytes(range(32))
+        instance_key = bytes(range(32, 64))
+        config_id = bytes([0xA5]) * 32
+        semantic, instance = templates_from_keys(semantic_key, instance_key, config_id, 32, 32)
+        # Independently fixed SHAKE256 vector: first eight bytes are
+        # b3306f2f582956c0 for the packed semantic input above.
+        self.assertEqual(semantic[:4], ((1, 1, -1, -1), (1, 1, -1, 1),
+                                        (-1, -1, -1, -1), (1, 1, -1, -1)))
+        self.assertEqual(len(semantic), 16)
+        self.assertEqual(len(instance), 16)
+        self.assertNotEqual(semantic, instance)
+        self.assertNotEqual(semantic, templates_from_keys(semantic_key, instance_key,
+                                                          config_id, 33, 32)[0])
+        self.assertNotEqual(templates_from_keys(semantic_key, instance_key, config_id, 33, 32)[0],
+                            templates_from_keys(semantic_key, instance_key, config_id, 34, 32)[0])
+        self.assertNotEqual(semantic, templates_from_keys(bytes([1]) + semantic_key[1:],
+                                                          instance_key, config_id, 32, 32)[0])
+        self.assertNotEqual(semantic, templates_from_keys(semantic_key, instance_key,
+                                                          bytes(31) + b"x", 32, 32)[0])
+        source = bytes([128] * (32 * 32 * 3))
+        self.assertNotEqual(embed_pixel_dct(source, 32, 32, semantic, instance, .1, .1), source)
+
+    def test_a5_template_rejects_hex_text_and_bad_digests(self):
+        key = bytes(32)
+        for malformed in ("00" * 32, bytes(31), bytearray(32), None):
+            with self.subTest(value=type(malformed).__name__), self.assertRaises(ValueError):
+                templates_from_keys(malformed, key, key, 32, 32)
+        for width, height in ((31, 32), (32, 0), (True, 32), (0x100000000, 32)):
+            with self.subTest(size=(width, height)), self.assertRaises(ValueError):
+                templates_from_keys(key, key, key, width, height)
 
 
 if __name__ == "__main__":
