@@ -20,6 +20,15 @@ _BASIS = tuple(
           for n in range(8))
     for k in range(8)
 )
+_PHASH_BASIS = tuple(
+    tuple(math.sqrt(1 / 32) if k == 0 else math.sqrt(2 / 32) * math.cos(math.pi * (n + .5) * k / 32)
+          for n in range(32))
+    for k in range(8)
+)
+_PHASH_POSITIONS = tuple(sorted(
+    ((u, v) for u in range(8) for v in range(8) if (u, v) != (0, 0)),
+    key=lambda pair: (pair[0] + pair[1], pair[0], pair[1]),
+)[:32])
 
 
 def _pack(fields: tuple[bytes, ...]) -> bytes:
@@ -119,6 +128,53 @@ def _validate_rgb8(rgb8: bytes, width: int, height: int) -> tuple[int, int]:
     if not isinstance(rgb8, bytes) or len(rgb8) != width * height * 3:
         raise ValueError("RGB8 byte length does not match dimensions")
     return (width + 7) // 8, (height + 7) // 8
+
+
+def phash_from_rgb8(rgb8: bytes, width: int, height: int) -> bytes:
+    """A5's 32-bit pHash from already-canonical RGB8, without image decoding.
+
+    This does not resolve Pillow/ICC/EXIF or numerical cross-runtime parity.
+    The pure-Python scalar calculation is a reference, not a fast study adapter.
+    """
+    _validate_rgb8(rgb8, width, height)
+    if all(rgb8[offset:offset + 3] == rgb8[:3] for offset in range(0, len(rgb8), 3)):
+        return bytes(4)
+
+    def luminance(x: int, y: int) -> float:
+        offset = 3 * (y * width + x)
+        return (0.299 * rgb8[offset] + 0.587 * rgb8[offset + 1]
+                + 0.114 * rgb8[offset + 2]) / 255
+
+    def axes(size: int) -> tuple[tuple[int, int, float], ...]:
+        result = []
+        for destination in range(32):
+            coordinate = (destination + .5) * size / 32 - .5
+            lower = math.floor(coordinate)
+            result.append((max(0, min(size - 1, lower)),
+                           max(0, min(size - 1, lower + 1)), coordinate - lower))
+        return tuple(result)
+
+    x_axes, y_axes = axes(width), axes(height)
+    resized = []
+    for y0, y1, wy in y_axes:
+        row = []
+        for x0, x1, wx in x_axes:
+            top = (1 - wx) * luminance(x0, y0) + wx * luminance(x1, y0)
+            bottom = (1 - wx) * luminance(x0, y1) + wx * luminance(x1, y1)
+            row.append((1 - wy) * top + wy * bottom)
+        resized.append(row)
+
+    horizontal = [[math.fsum(resized[y][x] * _PHASH_BASIS[v][x] for x in range(32))
+                   for v in range(8)] for y in range(32)]
+    coefficients = tuple(tuple(math.fsum(_PHASH_BASIS[u][y] * horizontal[y][v]
+                                        for y in range(32)) for v in range(8))
+                         for u in range(8))
+    low_frequency = sorted(coefficients[u][v] for u in range(8) for v in range(8)
+                           if (u, v) != (0, 0))
+    median = low_frequency[31]
+    bits = sum((1 << bit) for bit, (u, v) in enumerate(_PHASH_POSITIONS)
+               if coefficients[u][v] > median)
+    return bits.to_bytes(4, "little")
 
 
 def _luminance_block(rgb8: bytes, width: int, height: int,

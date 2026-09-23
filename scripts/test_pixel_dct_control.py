@@ -4,12 +4,52 @@ import math
 import unittest
 
 from pixel_dct_control import (
-    dct8, embed_pixel_dct, idct8, keys_from_codes, score_pixel_dct,
+    dct8, embed_pixel_dct, idct8, keys_from_codes, phash_from_rgb8, score_pixel_dct,
     templates_from_keys,
 )
 
 
 class PixelDCTControlTests(unittest.TestCase):
+    def test_phash_constant_and_invalid_canonical_buffer(self):
+        for width, height in ((32, 32), (33, 35), (64, 32)):
+            with self.subTest(size=(width, height)):
+                self.assertEqual(phash_from_rgb8(bytes([23, 45, 67]) * (width * height),
+                                                 width, height), bytes(4))
+        with self.assertRaises(ValueError):
+            phash_from_rgb8(bytes(32 * 32 * 3 - 1), 32, 32)
+
+    def test_phash_against_direct_two_dimensional_dct_vector(self):
+        # An independent, unoptimized 2-D summation on a non-symmetric 32x32
+        # RGB vector checks transform axes, median set, position order and bits.
+        width = height = 32
+        source = bytes(channel
+                       for y in range(height) for x in range(width)
+                       for channel in ((3 * x + 7 * y) % 256,
+                                       (5 * x + 11 * y) % 256,
+                                       (13 * x + 17 * y) % 256))
+        gray = [[sum(weight * source[3 * (y * width + x) + channel] / 255
+                     for channel, weight in enumerate((.299, .587, .114)))
+                 for x in range(width)] for y in range(height)]
+        cosine = [[math.cos(math.pi * (n + .5) * k / 32) for n in range(32)]
+                  for k in range(8)]
+        coefficient = {}
+        for u in range(8):
+            for v in range(8):
+                if (u, v) == (0, 0):
+                    continue
+                scale = (math.sqrt(1 / 32) if u == 0 else math.sqrt(2 / 32)) * (
+                    math.sqrt(1 / 32) if v == 0 else math.sqrt(2 / 32))
+                coefficient[(u, v)] = scale * math.fsum(
+                    gray[y][x] * cosine[u][y] * cosine[v][x]
+                    for y in range(32) for x in range(32)
+                )
+        median = sorted(coefficient.values())[31]
+        positions = sorted(coefficient, key=lambda pair: (sum(pair), pair[0], pair[1]))[:32]
+        expected = sum(1 << index for index, position in enumerate(positions)
+                       if coefficient[position] > median).to_bytes(4, "little")
+        self.assertEqual(phash_from_rgb8(source, width, height), expected)
+        self.assertEqual(len(phash_from_rgb8(source, width, height)), 4)
+
     def test_orthonormal_transform_round_trip_and_dc(self):
         block = tuple(tuple((x + 8 * y) / 63 for x in range(8)) for y in range(8))
         coefficients = dct8(block)
