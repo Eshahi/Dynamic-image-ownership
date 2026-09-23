@@ -9,7 +9,7 @@
     {
       "method_id": "direct-dct-pixel-control-v1",
       "role": "required_pixel_space_control",
-      "implementation_class": "PROJECT_OWNED_REIMPLEMENTATION_PENDING",
+      "implementation_class": "PROJECT_OWNED_SYNTHETIC_REFERENCE_ONLY",
       "source_commit": null,
       "checkpoint_ref": null,
       "adapter_entrypoint": null,
@@ -17,10 +17,11 @@
         "payload_profile": "A5 public OwnerID-derived Ws/Wi",
         "detector_profile": "A5 blind image-domain DCT verifier",
         "image_profile": "A5 canonical RGB8 sRGB and decoded PNG output",
-        "embedding_route": "Direct image-domain DCT coefficient modification, not diffusion noise"
+        "embedding_route": "Direct image-domain DCT coefficient modification, not diffusion noise",
+        "synthetic_reference": "scripts/pixel_dct_control.py"
       },
-      "unresolved_parameters": ["Exact coefficient insertion and inverse-DCT rule", "Global strength grid and validation freeze", "Source implementation and test vectors"],
-      "execution_blockers": ["No implementation", "No reviewed adapter", "No frozen strength/configuration"]
+      "unresolved_parameters": ["A5 template derivation and numeric parity with detector", "Global gain grid and validation freeze", "Canonical PNG I/O and source-level run logging"],
+      "execution_blockers": ["No integrated or reviewed adapter", "No frozen strength/configuration", "No scientific environment or compute authorization"]
     },
     {
       "method_id": "invismark-100-no-ecc",
