@@ -6,3 +6,13 @@ B1-S04,2026-09-23,public web search,10.1109/CSCI62032.2023.00185,https://doi.org
 B1-S05,2026-09-23,arXiv direct open,https://arxiv.org/abs/2411.07795,https://arxiv.org/abs/2411.07795,pending,lead,Proposal reference 5; abstract opened but versioned card and full-method inspection remain
 B1-S06,2026-09-23,arXiv direct open,https://arxiv.org/html/2503.12172v4,https://arxiv.org/abs/2503.12172v4,include,partial_full_text,Proposal reference 6; section 3.2 admitted with revision caveat in seal-seed
 B1-S07,2026-09-23,arXiv direct open,https://arxiv.org/abs/2303.15435,https://arxiv.org/abs/2303.15435,pending,lead,Stable Signature comparator lead; no admitted evidence yet
+B1-S08,2026-09-23,Wiley direct open,https://onlinelibrary.wiley.com/doi/10.1155/2024/6618382,https://onlinelibrary.wiley.com/doi/10.1155/2024/6618382,pending,fetch_timeout,Full landing URL timed out; abstract URL used next
+B1-S09,2026-09-23,Wiley direct open,https://onlinelibrary.wiley.com/doi/abs/10.1155/2024/6618382,https://onlinelibrary.wiley.com/doi/abs/10.1155/2024/6618382,include,abstract,Author/editor correction and method description admitted
+B1-S10,2026-09-23,Crossref REST,https://api.crossref.org/works/10.1155/2024/6618382,https://doi.org/10.1155/2024/6618382,include,metadata,Author/editor fields corroborate publisher correction
+B1-S11,2026-09-23,Taylor and Francis direct open,https://www.tandfonline.com/doi/abs/10.1080/13682199.2023.2223080,https://doi.org/10.1080/13682199.2023.2223080,pending,fetch_error,No abstract admitted from this failed fetch
+B1-S12,2026-09-23,Crossref REST,https://api.crossref.org/works/10.1080/13682199.2023.2223080,https://doi.org/10.1080/13682199.2023.2223080,include,metadata,Record unverified for scientific support; 2023 online and 2024 print dates
+B1-S13,2026-09-23,UGent direct open,https://biblio.ugent.be/publication/01HRESBXED003D2NHEAW9DN2FQ,https://biblio.ugent.be/publication/01HRESBXED003D2NHEAW9DN2FQ,include,abstract,Institutional abstract admitted; manuscript still unread
+B1-S14,2026-09-23,Crossref REST,https://api.crossref.org/works/10.1109/CSCI62032.2023.00185,https://doi.org/10.1109/CSCI62032.2023.00185,include,metadata,Conference identity confirmed; not full text
+B1-S15,2026-09-23,arXiv direct open,https://arxiv.org/abs/2310.05395,https://arxiv.org/abs/2310.05395v1,include,abstract,Preprint card separate from conference identity; no equivalence assumption
+B1-S16,2026-09-23,arXiv direct open,https://arxiv.org/abs/2411.07795v2,https://arxiv.org/abs/2411.07795v2,include,abstract,Versioned InvisMark card admitted
+B1-S17,2026-09-23,GitHub direct open,https://github.com/cent664/SSRIW,https://github.com/cent664/SSRIW,pending,lead,Repository linked paper and citation; no code execution or license audit
