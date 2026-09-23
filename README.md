@@ -38,6 +38,8 @@ See `thesis-agent-skills/INSTALL.md` for environment preparation, skill installa
 
 ## Scientific status
 
+The [research contract](research/research-contract.md) and [scope guard](research/scope-guard.md) bind implementation to the source method. Transfer/ledger development and automatic substitutions of the embedding or detector are outside routine execution authority. Unresolved scientific choices remain explicit downstream prerequisites; traceability coverage is not experimental validation.
+
 The repository provides infrastructure and a research plan. It does not, by itself, prove the proposed method, validate a scientific claim, or constitute university approval.
 
 ## Approved proposal provenance
