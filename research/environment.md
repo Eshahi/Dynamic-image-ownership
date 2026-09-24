@@ -52,6 +52,10 @@ The following remain **unresolved**, not silently assigned latest versions: full
 
 The output explicitly says `listed-files-only`: a pass does **not** prove that every required model/config/tokenizer/safety file was listed, that advertised upstream hashes are authentic, that rights are cleared, or that weights can load and produce correct gradients. The lock must be independently reviewed for completeness and source/rights before it can support A6 acceptance. It does not replace compute approval.
 
+## Determinism-setting preflight
+
+The [model-free PyTorch 2.12 setting receipt](a6-torch-determinism-preflight-20260924.md) records a fresh local process with fixed launcher variables, strict deterministic-algorithm mode, cuDNN benchmarking disabled and IEEE float32 backend settings. It explicitly leaves NumPy/other generators, actual model operations, cross-device parity and performance unresolved. Do not use its `settings_applied` result as evidence that the scientific method is deterministic. The future runner must apply and capture the reviewed profile in the exact execution process, then test the real path rather than inheriting a prior preflight result.
+
 ## Current acceptance limit
 
 A6/issue #7 may only close when the clean setup and CPU import/unit-test evidence exists **and** the declared scientific environment is resolved or its explicit blocked scope is accepted under the issue's completion criteria. The CPU workflow and Stage-1 CUDA compatibility checks are genuine bounded progress, not task completion. The official Spec Kit `plan-acceptance` gate remains pending independent evidence review; this record alone cannot advance it.
