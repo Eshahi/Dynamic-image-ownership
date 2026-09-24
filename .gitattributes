@@ -9,6 +9,7 @@
 *.yaml text eol=lf
 *.toml text eol=lf
 requirements.lock text eol=lf
+requirements-science-stage2.txt text eol=lf
 *.html text eol=lf
 *.docx binary
 *.zip binary
