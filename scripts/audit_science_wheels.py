@@ -54,8 +54,11 @@ def parse_lock(text: str) -> dict[tuple[str, str], str]:
 def wheel_identity(path: Path) -> tuple[str, str]:
     try:
         with zipfile.ZipFile(path) as archive:
+            # A wheel may vendor other distributions under its package tree.
+            # Only the wheel's top-level dist-info identifies this artifact.
             members = [name for name in archive.namelist()
-                       if name.endswith(".dist-info/METADATA")]
+                       if name.count("/") == 1
+                       and name.endswith(".dist-info/METADATA")]
             if len(members) != 1:
                 raise ValueError("wheel must contain exactly one METADATA")
             metadata = BytesParser().parsebytes(archive.read(members[0]))

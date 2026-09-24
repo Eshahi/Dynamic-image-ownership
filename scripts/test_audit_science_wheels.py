@@ -49,6 +49,26 @@ class ScienceWheelAuditTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 audit({}, [root], {("alpha", "1"): "0" * 64})
 
+    def test_vendored_dist_info_does_not_change_wheel_identity(self):
+        with tempfile.TemporaryDirectory() as temp:
+            wheel = Path(temp) / "alpha-1-py3-none-any.whl"
+            with zipfile.ZipFile(wheel, "w") as archive:
+                archive.writestr("alpha-1.dist-info/METADATA",
+                                 "Metadata-Version: 2.1\nName: Alpha\nVersion: 1\n")
+                archive.writestr("alpha/_vendor/beta-2.dist-info/METADATA",
+                                 "Metadata-Version: 2.1\nName: Beta\nVersion: 2\n")
+            self.assertEqual(wheel_identity(wheel), ("alpha", "1"))
+
+    def test_multiple_top_level_dist_info_files_fail_closed(self):
+        with tempfile.TemporaryDirectory() as temp:
+            wheel = Path(temp) / "ambiguous.whl"
+            with zipfile.ZipFile(wheel, "w") as archive:
+                for name in ("alpha-1", "beta-2"):
+                    archive.writestr(f"{name}.dist-info/METADATA",
+                                     "Metadata-Version: 2.1\nName: Alpha\nVersion: 1\n")
+            with self.assertRaisesRegex(ValueError, "exactly one METADATA"):
+                wheel_identity(wheel)
+
     def test_http_cache_wheel_recovers_missing_distribution(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
