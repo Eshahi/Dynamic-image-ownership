@@ -49,6 +49,38 @@ class ScienceWheelAuditTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 audit({}, [root], {("alpha", "1"): "0" * 64})
 
+    def test_http_cache_wheel_recovers_missing_distribution(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            wheels = root / "wheels"
+            wheels.mkdir()
+            cache = root / "http"
+            cache.mkdir()
+            body = cache / "cached.body"
+            with zipfile.ZipFile(body, "w") as archive:
+                archive.writestr("beta-2.dist-info/METADATA",
+                                 "Metadata-Version: 2.1\nName: Beta\nVersion: 2\n")
+            (cache / "not-a-wheel.body").write_bytes(b"HTML cache body")
+            report = audit({"beta": "2"}, [wheels], {}, [cache])
+            self.assertEqual(report["installed_without_cached_wheel"], [])
+            self.assertEqual(report["http_cached_wheel_body_count"], 1)
+
+    def test_built_wheel_cache_recovers_vcs_distribution(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            wheels = root / "wheels"
+            wheels.mkdir()
+            built = root / "built"
+            nested = built / "nested"
+            nested.mkdir(parents=True)
+            wheel = nested / "clip-1.0-py3-none-any.whl"
+            with zipfile.ZipFile(wheel, "w") as archive:
+                archive.writestr("clip-1.0.dist-info/METADATA",
+                                 "Metadata-Version: 2.1\nName: clip\nVersion: 1.0\n")
+            report = audit({"clip": "1.0"}, [wheels], {}, [], [built])
+            self.assertEqual(report["built_cached_wheel_count"], 1)
+            self.assertEqual(report["installed_without_cached_wheel"], [])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -71,6 +71,8 @@ def audit(
     installed: dict[str, str],
     wheel_roots: list[Path],
     locked: dict[tuple[str, str], str],
+    http_cache_roots: list[Path] | None = None,
+    built_cache_roots: list[Path] | None = None,
 ) -> dict[str, object]:
     wheels: dict[tuple[str, str], set[str]] = {}
     files_seen = 0
@@ -83,6 +85,31 @@ def audit(
             key = wheel_identity(path)
             wheels.setdefault(key, set()).add(digest(path))
             files_seen += 1
+    cache_wheels_seen = 0
+    for root in http_cache_roots or []:
+        if not root.is_dir() or root.is_symlink() or root.is_junction():
+            raise ValueError("HTTP cache root must be a non-link directory")
+        for path in root.rglob("*.body"):
+            if path.is_symlink() or path.is_junction() or not path.is_file():
+                raise ValueError("HTTP cache entry is not a regular non-link file")
+            if not zipfile.is_zipfile(path):
+                continue
+            try:
+                key = wheel_identity(path)
+            except ValueError:
+                continue  # Cached ZIP payload was not a distribution wheel.
+            wheels.setdefault(key, set()).add(digest(path))
+            cache_wheels_seen += 1
+    built_wheels_seen = 0
+    for root in built_cache_roots or []:
+        if not root.is_dir() or root.is_symlink() or root.is_junction():
+            raise ValueError("built-wheel cache root must be a non-link directory")
+        for path in root.rglob("*.whl"):
+            if path.is_symlink() or path.is_junction() or not path.is_file():
+                raise ValueError("built-wheel cache entry is not a regular non-link file")
+            key = wheel_identity(path)
+            wheels.setdefault(key, set()).add(digest(path))
+            built_wheels_seen += 1
     missing_cache = []
     for name, version in sorted(installed.items()):
         if (name, version) not in wheels:
@@ -97,6 +124,8 @@ def audit(
         "status": "partial_inventory" if missing_cache else "cached_wheels_present",
         "installed_distribution_count": len(installed),
         "wheel_file_count": files_seen,
+        "http_cached_wheel_body_count": cache_wheels_seen,
+        "built_cached_wheel_count": built_wheels_seen,
         "unique_wheel_distribution_count": len(wheels),
         "locked_distribution_count": len(locked),
         "locked_failures": locked_failures,
@@ -120,11 +149,14 @@ def installed_distributions() -> dict[str, str]:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--wheel-root", type=Path, action="append", required=True)
+    parser.add_argument("--pip-http-cache-root", type=Path, action="append")
+    parser.add_argument("--pip-built-wheel-cache-root", type=Path, action="append")
     parser.add_argument("--hash-lock", type=Path, required=True)
     args = parser.parse_args()
     raw_lock = args.hash_lock.read_bytes()
     locked = parse_lock(raw_lock.decode("utf-8"))
-    report = audit(installed_distributions(), args.wheel_root, locked)
+    report = audit(installed_distributions(), args.wheel_root, locked,
+                   args.pip_http_cache_root, args.pip_built_wheel_cache_root)
     report["hash_lock_sha256"] = hashlib.sha256(raw_lock).hexdigest()
     print(json.dumps(report, sort_keys=True))
     if report["locked_failures"]:
