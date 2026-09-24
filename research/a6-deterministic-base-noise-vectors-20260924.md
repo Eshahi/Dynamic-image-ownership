@@ -1,4 +1,4 @@
-# A6 deterministic base-noise byte vectors (model-free)
+# A6 deterministic base-noise and carrier byte vectors (model-free)
 
 Issue [#7](https://github.com/Eshahi/Dynamic-image-ownership/issues/7),
 2026-09-24 UTC. Status: **bounded CPU unit-test evidence, not a scientific
@@ -58,3 +58,30 @@ component implementations, full dependency lock, model/weight receipts,
 larger representative shape checks, numerical-drift policy and local/remote
 environment receipts before scientific execution. The official plan gate and
 compute approval are unchanged.
+
+## Separate semantic/instance carrier vector
+
+The same standard-library module now covers the `a5-carrier-v1` stream from
+`method-spec.md`: length-prefixed domain; one ASCII component byte `s` or `i`;
+raw 32-byte public-derived signature; uint64 big-endian per-image seed; uint32
+big-endian C/h/w; and raw 32-byte detector configuration ID. It consumes
+SHAKE256 bits **low-to-high within each byte** in channel/row/column order;
+zero maps to `-1/sqrt(C*h*w)`, one to positive. The output is rounded to
+little-endian float32 bytes. Its float32 norm may differ slightly from exact
+one. The one-million-element cap is again only a reference-test bound.
+
+Synthetic known-answer input: component `s`, signature hex `01` repeated 32
+times, seed `7`, shape `C=2,h=2,w=3`, detector config ID hex `ab` repeated 32
+times. The 12 output signs, with positive represented by `1`, are
+`000100110011`; each magnitude rounds to `0.28867512941360474` in float32.
+SHA-256 of the 48 output bytes is
+`39c035801126715dbc0cd021b60ff6406b2ae6254cf6d140be099415a90ecb32`.
+Tests check component, signature, seed, shape and config-ID separation as
+well as malformed-input rejection; they do not claim collision resistance
+from these few synthetic cases or test a real watermark. This carrier never
+enters the blind detector as an oracle source key.
+
+After this addition, the complete workflow-venv script suite discovered 44
+tests, with 43 passing and the one expected Torch skip. The isolated Stage-1
+science venv passed all three targeted `test_carrier_reference.py` tests.
+No Stage-2 package, checkpoint, dataset or scientific compute was used.
