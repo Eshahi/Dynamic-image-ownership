@@ -1,0 +1,16 @@
+# A6 candidate model asset acquisition receipt
+
+Status 2026-09-24: **partial byte-identity receipt; no model loaded or scientific run started**. The user explicitly authorized the bounded public candidate-weight acquisition and hash verification, approximately 3.11 GiB, in this authenticated task. This authorization does not extend to datasets, scientific GPU experiments, paid RunPod, final model custody/rights acceptance, or a Spec Kit gate. Assets are stored only under ignored `.thesis-build/assets/a6/` on the local project drive; they are not committed or uploaded to GitHub.
+
+## Verified bytes so far
+
+- Official OpenAI CLIP ViT-B/32 checkpoint from the exact URL embedded in pinned [OpenAI CLIP source commit `d05afc436d78f1c48dc0dbf8e5980a9d471f35f6`](https://github.com/openai/CLIP/blob/d05afc436d78f1c48dc0dbf8e5980a9d471f35f6/clip/clip.py): local `clip/ViT-B-32.pt`, **353,976,522 bytes**, measured SHA-256 `40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af`, identical to upstream's full expected digest. HTTP HEAD returned 200 and the same byte count before download. Transfer via resumable `curl` exited 0. No Torch/CLIP deserialization or feature extraction was performed.
+- Eleven small configuration, tokenizer and feature-extractor files from the A5-pinned SD 1.5 mirror revision `451f4fe16113bff5a5d2269ed5ad43b0592e9a14` total **1,593,680 bytes**. Each local file's byte count and `git hash-object` ID matched the pinned revision's public tree metadata. Their locally measured full SHA-256 values are recorded in [`a6-candidate-model-assets.json`](a6-candidate-model-assets.json). This verifies these named bytes against the unaffiliated mirror's tree, not original-publisher equivalence, use rights, model functionality or completeness of the scientific route.
+
+The existing offline asset verifier passed a deliberately restricted in-memory subset of the candidate lock for exactly those **12 completed files / 355,570,202 bytes**. The committed full 16-file lock was not shortened or declared passed; that verification remains pending until the four large SD objects complete.
+
+## Still pending
+
+The candidate TorchVision AlexNet trunk and four fp16 SD component weights are being downloaded sequentially by [`scripts/acquire_a6_candidate_weights.ps1`](../scripts/acquire_a6_candidate_weights.ps1). The script validates expected byte counts and full SHA-256 for the four SD files. Official TorchVision source supplies only the `7be5be79` checksum prefix in its AlexNet filename; record the *entire* measured local digest and this weaker upstream comparison when complete. Do not treat an in-progress file or a curl exit code as a verified checkpoint. On failure, retain the partial file for resumable recovery, inspect the log, and do not launch a duplicate writer. The official local asset verifier must currently fail on the incomplete full candidate lock; this is expected, not a waived check.
+
+The small LPIPS learned-linear file is not part of this receipt. Full checkpoint/config completeness, safety handling, rights/custody, local-only loading and the model's gradient/VRAM fit require separate checks and independent technical review before an exact scientific manifest. This receipt does not close A6/#7 or make B3/#10 scientifically ready.
