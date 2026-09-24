@@ -10,6 +10,7 @@
 *.toml text eol=lf
 requirements.lock text eol=lf
 requirements-science-stage2.txt text eol=lf
+requirements-science-stage2-win312-hashes.txt text eol=lf
 requirements-science-clip.txt text eol=lf
 *.html text eol=lf
 *.docx binary
