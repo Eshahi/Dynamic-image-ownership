@@ -58,6 +58,8 @@ The [model-free PyTorch 2.12 setting receipt](a6-torch-determinism-preflight-202
 
 The [fixed model-free CUDA DCT/autograd receipt](a6-dct-cuda-probe-20260924.md) adds a same-host two-process fingerprint check and a scalar CPU comparison for one tiny A5-frequency vector under that profile. It is bounded Stage-1 wheel compatibility evidence, not the full DCT detector, diffusion gradient, image experiment, VRAM fit or cross-host reproducibility.
 
+The Stage-2 science venv also has the exact official OpenAI CLIP **source package** pinned in [`requirements-science-clip.txt`](../requirements-science-clip.txt); see the [software-install receipt](a6-stage2-install-receipt-20260924.md). Its import works without a checkpoint. This is not the ViT-B/32 weight receipt or a feature-extraction parity test. Calling upstream `clip.load` with a model name can download a checkpoint implicitly; scientific code must use an independently verified local file and reviewed loading path.
+
 ## Current acceptance limit
 
 A6/issue #7 may only close when the clean setup and CPU import/unit-test evidence exists **and** the declared scientific environment is resolved or its explicit blocked scope is accepted under the issue's completion criteria. The CPU workflow and Stage-1 CUDA compatibility checks are genuine bounded progress, not task completion. The official Spec Kit `plan-acceptance` gate remains pending independent evidence review; this record alone cannot advance it.
