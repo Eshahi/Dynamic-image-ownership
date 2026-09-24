@@ -356,3 +356,35 @@ def evaluate_pixel_control_candidates(
         return score_observations(observations["instance"], template)
 
     return evaluate(suspect_q, suspect_h, tau_s, tau_i, semantic, instance)
+
+
+def evaluate_configured_pixel_control_candidates(
+    rgb8: bytes, width: int, height: int, suspect_q: bytes, suspect_h: bytes,
+    owner_id: str, config: dict[str, object], schema: dict[str, object],
+) -> dict[str, object]:
+    """Run the supplied-code reference only after A5 structural config checks.
+
+    This enforces a single tested owner and binds the returned scores to the
+    declared detector ID and threshold version. It does not inspect model,
+    validation-set or checkpoint bytes and is not a blind detector.
+    """
+    from validate_method_config import validate
+
+    validate(config, schema)
+    calibration = config["calibration"]
+    if calibration["owner_trials"] != 1:
+        raise ValueError("single-owner reference cannot satisfy a multi-owner trial declaration")
+    result = evaluate_pixel_control_candidates(
+        rgb8, width, height, suspect_q, suspect_h, owner_id,
+        bytes.fromhex(config["dct"]["config_id"]),
+        calibration["tau_s"], calibration["tau_i"],
+    )
+    result["configuration_binding"] = {
+        "detector_config_id": config["dct"]["config_id"],
+        "threshold_version": calibration["threshold_version"],
+        "validation_manifest_sha256": calibration["validation_manifest_sha256"],
+        "tested_owner_count": 1,
+        "validation_level": "structural_only_no_asset_or_calibration_proof",
+        "suspect_code_origin": "caller_supplied_not_image_derived",
+    }
+    return result

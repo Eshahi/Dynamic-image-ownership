@@ -8,11 +8,14 @@ from unittest.mock import patch
 import pixel_dct_control as control
 
 from pixel_dct_control import (
-    dct8, embed_pixel_dct, evaluate_pixel_control_candidates, idct8,
+    dct8, embed_pixel_dct, evaluate_configured_pixel_control_candidates,
+    evaluate_pixel_control_candidates, idct8,
     keys_from_codes, phash_from_rgb8,
     score_pixel_dct, semantic_code_from_normalized_embedding,
     templates_from_keys,
 )
+from test_validate_method_config import SCHEMA, specimen
+from validate_method_config import detector_id
 
 
 class PixelDCTControlTests(unittest.TestCase):
@@ -217,6 +220,39 @@ class PixelDCTControlTests(unittest.TestCase):
         for value in (float("nan"), float("inf"), True, 10**1000):
             with self.subTest(value=type(value).__name__), self.assertRaises(ValueError):
                 control.score_observations(((value, 0, 0, 0),), template)
+
+    def test_configured_reference_binds_threshold_version_and_one_owner(self):
+        config = specimen(SCHEMA)
+        config["embedding"]["scheduler"]["strength"] = 1
+        config["embedding"]["alpha_s"] = 1
+        config["calibration"]["tau_s"] = .5
+        config["calibration"]["tau_i"] = .5
+        config["calibration"]["threshold_version"] = "synthetic-unit-vector"
+        config["dct"]["config_id"] = detector_id(config)
+        rgb8 = bytes([128] * (32 * 32 * 3))
+        q, phash = bytes.fromhex("a503"), bytes.fromhex("12345678")
+        result = evaluate_configured_pixel_control_candidates(
+            rgb8, 32, 32, q, phash, "thesis:owner:09", config, SCHEMA)
+        self.assertEqual((result["semantic_candidates"], result["instance_candidates"]), (13, 429))
+        self.assertEqual(result["configuration_binding"], {
+            "detector_config_id": config["dct"]["config_id"],
+            "threshold_version": "synthetic-unit-vector",
+            "validation_manifest_sha256": config["calibration"]["validation_manifest_sha256"],
+            "tested_owner_count": 1,
+            "validation_level": "structural_only_no_asset_or_calibration_proof",
+            "suspect_code_origin": "caller_supplied_not_image_derived",
+        })
+        self.assertFalse(result["both_match"])
+
+        config["calibration"]["owner_trials"] = 2
+        with self.assertRaisesRegex(ValueError, "single-owner reference"):
+            evaluate_configured_pixel_control_candidates(
+                rgb8, 32, 32, q, phash, "thesis:owner:09", config, SCHEMA)
+        config["calibration"]["owner_trials"] = 1
+        config["feature"]["clip"]["projection_seed"] = "b" * 64
+        with self.assertRaisesRegex(ValueError, "detector_config_id"):
+            evaluate_configured_pixel_control_candidates(
+                rgb8, 32, 32, q, phash, "thesis:owner:09", config, SCHEMA)
 
 
 if __name__ == "__main__":

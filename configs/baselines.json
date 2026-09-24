@@ -20,7 +20,7 @@
         "embedding_route": "Direct image-domain DCT coefficient modification, not diffusion noise",
         "synthetic_reference": "scripts/pixel_dct_control.py"
       },
-      "unresolved_parameters": ["A5 canonical image-to-q/H extraction, validated config-ID computation and numeric parity with blind detector", "Global gain grid and validation freeze", "Canonical PNG I/O and source-level run logging"],
+      "unresolved_parameters": ["A5 canonical image-to-q/H extraction, artifact-byte and calibration-manifest verification beyond structural config-ID validation, and numeric parity with blind detector", "Global gain grid and validation freeze", "Canonical PNG I/O and source-level run logging"],
       "execution_blockers": ["No integrated or reviewed adapter", "No frozen strength/configuration", "No scientific environment or compute authorization"]
     },
     {
