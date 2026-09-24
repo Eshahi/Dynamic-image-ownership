@@ -1,0 +1,2 @@
+paper_id,citation_key,title,year,doi,canonical_url,verification,inspected_content,limitations
+zodiac-neurips2024,Zhang2024ZoDiac,Attack-Resilient Image Watermarking Using Stable Diffusion,2024,10.52202/079017-1215,https://proceedings.nips.cc/paper_files/paper/2024/hash/43d33182360378d5c8e69dd706c24f2f-Abstract-Conference.html,verified,full-text,"Targeted method/evaluation reading on pp. 1-8; not a complete paper/proof audit.; Local checksum identifies observer notes, not remote PDF bytes.; No reported experiment or code execution was independently reproduced."

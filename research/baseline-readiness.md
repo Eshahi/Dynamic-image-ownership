@@ -1,6 +1,8 @@
-# Baseline readiness — preliminary, not selection or execution approval
+# Baseline readiness — historical B1 preflight, not current B2 selection
 
 Issue #8; downstream RQ-03, HYP-03, METRIC-07. Inspected 2026-09-23 UTC.
+
+This file preserves the earlier B1 preflight. The current prospective acquisition order and unresolved execution blockers are recorded under issue #9 in `baseline-selection.md`, `baseline-readiness.json`, and `b2-public-code-preflight-20260923.md`; the candidate order below is historical, not a second active selection.
 
 | Role | Candidate | Evidence | Remaining blocker |
 | --- | --- | --- | --- |

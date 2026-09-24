@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "zodiac-neurips2024",
+  "citation_key": "Zhang2024ZoDiac",
+  "doi": "10.52202/079017-1215",
+  "canonical_url": "https://proceedings.nips.cc/paper_files/paper/2024/hash/43d33182360378d5c8e69dd706c24f2f-Abstract-Conference.html",
+  "title": "Attack-Resilient Image Watermarking Using Stable Diffusion",
+  "authors": [
+    "Lijun Zhang",
+    "Xiao Liu",
+    "Antoni Viros Martin",
+    "Cindy Xiong Bearfield",
+    "Yuriy Brun",
+    "Hui Guan"
+  ],
+  "year": 2024,
+  "venue": "Advances in Neural Information Processing Systems 37",
+  "access_date": "2026-09-23",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "research/literature/inspections/zodiac-neurips2024.md",
+    "sha256": "542710424ff4323fd060a157327811bb15c152ad3556ea8d30fec067bea1a2f7"
+  },
+  "limitations": [
+    "Targeted method/evaluation reading on pp. 1-8; not a complete paper/proof audit.",
+    "Local checksum identifies observer notes, not remote PDF bytes.",
+    "No reported experiment or code execution was independently reproduced."
+  ]
+}

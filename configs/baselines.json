@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "issue": 9,
+  "status": "BLOCKED_NOT_EXECUTABLE",
+  "purpose": "Prospective B2 comparator registry, not a launch manifest or permission to acquire models, run experiments, or spend money.",
+  "selection_ref": "research/baseline-selection.md",
+  "readiness_ref": "research/baseline-readiness.json",
+  "methods": [
+    {
+      "method_id": "direct-dct-pixel-control-v1",
+      "role": "required_pixel_space_control",
+      "implementation_class": "PROJECT_OWNED_SYNTHETIC_REFERENCE_ONLY",
+      "source_commit": null,
+      "checkpoint_ref": null,
+      "adapter_entrypoint": null,
+      "resolved_parameters": {
+        "payload_profile": "A5 public OwnerID-derived Ws/Wi",
+        "detector_profile": "A5 blind image-domain DCT verifier",
+        "image_profile": "A5 canonical RGB8 sRGB and decoded PNG output",
+        "embedding_route": "Direct image-domain DCT coefficient modification, not diffusion noise",
+        "synthetic_reference": "scripts/pixel_dct_control.py"
+      },
+      "unresolved_parameters": ["A5 canonical image-to-q/H extraction, artifact-byte and calibration-manifest verification beyond structural config-ID validation, and numeric parity with blind detector", "Global gain grid and validation freeze", "Canonical PNG I/O and source-level run logging"],
+      "execution_blockers": ["No integrated or reviewed adapter", "No frozen strength/configuration", "No scientific environment or compute authorization"]
+    },
+    {
+      "method_id": "invismark-100-no-ecc",
+      "role": "deferred_neural_decoder_candidate_pre_test_access_fallback",
+      "implementation_class": "OFFICIAL_CODE_UNVERIFIED_CHECKPOINT",
+      "source_commit": "8d5ce55705ada1c2daf642c97f7ff3ae6dbd1825",
+      "checkpoint_ref": "https://1drv.ms/f/c/7882afab383c8474/Ei_Lasu5CrpHsrNIkYRLenYBmx662VSAovq5hD8r-NsB5A?e=gbHNVX",
+      "adapter_entrypoint": null,
+      "resolved_parameters": {"advertised_checkpoint_payload_bits": 100, "advertised_checkpoint_ecc": false},
+      "unresolved_parameters": ["Checkpoint file identity, SHA-256, terms, image_shape and actual config", "Whether its 100-bit UUID4 frame's six fixed positions match the actual checkpoint training profile", "Safe inference-only loading without unrestricted torch.load, pretrained implicit downloads or training-side effects", "Image-level presence score, negative controls and validation calibration", "Runtime and model dependency versions"],
+      "execution_blockers": ["External checkpoint not inspected", "No safe isolated adapter", "No compatible locked environment", "No exact authorized scientific manifest"]
+    },
+    {
+      "method_id": "trustmark-q-neural-fallback",
+      "role": "first_neural_decoder_pre_acquisition_candidate_not_run_ready",
+      "implementation_class": "OFFICIAL_CODE_AND_MODEL_RIGHTS_STATED_BYTES_UNVERIFIED",
+      "source_commit": "2ecb73ad28d1a3f66ac9dc19e1b667711f14314f",
+      "checkpoint_ref": "https://cai-watermark.adobe.net/watermarking/trustmark-models/",
+      "adapter_entrypoint": null,
+      "resolved_parameters": {"input_route": "existing image", "candidate_variant": "Q", "candidate_ecc": "BCH_5", "candidate_mode": "binary", "candidate_protected_payload_bits": 61, "candidate_payload_helper": "scripts/trustmark_profile.py", "candidate_strength": 1.0, "candidate_load_remover": false, "candidate_load_bbox_detector": false, "candidate_detect_first": false, "candidate_rotation": false, "weight_rights_statement": "Pinned README says MIT covers code and downloaded model files"},
+      "unresolved_parameters": ["Exact Q config/encoder/decoder SHA-256 receipts and dependency rights", "Safe inference-only adapter without implicit downloads or unrestricted torch.load", "Exact study seed/IDs, image profile, upstream decode parity, unmarked/wrong-payload control outcomes and manifest freeze", "Continuous image-level score is not exposed by the inspected public decode path", "Environment compatibility and full verifier timing"],
+      "execution_blockers": ["Pre-acquisition priority is not a runnable selection", "No checkpoint bytes/hash receipt", "No safe isolated adapter", "No compatible locked environment", "No exact authorized scientific manifest"]
+    },
+    {
+      "method_id": "zodiac-existing-image-inversion",
+      "role": "provisional_required_inversion_candidate",
+      "implementation_class": "OFFICIAL_CODE_RIGHTS_AND_WEIGHTS_UNVERIFIED",
+      "source_commit": "89f864d2e4f6f33663dc69b4d99bee49073e194c",
+      "checkpoint_ref": "stabilityai/stable-diffusion-2-1-base",
+      "adapter_entrypoint": null,
+      "resolved_parameters": {"input_route": "existing image", "detection_family": "DDIM inversion and latent-FFT pattern test", "upstream_example_model": "stabilityai/stable-diffusion-2-1-base", "upstream_example_inversion_steps": 50, "upstream_example_optimization_iterations": 100, "upstream_example_detection_steps": 50},
+      "unresolved_parameters": ["Code license/permission", "Complete paper-to-code parity and fair matched protocol", "Model weight identity, SHA-256 and terms", "Validated continuous score, threshold calibration and attack access", "Compatible existing-image adapter"],
+      "execution_blockers": ["No detected code license at inspected commit", "Model weights unverified", "No isolated adapter", "No compatible locked environment", "No exact authorized scientific manifest"]
+    },
+    {
+      "method_id": "seal-semantic-inversion",
+      "role": "alternative_inversion_candidate_and_related_work",
+      "implementation_class": "OFFICIAL_CODE_RIGHTS_AND_MODELS_UNVERIFIED",
+      "source_commit": "92d31b31b93a6e373fe88a584c640beafb68c6fa",
+      "checkpoint_ref": "stabilityai/stable-diffusion-2-1-base; Salesforce/blip2-flan-t5-xl; kasraarabi/finetuned-caption-embedding",
+      "adapter_entrypoint": null,
+      "resolved_parameters": {"published_example": "python SEAL.py", "input_route_limitation": "Published generated-image/caption path is not yet established as an existing-image comparator"},
+      "unresolved_parameters": ["Code license/permission", "Secret-salt paper versus fixed-seed code profile", "All three model identities, hashes and terms", "Existing-image compatibility and detector I/O", "Telemetry-free adapter and full timing protocol"],
+      "execution_blockers": ["No detected code license at inspected commit", "Model dependencies unverified", "Input/access mismatch unresolved", "No isolated adapter", "No exact authorized scientific manifest"]
+    },
+    {
+      "method_id": "tree-ring-generated-only",
+      "role": "optional_generated_only_inversion_context",
+      "implementation_class": "OFFICIAL_CODE_LIMITED_ROUTE",
+      "source_commit": "3015283d9cf82e90b628f02ad2121bd37408ca9a",
+      "checkpoint_ref": "stabilityai/stable-diffusion-2-1-base",
+      "adapter_entrypoint": null,
+      "resolved_parameters": {"input_route": "newly generated image", "detection_family": "Diffusion inversion to initial noise"},
+      "unresolved_parameters": ["Model weight identity, SHA-256 and terms", "Telemetry-free adapter", "Exact generation, inversion and timing configuration"],
+      "execution_blockers": ["Cannot fulfill existing-image comparator role", "Model weights unverified", "No isolated adapter", "No exact authorized scientific manifest"]
+    }
+  ]
+}

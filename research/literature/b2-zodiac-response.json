@@ -1,0 +1,77 @@
+{
+  "request_id": "B2-ZODIAC-001",
+  "papers": [
+    {
+      "schema_version": "1.0",
+      "paper_id": "zodiac-neurips2024",
+      "citation_key": "Zhang2024ZoDiac",
+      "doi": "10.52202/079017-1215",
+      "canonical_url": "https://proceedings.nips.cc/paper_files/paper/2024/hash/43d33182360378d5c8e69dd706c24f2f-Abstract-Conference.html",
+      "title": "Attack-Resilient Image Watermarking Using Stable Diffusion",
+      "authors": ["Lijun Zhang", "Xiao Liu", "Antoni Viros Martin", "Cindy Xiong Bearfield", "Yuriy Brun", "Hui Guan"],
+      "year": 2024,
+      "venue": "Advances in Neural Information Processing Systems 37",
+      "access_date": "2026-09-23",
+      "source_type": "paper",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "research/literature/inspections/zodiac-neurips2024.md",
+        "sha256": "542710424ff4323fd060a157327811bb15c152ad3556ea8d30fec067bea1a2f7"
+      },
+      "limitations": [
+        "Targeted method/evaluation reading on pp. 1-8; not a complete paper/proof audit.",
+        "Local checksum identifies observer notes, not remote PDF bytes.",
+        "No reported experiment or code execution was independently reproduced."
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "B2-ZODIAC-EXISTING-LATENT",
+      "claim": "ZoDiac starts from an existing image and optimizes a watermarked diffusion latent with a reconstruction objective.",
+      "source_id": "zodiac-neurips2024",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Algorithm 1 and Section 3.2, pp. 4-5",
+      "confidence": "high",
+      "limitations": ["Method described by the authors; not independently reproduced."],
+      "assumptions": []
+    },
+    {
+      "claim_id": "B2-ZODIAC-INVERSION",
+      "claim": "The ZoDiac detector uses DDIM inversion, latent Fourier transformation and a statistical test rather than image-domain DCT extraction.",
+      "source_id": "zodiac-neurips2024",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Figure 2 and Section 3.3, pp. 4-6",
+      "confidence": "high",
+      "limitations": ["This describes the paper method, not the precise behavior of the published code."],
+      "assumptions": []
+    },
+    {
+      "claim_id": "B2-ZODIAC-DOMAINS",
+      "claim": "The authors evaluate 500 sampled images each from MS-COCO, DiffusionDB and WikiArt.",
+      "source_id": "zodiac-neurips2024",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Section 4.1 Datasets, p. 6",
+      "confidence": "high",
+      "limitations": ["Dataset version and image identities were not verified here."],
+      "assumptions": []
+    },
+    {
+      "claim_id": "B2-NOVELTY-BOUND",
+      "claim": "Existing-image latent embedding and two-domain real/generated evaluation cannot individually be claimed as unique to the thesis candidate because ZoDiac already describes both.",
+      "source_id": "zodiac-neurips2024",
+      "kind": "agent-inference",
+      "stance": "contradicting",
+      "locator": "Algorithm 1, Sections 3.2 and 4.1, pp. 4-6",
+      "confidence": "high",
+      "limitations": ["This narrows two novelty claims; it does not establish or refute originality of the exact dual-signature image-DCT combination."],
+      "assumptions": ["The approved candidate uses an existing-image diffusion/noise route and both photo/generated domains as specified in research/method-spec.md."]
+    }
+  ],
+  "assumptions": ["No performance number from ZoDiac is treated as a reproduced result or a thesis acceptance threshold."],
+  "open_questions": ["Is an image-domain DCT verifier for the exact joint public OwnerID-bound semantic and perceptual signature combination already described in another inspected prior work?", "Can a licensed and checkpoint-pinned ZoDiac/SEAL-class inversion comparator be run under a matched existing-image protocol without changing detector access?"]
+}
