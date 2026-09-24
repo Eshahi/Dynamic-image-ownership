@@ -1,6 +1,6 @@
 # A6: SD 1.5 custody and loader decision (read-only preflight)
 
-Status: **candidate path identified, no model acquired or loader validated**. Issue #7 / draft PR #58. This preflight narrows the A5 Stable Diffusion 1.5 ambiguity without changing the preregistered method, installing Stage-2 software, or authorizing scientific compute. Apply the [research contract](research-contract.md), [scope guard](scope-guard.md), [method specification](method-spec.md), and [environment boundary](environment.md).
+Status at this earlier pre-acquisition checkpoint: **candidate path identified, no model then acquired or loader then validated**. Issue #7 / draft PR #58. Later, the separately approved [asset acquisition](a6-weight-acquisition-receipt-20260924.md) and [component-load probe](a6-local-model-load-receipt-20260924.md) passed their stated limits; the [rights/custody preflight](a6-model-rights-and-custody-preflight-20260924.md) still does not certify publisher equivalence or release rights. This historical preflight narrowed the A5 Stable Diffusion 1.5 ambiguity without changing the preregistered method, installing Stage-2 software, or authorizing scientific compute. Apply the [research contract](research-contract.md), [scope guard](scope-guard.md), [method specification](method-spec.md), and [environment boundary](environment.md).
 
 ## Evidence at the pinned sources
 
