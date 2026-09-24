@@ -90,35 +90,40 @@ def keys_from_codes(q_bytes: bytes, phash_bytes: bytes, owner_id: str) -> tuple[
     return semantic, instance
 
 
+def template_from_key(
+    component: str, key: bytes, detector_config_id: bytes, width: int, height: int,
+) -> tuple[tuple[int, ...], ...]:
+    """One A5 SHAKE256 Rademacher template, avoiding unused companion work."""
+    if type(width) is not int or type(height) is not int or not 32 <= width <= 0xFFFFFFFF or not 32 <= height <= 0xFFFFFFFF:
+        raise ValueError("image dimensions must fit uint32 and be at least 32")
+    if component not in ("semantic", "instance"):
+        raise ValueError("component must be semantic or instance")
+    for name, digest in (("key", key), ("detector_config_id", detector_config_id)):
+        if not isinstance(digest, bytes) or len(digest) != 32:
+            raise ValueError(f"{name} must be a raw 32-byte digest")
+    blocks = ((width + 7) // 8) * ((height + 7) // 8)
+    component_byte = b"s" if component == "semantic" else b"i"
+    payload = _pack((b"a5-template-v1", component_byte, key,
+                    height.to_bytes(4, "big"), width.to_bytes(4, "big"),
+                    detector_config_id))
+    stream = hashlib.shake_256(payload).digest((blocks * 4 + 7) // 8)
+    signs = tuple(1 if (stream[j // 8] >> (j % 8)) & 1 else -1
+                  for j in range(blocks * 4))
+    return tuple(signs[4 * block:4 * block + 4] for block in range(blocks))
+
+
 def templates_from_keys(
     semantic_key: bytes, instance_key: bytes, detector_config_id: bytes,
     width: int, height: int,
 ) -> tuple[tuple[tuple[int, ...], ...], tuple[tuple[int, ...], ...]]:
-    """A5 SHAKE256 Rademacher templates on the original image block grid.
+    """Both A5 templates on the original image block grid.
 
-    All three digests are raw 32-byte values, not hex text; the caller must
-    decode the schema's 64-character config-ID hex after verifying it, and
-    derive the keys from canonical q/H/OwnerID. This
-    function deliberately cannot authenticate those claims.
+    All digests are raw 32-byte values, not hex text. The caller must validate
+    the config ID and derive keys from canonical q/H/OwnerID; this function
+    cannot authenticate those claims.
     """
-    if type(width) is not int or type(height) is not int or not 32 <= width <= 0xFFFFFFFF or not 32 <= height <= 0xFFFFFFFF:
-        raise ValueError("image dimensions must fit uint32 and be at least 32")
-    for name, digest in (("semantic_key", semantic_key), ("instance_key", instance_key),
-                         ("detector_config_id", detector_config_id)):
-        if not isinstance(digest, bytes) or len(digest) != 32:
-            raise ValueError(f"{name} must be a raw 32-byte digest")
-    blocks = ((width + 7) // 8) * ((height + 7) // 8)
-
-    def one(component: bytes, key: bytes) -> tuple[tuple[int, ...], ...]:
-        payload = _pack((b"a5-template-v1", component, key,
-                        height.to_bytes(4, "big"), width.to_bytes(4, "big"),
-                        detector_config_id))
-        stream = hashlib.shake_256(payload).digest((blocks * 4 + 7) // 8)
-        signs = tuple(1 if (stream[j // 8] >> (j % 8)) & 1 else -1
-                      for j in range(blocks * 4))
-        return tuple(signs[4 * block:4 * block + 4] for block in range(blocks))
-
-    return one(b"s", semantic_key), one(b"i", instance_key)
+    return (template_from_key("semantic", semantic_key, detector_config_id, width, height),
+            template_from_key("instance", instance_key, detector_config_id, width, height))
 
 
 def dct8(block: tuple[tuple[float, ...], ...]) -> tuple[tuple[float, ...], ...]:
@@ -272,30 +277,37 @@ def embed_pixel_dct(
     return bytes(output)
 
 
-def score_pixel_dct(
-    rgb8: bytes, width: int, height: int,
-    template: tuple[tuple[int, ...], ...], component: str,
-) -> tuple[float, bool]:
-    """A5's one-component centered DCT cosine on supplied RGB8 and template.
-
-    Returns (score, zero_variance). This is an oracle-component reference:
-    supplying the enrollment template bypasses the blind q/H key search, so
-    it must never be reported as the full A5 verification outcome or latency.
-    """
+def dct_observations(rgb8: bytes, width: int, height: int) -> dict[str, tuple[tuple[float, ...], ...]]:
+    """Compute both component coefficient matrices with one DCT per block."""
     block_columns, block_rows = _validate_rgb8(rgb8, width, height)
-    blocks = block_columns * block_rows
-    _validate_template(template, blocks)
-    if component == "semantic":
-        frequencies = SEMANTIC_FREQUENCIES
-    elif component == "instance":
-        frequencies = INSTANCE_FREQUENCIES
-    else:
-        raise ValueError("component must be semantic or instance")
-    observed = []
+    semantic, instance = [], []
     for block_y in range(block_rows):
         for block_x in range(block_columns):
             coefficients = dct8(_luminance_block(rgb8, width, height, block_x, block_y))
-            observed.append(tuple(coefficients[u][v] for u, v in frequencies))
+            semantic.append(tuple(coefficients[u][v] for u, v in SEMANTIC_FREQUENCIES))
+            instance.append(tuple(coefficients[u][v] for u, v in INSTANCE_FREQUENCIES))
+    return {"semantic": tuple(semantic), "instance": tuple(instance)}
+
+
+def score_observations(
+    observed: tuple[tuple[float, ...], ...], template: tuple[tuple[int, ...], ...],
+) -> tuple[float, bool]:
+    """A5 centered DCT cosine on already-extracted component coefficients."""
+    def finite_real(value: object) -> bool:
+        if type(value) not in (int, float):
+            return False
+        try:
+            return math.isfinite(value)
+        except OverflowError:
+            return False
+
+    if (not isinstance(observed, tuple) or not observed
+            or any(not isinstance(row, tuple) or len(row) != 4
+                   or any(not finite_real(value)
+                          for value in row) for row in observed)):
+        raise ValueError("observations must be finite four-coefficient block tuples")
+    blocks = len(observed)
+    _validate_template(template, blocks)
     observed_means = tuple(math.fsum(row[f] for row in observed) / blocks for f in range(4))
     template_means = tuple(math.fsum(row[f] for row in template) / blocks for f in range(4))
     centered_observed = tuple(row[f] - observed_means[f] for row in observed for f in range(4))
@@ -308,3 +320,39 @@ def score_pixel_dct(
     if not math.isfinite(score) or abs(score) > 1 + 1e-9:
         raise ValueError("invalid DCT correlation")
     return max(-1.0, min(1.0, score)), False
+
+
+def score_pixel_dct(
+    rgb8: bytes, width: int, height: int,
+    template: tuple[tuple[int, ...], ...], component: str,
+) -> tuple[float, bool]:
+    """Oracle-component score for one supplied template, not a blind detector."""
+    if component not in ("semantic", "instance"):
+        raise ValueError("component must be semantic or instance")
+    return score_observations(dct_observations(rgb8, width, height)[component], template)
+
+
+def evaluate_pixel_control_candidates(
+    rgb8: bytes, width: int, height: int, suspect_q: bytes, suspect_h: bytes,
+    owner_id: str, detector_config_id: bytes, tau_s: float, tau_i: float,
+) -> dict[str, object]:
+    """A5 score search for supplied suspect q/H, with cached image DCT only.
+
+    CLIP/pHash extraction, image decoding and configuration validation are
+    deliberately outside this reference. It is not the full blind detector.
+    """
+    from candidate_search_reference import evaluate
+
+    observations = dct_observations(rgb8, width, height)
+
+    def semantic(q: bytes) -> tuple[float, bool]:
+        key, _ = keys_from_codes(q, suspect_h, owner_id)
+        template = template_from_key("semantic", key, detector_config_id, width, height)
+        return score_observations(observations["semantic"], template)
+
+    def instance(q: bytes, h: bytes) -> tuple[float, bool]:
+        _, key = keys_from_codes(q, h, owner_id)
+        template = template_from_key("instance", key, detector_config_id, width, height)
+        return score_observations(observations["instance"], template)
+
+    return evaluate(suspect_q, suspect_h, tau_s, tau_i, semantic, instance)

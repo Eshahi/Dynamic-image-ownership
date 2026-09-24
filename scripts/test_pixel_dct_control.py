@@ -3,9 +3,13 @@
 import hashlib
 import math
 import unittest
+from unittest.mock import patch
+
+import pixel_dct_control as control
 
 from pixel_dct_control import (
-    dct8, embed_pixel_dct, idct8, keys_from_codes, phash_from_rgb8,
+    dct8, embed_pixel_dct, evaluate_pixel_control_candidates, idct8,
+    keys_from_codes, phash_from_rgb8,
     score_pixel_dct, semantic_code_from_normalized_embedding,
     templates_from_keys,
 )
@@ -192,6 +196,27 @@ class PixelDCTControlTests(unittest.TestCase):
         for malformed in ("", "e\u0301", "a" * 257, None, "\ud800"):
             with self.subTest(owner=repr(malformed)), self.assertRaises(ValueError):
                 keys_from_codes(q, phash, malformed)
+
+    def test_supplied_suspect_codes_search_with_one_image_dct_pass(self):
+        q, phash = bytes.fromhex("a503"), bytes.fromhex("12345678")
+        owner, config_id = "thesis:owner:09", bytes([0xA5]) * 32
+        keys = keys_from_codes(q, phash, owner)
+        templates = templates_from_keys(*keys, config_id, 32, 32)
+        marked = embed_pixel_dct(bytes([128] * (32 * 32 * 3)), 32, 32,
+                                 *templates, .2, .2)
+        with patch.object(control, "dct8", wraps=control.dct8) as dct:
+            result = evaluate_pixel_control_candidates(
+                marked, 32, 32, q, phash, owner, config_id, .85, .85)
+        self.assertEqual(dct.call_count, 16)
+        self.assertEqual((result["semantic_candidates"], result["instance_candidates"]), (13, 429))
+        self.assertTrue(result["both_match"])
+        self.assertEqual(result["first_joint_candidate"], {"q": q.hex(), "h": phash.hex()})
+
+    def test_cached_score_rejects_nonfinite_and_unbounded_observations(self):
+        template = ((1, -1, 1, -1),)
+        for value in (float("nan"), float("inf"), True, 10**1000):
+            with self.subTest(value=type(value).__name__), self.assertRaises(ValueError):
+                control.score_observations(((value, 0, 0, 0),), template)
 
 
 if __name__ == "__main__":
