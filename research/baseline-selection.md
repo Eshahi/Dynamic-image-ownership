@@ -31,4 +31,38 @@ The core A5 verifier sees only suspect image `J`, tested public OwnerID and froz
 3. Resolve one fair existing-image inversion comparator's code/weight rights and model/config provenance, or document the narrower supported result and obtain a material claim-level direction before asserting the full HYP3/METRIC-07 comparison.
 4. Freeze A4 threshold grids, owner roster, attacks, quality aggregation, margins and paired sensitivity; A6 locks environment and resource estimates. Then present an **exact** scientific manifest for the user's compute authorization. No paid/remote execution, large download, telemetry service or model call is implied by this selection.
 
+### TrustMark Q/BCH_5 offline payload/decision boundary
+
+`scripts/trustmark_profile.py` proposes a model-free, fail-closed boundary for the
+prospective Q/BCH_5 binary profile. It takes a **future manifest-supplied**
+32-byte seed (64 lowercase hex digits) and the dataset, version and image ID.
+For reproducibility, the 61 bits are the first 61 most-significant-first bits
+of `SHAKE256(b"b2-trustmark-q-bch5-payload-v1\x00" || seed_bytes ||
+uint16be(len(UTF8(dataset))) || UTF8(dataset) || ...version || ...image_id)`.
+Identifiers must be nonempty and unpadded. A fixed *synthetic* vector with
+seed `0123456789abcdef` repeated four times, dataset `COCO`, version
+`2017-val`, ID `000001`, gives
+`0101000111111011101101101001010010111001110100010110110101101`.
+The exact study seed and image IDs have **not** been chosen or inspected;
+the candidate schedule must be reviewed/frozen in the exact manifest before
+test use. These pseudorandom bits are a neutral neural-comparator payload,
+not an OwnerID or cryptographic proof of image ownership.
+
+The pinned upstream `TrustMark.decode(..., MODE='binary', DETECTFIRST=False,
+ROTATION=False)` returns `(decoded, detected, version)`. Its BCH_5 version is
+`1`; `detected` reports ECC validity, while exact equality of the recovered
+61-bit payload to the expected ID payload is a **separate** endpoint.
+`classify_decode` rejects malformed/wrong-version successes, emits both
+`ecc_valid` and `payload_match`, and always leaves `score=None`. Thus Boolean
+presence/FPR can be considered with unmarked controls; matched-payload
+recovery and wrong-payload controls must be reported separately. It neither
+provides continuous ROC/AUC nor makes neural watermark presence equivalent to
+A5's owner/instance-binding task. The upstream paths are the pinned
+[`trustmark.py`](https://github.com/adobe/trustmark/blob/2ecb73ad28d1a3f66ac9dc19e1b667711f14314f/python/trustmark/trustmark.py)
+and [`datalayer.py`](https://github.com/adobe/trustmark/blob/2ecb73ad28d1a3f66ac9dc19e1b667711f14314f/python/trustmark/datalayer.py).
+No upstream code was copied into this helper. Six model-free TrustMark
+receipt/profile tests pass; no model, image, dataset, or scientific run was
+performed. Asset SHA-256 receipts, safe loader, image parity, environment and
+exact-manifest compute authorization remain blockers.
+
 Selection is prospective. If a candidate fails feasibility or rights checks, preserve the failure evidence and propose an in-scope alternative *before* evaluating test outcomes. `configs/baselines.json` records these selections as blocked, non-runnable descriptors rather than executable commands.
