@@ -2,6 +2,7 @@
   "schema_version": "a6-asset-lock-v1",
   "files": [
     {"path": "clip/ViT-B-32.pt", "size_bytes": 353976522, "sha256": "40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af"},
+    {"path": "alexnet/alexnet-owt-7be5be79.pth", "size_bytes": 244408911, "sha256": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02"},
     {"path": "sd15-fp16/feature_extractor/preprocessor_config.json", "size_bytes": 342, "sha256": "2a1da83b5e1032aaeef397552ddb408dca0d8cd1dc58f61bf6abf38d6f33a0a2"},
     {"path": "sd15-fp16/model_index.json", "size_bytes": 541, "sha256": "e2f6f22e274374010aec30c79eb2d6e53fff4a36ac0225523a92cb2d41a83347"},
     {"path": "sd15-fp16/safety_checker/config.json", "size_bytes": 4723, "sha256": "5dd77a06cbd9b155060bd58deb81ffd1aafc1c6d7970acac674c1128bd4edfe2"},
