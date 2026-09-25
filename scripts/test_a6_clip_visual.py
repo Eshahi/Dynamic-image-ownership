@@ -18,6 +18,29 @@ class ClipVisualAdapterTests(unittest.TestCase):
         self.assertEqual(hashlib.sha256(installed.replace(b"\r\n", b"\n")).hexdigest(),
                          hashlib.sha256(upstream).hexdigest())
 
+    def test_exact_windows_and_linux_source_forms_are_accepted(self):
+        source = {
+            "clip/clip.py": b"# pinned source\n",
+            "clip/model.py": b"def build_model(state):\n    return state\n",
+        }
+        expected_lf = {name: hashlib.sha256(raw).hexdigest()
+                       for name, raw in source.items()}
+        expected_crlf = {name: hashlib.sha256(raw.replace(b"\n", b"\r\n")).hexdigest()
+                         for name, raw in source.items()}
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / "clip").mkdir()
+            distribution = Mock()
+            distribution.locate_file.side_effect = lambda name: root / name
+            with patch.object(adapter.importlib.metadata, "distribution",
+                              return_value=distribution), \
+                 patch.object(adapter, "CLIP_SOURCE_SHA256", expected_crlf), \
+                 patch.object(adapter, "CLIP_UPSTREAM_LF_SHA256", expected_lf):
+                for newline in (b"\n", b"\r\n"):
+                    for name, raw in source.items():
+                        (root / name).write_bytes(raw.replace(b"\n", newline))
+                    self.assertEqual(adapter.verified_visual_builder()(7), 7)
+
     def test_changed_source_rejected_before_execution(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

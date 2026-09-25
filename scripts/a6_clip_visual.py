@@ -41,10 +41,13 @@ def verified_visual_builder() -> object:
     for name, path in files.items():
         _regular_file(path)
         raw = path.read_bytes()
-        if hashlib.sha256(raw).hexdigest() != CLIP_SOURCE_SHA256[name]:
+        if hashlib.sha256(raw).hexdigest() not in (
+            CLIP_SOURCE_SHA256[name], CLIP_UPSTREAM_LF_SHA256[name],
+        ):
             raise RuntimeError(f"pinned CLIP source digest changed: {name}")
-        # Windows wheel-building converted upstream LF to CRLF. Require the
-        # exact pinned upstream bytes after only that reversible conversion.
+        # The checked Windows build uses CRLF; the checked WSL build retains
+        # upstream LF. Accept only those two exact byte forms, then require
+        # the pinned upstream bytes after reversible newline normalization.
         normalized = raw.replace(b"\r\n", b"\n")
         if hashlib.sha256(normalized).hexdigest() != CLIP_UPSTREAM_LF_SHA256[name]:
             raise RuntimeError(f"pinned CLIP upstream content changed: {name}")
