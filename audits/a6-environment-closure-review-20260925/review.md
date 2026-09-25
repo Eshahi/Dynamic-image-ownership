@@ -1,0 +1,15 @@
+# Independent A6 environment-only closure review (2026-09-25)
+
+**Issue:** [#7](https://github.com/Eshahi/Dynamic-image-ownership/issues/7), task A6 / source `eng-2`. **Actor:** `/root/a6_closure_review`, independent of author `/root`. **Mode:** read-only, no installation, model load, experiment, file edit, issue change or Spec Kit transition. **Exact reviewed state:** clean Git commit `4ba964bdb04674614f3c4fea8a1b8906b8cb6790` on `codex/7-environment-lock`.
+
+## Scope and checks
+
+The reviewer compared the actual [38-task A6 entry](../../thesis-runs/d916749c/guide-plan-38.json), GitHub issue #7 completion criteria, the 60-wheel WSL hash lock, clean offline rebuild and its earlier independent review, bounded model-runtime receipt/review, `README.md` WSL commands, and `research/environment.md`. A6 is an **environment lock**, not a gradient, benchmark, rights, dataset or scientific-results task. The task plan explicitly excludes GPU stress/benchmarking here and requires reproducible setup, package/import checks and host/version documentation.
+
+At the earlier clean commit `491b6bf`, the reviewer found one closure blocker: the published WSL setup omitted the separate local CLIP wheel's exact path, hash check and installation; it also called the pip bootstrap wheel checked without showing a fail-closed digest check. The same-host wheel paths and SHA-256 values were independently read and matched. Commit `4ba964b` added fail-closed digest checks for pip `c46efd13b6aa8279f33f2864459c8ce587ea6a1a59ee20de055868d8f7688f7f` and CLIP `6c6f017103d9171720deb40d2592e43d5b9003a29cb48ae2567f7e09e81ac204`, installs the CLIP wheel after the 60 locked dependencies, then runs `pip check` and offline imports. The author also corrected two stale review-status statements. The model-free repository suite ran 98 tests with four expected skips, and the WSL hash guard was separately checked without installation.
+
+**Final verdict on clean commit `4ba964b`: no blocking finding remains for A6/#7 as an environment-only deliverable.** Existing narrow independent reviews of the WSL rebuild, CLIP source compatibility and local model-runtime observation remain in their respective audit files. The same-host cache paths, lack of a clean CLIP source-build replay and absence of full cross-host installed-payload parity are disclosed limitations, not proof of a portable universal environment.
+
+## Boundary of this verdict
+
+This review does **not** certify SD publisher custody or rights, text-conditioning fidelity (the CLIP config warning remains), discriminating CLIP/LPIPS numerical parity, full image-conditioned DDIM gradients, native-resolution GPU memory fit, COCO image acquisition, scientific claims or results. Those remain tracked downstream under the research contract and later issues. It does **not** approve paid compute or accept/advance the official Spec Kit `plan-acceptance` gate. If A6 is closed, its meaning is only that the specified local software environment was locked, rebuilt and documented at the reviewed commit.
