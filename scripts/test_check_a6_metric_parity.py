@@ -3,7 +3,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
-from unittest.mock import Mock, patch
+from unittest.mock import patch
 
 import check_a6_metric_parity as probe
 
@@ -73,23 +73,6 @@ class MetricParityPreparationTests(unittest.TestCase):
         self.assertEqual(result, {"lpips": {"cpu_score": 0.1}})
         with self.assertRaises(ValueError):
             probe._selected_measurements("unknown", Path("a"), Path("b"))
-
-    def test_visual_source_rejects_changed_bytes_before_execution(self):
-        with tempfile.TemporaryDirectory() as temp:
-            root = Path(temp)
-            (root / "clip").mkdir()
-            (root / "clip/clip.py").write_bytes(b"changed")
-            (root / "clip/model.py").write_bytes(b"not executable")
-            distribution = Mock()
-            distribution.locate_file.side_effect = lambda name: root / name
-            with patch.object(probe.importlib.metadata, "distribution",
-                              return_value=distribution):
-                with patch.object(probe.importlib.util,
-                                  "spec_from_file_location") as execute:
-                    with self.assertRaisesRegex(RuntimeError, "digest changed"):
-                        probe._verified_clip_visual_source()
-                    execute.assert_not_called()
-
 
 if __name__ == "__main__":
     unittest.main()

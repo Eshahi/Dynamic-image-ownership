@@ -10,8 +10,6 @@ from __future__ import annotations
 
 import argparse
 import hashlib
-import importlib.metadata
-import importlib.util
 import json
 import os
 import socket
@@ -19,16 +17,13 @@ import time
 from pathlib import Path
 
 from check_a6_lpips_assets import LOCK_SHA256, verify_package
+from a6_clip_visual import load_visual_encoder
 from verify_science_assets import verify
 
 
 CLIP_PATH = "clip/ViT-B-32.pt"
 ALEXNET_PATH = "alexnet/alexnet-owt-7be5be79.pth"
 EXPECTED_PATHS = {CLIP_PATH, ALEXNET_PATH}
-CLIP_SOURCE_SHA256 = {
-    "clip/clip.py": "3891eee0ad659a781ec3fd0240f9d69b7f3845837f671ff6670accf0d4bad0a2",
-    "clip/model.py": "dc4981bbd17867430890cfe711bb813466232f3b19c5753e26de0b7b047b0926",
-}
 
 
 def check_inputs(asset_root: Path, lock_path: Path, lpips_root: Path) -> dict[str, object]:
@@ -85,56 +80,12 @@ def _finite_vector(tensor: object, expected: int, label: str) -> None:
         raise RuntimeError(f"{label} has near-zero norm")
 
 
-def _verified_clip_visual_source() -> object:
-    """Load the pinned official visual model file without the unused tokenizer.
-
-    CLIP's package initializer imports a native regex tokenizer even for an
-    image-only encode. On this host Windows Code Integrity blocks that native
-    binary. This uses the same installed, hash-checked official model.py, not
-    alternate weights or a modified security policy. Text APIs stay unavailable.
-    """
-    distribution = importlib.metadata.distribution("clip")
-    files = {name: Path(distribution.locate_file(name)) for name in CLIP_SOURCE_SHA256}
-    for name, path in files.items():
-        if not path.is_file() or path.is_symlink() or path.is_junction():
-            raise RuntimeError(f"missing or linked pinned CLIP source: {name}")
-        if hashlib.sha256(path.read_bytes()).hexdigest() != CLIP_SOURCE_SHA256[name]:
-            raise RuntimeError(f"pinned CLIP source digest changed: {name}")
-    spec = importlib.util.spec_from_file_location(
-        "a6_verified_official_clip_visual", files["clip/model.py"])
-    if spec is None or spec.loader is None:
-        raise RuntimeError("could not load pinned CLIP visual source")
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module.build_model
-
-
 def _load_clip_and_measure(checkpoint: Path) -> dict[str, object]:
     import numpy as np
     import torch
     from PIL import Image
-    from torchvision.transforms import (
-        CenterCrop, Compose, InterpolationMode, Normalize, Resize, ToTensor,
-    )
-
-    build_model = _verified_clip_visual_source()
-
-    # The pinned official checkpoint is a JIT archive. Refuse a fallback to
-    # arbitrary pickle state-dict deserialization.
-    archive = torch.jit.load(str(checkpoint), map_location="cpu").eval()
-    model = build_model(archive.state_dict()).float().eval()
-    if model.visual.input_resolution != 224:
-        raise RuntimeError("CLIP input resolution differs from A5")
+    model, transform = load_visual_encoder(checkpoint)
     image = Image.frombytes("RGB", (224, 224), synthetic_rgb8(224))
-    # Exact operations/constants in the hash-checked official clip.py _transform.
-    transform = Compose([
-        Resize(224, interpolation=InterpolationMode.BICUBIC),
-        CenterCrop(224),
-        lambda value: value.convert("RGB"),
-        ToTensor(),
-        Normalize((0.48145466, 0.4578275, 0.40821073),
-                  (0.26862954, 0.26130258, 0.27577711)),
-    ])
     pixels = transform(image).unsqueeze(0)
     with torch.no_grad():
         cpu = model.encode_image(pixels).float()
