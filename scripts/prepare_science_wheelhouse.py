@@ -35,9 +35,12 @@ def wheel_filename(path: Path, key: tuple[str, str]) -> str:
             raise ValueError("wheel has no unique WHEEL metadata")
         metadata = BytesParser().parsebytes(archive.read(records[0]))
     tags = metadata.get_all("Tag", [])
-    if not tags or not TAG.fullmatch(tags[0]):
+    if not tags or any(not TAG.fullmatch(tag) for tag in tags):
         raise ValueError("wheel has no valid compatibility tag")
-    return f"{key[0].replace('-', '_')}-{key[1]}-{tags[0]}.whl"
+    # Metadata may list a legacy py2 tag before an equally valid py3 tag.
+    # A cache body has no original filename, so choose the py3 tag when present.
+    tag = next((item for item in tags if item.startswith("py3-")), tags[0])
+    return f"{key[0].replace('-', '_')}-{key[1]}-{tag}.whl"
 
 
 def select_wheels(

@@ -17,6 +17,23 @@ def make_wheel(path: Path) -> str:
 
 
 class WheelhouseTests(unittest.TestCase):
+    def test_cached_body_prefers_py3_when_py2_metadata_tag_is_first(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            cache = root / "cache"
+            cache.mkdir()
+            source = cache / "download.body"
+            with zipfile.ZipFile(source, "w") as archive:
+                archive.writestr("dual-1.dist-info/METADATA",
+                                 "Metadata-Version: 2.1\nName: Dual\nVersion: 1\n")
+                archive.writestr("dual-1.dist-info/WHEEL",
+                                 "Wheel-Version: 1.0\nTag: py2-none-any\nTag: py3-none-any\n")
+            expected = hashlib.sha256(source.read_bytes()).hexdigest()
+            output = root / "out"
+            report = materialize({("dual", "1"): expected}, [cache], output)
+            self.assertEqual(report["wheel_count"], 1)
+            self.assertTrue((output / "dual-1-py3-none-any.whl").is_file())
+
     def test_cached_body_is_named_and_copied_by_exact_hash(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
