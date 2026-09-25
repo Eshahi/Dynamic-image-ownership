@@ -1,0 +1,15 @@
+# Independent A6 CLIP source-form compatibility review
+
+- Date: 2026-09-25
+- Reviewer actor: `/root/a6_wsl_rebuild_review` (independent of the author)
+- Reviewed clean code commit: `6b0a3b7b62aa0717b605ee543e193e540763bc64`
+- Scope: the LF/CRLF acceptance change in `scripts/a6_clip_visual.py`, its focused tests, and `research/a6-wsl-clip-source-compat-20260925.md`. This review did not execute a checkpoint or decide the A6 issue or Spec Kit gate.
+
+## Checks
+
+1. `scripts/a6_clip_visual.py:19-26,41-54` admits only the two pinned raw SHA-256 values for each of `clip/clip.py` and `clip/model.py`: the existing Windows CRLF build and upstream LF form. It also requires the pinned upstream LF digest after CRLF normalization. These paired checks do not admit arbitrary source edits or an additional newline form (except the ordinary cryptographic hash-collision qualification). Different exact allowed forms could coexist across the two files, but both would still contain the same independently pinned upstream content.
+2. `scripts/a6_clip_visual.py:55-60` compiles the verified `clip/model.py` byte snapshot in memory, rather than reopening a mutable pathname after hashing. The checkpoint regular-file, exact-size, SHA-256, in-memory JIT load and local-only behavior at lines 79-103 were unchanged by this commit. The adapter does not import the CLIP text tokenizer through this image-only path.
+3. The focused suite `scripts/test_a6_clip_visual.py` returned four passes and two expected skips in the workflow venv. The new test at lines 21-42 exercises both exact source forms; the existing changed-source test at lines 44-57 verifies rejection before compilation. Separately, `verified_visual_builder()` returned a callable in both the existing Windows science venv and the clean WSL science venv; these bounded checks read and executed verified local source only, without opening a checkpoint. The first host continues to accept its previously pinned CRLF form; the new WSL LF form also passes. The worktree was clean at reviewed commit before and after these read-only checks.
+4. `research/a6-wsl-clip-source-compat-20260925.md:3-9` accurately identifies this as source-byte/import-path compatibility and explicitly excludes checkpoint load, feature or numerical parity, image inference, rights/custody, method gradient and scientific execution. The wider CLIP package and its source build are not established merely by the adapter's two-file hash checks.
+
+**Verdict:** No blocking finding for this narrowly scoped LF/CRLF source acceptance change. The tests and model-free host checks support keeping the existing Windows path and admitting the exact pinned WSL LF path without broadening source-byte acceptance. This is not A6 closure or a Spec Kit gate verdict; model/checkpoint identity, text-conditioned method behavior, cross-host numeric parity, rights/custody, and full gradient/VRAM fit remain separate obligations. No implementation, issue, PR or gate state was changed by this review.
