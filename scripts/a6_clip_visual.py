@@ -11,7 +11,8 @@ from __future__ import annotations
 
 import hashlib
 import importlib.metadata
-import importlib.util
+import io
+import types
 from pathlib import Path
 
 
@@ -27,14 +28,6 @@ CHECKPOINT_SHA256 = "40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba
 CHECKPOINT_SIZE_BYTES = 353_976_522
 
 
-def _digest_file(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
-
-
 def _regular_file(path: Path) -> None:
     if not path.is_file() or path.is_symlink() or path.is_junction():
         raise RuntimeError(f"missing or linked CLIP file: {path.name}")
@@ -44,21 +37,23 @@ def verified_visual_builder() -> object:
     """Return the installed, pinned official ``build_model`` without tokenizer import."""
     distribution = importlib.metadata.distribution("clip")
     files = {name: Path(distribution.locate_file(name)) for name in CLIP_SOURCE_SHA256}
+    verified_bytes = {}
     for name, path in files.items():
         _regular_file(path)
-        if _digest_file(path) != CLIP_SOURCE_SHA256[name]:
+        raw = path.read_bytes()
+        if hashlib.sha256(raw).hexdigest() != CLIP_SOURCE_SHA256[name]:
             raise RuntimeError(f"pinned CLIP source digest changed: {name}")
         # Windows wheel-building converted upstream LF to CRLF. Require the
         # exact pinned upstream bytes after only that reversible conversion.
-        normalized = path.read_bytes().replace(b"\r\n", b"\n")
+        normalized = raw.replace(b"\r\n", b"\n")
         if hashlib.sha256(normalized).hexdigest() != CLIP_UPSTREAM_LF_SHA256[name]:
             raise RuntimeError(f"pinned CLIP upstream content changed: {name}")
-    spec = importlib.util.spec_from_file_location(
-        "a6_verified_official_clip_visual", files["clip/model.py"])
-    if spec is None or spec.loader is None:
-        raise RuntimeError("could not load pinned CLIP visual source")
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
+        verified_bytes[name] = raw
+    module = types.ModuleType("a6_verified_official_clip_visual")
+    module.__file__ = str(files["clip/model.py"])
+    # Execute the exact verified snapshot, never reopen a mutable pathname.
+    source = compile(verified_bytes["clip/model.py"], module.__file__, "exec")
+    exec(source, module.__dict__)
     return module.build_model
 
 
@@ -90,13 +85,15 @@ def load_visual_encoder(checkpoint: Path, *, device: str = "cpu") -> tuple[objec
     _regular_file(checkpoint)
     if checkpoint.stat().st_size != CHECKPOINT_SIZE_BYTES:
         raise RuntimeError("CLIP checkpoint size differs from pinned archive")
-    if _digest_file(checkpoint) != CHECKPOINT_SHA256:
+    # JIT consumes this verified in-memory snapshot, not a second file open.
+    checkpoint_bytes = checkpoint.read_bytes()
+    if hashlib.sha256(checkpoint_bytes).hexdigest() != CHECKPOINT_SHA256:
         raise RuntimeError("CLIP checkpoint SHA-256 differs from pinned archive")
 
     build_model = verified_visual_builder()
     import torch
 
-    archive = torch.jit.load(str(checkpoint), map_location="cpu").eval()
+    archive = torch.jit.load(io.BytesIO(checkpoint_bytes), map_location="cpu").eval()
     model = build_model(archive.state_dict()).float().eval().to(device)
     if model.visual.input_resolution != 224:
         raise RuntimeError("CLIP input resolution differs from A5")

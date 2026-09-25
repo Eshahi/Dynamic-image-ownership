@@ -8,6 +8,15 @@ from audit_science_wheels import audit, parse_lock, wheel_identity
 
 
 class ScienceWheelAuditTests(unittest.TestCase):
+    def test_full_candidate_inventory_covers_stage2_without_version_drift(self):
+        root = Path(__file__).resolve().parents[1]
+        candidates = parse_lock((root / "requirements-science-candidates-win312.txt")
+                                .read_text(encoding="utf-8"))
+        stage2 = parse_lock((root / "requirements-science-stage2-win312-hashes.txt")
+                            .read_text(encoding="utf-8"))
+        self.assertEqual(len(candidates), 42)
+        self.assertEqual({key: candidates[key] for key in stage2}, stage2)
+
     def test_lock_rejects_duplicate_and_unhashed_line(self):
         value = "alpha==1 --hash=sha256:" + "a" * 64
         with self.assertRaises(ValueError):
@@ -28,7 +37,23 @@ class ScienceWheelAuditTests(unittest.TestCase):
                            parse_lock(f"alpha==1 --hash=sha256:{expected}"))
             self.assertEqual(report["locked_failures"], [])
             self.assertEqual(report["installed_without_cached_wheel"], ["beta==2"])
+            self.assertEqual(report["installed_wheel_candidates"],
+                             {"alpha==1": [expected], "beta==2": []})
             self.assertEqual(report["status"], "partial_inventory")
+
+    def test_multiple_candidate_hashes_are_visible_not_silently_chosen(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            for suffix in ("a", "b"):
+                wheel = root / f"alpha-1-{suffix}-py3-none-any.whl"
+                with zipfile.ZipFile(wheel, "w") as archive:
+                    archive.writestr("alpha-1.dist-info/METADATA",
+                                     "Metadata-Version: 2.1\nName: Alpha\nVersion: 1\n")
+                    archive.writestr("alpha/payload.txt", suffix)
+            report = audit({"alpha": "1"}, [root], {})
+            self.assertEqual(report["installed_with_multiple_candidates"],
+                             ["alpha==1"])
+            self.assertEqual(len(report["installed_wheel_candidates"]["alpha==1"]), 2)
 
     def test_hash_mismatch_fails_closed(self):
         with tempfile.TemporaryDirectory() as temp:

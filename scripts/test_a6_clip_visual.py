@@ -28,8 +28,7 @@ class ClipVisualAdapterTests(unittest.TestCase):
             distribution.locate_file.side_effect = lambda name: root / name
             with patch.object(adapter.importlib.metadata, "distribution",
                               return_value=distribution):
-                with patch.object(adapter.importlib.util,
-                                  "spec_from_file_location") as execute:
+                with patch("builtins.compile") as execute:
                     with self.assertRaisesRegex(RuntimeError, "digest changed"):
                         adapter.verified_visual_builder()
                     execute.assert_not_called()

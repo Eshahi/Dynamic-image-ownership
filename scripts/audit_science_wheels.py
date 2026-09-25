@@ -114,8 +114,12 @@ def audit(
             wheels.setdefault(key, set()).add(digest(path))
             built_wheels_seen += 1
     missing_cache = []
+    installed_candidates: dict[str, list[str]] = {}
     for name, version in sorted(installed.items()):
-        if (name, version) not in wheels:
+        key = f"{name}=={version}"
+        candidates = sorted(wheels.get((name, version), set()))
+        installed_candidates[key] = candidates
+        if not candidates:
             missing_cache.append(f"{name}=={version}")
     locked_failures = []
     for key, expected in sorted(locked.items()):
@@ -133,6 +137,11 @@ def audit(
         "locked_distribution_count": len(locked),
         "locked_failures": locked_failures,
         "installed_without_cached_wheel": missing_cache,
+        "installed_wheel_candidates": installed_candidates,
+        "installed_with_multiple_candidates": [
+            key for key, candidates in installed_candidates.items()
+            if len(candidates) > 1
+        ],
     }
 
 
