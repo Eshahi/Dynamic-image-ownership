@@ -2,6 +2,8 @@
 
 **Status: source/rights preflight only. No source image, annotation archive or metadata table has been acquired; `data/manifest.csv` and `data/dev-ids.json` do not yet exist.** This draft does not approve image reuse, redistribution, a study split, or any scientific result. Issue [#10](https://github.com/Eshahi/Dynamic-image-ownership/issues/10) depends on completed environment issue #7 and A2a. Source evidence and acquisition estimates are in [the B3 preflight](../research/b3-source-rights-preflight-20260925.md). The original proposal and preserved [research contract](../research/research-contract.md) remain authoritative except for the user's recorded COCO release-year amendment.
 
+The user will obtain the raw files personally; agents are not authorized to download them. The staged [user acquisition handoff](user-acquisition-handoff.md) lists only the first-batch files and keeps DiffusionDB image partitions unassigned until metadata-based selection is recorded.
+
 ## Commitments and source identity
 
 | Domain | Preserved count | Candidate source release and exact scope | Status |
