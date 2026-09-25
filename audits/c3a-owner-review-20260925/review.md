@@ -1,0 +1,7 @@
+# Independent C3a public-owner protocol review
+
+Issue [#15](https://github.com/Eshahi/Dynamic-image-ownership/issues/15). Review actor: `/root/c3a_owner_review`, a read-focused subagent distinct from author `/root`. Delegation: `AGENTS.md` and `research/approval-policy.md`. Exact clean code commit reviewed: `10de368`, 2026-09-25, branch `codex/15-owner-protocol`. Reviewed files: `src/signatures/owner.py`, `tests/test_owner.py`, `research/key-test-vectors.json`, `research/owner-protocol.md`, against A5 `research/method-spec.md`, A3 I/O/threat contracts and the scope guard.
+
+Verdict: **no blocking finding for the bounded public OwnerID/signature byte protocol**. The reviewer independently reimplemented the uint32be field framing and SHA-256 derivation with standard-library `struct`/`hashlib`; all six pinned Ws/Wi digest values matched. Five owner unit tests passed. The NFC/strict-UTF-8 1–256-byte limit, q high-nibble rejection, 32-bit pHash length, distinct semantic/instance namespaces, non-null secret rejection and NFC-equivalent wrong-owner/rotation rejection matched A5's declared public-derived contract.
+
+This technical review does not approve a keyed mode, secret rotation, automatic ownership transfer, enrollment authority, detector behavior, scientific attribution or legal ownership. No dataset, model, scientific experiment, paid compute or Spec Kit gate transition was performed.
