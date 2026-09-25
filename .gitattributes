@@ -1,4 +1,5 @@
 * text=auto
+.gitattributes text eol=lf
 *.py text eol=lf
 *.sh text eol=lf
 *.ps1 text eol=lf
@@ -7,6 +8,11 @@
 *.yml text eol=lf
 *.yaml text eol=lf
 *.toml text eol=lf
+requirements.lock text eol=lf
+requirements-science-stage2.txt text eol=lf
+requirements-science-stage2-win312-hashes.txt text eol=lf
+requirements-science-clip.txt text eol=lf
+requirements-science-candidates-win312.txt text eol=lf
 *.html text eol=lf
 *.docx binary
 *.zip binary

@@ -1,0 +1,9 @@
+# A6 pinned CLIP visual-source parity across Windows and WSL (2026-09-25)
+
+Issue [#7](https://github.com/Eshahi/Dynamic-image-ownership/issues/7), software/source compatibility only. The reviewed image-only adapter previously admitted the exact Windows wheel-built CRLF source bytes and checked their LF-normalized upstream hashes. The newly installed official CLIP source wheel in WSL retains the pinned upstream LF bytes, so the old raw-hash gate would have rejected it despite identical source content.
+
+`scripts/a6_clip_visual.py` now admits **only** the two already-pinned exact raw SHA-256 forms for `clip/clip.py` and `clip/model.py`: the original Windows CRLF build digests and the upstream LF digests. It still requires the upstream LF SHA-256 after reversible CRLF normalization, executes a verified in-memory snapshot, and retains checkpoint size/hash and local-only loader checks. No arbitrary newline or source substitution is allowed.
+
+Focused synthetic tests covered both exact byte forms and changed-source rejection. The real installed `verified_visual_builder()` returned a callable in both the existing Windows science venv and the clean WSL science venv without loading a checkpoint. The WSL source raw SHA-256 values were `9540f200fbf8145479fa655382a56dab048d238cc698b9cbd8df3b6d86d3f1b6` (`clip/clip.py`) and `9902cbe5ee90a1da2aa3e6f043e8a23dc1f8831193b963785c9af03d5c7bef2c` (`clip/model.py`), exactly the existing pinned upstream LF values. The five installed `clip/` package files also matched between original and clean WSL venvs in a separate read-only check.
+
+This is source-byte and import-path compatibility, not a CLIP checkpoint load, feature parity, image inference, model rights/custody, method gradient or scientific run. A6 and the official Spec Kit gate remain open.
