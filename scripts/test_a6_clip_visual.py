@@ -9,6 +9,15 @@ import a6_clip_visual as adapter
 
 
 class ClipVisualAdapterTests(unittest.TestCase):
+    def test_checked_installed_source_normalizes_only_crlf_to_upstream(self):
+        # The two representations differ in bytes, not executable source text.
+        upstream = b"def image():\n    return 1\n"
+        installed = upstream.replace(b"\n", b"\r\n")
+        self.assertNotEqual(hashlib.sha256(installed).hexdigest(),
+                            hashlib.sha256(upstream).hexdigest())
+        self.assertEqual(hashlib.sha256(installed.replace(b"\r\n", b"\n")).hexdigest(),
+                         hashlib.sha256(upstream).hexdigest())
+
     def test_changed_source_rejected_before_execution(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
@@ -49,6 +58,12 @@ class ClipVisualAdapterTests(unittest.TestCase):
             np.asarray(pixels.numpy(), dtype="<f4").tobytes()).hexdigest()
         self.assertEqual(observed,
                          "9465569501fdd08c5fc6d057f0263763eb703ad0547cda10c049e109401f2db3")
+
+    @unittest.skipUnless(importlib.util.find_spec("clip"),
+                         "requires pinned CLIP science installation")
+    def test_real_official_visual_source_is_byte_verified_without_model_load(self):
+        builder = adapter.verified_visual_builder()
+        self.assertTrue(callable(builder))
 
 
 if __name__ == "__main__":

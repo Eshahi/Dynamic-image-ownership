@@ -19,6 +19,10 @@ CLIP_SOURCE_SHA256 = {
     "clip/clip.py": "3891eee0ad659a781ec3fd0240f9d69b7f3845837f671ff6670accf0d4bad0a2",
     "clip/model.py": "dc4981bbd17867430890cfe711bb813466232f3b19c5753e26de0b7b047b0926",
 }
+CLIP_UPSTREAM_LF_SHA256 = {
+    "clip/clip.py": "9540f200fbf8145479fa655382a56dab048d238cc698b9cbd8df3b6d86d3f1b6",
+    "clip/model.py": "9902cbe5ee90a1da2aa3e6f043e8a23dc1f8831193b963785c9af03d5c7bef2c",
+}
 CHECKPOINT_SHA256 = "40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af"
 CHECKPOINT_SIZE_BYTES = 353_976_522
 
@@ -44,6 +48,11 @@ def verified_visual_builder() -> object:
         _regular_file(path)
         if _digest_file(path) != CLIP_SOURCE_SHA256[name]:
             raise RuntimeError(f"pinned CLIP source digest changed: {name}")
+        # Windows wheel-building converted upstream LF to CRLF. Require the
+        # exact pinned upstream bytes after only that reversible conversion.
+        normalized = path.read_bytes().replace(b"\r\n", b"\n")
+        if hashlib.sha256(normalized).hexdigest() != CLIP_UPSTREAM_LF_SHA256[name]:
+            raise RuntimeError(f"pinned CLIP upstream content changed: {name}")
     spec = importlib.util.spec_from_file_location(
         "a6_verified_official_clip_visual", files["clip/model.py"])
     if spec is None or spec.loader is None:
