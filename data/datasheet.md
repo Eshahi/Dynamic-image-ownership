@@ -4,6 +4,8 @@
 
 The user will obtain the raw files personally; agents are not authorized to download them. The staged [user acquisition handoff](user-acquisition-handoff.md) lists only the first-batch files and keeps DiffusionDB image partitions unassigned until metadata-based selection is recorded.
 
+The prospective [DiffusionDB metadata-only part-selection rule](../research/b3-diffusiondb-part-selection-20260925.md) is now specified and synthetically tested. It does not name/download actual image partitions or freeze source image IDs; a hash-checked local metadata file and rights/content inspection remain prerequisites.
+
 ## Commitments and source identity
 
 | Domain | Preserved count | Candidate source release and exact scope | Status |
