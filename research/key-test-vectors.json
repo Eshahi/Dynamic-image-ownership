@@ -1,0 +1,40 @@
+{
+  "schema_version": "c3a-public-owner-v1",
+  "source_spec": "research/method-spec.md: Canonical features and signatures (IO-01/02)",
+  "encoding": "OwnerID Unicode NFC, strict UTF-8, no trimming/case folding; 12-bit q and 32-bit pHash are little-bit-first bytes; each pack field has a uint32 big-endian byte length",
+  "profile": "public-derived-existing-image",
+  "secret_ref": null,
+  "security_note": "These SHA-256 outputs are public-derived, not secret authentication keys or proof of legal ownership.",
+  "vectors": [
+    {
+      "name": "ascii-owner-alice",
+      "owner_input": "Alice",
+      "owner_nfc": "Alice",
+      "owner_utf8_hex": "416c696365",
+      "q_hex": "340a",
+      "phash_hex": "00010203",
+      "ws_hex": "d4631078c3e5bd1b7e279b093bed43253c6e266ac6a59827cfcdcc80c412d655",
+      "wi_hex": "cb537abf17414693d82362cb20e88bd33bb214103afc31a69a10f75e060c7cd4"
+    },
+    {
+      "name": "wrong-owner-bob-same-features",
+      "owner_input": "Bob",
+      "owner_nfc": "Bob",
+      "owner_utf8_hex": "426f62",
+      "q_hex": "340a",
+      "phash_hex": "00010203",
+      "ws_hex": "3497d0612983273ccc16f844eec6d618266028c39ad8f646589c4c253c1aebba",
+      "wi_hex": "db40d9fccc6aea248bd5a81c59d5e33e6fef3cb08182f623bb737c8b113530ed"
+    },
+    {
+      "name": "decomposed-unicode-owner-normalizes-to-nfc",
+      "owner_input": "Cafe\u0301",
+      "owner_nfc": "Caf\u00e9",
+      "owner_utf8_hex": "436166c3a9",
+      "q_hex": "ff0f",
+      "phash_hex": "deadbeef",
+      "ws_hex": "27e93350dbc7cb44c97631263efe357be47c1f81ab80ca1210e2f3dea51af90f",
+      "wi_hex": "ee46ff533979f0c1784ceb995c63f50787086398e7654c6a18c502b6889e36eb"
+    }
+  ]
+}
