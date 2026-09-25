@@ -6,7 +6,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from check_a6_local_model_load import REQUIRED_SD_FILES, _check_model_inventory
+from check_a6_local_model_load import REQUIRED_SD_FILES, _check_model_inventory, _read_pinned_lock
 
 
 class InventoryTests(unittest.TestCase):
@@ -33,6 +33,16 @@ class InventoryTests(unittest.TestCase):
         (self.model_dir / "unet" / "pytorch_model.bin").touch()
         with self.assertRaisesRegex(ValueError, "unlisted regular files"):
             _check_model_inventory(self.model_dir, self.lock)
+
+    def test_pinned_asset_lock(self) -> None:
+        path = Path(__file__).resolve().parents[1] / "research/a6-candidate-model-assets.json"
+        self.assertEqual(len(_read_pinned_lock(path)["files"]), 17)
+
+    def test_modified_asset_lock_is_rejected(self) -> None:
+        path = Path(self.temp.name) / "changed-lock.json"
+        path.write_text('{"files": []}', encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "asset-lock digest changed"):
+            _read_pinned_lock(path)
 
 
 if __name__ == "__main__":

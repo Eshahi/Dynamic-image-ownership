@@ -8,6 +8,7 @@ evidence that the thesis embedding/detection method works. The explicit
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import socket
@@ -15,6 +16,7 @@ import time
 from pathlib import Path
 
 from verify_science_assets import verify
+from check_a6_lpips_assets import LOCK_SHA256
 
 REQUIRED_SD_FILES = frozenset({
     "feature_extractor/preprocessor_config.json",
@@ -33,6 +35,13 @@ REQUIRED_SD_FILES = frozenset({
     "vae/config.json",
     "vae/diffusion_pytorch_model.fp16.safetensors",
 })
+
+
+def _read_pinned_lock(path: Path) -> dict[str, object]:
+    raw = path.read_bytes()
+    if hashlib.sha256(raw).hexdigest() != LOCK_SHA256:
+        raise ValueError("A6 candidate asset-lock digest changed")
+    return json.loads(raw)
 
 
 def _check_model_inventory(model_dir: Path, lock: dict[str, object]) -> None:
@@ -61,7 +70,7 @@ def main() -> None:
     parser.add_argument("--load-model", action="store_true")
     args = parser.parse_args()
 
-    lock = json.loads(args.lock.read_text(encoding="utf-8"))
+    lock = _read_pinned_lock(args.lock)
     receipt = verify(args.asset_root, lock)
     required = {"unet", "vae", "text_encoder", "tokenizer", "scheduler",
                 "safety_checker", "feature_extractor"}
