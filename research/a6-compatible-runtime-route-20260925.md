@@ -2,7 +2,7 @@
 
 Status 2026-09-25, issue #7 / draft PR #58: **recommend an explicitly authorized local WSL 2 + Ubuntu compatibility preflight**, before any paid RunPod Pod. This is a proposed execution-environment choice, not installation permission, a scientific run, or A6 acceptance.
 
-**Later outcome on 2026-09-25:** the user authorized and installed WSL 2 + Ubuntu. The bounded no-model Linux import/device-visibility preflight passed; see [the newer receipt](a6-wsl-compat-preflight-20260925.md). The recommendation and pending-approval language below are historical. A full Linux science lock, PyTorch CUDA kernel, model/method run, A6 acceptance and any paid compute remain outstanding.
+**Later outcome on 2026-09-25:** the user authorized and installed WSL 2 + Ubuntu. The bounded no-model Linux import/device-visibility preflight passed; see [the WSL compatibility receipt](a6-wsl-compat-preflight-20260925.md). A separately authorized isolated Torch/TorchVision Stage-1 installation and model-free CUDA backward probe then passed; see [the WSL Torch receipt](a6-wsl-torch-stage1-receipt-20260925.md). The recommendation and pending-approval language below are historical. A full integrated Linux science lock, model/method run, A6 acceptance and any paid compute remain outstanding.
 
 ## Observed host constraint
 
