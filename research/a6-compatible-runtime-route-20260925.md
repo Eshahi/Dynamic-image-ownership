@@ -2,6 +2,8 @@
 
 Status 2026-09-25, issue #7 / draft PR #58: **recommend an explicitly authorized local WSL 2 + Ubuntu compatibility preflight**, before any paid RunPod Pod. This is a proposed execution-environment choice, not installation permission, a scientific run, or A6 acceptance.
 
+**Later outcome on 2026-09-25:** the user authorized and installed WSL 2 + Ubuntu. The bounded no-model Linux import/device-visibility preflight passed; see [the newer receipt](a6-wsl-compat-preflight-20260925.md). The recommendation and pending-approval language below are historical. A full Linux science lock, PyTorch CUDA kernel, model/method run, A6 acceptance and any paid compute remain outstanding.
+
 ## Observed host constraint
 
 The [clean rebuild receipt](a6-clean-science-rebuild-20260925.md) shows that all 42 pinned Windows wheels install offline and `pip check` passes. Both original and rebuilt Windows science venvs nevertheless fail to import `transformers` when Windows Application Control rejects unsigned `regex._regex`. Read-only `Get-AuthenticodeSignature` reported `NotSigned` for the rebuilt extension. `tokenizers` and `safetensors` import, but neither makes the full `transformers` package or A5's fixed empty-string text-conditioning path usable. Microsoft's [Smart App Control overview](https://learn.microsoft.com/en-us/windows/apps/develop/smart-app-control/overview) explains that unknown unsigned code can be blocked. We did not alter the host policy or seek a code-integrity bypass.
