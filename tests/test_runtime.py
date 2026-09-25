@@ -147,6 +147,13 @@ class RuntimeTests(unittest.TestCase):
         final = json.loads((record.directory / "manifest.json").read_text())
         self.assertEqual(final["seeds"]["method"], 1234)
 
+    def test_changed_config_snapshot_cannot_be_finalized(self):
+        record = self.start()
+        (record.directory / "config.json").write_bytes(b"{}")
+        with self.assertRaisesRegex(RunLogError, "config snapshot changed"):
+            record.finish(status="succeeded")
+        self.assertFalse((record.directory / "manifest.json").exists())
+
     def test_staging_write_failure_never_exposes_canonical_run(self):
         from src.runtime import logging as logging_module
         original = logging_module._write_once

@@ -97,6 +97,10 @@ class RunRecord:
             raise RunLogError("failure reason must be nonempty and bounded")
         if (self.directory / "start.json").read_bytes() != self.start_raw:
             raise RunLogError("start record changed after creation")
+        original = json.loads(self.start_raw)
+        config_file = _regular(self.directory / "config.json")
+        if _sha256(config_file) != original["config"]["sha256"]:
+            raise RunLogError("config snapshot changed after creation")
         evidence: dict[str, dict[str, Any]] = {}
         for path in sorted(self.directory.rglob("*")):
             relative = path.relative_to(self.directory).as_posix()
@@ -111,7 +115,7 @@ class RunRecord:
             if relative == "manifest.json":
                 raise RunLogError("run manifest already finalized")
             evidence[relative] = _file_evidence(path)
-        manifest = {**json.loads(self.start_raw), "ended_at": _now(), "status": status,
+        manifest = {**original, "ended_at": _now(), "status": status,
                     "outputs": evidence, "failure": failure,
                     "scientific_execution_authorized": False}
         final = self.directory / "manifest.json"
