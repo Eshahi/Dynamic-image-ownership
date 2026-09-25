@@ -59,6 +59,21 @@ class MetricParityPreparationTests(unittest.TestCase):
         }, clear=True):
             probe._check_launch_environment()
 
+    def test_lpips_only_selection_does_not_load_clip(self):
+        with patch.object(probe, "_load_clip_and_measure") as clip_load:
+            with patch.object(probe, "_load_lpips_and_measure",
+                              return_value={"cpu_score": 0.1}) as lpips_load:
+                result = probe._selected_measurements(
+                    "lpips", Path("assets"), Path("package"))
+        clip_load.assert_not_called()
+        lpips_load.assert_called_once_with(
+            Path("assets") / probe.ALEXNET_PATH,
+            Path("package") / "weights/v0.1/alex.pth",
+        )
+        self.assertEqual(result, {"lpips": {"cpu_score": 0.1}})
+        with self.assertRaises(ValueError):
+            probe._selected_measurements("unknown", Path("a"), Path("b"))
+
 
 if __name__ == "__main__":
     unittest.main()

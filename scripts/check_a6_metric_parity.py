@@ -182,12 +182,28 @@ def _load_lpips_and_measure(alexnet_path: Path, learned_path: Path) -> dict[str,
     }
 
 
+def _selected_measurements(metric: str, asset_root: Path,
+                           lpips_root: Path) -> dict[str, object]:
+    if metric not in ("both", "clip", "lpips"):
+        raise ValueError("unsupported metric selection")
+    measurements: dict[str, object] = {}
+    if metric in ("both", "clip"):
+        measurements["clip"] = _load_clip_and_measure(asset_root / CLIP_PATH)
+    if metric in ("both", "lpips"):
+        measurements["lpips"] = _load_lpips_and_measure(
+            asset_root / ALEXNET_PATH,
+            lpips_root / "weights/v0.1/alex.pth",
+        )
+    return measurements
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--asset-root", type=Path, required=True)
     parser.add_argument("--lock", type=Path, required=True)
     parser.add_argument("--lpips-root", type=Path, required=True)
     parser.add_argument("--load-metrics", action="store_true")
+    parser.add_argument("--metric", choices=("both", "clip", "lpips"), default="both")
     args = parser.parse_args()
     result = check_inputs(args.asset_root, args.lock, args.lpips_root)
     if not args.load_metrics:
@@ -207,13 +223,11 @@ def main() -> None:
     torch.backends.cudnn.benchmark = False
     torch.cuda.reset_peak_memory_stats()
     started = time.monotonic()
-    result["clip"] = _load_clip_and_measure(args.asset_root / CLIP_PATH)
-    result["lpips"] = _load_lpips_and_measure(
-        args.asset_root / ALEXNET_PATH,
-        args.lpips_root / "weights/v0.1/alex.pth",
-    )
+    result.update(_selected_measurements(args.metric, args.asset_root,
+                                         args.lpips_root))
     torch.cuda.synchronize()
     result["status"] = "synthetic_metrics_measured_not_accepted"
+    result["selected_metric"] = args.metric
     result["cuda_device"] = torch.cuda.get_device_name()
     result["cuda_peak_allocated_bytes"] = torch.cuda.max_memory_allocated()
     result["elapsed_seconds"] = round(time.monotonic() - started, 3)
