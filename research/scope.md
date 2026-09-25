@@ -84,6 +84,8 @@ The proposal names three evaluation groups:
 - DIV2K with 800 training and 100 validation images at 2K resolution, while noting that hardware constraints may motivate a later human-approved change.
 - A 5,000-image subset of DiffusionDB.
 
+**Execution amendment (2026-09-25):** The original MS-COCO wording above is preserved. After inspecting the COCO maintainers' 2020 challenge/2017 image-release relationship, the user authorized official COCO 2017 images for the same 1,000-image commitment. Record them as COCO 2017 images used by the 2020 challenge, not as a nonexistent 2020 image release. See [the bounded decision and unresolved institutional/data checks](b3-coco-release-decision-20260925.md). This does not approve a sample-ID manifest, image rights, data acquisition, scientific compute or any change to DIV2K/DiffusionDB.
+
 No release, item identifiers, immutable snapshot, sampling rule, deduplication rule, split, or checksum is yet approved. Counts must not be silently reduced.
 
 ### Evaluation commitments
