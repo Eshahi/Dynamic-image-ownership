@@ -10,6 +10,7 @@ import json
 import os
 import subprocess
 import sys
+import tempfile
 import uuid
 from contextlib import contextmanager
 from dataclasses import dataclass
@@ -84,10 +85,9 @@ def _now() -> str:
 @dataclass(frozen=True)
 class RunRecord:
     directory: Path
-    start: dict[str, Any]
+    start_raw: bytes
 
-    def finish(self, *, status: str, outputs: Mapping[str, Path] | None = None,
-               failure: str | None = None) -> Path:
+    def finish(self, *, status: str, failure: str | None = None) -> Path:
         """Write the final manifest once; an absent final manifest means interrupted."""
         if status not in {"succeeded", "failed"}:
             raise RunLogError("final status must be succeeded or failed")
@@ -95,15 +95,23 @@ class RunRecord:
             raise RunLogError("failed runs need a reason; successful runs cannot have one")
         if failure is not None and (len(failure) > 2048 or not failure.strip()):
             raise RunLogError("failure reason must be nonempty and bounded")
+        if (self.directory / "start.json").read_bytes() != self.start_raw:
+            raise RunLogError("start record changed after creation")
         evidence: dict[str, dict[str, Any]] = {}
-        for label, path in (outputs or {}).items():
-            if not isinstance(label, str) or not label or label in evidence:
-                raise RunLogError("output labels must be unique nonempty strings")
-            resolved = _regular(Path(path)).resolve()
-            if not resolved.is_relative_to(self.directory.resolve()):
-                raise RunLogError("output must reside in this run directory")
-            evidence[label] = _file_evidence(resolved)
-        manifest = {**self.start, "ended_at": _now(), "status": status,
+        for path in sorted(self.directory.rglob("*")):
+            relative = path.relative_to(self.directory).as_posix()
+            if path.is_symlink():
+                raise RunLogError("linked run artifact is forbidden")
+            if path.is_dir():
+                continue
+            if not path.is_file():
+                raise RunLogError("unsupported run artifact")
+            if relative in {"config.json", "start.json"}:
+                continue
+            if relative == "manifest.json":
+                raise RunLogError("run manifest already finalized")
+            evidence[relative] = _file_evidence(path)
+        manifest = {**json.loads(self.start_raw), "ended_at": _now(), "status": status,
                     "outputs": evidence, "failure": failure,
                     "scientific_execution_authorized": False}
         final = self.directory / "manifest.json"
@@ -137,7 +145,6 @@ def start_run(root: Path, *, config_path: Path, inputs: Mapping[str, Path],
         raise RunLogError("run root must be an existing non-link directory")
     run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "-" + uuid.uuid4().hex
     directory = root / run_id
-    directory.mkdir(exist_ok=False)
     start = {"schema_version": "c1-run-v1", "run_id": run_id,
              "started_at": _now(), "code": code,
              "config": {"file": "config.json", "sha256": loaded.sha256,
@@ -146,30 +153,34 @@ def start_run(root: Path, *, config_path: Path, inputs: Mapping[str, Path],
              "seeds": dict(seeds), "parameters": json.loads(encoded_parameters),
              "python_version": sys.version.split()[0],
              "scientific_execution_authorized": False}
-    _write_once(directory / "config.json", loaded.raw)
-    _write_once(directory / "start.json", _json_bytes(start))
-    return RunRecord(directory, start)
+    start_raw = _json_bytes(start)
+    staging = Path(tempfile.mkdtemp(prefix=f".staging-{run_id}-", dir=root))
+    # The canonical run directory appears only after both records are durable.
+    # A hard interruption before rename leaves a visible .staging-* directory,
+    # not a falsely started run. Do not erase that evidence automatically.
+    _write_once(staging / "config.json", loaded.raw)
+    _write_once(staging / "start.json", start_raw)
+    staging.rename(directory)
+    return RunRecord(directory, start_raw)
 
 
 @contextmanager
 def recorded_run(root: Path, *, config_path: Path, inputs: Mapping[str, Path],
                  environment_receipt: Path, seeds: Mapping[str, int],
-                 parameters: Mapping[str, Any]) -> Iterator[RunRecord]:
+                 parameters: Mapping[str, Any]) -> Iterator[Path]:
     """Preserve ordinary exceptions as failed runs without logging sensitive text.
 
     A process kill can only leave ``start.json``; consumers must classify that as
-    interrupted, never as a success. The caller may explicitly finalize outputs
-    inside the block; otherwise normal exit finalizes an empty-output success.
+    interrupted, never as a success. Yield only the output directory so the
+    context owns finalization and cannot record success before later failure.
     """
     record = start_run(root, config_path=config_path, inputs=inputs,
                        environment_receipt=environment_receipt, seeds=seeds,
                        parameters=parameters)
     try:
-        yield record
+        yield record.directory
     except BaseException as error:
-        if not (record.directory / "manifest.json").exists():
-            record.finish(status="failed", failure=type(error).__name__)
+        record.finish(status="failed", failure=type(error).__name__)
         raise
     else:
-        if not (record.directory / "manifest.json").exists():
-            record.finish(status="succeeded")
+        record.finish(status="succeeded")
