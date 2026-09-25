@@ -1,0 +1,18 @@
+# Independent A6 WSL clean-rebuild review
+
+- Date: 2026-09-25
+- Reviewer actor: `/root/a6_wsl_rebuild_review` (read-focused, distinct from the author)
+- Reviewed code commit: `33d06a98695965c4f3ca54e510f1b3f05ad0d1ed`
+- Prior reviewed commit with findings: `70aa0cb8463a5eb77172534fbb40969b26c0c34a`
+- Scope: `requirements-wsl-torch-py314.txt`, `requirements-wsl-stage2-py314.txt`, `scripts/prepare_science_wheelhouse.py`, its focused tests, and the three WSL software receipts. This is a software-rebuild review, not an experiment or a Spec Kit gate verdict.
+
+## Findings and re-review
+
+1. **Resolved — nested lock could not drive the published helper.** At `70aa0cb`, `requirements-wsl-stage2-py314.txt:4` included Stage 1 via `-r`, but the helper passed that text directly to `audit_science_wheels.parse_lock`, which rejected the include. At `33d06a9`, `scripts/prepare_science_wheelhouse.py:30-73` expands same-directory includes, rejects cycles, escapes and duplicate distributions, and ignores package-index declarations only for local materialization; its CLI uses this reader at line 170. The actual Stage-2 lock now parses to 60 distinct distributions. Its top-level SHA-256 is `73d5131759fa5559375a9480828e9a1a074dccd509efe57b53f785e10fccd9ff`; the included Stage-1 lock is `dc1e8d2a80371d81ee075ded037c17fefde16f476361903a967b58f1ec5795bd`. The six focused helper tests pass, including include and failure-path tests (`scripts/test_prepare_science_wheelhouse.py:20-43`). I inspected the repaired CLI and verified the existing fresh CLI output read-only; I did not create a new wheelhouse during this review.
+2. **Resolved — the first output directory had stale aliases.** The first wheelhouse contained 62 filenames because the same locked bytes for CUDA toolkit and Colorama also had obsolete `py2`-named copies. `research/a6-wsl-clean-rebuild-20260925.md:8,16` now distinguishes those aliases from the 60 selected wheels. The fresh `/home/soroush/.cache/thesis-a6-wsl-wheelhouse-reviewed` contains exactly 60 regular `.whl` files, 2,849,806,456 total bytes, 60 distinct SHA-256 digests, every one required by the combined lock, no extra digest and no `py2`-named wheel. This resolves the inventory discrepancy without claiming that the old directory itself was cleaned.
+
+## Evidence boundary
+
+The original pip dry-run and install reports agree on all 32 Stage-1 and 28 Stage-2 name/version/archive-hash triples. The clean WSL venv has 62 distributions: the 60 locked wheel distributions plus pip and CLIP; its `pip check` passes. The five installed `clip/` source files (excluding `__pycache__`) have identical names and SHA-256 digests in the original and clean WSL venvs. The clean venv's `direct_url.json` points to the checked local CLIP wheel, while the original venv's records the pinned Git commit. The installed-file match does **not** replay the CLIP source build or establish checkpoint identity, model numerical parity, or scientific reproducibility. The receipt is appropriately limited on these points (`research/a6-wsl-clean-rebuild-20260925.md:20-25`).
+
+**Verdict:** No remaining blocking finding for the narrow claim that the candidate 60-wheel WSL software environment can be rebuilt offline from the identified local bytes and imported without models. Accept this software-rebuild evidence only. Do **not** close A6/issue #7 or advance a Spec Kit gate: method-usable text/model/metric loading, publisher and weight rights/custody, numerical parity, full image-conditioned gradient/VRAM fit, and any scientific execution remain unproven or separately controlled. This review did not modify the implementation, issue, PR or gate state.

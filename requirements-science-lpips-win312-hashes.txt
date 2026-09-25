@@ -1,0 +1,5 @@
+# A6 candidate LPIPS software-only transaction for isolated Windows science venv.
+# Install with --no-index --no-deps --require-hashes from the verified local wheel cache.
+# This does not authorize model inference or adopt PyPI code as an unreviewed
+# substitute for the A4-pinned upstream source commit.
+lpips==0.1.4 --hash=sha256:fd537af5828b69d2e6ffc0a397bd506dbc28ca183543617690844c08e102ec5e
