@@ -49,16 +49,22 @@ The workflow lock does not install PyTorch, model weights, datasets, or a RunPod
 For the **same-host offline WSL science setup**, use Ubuntu 26.04.1 / CPython 3.14 and the existing hash-checked local wheelhouse. The tested source lock is [`requirements-wsl-stage2-py314.txt`](requirements-wsl-stage2-py314.txt), which includes the Stage-1 Torch/CUDA lock. Ubuntu's system CPython 3.14 here lacks `ensurepip`, so the fresh venv must bootstrap pip from the already checked local wheel. From the repository root in WSL:
 
 ```bash
+set -euo pipefail
 SCIENCE_VENV=/home/soroush/.cache/thesis-a6-science-rebuild
 SCIENCE_WHEELS=/home/soroush/.cache/thesis-a6-wsl-wheelhouse-reviewed
 PIP_WHEEL="/mnt/w/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/a6-offline-wheelhouse/pip-25.0.1-py3-none-any.whl"
+CLIP_WHEEL=/home/soroush/.cache/pip/wheels/e7/e3/b1/722c35677ff123bec3b7adcbfa8ea7867fc7211095903bccc6/clip-1.0-py3-none-any.whl
+test "$(sha256sum "$PIP_WHEEL" | cut -c 1-64)" = c46efd13b6aa8279f33f2864459c8ce587ea6a1a59ee20de055868d8f7688f7f
+test "$(sha256sum "$CLIP_WHEEL" | cut -c 1-64)" = 6c6f017103d9171720deb40d2592e43d5b9003a29cb48ae2567f7e09e81ac204
 python3.14 -m venv --without-pip "$SCIENCE_VENV"
 PYTHONPATH="$PIP_WHEEL" "$SCIENCE_VENV/bin/python" -m pip install --no-index --no-deps "$PIP_WHEEL"
 "$SCIENCE_VENV/bin/python" -m pip install --no-index --no-cache-dir --find-links "$SCIENCE_WHEELS" --require-hashes -r requirements-wsl-stage2-py314.txt
+"$SCIENCE_VENV/bin/python" -m pip install --no-index --no-deps "$CLIP_WHEEL"
 "$SCIENCE_VENV/bin/python" -m pip check
+HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 "$SCIENCE_VENV/bin/python" -c 'import torch, torchvision, diffusers, transformers, clip, lpips; print("method-class imports OK")'
 ```
 
-The separately pinned official CLIP source-built wheel must be verified and installed `--no-index --no-deps` as described in the [clean WSL rebuild receipt](research/a6-wsl-clean-rebuild-20260925.md); it is **not** covered by the 60-wheel lock above. That receipt records the tested offline pip-bootstrap path and first failed attempt. These commands require already-present checked wheels and do not fetch models or datasets. A fresh host, model rights, scientific numerical parity, full gradient/VRAM fit and paid remote execution are not certified by this setup.
+The separately pinned official CLIP source-built wheel is verified and installed above; it is **not** covered by the 60-wheel lock. The [clean WSL rebuild receipt](research/a6-wsl-clean-rebuild-20260925.md) records the tested offline pip-bootstrap path and first failed attempt. These commands require already-present checked wheels and do not fetch models or datasets. A fresh host, model rights, scientific numerical parity, full gradient/VRAM fit and paid remote execution are not certified by this setup.
 
 ## Scientific status
 
