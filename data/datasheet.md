@@ -1,0 +1,30 @@
+# Dataset datasheet (B3 draft, 2026-09-25)
+
+**Status: source/rights preflight only. No source image, annotation archive or metadata table has been acquired; `data/manifest.csv` and `data/dev-ids.json` do not yet exist.** This draft does not approve image reuse, redistribution, a study split, or any scientific result. Issue [#10](https://github.com/Eshahi/Dynamic-image-ownership/issues/10) depends on completed environment issue #7 and A2a. Source evidence and acquisition estimates are in [the B3 preflight](../research/b3-source-rights-preflight-20260925.md). The original proposal and preserved [research contract](../research/research-contract.md) remain authoritative except for the user's recorded COCO release-year amendment.
+
+## Commitments and source identity
+
+| Domain | Preserved count | Candidate source release and exact scope | Status |
+| --- | ---: | --- | --- |
+| MS-COCO | 1,000 source images | Official **COCO 2017** images, potentially from `val2017`; these are also used by the COCO 2020 challenge but are **not** a 2020 image release. The user explicitly authorized this bounded deviation from the proposal's literal 2020+ wording. | Source-year decision recorded; image IDs, annotation license IDs, bytes and study allocation pending. |
+| DIV2K | 800 source train + 100 source validation | Official NTIRE DIV2K high-resolution `DIV2K_train_HR.zip` (`0001`–`0800`) and `DIV2K_valid_HR.zip` (`0801`–`0900`). Source split names are **not** automatically the thesis train/validation/test split. | Official archive URLs and observed HEAD metadata recorded; no bytes or per-image hashes acquired. |
+| DiffusionDB | 5,000 pre-existing generated images | Curator's `poloclub/diffusiondb` **2M PNG** release, pinned dataset repository revision `fb620fbe49fa4420e0734bd9c0df11f51176b61f`. The 2M release is partitioned into 2,000 folders of 1,000 images; exact five-or-more part IDs and selection rule are not frozen. This source is not a prompt-only replacement for real-image inputs. | Curator card, license claim and distribution shape inspected; no image/metadata partition acquired. |
+
+The total preserved source-image commitment is **6,900**. The development-only 32-image feasibility subset and any pilot are not substitutes for these final reference counts. No capacity-based reduction has been approved.
+
+## Source, rights and citation ledger
+
+| Domain | Primary source/citation | Rights and handling boundary |
+| --- | --- | --- |
+| MS-COCO | [COCO maintained download/task source at commit `5e1c4da`](https://github.com/cocodataset/cocodataset.github.io/blob/5e1c4da72464b1c6f068df0c02c91e3000ea62c4/dataset/download.htm); [maintained terms at the same commit](https://github.com/cocodataset/cocodataset.github.io/blob/5e1c4da72464b1c6f068df0c02c91e3000ea62c4/dataset/termsofuse.htm). Cite the COCO paper only after the exact bibliography entry is checked. | Consortium licenses **annotations/website** CC BY 4.0, but expressly does **not** own image copyrights; image use must respect Flickr terms and each selected image's available license metadata. No blanket CC BY image claim. Do not redistribute raw images or publish example images before item-level and thesis-figure review. |
+| DIV2K | [Dataset maintainers' official page](https://data.vision.ee.ethz.ch/cvl/DIV2K/) and its requested citation: Agustsson & Timofte, *NTIRE 2017 Challenge on Single Image Super-Resolution: Dataset and Study*. | Maintainers restrict availability to **academic research** and state image copyright remains with original owners. Local MSc research is the intended use; redistribution/public thesis figures or derivative distribution still need separate review. Preserve full native-resolution source bytes; resizing for a pilot cannot substantiate native-2K claims. |
+| DiffusionDB | [Curator dataset card](https://huggingface.co/datasets/poloclub/diffusiondb) and [curator datasheet](https://github.com/poloclub/diffusiondb/blob/main/datasheet.md). Cite Wang et al., *DiffusionDB: A Large-scale Prompt Gallery Dataset for Text-to-Image Generative Models* (2022, arXiv:2210.14896). | Curators label the dataset **CC0 1.0** and their datasheet additionally points to Stability AI terms. This is their distribution claim, not independent legal clearance for every image. Card warns NSFW filtering is imperfect; preregister an image/prompt-score exclusion policy, avoid publishing raw prompts/user identifiers, and review any figures before publication. |
+
+## Acquisition, integrity and exclusions still required
+
+1. Pin exact image/annotation or metadata archive URLs, immutable source revision where available, upstream advertised size/hash or explicit absence, and bounded download ceiling **before** acquisition. Keep archives/images outside Git under `data/raw/` or another declared ignored asset root; preserve source bytes read-only.
+2. Freeze a deterministic source-ID selection rule without viewing method outcomes. Record full source archive SHA-256, every selected raw-image SHA-256/size, native decoded dimensions, release/split/ID, license reference, content-dependence group, and missing/corrupt/duplicate IDs. A source archive checksum alone is not an item-level manifest.
+3. Record COCO image-level license identifiers and Flickr reference where available; do not equate annotation CC BY with image ownership. Record DIV2K academic-only handling and DiffusionDB CC0/terms/NSFW caveats per selected item or group. Any excluded image requires a reason and deterministic replacement rule; no silent count shrinkage.
+4. Create and validate `data/manifest.csv` with the existing fail-closed schema validator, then freeze `data/dev-ids.json` with seed and selected IDs. The final independent study splits, near-duplicate/prompt/user grouping and holdout decisions belong to B4, not merely to this source datasheet.
+
+No dataset download, image decode, content filtering, license acceptance or split freeze has occurred by writing this file.
