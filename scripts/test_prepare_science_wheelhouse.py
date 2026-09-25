@@ -4,7 +4,7 @@ import unittest
 import zipfile
 from pathlib import Path
 
-from prepare_science_wheelhouse import materialize, select_wheels
+from prepare_science_wheelhouse import materialize, read_lock_tree, select_wheels
 
 
 def make_wheel(path: Path) -> str:
@@ -17,6 +17,31 @@ def make_wheel(path: Path) -> str:
 
 
 class WheelhouseTests(unittest.TestCase):
+    def test_same_directory_lock_include_and_index_options(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / "base.txt").write_text(
+                "--index-url https://example.invalid/simple\n"
+                + "alpha==1 --hash=sha256:" + "a" * 64 + "\n")
+            (root / "child.txt").write_text(
+                "-r base.txt\n--extra-index-url https://example.invalid/other\n"
+                + "beta==2 --hash=sha256:" + "b" * 64 + "\n")
+            locked, fingerprints = read_lock_tree(root / "child.txt")
+            self.assertEqual(locked, {("alpha", "1"): "a" * 64,
+                                      ("beta", "2"): "b" * 64})
+            self.assertEqual(set(fingerprints), {"base.txt", "child.txt"})
+
+    def test_lock_include_cycle_and_escape_fail_closed(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / "a.txt").write_text("-r b.txt\n")
+            (root / "b.txt").write_text("-r a.txt\n")
+            with self.assertRaisesRegex(ValueError, "cyclic"):
+                read_lock_tree(root / "a.txt")
+            (root / "a.txt").write_text("-r ../outside.txt\n")
+            with self.assertRaisesRegex(ValueError, "unsupported lock line"):
+                read_lock_tree(root / "a.txt")
+
     def test_cached_body_prefers_py3_when_py2_metadata_tag_is_first(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

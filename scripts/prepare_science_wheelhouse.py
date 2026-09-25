@@ -18,11 +18,58 @@ from audit_science_wheels import canonical, digest, parse_lock, wheel_identity
 
 
 TAG = re.compile(r"^[A-Za-z0-9_.]+-[A-Za-z0-9_.]+-[A-Za-z0-9_.]+$")
+INCLUDE = re.compile(r"^-r\s+([A-Za-z0-9_.-]+\.txt)$")
+INDEX_OPTIONS = ("--index-url ", "--extra-index-url ")
 
 
 def safe_directory(path: Path) -> None:
     if not path.is_dir() or path.is_symlink() or path.is_junction():
         raise ValueError(f"not a regular directory: {path}")
+
+
+def read_lock_tree(path: Path) -> tuple[dict[tuple[str, str], str], dict[str, str]]:
+    """Read same-directory hash-lock includes without using their package indexes."""
+    root = path.parent.resolve()
+    locked: dict[tuple[str, str], str] = {}
+    fingerprints: dict[str, str] = {}
+    active: set[str] = set()
+
+    def visit(name: str) -> None:
+        if name in active:
+            raise ValueError(f"cyclic lock include: {name}")
+        if name in fingerprints:
+            raise ValueError(f"duplicate lock include: {name}")
+        candidate = root / name
+        if candidate.is_symlink() or candidate.is_junction() or not candidate.is_file():
+            raise ValueError(f"not a regular lock file: {candidate}")
+        if candidate.resolve().parent != root:
+            raise ValueError(f"lock include escapes directory: {name}")
+        active.add(name)
+        raw = candidate.read_bytes()
+        fingerprints[name] = hashlib.sha256(raw).hexdigest()
+        rows: list[str] = []
+        for line in raw.decode("utf-8").splitlines():
+            stripped = line.strip()
+            if not stripped or stripped.startswith("#"):
+                continue
+            include = INCLUDE.fullmatch(stripped)
+            if include:
+                visit(include[1])
+            elif stripped.startswith(INDEX_OPTIONS):
+                continue  # The materializer never accesses an index.
+            else:
+                rows.append(stripped)
+        if rows:
+            for key, value in parse_lock("\n".join(rows)).items():
+                if key in locked:
+                    raise ValueError(f"duplicate locked distribution: {key}")
+                locked[key] = value
+        active.remove(name)
+
+    visit(path.name)
+    if not locked:
+        raise ValueError("empty distribution lock")
+    return locked, fingerprints
 
 
 def wheel_filename(path: Path, key: tuple[str, str]) -> str:
@@ -120,10 +167,10 @@ def main() -> None:
     parser.add_argument("--source-root", type=Path, action="append", required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    raw = args.hash_lock.read_bytes()
-    locked = parse_lock(raw.decode("utf-8"))
+    locked, fingerprints = read_lock_tree(args.hash_lock)
     report = materialize(locked, args.source_root, args.output)
-    report["hash_lock_sha256"] = hashlib.sha256(raw).hexdigest()
+    report["hash_lock_sha256"] = fingerprints[args.hash_lock.name]
+    report["lock_file_sha256"] = fingerprints
     print(json.dumps(report, sort_keys=True))
 
 
