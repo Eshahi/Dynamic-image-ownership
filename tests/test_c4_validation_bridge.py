@@ -1,5 +1,6 @@
 """Owned config/receipt tests only; no worker, assets or scientific permission."""
 import copy
+import dataclasses
 import hashlib
 import importlib.util
 import json
@@ -154,6 +155,29 @@ class ValidationBridgeTests(unittest.TestCase):
         self.assertEqual(path.read_bytes(), raw)
         with self.assertRaises(EmbeddingError):
             bridge.check_inputs(self.manifest_path.read_bytes(), Path("relative"))
+
+    def test_hex_expansion_rejected_before_receipt_publication(self):
+        # Valid trailing JSON whitespace is not malformed configuration; its
+        # hex-encoded receipt would exceed the child's two-MiB bounded reader.
+        padded = self.loaded.raw + b" "*(1_100_000-len(self.loaded.raw))
+        self.loaded = dataclasses.replace(self.loaded, raw=padded,
+            sha256=hashlib.sha256(padded).hexdigest())
+        (self.root/bridge.CONFIG_PATH).write_bytes(padded)
+        for entry in self.manifest["inputs"]:
+            if entry["path"] == bridge.CONFIG_PATH:
+                entry["sha256"] = self.loaded.sha256
+        self.write_manifest()
+        self.assertLess(len(padded), bridge.MAX_FILE_BYTES)
+        if importlib.util.find_spec("jsonschema") is not None:
+            # Real full Windows C1 validation, not mock acceptance.
+            with self.assertRaisesRegex(EmbeddingError, "serialized C1 bridge receipt"):
+                bridge.write_validation_receipt(self.manifest_path, self.checkpoints, root=self.root)
+        else:
+            # Linux receipt-bound unit check only; no false C1 verdict claim.
+            with mock.patch.object(bridge, "load_method_config", return_value=self.loaded), \
+                    self.assertRaisesRegex(EmbeddingError, "serialized C1 bridge receipt"):
+                bridge.write_validation_receipt(self.manifest_path, self.checkpoints, root=self.root)
+        self.assertFalse((self.checkpoints/bridge.RECEIPT_NAME).exists())
 
     def test_linked_receipt_or_input_ancestor_rejected(self):
         path = self.fixture_receipt()

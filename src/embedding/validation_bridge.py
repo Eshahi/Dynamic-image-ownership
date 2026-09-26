@@ -150,8 +150,13 @@ def write_validation_receipt(manifest_path: Path, checkpoint_dir: Path, *, root:
         "validation_runtime": {"python": platform.python_version(), "executable": sys.executable},
         "authority": "trusted-reviewed-launcher-provenance-not-user-approval"}
     receipt_path = checkpoint_dir/RECEIPT_NAME
+    receipt_raw = _json(record)
+    # Hex expansion and inventory overhead must not publish a receipt that
+    # the child cannot read under the same bounded-file contract.
+    if len(receipt_raw) > MAX_FILE_BYTES:
+        raise EmbeddingError("serialized C1 bridge receipt exceeds bounded read contract")
     with receipt_path.open("xb") as handle:
-        handle.write(_json(record)); handle.flush(); os.fsync(handle.fileno())
+        handle.write(receipt_raw); handle.flush(); os.fsync(handle.fileno())
     return receipt_path
 
 
