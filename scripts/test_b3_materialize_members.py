@@ -51,6 +51,8 @@ class MemberStagingTests(unittest.TestCase):
         payload, expected, name, image = self.fixture_bytes()
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
+            with self.assertRaisesRegex(ValueError, "absolute"):
+                stage_selected(payload, 948, expected, {name: hashlib.sha256(image).hexdigest()}, Path("."), execute=True)
             for selected in ({name: "0" * 64}, {"../unsafe.png": "0" * 64}, {}):
                 with self.subTest(selected=selected), self.assertRaises(ValueError):
                     stage_selected(payload, 948, expected, selected, root, execute=True)

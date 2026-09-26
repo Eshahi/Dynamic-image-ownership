@@ -26,6 +26,8 @@ def stage_selected(payload, part, expected, selected, output_root, *, execute=Fa
     """Preview by default; after full inspection copy only exact named raw bytes."""
     if not isinstance(selected, dict) or not selected:
         raise ValueError("selected member digest mapping must be nonempty")
+    if not output_root.is_absolute():
+        raise ValueError("output root must be absolute for ancestor checks")
     records, _ = inspect_archive(payload, part, expected)
     by_name = {row["image_name"]: row for row in records}
     for name, digest in selected.items():
