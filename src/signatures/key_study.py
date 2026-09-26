@@ -86,6 +86,8 @@ class Observation:
 
 def validate_plan(samples, pairs):
     """Explicit labels only: a same-domain pair is not automatically same-topic."""
+    if type(samples) not in (list, tuple) or type(pairs) not in (list, tuple):
+        raise KeyStudyError("replayable list/tuple inventories required; no one-shot iterators")
     if not samples or not pairs:
         raise KeyStudyError("nonempty predeclared sample and pair inventory required")
     index, sources = {}, {}

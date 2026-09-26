@@ -100,6 +100,17 @@ class KeyStudyTests(unittest.TestCase):
         with self.assertRaises(KeyStudyError):
             validate_plan([*self.samples, replace(self.samples[0], sample_id="new", group_id="other")], self.pairs)
 
+    def test_one_shot_or_empty_inventory_cannot_erase_rows(self):
+        for samples, pairs in ((iter(self.samples), self.pairs),
+                               (self.samples, iter(self.pairs)),
+                               (iter([]), iter([])), ([], []),
+                               (self.samples, []), ([], self.pairs)):
+            for operation in (lambda: validate_plan(samples, pairs),
+                              lambda: dependency_components(samples, pairs),
+                              lambda: evaluate(samples, pairs, self.observations, self.seed)):
+                with self.assertRaises(KeyStudyError): operation()
+        self.assertEqual(len(evaluate(tuple(self.samples), tuple(self.pairs), self.observations, self.seed)), 4)
+
     def test_invalid_measurements_fail_closed_not_negative(self):
         for observation in (Observation("completed", feature(), b"\0"),
                             Observation("completed", tuple([float("nan")]*512), bytes(4)),
