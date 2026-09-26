@@ -23,8 +23,12 @@ snapshot and operation journals. One new003 only with a new final clean-commit
 canonical manifest and exact user approval via the official runner. Old approval
 binding must reject this package. No scientific direct-worker invocation.
 
-Same1200s/USD0/Torch8192MiB ceiling. RAM12288MiB/disk4096MiB are estimates, not
-whole-OS caps; actual freeVRAM>=9GiB/MemAvailable>=13GiB/disk>=4GiB required.
+Same1200s/USD0 with revised fixedTorch9216MiB ceiling, not the old8GiB package.
+User requested12GB, but current total12227MiB/free10768MiB cannot accommodate
+literal12GB plus unchanged1024MiB headroom. Prepare9GiB under the requested
+upper limit; this alternative still requires new exact approval. See the pinned
+resource-amendment.json. RAM12288MiB/disk4096MiB are estimates, not whole-OS
+caps; actual freeVRAM>=10GiB/MemAvailable>=13GiB/disk>=4GiB required.
 Parent1190s/Linux1140s/10skill remain. More recomputation time and backward
 workspace may still fail; no fit/runtime guarantee. No downloads/heldout/paid
 RunPod/quality/CLIPdrift/blindcalibration/extractions added to this scope.

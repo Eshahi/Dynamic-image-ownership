@@ -1,12 +1,12 @@
 {
-  "status": "prospective_after_two_observed_OOMs_checkpoint_backward_peak_and_time_unknown",
+  "status": "prospective_fixed9GiB_after_user_requested12GB_but_local_headroom_insufficient_for_literal12GB",
   "execution_target": "local_WSL_existing_clean_science_environment",
   "max_seconds": 1200,
   "parent_seconds": 1190,
   "linux_group_timeout_seconds": 1140,
   "linux_kill_after_seconds": 10,
   "parent_startup_allowance_seconds": 30,
-  "torch_allocator_ceiling_mib": 8192,
+  "torch_allocator_ceiling_mib": 9216,
   "required_extra_free_vram_mib": 1024,
   "estimated_ram_mib": 12288,
   "required_extra_available_ram_mib": 1024,
@@ -22,5 +22,8 @@
   "scientific_compute_authorized": false,
   "real_checkpoint_numerical_parity_measured": false,
   "checkpoint_forward_backward_peak_measured": false,
-  "no_adaptive_cap_or_fallback": true
+  "no_adaptive_cap_or_fallback": true,
+  "resource_amendment": "resource-amendment.json",
+  "observed_free_vram_mib": 10768,
+  "availability_is_transient": true
 }

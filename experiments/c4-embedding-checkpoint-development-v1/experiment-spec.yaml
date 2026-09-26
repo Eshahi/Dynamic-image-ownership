@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "experiment_id": "c4-embedding-checkpoint-development-v1",
   "task_id": "C4",
-  "question": "Can per-UNet and VAE-decoder activation recomputation allow the unchanged native fp32 embedding path, with explicit idle residency, to complete under the same8GiB Torch ceiling?",
+  "question": "Can per-UNet and VAE-decoder activation recomputation allow the unchanged native fp32 embedding path, with explicit idle residency, to complete under the fixed9GiB Torch ceiling?",
   "hypothesis": "Nonreentrant checkpointing exchanges stored activations for recomputation without intentionally changing the fixed path; complete gradients/two updates and saved matched PNGs support only this profile's feasibility. OOM/replay/guard/failure refutes that feasibility and is retained.",
   "primary_outcome": "One engineering trial with recorded finite nonzero gradient, two projected updates and final evaluation, matched control/marked safety-checked saved PNG identities, or explicit failure/pending operation boundaries.",
   "secondary_outcomes": [
@@ -36,13 +36,14 @@
     "Seed0, empty77tokens,10DDIMsteps,strength0.2,two-step suffix,alpha_s/i0.2,rho0.01,Adam lr0.005/twoupdates/betas0.9,0.999/eps1e-8/equalweights1/margins0.1,noCFG,TF32off",
     "Source-derived signatures for embedding enrollment only; no oracle blind-detector/ownership claim",
     "Safety flags terminal; never black-image replacement or CPU safety forward substitution",
-    "Explicit checkpoint config SHA804cb5e28e4c3ef39e81a6aae99d4c4fdbc2d4842467a076ba69a40968960653; per-call timestep binding, no fallback or checkpoint-disable retry; ordinary Python/hook/unsafe-data state limits remain."
+    "Explicit checkpoint config SHA804cb5e28e4c3ef39e81a6aae99d4c4fdbc2d4842467a076ba69a40968960653; per-call timestep binding, no fallback or checkpoint-disable retry; ordinary Python/hook/unsafe-data state limits remain.",
+    "User requested increased ceiling up to12GB; measured total12227MiB/free10768MiB cannot safely support literal12GB plus headroom. New fixed9GiB candidate requires separate exact manifest approval; no adaptive cap or fallback. Original8GiB manifests preserved unexecuted/consumed as applicable."
   ],
   "ablations": [],
   "seeds": [
     0
   ],
-  "stopping_rule": "One new run003 only after separate exact user approval, not reuse of consumed001/002 approvals. Outer1200s,parent1190s minus validation, Linux1140s/10s kill; no retry/resume/adaptive parameters. Torch8192MiB ceiling unchanged, freeVRAM>=9GiB, MemAvailable>=13GiB,diskfree>=4GiB. CPU transfer RAM peaks unknown; estimates are not whole-system enforcement. OOM/resource/transfer/timeout failures terminal and retained.",
+  "stopping_rule": "One new run003 only after separate exact user approval, not reuse of consumed001/002 approvals. Outer1200s,parent1190s minus validation, Linux1140s/10s kill; no retry/resume/adaptive parameters. Torch9216MiB ceiling, freeVRAM>=10GiB, MemAvailable>=13GiB,diskfree>=4GiB. CPU transfer RAM peaks unknown; estimates are not whole-system enforcement. OOM/resource/transfer/timeout failures terminal and retained.",
   "acceptance_rule": "Only complete retained gradients/two projected updates/final measurement/native matched saved PNGs/safety and resource evidence support this profile's engineering feasibility. Zero/detached/nonfinite gradients, OOM, transfer/profile drift, safety/load/custody/headroom or timeout prevent positive feasibility. CPU-label toy tests and model load are not real transfer fidelity or SD/safety parity. Successful one-source run does not close C4 or establish quality/blind detection/generalization/ownership authority. Checkpoint replay errors and ordinary version/condition/schedule drift are terminal; finite outputs alone do not certify numerical parity. Saved-payload CPU fixture counts cannot prove actual GPU fit.",
   "negative_result_policy": "Keep original run001/run002 specs/failures plus every new run003 phase/trial/snapshot/error/partial output. Never exclude failure or convert missing gradient to zero. Operation completion means observed boundary, not exact CUDA kernel because errors may be asynchronous. Missing terminal report on timeout stays incomplete; no replacement case/seed/setting or retry.",
   "analysis": {

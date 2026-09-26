@@ -14,3 +14,9 @@ One completed new trial alone cannot close C4 or support quality targets.
 Only a new exact user approval through the official runner permits run003.
 Previous001/002 authorizations are consumed, not retries. No model/data download,
 paid provider or parameter/cap/source/precision adaptation is included.
+
+The prospective ceiling is now fixed9216MiB after a resource-amendment request,
+not literal12GB or automatic use of all GPU memory. Old unexecuted8GiB manifest
+is preserved and superseded, not approved by the conditional change. Resource
+headroom still gates launch, and changed availability causes retained failure,
+not an adaptive cap. Only new exact manifest approval can permit this alternative.

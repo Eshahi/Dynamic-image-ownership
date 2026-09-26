@@ -37,7 +37,7 @@ SCRIPT = "scripts/run_c4_dev_probe.py"
 WORKER_SCRIPT = "scripts/c4_dev_probe.py"
 OUTPUTS = ["outputs/c4-development.json", "logs/c4-progress.jsonl", "logs/c4-launcher.jsonl"]
 BUDGET = {"max_seconds": 1200, "max_usd": 0, "hourly_usd": 0}
-RESOURCES = {"vram_mib": 8192, "ram_mib": 12288, "disk_mib": 4096}
+RESOURCES = {"vram_mib": 9216, "ram_mib": 12288, "disk_mib": 4096}
 REQUIRED = frozenset({CASE, ENVIRONMENT, *PINS, "configs/data.json", "research/a6-candidate-model-assets.json",
     "src/embedding/worker.py", SCRIPT, WORKER_SCRIPT, "scripts/a6_clip_visual.py",
     "scripts/verify_science_assets.py", "scripts/pixel_dct_control.py", "scripts/base_noise_reference.py",
@@ -51,6 +51,7 @@ REQUIRED = frozenset({CASE, ENVIRONMENT, *PINS, "configs/data.json", "research/a
     SPEC_ROOT+"/experiment-spec.yaml", SPEC_ROOT+"/plan.md",
     SPEC_ROOT+"/acceptance-criteria.md", SPEC_ROOT+"/compute-estimate.json",
     SPEC_ROOT+"/prior-failures.json",
+    SPEC_ROOT+"/resource-amendment.json",
     "scripts/prepare_c4_execution.py"})
 
 

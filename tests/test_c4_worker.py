@@ -127,6 +127,9 @@ class WorkerTests(unittest.TestCase):
                          ("resources", dict(worker.RESOURCES, vram_mib=8193))):
             altered = copy.deepcopy(manifest); altered[key] = bad
             with self.assertRaises(ValueError): worker.check_recipe(altered, snapshots)
+        for amount in (8192,12288):
+            altered=copy.deepcopy(manifest);altered["resources"]["vram_mib"]=amount
+            with self.assertRaises(ValueError):worker.check_recipe(altered,snapshots)
         altered = dict(snapshots); del altered["scripts/base_noise_reference.py"]
         with self.assertRaises(ValueError): worker.check_recipe(manifest, altered)
         altered=dict(snapshots);altered[worker.RESIDENCY_CONFIG]+=b" "

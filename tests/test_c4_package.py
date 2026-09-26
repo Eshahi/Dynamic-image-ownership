@@ -46,6 +46,10 @@ class PackageTests(unittest.TestCase):
         self.assertEqual(spec["analysis"]["confidence_interval"], "none")
         self.assertEqual(spec["analysis"]["mode"], "exploratory")
         self.assertEqual(spec["analysis"]["expected_runs"][0]["run_id"],worker.RUN_ID)
+        self.assertIn(worker.SPEC_ROOT+"/resource-amendment.json",required)
+        self.assertEqual(worker.RESOURCES["vram_mib"],9216)
+        self.assertEqual(json.loads((package.ROOT/(worker.SPEC_ROOT+"/resource-amendment.json")).read_bytes())
+                         ["required_free_mib_at_launch"],9216+1024)
 
 
 if __name__ == "__main__": unittest.main()
