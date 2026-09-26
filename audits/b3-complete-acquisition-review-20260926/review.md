@@ -1,0 +1,11 @@
+# Independent complete acquisition and source-proposal review
+
+2026-09-26. Author `/root`; actual independent read-focused actor `/root/b3_intake_review`, under AGENTS.md and research/approval-policy.md. Exact reviewed commit `279ee7b879a492f8795cf709885bdeb6c045c54b`. Root records actual returned evidence, not a human/academic/scientific verdict.
+
+No narrow blocking findings. Reviewer independently rehashed all fourteen final ZIPs:14/14 exact upstream sizes/hashes,8,493,745,129 bytes total. Final1854/1359 were fully replayed through the inspector into fresh ignored receipts; all CRC/native PNG decode/dimensions/aggregate/CSV evidence matched. Full14 bound CSV/eligibility/dependence replay matched SHA `ce218da2f73c3d2c73a83047fd3839034642a50a53a9e180654571d04110ea60`. Independent adjacency/BFS and ID hashing matched every component:14,000 records/6,791 eligible/6,219 components/365 multi-image/21 all-observed raw-byte duplicate groups.
+
+Two focused source-proposal tests passed independently. In-memory proposal replay matched SHA `caa20e7952da822fe1e46b141e59c0cfe03b13d97b79498e909f32cc8315abbd`; separately reconstructed rank formulas/order and every5,000 selected member's byte hash/dimensions/restrictions matched. Reversed input records preserve output; actual raw duplicate skips zero. CLI requires all fourteen actual frames, validates every prospective member before prefix selection and preserves ordered fallback without count reduction or method/file-arrival inputs.
+
+Accepted next step: private local copies of exactly this list's unchanged PNG bytes using the previously reviewed explicit-only staging utility, preserving provenance/restrictions. This is not final source freeze/admission, legal clearance, fabricated visual-content approval, B3 closure, study splits, official gate or scientific execution. Pending item rights, curator-metadata-screened/not visually reviewed content, no public images/prompts/users and excluded-bridge/canonical/near/user limitations remain explicit. Final manifest/dev-ID and deliverable reviews are still required.
+
+Reviewer wrote only fresh ignored receipts; no tracked source edits, real staging, partial reads, downloads/process/gate/model changes. Root180-test suite passed with ten expected dependency skips and diff check passed.
