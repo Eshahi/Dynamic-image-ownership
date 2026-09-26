@@ -1,0 +1,11 @@
+# Independent private metadata ledger review
+
+Date: 2026-09-26. Author `/root`; actual independent actor `/root/b3_intake_review`, under `AGENTS.md` and `research/approval-policy.md`. Exact initial commit `ec9810b43c0b763fcbfe4ac953e6e29733a08115`; exact repair `302fed4889e560f2aa2427e1860c72949d33d8d9`. Root records the returned read-focused reports; this is not a human verdict.
+
+Initial review found no narrow blocking finding. The reviewer independently rebuilt the private ledger from the pinned Parquet and separately classified every one of 14,000 candidate rows, recomputing normalization, exclusion reason and group digest. Every record matched: 6,791 metadata-eligible images, 7,206 score/size exclusions, three empty prompts and 6,219 exact-prompt groups. Serialized ledger SHA-256 matched `8c465e630e299a57ab7979c358a5cff614e78923a4eeceee339fa363f2a38049`. The embedded strict production receipt exactly equaled the previously approved production receipt. Five focused tests passed independently.
+
+The reviewer also independently replayed completed part420: pinned archive size/full SHA-256, all member CRCs and all 1,000 native PNG verification/full decodes/dimensions, aggregate fields and CSV digest `05cc5ae97dd126ddac0cd1cbb94b258caebeb2eeaa9a72e8f3c28b72cbf529f6` matched.
+
+Non-blocking warning: the initial observer callback could mutate the authoritative row dictionary before production validation. Root repaired this with `notify_observer` passing a read-only `MappingProxyType` over scalar columns and an explicit mutation-rejection test. Exact repair re-review confirmed mutation raises `TypeError` without changing the row; six focused tests passed, and a fresh in-memory Parquet replay still exactly matched the private ledger and unchanged production receipt. No remaining narrow blocker or warning. The unchanged part420 receipt was not redundantly re-decoded in the repair review.
+
+Root's full workflow suite: **168 tests, 160 pass/eight expected dependency skips**; `git diff --check` passed. All private fingerprints remain ignored; no source/study ID selection, content/rights, canonical/near dependence, B3 closure, lifecycle transition or scientific approval is accepted. No reviewer file writes, partial inspections or downloader changes occurred. The official run remains paused at plan-acceptance.
