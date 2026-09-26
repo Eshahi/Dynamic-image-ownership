@@ -144,5 +144,22 @@ class PreprocessTests(unittest.TestCase):
                 preprocess_file(source, sha(raw), len(raw), cache, CONFIG)
 
 
+    def test_self_consistent_cache_substitution_rejected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary); source = root / "source.png"; raw = self.image_bytes()
+            source.write_bytes(raw); cache = root / "cache"
+            args = (source, sha(raw), len(raw), cache, CONFIG)
+            _, receipt = preprocess_file(*args)
+            replacement, rgb = encode_output(np.ones((2, 3, 3), dtype=np.float32))
+            receipt.update(output_sha256=sha(replacement), output_size_bytes=len(replacement),
+                           canonical_pixel_sha256=pixel_sha(rgb))
+            output = cache / (receipt["cache_key"] + ".png")
+            output.write_bytes(replacement)
+            (cache / (receipt["cache_key"] + ".json")).write_text(json.dumps(receipt))
+            with self.assertRaisesRegex(PreprocessError, "cache_source_canonical"):
+                preprocess_file(*args)
+            self.assertEqual(output.read_bytes(), replacement)
+
+
 if __name__ == "__main__":
     unittest.main()

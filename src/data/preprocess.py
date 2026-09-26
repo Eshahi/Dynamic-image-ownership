@@ -200,6 +200,12 @@ def preprocess_file(source: Path, expected_sha256: str, expected_size: int,
         rgb, _ = decode_source(data, config)
         if pixel_sha(rgb) != receipt.get("canonical_pixel_sha256"):
             raise PreprocessError("cache_pixel_mismatch")
+        # Mutable receipt digests cannot anchor the source-to-output relation.
+        # Recompute from the verified raw snapshot even on a cache hit.
+        source_rgb, source_receipt = decode_source(raw, config)
+        if (not np.array_equal(rgb, source_rgb) or
+                any(receipt.get(k) != v for k, v in source_receipt.items())):
+            raise PreprocessError("cache_source_canonical_mismatch")
         return normalized(rgb), receipt
     rgb, source_receipt = decode_source(raw, config)
     data, decoded = encode_output(normalized(rgb))
