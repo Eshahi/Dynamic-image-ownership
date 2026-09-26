@@ -94,6 +94,14 @@ Earlier original receipts/Gitversione576b1c are preserved. The initial parity
 receipt refers to original v1 bytes/code, not the repaired generator. A new
 Windows v2 receipt is ignored `.thesis-build/c3b-owned-protocol-windows-v2-20260926.json`.
 Ten focusedtests now pass, including explicit pair/shape/distance coverage;
-independent re-review and GitHub acceptance are pending. The official
+actual independent re-review accepted exact693a4fbc444522515f1437fe3484bcc8f0e6eaf0
+with no remaining narrow blocker; see audits/c3b-instance-protocol-review-20260926/review.md.
+The regenerated JSON-normalized report agrees; the initial raw Pythonobject
+comparison failed only because runtime libc tuple becomes JSONlist, preserved
+as a diagnostic failure without result/arithmetic changes. Neither environment
+has pytest installed; it was not invoked or claimed passed. unittest directly
+executed these same owned test classes (10focused eachruntime,38combinedWindows
+34pass4skips), without a package install. GitHub acceptance must be verified.
+The official
 Spec Kit controller remains paused atplan-acceptance with nullchoice; no human
 or lifecycle verdict is fabricated and existing evidence remains immutable.
