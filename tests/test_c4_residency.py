@@ -86,5 +86,22 @@ class ResidencyTests(unittest.TestCase):
             with operation_phase(rows.append,"owned_operation"): raise MemoryError("owned")
         self.assertEqual(len(rows),1)
 
+    def test_between_transition_identity_condition_and_precision_drift_block(self):
+        for mutation in (lambda m:setattr(m.components.condition,"device","cpu"),
+                         lambda m:setattr(m.components.condition,"dtype","torch.float16"),
+                         lambda m:setattr(m.components.condition,"requires_grad",True),
+                         lambda m:setattr(m.pipeline,"unet",Module())):
+            models=owned_models();plan=PhaseResidency(models);mutation(models)
+            with self.assertRaises(EmbeddingError):plan.park_idle()
+            self.assertEqual(plan.state,"failed_transition")
+        for mutation in (lambda m:setattr(m.pipeline.vae.weight,"dtype","torch.float16"),
+                         lambda m:setattr(m.pipeline.safety_checker,"training",True),
+                         lambda m:setattr(m.pipeline.text_encoder.weight,"requires_grad",True),
+                         lambda m:setattr(m.pipeline,"vae",Module()),
+                         lambda m:setattr(m.components.condition,"device","cpu")):
+            models=owned_models();plan=PhaseResidency(models);plan.park_idle();mutation(models)
+            with self.assertRaises(EmbeddingError):plan.prepare_safety()
+            self.assertEqual(plan.state,"failed_transition")
+
 
 if __name__ == "__main__": unittest.main()

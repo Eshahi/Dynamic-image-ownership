@@ -29,29 +29,41 @@ class PhaseResidency:
         if str(condition.device) != "cuda:0" or str(condition.dtype) != "torch.float32" or condition.requires_grad:
             raise EmbeddingError("detached CUDA0 fp32 condition required")
         self.condition = condition
-        for module in (pipeline.vae, pipeline.unet, pipeline.text_encoder, pipeline.safety_checker):
+        self.modules = {name:getattr(pipeline,name) for name in ("vae","unet","text_encoder","safety_checker")}
+        self.profiles = {}
+        for name,module in self.modules.items():
             profile = _profile(module)
             if module.training or not profile or any(device != "cuda:0" or
                     dtype not in ("torch.float32", "torch.int64", "torch.int32", "torch.int16",
                                   "torch.int8", "torch.uint8", "torch.bool") or grad
                     for device,dtype,grad in profile):
                 raise EmbeddingError("frozen CUDA0 fp32 module profile required")
-        self.active_profile = (_profile(pipeline.vae), _profile(pipeline.unet))
+            self.profiles[name] = profile
+
+    def _check(self, devices):
+        pipeline, components = self.models.pipeline, self.models.components
+        if (components.condition is not self.condition or str(self.condition.device) != "cuda:0" or
+                str(self.condition.dtype) != "torch.float32" or self.condition.requires_grad or
+                components.vae is not self.modules["vae"] or components.unet is not self.modules["unet"]):
+            raise EmbeddingError("active identity or detached conditioning profile changed")
+        for name,module in self.modules.items():
+            if (getattr(pipeline,name) is not module or module.training or
+                    _profile(module) != tuple((devices[name],dtype,grad) for _,dtype,grad in self.profiles[name])):
+                raise EmbeddingError("original module identity/eval/precision/freeze profile changed")
 
     def park_idle(self):
         if self.state != "new": raise EmbeddingError("one idle parking transition required")
         self.state = "failed_transition"  # remains terminal on any exception
         pipeline = self.models.pipeline
         with operation_phase(self.progress, "idle_components_to_cpu"):
+            self._check({name:"cuda:0" for name in self.modules})
             for module in (pipeline.text_encoder, pipeline.safety_checker):
                 before = _profile(module)
                 module.to(device="cpu")
                 after = _profile(module)
                 if after != tuple(("cpu", dtype, grad) for _,dtype,grad in before):
                     raise EmbeddingError("idle transfer altered precision/freeze or failed")
-            if ((_profile(pipeline.vae), _profile(pipeline.unet)) != self.active_profile or
-                    self.models.components.condition is not self.condition):
-                raise EmbeddingError("active component or conditioning residency changed")
+            self._check({"vae":"cuda:0","unet":"cuda:0","text_encoder":"cpu","safety_checker":"cpu"})
         self.state = "optimization"
 
     def prepare_safety(self):
@@ -59,6 +71,7 @@ class PhaseResidency:
         self.state = "failed_transition"
         pipeline = self.models.pipeline
         with operation_phase(self.progress, "active_components_to_cpu_and_safety_to_cuda"):
+            self._check({"vae":"cuda:0","unet":"cuda:0","text_encoder":"cpu","safety_checker":"cpu"})
             for module in (pipeline.vae, pipeline.unet):
                 before = _profile(module)
                 module.to(device="cpu")
@@ -68,4 +81,5 @@ class PhaseResidency:
             pipeline.safety_checker.to(device="cuda:0")
             if _profile(pipeline.safety_checker) != tuple(("cuda:0", dtype, grad) for _,dtype,grad in before):
                 raise EmbeddingError("safety original GPU profile not restored")
+            self._check({"vae":"cpu","unet":"cpu","text_encoder":"cpu","safety_checker":"cuda:0"})
         self.state = "safety"
