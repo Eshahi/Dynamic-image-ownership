@@ -1,0 +1,13 @@
+# Independent C4 package launch-readiness review
+
+2026-09-26. Author `/root`; actual independent read-focused actor `/root/b3_intake_review`. Exact reviewed implementation/design commit **428f54f782258c6a07e32d160792751bb5a2c592**. No concrete blocker to presenting the bounded package for exact user approval. This is NOT C4 acceptance, scientific acceptance, a human gate verdict or execution permission.
+
+Independent reviewer recomputed canonical manifest SHA **c23df6391197a68121d9de8724aa4de78776f870a5b322a9c2dc1a7bec58ca26**, matched all43 inputs, clean builder output and official helper packaged manifest/spec. Existing WSL metadata matched Python3.14.4 and all62 distributions without model imports. Five packaging tests passed on both Windows/WSL. No actual image/model/GPU/launcher execution occurred.
+
+Root ordinary validation: 28 focused tests Windows27pass/1expectedskip, WSL26pass/2expectedskips. Broader component/worker/package/instance suites78tests: Windows58pass/20expectedTorch/NumPy/symlinkskips; WSL72pass/6expectedC1/Windows-onlyskips. These are owned fixtures, not scientific data/model results. Prior full Windows discovery NumPy import errors remain known; no claim of full-suite pass. git diff --check passed.
+
+Official experiment-design helper validated/package generation without execution; official compute runner dispatch preview reported local, canonicalSHA above, requires_approval true, conservative maximum10240MiB. Resource manifest fixed8192MiB Torch allocator, estimated12288MiB RAM/4096MiB disk,1200s/USD0. Metadata-only official GPU query observed total12227MiB/free10822MiB/driver610.88 on RTX5070Ti Laptop; this momentary reading is not future availability or gradient-fit measurement. Worker still checks its headroom at launch and records refusal.
+
+Warnings retained: unknown full float32 gradient/VRAM fit; environment version metadata is not package payload attestation; RAM and Torch allocation are not whole-system limits; forced timeout can leave missing terminal worker outputs and pending phases; actual quality/q/h drift/blind metrics NOT_RUN; pending rights/custody and no redistribution. Successful one-source engineering pilot does not close C4 or establish final detection/quality/generalization.
+
+The review/continuation documentation commit changes HEAD, so this c23 manifest must NOT be submitted for approval or executed after that commit. Regenerate an exclusive external manifest at the final clean HEAD and independently recheck unchanged input inventory/bytes plus exact new commit/hash before asking. Only the official runner may validate/consume the user's separate exact decision. No retries, download/paid expansion, lifecycle state mutation or fabricated verdict.
