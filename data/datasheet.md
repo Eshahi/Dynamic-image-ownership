@@ -4,6 +4,20 @@ Issue [#10](https://github.com/Eshahi/Dynamic-image-ownership/issues/10), PR [#6
 
 ## Actual engineering artifacts
 
+B4's **current pre-outcome admitted source version**, pending its independent
+data-plan review, is [source-manifest.csv](b4-admission-20260926/source-manifest.csv),
+SHA-256 `40bfeca7c589b8352f93535070bc74fca70c6458216ea5422f0dc173f57110c4`.
+It preserves the same 6,900-source counts and all source/rights limits. The three
+original canonical-ineligible COCO candidates remain in the historical manifest
+and [admission ledger](b4-admission-20260926/admission.json), replaced prospectively
+by the first three existing ordered reserves under the reviewed pre-freeze rule,
+not by method outcomes. [The bound development reservation](b4-admission-20260926/development-reservation.json)
+preserves every original32 source identity without reranking. `configs/splits.json`
+names these exact active paths/pins; consumers must not join new splits against
+the historical B3 manifest merely because its filename is shorter. Current
+data/splits.csv is a pre-outcome engineering lock under declared finite grouping,
+not legal clearance, proof of population independence or scientific compute.
+
 [Manifest](manifest.csv):6,900 real rows, SHA-256 `5665665b51d5020df00fe1db1dc090a5e8b007c65fda65021c72c6ba709ce71b`. All6,900 actual files independently size/hash/nonlink checked,7,218,764,607 bytes/6,900 distinct raw digests. [Development reservation](dev-ids.json):32 images, SHA-256 `7cc2a4c827fd1c64b2f6d529a3726b843a0c635077982deb87725fbc3ac7f0bc`;10 COCO/10 DIV2K source-train/12 DiffusionDB. B4 must keep every later-linked full component in development and exclude it from validation/test. See [generation/evidence record](../research/b3-manifest-and-development-reservation-20260926.md). All rows retain pending-image-rights and explicit restricted local research/publication limitations. Native source-split labels and provisional raw-only group IDs do not prove independent study units.
 
 The plan's decode_status requirement is supplied by [byte-bound companion evidence](intake/20260926-manifest-decode-provenance.json), not falsely attributed to the CSV byte validator. For COCO/DIV2K, join each row to the hash-verified original5,900-image inventory by source/source_id. For DiffusionDB, join source_split and source_id plus .png to the corresponding exact per-part image inventory bound in its full ZIP/CRC/native-decode receipt. Compare each raw hash/size/native width/height; matching unchanged bytes inherit that receipt's Pillow verify/full native-decode evidence. This is not B5 canonical/color acceptance, content review or rights certification.

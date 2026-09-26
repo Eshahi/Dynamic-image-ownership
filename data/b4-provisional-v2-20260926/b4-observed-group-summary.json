@@ -1,0 +1,35 @@
+{
+  "canonical_frame_failure_count": 16,
+  "cross_split_connected_group_count": 0,
+  "final_scientific_split_accepted": false,
+  "full_reserved_development_components_kept": true,
+  "inputs": {
+    "builder_code_sha256": "fcd9f4b4f0de1a7c9f0d1277f0d2913114bd43467c621fa20f5d73e7a77c43d8",
+    "canonical_summary_sha256": "924f7d43f8c5dd817d48dc1749afac7832618b451b3b0b418383c1d89cd64a3b",
+    "config_file_sha256": "5d45a1bec6e090bd20ae7ef9d943a451043c445423727847c274002067123970",
+    "dev_ids_sha256": "7cc2a4c827fd1c64b2f6d529a3726b843a0c635077982deb87725fbc3ac7f0bc",
+    "manifest_sha256": "5665665b51d5020df00fe1db1dc090a5e8b007c65fda65021c72c6ba709ce71b",
+    "private_canonical_sha256": "f867a38c0a8fce164fd01290378425ea674a9f4609061f38f7b81abb66b87b15",
+    "private_metadata_bridge_sha256": "e54e3e4a82d7938ffbd2f6d9c77aaec0b6126dc983be19f2ae8218152a6d3d23",
+    "split_module_sha256": "b9a1a27539c64874ac97bd7b6b993eba57f79b18af455c141f366624c8180f70",
+    "splits_sha256": "d295814a40f6cde3b5255ba1a7cf28df53340cf00278652b8cff78e2a4a1630d"
+  },
+  "nominal_source_image_quotas_met": true,
+  "observed_edge_counts": {
+    "canonical": 55,
+    "coarse_near_pixels": 118,
+    "producer_group": 12113,
+    "prompt_group": 1769,
+    "prompt_seed_group": 142,
+    "raw": 21,
+    "unknown_producer_quarantine": 133
+  },
+  "observed_frame_components": 7627,
+  "observed_frame_images": 19900,
+  "scientific_compute": false,
+  "selected_canonical_failure_count": 3,
+  "selected_components": 3167,
+  "selected_images": 6900,
+  "source_content_rights_reviewed": false,
+  "status": "provisional_observed_groups_not_scientific_split_acceptance"
+}

@@ -1,0 +1,21 @@
+{
+  "status": "observed_metadata_bridge_preflight_not_final_independence_or_splits",
+  "private_output_relative_path": ".thesis-build/b4-private-metadata-bridge-20260926.json",
+  "private_output_sha256": "e54e3e4a82d7938ffbd2f6d9c77aaec0b6126dc983be19f2ae8218152a6d3d23",
+  "metadata_rows_examined": 2000000,
+  "observed_diffusiondb_images": 14000,
+  "selected_diffusiondb_images": 5000,
+  "all_row_prompt_raw_selected_components": 5000,
+  "producer_conservative_selected_components": 1268,
+  "producer_conservative_largest_selected_component": 63,
+  "producer_conservative_reserved_development_members": 143,
+  "known_producer_hashes_observed": 1753,
+  "unknown_or_deleted_producer_images_observed": 134,
+  "unknown_or_deleted_producer_images_selected": 40,
+  "all_excluded_rows_kept_as_possible_bridges": true,
+  "unknown_producer_rule": "one_conservative_quarantine_cohort_not_claimed_same_real_user",
+  "canonical_and_near_duplicate_checked": false,
+  "split_frozen": false,
+  "scientific_compute": false,
+  "raw_prompts_or_upstream_user_hashes_in_git": false
+}

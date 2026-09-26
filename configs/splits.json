@@ -1,0 +1,77 @@
+{
+  "schema_version": "b4-source-group-splits-v2",
+  "status": "prospective_admitted_data_plan_pending_independent_review",
+  "source_manifest": "data/b4-admission-20260926/source-manifest.csv",
+  "manifest_sha256": "40bfeca7c589b8352f93535070bc74fca70c6458216ea5422f0dc173f57110c4",
+  "development_ids": "data/b4-admission-20260926/development-reservation.json",
+  "development_ids_sha256": "0bfd4178a1929e26d12401000c1eda0c549034c348458844e72f0c5b0a8f79ae",
+  "admission_sha256": "d8240a0ee0b6920727f743b485933a9d919d5ae224309dd9c7c8e334aeab1f6e",
+  "seed": "b4-split-rank-v1",
+  "counts": {
+    "ms-coco": {"development": 200, "validation": 200, "test": 600},
+    "div2k": {"development": 300, "validation": 300, "test": 300},
+    "diffusiondb": {"development": 1000, "validation": 1000, "test": 3000}
+  },
+  "grouping_rule": {
+    "observed_frame": "all5900_original_plus_all14000_acquired_including_excluded_bridges",
+    "edges": ["raw_bytes", "canonical_rgb8_pixels", "normalized_prompt", "prompt_seed", "known_producer", "unknown_producer_quarantine", "coarse_near_pixels"],
+    "near_dhash64_max_hamming": 6,
+    "near_color8_mean_absolute_difference_max_rgb8": 4,
+    "near_aspect_relative_difference_max_percent": 5,
+    "unknown_producer": "one_conservative_quarantine_cohort_not_asserted_same_user",
+    "canonical_rejects": "ineligible_source_nodes_retained_raw_only_no_fabricated_fingerprints_or_claim_of_ruled_out_residual_dependence",
+    "limitations": "finite_operational_graph_independence_is_a_conditional_analysis_assumption_not_a_proven_population_property"
+  },
+  "near_duplicate_threshold": {
+    "near_dhash64_max_hamming": 6,
+    "near_color8_mean_absolute_difference_max_rgb8": 4,
+    "near_aspect_relative_difference_max_percent": 5
+  },
+  "contract_version": "b4-literal-v1-with-conditional-N",
+  "counts_kind": "source_images_not_independent_groups",
+  "image_id_rule": "globally_unique_source_uid_domain_release_source_split_source_id",
+  "grouping": {
+    "observed_frame": "all5900_original_plus_all14000_acquired_including_excluded_bridges",
+    "edges": ["raw_bytes", "canonical_rgb8_pixels", "normalized_prompt", "prompt_seed", "known_producer", "unknown_producer_quarantine", "coarse_near_pixels"],
+    "near_dhash64_max_hamming": 6,
+    "near_color8_mean_absolute_difference_max_rgb8": 4,
+    "near_aspect_relative_difference_max_percent": 5,
+    "unknown_producer": "one_conservative_quarantine_cohort_not_asserted_same_user",
+    "canonical_rejects": "ineligible_source_nodes_retained_raw_only_no_fabricated_fingerprints_or_claim_of_ruled_out_residual_dependence",
+    "limitations": "finite_operational_graph_independence_is_a_conditional_analysis_assumption_not_a_proven_population_property"
+  },
+  "allocation": {
+    "counts_kind": "source_images_not_independent_groups",
+    "ms-coco": {"development": 200, "validation": 200, "test": 600},
+    "div2k": {"development": 300, "validation": 300, "test": 300},
+    "diffusiondb": {"development": 1000, "validation": 1000, "test": 3000},
+    "reserved_development_rule": "full_observed_connected_components_of_original32_without_reranking",
+    "fixed_test_rule": "full_components_containing_div2k_source_valid_0801_through_0900",
+    "ordering": "multi_domain_first_then_descending_selected_size_then_sha256_b4_split_rank_v1",
+    "assignment": "largest_minimum_exact_remaining_fraction_then_sha256_split_tie",
+    "infeasible": "fail_no_group_breaking_or_hidden_reallocation",
+    "primary_representative": "minimum_sha256_b4_primary_representative_v1_per_domain_component_before_outcomes"
+  },
+  "pair_dependency_policy": {
+    "C0_C1_C2": "paired_parent_source_groups_not_independent_across_classes_seeds_owners_or_transforms",
+    "donor_recipient": "within_locked_split_only_union_all_reused_donor_recipient_components_for_pair_analysis",
+    "actual_pair_assignment": "BLOCKED_PROTOCOL_before_T4_or_hard_negative_execution_no_fake_pair_N",
+    "primary_group_inference": "one_fixed_representative_per_domain_component_other_images_kept_for_coverage_cluster_sensitivity_not_extra_N"
+  },
+  "holdout": {
+    "cross_model_required": false,
+    "reason_if_not_required": "immutable_B4_data3_permits_claim_dependent_NA_scope_requires_three_source_coverage_not_unseen_model_claim",
+    "source_partition": "DIV2K_original_valid_100_plus_full_linked_components",
+    "claim": "untouched_source_partition_only_not_new_domain_OOD",
+    "development_or_validation_use": false
+  },
+  "inferential_resolution": {
+    "minimum_independent_negatives_for_zero_fp_95pct_upper_1pct": 299,
+    "FPR_target": 0.01,
+    "TPR_target": 0.80,
+    "shortfalls": "retain_images_and_actual_N_report_reduced_precision_or_inconclusive_do_not_relax_targets",
+    "validation": "empirical_integer_count_calibration_on_actual_eligible_group_representatives_not_confidence_inference"
+  },
+  "final_scientific_split_accepted": false,
+  "scientific_compute_authorized": false
+}
