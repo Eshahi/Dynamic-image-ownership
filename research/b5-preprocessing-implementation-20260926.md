@@ -2,6 +2,8 @@
 
 Issue #12; depends on B3/#10 and A5/#6. B3 PR #60 merged at `f302b446100987e5fbabb90c49537df47f006118` and issue #10 was verified closed on 2026-09-26. This is ordinary CPU image software, not a model run or scientific result. It applies `method-spec.md`, `research-contract.md` and `scope-guard.md` without replacing the method, final source commitments or execution safeguards.
 
+Current status: **independently accepted software deliverable**, following two repaired cache findings and exact `cbaf06fd42eea5377c79cb9eb258ee1528d207c9` no-blocker re-review by actual `/root/b3_intake_review`. See `audits/b5-preprocessing-review-20260926/review.md`. Ten final synthetic tests pass both runtimes; earlier representative reports retain their original code identities. Historical pending-review statements below describe their dated checkpoints, not the current acceptance status. GitHub merge/closure must still be verified separately.
+
 ## Implementation and selected details
 
 `src/data/preprocess.py`, `configs/data.json` and `tests/test_preprocess.py` implement the A5 RGB8 sRGB profile. JPEG/PNG only; RGB only; reject alpha (including RGB PNG transparency), palette, grayscale, CMYK, high-bit-depth PNG even when Pillow reports RGB, multiframe, damaged files, excessive bytes/pixels, malformed EXIF and failed ICC conversion. Limits are 100 MB source, 40 million pixels and 4 MB ICC; a limit failure stays in coverage, not a silently removed source. No dimension reduction or upscaling is implemented. Native DIV2K pixels remain native; this does not prove the downstream model can process them.

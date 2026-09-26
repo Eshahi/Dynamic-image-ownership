@@ -1,0 +1,17 @@
+# B5 independent software review and delegated task acceptance
+
+Issue #12 / PR #63. Author `/root`; independent reviewer actual actor `/root/b3_intake_review`. Decision recorded by `/root` at 2026-09-26 14:01 UTC under `AGENTS.md` and `research/approval-policy.md`. This is engineering task acceptance only, not a human verdict, lifecycle transition, scientific compute approval, rights clearance or method-success claim.
+
+## Reviewed exact versions and findings
+
+- Initial `7a74911e07cf25d90c3eda676ca0aa3dda62c85e`: reviewer ran eight synthetic tests, independently checked all 32 Windows reserved source-to-cache pixel mappings, receipts/raw-byte preservation and hash pins. Found that self-consistent replacement of output pixels plus mutable receipt digests could evade cache-source binding. Closure blocked.
+- Repair `675637c3db3652ad168edd53674902d3581e4042`: recompute exact canonical pixels/source receipt from the already-verified source snapshot on reuse. Regression rejects the demonstrated substitution while retaining its temporary cache. Reviewer confirmed nine tests and Windows r2 hash/code/32-pass pins; independently checked both initial runtime report hashes, all 32 matching canonical pixel digests and zero matching PNG file hashes. Found a second concrete reuse-policy gap: unchanged correct pixels with a tEXt chunk and updated receipt were accepted. Closure still blocked.
+- Final repair `cbaf06fd42eea5377c79cb9eb258ee1528d207c9`: same complete critical-only PNG chunk policy on fresh encoding and reuse; regression rejects metadata-bearing replacement. Reviewer re-reviewed both repairs, ran all ten Windows tests, confirmed clean checkout/diff, and found **no remaining B5 software blocker**. Reviewer did not modify tracked files, real caches, processes or gates.
+
+Root independently ran all ten synthetic tests in Windows and WSL, and the full ordinary script suite (183 found, 172 pass, 11 expected host/dependency skips). `git diff --check` passed. No package installation, model load or scientific run occurred. The two real-input report batches and their original code/manifest/dev/config digests are preserved in `data/intake/20260926-b5-development-preprocessing{,-r2}.json`; **they are historical evidence for their recorded code versions, not final-repair representative runs**. Final repair validation is synthetic regression evidence plus exact-artifact independent review.
+
+## Decision and limits
+
+Accept B5's declared `src/data/preprocess.py`, `configs/data.json`, `tests/test_preprocess.py` and documented versioned image/caption/color/normalization/native-grid/cache/provenance contract as software deliverables. B3/#10 and A5/#6 dependencies were verified closed. Ready for PR merge and task closure; verify actual GitHub success before declaring it closed.
+
+The explicit HWC API needs a tested transpose at future A3 CHW consumers; no implicit adapter parity is claimed. Broader runtime/ICC behavior and full-dataset canonical coverage remain open, and every future rejection must remain in coverage. Source rights/content restrictions and B4 dependence/splits still apply; all later-linked development components remain development-only. The same-runtime cache validation deliberately re-decodes source bytes; no performance claim is made. The official `d916749c` lifecycle remains paused at plan-acceptance with no controller transition. Next dependency-ready task after actual #12 closure is B4/#11, not scientific execution.
