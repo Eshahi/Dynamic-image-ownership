@@ -18,7 +18,7 @@ from typing import Any
 REVISION = "fb620fbe49fa4420e0734bd9c0df11f51176b61f"
 PART_COUNT = 2000
 ROWS_PER_PART = 1000
-MAX_PARTS = 8
+MAX_PARTS = 14  # User-authorized resource amendment, 2026-09-26; ranking unchanged.
 TARGET_IMAGES = 5000
 RESERVE_GROUPS = 1000
 NSFW_CEILING = 0.10  # Scores at or above this are ineligible.
@@ -72,7 +72,7 @@ def _prompt_group(value: Any) -> str | None:
 def candidate_part_handoff(rows: Iterable[Mapping[str, Any]]) -> dict[str, Any]:
     """Return a bounded PART list, never final image IDs or rights clearance.
 
-    Select the shortest prefix of the first eight hash-ranked parts containing
+    Select the shortest prefix of the first fourteen hash-ranked parts containing
     at least 6,000 metadata-eligible *distinct normalized prompt groups*.
     Anything short of that is blocked, not a count reduction or adaptive search.
     """
@@ -107,28 +107,32 @@ def candidate_part_handoff(rows: Iterable[Mapping[str, Any]]) -> dict[str, Any]:
             raise SelectionError("image dimensions must be positive integers")
         image_score = _score(row.get("image_nsfw"), "image_nsfw")
         prompt_score = _score(row.get("prompt_nsfw"), "prompt_nsfw")
+        group = _prompt_group(row.get("prompt"))  # Malformed text blocks even excluded rows.
         if min(width, height) < 64 or image_score >= NSFW_CEILING or prompt_score >= NSFW_CEILING:
             excluded_by_score += 1
             continue
-        group = _prompt_group(row.get("prompt"))
         if group is None:
             excluded_by_empty_prompt += 1
             continue
         groups[part].add(group)
     accumulated: set[str] = set()
     selected: list[int] = []
+    # Validate cardinality of EVERY candidate part, including later unused parts.
+    # A favorable early prefix cannot hide missing or incomplete candidate input.
     for part in candidates:
-        selected.append(part)
         if seen_per_part[part] != ROWS_PER_PART:
+            all_groups = set().union(*groups.values())
             return {"status": ("blocked_missing_ranked_part_metadata" if seen_per_part[part] == 0
                                else "blocked_incomplete_ranked_part_metadata"),
                     "revision": REVISION, "selected_part_ids": [],
                     "candidate_order": list(candidates),
-                    "distinct_prompt_groups": len(accumulated),
+                    "distinct_prompt_groups": len(all_groups),
                     "rows_examined_in_candidate_parts": examined,
                     "rows_excluded_by_score_or_size": excluded_by_score,
                     "rows_excluded_by_empty_prompt": excluded_by_empty_prompt,
                     "image_ids_frozen": False, "images_downloaded": False}
+    for part in candidates:
+        selected.append(part)
         accumulated.update(groups[part])
         if len(accumulated) >= TARGET_IMAGES + RESERVE_GROUPS:
             return {"status": "candidate_parts_ready", "revision": REVISION,

@@ -25,7 +25,7 @@ class DiffusionDBSelectionTests(unittest.TestCase):
 
     def test_minimum_prefix_and_order_independence(self):
         parts = ranked_parts()[:MAX_PARTS]
-        rows = [row(parts[n // 1000], n) for n in range(6000)]
+        rows = [row(parts[n // 1000], n) for n in range(MAX_PARTS * 1000)]
         forward = candidate_part_handoff(rows)
         reverse = candidate_part_handoff(reversed(rows))
         self.assertEqual(forward, reverse)
@@ -38,7 +38,7 @@ class DiffusionDBSelectionTests(unittest.TestCase):
         parts = ranked_parts()[:MAX_PARTS]
         rows = [row(parts[n // 1000], n,
                     score=NSFW_CEILING if n == 0 or n >= 6000 else 0.0)
-                for n in range(8000)]
+                for n in range(MAX_PARTS * 1000)]
         result = candidate_part_handoff(rows)
         self.assertEqual(result["status"], "blocked_insufficient_metadata_eligible_groups")
         self.assertEqual(result["selected_part_ids"], [])
@@ -62,6 +62,18 @@ class DiffusionDBSelectionTests(unittest.TestCase):
         result = candidate_part_handoff(rows)
         self.assertEqual(result["status"], "blocked_missing_ranked_part_metadata")
         self.assertEqual(result["selected_part_ids"], [])
+
+    def test_later_missing_or_incomplete_parts_block_favorable_prefix(self):
+        parts = ranked_parts()[:MAX_PARTS]
+        rows = [row(parts[n // 1000], n) for n in range(MAX_PARTS * 1000)]
+        for removed in (1, 1000):
+            result = candidate_part_handoff(rows[:-removed])
+            self.assertNotEqual(result["status"], "candidate_parts_ready")
+            self.assertEqual(result["selected_part_ids"], [])
+        rows[-1]["prompt"] = None
+        rows[-1]["image_nsfw"] = 2.0
+        with self.assertRaisesRegex(SelectionError, "prompt must be text"):
+            candidate_part_handoff(rows)
 
     def test_invalid_part_ids_block_even_outside_candidate_filter(self):
         parts = ranked_parts()[:MAX_PARTS]

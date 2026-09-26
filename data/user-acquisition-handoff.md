@@ -1,5 +1,7 @@
 # B3 user-operated dataset acquisition handoff
 
+**Superseding decision 2026-09-26:** first-batch extracted files/metadata have been received. The user's direct «دانلود کن» now authorizes agent acquisition of **only the exact fourteen DiffusionDB ZIPs** in [the bounded acquisition decision](../research/b3-diffusiondb-acquisition-decision-20260926.md). The older declined-download/second-batch-unassigned instructions below are historical for this batch; no blanket acquisition or scientific-compute permission follows.
+
 Status 2026-09-25: the user chose to obtain dataset files personally. Agents must not download dataset archives, image partitions or metadata on the user's behalf under the declined 12 GB request. This handoff specifies a first batch only; it is not a frozen image selection, rights clearance, scientific-compute approval or B3 completion.
 
 Place the **unextracted, unrenamed** files in `W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/incoming/`, which is ignored by Git. Do not commit or send the archives in chat. The W: project directory is the stable handoff location; the B3 agent's isolated C: worktree can inspect it by absolute path later. If the actual download arrives elsewhere, provide its local folder path instead of copying large files solely to match this suggestion.
