@@ -22,6 +22,11 @@ from .validation_bridge import check_inputs, consume_validation_receipt, _read, 
 
 CASE = "experiments/c4-embedding-development-v1/frozen-case.json"
 ENVIRONMENT = "experiments/c4-embedding-development-v1/environment.json"
+EXPERIMENT_ID = "c4-embedding-residency-development-v1"
+RUN_ID = "c4-embedding-dev-002"
+SPEC_ROOT = "experiments/" + EXPERIMENT_ID
+RESIDENCY_CONFIG = "configs/c4-residency.json"
+RESIDENCY_SHA = "03630075a7c9cf2dfd1b881bda2b7e8ffa3be726b368698372316acfc6e414cf"
 CONFIG_SHA = "27bedaf1cd7f848ecc9b5b4a76ebe3ca3189c5da099fb3a4a00fac29063b216b"
 OWNER = "c4-public-development-owner-v1"
 RAW_ROOT = Path("/mnt/w/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw")
@@ -35,16 +40,15 @@ REQUIRED = frozenset({CASE, ENVIRONMENT, *PINS, "configs/data.json", "research/a
     "src/embedding/worker.py", SCRIPT, WORKER_SCRIPT, "scripts/a6_clip_visual.py",
     "scripts/verify_science_assets.py", "scripts/pixel_dct_control.py", "scripts/base_noise_reference.py",
     "src/data/preprocess.py", "src/embedding/proposed.py", "src/embedding/output.py",
-    "src/embedding/local_assets.py", "src/embedding/development_case.py",
+    "src/embedding/local_assets.py", "src/embedding/development_case.py", "src/embedding/residency.py",
+    RESIDENCY_CONFIG,
     "src/signatures/semantic.py", "src/signatures/owner.py", "src/signatures/instance.py",
     "src/__init__.py", "src/data/__init__.py", "src/runtime/__init__.py",
     "src/embedding/__init__.py", "src/signatures/__init__.py",
     "requirements-wsl-stage2-py314.txt", "requirements-wsl-torch-py314.txt",
-    "experiments/c4-embedding-development-v1/design-draft.md",
-    "experiments/c4-embedding-development-v1/experiment-spec.yaml",
-    "experiments/c4-embedding-development-v1/plan.md",
-    "experiments/c4-embedding-development-v1/acceptance-criteria.md",
-    "experiments/c4-embedding-development-v1/compute-estimate.json",
+    SPEC_ROOT+"/experiment-spec.yaml", SPEC_ROOT+"/plan.md",
+    SPEC_ROOT+"/acceptance-criteria.md", SPEC_ROOT+"/compute-estimate.json",
+    SPEC_ROOT+"/prior-failure.json",
     "scripts/prepare_c4_execution.py"})
 
 
@@ -65,8 +69,8 @@ def check_environment(expected, actual):
 
 def check_recipe(manifest, snapshots):
     """Additional fixed worker contract; official runner still owns approval."""
-    expected = {"experiment_id": "c4-embedding-development-v1", "task_id": "C4",
-        "run_id": "c4-embedding-dev-001", "execution_target": "local", "seeds": [0],
+    expected = {"experiment_id": EXPERIMENT_ID, "task_id": "C4",
+        "run_id": RUN_ID, "execution_target": "local", "seeds": [0],
         "reviewed_script": SCRIPT, "budget": BUDGET, "resources": RESOURCES, "outputs": OUTPUTS}
     if any(_json(manifest.get(key)) != _json(value) for key, value in expected.items()):
         raise ValueError("unexpected fixed C4 worker contract")
@@ -74,6 +78,8 @@ def check_recipe(manifest, snapshots):
         raise ValueError("C4 transitive worker inventory incomplete")
     if hashlib.sha256(snapshots["configs/c4-development.json"]).hexdigest() != CONFIG_SHA:
         raise ValueError("prospective C4 settings changed")
+    if hashlib.sha256(snapshots[RESIDENCY_CONFIG]).hexdigest() != RESIDENCY_SHA:
+        raise ValueError("explicit residency profile changed")
     if manifest.get("script_sha256") != hashlib.sha256(snapshots[SCRIPT]).hexdigest():
         raise ValueError("launcher digest mismatch")
 
@@ -99,12 +105,15 @@ def execute_phases(selected, loaded, output, operations, record):
         models, enrollment = operations.models(source, loaded, output)
         store.record({"phase": "source_enrollment", "enrollment": enrollment})
         record({"phase": "model_load_completed"})
-        # RealOperations attaches metadata-only sub-operation records to the
-        # durable trial journal; owned fake orchestration need not implement it.
-        if hasattr(operations, "attach_progress"):
-            operations.attach_progress(models, store.record)
+        operations.attach_progress(models, store.record)
+        record({"phase": "idle_residency_started"})
+        operations.park_idle(models, store.record)
+        record({"phase": "idle_residency_completed"})
         candidate = operations.optimize(source, selected, loaded, models, enrollment, store.record)
         record({"phase": "optimization_completed"})
+        record({"phase": "safety_residency_started"})
+        operations.prepare_safety(models, store.record)
+        record({"phase": "safety_residency_completed"})
         receipt, _ = store.save_pair(candidate, models.check_saved_pixels)
         record({"phase": "pair_persisted", "status": receipt["status"]})
         return {"pair": receipt, "trial_directory": store.directory.name,
@@ -168,6 +177,9 @@ class RealOperations:
     """Actual operations, only reachable inside the separately approved child."""
     def __init__(self, root):
         self.root, self.measurement = root, {}
+        if hashlib.sha256(_read(root/RESIDENCY_CONFIG)).hexdigest() != RESIDENCY_SHA:
+            raise ValueError("residency profile changed before actual operations")
+        self.residency = None
         for name in ("HF_HUB_OFFLINE", "TRANSFORMERS_OFFLINE", "DIFFUSERS_OFFLINE", "PYTHONNOUSERSITE"):
             if os.environ.get(name) != "1": raise ValueError("offline launcher flags absent")
         if os.environ.get("CUBLAS_WORKSPACE_CONFIG") != ":4096:8":
@@ -260,7 +272,24 @@ class RealOperations:
             progress=record)
 
     def attach_progress(self, models, record):
+        from .residency import PhaseResidency
         models.components.progress = record
+        self.residency = PhaseResidency(models, progress=record)
+
+    def park_idle(self, models, record):
+        if self.residency is None or self.residency.models is not models:
+            raise ValueError("bound residency instance required")
+        record({"phase":"residency_resources_before_idle", "resources":self.failure_resources()})
+        self.residency.park_idle()
+        record({"phase":"residency_resources_after_idle", "resources":self.failure_resources(),
+                "residency_profile_sha256":RESIDENCY_SHA})
+
+    def prepare_safety(self, models, record):
+        if self.residency is None or self.residency.models is not models:
+            raise ValueError("bound residency instance required")
+        self.residency.prepare_safety()
+        record({"phase":"residency_resources_before_safety", "resources":self.failure_resources(),
+                "residency_profile_sha256":RESIDENCY_SHA})
 
     def resources(self):
         import torch
@@ -274,4 +303,6 @@ class RealOperations:
         initialized = torch.cuda.is_initialized()
         return dict(self.measurement, peak_torch_allocated_bytes=torch.cuda.max_memory_allocated() if initialized else None,
             peak_torch_reserved_bytes=torch.cuda.max_memory_reserved() if initialized else None,
+            current_torch_allocated_bytes=torch.cuda.memory_allocated() if initialized else None,
+            current_torch_reserved_bytes=torch.cuda.memory_reserved() if initialized else None,
             peak_worker_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024)

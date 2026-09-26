@@ -37,13 +37,14 @@ class PackageTests(unittest.TestCase):
     def test_design_input_inventory_and_scope(self):
         required = worker.REQUIRED | validation_bridge.REQUIRED
         for name in (worker.ENVIRONMENT, "scripts/prepare_c4_execution.py", "configs/c4-development.json",
-                     "experiments/c4-embedding-development-v1/experiment-spec.yaml"):
+                     worker.SPEC_ROOT+"/experiment-spec.yaml",worker.RESIDENCY_CONFIG,"src/embedding/residency.py"):
             self.assertIn(name, required)
-        spec = json.loads((package.ROOT/"experiments/c4-embedding-development-v1/experiment-spec.yaml").read_bytes())
+        spec = json.loads((package.ROOT/(worker.SPEC_ROOT+"/experiment-spec.yaml")).read_bytes())
         self.assertEqual(spec["seeds"], [0]); self.assertEqual(len(spec["datasets"]), 1)
         self.assertEqual(spec["analysis"]["exclusion_rule"], "none")
         self.assertEqual(spec["analysis"]["confidence_interval"], "none")
         self.assertEqual(spec["analysis"]["mode"], "exploratory")
+        self.assertEqual(spec["analysis"]["expected_runs"][0]["run_id"],worker.RUN_ID)
 
 
 if __name__ == "__main__": unittest.main()

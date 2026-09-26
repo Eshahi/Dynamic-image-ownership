@@ -1,0 +1,12 @@
+{
+  "schema_version": "c4-explicit-phase-residency-v1",
+  "initial_device": "cuda:0",
+  "conditioning_forward_device": "cuda:0",
+  "optimization_device": "cuda:0",
+  "idle_components_cpu": ["text_encoder", "safety_checker"],
+  "pre_safety_components_cpu": ["vae", "unet"],
+  "safety_forward_device": "cuda:0",
+  "floating_dtype": "float32",
+  "automatic_offload_hooks": false,
+  "fallback_or_retry": false
+}

@@ -1,4 +1,4 @@
-"""Prospective explicit phase residency, NOT enabled by the scientific worker.
+"""Explicit phase residency for the separately approved run002 worker.
 
 No model imports or execution on import. Call only in a future exact-approved
 worker. Preserve fp32 GPU conditioning/UNet/VAE arithmetic, and return safety

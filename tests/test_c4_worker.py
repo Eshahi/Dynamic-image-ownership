@@ -41,6 +41,13 @@ class FakeOperations:
         self.calls.append("optimize"); record({"owned_trajectory": True})
         if self.fail == "optimize": raise ArithmeticError("owned failure")
         return "owned-not-candidate"
+    def attach_progress(self, models, record): self.calls.append("attach_progress")
+    def park_idle(self, models, record):
+        self.calls.append("park_idle")
+        if self.fail == "park_idle": raise MemoryError("owned transfer failure")
+    def prepare_safety(self, models, record):
+        self.calls.append("prepare_safety")
+        if self.fail == "prepare_safety": raise MemoryError("owned transfer failure")
     def resources(self): return {"owned_measurement": True}
     def failure_resources(self): return {"owned_failure_peak": 123}
 
@@ -58,14 +65,14 @@ class WorkerTests(unittest.TestCase):
 
     def test_phase_order_and_no_success_or_calibrated_claim(self):
         ops = FakeOperations(); self.assertEqual(self.run_owned(ops), 0)
-        self.assertEqual(ops.calls, ["source", "trial", "models", "optimize"])
+        self.assertEqual(ops.calls, ["source", "trial", "models", "attach_progress", "park_idle", "optimize", "prepare_safety"])
         report = json.loads((self.output/worker.OUTPUTS[0]).read_bytes())
         self.assertEqual(report["status"], "completed_diagnostic_only")
         self.assertFalse(report["scientific_acceptance"])
         self.assertEqual(report["result"]["blind_verification"], "NOT_RUN")
         self.assertEqual(report["result"]["calibrated_decision"], "PROHIBITED")
         with self.assertRaises(ValueError): self.run_owned(ops)
-        self.assertEqual(len(ops.calls), 4)
+        self.assertEqual(len(ops.calls), 7)
 
     def test_source_failure_never_loads_and_remains_recorded(self):
         ops = FakeOperations(fail="source"); self.assertEqual(self.run_owned(ops), 2)
@@ -108,19 +115,54 @@ class WorkerTests(unittest.TestCase):
     def test_fixed_recipe_inventory_budget_types_and_config(self):
         names = worker.REQUIRED | bridge.REQUIRED
         snapshots = {name: (ROOT/name).read_bytes() for name in names}
-        manifest = {"experiment_id": "c4-embedding-development-v1", "task_id": "C4",
-                    "run_id": "c4-embedding-dev-001", "execution_target": "local", "seeds": [0],
+        manifest = {"experiment_id": worker.EXPERIMENT_ID, "task_id": "C4",
+                    "run_id": worker.RUN_ID, "execution_target": "local", "seeds": [0],
                     "reviewed_script": worker.SCRIPT, "budget": worker.BUDGET,
                     "resources": worker.RESOURCES, "outputs": worker.OUTPUTS,
                     "script_sha256": hashlib.sha256(snapshots[worker.SCRIPT]).hexdigest()}
         worker.check_recipe(manifest, snapshots)
-        for key, bad in (("seeds", [False]), ("run_id", "retry"), ("execution_target", "runpod"),
+        for key, bad in (("seeds", [False]), ("run_id", "c4-embedding-dev-001"), ("execution_target", "runpod"),
                          ("budget", dict(worker.BUDGET, max_seconds=1200.0)),
                          ("resources", dict(worker.RESOURCES, vram_mib=8193))):
             altered = copy.deepcopy(manifest); altered[key] = bad
             with self.assertRaises(ValueError): worker.check_recipe(altered, snapshots)
         altered = dict(snapshots); del altered["scripts/base_noise_reference.py"]
         with self.assertRaises(ValueError): worker.check_recipe(manifest, altered)
+        altered=dict(snapshots);altered[worker.RESIDENCY_CONFIG]+=b" "
+        with self.assertRaises(ValueError):worker.check_recipe(manifest,altered)
+
+    def test_transfer_failure_is_terminal_before_optimization_or_pair(self):
+        for stage in ("park_idle","prepare_safety"):
+            with self.subTest(stage=stage),tempfile.TemporaryDirectory() as tmp:
+                output=Path(tmp)
+                for name in ("logs","checkpoints","outputs"):(output/name).mkdir()
+                ops=FakeOperations(fail=stage)
+                with mock.patch.object(worker,"prepare",return_value=({"run_id":"owned"},mock.Mock(sha256="owned"),self.selected)):
+                    self.assertEqual(worker.run_worker(output/"owned.json",output,operations=ops),2)
+                self.assertTrue(ops.store._finished)
+                if stage=="park_idle":self.assertNotIn("optimize",ops.calls)
+                self.assertEqual(ops.store.rows[-1],{"failed":"MemoryError"})
+
+    def test_actual_residency_adapter_with_owned_module_labels_only(self):
+        from tests.test_c4_residency import owned_models
+        models=owned_models();rows=[]
+        # Do not construct RealOperations/offline sockets/import Torch or call
+        # source/models/optimize. Only its exact residency adapter on owned labels.
+        ops=worker.RealOperations.__new__(worker.RealOperations)
+        ops.residency=None;ops.failure_resources=lambda:{"owned_metadata":True}
+        callback=rows.append
+        ops.attach_progress(models,callback)
+        self.assertIs(models.components.progress,callback)
+        ops.park_idle(models,rows.append)
+        self.assertEqual(ops.residency.state,"optimization")
+        self.assertEqual(rows[0]["phase"],"residency_resources_before_idle")
+        self.assertEqual(rows[-1]["phase"],"residency_resources_after_idle")
+        self.assertEqual(rows[-1]["residency_profile_sha256"],worker.RESIDENCY_SHA)
+        ops.prepare_safety(models,rows.append)
+        self.assertEqual(ops.residency.state,"safety")
+        self.assertEqual(models.pipeline.safety_checker.weight.device,"cuda:0")
+        self.assertEqual(rows[-1]["phase"],"residency_resources_before_safety")
+        with self.assertRaises(ValueError):ops.park_idle(owned_models(),rows.append)
 
     def test_real_metadata_csv_bound_separate_from_receipt_bound(self):
         # Only immutable named CSV inputs may exceed2MiB. This is metadata,

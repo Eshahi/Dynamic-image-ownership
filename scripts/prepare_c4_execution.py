@@ -22,9 +22,9 @@ def build(root=ROOT):
     for name in names:
         subprocess.run(["git", "-C", str(root), "ls-files", "--error-unmatch", "--", name],
                        check=True, capture_output=True)
-    spec = json.loads((root/"experiments/c4-embedding-development-v1/experiment-spec.yaml").read_bytes())
+    spec = json.loads((root/(worker.SPEC_ROOT+"/experiment-spec.yaml")).read_bytes())
     manifest = {"schema_version": "1.0", "experiment_id": spec["experiment_id"],
-        "run_id": "c4-embedding-dev-001", "stage_id": "C4-development", "task_id": "C4",
+        "run_id": worker.RUN_ID, "stage_id": "C4-development", "task_id": "C4",
         "execution_target": "local", "reviewed_script": worker.SCRIPT,
         "script_sha256": hashlib.sha256((root/worker.SCRIPT).read_bytes()).hexdigest(),
         "git_commit": commit, "seeds": [0], "datasets": spec["datasets"],
