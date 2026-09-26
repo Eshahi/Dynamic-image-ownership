@@ -98,6 +98,34 @@ def inspect_archive(payload, part, expected):
                      "total_uncompressed_bytes": total, "archive_json_sha256": archive_json_hash}
 
 
+def verified_archive_snapshot(archive_path, inventory_path, index_path, index_sha256):
+    """Return the SAME upstream-verified bytes and hash-bound member frame."""
+    inventory_payload = checked_bytes(inventory_path, inventory_path.parent)
+    if hashlib.sha256(inventory_payload).hexdigest() != "97d858ed38918f502e50b7ef122410e5406486483a731e3fc727d5b4900261ab":
+        raise ValueError("pinned archive inventory differs")
+    inventory = json.loads(inventory_payload)
+    name = archive_path.name
+    matches = [row for row in inventory["files"] if row["path"] == "images/" + name]
+    if len(matches) != 1 or inventory["revision"] != REVISION:
+        raise ValueError("archive is outside approved inventory")
+    contract = matches[0]
+    part = int(name[5:11])
+    if index_path.stat().st_size > 16 * 1024 * 1024:
+        raise ValueError("private index exceeds declared resource ceiling")
+    index_payload = checked_bytes(index_path, index_path.parent)
+    if hashlib.sha256(index_payload).hexdigest() != index_sha256:
+        raise ValueError("private index snapshot hash differs")
+    index = json.loads(index_payload)
+    if index["revision"] != REVISION or index["metadata_sha256"] != EXPECTED_SHA256:
+        raise ValueError("private index source identity differs")
+    if archive_path.stat().st_size != contract["size"]:
+        raise ValueError("archive size differs before snapshot allocation")
+    payload = checked_bytes(archive_path, archive_path.parent)
+    if len(payload) != contract["size"] or hashlib.sha256(payload).hexdigest() != contract["lfs"]["oid"]:
+        raise ValueError("archive byte identity mismatch")
+    return payload, part, index["parts"][str(part)], contract
+
+
 def main():
     from PIL import __version__ as pillow_version
 
@@ -108,30 +136,9 @@ def main():
     parser.add_argument("--index-sha256", required=True)
     parser.add_argument("--output-prefix", required=True, type=Path)
     args = parser.parse_args()
-    inventory_payload = checked_bytes(args.inventory, args.inventory.parent)
-    if hashlib.sha256(inventory_payload).hexdigest() != "97d858ed38918f502e50b7ef122410e5406486483a731e3fc727d5b4900261ab":
-        raise ValueError("pinned archive inventory differs")
-    inventory = json.loads(inventory_payload)
-    name = args.archive.name
-    matches = [row for row in inventory["files"] if row["path"] == "images/" + name]
-    if len(matches) != 1 or inventory["revision"] != REVISION:
-        raise ValueError("archive is outside approved inventory")
-    contract = matches[0]
-    part = int(name[5:11])
-    if args.index.stat().st_size > 16 * 1024 * 1024:
-        raise ValueError("private index exceeds declared resource ceiling")
-    index_payload = checked_bytes(args.index, args.index.parent)
-    if hashlib.sha256(index_payload).hexdigest() != args.index_sha256:
-        raise ValueError("private index snapshot hash differs")
-    index = json.loads(index_payload)
-    if index["revision"] != REVISION or index["metadata_sha256"] != EXPECTED_SHA256:
-        raise ValueError("private index source identity differs")
-    if args.archive.stat().st_size != contract["size"]:
-        raise ValueError("archive size differs before snapshot allocation")
-    payload = checked_bytes(args.archive, args.archive.parent)
-    if len(payload) != contract["size"] or hashlib.sha256(payload).hexdigest() != contract["lfs"]["oid"]:
-        raise ValueError("archive byte identity mismatch")
-    records, receipt = inspect_archive(payload, part, index["parts"][str(part)])
+    payload, part, expected, contract = verified_archive_snapshot(
+        args.archive, args.inventory, args.index, args.index_sha256)
+    records, receipt = inspect_archive(payload, part, expected)
     output_csv = Path(str(args.output_prefix) + ".csv")
     output_json = Path(str(args.output_prefix) + ".json")
     if output_csv.exists() or output_json.exists():
