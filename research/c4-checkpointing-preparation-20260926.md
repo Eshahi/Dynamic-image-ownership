@@ -57,3 +57,14 @@ can still need large replay workspace and fail during backward; CPU tests cannot
 promise a fix for the observed 8GiB OOM or prove a GPU minimum. Next is independent
 code review, then explicit new integration/design/package review before any new
 scientific approval request. C4 stays OPEN; official lifecycle remains paused.
+
+Independent actor `/root/b3_intake_review` reviewed exact
+`057d61cc74e22fdb6199e79de8f9f7be4f4753f4`, passed all six owned tests and an
+additional timestep-dependent nonlinear output/gradient parity fixture, and
+reported no narrow software-preparation blocker. Warnings above remain.
+See audits/c4-checkpointing-preparation-review-20260926/review.md. Main scripts
+suite also passed 175 of 186 tests with 11 expected skips. No full-root-discovery
+pass is claimed. Official status confirmed paused plan-acceptance, null choice,
+workflow SHA `772a1a3b1a4ff674c878b0532485820f860e81490e026441a0bb384a3aebda51`;
+no lifecycle transition was made. Live GitHub #10/#12/#11/#16 are closed; do not
+restart the obsolete B3 acquisition heartbeat or completed data/code tasks.
