@@ -7,7 +7,7 @@ import zlib
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageCms
+from PIL import Image, ImageCms, PngImagePlugin
 from src.data.preprocess import (PreprocessError, decode_source, encode_output,
                                  load_config, normalized, pixel_sha, preprocess_file,
                                  runtime, sha)
@@ -157,6 +157,24 @@ class PreprocessTests(unittest.TestCase):
             output.write_bytes(replacement)
             (cache / (receipt["cache_key"] + ".json")).write_text(json.dumps(receipt))
             with self.assertRaisesRegex(PreprocessError, "cache_source_canonical"):
+                preprocess_file(*args)
+            self.assertEqual(output.read_bytes(), replacement)
+
+
+    def test_cache_ancillary_metadata_rejected(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary); source = root / "source.png"; raw = self.image_bytes()
+            source.write_bytes(raw); cache = root / "cache"
+            args = (source, sha(raw), len(raw), cache, CONFIG)
+            _, receipt = preprocess_file(*args)
+            rgb, _ = decode_source(raw, self.config)
+            metadata = PngImagePlugin.PngInfo(); metadata.add_text("unexpected", "synthetic")
+            stream = io.BytesIO(); Image.fromarray(rgb).save(stream, format="PNG", pnginfo=metadata)
+            replacement = stream.getvalue()
+            receipt.update(output_sha256=sha(replacement), output_size_bytes=len(replacement))
+            output = cache / (receipt["cache_key"] + ".png"); output.write_bytes(replacement)
+            (cache / (receipt["cache_key"] + ".json")).write_text(json.dumps(receipt))
+            with self.assertRaisesRegex(PreprocessError, "output_metadata"):
                 preprocess_file(*args)
             self.assertEqual(output.read_bytes(), replacement)
 

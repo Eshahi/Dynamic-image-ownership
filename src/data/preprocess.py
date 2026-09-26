@@ -127,6 +127,25 @@ def normalized(rgb: np.ndarray) -> np.ndarray:
     return rgb.astype(np.float32) / np.float32(255)
 
 
+def check_output_chunks(data: bytes) -> None:
+    if data[:8] != b"\x89PNG\r\n\x1a\n":
+        raise PreprocessError("cache_or_output_not_png")
+    offset, kinds = 8, []
+    while offset < len(data):
+        if offset + 12 > len(data):
+            raise PreprocessError("truncated_output_chunk")
+        length = int.from_bytes(data[offset:offset+4], "big")
+        kind = data[offset+4:offset+8]
+        if kind not in (b"IHDR", b"IDAT", b"IEND"):
+            raise PreprocessError("unexpected_output_metadata")
+        kinds.append(kind)
+        offset += 12 + length
+    if (offset != len(data) or not kinds or kinds[0] != b"IHDR" or
+            kinds[-1] != b"IEND" or kinds.count(b"IHDR") != 1 or
+            kinds.count(b"IEND") != 1 or b"IDAT" not in kinds):
+        raise PreprocessError("invalid_output_chunk_sequence")
+
+
 def encode_output(pixels: np.ndarray) -> tuple[bytes, np.ndarray]:
     """Quantize and re-decode: only returned decoded bytes feed final metrics."""
     pixels = np.asarray(pixels)
@@ -140,12 +159,7 @@ def encode_output(pixels: np.ndarray) -> tuple[bytes, np.ndarray]:
     Image.fromarray(rgb).save(stream, format="PNG", compress_level=6, optimize=False)
     data = stream.getvalue()
     # Encoder output must contain only critical RGB image chunks.
-    offset = 8
-    while offset < len(data):
-        length = int.from_bytes(data[offset:offset+4], "big")
-        if data[offset+4:offset+8] not in (b"IHDR", b"IDAT", b"IEND"):
-            raise PreprocessError("unexpected_output_metadata")
-        offset += 12 + length
+    check_output_chunks(data)
     with Image.open(io.BytesIO(data)) as saved:
         saved.load()
         decoded = np.array(saved, dtype=np.uint8, copy=True)
@@ -197,6 +211,7 @@ def preprocess_file(source: Path, expected_sha256: str, expected_size: int,
         data = png_path.read_bytes()
         if len(data) != receipt.get("output_size_bytes") or sha(data) != receipt.get("output_sha256"):
             raise PreprocessError("cache_output_mismatch")
+        check_output_chunks(data)
         rgb, _ = decode_source(data, config)
         if pixel_sha(rgb) != receipt.get("canonical_pixel_sha256"):
             raise PreprocessError("cache_pixel_mismatch")
