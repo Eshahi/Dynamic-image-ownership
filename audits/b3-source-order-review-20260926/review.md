@@ -1,0 +1,11 @@
+# Independent prospective source-order review
+
+Date: 2026-09-26. Author `/root`; actual read-focused independent actor `/root/b3_intake_review`, under `AGENTS.md` and `research/approval-policy.md`. Exact reviewed commit `8f9dafd967ee2f095c0c646e1b082219eb9cb834`. Root records the actual returned report, not a human or scientific verdict.
+
+No blocking finding or new implementation warning for the narrow prospective-order evidence. Three focused tests passed independently, including literal vectors, malformed identifiers/digests and duplicate rejection. Exact private ledger/output hashes matched; in-memory replay equaled the existing prospective pool, SHA-256 `36943976f7ce7e6704669a1aaa7211c6d8ee18dbd28bb87e693ad66fa9f95479`.
+
+The reviewer separately recomputed the documented group/member formulas and full ordering, matching every group/member. All 6,219 groups and 6,791 metadata-eligible members appear exactly once; no members are discarded and no final 5,000 IDs are selected. Reversing actual part order and every part's mapping preserves output. Literal rank vectors matched independently. Ranking inputs use only the pinned source revision, reviewed metadata grouping digest and canonical UUID bytes, not method outcomes or archive arrival.
+
+The reviewer also independently replayed completed ZIPs1467/558: exact upstream archive size/hash, every CRC, all 1,000 native PNG verification/full decodes/dimensions, aggregate fields and per-image CSV digests matched. Root full workflow suite:175 tests,167 pass/eight expected dependency skips; `git diff --check` passed. Eight completed archive integrity receipts are now covered across this and earlier bounded reviews, but earlier six-part dependence evidence retains its original scope.
+
+Accepted scope is prospective deterministic ordering and the two additional completed archive integrity receipts only. Source admission, content/handling/rights, raw and stronger dependence, excluded bridges and B4 allocation remain pending. The pool is not an independence certificate, final dataset, B3 closure, scientific approval or official gate transition. No reviewer files were written, partials inspected, downloads initiated or processes changed.
