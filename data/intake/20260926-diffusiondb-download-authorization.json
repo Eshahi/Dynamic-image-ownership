@@ -1,0 +1,22 @@
+{
+  "status": "user_authorized_bounded_acquisition",
+  "actor": "user",
+  "source": "Authenticated current Codex task, direct user reply on 2026-09-26",
+  "verbatim_reply": "دانلود کن",
+  "interpretation": "Authorizes the pending fourteen-part resource amendment and agent download of exactly those public DiffusionDB 2M archives; supersedes personal-download preference only for this batch.",
+  "recorded_at_utc": "2026-09-26T09:17:46Z",
+  "revision": "fb620fbe49fa4420e0734bd9c0df11f51176b61f",
+  "part_cap": 14,
+  "archive_byte_ceiling": 8493745129,
+  "proposal_file": "20260926-proposed-diffusiondb-parts.json",
+  "proposal_sha256": "97d858ed38918f502e50b7ef122410e5406486483a731e3fc727d5b4900261ab",
+  "production_selection_file": "20260926-approved-fourteen-part-production-selection.json",
+  "production_selection_sha256": "50e0df5e3935ba458cbaad96221c33590dd33cb04216ed2f866494e78fa6fb46",
+  "download_root": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/diffusiondb-2m/archives",
+  "target_images": 5000,
+  "nsfw_ceiling": 0.10,
+  "ranking_changed": false,
+  "scientific_compute": false,
+  "paid_compute": false,
+  "rights_cleared": false
+}

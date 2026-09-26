@@ -1,0 +1,100 @@
+{
+  "status": "byte_bound_native_decode_companion_not_canonical_or_content_review",
+  "manifest_sha256": "5665665b51d5020df00fe1db1dc090a5e8b007c65fda65021c72c6ba709ce71b",
+  "decode_status": "pillow_verify_and_full_native_decode_passed_for_matching_raw_bytes",
+  "requirement_mapping": "decode_status is traced here without changing the reviewed fourteen-column manifest schema; the manifest byte validator does not decode images.",
+  "selected_row_coverage": 6900,
+  "original_inventory": {
+    "receipt": "data/intake/20260926-extracted-source-receipt.json",
+    "local_csv": ".thesis-build/b3-intake-20260926-r2/images.csv",
+    "sha256": "bd849697919a1bba5101319ded0401f14be8e8ea150629187fd692389698fe18",
+    "ms_coco_join": "manifest source_id -> source=coco2017-val and source_id",
+    "div2k_join": "source_split=train -> source=DIV2K_train_HR; valid -> DIV2K_valid_HR; then exact source_id"
+  },
+  "diffusiondb": {
+    "local_csv_pattern": ".thesis-build/b3-diffusiondb-integrity-20260926/part-NNNNNN.csv",
+    "join": "manifest source_split -> matching part; source_id plus .png -> image_name",
+    "parts": [
+      {
+        "source_split": "part-000948",
+        "receipt": "data/intake/20260926-diffusiondb-part-000948-integrity.json",
+        "image_inventory_sha256": "95faffa4267a925846ca22f4ebf80b60c9e84ed0f6e48470465fd248a4c02b44"
+      },
+      {
+        "source_split": "part-001232",
+        "receipt": "data/intake/20260926-diffusiondb-part-001232-integrity.json",
+        "image_inventory_sha256": "b2437d764fd6274ec281ad18aaf3d773ec9ccfd048c52dc5e53d1c8e34d7c3ca"
+      },
+      {
+        "source_split": "part-001790",
+        "receipt": "data/intake/20260926-diffusiondb-part-001790-integrity.json",
+        "image_inventory_sha256": "f0917e7d823843e57e0dc0f620e2b13dd683e234bdbd525ad31df0cd55abf3d5"
+      },
+      {
+        "source_split": "part-000420",
+        "receipt": "data/intake/20260926-diffusiondb-part-000420-integrity.json",
+        "image_inventory_sha256": "05cc5ae97dd126ddac0cd1cbb94b258caebeb2eeaa9a72e8f3c28b72cbf529f6"
+      },
+      {
+        "source_split": "part-001929",
+        "receipt": "data/intake/20260926-diffusiondb-part-001929-integrity.json",
+        "image_inventory_sha256": "b93430e319217942a42aec35c238a243c4dd546abdb2d1229791f52292eee379"
+      },
+      {
+        "source_split": "part-001168",
+        "receipt": "data/intake/20260926-diffusiondb-part-001168-integrity.json",
+        "image_inventory_sha256": "4ee85c3570dd46e6ad1bbede5706d2764e5444b946fbc4c23b017025f66f40d0"
+      },
+      {
+        "source_split": "part-001467",
+        "receipt": "data/intake/20260926-diffusiondb-part-001467-integrity.json",
+        "image_inventory_sha256": "4ccaf3e00a83f3f59c8fddd6e1c6a9f5f6efd213f808e36b93656868821c4d30"
+      },
+      {
+        "source_split": "part-000558",
+        "receipt": "data/intake/20260926-diffusiondb-part-000558-integrity.json",
+        "image_inventory_sha256": "8ca8435b458ccb025f8054deb1f0cb1617afff8fa8302d4d34060bee208ec8ed"
+      },
+      {
+        "source_split": "part-000943",
+        "receipt": "data/intake/20260926-diffusiondb-part-000943-integrity.json",
+        "image_inventory_sha256": "d21568f29d30cdb83c6d725f4f1cab9087dc642b25a18bdc1ca8410634c6bc68"
+      },
+      {
+        "source_split": "part-001034",
+        "receipt": "data/intake/20260926-diffusiondb-part-001034-integrity.json",
+        "image_inventory_sha256": "cb9aba43bfdfb9cd418144b1548be4b24772abc372c8b86445df35641097f7f0"
+      },
+      {
+        "source_split": "part-000836",
+        "receipt": "data/intake/20260926-diffusiondb-part-000836-integrity.json",
+        "image_inventory_sha256": "3b8cec09e14a94d0f5fab608ac39c32f806ee05c6e3a5433f8d3622ce40dc44f"
+      },
+      {
+        "source_split": "part-000268",
+        "receipt": "data/intake/20260926-diffusiondb-part-000268-integrity.json",
+        "image_inventory_sha256": "d90c9072e78855ec11685f295d6fb058d9b9518cdbe44fbb43852cf5da1b7e6e"
+      },
+      {
+        "source_split": "part-001854",
+        "receipt": "data/intake/20260926-diffusiondb-part-001854-integrity.json",
+        "image_inventory_sha256": "b78ffa1e98c30bcef41a61f70b64176f3da385faed25ee2919f23447547cc4d8"
+      },
+      {
+        "source_split": "part-001359",
+        "receipt": "data/intake/20260926-diffusiondb-part-001359-integrity.json",
+        "image_inventory_sha256": "c15b49d6e27e722ae9e62bcd8cf965d883a6554b276fd6093ef6a74faf7558a7"
+      }
+    ]
+  },
+  "required_row_equality": [
+    "raw_sha256=inventory sha256",
+    "raw_size_bytes=inventory bytes",
+    "width=inventory width",
+    "height=inventory height"
+  ],
+  "canonical_preprocessing_proven": false,
+  "visual_content_reviewed": false,
+  "rights_cleared": false,
+  "scientific_compute": false
+}

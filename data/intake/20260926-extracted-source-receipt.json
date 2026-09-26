@@ -1,0 +1,103 @@
+{
+  "annotations": [
+    {
+      "bytes": 91865115,
+      "name": "captions_train2017.json",
+      "sha256": "4b62086319480e0739ef390d04084515defb9c213ff13605a036061e33314317"
+    },
+    {
+      "bytes": 3872473,
+      "name": "captions_val2017.json",
+      "sha256": "afe3b30e403dd7f228e2373023abbd60042a6e10ec6874d3652df034d289ebb9"
+    },
+    {
+      "bytes": 469785474,
+      "name": "instances_train2017.json",
+      "sha256": "610fce4944abdeb15354cc765333805529359d12d88f2f711393ca586901d01d"
+    },
+    {
+      "bytes": 19987840,
+      "name": "instances_val2017.json",
+      "sha256": "e8c7f7908f1d7278341fae127d0da654f102f11bd7b21d8aeefa635b8c810b6f"
+    },
+    {
+      "bytes": 238884731,
+      "name": "person_keypoints_train2017.json",
+      "sha256": "7fc1549d934547c470384d8a207c38707ca33fc016d00e33b795e408603af83e"
+    },
+    {
+      "bytes": 10020657,
+      "name": "person_keypoints_val2017.json",
+      "sha256": "788e2dae83c86bd547be7fab269d6399df5671063d29a61360cdb2cc370d2b14"
+    }
+  ],
+  "archive_hashes_available": false,
+  "coco_license_counts": {
+    "1": 1431,
+    "2": 630,
+    "3": 1414,
+    "4": 857,
+    "5": 417,
+    "6": 246,
+    "7": 5
+  },
+  "coco_license_definitions": [
+    {
+      "id": 1,
+      "name": "Attribution-NonCommercial-ShareAlike License",
+      "url": "http://creativecommons.org/licenses/by-nc-sa/2.0/"
+    },
+    {
+      "id": 2,
+      "name": "Attribution-NonCommercial License",
+      "url": "http://creativecommons.org/licenses/by-nc/2.0/"
+    },
+    {
+      "id": 3,
+      "name": "Attribution-NonCommercial-NoDerivs License",
+      "url": "http://creativecommons.org/licenses/by-nc-nd/2.0/"
+    },
+    {
+      "id": 4,
+      "name": "Attribution License",
+      "url": "http://creativecommons.org/licenses/by/2.0/"
+    },
+    {
+      "id": 5,
+      "name": "Attribution-ShareAlike License",
+      "url": "http://creativecommons.org/licenses/by-sa/2.0/"
+    },
+    {
+      "id": 6,
+      "name": "Attribution-NoDerivs License",
+      "url": "http://creativecommons.org/licenses/by-nd/2.0/"
+    },
+    {
+      "id": 7,
+      "name": "No known copyright restrictions",
+      "url": "http://flickr.com/commons/usage/"
+    },
+    {
+      "id": 8,
+      "name": "United States Government Work",
+      "url": "http://www.usa.gov/copyright.shtml"
+    }
+  ],
+  "exact_duplicate_byte_groups": 0,
+  "full_decode": true,
+  "images": 5900,
+  "inventory_sha256": "8893b095fc96ad63f480f2da72d797a1dc604d5689f4212802161a59bffeecaf",
+  "pillow_version": "12.3.0",
+  "rights_cleared": false,
+  "scientific_compute": false,
+  "source_counts": {
+    "DIV2K_train_HR": 800,
+    "DIV2K_valid_HR": 100,
+    "coco2017-val": 5000
+  },
+  "status": "extracted_source_intake_pass",
+  "study_ids_frozen": false,
+  "local_inventory_csv_sha256": "bd849697919a1bba5101319ded0401f14be8e8ea150629187fd692389698fe18",
+  "local_inventory_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/b3-intake-20260926-r2/images.csv",
+  "acquisition": "user-provided extracted files; original ZIPs absent"
+}

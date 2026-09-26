@@ -1,0 +1,12 @@
+{
+  "status": "reviewed_local_raw_png_copies_only",
+  "proposal_sha256": "caa20e7952da822fe1e46b141e59c0cfe03b13d97b79498e909f32cc8315abbd",
+  "relative_asset_directory": "diffusiondb-2m/selected-20260926",
+  "files_written": 5000,
+  "raw_bytes": 3070774949,
+  "parts": 14,
+  "source_ids_frozen": false,
+  "rights_cleared": false,
+  "content_visually_reviewed": false,
+  "scientific_compute": false
+}
