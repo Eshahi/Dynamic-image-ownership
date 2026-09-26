@@ -145,3 +145,34 @@ and scientific compute/lifecycle gates remain unchanged. A first read-only reser
 diagnostic assumed key `reserves` instead of actual `ordered_reserves`, and a plan
 print failed under Windows cp1252; both were repaired without writing evidence.
 These invocation failures are not successful analyses or scientific failures.
+# Literal output-contract repair after independent review
+
+Independent reviewer `/root/b3_intake_review` reviewed exact author commit
+`cf17ec7f1940b20b5a67c8745ad75b364187b297`. Admission, full-frame near screening,
+connected components, allocation, 32 development reservations, 100 native DIV2K
+holdout sources, and all four fresh artifact replays passed. The one closure
+blocker was literal compatibility with immutable B4 output field names, not a
+scientific-design objection.
+
+The repaired configuration exposes `counts`, `grouping_rule`, and
+`near_duplicate_threshold`; the builder rejects disagreement with their richer
+operational counterparts. CSV `image_id` is the globally unique `source_uid`,
+`split` equals `study_split`, and `dataset` equals `domain`. No source identity,
+component, allocation, primary representative, or reservation changes.
+
+`sample-size-check.json` exposes `plan_hash` (the statistical sample-size plan),
+`split_hash`, and 36 class-specific `cells` with `planned_n`,
+`actual_independent_n`, `row_count`, and `status`. Every actual-N value remains
+explicitly conditional on the declared finite grouping assumption; independence
+is not certified and outcome counts remain zero. Nine domain aggregates remain
+in `domain_cells`, and the richer `class_cells` are preserved. Holdout `domain`
+is null and `ids` is empty for the justified cross-model N/A; `exclusion_from_dev`
+is true. The 100-source DIV2K partition holdout remains separately mandatory.
+
+The four pre-repair artifacts are preserved in ignored stable-project
+`.thesis-build/b4-cf17ec7-contract-history-20260926/`. The repaired declared CSV
+SHA-256 is `60ff11ae5a81698446573c5f7fbd9d3067a5a2619abdf29ac2389931de1e1b9f`.
+Ten split tests pass; 185 script tests run with 174 passes and 11 expected skips.
+Exact repair review is still required before issue #11 acceptance. No scientific
+execution, model load, new download, rights acceptance, or lifecycle advancement
+was performed or authorized by this repair.

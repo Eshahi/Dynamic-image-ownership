@@ -68,6 +68,12 @@ def run(manifest_path,dev_path,metadata_path,canonical_path,canonical_summary,co
     if Counter(r["id"].split(":",1)[0] for r in canonical)!={"ms-coco":5000,"div2k":900,"diffusiondb":14000}:
         raise ValueError("canonical source frames mismatch")
     config_raw=config_path.read_bytes();config=json.loads(config_raw)
+    if admission:
+        expected_counts={d:config["allocation"][d] for d in ("ms-coco","div2k","diffusiondb")}
+        expected_near={k:v for k,v in config["grouping"].items() if k.startswith("near_")}
+        if (config.get("counts")!=expected_counts or config.get("grouping_rule")!=config["grouping"]
+                or config.get("near_duplicate_threshold")!=expected_near):
+            raise ValueError("literal split contract aliases disagree with operational rules")
     if config["manifest_sha256"]!=manifest_pin or config["development_ids_sha256"]!=dev_pin:
         raise ValueError("split configuration input mismatch")
     if config.get("final_scientific_split_accepted") is not False or config.get("scientific_compute_authorized") is not False:
@@ -86,13 +92,15 @@ def run(manifest_path,dev_path,metadata_path,canonical_path,canonical_summary,co
     reserved={r["domain"]+":"+r["source_id"] for r in json.loads(dev_raw)["images"]}
     groups,edges=grouped_frame(canonical,bridge["private_nodes"],config["grouping"])
     rows=allocate(groups,selected,reserved,config)
+    for row in rows:
+        row.update(image_id=row["source_uid"],split=row["study_split"],dataset=row["domain"])
     by_group=defaultdict(list)
     for row in rows: by_group[row["group_id"]].append(row)
     if any(len({r["study_split"] for r in values})!=1 for values in by_group.values()):
         raise ValueError("connected group leaked across splits")
-    fields=("source_uid","domain","release_id","source_split","source_id","raw_sha256",
+    fields=("image_id","group_id","split","dataset","source_uid","domain","release_id","source_split","source_id","raw_sha256",
             "canonical_pixel_sha256","canonical_status","canonical_rejection_reason","independence_certified",
-            "group_id","study_split","primary_group_representative")
+            "study_split","primary_group_representative")
     native_holdout=[r for r in rows if r["domain"]=="div2k" and r["source_split"]=="valid"]
     if len(native_holdout)!=100 or any(r["study_split"]!="test" for r in native_holdout):
         raise ValueError("native holdout invariant failed")
@@ -132,12 +140,16 @@ def run(manifest_path,dev_path,metadata_path,canonical_path,canonical_summary,co
     class_cells=[{"domain":c["domain"],"split":c["split"],"class":label,
                   "planned_n":c["nominal_a4_independent_group_target"],
                   "actual_independent_n_under_declared_group_assumption":c["canonical_screened_candidate_groups_not_certified_independent"],
+                  "actual_independent_n":c["canonical_screened_candidate_groups_not_certified_independent"],
+                  "actual_independent_n_is_conditional":True,"independence_certified":False,
                   "row_count":c["images"],"status":"conditional_actual_N_shortfall" if c["independent_target_shortfall"] else "conditional_actual_N_matches_plan",
                   "observed_outcome_count":0,"paired_with_other_classes":True}
                  for c in cells for label in ("C1_positive","C0_source_negative","C0_reconstruction_negative","C2_wrong_owner_negative")]
     json_output(output_root/"sample-size-check.json",{
         "status":"locked_pre_outcome_engineering_data_plan_pending_review" if admission else "BLOCKED_DECISION_provisional_engineering_allocation_not_scientific_freeze","inputs":inputs,
-        "source_image_total":len(rows),"observed_selected_groups":len(by_group),"cells":cells,
+        "source_image_total":len(rows),"observed_selected_groups":len(by_group),"cells":class_cells if admission else cells,
+        "domain_cells":cells,"plan_hash":inputs.get("statistical_plan_sha256"),"split_hash":split_sha,
+        "contract_version":"b4-literal-v1-with-conditional-N",
         "unit_rule":"one_prospective_representative_per_domain_component_for_group_based_inference_others_retained_for_coverage",
         "independence_assumption":"finite_observed_screen_only_unobserved_links_and_rights_can_invalidate_eligibility",
         "planned_independent_counts_met":all(c["independent_target_shortfall"]==0 for c in cells),
@@ -156,6 +168,7 @@ def run(manifest_path,dev_path,metadata_path,canonical_path,canonical_summary,co
         "status":"locked_source_partition_holdout_not_new_domain_ood" if admission else "provisional_engineering_source_partition_holdout_not_scientific_freeze","inputs":inputs,
         "required":False,"claim_ids":["SCOPE-02","GOAL-01","METHOD-01","DATA-01","DATA-02","DATA-03"],
         "cross_model_domain":None,"cross_model_ids":[],
+        "domain":None,"ids":[],"exclusion_from_dev":True,
         "reason_if_not_required":"immutable_B4_data3_is_claim_dependent_current_scope_requires_same_method_three_source_strata_not_unseen_checkpoint_generalization",
         "source_partition_holdout_required":True,
         "declared_source_ids":[r["source_uid"] for r in native_holdout],"source_image_count":100,

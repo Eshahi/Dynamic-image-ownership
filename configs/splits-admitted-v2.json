@@ -7,6 +7,29 @@
   "development_ids_sha256": "0bfd4178a1929e26d12401000c1eda0c549034c348458844e72f0c5b0a8f79ae",
   "admission_sha256": "d8240a0ee0b6920727f743b485933a9d919d5ae224309dd9c7c8e334aeab1f6e",
   "seed": "b4-split-rank-v1",
+  "counts": {
+    "ms-coco": {"development": 200, "validation": 200, "test": 600},
+    "div2k": {"development": 300, "validation": 300, "test": 300},
+    "diffusiondb": {"development": 1000, "validation": 1000, "test": 3000}
+  },
+  "grouping_rule": {
+    "observed_frame": "all5900_original_plus_all14000_acquired_including_excluded_bridges",
+    "edges": ["raw_bytes", "canonical_rgb8_pixels", "normalized_prompt", "prompt_seed", "known_producer", "unknown_producer_quarantine", "coarse_near_pixels"],
+    "near_dhash64_max_hamming": 6,
+    "near_color8_mean_absolute_difference_max_rgb8": 4,
+    "near_aspect_relative_difference_max_percent": 5,
+    "unknown_producer": "one_conservative_quarantine_cohort_not_asserted_same_user",
+    "canonical_rejects": "ineligible_source_nodes_retained_raw_only_no_fabricated_fingerprints_or_claim_of_ruled_out_residual_dependence",
+    "limitations": "finite_operational_graph_independence_is_a_conditional_analysis_assumption_not_a_proven_population_property"
+  },
+  "near_duplicate_threshold": {
+    "near_dhash64_max_hamming": 6,
+    "near_color8_mean_absolute_difference_max_rgb8": 4,
+    "near_aspect_relative_difference_max_percent": 5
+  },
+  "contract_version": "b4-literal-v1-with-conditional-N",
+  "counts_kind": "source_images_not_independent_groups",
+  "image_id_rule": "globally_unique_source_uid_domain_release_source_split_source_id",
   "grouping": {
     "observed_frame": "all5900_original_plus_all14000_acquired_including_excluded_bridges",
     "edges": ["raw_bytes", "canonical_rgb8_pixels", "normalized_prompt", "prompt_seed", "known_producer", "unknown_producer_quarantine", "coarse_near_pixels"],
