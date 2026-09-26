@@ -24,7 +24,11 @@ class AnalysisTests(unittest.TestCase):
         put("execution-manifest.json",self.execution)
         put("outputs/c4-development.json",{"status":"failed","error_type":"OutOfMemoryError",
             "resources":{"peak_torch_allocated_bytes":8,"torch_allocation_limit_bytes":10}})
-        put("logs/c4-progress.jsonl",b'{"phase":"worker_failed","elapsed_seconds":1}\n')
+        phases=["worker_started","exact_inputs_checked","source_and_resources_started",
+                "source_and_resources_checked","model_load_started","model_load_completed","worker_failed"]
+        put("logs/c4-progress.jsonl",b"".join((json.dumps({"phase":p,"elapsed_seconds":i,
+            **({"error_type":"OutOfMemoryError"} if p=="worker_failed" else {})})+"\n").encode()
+            for i,p in enumerate(phases)))
         source=put("checkpoints/source-snapshot.bin",b"owned buffer, not pixels")
         put("outputs/c4-trial-owned/failed.json",{"error_type":"OutOfMemoryError",
             "source_raw_hash":analysis.sha(source),"source_id":"owned","source_pixel_hash":"owned"})
@@ -41,8 +45,18 @@ class AnalysisTests(unittest.TestCase):
 
     def test_failure_is_not_zero_metric_or_success(self):
         result=analysis.summarize(self.root,self.repo)
-        self.assertIsNone(result["gradient_norm"]);self.assertEqual(result["gradient_observations"],0)
+        self.assertIsNone(result["gradient_norm"]);self.assertEqual(result["recorded_gradient_observations"],0)
+        self.assertEqual(result["unrecorded_internal_progress"],"unknown")
         self.assertEqual(result["status"],"failed");self.assertFalse(result["retry_authorized"])
+
+    def test_missing_or_reordered_phases_rejected(self):
+        for rows in ([{"phase":"worker_failed","elapsed_seconds":1,"error_type":"OutOfMemoryError"}],
+                     [{"phase":"model_load_completed","elapsed_seconds":2},
+                      {"phase":"worker_failed","elapsed_seconds":1,"error_type":"OutOfMemoryError"}]):
+            self.put("logs/c4-progress.jsonl",b"".join((json.dumps(row)+"\n").encode() for row in rows))
+            self.record["output_artifacts"]=[{"path":n,"sha256":analysis.sha(self.root/n)} for n in self.execution["outputs"]]
+            self.put("manifest.json",self.record)
+            with self.assertRaises(ValueError):analysis.summarize(self.root,self.repo)
 
     def test_tampered_declared_output_rejected(self):
         self.put("outputs/c4-development.json",b"changed")

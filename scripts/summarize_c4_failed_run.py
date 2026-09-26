@@ -40,6 +40,13 @@ def summarize(root, repo):
     trial = trials[0]; failure = read(trial/"failed.json")
     rows = [json.loads(row) for row in (trial/"trajectory.jsonl").read_bytes().splitlines()]
     phases = [json.loads(row) for row in (root/"logs/c4-progress.jsonl").read_bytes().splitlines()]
+    expected_phases = ["worker_started", "exact_inputs_checked", "source_and_resources_started",
+                       "source_and_resources_checked", "model_load_started", "model_load_completed",
+                       "worker_failed"]
+    if ([row["phase"] for row in phases] != expected_phases or
+            phases[-1].get("error_type") != "OutOfMemoryError" or
+            any(a["elapsed_seconds"] > b["elapsed_seconds"] for a,b in zip(phases,phases[1:]))):
+        raise ValueError("required ordered failure phases missing or inconsistent")
     if (len(rows) != 1 or rows[0]["phase"] != "source_enrollment" or
             any(trial.glob("*.png")) or (trial/"pair.json").exists()):
         raise ValueError("unexpected optimization/output evidence; review separately")
@@ -56,14 +63,15 @@ def summarize(root, repo):
                 *execution["outputs"], "checkpoints/source-snapshot.bin", "checkpoints/source-checked.json",
                 "checkpoints/model-load.json", "checkpoints/c4-config-validation.json",
                 *[str(p.relative_to(root)).replace("\\","/") for p in sorted(trial.iterdir()) if p.is_file()]]
-    return {"schema_version":"c4-failed-run-analysis-v1", "run_id":RUN,
+    return {"schema_version":"c4-failed-run-analysis-v2", "run_id":RUN,
         "execution_manifest_sha256":DIGEST,"execution_commit":COMMIT,"status":"failed",
         "error_type":"OutOfMemoryError", "source_uid":failure["source_id"],
         "started_at":record["started_at"],"ended_at":record["ended_at"],
         "worker_failure_elapsed_seconds":phases[-1]["elapsed_seconds"],
-        "last_completed_phase":"model_load_completed",
+        "last_completed_phase":phases[-2]["phase"],
         "faulting_operation":"not_recorded_within_preupdate_optimization_path",
-        "gradient_observations":0,"optimization_updates":0,"PNG_outputs":0,
+        "recorded_gradient_observations":0,"recorded_optimization_updates":0,"PNG_outputs":0,
+        "unrecorded_internal_progress":"unknown",
         "gradient_norm":None,"quality":"NOT_RUN","blind_verification":"NOT_RUN",
         "scientific_acceptance":False,"retry_authorized":False,"resources":resources,
         "artifacts":[{"path":name,"bytes":(root/name).stat().st_size,"sha256":sha(root/name)} for name in retained]}
@@ -80,5 +88,5 @@ if __name__ == "__main__":
         "run_id":RUN,"seed":0,"condition":"fixed_mechanism_trial","status":"failed","gradient_norm":None})):
         with (args.out/name).open("x",encoding="utf-8",newline="\n") as handle:
             json.dump(value,handle,sort_keys=True,indent=2,ensure_ascii=False,allow_nan=False);handle.write("\n")
-    print(json.dumps({"status":"failed_retained","gradient_observations":0,"PNG_outputs":0,
+    print(json.dumps({"status":"failed_retained","recorded_gradient_observations":0,"PNG_outputs":0,
         "analysis_sha256":sha(args.out/"failed-run-analysis.json")}))
