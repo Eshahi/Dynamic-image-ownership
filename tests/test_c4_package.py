@@ -37,7 +37,8 @@ class PackageTests(unittest.TestCase):
     def test_design_input_inventory_and_scope(self):
         required = worker.REQUIRED | validation_bridge.REQUIRED
         for name in (worker.ENVIRONMENT, "scripts/prepare_c4_execution.py", "configs/c4-development.json",
-                     worker.SPEC_ROOT+"/experiment-spec.yaml",worker.RESIDENCY_CONFIG,"src/embedding/residency.py"):
+                     worker.SPEC_ROOT+"/experiment-spec.yaml",worker.RESIDENCY_CONFIG,"src/embedding/residency.py",
+                     worker.CHECKPOINT_CONFIG,"src/embedding/checkpointing.py",worker.SPEC_ROOT+"/prior-failures.json"):
             self.assertIn(name, required)
         spec = json.loads((package.ROOT/(worker.SPEC_ROOT+"/experiment-spec.yaml")).read_bytes())
         self.assertEqual(spec["seeds"], [0]); self.assertEqual(len(spec["datasets"]), 1)

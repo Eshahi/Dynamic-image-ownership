@@ -141,6 +141,8 @@ class LocalAssetTests(unittest.TestCase):
             with patch.dict(os.environ, environment), patch.object(torch, "are_deterministic_algorithms_enabled", return_value=True), \
                  patch.object(StableDiffusionImg2ImgPipeline, "from_pretrained", return_value=pipeline) as factory:
                 loaded = assets.load_snapshot(self.loaded(), self.plan, snapshot, device="cpu")
+                checkpointed = assets.load_snapshot(self.loaded(), self.plan, snapshot,
+                                                   device="cpu", activation_checkpointing=True)
         finally:
             torch.backends.cuda.matmul.allow_tf32, torch.backends.cudnn.allow_tf32, torch.backends.cudnn.benchmark = old
         self.assertEqual(pipeline.tokenizer.texts, [""])
@@ -148,6 +150,13 @@ class LocalAssetTests(unittest.TestCase):
         self.assertTrue(factory.call_args.kwargs["use_safetensors"])
         self.assertEqual(factory.call_args.kwargs["torch_dtype"], torch.float32)
         self.assertEqual(loaded.identity["conditioning"], "fixed-empty-string")
+        from src.embedding.checkpointing import CheckpointedComponents
+        self.assertIs(type(checkpointed.components), CheckpointedComponents)
+        self.assertIs(checkpointed.components.vae, pipeline.vae)
+        self.assertIs(checkpointed.components.unet, pipeline.unet)
+        self.assertTrue(torch.equal(loaded.components.condition, checkpointed.components.condition))
+        self.assertEqual(checkpointed.identity["activation_checkpoint_profile"], CheckpointedComponents.profile_id)
+        self.assertEqual(loaded.identity["activation_checkpoint_profile"], "disabled")
         import numpy as np
         pixels = np.full((32, 32, 3), 127, dtype=np.uint8)
         self.assertTrue(loaded.check_saved_pixels(pixels))

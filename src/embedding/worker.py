@@ -22,11 +22,13 @@ from .validation_bridge import check_inputs, consume_validation_receipt, _read, 
 
 CASE = "experiments/c4-embedding-development-v1/frozen-case.json"
 ENVIRONMENT = "experiments/c4-embedding-development-v1/environment.json"
-EXPERIMENT_ID = "c4-embedding-residency-development-v1"
-RUN_ID = "c4-embedding-dev-002"
+EXPERIMENT_ID = "c4-embedding-checkpoint-development-v1"
+RUN_ID = "c4-embedding-dev-003"
 SPEC_ROOT = "experiments/" + EXPERIMENT_ID
 RESIDENCY_CONFIG = "configs/c4-residency.json"
 RESIDENCY_SHA = "03630075a7c9cf2dfd1b881bda2b7e8ffa3be726b368698372316acfc6e414cf"
+CHECKPOINT_CONFIG = "configs/c4-checkpointing.json"
+CHECKPOINT_SHA = "804cb5e28e4c3ef39e81a6aae99d4c4fdbc2d4842467a076ba69a40968960653"
 CONFIG_SHA = "27bedaf1cd7f848ecc9b5b4a76ebe3ca3189c5da099fb3a4a00fac29063b216b"
 OWNER = "c4-public-development-owner-v1"
 RAW_ROOT = Path("/mnt/w/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw")
@@ -41,14 +43,14 @@ REQUIRED = frozenset({CASE, ENVIRONMENT, *PINS, "configs/data.json", "research/a
     "scripts/verify_science_assets.py", "scripts/pixel_dct_control.py", "scripts/base_noise_reference.py",
     "src/data/preprocess.py", "src/embedding/proposed.py", "src/embedding/output.py",
     "src/embedding/local_assets.py", "src/embedding/development_case.py", "src/embedding/residency.py",
-    RESIDENCY_CONFIG,
+    RESIDENCY_CONFIG, CHECKPOINT_CONFIG, "src/embedding/checkpointing.py",
     "src/signatures/semantic.py", "src/signatures/owner.py", "src/signatures/instance.py",
     "src/__init__.py", "src/data/__init__.py", "src/runtime/__init__.py",
     "src/embedding/__init__.py", "src/signatures/__init__.py",
     "requirements-wsl-stage2-py314.txt", "requirements-wsl-torch-py314.txt",
     SPEC_ROOT+"/experiment-spec.yaml", SPEC_ROOT+"/plan.md",
     SPEC_ROOT+"/acceptance-criteria.md", SPEC_ROOT+"/compute-estimate.json",
-    SPEC_ROOT+"/prior-failure.json",
+    SPEC_ROOT+"/prior-failures.json",
     "scripts/prepare_c4_execution.py"})
 
 
@@ -80,6 +82,8 @@ def check_recipe(manifest, snapshots):
         raise ValueError("prospective C4 settings changed")
     if hashlib.sha256(snapshots[RESIDENCY_CONFIG]).hexdigest() != RESIDENCY_SHA:
         raise ValueError("explicit residency profile changed")
+    if hashlib.sha256(snapshots[CHECKPOINT_CONFIG]).hexdigest() != CHECKPOINT_SHA:
+        raise ValueError("explicit checkpoint profile changed")
     if manifest.get("script_sha256") != hashlib.sha256(snapshots[SCRIPT]).hexdigest():
         raise ValueError("launcher digest mismatch")
 
@@ -179,6 +183,8 @@ class RealOperations:
         self.root, self.measurement = root, {}
         if hashlib.sha256(_read(root/RESIDENCY_CONFIG)).hexdigest() != RESIDENCY_SHA:
             raise ValueError("residency profile changed before actual operations")
+        if hashlib.sha256(_read(root/CHECKPOINT_CONFIG)).hexdigest() != CHECKPOINT_SHA:
+            raise ValueError("checkpoint profile changed before actual operations")
         self.residency = None
         for name in ("HF_HUB_OFFLINE", "TRANSFORMERS_OFFLINE", "DIFFUSERS_OFFLINE", "PYTHONNOUSERSITE"):
             if os.environ.get(name) != "1": raise ValueError("offline launcher flags absent")
@@ -256,7 +262,12 @@ class RealOperations:
         del encoder
         import torch
         torch.cuda.empty_cache()
-        models = load_snapshot(loaded, plan, snapshot, device="cuda")
+        models = load_snapshot(loaded, plan, snapshot, device="cuda", activation_checkpointing=True)
+        from .checkpointing import CheckpointedComponents
+        if (type(models.components) is not CheckpointedComponents or
+                models.identity.get("activation_checkpoint_profile") != CheckpointedComponents.profile_id):
+            raise ValueError("exact checkpointed component binding required")
+        models.identity["activation_checkpoint_config_sha256"] = CHECKPOINT_SHA
         _new(output/"checkpoints/model-load.json", models.identity)
         return models, enrollment
 

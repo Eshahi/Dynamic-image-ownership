@@ -189,7 +189,8 @@ class LocalModels:
         return bool(flags[0])
 
 
-def load_snapshot(loaded: LoadedConfig, plan: AssetPlan, snapshot: Path, *, device: str, progress=None):
+def load_snapshot(loaded: LoadedConfig, plan: AssetPlan, snapshot: Path, *, device: str, progress=None,
+                  activation_checkpointing=False):
     """Explicit model-load boundary, NEVER called by current CLI or ordinary tests.
 
     Scientific runner must already have approved exact config/input/code/resource
@@ -197,6 +198,8 @@ def load_snapshot(loaded: LoadedConfig, plan: AssetPlan, snapshot: Path, *, devi
     fresh process. No boolean here can manufacture that external authorization.
     """
     settings = bind_config_assets(loaded, plan)
+    if type(activation_checkpointing) is not bool:
+        raise EmbeddingError("checkpoint selection must be an explicit boolean")
     if device not in ("cpu", "cuda"):
         raise EmbeddingError("explicit cpu/cuda profile required")
     if any(os.environ.get(name) != "1" for name in ("HF_HUB_OFFLINE", "TRANSFORMERS_OFFLINE", "DIFFUSERS_OFFLINE")):
@@ -231,10 +234,15 @@ def load_snapshot(loaded: LoadedConfig, plan: AssetPlan, snapshot: Path, *, devi
     with torch.no_grad():
         # SD1.5 CLIPTextModel profile does not use an attention mask.
         condition = pipeline.text_encoder(tokens.input_ids.to(device))[0]
-    components = DiffusersComponents(pipeline.vae, pipeline.unet, condition, settings, progress=progress)
+    component_type = DiffusersComponents
+    if activation_checkpointing:
+        from .checkpointing import CheckpointedComponents
+        component_type = CheckpointedComponents
+    components = component_type(pipeline.vae, pipeline.unet, condition, settings, progress=progress)
     return LocalModels(components, pipeline, {"lock_sha256": plan.lock_sha256,
         "component_hashes": plan.component_hashes, "config_sha256": loaded.sha256,
         "conditioning": "fixed-empty-string", "token_ids": tokens.input_ids.tolist(),
         "token_ids_sha256": hashlib.sha256(_json(tokens.input_ids.tolist())).hexdigest(),
         "device": device, "model_dtype": "float32", "model_runtime_parity": "NOT_PROVEN",
+        "activation_checkpoint_profile": components.profile_id if activation_checkpointing else "disabled",
         "custody": "pinned-unaffiliated-mirror-not-original-publisher-attestation"})

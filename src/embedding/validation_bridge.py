@@ -21,7 +21,7 @@ from .config_binding import validate_loaded_snapshot
 from .proposed import EmbeddingError
 
 CONFIG_PATH = "configs/c4-development.json"
-EXPERIMENT_ID = "c4-embedding-residency-development-v1"
+EXPERIMENT_ID = "c4-embedding-checkpoint-development-v1"
 RECEIPT_NAME = "c4-config-validation.json"
 REQUIRED = frozenset({CONFIG_PATH, "configs/method.schema.json",
     "scripts/validate_method_config.py", "scripts/noise_path_reference.py",

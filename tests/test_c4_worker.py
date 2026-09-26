@@ -121,7 +121,8 @@ class WorkerTests(unittest.TestCase):
                     "resources": worker.RESOURCES, "outputs": worker.OUTPUTS,
                     "script_sha256": hashlib.sha256(snapshots[worker.SCRIPT]).hexdigest()}
         worker.check_recipe(manifest, snapshots)
-        for key, bad in (("seeds", [False]), ("run_id", "c4-embedding-dev-001"), ("execution_target", "runpod"),
+        for key, bad in (("seeds", [False]), ("run_id", "c4-embedding-dev-001"),
+                         ("run_id", "c4-embedding-dev-002"), ("execution_target", "runpod"),
                          ("budget", dict(worker.BUDGET, max_seconds=1200.0)),
                          ("resources", dict(worker.RESOURCES, vram_mib=8193))):
             altered = copy.deepcopy(manifest); altered[key] = bad
@@ -129,6 +130,10 @@ class WorkerTests(unittest.TestCase):
         altered = dict(snapshots); del altered["scripts/base_noise_reference.py"]
         with self.assertRaises(ValueError): worker.check_recipe(manifest, altered)
         altered=dict(snapshots);altered[worker.RESIDENCY_CONFIG]+=b" "
+        with self.assertRaises(ValueError):worker.check_recipe(manifest,altered)
+        altered=dict(snapshots);altered[worker.CHECKPOINT_CONFIG]+=b" "
+        with self.assertRaises(ValueError):worker.check_recipe(manifest,altered)
+        altered=dict(snapshots);del altered["src/embedding/checkpointing.py"]
         with self.assertRaises(ValueError):worker.check_recipe(manifest,altered)
 
     def test_transfer_failure_is_terminal_before_optimization_or_pair(self):
