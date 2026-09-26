@@ -50,6 +50,28 @@ class CheckpointContracts(unittest.TestCase):
             with torch.no_grad():
                 backend.reconstruct(latent, torch.zeros_like(latent))
 
+    def test_lazy_scheduler_device_normalization_precedes_guard_freeze(self):
+        from diffusers import DDIMScheduler
+        original_init = DDIMScheduler.__init__
+        transfers = []
+        class LazyBuffer:
+            def __init__(self, value): self.value = value
+            def to(self, *, device):
+                transfers.append(device)
+                return self.value.clone().to(device=device)
+        def wrapped_init(schedule, *args, **kwargs):
+            original_init(schedule, *args, **kwargs)
+            schedule.alphas_cumprod = LazyBuffer(schedule.alphas_cumprod)
+        original = self.fixture.backend()
+        with patch.object(DDIMScheduler, "__init__", wrapped_init):
+            backend = CheckpointedComponents(original.vae, original.unet, original.condition, SETTINGS)
+        self.assertEqual(transfers, [backend.condition.device])
+        self.assertTrue(torch.equal(backend.scheduler.alphas_cumprod, original.scheduler.alphas_cumprod))
+        latent = backend.encode(padded_source(self.fixture.source, 256))
+        noise = torch.zeros_like(latent, requires_grad=True)
+        backend.reconstruct(latent, noise).square().sum().backward()
+        self.assertGreater(noise.grad.abs().sum().item(), 0)
+
     def test_mutation_between_forward_backward_fails(self):
         for mutation in ("condition", "parameter", "train", "replacement", "schedule"):
             backend = self.backend()

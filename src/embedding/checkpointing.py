@@ -14,6 +14,9 @@ class CheckpointedComponents(DiffusersComponents):
         super().__init__(*args, **kwargs)
         if _torch().__version__.split("+")[0] != "2.12.1":
             raise EmbeddingError("checkpoint candidate requires Torch 2.12.1")
+        # DDIM.add_noise performs this identical device-only normalization on
+        # first use. Do it before freezing identities, not after entering replay.
+        self.scheduler.alphas_cumprod = self.scheduler.alphas_cumprod.to(device=self.condition.device)
         self._frozen_profile = self._profile()
 
     def _profile(self):
