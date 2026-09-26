@@ -61,6 +61,16 @@ class ValidationBridgeTests(unittest.TestCase):
         self.assertEqual(record["config_raw_hex"], self.loaded.raw.hex())
         self.assertNotIn("decision", record)
 
+    def test_receipt_boolean_claim_cannot_be_numeric_alias(self):
+        path = self.fixture_receipt()
+        original = json.loads(path.read_bytes())
+        for key, number in (("valid_structure", 1), ("scientific_execution_authorized", 0)):
+            changed = copy.deepcopy(original)
+            changed["validator_verdict"][key] = number
+            path.write_text(json.dumps(changed), encoding="utf-8")
+            with self.assertRaises(EmbeddingError):
+                bridge.consume_validation_receipt(self.manifest_path, self.checkpoints, root=self.root)
+
     def test_explicit_development_receipt_does_not_become_final_method(self):
         self.loaded = feasibility_fixtures.owned_development_fixture()
         (self.root/bridge.CONFIG_PATH).write_bytes(self.loaded.raw)

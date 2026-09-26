@@ -194,7 +194,7 @@ def consume_validation_receipt(manifest_path: Path, checkpoint_dir: Path, *, roo
         "schema_sha256": expected_schema, "config_kind": "feasibility" if development else "final-method",
         "validator_verdict": {"valid_structure": True, "scientific_execution_authorized": False},
         "authority": "trusted-reviewed-launcher-provenance-not-user-approval"}
-    if any(record[key] != value for key, value in expected.items()):
+    if any(_json(record[key]) != _json(value) for key, value in expected.items()):
         raise EmbeddingError("C1 receipt does not bind this exact manifest/config/input inventory")
     runtime = record["validation_runtime"]
     if (not isinstance(runtime, dict) or set(runtime) != {"python", "executable"}
