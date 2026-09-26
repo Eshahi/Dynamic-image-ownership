@@ -47,11 +47,13 @@ class CocoCandidateTests(unittest.TestCase):
 
     def test_rank_known_vector(self):
         annotation, inventory = fixture()
-        rows = select(annotation, inventory)["candidates"]
-        expected = hashlib.sha256(b"b3-coco-source-candidate-v1\x00" + bytes.fromhex(
-            "e8c7f7908f1d7278341fae127d0da654f102f11bd7b21d8aeefa635b8c810b6f")
-            + int(rows[0]["source_id"]).to_bytes(8, "big")).hexdigest()
-        self.assertEqual(rows[0]["rank_sha256"], expected)
+        result = select(annotation, inventory)
+        rows = result["candidates"] + result["ordered_reserves"]
+        self.assertEqual([(row["source_id"], row["rank_sha256"]) for row in rows], [
+            ("1", "558ec6e90ce50159f771c99776156096803cc1afec38033d9fa952716c3de6d4"),
+            ("2", "8d06420008ef2228001c809d39358608e91024fd6e1163533b335c58c44b70a9"),
+            ("3", "d9823969f6a4f1b487d0b1958b0e3499d1cdbe7fd63bbff09b6c0a4037494e9c"),
+        ])
 
     def test_dimensions_exclude_without_silent_count_reduction(self):
         annotation, inventory = fixture()
