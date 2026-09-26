@@ -1,0 +1,19 @@
+{
+  "archive_bytes": 524200664,
+  "archive_json_sha256": "2de20d6b557ef1a599140d0d760c060fe17c376c3a0820f11879c761e0d5ce26",
+  "archive_sha256": "4510020320b8cd3c53acba7f33c8108b27e474340daeed6d9c92a0758c8b3879",
+  "content_reviewed": false,
+  "image_inventory_sha256": "b93430e319217942a42aec35c238a243c4dd546abdb2d1229791f52292eee379",
+  "images": 1000,
+  "index_sha256": "c987a60ce1c21335b6a6ef5887530e7be8b1013b86d0272d3c2441978c20f829",
+  "part_id": 1929,
+  "pillow_version": "12.3.0",
+  "raw_prompts_exported": false,
+  "revision": "fb620fbe49fa4420e0734bd9c0df11f51176b61f",
+  "rights_cleared": false,
+  "scientific_compute": false,
+  "status": "archive_crc_and_png_decode_only",
+  "study_ids_frozen": false,
+  "total_uncompressed_bytes": 524403552,
+  "zip_members": 1001
+}
