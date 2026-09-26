@@ -61,6 +61,35 @@ class AnalysisTests(unittest.TestCase):
             with patch.object(analysis, "selection", return_value=("config", selected)):
                 with self.assertRaisesRegex(ValueError, "duplicate terminal"): analysis.analyze(root, root)
 
+    def test_failures_and_pending_are_not_filtered(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); selected = self.fixture(root)
+            report_path = root/"outputs/semantic-examples.json"
+            report = json.loads(report_path.read_bytes())
+            failed = {k: report["cases"][0][k] for k in
+                      ("case_id", "image_id", "paired_image_id", "transform", "config_hash")}
+            failed.update(status="failed", phase="synthetic", error="preserve")
+            pending = {k: report["cases"][1][k] for k in
+                       ("case_id", "image_id", "paired_image_id", "transform", "config_hash")}
+            pending["status"] = "pending"
+            report["cases"][:2] = [failed, pending]
+            report.update(status="incomplete", examples=report["cases"][2:], failures=[failed], pending_cases=1)
+            report_path.write_text(json.dumps(report))
+            journal = root/"logs/case-progress.jsonl"
+            inventory = json.loads(journal.read_text().splitlines()[0])
+            journal.write_text("\n".join(json.dumps(row) for row in [inventory, failed, *report["examples"]]))
+            manifest_path = root/"manifest.json"
+            manifest = json.loads(manifest_path.read_bytes())
+            manifest["status"] = "failed"
+            for item in manifest["output_artifacts"]:
+                item["sha256"] = analysis.digest((root/item["path"]).read_bytes())
+            manifest_path.write_text(json.dumps(manifest))
+            with patch.object(analysis, "selection", return_value=("config", selected)):
+                result = analysis.analyze(root, root)
+            self.assertEqual(result["completed"], 94)
+            self.assertEqual(result["failed"], [failed])
+            self.assertEqual(result["pending"], [pending])
+
 
 if __name__ == "__main__":
     unittest.main()
