@@ -10,7 +10,7 @@ The pending question proposed increasing only the original hash-ranked candidate
 
 The production cap is now fourteen. Strict `b3_read_diffusiondb_metadata.py` re-hashed and parsed the same 194,548,652-byte immutable Parquet snapshot with separately installed PyArrow 21.0.0. Checked all 2,000,000 rows / 2,000 x 1,000 parts, including full validation/cardinality of **all fourteen** candidate parts before accepting any prefix. Malformed prompt types block even otherwise score-excluded rows; empty text remains an explicit exclusion. Ranking, target count and cutoff are unchanged.
 
-[Production receipt](../data/intake/20260926-approved-fourteen-part-production-selection.json), SHA-256 `094fa4cebc4481a337b1761af01f9887265da6c0e6531112fc749085988bd002`:
+[Production receipt](../data/intake/20260926-approved-fourteen-part-production-selection.json), SHA-256 `b7a542fabe4fa5d08b357e6a36365ea5b2cc929c81f1ee39d233b66a8b2eb189`:
 
 - 14,000 candidate rows examined; 7,206 score/size exclusions and three additional empty-text exclusions.
 - **6,219 distinct normalized exact-prompt groups**; shortest eligible prefix is all fourteen parts.
@@ -18,6 +18,8 @@ The production cap is now fourteen. Strict `b3_read_diffusiondb_metadata.py` re-
 - No prompt/user identifiers exported and no final source IDs/splits frozen.
 
 The historical proposal and diagnostic outputs remain unchanged for provenance. Their pending status is superseded by this decision and the strict production receipt, not silently rewritten. Archive source revision is `fb620fbe49fa4420e0734bd9c0df11f51176b61f`; pinned paths/sizes/LFS SHA-256 values remain in [the original proposal inventory](../data/intake/20260926-proposed-diffusiondb-parts.json), itself hash-bound by the authorization record.
+
+An initial Windows newline-encoding issue was caught before launch: Git would normalize the production receipt's CRLF to LF, invalidating its byte digest in a fresh checkout. The reader now emits LF explicitly, the receipt includes the production cap, and its bound digest above was updated. Historical `edc47dd` retains the first encoding/digest. No source metadata, selection order or eligibility outcome changed.
 
 ## Download behavior and limits
 

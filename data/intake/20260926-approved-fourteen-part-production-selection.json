@@ -22,6 +22,7 @@
   "metadata_rows": 2000000,
   "metadata_sha256": "eecd341187bc91c07f5994ad0660d40228ea025616fd57a509bef8323677c68f",
   "parts_checked": 2000,
+  "production_part_cap": 14,
   "pyarrow_version": "21.0.0",
   "raw_prompts_exported": false,
   "revision": "fb620fbe49fa4420e0734bd9c0df11f51176b61f",

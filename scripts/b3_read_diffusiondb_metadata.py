@@ -8,7 +8,7 @@ import json
 from collections import Counter
 from pathlib import Path
 
-from b3_diffusiondb_selection import PART_COUNT, ROWS_PER_PART, SelectionError, candidate_part_handoff
+from b3_diffusiondb_selection import MAX_PARTS, PART_COUNT, ROWS_PER_PART, SelectionError, candidate_part_handoff
 
 EXPECTED_SIZE = 194548652
 EXPECTED_SHA256 = "eecd341187bc91c07f5994ad0660d40228ea025616fd57a509bef8323677c68f"
@@ -49,6 +49,7 @@ def select_local_metadata(path: Path) -> dict:
     if len(counts) != PART_COUNT or any(counts[p] != ROWS_PER_PART for p in range(1, PART_COUNT + 1)):
         raise SelectionError("full release part cardinality mismatch")
     result.update({"metadata_sha256": digest, "metadata_bytes": len(payload),
+                   "production_part_cap": MAX_PARTS,
                    "metadata_rows": parquet.metadata.num_rows, "parts_checked": len(counts),
                    "rows_per_part": ROWS_PER_PART, "pyarrow_version": pa.__version__,
                    "raw_prompts_exported": False, "user_identifiers_read": False})
@@ -65,7 +66,7 @@ def main():
     except SelectionError as error:
         result = {"status": "blocked_metadata_error", "reason": str(error),
                   "selected_part_ids": [], "image_ids_frozen": False}
-    with args.output.open("x", encoding="utf-8") as stream:
+    with args.output.open("x", encoding="utf-8", newline="\n") as stream:
         json.dump(result, stream, sort_keys=True, indent=2)
     print(json.dumps(result, sort_keys=True))
     if result["status"] != "candidate_parts_ready":

@@ -46,7 +46,7 @@ if ($approval.proposal_file -cne '20260926-proposed-diffusiondb-parts.json' -or
 $proposal = Read-CheckedJson (Join-Path $contractParent $approval.proposal_file) $approval.proposal_sha256
 $selection = Read-CheckedJson (Join-Path $contractParent $approval.production_selection_file) $approval.production_selection_sha256
 if ($selection.status -cne 'candidate_parts_ready' -or $selection.revision -cne $revision -or
-    $selection.parts_checked -ne 2000 -or $selection.metadata_rows -ne 2000000 -or
+    $selection.parts_checked -ne 2000 -or $selection.metadata_rows -ne 2000000 -or $selection.production_part_cap -ne 14 -or
     $selection.rows_examined_in_candidate_parts -ne 14000 -or $selection.distinct_prompt_groups -lt 6000 -or
     ($selection.selected_part_ids -join ',') -cne ($parts -join ',') -or
     ($selection.candidate_order -join ',') -cne ($parts -join ',') -or
