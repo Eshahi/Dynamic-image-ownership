@@ -115,6 +115,9 @@ class DevelopmentCaseTests(unittest.TestCase):
         altered = copy.deepcopy(value)
         altered["selected"]["source_uid"] = altered["ranking"][1]["source_uid"]
         with self.assertRaises(ValueError): validate_frozen_case(root, json.dumps(altered).encode())
+        for key, changed in (("scientific_execution_authorized", 0), ("maximum_side", 1024.0)):
+            altered = copy.deepcopy(value); altered[key] = changed
+            with self.assertRaises(ValueError): validate_frozen_case(root, json.dumps(altered).encode())
 
 
 if __name__ == "__main__": unittest.main()

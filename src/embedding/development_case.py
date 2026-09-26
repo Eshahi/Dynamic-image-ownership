@@ -165,6 +165,9 @@ def validate_frozen_case(repo, raw):
     """
     value = strict_json_bytes(raw)
     expected = freeze_case(repo, maximum_side=1024)
-    if value != expected:
+    # JSON types matter: Python equality otherwise admits False == 0 and
+    # integer dimensions == floating dimensions in a relabeled receipt.
+    canonical = lambda obj: json.dumps(obj, sort_keys=True, separators=(",", ":"), allow_nan=False)
+    if canonical(value) != canonical(expected):
         raise ValueError("frozen case differs from exact metadata selection recipe")
     return value
