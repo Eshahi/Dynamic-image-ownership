@@ -1,0 +1,11 @@
+{
+  "schema_version": "c2-development-examples-v1",
+  "status": "NOT_RUN_pending_exact_manifest_user_approval",
+  "examples": [],
+  "observed_scientific_outcomes": 0,
+  "required_example_fields": ["image_id", "transform", "feature_distance", "key_distance", "config_hash"],
+  "required_conditions": ["same_image_uncached_repeat", "fixed_benign_transform", "different_content"],
+  "unit_tests_are_synthetic_not_real_development_examples": true,
+  "scientific_compute_authorized": false,
+  "issue_16_complete": false
+}
