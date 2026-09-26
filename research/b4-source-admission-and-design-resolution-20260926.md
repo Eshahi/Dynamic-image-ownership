@@ -173,6 +173,8 @@ The four pre-repair artifacts are preserved in ignored stable-project
 `.thesis-build/b4-cf17ec7-contract-history-20260926/`. The repaired declared CSV
 SHA-256 is `60ff11ae5a81698446573c5f7fbd9d3067a5a2619abdf29ac2389931de1e1b9f`.
 Ten split tests pass; 185 script tests run with 174 passes and 11 expected skips.
-Exact repair review is still required before issue #11 acceptance. No scientific
+Exact repair review at `e7164da9fb44237008164f62e7320ea7a4ee11b4` found no remaining
+engineering acceptance blocker; see `audits/b4-admitted-plan-review-20260926/review.md`.
+GitHub merge/closure must be verified separately. No scientific
 execution, model load, new download, rights acceptance, or lifecycle advancement
 was performed or authorized by this repair.
