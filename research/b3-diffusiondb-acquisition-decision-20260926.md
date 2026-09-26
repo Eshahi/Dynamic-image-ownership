@@ -10,7 +10,7 @@ The pending question proposed increasing only the original hash-ranked candidate
 
 The production cap is now fourteen. Strict `b3_read_diffusiondb_metadata.py` re-hashed and parsed the same 194,548,652-byte immutable Parquet snapshot with separately installed PyArrow 21.0.0. Checked all 2,000,000 rows / 2,000 x 1,000 parts, including full validation/cardinality of **all fourteen** candidate parts before accepting any prefix. Malformed prompt types block even otherwise score-excluded rows; empty text remains an explicit exclusion. Ranking, target count and cutoff are unchanged.
 
-[Production receipt](../data/intake/20260926-approved-fourteen-part-production-selection.json), SHA-256 `b7a542fabe4fa5d08b357e6a36365ea5b2cc929c81f1ee39d233b66a8b2eb189`:
+[Production receipt](../data/intake/20260926-approved-fourteen-part-production-selection.json), SHA-256 `50e0df5e3935ba458cbaad96221c33590dd33cb04216ed2f866494e78fa6fb46`:
 
 - 14,000 candidate rows examined; 7,206 score/size exclusions and three additional empty-text exclusions.
 - **6,219 distinct normalized exact-prompt groups**; shortest eligible prefix is all fourteen parts.

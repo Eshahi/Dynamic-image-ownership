@@ -68,6 +68,7 @@ def main():
                   "selected_part_ids": [], "image_ids_frozen": False}
     with args.output.open("x", encoding="utf-8", newline="\n") as stream:
         json.dump(result, stream, sort_keys=True, indent=2)
+        stream.write("\n")
     print(json.dumps(result, sort_keys=True))
     if result["status"] != "candidate_parts_ready":
         raise SystemExit(2)

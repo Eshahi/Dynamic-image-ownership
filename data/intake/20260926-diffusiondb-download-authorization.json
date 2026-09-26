@@ -11,7 +11,7 @@
   "proposal_file": "20260926-proposed-diffusiondb-parts.json",
   "proposal_sha256": "97d858ed38918f502e50b7ef122410e5406486483a731e3fc727d5b4900261ab",
   "production_selection_file": "20260926-approved-fourteen-part-production-selection.json",
-  "production_selection_sha256": "b7a542fabe4fa5d08b357e6a36365ea5b2cc929c81f1ee39d233b66a8b2eb189",
+  "production_selection_sha256": "50e0df5e3935ba458cbaad96221c33590dd33cb04216ed2f866494e78fa6fb46",
   "download_root": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/diffusiondb-2m/archives",
   "target_images": 5000,
   "nsfw_ceiling": 0.10,
