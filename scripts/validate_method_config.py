@@ -40,18 +40,18 @@ def detector_id(config):
 def validate(config, schema):
     Draft202012Validator.check_schema(schema)
     Draft202012Validator(schema).validate(config)
-    def reject_placeholders(item):
+    def reject_placeholders(item, path=()):
         if isinstance(item, str):
             if item.casefold() in {"tbd", "unknown", "placeholder"}:
                 raise ValueError("placeholder value is not a configuration")
-            if len(item) == 64 and set(item) == {"0"}:
+            if len(item) == 64 and set(item) == {"0"} and path != ("feature", "clip", "projection_seed"):
                 raise ValueError("zero SHA sentinel is not an artifact digest")
         elif isinstance(item, dict):
-            for child in item.values():
-                reject_placeholders(child)
+            for name, child in item.items():
+                reject_placeholders(child, (*path, name))
         elif isinstance(item, list):
             for child in item:
-                reject_placeholders(child)
+                reject_placeholders(child, (*path, "[]"))
     reject_placeholders(config)
     if detector_id(config) != config["dct"]["config_id"]:
         raise ValueError("detector_config_id does not match static feature/signature/DCT configuration")

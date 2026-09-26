@@ -8,14 +8,20 @@ import json
 from dataclasses import asdict, dataclass
 
 from src.runtime.config import LoadedConfig, SCHEMA, strict_json_bytes
+from src.runtime.feasibility import FeasibilityConfig, assert_feasibility_identity
 from .proposed import EmbeddingError, Settings
 
 
 def validate_loaded_snapshot(loaded):
-    if (not isinstance(loaded, LoadedConfig) or hashlib.sha256(loaded.raw).hexdigest() != loaded.sha256
-            or strict_json_bytes(loaded.raw) != loaded.value
-            or hashlib.sha256(SCHEMA.read_bytes()).hexdigest() != loaded.schema_sha256):
+    if (type(loaded) not in (LoadedConfig, FeasibilityConfig) or hashlib.sha256(loaded.raw).hexdigest() != loaded.sha256
+            or strict_json_bytes(loaded.raw) != loaded.value):
         raise EmbeddingError("C1 config snapshot/value/schema identity changed or absent")
+    if type(loaded) is FeasibilityConfig:
+        assert_feasibility_identity(loaded)
+    elif (hashlib.sha256(SCHEMA.read_bytes()).hexdigest() != loaded.schema_sha256
+            or loaded.value.get("schema_version") != "a5-method-v1"
+            or loaded.value.get("profile") != "public-derived-existing-image"):
+        raise EmbeddingError("final C1 schema/profile identity changed")
     value = loaded.value
     dct = dict(value["dct"])
     claimed = dct.pop("config_id")

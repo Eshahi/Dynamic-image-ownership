@@ -12,6 +12,7 @@ from unittest import mock
 from src.embedding.proposed import EmbeddingError, Settings
 from src.embedding import validation_bridge as bridge
 from tests.c4_fixtures import loaded_fixture
+from tests import test_c4_feasibility as feasibility_fixtures
 
 SETTINGS = Settings(10, .2, .18215, 256, .2, .3, .01, .005, 2, 1, 1, 1, 1, .1, .1)
 ROOT = Path(__file__).resolve().parents[1]
@@ -59,6 +60,26 @@ class ValidationBridgeTests(unittest.TestCase):
         self.assertFalse(record["validator_verdict"]["scientific_execution_authorized"])
         self.assertEqual(record["config_raw_hex"], self.loaded.raw.hex())
         self.assertNotIn("decision", record)
+
+    def test_explicit_development_receipt_does_not_become_final_method(self):
+        self.loaded = feasibility_fixtures.owned_development_fixture()
+        (self.root/bridge.CONFIG_PATH).write_bytes(self.loaded.raw)
+        for entry in self.manifest["inputs"]:
+            if entry["path"] == bridge.CONFIG_PATH: entry["sha256"] = self.loaded.sha256
+        self.write_manifest()
+        if importlib.util.find_spec("jsonschema") is not None:
+            path = bridge.write_validation_receipt(self.manifest_path, self.checkpoints, root=self.root)
+        else:
+            with mock.patch.object(bridge, "load_feasibility_config", return_value=self.loaded):
+                path = bridge.write_validation_receipt(self.manifest_path, self.checkpoints, root=self.root)
+        got = bridge.consume_validation_receipt(self.manifest_path, self.checkpoints, root=self.root)
+        self.assertEqual(type(got), type(self.loaded))
+        self.assertEqual(got, self.loaded)
+        record = json.loads(path.read_bytes()); self.assertEqual(record["config_kind"], "feasibility")
+        record["config_kind"] = "final-method"
+        path.write_text(json.dumps(record), encoding="utf-8")
+        with self.assertRaises(EmbeddingError):
+            bridge.consume_validation_receipt(self.manifest_path, self.checkpoints, root=self.root)
 
     def test_actual_c1_full_validation_and_malformed_config_rejection(self):
         if importlib.util.find_spec("jsonschema") is None:

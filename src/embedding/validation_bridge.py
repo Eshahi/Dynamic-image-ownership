@@ -16,6 +16,7 @@ import sys
 from pathlib import Path, PurePosixPath
 
 from src.runtime.config import PROJECT, LoadedConfig, load_method_config, strict_json_bytes
+from src.runtime.feasibility import FeasibilityConfig, load_feasibility_config, schema_bytes, VERSION
 from .config_binding import validate_loaded_snapshot
 from .proposed import EmbeddingError
 
@@ -24,6 +25,7 @@ RECEIPT_NAME = "c4-config-validation.json"
 REQUIRED = frozenset({CONFIG_PATH, "configs/method.schema.json",
     "scripts/validate_method_config.py", "scripts/noise_path_reference.py",
     "src/runtime/config.py", "src/embedding/config_binding.py",
+    "src/runtime/feasibility.py",
     "src/embedding/validation_bridge.py"})
 MAX_FILE_BYTES = 2 * 1024 * 1024
 
@@ -127,8 +129,11 @@ def write_validation_receipt(manifest_path: Path, checkpoint_dir: Path, *, root:
     raw_manifest = _read(manifest_path)
     manifest, snapshots, pins = check_inputs(raw_manifest, root)
     _check_executing_validation_code(snapshots)
-    loaded = load_method_config(Path(root)/CONFIG_PATH)
-    if loaded.raw != snapshots[CONFIG_PATH] or loaded.schema_sha256 != pins["configs/method.schema.json"]:
+    development = strict_json_bytes(snapshots[CONFIG_PATH]).get("schema_version") == VERSION
+    loader = load_feasibility_config if development else load_method_config
+    loaded = loader(Path(root)/CONFIG_PATH)
+    expected_schema = _sha(schema_bytes()) if development else pins["configs/method.schema.json"]
+    if loaded.raw != snapshots[CONFIG_PATH] or loaded.schema_sha256 != expected_schema:
         raise EmbeddingError("C1 validated bytes differ from reviewed manifest")
     validate_loaded_snapshot(loaded)
     if manifest.get("seeds") != [loaded.value["embedding"]["noise_seed"]]:
@@ -140,12 +145,12 @@ def write_validation_receipt(manifest_path: Path, checkpoint_dir: Path, *, root:
     checkpoint_dir = _no_links(checkpoint_dir)
     if not checkpoint_dir.is_dir():
         raise EmbeddingError("existing official checkpoint directory required")
-    record = {"schema_version": "c4-c1-validated-byte-bridge-v1",
+    record = {"schema_version": "c4-c1-validated-byte-bridge-v2",
         "manifest_sha256": _sha(_json(manifest)), "git_commit": manifest["git_commit"],
         "experiment_id": manifest["experiment_id"], "run_id": manifest["run_id"],
         "input_sha256": pins, "config_path": CONFIG_PATH,
         "config_raw_hex": loaded.raw.hex(), "config_sha256": loaded.sha256,
-        "schema_sha256": loaded.schema_sha256,
+        "schema_sha256": loaded.schema_sha256, "config_kind": "feasibility" if development else "final-method",
         "validator_verdict": {"valid_structure": True, "scientific_execution_authorized": False},
         "validation_runtime": {"python": platform.python_version(), "executable": sys.executable},
         "authority": "trusted-reviewed-launcher-provenance-not-user-approval"}
@@ -172,15 +177,17 @@ def consume_validation_receipt(manifest_path: Path, checkpoint_dir: Path, *, roo
     record = strict_json_bytes(_read(Path(checkpoint_dir)/RECEIPT_NAME))
     expected_keys = {"schema_version", "manifest_sha256", "git_commit", "experiment_id", "run_id",
         "input_sha256", "config_path", "config_raw_hex", "config_sha256", "schema_sha256",
-        "validator_verdict", "validation_runtime", "authority"}
+        "validator_verdict", "validation_runtime", "authority", "config_kind"}
     if not isinstance(record, dict) or set(record) != expected_keys:
         raise EmbeddingError("malformed C1 bridge receipt")
-    expected = {"schema_version": "c4-c1-validated-byte-bridge-v1",
+    development = strict_json_bytes(snapshots[CONFIG_PATH]).get("schema_version") == VERSION
+    expected_schema = _sha(schema_bytes()) if development else pins["configs/method.schema.json"]
+    expected = {"schema_version": "c4-c1-validated-byte-bridge-v2",
         "manifest_sha256": _sha(_json(manifest)), "git_commit": manifest["git_commit"],
         "experiment_id": manifest["experiment_id"], "run_id": manifest["run_id"],
         "input_sha256": pins, "config_path": CONFIG_PATH,
         "config_raw_hex": snapshots[CONFIG_PATH].hex(), "config_sha256": pins[CONFIG_PATH],
-        "schema_sha256": pins["configs/method.schema.json"],
+        "schema_sha256": expected_schema, "config_kind": "feasibility" if development else "final-method",
         "validator_verdict": {"valid_structure": True, "scientific_execution_authorized": False},
         "authority": "trusted-reviewed-launcher-provenance-not-user-approval"}
     if any(record[key] != value for key, value in expected.items()):
@@ -189,8 +196,8 @@ def consume_validation_receipt(manifest_path: Path, checkpoint_dir: Path, *, roo
     if (not isinstance(runtime, dict) or set(runtime) != {"python", "executable"}
             or any(not isinstance(value, str) or not value for value in runtime.values())):
         raise EmbeddingError("missing C1 parent runtime provenance")
-    loaded = LoadedConfig(strict_json_bytes(snapshots[CONFIG_PATH]), snapshots[CONFIG_PATH],
-                          pins[CONFIG_PATH], pins["configs/method.schema.json"])
+    cls = FeasibilityConfig if development else LoadedConfig
+    loaded = cls(strict_json_bytes(snapshots[CONFIG_PATH]), snapshots[CONFIG_PATH], pins[CONFIG_PATH], expected_schema)
     validate_loaded_snapshot(loaded)
     if manifest.get("seeds") != [loaded.value["embedding"]["noise_seed"]]:
         raise EmbeddingError("C1 config seed differs from exact run seed inventory")

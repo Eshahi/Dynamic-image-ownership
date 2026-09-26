@@ -79,6 +79,7 @@ class TrialStore:
             seed, bytes.fromhex(config["dct"]["config_id"]), source_tensor_sha256=source_tensor_hash)
         self.directory = Path(tempfile.mkdtemp(prefix="c4-trial-", dir=parent))
         self.identity = {"source_id": source_id, "seed": seed, "config_hash": config_hash,
+                         "config_profile": config["profile"], "calibration": config["calibration"],
                          "schema_hash": self._binding.schema_hash,
                          "detector_config_id": self._binding.detector_config_id,
                          "settings_hash": hashlib.sha256(self._binding.settings_json).hexdigest(),

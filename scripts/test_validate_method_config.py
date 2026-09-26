@@ -71,6 +71,16 @@ class MethodContractTests(unittest.TestCase):
         with self.assertRaises(ValidationError):
             validate(self.config, SCHEMA)
 
+    def test_public_zero_projection_seed_is_not_missing_artifact(self):
+        self.config["feature"]["clip"]["projection_seed"] = "0"*64
+        self.config["dct"]["config_id"] = detector_id(self.config)
+        self.assertTrue(validate(self.config, SCHEMA))
+        for value in ("0"*63, "G"*64):
+            self.config["feature"]["clip"]["projection_seed"] = value
+            self.config["dct"]["config_id"] = detector_id(self.config)
+            with self.assertRaises(ValidationError):
+                validate(self.config, SCHEMA)
+
     def test_image_io_and_guidance_required(self):
         del self.config["image_io"]
         with self.assertRaises(ValidationError):

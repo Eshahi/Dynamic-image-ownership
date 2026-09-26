@@ -8,6 +8,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.runtime.config import ConfigError, load_method_config
+from src.runtime.feasibility import load_feasibility_config
 from src.embedding.proposed import Settings
 
 
@@ -15,9 +16,10 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, required=True)
     parser.add_argument("--preview", action="store_true", help="validate bytes only, without loading a model")
+    parser.add_argument("--development-feasibility", action="store_true", help="explicit non-calibrated profile; no detector decisions")
     args = parser.parse_args(argv)
     try:
-        config = load_method_config(args.config)
+        config = (load_feasibility_config if args.development_feasibility else load_method_config)(args.config)
         settings = Settings.from_embedding_config(config.value["embedding"])
     except (ConfigError, ValueError, KeyError) as error:
         print(json.dumps({"status": "invalid_config", "error": str(error), "scientific_execution_authorized": False}))
@@ -25,6 +27,8 @@ def main(argv=None):
     record = {"status": "component_preflight_only" if args.preview else "execution_adapter_not_ready",
               "config_sha256": config.sha256, "inference_steps": settings.inference_steps,
               "scientific_execution_authorized": False,
+              "calibrated_decisions_authorized": False,
+              "config_kind": "feasibility" if args.development_feasibility else "final-method",
               "missing": ["approved exact execution manifest and integrated runner worker",
                           "integration of reviewed C1 cross-runtime validation bridge",
                           "empirical local component/empty-conditioning/safety and native PNG evidence",
