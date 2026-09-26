@@ -64,10 +64,23 @@ context checks without changing observations. Official v1 helper already reports
 expected1/observed1/failed1/missing0, gradient n0/all summary scalars null, no
 CI/significance/superiority. Its generic few-seeds warning is not a population
 power analysis for this engineering trial. Updated reviewed analysis provenance
-will be recorded after independent review; never replace original run artifacts.
+is now recorded: retained-residency-failure-v2 SHA256
+`058dffe1054b06e8847911fa4251e2fa7bc4122eb5a35c729c565b1c19f63f7c`.
+Never replace original run artifacts. Independent actor `/root/b3_intake_review`
+reviewed exact analysis commit `3a949dae9ef5e9779ec54bdf062fac15693c9aac`,
+replayed all 35 actual rows and found no blocking discrepancy in this retained
+failure evidence. Acceptance is narrow provenance, not successful C4 or compute
+authorization. See audits/c4-residency-failure-review-20260926/review.md.
 
-Owned parser/original-failure tests: 11 passed in Windows/WSL before additional
-bool-context regression. No study rerun or new install/download. Loader warnings
+Parser limitation: balanced unknown operations or removal of some balanced
+operations can pass its generic stack checks. The actual pinned ledger was
+independently inspected; the parser alone does not establish a complete operation
+inventory for future reuse. Tighten its token inventory before claiming that.
+
+Owned parser/original-failure tests: reviewer independently passed all 11 on
+Windows and WSL at the reviewed commit, including the bool-context regression.
+The scripts suite passed 175 of 186 tests with 11 expected skips; no full-root
+discovery success is claimed. No study rerun or new install/download. Loader warnings
 about clip_text_model-versus-clip and torch_dtype deprecation remain in process
 logs. Quality, q/h drift, blind verification and saved-pixel safety remain NOT_RUN.
 #18/PR67 stay open/draft; this is not scientific method success or C4 closure.
