@@ -33,3 +33,12 @@ cap/precision/source substitution, retries or lifecycle state changes occurred.
 Next: repaired exact code/package review, final clean commit-bound manifest after
 documentation, independent final binding, then present its exact hash for user
 approval. Only official runner may execute an approved package once.
+
+Repaired review at4474ae086ec1184c30ec837fd717a89e350e5593/canonical5e64753c…7ceb
+found no remaining narrow launch blocker by actual `/root/b3_intake_review`.
+All47 input pins/builder/helper spec/manifest/both prior failures matched. Final
+root C4 counts81: Windows64pass17skip, WSL76pass5skip; scripts186175pass11skip.
+Official preview requires_approval true; old002 approval validation actually failed
+with Approval scope mismatch: experiment_id. No new approval was created.
+See audits/c4-checkpoint-launch-review-20260926/review.md. Documentation changes
+HEAD: final manifest must be regenerated independently rebound before the question.
