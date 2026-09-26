@@ -225,11 +225,12 @@ class ContinuousCandidate:
     perturbation: object
     trajectory: list
     metadata: dict
+    config_binding: object = None
     status: str = "continuous_candidate_requires_safety_png_quality_blind_verification"
 
 
 def optimize_existing(source, settings, backend, *, seed, source_digest, ws, wi, config_id,
-                      control=False, record=None):
+                      control=False, record=None, method_config=None):
     """Component kernel only. Supplied keys must come from C2/C3b source extraction.
 
     A caller must journal case creation/failure before entry. `record` receives
@@ -243,6 +244,11 @@ def optimize_existing(source, settings, backend, *, seed, source_digest, ws, wi,
     if isinstance(backend, DiffusersComponents) and backend.settings != settings:
         raise EmbeddingError("component settings differ from optimization settings")
     padded = padded_source(source, settings.maximum_side)
+    binding = None
+    if method_config is not None:
+        from .config_binding import bind_settings
+        binding = bind_settings(method_config, settings, seed, config_id,
+            source_tensor_sha256=hashlib.sha256(source.detach().cpu().numpy().astype("<f4").tobytes(order="C")).hexdigest())
     height, width = source.shape[-2:]
     # Guard seeds/digests/stream cap before any learned component computation.
     base, ps, pi = latent_streams(seed, source_digest, ws, wi, config_id,
@@ -319,6 +325,9 @@ def optimize_existing(source, settings, backend, *, seed, source_digest, ws, wi,
     metadata = {"native_shape": list(source.shape), "padded_shape": list(padded.shape),
                 "latent_shape": list(latent.shape), "seed": seed, "source_sha256": source_digest.hex(),
                 "detector_config_id": config_id.hex(), "timesteps": leading_suffix(settings.inference_steps, settings.strength),
+                "method_config_sha256": None if binding is None else binding.config_hash,
+                "source_tensor_sha256": None if binding is None else binding.source_tensor_sha256,
+                "settings_sha256": None if binding is None else hashlib.sha256(binding.settings_json).hexdigest(),
                 "mask": "all-one", "control": control, "effective_alpha_s": 0 if control else settings.alpha_s,
                 "effective_alpha_i": 0 if control else settings.alpha_i, "optimized_variable": "initial_noise_u_only",
                 "base_f32le_sha256": hashlib.sha256(base.detach().cpu().numpy().astype("<f4").tobytes()).hexdigest(),
@@ -334,4 +343,4 @@ def optimize_existing(source, settings, backend, *, seed, source_digest, ws, wi,
         metadata["initial_latent_displacement_norm"] = math.sqrt(1-initial_alpha) * metadata["total_noise_displacement_norm"]
     else:
         metadata["initial_latent_displacement_norm"] = None
-    return ContinuousCandidate(image.detach().clone(), reference, u.detach().clone(), trajectory, metadata)
+    return ContinuousCandidate(image.detach().clone(), reference, u.detach().clone(), trajectory, metadata, binding)

@@ -17,6 +17,7 @@ from pathlib import Path
 from src.runtime.config import LoadedConfig, strict_json_bytes
 from scripts.verify_science_assets import _entries, verify
 from .proposed import DiffusersComponents, EmbeddingError, Settings
+from .config_binding import validate_loaded_snapshot
 
 LOCK_SHA256 = "b8c2595857853ea5b7835bb71f12a34dde07b78623c5e638f692dc7eb220b27e"
 SD_FILES = frozenset({
@@ -43,11 +44,7 @@ def _no_links(path):
 
 
 def _config(loaded):
-    if (not isinstance(loaded, LoadedConfig) or hashlib.sha256(loaded.raw).hexdigest() != loaded.sha256
-            or strict_json_bytes(loaded.raw) != loaded.value):
-        raise EmbeddingError("C1 loaded config snapshot changed or absent")
-    # Full schema/cross-field validation is C1's responsibility before entry.
-    return loaded.value
+    return validate_loaded_snapshot(loaded)
 
 
 @dataclass(frozen=True)

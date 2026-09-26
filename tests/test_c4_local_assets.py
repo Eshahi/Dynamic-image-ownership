@@ -3,6 +3,7 @@ import dataclasses
 import hashlib
 import json
 import os
+import importlib.util
 import tempfile
 import unittest
 from pathlib import Path
@@ -13,6 +14,7 @@ from src.embedding import local_assets as assets
 from src.embedding.proposed import EmbeddingError
 from src.runtime.config import LoadedConfig
 from tests import test_embedding as fixtures
+from tests.c4_fixtures import loaded_fixture
 
 SETTINGS, torch = fixtures.SETTINGS, fixtures.torch
 
@@ -42,17 +44,7 @@ class LocalAssetTests(unittest.TestCase):
         self.plan = assets.plan_assets(self.lock)
 
     def loaded(self):
-        # Deliberately unit-only C1 object, not a reviewed science configuration.
-        value = {"embedding": {"model_repository": "stable-diffusion-v1-5/stable-diffusion-v1-5",
-            "model_revision": "451f4fe16113bff5a5d2269ed5ad43b0592e9a14",
-            "diffusers_commit": "0f252be0ed42006c125ef4429156cb13ae6c1d60",
-            "model_component_hashes": self.plan.component_hashes,
-            "scheduler": {"inference_steps": 10, "strength": .2}, "vae_scale": .18215,
-            "working_image": {"maximum_side": 256}, "alpha_s": .2, "alpha_i": .3, "rho": .01,
-            "optimizer": {"learning_rate": .005, "iterations": 2},
-            "loss": {"lambda_q": 1, "lambda_r": 1, "lambda_s": 1, "lambda_i": 1, "margin_s": .1, "margin_i": .1}}}
-        raw = json.dumps(value).encode()
-        return LoadedConfig(value, raw, hashlib.sha256(raw).hexdigest(), "a"*64)
+        return loaded_fixture(SETTINGS, self.plan.component_hashes)
 
     def test_plan_snapshot_and_group_identity_are_complete(self):
         self.assertEqual(len(self.plan.entries), 15)
@@ -106,6 +98,16 @@ class LocalAssetTests(unittest.TestCase):
         self.assertEqual(output.read_bytes(), b"preserve me")
         with self.assertRaises(EmbeddingError):
             assets.snapshot_assets(Path("relative"), self.stage, self.plan)
+
+    def test_owned_full_shaped_fixture_matches_c1_schema_when_available(self):
+        if importlib.util.find_spec("jsonschema") is None:
+            self.skipTest("unchanged WSL science venv lacks JSON Schema dependency")
+        from src.runtime.config import load_method_config
+        config = self.loaded()
+        file = self.root/"owned-config.json"
+        file.write_bytes(config.raw)
+        loaded = load_method_config(file)
+        self.assertEqual(loaded.sha256, config.sha256)
 
     @unittest.skipIf(torch is None, "factory binding tests require existing WSL Torch")
     def test_loader_binds_mock_empty_condition_and_safety_without_real_model(self):

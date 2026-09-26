@@ -12,6 +12,7 @@ import tempfile
 from pathlib import Path
 
 from .proposed import ContinuousCandidate, EmbeddingError
+from .config_binding import bind_settings, validate_loaded_snapshot
 
 
 def _json(value):
@@ -53,12 +54,15 @@ class TrialStore:
     overwritten or cleaned. File-system adversarial concurrent mutation is not
     a security guarantee; callers serialize writers and own the artifact root.
     """
-    def __init__(self, parent: Path, *, source_id, seed, config_hash, source_raw_hash, source_rgb8):
-        from src.data.preprocess import no_links, pixel_sha
+    def __init__(self, parent: Path, *, source_id, seed, method_config, source_raw_hash, source_rgb8):
+        from src.data.preprocess import no_links, pixel_sha, normalized
         if not isinstance(source_id, str) or not 1 <= len(source_id) <= 256:
             raise EmbeddingError("source_id must be bounded text")
         if type(seed) is not int or not 0 <= seed < 2**64:
             raise EmbeddingError("seed must be uint64")
+        from .proposed import Settings
+        config = validate_loaded_snapshot(method_config)
+        config_hash = method_config.sha256
         for digest in (config_hash, source_raw_hash):
             if not isinstance(digest, str) or len(digest) != 64 or any(c not in "0123456789abcdef" for c in digest):
                 raise EmbeddingError("trial digests must be lowercase SHA-256")
@@ -70,12 +74,20 @@ class TrialStore:
         pixel_hash = pixel_sha(self._source)
         if min(self._source.shape[:2]) < 32:
             raise EmbeddingError("native image too small")
+        source_tensor_hash = hashlib.sha256(normalized(self._source).transpose(2, 0, 1).astype("<f4").tobytes(order="C")).hexdigest()
+        self._binding = bind_settings(method_config, Settings.from_embedding_config(config["embedding"]),
+            seed, bytes.fromhex(config["dct"]["config_id"]), source_tensor_sha256=source_tensor_hash)
         self.directory = Path(tempfile.mkdtemp(prefix="c4-trial-", dir=parent))
         self.identity = {"source_id": source_id, "seed": seed, "config_hash": config_hash,
+                         "schema_hash": self._binding.schema_hash,
+                         "detector_config_id": self._binding.detector_config_id,
+                         "settings_hash": hashlib.sha256(self._binding.settings_json).hexdigest(),
+                         "source_tensor_hash": source_tensor_hash,
                          "source_raw_hash": source_raw_hash, "source_pixel_hash": pixel_hash,
                          "native_hwc": list(self._source.shape), "scope": "local-only-diagnostic-candidate"}
         self._identity_bytes = _json(self.identity)
         self._finished = False
+        _write_new(self.directory/"method-config.json", method_config.raw)
         _write_new(self.directory/"start.json", _json({**self.identity, "status": "started_before_computation"}))
         _write_new(self.directory/"trajectory.jsonl", b"")
 
@@ -115,6 +127,12 @@ class TrialStore:
                 or candidate.metadata.get("source_sha256") != self.identity["source_raw_hash"]
                 or candidate.metadata.get("control") is not False):
             raise EmbeddingError("candidate/source trial identity mismatch")
+        if (candidate.config_binding != self._binding
+                or candidate.metadata.get("method_config_sha256") != self._binding.config_hash
+                or candidate.metadata.get("detector_config_id") != self._binding.detector_config_id
+                or candidate.metadata.get("settings_sha256") != self.identity["settings_hash"]
+                or candidate.metadata.get("source_tensor_sha256") != self.identity["source_tensor_hash"]):
+            raise EmbeddingError("candidate computation configuration differs from trial binding")
         rows, decoded_pair = [], {}
         for label, tensor in (("matched_control", candidate.matched_control), ("marked_candidate", candidate.image)):
             if not isinstance(tensor, torch.Tensor) or tuple(tensor.shape) != (1, 3, h, w) or tensor.dtype != torch.float32:
@@ -127,6 +145,9 @@ class TrialStore:
             saved = path.read_bytes()
             if saved != raw:
                 raise EmbeddingError("persisted PNG differs from encoder output")
+            self.record({"phase": "png_saved_before_safety", "kind": label,
+                         "output_path": path.name, "output_hash": hashlib.sha256(saved).hexdigest(),
+                         "output_pixel_hash": pixel_sha(decoded)})
             flag = safety_checker(decoded.copy())
             if type(flag) is not bool:
                 raise EmbeddingError("safety checker must return one explicit boolean")
@@ -139,6 +160,7 @@ class TrialStore:
                          "output_pixel_hash": pixel_sha(decoded), "safety_flagged": flag,
                          "mse_vs_source_decoded_png": mse,
                          "SSIM": "NOT_RUN", "LPIPS": "NOT_RUN", "blind_verification": "NOT_RUN"})
+            self.record({"phase": "output_safety_completed", "result": rows[-1]})
         status = "failed_safety_flagged" if any(row["safety_flagged"] for row in rows) else "saved_pair_pending_metrics_and_blind_verification"
         receipt = {"schema_version": "c4-local-output-pair-v1", "status": status, "rows": rows,
                    "candidate_metadata": candidate.metadata, "scientific_acceptance": False}

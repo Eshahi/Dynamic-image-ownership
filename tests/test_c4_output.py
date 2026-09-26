@@ -1,5 +1,6 @@
 """Owned synthetic CPU PNGs, no study image or actual semantic/model extraction."""
 import hashlib
+import dataclasses
 import json
 import tempfile
 import unittest
@@ -8,6 +9,7 @@ from pathlib import Path
 from src.embedding.output import TrialStore
 from src.embedding.proposed import EmbeddingError
 from tests import test_embedding as fixtures
+from tests.c4_fixtures import loaded_fixture
 
 torch, SOURCE, SETTINGS, WS, WI, CONFIG = (fixtures.torch, fixtures.SOURCE, fixtures.SETTINGS,
                                          fixtures.WS, fixtures.WI, fixtures.CONFIG)
@@ -25,15 +27,18 @@ class OutputTests(unittest.TestCase):
         self.kernels.setUp()
         from src.data.preprocess import normalized
         self.source = torch.tensor(normalized(self.rgb).transpose(2, 0, 1).copy()).unsqueeze(0)
+        self.config = loaded_fixture(SETTINGS)
 
     def store(self):
-        return TrialStore(self.root, source_id="owned-cpu-fixture", seed=7, config_hash="a"*64,
+        return TrialStore(self.root, source_id="owned-cpu-fixture", seed=7, method_config=self.config,
                           source_raw_hash=SOURCE.hex(), source_rgb8=self.rgb)
 
-    def candidate(self):
+    def candidate(self, settings=SETTINGS, config=None):
         from src.embedding.proposed import optimize_existing
-        return optimize_existing(self.source, SETTINGS, self.kernels.backend(), seed=7,
-            source_digest=SOURCE, ws=WS, wi=WI, config_id=CONFIG)
+        config = self.config if config is None else config
+        return optimize_existing(self.source, settings, self.kernels.backend(settings), seed=7,
+            source_digest=SOURCE, ws=WS, wi=WI, config_id=bytes.fromhex(config.value["dct"]["config_id"]),
+            method_config=config)
 
     def test_saved_pair_hashes_decoded_safety_and_no_success_claim(self):
         store = self.store()
@@ -87,6 +92,52 @@ class OutputTests(unittest.TestCase):
         other.fail(ValueError("invalid safety result"))
         self.assertTrue((other.directory/"failed.json").exists())
         self.assertTrue((other.directory/"matched_control.png").exists())
+
+    def test_wrong_full_config_settings_or_static_id_cannot_be_relabelled(self):
+        changed_settings = dataclasses.replace(SETTINGS, learning_rate=.006)
+        changed_config = loaded_fixture(changed_settings)
+        wrong = self.candidate(changed_settings, changed_config)
+        store = self.store()
+        with self.assertRaises(EmbeddingError): store.save_pair(wrong, lambda pixels: False)
+        self.assertFalse((store.directory/"matched_control.png").exists())
+        correct = self.candidate()
+        correct.metadata["detector_config_id"] = "b"*64
+        with self.assertRaises(EmbeddingError): store.save_pair(correct, lambda pixels: False)
+        self.assertFalse((store.directory/"matched_control.png").exists())
+        unbound = self.candidate()
+        unbound.config_binding = None
+        with self.assertRaises(EmbeddingError): store.save_pair(unbound, lambda pixels: False)
+        from src.embedding.proposed import optimize_existing
+        wrong_pixels = optimize_existing(self.source*.9, SETTINGS, self.kernels.backend(), seed=7,
+            source_digest=SOURCE, ws=WS, wi=WI, config_id=bytes.fromhex(self.config.value["dct"]["config_id"]),
+            method_config=self.config)
+        with self.assertRaises(EmbeddingError): store.save_pair(wrong_pixels, lambda pixels: False)
+        self.assertFalse((store.directory/"matched_control.png").exists())
+
+    def test_second_safety_error_retains_first_complete_output_row(self):
+        store = self.store()
+        count = 0
+        def checker(pixels):
+            nonlocal count
+            count += 1
+            if count == 2: raise OSError("owned second safety failure")
+            return False
+        with self.assertRaises(OSError): store.save_pair(self.candidate(), checker)
+        store.fail(OSError())
+        rows = [json.loads(line) for line in (store.directory/"trajectory.jsonl").read_text().splitlines()]
+        finished = [row["result"] for row in rows if row["phase"] == "output_safety_completed"]
+        self.assertEqual(len(finished), 1)
+        self.assertFalse(finished[0]["safety_flagged"])
+        self.assertEqual(len([row for row in rows if row["phase"] == "png_saved_before_safety"]), 2)
+        self.assertTrue((store.directory/"failed.json").exists())
+
+    def test_binding_rejects_wrong_settings_before_component_encoding(self):
+        from src.embedding.proposed import optimize_existing
+        with self.assertRaises(EmbeddingError):
+            optimize_existing(self.source, dataclasses.replace(SETTINGS, alpha_s=.4),
+                self.kernels.backend(dataclasses.replace(SETTINGS, alpha_s=.4)), seed=7,
+                source_digest=SOURCE, ws=WS, wi=WI,
+                config_id=bytes.fromhex(self.config.value["dct"]["config_id"]), method_config=self.config)
 
 
 if __name__ == "__main__":
