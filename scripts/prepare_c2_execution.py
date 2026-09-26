@@ -30,7 +30,7 @@ def build():
             "script_sha256":hashlib.sha256((ROOT/script).read_bytes()).hexdigest(),"git_commit":commit,
             "seeds":[0],"datasets":spec["datasets"],
             "inputs":[{"path":name,"sha256":hashlib.sha256((ROOT/name).read_bytes()).hexdigest()} for name in INPUTS],
-            "outputs":["outputs/semantic-examples.json"],
+            "outputs":["outputs/semantic-examples.json","logs/case-progress.jsonl"],
             "metrics":["feature_distance","semantic_code_distance","key_distance","peak_torch_allocated_bytes"],
             "budget":{"max_seconds":1200,"max_usd":0,"hourly_usd":0},
             "resources":{"vram_mib":4096,"ram_mib":6144,"disk_mib":256},"cleanup_policy":"stop-for-recovery"}

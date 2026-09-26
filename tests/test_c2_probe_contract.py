@@ -12,7 +12,7 @@ from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
-from scripts.c2_dev_probe import prepare,distances
+from scripts.c2_dev_probe import prepare,distances,planned_cases,CaseLedger
 from scripts.run_c2_dev_probe import command
 from src.signatures.semantic import quantize_features
 
@@ -39,12 +39,16 @@ class ProbeContractTests(unittest.TestCase):
                 patch("scripts.c2_dev_probe.checked",side_effect=fake_raw):
             config,digest,rows=prepare(manifest())
         self.assertEqual(len(rows),32)
-        self.assertEqual(len(seen),32)
+        self.assertEqual(len(seen),0)  # raw bytes are checked after durable inventory creation
         self.assertTrue(all(r[2]["study_split"]=="development" for r in rows))
         expected=json.loads((ROOT/config["development_ids"]).read_bytes())["images"]
         uid=lambda r: ":".join(r[k] for k in ("domain","release_id","source_split","source_id"))
         self.assertEqual({r[0] for r in rows},{uid(r) for r in expected})
         self.assertEqual(digest,hashlib.sha256((ROOT/"configs/semantic-dev.json").read_bytes()).hexdigest())
+        cases=planned_cases(rows)
+        self.assertEqual(len(cases),96)
+        self.assertEqual(len({r["case_id"] for r in cases}),96)
+        self.assertTrue(all(r["status"]=="pending" for r in cases))
 
     def test_missing_binding_or_recipe_mismatch_fails_before_raw_reads(self):
         for change in (lambda m:m["inputs"].pop(),lambda m:m.update(experiment_id="other"),
@@ -72,6 +76,47 @@ class ProbeContractTests(unittest.TestCase):
         self.assertEqual(record["feature_distance"],1)
         self.assertEqual(record["key_distance"],256)
         self.assertEqual(record["semantic_code_distance"],(int.from_bytes(a.packed,"little")^int.from_bytes(b.packed,"little")).bit_count())
+
+
+class DurableCaseTests(unittest.TestCase):
+    def setUp(self):
+        self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
+        self.root=Path(self.temp.name)
+        for folder in ("outputs","logs","checkpoints"): (self.root/folder).mkdir()
+        self.selected=[("synthetic-a",{"domain":"fixture"},{},None),
+                       ("synthetic-b",{"domain":"fixture"},{},None)]
+        self.target=self.root/"outputs/semantic-examples.json"
+        self.ledger=CaseLedger(self.target,planned_cases(self.selected),"f"*64)
+
+    def test_predeclared_pairs_and_partial_failure_survive_interruption(self):
+        initial=json.loads(self.target.read_bytes())
+        self.assertEqual(initial["pending_cases"],6)
+        self.assertEqual(initial["cases"][2]["paired_image_id"],"synthetic-b")
+        self.ledger.record("synthetic-a","same_image_uncached_repeat","completed",semantic_code_distance=0)
+        self.ledger.fail("synthetic-a","jpeg_quality95_subsampling0","jpeg_failure",ValueError("synthetic failure"))
+        # Simulate no finish after crash: durable file keeps every planned case.
+        partial=json.loads(self.target.read_bytes())
+        self.assertEqual(len(partial["cases"]),6)
+        self.assertEqual(len(partial["examples"]),1)
+        self.assertEqual(len(partial["failures"]),1)
+        self.assertEqual(partial["pending_cases"],4)
+        self.assertEqual(partial["status"],"running")
+        self.assertEqual(partial["failures"][0]["transform"],"jpeg_quality95_subsampling0")
+        journal=[json.loads(line) for line in self.ledger.journal.read_text().splitlines()]
+        self.assertEqual(len(journal),3)
+        self.assertEqual(journal[-1]["status"],"failed")
+        self.assertEqual(self.ledger.finish(),1)
+        self.assertEqual(json.loads(self.target.read_bytes())["status"],"incomplete")
+
+    def test_model_failure_marks_all_planned_cases_no_overwrite_or_reassignment(self):
+        self.ledger.fail_pending("synthetic_model_failure",RuntimeError("synthetic only"))
+        self.assertEqual(self.ledger.finish(),1)
+        report=json.loads(self.target.read_bytes())
+        self.assertEqual(report["pending_cases"],0)
+        self.assertEqual(len(report["failures"]),6)
+        self.assertEqual(report["status"],"failed")
+        with self.assertRaises(ValueError): self.ledger.record("synthetic-a","different_content","completed")
+        with self.assertRaises(FileExistsError): CaseLedger(self.target,planned_cases(self.selected),"f"*64)
 
 
 if __name__=="__main__": unittest.main()

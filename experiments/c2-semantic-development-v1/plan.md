@@ -12,6 +12,16 @@ checkpoint are verified again; no dataset discovery, download or new dependency.
 No raw source/transform image or upstream prompt/user metadata is published.
 All data remain local-only with disclosed rights/content/intake limitations.
 
+All96 image/transform/pair cases are predeclared with pending status in the
+exclusively created report before raw-byte preflight or model load. Every terminal
+case gets an explicit completed/failed status and phase/error, fsynced append-only
+progress journal, and atomic report checkpoint. A timeout/crash leaves pending
+cases honest and retains completed work plus journal evidence; partial failures
+cannot disappear or change the fixed pair order. Both report and progress journal
+are declared hashed runner outputs. Configuration corruption can prevent trusted
+inventory initialization; that is a failed launch with retained runner logs, not
+an invented scientific case inventory.
+
 Three cases per input: two uncached same-image extractions, fixed JPEG95
 subsampling0 comparison, and the next sorted same-domain source as different
 content. Planned 96 records are not 96 independent images. No threshold is fitted.
@@ -32,6 +42,11 @@ check available GPU headroom; no RunPod, API, storage/egress spending or new
 download is requested. A Linux timeout owns the worker process group and kills
 at1160+10 seconds before the outer1200-second runner ceiling. Launcher uses fixed
 argument arrays and a clean environment; offline socket connections fail.
+
+The4GiB ceiling covers Torch allocator memory, not all GPU allocations. RAM/disk
+are planning estimates, not OS-enforced caps; the duration and zero-paid-spending
+boundaries are explicit. Any materially higher observed demand stops expansion
+and is reported rather than silently broadening resources.
 
 The existing 62-distribution WSL science environment remains unchanged. No new
 package installation is part of this plan. Scientific execution still requires

@@ -79,3 +79,15 @@ The first Windows no-model preparation test attempted Linux-only raw-root path
 containment without a synthetic absolute Windows fixture and failed before any
 real raw read. The fixture now patches only the raw-root/read seam. Four no-model
 selection/launcher/distance tests pass; full script suite185 tests174pass11skips.
+
+Independent execution reviewer `/root/b3_intake_review` found one launch blocker
+at exactaf28c07: broad in-memory case handling could lose partial results or leave
+which transform failed ambiguous. The repair predeclares all96 immutable cases
+before raw/model preflight, keeps explicit per-case states/errors, and fsyncs an
+append-only journal before atomic report checkpoints. Timeout/crash leaves
+unattempted cases pending, never retrospectively completed. Six pure tests cover
+selection, timeout argv, partial JPEG failure, interrupted accounting, initialization
+failure and fixed pair preservation. No actual worker/model call was made.
+An initial GitHub PR creation PowerShell statement misplaced `else` after a
+separator; PR#65 was still created and verified, then attached. No duplicate PR
+was requested after the successful response.
