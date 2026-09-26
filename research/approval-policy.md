@@ -55,8 +55,13 @@ appropriate re-review or a new exact decision. Never remove required safeguards,
 weaken the runner, reduce datasets or substitute the method to accelerate progress.
 
 The same direct user instruction stopped substantive work for tonight, with an
-intention to resume tomorrow. The existing heartbeat is PAUSED until the user
-returns and directs resumption; no clock time was specified, so none is invented.
+intention to resume tomorrow. Work is paused until the user returns and directs
+resumption; no clock time was specified, so none is invented. The official app
+tool reported the existing heartbeat update as PAUSED, but readback of the local
+automation configuration still showed ACTIVE and the old prompt. Scheduler
+persistence is therefore unconfirmed; do not claim it verified or manually edit
+automation directives. The direct user pause and this continuation record remain
+binding on every queued or newly delivered heartbeat regardless of that status.
 Queued heartbeats must respect this newer pause. Administrative recording of this
 instruction is not permission to perform another research task or scientific run.
 
