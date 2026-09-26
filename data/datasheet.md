@@ -1,6 +1,6 @@
 # Dataset datasheet (B3 draft, current 2026-09-26)
 
-Issue [#10](https://github.com/Eshahi/Dynamic-image-ownership/issues/10), PR [#60](https://github.com/Eshahi/Dynamic-image-ownership/pull/60). Actual B3 engineering outputs now exist and their byte identity/development ranking passed independent review; documentary acceptance updates are under review. This is not legal/visual-content/scientific acceptance or a final B4 study split. The research contract remains authoritative except for the actual user-authorized COCO release-year amendment.
+Issue [#10](https://github.com/Eshahi/Dynamic-image-ownership/issues/10), PR [#60](https://github.com/Eshahi/Dynamic-image-ownership/pull/60). B3 engineering outputs are technically accepted after [independent deliverable/repair review](../audits/b3-manifest-deliverable-review-20260926/review.md). This is not legal/visual-content/scientific acceptance or a final B4 study split. The research contract remains authoritative except for the actual user-authorized COCO release-year amendment.
 
 ## Actual engineering artifacts
 
