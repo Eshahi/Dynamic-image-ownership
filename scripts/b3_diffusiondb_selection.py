@@ -17,6 +17,7 @@ from typing import Any
 
 REVISION = "fb620fbe49fa4420e0734bd9c0df11f51176b61f"
 PART_COUNT = 2000
+ROWS_PER_PART = 1000
 MAX_PARTS = 8
 TARGET_IMAGES = 5000
 RESERVE_GROUPS = 1000
@@ -52,17 +53,19 @@ def _score(value: Any, field: str) -> float:
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise SelectionError(f"{field} must be a finite numeric score")
     result = float(value)
+    if field == "image_nsfw" and result == 2.0:
+        return result  # Curator-documented already-blurred NSFW sentinel; always excluded.
     if not math.isfinite(result) or not 0 <= result <= 1:
         raise SelectionError(f"{field} must be a finite numeric score in [0,1]")
     return result
 
 
-def _prompt_group(value: Any) -> str:
+def _prompt_group(value: Any) -> str | None:
     if not isinstance(value, str):
         raise SelectionError("prompt must be text")
     normalized = " ".join(unicodedata.normalize("NFC", value).casefold().split())
     if not normalized:
-        raise SelectionError("prompt must be nonempty")
+        return None  # Known source eligibility exclusion, not a fabricated group.
     return hashlib.sha256(b"b3-prompt-group-v1\x00" + normalized.encode("utf-8")).hexdigest()
 
 
@@ -80,12 +83,19 @@ def candidate_part_handoff(rows: Iterable[Mapping[str, Any]]) -> dict[str, Any]:
     seen_names: set[str] = set()
     examined = 0
     excluded_by_score = 0
+    excluded_by_empty_prompt = 0
     for row in rows:
+        if not isinstance(row, Mapping):
+            raise SelectionError("metadata row must be a mapping")
         part = row.get("part_id")
-        if isinstance(part, bool) or not isinstance(part, int) or part not in candidate_set:
+        if isinstance(part, bool) or not isinstance(part, int) or not 1 <= part <= PART_COUNT:
+            raise SelectionError("part_id must be an integer in [1,2000]")
+        if part not in candidate_set:
             continue
         examined += 1
         seen_per_part[part] += 1
+        if seen_per_part[part] > ROWS_PER_PART:
+            raise SelectionError("candidate part exceeds 1000 metadata rows")
         name = _canonical_image_name(row.get("image_name"))
         if name in seen_names:
             raise SelectionError("duplicate image_name in candidate parts")
@@ -100,18 +110,24 @@ def candidate_part_handoff(rows: Iterable[Mapping[str, Any]]) -> dict[str, Any]:
         if min(width, height) < 64 or image_score >= NSFW_CEILING or prompt_score >= NSFW_CEILING:
             excluded_by_score += 1
             continue
-        groups[part].add(_prompt_group(row.get("prompt")))
+        group = _prompt_group(row.get("prompt"))
+        if group is None:
+            excluded_by_empty_prompt += 1
+            continue
+        groups[part].add(group)
     accumulated: set[str] = set()
     selected: list[int] = []
     for part in candidates:
         selected.append(part)
-        if seen_per_part[part] == 0:
-            return {"status": "blocked_missing_ranked_part_metadata",
+        if seen_per_part[part] != ROWS_PER_PART:
+            return {"status": ("blocked_missing_ranked_part_metadata" if seen_per_part[part] == 0
+                               else "blocked_incomplete_ranked_part_metadata"),
                     "revision": REVISION, "selected_part_ids": [],
                     "candidate_order": list(candidates),
                     "distinct_prompt_groups": len(accumulated),
                     "rows_examined_in_candidate_parts": examined,
                     "rows_excluded_by_score_or_size": excluded_by_score,
+                    "rows_excluded_by_empty_prompt": excluded_by_empty_prompt,
                     "image_ids_frozen": False, "images_downloaded": False}
         accumulated.update(groups[part])
         if len(accumulated) >= TARGET_IMAGES + RESERVE_GROUPS:
@@ -120,6 +136,7 @@ def candidate_part_handoff(rows: Iterable[Mapping[str, Any]]) -> dict[str, Any]:
                     "distinct_prompt_groups": len(accumulated),
                     "rows_examined_in_candidate_parts": examined,
                     "rows_excluded_by_score_or_size": excluded_by_score,
+                    "rows_excluded_by_empty_prompt": excluded_by_empty_prompt,
                     "image_ids_frozen": False, "images_downloaded": False}
     return {"status": "blocked_insufficient_metadata_eligible_groups",
             "revision": REVISION, "selected_part_ids": [],
@@ -127,4 +144,5 @@ def candidate_part_handoff(rows: Iterable[Mapping[str, Any]]) -> dict[str, Any]:
             "distinct_prompt_groups": len(accumulated),
             "rows_examined_in_candidate_parts": examined,
             "rows_excluded_by_score_or_size": excluded_by_score,
+            "rows_excluded_by_empty_prompt": excluded_by_empty_prompt,
             "image_ids_frozen": False, "images_downloaded": False}

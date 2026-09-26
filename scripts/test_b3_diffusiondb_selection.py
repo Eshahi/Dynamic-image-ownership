@@ -36,10 +36,9 @@ class DiffusionDBSelectionTests(unittest.TestCase):
 
     def test_insufficient_or_nsfw_scores_do_not_shrink_commitment(self):
         parts = ranked_parts()[:MAX_PARTS]
-        rows = [row(parts[0], n, score=NSFW_CEILING if n == 0 else 0.0)
-                for n in range(6000)]
-        rows.extend(row(part, 6000 + offset, score=NSFW_CEILING)
-                    for offset, part in enumerate(parts[1:]))
+        rows = [row(parts[n // 1000], n,
+                    score=NSFW_CEILING if n == 0 or n >= 6000 else 0.0)
+                for n in range(8000)]
         result = candidate_part_handoff(rows)
         self.assertEqual(result["status"], "blocked_insufficient_metadata_eligible_groups")
         self.assertEqual(result["selected_part_ids"], [])
@@ -47,8 +46,8 @@ class DiffusionDBSelectionTests(unittest.TestCase):
 
     def test_prompt_groups_and_bad_metadata_fail_closed(self):
         part = ranked_parts()[0]
-        grouped = candidate_part_handoff([row(part, 0, prompt="Cafe\u0301  sky"),
-                                          row(part, 1, prompt="Caf\u00e9 sky")])
+        grouped = candidate_part_handoff([row(part, n, prompt="Cafe\u0301  sky" if n % 2
+                                             else "Caf\u00e9 sky") for n in range(1000)])
         self.assertEqual(grouped["distinct_prompt_groups"], 1)
         with self.assertRaisesRegex(SelectionError, "duplicate image_name"):
             candidate_part_handoff([row(part, 0), row(part, 0)])
@@ -63,6 +62,46 @@ class DiffusionDBSelectionTests(unittest.TestCase):
         result = candidate_part_handoff(rows)
         self.assertEqual(result["status"], "blocked_missing_ranked_part_metadata")
         self.assertEqual(result["selected_part_ids"], [])
+
+    def test_invalid_part_ids_block_even_outside_candidate_filter(self):
+        parts = ranked_parts()[:MAX_PARTS]
+        good = [row(parts[n // 1000], n) for n in range(6000)]
+        for invalid in (None, "1", True, 0, 2001, 1.0):
+            with self.subTest(invalid=invalid), self.assertRaisesRegex(SelectionError, "part_id"):
+                candidate_part_handoff(good + [{"part_id": invalid}])
+
+    def test_incomplete_and_overfull_parts_block(self):
+        part = ranked_parts()[0]
+        for count in (1, 999):
+            result = candidate_part_handoff(row(part, n) for n in range(count))
+            self.assertEqual(result["status"], "blocked_incomplete_ranked_part_metadata")
+            self.assertEqual(result["selected_part_ids"], [])
+        for count in (1001, 6000):
+            with self.assertRaisesRegex(SelectionError, "exceeds 1000"):
+                candidate_part_handoff(row(part, n) for n in range(count))
+
+    def test_empty_prompt_is_an_explicit_exclusion_not_a_group(self):
+        part = ranked_parts()[0]
+        rows = [row(part, n) for n in range(1000)]
+        rows[0]["prompt"] = "  \t"
+        result = candidate_part_handoff(rows)
+        self.assertEqual(result["rows_excluded_by_empty_prompt"], 1)
+        self.assertEqual(result["distinct_prompt_groups"], 999)
+        rows[0]["prompt"] = None
+        with self.assertRaisesRegex(SelectionError, "prompt must be text"):
+            candidate_part_handoff(rows)
+
+    def test_blurred_image_sentinel_is_excluded_but_other_invalid_scores_block(self):
+        part = ranked_parts()[0]
+        rows = [row(part, n) for n in range(1000)]
+        rows[0]["image_nsfw"] = 2.0
+        result = candidate_part_handoff(rows)
+        self.assertEqual(result["rows_excluded_by_score_or_size"], 1)
+        self.assertEqual(result["distinct_prompt_groups"], 999)
+        for field, value in (("image_nsfw", 1.1), ("prompt_nsfw", 2.0)):
+            invalid = {**row(part, 0), field: value}
+            with self.assertRaisesRegex(SelectionError, "finite numeric"):
+                candidate_part_handoff([invalid])
 
 
 if __name__ == "__main__":

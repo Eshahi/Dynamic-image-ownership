@@ -1,0 +1,140 @@
+{
+  "status": "resource_amendment_pending_user_and_review",
+  "revision": "fb620fbe49fa4420e0734bd9c0df11f51176b61f",
+  "proposal": "shortest original hash-ranked prefix reaching 6000 eligible exact-prompt groups",
+  "target_images": 5000,
+  "reserve_groups": 1000,
+  "proposed_cap": 14,
+  "diagnostic_groups_at_14": 6219,
+  "upstream_advertised_total_bytes": 8493745129,
+  "files": [
+    {
+      "path": "images/part-000948.zip",
+      "size": 559791366,
+      "lfs": {
+        "oid": "e5c9c9cbf0e13f2b388d95bf50ecc579ce1897c16ef23465f7cb2360383203aa",
+        "size": 559791366,
+        "pointerSize": 134
+      }
+    },
+    {
+      "path": "images/part-001232.zip",
+      "size": 551357028,
+      "lfs": {
+        "oid": "e4a77568fa8e25e3622e291731a6072f89ad62d1674d7694f5462eb331968003",
+        "size": 551357028,
+        "pointerSize": 134
+      }
+    },
+    {
+      "path": "images/part-001790.zip",
+      "size": 564341623,
+      "lfs": {
+        "oid": "a3f9afdd34b21e224c9abd3c1c4c76a25bceb29838e1b2878117c986ecab170c",
+        "size": 564341623,
+        "pointerSize": 134
+      }
+    },
+    {
+      "path": "images/part-000420.zip",
+      "size": 593965660,
+      "lfs": {
+        "oid": "a4de529daf1fb2dee39e29495432725bff74ec5925ad21f7029076a5cdede919",
+        "size": 593965660,
+        "pointerSize": 134
+      }
+    },
+    {
+      "path": "images/part-001929.zip",
+      "size": 524200664,
+      "lfs": {
+        "oid": "4510020320b8cd3c53acba7f33c8108b27e474340daeed6d9c92a0758c8b3879",
+        "size": 524200664,
+        "pointerSize": 134
+      }
+    },
+    {
+      "path": "images/part-001168.zip",
+      "size": 643836352,
+      "lfs": {
+        "oid": "76ae67e4c2f4d4fa551fc0cbd7e8d224a0fea760a8d678b45e11e59f06d50695",
+        "size": 643836352,
+        "pointerSize": 134
+      }
+    },
+    {
+      "path": "images/part-001467.zip",
+      "size": 644066376,
+      "lfs": {
+        "oid": "e740c2dee8c86fb1f49a41d7cf279109cf88b9fa2f7c763a1c9a94675ef6c538",
+        "size": 644066376,
+        "pointerSize": 134
+      }
+    },
+    {
+      "path": "images/part-000558.zip",
+      "size": 636689301,
+      "lfs": {
+        "oid": "2a09f26aca5d8306b8f16be56e233c827e880ab67f561f486e330120cbbba878",
+        "size": 636689301,
+        "pointerSize": 134
+      }
+    },
+    {
+      "path": "images/part-000943.zip",
+      "size": 590337355,
+      "lfs": {
+        "oid": "edba6f51a7c0e241aef9af787ec0de2f450187da6a12afb3b784ec6e96d537dd",
+        "size": 590337355,
+        "pointerSize": 134
+      }
+    },
+    {
+      "path": "images/part-001034.zip",
+      "size": 585403793,
+      "lfs": {
+        "oid": "14957b52ab43b4c4b593b481e6c26f5dd34575ca14b5a3e429b7f5b59e1a97af",
+        "size": 585403793,
+        "pointerSize": 134
+      }
+    },
+    {
+      "path": "images/part-000836.zip",
+      "size": 669898001,
+      "lfs": {
+        "oid": "bafa5e035a3a829ff07b522f0e230f4c47a6656c16e6e40ee9476cf8dd90413a",
+        "size": 669898001,
+        "pointerSize": 134
+      }
+    },
+    {
+      "path": "images/part-000268.zip",
+      "size": 640353254,
+      "lfs": {
+        "oid": "6cae5eff21ee3f81d9af823dccc83acd8fe5ea4d851420a7acc377b23f01eee3",
+        "size": 640353254,
+        "pointerSize": 134
+      }
+    },
+    {
+      "path": "images/part-001854.zip",
+      "size": 609437598,
+      "lfs": {
+        "oid": "ee8e1dbf0d53637b10578100cf21ce4357269d6fa92be4d03d16b7727021f6af",
+        "size": 609437598,
+        "pointerSize": 134
+      }
+    },
+    {
+      "path": "images/part-001359.zip",
+      "size": 680066758,
+      "lfs": {
+        "oid": "2597e8370d04deef9710b7c1e37e06abe065b4d32c40d7d7590a0bc67f40ea08",
+        "size": 680066758,
+        "pointerSize": 134
+      }
+    }
+  ],
+  "downloaded": false,
+  "scientific_compute": false
+}
