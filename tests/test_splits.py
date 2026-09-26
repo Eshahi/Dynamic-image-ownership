@@ -4,6 +4,9 @@ import unittest
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from b4_metadata_dependence import components, private_record, summarize
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from src.data.splits import allocate, grouped_frame, near, near_pairs
+from build_b4_splits import coverage_join
 
 
 class MetadataDependenceTests(unittest.TestCase):
@@ -41,6 +44,113 @@ class MetadataDependenceTests(unittest.TestCase):
                 private_record(dict(row,user_name=user))
         with self.assertRaises(ValueError):
             private_record(dict(row,seed=True))
+
+
+class GroupedAllocationTests(unittest.TestCase):
+    def test_reject_retained_without_canonical_identity_or_eligibility(self):
+        row={"domain":"ms-coco","release_id":"2017","source_split":"val","source_id":"1","raw_sha256":"r"}
+        rejected={"raw_sha256":"r","status":"canonical_rejected_coverage_failure","reason":"unsupported_source_mode_or_alpha"}
+        joined=coverage_join(row,rejected)
+        self.assertEqual(joined["source_uid"],"ms-coco:2017:val:1")
+        self.assertEqual(joined["canonical_pixel_sha256"],"")
+        self.assertFalse(joined["independence_certified"])
+        self.assertEqual(joined["canonical_rejection_reason"],rejected["reason"])
+        for changed in (dict(rejected,raw_sha256="wrong"),dict(rejected,reason=""),
+                        dict(rejected,canonical_pixel_sha256="fake"),dict(rejected,status="canonical_pass")):
+            with self.assertRaises(ValueError): coverage_join(row,changed)
+    def rule(self):
+        return {"near_dhash64_max_hamming":6,"near_color8_mean_absolute_difference_max_rgb8":4,
+                "near_aspect_relative_difference_max_percent":5}
+    def fp(self,uid,value,color=0,width=8,height=8):
+        return {"id":uid,"status":"canonical_pass","raw_sha256":uid,
+                "canonical_pixel_sha256":"pixel-"+uid,"width":width,"height":height,
+                "leakage_dhash64":f"{value:016x}","private_color8_rgb_hex":bytes([color]*192).hex()}
+    def test_near_index_matches_bruteforce_and_color_aspect_guards(self):
+        import random
+        rng=random.Random(31)
+        values=[rng.getrandbits(64) for _ in range(40)]
+        values += [v^0x0001000100030003 for v in values[:10]]  # radius6 across all4 blocks
+        rows=[self.fp(f"node{i:03}",value) for i,value in enumerate(values)]
+        expected={(a["id"],b["id"]) for i,a in enumerate(rows) for b in rows[i+1:] if near(a,b)}
+        self.assertEqual(set(near_pairs(list(reversed(rows)),self.rule())),expected)
+        self.assertFalse(near(self.fp("a",0,0),self.fp("b",0,255)))
+        self.assertFalse(near(self.fp("a",0,width=8,height=8),self.fp("b",0,width=8,height=16)))
+        self.assertTrue(near(self.fp("a",0,color=0),self.fp("b",0,color=4)))
+    def test_full_canonical_excluded_bridge_retained(self):
+        a,b,c=self.fp("a",0,0),self.fp("b",2**64-1,255),self.fp("c",0,128)
+        c["canonical_pixel_sha256"]=b["canonical_pixel_sha256"]
+        metadata={"a":{"raw_sha256":"a","prompt_group":"p"},
+                  "b":{"raw_sha256":"b","prompt_group":"p"}}
+        groups,_=grouped_frame([a,b,c],metadata,self.rule())
+        self.assertEqual(groups[0]["members"],["a","b","c"])
+    def fixture(self):
+        config={"allocation":{d:{s:1 for s in ("development","validation","test")}
+                               for d in ("ms-coco","div2k","diffusiondb")}}
+        rows=[{"id":d+str(i),"source_uid":d+str(i),"domain":d,
+               "source_split":"valid" if d=="div2k" and i==2 else "train"}
+              for d in config["allocation"] for i in range(3)]
+        groups=[{"group_id":"group-"+r["id"],"members":[r["id"]]} for r in rows]
+        return config,rows,groups
+    def test_deterministic_exact_counts_reserved_and_native_holdout(self):
+        config,rows,groups=self.fixture(); reserved={"ms-coco0","diffusiondb0"}
+        a=allocate(groups,rows,reserved,config)
+        self.assertEqual(a,allocate(list(reversed(groups)),list(reversed(rows)),reserved,config))
+        for row in a:
+            if row["id"] in reserved: self.assertEqual(row["study_split"],"development")
+            if row["id"]=="div2k2": self.assertEqual(row["study_split"],"test")
+        self.assertTrue(all(r["primary_group_representative"] for r in a))
+        from collections import Counter
+        self.assertEqual(set(Counter((r["domain"],r["study_split"]) for r in a).values()),{1})
+    def test_conflicts_and_oversize_fail_not_group_breaking(self):
+        config,rows,groups=self.fixture()
+        with self.assertRaisesRegex(ValueError,"holdout"):
+            allocate(groups,rows,{"div2k2"},config)
+        merged={"group_id":"merged","members":["ms-coco0","ms-coco1","ms-coco2"]}
+        groups=[g for g in groups if not g["members"][0].startswith("ms-coco")]+[merged]
+        with self.assertRaisesRegex(ValueError,"infeasible"):
+            allocate(groups,rows,{"ms-coco0"},config)
+
+
+class ProvisionalArtifactTests(unittest.TestCase):
+    def test_real_coverage_counts_reservations_and_no_science_claim(self):
+        import csv
+        import hashlib
+        import json
+        from collections import Counter, defaultdict
+        root=Path(__file__).resolve().parents[1]
+        artifact=root/"data/b4-provisional-v2-20260926"
+        rows=list(csv.DictReader((artifact/"splits.csv").open(encoding="utf-8")))
+        manifest=list(csv.DictReader((root/"data/manifest.csv").open(encoding="utf-8")))
+        identities=lambda row: ":".join(row[k] for k in ("domain","release_id","source_split","source_id"))
+        expected={identities(r):r["raw_sha256"] for r in manifest}
+        self.assertEqual({r["source_uid"]:r["raw_sha256"] for r in rows},expected)
+        self.assertEqual(len(rows),6900)
+        self.assertEqual(Counter(r["domain"] for r in rows),{"ms-coco":1000,"div2k":900,"diffusiondb":5000})
+        groups=defaultdict(set)
+        for row in rows:
+            self.assertEqual(row["independence_certified"],"false")
+            groups[row["group_id"]].add(row["study_split"])
+        self.assertTrue(all(len(splits)==1 for splits in groups.values()))
+        reserved={(r["domain"],r["source_id"]) for r in json.loads((root/"data/dev-ids.json").read_text())["images"]}
+        self.assertTrue(all(r["study_split"]=="development" for r in rows if (r["domain"],r["source_id"]) in reserved))
+        failures=[r for r in rows if r["canonical_status"]!="canonical_pass"]
+        self.assertEqual({r["source_id"] for r in failures},{"205289","431848","455597"})
+        self.assertTrue(all(not r["canonical_pixel_sha256"] and r["canonical_rejection_reason"] for r in failures))
+        for name in ("holdout.json","sample-size-check.json","b4-observed-group-summary.json"):
+            report=json.loads((artifact/name).read_text())
+            self.assertFalse(report["final_scientific_split_accepted"])
+            self.assertEqual(report["inputs"]["splits_sha256"],hashlib.sha256((artifact/"splits.csv").read_bytes()).hexdigest())
+        holdout=json.loads((artifact/"holdout.json").read_text())
+        native={r["source_uid"] for r in rows if r["domain"]=="div2k" and r["source_split"]=="valid"}
+        self.assertEqual(set(holdout["declared_source_ids"]),native)
+        self.assertEqual(len(native),100)
+        self.assertTrue(all(r["study_split"]=="test" for r in rows if r["source_uid"] in holdout["linked_test_only_source_ids"]))
+        for cell in json.loads((artifact/"sample-size-check.json").read_text())["cells"]:
+            pool=[r for r in rows if r["domain"]==cell["domain"] and r["study_split"]==cell["split"]]
+            self.assertEqual(cell["images"],len(pool))
+            self.assertEqual(cell["observed_groups"],len({r["group_id"] for r in pool}))
+            invalid={r["group_id"] for r in pool if r["canonical_status"]!="canonical_pass"}
+            self.assertEqual(cell["canonical_screened_candidate_groups_not_certified_independent"],cell["observed_groups"]-len(invalid))
 
 
 if __name__ == "__main__":
