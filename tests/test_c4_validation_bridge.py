@@ -31,7 +31,7 @@ class ValidationBridgeTests(unittest.TestCase):
             path = self.root/name
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(self.loaded.raw if name == bridge.CONFIG_PATH else (ROOT/name).read_bytes())
-        self.manifest = {"schema_version": "1.0", "experiment_id": "c4-embedding-development-v1",
+        self.manifest = {"schema_version": "1.0", "experiment_id": bridge.EXPERIMENT_ID,
             "run_id": "owned-bridge-test", "task_id": "C4", "execution_target": "local",
             "git_commit": "a"*40, "seeds": [7],
             "inputs": [{"path": name, "sha256": hashlib.sha256((self.root/name).read_bytes()).hexdigest()}

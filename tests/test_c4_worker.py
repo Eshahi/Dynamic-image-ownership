@@ -168,7 +168,7 @@ class WorkerTests(unittest.TestCase):
         # Only immutable named CSV inputs may exceed2MiB. This is metadata,
         # not image bytes; the case selector independently enforces their pins.
         snapshots = {name: (ROOT/name).read_bytes() for name in bridge.REQUIRED | set(worker.REQUIRED)}
-        manifest = {"experiment_id": "c4-embedding-development-v1", "task_id": "C4",
+        manifest = {"experiment_id": worker.EXPERIMENT_ID, "task_id": "C4",
             "run_id": "owned-bound-test", "execution_target": "local", "git_commit": "a"*40,
             "inputs": [{"path": name, "sha256": hashlib.sha256(raw).hexdigest()} for name, raw in snapshots.items()]}
         got = bridge.check_inputs(json.dumps(manifest).encode(), ROOT)
