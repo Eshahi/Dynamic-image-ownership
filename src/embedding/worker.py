@@ -132,8 +132,17 @@ def run_worker(manifest_path, output, *, root=PROJECT, operations=None):
             return 3 if status == "failed_safety_flagged" else 0
         except Exception as error:
             record({"phase": "worker_failed", "error_type": type(error).__name__})
+            # OOM and loader failures need resource evidence too. Never let a
+            # failed telemetry query suppress the original failure/report.
+            failure_resources = {"status": "not_available_before_resource_preflight"}
+            if operations is not None and hasattr(operations, "failure_resources"):
+                try:
+                    failure_resources = operations.failure_resources()
+                except Exception as telemetry_error:
+                    failure_resources = {"status": "telemetry_failed", "error_type": type(telemetry_error).__name__}
             _new(output/OUTPUTS[0], {"schema_version": "c4-development-worker-v1",
                 "status": "failed", "error_type": type(error).__name__,
+                "resources": failure_resources,
                 "scientific_acceptance": False, "calibrated_decision": "PROHIBITED"})
             return 2
 
@@ -230,8 +239,14 @@ class RealOperations:
 
     def resources(self):
         import torch
-        import resource
         torch.cuda.synchronize()
-        return dict(self.measurement, peak_torch_allocated_bytes=torch.cuda.max_memory_allocated(),
-            peak_torch_reserved_bytes=torch.cuda.max_memory_reserved(),
+        return self.failure_resources()
+
+    def failure_resources(self):
+        import torch
+        import resource
+        # No synchronize after an OOM/device failure; retain readable peaks.
+        initialized = torch.cuda.is_initialized()
+        return dict(self.measurement, peak_torch_allocated_bytes=torch.cuda.max_memory_allocated() if initialized else None,
+            peak_torch_reserved_bytes=torch.cuda.max_memory_reserved() if initialized else None,
             peak_worker_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024)

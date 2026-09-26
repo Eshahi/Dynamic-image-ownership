@@ -42,6 +42,7 @@ class FakeOperations:
         if self.fail == "optimize": raise ArithmeticError("owned failure")
         return "owned-not-candidate"
     def resources(self): return {"owned_measurement": True}
+    def failure_resources(self): return {"owned_failure_peak": 123}
 
 
 class WorkerTests(unittest.TestCase):
@@ -71,6 +72,7 @@ class WorkerTests(unittest.TestCase):
         self.assertEqual(ops.calls, ["source"])
         report = json.loads((self.output/worker.OUTPUTS[0]).read_bytes())
         self.assertEqual(report["error_type"], "ValueError")
+        self.assertEqual(report["resources"], {"owned_failure_peak": 123})
         self.assertNotIn("owned failure", json.dumps(report))
 
     def test_model_failure_retains_trial(self):
@@ -88,6 +90,14 @@ class WorkerTests(unittest.TestCase):
     def test_safety_flag_terminal_nonzero(self):
         self.assertEqual(self.run_owned(FakeOperations(flagged=True)), 3)
         self.assertEqual(json.loads((self.output/worker.OUTPUTS[0]).read_bytes())["status"], "failed_safety_flagged")
+
+    def test_telemetry_failure_never_replaces_original_failure(self):
+        ops = FakeOperations(fail="models")
+        ops.failure_resources = mock.Mock(side_effect=OSError("owned telemetry"))
+        self.assertEqual(self.run_owned(ops), 2)
+        report = json.loads((self.output/worker.OUTPUTS[0]).read_bytes())
+        self.assertEqual(report["error_type"], "RuntimeError")
+        self.assertEqual(report["resources"], {"status": "telemetry_failed", "error_type": "OSError"})
 
     def test_preflight_failure_no_operation_or_actual_import(self):
         ops = FakeOperations()
