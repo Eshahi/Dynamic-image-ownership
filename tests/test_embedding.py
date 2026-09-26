@@ -193,6 +193,8 @@ class TensorContracts(unittest.TestCase):
         self.assertEqual(result.perturbation.abs().sum().item(), 0)
         self.assertEqual(result.metadata["effective_alpha_s"], 0)
         self.assertEqual(result.metadata["effective_alpha_i"], 0)
+        self.assertEqual(result.metadata["total_noise_displacement_norm"], 0)
+        self.assertEqual(result.metadata["initial_latent_displacement_norm"], 0)
         self.assertEqual(len(backend.unet.calls), 2)
         self.assertEqual(len(result.trajectory), 1)
 
@@ -208,6 +210,9 @@ class TensorContracts(unittest.TestCase):
         self.assertEqual(records, first.trajectory)
         self.assertEqual(records[-1]["iteration"], SETTINGS.iterations)
         self.assertGreater(records[0]["gradient_norm"], 0)
+        self.assertGreater(first.metadata["total_noise_displacement_norm"], 0)
+        self.assertAlmostEqual(first.metadata["initial_latent_displacement_norm"],
+            math.sqrt(1-first.metadata["initial_cumulative_alpha"])*first.metadata["total_noise_displacement_norm"])
         self.assertEqual(first.metadata["final_discrete_verification"], "NOT_RUN")
         self.assertNotEqual(first.status, "success")
 
@@ -233,6 +238,16 @@ class TensorContracts(unittest.TestCase):
             raise OSError("owned synthetic journal failure")
         with self.assertRaises(OSError):
             self.run_candidate(record=failed_record)
+
+    def test_invalid_stream_inputs_rejected_before_encoder(self):
+        backend = self.backend()
+        def should_not_encode(source):
+            self.fail("encoder called before stream contract validation")
+        backend.encode = should_not_encode
+        for seed, ws in ((-1, WS), (7, b"wrong")):
+            with self.subTest(seed=seed), self.assertRaises(EmbeddingError):
+                optimize_existing(self.source, SETTINGS, backend, seed=seed,
+                    source_digest=SOURCE, ws=ws, wi=WI, config_id=CONFIG)
 
 
 if __name__ == "__main__":

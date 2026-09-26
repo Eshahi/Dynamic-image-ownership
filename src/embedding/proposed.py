@@ -244,12 +244,13 @@ def optimize_existing(source, settings, backend, *, seed, source_digest, ws, wi,
         raise EmbeddingError("component settings differ from optimization settings")
     padded = padded_source(source, settings.maximum_side)
     height, width = source.shape[-2:]
+    # Guard seeds/digests/stream cap before any learned component computation.
+    base, ps, pi = latent_streams(seed, source_digest, ws, wi, config_id,
+                                  padded.shape[-2]//8, padded.shape[-1]//8, source.device)
     latent = backend.encode(padded)
     _finite_tensor(latent, "source latent")
     if tuple(latent.shape) != (1, 4, padded.shape[-2]//8, padded.shape[-1]//8) or latent.dtype != torch.float32 or latent.requires_grad or latent.device != source.device:
         raise EmbeddingError("backend latent contract invalid")
-    base, ps, pi = latent_streams(seed, source_digest, ws, wi, config_id,
-                                  latent.shape[-2], latent.shape[-1], source.device)
     def render(noise):
         result = backend.reconstruct(latent, noise)
         _finite_tensor(result, "reconstruction")
@@ -319,6 +320,16 @@ def optimize_existing(source, settings, backend, *, seed, source_digest, ws, wi,
                 "mask": "all-one", "control": control, "effective_alpha_s": 0 if control else settings.alpha_s,
                 "effective_alpha_i": 0 if control else settings.alpha_i, "optimized_variable": "initial_noise_u_only",
                 "base_f32le_sha256": hashlib.sha256(base.detach().cpu().numpy().astype("<f4").tobytes()).hexdigest(),
+                "projection_absolute_tolerance": settings.rho * 1e-6,
+                "u_norm": torch.linalg.vector_norm(u.to(torch.float64)).item(),
+                "total_noise_displacement_norm": torch.linalg.vector_norm(
+                    (torch.zeros_like(u) if control else settings.alpha_s*ps+settings.alpha_i*pi+u).to(torch.float64)).item(),
                 "numerical_profile": "model-f32-dct-centered-f64-adam-projected-v1",
                 "final_discrete_verification": "NOT_RUN", "safety": "NOT_RUN", "quality_metrics": "NOT_RUN"}
+    if isinstance(backend, DiffusersComponents):
+        initial_alpha = float(backend.scheduler.alphas_cumprod[backend.times[0]].item())
+        metadata["initial_cumulative_alpha"] = initial_alpha
+        metadata["initial_latent_displacement_norm"] = math.sqrt(1-initial_alpha) * metadata["total_noise_displacement_norm"]
+    else:
+        metadata["initial_latent_displacement_norm"] = None
     return ContinuousCandidate(image.detach().clone(), reference, u.detach().clone(), trajectory, metadata)
