@@ -1,0 +1,13 @@
+# Independent selected-member staging preparation review
+
+Date: 2026-09-26. Author `/root`; actual independent read-focused actor `/root/b3_intake_review`, under `AGENTS.md` and `research/approval-policy.md`. Exact initial reviewed commit `44cba0b17309f8c1795daa98ba3f13128bb6fa9c`; exact repair re-reviewed `e19d8ebc255ee4895db1d26b6923129ed80c1284`. Root records returned evidence, not a human or scientific verdict.
+
+Initial review found no preparation/integrity blocker and one path-hardening warning: relative output roots did not enumerate absolute working-directory ancestors. The repair requires absolute roots before inspection/writes and adds a `Path(".")` execution rejection regression. All three focused staging tests passed independently on both versions; five archive-inspector tests also passed initially. Re-review found that warning resolved, with no remaining narrow blocker or warning.
+
+The reviewer confirmed the shared snapshot retains pinned inventory/index/archive identity checks, the full archive is inspected before copying, names/raw digests must match, preview writes nothing, and execution uses a fresh directory/exclusive unchanged PNG writes. Partial failures are preserved and cannot imply success. No real data staging was run; test copies were synthetic fixtures only.
+
+Completed ZIPs943/1034 were independently replayed through the refactored CLI into fresh ignored reviewer outputs. Full upstream hashes/sizes, every ZIP CRC, all 1,000 native PNG verify/full decodes/dimensions per part and aggregate fields matched author receipts. Fresh CSV digests matched `d21568f29d30cdb83c6d725f4f1cab9087dc642b25a18bdc1ca8410634c6bc68` and `cb9aba43bfdfb9cd418144b1548be4b24772abc372c8b86445df35641097f7f0`. The repair did not alter archive evidence, so the reviewer did not repeat that replay.
+
+Root's repaired workflow suite:178 tests,168 pass/ten expected dependency skips; existing Pillow interpreter staging tests3/3 pass; `git diff --check` passed. Ten completed archive integrity receipts are now covered across the dated reviews, not all fourteen batch files. The live acquisition writer also completed836, but this review does not inspect or accept it.
+
+Accepted scope is utility preparation and the two completed archive integrity receipts only. Real staging still requires a separately reviewed source-admission/handling list. Source IDs, content/rights, stronger dependence, final manifest/dev IDs, B3 closure, scientific compute and official lifecycle transitions remain unaccepted. Reviewer wrote only fresh ignored receipt files; no tracked source edits, partial reads, downloader/process/model/science/gate changes.
