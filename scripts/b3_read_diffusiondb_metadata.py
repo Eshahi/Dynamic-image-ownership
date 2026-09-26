@@ -15,7 +15,7 @@ EXPECTED_SHA256 = "eecd341187bc91c07f5994ad0660d40228ea025616fd57a509bef8323677c
 COLUMNS = ("part_id", "image_name", "prompt", "width", "height", "image_nsfw", "prompt_nsfw")
 
 
-def select_local_metadata(path: Path) -> dict:
+def select_local_metadata(path: Path, candidate_observer=None) -> dict:
     import pyarrow as pa
     import pyarrow.parquet as pq
 
@@ -43,6 +43,8 @@ def select_local_metadata(path: Path) -> dict:
                 if isinstance(part, bool) or not isinstance(part, int) or not 1 <= part <= PART_COUNT:
                     raise SelectionError("invalid part_id in full metadata")
                 counts[part] += 1
+                if candidate_observer is not None:
+                    candidate_observer(row)
                 yield row
 
     result = candidate_part_handoff(rows())
