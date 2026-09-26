@@ -37,6 +37,9 @@ feature. A checksum alone is not provenance. This version's cache is durable
 comparison evidence, not an inference-speed optimization. The attack fixture
 fails without overwrite; a real extraction-path synthetic model test and a
 linked-path test cover the former test gaps. No real model is used by these tests.
+The first regression invocation at `79f238e` exposed a Torch descriptor restoration
+error in unittest.mock, not an encoder/cache failure. Its failed test evidence is
+retained; the fixture now restores backend flags through supported setters.
 
 Tests use synthetic vectors, synthetic CPU tensors and temporary cache fixtures
 only. No CLIP weights or dataset image were loaded by these tests. The workflow

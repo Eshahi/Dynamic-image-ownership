@@ -7,6 +7,7 @@ import sys
 import tempfile
 import unittest
 from unittest.mock import patch
+from contextlib import contextmanager
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -147,6 +148,24 @@ except ImportError:
     torch = None
 
 
+@contextmanager
+def deterministic_flags():
+    # Torch backend flags are descriptors; mock patch/delattr cannot restore
+    # them on Torch 2.12. Preserve and set through their supported setters.
+    original=(torch.are_deterministic_algorithms_enabled(),torch.backends.cuda.matmul.allow_tf32,
+              torch.backends.cudnn.allow_tf32,torch.backends.cudnn.benchmark)
+    torch.use_deterministic_algorithms(True)
+    torch.backends.cuda.matmul.allow_tf32=False
+    torch.backends.cudnn.allow_tf32=False
+    torch.backends.cudnn.benchmark=False
+    try: yield
+    finally:
+        torch.use_deterministic_algorithms(original[0])
+        torch.backends.cuda.matmul.allow_tf32=original[1]
+        torch.backends.cudnn.allow_tf32=original[2]
+        torch.backends.cudnn.benchmark=original[3]
+
+
 @unittest.skipIf(torch is None,"science Torch absent in workflow venv; run in pinned WSL env")
 class Float32NormalizationTests(unittest.TestCase):
     def test_normalize_real_cpu_tensor_shape_and_dtype(self):
@@ -175,10 +194,7 @@ class Float32NormalizationTests(unittest.TestCase):
         encoder._device="cpu";encoder._model=SyntheticModel()
         encoder._transform=lambda image: torch.zeros((3,224,224),dtype=torch.float32)
         pixels=np.zeros((8,8,3),dtype=np.uint8)
-        with tempfile.TemporaryDirectory() as temp, patch("torch.are_deterministic_algorithms_enabled",return_value=True), \
-                patch.object(torch.backends.cuda.matmul,"allow_tf32",False), \
-                patch.object(torch.backends.cudnn,"allow_tf32",False), \
-                patch.object(torch.backends.cudnn,"benchmark",False):
+        with tempfile.TemporaryDirectory() as temp, deterministic_flags():
             cache=FeatureCache(Path(temp))
             self.assertEqual(encoder.extract_features(pixels,cache),basis())
             self.assertEqual(encoder.extract_features(pixels,cache),basis())
