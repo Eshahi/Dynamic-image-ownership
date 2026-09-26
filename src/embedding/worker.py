@@ -9,6 +9,7 @@ import hashlib
 import importlib.metadata
 import json
 import os
+import platform
 import shutil
 import socket
 import time
@@ -20,6 +21,7 @@ from .development_case import PINS, validate_frozen_case
 from .validation_bridge import check_inputs, consume_validation_receipt, _read, _no_links
 
 CASE = "experiments/c4-embedding-development-v1/frozen-case.json"
+ENVIRONMENT = "experiments/c4-embedding-development-v1/environment.json"
 CONFIG_SHA = "27bedaf1cd7f848ecc9b5b4a76ebe3ca3189c5da099fb3a4a00fac29063b216b"
 OWNER = "c4-public-development-owner-v1"
 RAW_ROOT = Path("/mnt/w/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw")
@@ -29,7 +31,7 @@ WORKER_SCRIPT = "scripts/c4_dev_probe.py"
 OUTPUTS = ["outputs/c4-development.json", "logs/c4-progress.jsonl", "logs/c4-launcher.jsonl"]
 BUDGET = {"max_seconds": 1200, "max_usd": 0, "hourly_usd": 0}
 RESOURCES = {"vram_mib": 8192, "ram_mib": 12288, "disk_mib": 4096}
-REQUIRED = frozenset({CASE, *PINS, "configs/data.json", "research/a6-candidate-model-assets.json",
+REQUIRED = frozenset({CASE, ENVIRONMENT, *PINS, "configs/data.json", "research/a6-candidate-model-assets.json",
     "src/embedding/worker.py", SCRIPT, WORKER_SCRIPT, "scripts/a6_clip_visual.py",
     "scripts/verify_science_assets.py", "scripts/pixel_dct_control.py", "scripts/base_noise_reference.py",
     "src/data/preprocess.py", "src/embedding/proposed.py", "src/embedding/output.py",
@@ -38,7 +40,12 @@ REQUIRED = frozenset({CASE, *PINS, "configs/data.json", "research/a6-candidate-m
     "src/__init__.py", "src/data/__init__.py", "src/runtime/__init__.py",
     "src/embedding/__init__.py", "src/signatures/__init__.py",
     "requirements-wsl-stage2-py314.txt", "requirements-wsl-torch-py314.txt",
-    "experiments/c4-embedding-development-v1/design-draft.md"})
+    "experiments/c4-embedding-development-v1/design-draft.md",
+    "experiments/c4-embedding-development-v1/experiment-spec.yaml",
+    "experiments/c4-embedding-development-v1/plan.md",
+    "experiments/c4-embedding-development-v1/acceptance-criteria.md",
+    "experiments/c4-embedding-development-v1/compute-estimate.json",
+    "scripts/prepare_c4_execution.py"})
 
 
 def _json(value):
@@ -48,6 +55,12 @@ def _json(value):
 def _new(path, value):
     with path.open("xb") as handle:
         handle.write(_json(value)); handle.flush(); os.fsync(handle.fileno())
+
+
+def check_environment(expected, actual):
+    """Exact interpreter/distribution metadata check, not payload attestation."""
+    if _json(expected) != _json(actual):
+        raise ValueError("C4 scientific environment changed")
 
 
 def check_recipe(manifest, snapshots):
@@ -162,6 +175,9 @@ class RealOperations:
         socket.create_connection = blocked
 
     def source(self, selected, output):
+        expected = strict_json_bytes(_read(self.root/ENVIRONMENT))
+        check_environment(expected, {"python": platform.python_version(),
+            "versions": sorted((d.metadata["Name"], d.version) for d in importlib.metadata.distributions())})
         from src.data.preprocess import load_config, no_links, decode_source, pixel_sha
         import torch
         for name, value in (("torch", "2.12.1+cu130"), ("torchvision", "0.27.1+cu130"),
