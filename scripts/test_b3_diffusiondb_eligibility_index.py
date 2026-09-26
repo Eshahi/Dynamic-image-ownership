@@ -3,6 +3,7 @@ from unittest.mock import patch
 
 from b3_diffusiondb_eligibility_index import build_index, eligibility_record
 from b3_diffusiondb_selection import MAX_PARTS, SelectionError, ranked_parts
+from b3_read_diffusiondb_metadata import notify_observer
 
 
 class EligibilityIndexTests(unittest.TestCase):
@@ -18,6 +19,20 @@ class EligibilityIndexTests(unittest.TestCase):
         self.assertEqual(record, eligibility_record(self.row(prompt="  example text  "))[1])
         self.assertEqual(record["reason"], "metadata_eligible")
         self.assertEqual(set(record), {"reason", "prompt_group_sha256"})
+
+    def test_observer_cannot_modify_authoritative_row(self):
+        row = self.row()
+        original = dict(row)
+
+        def mutate(record):
+            record["image_nsfw"] = 0.99
+
+        with self.assertRaises(TypeError):
+            notify_observer(mutate, row)
+        self.assertEqual(row, original)
+        seen = []
+        notify_observer(lambda record: seen.append(eligibility_record(record)), row)
+        self.assertEqual(seen, [eligibility_record(original)])
 
     def test_cutoff_sentinel_empty_and_precedence(self):
         self.assertEqual(eligibility_record(self.row(image_nsfw=0.10))[1]["reason"], "score_or_size")

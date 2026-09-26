@@ -7,12 +7,19 @@ import hashlib
 import json
 from collections import Counter
 from pathlib import Path
+from types import MappingProxyType
 
 from b3_diffusiondb_selection import MAX_PARTS, PART_COUNT, ROWS_PER_PART, SelectionError, candidate_part_handoff
 
 EXPECTED_SIZE = 194548652
 EXPECTED_SHA256 = "eecd341187bc91c07f5994ad0660d40228ea025616fd57a509bef8323677c68f"
 COLUMNS = ("part_id", "image_name", "prompt", "width", "height", "image_nsfw", "prompt_nsfw")
+
+
+def notify_observer(observer, row):
+    # Schema columns are scalar; a read-only mapping prevents a callback from
+    # rewriting the row consumed by the authoritative production selector.
+    observer(MappingProxyType(row))
 
 
 def select_local_metadata(path: Path, candidate_observer=None) -> dict:
@@ -44,7 +51,7 @@ def select_local_metadata(path: Path, candidate_observer=None) -> dict:
                     raise SelectionError("invalid part_id in full metadata")
                 counts[part] += 1
                 if candidate_observer is not None:
-                    candidate_observer(row)
+                    notify_observer(candidate_observer, row)
                 yield row
 
     result = candidate_part_handoff(rows())
