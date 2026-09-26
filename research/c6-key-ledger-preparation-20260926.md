@@ -65,6 +65,29 @@ environment skips (`test_key_study`, owner, instance, semantic). No scientific
 pixels, model loads, new downloads, packages or original C4 manifest edits.
 Independent narrow review is required before accepting this software checkpoint.
 
+Actual independent reviewer `/root/b3_intake_review` reproduced an inventory
+erasure blocker in initial `f3729db8b164fb3ebd0c8843094227addd9ec0cd`:
+one-shot iterators could be consumed during validation and yield zero rows.
+Repair `0078f8b9987abd19ebbf48405f46c7a2ac94df5e` rejects non-list/tuple
+inventories before consumption. Empty/iterator/accepted-tuple regressions pass.
+The reviewer independently replayed the defect/rejection, all 11 focused tests
+on Windows/WSL, and scalar arithmetic/owner/dependence checks; no remaining
+narrow software blocker. Final combined suite: Windows 39 tests, 35 pass/four
+expected skips; WSL 39 pass. Existing script suite: 185, 174 pass/11 skips.
+
+Expanded discovery was **not** fully successful: Windows 70 tests had two legacy
+NumPy import errors/five skips; WSL 71 had a Windows-only C2 launcher-path error
+and absent-jsonschema import error. The initial wrong `scripts/tests` discovery
+directory failed before tests; corrected `scripts` discovery passed as above.
+No dependency installation or unrelated validator/platform weakening followed.
+
+The reviewer retains one boundary warning: `summarize` consumes direct in-memory
+`evaluate` rows, not authenticated saved results. Before adding a persisted
+scientific-results reader, validate every row against the exact frozen plan,
+identity, status and measurements; do not use the current summary as an artifact
+custody validator. See the separate narrow review in
+`audits/c6-key-ledger-review-20260926/review.md`.
+
 ## Remaining C6 deliverables
 
 1. Freeze reviewed real development source/variant/pair IDs with full B4 linkage,
