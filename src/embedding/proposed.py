@@ -224,7 +224,7 @@ class DiffusersComponents:
             z = self.scheduler.add_noise(latent, noise, t)
         for timestep in self.times:
             with operation_phase(self.progress, "unet_forward", timestep=timestep):
-                prediction = self.unet(z, timestep, encoder_hidden_states=self.condition).sample
+                prediction = self._predict(z, timestep)
                 _finite_tensor(prediction, "UNet prediction")
                 if prediction.shape != z.shape:
                     raise EmbeddingError("UNet prediction shape mismatch")
@@ -232,11 +232,17 @@ class DiffusersComponents:
                 z = self.scheduler.step(prediction, timestep, z, eta=0, return_dict=False)[0]
                 _finite_tensor(z, "DDIM state")
         with operation_phase(self.progress, "vae_decode"):
-            decoded = self.vae.decode(z / self.settings.vae_scale).sample
+            decoded = self._decode(z / self.settings.vae_scale)
             _finite_tensor(decoded, "VAE decoded")
         if tuple(decoded.shape) != (1, 3, latent.shape[-2]*8, latent.shape[-1]*8):
             raise EmbeddingError("VAE decoded shape mismatch")
         return ((decoded + 1) / 2).clamp(0, 1)
+
+    def _predict(self, state, timestep):
+        return self.unet(state, timestep, encoder_hidden_states=self.condition).sample
+
+    def _decode(self, state):
+        return self.vae.decode(state).sample
 
 
 @dataclass
