@@ -52,13 +52,13 @@ def _no_links(path):
     return path
 
 
-def _read(path):
+def _read(path, *, maximum_bytes=MAX_FILE_BYTES):
     path = _no_links(path)
-    if not path.is_file() or path.stat().st_size > MAX_FILE_BYTES:
+    if not path.is_file() or path.stat().st_size > maximum_bytes:
         raise EmbeddingError("bridge requires bounded regular files")
     with path.open("rb") as handle:
-        raw = handle.read(MAX_FILE_BYTES + 1)
-    if len(raw) > MAX_FILE_BYTES:
+        raw = handle.read(maximum_bytes + 1)
+    if len(raw) > maximum_bytes:
         raise EmbeddingError("bridge input grew past bound")
     return raw
 
@@ -101,7 +101,11 @@ def check_inputs(manifest_raw: bytes, root: Path = PROJECT):
         name, digest = _relative(item["path"]), _digest(item["sha256"])
         if name in snapshots:
             raise EmbeddingError("duplicate C4 bridge input")
-        raw = _read(root/name)
+        # The immutable admitted CSVs are larger than the small-code/config
+        # bound. Only these two named metadata inputs get a 16MiB ceiling;
+        # manifest/config/receipt publication remain bounded at 2MiB.
+        metadata_csv = name in {"data/splits.csv", "data/b4-admission-20260926/source-manifest.csv"}
+        raw = _read(root/name, maximum_bytes=16*1024*1024 if metadata_csv else MAX_FILE_BYTES)
         if _sha(raw) != digest:
             raise EmbeddingError("C4 bridge input hash mismatch")
         snapshots[name], pins[name] = raw, digest
