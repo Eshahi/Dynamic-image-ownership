@@ -14,7 +14,8 @@ def local_index(path):
     import pyarrow as pa
     import pyarrow.parquet as pq
 
-    if pa.__version__ != "21.0.0" or path.is_symlink() or not path.is_file():
+    if (pa.__version__ != "21.0.0" or path.is_symlink() or not path.is_file()
+            or path.stat().st_size != EXPECTED_SIZE):
         raise ValueError("requires checked local file and PyArrow 21.0.0")
     payload = path.read_bytes()
     if len(payload) != EXPECTED_SIZE or hashlib.sha256(payload).hexdigest() != EXPECTED_SHA256:
