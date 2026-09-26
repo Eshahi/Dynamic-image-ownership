@@ -78,6 +78,19 @@ class DataManifestTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "URL credentials or query"):
                     validate(self.manifest, self.assets)
 
+    def test_internal_linked_directory_is_not_a_valid_asset_path(self):
+        target = self.assets / "real"
+        target.mkdir()
+        (target / "example.bin").write_bytes(self.image.read_bytes())
+        linked = self.assets / "linked"
+        try:
+            linked.symlink_to(target, target_is_directory=True)
+        except OSError:
+            self.skipTest("host does not permit synthetic directory links")
+        write_manifest(self.manifest, [dict(self.row, relative_path="linked/example.bin")])
+        with self.assertRaisesRegex(ValueError, "linked directory"):
+            validate(self.manifest, self.assets)
+
 
 if __name__ == "__main__":
     unittest.main()

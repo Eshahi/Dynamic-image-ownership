@@ -67,7 +67,10 @@ def digest_file(path: Path) -> str:
 def validate(manifest: Path, asset_root: Path) -> dict[str, object]:
     if manifest.is_symlink() or not manifest.is_file():
         raise ValueError("manifest must be a regular file")
-    if asset_root.is_symlink() or asset_root.is_junction() or not asset_root.is_dir():
+    asset_root = asset_root.absolute()
+    if any(parent.is_symlink() or parent.is_junction() for parent in (asset_root, *asset_root.parents)):
+        raise ValueError("asset root or ancestor uses a linked directory")
+    if not asset_root.is_dir():
         raise ValueError("asset root must be a non-link directory")
     root = asset_root.resolve(strict=True)
     counts: Counter[str] = Counter()
@@ -110,6 +113,8 @@ def validate(manifest: Path, asset_root: Path) -> dict[str, object]:
                 if not row["use_limitations"].strip():
                     raise ValueError("use limitations must be explicit")
                 path = root.joinpath(*relative.parts)
+                if any(parent.is_symlink() or parent.is_junction() for parent in path.parents):
+                    raise ValueError("image uses a linked directory")
                 if path.is_symlink() or not path.is_file() or not path.resolve().is_relative_to(root):
                     raise ValueError("image is missing, linked or outside asset root")
                 if path.stat().st_size != size or digest_file(path) != row["raw_sha256"]:
