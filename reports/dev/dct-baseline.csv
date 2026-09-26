@@ -1,0 +1,1 @@
+run_id,source_uid,configuration_sha256,source_pixel_sha256,marked_pixel_sha256,status,rgb_mse,PSNR_dB,SSIM,LPIPS,blind_verification,artifact_manifest_sha256
