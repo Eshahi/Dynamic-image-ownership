@@ -1,0 +1,259 @@
+{
+  "actual_pixels_revalidated": false,
+  "eligible_count": 22,
+  "input_sha256": {
+    "data/b4-admission-20260926/development-reservation.json": "0bfd4178a1929e26d12401000c1eda0c549034c348458844e72f0c5b0a8f79ae",
+    "data/b4-admission-20260926/source-manifest.csv": "40bfeca7c589b8352f93535070bc74fca70c6458216ea5422f0dc173f57110c4",
+    "data/splits.csv": "60ff11ae5a81698446573c5f7fbd9d3067a5a2619abdf29ac2389931de1e1b9f"
+  },
+  "maximum_side": 1024,
+  "metadata_only": true,
+  "no_fallback_after_failure": true,
+  "ranking": [
+    {
+      "eligible": true,
+      "metadata_height": 333,
+      "metadata_width": 500,
+      "padded_area": 196608,
+      "source_uid": "ms-coco:coco-2017:val2017:109798"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 264,
+      "metadata_width": 640,
+      "padded_area": 204800,
+      "source_uid": "ms-coco:coco-2017:val2017:190676"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 512,
+      "metadata_width": 512,
+      "padded_area": 262144,
+      "source_uid": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-000420:c0c9f706-f5a1-4645-a2ec-05cf6bf9c5b9"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 512,
+      "metadata_width": 512,
+      "padded_area": 262144,
+      "source_uid": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-000420:d1ea0ff7-6418-437b-a966-c472a214df8e"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 512,
+      "metadata_width": 512,
+      "padded_area": 262144,
+      "source_uid": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-000948:45176bcc-b85a-4597-940f-9b3fcd09d723"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 512,
+      "metadata_width": 512,
+      "padded_area": 262144,
+      "source_uid": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-000948:df5ba96e-e4b3-43c2-9f71-376d808e9c19"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 512,
+      "metadata_width": 512,
+      "padded_area": 262144,
+      "source_uid": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-001359:63bff44b-6c9c-4964-b4b9-bd42c5e15b80"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 512,
+      "metadata_width": 512,
+      "padded_area": 262144,
+      "source_uid": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-001359:f246ca50-2f8a-4b91-9233-125e535c8688"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 512,
+      "metadata_width": 512,
+      "padded_area": 262144,
+      "source_uid": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-001467:e7af85ee-9321-47b5-b704-c83f824ea450"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 428,
+      "metadata_width": 640,
+      "padded_area": 286720,
+      "source_uid": "ms-coco:coco-2017:val2017:499768"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 576,
+      "metadata_width": 512,
+      "padded_area": 294912,
+      "source_uid": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-001854:5d6106b2-aaad-4159-a02c-ddbf7d1fb0ed"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 480,
+      "metadata_width": 640,
+      "padded_area": 327680,
+      "source_uid": "ms-coco:coco-2017:val2017:177015"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 640,
+      "metadata_width": 480,
+      "padded_area": 327680,
+      "source_uid": "ms-coco:coco-2017:val2017:25394"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 480,
+      "metadata_width": 640,
+      "padded_area": 327680,
+      "source_uid": "ms-coco:coco-2017:val2017:468505"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 640,
+      "metadata_width": 480,
+      "padded_area": 327680,
+      "source_uid": "ms-coco:coco-2017:val2017:80932"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 512,
+      "metadata_width": 704,
+      "padded_area": 360448,
+      "source_uid": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-001929:5c91f290-1aca-4b27-92cf-ea5e55e18ebc"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 524,
+      "metadata_width": 640,
+      "padded_area": 368640,
+      "source_uid": "ms-coco:coco-2017:val2017:147498"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 531,
+      "metadata_width": 640,
+      "padded_area": 368640,
+      "source_uid": "ms-coco:coco-2017:val2017:6012"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 704,
+      "metadata_width": 576,
+      "padded_area": 405504,
+      "source_uid": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-001467:6febdb7b-ffcc-4c5a-804f-7e20de737269"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 639,
+      "metadata_width": 640,
+      "padded_area": 409600,
+      "source_uid": "ms-coco:coco-2017:val2017:134882"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 1024,
+      "metadata_width": 512,
+      "padded_area": 524288,
+      "source_uid": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-001168:ab93c9a5-fee4-42a1-b1d8-b00a4cbbba67"
+    },
+    {
+      "eligible": true,
+      "metadata_height": 1024,
+      "metadata_width": 1024,
+      "padded_area": 1048576,
+      "source_uid": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-001359:3dc4a613-ae4f-43bc-be03-0852bd902cbe"
+    },
+    {
+      "eligible": false,
+      "metadata_height": 1152,
+      "metadata_width": 2040,
+      "padded_area": 2359296,
+      "source_uid": "div2k:div2k-2017:train:0511"
+    },
+    {
+      "eligible": false,
+      "metadata_height": 1344,
+      "metadata_width": 2040,
+      "padded_area": 2752512,
+      "source_uid": "div2k:div2k-2017:train:0654"
+    },
+    {
+      "eligible": false,
+      "metadata_height": 1356,
+      "metadata_width": 2040,
+      "padded_area": 2883584,
+      "source_uid": "div2k:div2k-2017:train:0173"
+    },
+    {
+      "eligible": false,
+      "metadata_height": 1356,
+      "metadata_width": 2040,
+      "padded_area": 2883584,
+      "source_uid": "div2k:div2k-2017:train:0435"
+    },
+    {
+      "eligible": false,
+      "metadata_height": 1356,
+      "metadata_width": 2040,
+      "padded_area": 2883584,
+      "source_uid": "div2k:div2k-2017:train:0466"
+    },
+    {
+      "eligible": false,
+      "metadata_height": 1380,
+      "metadata_width": 2040,
+      "padded_area": 2883584,
+      "source_uid": "div2k:div2k-2017:train:0677"
+    },
+    {
+      "eligible": false,
+      "metadata_height": 1356,
+      "metadata_width": 2040,
+      "padded_area": 2883584,
+      "source_uid": "div2k:div2k-2017:train:0737"
+    },
+    {
+      "eligible": false,
+      "metadata_height": 1488,
+      "metadata_width": 2040,
+      "padded_area": 3145728,
+      "source_uid": "div2k:div2k-2017:train:0482"
+    },
+    {
+      "eligible": false,
+      "metadata_height": 1548,
+      "metadata_width": 2040,
+      "padded_area": 3276800,
+      "source_uid": "div2k:div2k-2017:train:0027"
+    },
+    {
+      "eligible": false,
+      "metadata_height": 2040,
+      "metadata_width": 1944,
+      "padded_area": 4063232,
+      "source_uid": "div2k:div2k-2017:train:0460"
+    }
+  ],
+  "reserved_count": 32,
+  "rights_clearance": false,
+  "rule": "minimum_native_metadata_pad64_area_then_source_uid_no_feature_or_output_selection",
+  "schema_version": "c4-metadata-case-freeze-v1",
+  "scientific_execution_authorized": false,
+  "selected": {
+    "canonical_pixel_sha256": "b1a1f8710eb0a60875240b8ab5daf4c0475ba3a7549946a833dccae49a8f4a97",
+    "domain": "ms-coco",
+    "eligible": true,
+    "group_id": "f587ad37e4b7175f7ea802fcfe1d579ba900d9d687c73b2d8cbfc43241fc2330",
+    "metadata_height": 333,
+    "metadata_width": 500,
+    "padded_area": 196608,
+    "raw_sha256": "8fafbfb6d1c320f9efc59291748c0b9a730726db311364c03280b2de39fe656f",
+    "raw_size_bytes": 125000,
+    "relative_path": "val2017/val2017/000000109798.jpg",
+    "rights_status": "pending-image-rights",
+    "source_split": "val2017",
+    "source_uid": "ms-coco:coco-2017:val2017:109798",
+    "use_limitations": "Local restricted academic research only; no redistribution/public figures; no legal or visual-content certification; recorded image license_id=5; annotation license is not image ownership; original archive identity unproved; creator/title/public attribution pending"
+  }
+}
