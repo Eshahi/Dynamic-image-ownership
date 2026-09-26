@@ -64,3 +64,18 @@ inventory. No environment installation or safety bypass followed those failures.
 Official run d916749c stays paused at plan-acceptance. This implementation is not
 method acceptance, scientific execution permission, rights clearance or thesis
 acceptance.
+
+The next candidate preparation is a fixed development-only recipe and offline
+WSL worker/Windows launcher, still unexecuted. Its external raw sources are bound
+by the admitted manifest/reservation and checked by the worker; the local CLIP
+checkpoint is checked by A6's loader. Runner input bindings cover all relevant
+tracked modules/configs/split/rule files; external bytes are not falsely reported
+as direct contained-repository runner inputs. Linux group timeout precedes the
+outer runner deadline. Exact runtime versions and Torch4GiB allocator ceiling
+are checked before model load. The manifest generator only operates on a clean
+checkout; it never creates a human approval.
+
+The first Windows no-model preparation test attempted Linux-only raw-root path
+containment without a synthetic absolute Windows fixture and failed before any
+real raw read. The fixture now patches only the raw-root/read seam. Four no-model
+selection/launcher/distance tests pass; full script suite185 tests174pass11skips.

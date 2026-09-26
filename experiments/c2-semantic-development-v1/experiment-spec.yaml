@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "c2-semantic-development-v1",
+  "task_id": "C2",
+  "question": "Does the specified CLIP-to-q-to-Ws implementation produce complete reproducible development cases, and what drift is observed under one fixed JPEG transform and different content?",
+  "hypothesis": "Two uncached extractions of the same canonical image produce identical q; a complete inventory can reveal rather than assume JPEG stability and different-content separation.",
+  "primary_outcome": "96 planned case records from the original 32 reserved development images, with failures retained and same-image semantic-code distance measured.",
+  "secondary_outcomes": ["cosine feature distance", "12-bit q Hamming distance", "256-bit public Ws digest Hamming distance", "minimum absolute projection margin", "runtime and peak Torch allocation"],
+  "datasets": [
+    {"id":"ms-coco","version":"2017-val fixed admitted development reservation","license":"local-only candidate BY/BY-SA label screening; rights not certified","split":"development-only 10 images"},
+    {"id":"div2k","version":"original train fixed development reservation","license":"local-only pending-rights research intake","split":"development-only 10 images"},
+    {"id":"diffusiondb","version":"2M fb620fbe49fa4420e0734bd9c0df11f51176b61f fixed reservation","license":"local-only metadata-screened pending-rights intake; no redistribution","split":"development-only 12 images"}
+  ],
+  "leakage_risks": ["No validation/test/native DIV2K holdout access; exact original 32 IDs and full linked development groups bound", "Repeated transforms and pairs are dependent, not extra independent N", "Engineering byte/color inspection predates this recipe; prior data-feature results have not been observed", "Development evidence cannot establish final FPR, robustness, legal ownership or population generalization"],
+  "preprocessing": "Pinned B5 native RGB8 EXIF/ICC canonicalization, exact locked canonical digest; official CLIP shortest-edge224 bicubic center crop and normalization; Torch float32 inference/norm with TF32 off, ordered float64 projection. Fixed all-zero public projection seed before study-image feature outcomes.",
+  "baselines": ["same canonical image uncached repeat; cache candidate independently recomputed"],
+  "controls": ["Fixed JPEG quality95 subsampling0 optimizefalse progressivefalse", "Next sorted development source UID in same domain, cyclic pair order fixed before features"],
+  "ablations": [],
+  "seeds": [0],
+  "stopping_rule": "One run, original32 images only,96 planned records. No tuning, resampling, adaptive retries or new images. Stop at1200 seconds outer runner with1160-second Linux group deadline and10-second kill escalation; resource or load errors are retained failures.",
+  "acceptance_rule": "Engineering evidence completeness requires all96 case records, explicit failure inventory, same-image q reproducibility and reviewed provenance. JPEG drift/collisions are measured outcomes, not success criteria to optimize. Any extraction failure or repeat q mismatch prevents C2 acceptance until diagnosed without held-out tuning.",
+  "negative_result_policy": "Preserve every failed image/pair/load and partial run. Report drift/collisions including zero-distance different-content cases; never select a replacement projection seed from outcomes or suppress unfavorable cases.",
+  "analysis": {
+    "mode": "exploratory",
+    "metric": "semantic_code_distance",
+    "direction": "lower",
+    "conditions": ["development_case_inventory"],
+    "expected_runs": [{"run_id":"c2-semantic-dev-001","condition":"development_case_inventory","seed":0}],
+    "comparison": null,
+    "confidence_interval": "none",
+    "bootstrap_samples": 100,
+    "random_seed": 0,
+    "multiple_comparisons": "none-single-comparison",
+    "exclusion_rule": "none"
+  }
+}

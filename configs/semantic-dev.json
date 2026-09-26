@@ -1,0 +1,22 @@
+{
+  "schema_version": "c2-fixed-development-probe-v1",
+  "projection_seed": "0000000000000000000000000000000000000000000000000000000000000000",
+  "projection_seed_rule": "public_all_zero_constant_fixed_before_any_study_image_features_not_selected_from_data",
+  "source_manifest": "data/b4-admission-20260926/source-manifest.csv",
+  "manifest_sha256": "40bfeca7c589b8352f93535070bc74fca70c6458216ea5422f0dc173f57110c4",
+  "development_ids": "data/b4-admission-20260926/development-reservation.json",
+  "development_ids_sha256": "0bfd4178a1929e26d12401000c1eda0c549034c348458844e72f0c5b0a8f79ae",
+  "splits": "data/splits.csv",
+  "splits_sha256": "60ff11ae5a81698446573c5f7fbd9d3067a5a2619abdf29ac2389931de1e1b9f",
+  "data_config": "configs/data.json",
+  "owner_id": "c2-public-development-owner-v1",
+  "device": "cuda",
+  "image_count": 32,
+  "benign_transform": {"format": "JPEG", "quality": 95, "subsampling": 0, "optimize": false, "progressive": false},
+  "different_content_rule": "next_sorted_source_uid_in_same_domain_wrap_last_to_first_no_feature_based_matching",
+  "same_image_rule": "two_uncached_extractions_and_one_cached_read",
+  "primary_outcome": "complete_case_inventory_with_same_image_q_reproducibility",
+  "scientific_compute_authorized": false,
+  "no_threshold_selection": true,
+  "no_heldout_access": true
+}
