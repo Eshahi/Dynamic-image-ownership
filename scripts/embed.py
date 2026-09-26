@@ -25,8 +25,10 @@ def main(argv=None):
     record = {"status": "component_preflight_only" if args.preview else "execution_adapter_not_ready",
               "config_sha256": config.sha256, "inference_steps": settings.inference_steps,
               "scientific_execution_authorized": False,
-              "missing": ["approved exact execution manifest and runner worker", "verified component loader",
-                          "safety and RGB8 PNG roundtrip", "quality metrics and full blind detector"]}
+              "missing": ["approved exact execution manifest and integrated runner worker",
+                          "integration of reviewed C1 cross-runtime validation bridge",
+                          "empirical local component/empty-conditioning/safety and native PNG evidence",
+                          "quality metrics and full blind detector"]}
     print(json.dumps(record, sort_keys=True))
     return 0 if args.preview else 4
 
