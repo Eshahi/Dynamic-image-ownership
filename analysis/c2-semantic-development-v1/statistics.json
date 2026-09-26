@@ -1,0 +1,247 @@
+{
+  "completed": 96,
+  "conditions": {
+    "different_content": {
+      "by_domain": {
+        "diffusiondb": {
+          "cases": 12,
+          "q_unchanged": 2
+        },
+        "div2k": {
+          "cases": 10,
+          "q_unchanged": 0
+        },
+        "ms-coco": {
+          "cases": 10,
+          "q_unchanged": 0
+        }
+      },
+      "completed_cases": 32,
+      "metrics": {
+        "feature_distance": {
+          "max": 0.6511291086809572,
+          "mean": 0.5108865466773699,
+          "median": 0.5296654414783037,
+          "min": 0.3405501469328198,
+          "n": 32,
+          "sample_sd_descriptive_only": 0.07871960272184401
+        },
+        "key_distance": {
+          "max": 147,
+          "mean": 117.8125,
+          "median": 124.5,
+          "min": 0,
+          "n": 32,
+          "sample_sd_descriptive_only": 31.92878921357904
+        },
+        "semantic_code_distance": {
+          "max": 6,
+          "mean": 3.1875,
+          "median": 3.0,
+          "min": 0,
+          "n": 32,
+          "sample_sd_descriptive_only": 1.6546610607029018
+        }
+      },
+      "q_histogram": {
+        "0": 2,
+        "1": 3,
+        "2": 6,
+        "3": 7,
+        "4": 7,
+        "5": 4,
+        "6": 3
+      },
+      "q_unchanged_count": 2
+    },
+    "jpeg_quality95_subsampling0": {
+      "by_domain": {
+        "diffusiondb": {
+          "cases": 12,
+          "q_unchanged": 10
+        },
+        "div2k": {
+          "cases": 10,
+          "q_unchanged": 10
+        },
+        "ms-coco": {
+          "cases": 10,
+          "q_unchanged": 9
+        }
+      },
+      "completed_cases": 32,
+      "metrics": {
+        "feature_distance": {
+          "max": 0.005666324336471296,
+          "mean": 0.0010730298065704837,
+          "median": 0.000541052716605539,
+          "min": 1.439305454853379e-05,
+          "n": 32,
+          "sample_sd_descriptive_only": 0.001498552356253003
+        },
+        "key_distance": {
+          "max": 140,
+          "mean": 12.15625,
+          "median": 0.0,
+          "min": 0,
+          "n": 32,
+          "sample_sd_descriptive_only": 38.46918278562138
+        },
+        "semantic_code_distance": {
+          "max": 1,
+          "mean": 0.09375,
+          "median": 0.0,
+          "min": 0,
+          "n": 32,
+          "sample_sd_descriptive_only": 0.296144581080299
+        }
+      },
+      "q_histogram": {
+        "0": 29,
+        "1": 3
+      },
+      "q_unchanged_count": 29
+    },
+    "same_image_uncached_repeat": {
+      "by_domain": {
+        "diffusiondb": {
+          "cases": 12,
+          "q_unchanged": 12
+        },
+        "div2k": {
+          "cases": 10,
+          "q_unchanged": 10
+        },
+        "ms-coco": {
+          "cases": 10,
+          "q_unchanged": 10
+        }
+      },
+      "completed_cases": 32,
+      "metrics": {
+        "feature_distance": {
+          "max": 1.5362251137851501e-07,
+          "mean": -4.937992514886247e-10,
+          "median": -1.2166490703791055e-08,
+          "min": -9.26644809773336e-08,
+          "n": 32,
+          "sample_sd_descriptive_only": 6.356568008496354e-08
+        },
+        "key_distance": {
+          "max": 0,
+          "mean": 0,
+          "median": 0.0,
+          "min": 0,
+          "n": 32,
+          "sample_sd_descriptive_only": 0.0
+        },
+        "semantic_code_distance": {
+          "max": 0,
+          "mean": 0,
+          "median": 0.0,
+          "min": 0,
+          "n": 32,
+          "sample_sd_descriptive_only": 0.0
+        }
+      },
+      "q_histogram": {
+        "0": 32
+      },
+      "q_unchanged_count": 32
+    }
+  },
+  "different_content_collision_cases": [
+    {
+      "case_id": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-001467:e7af85ee-9321-47b5-b704-c83f824ea450::different_content",
+      "config_hash": "b8f2bcf63dae84167abd1faf91b333a2265b129af6b4e37edb1f4dcc5799cf33",
+      "feature_distance": 0.4372039277001588,
+      "image_id": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-001467:e7af85ee-9321-47b5-b704-c83f824ea450",
+      "key_distance": 0,
+      "paired_image_id": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-001854:5d6106b2-aaad-4159-a02c-ddbf7d1fb0ed",
+      "semantic_code_distance": 0,
+      "status": "completed",
+      "transform": "different_content"
+    },
+    {
+      "case_id": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-001854:5d6106b2-aaad-4159-a02c-ddbf7d1fb0ed::different_content",
+      "config_hash": "b8f2bcf63dae84167abd1faf91b333a2265b129af6b4e37edb1f4dcc5799cf33",
+      "feature_distance": 0.6283525454612512,
+      "image_id": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-001854:5d6106b2-aaad-4159-a02c-ddbf7d1fb0ed",
+      "key_distance": 0,
+      "paired_image_id": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-001929:5c91f290-1aca-4b27-92cf-ea5e55e18ebc",
+      "semantic_code_distance": 0,
+      "status": "completed",
+      "transform": "different_content"
+    }
+  ],
+  "failed": [],
+  "independent_images_not_asserted": 32,
+  "independent_runs": 1,
+  "jpeg_drift_cases": [
+    {
+      "case_id": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-000420:d1ea0ff7-6418-437b-a966-c472a214df8e::jpeg_quality95_subsampling0",
+      "config_hash": "b8f2bcf63dae84167abd1faf91b333a2265b129af6b4e37edb1f4dcc5799cf33",
+      "feature_distance": 0.0018164746201329018,
+      "image_id": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-000420:d1ea0ff7-6418-437b-a966-c472a214df8e",
+      "key_distance": 123,
+      "min_absolute_projection_margin": 0.0011599214359644745,
+      "paired_image_id": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-000420:d1ea0ff7-6418-437b-a966-c472a214df8e",
+      "semantic_code_distance": 1,
+      "status": "completed",
+      "transform": "jpeg_quality95_subsampling0"
+    },
+    {
+      "case_id": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-001929:5c91f290-1aca-4b27-92cf-ea5e55e18ebc::jpeg_quality95_subsampling0",
+      "config_hash": "b8f2bcf63dae84167abd1faf91b333a2265b129af6b4e37edb1f4dcc5799cf33",
+      "feature_distance": 0.0006188242387555887,
+      "image_id": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-001929:5c91f290-1aca-4b27-92cf-ea5e55e18ebc",
+      "key_distance": 140,
+      "min_absolute_projection_margin": 0.00010397421861100902,
+      "paired_image_id": "diffusiondb:diffusiondb-2m-fb620fbe49fa4420e0734bd9c0df11f51176b61f:part-001929:5c91f290-1aca-4b27-92cf-ea5e55e18ebc",
+      "semantic_code_distance": 1,
+      "status": "completed",
+      "transform": "jpeg_quality95_subsampling0"
+    },
+    {
+      "case_id": "ms-coco:coco-2017:val2017:80932::jpeg_quality95_subsampling0",
+      "config_hash": "b8f2bcf63dae84167abd1faf91b333a2265b129af6b4e37edb1f4dcc5799cf33",
+      "feature_distance": 0.004811257878410857,
+      "image_id": "ms-coco:coco-2017:val2017:80932",
+      "key_distance": 126,
+      "min_absolute_projection_margin": 0.003522134902708983,
+      "paired_image_id": "ms-coco:coco-2017:val2017:80932",
+      "semantic_code_distance": 1,
+      "status": "completed",
+      "transform": "jpeg_quality95_subsampling0"
+    }
+  ],
+  "limitations": [
+    "Descriptive summaries chosen after results; not a new confirmatory analysis rule.",
+    "96 dependent cases from32 development images, one fixed seed/run; no CI, p-value or population claim.",
+    "Feature distance is the recorded1-dot product of approximately unit float32 features; tiny negative repeat values are retained, not clamped.",
+    "Ws digest Hamming distance is not semantic similarity; no held-out method/robustness/legal claim."
+  ],
+  "no_inferential_statistics": true,
+  "no_threshold_selection": true,
+  "peak_torch_allocated_bytes": 644345344,
+  "pending": [],
+  "planned": 96,
+  "provenance": {
+    "analysis_script_sha256": "8f71e2b76ecbb26e8336f12e6b13893142a85b7e1b5657636d7da788eb770c89",
+    "approval_reference": "8c1099d0419ff24ad4da6e03358567580778ef833775d12c326b1379b5b68e37",
+    "execution_manifest_sha256": "1b523f0e24b5e590443d25e802399330b1c3b46f3f2125e36f0a271f8379a756",
+    "git_commit": "f0dd72615fd9889ec0a2fd27a118aafa8c0f6d24",
+    "output_hashes": {
+      "logs/case-progress.jsonl": "fb65bfb7426a956181372fe2a0d6f564681d3006232229ad009e9f482432d6d2",
+      "outputs/semantic-examples.json": "9bf3f94ace130dd3b8f7185ae0bd3382cc4bada8c5b51e42dc2a7c6fecde2ab6"
+    },
+    "prospective_spec_sha256": "8e1ac9acd09e1ad53cd379abd9e5331cb4e4917ede2c9b2ccb1d68cc4b6c14c1",
+    "runner_manifest_sha256": "5828f37890ba34ee3aa355ef340c466b7cf68927d78d2f92ea69756bd608fc41"
+  },
+  "report_status": "completed",
+  "run_id": "c2-semantic-dev-001",
+  "run_status": "completed",
+  "same_image_mismatches": [],
+  "schema_version": "c2-descriptive-analysis-v1",
+  "worker_elapsed_seconds": 18.063879037
+}

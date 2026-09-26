@@ -1,0 +1,18 @@
+{
+  "status": "estimate_not_measured_pending_review_and_user_approval",
+  "execution_target": "local_WSL_Ubuntu_existing_clean_science_environment",
+  "gpu": "existing_RTX_5070_Ti",
+  "batch_size": 1,
+  "estimated_seconds": [180, 600],
+  "max_seconds": 1200,
+  "linux_group_timeout_seconds": 1160,
+  "linux_kill_after_seconds": 10,
+  "torch_allocator_ceiling_mib": 4096,
+  "estimated_ram_mib": 6144,
+  "estimated_disk_mib": 256,
+  "max_usd": 0,
+  "new_download_bytes": 0,
+  "models": ["existing_hash_verified_official_CLIP_ViT_B32"],
+  "scientific_compute_authorized": false,
+  "available_headroom_must_be_checked_by_official_runner": true
+}
