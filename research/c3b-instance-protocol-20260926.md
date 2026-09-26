@@ -72,8 +72,11 @@ the first selected margin is0.005912209101639299 on Windows versus
 The initial whole-example equality check failed honestly; inspection isolated
 these margin differences without changing arithmetic, tests or output bytes.
 A PowerShell diagnostic syntax error was repaired without source/artifact changes.
-Both initial reports remain: committed Windows report and stableignored
-`.thesis-build/c3b-owned-protocol-wsl-20260926.json`. The chosen known-answer byte
+Both initial reports remain under the stableignored root as
+`.thesis-build/c3b-owned-protocol-{windows,wsl}-20260926.json`; exact digests and
+limits are in reports/dev/instance-protocol-parity.json. Git normalizes Windows
+CRLF in the committed examples toLF, so its blob is not claimed byte-identical
+to the original generated Windows receipt. The chosen known-answer byte
 assertions freeze these owned fixtures, not a study-selected projection seed.
 Full185script tests174pass11expectedskips; focused owner/semantic/C2/instance
 Windows37tests33pass4expectedskips. No new scientific result is asserted.
