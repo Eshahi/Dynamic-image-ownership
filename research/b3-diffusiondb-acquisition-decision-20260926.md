@@ -29,4 +29,10 @@ Archives remain ignored under `W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE
 
 Before network execution, PowerShell parser and `-ListOnly` contract preview passed. Full workflow-interpreter suite: **152 tests, 146 pass and six expected dependency skips**. Ten focused production-selection tests passed, including a favorable early prefix with a later missing/incomplete part and malformed text in an excluded later row. Independent narrow technical review is required before launch; record its actor and exact commit separately. The official controller read-only status still reports `d916749c` paused at `plan-acceptance`; this resource decision does not advance it.
 
+## Launch checkpoint
+
+Independent actor `/root/b3_intake_review` reviewed exact `f91ca43b2e85c7004e27c9bdff954aeff1996d00` with no technical launch blocker; [review record](../audits/b3-acquisition-review-20260926/review.md) retains its limits and parent/orphan-curl recovery warning. Final working authorization/production hashes were checked before launch; authorization SHA-256 is `64a4cb351969a1c2675fc9a95a77d31fda06721c35949603fb75f3b8f2a95290`.
+
+A hidden single writer **PID 38904** started at observed local time 2026-09-26 01:22:32 (UTC approximately 08:22:32; tool-clock readings can differ, so use process/files for current status). Its ignored logs are `.thesis-build/logs/b3-diffusiondb-parts-20260926.out.log` and `.err.log` under the stable W: project. Initial log records `DOWNLOADING part-000948.zip attempt=1 resume_bytes=0 expected_bytes=559791366`. The parent was observed alive and a curl child was present. Archives are **not yet claimed complete**; later receipts must check all exact sizes/digests. Do not launch a duplicate while parent/curl is active.
+
 B3 remains open for archive receipt, safe image inspection, item-level rights/content/grouping, final source manifest and development IDs. Scientific execution still needs the runner's exact-manifest user approval.
