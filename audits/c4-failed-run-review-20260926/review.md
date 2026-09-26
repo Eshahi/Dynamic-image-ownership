@@ -1,0 +1,13 @@
+# Independent C4 retained-failure evidence review
+
+2026-09-26. Author `/root`; actual independent read-focused reviewer `/root/b3_intake_review`. Final exact repair **622b53eb7cda174c0f576e83d6e7e6a4217f1b7b**: no remaining narrow failure-evidence blocker. This accepts faithful reporting of one failed attempt, not successful feasibility, C4 closure, a workflow verdict or permission to retry.
+
+The user directly approved the pending exact c4-embedding-dev-001 local package, canonical manifest **c311c6989809328e5c4c2583bce1355fafd1e00d7556a2542e23adce04809f86**, clean executed commit **1432fdfdaab8426c97ec81198c281b909f8a7e88**, 1200 seconds/USD0/8GiB Torch allocation. Official runner validation and one dispatch consumed that decision. Run failed with exit2/OutOfMemoryError after model loading. No retry was performed or authorized.
+
+Reviewer independently verified exact approval binding/time/run/target/budget, all43 pinned inputs and3 declared output digests, retained source/model metadata, original artifacts and analysis/helper provenance. Peak Torch allocation7.9224853515625GiB is below8GiB; no PNG exists and the only trajectory record is source enrollment. Model loading does not prove numerical parity, quality, blind detection or ownership authority.
+
+Initial analysis **bdbb8f6a24ca431743de4ee74faabd009c7d7439** had a concrete blocker: hardcoded last-completed phase without sequence verification, and unqualified zero-update wording. Repair verifies the required ordered phases and monotonic elapsed times, derives the last completed phase, reports zero RECORDED gradient observations/optimization updates and explicitly unknown unrecorded internal progress. Precise failing operation is unrecorded. Original v1 analysis remains preserved and superseded, not overwritten.
+
+Independent in-memory replay matches corrected analysis SHA **d9577a2876385905267a74a51939d43a6316167a6886470f2a0f485aff16c75d** in stable-project ignored `.thesis-build/c4-analysis-20260926/retained-failure-v2/`. Official `official-analysis-v2` provenance matches one expected/observed failed run, no missing run, null gradient and n0/no significance. Five owned tests passed on Windows and WSL for both root and reviewer. No reviewer model loading, image decoding, GPU computation, installation/download or scientific execution occurred.
+
+Original run remains in stable-project `.thesis-build/c4-runs/C4-development/c4-embedding-dev-001/`; runner record SHA **b185e5ec7174f1dca76b5376dd6e5a831988996d7e60bc87ff7765e8d13d6069**. No source/model bytes uploaded to Git. #18 remains OPEN and PR #67 draft. Any revised scientific run needs a reviewed exact package and separate user approval through the official runner.
