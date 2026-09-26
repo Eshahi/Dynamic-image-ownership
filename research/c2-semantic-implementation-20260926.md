@@ -28,6 +28,16 @@ Cross-version entries are misses; wrong identity, corrupt payload, linked paths,
 and overwrite attempts fail and preserve evidence. Feature caching is independent
 of OwnerID; public signature derivation happens after retrieval.
 
+Independent reviewer `/root/b3_intake_review` reproduced a candidate-cache
+substitution at exact `0dacbb9bfed42f5c8cdc3b8454d5a3349d3e5ac2`: replacing a
+synthetic feature and updating its colocated checksum changed q/Ws without an
+encoder call. The repair deliberately recomputes every cache hit from the bound
+image with the verified encoder, requires exact agreement, and returns the fresh
+feature. A checksum alone is not provenance. This version's cache is durable
+comparison evidence, not an inference-speed optimization. The attack fixture
+fails without overwrite; a real extraction-path synthetic model test and a
+linked-path test cover the former test gaps. No real model is used by these tests.
+
 Tests use synthetic vectors, synthetic CPU tensors and temporary cache fixtures
 only. No CLIP weights or dataset image were loaded by these tests. The workflow
 venv skips Torch-only cases because it intentionally lacks Torch; the existing

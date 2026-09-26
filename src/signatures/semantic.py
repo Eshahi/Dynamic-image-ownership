@@ -113,7 +113,11 @@ def _unlinked(path: Path) -> None:
 
 
 class FeatureCache:
-    """Local-only, fail-closed cache; corrupt evidence is never silently replaced."""
+    """Candidate storage, not independent image-to-feature provenance.
+
+    A colocated digest detects damage, not substitution with a self-consistent
+    record. PinnedClipEncoder recomputes before accepting every cached candidate.
+    """
     def __init__(self, root: Path):
         self.root = Path(root).absolute()
         _unlinked(self.root)
@@ -203,12 +207,12 @@ class PinnedClipEncoder:
         digest = pixel_sha(pixels)
         identity, key = feature_identity(digest, self.identity)
         cached = cache.read(identity, key) if cache else None
-        if cached is not None:
-            return cached
         tensor = self._transform(Image.fromarray(pixels)).unsqueeze(0).to(self._device, dtype=torch.float32)
         with torch.inference_mode(), torch.autocast(device_type=self._device, enabled=False):
             features = normalize_tensor(self._model.encode_image(tensor))
-        if cache:
+        if cached is not None and cached != features:
+            raise SemanticError("cached feature disagrees with verified image re-extraction")
+        if cache and cached is None:
             cache.write(identity, key, features)
         return features
 

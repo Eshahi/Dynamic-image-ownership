@@ -6,6 +6,7 @@ import struct
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,6 +14,7 @@ sys.path.insert(0, str(ROOT))
 from src.signatures.owner import derive_public_signatures, pack_fields
 from src.signatures.semantic import (FeatureCache, SemanticError, derive_ws,
                                     feature_identity, normalize_tensor, quantize_features)
+from src.signatures.semantic import PinnedClipEncoder
 from scripts.pixel_dct_control import semantic_code_from_normalized_embedding
 
 
@@ -113,7 +115,7 @@ class FeatureCacheTests(unittest.TestCase):
         original["preprocess"]["crop"]=999
         self.assertEqual(snapshot,self.identity)
 
-    def test_corruption_identity_wrong_key_and_link_fail_preserve(self):
+    def test_corruption_identity_wrong_key_fail_preserve(self):
         self.cache.write(self.identity,self.key,basis())
         path=self.root/(self.key+".json")
         record=json.loads(path.read_bytes());record["features"][0]=-1.0
@@ -131,6 +133,12 @@ class FeatureCacheTests(unittest.TestCase):
             with self.assertRaises(SemanticError): feature_identity(digest,identity())
         with self.assertRaises(SemanticError): feature_identity("a"*64,{})
         with self.assertRaises(SemanticError): self.cache.write(self.identity,self.key,[0.0]*512)
+
+    def test_linked_cache_path_is_rejected(self):
+        link=self.root/"linked-cache"
+        try: link.symlink_to(self.root, target_is_directory=True)
+        except OSError: self.skipTest("host does not permit test symlink creation")
+        with self.assertRaisesRegex(SemanticError,"linked"): FeatureCache(link)
 
 
 try:
@@ -153,6 +161,37 @@ class Float32NormalizationTests(unittest.TestCase):
                       torch.full((1,512),float("nan")),torch.full((1,512),float("inf")),
                       torch.ones(512),torch.ones(1,513),torch.ones(1,512,dtype=torch.float64)):
             with self.assertRaises(SemanticError): normalize_tensor(value)
+
+    def test_extract_path_recomputes_self_consistent_tampered_cache(self):
+        import numpy as np
+        from src.data.preprocess import pixel_sha
+        class SyntheticModel:
+            calls=0
+            def encode_image(self,tensor):
+                self.calls+=1
+                return torch.tensor([basis()],dtype=torch.float32)
+        encoder=PinnedClipEncoder()
+        encoder.identity=identity()  # explicitly synthetic, never a CLIP load
+        encoder._device="cpu";encoder._model=SyntheticModel()
+        encoder._transform=lambda image: torch.zeros((3,224,224),dtype=torch.float32)
+        pixels=np.zeros((8,8,3),dtype=np.uint8)
+        with tempfile.TemporaryDirectory() as temp, patch("torch.are_deterministic_algorithms_enabled",return_value=True), \
+                patch.object(torch.backends.cuda.matmul,"allow_tf32",False), \
+                patch.object(torch.backends.cudnn,"allow_tf32",False), \
+                patch.object(torch.backends.cudnn,"benchmark",False):
+            cache=FeatureCache(Path(temp))
+            self.assertEqual(encoder.extract_features(pixels,cache),basis())
+            self.assertEqual(encoder.extract_features(pixels,cache),basis())
+            self.assertEqual(encoder._model.calls,2)
+            record_identity,key=feature_identity(pixel_sha(pixels),encoder.identity)
+            path=Path(temp)/(key+".json")
+            record=json.loads(path.read_bytes());record["features"]=list(basis(1))
+            record["features_sha256"]=hashlib.sha256(struct.pack("<512f",*basis(1))).hexdigest()
+            path.write_text(json.dumps(record));before=path.read_bytes()
+            with self.assertRaisesRegex(SemanticError,"re-extraction"):
+                encoder.extract_features(pixels,cache)
+            self.assertEqual(encoder._model.calls,3)
+            self.assertEqual(path.read_bytes(),before)
 
 
 if __name__=="__main__": unittest.main()
