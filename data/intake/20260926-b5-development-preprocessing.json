@@ -1,0 +1,36 @@
+{
+  "schema_version": "b5-development-preprocessing-summary-v1",
+  "tested_commit": "7a74911",
+  "manifest_sha256": "5665665b51d5020df00fe1db1dc090a5e8b007c65fda65021c72c6ba709ce71b",
+  "dev_ids_sha256": "7cc2a4c827fd1c64b2f6d529a3726b843a0c635077982deb87725fbc3ac7f0bc",
+  "canonical_config_sha256": "564eff66ea146b4dbfb07f7d7466960ba6c2ebda070154ed2c5020ebf186b4a5",
+  "preprocess_code_sha256": "ded49f0a0e46fa49dbcd07f979ab494c2258dee835b91d266d017b567acfc7a4",
+  "checker_code_sha256": "e4ce5d83122036b8ef5ef527cd9002c24e80e321c8372f4720e767c25f832dbc",
+  "windows": {
+    "report_relative_path": ".thesis-build/b5-dev-windows-20260926.json",
+    "report_sha256": "7e8849f1fbe7183b7d5c0e5b156432cf52bcb64dc06893742400a649e9612ef0",
+    "pass": 32,
+    "rejected": 0,
+    "output_bytes": 59241838
+  },
+  "wsl": {
+    "report_relative_path": ".thesis-build/b5-dev-wsl-20260926.json",
+    "report_sha256": "665014d128f6b51f9d9a0d94c7235c20facb2077afe0aa62ee7552076d3027fe",
+    "pass": 32,
+    "rejected": 0,
+    "output_bytes": 58864919
+  },
+  "cross_runtime_pixel_digest_matches": 32,
+  "cross_runtime_output_file_digest_matches": 0,
+  "max_observed_width": 2040,
+  "max_observed_height": 2040,
+  "icc_conversion_count": 4,
+  "explicit_srgb_assumption_count": 28,
+  "windows_synthetic_tests_pass": 8,
+  "wsl_synthetic_tests_pass": 8,
+  "ordinary_script_suite": {"found": 183, "passed": 172, "expected_skips": 11},
+  "scope": "reserved_native_development_images_only_not_general_runtime_parity",
+  "scientific_compute": false,
+  "rights_clearance": false,
+  "method_success": false
+}
