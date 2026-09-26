@@ -1,0 +1,73 @@
+{
+  "candidate_sha256": "37dbd65045497b54a02d14b965824c2155606a0a39d194eced4bc5bdfceff270",
+  "canonical_inventory_sha256": "f867a38c0a8fce164fd01290378425ea674a9f4609061f38f7b81abb66b87b15",
+  "canonical_summary_sha256": "924f7d43f8c5dd817d48dc1749afac7832618b451b3b0b418383c1d89cd64a3b",
+  "counts_by_domain": {
+    "diffusiondb": 5000,
+    "div2k": 900,
+    "ms-coco": 1000
+  },
+  "development_reservation_sha256": "0bfd4178a1929e26d12401000c1eda0c549034c348458844e72f0c5b0a8f79ae",
+  "exclusions": [
+    {
+      "raw_sha256": "b6d4e6d0d4b57e9643bc7104cd7fbf1935d1dae27a35e3134d3ad205a5abb564",
+      "reason": "unsupported_source_mode_or_alpha",
+      "source_id": "431848",
+      "was_original_candidate": true
+    },
+    {
+      "raw_sha256": "c9a58eeace3113acbac814cdd972ac4319bc67a5957f0132371288e605607b89",
+      "reason": "unsupported_source_mode_or_alpha",
+      "source_id": "205289",
+      "was_original_candidate": true
+    },
+    {
+      "raw_sha256": "80bcfb867bb4a1b510ac914ee5a64703f410da01b05435d14bcf21be0ab0d74e",
+      "reason": "source_decode_or_color_failure:PyCMSError",
+      "source_id": "455597",
+      "was_original_candidate": true
+    }
+  ],
+  "local_byte_validation": {
+    "counts_by_domain": {
+      "diffusiondb": 5000,
+      "div2k": 900,
+      "ms-coco": 1000
+    },
+    "rights_status_counts": {
+      "pending-image-rights": 6900
+    },
+    "row_count": 6900,
+    "status": "listed-bytes-verified-rights-not-certified",
+    "unique_byte_hash_count": 6900
+  },
+  "manifest_sha256": "40bfeca7c589b8352f93535070bc74fca70c6458216ea5422f0dc173f57110c4",
+  "original_artifacts_and_rejects_preserved": true,
+  "original_dev_sha256": "7cc2a4c827fd1c64b2f6d529a3726b843a0c635077982deb87725fbc3ac7f0bc",
+  "original_development_ids_preserved": true,
+  "original_manifest_sha256": "5665665b51d5020df00fe1db1dc090a5e8b007c65fda65021c72c6ba709ce71b",
+  "replacements": [
+    {
+      "ordered_reserve_index": 0,
+      "raw_sha256": "1f8d859e83e946b2a76a3a69cd57e2a622b77751bda91bff79461e87f29732a0",
+      "source_id": "233370"
+    },
+    {
+      "ordered_reserve_index": 1,
+      "raw_sha256": "0f7b42299e6074f89934510299a6d68490a3ac304089f84701424539cbc58c0a",
+      "source_id": "533206"
+    },
+    {
+      "ordered_reserve_index": 2,
+      "raw_sha256": "067fb73c369a8433d1f9d97c2c36f51f487cf3a6d37c1f2fe0368a39f3dc38db",
+      "source_id": "397354"
+    }
+  ],
+  "rights_cleared": false,
+  "rule": "first1000_canonical_pass_in_existing_full_candidate_then_reserve_order_before_method_outcomes",
+  "scientific_compute_authorized": false,
+  "scientific_split_accepted": false,
+  "source_count": 6900,
+  "source_eligibility_rule_changed": false,
+  "status": "prospective_canonical_source_admission_pending_independent_review"
+}
