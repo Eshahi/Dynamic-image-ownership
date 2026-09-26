@@ -42,4 +42,10 @@ pass, including output tampering and rehashed duplicate progress rejection.
 The approved single run has been consumed. Do not rerun, change code/seed/images,
 expand to held-out data or infer approval for downstream compute. Official Spec Kit
 `d916749c` remains paused at plan-acceptance; no lifecycle verdict was fabricated.
-Independent bounded results review and GitHub task closure remain pending.
+Actual independent `/root/b3_intake_review` subsequently found no narrow C2
+implementation/examples blocker at02ee07f and inspected the additional c83466e
+failure/pending regression (four tests pass). It reconstructed all32 original/JPEG
+pixel identities CPU-only and independently recomputed signatures/distances from
+all64 stored vectors, not model inference. See
+`audits/c2-development-results-review-20260926/review.md`. GitHub closure must be
+verified separately; no full-method/lifecycle/rights acceptance follows.
