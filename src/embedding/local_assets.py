@@ -189,7 +189,7 @@ class LocalModels:
         return bool(flags[0])
 
 
-def load_snapshot(loaded: LoadedConfig, plan: AssetPlan, snapshot: Path, *, device: str):
+def load_snapshot(loaded: LoadedConfig, plan: AssetPlan, snapshot: Path, *, device: str, progress=None):
     """Explicit model-load boundary, NEVER called by current CLI or ordinary tests.
 
     Scientific runner must already have approved exact config/input/code/resource
@@ -231,7 +231,7 @@ def load_snapshot(loaded: LoadedConfig, plan: AssetPlan, snapshot: Path, *, devi
     with torch.no_grad():
         # SD1.5 CLIPTextModel profile does not use an attention mask.
         condition = pipeline.text_encoder(tokens.input_ids.to(device))[0]
-    components = DiffusersComponents(pipeline.vae, pipeline.unet, condition, settings)
+    components = DiffusersComponents(pipeline.vae, pipeline.unet, condition, settings, progress=progress)
     return LocalModels(components, pipeline, {"lock_sha256": plan.lock_sha256,
         "component_hashes": plan.component_hashes, "config_sha256": loaded.sha256,
         "conditioning": "fixed-empty-string", "token_ids": tokens.input_ids.tolist(),

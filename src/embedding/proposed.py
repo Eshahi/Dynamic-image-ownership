@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import hashlib
 import math
+from contextlib import contextmanager
 from dataclasses import dataclass
 
 from scripts.base_noise_reference import base_noise_f32le, unit_carrier_f32le
@@ -25,6 +26,21 @@ class EmbeddingError(ValueError):
 def _torch():
     import torch
     return torch
+
+
+@contextmanager
+def operation_phase(progress, operation, **context):
+    """Durable caller-owned metadata only; completion is absent on failure.
+
+    No CUDA synchronization or exception-text capture. CUDA errors can be
+    asynchronous: this localizes the observed failure boundary, not a kernel.
+    Callback errors abort rather than silently losing provenance.
+    """
+    if progress is not None:
+        progress(dict(phase="operation_started", operation=operation, **context))
+    yield
+    if progress is not None:
+        progress(dict(phase="operation_completed", operation=operation, **context))
 
 
 def _finite_tensor(tensor, name):
@@ -159,7 +175,7 @@ class DiffusersComponents:
     must be produced by the manifest-bound upstream tokenizer/encoder adapter.
     No CFG, prompt conditioning, offload, autocast or inference-mode pipeline.
     """
-    def __init__(self, vae, unet, empty_condition, settings):
+    def __init__(self, vae, unet, empty_condition, settings, *, progress=None):
         import diffusers
         from diffusers import DDIMScheduler
         torch = _torch()
@@ -181,6 +197,7 @@ class DiffusersComponents:
         self.vae, self.unet = vae, unet
         self.condition = empty_condition.detach().clone()
         self.settings = settings
+        self.progress = progress
         self.scheduler = DDIMScheduler(num_train_timesteps=1000, beta_start=.00085, beta_end=.012,
             beta_schedule="scaled_linear", prediction_type="epsilon", timestep_spacing="leading",
             steps_offset=1, set_alpha_to_one=False, clip_sample=False, thresholding=False,
@@ -192,7 +209,7 @@ class DiffusersComponents:
 
     def encode(self, source):
         torch = _torch()
-        with torch.no_grad():
+        with operation_phase(self.progress, "vae_encode"), torch.no_grad():
             v = self.vae.encode(source * 2 - 1).latent_dist.mode() * self.settings.vae_scale
         _finite_tensor(v, "VAE mode")
         expected = (1, 4, source.shape[-2]//8, source.shape[-1]//8)
@@ -203,16 +220,20 @@ class DiffusersComponents:
     def reconstruct(self, latent, noise):
         torch = _torch()
         t = torch.tensor([self.times[0]], device=latent.device, dtype=torch.long)
-        z = self.scheduler.add_noise(latent, noise, t)
+        with operation_phase(self.progress, "scheduler_add_noise"):
+            z = self.scheduler.add_noise(latent, noise, t)
         for timestep in self.times:
-            prediction = self.unet(z, timestep, encoder_hidden_states=self.condition).sample
-            _finite_tensor(prediction, "UNet prediction")
-            if prediction.shape != z.shape:
-                raise EmbeddingError("UNet prediction shape mismatch")
-            z = self.scheduler.step(prediction, timestep, z, eta=0, return_dict=False)[0]
-            _finite_tensor(z, "DDIM state")
-        decoded = self.vae.decode(z / self.settings.vae_scale).sample
-        _finite_tensor(decoded, "VAE decoded")
+            with operation_phase(self.progress, "unet_forward", timestep=timestep):
+                prediction = self.unet(z, timestep, encoder_hidden_states=self.condition).sample
+                _finite_tensor(prediction, "UNet prediction")
+                if prediction.shape != z.shape:
+                    raise EmbeddingError("UNet prediction shape mismatch")
+            with operation_phase(self.progress, "scheduler_step", timestep=timestep):
+                z = self.scheduler.step(prediction, timestep, z, eta=0, return_dict=False)[0]
+                _finite_tensor(z, "DDIM state")
+        with operation_phase(self.progress, "vae_decode"):
+            decoded = self.vae.decode(z / self.settings.vae_scale).sample
+            _finite_tensor(decoded, "VAE decoded")
         if tuple(decoded.shape) != (1, 3, latent.shape[-2]*8, latent.shape[-1]*8):
             raise EmbeddingError("VAE decoded shape mismatch")
         return ((decoded + 1) / 2).clamp(0, 1)
@@ -230,7 +251,7 @@ class ContinuousCandidate:
 
 
 def optimize_existing(source, settings, backend, *, seed, source_digest, ws, wi, config_id,
-                      control=False, record=None, method_config=None):
+                      control=False, record=None, method_config=None, progress=None):
     """Component kernel only. Supplied keys must come from C2/C3b source extraction.
 
     A caller must journal case creation/failure before entry. `record` receives
@@ -253,7 +274,8 @@ def optimize_existing(source, settings, backend, *, seed, source_digest, ws, wi,
     # Guard seeds/digests/stream cap before any learned component computation.
     base, ps, pi = latent_streams(seed, source_digest, ws, wi, config_id,
                                   padded.shape[-2]//8, padded.shape[-1]//8, source.device)
-    latent = backend.encode(padded)
+    with operation_phase(progress, "source_encoding"):
+        latent = backend.encode(padded)
     _finite_tensor(latent, "source latent")
     if tuple(latent.shape) != (1, 4, padded.shape[-2]//8, padded.shape[-1]//8) or latent.dtype != torch.float32 or latent.requires_grad or latent.device != source.device:
         raise EmbeddingError("backend latent contract invalid")
@@ -265,7 +287,7 @@ def optimize_existing(source, settings, backend, *, seed, source_digest, ws, wi,
         if result.min().item() < 0 or result.max().item() > 1:
             raise EmbeddingError("reconstruction outside [0,1]")
         return result[:, :, :height, :width]
-    with torch.no_grad():
+    with operation_phase(progress, "matched_control_render"), torch.no_grad():
         reference = render(base).detach().clone()
     u = torch.zeros_like(latent, requires_grad=True)
     templates = [template_from_key(component, key, config_id, width, height)
@@ -295,17 +317,21 @@ def optimize_existing(source, settings, backend, *, seed, source_digest, ws, wi,
                                      weight_decay=0, amsgrad=False, foreach=False, fused=False)
         for index in range(settings.iterations):
             optimizer.zero_grad(set_to_none=True)
-            image = render(base + settings.alpha_s*ps + settings.alpha_i*pi + u)
-            loss, row = objective(image)
+            with operation_phase(progress, "optimization_render", iteration=index):
+                image = render(base + settings.alpha_s*ps + settings.alpha_i*pi + u)
+            with operation_phase(progress, "objective", iteration=index):
+                loss, row = objective(image)
             if not loss.requires_grad:
                 raise EmbeddingError("detached reverse/decoder graph")
-            loss.backward()
-            if u.grad is None:
-                raise EmbeddingError("missing perturbation gradient")
-            _finite_tensor(u.grad, "perturbation gradient")
-            row["gradient_norm"] = torch.linalg.vector_norm(u.grad.to(torch.float64)).item()
-            optimizer.step()
-            with torch.no_grad():
+            with operation_phase(progress, "backward_and_gradient_check", iteration=index):
+                loss.backward()
+                if u.grad is None:
+                    raise EmbeddingError("missing perturbation gradient")
+                _finite_tensor(u.grad, "perturbation gradient")
+                row["gradient_norm"] = torch.linalg.vector_norm(u.grad.to(torch.float64)).item()
+            with operation_phase(progress, "optimizer_step", iteration=index):
+                optimizer.step()
+            with operation_phase(progress, "perturbation_projection", iteration=index), torch.no_grad():
                 _finite_tensor(u, "updated perturbation")
                 norm = torch.linalg.vector_norm(u.to(torch.float64))
                 if norm.item() > settings.rho:
@@ -315,9 +341,9 @@ def optimize_existing(source, settings, backend, *, seed, source_digest, ws, wi,
             if row["perturbation_norm"] > settings.rho * (1 + 1e-6):
                 raise EmbeddingError("projected perturbation exceeds declared numeric tolerance")
             append(row)
-        with torch.no_grad():
+        with operation_phase(progress, "final_render"), torch.no_grad():
             image = render(base + settings.alpha_s*ps + settings.alpha_i*pi + u)
-    with torch.no_grad():
+    with operation_phase(progress, "final_objective"), torch.no_grad():
         _, final = objective(image)
     final.update(iteration=0 if control else settings.iterations, phase="final", control=control,
                  perturbation_norm=torch.linalg.vector_norm(u.to(torch.float64)).item())

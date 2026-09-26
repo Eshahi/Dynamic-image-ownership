@@ -18,7 +18,13 @@ class AnalysisTests(unittest.TestCase):
             path.write_bytes(json.dumps(value).encode() if not isinstance(value,bytes) else value)
             return path
         self.put=put
-        self.execution={"inputs":[],"outputs":["outputs/c4-development.json","logs/c4-progress.jsonl"]}
+        config=self.repo/"experiments/c4-embedding-development-v1/frozen-case.json"
+        config.parent.mkdir(parents=True);config.write_text(json.dumps({"selected":{"source_uid":"owned","canonical_pixel_sha256":"owned"}}))
+        self.execution={"inputs":[{"path":"experiments/c4-embedding-development-v1/frozen-case.json",
+            "sha256":analysis.sha(config)}],"outputs":["outputs/c4-development.json","logs/c4-progress.jsonl"]}
+        executed = {item["path"]:(self.repo/item["path"]).read_bytes() for item in self.execution["inputs"]}
+        self.input_patch=mock.patch.object(analysis,"executed_input",side_effect=lambda repo,name:executed[name])
+        self.input_patch.start();self.addCleanup(self.input_patch.stop)
         digest=__import__("hashlib").sha256(analysis.canonical(self.execution)).hexdigest()
         self.patch=mock.patch.object(analysis,"DIGEST",digest);self.patch.start();self.addCleanup(self.patch.stop)
         put("execution-manifest.json",self.execution)
@@ -36,8 +42,6 @@ class AnalysisTests(unittest.TestCase):
         for name in ("summary.md","logs/process.log","checkpoints/source-checked.json",
                      "checkpoints/model-load.json","checkpoints/c4-config-validation.json"):
             put(name,b"owned metadata")
-        config=self.repo/"experiments/c4-embedding-development-v1/frozen-case.json"
-        config.parent.mkdir(parents=True);config.write_text(json.dumps({"selected":{"source_uid":"owned","canonical_pixel_sha256":"owned"}}))
         self.record={"execution_manifest_sha256":digest,"run_id":analysis.RUN,"git_commit":analysis.COMMIT,
             "git_dirty":False,"status":"failed","exit_status":2,"started_at":"owned","ended_at":"owned",
             "output_artifacts":[{"path":n,"sha256":analysis.sha(self.root/n)} for n in self.execution["outputs"]]}
@@ -72,6 +76,21 @@ class AnalysisTests(unittest.TestCase):
     def test_fabricated_clean_success_rejected(self):
         self.record["status"]="completed";self.put("manifest.json",self.record)
         with self.assertRaises(ValueError):analysis.summarize(self.root,self.repo)
+
+    def test_repaired_checkout_cannot_replace_executed_case(self):
+        (self.repo/"experiments/c4-embedding-development-v1/frozen-case.json").write_text("changed current file")
+        self.assertEqual(analysis.summarize(self.root,self.repo)["source_uid"],"owned")
+        with mock.patch.object(analysis,"executed_input",return_value=b"untrusted Git blob"):
+            with self.assertRaises(ValueError):analysis.summarize(self.root,self.repo)
+
+    def test_only_known_crlf_requirements_with_exact_digest_reconstruct(self):
+        import hashlib
+        raw=b"owned\nfixture\n"; crlf=raw.replace(b"\n",b"\r\n")
+        digest=hashlib.sha256(crlf).hexdigest()
+        self.assertEqual(analysis.checkout_bytes(raw,"requirements-wsl-torch-py314.txt",digest),crlf)
+        for name,expected in (("src/embedding/proposed.py",digest),
+                              ("requirements-wsl-torch-py314.txt","f"*64)):
+            with self.assertRaises(ValueError):analysis.checkout_bytes(raw,name,expected)
 
 
 if __name__ == "__main__":unittest.main()

@@ -249,6 +249,28 @@ class TensorContracts(unittest.TestCase):
                 optimize_existing(self.source, SETTINGS, backend, seed=seed,
                     source_digest=SOURCE, ws=ws, wi=WI, config_id=CONFIG)
 
+    def test_operation_journal_preserves_owned_arithmetic_and_substeps(self):
+        rows=[];backend=self.backend();backend.progress=rows.append
+        traced=optimize_existing(self.source,SETTINGS,backend,seed=7,source_digest=SOURCE,
+            ws=WS,wi=WI,config_id=CONFIG,progress=rows.append)
+        original=self.run_candidate()
+        self.assertTrue(torch.equal(traced.image,original.image))
+        self.assertTrue(torch.equal(traced.perturbation,original.perturbation))
+        self.assertEqual(traced.trajectory,original.trajectory)
+        self.assertEqual(sum(r["operation"]=="unet_forward" and r["phase"]=="operation_completed" for r in rows),8)
+        self.assertEqual(sum(r["operation"]=="optimizer_step" and r["phase"]=="operation_completed" for r in rows),2)
+        self.assertEqual(rows[-1],{"phase":"operation_completed","operation":"final_objective"})
+
+    def test_suboperation_failure_has_start_but_no_completion(self):
+        rows=[];backend=self.backend();backend.progress=rows.append
+        def failed_encode(source): raise MemoryError("owned VAE fixture")
+        backend.vae.encode=failed_encode
+        with self.assertRaises(MemoryError):
+            optimize_existing(self.source,SETTINGS,backend,seed=7,source_digest=SOURCE,
+                ws=WS,wi=WI,config_id=CONFIG,progress=rows.append)
+        self.assertEqual(rows,[{"phase":"operation_started","operation":"source_encoding"},
+                               {"phase":"operation_started","operation":"vae_encode"}])
+
 
 if __name__ == "__main__":
     unittest.main()

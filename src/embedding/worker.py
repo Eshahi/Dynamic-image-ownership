@@ -99,6 +99,10 @@ def execute_phases(selected, loaded, output, operations, record):
         models, enrollment = operations.models(source, loaded, output)
         store.record({"phase": "source_enrollment", "enrollment": enrollment})
         record({"phase": "model_load_completed"})
+        # RealOperations attaches metadata-only sub-operation records to the
+        # durable trial journal; owned fake orchestration need not implement it.
+        if hasattr(operations, "attach_progress"):
+            operations.attach_progress(models, store.record)
         candidate = operations.optimize(source, selected, loaded, models, enrollment, store.record)
         record({"phase": "optimization_completed"})
         receipt, _ = store.save_pair(candidate, models.check_saved_pixels)
@@ -252,7 +256,11 @@ class RealOperations:
         return optimize_existing(tensor, Settings.from_embedding_config(loaded.value["embedding"]),
             models.components, seed=0, source_digest=bytes.fromhex(selected["raw_sha256"]),
             ws=bytes.fromhex(enrollment["Ws"]), wi=bytes.fromhex(enrollment["Wi"]),
-            config_id=bytes.fromhex(loaded.value["dct"]["config_id"]), record=record, method_config=loaded)
+            config_id=bytes.fromhex(loaded.value["dct"]["config_id"]), record=record, method_config=loaded,
+            progress=record)
+
+    def attach_progress(self, models, record):
+        models.components.progress = record
 
     def resources(self):
         import torch

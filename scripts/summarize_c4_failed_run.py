@@ -6,6 +6,7 @@ Output is exclusive in a new analysis directory; original run stays untouched.
 import argparse
 import hashlib
 import json
+import subprocess
 from pathlib import Path
 
 RUN = "c4-embedding-dev-001"
@@ -18,6 +19,30 @@ def read(path): return json.loads(path.read_bytes())
 def canonical(value): return json.dumps(value,sort_keys=True,separators=(",",":"),ensure_ascii=False,allow_nan=False).encode()
 
 
+def executed_input(repo, name):
+    """Read the actual executed Git blob, not a subsequently repaired checkout.
+
+    Exact canonical manifest fixes the names; absent commit/blob is a failure,
+    never a fallback to current code or an invented replacement snapshot.
+    """
+    return subprocess.run(["git", "-C", str(repo), "cat-file", "blob", f"{COMMIT}:{name}"],
+                          check=True, capture_output=True).stdout
+
+
+def checkout_bytes(raw, name, expected):
+    """Reconstruct only the two recorded Windows CRLF requirement checkouts.
+
+    Git stores LF blobs; the first-run manifest pins actual checkout bytes.
+    Accept neither spelling unless its full digest equals that exact manifest.
+    No generic filters, current attributes or arbitrary source normalization.
+    """
+    if hashlib.sha256(raw).hexdigest() == expected: return raw
+    if name in ("requirements-wsl-stage2-py314.txt", "requirements-wsl-torch-py314.txt") and b"\r" not in raw:
+        candidate = raw.replace(b"\n", b"\r\n")
+        if hashlib.sha256(candidate).hexdigest() == expected: return candidate
+    raise ValueError("executed Git input differs")
+
+
 def summarize(root, repo):
     execution = read(root/"execution-manifest.json")
     record = read(root/"manifest.json")
@@ -26,8 +51,11 @@ def summarize(root, repo):
         record["git_commit"] != COMMIT or record["git_dirty"] is not False or
         record["status"] != "failed" or record["exit_status"] != 2):
         raise ValueError("exact retained failed C4 run required")
+    original_case = None
     for item in execution["inputs"]:
-        if sha(repo/item["path"]) != item["sha256"]: raise ValueError("run input changed")
+        raw = checkout_bytes(executed_input(repo,item["path"]),item["path"],item["sha256"])
+        if item["path"] == "experiments/c4-embedding-development-v1/frozen-case.json":
+            original_case = json.loads(raw)
     if {item["path"] for item in record["output_artifacts"]} != set(execution["outputs"]):
         raise ValueError("declared output inventory incomplete")
     for item in record["output_artifacts"]:
@@ -56,7 +84,8 @@ def summarize(root, repo):
     resources = report["resources"]
     if resources["peak_torch_allocated_bytes"] > resources["torch_allocation_limit_bytes"]:
         raise ValueError("reported Torch allocation exceeded approved limit")
-    selected = read(repo/"experiments/c4-embedding-development-v1/frozen-case.json")["selected"]
+    if original_case is None: raise ValueError("executed source case missing")
+    selected = original_case["selected"]
     if failure["source_id"] != selected["source_uid"] or failure["source_pixel_hash"] != selected["canonical_pixel_sha256"]:
         raise ValueError("source identity mismatch")
     retained = ["manifest.json","execution-manifest.json","summary.md","logs/process.log",
