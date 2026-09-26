@@ -37,6 +37,29 @@ The original `scope-execution-decision.md` and its hash-bound approval are prese
 
 ## Continued execution and notifications
 
+### Coherent-package execution, user instruction 2026-09-26
+
+The user explicitly requested applying the larger-package approach after observing
+slow progress. Preserve the full method,38-task graph, evidence requirements and
+independent-review boundaries; this instruction changes work organization, not scope
+or scientific authorization. Prefer an issue-sized implementation/test/repair
+deliverable followed by one bounded independent review of its exact complete
+artifacts. Group ready, compatible scientific executions into a fully enumerated,
+hash-bound package for one actual user decision; that approval covers only its
+listed runs/targets/inputs/resources/budgets and does not authorize blanket compute.
+Do not interrupt for each routine component or use tiny status-only checkpoints
+when safe critical-path work is ready. Batch English commit/issue/PR provenance
+at substantial checkpoints, retaining all failures and necessary code history.
+Concrete defects, changed artifacts or material boundaries still require repair,
+appropriate re-review or a new exact decision. Never remove required safeguards,
+weaken the runner, reduce datasets or substitute the method to accelerate progress.
+
+The same direct user instruction stopped substantive work for tonight, with an
+intention to resume tomorrow. The existing heartbeat is PAUSED until the user
+returns and directs resumption; no clock time was specified, so none is invented.
+Queued heartbeats must respect this newer pause. Administrative recording of this
+instruction is not permission to perform another research task or scientific run.
+
 Continue within this Codex task using one scheduled heartbeat. Inspect Git state, live processes, dependency readiness, and actual artifacts before selecting work. Finish and verify the next bounded task; record English GitHub progress. Do not start a duplicate writer while an existing agent or experiment is active.
 
 Notify the user in Persian only on a meaningful milestone, a material failure/forecast change, completion, or a necessary decision. Routine unchanged status should stay quiet. A pending user decision does not authorize itself with time; keep its dependent branch paused while progressing other eligible work. The computer and app must be available for local scheduled work.
