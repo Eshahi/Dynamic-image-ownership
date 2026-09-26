@@ -306,6 +306,8 @@ def optimize_existing(source, settings, backend, *, seed, source_digest, ws, wi,
                     u.mul_(settings.rho / norm)
             row.update(iteration=index, phase="pre_update_loss_post_projection_norm",
                        perturbation_norm=torch.linalg.vector_norm(u.to(torch.float64)).item())
+            if row["perturbation_norm"] > settings.rho * (1 + 1e-6):
+                raise EmbeddingError("projected perturbation exceeds declared numeric tolerance")
             append(row)
         with torch.no_grad():
             image = render(base + settings.alpha_s*ps + settings.alpha_i*pi + u)
