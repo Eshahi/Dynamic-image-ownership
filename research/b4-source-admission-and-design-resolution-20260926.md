@@ -110,7 +110,7 @@ metadata and the DIV2K partition label cannot supply that evidence.
 
 The old metadata bridge pins its selected frame to the old manifest, but its
 full 14,000 DiffusionDB node snapshot remains unchanged by this COCO-only repair.
-Final allocation must explicitly authenticate this reuse and bind the admitted
+The regenerated allocation explicitly authenticates this reuse and binds the admitted
 manifest/reservation, not reinterpret old selected-summary counts as new evidence.
 Retain all 19,900 observed nodes, including raw-only canonical rejects and excluded
 DiffusionDB prompt/producer bridges. The finite-screen limitations and any unresolved
@@ -118,7 +118,29 @@ rejected-frame bridge concerns require independent resolution before final lock.
 Class-wise source/pair counts, donor/recipient graph policy and conditional-N
 precision must be explicit; no future T4 pair protocol is invented here.
 
-No final `data/splits.csv` is accepted by this receipt, issue #11 remains open,
+The declared `data/splits.csv`, `data/sample-size-check.json`, `data/holdout.json`
+and `configs/splits.json` now contain the admitted candidate engineering plan.
+CSV SHA-256 `470f803324817706b0b433fd972180acb675436f9cfe01b5bd17252e9364d774`.
+All 6,900 selected sources pass unchanged canonical eligibility. The declared
+graph still has 7,627 observed/3,167 selected components; the same 259/251/757
+DiffusionDB group counts remain, with all nominal image quotas intact. The class
+reconciliation contains36 paired source-group cells and12 explicit DiffusionDB
+shortfalls, zero observed scientific outcomes, and unchanged FPR/TPR criteria.
+Original config bytes are preserved in the provisional artifact directory and
+Git history. A duplicate staging allocation is retained in ignored build history.
+
+Design reviewer `/root/b3_intake_review` clarified that rejected observed records
+are ineligible provenance nodes, not selected study units with fabricated
+fingerprints. The operational graph includes complete near-pair screening over
+all19,884 passing nodes, raw links for the16 rejected nodes and allDiffusionDB
+metadata/excluded bridges. Unknown relationships remain disclosed; a mathematical
+proof of all population independence is not imposed as an invented requirement.
+Extra diagnostics are warranted for a concrete unresolved linkage or a stronger
+claim, not merely to prove the absence of every possible unknown relationship.
+The16 rejection reasons remain inventoried in the grouping companion. This is
+design advice; exact regenerated implementation/artifact acceptance is pending.
+
+No final data-plan acceptance is granted by this receipt, issue #11 remains open,
 and scientific compute/lifecycle gates remain unchanged. A first read-only reserve
 diagnostic assumed key `reserves` instead of actual `ordered_reserves`, and a plan
 print failed under Windows cp1252; both were repaired without writing evidence.

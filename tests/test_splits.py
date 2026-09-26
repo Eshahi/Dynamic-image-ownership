@@ -154,5 +154,50 @@ class ProvisionalArtifactTests(unittest.TestCase):
             self.assertEqual(cell["canonical_screened_candidate_groups_not_certified_independent"],cell["observed_groups"]-len(invalid))
 
 
+class AdmittedPlanTests(unittest.TestCase):
+    def test_declared_outputs_full_coverage_admission_and_class_counts(self):
+        import csv
+        import hashlib
+        import io
+        import json
+        from collections import Counter, defaultdict
+        root=Path(__file__).resolve().parents[1]
+        config=json.loads((root/"configs/splits.json").read_text())
+        manifest_raw=(root/config["source_manifest"]).read_bytes()
+        self.assertEqual(hashlib.sha256(manifest_raw).hexdigest(),config["manifest_sha256"])
+        admitted=list(csv.DictReader(io.StringIO(manifest_raw.decode())))
+        rows=list(csv.DictReader(io.StringIO((root/"data/splits.csv").read_text())))
+        identities=lambda r: ":".join(r[k] for k in ("domain","release_id","source_split","source_id"))
+        self.assertEqual({r["source_uid"]:r["raw_sha256"] for r in rows},
+                         {identities(r):r["raw_sha256"] for r in admitted})
+        self.assertEqual(len(rows),6900)
+        self.assertTrue(all(r["canonical_status"]=="canonical_pass" and r["canonical_pixel_sha256"] for r in rows))
+        self.assertTrue(all(r["independence_certified"]=="false" for r in rows))
+        by_group=defaultdict(set)
+        for r in rows: by_group[r["group_id"]].add(r["study_split"])
+        self.assertTrue(all(len(values)==1 for values in by_group.values()))
+        old_dev=json.loads((root/"data/dev-ids.json").read_text())
+        new_dev=json.loads((root/config["development_ids"]).read_text())
+        self.assertEqual(old_dev["images"],new_dev["images"])
+        reserved={(r["domain"],r["source_id"]) for r in old_dev["images"]}
+        self.assertTrue(all(r["study_split"]=="development" for r in rows if (r["domain"],r["source_id"]) in reserved))
+        report=json.loads((root/"data/sample-size-check.json").read_text())
+        self.assertTrue(report["engineering_split_locked"])
+        self.assertFalse(report["scientific_compute_authorized"])
+        self.assertEqual(len(report["class_cells"]),36)
+        self.assertEqual(len(report["shortfalls"]),12)
+        for cell in report["class_cells"]:
+            pool=[r for r in rows if r["domain"]==cell["domain"] and r["study_split"]==cell["split"]]
+            self.assertEqual(cell["row_count"],len(pool))
+            self.assertEqual(cell["actual_independent_n_under_declared_group_assumption"],len({r["group_id"] for r in pool}))
+            self.assertEqual(cell["observed_outcome_count"],0)
+        holdout=json.loads((root/"data/holdout.json").read_text())
+        self.assertFalse(holdout["required"])
+        self.assertTrue(holdout["reason_if_not_required"])
+        self.assertEqual(len(holdout["declared_source_ids"]),100)
+        self.assertTrue(all(r["study_split"]=="test" for r in rows if r["source_uid"] in holdout["linked_test_only_source_ids"]))
+        self.assertEqual(Counter(r["study_split"] for r in rows),{"development":1500,"validation":1500,"test":3900})
+
+
 if __name__ == "__main__":
     unittest.main()

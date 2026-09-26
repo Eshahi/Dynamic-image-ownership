@@ -8,6 +8,8 @@
 data/manifest.csv text eol=lf
 data/b4-provisional-v2-20260926/splits.csv text eol=lf
 data/b4-admission-20260926/source-manifest.csv text eol=lf
+data/b4-admitted-plan-20260926/splits.csv text eol=lf
+data/splits.csv text eol=lf
 src/**/*.py text eol=lf
 tests/test_preprocess.py text eol=lf
 scripts/check_b5_dev_preprocess.py text eol=lf

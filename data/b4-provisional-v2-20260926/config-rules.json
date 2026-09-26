@@ -1,0 +1,36 @@
+{
+  "schema_version": "b4-source-group-splits-v1",
+  "status": "provisional_engineering_rules_not_scientific_freeze",
+  "manifest_sha256": "5665665b51d5020df00fe1db1dc090a5e8b007c65fda65021c72c6ba709ce71b",
+  "development_ids_sha256": "7cc2a4c827fd1c64b2f6d529a3726b843a0c635077982deb87725fbc3ac7f0bc",
+  "grouping": {
+    "observed_frame": "all5900_original_plus_all14000_acquired_including_excluded_bridges",
+    "edges": ["raw_bytes", "canonical_rgb8_pixels", "normalized_prompt", "prompt_seed", "known_producer", "unknown_producer_quarantine", "coarse_near_pixels"],
+    "near_dhash64_max_hamming": 6,
+    "near_color8_mean_absolute_difference_max_rgb8": 4,
+    "near_aspect_relative_difference_max_percent": 5,
+    "unknown_producer": "one_conservative_quarantine_cohort_not_asserted_same_user",
+    "limitations": "finite_observed_screen_not_proof_of_all_unobserved_dependence"
+  },
+  "allocation": {
+    "counts_kind": "source_images_not_independent_groups",
+    "ms-coco": {"development": 200, "validation": 200, "test": 600},
+    "div2k": {"development": 300, "validation": 300, "test": 300},
+    "diffusiondb": {"development": 1000, "validation": 1000, "test": 3000},
+    "reserved_development_rule": "full_observed_connected_components",
+    "fixed_test_rule": "full_components_containing_div2k_source_valid_0801_through_0900",
+    "ordering": "multi_domain_first_then_descending_selected_size_then_sha256_b4_split_rank_v1",
+    "assignment": "largest_minimum_exact_remaining_fraction_then_sha256_split_tie",
+    "infeasible": "fail_retaining_evidence_no_group_breaking_or_hidden_reallocation",
+    "primary_representative": "minimum_sha256_b4_primary_representative_v1_per_domain_component_before_outcomes"
+  },
+  "holdout": {
+    "source_partition": "DIV2K_original_valid_100_images_plus_linked_components",
+    "claim": "untouched_source_partition_shift_holdout_not_proven_new_domain_OOD",
+    "development_or_validation_use": false
+  },
+  "inferential_resolution": {"minimum_independent_negatives_for_zero_fp_95pct_upper_1pct": 299},
+  "canonical_rejects": "retain_all_source_rows_and_reasons_no_conversion_replacement_or_eligibility_claim",
+  "final_scientific_split_accepted": false,
+  "scientific_compute_authorized": false
+}
