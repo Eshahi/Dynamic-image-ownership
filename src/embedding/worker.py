@@ -172,8 +172,14 @@ class RealOperations:
         limit = RESOURCES["vram_mib"]*1024**2
         available = int(next(line.split()[1] for line in Path("/proc/meminfo").read_text().splitlines()
                              if line.startswith("MemAvailable:")))*1024
+        self.measurement = {"initial_free_vram_bytes": free, "total_vram_bytes": total,
+            "initial_available_ram_bytes": available, "torch_allocation_limit_bytes": limit,
+            "initial_free_disk_bytes": shutil.disk_usage(output).free,
+            "gpu": torch.cuda.get_device_name(), "cuda": torch.version.cuda,
+            "installed_versions": sorted((d.metadata["Name"], d.version) for d in importlib.metadata.distributions()),
+            "whole_os_memory_limit_enforced": False}
         if (free < limit+1024**3 or available < (RESOURCES["ram_mib"]+1024)*1024**2
-                or shutil.disk_usage(output).free < RESOURCES["disk_mib"]*1024**2):
+                or self.measurement["initial_free_disk_bytes"] < RESOURCES["disk_mib"]*1024**2):
             raise ValueError("prospective resource headroom unavailable")
         torch.cuda.set_per_process_memory_fraction(limit/total)
         torch.cuda.reset_peak_memory_stats()
@@ -181,11 +187,6 @@ class RealOperations:
         torch.backends.cuda.matmul.allow_tf32 = False
         torch.backends.cudnn.allow_tf32 = False
         torch.backends.cudnn.benchmark = False
-        self.measurement = {"initial_free_vram_bytes": free, "total_vram_bytes": total,
-            "initial_available_ram_bytes": available, "torch_allocation_limit_bytes": limit,
-            "gpu": torch.cuda.get_device_name(), "cuda": torch.version.cuda,
-            "installed_versions": sorted((d.metadata["Name"], d.version) for d in importlib.metadata.distributions()),
-            "whole_os_memory_limit_enforced": False}
         path = RAW_ROOT/selected["relative_path"]; no_links(path)
         if not path.is_file() or path.stat().st_size != selected["raw_size_bytes"]:
             raise ValueError("selected source size mismatch")
