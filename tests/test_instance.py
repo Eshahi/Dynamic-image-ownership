@@ -139,5 +139,23 @@ class InstanceTests(unittest.TestCase):
                         {"threshold_version": ""}, {"owner_id": ""}):
             with self.assertRaises(ValueError): self.fused(s, i, **changes)
 
+    def test_owned_report_records_complete_distances_and_shapes(self):
+        from scripts.instance_protocol_examples import examples
+        report = examples()
+        self.assertFalse(report["scientific_study_run"])
+        self.assertEqual(report["output_lengths"], {"q_bytes": 2, "phash_bytes": 4, "Ws_bytes": 32, "Wi_bytes": 32})
+        self.assertEqual(len(report["controlled_pairs"]), 4)
+        same, changed, wrong, constant = report["controlled_pairs"]
+        self.assertTrue(all(value == 0 for value in same["distances_hamming_bits"].values()))
+        self.assertEqual(changed["distances_hamming_bits"]["q_bits"], 0)
+        self.assertEqual(changed["distances_hamming_bits"]["Ws_bits"], 0)
+        self.assertGreater(changed["distances_hamming_bits"]["phash_bits"], 0)
+        self.assertGreater(changed["distances_hamming_bits"]["Wi_bits"], 0)
+        self.assertEqual(wrong["distances_hamming_bits"]["phash_bits"], 0)
+        self.assertGreater(wrong["distances_hamming_bits"]["Ws_bits"], 0)
+        self.assertGreater(wrong["distances_hamming_bits"]["Wi_bits"], 0)
+        self.assertTrue(all(value == 0 for value in constant["distances_hamming_bits"].values()))
+        self.assertNotEqual(changed["input_shapes_hwc"][0], changed["input_shapes_hwc"][1])
+
 
 if __name__ == "__main__": unittest.main()

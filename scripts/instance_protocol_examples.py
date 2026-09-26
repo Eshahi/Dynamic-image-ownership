@@ -37,11 +37,30 @@ def examples():
         result = fuse_candidates(q, h, s, i, tau_s=.5, tau_i=.5, detector_config_id=b"\x01"*32,
                                  threshold_version="synthetic-not-calibrated-v1", owner_id="synthetic-owner")
         fusion.append({"case_id": label, "supplied_scores_not_image_detector": True, "result": result})
+    by_name = {row["case_id"]: row for row in cases}
+    lengths = {"q_bytes": 2, "phash_bytes": 4, "Ws_bytes": 32, "Wi_bytes": 32}
+    pairs = []
+    for label, left, right in (
+            ("same-instance-same-owner-repeat", "owned-pattern-37x43", "owned-pattern-37x43"),
+            ("same-supplied-q-different-instance-same-owner", "owned-pattern-37x43", "changed-instance-43x37"),
+            ("same-instance-wrong-owner", "owned-pattern-37x43", "wrong-owner-control"),
+            ("known-constant-instance-collision", "constant-collision-black", "constant-collision-white")):
+        one, two = by_name[left], by_name[right]
+        distances = {}
+        for field, metric, size in (("q_hex", "q_bits", 2), ("phash_hex", "phash_bits", 4),
+                                     ("semantic_signature_hex", "Ws_bits", 32), ("instance_signature_hex", "Wi_bits", 32)):
+            a, b = bytes.fromhex(one[field]), bytes.fromhex(two[field])
+            if len(a) != size or len(b) != size: raise ValueError("unexpected public protocol length")
+            distances[metric] = sum((a_byte ^ b_byte).bit_count() for a_byte, b_byte in zip(a, b))
+        pairs.append({"case_id": label, "left": left, "right": right, "distances_hamming_bits": distances,
+                      "output_lengths": lengths,
+                      "input_shapes_hwc": [[one["height"], one["width"], 3], [two["height"], two["width"], 3]],
+                      "semantic_control": "same supplied synthetic q, not measured same semantic content"})
     return {"schema_version": "c3b-owned-synthetic-protocol-examples-v1", "profile": PROFILE,
             "scientific_study_run": False, "no_study_images_or_models_used": True,
             "no_empirical_stability_or_detector_performance_claim": True,
             "fixture_rule": "RGB(x,y,c)=(17*x+29*y+53*c+3*x*y)%256; named constants0/255; suppliedq=a503",
-            "examples": cases, "fusion_examples": fusion,
+            "examples": cases, "fusion_examples": fusion, "controlled_pairs": pairs, "output_lengths": lengths,
             "runtime": {"python": sys.version.split()[0], "os": platform.system(), "libc": platform.libc_ver(),
                         "float_mantissa_bits": sys.float_info.mant_dig},
             "provenance": {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in

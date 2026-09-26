@@ -1,4 +1,11 @@
 {
+  "controlled_pairs": [
+    {"case_id": "same-instance-same-owner-repeat", "left": "owned-pattern-37x43", "right": "owned-pattern-37x43", "distances_hamming_bits": {"q_bits": 0, "phash_bits": 0, "Ws_bits": 0, "Wi_bits": 0}, "output_lengths": {"q_bytes": 2, "phash_bytes": 4, "Ws_bytes": 32, "Wi_bytes": 32}, "input_shapes_hwc": [[43,37,3],[43,37,3]], "semantic_control": "same supplied synthetic q, not measured same semantic content"},
+    {"case_id": "same-supplied-q-different-instance-same-owner", "left": "owned-pattern-37x43", "right": "changed-instance-43x37", "distances_hamming_bits": {"q_bits": 0, "phash_bits": 8, "Ws_bits": 0, "Wi_bits": 129}, "output_lengths": {"q_bytes": 2, "phash_bytes": 4, "Ws_bytes": 32, "Wi_bytes": 32}, "input_shapes_hwc": [[43,37,3],[37,43,3]], "semantic_control": "same supplied synthetic q, not measured same semantic content"},
+    {"case_id": "same-instance-wrong-owner", "left": "owned-pattern-37x43", "right": "wrong-owner-control", "distances_hamming_bits": {"q_bits": 0, "phash_bits": 0, "Ws_bits": 138, "Wi_bits": 138}, "output_lengths": {"q_bytes": 2, "phash_bytes": 4, "Ws_bytes": 32, "Wi_bytes": 32}, "input_shapes_hwc": [[43,37,3],[43,37,3]], "semantic_control": "same supplied synthetic q, not measured same semantic content"},
+    {"case_id": "known-constant-instance-collision", "left": "constant-collision-black", "right": "constant-collision-white", "distances_hamming_bits": {"q_bits": 0, "phash_bits": 0, "Ws_bits": 0, "Wi_bits": 0}, "output_lengths": {"q_bytes": 2, "phash_bytes": 4, "Ws_bytes": 32, "Wi_bytes": 32}, "input_shapes_hwc": [[32,32,3],[32,32,3]], "semantic_control": "same supplied synthetic q, not measured same semantic content"}
+  ],
+  "output_lengths": {"q_bytes": 2, "phash_bytes": 4, "Ws_bytes": 32, "Wi_bytes": 32},
   "examples": [
     {
       "case_id": "owned-pattern-37x43",
@@ -6328,7 +6335,7 @@
   "provenance": {
     "research/method-spec.md": "fd22aba99b2643ff33b088e65077ba08562cc97b0779e051ca37314b20588ce9",
     "research/scope-guard.md": "c8c6af9d5349cd9a194d7594fe84c02679e79592f581d14392447cd4b6fea833",
-    "scripts/instance_protocol_examples.py": "1facf6d072f9a7ff48201db66de1f7fa89ff5c1720aa958ee6699875f74cd903",
+    "scripts/instance_protocol_examples.py": "9ced961794558f72dd548183a40eaa37fe3bb5916ab0fb51ec7b972e6b355a8b",
     "src/signatures/instance.py": "f816552fc37dfac82391deb8b0d235200a6f6a019ae5f1eb1a2103082c98acdf",
     "src/signatures/owner.py": "48657b1f4b002a58393fea80fd1088588049008638d2f13a701b90a49410cd91"
   },

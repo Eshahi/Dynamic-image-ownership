@@ -81,6 +81,19 @@ assertions freeze these owned fixtures, not a study-selected projection seed.
 Full185script tests174pass11expectedskips; focused owner/semantic/C2/instance
 Windows37tests33pass4expectedskips. No new scientific result is asserted.
 
-Independent technical review and GitHub acceptance are pending. The official
+Actual independent reviewer `/root/b3_intake_review` at exacte576b1c found no core
+arithmetic/inventory blocker, independently matched direct2D DCT on three other
+owned shapes, but found one report-completeness blocker against immutable C3b
+plan: missing explicit pairwise key distances/output lengths. The repaired
+generator/report record four fixed owned pairs, q/pHash/Ws/Wi Hamming distances,
+byte lengths2/4/32/32 and native HWC shapes. Shared supplied q is clearly labeled
+a synthetic semantic-code control, **not measured same semantic content**.
+Changed-instance example: pHash8bits/Wi129bits/Ws0bits; wrong-owner example:
+Ws138bits/Wi138bits; differently colored constants collide0bits everywhere.
+Earlier original receipts/Gitversione576b1c are preserved. The initial parity
+receipt refers to original v1 bytes/code, not the repaired generator. A new
+Windows v2 receipt is ignored `.thesis-build/c3b-owned-protocol-windows-v2-20260926.json`.
+Ten focusedtests now pass, including explicit pair/shape/distance coverage;
+independent re-review and GitHub acceptance are pending. The official
 Spec Kit controller remains paused atplan-acceptance with nullchoice; no human
 or lifecycle verdict is fabricated and existing evidence remains immutable.
