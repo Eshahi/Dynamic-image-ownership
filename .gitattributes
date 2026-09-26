@@ -6,6 +6,9 @@
 *.md text eol=lf
 *.json text eol=lf
 data/manifest.csv text eol=lf
+src/**/*.py text eol=lf
+tests/test_preprocess.py text eol=lf
+scripts/check_b5_dev_preprocess.py text eol=lf
 *.yml text eol=lf
 *.yaml text eol=lf
 *.toml text eol=lf
