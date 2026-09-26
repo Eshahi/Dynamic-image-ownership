@@ -1,6 +1,7 @@
 """Owned CPU arithmetic/toy-component tests, never scientific model evidence."""
 import dataclasses
 import hashlib
+import importlib.util
 import json
 import math
 import subprocess
@@ -46,6 +47,8 @@ class ConfigContract(unittest.TestCase):
             self.assertFalse(json.loads(proc.stdout)["scientific_execution_authorized"])
 
     def test_cli_valid_synthetic_structure_preview_is_not_execution(self):
+        if importlib.util.find_spec("jsonschema") is None:
+            self.skipTest("C1 JSON Schema package exists in Windows controller, not science venv")
         root = Path(__file__).resolve().parents[1]
         sys.path.insert(0, str(root/"scripts"))
         from test_validate_method_config import detector_id, specimen
