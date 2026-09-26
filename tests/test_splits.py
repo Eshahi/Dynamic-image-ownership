@@ -115,12 +115,13 @@ class ProvisionalArtifactTests(unittest.TestCase):
     def test_real_coverage_counts_reservations_and_no_science_claim(self):
         import csv
         import hashlib
+        import io
         import json
         from collections import Counter, defaultdict
         root=Path(__file__).resolve().parents[1]
         artifact=root/"data/b4-provisional-v2-20260926"
-        rows=list(csv.DictReader((artifact/"splits.csv").open(encoding="utf-8")))
-        manifest=list(csv.DictReader((root/"data/manifest.csv").open(encoding="utf-8")))
+        rows=list(csv.DictReader(io.StringIO((artifact/"splits.csv").read_text(encoding="utf-8"))))
+        manifest=list(csv.DictReader(io.StringIO((root/"data/manifest.csv").read_text(encoding="utf-8"))))
         identities=lambda row: ":".join(row[k] for k in ("domain","release_id","source_split","source_id"))
         expected={identities(r):r["raw_sha256"] for r in manifest}
         self.assertEqual({r["source_uid"]:r["raw_sha256"] for r in rows},expected)
