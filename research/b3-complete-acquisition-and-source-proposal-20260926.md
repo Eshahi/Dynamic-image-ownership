@@ -1,0 +1,25 @@
+# Complete B3 acquisition and local-source proposal
+
+2026-09-26; issue#10/draftPR#60. All fourteen authorized archive files now exist. Read-only actual full-file hash replay against the pinned inventory confirmed14/14 sizes and upstream LFS SHA-256 values, total8,493,745,129 bytes. Parent38904 and its curl children have stopped; no replacement/duplicate downloader was started. Prior resumed-transfer errors and logs are preserved. This is the complete authorized batch, not permission for further downloads or scientific compute.
+
+Final1854/1359 archives each passed all1,001 CRCs and1,000 native PNG verify/full decode/dimensions. CSV SHA values `b78ffa1e98c30bcef41a61f70b64176f3da385faed25ee2919f23447547cc4d8` and `c15b49d6e27e722ae9e62bcd8cf965d883a6554b276fd6093ef6a74faf7558a7`. JSON inside ZIPs remains hashed/unparsed, never exported. Tracked per-part aggregates contain no raw prompts/users or prompt fingerprints.
+
+## Full actual image/metadata join
+
+Unchanged observed-dependence replay covers all14,000 actual image records:6,791 metadata-eligible,7,206 score/size exclusions,3 empty text;6,219 eligible prompt groups/observed components,6,781 eligible raw-byte groups,365 multi-image components,21 all-observed raw duplicate groups. All_candidate_parts_present=true. Ignored full outputSHA `ce218da2f73c3d2c73a83047fd3839034642a50a53a9e180654571d04110ea60`. Its historical partial-status name is retained; coverage flag nowtrue but eligible-node components still omit excluded bridges and are not B4 independence groups. Canonical/near/user controls remain pending.
+
+## Proposed source list, before acceptance
+
+scripts/b3_source_proposal.py requires exactly fourteen paired bound actual CSV inventories and the previously reviewed exact metadata ledger. It validates the complete actual14,000 frame first, reconstructs the unchanged reviewed prospective group/member order from pinned metadata, verifies every prospective member is present before consuming a prefix, then proposes one ordered member per group until5,000. A selected raw-byte duplicate is skipped with an explicit reason; try the next ordered member of that group, then the next ordered group. Insufficient capacity blocks, never reduces5,000 or expands the batch. No method outcome or file-arrival order influences selection.
+
+Actual ignored .thesis-build/b3-diffusiondb-integrity-20260926/source-proposal-5000.json SHA `caa20e7952da822fe1e46b141e59c0cfe03b13d97b79498e909f32cc8315abbd`:5,000 proposed members,zero raw duplicate skips,1,219 unselected prompt groups. The proposal preserves alternatives in the original pool. Two focused tests cover explicit ordered fallback, complete-pool missing/repeated member rejection, input-order invariance and insufficient/invalid count. Root suite180 tests/170 pass/ten expected skips. No real source copy, finalmanifest/devIDs or scientific execution occurred.
+
+## Local handling versus publication/rights
+
+The proposed members retain pending-image-rights and curator_metadata_screened_not_visual_review, never a fabricated legal or human-content verdict. The metadata screen uses the unchanged0.10 image/prompt NSFW criterion, native dimensions and empty/sentinel rules already reviewed. A score is not visual safety certification. No new NSFW model or image experiment is run.
+
+Request narrow independent review of the source list for **restricted local research storage only**: no raw image/ZIP/metadata/prompt/user export, no public example or thesis figure, no redistribution or ownership/legal-certification claim. Use only curated dataset bytes, preserve raw provenance and academic/source citations. Existing source-rights preflight and datasheet document DIV2K academic-only terms, COCO's per-image license labels versus annotation rights and DiffusionDB curator CC0/terms claims with unresolved item-level rights. These limitations must follow each eventual manifest row; review of source terms does not certify copyright authority. Publication/figures/final thesis remain separately gated.
+
+After independent source-order/handling review, unchanged selected PNG bytes may be staged using the reviewed explicit-only storage utility; this authorizes local copies only, not science. B3 cannot close merely on this proposal: actual local files, item-level manifest/provenance/restrictions, development reservation and an independent deliverable review must exist. Source intake must not claim B5 canonical compliance or B4 stronger dependence/splits. Scientific execution still needs the runner's exact user-approved manifest.
+
+Independent review pending. Preserve all source commitments and ordinary task dependencies; official plan-acceptance remains paused without a verdict.
