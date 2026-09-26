@@ -1,4 +1,4 @@
-"""Model-free exact operation-ledger checks; these are not scientific reruns."""
+"""Model-free exact operation-ledger checks; discovery includes no scientific reruns."""
 import unittest
 from scripts.summarize_c4_checkpoint_run import journal_evidence
 
