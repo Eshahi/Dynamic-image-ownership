@@ -1,6 +1,6 @@
 # C4 retained-pair quality and key-drift design
 
-Status: software/design preparation under #18 / draft PR #67. NOT RUN on study
+Status: complete package code/design reviewed under #18 / draft PR #67. NOT RUN on study
 images; no new model load, inference, scientific approval or C4 acceptance.
 Applies [research contract](research-contract.md), [scope guard](scope-guard.md)
 and [A5](method-spec.md). This is a post-hoc exploratory follow-up to run003,
@@ -81,9 +81,13 @@ One future exact scientific package should cover all three quality comparisons
 and three feature extractions together, using existing local assets, USD0,
 no new downloads, external 20-minute ceiling and a proposed Torch 4GiB limit.
 This is a planning estimate, NOT measured capacity or approved authority.
-Before asking the user: complete dedicated fail-closed worker/launcher,
-version/hash-bound retained-artifact receipt, environment/recipe inventory,
-clean-commit manifest, runner preview and independent exact-package review.
+Dedicated fail-closed worker/launcher, exact retained-byte/environment/recipe
+inventory, exploratory spec and official helper/preview are now implemented.
+Independent exact-package review and repairs are recorded in
+[package audit](../audits/c4-saved-pair-package-review-20260927/review.md).
+Before asking the user, independently rebind the final documentation-only
+clean commit and regenerated manifest; review-candidate hashes are not the
+final execution authorization. No actual scientific run has been approved.
 Do not reuse the consumed run003 approval or execute this library standalone.
 Preserve restricted local-research custody: no source/output redistribution,
 public figures or expanded rights certification.
