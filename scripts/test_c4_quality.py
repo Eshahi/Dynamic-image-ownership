@@ -4,6 +4,7 @@ import math
 import sys
 import tempfile
 import unittest
+from types import SimpleNamespace
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -12,7 +13,7 @@ try:
 except ImportError:
     np = None
 if np is not None:
-    from src.embedding.quality import classical, target_checks, hamming, drift, rgb8, _checked_bytes, PAIRS
+    from src.embedding.quality import classical, target_checks, hamming, drift, rgb8, _checked_bytes, PAIRS, _structure
 
 
 @unittest.skipIf(np is None, "numpy absent in model-free base venv; covered in existing WSL science venv")
@@ -99,6 +100,28 @@ class QualityTests(unittest.TestCase):
                 _checked_bytes(path, "0" * 64)
             with self.assertRaises(ValueError):
                 _checked_bytes(path, "0" * 64, 1)
+
+    def test_child_profile_mutation_rejected(self):
+        child = SimpleNamespace(training=False)
+        metric = SimpleNamespace(version="0.1", pnet_type="alex", lpips=True,
+                                 spatial=False, pnet_tune=False, pnet_rand=True,
+                                 L=5, chns=[64, 192, 384, 256, 256], training=False)
+        metric.named_modules = lambda: iter((("", metric), ("dropout", child)))
+        original = _structure(metric)
+        for key, changed in (("version", "0.0"), ("lpips", False),
+                             ("spatial", True), ("L", True)):
+            before = getattr(metric, key)
+            setattr(metric, key, changed)
+            with self.assertRaises(ValueError):
+                _structure(metric)
+            setattr(metric, key, before)
+        child.training = True
+        with self.assertRaises(ValueError):
+            _structure(metric)
+        child.training = False
+        self.assertEqual(_structure(metric), original)
+        child = SimpleNamespace(training=False)
+        self.assertNotEqual(_structure(metric), original)
 
 
 if __name__ == "__main__":

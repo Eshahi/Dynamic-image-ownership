@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import hashlib
 import math
+from dataclasses import dataclass
 from pathlib import Path
 
 import numpy as np
@@ -22,6 +23,41 @@ LPIPS_FILES = {
     "__init__.py": "36ee004a45e2cc2c5ab47fa3955f00c0e41f6a151ef0249fb6f362533ed58b22",
     "weights/v0.1/alex.pth": LEARNED_SHA,
 }
+
+
+@dataclass(frozen=True)
+class FrozenLPIPS:
+    metric: object
+    structure: tuple
+    tensor_digest: str
+
+
+def _structure(metric) -> tuple:
+    expected = {"version": "0.1", "pnet_type": "alex", "lpips": True,
+                "spatial": False, "pnet_tune": False, "pnet_rand": True,
+                "L": 5, "chns": [64, 192, 384, 256, 256]}
+    if any(type(getattr(metric, key, None)) is not type(value) or
+           getattr(metric, key, None) != value for key, value in expected.items()):
+        raise ValueError("LPIPS declared profile changed")
+    modules = tuple(metric.named_modules())
+    if any(module.training for _, module in modules):
+        raise ValueError("LPIPS child evaluation profile changed")
+    return tuple((name, id(module), type(module)) for name, module in modules)
+
+
+def _tensor_digest(metric) -> str:
+    digest = hashlib.sha256()
+    for kind, values in (("parameter", metric.named_parameters()),
+                         ("buffer", metric.named_buffers())):
+        for name, value in values:
+            if (value.requires_grad or str(value.dtype) != "torch.float32" or
+                    value.device.type != "cuda"):
+                raise ValueError("LPIPS tensor profile changed")
+            raw = value.detach().cpu().contiguous().numpy().tobytes()
+            header = repr((kind, name, tuple(value.shape))).encode("ascii")
+            digest.update(len(header).to_bytes(8, "big") + header)
+            digest.update(len(raw).to_bytes(8, "big") + raw)
+    return digest.hexdigest()
 
 
 def rgb8(value: np.ndarray) -> np.ndarray:
@@ -147,10 +183,10 @@ def load_lpips(alexnet: Path, device: str):
     if result.unexpected_keys or any(k in keys for k in result.missing_keys):
         raise ValueError("LPIPS calibrated-layer load failed")
     metric.requires_grad_(False).eval().to(device=device, dtype=torch.float32)
-    return metric
+    return FrozenLPIPS(metric, _structure(metric), _tensor_digest(metric))
 
 
-def lpips_distance(metric, reference: np.ndarray, candidate: np.ndarray) -> float:
+def lpips_distance(loaded: FrozenLPIPS, reference: np.ndarray, candidate: np.ndarray) -> float:
     import torch
     left, right = rgb8(reference), rgb8(candidate)
     if left.shape != right.shape:
@@ -158,6 +194,12 @@ def lpips_distance(metric, reference: np.ndarray, candidate: np.ndarray) -> floa
     def tensor(value):
         return (torch.from_numpy(value).permute(2, 0, 1).unsqueeze(0)
                 .to(device="cuda", dtype=torch.float32) / 255.0 * 2.0 - 1.0)
+    if type(loaded) is not FrozenLPIPS:
+        raise ValueError("verified LPIPS loader receipt required")
+    metric = loaded.metric
+    if (_structure(metric) != loaded.structure or
+            _tensor_digest(metric) != loaded.tensor_digest):
+        raise ValueError("LPIPS loaded structure/weight identity changed")
     if (not torch.are_deterministic_algorithms_enabled() or
             torch.backends.cuda.matmul.allow_tf32 or torch.backends.cudnn.allow_tf32 or
             torch.backends.cudnn.benchmark or metric.training or
