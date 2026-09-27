@@ -132,5 +132,9 @@ misinterpreted by the shell; corrected literal python inventory found no live
 worker. No scientific execution occurred in either failed diagnostic. Only the
 single official --execute dispatch above consumed this approval. No retry.
 
-Independent retained-evidence/transcription review is requested before acceptance
-of this report; initial author interpretation is not its own independent audit.
+Actual independent `/root/b3_intake_review` reviewed exact report16c283c, verified
+retained custody/time/approval/42pins/6outputs/62distributions/67journalrows/9cells,
+all15 SD snapshot hashes, exact prior-control bytes and resource/metric transcription;
+no narrow evidence/transcription blocker remained. No image/model/metric rerun was
+performed. See audits/c4-localization-results-review-20260927/review.md for scope
+and unverified claims; this is not thesis-wide or scientific method acceptance.
