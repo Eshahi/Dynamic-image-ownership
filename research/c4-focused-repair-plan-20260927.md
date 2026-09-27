@@ -47,6 +47,25 @@ Passing the refined latent as the existing API's `initial_latent` would silently
 recenter the constraint and is not an acceptable implementation of this comparison.
 Keep current state and constraint anchor separate in the new versioned API.
 
+The new ordinary `src/embedding/adaptive_refinement.py` implements that numerical
+API: separate current/anchor tensors, normalized descent, warm-started step,
+Armijo sufficient decrease using the actual projected displacement, deeper
+halving, and bounded cautious step growth after two first-attempt acceptances.
+Every parameter is explicit; no new scientific default is selected by this API.
+All trials, rejections, backward counts and measured states are exposed to caller
+persistence. The final-gradient field is null after an accepted update until a
+gradient is actually measured at that new state. The fixed radius is checked
+after rounded float32 projection. Model binding and the concrete worker remain
+to be composed and reviewed; this callable is not an execution package.
+
+Ten owned CPU unit tests passed in the existing WSL environment: small-step
+recovery on a quadratic, original-anchor retention, no false stationary-gradient
+claim, budget/persistence behavior and invalid objective/profile refusal. The
+first restricted-shell WSL attempt failed with E_ACCESSDENIED before tests; the
+authorized tool escalation ran those CPU tests successfully. No scientific run,
+GPU, model, installation or security change occurred. Exact new component review
+is pending; these tests do not establish a quality gain on the retained image.
+
 Freeze iteration/NFE/backward/recomputation/time/allocator/storage budgets,
 line-search constants, trial persistence, exact start/anchor hashes and stopping
 rules in the complete worker/package before one execution decision. Do not choose

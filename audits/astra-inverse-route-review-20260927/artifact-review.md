@@ -145,3 +145,51 @@ continuation is a contingent design, not an undeclared fallback in this package.
 After the metadata blocker is repaired, a new exact review can accept this
 ordinary component/documentary checkpoint. The complete scientific package still
 requires its own exact review and actual runner-bound user execution decision.
+
+## Additive repair review: exact37260b9
+
+Independently re-reviewed author commit
+`37260b909ace601f97fda408f927825e7f59242c` on2026-09-27. **The narrow metadata
+blocker above is resolved; no remaining blocker to this ordinary component and
+documentary checkpoint was found.** This supersedes the initial disposition only
+for the repaired version. It grants no scientific/learned-model acceptance,
+execution approval, C4 closure or lifecycle verdict.
+
+The CLI now requires the three exact historical raw byte digests before diagnosis
+or output creation. Independently rehashed the actual retained journal, worker
+report and runner record; all match RAW_HASHES and the previously reviewed
+custody identities. The validator separately pins executed commitdd347afb, the
+observed7/32 evaluation inventory, ordered pair starts/evaluations/terminations,
+only timesteps1/101, path39-call/zero-backward accounting and1e-5 terminal semantics.
+Direct `diagnose` is a structured validation/description core; the CLI's byte
+binding is the stronger exact-input boundary. It is not a general authenticity
+validator for new arbitrary executions.
+
+All16 owned trace tests independently pass in the existing WSL interpreter with
+`-B`. Nine additional independent refusal probes pass: each of the three changed
+raw digests is rejected before `diagnose` is reached, and missing/unrelated
+commits, false convergence, an extra timestep, reversed start/evaluated order and
+changed observed counts are rejected. The mocked CLI probes performed no file
+writes. No actual learned-model or metric computation was repeated.
+
+Repaired analyzer SHA-256:
+`f9f72e25f6b0fc2aedb1f7bca6375c8d87a2b487623615026c2b60f3d22dc9dd`.
+The acceleration solver is unchanged: its Git diff is empty and its byte digest
+still equals `b6b294c9006c41615ec461a86f3d6d74ae2897693e297982240f528036910d90`.
+The earlier numerical verification and nonnormal-map limitation therefore remain
+the relevant bounded component findings; they were not erased by metadata repair.
+
+Read the new focused repair plan. Prioritizing a same-start decoder-fidelity
+comparison is appropriate to the remaining source-quality question; the existing
+two-target inverse diagnostic remains a useful numerical experiment when needed.
+Keeping the original encoded-latent constraint centre separate from the continued
+refined starting state avoids silently enlarging/recentering the feasible set.
+The plan labels the other independent reviewer's trajectory observations as such;
+this narrow re-review did not independently rederive those decoder-gradient
+observations or accept a new optimizer implementation. Its control/candidate,
+unchanged quality criteria and no-decoder-capacity-proof caveats are appropriate.
+
+The unfinished worker/path integration and future exact scientific package remain
+explicit prospective work. They are not prerequisites for accepting this repaired
+ordinary checkpoint. No filesystem permission limitation was encountered, and
+only this additive audit section was written by the reviewer.
