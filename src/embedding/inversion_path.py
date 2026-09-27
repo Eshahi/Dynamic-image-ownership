@@ -8,6 +8,7 @@ import time
 from types import MappingProxyType
 
 from .proposed import DiffusersComponents, EmbeddingError, Settings, _torch, leading_suffix
+from .checkpointing import CheckpointedComponents
 from .inversion import DDIMPair, InversionPolicy, _latent, _same, _real, invert_pair
 
 
@@ -53,7 +54,7 @@ class PinnedDDIMPath:
         import diffusers
         from diffusers import DDIMScheduler
         torch = _torch()
-        if diffusers.__version__ != "0.35.1" or type(backend) is not DiffusersComponents:
+        if diffusers.__version__ != "0.35.1" or type(backend) not in (DiffusersComponents,CheckpointedComponents):
             raise EmbeddingError("requires pinned concrete Diffusers components")
         if type(backend.settings) is not Settings or type(backend.scheduler) is not DDIMScheduler:
             raise EmbeddingError("invalid bound settings/scheduler type")
@@ -61,6 +62,8 @@ class PinnedDDIMPath:
         self.settings = backend.settings
         self.model = backend.unet
         self.scheduler = backend.scheduler
+        self._predict_function = backend._predict.__func__
+        self.checkpoint_profile = backend.profile_id if type(backend) is CheckpointedComponents else "disabled"
         self.condition = backend.condition.detach().clone()
         self.reference = DDIMScheduler(**SCHEDULER_PROFILE)
         self.reference.set_timesteps(self.settings.inference_steps)
@@ -94,7 +97,8 @@ class PinnedDDIMPath:
         if (b.settings != self.settings or b.unet is not self.model
                 or b.scheduler is not self.scheduler or tuple(b.times) != self.times
                 or self.steps != self._bound_steps
-                or self.terminal_alpha != self._bound_steps[-1].pair.previous_alpha):
+                or self.terminal_alpha != self._bound_steps[-1].pair.previous_alpha
+                or getattr(b._predict,"__func__",None) is not self._predict_function):
             raise EmbeddingError("bound backend identity/schedule drift")
         if any(self.scheduler.config.get(k) != v for k,v in SCHEDULER_PROFILE.items()):
             raise EmbeddingError("scheduler configuration drift")
@@ -134,8 +138,9 @@ class PinnedDDIMPath:
         _latent(state,"predictor input",allow_grad=True)
         if state.device != self.condition.device:
             raise EmbeddingError("predictor device mismatch")
-        prediction = self.model(state.clone(),step.timestep,
-                                encoder_hidden_states=self.condition.clone()).sample
+        # Preserve the explicit checked nonreentrant checkpoint adapter. A direct
+        # model call would silently discard its activation-memory profile.
+        prediction = self.backend._predict(state.clone(),step.timestep)
         self._validate()  # a forward-side profile mutation is not an accepted call
         _same(prediction,state,"UNet epsilon",allow_grad=True)
         return prediction
@@ -160,9 +165,11 @@ class PathResult:
     backward_evaluations: int
     pair_results: tuple
     roundtrip_residual_max: object
+    actual_unet_forward_calls: int = 0
+    checkpoint_recomputation_calls: int = 0
 
 
-def invert_roundtrip(path, terminal, policy, *, maximum_evaluations,
+def _invert_roundtrip(path, terminal, policy, *, maximum_evaluations,
                      maximum_seconds, roundtrip_tolerance, progress, save_state,
                      prior_means=None, transition_prior=False):
     """Invert reverse order, replay forward order, stop on any failed pair.
@@ -291,3 +298,50 @@ def invert_roundtrip(path, terminal, policy, *, maximum_evaluations,
     error = float((replay-terminal).abs().max())
     return finish("completed" if error <= roundtrip_tolerance else "roundtrip_residual_failed",
                   replay,error)
+
+
+def invert_roundtrip(path, terminal, policy, *, maximum_evaluations,
+                     maximum_seconds, roundtrip_tolerance, progress, save_state,
+                     prior_means=None, transition_prior=False):
+    """Count actual root UNet calls too, including checkpoint backward recompute.
+
+    Mathematical NFE remains a separate quantity. Actual forward-start ceiling
+    is twice the declared NFE cap; refuse before any additional root forward.
+    The hook is temporary and always removed, including callback/model failure.
+    """
+    if type(path) is not PinnedDDIMPath or not callable(progress):
+        raise EmbeddingError("typed pinned path and journal callback required")
+    if type(maximum_evaluations) is not int or not 1 <= maximum_evaluations <= 16384:
+        raise EmbeddingError("invalid forward-call accounting ceiling")
+    calls = recomputations = 0
+    context = {"mode":"unclassified","timestep":None}
+    def journal(row):
+        if row["phase"] in ("evaluation_started","replay_started","backward_started"):
+            context.update(mode="checkpoint_backward" if row["phase"]=="backward_started" else row["phase"],
+                           timestep=row.get("timestep"))
+        progress(dict(row))
+    def forward_started(module,args):
+        nonlocal calls,recomputations
+        if calls >= 2*maximum_evaluations:
+            progress({"phase":"unet_forward_ceiling","actual_unet_forward_calls":calls,
+                      "maximum_actual_unet_forwards":2*maximum_evaluations})
+            raise EmbeddingError("actual UNet forward ceiling exceeded")
+        calls += 1
+        if context["mode"]=="checkpoint_backward":
+            recomputations += 1
+        progress({"phase":"unet_forward_started","timestep":context["timestep"],
+                  "context":context["mode"],"actual_unet_forward_calls":calls,
+                  "checkpoint_recomputation_calls":recomputations,
+                  "checkpoint_profile":path.checkpoint_profile})
+    handle = path.model.register_forward_pre_hook(forward_started)
+    try:
+        result = _invert_roundtrip(path,terminal,policy,maximum_evaluations=maximum_evaluations,
+            maximum_seconds=maximum_seconds,roundtrip_tolerance=roundtrip_tolerance,
+            progress=journal,save_state=save_state,prior_means=prior_means,transition_prior=transition_prior)
+        progress({"phase":"path_forward_accounting","actual_unet_forward_calls":calls,
+                  "checkpoint_recomputation_calls":recomputations,
+                  "maximum_actual_unet_forwards":2*maximum_evaluations})
+        return replace(result,actual_unet_forward_calls=calls,
+                       checkpoint_recomputation_calls=recomputations)
+    finally:
+        handle.remove()

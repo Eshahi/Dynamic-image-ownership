@@ -8,6 +8,7 @@ try:
 except ImportError:
     torch = DDIMScheduler = None
 from src.embedding.proposed import DiffusersComponents, EmbeddingError, Settings
+from src.embedding.checkpointing import CheckpointedComponents
 from src.embedding.inversion import InversionPolicy
 from src.embedding.inversion_path import PinnedDDIMPath, SCHEDULER_PROFILE, invert_roundtrip
 
@@ -188,7 +189,7 @@ class PathTests(unittest.TestCase):
         with self.assertRaisesRegex(EmbeddingError,"identity or mutation"):
             self.run_path()
         self.assertEqual(len(self.backend.unet.calls),1)
-        self.assertEqual(self.events[-1]["phase"],"evaluation_started")
+        self.assertEqual(self.events[-1]["phase"],"unet_forward_started")
 
     def test_untracked_inference_weight_is_not_silently_bound(self):
         with torch.inference_mode():
@@ -225,7 +226,76 @@ class PathTests(unittest.TestCase):
         self.backend.unet.forward=forward
         with self.assertRaises(EmbeddingError):self.run_path()
         self.assertEqual(len(self.backend.unet.calls),1)
-        self.assertEqual(self.events[-1]["phase"],"evaluation_started")
+        self.assertEqual(self.events[-1]["phase"],"unet_forward_started")
+
+    def checkpointed_path(self):
+        class OwnedVAE(torch.nn.Module):
+            def __init__(self):
+                super().__init__()
+                self.scale=torch.nn.Parameter(torch.tensor(.1),requires_grad=False)
+                self.config=SimpleNamespace(scaling_factor=.18215)
+        b=self.backend
+        self.backend=CheckpointedComponents(OwnedVAE().eval(),b.unet,b.condition,b.settings)
+        self.path=PinnedDDIMPath(self.backend)
+
+    def test_checkpointed_actual_forward_and_gradient_replay_accounting(self):
+        original=self.run_path(policy=InversionPolicy(method="guided_coordinate"))
+        self.setUp();self.checkpointed_path()
+        out=self.run_path(policy=InversionPolicy(method="guided_coordinate"))
+        self.assertEqual(out.status,"completed")
+        torch.testing.assert_close(out.state,original.state,atol=0,rtol=0)
+        torch.testing.assert_close(out.reconstructed,original.reconstructed,atol=0,rtol=0)
+        self.assertEqual(out.evaluations,original.evaluations)
+        self.assertGreater(out.checkpoint_recomputation_calls,0)
+        self.assertEqual(out.actual_unet_forward_calls,len(self.backend.unet.calls))
+        self.assertEqual(out.actual_unet_forward_calls,
+                         out.evaluations+out.checkpoint_recomputation_calls)
+        self.assertLessEqual(out.actual_unet_forward_calls,128)
+        rows=[row for row in self.events if row["phase"]=="unet_forward_started"]
+        self.assertEqual(len(rows),out.actual_unet_forward_calls)
+        self.assertTrue(all(row["checkpoint_profile"]==self.backend.profile_id for row in rows))
+        self.assertEqual(len(self.backend.unet._forward_pre_hooks),0)
+        self.assertIsNone(self.backend.unet.slope.grad)
+
+    def test_temporary_forward_hook_removed_on_journal_and_model_failures(self):
+        for failure in ("journal","model"):
+            self.setUp();self.checkpointed_path()
+            def fail(row):
+                self.events.append(row)
+                if row["phase"]=="unet_forward_started":
+                    raise OSError("owned journal failure")
+            if failure=="model":
+                def broken(*args,**kwargs):raise OSError("owned model failure")
+                self.backend.unet.forward=broken
+                callback=self.events.append
+            else:callback=fail
+            with self.subTest(failure=failure),self.assertRaises(OSError):
+                self.run_path(progress=callback)
+            self.assertEqual(len(self.backend.unet._forward_pre_hooks),0)
+            self.assertFalse(any(row["phase"]=="path_forward_accounting" for row in self.events))
+            self.assertEqual(self.events[-1]["phase"],"unet_forward_started")
+
+    def test_actual_forward_ceiling_refuses_before_extra_owned_call(self):
+        def excessive(path,terminal,policy,**kwargs):
+            for _ in range(7):path.predict(terminal,path.steps[0])
+        with patch("src.embedding.inversion_path._invert_roundtrip",side_effect=excessive):
+            with self.assertRaisesRegex(EmbeddingError,"actual UNet forward ceiling"):
+                self.run_path(maximum_evaluations=3)
+        self.assertEqual(len(self.backend.unet.calls),6)
+        self.assertEqual(self.events[-1]["phase"],"unet_forward_ceiling")
+        self.assertEqual(len(self.backend.unet._forward_pre_hooks),0)
+
+    def test_backend_prediction_function_drift_and_unknown_subclass_refused(self):
+        from types import MethodType
+        self.backend._predict=MethodType(lambda b,x,t:x,self.backend)
+        with self.assertRaisesRegex(EmbeddingError,"backend identity"):
+            self.run_path()
+        self.assertEqual(self.backend.unet.calls,[])
+        self.setUp()
+        class Unknown(DiffusersComponents):pass
+        self.backend.__class__=Unknown
+        with self.assertRaisesRegex(EmbeddingError,"concrete Diffusers"):
+            PinnedDDIMPath(self.backend)
 
 
 if __name__ == "__main__": unittest.main()

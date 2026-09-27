@@ -8,6 +8,7 @@ try:
 except ImportError:
     torch=diffusers=None
 from src.embedding.proposed import EmbeddingError
+from src.embedding.checkpointing import CheckpointedComponents
 from src.embedding.inversion import InversionPolicy
 from src.embedding.reconstruction_comparison import comparison, ComparisonPolicy, ARMS
 from scripts import test_c4_inversion_path as owned_fixture
@@ -65,6 +66,19 @@ class ComparisonTests(unittest.TestCase):
         result=self.run_comparison(save_arm=mutate)
         self.assertTrue(all(row["status"]=="rendered_requires_png_safety_quality" for row in result["arms"].values()))
         self.assertTrue(torch.all(self.source==.25));self.assertTrue(torch.all(self.noise==.1))
+
+    def test_actual_checkpointed_loader_profile_keeps_five_shared_source_arms(self):
+        original=self.backend
+        self.backend=CheckpointedComponents(original.vae,original.unet,
+                                             original.condition,original.settings)
+        result=self.run_comparison()
+        self.assertEqual(tuple(self.images),ARMS)
+        self.assertEqual(self.backend.vae.calls.count("encode"),1)
+        self.assertEqual(result["status"],"completed_requires_png_safety_quality")
+        guided=result["arms"][ARMS[4]]
+        self.assertGreater(guided["checkpoint_recomputation_calls"],0)
+        self.assertGreater(guided["actual_unet_forward_calls"],guided["scheduler_evaluations"])
+        self.assertEqual(len(self.backend.unet._forward_pre_hooks),0)
 
     def test_nonconverged_arms_recorded_without_decoder_fallback(self):
         self.policy=ComparisonPolicy(InversionPolicy(max_evaluations=1),

@@ -8,6 +8,7 @@ from dataclasses import dataclass
 import time
 
 from .proposed import EmbeddingError, _torch, padded_source, DiffusersComponents
+from .checkpointing import CheckpointedComponents
 from .inversion import InversionPolicy, _latent, _real
 from .inversion_path import PinnedDDIMPath, invert_roundtrip, module_fingerprint
 
@@ -48,7 +49,7 @@ def comparison(backend, source, base_noise, policy, *, progress, save_arm, save_
     Exceptions stop the whole package, preserve prior callbacks, no retries.
     """
     torch = _torch()
-    if type(backend) is not DiffusersComponents or type(policy) is not ComparisonPolicy:
+    if type(backend) not in (DiffusersComponents,CheckpointedComponents) or type(policy) is not ComparisonPolicy:
         raise EmbeddingError("typed concrete backend/comparison policy required")
     if any(not callable(callback) for callback in (progress,save_arm,save_state)):
         raise EmbeddingError("all comparison persistence callbacks required")
@@ -128,6 +129,8 @@ def comparison(backend, source, base_noise, policy, *, progress, save_arm, save_
                 save_state=lambda row,state:save_state(arm,dict(row),state.detach().clone()))
             details.update(path_status=result.status,scheduler_evaluations=result.evaluations,
                 backward_evaluations=result.backward_evaluations,
+                actual_unet_forward_calls=result.actual_unet_forward_calls,
+                checkpoint_recomputation_calls=result.checkpoint_recomputation_calls,
                 roundtrip_residual_max=result.roundtrip_residual_max)
             if result.status != "completed":
                 details["status"]="not_rendered_nonconverged"

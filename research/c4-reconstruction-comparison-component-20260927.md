@@ -50,7 +50,24 @@ and file hashes and preserve incomplete reports. The existing accidental-drift
 guard's private `_version`, raw-storage/method-tamper and weight-authentication
 limitations still apply; loader/manifests are not replaced.
 
-Per-inverse-arm NFE ceiling includes forward replay, with separate backward counts.
+The exact concrete loader profiles `DiffusersComponents` and
+`CheckpointedComponents` are accepted; arbitrary subclasses are refused. The
+path delegates prediction through the bound backend `_predict` function, preserving
+the already-reviewed nonreentrant activation checkpoint profile instead of making
+direct UNet calls that silently discard it. Changing that function after binding
+is refused. This is software compatibility, not measured learned-model parity.
+
+Per-inverse-arm mathematical NFE ceiling includes forward replay, with separate backward counts.
+Checkpoint backward recomputation is additional model work, not free NFE. A temporary
+root-UNet forward pre-hook journals all forward starts and counts backward-context
+recomputations separately. Actual starts are capped at twice the declared NFE
+ceiling, refusing before an additional root call; the hook is removed on success
+and on model/journal/persistence failure. A start record is not a completed-forward
+claim. Normal results include both counts; exceptions retain incremental journal
+evidence and do not invent a terminal count or completed arm. These root-call counts
+do not measure internal module operations or FLOPs. The checkpoint profile's tensor
+guards and the external runner resource limits still apply.
+
 Legacy control predictor count is its fixed suffix length, VAE-only zero scheduler
 calls. This is operation accounting, not a FLOP/time/memory equivalence. The component
 cooperative whole-comparison duration may be at most1100 seconds to permit a future
