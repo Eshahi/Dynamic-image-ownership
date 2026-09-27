@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "reviewer": "/root/astra_method_feasibility",
+  "author": "/root",
+  "reviewed_commit": "30a7c41dae941b4f5614bebbe9bcadcd56dfc2d9",
+  "approval": "not-granted",
+  "additional_documentary_review": {"commit":"4bc656c0ff4c875425ec4297e72452b485067b6e","disposition":"no-blocking-findings-for-bounded-documentary-checkpoint","blocking_count":0,"scientific_acceptance":false},
+  "audit_type": "bounded-manual-architectural-and-evidence-review",
+  "blocking": [
+    {"severity":"blocking","code":"F1","message":"Current candidate fails source quality; exact inverse replay of the same encoded latent cannot repair its VAE-only endpoint."},
+    {"severity":"blocking","code":"F2","message":"Equal source/control MSE weights resist source restoration toward a poor reference; revised scientific objective requires explicit versioning."},
+    {"severity":"blocking","code":"F3","message":"No quality-constrained saved-PNG latent-to-blind-DCT score separation or calibrated detection evidence exists."},
+    {"severity":"blocking","code":"F4","message":"Radius-one public-code recovery and dimension-bound DCT templates have no robustness or synchronization evidence."},
+    {"severity":"blocking","code":"F5","message":"Full numerical method acceptance, native2K coverage, fair speed comparison and study-level quality rule remain unestablished."}
+  ],
+  "non_blocking": [
+    {"severity":"non-blocking","code":"N1","message":"Guided solver is modified GNRI-inspired code; prior objective and dimension/timestep scaling do not guarantee residual convergence."},
+    {"severity":"non-blocking","code":"N2","message":"Frozen-decoder refinement is justified but untested; its penalty, strict projection and MSE-only endpoint limit interpretations."},
+    {"severity":"non-blocking","code":"N3","message":"Published better-quality systems contradict blanket impossibility but differ in architecture, detector and evaluation protocol."},
+    {"severity":"non-blocking","code":"N4","message":"Generic evidence helper not applied: authoritative claim inventory is CSV and outcome analyses are descriptive retained JSON, not the helper's strict JSONL/generic-analysis contract; no synthetic evidence adapters were fabricated."}
+  ],
+  "expected_runs": ["c4-embedding-dev-001","c4-embedding-dev-002","c4-embedding-dev-003","c4-saved-pair-dev-001","c4-reconstruction-dev-001"],
+  "failed_runs": ["c4-embedding-dev-001","c4-embedding-dev-002"],
+  "missing_runs": [],
+  "coverage_note": "All five reports inspected; only saved-pair/localization outcome JSON and source-literature hashes independently rechecked here. No claim of complete run-manifest/input hash verification or metric reproduction. See checklist."
+}

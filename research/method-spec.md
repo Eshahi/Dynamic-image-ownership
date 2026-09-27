@@ -1,5 +1,12 @@
 # A5 method architecture: candidate v1
 
+Update 2026-09-27: the user explicitly authorized investigating and implementing
+better reconstruction alternatives; see [C4 reconstruction-path amendment](c4-reconstruction-path-amendment-20260927.md).
+The random-noise image-conditioned suffix below is retained as candidate-v1 and
+historical control, not a mandatory or proven final reconstruction algorithm.
+New inversion/VAE candidates require versioned evidence and exact compute approval;
+embedding-side inversion does not authorize changing the blind DCT detector.
+
 Status 2026-09-23: **complete algorithm specification for review, untested scientific candidate**. Issue #6, source task `repair-4`. This document applies [scope-guard.md](scope-guard.md), [research-contract.md](research-contract.md), [io-spec.md](io-spec.md) and [threat-model.md](threat-model.md). A complete algorithm is not evidence that its hypotheses hold. The original proposal and claim ledger remain authoritative. Parameters that require validation selection are mandatory in [method.schema.json](../configs/method.schema.json); an incomplete configuration cannot execute.
 
 The protected input is an existing RGB image `I`, whether camera-originated or an existing DiffusionDB image. Its source bytes, decoded orientation/color policy, image ID and raw SHA-256 are recorded. This route does not generate a substitute image from a prompt. The prompt-only signing-order branch remains `UNSUPPORTED_IO07` and is excluded from the executable profile. The A5 candidate implements semantic and perceptual signatures, public OwnerID binding, initial noise modification in an image-conditioned diffusion suffix, and blind image-domain DCT verification. It excludes automatic transfer/registry and authenticated legal ownership as required by the scope guard.

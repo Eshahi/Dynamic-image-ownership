@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "trdi-v1",
+  "citation_key": "Sun2026TRDI",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2606.15389v1",
+  "title": "Timestep Rescheduling in Diffusion Inversion",
+  "authors": [
+    "Shangquan Sun",
+    "Ting Gong",
+    "Zhirui Liu",
+    "Jiamin Wu",
+    "Runkai Zhao",
+    "Mianxin Liu",
+    "Wenqi Ren",
+    "Xiaochun Cao"
+  ],
+  "year": 2026,
+  "venue": null,
+  "access_date": "2026-09-27",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "research/literature/reconstruction-screen-20260927/inspection.md",
+    "sha256": "cef3b5b9d44ac9fda6ee9c265833b69261d6877bedd4d5377e8e1d263521cc45"
+  },
+  "limitations": [
+    "Full-text access denotes selected method/results/limitations sections only, not whole-paper verification.",
+    "Inspection checksum identifies observer notes; exact downloaded raw HTML checksums and versions are in those notes.",
+    "No experimental reproduction, environment adoption or ownership/DCT efficacy evidence."
+  ]
+}

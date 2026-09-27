@@ -37,7 +37,7 @@
             "interpolation": {"const": "bicubic"},
             "image_mean": {"const": [0.48145466, 0.4578275, 0.40821073]},
             "image_std": {"const": [0.26862954, 0.26130258, 0.27577711]},
-            "projection_seed": {"$ref": "#/$defs/sha256"}
+            "projection_seed": {"type": "string", "pattern": "^[0-9a-f]{64}$", "description": "Public 32-byte projection seed, not an artifact digest; the fixed all-zero seed is valid."}
           }
         },
         "phash": {

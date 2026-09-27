@@ -1,0 +1,30 @@
+{
+  "source_message": "من اجازه میدم. سقف رو ببر تا 12 گیگ وی رم",
+  "interpretation": "User permits resource-ceiling increase and requests12GB; this is not approval of a newly generated exact manifest or permission to violate availability guards.",
+  "requested_upper_gib": 12,
+  "requested_12gib_mib": 12288,
+  "observed_gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+  "observed_total_mib": 12227,
+  "observed_used_mib": 1177,
+  "observed_free_mib": 10768,
+  "required_headroom_mib": 1024,
+  "observed_free_minus_headroom_mib": 9744,
+  "prepared_fixed_allocator_mib": 9216,
+  "prepared_fixed_allocator_gib": 9,
+  "required_free_mib_at_launch": 10240,
+  "unit_ambiguity_limit": "12GiB exceeds observed usable total; decimal12GB also exceeds current free memory and required headroom. Neither literal interpretation passes.",
+  "whole_system_gpu_cap": false,
+  "adaptive_cap_or_retry": false,
+  "availability_is_transient": true,
+  "execution_approved_for_this_alternative": false,
+  "old_8gib_final_manifest": "d603246d5ae1c292d174ae1af7201e73b09b27715401a92a25a56cf54b126ca8",
+  "old_8gib_manifest_status": "preserved unexecuted, superseded by conditional cap-change request; do not launch",
+  "next_boundary": "independent revised final manifest review and exact user approval before any run",
+  "latest_readonly_measurement": {
+    "started_utc": "2026-09-26T22:12:34.5690503Z",
+    "ended_utc": "2026-09-26T22:12:36.4644747Z",
+    "command": "wsl -d Ubuntu -- nvidia-smi --query-gpu=name,memory.total,memory.used,memory.free --format=csv,noheader,nounits",
+    "raw": "NVIDIA GeForce RTX 5070 Ti Laptop GPU, 12227, 1204, 10741"
+  },
+  "original_observation_reference": "Authenticated current Codex turn, read-only command shown above; original untimestamped values preserved, latest reading separately bracketed."
+}

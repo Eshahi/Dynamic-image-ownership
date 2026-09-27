@@ -1,0 +1,33 @@
+{
+  "request_id": "c4-quality-feasibility-20260927",
+  "papers": [
+    {
+      "schema_version": "1.0", "paper_id": "freqmark-image-v1", "citation_key": "Guo2024FreqMarkImageV1",
+      "doi": null, "canonical_url": "https://arxiv.org/html/2410.20824v1",
+      "title": "FreqMark: Invisible Image Watermarking via Frequency Based Optimization in Latent Space",
+      "authors": ["Yiyang Guo", "Ruizhe Li", "Mude Hui", "Hanzhong Guo", "Chen Zhang", "Chuangjian Cai", "Le Wan", "Shangfei Wang"],
+      "year": 2024, "venue": null, "access_date": "2026-09-27", "source_type": "preprint",
+      "verification": "verified", "inspected_content": "full-text",
+      "inspection": {"artifact": ".thesis-build/reconstruction-literature-20260927/freqmark-v1.html", "sha256": "00a18323cf1145838bc421c097ec59e6094571dcdd4636e0021383b79020aa99"},
+      "limitations": ["Targeted sections 4.3-4.5,5.1-5.2 and Table1/Figure4 only; not reproduced.", "Inspected version is v1, not assumed identical to final proceedings.", "Local checksum identifies public HTML, not authenticated author runtime."]
+    },
+    {
+      "schema_version": "1.0", "paper_id": "vine-v1", "citation_key": "Lu2024VINEv1",
+      "doi": null, "canonical_url": "https://arxiv.org/html/2410.18775v1",
+      "title": "Robust Watermarking Using Generative Priors Against Image Editing: From Benchmarking to Advances",
+      "authors": ["Shilin Lu", "Zihan Zhou", "Jiayou Lu", "Yuanzhi Zhu", "Adams Wai-Kin Kong"],
+      "year": 2024, "venue": null, "access_date": "2026-09-27", "source_type": "preprint",
+      "verification": "verified", "inspected_content": "full-text",
+      "inspection": {"artifact": ".thesis-build/reconstruction-literature-20260927/vine-v1.html", "sha256": "7f3b568b58908e6ea03f769b06bc9bac776e16f922348b0766f815113ee2949f"},
+      "limitations": ["Targeted sections3.2-3.3,4.2-4.4 and Tables1-2 only; not reproduced.", "Inspected preprint v1 is not asserted identical to ICLR2025 final paper.", "The browser could not fetch the oversized final proceedings PDF."]
+    }
+  ],
+  "evidence": [
+    {"claim_id": "C4-FREQMARK-QUALITY", "claim": "FreqMark reports DiffusionDB-source quality PSNR31.20/SSIM0.854; its VAE reference31.22/0.879 misses our targets too.", "source_id": "freqmark-image-v1", "kind": "direct-evidence", "stance": "contradicting", "locator": "Table1 and Figure4 quality table; section5.2", "confidence": "high", "limitations": ["Author results, different pipeline; not our reproduction."], "assumptions": []},
+    {"claim_id": "C4-FREQMARK-NOT-DROPIN", "claim": "The inspected method uses a DINOv2 decoder and500 freshly generated images from DiffusionDB prompts, not our existing-image blind-DCT profile.", "source_id": "freqmark-image-v1", "kind": "direct-evidence", "stance": "inconclusive", "locator": "sections4.3,5 introduction,5.1 Datasets", "confidence": "high", "limitations": ["Cannot transfer numerical fidelity or detection to our native datasets."], "assumptions": []},
+    {"claim_id": "C4-VINE-ATTAINABILITY", "claim": "VINE-B reports40.51dB/0.9954/0.0029 and VINE-R37.34dB/0.9934/0.0063, contradicting blanket impossibility of the three quality values.", "source_id": "vine-v1", "kind": "agent-inference", "stance": "contradicting", "locator": "Tables1-2, section4.3", "confidence": "high", "limitations": ["Author-reported means over10000 paired images, not every-image guarantees or our results."], "assumptions": ["Reported values and metric definitions hold for the described benchmark."]},
+    {"claim_id": "C4-VINE-NOT-DROPIN", "claim": "VINE adds trained encoder-decoder skips, fine-tunes generative components, uses a ConvNeXt neural detector and resolution scaling; it does not validate our fixed SD1.5/blind-DCT route.", "source_id": "vine-v1", "kind": "direct-evidence", "stance": "inconclusive", "locator": "sections3.2-3.3,4.2-4.3", "confidence": "high", "limitations": ["Replacement/training/resource/scope review is required before adoption."], "assumptions": []}
+  ],
+  "assumptions": ["This targeted screen is not exhaustive; search snippets are not performance evidence."],
+  "open_questions": ["Can bounded source-latent refinement meet native source targets with the frozen decoder?", "Can a reconstructed latent carry a recoverable blind image-DCT watermark without breaking q/h stability?", "If fixed-decoder preservation fails, what source-detail-preserving amendment remains compatible with the thesis questions?"]
+}

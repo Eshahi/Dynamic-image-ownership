@@ -1,0 +1,21 @@
+{
+  "status": "prospective_estimate_not_measured_fit_unknown",
+  "execution_target": "local_WSL_Ubuntu_existing_clean_science_environment",
+  "gpu": "existing_RTX_5070_Ti",
+  "max_seconds": 1200,
+  "parent_seconds": 1190,
+  "linux_group_timeout_seconds": 1140,
+  "linux_kill_after_seconds": 10,
+  "parent_startup_allowance_seconds": 30,
+  "torch_allocator_ceiling_mib": 8192,
+  "required_extra_free_vram_mib": 1024,
+  "estimated_ram_mib": 12288,
+  "required_extra_available_ram_mib": 1024,
+  "estimated_disk_mib": 4096,
+  "private_sd_snapshot_bytes": 2742217630,
+  "whole_system_memory_limit_enforced": false,
+  "float32_gradient_fit_proven": false,
+  "max_usd": 0,
+  "new_download_bytes": 0,
+  "scientific_compute_authorized": false
+}

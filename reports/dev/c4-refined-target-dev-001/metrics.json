@@ -1,0 +1,9 @@
+[
+  {
+    "run_id": "c4-refined-target-dev-001",
+    "seed": 0,
+    "condition": "fixed_six_arm_refined_target",
+    "status": "failed",
+    "mse_rgb01": null
+  }
+]

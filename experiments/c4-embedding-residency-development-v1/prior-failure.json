@@ -1,0 +1,19 @@
+{
+  "run_id": "c4-embedding-dev-001",
+  "execution_commit": "1432fdfdaab8426c97ec81198c281b909f8a7e88",
+  "canonical_manifest_sha256": "c311c6989809328e5c4c2583bce1355fafd1e00d7556a2542e23adce04809f86",
+  "runner_record_sha256": "b185e5ec7174f1dca76b5376dd6e5a831988996d7e60bc87ff7765e8d13d6069",
+  "worker_report_sha256": "b82af82adc993dabe29cc1300ca184ec0cbf506c245eb00278bbc99288deab14",
+  "corrected_failure_analysis_sha256": "d9577a2876385905267a74a51939d43a6316167a6886470f2a0f485aff16c75d",
+  "status": "failed",
+  "error_type": "OutOfMemoryError",
+  "source_uid": "ms-coco:coco-2017:val2017:109798",
+  "peak_torch_allocated_bytes": 8506703872,
+  "torch_allocation_limit_bytes": 8589934592,
+  "recorded_gradient_observations": 0,
+  "recorded_optimization_updates": 0,
+  "PNG_outputs": 0,
+  "unrecorded_internal_progress": "unknown",
+  "approval_consumed": true,
+  "historical_report": "reports/dev/c4-embedding-dev-001/result.md"
+}

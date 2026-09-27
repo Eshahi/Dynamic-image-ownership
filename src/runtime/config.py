@@ -72,12 +72,20 @@ class LoadedConfig:
 
 def load_method_config(path: Path) -> LoadedConfig:
     """Reuse A5's schema and cross-field validator; never substitute a shape-only check."""
+    return _load_config_against_schema(path, regular_bytes(SCHEMA))
+
+
+def _load_config_against_schema(path: Path, schema_bytes: bytes) -> LoadedConfig:
+    """Full existing validator on exact schema bytes; callers choose a fixed schema.
+
+    Private shared mechanism, not permission or a public arbitrary-schema API.
+    Final method loader still uses only SCHEMA; development has a distinct type.
+    """
     path = Path(path)
     raw = regular_bytes(path)
     value = strict_json_bytes(raw)
     if not isinstance(value, dict):
         raise ConfigError("method configuration must be an object")
-    schema_bytes = regular_bytes(SCHEMA)
     if not VALIDATOR.is_file() or VALIDATOR.is_symlink():
         raise ConfigError("A5 contract validator is unavailable")
     try:

@@ -1,0 +1,11 @@
+{
+  "schema_version": "c4-activation-checkpointing-v1",
+  "profile_id": "unet-each-vae-decode-nonreentrant-rng-preserved-v1",
+  "use_reentrant": false,
+  "preserve_rng_state": true,
+  "determinism_check": "default",
+  "regions": ["each_unet_forward", "vae_decode"],
+  "source_encode_checkpointed": false,
+  "no_grad_checkpointed": false,
+  "fallback_or_retry": false
+}

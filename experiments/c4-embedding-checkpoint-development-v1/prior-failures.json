@@ -1,0 +1,45 @@
+{
+  "runs": [
+    {
+      "run_id": "c4-embedding-dev-001",
+      "execution_commit": "1432fdfdaab8426c97ec81198c281b909f8a7e88",
+      "canonical_manifest_sha256": "c311c6989809328e5c4c2583bce1355fafd1e00d7556a2542e23adce04809f86",
+      "runner_record_sha256": "b185e5ec7174f1dca76b5376dd6e5a831988996d7e60bc87ff7765e8d13d6069",
+      "worker_report_sha256": "b82af82adc993dabe29cc1300ca184ec0cbf506c245eb00278bbc99288deab14",
+      "corrected_failure_analysis_sha256": "d9577a2876385905267a74a51939d43a6316167a6886470f2a0f485aff16c75d",
+      "status": "failed",
+      "error_type": "OutOfMemoryError",
+      "source_uid": "ms-coco:coco-2017:val2017:109798",
+      "peak_torch_allocated_bytes": 8506703872,
+      "torch_allocation_limit_bytes": 8589934592,
+      "recorded_gradient_observations": 0,
+      "recorded_optimization_updates": 0,
+      "PNG_outputs": 0,
+      "unrecorded_internal_progress": "unknown",
+      "approval_consumed": true,
+      "historical_report": "reports/dev/c4-embedding-dev-001/result.md"
+    },
+    {
+      "run_id": "c4-embedding-dev-002",
+      "execution_commit": "4db4f96453ddaba81ab5ec7b1978b354ed215066",
+      "canonical_manifest_sha256": "a43ccae7b11a857fd213b79f9eaf1707cc8388151d58f5338fbe48e8157ab052",
+      "runner_record_sha256": "318124de7189a36dceb156699fe374cdac203b0c451b63459e05c007deaacb4b",
+      "worker_report_sha256": "431a401cbebd4ad9928d78c90ef59d18fe950b0ed1d6f3c46422d557f2892011",
+      "corrected_failure_analysis_sha256": "058dffe1054b06e8847911fa4251e2fa7bc4122eb5a35c729c565b1c19f63f7c",
+      "status": "failed",
+      "error_type": "OutOfMemoryError",
+      "source_uid": "ms-coco:coco-2017:val2017:109798",
+      "recorded_gradient_observations": 0,
+      "recorded_optimization_updates": 0,
+      "PNG_outputs": 0,
+      "gradient_norm": null,
+      "approval_consumed": true,
+      "historical_report": "reports/dev/c4-embedding-dev-002/result.md",
+      "observed_unfinished_operation": "iteration0 optimization_render/vae_decode, exact asynchronous kernel unknown",
+      "peak_torch_allocated_bytes": 8323352064,
+      "torch_allocation_limit_bytes": 8589934592
+    }
+  ],
+  "all_approvals_consumed": true,
+  "no_repeat_authorization": true
+}
