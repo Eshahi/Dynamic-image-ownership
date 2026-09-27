@@ -42,17 +42,27 @@ def run(manifest_path, output):
     package.unlinked(progress)
     with progress.open("xb") as journal:
         current = {"phase": "worker_started"}
+        comparisons = ["control_source", "candidate_source", "candidate_control"]
+        images_expected = ["source", "control", "candidate"]
+        inventory = {stage+":"+name: "pending" for stage, names in
+                     (("classical", comparisons), ("codes", images_expected), ("lpips", comparisons))
+                     for name in names}
         def record(phase, **values):
+            if "cell" in values:
+                cell, status = values["cell"], values["cell_status"]
+                if cell not in inventory or status not in ("running", "completed", "failed"):
+                    raise ValueError("unknown outcome cell/status")
+                inventory[cell] = status
             append_progress(journal, started, phase, **values)
             current["phase"] = phase
         record("worker_started", manifest_sha256=package.sha(package.canonical(manifest)),
-               expected_comparisons=["control_source", "candidate_source", "candidate_control"],
-               expected_codes=["source", "control", "candidate"],
-               initial_inventory_status="all-pending-not-zero", scientific_acceptance=False)
+               expected_cells=inventory, scientific_acceptance=False,
+               missing_terminal_report="interrupted-or-incomplete-never-completed")
         result = {"run_id": package.RUN, "experiment_id": package.EXPERIMENT,
                   "manifest_sha256": package.sha(package.canonical(manifest)),
                   "git_commit": manifest["git_commit"], "input_sha256": pins,
                   "quality": {}, "codes": {}, "drift": {}, "blind_detection": "NOT_RUN",
+                  "cell_inventory": inventory,
                   "scientific_acceptance": False, "scope": "one-source-exploratory-local-only"}
         try:
             def blocked(*args, **kwargs): raise RuntimeError("network prohibited")
@@ -101,16 +111,17 @@ def run(manifest_path, output):
                 "torch_limit_bytes": limit, "available_ram_bytes": available_ram,
                 "free_disk_bytes": disk, "gpu": torch.cuda.get_device_name(), "cuda": torch.version.cuda}
             for label, reference, candidate in PAIRS:
-                record("classical_started", comparison=label)
+                record("classical_started", comparison=label, cell="classical:"+label, cell_status="running")
                 result["quality"][label] = classical(images[reference], images[candidate])
-                record("classical_complete", comparison=label, metrics=result["quality"][label])
+                record("classical_complete", comparison=label, metrics=result["quality"][label],
+                       cell="classical:"+label, cell_status="completed")
             # Sequential models keep the frozen 4GiB estimate conservative.
             record("clip_load_started")
             encoder = PinnedClipEncoder.from_checkpoint(STABLE/package.ASSETS/"clip/ViT-B-32.pt", device="cuda")
             result["clip_identity"] = encoder.identity
             record("clip_load_completed")
             for name in ("source", "control", "candidate"):
-                record("clip_phash_started", image=name)
+                record("clip_phash_started", image=name, cell="codes:"+name, cell_status="running")
                 features = encoder.extract_features(images[name])
                 code, ws = derive_ws(features, bytes(32), package.OWNER)
                 phash, keys = bind_canonical_image(images[name].tobytes(), 500, 333, code.packed, package.OWNER)
@@ -120,24 +131,29 @@ def run(manifest_path, output):
                             "phash_minimum_margin": phash.minimum_selected_margin}
                 result["codes"][name] = observed
                 if name == "source" and any(observed[k] != v for k, v in source_enrollment.items()):
-                    record("source_replay_failed", image=name, observed=observed)
+                    record("source_replay_failed", image=name, observed=observed,
+                           cell="codes:"+name, cell_status="failed")
                     raise ValueError("source enrollment replay failed; no relabeling")
                 if name != "source":
                     result["drift"][name] = drift(bytes.fromhex(source_enrollment["q"]),
                         bytes.fromhex(source_enrollment["h"]), code.packed, phash.packed)
                 record("clip_phash_complete", image=name, observed=observed,
-                       drift=result["drift"].get(name), source_replay_passed=name == "source")
+                       drift=result["drift"].get(name), source_replay_passed=name == "source",
+                       cell="codes:"+name, cell_status="completed")
             del encoder, features; gc.collect(); torch.cuda.empty_cache()
             record("lpips_load_started")
             metric = load_lpips(STABLE/package.ASSETS/"alexnet/alexnet-owt-7be5be79.pth", "cuda")
             record("lpips_load_completed")
             for label, reference, candidate in PAIRS:
-                record("lpips_started", comparison=label)
+                record("lpips_started", comparison=label, cell="lpips:"+label, cell_status="running")
                 metrics = result["quality"][label]
                 metrics["lpips_alex_v01"] = lpips_distance(metric, images[reference], images[candidate])
                 metrics["target_diagnostics"] = target_checks(metrics)
-                record("lpips_complete", comparison=label, metrics=metrics)
+                record("lpips_complete", comparison=label, metrics=metrics,
+                       cell="lpips:"+label, cell_status="completed")
             torch.cuda.synchronize()
+            if any(status != "completed" for status in inventory.values()):
+                raise ValueError("incomplete fixed outcome inventory")
             result["status"] = "completed_diagnostic_only"
             result["resources_final"] = {"peak_torch_allocated_bytes": torch.cuda.max_memory_allocated(),
                 "peak_torch_reserved_bytes": torch.cuda.max_memory_reserved(),
