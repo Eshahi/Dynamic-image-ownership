@@ -20,6 +20,11 @@ except ImportError:
 
 
 class RefinementPackageTests(unittest.TestCase):
+    def test_tracked_configuration_matches_exact_typed_recipe(self):
+        root=Path(__file__).resolve().parents[1]
+        package.policy((root/package.POLICY).read_bytes())
+        self.assertEqual(package.custody.strict_json_bytes((root/package.RETENTION).read_bytes()),package.CUSTODY)
+
     def test_retained_header_is_bounded_typed_grid_not_pickle(self):
         header=canonical({"latent":{"dtype":"F32","shape":[1,4,48,64],"data_offsets":[0,49152]}})
         header=header+b' '*(72-len(header))
