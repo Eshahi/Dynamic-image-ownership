@@ -25,12 +25,12 @@ class RefinementPolicy:
     maximum_seconds: float
 
     def __post_init__(self):
-        for name,low,high in (("iterations",1,128),("maximum_evaluations",2,1024),
+        for name,low,high in (("iterations",1,512),("maximum_evaluations",2,4096),
                               ("maximum_backtracks",0,16)):
             if type(getattr(self,name)) is not int or not low<=getattr(self,name)<=high:
                 raise EmbeddingError("invalid refinement "+name)
         for name,low,high in (("learning_rate",1e-8,100),("maximum_displacement_l2",1e-8,1000),
-                ("latent_penalty",0,1000),("mse_tolerance",0,1),("maximum_seconds",1e-6,1100)):
+                ("latent_penalty",0,1000),("mse_tolerance",0,1),("maximum_seconds",1e-6,1800)):
             _real(getattr(self,name),"refinement "+name,low,high)
 
 

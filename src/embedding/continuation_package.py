@@ -18,7 +18,7 @@ OUTPUTS = ["outputs/continuation.json", "logs/continuation-progress.jsonl", "log
            *["outputs/"+arm+".png" for arm in ARMS]]
 METRICS = ["mse_rgb01", "psnr_db", "ssim_rgb", "lpips_alex_v01", "q_hamming", "h_hamming",
            "retained_start_pixel_replay", "final_gradient_l2", "decoder_evaluations"]
-BUDGET = {"max_seconds": 1200, "max_usd": 0, "hourly_usd": 0}
+BUDGET = {"max_seconds": 3600, "max_usd": 0, "hourly_usd": 0}
 RESOURCES = {"vram_mib": 9216, "ram_mib": 12288, "disk_mib": 4096}
 REQUIRED = custody.REQUIRED | VALIDATION | frozenset({SCRIPT, CHILD, POLICY, RETENTION,
     "scripts/prepare_c4_continuation.py", "src/embedding/continuation_package.py",
@@ -29,14 +29,14 @@ REQUIRED = custody.REQUIRED | VALIDATION | frozenset({SCRIPT, CHILD, POLICY, RET
     "scripts/base_noise_reference.py", "scripts/pixel_dct_control.py",
     "research/a6-candidate-model-assets.json", SPEC+"/experiment-spec.yaml",
     "research/c4-decoder-continuation-design-20260927.md"})
-PARAMETERS = {"profile": "same-start-original-anchor-decoder-continuation-v1", "arms": list(ARMS),
-    "control": {"iterations": 128, "maximum_evaluations": 513, "maximum_backtracks": 2,
+PARAMETERS = {"profile": "same-start-original-anchor-decoder-continuation-long-v2", "arms": list(ARMS),
+    "control": {"iterations": 512, "maximum_evaluations": 2049, "maximum_backtracks": 2,
         "learning_rate": 1., "maximum_displacement_l2": 80., "latent_penalty": 0.,
-        "mse_tolerance": .0003, "maximum_seconds": 430.},
-    "adaptive": {"iterations": 128, "maximum_evaluations": 513, "maximum_backtracks": 16,
+        "mse_tolerance": .0003, "maximum_seconds": 1500.},
+    "adaptive": {"iterations": 512, "maximum_evaluations": 2049, "maximum_backtracks": 16,
         "initial_step": .25, "minimum_step": 2**-16, "maximum_step": 1., "armijo": .0001,
         "radius_l2": 80., "gradient_tolerance": 1e-12, "objective_tolerance": .0003,
-        "maximum_seconds": 430.}, "maximum_seconds": 900.}
+        "maximum_seconds": 1500.}, "maximum_seconds": 3060.}
 PARENT = ".thesis-build/c4-runs/C4-refined-target-development/c4-refined-target-dev-001"
 PINS = {
     "manifest.json": "2d3cde49d1c0857e0464002e6a863771f7d556859c57d7724fb8d5aa4e9baa21",

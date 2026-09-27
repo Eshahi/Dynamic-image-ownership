@@ -25,17 +25,26 @@ No fresh encode,UNet prediction,DDIM inverse,watermark or training. The reused
 loader still loads its pinned full SD snapshot/conditioning; that does not
 authorize use of unused UNet. Exact closure binds all imported dependencies.
 
-Each arm:128iterations/513optimizer decoderNFE/128backwards, plus ONE final
+## LONG revision after actual conditional user reply
+
+The user approved only conditionally with a request to raise time toward an
+optimum. The earlier20-minute f399 manifest is NOT authorized. Revise BOTH arms
+symmetrically to the following prospective finite ceilings; obtain a new exact
+decision after delta review. More time/steps cannot certify a global optimum.
+Do not restart an early-stopped arm or bypass existing target/gradient/line-search
+or radius stops. This is the same policy-bundle comparison, not unlimited tuning.
+
+Each arm:512iterations/2049optimizer decoderNFE/512backwards, plus ONE final
 image/gradient evaluation and backward. Actual final-state gradient is measured.
-Each430s INCLUDES final measurement/persistence; composition900s. Fixed order,
-900>2*430,no borrowed evaluation/time quota. Replay/persistence overhead also
-consumes global time: refuse BEFORE either optimized arm if its entire430s
+Each1500s INCLUDES final measurement/persistence; composition3060s. Fixed order,
+3060>2*1500,no borrowed evaluation/time quota. Replay/persistence overhead also
+consumes global time: refuse BEFORE either optimized arm if its entire1500s
 allowance no longer fits. This is a retained package failure, not a shortened
 arm or evidence against that optimizer. Report actual usage and early stops;
 equal ceilings do not imply equal work. Every evaluated/rejected state is saved.
-Normal state bound1034:2shared+2armstarts+1026evaluations+2optimizerfinals+
-2finalmeasurements. Reserve1040 for bounded refusals;51,201,280bytes at49232each,
-below64MiB. Journal8MiB with failure reserve. Exclusive fsynced persistence;
+Normal state bound4106:2shared+2armstarts+4098evaluations+2optimizerfinals+
+2finalmeasurements. Reserve4112 for bounded refusals;202,441,984bytes at49232each,
+below256MiB. Journal32MiB with failure reserve. Exclusive fsynced persistence;
 terminal-named row does not prove normal return or successful runner outcome.
 
 Three saved native PNGs:retained_start,fixed_continuation,adaptive_continuation.
@@ -48,7 +57,7 @@ Local existing WSL environment;no downloads/installs/cost. Torch9216MiB cap,
 freeVRAM>=10240MiB,RAMavailable>=13GiB,disk>=4GiB. Recorded GPU total is below
 12GiB,so12GiB with headroom is not runnable. Prior allocation~8.47GB fits9GiB,
 new fit/time unproved. RAM12GiB/disk4GiB are estimates,not whole-system caps.
-Linux1140s(+10sTERMkill),parent1190s,official1200s include loads and metrics.
+Linux3540s(+10sTERMkill),parent3590s,official3600s include loads and metrics.
 Review complete package,clean commit,design helper and preview before exact
 user question. OrdinaryCPU tests are not scientific compute or approval.
 

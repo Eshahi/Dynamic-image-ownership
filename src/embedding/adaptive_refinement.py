@@ -25,14 +25,14 @@ class AdaptivePolicy:
     maximum_seconds: float
 
     def __post_init__(self):
-        for name,lo,hi in (("iterations",1,256),("maximum_evaluations",2,2048),
+        for name,lo,hi in (("iterations",1,512),("maximum_evaluations",2,4096),
                            ("maximum_backtracks",0,20)):
             if type(getattr(self,name)) is not int or not lo<=getattr(self,name)<=hi:
                 raise EmbeddingError("invalid adaptive "+name)
         for name,lo,hi in (("minimum_step",1e-12,100),("initial_step",1e-12,100),
                 ("maximum_step",1e-12,100),("armijo",1e-12,.5),("radius_l2",1e-8,1000),
                 ("gradient_tolerance",0,1),("objective_tolerance",0,1),
-                ("maximum_seconds",1e-6,1100)):
+                ("maximum_seconds",1e-6,1800)):
             _real(getattr(self,name),"adaptive "+name,lo,hi)
         if not self.minimum_step<=self.initial_step<=self.maximum_step:
             raise EmbeddingError("ordered adaptive step limits required")

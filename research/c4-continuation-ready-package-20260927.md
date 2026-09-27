@@ -1,5 +1,9 @@
 # Reviewed decoder-continuation execution package, pending user decision
 
+Historical20-minute package below is SUPERSEDED, not approved: the actual user
+answered conditionally, requesting a longer search toward an optimum. A bounded
+LONG revision needs its own exact manifest/review/decision. Nothing was executed.
+
 Author /root; 2026-09-27. Issue #18 / draft PR #67. Latest user instruction
 continues the exclusive reconstruction-quality focus; all unrelated tasks remain
 paused. This receipt is NOT an execution approval or claim of improved quality.

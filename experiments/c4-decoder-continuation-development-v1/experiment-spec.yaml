@@ -33,11 +33,12 @@
   "controls": [
     "Hash-pinned failed-parent metadata and exact original anchor/start",
     "Fixed arm order retained_start,fixed_continuation,adaptive_continuation",
-    "Equal128iterations/513optimizerNFE/128backward ceilings plus one final gradient/image evaluation/backward per optimized arm",
-    "Same430s arm/900s composition;unused quotas not transferred",
+    "Equal512iterations/2049optimizerNFE/512backward ceilings plus one final gradient/image evaluation/backward per optimized arm",
+    "Same1500s arm/3060s composition;unused quotas not transferred",
     "Adaptive engineering choices initial.25/min2^-16/max1/Armijo1e-4/16backtracks frozen prospectively;whole policy bundle not one-factor contrast",
     "No training,watermark,download,install or paid compute",
-    "Actual new exact user approval required;old approvals consumed"
+    "Actual new exact user approval required;old approvals consumed",
+    "LONG revision requested by user's conditional reply; previous20minute package was not executed or authorized; no global-optimum guarantee."
   ],
   "ablations": [
     "Retained-start replay",
@@ -47,7 +48,7 @@
   "seeds": [
     0
   ],
-  "stopping_rule": "One c4-decoder-continuation-dev-001 only. Official1200s,parent1190s,Linux1140s+10sTERMkill. Composition900s;each arm430s INCLUDING finalmeasurement/persistence,128iterations/513optimizerNFE+1finalNFE/128backwards+1finalbackward. Actual decoderstarts ceiling1028 per arm. Radius80,continuousMSE.0003,gradient1e-12. Torch9216MiB;freeVRAM>=10240MiB,RAMavailable>=13GiB,disk>=4GiB.1040states/64MiB,journal8MiB. Any custody/replay/profile/safety/quota/OOM/time exception stops with partial evidence,no retry/fallback. Normal line-search/numeric-budget stops still receive metrics.",
+  "stopping_rule": "One c4-decoder-continuation-dev-001 only after NEW exact LONG approval. Official3600s,parent3590s,Linux3540s+10sTERMkill. Composition3060s;each arm1500s INCLUDING finalmeasurement/persistence and pre-arm fullwindow refusal,512iterations/2049optimizerNFE+1finalNFE/512backwards+1finalbackward. Actual decoderstarts ceiling4100 per arm. Radius80,continuousMSE.0003,gradient1e-12 and original line-search stops unchanged. Moretime does NOT bypass earlystops or authorize restart. Torch9216MiB;freeVRAM>=10240MiB,RAMavailable>=13GiB,disk>=4GiB.4112states/256MiB,journal32MiB. Any custody/replay/profile/safety/quota/OOM/time exception stops with partial evidence,no retry/fallback. Normal line-search/numeric-budget stops still receive metrics. No global optimum claim.",
   "acceptance_rule": "Complete exploratory paired description only. Report adaptive-minus-fixed MSE,all three source quality metrics,actual consumed work and common-NFE progress. Equal ceilings are not equal work. Improved MSE alone is not joint-target attainment. Small final gradient plus high loss without active budget/radius may motivate an explicit architecture amendment,not a universal decoder ceiling. No populationCI,methodsuccess,blinddetection,C4closure,native2K/full6900 acceptance.",
   "negative_result_policy": "Preserve failed parent,all rejected/accepted states,PNGs and pending/failed cells;missing is not zero. No winner-only report or metric reruns. Terminal-named event is insufficient:normal return,consistent report and official outcome required.",
   "analysis": {

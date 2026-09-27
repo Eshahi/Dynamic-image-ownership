@@ -25,6 +25,21 @@ class RefinementPackageTests(unittest.TestCase):
         package.policy((root/package.POLICY).read_bytes())
         self.assertEqual(package.custody.strict_json_bytes((root/package.RETENTION).read_bytes()),package.CUSTODY)
 
+    def test_long_revision_is_still_bounded_and_includes_final_measurement(self):
+        from dataclasses import replace
+        from src.embedding.proposed import EmbeddingError
+        policy=package.policy(canonical(package.PARAMETERS))
+        for profile in (policy.control,policy.adaptive):
+            self.assertEqual(profile.iterations,512)
+            self.assertEqual(profile.maximum_evaluations+1,2050)
+            self.assertEqual(profile.maximum_seconds,1500.)
+            for change in ({'iterations':513},{'maximum_evaluations':4097},{'maximum_seconds':1801},
+                           {'iterations':True}):
+                with self.assertRaises(EmbeddingError):replace(profile,**change)
+        self.assertEqual(package.BUDGET['max_seconds'],3600)
+        self.assertLess(4112*49232,worker.STATE_QUOTA)
+        self.assertEqual(worker.JOURNAL_QUOTA,32*1024**2)
+
     def test_retained_header_is_bounded_typed_grid_not_pickle(self):
         header=canonical({"latent":{"dtype":"F32","shape":[1,4,48,64],"data_offsets":[0,49152]}})
         header=header+b' '*(72-len(header))
@@ -86,14 +101,14 @@ class RefinementPackageTests(unittest.TestCase):
         altered = copy.deepcopy(package.PARAMETERS); altered["unreviewed"] = True
         with self.assertRaises(ValueError): package.policy(canonical(altered))
         observed = package.policy(canonical(package.PARAMETERS))
-        self.assertEqual(observed.control.maximum_evaluations, 1+128*(1+3))
-        self.assertEqual(observed.adaptive.maximum_evaluations, 513)
+        self.assertEqual(observed.control.maximum_evaluations, 1+512*(1+3))
+        self.assertEqual(observed.adaptive.maximum_evaluations, 2049)
         self.assertEqual(observed.control.latent_penalty, 0.)
 
     @unittest.skipUnless(os.name == "nt", "Windows launcher path contract")
     def test_launcher_exact_offline_array_and_timeout(self):
         args = command(Path("W:/owned manifest.json"), Path("W:/owned outputs"))
-        self.assertIn("1140s", args); self.assertIn("--kill-after=10s", args)
+        self.assertIn("3540s", args); self.assertIn("--kill-after=10s", args)
         self.assertIn("/mnt/w/owned manifest.json", args)
         self.assertIn(package.CHILD, args); self.assertIn("/usr/bin/env", args)
         self.assertIn("-i", args); self.assertIn("HF_HUB_OFFLINE=1", args)
@@ -144,7 +159,7 @@ class RefinementPackageTests(unittest.TestCase):
                     worker.persist_state(root, counter, "fixed_continuation", {}, state, lambda *a, **k: None)
             self.assertEqual(len(list(root.iterdir())), 1)
             with self.assertRaisesRegex(ValueError, "count"):
-                worker.persist_state(root, [1040, 0], "retained_start", {}, state, lambda *a, **k: None)
+                worker.persist_state(root, [4112, 0], "retained_start", {}, state, lambda *a, **k: None)
             with self.assertRaisesRegex(ValueError, "name"):
                 worker.persist_state(root, counter, "../escape", {}, state, lambda *a, **k: None)
 

@@ -28,7 +28,7 @@ class ContinuationPolicy:
                 or c.mse_tolerance != a.objective_tolerance
                 or c.maximum_seconds != a.maximum_seconds):
             raise EmbeddingError("same objective, anchor radius and equal ceilings required")
-        _real(self.maximum_seconds, "continuation duration", 1e-6, 1100)
+        _real(self.maximum_seconds, "continuation duration", 1e-6, 3300)
 
 
 def compare(backend, source, start, anchor, policy, *, progress, save_arm, save_state):

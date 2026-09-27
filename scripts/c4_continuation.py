@@ -15,8 +15,8 @@ from src.embedding import continuation_package as package
 from src.embedding import quality_package as custody
 from scripts.c4_saved_pair import fresh, failed_cells
 STABLE = Path("/mnt/w/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5")
-STATE_QUOTA = 64*1024**2
-JOURNAL_QUOTA = 8*1024**2
+STATE_QUOTA = 256*1024**2
+JOURNAL_QUOTA = 32*1024**2
 
 
 def cells():
@@ -26,7 +26,7 @@ def cells():
 
 def persist_state(directory, counter, arm, row, state, record):
     """Exclusive generated-tensor safetensors, fixed quota, durable hash record."""
-    if arm not in package.ARMS or counter[0] >= 1040:
+    if arm not in package.ARMS or counter[0] >= 4112:
         raise ValueError("state name/count exceeds fixed inventory")
     from safetensors.torch import save
     raw = save({"latent": state.detach().cpu().contiguous()})
