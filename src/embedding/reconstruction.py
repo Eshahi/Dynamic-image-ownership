@@ -17,6 +17,9 @@ def localization(backend, source, base_noise, *, maximum_side, progress=None):
     its output as a replacement candidate after seeing metric results.
     """
     torch = _torch()
+    if (type(maximum_side) is not int or not 256 <= maximum_side <= 8192
+            or maximum_side % 64):
+        raise EmbeddingError("maximum_side must be exact int256..8192, multiple64")
     padded = padded_source(source, maximum_side)
     shape = (1, 4, padded.shape[-2]//8, padded.shape[-1]//8)
     _finite_tensor(base_noise, "fixed base noise")

@@ -68,6 +68,13 @@ class ReconstructionTests(unittest.TestCase):
         with self.assertRaises(RuntimeError): localization(backend,self.source,self.noise,maximum_side=256,progress=broken)
         self.assertEqual(backend.calls, [])
 
+    def test_invalid_resolution_cap_rejects_before_backend(self):
+        for cap in (float("nan"), float("inf"), 256.0, True, 0, 255, 257, 8193, 10**100):
+            backend = self.backend()
+            with self.subTest(cap=cap), self.assertRaises(EmbeddingError):
+                localization(backend,self.source,self.noise,maximum_side=cap)
+            self.assertEqual(backend.calls, [])
+
     def test_component_decode_uses_bound_scale_and_virtual_decoder(self):
         backend = DiffusersComponents.__new__(DiffusersComponents)
         backend.condition = torch.zeros(1)
