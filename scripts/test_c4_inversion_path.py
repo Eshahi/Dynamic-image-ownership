@@ -297,5 +297,20 @@ class PathTests(unittest.TestCase):
         with self.assertRaisesRegex(EmbeddingError,"concrete Diffusers"):
             PinnedDDIMPath(self.backend)
 
+    def test_same_prediction_function_different_owner_refused_before_model(self):
+        for checkpointed in (False,True):
+            self.setUp()
+            other=PathTests();other.setUp()
+            if checkpointed:self.checkpointed_path();other.checkpointed_path()
+            self.backend._predict=other.backend._predict
+            with self.subTest(checkpointed=checkpointed):
+                with self.assertRaisesRegex(EmbeddingError,"backend identity"):
+                    self.run_path()
+                with self.assertRaisesRegex(EmbeddingError,"exact backend owner"):
+                    PinnedDDIMPath(self.backend)
+                self.assertEqual(self.backend.unet.calls,[])
+                self.assertEqual(other.backend.unet.calls,[])
+                self.assertEqual(len(self.backend.unet._forward_pre_hooks),0)
+
 
 if __name__ == "__main__": unittest.main()

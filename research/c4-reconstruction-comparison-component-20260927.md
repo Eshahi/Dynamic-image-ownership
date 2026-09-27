@@ -54,8 +54,11 @@ The exact concrete loader profiles `DiffusersComponents` and
 `CheckpointedComponents` are accepted; arbitrary subclasses are refused. The
 path delegates prediction through the bound backend `_predict` function, preserving
 the already-reviewed nonreentrant activation checkpoint profile instead of making
-direct UNet calls that silently discard it. Changing that function after binding
-is refused. This is software compatibility, not measured learned-model parity.
+direct UNet calls that silently discard it. Both the function and exact bound
+backend owner are checked before binding and before each prediction. A same-function
+method from another backend is refused; checking only `__func__` would allow another
+model to evade custody and forward accounting. This is software compatibility, not
+measured learned-model parity.
 
 Per-inverse-arm mathematical NFE ceiling includes forward replay, with separate backward counts.
 Checkpoint backward recomputation is additional model work, not free NFE. A temporary

@@ -62,6 +62,8 @@ class PinnedDDIMPath:
         self.settings = backend.settings
         self.model = backend.unet
         self.scheduler = backend.scheduler
+        if getattr(backend._predict,"__self__",None) is not backend:
+            raise EmbeddingError("predictor method must bind exact backend owner")
         self._predict_function = backend._predict.__func__
         self.checkpoint_profile = backend.profile_id if type(backend) is CheckpointedComponents else "disabled"
         self.condition = backend.condition.detach().clone()
@@ -98,6 +100,7 @@ class PinnedDDIMPath:
                 or b.scheduler is not self.scheduler or tuple(b.times) != self.times
                 or self.steps != self._bound_steps
                 or self.terminal_alpha != self._bound_steps[-1].pair.previous_alpha
+                or getattr(b._predict,"__self__",None) is not b
                 or getattr(b._predict,"__func__",None) is not self._predict_function):
             raise EmbeddingError("bound backend identity/schedule drift")
         if any(self.scheduler.config.get(k) != v for k,v in SCHEDULER_PROFILE.items()):
