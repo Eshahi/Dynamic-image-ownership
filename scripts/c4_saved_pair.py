@@ -132,6 +132,10 @@ def run(manifest_path, output):
         except Exception as error:
             result["status"] = "failed_retained_partial"
             result["error_type"] = type(error).__name__
+            if "torch" in locals() and torch.cuda.is_initialized():
+                result["resources_failure"] = {
+                    "peak_torch_allocated_bytes": torch.cuda.max_memory_allocated(),
+                    "peak_torch_reserved_bytes": torch.cuda.max_memory_reserved()}
             record("failed", error_type=type(error).__name__)
             code = 1
         result["elapsed_seconds"] = time.monotonic()-started

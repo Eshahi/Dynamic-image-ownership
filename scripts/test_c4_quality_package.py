@@ -2,6 +2,7 @@
 import copy
 import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -9,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from src.embedding import quality_package as package
 from scripts.run_c4_saved_pair import command
+from scripts.c4_saved_pair import run
 
 
 def fixture():
@@ -77,6 +79,28 @@ class PackageTests(unittest.TestCase):
         self.assertIn("-i", args)
         self.assertEqual(args[-4:], ["--manifest", "/mnt/c/owned/manifest.json", "--output-dir", "/mnt/c/owned/out"])
         self.assertFalse(any("--execute" in arg for arg in args))
+
+    def test_failure_retention_before_any_model_import(self):
+        manifest, snapshots = fixture()
+        with tempfile.TemporaryDirectory() as folder:
+            output = Path(folder).absolute()
+            for name in ("outputs", "logs", "checkpoints"):
+                (output/name).mkdir()
+            with patch.object(package, "inputs", return_value=(manifest, snapshots, {})), \
+                 patch.object(package, "read", return_value=b"owned"), \
+                 patch("scripts.c4_saved_pair.importlib.metadata.distributions", return_value=[]), \
+                 patch("scripts.c4_saved_pair.socket.socket.connect"), \
+                 patch("scripts.c4_saved_pair.socket.socket.connect_ex"), \
+                 patch("scripts.c4_saved_pair.socket.create_connection"):
+                # Exact environment mismatch stops before retained decode/Torch.
+                self.assertEqual(run(output/"owned-manifest", output), 1)
+            result = json.loads((output/"outputs/saved-pair-quality.json").read_bytes())
+            self.assertEqual(result["status"], "failed_retained_partial")
+            self.assertEqual(result["quality"], {})
+            self.assertEqual(result["error_type"], "ValueError")
+            self.assertFalse(result["scientific_acceptance"])
+            lines = (output/"logs/saved-pair-progress.jsonl").read_text().splitlines()
+            self.assertEqual(json.loads(lines[-1])["phase"], "failed")
 
 
 if __name__ == "__main__": unittest.main()
