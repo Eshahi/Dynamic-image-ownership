@@ -75,8 +75,11 @@ This report is a direct unaggregated transcription of declared JSON outcomes.
 The generic paired-seed statistics helper is not applied: there is one dependent
 triplet and no preregistered seed-level aggregation or inferential comparison.
 The exact spec, worker and raw outputs remain available for reproduction/audit.
-Independent retained-result review is requested; no results gate or C4 closure
-is claimed before that review. Even a complete negative-result audit cannot
+Actual independent `/root/b3_intake_review` found no retained-evidence or
+transcription blocker at report9ed913e; see
+`audits/c4-saved-pair-results-review-20260927/review.md`. Image metrics were not
+independently rerun; no numerical-parity claim. No lifecycle results gate or C4
+closure is claimed. Even a complete negative-result audit cannot
 establish the missing C4 quality success or blind detector deliverables.
 
 Next bounded work: inspect the matched reconstruction implementation and design
