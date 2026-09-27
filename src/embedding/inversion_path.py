@@ -61,6 +61,27 @@ class PinnedDDIMPath:
         self.terminal_alpha = self.steps[-1].pair.previous_alpha
         self._bound_steps = self.steps
         self._validate()
+        self._module_binding, self._tensor_binding = self._fingerprint_model()
+        # Retain original objects, so a removed object's numeric id cannot be
+        # recycled into a false identity match during the path's lifetime.
+        self._bound_modules = tuple(module for _,module in self.model.named_modules(remove_duplicate=False))
+        self._bound_tensors = tuple(tensor for _,tensor in self.model.named_parameters(remove_duplicate=False)) + tuple(
+            tensor for _,tensor in self.model.named_buffers(remove_duplicate=False))
+
+    def _fingerprint_model(self):
+        modules = tuple((name,id(module),type(module),module.training)
+                        for name,module in self.model.named_modules(remove_duplicate=False))
+        tensors = []
+        for kind,iterator in (("parameter",self.model.named_parameters(remove_duplicate=False)),
+                              ("buffer",self.model.named_buffers(remove_duplicate=False))):
+            for name,tensor in iterator:
+                try:
+                    version = tensor._version
+                except RuntimeError as error:
+                    raise EmbeddingError("untracked inference tensor cannot bind fixed predictor") from error
+                tensors.append((kind,name,id(tensor),version,tuple(tensor.shape),tuple(tensor.stride()),
+                                tensor.dtype,tensor.device,tensor.requires_grad))
+        return modules,tuple(tensors)
 
     def _validate(self):
         torch = _torch()
@@ -97,6 +118,9 @@ class PinnedDDIMPath:
             if (buffer.device != condition.device or buffer.requires_grad
                     or (buffer.is_floating_point() and buffer.dtype != torch.float32)):
                 raise EmbeddingError("UNet buffer profile drift")
+        if hasattr(self,"_module_binding"):
+            if self._fingerprint_model() != (self._module_binding,self._tensor_binding):
+                raise EmbeddingError("bound UNet module/tensor identity or mutation drift")
 
     def predict(self, state, step):
         self._validate()

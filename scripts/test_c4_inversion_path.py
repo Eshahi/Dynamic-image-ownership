@@ -143,6 +143,40 @@ class PathTests(unittest.TestCase):
         with self.assertRaises(EmbeddingError):self.run_path()
         self.assertEqual(self.backend.unet.calls,[])
 
+    def test_parameter_buffer_replacement_and_inplace_mutation_refused(self):
+        def replace_parameter():
+            self.backend.unet.slope=torch.nn.Parameter(torch.tensor(.7),requires_grad=False)
+        def replace_buffer():self.backend.unet.offset=torch.tensor(.3)
+        def mutate_parameter():self.backend.unet.slope.add_(.1)
+        def mutate_buffer():self.backend.unet.offset.add_(.1)
+        for mutation in (replace_parameter,replace_buffer,mutate_parameter,mutate_buffer):
+            self.setUp();mutation()
+            with self.subTest(mutation=mutation.__name__),self.assertRaisesRegex(EmbeddingError,"identity or mutation"):
+                self.run_path()
+            self.assertEqual(self.backend.unet.calls,[])
+
+    def test_same_profile_new_child_is_refused(self):
+        self.backend.unet.add_module("identity",torch.nn.Identity())
+        with self.assertRaisesRegex(EmbeddingError,"identity or mutation"):
+            self.run_path()
+        self.assertEqual(self.backend.unet.calls,[])
+
+    def test_forward_side_buffer_mutation_is_not_accepted_prediction(self):
+        original=self.backend.unet.forward
+        def forward(*args,**kwargs):
+            result=original(*args,**kwargs);self.backend.unet.offset.add_(.1);return result
+        self.backend.unet.forward=forward
+        with self.assertRaisesRegex(EmbeddingError,"identity or mutation"):
+            self.run_path()
+        self.assertEqual(len(self.backend.unet.calls),1)
+        self.assertEqual(self.events[-1]["phase"],"evaluation_started")
+
+    def test_untracked_inference_weight_is_not_silently_bound(self):
+        with torch.inference_mode():
+            self.backend.unet.offset=torch.tensor(.3)
+        with self.assertRaisesRegex(EmbeddingError,"untracked inference"):
+            PinnedDDIMPath(self.backend)
+
     def test_invalid_policy_resources_and_priors_reject_before_model(self):
         for kwargs in ({"maximum_evaluations":True},{"maximum_evaluations":2},
                 {"maximum_seconds":float("nan")},{"roundtrip_tolerance":-1},

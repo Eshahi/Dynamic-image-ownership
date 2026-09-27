@@ -23,6 +23,17 @@ authenticity or adversarial-module isolation follows: the future exact loader
 must still bind actual asset hashes and prove conditioning/model provenance.
 Eval/frozen state alone does not certify bitwise CUDA determinism.
 
+Following an actual independent blocking finding, named child/parameter/buffer
+identities, shapes/strides and Torch mutation versions are also bound at constructor
+and checked before/after every prediction. Original object references are retained
+to prevent identity-id recycling; removed/replaced or ordinary in-place updated
+tensors cannot silently become a different predictor. Pinned eager tensors must
+expose Torch's `_version`; untracked inference-mode tensors are refused. This is
+an intentionally pinned-runtime guard, not a public-portable mutation API or a
+content hash. Deliberate `.data`/raw-storage edits bypassing Torch versioning and
+hostile Python method monkeypatches are outside this accidental-drift guarantee;
+manifest source/asset checks and trusted worker ownership remain mandatory.
+
 Inversion visits pairs in reverse denoising order; reconstruction replay visits
 the same pairs in forward order with the same bound timestep/condition. Pair alpha
 continuity is checked. For the existing10-step/.2suffix this is inversion `[1,101]`
