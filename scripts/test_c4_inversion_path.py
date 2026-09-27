@@ -138,6 +138,25 @@ class PathTests(unittest.TestCase):
             self.run_path(policy=policy,prior_means=(self.target.double(),self.target))
         self.assertEqual(self.backend.unet.calls,[])
 
+    def test_effective_transition_prior_is_bound_to_each_pair_target(self):
+        self.run_path(policy=InversionPolicy(method="guided_coordinate",prior_weight=.0001),
+                      transition_prior=True)
+        rows=[row for row in self.events if row["phase"]=="pair_started"]
+        self.assertGreaterEqual(len(rows),1)
+        for row in rows:
+            step=self.path.steps[row["denoising_index"]]
+            ratio=step.pair.alpha/step.pair.previous_alpha
+            self.assertAlmostEqual(row["prior_beta"],1-ratio)
+            self.assertAlmostEqual(row["prior_mean_scale"],ratio**.5)
+            self.assertEqual(row["prior_mode"],"effective_gaussian_transition_l2")
+        self.setUp()
+        for kwargs in ({"transition_prior":1},
+                {"transition_prior":True,"prior_means":(self.target,self.target)},
+                {"transition_prior":True,"policy":InversionPolicy(method="guided_coordinate",prior_weight=.1,prior_beta=.5)}):
+            with self.assertRaises(EmbeddingError):
+                self.run_path(**kwargs)
+        self.assertEqual(self.backend.unet.calls,[])
+
     def test_bound_step_identity_cannot_drift(self):
         self.path.steps=tuple(reversed(self.path.steps))
         with self.assertRaises(EmbeddingError):self.run_path()

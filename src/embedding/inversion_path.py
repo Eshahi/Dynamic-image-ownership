@@ -26,6 +26,23 @@ class PathStep:
     pair: DDIMPair
 
 
+def module_fingerprint(model):
+    """Pinned accidental-drift identity/version guard, not a content hash."""
+    modules = tuple((name,id(module),type(module),module.training)
+                    for name,module in model.named_modules(remove_duplicate=False))
+    tensors = []
+    for kind,iterator in (("parameter",model.named_parameters(remove_duplicate=False)),
+                          ("buffer",model.named_buffers(remove_duplicate=False))):
+        for name,tensor in iterator:
+            try:
+                version = tensor._version
+            except RuntimeError as error:
+                raise EmbeddingError("untracked inference tensor cannot bind fixed predictor") from error
+            tensors.append((kind,name,id(tensor),version,tuple(tensor.shape),tuple(tensor.stride()),
+                            tensor.dtype,tensor.device,tensor.requires_grad))
+    return modules,tuple(tensors)
+
+
 class PinnedDDIMPath:
     """Bridge to already-loaded, frozen fp32 SD1.5 components; no model loads.
 
@@ -69,19 +86,7 @@ class PinnedDDIMPath:
             tensor for _,tensor in self.model.named_buffers(remove_duplicate=False))
 
     def _fingerprint_model(self):
-        modules = tuple((name,id(module),type(module),module.training)
-                        for name,module in self.model.named_modules(remove_duplicate=False))
-        tensors = []
-        for kind,iterator in (("parameter",self.model.named_parameters(remove_duplicate=False)),
-                              ("buffer",self.model.named_buffers(remove_duplicate=False))):
-            for name,tensor in iterator:
-                try:
-                    version = tensor._version
-                except RuntimeError as error:
-                    raise EmbeddingError("untracked inference tensor cannot bind fixed predictor") from error
-                tensors.append((kind,name,id(tensor),version,tuple(tensor.shape),tuple(tensor.stride()),
-                                tensor.dtype,tensor.device,tensor.requires_grad))
-        return modules,tuple(tensors)
+        return module_fingerprint(self.model)
 
     def _validate(self):
         torch = _torch()
@@ -159,7 +164,7 @@ class PathResult:
 
 def invert_roundtrip(path, terminal, policy, *, maximum_evaluations,
                      maximum_seconds, roundtrip_tolerance, progress, save_state,
-                     prior_means=None):
+                     prior_means=None, transition_prior=False):
     """Invert reverse order, replay forward order, stop on any failed pair.
 
     Requires caller-owned progress and persistence callbacks. No filesystem is
@@ -172,6 +177,8 @@ def invert_roundtrip(path, terminal, policy, *, maximum_evaluations,
     _latent(terminal,"terminal")
     if not callable(progress) or not callable(save_state):
         raise EmbeddingError("progress and partial-state persistence required")
+    if type(transition_prior) is not bool:
+        raise EmbeddingError("transition prior must be an explicit boolean")
     if type(maximum_evaluations) is not int or not len(path.steps)+1 <= maximum_evaluations <= 16384:
         raise EmbeddingError("invalid whole-path evaluation ceiling")
     _real(maximum_seconds,"path time limit",1e-6,1200)
@@ -180,14 +187,23 @@ def invert_roundtrip(path, terminal, policy, *, maximum_evaluations,
     if terminal.device != path.condition.device:
         raise EmbeddingError("terminal device mismatch")
     if policy.prior_weight > 0:
-        if type(prior_means) is not tuple or len(prior_means) != len(path.steps):
-            raise EmbeddingError("one declared prior per denoising-order step required")
-        for mean in prior_means:
-            _same(mean,terminal,"path prior mean")
-        if terminal.numel()*len(prior_means) > 4_194_304:
-            raise EmbeddingError("declared prior snapshot exceeds 16 MiB fp32 cap")
-        prior_means = tuple(mean.detach().clone() for mean in prior_means)
-    elif prior_means is not None:
+        if transition_prior:
+            if prior_means is not None:
+                raise EmbeddingError("transition and declared static priors are mutually exclusive")
+            if policy.prior_beta != 1.:
+                raise EmbeddingError("transition prior computes beta; nonneutral static beta forbidden")
+            for step in path.steps:
+                beta = 1-step.pair.alpha/step.pair.previous_alpha
+                _real(beta,"effective transition beta",1e-12,1)
+        else:
+            if type(prior_means) is not tuple or len(prior_means) != len(path.steps):
+                raise EmbeddingError("one declared prior per denoising-order step required")
+            for mean in prior_means:
+                _same(mean,terminal,"path prior mean")
+            if terminal.numel()*len(prior_means) > 4_194_304:
+                raise EmbeddingError("declared prior snapshot exceeds 16 MiB fp32 cap")
+            prior_means = tuple(mean.detach().clone() for mean in prior_means)
+    elif prior_means is not None or transition_prior:
         raise EmbeddingError("unused prior means forbidden")
     terminal = terminal.detach().clone()
     x = terminal.clone()
@@ -216,8 +232,19 @@ def invert_roundtrip(path, terminal, policy, *, maximum_evaluations,
         if available < 1:
             return finish("evaluation_budget")
         pair_policy = replace(policy,max_evaluations=min(policy.max_evaluations,available))
+        mean = None if prior_means is None else prior_means[index]
+        prior_mode = "static" if mean is not None else "none"
+        prior_scale = None
+        if transition_prior:
+            beta = 1-step.pair.alpha/step.pair.previous_alpha
+            prior_scale = (step.pair.alpha/step.pair.previous_alpha)**.5
+            mean = x.detach()*prior_scale
+            pair_policy = replace(pair_policy,prior_beta=beta)
+            prior_mode = "effective_gaussian_transition_l2"
         progress({"phase":"pair_started","timestep":step.timestep,
-                  "denoising_index":index,"available_pair_evaluations":pair_policy.max_evaluations})
+                  "denoising_index":index,"available_pair_evaluations":pair_policy.max_evaluations,
+                  "prior_mode":prior_mode,"prior_beta":pair_policy.prior_beta if mean is not None else None,
+                  "prior_mean_scale":prior_scale})
 
         def pair_progress(row):
             nonlocal nfe,backward
@@ -234,7 +261,7 @@ def invert_roundtrip(path, terminal, policy, *, maximum_evaluations,
                 check_time()
 
         result = invert_pair(step.pair,x,lambda state:path.predict(state,step),pair_policy,
-            prior_mean=None if prior_means is None else prior_means[index],progress=pair_progress)
+            prior_mean=mean,progress=pair_progress)
         results.append(PairSummary(step.timestep,result.status,result.evaluations,
             result.backward_evaluations,result.residual_max,result.objective))
         row = {"phase":"pair_state","timestep":step.timestep,"denoising_index":index,
