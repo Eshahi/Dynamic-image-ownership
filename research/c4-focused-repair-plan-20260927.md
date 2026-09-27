@@ -47,6 +47,17 @@ Passing the refined latent as the existing API's `initial_latent` would silently
 recenter the constraint and is not an acceptable implementation of this comparison.
 Keep current state and constraint anchor separate in the new versioned API.
 
+Retained candidate inputs (read-only hashes independently match journal records;
+no tensor was loaded for this check), relative to the original run directory:
+
+| Role | State file | SHA256 |
+| --- | --- | --- |
+| Fixed original anchor | `checkpoints/refinement-states/000000-shared_encoded.safetensors` | `639a54905c50ac272461e96c037b9102fcd7baf5fb60c2c6b9f30e5f7c32fce8` |
+| Common continuation start | `checkpoints/refinement-states/000152-decoder_refinement.safetensors` | `2d951881fd40debc224b3e394b8fbad50ed19d5438bb53fa36e074bc35ff7639` |
+
+Each file is49232bytes. The start equals the saved final refinement state000151
+byte-for-byte. These pins are prospective package inputs, not compute authority.
+
 The new ordinary `src/embedding/adaptive_refinement.py` implements that numerical
 API: separate current/anchor tensors, normalized descent, warm-started step,
 Armijo sufficient decrease using the actual projected displacement, deeper
@@ -65,6 +76,13 @@ first restricted-shell WSL attempt failed with E_ACCESSDENIED before tests; the
 authorized tool escalation ran those CPU tests successfully. No scientific run,
 GPU, model, installation or security change occurred. Exact new component review
 is pending; these tests do not establish a quality gain on the retained image.
+
+Independent exact-component review found a final-progress callback could overrun
+the cooperative deadline after the final guard. The repair checks time again
+after emitting that row; an eleventh regression verifies the exception. A stored
+or emitted terminal-named row is never sufficient evidence of normal return.
+The independent review also checked16 weighted quadratic/projected Armijo cases;
+these remain numerical software fixtures, not decoded-image evidence.
 
 Freeze iteration/NFE/backward/recomputation/time/allocator/storage budgets,
 line-search constants, trial persistence, exact start/anchor hashes and stopping

@@ -1,6 +1,7 @@
 """Owned CPU quadratics; no source images or learned-model operations."""
 from dataclasses import replace
 import unittest
+from unittest.mock import patch
 try:
     import torch
 except ImportError:torch=None
@@ -70,6 +71,17 @@ class AdaptiveTests(unittest.TestCase):
     def test_nonfinite_or_detached_objective_refused(self):
         for fn in (lambda x:x.sum()*float("nan"),lambda x:x.detach().square().mean()):
             with self.assertRaises(EmbeddingError):self.run_owned(fn)
+    def test_final_progress_overrun_cannot_return_success(self):
+        clock=[0.]
+        def journal(row):
+            self.events.append(row)
+            if row["phase"]=="adaptive_terminated":clock[0]=2.
+        self.current.zero_()
+        with patch("src.embedding.adaptive_refinement.time.monotonic",side_effect=lambda:clock[0]):
+            with self.assertRaisesRegex(EmbeddingError,"time limit"):
+                self.run_owned(lambda x:x.square().mean(),policy=policy(maximum_seconds=1.),progress=journal)
+        self.assertEqual(self.saved[-1][0]["phase"],"adaptive_terminated")
+        # An emitted terminal row is retained evidence, not normal return.
 
 
 if __name__=="__main__":unittest.main()

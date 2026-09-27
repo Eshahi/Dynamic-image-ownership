@@ -98,7 +98,7 @@ def continue_latent(objective, current, anchor, policy, *, progress, save_state)
              "evaluations":evaluations,"backward_evaluations":backward,"accepted_updates":updates,
              "displacement_l2":displacement,"gradient_at_returned_state_l2":gradient_here,
              "scientific_acceptance":False}
-        save_state(dict(row),current.clone());guard();emit(row)
+        save_state(dict(row),current.clone());guard();emit(row);guard()
         return AdaptiveResult(current.clone(),status,observed,evaluations,backward,updates,
                               displacement,gradient_here)
     _,observed=evaluate(current,False,"initial",0)
