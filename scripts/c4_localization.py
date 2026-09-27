@@ -77,10 +77,11 @@ def run(manifest_path,output):
             available=int(next(line.split()[1] for line in Path("/proc/meminfo").read_text().splitlines()
                 if line.startswith("MemAvailable:")))*1024
             disk=shutil.disk_usage(output).free
-            if free<limit+1024**3 or available<13*1024**3 or disk<4*1024**3:
-                raise ValueError("fixed resource headroom unavailable")
             result["resources_initial"]={"free_vram_bytes":free,"total_vram_bytes":total,
                 "torch_limit_bytes":limit,"available_ram_bytes":available,"free_disk_bytes":disk}
+            record("resource_headroom_measured",resources=result["resources_initial"])
+            if free<limit+1024**3 or available<13*1024**3 or disk<4*1024**3:
+                raise ValueError("fixed resource headroom unavailable")
             torch.cuda.set_per_process_memory_fraction(limit/total);torch.cuda.reset_peak_memory_stats()
             torch.use_deterministic_algorithms(True);torch.backends.cuda.matmul.allow_tf32=False
             torch.backends.cudnn.allow_tf32=False;torch.backends.cudnn.benchmark=False;torch.manual_seed(0)
@@ -94,9 +95,10 @@ def run(manifest_path,output):
             residency=PhaseResidency(models,progress=lambda row:record(**row));residency.park_idle()
             tensor=torch.from_numpy(normalized(source).transpose(2,0,1).copy()).unsqueeze(0).to("cuda")
             padded=padded_source(tensor,models.components.settings.maximum_side)
-            base,_,_=latent_streams(0,bytes.fromhex(custody.FILES["source"][2]),
+            base,semantic_carrier,instance_carrier=latent_streams(0,bytes.fromhex(custody.FILES["source"][2]),
                 bytes.fromhex(enrollment["Ws"]),bytes.fromhex(enrollment["Wi"]),
                 bytes.fromhex(loaded.value["dct"]["config_id"]),padded.shape[-2]//8,padded.shape[-1]//8,tensor.device)
+            del semantic_carrier,instance_carrier
             pixels={}
             def progress(row):
                 if row["operation"] in ARMS:

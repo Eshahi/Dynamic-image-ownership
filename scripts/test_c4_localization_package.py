@@ -1,6 +1,8 @@
 """Model-free recipe/launcher/state tests; never invoke the scientific worker."""
 import copy
 import os
+import json
+import tempfile
 import unittest
 from unittest.mock import patch
 from pathlib import Path
@@ -8,6 +10,7 @@ from src.embedding import localization_package as package
 from src.embedding.quality_package import canonical,CONFIG_SHA
 from scripts.run_c4_localization import command
 from scripts.c4_localization import cells
+from scripts import c4_localization as worker
 
 
 class LocalizationPackageTests(unittest.TestCase):
@@ -51,6 +54,32 @@ class LocalizationPackageTests(unittest.TestCase):
         self.assertIn(package.CHILD,args);self.assertIn("/mnt/w/owned manifest.json",args)
         self.assertIn("HF_HUB_OFFLINE=1",args)
         self.assertNotIn("--execute",args)
+
+    def test_environment_failure_durable_before_source_or_model(self):
+        manifest={"git_commit":"a"*40}
+        snapshots={"experiments/c4-embedding-development-v1/environment.json":canonical({"python":"wrong","versions":[]})}
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory).resolve()
+            for name in ("outputs","logs","checkpoints"): (root/name).mkdir()
+            from contextlib import ExitStack
+            with ExitStack() as stack:
+                stack.enter_context(patch.object(worker.package,"inputs",return_value=(manifest,snapshots,{})))
+                stack.enter_context(patch.object(worker.custody,"read",return_value=b"owned"))
+                source=stack.enter_context(patch.object(worker.custody,"retained",side_effect=AssertionError("source forbidden")))
+                stack.enter_context(patch.object(worker.importlib.metadata,"distributions",return_value=[]))
+                stack.enter_context(patch.dict(os.environ,{"HF_HUB_OFFLINE":"1","TRANSFORMERS_OFFLINE":"1",
+                    "DIFFUSERS_OFFLINE":"1","CUBLAS_WORKSPACE_CONFIG":":4096:8"}))
+                for name,obj in (("connect",worker.socket.socket),("connect_ex",worker.socket.socket),
+                                 ("create_connection",worker.socket)):
+                    stack.enter_context(patch.object(obj,name))
+                self.assertEqual(worker.run(root/"owned-manifest",root),1)
+                source.assert_not_called()
+            result=json.loads((root/"outputs/localization.json").read_bytes())
+            self.assertEqual(result["status"],"failed_retained_partial")
+            self.assertEqual(set(result["cell_inventory"].values()),{"pending"})
+            self.assertFalse(result["scientific_acceptance"])
+            self.assertEqual(result["arms"],{})
+            self.assertIn(b'"phase":"failed"',(root/"logs/localization-progress.jsonl").read_bytes())
 
 
 if __name__=="__main__":unittest.main()
