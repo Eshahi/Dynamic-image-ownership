@@ -1,5 +1,6 @@
 """Model-free recipe/launcher/state tests; never invoke the scientific worker."""
 import copy
+import os
 import unittest
 from unittest.mock import patch
 from pathlib import Path
@@ -43,6 +44,7 @@ class LocalizationPackageTests(unittest.TestCase):
         self.assertEqual(len(cells()),9)
         self.assertEqual(set(cells().values()),{"pending"})
 
+    @unittest.skipUnless(os.name=="nt","Windows launcher path contract tested on Windows")
     def test_launcher_exact_array_offline_and_external_timeout(self):
         args=command(Path("W:/owned manifest.json"),Path("W:/owned outputs"))
         self.assertIn("1140s",args);self.assertIn("--kill-after=10s",args)
