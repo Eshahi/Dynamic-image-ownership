@@ -1,0 +1,18 @@
+claim_id,classification,support,contradictions,unresolved
+METRIC-01,conflicting,Retained source-reference PSNR,All measured marked/current reconstruction arms below35dB,General attainability and study-level pass rule unproven
+METRIC-02,conflicting,Retained source-reference SSIM,All measured marked/current reconstruction arms below.9,General attainability and study-level pass rule unproven
+METRIC-03,conflicting,VAE-only LPIPS.058493 passes,Candidate/source LPIPS.119867 fails,VAE-only is not successful watermark
+METHOD-06,partially supported,One run completed differentiable initial-noise optimization,Final enrollment scores remain negative,Useful watermark transfer not shown
+METHOD-07,partially supported,One output triplet source q/h neighborhoods contain original codes,Hash drift and zero pHash margin,Blind recomputation and transformation stability not demonstrated
+METHOD-08,unsupported,Explicit differentiable8x8 DCT score code,No calibrated blind-DCT result,Quality-constrained two-score bridge required
+METHOD-09,unsupported,Four detector component states specified,No causal provenance classification evidence,Semantic-only does not identify regeneration
+HYP-01,unsupported,Combined signature specified,None measured across distinct instances,Hard-negative and stability comparisons absent
+HYP-02,unsupported,Latent method specified,No matched-quality regeneration comparison,Latent location alone does not establish robustness
+HYP-03,unsupported,Inversion-free detector specified,CLIP and429 instance candidates remain core costs,Full-pipeline matched-accuracy timing absent
+HYP-04,unsupported,Public content-bound keys specified,None measured under copy-paste controls,Authentication and public re-embedding are separate threats
+DATA-01,unverifiable,Original1000COCO obligation retained,Only one method source measured in this audit,Final method coverage outside evidence
+DATA-02,conflicting,Original800+100native2K obligation retained,Currentmaximum_side1024 rejects native2K,Versioned native-resolution resource/method solution absent
+DATA-03,unverifiable,Original5000DiffusionDB obligation retained,No measured method coverage here,Final coverage outside evidence
+F1-conditional-identity,verified,Exact inverse/replay endpoint is same decoded encoded latent,None,Conditional on same latent and decoder; not global decoder bound
+UNIVERSAL-IMPOSSIBILITY,conflicting,VINE reports stronger numerical image quality,Architectures and protocols differ,No theorem for approved architecture
+GNRI-GUARANTEE,unsupported,Inversion is relevant to residual error,Local codec gap and paper fidelity limits,Modified solver untested on actual model
