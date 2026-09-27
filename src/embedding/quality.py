@@ -144,8 +144,11 @@ def load_lpips(alexnet: Path, device: str):
     """
     import importlib.metadata
     import io
+    import sys
     if device != "cuda":
         raise ValueError("frozen metric profile requires cuda fp32")
+    if any(name == "lpips" or name.startswith("lpips.") for name in sys.modules):
+        raise ValueError("fresh isolated process required; LPIPS already imported")
     dist = importlib.metadata.distribution("lpips")
     if dist.version != "0.1.4":
         raise ValueError("LPIPS package version changed")
@@ -155,6 +158,14 @@ def load_lpips(alexnet: Path, device: str):
     if len(snapshots["weights/v0.1/alex.pth"]) != 6009:
         raise ValueError("LPIPS learned layer size changed")
     import lpips
+    for name, relative in (("lpips", "__init__.py"), ("lpips.lpips", "lpips.py"),
+                           ("lpips.pretrained_networks", "pretrained_networks.py")):
+        actual = getattr(sys.modules.get(name), "__file__", None)
+        if actual is None or Path(actual).resolve() != Path(dist.locate_file("lpips/" + relative)).resolve():
+            raise ValueError("imported LPIPS origin mismatch")
+        _checked_bytes(Path(actual), LPIPS_FILES[relative])
+    if lpips.LPIPS.__module__ != "lpips.lpips":
+        raise ValueError("imported LPIPS class substitution")
     import torch
     import torchvision
     torch.use_deterministic_algorithms(True)

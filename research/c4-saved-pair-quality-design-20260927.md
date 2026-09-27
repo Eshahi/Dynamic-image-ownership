@@ -45,6 +45,12 @@ verified 244,408,911-byte AlexNet trunk and exact five learned linear tensors
 are required. The constructor disables pretrained download and random trunk
 features are wholly replaced by verified weights; failure aborts, not random
 fallback. Package source/learned bytes are checked before package import.
+The loader rejects an already-imported LPIPS package, binds imported module
+origins to checked distribution files, and returns a frozen receipt. Before
+every forward call it rechecks configuration, every child eval flag, module
+identities and a digest of all floating parameter/buffer tensors (including
+scaling buffers), requiring CUDA fp32 and no gradients. This is conservative
+profile custody, not cryptographic protection from hostile Python code.
 [Pinned upstream](https://github.com/richzhang/PerceptualSimilarity/tree/082bb24f84c091ea94de2867d34c4544f68e0963)
 and [official usage](https://github.com/richzhang/PerceptualSimilarity)
 document RGB NCHW [-1,1] and version 0.1. Software tests alone do not establish

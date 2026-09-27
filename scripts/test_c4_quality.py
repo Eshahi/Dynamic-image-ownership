@@ -13,7 +13,7 @@ try:
 except ImportError:
     np = None
 if np is not None:
-    from src.embedding.quality import classical, target_checks, hamming, drift, rgb8, _checked_bytes, PAIRS, _structure
+    from src.embedding.quality import classical, target_checks, hamming, drift, rgb8, _checked_bytes, PAIRS, _structure, _tensor_digest
 
 
 @unittest.skipIf(np is None, "numpy absent in model-free base venv; covered in existing WSL science venv")
@@ -122,6 +122,32 @@ class QualityTests(unittest.TestCase):
         self.assertEqual(_structure(metric), original)
         child = SimpleNamespace(training=False)
         self.assertNotEqual(_structure(metric), original)
+
+    def test_tensor_buffer_mutation_and_flags(self):
+        class FakeTensor:
+            requires_grad = False
+            dtype = "torch.float32"
+            device = SimpleNamespace(type="cuda")
+            shape = (1,)
+            def __init__(self):
+                self.value = np.array([1.0], dtype=np.float32)
+            def detach(self): return self
+            def cpu(self): return self
+            def contiguous(self): return self
+            def numpy(self): return self.value
+        buffer = FakeTensor()
+        metric = SimpleNamespace(named_parameters=lambda: iter(()),
+                                 named_buffers=lambda: iter((("shift", buffer),)))
+        original = _tensor_digest(metric)
+        buffer.value[0] = 2.0
+        self.assertNotEqual(_tensor_digest(metric), original)
+        for name, changed in (("dtype", "torch.float16"), ("requires_grad", True),
+                              ("device", SimpleNamespace(type="cpu"))):
+            before = getattr(buffer, name)
+            setattr(buffer, name, changed)
+            with self.assertRaises(ValueError):
+                _tensor_digest(metric)
+            setattr(buffer, name, before)
 
 
 if __name__ == "__main__":
