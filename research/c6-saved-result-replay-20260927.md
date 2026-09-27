@@ -37,4 +37,8 @@ Additional author check: explicit owner/semantic/instance/key/replay suite ran
 `test*signature*.py` matched zero tests and exited 1; this is retained as a
 discovery failure, not a test pass. Actual independent read-focused review was
 requested from `/root/b3_intake_review` for code commit
-`8e53b7ce7afb13abb4fe090d024bc3abab624d94`; no verdict is recorded yet.
+`8e53b7ce7afb13abb4fe090d024bc3abab624d94`. The reviewer subsequently reported
+no narrow software blocker, independently passed all 17 tests and adversarial
+mixed-status/type/inventory probes. See
+`audits/c6-saved-result-review-20260927/review.md`. This is only software
+consistency acceptance, not scientific evidence acceptance or #20 closure.
