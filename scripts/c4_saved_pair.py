@@ -32,6 +32,13 @@ def append_progress(journal, started, phase, **values):
     journal.flush(); os.fsync(journal.fileno())
 
 
+def failed_cells(inventory):
+    """Caught failures are terminal; pending cells remain unattempted."""
+    running = [cell for cell, status in inventory.items() if status == "running"]
+    for cell in running: inventory[cell] = "failed"
+    return running
+
+
 def run(manifest_path, output):
     started = time.monotonic()
     manifest, snapshots, pins = package.inputs(package.read(manifest_path), ROOT)
@@ -166,6 +173,9 @@ def run(manifest_path, output):
             result["error_type"] = type(error).__name__
             result["failure_phase"] = current["phase"]
             result["error_message"] = str(error)[:512]
+            for cell in failed_cells(inventory):
+                record("outcome_cell_failed", cell=cell, cell_status="failed",
+                       error_type=type(error).__name__, failure_phase=result["failure_phase"])
             try:
                 if "torch" in locals() and torch.cuda.is_initialized():
                     result["resources_failure"] = {

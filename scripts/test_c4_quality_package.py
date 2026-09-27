@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from src.embedding import quality_package as package
 from scripts.run_c4_saved_pair import command
-from scripts.c4_saved_pair import run, append_progress
+from scripts.c4_saved_pair import run, append_progress, failed_cells
 
 
 def fixture():
@@ -114,6 +114,14 @@ class PackageTests(unittest.TestCase):
                 observed = json.loads(path.read_bytes())
                 self.assertEqual(observed["metrics"]["mse_rgb01"], 0.02)
             self.assertFalse((Path(folder)/"result.json").exists())
+
+    def test_caught_failure_finishes_active_cell_only(self):
+        inventory = {"classical:control_source": "completed",
+                     "codes:source": "running", "lpips:candidate_source": "pending"}
+        self.assertEqual(failed_cells(inventory), ["codes:source"])
+        self.assertEqual(inventory, {"classical:control_source": "completed",
+                                    "codes:source": "failed", "lpips:candidate_source": "pending"})
+        self.assertEqual(failed_cells(inventory), [])
 
 
 if __name__ == "__main__": unittest.main()
