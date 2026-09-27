@@ -31,3 +31,10 @@ study pixels, checkpoints, model execution or GPU. No installs/downloads,
 scientific worker, approval artifact or lifecycle transition occurred.
 
 Independent exact-artifact review is required before accepting this checkpoint.
+
+Additional author check: explicit owner/semantic/instance/key/replay suite ran
+45 tests, 41 passed and four expected skips. An earlier mistaken discovery glob
+`test*signature*.py` matched zero tests and exited 1; this is retained as a
+discovery failure, not a test pass. Actual independent read-focused review was
+requested from `/root/b3_intake_review` for code commit
+`8e53b7ce7afb13abb4fe090d024bc3abab624d94`; no verdict is recorded yet.
