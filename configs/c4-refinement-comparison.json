@@ -1,0 +1,9 @@
+{
+  "profile": "c4-six-arm-refined-terminal-v1",
+  "arms": ["vae_only", "ddim_zero_noise", "ddim_fixed_base_noise", "decoder_refinement", "fixed_point_encoded_inverse", "fixed_point_refined_inverse"],
+  "refinement": {"iterations": 64, "maximum_evaluations": 257, "maximum_backtracks": 2, "learning_rate": 1.0, "maximum_displacement_l2": 80.0, "latent_penalty": 0.0, "mse_tolerance": 0.0003, "maximum_seconds": 720.0},
+  "inverse": {"method": "fixed_point", "max_evaluations": 32, "residual_tolerance": 0.00001, "damping": 1.0, "denominator_eta": 0.000001, "maximum_coordinate_step": 1.0, "max_backtracks": 8, "prior_weight": 0.0, "prior_beta": 1.0},
+  "maximum_evaluations_per_inverse_arm": 128,
+  "maximum_seconds": 1000.0,
+  "roundtrip_tolerance": 0.00001
+}
