@@ -113,3 +113,57 @@ Final reviewed artifact SHA-256 values:
 | `src/embedding/latent_refinement.py` | `4cc53312496d022f9a14eb7b6221a81fc7c72a44722dbacfdda0c7da25c14a26` |
 | `src/embedding/adaptive_refinement.py` | `4a1f9f00cf6424b52d10e6161ddc9f26556de9aff69bd145a8813f6b2ac4cbfd` |
 | `configs/c4-decoder-continuation.json` | `3b3cefb90982c7b3b75b6a0fe8465b65cbc0fac1a100aa6eb0f242584b059d9e` |
+
+## LONG delta review — 2026-09-27
+
+Exact revised code: `31a87c157f907ac1d539ca271239c7bb99b0006a`, reviewed against
+`868d27a69415f2c4a479ee81cab4591e7d0a56b5`. This addendum is the current narrow
+component verdict; the earlier numerical counts/hashes describe the preserved
+short-budget checkpoint, not the revised execution package.
+
+No unresolved blocker found in this bounded delta. The algorithm arithmetic,
+original anchor/start, source objective, step policies, stopping logic, callback
+guards, full-arm-window reservation, final-gradient measurement and scientific
+nonacceptance semantics are unchanged. The revised policy is still a prospective
+finite-budget experiment, not an instruction to run until an optimum. The user's
+conditional request for longer time does not authorize the prior 20-minute
+manifest, this new manifest, indefinite execution, or restarts after early stops.
+
+The typed component hard maxima are now 512 iterations, 4096 evaluations and
+1800 seconds per optimizer; composition duration remains bounded at 3300 seconds.
+Type/finite/range validation remains in place. The *fixed concrete recipe* is
+narrower: each arm receives 512 iterations/backwards and 2049 optimizer decoder
+evaluations, plus one actual final-state image/gradient evaluation and backward.
+Thus the declared maxima are 2050 decoder-NFE and 513 backwards per arm; the
+existing conservative root-decoder start ceiling becomes 4100. The 2049 control
+ceiling equals `1 + 512*(1 gradient + 3 trials)`. Arm windows are 1500 seconds,
+global composition 3060 seconds, including persistence/final diagnostics as
+before. No unused time or evaluation allowance is transferred between arms.
+
+Storage accounting is consistent: normal bound 4106 states = 2 shared + 2 starts
+plus 4098 optimizer evaluations + 2 optimizer final states + 2 final-measurement
+states. The 4112-state reserve is 202,441,984 bytes at the retained grid's 49,232
+bytes per file, below the 256-MiB quota. Journal quota rises to 32 MiB while its
+failure reserve and exclusive persistence behavior remain. Torch VRAM stays at
+9216 MiB. The launcher declarations consistently become Linux 3540 seconds plus
+10-second TERM grace, parent 3590 seconds and official 3600 seconds. Exact
+manifest/isolated-checkout validation and resource approval remain with the
+separate package review; this component review does not confer them.
+
+Reproduced the same four-module owned CPU suite on `31a87c1`: 48 tests, 47 passed,
+one expected Windows-only launcher skip. Independently checked 19 invalid typed
+boundary cases, including above-cap integers, Boolean values, nonfinite duration
+and excessive composition duration: all refused. An additional in-memory owned
+synthetic decoder test used small fixed steps solely to exercise the enlarged
+loop bounds: both arms completed exactly 512 updates, stopped with
+`iteration_budget`, and reported 1025 optimizer evaluations, 1026 total decoder
+evaluations and 513 backwards including final measurement. Adaptive reported
+512 accepted updates. No UNet call or leaked decoder hook occurred. These
+deliberately synthetic step settings are not the frozen scientific recipe and
+provide no learned-model result. No author source/test files were edited.
+
+More time does not bypass the unchanged MSE `0.0003`, gradient `1e-12`, radius or
+line-search stops, and does not establish global optimality or joint saved-PNG
+quality. New runtime/memory fit remains unproved. Preserve every early stop and
+failed/incomplete comparison; report both arms and common-NFE/actual work without
+winner selection. All prior scientific scope limitations continue to apply.
