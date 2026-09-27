@@ -48,7 +48,7 @@ class RefinementResult:
     checkpoint_recomputations: int
 
 
-def refine(backend, source, initial_latent, policy, *, progress, save_state):
+def refine(backend, source, initial_latent, policy, *, progress, save_state, constraint_anchor=None):
     """Fixed normalized-gradient descent, projected L2 trust ball, monotone trials.
 
     All evaluated latents (including rejected trials) require durable caller saves.
@@ -91,8 +91,16 @@ def refine(backend, source, initial_latent, policy, *, progress, save_state):
                     or (value.is_floating_point() and value.dtype!=torch.float32)):
                 raise EmbeddingError("frozen decoder tensor profile drift")
     guard()
-    target=source.detach().clone(); initial=initial_latent.detach().clone()
-    current=initial.clone(); native_hw=tuple(target.shape[-2:])
+    # A continuation changes the current state, never silently the trust centre.
+    # None retains the historical API/trajectory for all existing callers.
+    anchor=initial_latent if constraint_anchor is None else constraint_anchor
+    _latent(anchor,"refinement constraint anchor")
+    if tuple(anchor.shape)!=shape or anchor.device!=source.device:
+        raise EmbeddingError("refinement anchor grid/device mismatch")
+    target=source.detach().clone(); initial=anchor.detach().clone()
+    current=initial_latent.detach().clone(); native_hw=tuple(target.shape[-2:])
+    if float(torch.linalg.vector_norm((current-initial).double()))>policy.maximum_displacement_l2:
+        raise EmbeddingError("refinement start outside original anchor radius")
     deadline=time.monotonic()+policy.maximum_seconds
     evaluations=backwards=starts=recomputations=0
     mode="forward"
@@ -212,6 +220,7 @@ def refine(backend, source, initial_latent, policy, *, progress, save_state):
         emit(dict(row,phase="refinement_terminated",evaluations=evaluations,backward_evaluations=backwards,
                   actual_decoder_forward_starts=starts,checkpoint_recomputations=recomputations,
                   scientific_acceptance=False,saved_png_quality="NOT_RUN",safety="NOT_RUN"))
+        guard();check_time()
         return RefinementResult(current.clone(),image.clone(),status,metrics["mse_rgb01"],metrics["objective"],
                                 metrics["displacement_l2"],evaluations,backwards,starts,recomputations)
     finally:

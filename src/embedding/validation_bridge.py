@@ -23,7 +23,8 @@ from .proposed import EmbeddingError
 CONFIG_PATH = "configs/c4-development.json"
 EXPERIMENT_ID = "c4-embedding-checkpoint-development-v1"
 ALLOWED_EXPERIMENTS = frozenset({EXPERIMENT_ID, "c4-reconstruction-localization-development-v1",
-                               "c4-refined-target-reconstruction-development-v1"})
+                               "c4-refined-target-reconstruction-development-v1",
+                               "c4-decoder-continuation-development-v1"})
 RECEIPT_NAME = "c4-config-validation.json"
 REQUIRED = frozenset({CONFIG_PATH, "configs/method.schema.json",
     "scripts/validate_method_config.py", "scripts/noise_path_reference.py",

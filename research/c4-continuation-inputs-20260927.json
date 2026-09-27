@@ -1,0 +1,33 @@
+{
+  "parent": ".thesis-build/c4-runs/C4-refined-target-development/c4-refined-target-dev-001",
+  "parent_status": "failed",
+  "metadata_sha256": {
+    "manifest.json": "2d3cde49d1c0857e0464002e6a863771f7d556859c57d7724fb8d5aa4e9baa21",
+    "outputs/refinement.json": "c63202c36206ee251338417f62d1006cf37f1f32e46fedffaeea50fff57fc794",
+    "logs/refinement-progress.jsonl": "11fba38f0263db064fef5e9be6d711307496717fc83a695bdeaf44ee9193a8aa"
+  },
+  "states": {
+    "anchor": {
+      "path": "checkpoints/refinement-states/000000-shared_encoded.safetensors",
+      "size": 49232,
+      "sha256": "639a54905c50ac272461e96c037b9102fcd7baf5fb60c2c6b9f30e5f7c32fce8"
+    },
+    "start": {
+      "path": "checkpoints/refinement-states/000152-decoder_refinement.safetensors",
+      "size": 49232,
+      "sha256": "2d951881fd40debc224b3e394b8fbad50ed19d5438bb53fa36e074bc35ff7639"
+    }
+  },
+  "tensor": {
+    "key": "latent",
+    "dtype": "F32",
+    "shape": [
+      1,
+      4,
+      48,
+      64
+    ]
+  },
+  "start_pixel_sha256": "d0aa90492602edf7579221f4aad61d52def1642a22b3db5bf91b13cbec83226b",
+  "constraint": "original_encoded_anchor_radius80_not_recentered"
+}

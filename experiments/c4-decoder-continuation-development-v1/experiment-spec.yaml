@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "c4-decoder-continuation-development-v1",
+  "task_id": "C4",
+  "question": "Does adaptive continuation improve native source quality over the old optimizer from the same retained start and original anchor under equal ceilings?",
+  "hypothesis": "Adaptive minus fixed native saved-PNG source MSE is negative. This is an exploratory whole-policy comparison; joint PSNR>35,SSIM>0.9,LPIPS<0.1 are separate unchanged targets, not assumed reachable.",
+  "primary_outcome": "Native saved-PNG source MSE contrast and full PSNR/SSIM/LPIPS of retained start and BOTH final arms, with actual resource use and common-NFE progress.",
+  "secondary_outcomes": [
+    "Measured final-state gradient norm",
+    "All accepted/rejected trajectory states and evaluation/backward/recompute counts",
+    "Source-relative q/h drift,not blind detection",
+    "Exact retained-start pixel replay,safety,time,Torch/RSS"
+  ],
+  "datasets": [
+    {
+      "id": "ms-coco",
+      "version": "2017-val source109798 retained run003 snapshot; native500x333",
+      "license": "restricted local-research-only candidate CC-BY-2.0 annotation; original archive and complete attribution unproved; no redistribution",
+      "split": "existing reserved development source only; no validation/test access"
+    }
+  ],
+  "leakage_risks": [
+    "Previously observed source and optimizer trace;outcome-informed exploratory design,not confirmatory",
+    "One dependent source,not N3",
+    "No heldout access,retry,selection or post-result tuning"
+  ],
+  "preprocessing": "Same native500x333 source RGB8/replicate-pad64 to512x384/fp32 decoder scale.18215/checkpoint _decode/clamp/native source MSE. No new encode,UNet prediction or DDIM. Both arms start verified retained000152,original000000 remains radius80 anchor. Load only verified bounded safetensors bytes from failed parent. Retained-start canonical pixel replay precedes continuation. Same native PNG/metric/qh profile.",
+  "baselines": [
+    "Source is only primary quality reference",
+    "Fresh retained-start decode replay",
+    "Old reset-step1/two-halving strict decrease continuation"
+  ],
+  "controls": [
+    "Hash-pinned failed-parent metadata and exact original anchor/start",
+    "Fixed arm order retained_start,fixed_continuation,adaptive_continuation",
+    "Equal128iterations/513optimizerNFE/128backward ceilings plus one final gradient/image evaluation/backward per optimized arm",
+    "Same430s arm/900s composition;unused quotas not transferred",
+    "Adaptive engineering choices initial.25/min2^-16/max1/Armijo1e-4/16backtracks frozen prospectively;whole policy bundle not one-factor contrast",
+    "No training,watermark,download,install or paid compute",
+    "Actual new exact user approval required;old approvals consumed"
+  ],
+  "ablations": [
+    "Retained-start replay",
+    "Old-policy continuation",
+    "Adaptive-policy continuation"
+  ],
+  "seeds": [
+    0
+  ],
+  "stopping_rule": "One c4-decoder-continuation-dev-001 only. Official1200s,parent1190s,Linux1140s+10sTERMkill. Composition900s;each arm430s INCLUDING finalmeasurement/persistence,128iterations/513optimizerNFE+1finalNFE/128backwards+1finalbackward. Actual decoderstarts ceiling1028 per arm. Radius80,continuousMSE.0003,gradient1e-12. Torch9216MiB;freeVRAM>=10240MiB,RAMavailable>=13GiB,disk>=4GiB.1040states/64MiB,journal8MiB. Any custody/replay/profile/safety/quota/OOM/time exception stops with partial evidence,no retry/fallback. Normal line-search/numeric-budget stops still receive metrics.",
+  "acceptance_rule": "Complete exploratory paired description only. Report adaptive-minus-fixed MSE,all three source quality metrics,actual consumed work and common-NFE progress. Equal ceilings are not equal work. Improved MSE alone is not joint-target attainment. Small final gradient plus high loss without active budget/radius may motivate an explicit architecture amendment,not a universal decoder ceiling. No populationCI,methodsuccess,blinddetection,C4closure,native2K/full6900 acceptance.",
+  "negative_result_policy": "Preserve failed parent,all rejected/accepted states,PNGs and pending/failed cells;missing is not zero. No winner-only report or metric reruns. Terminal-named event is insufficient:normal return,consistent report and official outcome required.",
+  "analysis": {
+    "mode": "exploratory",
+    "metric": "mse_rgb01",
+    "direction": "lower",
+    "conditions": [
+      "same_start_two_policy_continuation"
+    ],
+    "expected_runs": [
+      {
+        "run_id": "c4-decoder-continuation-dev-001",
+        "condition": "same_start_two_policy_continuation",
+        "seed": 0
+      }
+    ],
+    "comparison": null,
+    "confidence_interval": "none",
+    "bootstrap_samples": 100,
+    "random_seed": 0,
+    "multiple_comparisons": "none-single-comparison",
+    "exclusion_rule": "none"
+  }
+}

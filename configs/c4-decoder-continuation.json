@@ -1,0 +1,32 @@
+{
+  "profile": "same-start-original-anchor-decoder-continuation-v1",
+  "arms": [
+    "retained_start",
+    "fixed_continuation",
+    "adaptive_continuation"
+  ],
+  "control": {
+    "iterations": 128,
+    "maximum_evaluations": 513,
+    "maximum_backtracks": 2,
+    "learning_rate": 1,
+    "maximum_displacement_l2": 80,
+    "latent_penalty": 0,
+    "mse_tolerance": 0.0003,
+    "maximum_seconds": 430
+  },
+  "adaptive": {
+    "iterations": 128,
+    "maximum_evaluations": 513,
+    "maximum_backtracks": 16,
+    "initial_step": 0.25,
+    "minimum_step": 0.0000152587890625,
+    "maximum_step": 1,
+    "armijo": 0.0001,
+    "radius_l2": 80,
+    "gradient_tolerance": 1e-12,
+    "objective_tolerance": 0.0003,
+    "maximum_seconds": 430
+  },
+  "maximum_seconds": 900
+}
