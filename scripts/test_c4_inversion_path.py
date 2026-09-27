@@ -156,7 +156,7 @@ class PathTests(unittest.TestCase):
             self.assertEqual(self.backend.unet.calls,[])
 
     def test_same_profile_new_child_is_refused(self):
-        self.backend.unet.add_module("identity",torch.nn.Identity())
+        self.backend.unet.add_module("identity",torch.nn.Identity().eval())
         with self.assertRaisesRegex(EmbeddingError,"identity or mutation"):
             self.run_path()
         self.assertEqual(self.backend.unet.calls,[])
