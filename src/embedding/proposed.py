@@ -241,6 +241,26 @@ class DiffusersComponents:
     def _predict(self, state, timestep):
         return self.unet(state, timestep, encoder_hidden_states=self.condition).sample
 
+    def decode_encoded(self, latent):
+        """Diagnostic VAE-only route; never substitutes the proposed reconstruction.
+
+        A future approved localization worker may compare this with the fixed
+        DDIM control. Uses the same virtual decoder/checkpoint profile and scale.
+        """
+        torch = _torch()
+        _finite_tensor(latent, "diagnostic encoded latent")
+        if (latent.ndim != 4 or tuple(latent.shape[:2]) != (1, 4) or
+                latent.dtype != torch.float32 or latent.requires_grad or
+                latent.device != self.condition.device):
+            raise EmbeddingError("diagnostic latent profile mismatch")
+        with operation_phase(self.progress, "diagnostic_vae_decode"):
+            decoded = self._decode(latent / self.settings.vae_scale)
+            _finite_tensor(decoded, "diagnostic VAE decoded")
+        if (tuple(decoded.shape) != (1, 3, latent.shape[-2]*8, latent.shape[-1]*8)
+                or decoded.dtype != torch.float32 or decoded.device != latent.device):
+            raise EmbeddingError("diagnostic decode shape/dtype/device mismatch")
+        return ((decoded + 1) / 2).clamp(0, 1)
+
     def _decode(self, state):
         return self.vae.decode(state).sample
 
