@@ -112,4 +112,17 @@ The generic seed-aware helper receives the single failed package in metrics.json
 with null package-level MSE; it must not promote the four correlated partial arms
 to independent completed runs. Arm-wise values above remain separate exploratory
 descriptions, no CI, significance test, population mean or superiority claim.
-Independent retained-evidence/transcription review is pending; no science acceptance.
+Official helper analysis at the external package directory's
+`analysis-retained-failure-v1` reports expected1/observed1/failed1/missing0, n0,
+all descriptive estimates null and no comparison/CI. Its CSV retains the empty
+estimates and deterministic SVG contains no seed points; axis0/1 placeholders
+are not measured values. The existing torchvision deprecation warnings remain
+in process.log, not hidden as successful scientific evidence.
+
+Actual independent reviewer `/root/b3_intake_review` found no narrow retained-
+evidence/transcription blocker at report commit
+`677961fce4fd242eec59a027b3658f4604f65709`; see
+`audits/c4-refined-target-results-review-20260927/review.md`. All159 state hashes,
+1230 journal rows/25 transitions, four PNG raw hashes, source/custody/environment,
+approval/binding and helper analysis provenance were independently checked.
+This does not reproduce learned metrics or grant scientific acceptance/C4 closure.
