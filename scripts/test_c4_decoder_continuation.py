@@ -94,6 +94,16 @@ class ContinuationTests(unittest.TestCase):
         with patch('src.embedding.decoder_continuation.time.monotonic',side_effect=lambda:clock[0]):
             with self.assertRaisesRegex(EmbeddingError,'time limit'):self.run_comparison(progress=progress)
 
+    def test_insufficient_second_arm_window_refused_not_silently_shortened(self):
+        clock=[0.]
+        self.policy=replace(self.policy,maximum_seconds=15.)
+        def progress(row):
+            if row['phase']=='continuation_arm_saved' and row['arm']=='fixed_continuation':clock[0]=6.
+        with patch('src.embedding.decoder_continuation.time.monotonic',side_effect=lambda:clock[0]):
+            with self.assertRaisesRegex(EmbeddingError,'full equal arm allowance'):
+                self.run_comparison(progress=progress)
+        self.assertEqual(tuple(self.images),ARMS[:2])
+
     def test_equal_budget_and_typed_policy(self):
         with self.assertRaisesRegex(EmbeddingError,'equal ceilings'):
             replace(self.policy,adaptive=replace(self.policy.adaptive,iterations=3))

@@ -150,7 +150,10 @@ def compare(backend, source, start, anchor, policy, *, progress, save_arm, save_
         for arm in ARMS[1:]:
             evaluations = backwards = starts = recomputations = 0
             mode = "forward"
-            arm_deadline = min(deadline, time.monotonic()+policy.control.maximum_seconds)
+            arm_started = time.monotonic()
+            if deadline-arm_started < policy.control.maximum_seconds:
+                raise EmbeddingError("insufficient global time for full equal arm allowance")
+            arm_deadline = arm_started+policy.control.maximum_seconds
             emit({"phase": "continuation_arm_started"})
             persist({"phase": "arm_identical_start"}, initial)
             remaining = min(deadline, arm_deadline)-time.monotonic()

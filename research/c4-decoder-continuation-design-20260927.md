@@ -28,7 +28,10 @@ authorize use of unused UNet. Exact closure binds all imported dependencies.
 Each arm:128iterations/513optimizer decoderNFE/128backwards, plus ONE final
 image/gradient evaluation and backward. Actual final-state gradient is measured.
 Each430s INCLUDES final measurement/persistence; composition900s. Fixed order,
-900>2*430,no borrowed evaluation/time quota. Report actual usage and early stops;
+900>2*430,no borrowed evaluation/time quota. Replay/persistence overhead also
+consumes global time: refuse BEFORE either optimized arm if its entire430s
+allowance no longer fits. This is a retained package failure, not a shortened
+arm or evidence against that optimizer. Report actual usage and early stops;
 equal ceilings do not imply equal work. Every evaluated/rejected state is saved.
 Normal state bound1034:2shared+2armstarts+1026evaluations+2optimizerfinals+
 2finalmeasurements. Reserve1040 for bounded refusals;51,201,280bytes at49232each,
