@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "aidi-v1",
+  "citation_key": "Pan2023AIDI",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2309.04907v1",
+  "title": "Effective Real Image Editing with Accelerated Iterative Diffusion Inversion",
+  "authors": [
+    "Zhihong Pan",
+    "Riccardo Gherardi",
+    "Xiufeng Xie",
+    "Stephen Huang"
+  ],
+  "year": 2023,
+  "venue": "ICCV 2023",
+  "access_date": "2026-09-27",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "research/literature/inverse-stability-20260927/inspection.md",
+    "sha256": "259641e5ef5f1fc0166b6e0a977c038da7e30a68cd5d84764de9c55abc8ae0b2"
+  },
+  "limitations": [
+    "Only named selected full-text sections inspected; not whole-paper or implementation verification.",
+    "Notes checksum identifies observer record; raw HTML hash recorded there.",
+    "No local learned-model reproduction."
+  ]
+}

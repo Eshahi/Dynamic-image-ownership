@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "preciseinv-neurips2025-abstract",
+  "citation_key": "Zuo2025PreciseInv",
+  "doi": "10.52202/085713-1081",
+  "canonical_url": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/2e4bc9f6e31aa27861299940aa5242ad-Abstract-Conference.html",
+  "title": "Precise Diffusion Inversion: Towards Novel Samples and Few-Step Models",
+  "authors": [
+    "Jing Zuo",
+    "Luoping Cui",
+    "Chuang Zhu",
+    "Yonggang Qi"
+  ],
+  "year": 2025,
+  "venue": "NeurIPS 2025",
+  "access_date": "2026-09-27",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "abstract",
+  "inspection": {
+    "artifact": "research/literature/inverse-stability-20260927/inspection.md",
+    "sha256": "259641e5ef5f1fc0166b6e0a977c038da7e30a68cd5d84764de9c55abc8ae0b2"
+  },
+  "limitations": [
+    "Abstract/metadata only; full proof, method and hyperparameters not inspected.",
+    "Repository README is not an audited/pinned implementation.",
+    "Author claims do not establish local quality or compatibility."
+  ]
+}
