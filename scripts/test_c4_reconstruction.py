@@ -75,6 +75,23 @@ class ReconstructionTests(unittest.TestCase):
                 localization(backend,self.source,self.noise,maximum_side=cap)
             self.assertEqual(backend.calls, [])
 
+    def test_arm_values_delivered_before_later_failure(self):
+        backend=self.backend(); saved=[]
+        def persist(arm,image):
+            saved.append((arm,float(image.mean())))
+        backend.reconstruct=lambda latent,noise: torch.full((1,3,64,64),float("nan"))
+        with self.assertRaises(EmbeddingError):
+            localization(backend,self.source,self.noise,maximum_side=256,record_arm=persist)
+        self.assertEqual(saved,[("vae_only",.25)])
+
+    def test_persist_failure_does_not_mark_arm_completed(self):
+        backend=self.backend();events=[]
+        def fail(arm,image): raise OSError("owned save failure")
+        with self.assertRaises(OSError):
+            localization(backend,self.source,self.noise,maximum_side=256,progress=events.append,record_arm=fail)
+        self.assertEqual(events[-1],{"phase":"operation_started","operation":"vae_only"})
+        self.assertEqual(len(backend.calls),2)
+
     def test_component_decode_uses_bound_scale_and_virtual_decoder(self):
         backend = DiffusersComponents.__new__(DiffusersComponents)
         backend.condition = torch.zeros(1)

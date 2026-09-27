@@ -43,4 +43,10 @@ downloads are inferred. Do not reuse consumed embedding003/saved-pair001 approva
 
 Even future one-source arm differences would describe this fixed route, not prove
 general VAE causality, robustness, watermark survival or scientific success.
-Independent narrow software review is required; no C4 acceptance is claimed.
+Independent `/root/b3_intake_review` blocked the initial malformed maximum-side
+cap at70480cb; repair ae3f9ea enforces exact int256..8192/multiple64 before padding
+or backend invocation. Six owned tests independently passed and no remaining
+narrow component blocker was reported. Audit:
+`audits/c4-reconstruction-component-review-20260927/review.md`.
+Author combined WSL27tests pass; previous Windows219tests191pass28skip (before
+sixth localization regression). No C4 acceptance is claimed.

@@ -9,7 +9,7 @@ from .proposed import EmbeddingError, _torch, _finite_tensor, padded_source, ope
 ARMS = ("vae_only", "ddim_zero_noise", "ddim_fixed_base_noise")
 
 
-def localization(backend, source, base_noise, *, maximum_side, progress=None):
+def localization(backend, source, base_noise, *, maximum_side, progress=None, record_arm=None):
     """Hold encoded source/grid/schedule fixed; return every declared native arm.
 
     Zero initial noise is a diagnostic ablation, not the main method or an
@@ -54,4 +54,6 @@ def localization(backend, source, base_noise, *, maximum_side, progress=None):
                         or image.min().item() < 0 or image.max().item() > 1):
                     raise EmbeddingError("localization output profile mismatch: " + arm)
                 outputs[arm] = image[:, :, :source.shape[-2], :source.shape[-1]].clone()
+                if record_arm is not None:
+                    record_arm(arm, outputs[arm].clone())
     return outputs

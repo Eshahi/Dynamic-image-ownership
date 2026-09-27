@@ -22,6 +22,7 @@ from .proposed import EmbeddingError
 
 CONFIG_PATH = "configs/c4-development.json"
 EXPERIMENT_ID = "c4-embedding-checkpoint-development-v1"
+ALLOWED_EXPERIMENTS = frozenset({EXPERIMENT_ID, "c4-reconstruction-localization-development-v1"})
 RECEIPT_NAME = "c4-config-validation.json"
 REQUIRED = frozenset({CONFIG_PATH, "configs/method.schema.json",
     "scripts/validate_method_config.py", "scripts/noise_path_reference.py",
@@ -84,7 +85,7 @@ def check_inputs(manifest_raw: bytes, root: Path = PROJECT):
     if len(manifest_raw) > MAX_FILE_BYTES:
         raise EmbeddingError("oversized bridge manifest")
     manifest = strict_json_bytes(manifest_raw)
-    if (not isinstance(manifest, dict) or manifest.get("experiment_id") != EXPERIMENT_ID
+    if (not isinstance(manifest, dict) or manifest.get("experiment_id") not in ALLOWED_EXPERIMENTS
             or manifest.get("task_id") != "C4" or manifest.get("execution_target") != "local"
             or not isinstance(manifest.get("git_commit"), str)
             or len(manifest["git_commit"]) != 40
