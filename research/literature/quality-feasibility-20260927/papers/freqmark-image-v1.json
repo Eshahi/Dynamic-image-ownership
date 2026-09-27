@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "freqmark-image-v1",
+  "citation_key": "Guo2024FreqMarkImageV1",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2410.20824v1",
+  "title": "FreqMark: Invisible Image Watermarking via Frequency Based Optimization in Latent Space",
+  "authors": [
+    "Yiyang Guo",
+    "Ruizhe Li",
+    "Mude Hui",
+    "Hanzhong Guo",
+    "Chen Zhang",
+    "Chuangjian Cai",
+    "Le Wan",
+    "Shangfei Wang"
+  ],
+  "year": 2024,
+  "venue": null,
+  "access_date": "2026-09-27",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": ".thesis-build/reconstruction-literature-20260927/freqmark-v1.html",
+    "sha256": "00a18323cf1145838bc421c097ec59e6094571dcdd4636e0021383b79020aa99"
+  },
+  "limitations": [
+    "Targeted sections 4.3-4.5,5.1-5.2 and Table1/Figure4 only; not reproduced.",
+    "Inspected version is v1, not assumed identical to final proceedings.",
+    "Local checksum identifies public HTML, not authenticated author runtime."
+  ]
+}
