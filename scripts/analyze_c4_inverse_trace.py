@@ -7,6 +7,10 @@ from pathlib import Path
 
 RUN = "c4-refined-target-dev-001"
 BINDING = "78bcae98866135714d0f7847a8de7d076f1adea29c20509d8766079d95088683"
+COMMIT = "dd347afb861774f7a86138e7170dba96d4f47044"
+RAW_HASHES = ("11fba38f0263db064fef5e9be6d711307496717fc83a695bdeaf44ee9193a8aa",
+              "c63202c36206ee251338417f62d1006cf37f1f32e46fedffaeea50fff57fc794",
+              "2d3cde49d1c0857e0464002e6a863771f7d556859c57d7724fb8d5aa4e9baa21")
 ARMS = ("fixed_point_encoded_inverse", "fixed_point_refined_inverse")
 
 
@@ -28,7 +32,7 @@ def diagnose(rows, report, record):
     if (report.get("run_id") != RUN or record.get("run_id") != RUN
             or report.get("manifest_sha256") != BINDING
             or record.get("execution_manifest_sha256") != BINDING
-            or report.get("git_commit") != record.get("git_commit")
+            or report.get("git_commit") != COMMIT or record.get("git_commit") != COMMIT
             or record.get("status") != "failed" or type(record.get("exit_status")) is not int
             or record["exit_status"] != 1 or report.get("status") != "failed_retained_partial"):
         raise ValueError("exact retained failed execution binding required")
@@ -46,11 +50,34 @@ def diagnose(rows, report, record):
     for arm in ARMS:
         scope = [r for r in rows if r.get("arm") == arm]
         states = [r for r in scope if r["phase"] == "pair_state"]
+        pair_phases = {"pair_started", "evaluation_started", "evaluated", "terminated", "pair_state"}
         for row in scope:
-            if row["phase"] in ("pair_state", "evaluated", "terminated", "evaluation_started"):
-                integer(row.get("timestep"))
+            if row["phase"] in pair_phases and integer(row.get("timestep")) not in (1, 101):
+                raise ValueError("unexpected pair timestep")
+            if row["phase"] in ("replay_started", "replay_state", "backward_started"):
+                raise ValueError("unexpected replay/backward in retained failed arm")
         if [r.get("timestep") for r in states] != [1, 101]:
             raise ValueError("exact two-pair attempt inventory required")
+        expected_order=[]
+        for timestep, count in ((1,7),(101,32)):
+            expected_order += [("pair_started",timestep)]
+            expected_order += [(phase,timestep) for _ in range(count) for phase in ("evaluation_started","evaluated")]
+            expected_order += [("terminated",timestep),("pair_state",timestep)]
+        if [(r["phase"],r["timestep"]) for r in scope if r["phase"] in pair_phases] != expected_order:
+            raise ValueError("retained pair event order or observed count changed")
+        terminals=[r for r in scope if r["phase"] in ("path_terminated","path_forward_accounting")]
+        if ([r["phase"] for r in terminals] != ["path_terminated","path_forward_accounting"]
+                or scope.index(terminals[0]) < scope.index(states[-1])):
+            raise ValueError("path terminal order changed")
+        terminal,accounting=terminals
+        if (terminal.get("status") != "pair_not_converged"
+                or integer(terminal.get("evaluations")) != 39
+                or type(terminal.get("backward_evaluations")) is not int or terminal["backward_evaluations"] != 0
+                or terminal.get("roundtrip_residual_max") is not None
+                or integer(accounting.get("actual_unet_forward_calls")) != 39
+                or type(accounting.get("checkpoint_recomputation_calls")) is not int
+                or accounting["checkpoint_recomputation_calls"] != 0):
+            raise ValueError("failed path terminal/accounting mismatch")
         total = 0
         for timestep in (1, 101):
             evaluated = [r for r in scope if r["phase"] == "evaluated" and r.get("timestep") == timestep]
@@ -73,6 +100,8 @@ def diagnose(rows, report, record):
             expected_status = "converged" if timestep == 1 else "evaluation_budget"
             if end.get("status") != expected_status or state.get("status") != expected_status:
                 raise ValueError("unexpected pair status; do not reinterpret another run")
+            if (errors[-1] <= 1e-5) != (expected_status == "converged"):
+                raise ValueError("terminal status contradicts exact residual tolerance")
             if integer(state.get("evaluations")) != total or state.get("residual_max") != errors[-1]:
                 raise ValueError("pair state/path accounting mismatch")
             pairs.append({"arm": arm, "timestep": timestep, "status": expected_status,
@@ -123,6 +152,8 @@ def main():
     rows,journal_sha = load(args.journal,lines=True)
     report,report_sha = load(args.report)
     record,record_sha = load(args.record)
+    if (journal_sha,report_sha,record_sha) != RAW_HASHES:
+        raise ValueError("retained byte identities changed; no replacement metadata")
     result = diagnose(rows,report,record)
     result["provenance"] = {"journal_sha256":journal_sha,"worker_report_sha256":report_sha,
         "runner_record_sha256":record_sha,"script_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
