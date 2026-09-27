@@ -84,6 +84,13 @@ or emitted terminal-named row is never sufficient evidence of normal return.
 The independent review also checked16 weighted quadratic/projected Armijo cases;
 these remain numerical software fixtures, not decoded-image evidence.
 
+Final independent `/root/astra_inverse_route_review` re-review at exact
+`6daeb0b3377bbd9bed5c28d80637417843a534d7` reproduced the refusal and all11 tests:
+no remaining ordinary numerical-component blocker. See
+[audit](../audits/c4-adaptive-refinement-review-20260927/review.md).
+This supersedes pending-review wording above only for this component; actual
+learned-model binding, comparison worker and execution package remain unfinished.
+
 Freeze iteration/NFE/backward/recomputation/time/allocator/storage budgets,
 line-search constants, trial persistence, exact start/anchor hashes and stopping
 rules in the complete worker/package before one execution decision. Do not choose
