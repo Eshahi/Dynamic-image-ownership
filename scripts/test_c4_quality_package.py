@@ -3,6 +3,7 @@ import copy
 import json
 import sys
 import tempfile
+import time
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -10,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from src.embedding import quality_package as package
 from scripts.run_c4_saved_pair import command
-from scripts.c4_saved_pair import run
+from scripts.c4_saved_pair import run, append_progress
 
 
 def fixture():
@@ -101,6 +102,18 @@ class PackageTests(unittest.TestCase):
             self.assertFalse(result["scientific_acceptance"])
             lines = (output/"logs/saved-pair-progress.jsonl").read_text().splitlines()
             self.assertEqual(json.loads(lines[-1])["phase"], "failed")
+            self.assertEqual(result["failure_phase"], "worker_started")
+
+    def test_completed_values_durable_without_terminal_report(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder)/"owned-progress"
+            with path.open("xb") as journal:
+                append_progress(journal, time.monotonic(), "classical_complete",
+                                comparison="owned", metrics={"mse_rgb01": 0.02})
+                # Read before closing, like a forced stop lacking final JSON.
+                observed = json.loads(path.read_bytes())
+                self.assertEqual(observed["metrics"]["mse_rgb01"], 0.02)
+            self.assertFalse((Path(folder)/"result.json").exists())
 
 
 if __name__ == "__main__": unittest.main()

@@ -25,6 +25,13 @@ def fresh(path, value):
         stream.write(package.canonical(value)); stream.flush(); os.fsync(stream.fileno())
 
 
+def append_progress(journal, started, phase, **values):
+    """Durable values, not just labels, survive missing terminal report."""
+    journal.write(package.canonical({"phase": phase, "elapsed_seconds": time.monotonic()-started,
+                                    **values}) + b"\n")
+    journal.flush(); os.fsync(journal.fileno())
+
+
 def run(manifest_path, output):
     started = time.monotonic()
     manifest, snapshots, pins = package.inputs(package.read(manifest_path), ROOT)
@@ -34,10 +41,14 @@ def run(manifest_path, output):
     progress = output/"logs/saved-pair-progress.jsonl"
     package.unlinked(progress)
     with progress.open("xb") as journal:
+        current = {"phase": "worker_started"}
         def record(phase, **values):
-            journal.write(package.canonical({"phase": phase, "elapsed_seconds": time.monotonic()-started,
-                                            **values}) + b"\n")
-            journal.flush(); os.fsync(journal.fileno())
+            append_progress(journal, started, phase, **values)
+            current["phase"] = phase
+        record("worker_started", manifest_sha256=package.sha(package.canonical(manifest)),
+               expected_comparisons=["control_source", "candidate_source", "candidate_control"],
+               expected_codes=["source", "control", "candidate"],
+               initial_inventory_status="all-pending-not-zero", scientific_acceptance=False)
         result = {"run_id": package.RUN, "experiment_id": package.EXPERIMENT,
                   "manifest_sha256": package.sha(package.canonical(manifest)),
                   "git_commit": manifest["git_commit"], "input_sha256": pins,
@@ -90,14 +101,16 @@ def run(manifest_path, output):
                 "torch_limit_bytes": limit, "available_ram_bytes": available_ram,
                 "free_disk_bytes": disk, "gpu": torch.cuda.get_device_name(), "cuda": torch.version.cuda}
             for label, reference, candidate in PAIRS:
+                record("classical_started", comparison=label)
                 result["quality"][label] = classical(images[reference], images[candidate])
-                record("classical_complete", comparison=label)
+                record("classical_complete", comparison=label, metrics=result["quality"][label])
             # Sequential models keep the frozen 4GiB estimate conservative.
             record("clip_load_started")
             encoder = PinnedClipEncoder.from_checkpoint(STABLE/package.ASSETS/"clip/ViT-B-32.pt", device="cuda")
             result["clip_identity"] = encoder.identity
             record("clip_load_completed")
             for name in ("source", "control", "candidate"):
+                record("clip_phash_started", image=name)
                 features = encoder.extract_features(images[name])
                 code, ws = derive_ws(features, bytes(32), package.OWNER)
                 phash, keys = bind_canonical_image(images[name].tobytes(), 500, 333, code.packed, package.OWNER)
@@ -107,20 +120,23 @@ def run(manifest_path, output):
                             "phash_minimum_margin": phash.minimum_selected_margin}
                 result["codes"][name] = observed
                 if name == "source" and any(observed[k] != v for k, v in source_enrollment.items()):
+                    record("source_replay_failed", image=name, observed=observed)
                     raise ValueError("source enrollment replay failed; no relabeling")
                 if name != "source":
                     result["drift"][name] = drift(bytes.fromhex(source_enrollment["q"]),
                         bytes.fromhex(source_enrollment["h"]), code.packed, phash.packed)
-                record("clip_phash_complete", image=name)
+                record("clip_phash_complete", image=name, observed=observed,
+                       drift=result["drift"].get(name), source_replay_passed=name == "source")
             del encoder, features; gc.collect(); torch.cuda.empty_cache()
             record("lpips_load_started")
             metric = load_lpips(STABLE/package.ASSETS/"alexnet/alexnet-owt-7be5be79.pth", "cuda")
             record("lpips_load_completed")
             for label, reference, candidate in PAIRS:
+                record("lpips_started", comparison=label)
                 metrics = result["quality"][label]
                 metrics["lpips_alex_v01"] = lpips_distance(metric, images[reference], images[candidate])
                 metrics["target_diagnostics"] = target_checks(metrics)
-                record("lpips_complete", comparison=label)
+                record("lpips_complete", comparison=label, metrics=metrics)
             torch.cuda.synchronize()
             result["status"] = "completed_diagnostic_only"
             result["resources_final"] = {"peak_torch_allocated_bytes": torch.cuda.max_memory_allocated(),
@@ -132,11 +148,17 @@ def run(manifest_path, output):
         except Exception as error:
             result["status"] = "failed_retained_partial"
             result["error_type"] = type(error).__name__
-            if "torch" in locals() and torch.cuda.is_initialized():
-                result["resources_failure"] = {
-                    "peak_torch_allocated_bytes": torch.cuda.max_memory_allocated(),
-                    "peak_torch_reserved_bytes": torch.cuda.max_memory_reserved()}
-            record("failed", error_type=type(error).__name__)
+            result["failure_phase"] = current["phase"]
+            result["error_message"] = str(error)[:512]
+            try:
+                if "torch" in locals() and torch.cuda.is_initialized():
+                    result["resources_failure"] = {
+                        "peak_torch_allocated_bytes": torch.cuda.max_memory_allocated(),
+                        "peak_torch_reserved_bytes": torch.cuda.max_memory_reserved()}
+            except Exception as resource_error:
+                result["failure_resource_read_error"] = type(resource_error).__name__
+            record("failed", error_type=type(error).__name__, failure_phase=result["failure_phase"],
+                   error_message=result["error_message"], resources=result.get("resources_failure"))
             code = 1
         result["elapsed_seconds"] = time.monotonic()-started
         fresh(output/"outputs/saved-pair-quality.json", result)
