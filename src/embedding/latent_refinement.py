@@ -180,6 +180,18 @@ def refine(backend, source, initial_latent, policy, *, progress, save_state):
                 if length>policy.maximum_displacement_l2:
                     trial=initial+delta*(policy.maximum_displacement_l2/length)
                 _latent(trial,"refinement trial")
+                # Mathematical projection is not a bound on the rounded fp32
+                # tensor, especially around a nonzero initial latent. Refuse
+                # the actual candidate before decoding, retaining the failure.
+                displacement=float(torch.linalg.vector_norm((trial-initial).double()))
+                if displacement>policy.maximum_displacement_l2:
+                    row={"phase":"refinement_projection_refused","iteration":iteration,
+                         "backtrack":backtrack,"displacement_l2":displacement,
+                         "maximum_displacement_l2":policy.maximum_displacement_l2,
+                         "decoder_evaluated":False}
+                    save_state(dict(row),trial.detach().clone());guard();check_time()
+                    emit(dict(row))
+                    raise EmbeddingError("rounded refinement projection exceeds trust radius")
                 _,candidate,observed=evaluate(trial,gradient=False,role="trial",iteration=iteration)
                 # A grad-enabled reevaluation is not permission to increase the
                 # last actually accepted objective if execution paths differ.
@@ -196,7 +208,7 @@ def refine(backend, source, initial_latent, policy, *, progress, save_state):
         if metrics["mse_rgb01"]<=policy.mse_tolerance:status="mse_tolerance_met"
         guard();check_time()
         row={"phase":"refinement_final_state","status":status,**metrics}
-        save_state(dict(row),current.clone());guard()
+        save_state(dict(row),current.clone());guard();check_time()
         emit(dict(row,phase="refinement_terminated",evaluations=evaluations,backward_evaluations=backwards,
                   actual_decoder_forward_starts=starts,checkpoint_recomputations=recomputations,
                   scientific_acceptance=False,saved_png_quality="NOT_RUN",safety="NOT_RUN"))

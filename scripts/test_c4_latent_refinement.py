@@ -84,9 +84,13 @@ class RefinementTests(unittest.TestCase):
 
     def test_trust_ball_projection(self):
         self.policy=RefinementPolicy(2,20,2,10.,.01,.1,0.,10.)
-        result=self.run_refine()
-        self.assertLessEqual(result.displacement_l2,.01000001)
-        self.assertTrue(all(row["displacement_l2"]<=.01000001 for row,_ in self.saved))
+        # This fp32 fixture rounds just beyond .01: the old tolerance in this
+        # test hid it. The declared hard radius now refuses that candidate.
+        with self.assertRaisesRegex(EmbeddingError,"rounded refinement projection"):
+            self.run_refine()
+        evaluated=[row for row,_ in self.saved if row["phase"]=="refinement_evaluated_state"]
+        self.assertTrue(all(row["displacement_l2"]<=.01 for row in evaluated))
+        self.assertEqual(self.saved[-1][0]["phase"],"refinement_projection_refused")
 
     def test_zero_gradient_has_explicit_status_and_no_fallback(self):
         self.backend.vae.decoder.scale.zero_()
@@ -94,6 +98,33 @@ class RefinementTests(unittest.TestCase):
         self.assertEqual(result.status,"zero_gradient")
         self.assertEqual(result.backward_evaluations,1)
         self.assertEqual(result.evaluations,2)
+
+    def test_rounded_projection_beyond_radius_is_saved_and_refused_before_decode(self):
+        self.latent.fill_(1.)
+        self.policy=RefinementPolicy(2,20,2,1.,1e-4,0.,0.,10.)
+        with self.assertRaisesRegex(EmbeddingError,"rounded refinement projection"):
+            self.run_refine()
+        row,state=self.saved[-1]
+        self.assertEqual(row["phase"],"refinement_projection_refused")
+        self.assertGreater(row["displacement_l2"],self.policy.maximum_displacement_l2)
+        self.assertFalse(row["decoder_evaluated"])
+        self.assertEqual(self.backend.vae.decoder.calls,2)
+        self.assertFalse(any(r["phase"]=="refinement_terminated" for r in self.events))
+        self.assertEqual(len(self.backend.vae.decoder._forward_pre_hooks),0)
+
+    def test_final_persistence_deadline_overrun_preserves_state_without_terminal(self):
+        self.source.fill_(.5)
+        clock=[0.]
+        def save(row,state):
+            self.saved.append((row,state))
+            if row["phase"]=="refinement_final_state":clock[0]=11.
+        with patch("src.embedding.latent_refinement.time.monotonic",side_effect=lambda:clock[0]):
+            with self.assertRaisesRegex(EmbeddingError,"time limit"):
+                self.run_refine(save_state=save)
+        self.assertEqual(self.saved[-1][0]["phase"],"refinement_final_state")
+        self.assertEqual(self.events[-1]["phase"],"refinement_time_limit")
+        self.assertFalse(any(r["phase"]=="refinement_terminated" for r in self.events))
+        self.assertEqual(len(self.backend.vae.decoder._forward_pre_hooks),0)
 
     def test_initial_mse_diagnostic_does_not_claim_quality_success(self):
         self.source.fill_(.5)

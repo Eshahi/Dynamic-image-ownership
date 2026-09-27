@@ -31,6 +31,9 @@ No SSIM/LPIPS/safety/PNG quality target is asserted from continuous MSE alone.
 
 Fixed normalized-gradient projected descent updates within an explicit global L2
 ball around the initial latent. Each declared trial halves the step on rejection;
+the actual rounded fp32 displacement is measured in float64 after projection.
+A candidate beyond the declared radius is persisted as an unevaluated refusal and
+aborts before decoder invocation, without an implicit tolerance or radius increase.
 it must strictly decrease both the last accepted objective and the fresh gradient
 evaluation objective. Rejected trials count and are durably persisted too. This is
 a declared numerical algorithm, not unreported hyperparameter/outcome search.
@@ -63,6 +66,8 @@ not report combined source PNG targets, safety or watermark survival. No encoder
 DDIM or detector is called, and no model parameter gradient is accumulated.
 Cooperative time checks cannot kill a stuck call; external runner timeout and
 actual resource/allocation headroom are required for any learned-model execution.
+The deadline is rechecked after final-state persistence, before any terminal record;
+a slow save leaves partial evidence and an exception, not a completed diagnostic.
 
 ## Supported next full experiment, still incomplete
 
