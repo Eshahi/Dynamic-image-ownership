@@ -1,0 +1,29 @@
+# Analysis
+
+{
+  "experiment_id": "c4-qim-rgb-development-v1",
+  "mode": "exploratory",
+  "metric": "native_joint_pass_fraction",
+  "expected_count": 1,
+  "observed_count": 1,
+  "missing_runs": [],
+  "failed_runs": [],
+  "summaries": {
+    "ten_source_census": {
+      "n": 1,
+      "mean": 1.0,
+      "median": 1.0,
+      "sd": null,
+      "min": 1.0,
+      "max": 1.0
+    }
+  },
+  "comparison": null,
+  "warnings": [
+    "Few independent seeds; comparison may be underpowered"
+  ],
+  "conclusion": "No significance or superiority claim generated",
+  "multiple_comparisons": "Single prespecified comparison only; familywise analysis requires a reviewed extension"
+}
+
+No outliers removed. Seed pairs, not individual observations, are the unit of comparison. Negative and failed runs remain in the report.

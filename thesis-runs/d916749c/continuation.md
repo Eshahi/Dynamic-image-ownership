@@ -1,5 +1,11 @@
 # Current continuation record
 
+## Updated algorithm pilot completed, 2026-09-30
+
+The user's direct request to design and execute an experiment from their updated algorithm resumed this bounded task only. Supplied DCT-QIM v2 files were preserved unchanged. One official CPU experiment c4-qim-rgb-dev-001 executed the independently reviewed clean commit 2e05d926ec9eb889116a60be19fe5345211b512b; canonical manifest 5532fe6fc5f7c88de4535a3d097fdda566e409dee1a8baf483c90c59b3f98b42. All ten reserved development sources and130calls completed. Native engineering joint outcome10/10; intended-owner detection native10/10, noise10/10, resize9/10, JPEG0/10, one-pixel shift0/10. Mean PSNR50.346377dB/SSIM0.996239; LPIPSNOT_RUN, full quality conjunctionNOT_EVALUABLE. Independent retained-output audit found no blocking inconsistency and verified file hashes/counts, without decoding or scientific rerun. See reports/dev/c4-qim-rgb-dev-001/result.md and audits/c4-qim-rgb-review-20260930/review.md.
+
+This is development evidence, not latent-route equivalence, global FPR/authentication, native2K/full6900 or method acceptance. Preserve approximate public-owner collision and JPEG/shift negative evidence. The one execution authorization is consumed: no rerun, tuning ladder or additional scientific work is authorized by this completed request. No public push, downloads, installs, paid compute or Spec Kit transition occurred. C4 remains open/C5 dependent; unrelated tasks remain paused. Historical continuation sections below are preserved and do not override this latest bounded record.
+
 Updated 2026-09-23. Authority: `research/approval-policy.md`.
 
 ## Latest bounded progress, 2026-09-23
