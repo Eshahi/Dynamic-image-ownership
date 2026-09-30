@@ -1,0 +1,19 @@
+{
+  "status": "PROSPECTIVE_UNMEASURED_NOT_EXECUTION_MANIFEST",
+  "execution_target": "local",
+  "user_elapsed_time_ceiling_seconds": null,
+  "user_cpu_gpu_restriction": "None for this requested small-scale design; actual machine availability and safe resource handling remain mandatory",
+  "remote_cost_ceiling_usd": 0,
+  "model_downloads_authorized": false,
+  "cpu_work": "DCT-QIM embedding/detection, transforms, saved-image checks and analysis",
+  "gpu_work": "Offline existing SD1.5 img2img and existing CLIP/LPIPS evaluator models; one worker sequential model residency",
+  "regeneration_attempts": 120,
+  "public_patch_attempts": 40,
+  "public_patch_sham_controls": 40,
+  "stronger_access_residual_attempts": 40,
+  "semantic_unordered_pairs": 45,
+  "runtime_estimate": "Unmeasured for the new attack pipeline; prior 10-source CPU pilot approximately65seconds cannot estimate120diffusionoutputs",
+  "ram_vram_estimate": "Measure free RAM/VRAM and attack-worker residency before dispatch; no fixed20minute or CPU-only restriction carried over",
+  "disk_estimate": "Planning allowance2GiB excluding existingweights; measure PNG sizes/logs before final manifest, not a user ceiling",
+  "operational_watchdog": "Set a recoverable finite runner watchdog after profiling or seek supported checkpointed dispatch; null user deadline is not an instruction to disable runner safety"
+}

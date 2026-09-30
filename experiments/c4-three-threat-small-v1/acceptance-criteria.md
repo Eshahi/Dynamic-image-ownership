@@ -1,0 +1,13 @@
+# Small-scale evidence criteria
+
+Mandatory specificity prerequisite: all10clean C0controls and all10no-transfer C0recipients must have completed negative intended-owner decisions. Baseline recipient positives are reported separately from transfer-associated acceptance and block preliminary support for that arm. At each T3strength, all30matched unmarked C0regenerations must complete with zero intended-owner positives; any positive makes survival attribution inconclusive despite C1acceptance. Missing negative evidence prevents support. Negative counts are not populationFPR claims.
+
+Clean prerequisite: all10sources successfully processed with nonzero marked changes, correct-owner detection, and PSNR>35/SSIM>.9/LPIPS<.1 on saved512RGB8. Fixed wrong-owner and selected adversarial-owner outcomes must be disclosed; any false attribution contradicts a blanket owner-authentication claim. Missing metrics keep quality unresolved. No lower thresholds after results.
+
+T4: any admissible distinct-recipient acceptance contradicts zero-false-attribution under that tested access regime. Zero accepts is only a preliminary observation if all planned calls completed and at least10distinct recipients supplied admissible examples in that arm; otherwise inconclusive. Public patch and clean-donor residual arms remain separate. A rejected mark does not prove the detector identified copy-paste specifically.
+
+T3: at each strength, at least9/10source groups must satisfy all3fixed seed retention+detector conjunctions for preliminary support at that severity. Failures in the planned ten-source denominator remain failures; missing retention assessment prevents support. Both strengths must pass for the broad within-pilot regeneration-survival hypothesis. Neither outcome establishes latent-over-pixel superiority.
+
+T5: preliminary component-level support requires no distance<=3collision among all same-semantic distinct-instance pairs, at least5suchpairs and5different-semantic pairs, and preserved binding on all10same-instance controls. Any same-semantic distinct-pair collision contradicts a blanket uniqueness claim. Dependence and small counts prevent globalcollisionrate inference. No claim that this standalone diagnostic measures the full detector's authentication or implements CLIP+pHash dual signatures.
+
+The joint small-pilot claim is supported only if clean prerequisites and allthree axis criteria have complete valid evidence. An inconclusive/blocked axis prevents overall support. Failures are useful research outcomes, not grounds for deletion or unplanned optimization. Full proposal-method correctness, finaldataset/native2K fulfillment, publication and lifecycle acceptance remain unestablished.

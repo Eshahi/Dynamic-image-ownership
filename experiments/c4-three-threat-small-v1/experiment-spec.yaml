@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "c4-three-threat-small-v1",
+  "task_id": "C4",
+  "question": "Does unchanged pixel DCT-QIM v2 provide complete preliminary evidence across transfer, generative regeneration and semantic-instance binding collision diagnostics?",
+  "hypothesis": "Each of the three separately reported axis-specific criteria in acceptance-criteria.md is met, with clean quality prerequisites and no missing evidence.",
+  "primary_outcome": "Three separate support/contradiction/inconclusive classifications; never a pooled accuracy or latent-method validation.",
+  "secondary_outcomes": ["Clean PSNR/SSIM/LPIPS and intended/wrong-owner controls", "All-attempt and admissible-only transfer false attributions by access regime", "Source-clustered survival by regeneration strength and seed", "Semantic-stratified binding-distance collision counts; diagnostic only"],
+  "datasets": [{"id":"ms-coco","version":"2017validation;tenpreviouslyreserveddevelopmentIDs6012,25394,80932,109798,134882,147498,177015,190676,468505,499768","license":"Retained item-level private/local academic restrictions; no publication or legalclearance","split":"Previouslyaccesseddevelopmentonly;allten,noheldoutunlock"}],
+  "leakage_risks": ["Prior pilot results known; new attack outcomes prospective but overall study exploratory", "Semantic labels must be frozen independently before binding/detector scores", "Pairs and seed repetitions are not independent sources", "Public approximate owner tag is forgeable; demonstrated wrong-owner collision retained"],
+  "preprocessing": "Native EXIF/ICC canonicalRGB8 then512squarebicubic;unchangedsuppliedQIM4;save/reopenPNGbeforeeverydetect;no2Kclaim",
+  "baselines": ["Matched untouched marked inputs", "Unmarked recipient/source controls", "Same-instance binding controls"],
+  "controls": ["Fourfixedwrongownersincludingknownselectedcollision", "Unmarked-donorpatchshams", "Separateclean-donorresidualstrongeraccessarm", "Matchedunmarkedgenerativeoutputs", "Different-semanticanduncertainpairsretained"],
+  "ablations": ["No-transferrecipientbaseline;notanimplementedbinding-disabledcodec"],
+  "seeds": [0,1,2],
+  "stopping_rule": "Fixedcompleteinventory,nooutcome-basedtuning/retries;nouserelapsedceiling;operationalrunnerwatchdogpendingprofiling",
+  "acceptance_rule": "All three axis criteria plus complete clean/no-transfer C0 negatives and zero intended-owner positives among all30 C0 regenerations perstrength; missing or positive C0 blocks preliminary support; not method/lifecycleacceptance",
+  "negative_result_policy": "Keepallplannedattemptsandfailures/missing/inadmissibleoutputs;reportaccessregimesandstrengthsseparately;nomodificationafterresults",
+  "analysis": {
+    "mode": "exploratory",
+    "metric": "axis_supported",
+    "direction": "higher",
+    "conditions": ["transfer","regeneration","semantic_binding_diagnostic"],
+    "expected_runs": [
+      {"run_id":"c4-three-threat-small-dev-001-transfer","condition":"transfer","seed":0},
+      {"run_id":"c4-three-threat-small-dev-001-regeneration","condition":"regeneration","seed":0},
+      {"run_id":"c4-three-threat-small-dev-001-semantic","condition":"semantic_binding_diagnostic","seed":0}
+    ],
+    "comparison": null,
+    "confidence_interval": "none",
+    "bootstrap_samples": 100,
+    "random_seed": 0,
+    "multiple_comparisons": "none-single-comparison",
+    "exclusion_rule": "none"
+  }
+}

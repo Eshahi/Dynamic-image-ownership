@@ -1,0 +1,86 @@
+{
+  "status": "separate_development_reservation_not_scientific_execution_approval",
+  "user_decision": "Authenticated current task message: تایید میکنن; after request for a small existing-local semantic cohort expansion",
+  "original_cohort_reference": "experiments/c4-qim-rgb-development-v1/cohort.json",
+  "original_ids": [
+    6012,
+    25394,
+    80932,
+    109798,
+    134882,
+    147498,
+    177015,
+    190676,
+    468505,
+    499768
+  ],
+  "new_cases": [
+    {
+      "source_id": 1675,
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000001675.jpg",
+      "raw_sha256": "6ba641627c08ef424b7dc3e6cee069aa0dd49615a31c54ae0de1ecd1fabd9dea",
+      "canonical_pixel_sha256": "d56851d9f206e652ddc413c49f45971171090661962756539f13a64cd125e3e3",
+      "group_id": "fa2a5808f41935c30540c5794dcf2f58fe599ba9e001a54d80ea3ea02514b788",
+      "flickr_url": "http://farm1.staticflickr.com/104/301990977_42713fd7f4_z.jpg",
+      "width": 640,
+      "height": 480,
+      "license_id": 1,
+      "license_reference": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+      "rights_status": "pending-image-rights",
+      "use_limitations": "Existing local private academic research only; no redistribution/public figures; creator/title/attribution and original archive custody unverified; no legal certification",
+      "frozen_selected_overlaps": [],
+      "observed_group_members": [
+        "ms-coco:1675"
+      ],
+      "canonical_status": "canonical_pass"
+    },
+    {
+      "source_id": 4795,
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000004795.jpg",
+      "raw_sha256": "6f8994bac6aef0602d4aa4397ecd4b7d579f5b18f66058a2df021352dd22bdc6",
+      "canonical_pixel_sha256": "cf76c316b4d283e3d2f01c011db212c6e2a101993017ab690b6cdeb15e0a5f41",
+      "group_id": "c892a270bb2aa88bf37ba8aa5e1b437707957b964d530d96dd842b1daf0789f2",
+      "flickr_url": "http://farm1.staticflickr.com/34/74176788_124cf98504_z.jpg",
+      "width": 640,
+      "height": 480,
+      "license_id": 1,
+      "license_reference": "http://creativecommons.org/licenses/by-nc-sa/2.0/",
+      "rights_status": "pending-image-rights",
+      "use_limitations": "Existing local private academic research only; no redistribution/public figures; creator/title/attribution and original archive custody unverified; no legal certification",
+      "frozen_selected_overlaps": [],
+      "observed_group_members": [
+        "ms-coco:4795"
+      ],
+      "canonical_status": "canonical_pass"
+    }
+  ],
+  "selection": "First two ascending numeric cat-annotation candidates outside all frozen COCO IDs/raw hashes; chosen before method outcomes, then raw visual review and full existing B4 graph replay",
+  "retained_first_eight_candidates": [
+    1675,
+    4795,
+    10363,
+    14007,
+    14831,
+    15497,
+    18833,
+    22892
+  ],
+  "selection_not_random": true,
+  "t3_t4_sources": "Original ten only; 120 regeneration outputs unchanged",
+  "t5_sources": "All twelve; 66 unordered pairs",
+  "clean_controls_sources": "All twelve; expanded quality/negative/same-instance controls",
+  "frozen_splits_modified": false,
+  "independence_certified": false,
+  "rights_cleared": false,
+  "scientific_compute_authorized": false,
+  "graph_replay": {
+    "frame": 19900,
+    "components": 7627,
+    "canonical_inventory_sha256": "f867a38c0a8fce164fd01290378425ea674a9f4609061f38f7b81abb66b87b15",
+    "metadata_bridge_sha256": "e54e3e4a82d7938ffbd2f6d9c77aaec0b6126dc983be19f2ae8218152a6d3d23",
+    "split_module_sha256": "b9a1a27539c64874ac97bd7b6b993eba57f79b18af455c141f366624c8180f70",
+    "splits_sha256": "60ff11ae5a81698446573c5f7fbd9d3067a5a2619abdf29ac2389931de1e1b9f",
+    "screen": "Full connected components from raw/canonical/prompt/producer/coarse-near graph, not just raw duplicate exclusion; both candidate components are singletons outside all selected splits",
+    "residual_dependence_not_ruled_out": true
+  }
+}

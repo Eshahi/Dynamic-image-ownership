@@ -1,0 +1,428 @@
+{
+  "status": "pre_outcome_semantic_labels",
+  "source_ids": [
+    1675,
+    4795,
+    6012,
+    25394,
+    80932,
+    109798,
+    134882,
+    147498,
+    177015,
+    190676,
+    468505,
+    499768
+  ],
+  "reviewers": [
+    "root",
+    "/root/three_threat_design_review"
+  ],
+  "review_model": "gpt-6-astra",
+  "reasoning_effort": "high",
+  "blinded_to_parent_suggestions": false,
+  "no_binding_or_detector_or_clip_outcomes_used": true,
+  "counts": {
+    "same": 7,
+    "uncertain": 2,
+    "different": 57
+  },
+  "pairs": [
+    {
+      "left": 1675,
+      "right": 4795,
+      "label": "same",
+      "rationale": "Principal indoor domestic-cat topic; different photographic instances, not proof of distinct physical animal"
+    },
+    {
+      "left": 1675,
+      "right": 6012,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 1675,
+      "right": 25394,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 1675,
+      "right": 80932,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 1675,
+      "right": 109798,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 1675,
+      "right": 134882,
+      "label": "same",
+      "rationale": "Principal indoor domestic-cat topic; different photographic instances, not proof of distinct physical animal"
+    },
+    {
+      "left": 1675,
+      "right": 147498,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 1675,
+      "right": 177015,
+      "label": "same",
+      "rationale": "Principal indoor domestic-cat topic; different photographic instances, not proof of distinct physical animal"
+    },
+    {
+      "left": 1675,
+      "right": 190676,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 1675,
+      "right": 468505,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 1675,
+      "right": 499768,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 4795,
+      "right": 6012,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 4795,
+      "right": 25394,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 4795,
+      "right": 80932,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 4795,
+      "right": 109798,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 4795,
+      "right": 134882,
+      "label": "same",
+      "rationale": "Principal indoor domestic-cat topic; different photographic instances, not proof of distinct physical animal"
+    },
+    {
+      "left": 4795,
+      "right": 147498,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 4795,
+      "right": 177015,
+      "label": "same",
+      "rationale": "Principal indoor domestic-cat topic; different photographic instances, not proof of distinct physical animal"
+    },
+    {
+      "left": 4795,
+      "right": 190676,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 4795,
+      "right": 468505,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 4795,
+      "right": 499768,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 6012,
+      "right": 25394,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 6012,
+      "right": 80932,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 6012,
+      "right": 109798,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 6012,
+      "right": 134882,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 6012,
+      "right": 147498,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 6012,
+      "right": 177015,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 6012,
+      "right": 190676,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 6012,
+      "right": 468505,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 6012,
+      "right": 499768,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 25394,
+      "right": 80932,
+      "label": "uncertain",
+      "rationale": "Bar service versus restaurant dining; contextual similarity but principal activity uncertain"
+    },
+    {
+      "left": 25394,
+      "right": 109798,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 25394,
+      "right": 134882,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 25394,
+      "right": 147498,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 25394,
+      "right": 177015,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 25394,
+      "right": 190676,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 25394,
+      "right": 468505,
+      "label": "uncertain",
+      "rationale": "Bar service versus restaurant dining; contextual similarity but principal activity uncertain"
+    },
+    {
+      "left": 25394,
+      "right": 499768,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 80932,
+      "right": 109798,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 80932,
+      "right": 134882,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 80932,
+      "right": 147498,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 80932,
+      "right": 177015,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 80932,
+      "right": 190676,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 80932,
+      "right": 468505,
+      "label": "same",
+      "rationale": "Restaurant dining with people and meals"
+    },
+    {
+      "left": 80932,
+      "right": 499768,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 109798,
+      "right": 134882,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 109798,
+      "right": 147498,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 109798,
+      "right": 177015,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 109798,
+      "right": 190676,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 109798,
+      "right": 468505,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 109798,
+      "right": 499768,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 134882,
+      "right": 147498,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 134882,
+      "right": 177015,
+      "label": "same",
+      "rationale": "Principal indoor domestic-cat topic; different photographic instances, not proof of distinct physical animal"
+    },
+    {
+      "left": 134882,
+      "right": 190676,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 134882,
+      "right": 468505,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 134882,
+      "right": 499768,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 147498,
+      "right": 177015,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 147498,
+      "right": 190676,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 147498,
+      "right": 468505,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 147498,
+      "right": 499768,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 177015,
+      "right": 190676,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 177015,
+      "right": 468505,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 177015,
+      "right": 499768,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 190676,
+      "right": 468505,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 190676,
+      "right": 499768,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    },
+    {
+      "left": 468505,
+      "right": 499768,
+      "label": "different",
+      "rationale": "Different principal subject/activity under the frozen topic rule"
+    }
+  ]
+}
