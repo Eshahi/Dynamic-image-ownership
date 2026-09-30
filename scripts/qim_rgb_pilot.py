@@ -37,10 +37,12 @@ def sha(path):
 def write_json(path, value):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", encoding="utf-8") as stream:
+    temporary = path.with_name(path.name + ".tmp")
+    with temporary.open("w", encoding="utf-8") as stream:
         json.dump(value, stream, sort_keys=True, indent=2, allow_nan=False)
         stream.flush()
         os.fsync(stream.fileno())
+    os.replace(temporary, path)
 
 
 def luminance(rgb):
@@ -107,14 +109,16 @@ def quality(source, marked):
 
 
 def summarize(rows):
-    summary = {"n_planned": 10, "n_completed": sum(row["status"] == "completed" for row in rows), "native_joint_passes": 0, "by_condition": {condition: {"c1_present": 0, "c0_present": 0, "planned_sources": 10} for condition in CONDITIONS}, "native_c2_present": 0, "native_c2_planned_calls": 30, "full_quality_goal": "NOT_EVALUABLE_LPIPS_NOT_RUN", "confidence_interval": None}
+    summary = {"n_planned": 10, "n_completed": sum(row["status"] == "completed" for row in rows), "native_joint_passes": 0, "by_condition": {condition: {"c1_present": 0, "c0_present": 0, "c1_completed_calls": 0, "c0_completed_calls": 0, "planned_sources": 10} for condition in CONDITIONS}, "native_c2_present": 0, "native_c2_completed_calls": 0, "native_c2_planned_calls": 30, "full_quality_goal": "NOT_EVALUABLE_LPIPS_NOT_RUN", "confidence_interval": None}
     for row in rows:
         native = [item for item in row.get("detections", []) if item["condition"] == "native_png"]
         for item in row.get("detections", []):
             if item["control"] in ("C0", "C1"):
                 summary["by_condition"][item["condition"]][item["control"].lower() + "_present"] += int(item["result"]["present"])
+                summary["by_condition"][item["condition"]][item["control"].lower() + "_completed_calls"] += 1
             elif item["condition"] == "native_png":
                 summary["native_c2_present"] += int(item["result"]["present"])
+                summary["native_c2_completed_calls"] += 1
         q = row.get("quality", {})
         psnr_ok = q.get("zero_error", False) or (q.get("psnr_db") is not None and q["psnr_db"] > 35)
         positive = [item for item in native if item["control"] == "C1"]
@@ -122,6 +126,10 @@ def summarize(rows):
         row["native_joint_pass"] = bool(row["status"] == "completed" and len(positive) == 1 and positive[0]["result"]["present"] and len(negative) == 4 and not any(item["result"]["present"] for item in negative) and row.get("changed_channels", 0) > 0 and psnr_ok and q.get("ssim_rgb", 0) > .9)
         summary["native_joint_passes"] += int(row["native_joint_pass"])
     summary["native_joint_pass_fraction"] = summary["native_joint_passes"] / 10
+    summary["native_c2_missing_calls"] = 30 - summary["native_c2_completed_calls"]
+    for value in summary["by_condition"].values():
+        value["c0_missing_calls"] = 10 - value["c0_completed_calls"]
+        value["c1_missing_calls"] = 10 - value["c1_completed_calls"]
     summary["engineering_verdict"] = "PASS_DEVELOPMENT_ONLY" if summary["native_joint_passes"] == 10 else "FAIL_OR_INCOMPLETE"
     return summary
 
@@ -137,6 +145,10 @@ def run(manifest, output):
     for entry in manifest["inputs"]:
         if sha(ROOT / entry["path"]) != entry["sha256"]:
             raise ValueError("input hash mismatch: " + entry["path"])
+    runtime = json.loads((ROOT / "experiments/c4-qim-rgb-development-v1/runtime-files.json").read_text())
+    for entry in runtime["files"]:
+        if sha(entry["path"]) != entry["sha256"]:
+            raise ValueError("installed numerical runtime bytes changed")
     cohort = json.loads((ROOT / "experiments/c4-qim-rgb-development-v1/cohort.json").read_text())
     profile = load_profile(ROOT / "configs/revised-watermark.example.json")
     if json.dumps(profile, sort_keys=True) != json.dumps(DEFAULT_PROFILE, sort_keys=True):
@@ -149,7 +161,7 @@ def run(manifest, output):
     rows = [{"source_id": case["source_id"], "status": "NOT_RUN"} for case in cases]
     started = time.monotonic()
     deadline = started + 1050
-    receipt = {"python": platform.python_version(), "pillow": PIL.__version__, "numpy": np.__version__, "skimage": skimage.__version__, "platform": platform.platform(), "cuda_used": False, "owners": list(OWNERS), "conditions": list(CONDITIONS), "profile": profile, "analysis_unit": "source", "n_planned": 10}
+    receipt = {"python": platform.python_version(), "pillow": PIL.__version__, "numpy": np.__version__, "skimage": skimage.__version__, "platform": platform.platform(), "runtime_file_count": len(runtime["files"]), "runtime_file_inventory_sha256": sha(ROOT / "experiments/c4-qim-rgb-development-v1/runtime-files.json"), "cuda_used": False, "owners": list(OWNERS), "conditions": list(CONDITIONS), "profile": profile, "analysis_unit": "source", "n_planned": 10}
     write_json(output / "outputs/runtime.json", receipt)
     def checkpoint():
         summary = summarize(rows)

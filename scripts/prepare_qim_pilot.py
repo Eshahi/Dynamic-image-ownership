@@ -48,7 +48,7 @@ def main():
         write(package / "cohort.json", cohort)
     elif json.loads((package / "cohort.json").read_text()) != cohort:
         raise ValueError("frozen cohort differs from metadata/bytes")
-    files = ["scripts/revised_watermark.py", "scripts/qim_rgb_pilot.py", "scripts/run_qim_rgb_pilot.py", "scripts/prepare_qim_pilot.py", "scripts/test_qim_rgb_pilot.py", "configs/revised-watermark.example.json", "configs/revised-watermark.schema.json", "research/method-amendment-v2.md", "research/method-amendment-decision-20260929.md"]
+    files = ["scripts/revised_watermark.py", "scripts/qim_rgb_pilot.py", "scripts/run_qim_rgb_pilot.py", "scripts/prepare_qim_pilot.py", "scripts/freeze_qim_runtime.py", "scripts/test_qim_rgb_pilot.py", "configs/revised-watermark.example.json", "configs/revised-watermark.schema.json", "research/method-amendment-v2.md", "research/method-amendment-decision-20260929.md"]
     files += [path.relative_to(ROOT).as_posix() for path in sorted(package.iterdir()) if path.is_file()]
     commit = subprocess.check_output(["git", "-C", str(ROOT), "rev-parse", "HEAD"], text=True).strip()
     spec = json.loads((package / "experiment-spec.yaml").read_text())

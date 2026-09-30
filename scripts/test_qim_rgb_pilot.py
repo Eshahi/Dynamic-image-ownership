@@ -54,6 +54,9 @@ class RGBPilotTests(unittest.TestCase):
         self.assertEqual(result["native_joint_pass_fraction"], .1)
         self.assertEqual(result["engineering_verdict"], "FAIL_OR_INCOMPLETE")
         self.assertIsNone(result["confidence_interval"])
+        self.assertEqual(result["by_condition"]["native_png"]["c0_completed_calls"], 2)
+        self.assertEqual(result["by_condition"]["native_png"]["c0_missing_calls"], 8)
+        self.assertEqual(result["native_c2_missing_calls"], 24)
 
 
 if __name__ == "__main__":
