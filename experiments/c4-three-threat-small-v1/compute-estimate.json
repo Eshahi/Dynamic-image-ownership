@@ -1,5 +1,5 @@
 {
-  "status": "PROSPECTIVE_UNMEASURED_NOT_EXECUTION_MANIFEST",
+  "status": "PREPARED_RESOURCES_PENDING_EXACT_REVIEW_AND_APPROVAL",
   "execution_target": "local",
   "user_elapsed_time_ceiling_seconds": null,
   "user_cpu_gpu_restriction": "None for this requested small-scale design; actual machine availability and safe resource handling remain mandatory",
@@ -11,9 +11,13 @@
   "public_patch_attempts": 40,
   "public_patch_sham_controls": 40,
   "stronger_access_residual_attempts": 40,
-  "semantic_unordered_pairs": 45,
+  "semantic_unordered_pairs": 66,
+  "planned_rows": 330,
+  "planned_detector_calls": 672,
+  "resource_envelope": {"vram_mib":8192,"ram_mib":8192,"disk_mib":2048},
+  "measured_availability_before_packaging": {"host_free_ram_kib":13603368,"wsl_available_ram_kib":15178812,"gpu_free_mib":11031,"gpu_total_mib":12227,"project_drive_free_bytes":143533293568},
   "runtime_estimate": "Unmeasured for the new attack pipeline; prior 10-source CPU pilot approximately65seconds cannot estimate120diffusionoutputs",
-  "ram_vram_estimate": "Measure free RAM/VRAM and attack-worker residency before dispatch; no fixed20minute or CPU-only restriction carried over",
+  "ram_vram_estimate": "8GiB RAM and VRAM planning envelopes fit measured availability with headroom; new pipeline peak is unmeasured; polled guards are operational not hard allocation caps; no automatic enlargement",
   "disk_estimate": "Planning allowance2GiB excluding existingweights; measure PNG sizes/logs before final manifest, not a user ceiling",
-  "operational_watchdog": "Set a recoverable finite runner watchdog after profiling or seek supported checkpointed dispatch; null user deadline is not an instruction to disable runner safety"
+  "operational_watchdog": "86400seconds official runner safety maximum; WSL timeout86200seconds plus30second termination grace, launcher86300seconds; not a scientific timing forecast or user deadline; no automatic rerun/extension"
 }
