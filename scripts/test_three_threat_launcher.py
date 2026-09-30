@@ -1,8 +1,10 @@
 """Ordinary launch-array tests; never starts a subprocess or scientific worker."""
 import unittest
+import os
 from run_three_threat_study import command, linux_path
 
 
+@unittest.skipUnless(os.name == "nt", "launcher paths require the actual Windows runner host")
 class LaunchTests(unittest.TestCase):
     def test_fixed_offline_clean_environment_and_watchdog(self):
         values = command("W:/test/package.json", "W:/test/outputs")
