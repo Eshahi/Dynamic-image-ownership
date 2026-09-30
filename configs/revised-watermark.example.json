@@ -1,0 +1,17 @@
+{
+  "schema_version": "revised-watermark-v2",
+  "profile": "image-domain-dct-qim-public-owner",
+  "qim_step": 4.0,
+  "minimum_side": 160,
+  "minimum_dynamic_range": 8.0,
+  "clip_tolerance": 8.0,
+  "repetition_floor": 3,
+  "frequencies": [[1, 2], [2, 1], [2, 2], [1, 3], [3, 1], [2, 3]],
+  "owner_bits": 48,
+  "binding_bits": 12,
+  "thresholds": {
+    "owner_accuracy": 0.75,
+    "instance_accuracy": 0.75,
+    "confidence": 0.65
+  }
+}

@@ -1,0 +1,1 @@
+{"target":"local", "device":"CPU, single BLAS/OMP thread in existing pinned WSL environment", "vram_mib":0, "ram_mib":4096, "disk_mib":512, "max_seconds":1200, "max_usd":0, "estimate_status":"prospective limits, runtime unknown until execution", "requires_runpod":false}

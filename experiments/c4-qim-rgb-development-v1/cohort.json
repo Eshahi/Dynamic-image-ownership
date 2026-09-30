@@ -1,0 +1,106 @@
+{
+  "cases": [
+    {
+      "height": 531,
+      "license_reference": "https://creativecommons.org/licenses/by/2.0/",
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000006012.jpg",
+      "raw_sha256": "7cd0d627b15c09f373aa613d013fb2d8ae6bd20bcce0d98aa31b963e6bcca495",
+      "rights_status": "pending-image-rights",
+      "source_id": 6012,
+      "use_limitations": "Local restricted academic research only; no redistribution/public figures; no legal or visual-content certification; recorded image license_id=4; annotation license is not image ownership; original archive identity unproved; creator/title/public attribution pending",
+      "width": 640
+    },
+    {
+      "height": 640,
+      "license_reference": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000025394.jpg",
+      "raw_sha256": "f13f54a3cbe28140004425b1b010c51bd5be0e4c4da1d4b1e382e3e0b426e316",
+      "rights_status": "pending-image-rights",
+      "source_id": 25394,
+      "use_limitations": "Local restricted academic research only; no redistribution/public figures; no legal or visual-content certification; recorded image license_id=5; annotation license is not image ownership; original archive identity unproved; creator/title/public attribution pending",
+      "width": 480
+    },
+    {
+      "height": 640,
+      "license_reference": "https://creativecommons.org/licenses/by/2.0/",
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000080932.jpg",
+      "raw_sha256": "c5bdb620680ad74c2bb788cabbf3374d68285bec3a2023fadf0ffc7eb257ba72",
+      "rights_status": "pending-image-rights",
+      "source_id": 80932,
+      "use_limitations": "Local restricted academic research only; no redistribution/public figures; no legal or visual-content certification; recorded image license_id=4; annotation license is not image ownership; original archive identity unproved; creator/title/public attribution pending",
+      "width": 480
+    },
+    {
+      "height": 333,
+      "license_reference": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000109798.jpg",
+      "raw_sha256": "8fafbfb6d1c320f9efc59291748c0b9a730726db311364c03280b2de39fe656f",
+      "rights_status": "pending-image-rights",
+      "source_id": 109798,
+      "use_limitations": "Local restricted academic research only; no redistribution/public figures; no legal or visual-content certification; recorded image license_id=5; annotation license is not image ownership; original archive identity unproved; creator/title/public attribution pending",
+      "width": 500
+    },
+    {
+      "height": 639,
+      "license_reference": "https://creativecommons.org/licenses/by/2.0/",
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000134882.jpg",
+      "raw_sha256": "d2a42fe606563d125e105246e6cd473f098338364b51f085da8a97d5943876c5",
+      "rights_status": "pending-image-rights",
+      "source_id": 134882,
+      "use_limitations": "Local restricted academic research only; no redistribution/public figures; no legal or visual-content certification; recorded image license_id=4; annotation license is not image ownership; original archive identity unproved; creator/title/public attribution pending",
+      "width": 640
+    },
+    {
+      "height": 524,
+      "license_reference": "https://creativecommons.org/licenses/by/2.0/",
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000147498.jpg",
+      "raw_sha256": "70c27d6d67cafe8d0d5a91a6913bc26ce1ba68f7cb69cdec60e96894ac1ec5d6",
+      "rights_status": "pending-image-rights",
+      "source_id": 147498,
+      "use_limitations": "Local restricted academic research only; no redistribution/public figures; no legal or visual-content certification; recorded image license_id=4; annotation license is not image ownership; original archive identity unproved; creator/title/public attribution pending",
+      "width": 640
+    },
+    {
+      "height": 480,
+      "license_reference": "https://creativecommons.org/licenses/by/2.0/",
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000177015.jpg",
+      "raw_sha256": "13bc4db7ed2ac2612fd03cbb25a597712f99cf1e44784d4abde5aca47f6999c7",
+      "rights_status": "pending-image-rights",
+      "source_id": 177015,
+      "use_limitations": "Local restricted academic research only; no redistribution/public figures; no legal or visual-content certification; recorded image license_id=4; annotation license is not image ownership; original archive identity unproved; creator/title/public attribution pending",
+      "width": 640
+    },
+    {
+      "height": 264,
+      "license_reference": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000190676.jpg",
+      "raw_sha256": "d2302cb8d9e0d37a4a150d79ffbb4ba9b1adfd2bcfd477b7b64581ba40e00b7b",
+      "rights_status": "pending-image-rights",
+      "source_id": 190676,
+      "use_limitations": "Local restricted academic research only; no redistribution/public figures; no legal or visual-content certification; recorded image license_id=5; annotation license is not image ownership; original archive identity unproved; creator/title/public attribution pending",
+      "width": 640
+    },
+    {
+      "height": 480,
+      "license_reference": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000468505.jpg",
+      "raw_sha256": "a3327665e199c84b0ad0e69c8e3f3f6df13902eb3b8580a0708c2c6cade370b6",
+      "rights_status": "pending-image-rights",
+      "source_id": 468505,
+      "use_limitations": "Local restricted academic research only; no redistribution/public figures; no legal or visual-content certification; recorded image license_id=5; annotation license is not image ownership; original archive identity unproved; creator/title/public attribution pending",
+      "width": 640
+    },
+    {
+      "height": 428,
+      "license_reference": "https://creativecommons.org/licenses/by/2.0/",
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000499768.jpg",
+      "raw_sha256": "8570324bcf64969f77f938941778a8fc69ec5a8943f0945511ce4ab09bce5a3a",
+      "rights_status": "pending-image-rights",
+      "source_id": 499768,
+      "use_limitations": "Local restricted academic research only; no redistribution/public figures; no legal or visual-content certification; recorded image license_id=4; annotation license is not image ownership; original archive identity unproved; creator/title/public attribution pending",
+      "width": 640
+    }
+  ],
+  "independent_confirmatory_sample": false,
+  "selection": "all ten reserved COCO development sources, numeric order"
+}

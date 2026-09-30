@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "c4-qim-rgb-development-v1",
+  "task_id": "C4",
+  "question": "Does the user's supplied DCT-QIM profile yield detectable native saved RGB PNGs at acceptable classical quality across all ten reserved COCO development sources?",
+  "hypothesis": "All ten native outputs pass C1, reject C0 and three fixed C2 owners, change at least one channel, and exceed PSNR35/SSIM0.9.",
+  "primary_outcome": "Native engineering joint pass count divided by all ten planned sources; original LPIPS conjunction remains unmeasured.",
+  "secondary_outcomes": ["Per-source attack C1/C0 outcomes for four frozen transforms", "CRC, version, binding distance, confidence, changed channels and CPU latency", "Admissibility and technical failures"],
+  "datasets": [{"id": "ms-coco", "version": "2017 validation, all ten previously reserved development IDs", "license": "Retained item-level B3/B4 restrictions: private local academic research; no redistribution or rights clearance implied", "split": "development only, all ten reserved sources; previously accessed, non-confirmatory"}],
+  "leakage_risks": ["Previously used development cohort; exploratory outcomes cannot establish generalization", "Frozen supplied thresholds are smoke settings, not independently calibrated FPR thresholds", "Public owner tag approximate matching can accept selected wrong owners"],
+  "preprocessing": "Native EXIF/ICC canonical RGB8; float64 Rec601 luminance; equal RGB-channel luminance delta; clipping and ties-even RGB8 PNG save/reopen before detection; no baseline resize",
+  "baselines": ["Canonical untouched RGB8 saved PNG C0"],
+  "controls": ["C1 intended public OwnerID", "C0 same source without embedding, same transform", "C2 three frozen wrong public OwnerIDs on native marked PNG"],
+  "ablations": [],
+  "seeds": [0],
+  "stopping_rule": "Exactly ten sources, continue per-source failures, no parameter tuning/retries; internal1050s, WSL1100s plus5s kill, parent1160s, runner1200s",
+  "acceptance_rule": "Narrow engineering pilot positive only if all ten native joint outcomes pass; no method/authentication/LPIPS/native2K/final-data acceptance",
+  "negative_result_policy": "Keep all ten rows, failures and partial detections. Publish descriptive counts privately; no success-only denominator or post-result threshold changes.",
+  "analysis": {"mode": "exploratory", "metric": "native_joint_pass_fraction", "direction": "higher", "conditions": ["ten_source_census"], "expected_runs": [{"run_id": "c4-qim-rgb-dev-001", "condition": "ten_source_census", "seed": 0}], "comparison": null, "confidence_interval": "none", "bootstrap_samples": 100, "random_seed": 0, "multiple_comparisons": "none-single-comparison", "exclusion_rule": "none"}
+}
