@@ -1,0 +1,19 @@
+{
+  "status":"BLOCKED_PENDING_IMPLEMENTATION_AND_EXACT_REVIEW",
+  "experiment_id":"c4-v4-three-threat-recovery-v1",
+  "source_run_id":"c4-v4-three-threat-dev-001",
+  "source_git_commit":"0e91bd2ff4f7a17dc35868f734257c85ee855d01",
+  "source_manifest_canonical_sha256":"ce4eca20933618d96c5930abebf503f2e9e2aa353fe9e7c4d768c89c0e6e4f73",
+  "source_results_sha256":"490078f55aff806f93f187dd843ecad73d3bb646fdd238b709e9592363471ce6",
+  "scientific_acceptance_sha256":"6ab5bd251aa126cf59f894b2eefea1118e6739092caf3c87a8e7734a9306b5e6",
+  "algorithm_sha256":"5c5dd3e2976da52d5983af273da5c5059c85a50f26d5abd12b5532387ded57fa",
+  "new_reviewed_entrypoint":null,
+  "new_clean_execution_commit":null,
+  "new_execution_manifest_sha256":null,
+  "missing":["Production per-unit saved-image evaluator and generation/evaluation adapter","Atomic receipt and verified-recovery implementation and full fault-injection tests","Durable official-runner host and parent-session-loss tests","Exact unit manifests and bundle budget/runtime/input/resource binding","Bounded independent whole execution-package review","Actual user decision for the new exact package"],
+  "ordinary_reference_only":"scripts/v4_recovery_design.py",
+  "old_approval_reusable":false,
+  "scientific_execution_authorized":false,
+  "design_helper_full_execution_validation":"NOT_RUN_missing_real_execution_contract",
+  "no_fake_approval_or_execution_manifest":true
+}

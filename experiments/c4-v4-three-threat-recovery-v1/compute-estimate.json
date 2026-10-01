@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "status": "DESIGN_ONLY_NOT_EXECUTABLE",
+  "execution_target": "local",
+  "resources": {"ram_mib":6144,"vram_mib":8192,"disk_mib":2048},
+  "budget": {"max_seconds":86400,"max_usd":0,"hourly_usd":0},
+  "planned_unit_timeout_seconds": 1800,
+  "estimated_seconds_range": [7200,28800],
+  "estimation_basis": "Unmeasured provisional planning envelope; repeated model loads increase overhead compared with the interrupted all-generation-first batch. No scientific timing probe was executed for this redesign.",
+  "read_existing_saved_images": 401,
+  "downstream_unreached_generation_candidates": 53,
+  "ambiguous_parent_attempts_not_authorized_for_generation": 1,
+  "inherited_safety_failures_no_retry": 16,
+  "units": 237,
+  "old_outputs_read_in_place": true,
+  "new_execution_entrypoint": null,
+  "new_execution_manifest": null,
+  "no_downloads_or_installs": true,
+  "no_paid_compute": true,
+  "watchdogs_not_research_deadlines": true
+}

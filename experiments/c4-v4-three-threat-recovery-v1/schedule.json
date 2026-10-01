@@ -1,0 +1,2991 @@
+{
+  "action_counts": {
+    "compare_components": 66,
+    "evaluate_saved": 401,
+    "generate_then_evaluate": 53,
+    "pending_attempt_disposition": 1,
+    "retain_safety_failure": 16
+  },
+  "ambiguous_attempt_row_id": "t3-190676-0.4-1-C1",
+  "downstream_classification_basis": "Verified parent sequential T3 loop and terminal checkpoint prefix; not NOT_RUN alone",
+  "inherited_detector_calls": 96,
+  "known_missing_detector_calls": 64,
+  "new_detector_calls_if_safe": 1720,
+  "planned_detector_calls": 1884,
+  "planned_rows": 537,
+  "source_run_id": "c4-v4-three-threat-dev-001",
+  "status": "DESIGN_ONLY_NOT_EXECUTABLE",
+  "units": [
+    {
+      "actions": {
+        "clean-109798-C0": "evaluate_saved",
+        "clean-109798-C1": "evaluate_saved"
+      },
+      "phase": "clean_evaluation",
+      "row_ids": [
+        "clean-109798-C0",
+        "clean-109798-C1"
+      ],
+      "unit_id": "clean_evaluation-001"
+    },
+    {
+      "actions": {
+        "clean-134882-C0": "evaluate_saved",
+        "clean-134882-C1": "evaluate_saved"
+      },
+      "phase": "clean_evaluation",
+      "row_ids": [
+        "clean-134882-C0",
+        "clean-134882-C1"
+      ],
+      "unit_id": "clean_evaluation-002"
+    },
+    {
+      "actions": {
+        "clean-147498-C0": "evaluate_saved",
+        "clean-147498-C1": "evaluate_saved"
+      },
+      "phase": "clean_evaluation",
+      "row_ids": [
+        "clean-147498-C0",
+        "clean-147498-C1"
+      ],
+      "unit_id": "clean_evaluation-003"
+    },
+    {
+      "actions": {
+        "clean-1675-C0": "evaluate_saved",
+        "clean-1675-C1": "evaluate_saved"
+      },
+      "phase": "clean_evaluation",
+      "row_ids": [
+        "clean-1675-C0",
+        "clean-1675-C1"
+      ],
+      "unit_id": "clean_evaluation-004"
+    },
+    {
+      "actions": {
+        "clean-177015-C0": "evaluate_saved",
+        "clean-177015-C1": "evaluate_saved"
+      },
+      "phase": "clean_evaluation",
+      "row_ids": [
+        "clean-177015-C0",
+        "clean-177015-C1"
+      ],
+      "unit_id": "clean_evaluation-005"
+    },
+    {
+      "actions": {
+        "clean-190676-C0": "evaluate_saved",
+        "clean-190676-C1": "evaluate_saved"
+      },
+      "phase": "clean_evaluation",
+      "row_ids": [
+        "clean-190676-C0",
+        "clean-190676-C1"
+      ],
+      "unit_id": "clean_evaluation-006"
+    },
+    {
+      "actions": {
+        "clean-25394-C0": "evaluate_saved",
+        "clean-25394-C1": "evaluate_saved"
+      },
+      "phase": "clean_evaluation",
+      "row_ids": [
+        "clean-25394-C0",
+        "clean-25394-C1"
+      ],
+      "unit_id": "clean_evaluation-007"
+    },
+    {
+      "actions": {
+        "clean-468505-C0": "evaluate_saved",
+        "clean-468505-C1": "evaluate_saved"
+      },
+      "phase": "clean_evaluation",
+      "row_ids": [
+        "clean-468505-C0",
+        "clean-468505-C1"
+      ],
+      "unit_id": "clean_evaluation-008"
+    },
+    {
+      "actions": {
+        "clean-4795-C0": "evaluate_saved",
+        "clean-4795-C1": "evaluate_saved"
+      },
+      "phase": "clean_evaluation",
+      "row_ids": [
+        "clean-4795-C0",
+        "clean-4795-C1"
+      ],
+      "unit_id": "clean_evaluation-009"
+    },
+    {
+      "actions": {
+        "clean-499768-C0": "evaluate_saved",
+        "clean-499768-C1": "evaluate_saved"
+      },
+      "phase": "clean_evaluation",
+      "row_ids": [
+        "clean-499768-C0",
+        "clean-499768-C1"
+      ],
+      "unit_id": "clean_evaluation-010"
+    },
+    {
+      "actions": {
+        "clean-6012-C0": "evaluate_saved",
+        "clean-6012-C1": "evaluate_saved"
+      },
+      "phase": "clean_evaluation",
+      "row_ids": [
+        "clean-6012-C0",
+        "clean-6012-C1"
+      ],
+      "unit_id": "clean_evaluation-011"
+    },
+    {
+      "actions": {
+        "clean-80932-C0": "evaluate_saved",
+        "clean-80932-C1": "evaluate_saved"
+      },
+      "phase": "clean_evaluation",
+      "row_ids": [
+        "clean-80932-C0",
+        "clean-80932-C1"
+      ],
+      "unit_id": "clean_evaluation-012"
+    },
+    {
+      "actions": {
+        "t4-public_band-109798-134882": "evaluate_saved",
+        "t4-public_patch-109798-134882-128": "evaluate_saved",
+        "t4-public_patch-109798-134882-256": "evaluate_saved",
+        "t4-public_projection-109798-134882": "evaluate_saved",
+        "t4-residual-109798-134882-0.5": "evaluate_saved",
+        "t4-residual-109798-134882-1.0": "evaluate_saved",
+        "t4-unmarked_band_sham-109798-134882": "evaluate_saved",
+        "t4-unmarked_patch_sham-109798-134882-128": "evaluate_saved",
+        "t4-unmarked_patch_sham-109798-134882-256": "evaluate_saved"
+      },
+      "phase": "T4_recovered",
+      "row_ids": [
+        "t4-public_band-109798-134882",
+        "t4-public_patch-109798-134882-128",
+        "t4-public_patch-109798-134882-256",
+        "t4-public_projection-109798-134882",
+        "t4-residual-109798-134882-0.5",
+        "t4-residual-109798-134882-1.0",
+        "t4-unmarked_band_sham-109798-134882",
+        "t4-unmarked_patch_sham-109798-134882-128",
+        "t4-unmarked_patch_sham-109798-134882-256"
+      ],
+      "unit_id": "T4_recovered-001"
+    },
+    {
+      "actions": {
+        "t5-109798-134882": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-109798-134882"
+      ],
+      "unit_id": "T5_components-001"
+    },
+    {
+      "actions": {
+        "t5-transfer-134882-177015": "evaluate_saved"
+      },
+      "phase": "T5-transfer_recovered",
+      "row_ids": [
+        "t5-transfer-134882-177015"
+      ],
+      "unit_id": "T5-transfer_recovered-001"
+    },
+    {
+      "actions": {
+        "t3-109798-0.05-0-C0": "evaluate_saved",
+        "t3-109798-0.05-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-109798-0.05-0-C0",
+        "t3-109798-0.05-0-C1"
+      ],
+      "unit_id": "T3_recovered-001"
+    },
+    {
+      "actions": {
+        "t4-public_band-109798-468505": "evaluate_saved",
+        "t4-public_patch-109798-468505-128": "evaluate_saved",
+        "t4-public_patch-109798-468505-256": "evaluate_saved",
+        "t4-public_projection-109798-468505": "evaluate_saved",
+        "t4-residual-109798-468505-0.5": "evaluate_saved",
+        "t4-residual-109798-468505-1.0": "evaluate_saved",
+        "t4-unmarked_band_sham-109798-468505": "evaluate_saved",
+        "t4-unmarked_patch_sham-109798-468505-128": "evaluate_saved",
+        "t4-unmarked_patch_sham-109798-468505-256": "evaluate_saved"
+      },
+      "phase": "T4_recovered",
+      "row_ids": [
+        "t4-public_band-109798-468505",
+        "t4-public_patch-109798-468505-128",
+        "t4-public_patch-109798-468505-256",
+        "t4-public_projection-109798-468505",
+        "t4-residual-109798-468505-0.5",
+        "t4-residual-109798-468505-1.0",
+        "t4-unmarked_band_sham-109798-468505",
+        "t4-unmarked_patch_sham-109798-468505-128",
+        "t4-unmarked_patch_sham-109798-468505-256"
+      ],
+      "unit_id": "T4_recovered-002"
+    },
+    {
+      "actions": {
+        "t5-109798-147498": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-109798-147498"
+      ],
+      "unit_id": "T5_components-002"
+    },
+    {
+      "actions": {
+        "t5-transfer-1675-134882": "evaluate_saved"
+      },
+      "phase": "T5-transfer_recovered",
+      "row_ids": [
+        "t5-transfer-1675-134882"
+      ],
+      "unit_id": "T5-transfer_recovered-002"
+    },
+    {
+      "actions": {
+        "t3-109798-0.05-1-C0": "evaluate_saved",
+        "t3-109798-0.05-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-109798-0.05-1-C0",
+        "t3-109798-0.05-1-C1"
+      ],
+      "unit_id": "T3_recovered-002"
+    },
+    {
+      "actions": {
+        "t4-public_band-134882-147498": "evaluate_saved",
+        "t4-public_patch-134882-147498-128": "evaluate_saved",
+        "t4-public_patch-134882-147498-256": "evaluate_saved",
+        "t4-public_projection-134882-147498": "evaluate_saved",
+        "t4-residual-134882-147498-0.5": "evaluate_saved",
+        "t4-residual-134882-147498-1.0": "evaluate_saved",
+        "t4-unmarked_band_sham-134882-147498": "evaluate_saved",
+        "t4-unmarked_patch_sham-134882-147498-128": "evaluate_saved",
+        "t4-unmarked_patch_sham-134882-147498-256": "evaluate_saved"
+      },
+      "phase": "T4_recovered",
+      "row_ids": [
+        "t4-public_band-134882-147498",
+        "t4-public_patch-134882-147498-128",
+        "t4-public_patch-134882-147498-256",
+        "t4-public_projection-134882-147498",
+        "t4-residual-134882-147498-0.5",
+        "t4-residual-134882-147498-1.0",
+        "t4-unmarked_band_sham-134882-147498",
+        "t4-unmarked_patch_sham-134882-147498-128",
+        "t4-unmarked_patch_sham-134882-147498-256"
+      ],
+      "unit_id": "T4_recovered-003"
+    },
+    {
+      "actions": {
+        "t5-109798-177015": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-109798-177015"
+      ],
+      "unit_id": "T5_components-003"
+    },
+    {
+      "actions": {
+        "t5-transfer-1675-177015": "evaluate_saved"
+      },
+      "phase": "T5-transfer_recovered",
+      "row_ids": [
+        "t5-transfer-1675-177015"
+      ],
+      "unit_id": "T5-transfer_recovered-003"
+    },
+    {
+      "actions": {
+        "t3-109798-0.05-2-C0": "evaluate_saved",
+        "t3-109798-0.05-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-109798-0.05-2-C0",
+        "t3-109798-0.05-2-C1"
+      ],
+      "unit_id": "T3_recovered-003"
+    },
+    {
+      "actions": {
+        "t4-public_band-134882-499768": "evaluate_saved",
+        "t4-public_patch-134882-499768-128": "evaluate_saved",
+        "t4-public_patch-134882-499768-256": "evaluate_saved",
+        "t4-public_projection-134882-499768": "evaluate_saved",
+        "t4-residual-134882-499768-0.5": "evaluate_saved",
+        "t4-residual-134882-499768-1.0": "evaluate_saved",
+        "t4-unmarked_band_sham-134882-499768": "evaluate_saved",
+        "t4-unmarked_patch_sham-134882-499768-128": "evaluate_saved",
+        "t4-unmarked_patch_sham-134882-499768-256": "evaluate_saved"
+      },
+      "phase": "T4_recovered",
+      "row_ids": [
+        "t4-public_band-134882-499768",
+        "t4-public_patch-134882-499768-128",
+        "t4-public_patch-134882-499768-256",
+        "t4-public_projection-134882-499768",
+        "t4-residual-134882-499768-0.5",
+        "t4-residual-134882-499768-1.0",
+        "t4-unmarked_band_sham-134882-499768",
+        "t4-unmarked_patch_sham-134882-499768-128",
+        "t4-unmarked_patch_sham-134882-499768-256"
+      ],
+      "unit_id": "T4_recovered-004"
+    },
+    {
+      "actions": {
+        "t5-109798-190676": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-109798-190676"
+      ],
+      "unit_id": "T5_components-004"
+    },
+    {
+      "actions": {
+        "t5-transfer-1675-4795": "evaluate_saved"
+      },
+      "phase": "T5-transfer_recovered",
+      "row_ids": [
+        "t5-transfer-1675-4795"
+      ],
+      "unit_id": "T5-transfer_recovered-004"
+    },
+    {
+      "actions": {
+        "t3-109798-0.1-0-C0": "evaluate_saved",
+        "t3-109798-0.1-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-109798-0.1-0-C0",
+        "t3-109798-0.1-0-C1"
+      ],
+      "unit_id": "T3_recovered-004"
+    },
+    {
+      "actions": {
+        "t4-public_band-147498-177015": "evaluate_saved",
+        "t4-public_patch-147498-177015-128": "evaluate_saved",
+        "t4-public_patch-147498-177015-256": "evaluate_saved",
+        "t4-public_projection-147498-177015": "evaluate_saved",
+        "t4-residual-147498-177015-0.5": "evaluate_saved",
+        "t4-residual-147498-177015-1.0": "evaluate_saved",
+        "t4-unmarked_band_sham-147498-177015": "evaluate_saved",
+        "t4-unmarked_patch_sham-147498-177015-128": "evaluate_saved",
+        "t4-unmarked_patch_sham-147498-177015-256": "evaluate_saved"
+      },
+      "phase": "T4_recovered",
+      "row_ids": [
+        "t4-public_band-147498-177015",
+        "t4-public_patch-147498-177015-128",
+        "t4-public_patch-147498-177015-256",
+        "t4-public_projection-147498-177015",
+        "t4-residual-147498-177015-0.5",
+        "t4-residual-147498-177015-1.0",
+        "t4-unmarked_band_sham-147498-177015",
+        "t4-unmarked_patch_sham-147498-177015-128",
+        "t4-unmarked_patch_sham-147498-177015-256"
+      ],
+      "unit_id": "T4_recovered-005"
+    },
+    {
+      "actions": {
+        "t5-109798-468505": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-109798-468505"
+      ],
+      "unit_id": "T5_components-005"
+    },
+    {
+      "actions": {
+        "t5-transfer-4795-134882": "evaluate_saved"
+      },
+      "phase": "T5-transfer_recovered",
+      "row_ids": [
+        "t5-transfer-4795-134882"
+      ],
+      "unit_id": "T5-transfer_recovered-005"
+    },
+    {
+      "actions": {
+        "t3-109798-0.1-1-C0": "evaluate_saved",
+        "t3-109798-0.1-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-109798-0.1-1-C0",
+        "t3-109798-0.1-1-C1"
+      ],
+      "unit_id": "T3_recovered-005"
+    },
+    {
+      "actions": {
+        "t4-public_band-147498-6012": "evaluate_saved",
+        "t4-public_patch-147498-6012-128": "evaluate_saved",
+        "t4-public_patch-147498-6012-256": "evaluate_saved",
+        "t4-public_projection-147498-6012": "evaluate_saved",
+        "t4-residual-147498-6012-0.5": "evaluate_saved",
+        "t4-residual-147498-6012-1.0": "evaluate_saved",
+        "t4-unmarked_band_sham-147498-6012": "evaluate_saved",
+        "t4-unmarked_patch_sham-147498-6012-128": "evaluate_saved",
+        "t4-unmarked_patch_sham-147498-6012-256": "evaluate_saved"
+      },
+      "phase": "T4_recovered",
+      "row_ids": [
+        "t4-public_band-147498-6012",
+        "t4-public_patch-147498-6012-128",
+        "t4-public_patch-147498-6012-256",
+        "t4-public_projection-147498-6012",
+        "t4-residual-147498-6012-0.5",
+        "t4-residual-147498-6012-1.0",
+        "t4-unmarked_band_sham-147498-6012",
+        "t4-unmarked_patch_sham-147498-6012-128",
+        "t4-unmarked_patch_sham-147498-6012-256"
+      ],
+      "unit_id": "T4_recovered-006"
+    },
+    {
+      "actions": {
+        "t5-109798-499768": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-109798-499768"
+      ],
+      "unit_id": "T5_components-006"
+    },
+    {
+      "actions": {
+        "t5-transfer-4795-177015": "evaluate_saved"
+      },
+      "phase": "T5-transfer_recovered",
+      "row_ids": [
+        "t5-transfer-4795-177015"
+      ],
+      "unit_id": "T5-transfer_recovered-006"
+    },
+    {
+      "actions": {
+        "t3-109798-0.1-2-C0": "evaluate_saved",
+        "t3-109798-0.1-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-109798-0.1-2-C0",
+        "t3-109798-0.1-2-C1"
+      ],
+      "unit_id": "T3_recovered-006"
+    },
+    {
+      "actions": {
+        "t4-public_band-177015-190676": "evaluate_saved",
+        "t4-public_patch-177015-190676-128": "evaluate_saved",
+        "t4-public_patch-177015-190676-256": "evaluate_saved",
+        "t4-public_projection-177015-190676": "evaluate_saved",
+        "t4-residual-177015-190676-0.5": "evaluate_saved",
+        "t4-residual-177015-190676-1.0": "evaluate_saved",
+        "t4-unmarked_band_sham-177015-190676": "evaluate_saved",
+        "t4-unmarked_patch_sham-177015-190676-128": "evaluate_saved",
+        "t4-unmarked_patch_sham-177015-190676-256": "evaluate_saved"
+      },
+      "phase": "T4_recovered",
+      "row_ids": [
+        "t4-public_band-177015-190676",
+        "t4-public_patch-177015-190676-128",
+        "t4-public_patch-177015-190676-256",
+        "t4-public_projection-177015-190676",
+        "t4-residual-177015-190676-0.5",
+        "t4-residual-177015-190676-1.0",
+        "t4-unmarked_band_sham-177015-190676",
+        "t4-unmarked_patch_sham-177015-190676-128",
+        "t4-unmarked_patch_sham-177015-190676-256"
+      ],
+      "unit_id": "T4_recovered-007"
+    },
+    {
+      "actions": {
+        "t5-134882-147498": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-134882-147498"
+      ],
+      "unit_id": "T5_components-007"
+    },
+    {
+      "actions": {
+        "t5-transfer-80932-468505": "evaluate_saved"
+      },
+      "phase": "T5-transfer_recovered",
+      "row_ids": [
+        "t5-transfer-80932-468505"
+      ],
+      "unit_id": "T5-transfer_recovered-007"
+    },
+    {
+      "actions": {
+        "t3-109798-0.2-0-C0": "evaluate_saved",
+        "t3-109798-0.2-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-109798-0.2-0-C0",
+        "t3-109798-0.2-0-C1"
+      ],
+      "unit_id": "T3_recovered-007"
+    },
+    {
+      "actions": {
+        "t4-public_band-177015-25394": "evaluate_saved",
+        "t4-public_patch-177015-25394-128": "evaluate_saved",
+        "t4-public_patch-177015-25394-256": "evaluate_saved",
+        "t4-public_projection-177015-25394": "evaluate_saved",
+        "t4-residual-177015-25394-0.5": "evaluate_saved",
+        "t4-residual-177015-25394-1.0": "evaluate_saved",
+        "t4-unmarked_band_sham-177015-25394": "evaluate_saved",
+        "t4-unmarked_patch_sham-177015-25394-128": "evaluate_saved",
+        "t4-unmarked_patch_sham-177015-25394-256": "evaluate_saved"
+      },
+      "phase": "T4_recovered",
+      "row_ids": [
+        "t4-public_band-177015-25394",
+        "t4-public_patch-177015-25394-128",
+        "t4-public_patch-177015-25394-256",
+        "t4-public_projection-177015-25394",
+        "t4-residual-177015-25394-0.5",
+        "t4-residual-177015-25394-1.0",
+        "t4-unmarked_band_sham-177015-25394",
+        "t4-unmarked_patch_sham-177015-25394-128",
+        "t4-unmarked_patch_sham-177015-25394-256"
+      ],
+      "unit_id": "T4_recovered-008"
+    },
+    {
+      "actions": {
+        "t5-134882-177015": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-134882-177015"
+      ],
+      "unit_id": "T5_components-008"
+    },
+    {
+      "actions": {
+        "t3-109798-0.2-1-C0": "evaluate_saved",
+        "t3-109798-0.2-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-109798-0.2-1-C0",
+        "t3-109798-0.2-1-C1"
+      ],
+      "unit_id": "T3_recovered-008"
+    },
+    {
+      "actions": {
+        "t4-public_band-190676-468505": "evaluate_saved",
+        "t4-public_patch-190676-468505-128": "evaluate_saved",
+        "t4-public_patch-190676-468505-256": "evaluate_saved",
+        "t4-public_projection-190676-468505": "evaluate_saved",
+        "t4-residual-190676-468505-0.5": "evaluate_saved",
+        "t4-residual-190676-468505-1.0": "evaluate_saved",
+        "t4-unmarked_band_sham-190676-468505": "evaluate_saved",
+        "t4-unmarked_patch_sham-190676-468505-128": "evaluate_saved",
+        "t4-unmarked_patch_sham-190676-468505-256": "evaluate_saved"
+      },
+      "phase": "T4_recovered",
+      "row_ids": [
+        "t4-public_band-190676-468505",
+        "t4-public_patch-190676-468505-128",
+        "t4-public_patch-190676-468505-256",
+        "t4-public_projection-190676-468505",
+        "t4-residual-190676-468505-0.5",
+        "t4-residual-190676-468505-1.0",
+        "t4-unmarked_band_sham-190676-468505",
+        "t4-unmarked_patch_sham-190676-468505-128",
+        "t4-unmarked_patch_sham-190676-468505-256"
+      ],
+      "unit_id": "T4_recovered-009"
+    },
+    {
+      "actions": {
+        "t5-134882-190676": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-134882-190676"
+      ],
+      "unit_id": "T5_components-009"
+    },
+    {
+      "actions": {
+        "t3-109798-0.2-2-C0": "evaluate_saved",
+        "t3-109798-0.2-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-109798-0.2-2-C0",
+        "t3-109798-0.2-2-C1"
+      ],
+      "unit_id": "T3_recovered-009"
+    },
+    {
+      "actions": {
+        "t4-public_band-190676-80932": "evaluate_saved",
+        "t4-public_patch-190676-80932-128": "evaluate_saved",
+        "t4-public_patch-190676-80932-256": "evaluate_saved",
+        "t4-public_projection-190676-80932": "evaluate_saved",
+        "t4-residual-190676-80932-0.5": "evaluate_saved",
+        "t4-residual-190676-80932-1.0": "evaluate_saved",
+        "t4-unmarked_band_sham-190676-80932": "evaluate_saved",
+        "t4-unmarked_patch_sham-190676-80932-128": "evaluate_saved",
+        "t4-unmarked_patch_sham-190676-80932-256": "evaluate_saved"
+      },
+      "phase": "T4_recovered",
+      "row_ids": [
+        "t4-public_band-190676-80932",
+        "t4-public_patch-190676-80932-128",
+        "t4-public_patch-190676-80932-256",
+        "t4-public_projection-190676-80932",
+        "t4-residual-190676-80932-0.5",
+        "t4-residual-190676-80932-1.0",
+        "t4-unmarked_band_sham-190676-80932",
+        "t4-unmarked_patch_sham-190676-80932-128",
+        "t4-unmarked_patch_sham-190676-80932-256"
+      ],
+      "unit_id": "T4_recovered-010"
+    },
+    {
+      "actions": {
+        "t5-134882-468505": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-134882-468505"
+      ],
+      "unit_id": "T5_components-010"
+    },
+    {
+      "actions": {
+        "t3-109798-0.4-0-C0": "evaluate_saved",
+        "t3-109798-0.4-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-109798-0.4-0-C0",
+        "t3-109798-0.4-0-C1"
+      ],
+      "unit_id": "T3_recovered-010"
+    },
+    {
+      "actions": {
+        "t4-public_band-25394-177015": "evaluate_saved",
+        "t4-public_patch-25394-177015-128": "evaluate_saved",
+        "t4-public_patch-25394-177015-256": "evaluate_saved",
+        "t4-public_projection-25394-177015": "evaluate_saved",
+        "t4-residual-25394-177015-0.5": "evaluate_saved",
+        "t4-residual-25394-177015-1.0": "evaluate_saved",
+        "t4-unmarked_band_sham-25394-177015": "evaluate_saved",
+        "t4-unmarked_patch_sham-25394-177015-128": "evaluate_saved",
+        "t4-unmarked_patch_sham-25394-177015-256": "evaluate_saved"
+      },
+      "phase": "T4_recovered",
+      "row_ids": [
+        "t4-public_band-25394-177015",
+        "t4-public_patch-25394-177015-128",
+        "t4-public_patch-25394-177015-256",
+        "t4-public_projection-25394-177015",
+        "t4-residual-25394-177015-0.5",
+        "t4-residual-25394-177015-1.0",
+        "t4-unmarked_band_sham-25394-177015",
+        "t4-unmarked_patch_sham-25394-177015-128",
+        "t4-unmarked_patch_sham-25394-177015-256"
+      ],
+      "unit_id": "T4_recovered-011"
+    },
+    {
+      "actions": {
+        "t5-134882-499768": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-134882-499768"
+      ],
+      "unit_id": "T5_components-011"
+    },
+    {
+      "actions": {
+        "t3-109798-0.4-1-C0": "evaluate_saved",
+        "t3-109798-0.4-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-109798-0.4-1-C0",
+        "t3-109798-0.4-1-C1"
+      ],
+      "unit_id": "T3_recovered-011"
+    },
+    {
+      "actions": {
+        "t4-public_band-25394-80932": "evaluate_saved",
+        "t4-public_patch-25394-80932-128": "evaluate_saved",
+        "t4-public_patch-25394-80932-256": "evaluate_saved",
+        "t4-public_projection-25394-80932": "evaluate_saved",
+        "t4-residual-25394-80932-0.5": "evaluate_saved",
+        "t4-residual-25394-80932-1.0": "evaluate_saved",
+        "t4-unmarked_band_sham-25394-80932": "evaluate_saved",
+        "t4-unmarked_patch_sham-25394-80932-128": "evaluate_saved",
+        "t4-unmarked_patch_sham-25394-80932-256": "evaluate_saved"
+      },
+      "phase": "T4_recovered",
+      "row_ids": [
+        "t4-public_band-25394-80932",
+        "t4-public_patch-25394-80932-128",
+        "t4-public_patch-25394-80932-256",
+        "t4-public_projection-25394-80932",
+        "t4-residual-25394-80932-0.5",
+        "t4-residual-25394-80932-1.0",
+        "t4-unmarked_band_sham-25394-80932",
+        "t4-unmarked_patch_sham-25394-80932-128",
+        "t4-unmarked_patch_sham-25394-80932-256"
+      ],
+      "unit_id": "T4_recovered-012"
+    },
+    {
+      "actions": {
+        "t5-147498-177015": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-147498-177015"
+      ],
+      "unit_id": "T5_components-012"
+    },
+    {
+      "actions": {
+        "t3-109798-0.4-2-C0": "evaluate_saved",
+        "t3-109798-0.4-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-109798-0.4-2-C0",
+        "t3-109798-0.4-2-C1"
+      ],
+      "unit_id": "T3_recovered-012"
+    },
+    {
+      "actions": {
+        "t4-public_band-468505-109798": "evaluate_saved",
+        "t4-public_patch-468505-109798-128": "evaluate_saved",
+        "t4-public_patch-468505-109798-256": "evaluate_saved",
+        "t4-public_projection-468505-109798": "evaluate_saved",
+        "t4-residual-468505-109798-0.5": "evaluate_saved",
+        "t4-residual-468505-109798-1.0": "evaluate_saved",
+        "t4-unmarked_band_sham-468505-109798": "evaluate_saved",
+        "t4-unmarked_patch_sham-468505-109798-128": "evaluate_saved",
+        "t4-unmarked_patch_sham-468505-109798-256": "evaluate_saved"
+      },
+      "phase": "T4_recovered",
+      "row_ids": [
+        "t4-public_band-468505-109798",
+        "t4-public_patch-468505-109798-128",
+        "t4-public_patch-468505-109798-256",
+        "t4-public_projection-468505-109798",
+        "t4-residual-468505-109798-0.5",
+        "t4-residual-468505-109798-1.0",
+        "t4-unmarked_band_sham-468505-109798",
+        "t4-unmarked_patch_sham-468505-109798-128",
+        "t4-unmarked_patch_sham-468505-109798-256"
+      ],
+      "unit_id": "T4_recovered-013"
+    },
+    {
+      "actions": {
+        "t5-147498-190676": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-147498-190676"
+      ],
+      "unit_id": "T5_components-013"
+    },
+    {
+      "actions": {
+        "vae-109798-C0": "evaluate_saved",
+        "vae-109798-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "vae-109798-C0",
+        "vae-109798-C1"
+      ],
+      "unit_id": "T3_recovered-013"
+    },
+    {
+      "actions": {
+        "t4-public_band-468505-499768": "evaluate_saved",
+        "t4-public_patch-468505-499768-128": "evaluate_saved",
+        "t4-public_patch-468505-499768-256": "evaluate_saved",
+        "t4-public_projection-468505-499768": "evaluate_saved",
+        "t4-residual-468505-499768-0.5": "evaluate_saved",
+        "t4-residual-468505-499768-1.0": "evaluate_saved",
+        "t4-unmarked_band_sham-468505-499768": "evaluate_saved",
+        "t4-unmarked_patch_sham-468505-499768-128": "evaluate_saved",
+        "t4-unmarked_patch_sham-468505-499768-256": "evaluate_saved"
+      },
+      "phase": "T4_recovered",
+      "row_ids": [
+        "t4-public_band-468505-499768",
+        "t4-public_patch-468505-499768-128",
+        "t4-public_patch-468505-499768-256",
+        "t4-public_projection-468505-499768",
+        "t4-residual-468505-499768-0.5",
+        "t4-residual-468505-499768-1.0",
+        "t4-unmarked_band_sham-468505-499768",
+        "t4-unmarked_patch_sham-468505-499768-128",
+        "t4-unmarked_patch_sham-468505-499768-256"
+      ],
+      "unit_id": "T4_recovered-014"
+    },
+    {
+      "actions": {
+        "t5-147498-468505": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-147498-468505"
+      ],
+      "unit_id": "T5_components-014"
+    },
+    {
+      "actions": {
+        "t3-134882-0.05-0-C0": "evaluate_saved",
+        "t3-134882-0.05-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-134882-0.05-0-C0",
+        "t3-134882-0.05-0-C1"
+      ],
+      "unit_id": "T3_recovered-014"
+    },
+    {
+      "actions": {
+        "t4-public_band-499768-134882": "evaluate_saved",
+        "t4-public_patch-499768-134882-128": "evaluate_saved",
+        "t4-public_patch-499768-134882-256": "evaluate_saved",
+        "t4-public_projection-499768-134882": "evaluate_saved",
+        "t4-residual-499768-134882-0.5": "evaluate_saved",
+        "t4-residual-499768-134882-1.0": "evaluate_saved",
+        "t4-unmarked_band_sham-499768-134882": "evaluate_saved",
+        "t4-unmarked_patch_sham-499768-134882-128": "evaluate_saved",
+        "t4-unmarked_patch_sham-499768-134882-256": "evaluate_saved"
+      },
+      "phase": "T4_recovered",
+      "row_ids": [
+        "t4-public_band-499768-134882",
+        "t4-public_patch-499768-134882-128",
+        "t4-public_patch-499768-134882-256",
+        "t4-public_projection-499768-134882",
+        "t4-residual-499768-134882-0.5",
+        "t4-residual-499768-134882-1.0",
+        "t4-unmarked_band_sham-499768-134882",
+        "t4-unmarked_patch_sham-499768-134882-128",
+        "t4-unmarked_patch_sham-499768-134882-256"
+      ],
+      "unit_id": "T4_recovered-015"
+    },
+    {
+      "actions": {
+        "t5-147498-499768": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-147498-499768"
+      ],
+      "unit_id": "T5_components-015"
+    },
+    {
+      "actions": {
+        "t3-134882-0.05-1-C0": "evaluate_saved",
+        "t3-134882-0.05-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-134882-0.05-1-C0",
+        "t3-134882-0.05-1-C1"
+      ],
+      "unit_id": "T3_recovered-015"
+    },
+    {
+      "actions": {
+        "t4-public_band-499768-6012": "evaluate_saved",
+        "t4-public_patch-499768-6012-128": "evaluate_saved",
+        "t4-public_patch-499768-6012-256": "evaluate_saved",
+        "t4-public_projection-499768-6012": "evaluate_saved",
+        "t4-residual-499768-6012-0.5": "evaluate_saved",
+        "t4-residual-499768-6012-1.0": "evaluate_saved",
+        "t4-unmarked_band_sham-499768-6012": "evaluate_saved",
+        "t4-unmarked_patch_sham-499768-6012-128": "evaluate_saved",
+        "t4-unmarked_patch_sham-499768-6012-256": "evaluate_saved"
+      },
+      "phase": "T4_recovered",
+      "row_ids": [
+        "t4-public_band-499768-6012",
+        "t4-public_patch-499768-6012-128",
+        "t4-public_patch-499768-6012-256",
+        "t4-public_projection-499768-6012",
+        "t4-residual-499768-6012-0.5",
+        "t4-residual-499768-6012-1.0",
+        "t4-unmarked_band_sham-499768-6012",
+        "t4-unmarked_patch_sham-499768-6012-128",
+        "t4-unmarked_patch_sham-499768-6012-256"
+      ],
+      "unit_id": "T4_recovered-016"
+    },
+    {
+      "actions": {
+        "t5-1675-109798": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-1675-109798"
+      ],
+      "unit_id": "T5_components-016"
+    },
+    {
+      "actions": {
+        "t3-134882-0.05-2-C0": "evaluate_saved",
+        "t3-134882-0.05-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-134882-0.05-2-C0",
+        "t3-134882-0.05-2-C1"
+      ],
+      "unit_id": "T3_recovered-016"
+    },
+    {
+      "actions": {
+        "t4-public_band-6012-147498": "evaluate_saved",
+        "t4-public_patch-6012-147498-128": "evaluate_saved",
+        "t4-public_patch-6012-147498-256": "evaluate_saved",
+        "t4-public_projection-6012-147498": "evaluate_saved",
+        "t4-residual-6012-147498-0.5": "evaluate_saved",
+        "t4-residual-6012-147498-1.0": "evaluate_saved",
+        "t4-unmarked_band_sham-6012-147498": "evaluate_saved",
+        "t4-unmarked_patch_sham-6012-147498-128": "evaluate_saved",
+        "t4-unmarked_patch_sham-6012-147498-256": "evaluate_saved"
+      },
+      "phase": "T4_recovered",
+      "row_ids": [
+        "t4-public_band-6012-147498",
+        "t4-public_patch-6012-147498-128",
+        "t4-public_patch-6012-147498-256",
+        "t4-public_projection-6012-147498",
+        "t4-residual-6012-147498-0.5",
+        "t4-residual-6012-147498-1.0",
+        "t4-unmarked_band_sham-6012-147498",
+        "t4-unmarked_patch_sham-6012-147498-128",
+        "t4-unmarked_patch_sham-6012-147498-256"
+      ],
+      "unit_id": "T4_recovered-017"
+    },
+    {
+      "actions": {
+        "t5-1675-134882": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-1675-134882"
+      ],
+      "unit_id": "T5_components-017"
+    },
+    {
+      "actions": {
+        "t3-134882-0.1-0-C0": "evaluate_saved",
+        "t3-134882-0.1-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-134882-0.1-0-C0",
+        "t3-134882-0.1-0-C1"
+      ],
+      "unit_id": "T3_recovered-017"
+    },
+    {
+      "actions": {
+        "t4-public_band-6012-25394": "evaluate_saved",
+        "t4-public_patch-6012-25394-128": "evaluate_saved",
+        "t4-public_patch-6012-25394-256": "evaluate_saved",
+        "t4-public_projection-6012-25394": "evaluate_saved",
+        "t4-residual-6012-25394-0.5": "evaluate_saved",
+        "t4-residual-6012-25394-1.0": "evaluate_saved",
+        "t4-unmarked_band_sham-6012-25394": "evaluate_saved",
+        "t4-unmarked_patch_sham-6012-25394-128": "evaluate_saved",
+        "t4-unmarked_patch_sham-6012-25394-256": "evaluate_saved"
+      },
+      "phase": "T4_recovered",
+      "row_ids": [
+        "t4-public_band-6012-25394",
+        "t4-public_patch-6012-25394-128",
+        "t4-public_patch-6012-25394-256",
+        "t4-public_projection-6012-25394",
+        "t4-residual-6012-25394-0.5",
+        "t4-residual-6012-25394-1.0",
+        "t4-unmarked_band_sham-6012-25394",
+        "t4-unmarked_patch_sham-6012-25394-128",
+        "t4-unmarked_patch_sham-6012-25394-256"
+      ],
+      "unit_id": "T4_recovered-018"
+    },
+    {
+      "actions": {
+        "t5-1675-147498": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-1675-147498"
+      ],
+      "unit_id": "T5_components-018"
+    },
+    {
+      "actions": {
+        "t3-134882-0.1-1-C0": "evaluate_saved",
+        "t3-134882-0.1-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-134882-0.1-1-C0",
+        "t3-134882-0.1-1-C1"
+      ],
+      "unit_id": "T3_recovered-018"
+    },
+    {
+      "actions": {
+        "t4-public_band-80932-109798": "evaluate_saved",
+        "t4-public_patch-80932-109798-128": "evaluate_saved",
+        "t4-public_patch-80932-109798-256": "evaluate_saved",
+        "t4-public_projection-80932-109798": "evaluate_saved",
+        "t4-residual-80932-109798-0.5": "evaluate_saved",
+        "t4-residual-80932-109798-1.0": "evaluate_saved",
+        "t4-unmarked_band_sham-80932-109798": "evaluate_saved",
+        "t4-unmarked_patch_sham-80932-109798-128": "evaluate_saved",
+        "t4-unmarked_patch_sham-80932-109798-256": "evaluate_saved"
+      },
+      "phase": "T4_recovered",
+      "row_ids": [
+        "t4-public_band-80932-109798",
+        "t4-public_patch-80932-109798-128",
+        "t4-public_patch-80932-109798-256",
+        "t4-public_projection-80932-109798",
+        "t4-residual-80932-109798-0.5",
+        "t4-residual-80932-109798-1.0",
+        "t4-unmarked_band_sham-80932-109798",
+        "t4-unmarked_patch_sham-80932-109798-128",
+        "t4-unmarked_patch_sham-80932-109798-256"
+      ],
+      "unit_id": "T4_recovered-019"
+    },
+    {
+      "actions": {
+        "t5-1675-177015": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-1675-177015"
+      ],
+      "unit_id": "T5_components-019"
+    },
+    {
+      "actions": {
+        "t3-134882-0.1-2-C0": "evaluate_saved",
+        "t3-134882-0.1-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-134882-0.1-2-C0",
+        "t3-134882-0.1-2-C1"
+      ],
+      "unit_id": "T3_recovered-019"
+    },
+    {
+      "actions": {
+        "t4-public_band-80932-190676": "evaluate_saved",
+        "t4-public_patch-80932-190676-128": "evaluate_saved",
+        "t4-public_patch-80932-190676-256": "evaluate_saved",
+        "t4-public_projection-80932-190676": "evaluate_saved",
+        "t4-residual-80932-190676-0.5": "evaluate_saved",
+        "t4-residual-80932-190676-1.0": "evaluate_saved",
+        "t4-unmarked_band_sham-80932-190676": "evaluate_saved",
+        "t4-unmarked_patch_sham-80932-190676-128": "evaluate_saved",
+        "t4-unmarked_patch_sham-80932-190676-256": "evaluate_saved"
+      },
+      "phase": "T4_recovered",
+      "row_ids": [
+        "t4-public_band-80932-190676",
+        "t4-public_patch-80932-190676-128",
+        "t4-public_patch-80932-190676-256",
+        "t4-public_projection-80932-190676",
+        "t4-residual-80932-190676-0.5",
+        "t4-residual-80932-190676-1.0",
+        "t4-unmarked_band_sham-80932-190676",
+        "t4-unmarked_patch_sham-80932-190676-128",
+        "t4-unmarked_patch_sham-80932-190676-256"
+      ],
+      "unit_id": "T4_recovered-020"
+    },
+    {
+      "actions": {
+        "t5-1675-190676": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-1675-190676"
+      ],
+      "unit_id": "T5_components-020"
+    },
+    {
+      "actions": {
+        "t3-134882-0.2-0-C0": "evaluate_saved",
+        "t3-134882-0.2-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-134882-0.2-0-C0",
+        "t3-134882-0.2-0-C1"
+      ],
+      "unit_id": "T3_recovered-020"
+    },
+    {
+      "actions": {
+        "t5-1675-25394": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-1675-25394"
+      ],
+      "unit_id": "T5_components-021"
+    },
+    {
+      "actions": {
+        "t3-134882-0.2-1-C0": "evaluate_saved",
+        "t3-134882-0.2-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-134882-0.2-1-C0",
+        "t3-134882-0.2-1-C1"
+      ],
+      "unit_id": "T3_recovered-021"
+    },
+    {
+      "actions": {
+        "t5-1675-468505": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-1675-468505"
+      ],
+      "unit_id": "T5_components-022"
+    },
+    {
+      "actions": {
+        "t3-134882-0.2-2-C0": "evaluate_saved",
+        "t3-134882-0.2-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-134882-0.2-2-C0",
+        "t3-134882-0.2-2-C1"
+      ],
+      "unit_id": "T3_recovered-022"
+    },
+    {
+      "actions": {
+        "t5-1675-4795": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-1675-4795"
+      ],
+      "unit_id": "T5_components-023"
+    },
+    {
+      "actions": {
+        "t3-134882-0.4-0-C0": "evaluate_saved",
+        "t3-134882-0.4-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-134882-0.4-0-C0",
+        "t3-134882-0.4-0-C1"
+      ],
+      "unit_id": "T3_recovered-023"
+    },
+    {
+      "actions": {
+        "t5-1675-499768": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-1675-499768"
+      ],
+      "unit_id": "T5_components-024"
+    },
+    {
+      "actions": {
+        "t3-134882-0.4-1-C0": "evaluate_saved",
+        "t3-134882-0.4-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-134882-0.4-1-C0",
+        "t3-134882-0.4-1-C1"
+      ],
+      "unit_id": "T3_recovered-024"
+    },
+    {
+      "actions": {
+        "t5-1675-6012": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-1675-6012"
+      ],
+      "unit_id": "T5_components-025"
+    },
+    {
+      "actions": {
+        "t3-134882-0.4-2-C0": "evaluate_saved",
+        "t3-134882-0.4-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-134882-0.4-2-C0",
+        "t3-134882-0.4-2-C1"
+      ],
+      "unit_id": "T3_recovered-025"
+    },
+    {
+      "actions": {
+        "t5-1675-80932": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-1675-80932"
+      ],
+      "unit_id": "T5_components-026"
+    },
+    {
+      "actions": {
+        "vae-134882-C0": "evaluate_saved",
+        "vae-134882-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "vae-134882-C0",
+        "vae-134882-C1"
+      ],
+      "unit_id": "T3_recovered-026"
+    },
+    {
+      "actions": {
+        "t5-177015-190676": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-177015-190676"
+      ],
+      "unit_id": "T5_components-027"
+    },
+    {
+      "actions": {
+        "t3-147498-0.05-0-C0": "evaluate_saved",
+        "t3-147498-0.05-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-147498-0.05-0-C0",
+        "t3-147498-0.05-0-C1"
+      ],
+      "unit_id": "T3_recovered-027"
+    },
+    {
+      "actions": {
+        "t5-177015-468505": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-177015-468505"
+      ],
+      "unit_id": "T5_components-028"
+    },
+    {
+      "actions": {
+        "t3-147498-0.05-1-C0": "evaluate_saved",
+        "t3-147498-0.05-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-147498-0.05-1-C0",
+        "t3-147498-0.05-1-C1"
+      ],
+      "unit_id": "T3_recovered-028"
+    },
+    {
+      "actions": {
+        "t5-177015-499768": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-177015-499768"
+      ],
+      "unit_id": "T5_components-029"
+    },
+    {
+      "actions": {
+        "t3-147498-0.05-2-C0": "evaluate_saved",
+        "t3-147498-0.05-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-147498-0.05-2-C0",
+        "t3-147498-0.05-2-C1"
+      ],
+      "unit_id": "T3_recovered-029"
+    },
+    {
+      "actions": {
+        "t5-190676-468505": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-190676-468505"
+      ],
+      "unit_id": "T5_components-030"
+    },
+    {
+      "actions": {
+        "t3-147498-0.1-0-C0": "evaluate_saved",
+        "t3-147498-0.1-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-147498-0.1-0-C0",
+        "t3-147498-0.1-0-C1"
+      ],
+      "unit_id": "T3_recovered-030"
+    },
+    {
+      "actions": {
+        "t5-190676-499768": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-190676-499768"
+      ],
+      "unit_id": "T5_components-031"
+    },
+    {
+      "actions": {
+        "t3-147498-0.1-1-C0": "evaluate_saved",
+        "t3-147498-0.1-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-147498-0.1-1-C0",
+        "t3-147498-0.1-1-C1"
+      ],
+      "unit_id": "T3_recovered-031"
+    },
+    {
+      "actions": {
+        "t5-25394-109798": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-25394-109798"
+      ],
+      "unit_id": "T5_components-032"
+    },
+    {
+      "actions": {
+        "t3-147498-0.1-2-C0": "evaluate_saved",
+        "t3-147498-0.1-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-147498-0.1-2-C0",
+        "t3-147498-0.1-2-C1"
+      ],
+      "unit_id": "T3_recovered-032"
+    },
+    {
+      "actions": {
+        "t5-25394-134882": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-25394-134882"
+      ],
+      "unit_id": "T5_components-033"
+    },
+    {
+      "actions": {
+        "t3-147498-0.2-0-C0": "evaluate_saved",
+        "t3-147498-0.2-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-147498-0.2-0-C0",
+        "t3-147498-0.2-0-C1"
+      ],
+      "unit_id": "T3_recovered-033"
+    },
+    {
+      "actions": {
+        "t5-25394-147498": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-25394-147498"
+      ],
+      "unit_id": "T5_components-034"
+    },
+    {
+      "actions": {
+        "t3-147498-0.2-1-C0": "evaluate_saved",
+        "t3-147498-0.2-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-147498-0.2-1-C0",
+        "t3-147498-0.2-1-C1"
+      ],
+      "unit_id": "T3_recovered-034"
+    },
+    {
+      "actions": {
+        "t5-25394-177015": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-25394-177015"
+      ],
+      "unit_id": "T5_components-035"
+    },
+    {
+      "actions": {
+        "t3-147498-0.2-2-C0": "evaluate_saved",
+        "t3-147498-0.2-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-147498-0.2-2-C0",
+        "t3-147498-0.2-2-C1"
+      ],
+      "unit_id": "T3_recovered-035"
+    },
+    {
+      "actions": {
+        "t5-25394-190676": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-25394-190676"
+      ],
+      "unit_id": "T5_components-036"
+    },
+    {
+      "actions": {
+        "t3-147498-0.4-0-C0": "evaluate_saved",
+        "t3-147498-0.4-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-147498-0.4-0-C0",
+        "t3-147498-0.4-0-C1"
+      ],
+      "unit_id": "T3_recovered-036"
+    },
+    {
+      "actions": {
+        "t5-25394-468505": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-25394-468505"
+      ],
+      "unit_id": "T5_components-037"
+    },
+    {
+      "actions": {
+        "t3-147498-0.4-1-C0": "evaluate_saved",
+        "t3-147498-0.4-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-147498-0.4-1-C0",
+        "t3-147498-0.4-1-C1"
+      ],
+      "unit_id": "T3_recovered-037"
+    },
+    {
+      "actions": {
+        "t5-25394-499768": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-25394-499768"
+      ],
+      "unit_id": "T5_components-038"
+    },
+    {
+      "actions": {
+        "t3-147498-0.4-2-C0": "evaluate_saved",
+        "t3-147498-0.4-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-147498-0.4-2-C0",
+        "t3-147498-0.4-2-C1"
+      ],
+      "unit_id": "T3_recovered-038"
+    },
+    {
+      "actions": {
+        "t5-25394-80932": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-25394-80932"
+      ],
+      "unit_id": "T5_components-039"
+    },
+    {
+      "actions": {
+        "vae-147498-C0": "evaluate_saved",
+        "vae-147498-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "vae-147498-C0",
+        "vae-147498-C1"
+      ],
+      "unit_id": "T3_recovered-039"
+    },
+    {
+      "actions": {
+        "t5-468505-499768": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-468505-499768"
+      ],
+      "unit_id": "T5_components-040"
+    },
+    {
+      "actions": {
+        "t3-177015-0.05-0-C0": "evaluate_saved",
+        "t3-177015-0.05-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-177015-0.05-0-C0",
+        "t3-177015-0.05-0-C1"
+      ],
+      "unit_id": "T3_recovered-040"
+    },
+    {
+      "actions": {
+        "t5-4795-109798": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-4795-109798"
+      ],
+      "unit_id": "T5_components-041"
+    },
+    {
+      "actions": {
+        "t3-177015-0.05-1-C0": "evaluate_saved",
+        "t3-177015-0.05-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-177015-0.05-1-C0",
+        "t3-177015-0.05-1-C1"
+      ],
+      "unit_id": "T3_recovered-041"
+    },
+    {
+      "actions": {
+        "t5-4795-134882": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-4795-134882"
+      ],
+      "unit_id": "T5_components-042"
+    },
+    {
+      "actions": {
+        "t3-177015-0.05-2-C0": "evaluate_saved",
+        "t3-177015-0.05-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-177015-0.05-2-C0",
+        "t3-177015-0.05-2-C1"
+      ],
+      "unit_id": "T3_recovered-042"
+    },
+    {
+      "actions": {
+        "t5-4795-147498": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-4795-147498"
+      ],
+      "unit_id": "T5_components-043"
+    },
+    {
+      "actions": {
+        "t3-177015-0.1-0-C0": "evaluate_saved",
+        "t3-177015-0.1-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-177015-0.1-0-C0",
+        "t3-177015-0.1-0-C1"
+      ],
+      "unit_id": "T3_recovered-043"
+    },
+    {
+      "actions": {
+        "t5-4795-177015": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-4795-177015"
+      ],
+      "unit_id": "T5_components-044"
+    },
+    {
+      "actions": {
+        "t3-177015-0.1-1-C0": "evaluate_saved",
+        "t3-177015-0.1-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-177015-0.1-1-C0",
+        "t3-177015-0.1-1-C1"
+      ],
+      "unit_id": "T3_recovered-044"
+    },
+    {
+      "actions": {
+        "t5-4795-190676": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-4795-190676"
+      ],
+      "unit_id": "T5_components-045"
+    },
+    {
+      "actions": {
+        "t3-177015-0.1-2-C0": "evaluate_saved",
+        "t3-177015-0.1-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-177015-0.1-2-C0",
+        "t3-177015-0.1-2-C1"
+      ],
+      "unit_id": "T3_recovered-045"
+    },
+    {
+      "actions": {
+        "t5-4795-25394": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-4795-25394"
+      ],
+      "unit_id": "T5_components-046"
+    },
+    {
+      "actions": {
+        "t3-177015-0.2-0-C0": "evaluate_saved",
+        "t3-177015-0.2-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-177015-0.2-0-C0",
+        "t3-177015-0.2-0-C1"
+      ],
+      "unit_id": "T3_recovered-046"
+    },
+    {
+      "actions": {
+        "t5-4795-468505": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-4795-468505"
+      ],
+      "unit_id": "T5_components-047"
+    },
+    {
+      "actions": {
+        "t3-177015-0.2-1-C0": "evaluate_saved",
+        "t3-177015-0.2-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-177015-0.2-1-C0",
+        "t3-177015-0.2-1-C1"
+      ],
+      "unit_id": "T3_recovered-047"
+    },
+    {
+      "actions": {
+        "t5-4795-499768": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-4795-499768"
+      ],
+      "unit_id": "T5_components-048"
+    },
+    {
+      "actions": {
+        "t3-177015-0.2-2-C0": "evaluate_saved",
+        "t3-177015-0.2-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-177015-0.2-2-C0",
+        "t3-177015-0.2-2-C1"
+      ],
+      "unit_id": "T3_recovered-048"
+    },
+    {
+      "actions": {
+        "t5-4795-6012": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-4795-6012"
+      ],
+      "unit_id": "T5_components-049"
+    },
+    {
+      "actions": {
+        "t3-177015-0.4-0-C0": "evaluate_saved",
+        "t3-177015-0.4-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-177015-0.4-0-C0",
+        "t3-177015-0.4-0-C1"
+      ],
+      "unit_id": "T3_recovered-049"
+    },
+    {
+      "actions": {
+        "t5-4795-80932": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-4795-80932"
+      ],
+      "unit_id": "T5_components-050"
+    },
+    {
+      "actions": {
+        "t3-177015-0.4-1-C0": "evaluate_saved",
+        "t3-177015-0.4-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-177015-0.4-1-C0",
+        "t3-177015-0.4-1-C1"
+      ],
+      "unit_id": "T3_recovered-050"
+    },
+    {
+      "actions": {
+        "t5-6012-109798": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-6012-109798"
+      ],
+      "unit_id": "T5_components-051"
+    },
+    {
+      "actions": {
+        "t3-177015-0.4-2-C0": "evaluate_saved",
+        "t3-177015-0.4-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-177015-0.4-2-C0",
+        "t3-177015-0.4-2-C1"
+      ],
+      "unit_id": "T3_recovered-051"
+    },
+    {
+      "actions": {
+        "t5-6012-134882": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-6012-134882"
+      ],
+      "unit_id": "T5_components-052"
+    },
+    {
+      "actions": {
+        "vae-177015-C0": "evaluate_saved",
+        "vae-177015-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "vae-177015-C0",
+        "vae-177015-C1"
+      ],
+      "unit_id": "T3_recovered-052"
+    },
+    {
+      "actions": {
+        "t5-6012-147498": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-6012-147498"
+      ],
+      "unit_id": "T5_components-053"
+    },
+    {
+      "actions": {
+        "t3-190676-0.05-0-C0": "evaluate_saved",
+        "t3-190676-0.05-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-190676-0.05-0-C0",
+        "t3-190676-0.05-0-C1"
+      ],
+      "unit_id": "T3_recovered-053"
+    },
+    {
+      "actions": {
+        "t5-6012-177015": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-6012-177015"
+      ],
+      "unit_id": "T5_components-054"
+    },
+    {
+      "actions": {
+        "t3-190676-0.05-1-C0": "evaluate_saved",
+        "t3-190676-0.05-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-190676-0.05-1-C0",
+        "t3-190676-0.05-1-C1"
+      ],
+      "unit_id": "T3_recovered-054"
+    },
+    {
+      "actions": {
+        "t5-6012-190676": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-6012-190676"
+      ],
+      "unit_id": "T5_components-055"
+    },
+    {
+      "actions": {
+        "t3-190676-0.05-2-C0": "evaluate_saved",
+        "t3-190676-0.05-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-190676-0.05-2-C0",
+        "t3-190676-0.05-2-C1"
+      ],
+      "unit_id": "T3_recovered-055"
+    },
+    {
+      "actions": {
+        "t5-6012-25394": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-6012-25394"
+      ],
+      "unit_id": "T5_components-056"
+    },
+    {
+      "actions": {
+        "t3-190676-0.1-0-C0": "evaluate_saved",
+        "t3-190676-0.1-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-190676-0.1-0-C0",
+        "t3-190676-0.1-0-C1"
+      ],
+      "unit_id": "T3_recovered-056"
+    },
+    {
+      "actions": {
+        "t5-6012-468505": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-6012-468505"
+      ],
+      "unit_id": "T5_components-057"
+    },
+    {
+      "actions": {
+        "t3-190676-0.1-1-C0": "evaluate_saved",
+        "t3-190676-0.1-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-190676-0.1-1-C0",
+        "t3-190676-0.1-1-C1"
+      ],
+      "unit_id": "T3_recovered-057"
+    },
+    {
+      "actions": {
+        "t5-6012-499768": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-6012-499768"
+      ],
+      "unit_id": "T5_components-058"
+    },
+    {
+      "actions": {
+        "t3-190676-0.1-2-C0": "evaluate_saved",
+        "t3-190676-0.1-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-190676-0.1-2-C0",
+        "t3-190676-0.1-2-C1"
+      ],
+      "unit_id": "T3_recovered-058"
+    },
+    {
+      "actions": {
+        "t5-6012-80932": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-6012-80932"
+      ],
+      "unit_id": "T5_components-059"
+    },
+    {
+      "actions": {
+        "t3-190676-0.2-0-C0": "evaluate_saved",
+        "t3-190676-0.2-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-190676-0.2-0-C0",
+        "t3-190676-0.2-0-C1"
+      ],
+      "unit_id": "T3_recovered-059"
+    },
+    {
+      "actions": {
+        "t5-80932-109798": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-80932-109798"
+      ],
+      "unit_id": "T5_components-060"
+    },
+    {
+      "actions": {
+        "t3-190676-0.2-1-C0": "evaluate_saved",
+        "t3-190676-0.2-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-190676-0.2-1-C0",
+        "t3-190676-0.2-1-C1"
+      ],
+      "unit_id": "T3_recovered-060"
+    },
+    {
+      "actions": {
+        "t5-80932-134882": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-80932-134882"
+      ],
+      "unit_id": "T5_components-061"
+    },
+    {
+      "actions": {
+        "t3-190676-0.2-2-C0": "evaluate_saved",
+        "t3-190676-0.2-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-190676-0.2-2-C0",
+        "t3-190676-0.2-2-C1"
+      ],
+      "unit_id": "T3_recovered-061"
+    },
+    {
+      "actions": {
+        "t5-80932-147498": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-80932-147498"
+      ],
+      "unit_id": "T5_components-062"
+    },
+    {
+      "actions": {
+        "t3-190676-0.4-0-C0": "evaluate_saved",
+        "t3-190676-0.4-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-190676-0.4-0-C0",
+        "t3-190676-0.4-0-C1"
+      ],
+      "unit_id": "T3_recovered-062"
+    },
+    {
+      "actions": {
+        "t5-80932-177015": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-80932-177015"
+      ],
+      "unit_id": "T5_components-063"
+    },
+    {
+      "actions": {
+        "t3-190676-0.4-1-C0": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-190676-0.4-1-C0"
+      ],
+      "unit_id": "T3_recovered-063"
+    },
+    {
+      "actions": {
+        "t5-80932-190676": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-80932-190676"
+      ],
+      "unit_id": "T5_components-064"
+    },
+    {
+      "actions": {
+        "t3-190676-0.4-2-C0": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-190676-0.4-2-C0"
+      ],
+      "unit_id": "T3_recovered-064"
+    },
+    {
+      "actions": {
+        "t5-80932-468505": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-80932-468505"
+      ],
+      "unit_id": "T5_components-065"
+    },
+    {
+      "actions": {
+        "vae-190676-C0": "evaluate_saved",
+        "vae-190676-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "vae-190676-C0",
+        "vae-190676-C1"
+      ],
+      "unit_id": "T3_recovered-065"
+    },
+    {
+      "actions": {
+        "t5-80932-499768": "compare_components"
+      },
+      "phase": "T5_components",
+      "row_ids": [
+        "t5-80932-499768"
+      ],
+      "unit_id": "T5_components-066"
+    },
+    {
+      "actions": {
+        "t3-25394-0.05-0-C0": "evaluate_saved",
+        "t3-25394-0.05-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-25394-0.05-0-C0",
+        "t3-25394-0.05-0-C1"
+      ],
+      "unit_id": "T3_recovered-066"
+    },
+    {
+      "actions": {
+        "t3-25394-0.05-1-C0": "evaluate_saved",
+        "t3-25394-0.05-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-25394-0.05-1-C0",
+        "t3-25394-0.05-1-C1"
+      ],
+      "unit_id": "T3_recovered-067"
+    },
+    {
+      "actions": {
+        "t3-25394-0.05-2-C0": "evaluate_saved",
+        "t3-25394-0.05-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-25394-0.05-2-C0",
+        "t3-25394-0.05-2-C1"
+      ],
+      "unit_id": "T3_recovered-068"
+    },
+    {
+      "actions": {
+        "t3-25394-0.1-0-C0": "evaluate_saved",
+        "t3-25394-0.1-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-25394-0.1-0-C0",
+        "t3-25394-0.1-0-C1"
+      ],
+      "unit_id": "T3_recovered-069"
+    },
+    {
+      "actions": {
+        "t3-25394-0.1-1-C0": "evaluate_saved",
+        "t3-25394-0.1-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-25394-0.1-1-C0",
+        "t3-25394-0.1-1-C1"
+      ],
+      "unit_id": "T3_recovered-070"
+    },
+    {
+      "actions": {
+        "t3-25394-0.1-2-C0": "evaluate_saved",
+        "t3-25394-0.1-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-25394-0.1-2-C0",
+        "t3-25394-0.1-2-C1"
+      ],
+      "unit_id": "T3_recovered-071"
+    },
+    {
+      "actions": {
+        "t3-25394-0.2-0-C0": "evaluate_saved",
+        "t3-25394-0.2-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-25394-0.2-0-C0",
+        "t3-25394-0.2-0-C1"
+      ],
+      "unit_id": "T3_recovered-072"
+    },
+    {
+      "actions": {
+        "t3-25394-0.2-1-C0": "evaluate_saved",
+        "t3-25394-0.2-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-25394-0.2-1-C0",
+        "t3-25394-0.2-1-C1"
+      ],
+      "unit_id": "T3_recovered-073"
+    },
+    {
+      "actions": {
+        "t3-25394-0.2-2-C0": "evaluate_saved",
+        "t3-25394-0.2-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-25394-0.2-2-C0",
+        "t3-25394-0.2-2-C1"
+      ],
+      "unit_id": "T3_recovered-074"
+    },
+    {
+      "actions": {
+        "t3-25394-0.4-0-C0": "evaluate_saved",
+        "t3-25394-0.4-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-25394-0.4-0-C0",
+        "t3-25394-0.4-0-C1"
+      ],
+      "unit_id": "T3_recovered-075"
+    },
+    {
+      "actions": {
+        "t3-25394-0.4-1-C0": "evaluate_saved",
+        "t3-25394-0.4-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-25394-0.4-1-C0",
+        "t3-25394-0.4-1-C1"
+      ],
+      "unit_id": "T3_recovered-076"
+    },
+    {
+      "actions": {
+        "t3-25394-0.4-2-C0": "evaluate_saved",
+        "t3-25394-0.4-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-25394-0.4-2-C0",
+        "t3-25394-0.4-2-C1"
+      ],
+      "unit_id": "T3_recovered-077"
+    },
+    {
+      "actions": {
+        "vae-25394-C0": "evaluate_saved",
+        "vae-25394-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "vae-25394-C0",
+        "vae-25394-C1"
+      ],
+      "unit_id": "T3_recovered-078"
+    },
+    {
+      "actions": {
+        "t3-6012-0.05-0-C0": "evaluate_saved",
+        "t3-6012-0.05-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-6012-0.05-0-C0",
+        "t3-6012-0.05-0-C1"
+      ],
+      "unit_id": "T3_recovered-079"
+    },
+    {
+      "actions": {
+        "t3-6012-0.05-1-C0": "evaluate_saved",
+        "t3-6012-0.05-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-6012-0.05-1-C0",
+        "t3-6012-0.05-1-C1"
+      ],
+      "unit_id": "T3_recovered-080"
+    },
+    {
+      "actions": {
+        "t3-6012-0.05-2-C0": "evaluate_saved",
+        "t3-6012-0.05-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-6012-0.05-2-C0",
+        "t3-6012-0.05-2-C1"
+      ],
+      "unit_id": "T3_recovered-081"
+    },
+    {
+      "actions": {
+        "t3-6012-0.1-0-C0": "retain_safety_failure",
+        "t3-6012-0.1-0-C1": "retain_safety_failure"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-6012-0.1-0-C0",
+        "t3-6012-0.1-0-C1"
+      ],
+      "unit_id": "T3_recovered-082"
+    },
+    {
+      "actions": {
+        "t3-6012-0.1-1-C0": "retain_safety_failure",
+        "t3-6012-0.1-1-C1": "retain_safety_failure"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-6012-0.1-1-C0",
+        "t3-6012-0.1-1-C1"
+      ],
+      "unit_id": "T3_recovered-083"
+    },
+    {
+      "actions": {
+        "t3-6012-0.1-2-C0": "retain_safety_failure",
+        "t3-6012-0.1-2-C1": "retain_safety_failure"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-6012-0.1-2-C0",
+        "t3-6012-0.1-2-C1"
+      ],
+      "unit_id": "T3_recovered-084"
+    },
+    {
+      "actions": {
+        "t3-6012-0.2-0-C0": "retain_safety_failure",
+        "t3-6012-0.2-0-C1": "retain_safety_failure"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-6012-0.2-0-C0",
+        "t3-6012-0.2-0-C1"
+      ],
+      "unit_id": "T3_recovered-085"
+    },
+    {
+      "actions": {
+        "t3-6012-0.2-1-C0": "retain_safety_failure",
+        "t3-6012-0.2-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-6012-0.2-1-C0",
+        "t3-6012-0.2-1-C1"
+      ],
+      "unit_id": "T3_recovered-086"
+    },
+    {
+      "actions": {
+        "t3-6012-0.2-2-C0": "retain_safety_failure",
+        "t3-6012-0.2-2-C1": "retain_safety_failure"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-6012-0.2-2-C0",
+        "t3-6012-0.2-2-C1"
+      ],
+      "unit_id": "T3_recovered-087"
+    },
+    {
+      "actions": {
+        "t3-6012-0.4-0-C0": "retain_safety_failure",
+        "t3-6012-0.4-0-C1": "retain_safety_failure"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-6012-0.4-0-C0",
+        "t3-6012-0.4-0-C1"
+      ],
+      "unit_id": "T3_recovered-088"
+    },
+    {
+      "actions": {
+        "t3-6012-0.4-1-C0": "retain_safety_failure",
+        "t3-6012-0.4-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-6012-0.4-1-C0",
+        "t3-6012-0.4-1-C1"
+      ],
+      "unit_id": "T3_recovered-089"
+    },
+    {
+      "actions": {
+        "t3-6012-0.4-2-C0": "retain_safety_failure",
+        "t3-6012-0.4-2-C1": "retain_safety_failure"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-6012-0.4-2-C0",
+        "t3-6012-0.4-2-C1"
+      ],
+      "unit_id": "T3_recovered-090"
+    },
+    {
+      "actions": {
+        "vae-6012-C0": "evaluate_saved",
+        "vae-6012-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "vae-6012-C0",
+        "vae-6012-C1"
+      ],
+      "unit_id": "T3_recovered-091"
+    },
+    {
+      "actions": {
+        "t3-80932-0.05-0-C0": "evaluate_saved",
+        "t3-80932-0.05-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-80932-0.05-0-C0",
+        "t3-80932-0.05-0-C1"
+      ],
+      "unit_id": "T3_recovered-092"
+    },
+    {
+      "actions": {
+        "t3-80932-0.05-1-C0": "evaluate_saved",
+        "t3-80932-0.05-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-80932-0.05-1-C0",
+        "t3-80932-0.05-1-C1"
+      ],
+      "unit_id": "T3_recovered-093"
+    },
+    {
+      "actions": {
+        "t3-80932-0.05-2-C0": "evaluate_saved",
+        "t3-80932-0.05-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-80932-0.05-2-C0",
+        "t3-80932-0.05-2-C1"
+      ],
+      "unit_id": "T3_recovered-094"
+    },
+    {
+      "actions": {
+        "t3-80932-0.1-0-C0": "evaluate_saved",
+        "t3-80932-0.1-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-80932-0.1-0-C0",
+        "t3-80932-0.1-0-C1"
+      ],
+      "unit_id": "T3_recovered-095"
+    },
+    {
+      "actions": {
+        "t3-80932-0.1-1-C0": "evaluate_saved",
+        "t3-80932-0.1-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-80932-0.1-1-C0",
+        "t3-80932-0.1-1-C1"
+      ],
+      "unit_id": "T3_recovered-096"
+    },
+    {
+      "actions": {
+        "t3-80932-0.1-2-C0": "evaluate_saved",
+        "t3-80932-0.1-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-80932-0.1-2-C0",
+        "t3-80932-0.1-2-C1"
+      ],
+      "unit_id": "T3_recovered-097"
+    },
+    {
+      "actions": {
+        "t3-80932-0.2-0-C0": "evaluate_saved",
+        "t3-80932-0.2-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-80932-0.2-0-C0",
+        "t3-80932-0.2-0-C1"
+      ],
+      "unit_id": "T3_recovered-098"
+    },
+    {
+      "actions": {
+        "t3-80932-0.2-1-C0": "evaluate_saved",
+        "t3-80932-0.2-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-80932-0.2-1-C0",
+        "t3-80932-0.2-1-C1"
+      ],
+      "unit_id": "T3_recovered-099"
+    },
+    {
+      "actions": {
+        "t3-80932-0.2-2-C0": "evaluate_saved",
+        "t3-80932-0.2-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-80932-0.2-2-C0",
+        "t3-80932-0.2-2-C1"
+      ],
+      "unit_id": "T3_recovered-100"
+    },
+    {
+      "actions": {
+        "t3-80932-0.4-0-C0": "evaluate_saved",
+        "t3-80932-0.4-0-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-80932-0.4-0-C0",
+        "t3-80932-0.4-0-C1"
+      ],
+      "unit_id": "T3_recovered-101"
+    },
+    {
+      "actions": {
+        "t3-80932-0.4-1-C0": "evaluate_saved",
+        "t3-80932-0.4-1-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-80932-0.4-1-C0",
+        "t3-80932-0.4-1-C1"
+      ],
+      "unit_id": "T3_recovered-102"
+    },
+    {
+      "actions": {
+        "t3-80932-0.4-2-C0": "evaluate_saved",
+        "t3-80932-0.4-2-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "t3-80932-0.4-2-C0",
+        "t3-80932-0.4-2-C1"
+      ],
+      "unit_id": "T3_recovered-103"
+    },
+    {
+      "actions": {
+        "vae-80932-C0": "evaluate_saved",
+        "vae-80932-C1": "evaluate_saved"
+      },
+      "phase": "T3_recovered",
+      "row_ids": [
+        "vae-80932-C0",
+        "vae-80932-C1"
+      ],
+      "unit_id": "T3_recovered-104"
+    },
+    {
+      "actions": {
+        "t3-190676-0.4-2-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-190676-0.4-2-C1"
+      ],
+      "unit_id": "new_generation-001"
+    },
+    {
+      "actions": {
+        "t3-468505-0.05-0-C0": "generate_then_evaluate",
+        "t3-468505-0.05-0-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-468505-0.05-0-C0",
+        "t3-468505-0.05-0-C1"
+      ],
+      "unit_id": "new_generation-002"
+    },
+    {
+      "actions": {
+        "t3-468505-0.05-1-C0": "generate_then_evaluate",
+        "t3-468505-0.05-1-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-468505-0.05-1-C0",
+        "t3-468505-0.05-1-C1"
+      ],
+      "unit_id": "new_generation-003"
+    },
+    {
+      "actions": {
+        "t3-468505-0.05-2-C0": "generate_then_evaluate",
+        "t3-468505-0.05-2-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-468505-0.05-2-C0",
+        "t3-468505-0.05-2-C1"
+      ],
+      "unit_id": "new_generation-004"
+    },
+    {
+      "actions": {
+        "t3-468505-0.1-0-C0": "generate_then_evaluate",
+        "t3-468505-0.1-0-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-468505-0.1-0-C0",
+        "t3-468505-0.1-0-C1"
+      ],
+      "unit_id": "new_generation-005"
+    },
+    {
+      "actions": {
+        "t3-468505-0.1-1-C0": "generate_then_evaluate",
+        "t3-468505-0.1-1-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-468505-0.1-1-C0",
+        "t3-468505-0.1-1-C1"
+      ],
+      "unit_id": "new_generation-006"
+    },
+    {
+      "actions": {
+        "t3-468505-0.1-2-C0": "generate_then_evaluate",
+        "t3-468505-0.1-2-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-468505-0.1-2-C0",
+        "t3-468505-0.1-2-C1"
+      ],
+      "unit_id": "new_generation-007"
+    },
+    {
+      "actions": {
+        "t3-468505-0.2-0-C0": "generate_then_evaluate",
+        "t3-468505-0.2-0-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-468505-0.2-0-C0",
+        "t3-468505-0.2-0-C1"
+      ],
+      "unit_id": "new_generation-008"
+    },
+    {
+      "actions": {
+        "t3-468505-0.2-1-C0": "generate_then_evaluate",
+        "t3-468505-0.2-1-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-468505-0.2-1-C0",
+        "t3-468505-0.2-1-C1"
+      ],
+      "unit_id": "new_generation-009"
+    },
+    {
+      "actions": {
+        "t3-468505-0.2-2-C0": "generate_then_evaluate",
+        "t3-468505-0.2-2-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-468505-0.2-2-C0",
+        "t3-468505-0.2-2-C1"
+      ],
+      "unit_id": "new_generation-010"
+    },
+    {
+      "actions": {
+        "t3-468505-0.4-0-C0": "generate_then_evaluate",
+        "t3-468505-0.4-0-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-468505-0.4-0-C0",
+        "t3-468505-0.4-0-C1"
+      ],
+      "unit_id": "new_generation-011"
+    },
+    {
+      "actions": {
+        "t3-468505-0.4-1-C0": "generate_then_evaluate",
+        "t3-468505-0.4-1-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-468505-0.4-1-C0",
+        "t3-468505-0.4-1-C1"
+      ],
+      "unit_id": "new_generation-012"
+    },
+    {
+      "actions": {
+        "t3-468505-0.4-2-C0": "generate_then_evaluate",
+        "t3-468505-0.4-2-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-468505-0.4-2-C0",
+        "t3-468505-0.4-2-C1"
+      ],
+      "unit_id": "new_generation-013"
+    },
+    {
+      "actions": {
+        "vae-468505-C0": "generate_then_evaluate",
+        "vae-468505-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "vae-468505-C0",
+        "vae-468505-C1"
+      ],
+      "unit_id": "new_generation-014"
+    },
+    {
+      "actions": {
+        "t3-499768-0.05-0-C0": "generate_then_evaluate",
+        "t3-499768-0.05-0-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-499768-0.05-0-C0",
+        "t3-499768-0.05-0-C1"
+      ],
+      "unit_id": "new_generation-015"
+    },
+    {
+      "actions": {
+        "t3-499768-0.05-1-C0": "generate_then_evaluate",
+        "t3-499768-0.05-1-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-499768-0.05-1-C0",
+        "t3-499768-0.05-1-C1"
+      ],
+      "unit_id": "new_generation-016"
+    },
+    {
+      "actions": {
+        "t3-499768-0.05-2-C0": "generate_then_evaluate",
+        "t3-499768-0.05-2-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-499768-0.05-2-C0",
+        "t3-499768-0.05-2-C1"
+      ],
+      "unit_id": "new_generation-017"
+    },
+    {
+      "actions": {
+        "t3-499768-0.1-0-C0": "generate_then_evaluate",
+        "t3-499768-0.1-0-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-499768-0.1-0-C0",
+        "t3-499768-0.1-0-C1"
+      ],
+      "unit_id": "new_generation-018"
+    },
+    {
+      "actions": {
+        "t3-499768-0.1-1-C0": "generate_then_evaluate",
+        "t3-499768-0.1-1-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-499768-0.1-1-C0",
+        "t3-499768-0.1-1-C1"
+      ],
+      "unit_id": "new_generation-019"
+    },
+    {
+      "actions": {
+        "t3-499768-0.1-2-C0": "generate_then_evaluate",
+        "t3-499768-0.1-2-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-499768-0.1-2-C0",
+        "t3-499768-0.1-2-C1"
+      ],
+      "unit_id": "new_generation-020"
+    },
+    {
+      "actions": {
+        "t3-499768-0.2-0-C0": "generate_then_evaluate",
+        "t3-499768-0.2-0-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-499768-0.2-0-C0",
+        "t3-499768-0.2-0-C1"
+      ],
+      "unit_id": "new_generation-021"
+    },
+    {
+      "actions": {
+        "t3-499768-0.2-1-C0": "generate_then_evaluate",
+        "t3-499768-0.2-1-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-499768-0.2-1-C0",
+        "t3-499768-0.2-1-C1"
+      ],
+      "unit_id": "new_generation-022"
+    },
+    {
+      "actions": {
+        "t3-499768-0.2-2-C0": "generate_then_evaluate",
+        "t3-499768-0.2-2-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-499768-0.2-2-C0",
+        "t3-499768-0.2-2-C1"
+      ],
+      "unit_id": "new_generation-023"
+    },
+    {
+      "actions": {
+        "t3-499768-0.4-0-C0": "generate_then_evaluate",
+        "t3-499768-0.4-0-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-499768-0.4-0-C0",
+        "t3-499768-0.4-0-C1"
+      ],
+      "unit_id": "new_generation-024"
+    },
+    {
+      "actions": {
+        "t3-499768-0.4-1-C0": "generate_then_evaluate",
+        "t3-499768-0.4-1-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-499768-0.4-1-C0",
+        "t3-499768-0.4-1-C1"
+      ],
+      "unit_id": "new_generation-025"
+    },
+    {
+      "actions": {
+        "t3-499768-0.4-2-C0": "generate_then_evaluate",
+        "t3-499768-0.4-2-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "t3-499768-0.4-2-C0",
+        "t3-499768-0.4-2-C1"
+      ],
+      "unit_id": "new_generation-026"
+    },
+    {
+      "actions": {
+        "vae-499768-C0": "generate_then_evaluate",
+        "vae-499768-C1": "generate_then_evaluate"
+      },
+      "phase": "new_generation",
+      "row_ids": [
+        "vae-499768-C0",
+        "vae-499768-C1"
+      ],
+      "unit_id": "new_generation-027"
+    },
+    {
+      "actions": {
+        "t3-190676-0.4-1-C1": "pending_attempt_disposition"
+      },
+      "phase": "attempt_quarantine",
+      "row_ids": [
+        "t3-190676-0.4-1-C1"
+      ],
+      "unit_id": "attempt_quarantine-001"
+    }
+  ],
+  "unresolved_detector_calls": 4
+}
