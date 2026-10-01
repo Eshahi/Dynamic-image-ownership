@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "status": "planning_not_measured",
+  "execution_target": "local",
+  "resources": {
+    "vram_mib": 8192,
+    "ram_mib": 6144,
+    "disk_mib": 2048
+  },
+  "budget": {
+    "max_seconds": 86400,
+    "max_usd": 0,
+    "hourly_usd": 0
+  },
+  "estimated_seconds_range": [
+    3600,
+    21600
+  ],
+  "estimation_basis": "prior v2 took2969seconds; v4adds140T3outputs plus mandatory per-suspectCLIP and strongertransfer modes. Rangeprovisional, not measured/guaranteed.",
+  "no_downloads": true,
+  "no_paid_compute": true,
+  "watchdog_is_not_user_deadline": true
+}

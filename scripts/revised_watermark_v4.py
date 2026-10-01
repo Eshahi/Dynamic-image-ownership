@@ -1,0 +1,1067 @@
+"""Content-bound dual-key DCT watermark, image-domain reference (revision v4).
+
+This module is an engineering successor to ``revised_watermark_v3.py``; the v2
+and v3 candidates stay untouched so their outputs remain reproducible.  v4
+restores the mechanisms of the approved proposal that the QIM candidates
+dropped, inside a dependency-free image-domain reference codec:
+
+* a dual signature: a semantic code ``q`` (sign random projections of a
+  semantic feature vector, CLIP in the study profile) and a DCT-based
+  perceptual hash ``H``, combined with the OwnerID into a semantic key ``Ws``
+  and an instance key ``Wi``;
+* blind detection by correlating 8x8 block-DCT mid-band coefficients with the
+  patterns expected from the re-derived candidate keys;
+* the proposal's decision states: both keys found, semantic key only, and a
+  watermark that is present but bound to different content.
+
+The embedder is improved spread spectrum (host-rejecting, antipodal) on keyed
+projections of mid-band coefficients, sized by a PSNR budget.  The detection
+statistic is a self-normalised correlation whose false-positive probability is
+bounded by Hoeffding's inequality, so thresholds follow from a stated
+false-positive target instead of ad hoc accuracy cut-offs.
+
+Claim boundary: this is an image-domain codec, the labelled pixel comparator
+and DCT-detector positive control of the study.  It does not implement or
+validate latent/initial-noise embedding, it is not evidence of regeneration
+survival, and no detector state establishes legal ownership.  The default
+``public-derived`` profile is the proposal's profile: every derivation is
+public, so anyone can re-embed for any OwnerID.  The ``hmac-keyed`` profile is
+a separately labelled variant whose results must never be pooled with it.  See
+``research/method-amendment-v4.md``.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import hmac
+import json
+import math
+import time
+import unicodedata
+from operator import mul
+from pathlib import Path
+from typing import Mapping, Sequence
+
+
+MAGIC = b"rw-v4"
+VERSION = 4
+BLOCK = 8
+MIN_SIDE = 160
+HASH_GRID = 32
+LAYOUT_GRID = 8
+HASH_COARSE_SHARE = 0.25
+HASH_DETAIL_DEAD_ZONE = 6.0
+HASH_DETAIL_KNEE = 8.0
+HASH_DETAIL_POSITIONS = ((0, 1), (1, 0))
+CODE_BITS = 32
+CHECK_BITS = 4
+HADAMARD_ORDER = 5
+SYMBOL_BITS = HADAMARD_ORDER + 1
+SYMBOL_CHIPS = 1 << HADAMARD_ORDER
+HELPER_CHIPS = ((CODE_BITS + CHECK_BITS) // SYMBOL_BITS) * SYMBOL_CHIPS
+TAG_BITS = 128
+CHANNEL_BITS = HELPER_CHIPS + TAG_BITS
+SEMANTIC_FREQUENCIES = ((1, 1), (0, 2), (2, 0), (1, 2), (2, 1), (2, 2))
+INSTANCE_FREQUENCIES = ((0, 3), (3, 0), (1, 3), (3, 1), (2, 3), (3, 2))
+PROXY_SOURCE = "proxy-layout-v1"
+EXTERNAL_PREFIX = "external:"
+BINDING_MODES = ("combined", "semantic_only", "perceptual_only", "none")
+PUBLIC_KEY = hashlib.sha256(MAGIC + b"/public-derived-profile-key").digest()
+
+DEFAULT_PROFILE = {
+    "schema_version": "revised-watermark-v4",
+    "profile": "image-domain-dual-key-dct-iss",
+    "security": "public-derived",
+    "semantic_source": PROXY_SOURCE,
+    "minimum_side": MIN_SIDE,
+    "semantic_frequencies": [list(pair) for pair in SEMANTIC_FREQUENCIES],
+    "instance_frequencies": [list(pair) for pair in INSTANCE_FREQUENCIES],
+    "code_bits": CODE_BITS,
+    "tag_bits": TAG_BITS,
+    "embedding": {
+        "target_psnr_db": 42.0,
+        "semantic_energy_share": 0.6,
+        "design_noise_std": 8.0,
+        "passes": 3,
+    },
+    "decision": {
+        "false_positive_target": 1e-6,
+        "semantic_radius": 6,
+        "instance_radius": 6,
+    },
+}
+KEYED_PROFILE = {**DEFAULT_PROFILE, "security": "hmac-keyed"}
+
+# Fields that change what the detector computes.  Embedding strength and
+# decision thresholds are excluded: the correlation detector needs neither the
+# embedding amplitude nor a re-enrolment when a calibration version changes.
+_DETECTOR_FIELDS = (
+    "schema_version",
+    "profile",
+    "security",
+    "semantic_source",
+    "minimum_side",
+    "semantic_frequencies",
+    "instance_frequencies",
+    "code_bits",
+    "tag_bits",
+)
+
+
+def _dct_basis(points: int, rows: int) -> tuple[tuple[float, ...], ...]:
+    return tuple(
+        tuple(
+            (math.sqrt(1.0 / points) if u == 0 else math.sqrt(2.0 / points)) * math.cos((2 * n + 1) * u * math.pi / (2 * points))
+            for n in range(points)
+        )
+        for u in range(rows)
+    )
+
+
+_DCT_BASIS = _dct_basis(BLOCK, BLOCK)
+_HASH_BASIS = _dct_basis(HASH_GRID, 8)
+_HASH_BAND = tuple(sorted(((u, v) for u in range(8) for v in range(8) if (u, v) != (0, 0)), key=lambda p: (p[0] + p[1], p[0], p[1])))
+
+
+class EmbeddingError(ValueError):
+    """The marked output failed self-verification; ``report`` holds the diagnostics."""
+
+    def __init__(self, message: str, report: Mapping[str, object]):
+        super().__init__(message)
+        self.report = dict(report)
+
+
+def _plane(u: int, v: int) -> tuple[float, ...]:
+    return tuple(_DCT_BASIS[u][y] * _DCT_BASIS[v][x] for y in range(BLOCK) for x in range(BLOCK))
+
+
+_DETAIL_PLANES = tuple(_plane(u, v) for u, v in HASH_DETAIL_POSITIONS)
+
+
+# ---------------------------------------------------------------------------
+# Canonical inputs, profile and keyed derivation
+# ---------------------------------------------------------------------------
+
+
+def _check_image(image: Sequence[Sequence[float]], minimum_side: int = MIN_SIDE) -> tuple[int, int]:
+    height = len(image)
+    width = len(image[0]) if height else 0
+    if height < minimum_side or width < minimum_side:
+        raise ValueError(f"image must be at least {minimum_side}x{minimum_side}")
+    for row in image:
+        if len(row) != width:
+            raise ValueError("image rows must have equal length")
+        for value in row:
+            value = float(value)
+            if not math.isfinite(value) or not 0.0 <= value <= 255.0:
+                raise ValueError("image values must be finite luminance bytes in [0, 255]")
+    return height, width
+
+
+def canonical_owner(owner_id: str) -> bytes:
+    if not isinstance(owner_id, str):
+        raise TypeError("OwnerID must be a string")
+    value = unicodedata.normalize("NFC", owner_id).encode("utf-8")
+    if not 1 <= len(value) <= 256:
+        raise ValueError("OwnerID must contain 1..256 UTF-8 bytes")
+    return value
+
+
+def canonical_secret_key(secret_key: bytes | str) -> bytes:
+    if isinstance(secret_key, str):
+        value = secret_key.encode("utf-8")
+    elif isinstance(secret_key, bytes):
+        value = secret_key
+    else:
+        raise TypeError("secret_key must be bytes or str")
+    if len(value) < 16 or len(value) > 4096:
+        raise ValueError("secret_key must contain 16..4096 bytes")
+    return value
+
+
+def _number(value: object, low: float, high: float, name: str, low_open: bool = False) -> float:
+    if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(float(value)):
+        raise ValueError(f"{name} must be a finite number")
+    number = float(value)
+    if number > high or number < low or (low_open and number == low):
+        raise ValueError(f"{name} is outside its allowed range")
+    return number
+
+
+def _frequency_set(value: object, name: str) -> tuple[tuple[int, int], ...]:
+    if not isinstance(value, (list, tuple)) or not 1 <= len(value) <= 16:
+        raise ValueError(f"{name} must list 1..16 coefficient positions")
+    pairs = []
+    for pair in value:
+        if not isinstance(pair, (list, tuple)) or len(pair) != 2 or any(isinstance(i, bool) or not isinstance(i, int) for i in pair):
+            raise ValueError(f"{name} entries must be [u, v] integer pairs")
+        u, v = pair
+        if not (0 <= u < BLOCK and 0 <= v < BLOCK) or (u, v) == (0, 0):
+            raise ValueError(f"{name} must use non-DC positions inside the 8x8 block")
+        if (u, v) in HASH_DETAIL_POSITIONS:
+            raise ValueError(f"{name} must leave (0,1) and (1,0) untouched: the perceptual hash reads them")
+        pairs.append((u, v))
+    if len(set(pairs)) != len(pairs):
+        raise ValueError(f"{name} repeats a coefficient position")
+    return tuple(pairs)
+
+
+def validate_profile(profile: Mapping[str, object]) -> dict[str, object]:
+    """Return a checked copy of ``profile``; reject unknown, missing or out-of-range fields."""
+    if not isinstance(profile, Mapping) or set(profile) != set(DEFAULT_PROFILE):
+        raise ValueError("profile must contain exactly the revised-watermark-v4 fields")
+    for key in ("schema_version", "profile", "code_bits", "tag_bits"):
+        if profile[key] != DEFAULT_PROFILE[key] or isinstance(profile[key], bool):
+            raise ValueError(f"profile constant mismatch: {key}")
+    if profile["security"] not in ("hmac-keyed", "public-derived"):
+        raise ValueError("security must be hmac-keyed or public-derived")
+    source = profile["semantic_source"]
+    if not isinstance(source, str) or not (
+        source == PROXY_SOURCE or (source.startswith(EXTERNAL_PREFIX) and 1 <= len(source) - len(EXTERNAL_PREFIX) <= 128)
+    ):
+        raise ValueError("semantic_source must be proxy-layout-v1 or external:<feature id>")
+    side = profile["minimum_side"]
+    if isinstance(side, bool) or not isinstance(side, int) or not MIN_SIDE <= side <= 16384:
+        raise ValueError(f"minimum_side must be an integer of at least {MIN_SIDE}")
+    semantic = _frequency_set(profile["semantic_frequencies"], "semantic_frequencies")
+    instance = _frequency_set(profile["instance_frequencies"], "instance_frequencies")
+    if set(semantic) & set(instance):
+        raise ValueError("semantic and instance channels must use disjoint coefficients")
+    embedding = profile["embedding"]
+    if not isinstance(embedding, Mapping) or set(embedding) != set(DEFAULT_PROFILE["embedding"]):
+        raise ValueError("embedding must contain exactly the revised-watermark-v4 fields")
+    _number(embedding["target_psnr_db"], 30.0, 60.0, "target_psnr_db")
+    _number(embedding["semantic_energy_share"], 0.05, 0.95, "semantic_energy_share")
+    _number(embedding["design_noise_std"], 0.0, 64.0, "design_noise_std", low_open=True)
+    if isinstance(embedding["passes"], bool) or not isinstance(embedding["passes"], int) or not 1 <= embedding["passes"] <= 8:
+        raise ValueError("embedding passes must be an integer in 1..8")
+    decision = profile["decision"]
+    if not isinstance(decision, Mapping) or set(decision) != set(DEFAULT_PROFILE["decision"]):
+        raise ValueError("decision must contain exactly the revised-watermark-v4 fields")
+    _number(decision["false_positive_target"], 0.0, 1e-2, "false_positive_target", low_open=True)
+    for key in ("semantic_radius", "instance_radius"):
+        radius = decision[key]
+        if isinstance(radius, bool) or not isinstance(radius, int) or not 0 <= radius < CODE_BITS // 2:
+            raise ValueError(f"{key} must be an integer in 0..{CODE_BITS // 2 - 1}")
+    checked = dict(profile)
+    checked["semantic_frequencies"] = [list(pair) for pair in semantic]
+    checked["instance_frequencies"] = [list(pair) for pair in instance]
+    checked["embedding"] = dict(embedding)
+    checked["decision"] = dict(decision)
+    return checked
+
+
+def load_profile(path: str | Path) -> dict[str, object]:
+    return validate_profile(json.loads(Path(path).read_text(encoding="utf-8")))
+
+
+def _canonical_json(value: object) -> bytes:
+    return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=True, allow_nan=False).encode("ascii")
+
+
+def detector_config_id(profile: Mapping[str, object]) -> str:
+    """SHA-256 of the canonical JSON of every field the detector depends on."""
+    checked = validate_profile(profile)
+    return hashlib.sha256(MAGIC + b"/config/" + _canonical_json({key: checked[key] for key in _DETECTOR_FIELDS})).hexdigest()
+
+
+def decision_id(profile: Mapping[str, object]) -> str:
+    """SHA-256 of the decision thresholds, so a calibration version can be cited."""
+    return hashlib.sha256(MAGIC + b"/decision/" + _canonical_json(validate_profile(profile)["decision"])).hexdigest()
+
+
+def _pack(*fields: bytes) -> bytes:
+    """Length-prefixed concatenation, so distinct field tuples never collide."""
+    return b"".join(len(field).to_bytes(4, "big") + field for field in fields)
+
+
+def _stream(key: bytes, config: bytes, label: bytes, length: int) -> bytes:
+    """HMAC-SHA256 in counter mode: a keyed pseudorandom byte string for one label."""
+    blocks = []
+    for counter in range((length + 31) // 32):
+        blocks.append(hmac.new(key, _pack(MAGIC, config, label, counter.to_bytes(4, "big")), hashlib.sha256).digest())
+    return b"".join(blocks)[:length]
+
+
+def _resolve(profile: Mapping[str, object] | None, secret_key: bytes | str | None) -> tuple[dict[str, object], bytes, bytes]:
+    checked = validate_profile(DEFAULT_PROFILE if profile is None else profile)
+    if checked["security"] == "hmac-keyed":
+        if secret_key is None:
+            raise ValueError("the hmac-keyed profile requires a secret key")
+        key = canonical_secret_key(secret_key)
+    else:
+        if secret_key is not None:
+            raise ValueError("the public-derived profile takes no secret key")
+        key = PUBLIC_KEY
+    return checked, key, bytes.fromhex(detector_config_id(checked))
+
+
+def _key_fingerprint(checked: Mapping[str, object], key: bytes) -> str:
+    """Non-secret label for the key in use, so keyed results can be grouped by key."""
+    if checked["security"] == "public-derived":
+        return "public"
+    return hmac.new(key, MAGIC + b"/fingerprint", hashlib.sha256).hexdigest()[:16]
+
+
+# ---------------------------------------------------------------------------
+# Block DCT analysis
+# ---------------------------------------------------------------------------
+
+
+def _analyse(image: Sequence[Sequence[float]], planes: Sequence[Sequence[float]]) -> tuple[list[list[float]], list[list[float]]]:
+    """Per full 8x8 block: the block mean, and the requested DCT coefficients.
+
+    Only complete blocks are used.  A right/bottom remainder of up to seven
+    pixels is neither read by the carrier nor modified by the embedder.
+    """
+    height, width = len(image), len(image[0])
+    means: list[list[float]] = []
+    coefficients: list[list[float]] = []
+    for by in range(height // BLOCK):
+        rows = image[by * BLOCK : by * BLOCK + BLOCK]
+        mean_row = []
+        for bx in range(width // BLOCK):
+            block = [float(value) for row in rows for value in row[bx * BLOCK : bx * BLOCK + BLOCK]]
+            mean_row.append(sum(block) / 64.0)
+            coefficients.append([sum(map(mul, block, plane)) for plane in planes])
+        means.append(mean_row)
+    return means, coefficients
+
+
+def _area_weights(source: int, target: int) -> list[list[tuple[int, float]]]:
+    """Exact area-average resampling weights from ``source`` to ``target`` samples."""
+    scale = source / target
+    weights = []
+    for index in range(target):
+        start, stop = index * scale, (index + 1) * scale
+        row = []
+        for position in range(int(math.floor(start)), min(source, int(math.ceil(stop)))):
+            overlap = min(stop, position + 1.0) - max(start, float(position))
+            if overlap > 0.0:
+                row.append((position, overlap / scale))
+        weights.append(row)
+    return weights
+
+
+def _resample(grid: Sequence[Sequence[float]], size: int) -> list[list[float]]:
+    row_weights = _area_weights(len(grid), size)
+    column_weights = _area_weights(len(grid[0]), size)
+    narrowed = [[sum(row[position] * weight for position, weight in weights) for weights in column_weights] for row in grid]
+    return [[sum(narrowed[position][x] * weight for position, weight in weights) for x in range(size)] for weights in row_weights]
+
+
+# ---------------------------------------------------------------------------
+# Phase 1: semantic code, perceptual hash and the dual keys
+# ---------------------------------------------------------------------------
+
+
+def _sign_projections(vector: Sequence[float], key: bytes, config: bytes, label: bytes) -> int:
+    """CODE_BITS signs of keyed Rademacher projections (random-hyperplane hashing).
+
+    Two vectors at angle ``theta`` disagree in each bit with probability
+    ``theta / pi``, so nearby content gives nearby codes and there is no
+    avalanche.  The hyperplanes are derived from the profile key: public in the
+    public-derived profile, unknown to an attacker in the keyed one.
+    """
+    width = len(vector)
+    row_bytes = (width + 7) // 8
+    material = _stream(key, config, _pack(label, width.to_bytes(4, "big")), CODE_BITS * row_bytes)
+    code = 0
+    for row in range(CODE_BITS):
+        chunk = material[row * row_bytes : (row + 1) * row_bytes]
+        total = 0.0
+        for index, value in enumerate(vector):
+            total += -value if (chunk[index >> 3] >> (index & 7)) & 1 else value
+        # The tolerance keeps a featureless input at zero despite rounding error.
+        code = (code << 1) | int(total > 1e-9)
+    return code
+
+
+def _unit(vector: Sequence[float], weight: float) -> list[float]:
+    norm = math.sqrt(sum(value * value for value in vector))
+    return [0.0] * len(vector) if norm < 1e-9 else [value * weight / norm for value in vector]
+
+
+def _local_detail(field: Sequence[Sequence[float]]) -> list[float]:
+    """Remove each value's 3x3 neighbourhood mean, then compress it to (-1, 1).
+
+    The subtraction drops the slowly varying part of the gradient, which images
+    of one composition share.  The dead zone silences blocks whose remaining
+    gradient is at noise level, and the soft sign lets every textured block
+    count about equally.
+    """
+    height, width = len(field), len(field[0])
+    output = []
+    for y in range(height):
+        rows = [field[min(height - 1, max(0, y + dy))] for dy in (-1, 0, 1)]
+        for x in range(width):
+            local = field[y][x] - sum(row[min(width - 1, max(0, x + dx))] for row in rows for dx in (-1, 0, 1)) / 9.0
+            excess = max(0.0, abs(local) - HASH_DETAIL_DEAD_ZONE)
+            output.append(math.copysign(excess / (excess + HASH_DETAIL_KNEE), local))
+    return output
+
+
+def _perceptual_hash(means: Sequence[Sequence[float]], detail: Sequence[Sequence[float]], key: bytes, config: bytes) -> int:
+    """Hash two scales of block-DCT content that the embedder never modifies.
+
+    ``means`` gives coarse structure (the classic pHash input: the low band of
+    a 32x32 map).  ``detail`` holds each block's (0,1) and (1,0) coefficients,
+    its local gradient, which is what differs between two images that share a
+    composition.  Detail carries three quarters of the vector's energy.
+    """
+    grid = _resample(means, HASH_GRID)
+    coarse = []
+    for u, v in _HASH_BAND:
+        partial = [sum(_HASH_BASIS[u][y] * grid[y][x] for y in range(HASH_GRID)) for x in range(HASH_GRID)]
+        # Natural-image amplitude falls roughly as 1/f; the weight keeps the
+        # lowest two or three coefficients from deciding every bit.
+        coarse.append(sum(partial[x] * _HASH_BASIS[v][x] for x in range(HASH_GRID)) * math.hypot(u, v))
+    columns = len(means[0])
+    fine: list[float] = []
+    for position in range(len(HASH_DETAIL_POSITIONS)):
+        fine += _local_detail([[block[position] for block in detail[start : start + columns]] for start in range(0, len(detail), columns)])
+    vector = _unit(coarse, math.sqrt(HASH_COARSE_SHARE)) + _unit(fine, math.sqrt(1.0 - HASH_COARSE_SHARE))
+    return _sign_projections(vector, key, config, b"perceptual-projection")
+
+
+def _layout_features(means: Sequence[Sequence[float]]) -> list[float]:
+    flat = [value for row in _resample(means, LAYOUT_GRID) for value in row]
+    mean = sum(flat) / len(flat)
+    return [value - mean for value in flat]
+
+
+def _semantic_code(features: Sequence[float], key: bytes, config: bytes) -> int:
+    vector = [float(value) for value in features]
+    if len(vector) < 16 or len(vector) > 65536:
+        raise ValueError("semantic feature vector must have 16..65536 entries")
+    if any(not math.isfinite(value) for value in vector) or math.sqrt(sum(value * value for value in vector)) < 1e-12:
+        raise ValueError("semantic feature vector must be finite and non-zero")
+    return _sign_projections(vector, key, config, b"semantic-projection")
+
+
+def _codes(
+    means: Sequence[Sequence[float]],
+    detail: Sequence[Sequence[float]],
+    checked: Mapping[str, object],
+    key: bytes,
+    config: bytes,
+    supplied: Sequence[float] | None,
+) -> tuple[int, int]:
+    if checked["semantic_source"] == PROXY_SOURCE:
+        if supplied is not None:
+            raise ValueError("the proxy-layout-v1 profile computes its own features")
+        features: Sequence[float] = _layout_features(means)
+    elif supplied is None:
+        raise ValueError("an external semantic_source requires the caller's semantic_features")
+    else:
+        features = supplied
+    return _semantic_code(features, key, config), _perceptual_hash(means, detail, key, config)
+
+
+def perceptual_hash(image: Sequence[Sequence[float]], secret_key: bytes | str | None = None, profile: Mapping[str, object] | None = None) -> int:
+    """DCT perceptual hash H: 32 sign projections of coarse structure and block gradients.
+
+    It reads only block means and the (0,1) and (1,0) coefficients, none of
+    which the embedder changes, so marking an image does not move its own hash
+    except through rounding and clipping.  A constant image hashes to zero;
+    that is a documented collision.
+    """
+    checked, key, config = _resolve(profile, secret_key)
+    _check_image(image, int(checked["minimum_side"]))
+    return _perceptual_hash(*_analyse(image, _DETAIL_PLANES), key, config)
+
+
+def layout_features(image: Sequence[Sequence[float]]) -> list[float]:
+    """Model-free stand-in for the semantic vector E: a mean-removed 8x8 layout.
+
+    This is a coarse-layout descriptor for dependency-free tests and controls.
+    It is not CLIP and carries no semantic meaning; the study profile supplies
+    the pinned encoder's vector through ``semantic_features`` instead.
+    """
+    return _layout_features(_analyse(image, ())[0])
+
+
+def semantic_code(features: Sequence[float], secret_key: bytes | str | None = None, profile: Mapping[str, object] | None = None) -> int:
+    """Semantic code q: 32 sign projections of the semantic feature vector E."""
+    _checked, key, config = _resolve(profile, secret_key)
+    return _semantic_code(features, key, config)
+
+
+def _bits(value: bytes, count: int) -> list[int]:
+    return [(value[index >> 3] >> (7 - (index & 7))) & 1 for index in range(count)]
+
+
+def derive_keys(q: int, h: int, owner: bytes, key: bytes, config: bytes) -> tuple[list[int], list[int]]:
+    """The proposal's dual keys as bit patterns.
+
+    ``Ws = PRF(q, OwnerID)`` binds owner and semantics; ``Wi = PRF(q, H,
+    OwnerID)`` additionally binds the perceptual instance.
+    """
+    q_bytes, h_bytes = q.to_bytes(CODE_BITS // 8, "big"), h.to_bytes(CODE_BITS // 8, "big")
+    ws = _stream(key, config, _pack(b"ws", owner, q_bytes), TAG_BITS // 8)
+    wi = _stream(key, config, _pack(b"wi", owner, q_bytes, h_bytes), TAG_BITS // 8)
+    return _bits(ws, TAG_BITS), _bits(wi, TAG_BITS)
+
+
+# ---------------------------------------------------------------------------
+# Helper data: biorthogonal Reed-Muller RM(1,5) with soft maximum-likelihood decoding
+# ---------------------------------------------------------------------------
+
+
+def _crc4(code: int) -> int:
+    register = 0
+    for index in range(CODE_BITS - 1, -1, -1):
+        feedback = ((register >> 3) & 1) ^ ((code >> index) & 1)
+        register = ((register << 1) & 0xF) ^ (0x3 if feedback else 0)
+    return register
+
+
+def _parity(value: int) -> int:
+    return bin(value).count("1") & 1
+
+
+def _helper_encode(code: int) -> list[int]:
+    word = (code << CHECK_BITS) | _crc4(code)
+    chips: list[int] = []
+    for shift in range(CODE_BITS + CHECK_BITS - SYMBOL_BITS, -1, -SYMBOL_BITS):
+        symbol = (word >> shift) & (SYMBOL_CHIPS * 2 - 1)
+        sign, index = symbol >> HADAMARD_ORDER, symbol & (SYMBOL_CHIPS - 1)
+        chips.extend(sign ^ _parity(index & chip) for chip in range(SYMBOL_CHIPS))
+    return chips
+
+
+def _helper_decode(soft: Sequence[float]) -> tuple[int, bool]:
+    """Soft-decision decode; positive soft values mean chip 0.  Returns (code, check_ok)."""
+    word = 0
+    for start in range(0, HELPER_CHIPS, SYMBOL_CHIPS):
+        spectrum = list(soft[start : start + SYMBOL_CHIPS])
+        span = 1
+        while span < SYMBOL_CHIPS:  # fast Walsh-Hadamard transform
+            for base in range(0, SYMBOL_CHIPS, span * 2):
+                for offset in range(base, base + span):
+                    a, b = spectrum[offset], spectrum[offset + span]
+                    spectrum[offset], spectrum[offset + span] = a + b, a - b
+            span *= 2
+        index = max(range(SYMBOL_CHIPS), key=lambda i: (abs(spectrum[i]), -i))
+        word = (word << SYMBOL_BITS) | (int(spectrum[index] < 0.0) << HADAMARD_ORDER) | index
+    code = word >> CHECK_BITS
+    return code, (word & ((1 << CHECK_BITS) - 1)) == _crc4(code)
+
+
+# ---------------------------------------------------------------------------
+# Carrier: keyed, owner-specific spreading of each channel bit over many coefficients
+# ---------------------------------------------------------------------------
+
+
+def _carrier(key: bytes, config: bytes, owner: bytes, channel: bytes, height: int, width: int, slots: int) -> tuple[list[int], list[float], list[float]]:
+    """Assign every coefficient slot a channel bit and a sign; return per-bit norms."""
+    label = _pack(b"carrier", channel, owner, height.to_bytes(4, "big"), width.to_bytes(4, "big"))
+    material = _stream(key, config, label, slots * 8)
+    words = [int.from_bytes(material[index * 8 : index * 8 + 8], "big") for index in range(slots)]
+    order = sorted(range(slots), key=lambda slot: (words[slot] >> 1, slot))
+    bit_of_slot = [0] * slots
+    for rank, slot in enumerate(order):
+        bit_of_slot[slot] = rank % CHANNEL_BITS
+    signs = [1.0 if word & 1 else -1.0 for word in words]
+    counts = [0] * CHANNEL_BITS
+    for bit in bit_of_slot:
+        counts[bit] += 1
+    return bit_of_slot, signs, [math.sqrt(count) for count in counts]
+
+
+def _project(values: Sequence[float], bit_of_slot: Sequence[int], signs: Sequence[float], norms: Sequence[float]) -> list[float]:
+    """Unit-norm keyed projection of the slot coefficients onto each channel bit."""
+    totals = [0.0] * CHANNEL_BITS
+    for value, bit, sign in zip(values, bit_of_slot, signs):
+        totals[bit] += value * sign
+    return [total / norm for total, norm in zip(totals, norms)]
+
+
+def _correlation(pattern: Sequence[int], projections: Sequence[float]) -> float:
+    """Self-normalised correlation of the tag projections with an expected key pattern.
+
+    For any fixed projections and an independent uniformly random pattern the
+    statistic exceeds ``t`` with probability at most ``exp(-t*t/2)`` (Hoeffding).
+    """
+    energy = math.sqrt(sum(value * value for value in projections))
+    if energy <= 1e-12:
+        return 0.0
+    return sum((-value if bit else value) for bit, value in zip(pattern, projections)) / energy
+
+
+def _threshold(false_positive_target: float, patterns: int) -> float:
+    """Score needed so that ``patterns`` tries stay below the false-positive target."""
+    return math.sqrt(2.0 * math.log(patterns / false_positive_target))
+
+
+def _log10_bound(score: float, patterns: int) -> float:
+    if score <= 0.0:
+        return 0.0
+    return min(0.0, (math.log(patterns) - score * score / 2.0) / math.log(10.0))
+
+
+class _Geometry:
+    """Everything that depends only on image size, owner, key and detector configuration."""
+
+    def __init__(self, checked: Mapping[str, object], key: bytes, config: bytes, owner: bytes, height: int, width: int):
+        self.frequencies = (
+            tuple(tuple(pair) for pair in checked["semantic_frequencies"]),
+            tuple(tuple(pair) for pair in checked["instance_frequencies"]),
+        )
+        self.planes = [_plane(u, v) for channel in self.frequencies for (u, v) in channel]
+        # Every analysis also reads the two hash positions, ahead of the channel coefficients.
+        self.analysis = list(_DETAIL_PLANES) + self.planes
+        self.skip = len(_DETAIL_PLANES)
+        self.split = self.skip + len(self.frequencies[0])
+        blocks = (height // BLOCK) * (width // BLOCK)
+        self.carriers = []
+        for name, channel in zip((b"s", b"i"), self.frequencies):
+            slots = blocks * len(channel)
+            if slots < CHANNEL_BITS * 4:
+                raise ValueError("image has too few DCT slots for the dual-key payload")
+            self.carriers.append(_carrier(key, config, owner, name, height, width, slots))
+
+    def channel_values(self, coefficients: Sequence[Sequence[float]], channel: int) -> list[float]:
+        start, stop = (self.skip, self.split) if channel == 0 else (self.split, len(self.analysis))
+        return [value for block in coefficients for value in block[start:stop]]
+
+    def projections(self, coefficients: Sequence[Sequence[float]]) -> list[list[float]]:
+        return [_project(self.channel_values(coefficients, channel), *self.carriers[channel]) for channel in (0, 1)]
+
+
+# ---------------------------------------------------------------------------
+# Phase 2 (image-domain arm): improved spread-spectrum embedding
+# ---------------------------------------------------------------------------
+
+
+def _host_rejection(budget_per_bit: float, host_power: float, noise_power: float) -> tuple[float, float]:
+    """Choose the host-rejection factor that maximises the detector's signal-to-noise ratio.
+
+    Moving a projection from host value ``p`` to ``(1-lam)*p + a*e`` costs
+    ``a*a + lam*lam*host_power`` on average and leaves ``(1-lam)**2*host_power``
+    of host interference (Malvar and Florencio, 2003).
+    """
+    best = (-1.0, 0.0, 0.0)
+    for step in range(101):
+        rejection = step / 100.0
+        amplitude_power = budget_per_bit - rejection * rejection * host_power
+        if amplitude_power <= 0.0:
+            break
+        ratio = amplitude_power / ((1.0 - rejection) ** 2 * host_power + noise_power)
+        if ratio > best[0]:
+            best = (ratio, rejection, math.sqrt(amplitude_power))
+    return best[1], best[2]
+
+
+def _plan(
+    image: Sequence[Sequence[float]],
+    owner_id: str,
+    secret_key: bytes | str | None,
+    profile: Mapping[str, object] | None,
+    semantic_features: Sequence[float] | None,
+) -> dict[str, object]:
+    checked, key, config = _resolve(profile, secret_key)
+    height, width = _check_image(image, int(checked["minimum_side"]))
+    owner = canonical_owner(owner_id)
+    geometry = _Geometry(checked, key, config, owner, height, width)
+    means, coefficients = _analyse(image, geometry.analysis)
+    q, h = _codes(means, coefficients, checked, key, config, semantic_features)
+    ws, wi = derive_keys(q, h, owner, key, config)
+    host = geometry.projections(coefficients)
+    embedding = checked["embedding"]
+    total = 255.0**2 / 10.0 ** (float(embedding["target_psnr_db"]) / 10.0) * height * width
+    share = float(embedding["semantic_energy_share"])
+    noise_power = float(embedding["design_noise_std"]) ** 2
+    targets, channels = [], []
+    for channel, (code, tag, fraction) in enumerate(((q, ws, share), (h, wi, 1.0 - share))):
+        bits = _helper_encode(code) + list(tag)
+        power = sum(value * value for value in host[channel]) / CHANNEL_BITS
+        rejection, amplitude = _host_rejection(total * fraction / CHANNEL_BITS, power, noise_power)
+        targets.append([(1.0 - rejection) * value + (-amplitude if bit else amplitude) for value, bit in zip(host[channel], bits)])
+        channels.append({"host_rejection": rejection, "amplitude": amplitude, "host_rms": math.sqrt(power)})
+    return {
+        "checked": checked,
+        "key": key,
+        "config": config,
+        "height": height,
+        "width": width,
+        "geometry": geometry,
+        "coefficients": coefficients,
+        "host": host,
+        "targets": targets,
+        "channels": channels,
+        "q": q,
+        "h": h,
+    }
+
+
+def projection_targets(
+    image: Sequence[Sequence[float]],
+    owner_id: str,
+    secret_key: bytes | str | None = None,
+    profile: Mapping[str, object] | None = None,
+    semantic_features: Sequence[float] | None = None,
+) -> dict[str, object]:
+    """Embedding-domain-independent contract: which projections must reach which values.
+
+    Any embedder -- this pixel-domain one or a diffusion-latent optimiser -- that
+    drives ``projection[channel][bit]`` of the output image to ``target`` is read
+    by the same detector.  Each slot is ``(block_index, u, v, bit, sign, norm)``
+    and ``projection[bit] = sum(sign * C[block, u, v]) / norm`` over its slots.
+    """
+    plan = _plan(image, owner_id, secret_key, profile, semantic_features)
+    geometry: _Geometry = plan["geometry"]
+    channels = []
+    for channel, name in enumerate(("semantic", "instance")):
+        bit_of_slot, signs, norms = geometry.carriers[channel]
+        frequencies = geometry.frequencies[channel]
+        slots = [
+            (slot // len(frequencies), *frequencies[slot % len(frequencies)], bit, sign, norms[bit])
+            for slot, (bit, sign) in enumerate(zip(bit_of_slot, signs))
+        ]
+        channels.append({"channel": name, "slots": slots, "host": plan["host"][channel], "target": plan["targets"][channel]})
+    return {
+        "detector_config_id": plan["config"].hex(),
+        "semantic_code": f"{plan['q']:08x}",
+        "perceptual_hash": f"{plan['h']:08x}",
+        "height": plan["height"],
+        "width": plan["width"],
+        "channels": channels,
+    }
+
+
+def embed_with_report(
+    image: Sequence[Sequence[float]],
+    owner_id: str,
+    secret_key: bytes | str | None = None,
+    profile: Mapping[str, object] | None = None,
+    semantic_features: Sequence[float] | None = None,
+    quantize: bool = True,
+    strict: bool = True,
+) -> tuple[list[list[float]], dict[str, object]]:
+    """Embed the dual-key payload and verify the result with the real detector.
+
+    ``quantize`` rounds the output to integer luminance levels, so byte rounding
+    is part of the embedding loop rather than an unmodelled later step.  With
+    ``strict`` a marked output that the detector does not accept as
+    ``both_match`` raises :class:`EmbeddingError`; otherwise the failure is
+    returned in the report so a study can keep it in its inventory.
+    """
+    plan = _plan(image, owner_id, secret_key, profile, semantic_features)
+    checked, geometry = plan["checked"], plan["geometry"]
+    height, width = plan["height"], plan["width"]
+    output = [[float(value) for value in row] for row in image]
+    blocks_per_row = width // BLOCK
+    most_clipped = 0
+    coefficients = plan["coefficients"]
+    for pass_index in range(int(checked["embedding"]["passes"])):
+        if pass_index:
+            coefficients = _analyse(output, geometry.analysis)[1]
+        current = geometry.projections(coefficients)
+        changes: list[list[float]] = [[] for _ in coefficients]
+        for channel in (0, 1):
+            bit_of_slot, signs, norms = geometry.carriers[channel]
+            step = [(target - value) / norm for target, value, norm in zip(plan["targets"][channel], current[channel], norms)]
+            per_block = len(geometry.frequencies[channel])
+            for slot, (bit, sign) in enumerate(zip(bit_of_slot, signs)):
+                changes[slot // per_block].append(step[bit] * sign)
+        clipped = 0
+        for block_index, block_changes in enumerate(changes):
+            delta = [0.0] * 64
+            for change, plane in zip(block_changes, geometry.planes):
+                delta = [value + change * basis for value, basis in zip(delta, plane)]
+            top, left = (block_index // blocks_per_row) * BLOCK, (block_index % blocks_per_row) * BLOCK
+            for y in range(BLOCK):
+                row = output[top + y]
+                for x in range(BLOCK):
+                    value = row[left + x] + delta[y * BLOCK + x]
+                    if quantize:
+                        value = math.floor(value + 0.5)
+                    if value < 0.0 or value > 255.0:
+                        clipped += 1
+                        value = min(255.0, max(0.0, value))
+                    row[left + x] = float(value)
+        most_clipped = max(most_clipped, clipped)
+    result = detect(output, owner_id, secret_key, checked, semantic_features)
+    error = mse(image, output)
+    report = {
+        "detector_config_id": plan["config"].hex(),
+        "security": checked["security"],
+        "semantic_source": checked["semantic_source"],
+        "embedding_domain": "image",
+        "semantic_code": f"{plan['q']:08x}",
+        "perceptual_hash": f"{plan['h']:08x}",
+        "psnr_db": None if error == 0.0 else 10.0 * math.log10(255.0**2 / error),
+        "mse": error,
+        "clipped_fraction": most_clipped / float(height * width),
+        "quantized": bool(quantize),
+        "semantic_channel": plan["channels"][0],
+        "instance_channel": plan["channels"][1],
+        "verification": result,
+        "verified": result["outcome"] == "both_match",
+        # With an external encoder the caller must repeat verification using
+        # features recomputed from the saved marked image.
+        "verification_features": "recomputed" if checked["semantic_source"] == PROXY_SOURCE else "source-features-supplied-by-caller",
+    }
+    if strict and not report["verified"]:
+        raise EmbeddingError("marked output failed self-verification: " + str(result["outcome"]), report)
+    return output, report
+
+
+def embed(
+    image: Sequence[Sequence[float]],
+    owner_id: str,
+    secret_key: bytes | str | None = None,
+    profile: Mapping[str, object] | None = None,
+    semantic_features: Sequence[float] | None = None,
+) -> list[list[float]]:
+    """Embed and return the verified, integer-valued marked luminance image."""
+    return embed_with_report(image, owner_id, secret_key, profile, semantic_features)[0]
+
+
+# ---------------------------------------------------------------------------
+# Phase 3: blind correlation detection and the proposal's decision states
+# ---------------------------------------------------------------------------
+
+
+def _distance(left: int, right: int) -> int:
+    return bin(left ^ right).count("1")
+
+
+def _best(candidates: Sequence[tuple[str, int, int, Sequence[int]]], projections: Sequence[float]) -> tuple[float, str, int, int]:
+    best = (-math.inf, "", 0, 0)
+    for label, q, h, pattern in candidates:
+        score = _correlation(pattern, projections)
+        if score > best[0]:
+            best = (score, label, q, h)
+    return best
+
+
+def detect(
+    image: Sequence[Sequence[float]],
+    owner_id: str,
+    secret_key: bytes | str | None = None,
+    profile: Mapping[str, object] | None = None,
+    semantic_features: Sequence[float] | None = None,
+    binding_mode: str = "combined",
+    roster_size: int = 1,
+    expected_config_id: str | None = None,
+) -> dict[str, object]:
+    """Blind verification from the suspect image, the claimed OwnerID and the profile.
+
+    Candidate keys are re-derived from the suspect image (the proposal's route)
+    and, as a second candidate, from the content codes carried in the mark.  The
+    second candidate is what makes a transferred mark observable: its key
+    verifies while its codes disagree with the image that now carries it.
+
+    ``outcome`` is the observation; ``proposal_state`` is the label the
+    proposal's decision table assigns to it.  Neither is ground truth: whether
+    an image was regenerated or forged is known only from attack provenance.
+
+    ``binding_mode`` selects the content checks for ablation controls:
+    ``combined`` (default), ``semantic_only``, ``perceptual_only`` or ``none``.
+    ``roster_size`` is the number of OwnerIDs being tried on this image; the
+    thresholds are corrected for it.
+    """
+    started = time.perf_counter()
+    if binding_mode not in BINDING_MODES:
+        raise ValueError("binding_mode must be one of " + ", ".join(BINDING_MODES))
+    if isinstance(roster_size, bool) or not isinstance(roster_size, int) or not 1 <= roster_size <= 1_000_000:
+        raise ValueError("roster_size must be an integer in 1..1000000")
+    checked, key, config = _resolve(profile, secret_key)
+    if expected_config_id is not None and expected_config_id != config.hex():
+        raise ValueError("detector configuration differs from the expected enrolment configuration")
+    height, width = _check_image(image, int(checked["minimum_side"]))
+    owner = canonical_owner(owner_id)
+    decision = checked["decision"]
+    target = float(decision["false_positive_target"])
+    geometry = _Geometry(checked, key, config, owner, height, width)
+    means, coefficients = _analyse(image, geometry.analysis)
+    semantic, instance = geometry.projections(coefficients)
+    transformed = time.perf_counter()
+    q_now, h_now = _codes(means, coefficients, checked, key, config, semantic_features)
+    featured = time.perf_counter()
+
+    q_read, q_check = _helper_decode(semantic[:HELPER_CHIPS])
+    h_read, h_check = _helper_decode(instance[:HELPER_CHIPS])
+
+    q_candidates = [("recomputed", q_now)] + ([("decoded", q_read)] if q_read != q_now else [])
+    semantic_candidates = [(label, q, 0, derive_keys(q, 0, owner, key, config)[0]) for label, q in q_candidates]
+    s_score, s_label, q_bound, _ = _best(semantic_candidates, semantic[HELPER_CHIPS:])
+    s_threshold = _threshold(target, len(semantic_candidates) * roster_size)
+    s_found = s_score >= s_threshold
+
+    # Once the semantic key is found its code is the only one the instance key may use.
+    q_for_instance = [(s_label, q_bound)] if s_found else q_candidates
+    h_candidates = [("recomputed", h_now)] + ([("decoded", h_read)] if h_read != h_now else [])
+    instance_candidates = [
+        (h_label, q, h, derive_keys(q, h, owner, key, config)[1]) for _q_label, q in q_for_instance for h_label, h in h_candidates
+    ]
+    i_score, i_label, q_instance, h_bound = _best(instance_candidates, instance[HELPER_CHIPS:])
+    i_threshold = _threshold(target, len(instance_candidates) * roster_size)
+    i_found = i_score >= i_threshold
+
+    s_distance = _distance(q_bound, q_now) if s_found else None
+    i_distance = _distance(h_bound, h_now) if i_found else None
+    check_semantic = binding_mode in ("combined", "semantic_only")
+    check_instance = binding_mode in ("combined", "perceptual_only")
+    semantic_ok = s_found and (not check_semantic or s_distance <= int(decision["semantic_radius"]))
+    instance_ok = i_found and (
+        (not check_instance or i_distance <= int(decision["instance_radius"]))
+        and (not check_semantic or _distance(q_instance, q_now) <= int(decision["semantic_radius"]))
+    )
+    if not s_found and not i_found:
+        outcome, state = "neither_match", "no_watermark"
+    elif (s_found and not semantic_ok) or (i_found and not instance_ok):
+        outcome, state = "content_mismatch", "copy_paste"
+    elif s_found and i_found:
+        outcome, state = "both_match", "authentic"
+    elif s_found:
+        outcome, state = "semantic_only", "regenerated"
+    else:
+        outcome, state = "instance_only", "unclassified"
+    finished = time.perf_counter()
+    return {
+        "outcome": outcome,
+        "proposal_state": state,
+        "present": outcome == "both_match",
+        "watermark_found": bool(s_found or i_found),
+        "semantic": {
+            "score": s_score,
+            "threshold": s_threshold,
+            "found": bool(s_found),
+            "candidates": len(semantic_candidates),
+            "candidate": s_label if s_found else None,
+            "log10_false_positive_bound": _log10_bound(s_score, len(semantic_candidates) * roster_size),
+            "code_distance": s_distance,
+            "content_match": bool(semantic_ok),
+            "helper_check_ok": bool(q_check),
+        },
+        "instance": {
+            "score": i_score,
+            "threshold": i_threshold,
+            "found": bool(i_found),
+            "candidates": len(instance_candidates),
+            "candidate": i_label if i_found else None,
+            "log10_false_positive_bound": _log10_bound(i_score, len(instance_candidates) * roster_size),
+            "code_distance": i_distance,
+            "content_match": bool(instance_ok),
+            "helper_check_ok": bool(h_check),
+        },
+        "semantic_code": f"{q_now:08x}",
+        "perceptual_hash": f"{h_now:08x}",
+        "binding_mode": binding_mode,
+        "owner_id": owner.decode("utf-8"),
+        "owners_tested": roster_size,
+        "candidates_tested": len(semantic_candidates) + len(instance_candidates),
+        "security": checked["security"],
+        "key_fingerprint": _key_fingerprint(checked, key),
+        "semantic_source": checked["semantic_source"],
+        "embedding_domain": "image",
+        "detector_config_id": config.hex(),
+        "decision_id": decision_id(checked),
+        "version": VERSION,
+        "height": height,
+        "width": width,
+        "timing_ms": {
+            "transform": (transformed - started) * 1000.0,
+            "features": (featured - transformed) * 1000.0,
+            "scoring": (finished - featured) * 1000.0,
+            "total": (finished - started) * 1000.0,
+        },
+    }
+
+
+def identify(
+    image: Sequence[Sequence[float]],
+    owner_ids: Sequence[str],
+    secret_key: bytes | str | None = None,
+    profile: Mapping[str, object] | None = None,
+    semantic_features: Sequence[float] | None = None,
+) -> dict[str, object]:
+    """Try a roster of OwnerIDs on one image with thresholds corrected for the roster size."""
+    roster = [unicodedata.normalize("NFC", owner) for owner in owner_ids]
+    if not roster or len(set(roster)) != len(roster):
+        raise ValueError("owner roster must be non-empty and free of duplicates")
+    results = {owner: detect(image, owner, secret_key, profile, semantic_features, roster_size=len(roster)) for owner in roster}
+    return {
+        "roster_size": len(roster),
+        "roster_sha256": hashlib.sha256(_pack(*(owner.encode("utf-8") for owner in roster))).hexdigest(),
+        "found": [owner for owner, result in results.items() if result["watermark_found"]],
+        "both_match": [owner for owner, result in results.items() if result["outcome"] == "both_match"],
+        "results": results,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Colour wrapper and quality helpers
+# ---------------------------------------------------------------------------
+
+
+def luminance_from_rgb(rgb: Sequence[Sequence[Sequence[float]]]) -> list[list[float]]:
+    """sRGB luma Y = 0.299 R + 0.587 G + 0.114 B without gamma linearisation."""
+    return [[0.299 * float(r) + 0.587 * float(g) + 0.114 * float(b) for r, g, b in row] for row in rgb]
+
+
+def embed_rgb(
+    rgb: Sequence[Sequence[Sequence[float]]],
+    owner_id: str,
+    secret_key: bytes | str | None = None,
+    profile: Mapping[str, object] | None = None,
+    semantic_features: Sequence[float] | None = None,
+    strict: bool = True,
+) -> tuple[list[list[tuple[int, int, int]]], dict[str, object]]:
+    """Mark a colour image: add the luminance change to R, G and B, then round to bytes.
+
+    The returned report verifies the rounded RGB output itself, not the
+    intermediate floating-point luminance.
+    """
+    source = luminance_from_rgb(rgb)
+    marked, report = embed_with_report(source, owner_id, secret_key, profile, semantic_features, quantize=False, strict=False)
+    output = [
+        [
+            tuple(int(min(255.0, max(0.0, math.floor(float(channel) + after - before + 0.5)))) for channel in pixel)
+            for pixel, before, after in zip(row, source_row, marked_row)
+        ]
+        for row, source_row, marked_row in zip(rgb, source, marked)
+    ]
+    saved = luminance_from_rgb(output)
+    result = detect(saved, owner_id, secret_key, profile, semantic_features)
+    error = mse(source, saved)
+    report.update(
+        {
+            "verification": result,
+            "verified": result["outcome"] == "both_match",
+            "quantized": True,
+            "mse": error,
+            "psnr_db": None if error == 0.0 else 10.0 * math.log10(255.0**2 / error),
+            "quality_domain": "luminance of the rounded RGB output",
+        }
+    )
+    if strict and not report["verified"]:
+        raise EmbeddingError("marked RGB output failed self-verification: " + str(result["outcome"]), report)
+    return output, report
+
+
+def detect_rgb(
+    rgb: Sequence[Sequence[Sequence[float]]],
+    owner_id: str,
+    secret_key: bytes | str | None = None,
+    profile: Mapping[str, object] | None = None,
+    semantic_features: Sequence[float] | None = None,
+    binding_mode: str = "combined",
+) -> dict[str, object]:
+    return detect(luminance_from_rgb(rgb), owner_id, secret_key, profile, semantic_features, binding_mode)
+
+
+def mse(left: Sequence[Sequence[float]], right: Sequence[Sequence[float]]) -> float:
+    if len(left) != len(right) or any(len(a) != len(b) for a, b in zip(left, right)):
+        raise ValueError("image shapes differ")
+    values = [(float(a) - float(b)) ** 2 for row_a, row_b in zip(left, right) for a, b in zip(row_a, row_b)]
+    return sum(values) / len(values)
+
+
+def psnr(left: Sequence[Sequence[float]], right: Sequence[Sequence[float]]) -> float | None:
+    """PSNR in dB for an 8-bit range, or ``None`` when the images are identical."""
+    error = mse(left, right)
+    return None if error == 0.0 else 10.0 * math.log10(255.0**2 / error)
