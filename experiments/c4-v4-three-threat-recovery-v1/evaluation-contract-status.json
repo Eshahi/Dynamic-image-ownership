@@ -1,0 +1,30 @@
+{
+  "status": "PREPARED_PENDING_CLEAN_EXACT_REVIEW_AND_ACTUAL_DECISION",
+  "experiment_id": "c4-v4-three-threat-recovery-v1",
+  "evaluation_run_id": "c4-v4-saved-evaluation-001",
+  "preflight_run_id": "c4-v4-recovery-host-check-001",
+  "execution_target": "local",
+  "scientific_execution_authorized": false,
+  "old_approval_reusable": false,
+  "evaluation_only": true,
+  "scheduled_evaluation_units": 209,
+  "scheduled_evaluation_rows": 483,
+  "saved_images": 401,
+  "component_comparisons": 66,
+  "retained_safety_failures": 16,
+  "inherited_detector_calls": 96,
+  "new_detector_calls": 1508,
+  "original_planned_detector_calls": 1884,
+  "withheld_generation_detector_calls": 212,
+  "retained_missing_detector_calls": 64,
+  "unresolved_parent_attempt_detector_calls": 4,
+  "missing_before_science": [
+    "Final bounded independent exact clean manifest review",
+    "Actual human decision bound to both listed final manifests and resources",
+    "Completed actual official-runner harmless host preflight and output verification",
+    "Launch-time measured resources and no competing writer"
+  ],
+  "future_generation_phase": "Not implemented or authorized by this evaluation-only package",
+  "whole_study_complete": false,
+  "no_fake_approval": true
+}

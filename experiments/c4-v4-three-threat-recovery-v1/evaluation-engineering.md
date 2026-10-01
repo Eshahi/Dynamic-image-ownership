@@ -1,0 +1,25 @@
+# Verification of the saved output evaluation phase
+
+Prepared on 2026-10-01 after the user's execution request. This record concerns ordinary software and metadata checks only. No scientific evaluation, model loading, image decoding, generation, human approval, public push or lifecycle transition occurred during preparation.
+
+## Ordinary checks
+
+The author's final Windows v4 suite passed all 43 tests in 7.958 seconds (an earlier 40-test run also passed). The suite includes the 12 prior redesign-reference tests, the original synthetic v4 protocol/model/launcher boundaries and the new journal/evaluation-host checks. Fake-adapter tests preserve the completed prefix after abrupt child-process exit at nine durable boundaries. They check exact call uniqueness, no work in the next unit after infrastructure failure, duplicate/conflicting receipts, nonfinite values, journal corruption including malformed envelope/nested-object shapes, exact active row/step for exceptions inside feature/detector/metric calls, and partial inherited versus new call accounting. A corrupt receipt remains explicit in terminal diagnostics without promoting its unit to sealed evidence.
+
+The hidden Windows detachment test launched a harmless child, explicitly terminated its initiating process and verified the child's completion. Final-host-dispatch tests deny both missing and changed preflight evidence before any subprocess call and preserve a host validation-failure receipt. These tests do not themselves create a human execution decision or prove that the official scientific runner has already survived detachment.
+
+The pinned WSL interpreter first exercised seven journal tests, including nine abrupt child-exit boundaries, with temporary evidence on the intended mounted W: output filesystem; all passed in 43.756 seconds. The expanded nine-test journal suite then passed in 47.318 seconds, including active-step, partial-call and corruption-summary checks. This establishes that the production POSIX directory-fsync path works on that filesystem under these tests. The four platform-safe host tests also ran in WSL: one passed and three correctly skipped their Windows-only process/path cases. Those three passed on the actual Windows host instead.
+
+After malformed-object repairs, the final twelve-test journal suite passed in pinned WSL on the same mounted output filesystem in 65.509 seconds. No fixture study images or models were used. The independent reviewer additionally reproduced all 16 targeted Windows journal/host tests in 7.161 seconds and invoked the exact extracted worker summary helper with fake nested-corrupt evidence; it retained the verified prefix and eight persisted calls while keeping phase completion false.
+
+Metadata-only verification found zero mismatches in all 23021 pinned runtime files and verified all 17 existing model assets plus the pinned LPIPS package. No model was loaded and no scientific timing probe was performed. All 401 saved PNG file hashes matched the original snapshot when constructing the 405-artifact parent-input lock. Runtime/source/checkpoint/profile identities stay unchanged.
+
+## Review repairs and remaining boundaries
+
+The first independent implementation review found three blockers: the actual host dispatch could bypass the preflight check; failures inside adapter calls had stale row/step context and partial calls were omitted from summaries; and corrupt evidence could abort failure finalization. The author repaired each and added tests. Record the final independent verdict and exact commit/manifest hashes separately after the clean-package review; this engineering record does not manufacture that verdict.
+
+The next actual approved operation must be the harmless official-runner host preflight, not scientific computation. It uses the same clean commit, hidden host and fixed runner. Scientific launch rechecks its completed official receipt, output hashes, host outcome and exited initiating-process identity. If the fixture fails, or code/input/resource identity changes, stop rather than weakening the check or retrying under consumed approval.
+
+The original full recovery design remains exploratory and incomplete. This phase delivers evaluation of existing outputs only; 53 downstream generation candidates and one ambiguous attempt are not executed. No original safety rejection is retried, and known missing controls continue to prevent complete-evidence joint scientific support. OS/WSL or power loss remains possible; this package bounds and preserves evidence rather than guaranteeing uninterrupted execution.
+
+Preparation diagnostics are retained as non-scientific errors: initial discovery used two nonexistent launcher/builder filenames, and two read-only Spec Kit status attempts used incorrect CLI argument placement/name before the actual status query succeeded. GitHub browser fetch failed; a read-only official GitHub API query then verified issue18 open and PR67 open/draft on codex/18-embedding-module. No remote writes occurred. Spec Kit d916749c remains paused at plan-acceptance with null choice.
