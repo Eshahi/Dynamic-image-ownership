@@ -7,7 +7,10 @@ import unittest
 import os
 import subprocess
 import sys
-from v4_evaluation_journal import Journal,evaluate_units,atomic_json,summarize_journal
+import threading
+import time
+import unittest.mock
+from v4_evaluation_journal import Journal,evaluate_units,atomic_json,summarize_journal,tree_bytes,file_sha,PENDING_PREFIX
 
 
 class Fake:
@@ -201,6 +204,77 @@ class Tests(unittest.TestCase):
             with self.subTest(action=action),tempfile.TemporaryDirectory() as root:
                 unit={"unit_id":"x","row_ids":["t3-first"],"actions":{"t3-first":action}}
                 with self.assertRaises(ValueError): evaluate_units([unit],{"t3-first":{"id":"t3-first"}},Journal(root,"c"*64),Fake())
+
+
+class FakeEntry:
+    """DirEntry stand-in whose stat() reports a file that vanished after being listed."""
+    def __init__(self,path,name):
+        self.path,self.name=path,name
+    def is_dir(self,follow_symlinks=True): return False
+    def stat(self,follow_symlinks=True): raise FileNotFoundError(2,"vanished",self.path)
+
+
+class FakeScan:
+    def __init__(self,entries): self.entries=entries
+    def __enter__(self): return iter(self.entries)
+    def __exit__(self,*args): return False
+
+
+class DiskScanTests(unittest.TestCase):
+    def test_vanished_pending_temporary_is_skipped_but_other_vanished_file_is_fatal(self):
+        with tempfile.TemporaryDirectory() as root:
+            (Path(root)/"kept.bin").write_bytes(b"x"*10)
+            real=os.scandir
+            def with_pending(name):
+                gone=PENDING_PREFIX+"gone"
+                return FakeScan(list(real(name))+[FakeEntry(os.path.join(name,gone),gone)])
+            def with_scientific(name):
+                return FakeScan(list(real(name))+[FakeEntry(os.path.join(name,"results.json"),"results.json")])
+            with unittest.mock.patch("v4_evaluation_journal.os.scandir",with_pending):
+                self.assertEqual(tree_bytes(root),10)
+            with unittest.mock.patch("v4_evaluation_journal.os.scandir",with_scientific):
+                with self.assertRaises(FileNotFoundError): tree_bytes(root)
+
+    def test_concurrent_heartbeat_writes_never_break_disk_scan(self):
+        with tempfile.TemporaryDirectory() as root:
+            outputs=Path(root)
+            (outputs/"journal").mkdir()
+            (outputs/"journal"/"record.json").write_bytes(b"y"*100)
+            stop=threading.Event()
+            def pulse():
+                count=0
+                while not stop.is_set():
+                    atomic_json(outputs/"heartbeat.json",{"n":count}); count+=1
+            thread=threading.Thread(target=pulse); thread.start()
+            scans=0
+            try:
+                deadline=time.monotonic()+2
+                while time.monotonic()<deadline:
+                    self.assertGreaterEqual(tree_bytes(outputs),100)
+                    scans+=1
+            finally:
+                stop.set(); thread.join()
+            self.assertGreater(scans,0)
+
+    def test_real_disk_budget_exceedance_is_counted_across_nested_files(self):
+        with tempfile.TemporaryDirectory() as root:
+            (Path(root)/"a"/"b").mkdir(parents=True)
+            (Path(root)/"a"/"one.bin").write_bytes(b"1"*3000)
+            (Path(root)/"a"/"b"/"two.bin").write_bytes(b"2"*4000)
+            (Path(root)/"top.bin").write_bytes(b"3"*500)
+            self.assertEqual(tree_bytes(root),7500)
+            self.assertGreater(tree_bytes(root),7000)
+
+    def test_missing_scientific_inputs_and_directories_stay_fatal(self):
+        with tempfile.TemporaryDirectory() as root:
+            with self.assertRaises(FileNotFoundError): file_sha(Path(root)/"missing-input.json")
+            with self.assertRaises(FileNotFoundError): tree_bytes(Path(root)/"missing-directory")
+
+    def test_worker_uses_scoped_scan_without_blanket_exception_handling(self):
+        source=Path(__file__).with_name("v4_saved_evaluation_worker.py").read_text()
+        self.assertIn("tree_bytes(outputs) > 2000*1024**2",source)
+        self.assertNotIn("rglob(\"*\") if p.is_file()) >",source)
+        self.assertNotIn("except FileNotFoundError",source)
 
 
 if __name__ == "__main__":

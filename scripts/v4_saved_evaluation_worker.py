@@ -7,7 +7,7 @@ from pathlib import Path
 import resource
 import threading
 import time
-from v4_evaluation_journal import Journal, atomic_json, file_sha, object_sha, evaluate_units, summarize_journal
+from v4_evaluation_journal import Journal, atomic_json, file_sha, object_sha, evaluate_units, summarize_journal, tree_bytes
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = ROOT/"experiments/c4-v4-three-threat-recovery-v1"
@@ -74,7 +74,7 @@ def run(manifest_path, output_path):
             raise TimeoutError("bounded evaluation watchdog reached")
         if resource.getrusage(resource.RUSAGE_SELF).ru_maxrss > 6144*1024:
             raise MemoryError("polled CPU RAM ceiling reached")
-        if sum(p.stat().st_size for p in outputs.rglob("*") if p.is_file()) > 2000*1024**2:
+        if tree_bytes(outputs) > 2000*1024**2:
             raise OSError("output disk allowance reached")
     try:
         for item in manifest["inputs"]:

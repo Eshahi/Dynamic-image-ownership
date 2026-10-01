@@ -4,6 +4,7 @@ import json
 import os
 from pathlib import Path
 import re
+import stat
 import tempfile
 
 
@@ -23,11 +24,14 @@ def file_sha(path):
     return h.hexdigest()
 
 
+PENDING_PREFIX = ".pending-"
+
+
 def atomic_json(path, value):
     """Single-writer atomic replace, with durable file and directory flush on Linux."""
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    with tempfile.NamedTemporaryFile(dir=path.parent, prefix=".pending-", delete=False) as stream:
+    with tempfile.NamedTemporaryFile(dir=path.parent, prefix=PENDING_PREFIX, delete=False) as stream:
         stream.write(encoded(value))
         stream.flush()
         os.fsync(stream.fileno())
@@ -39,6 +43,32 @@ def atomic_json(path, value):
             os.fsync(descriptor)
         finally:
             os.close(descriptor)
+
+
+def tree_bytes(root):
+    """Total regular-file bytes under root, safe against concurrent atomic_json writers.
+
+    Only an atomic_json temporary (name starts with PENDING_PREFIX) that disappears between
+    listing and stat() is skipped: it was renamed or removed by its writer. Any other
+    missing file or directory, and every other I/O error, still propagates.
+    """
+    total = 0
+    pending = [str(root)]
+    while pending:
+        with os.scandir(pending.pop()) as entries:
+            for entry in entries:
+                try:
+                    if entry.is_dir(follow_symlinks=False):
+                        pending.append(entry.path)
+                        continue
+                    status = entry.stat()
+                except FileNotFoundError:
+                    if entry.name.startswith(PENDING_PREFIX):
+                        continue
+                    raise
+                if stat.S_ISREG(status.st_mode):
+                    total += status.st_size
+    return total
 
 
 class Journal:
