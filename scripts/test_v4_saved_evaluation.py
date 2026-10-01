@@ -23,7 +23,7 @@ class Tests(unittest.TestCase):
             with self.subTest(message=message),tempfile.TemporaryDirectory() as root:
                 path=Path(root)/"intent.json"
                 atomic_json(path,{"manifest_sha256":"c"*64,"artifacts":root})
-                with patch("v4_durable_host.verify_request",return_value=({"run_id":"c4-v4-saved-evaluation-002"},{})),\
+                with patch("v4_durable_host.verify_request",return_value=({"run_id":"c4-v4-saved-evaluation-003"},{})),\
                      patch("v4_durable_host.child_handshake"),\
                      patch("v4_durable_host.verify_preflight",side_effect=ValueError(message)),\
                      patch("v4_durable_host.subprocess.run") as dispatch:
@@ -98,7 +98,7 @@ class Tests(unittest.TestCase):
             request={"manifest_sha256":"c"*64,"initiator_pid":10,"initiator_creation_time":"20"}
             atomic_json(path,request)
             identity={"pid":30,"creation_time":"40","parent_pid":50,"parent_creation_time":"60"}
-            with patch("v4_durable_host.verify_request",return_value=({"run_id":"c4-v4-recovery-host-check-002"},{})),\
+            with patch("v4_durable_host.verify_request",return_value=({"run_id":"c4-v4-recovery-host-check-003"},{})),\
                  patch("v4_durable_host.process_identity",return_value=identity),\
                  patch("v4_durable_host.wait_json",side_effect=TimeoutError("missing ACK")),\
                  patch("v4_durable_host.creation_time",return_value="40"),\

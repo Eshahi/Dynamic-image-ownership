@@ -9,7 +9,7 @@ from v4_evaluation_journal import atomic_json
 
 def run(manifest_path, output_path):
     manifest = json.loads(Path(manifest_path).read_text())
-    if manifest["run_id"] != "c4-v4-recovery-host-check-002" or manifest["execution_target"] != "local":
+    if manifest["run_id"] != "c4-v4-recovery-host-check-003" or manifest["execution_target"] != "local":
         raise ValueError("fixture identity differs")
     if manifest["resources"]["vram_mib"] != 0 or manifest["budget"]["max_usd"] != 0:
         raise ValueError("CPU-only zero-cost fixture required")

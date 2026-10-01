@@ -1,5 +1,7 @@
 # First recovery phase evaluates the saved attack outputs
 
+Current preparation is now fresh003, not a retry under consumed002 approval. See `disk-guard-correction-003.md` for the retained002 failure, narrow ordinary fix, fresh identities and unchanged scope/resources. The002 preparation paragraph below is historical. No003 execution approval or launch exists yet.
+
 Current preparation uses fresh identities `c4-v4-recovery-host-check-002` and `c4-v4-saved-evaluation-002`. The actual approved001 fixture completed operationally but failed its actual-host identity gate;001 evaluation never dispatched. Preserve those immutable receipts and approval history. The user's later `خب شروع کن` resumes ordinary correction/preparation, not exact approval of these new unknown hashes. See `host-identity-correction.md` for the corrected pre-dispatch handshake and test evidence. Scientific schedule, models, parent inputs and resources are unchanged.
 
 The user's execution request triggers preparation of the first dependency-ready phase of the reviewed recovery design. This phase evaluates all 401 retained images and 66 frozen component comparisons, without generating or re-embedding any image. The 53 downstream regeneration candidates remain withheld until this evaluation finishes; the ambiguous parent attempt remains quarantined. The unchanged original scientific criteria and all missing-control denominators remain binding. Related work: issue #18 / draft PR #67.

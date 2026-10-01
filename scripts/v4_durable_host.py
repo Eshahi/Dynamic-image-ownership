@@ -19,8 +19,8 @@ PYTHON = Path("W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-buil
 DISPATCH = Path("C:/Users/Soroush/.codex/skills/thesis-compute-runner/scripts/dispatch_experiment.py")
 RUNTIME = DISPATCH.parent/"_runtime"
 ARTIFACTS = Path("W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/v4-recovery-runs")
-PREFLIGHT_RUN = "c4-v4-recovery-host-check-002"
-EVALUATION_RUN = "c4-v4-saved-evaluation-002"
+PREFLIGHT_RUN = "c4-v4-recovery-host-check-003"
+EVALUATION_RUN = "c4-v4-saved-evaluation-003"
 
 
 def creation_time(pid):

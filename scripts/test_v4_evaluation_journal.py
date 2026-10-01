@@ -241,10 +241,17 @@ class DiskScanTests(unittest.TestCase):
             (outputs/"journal").mkdir()
             (outputs/"journal"/"record.json").write_bytes(b"y"*100)
             stop=threading.Event()
+            errors=[]
+            writes=[]
             def pulse():
-                count=0
-                while not stop.is_set():
-                    atomic_json(outputs/"heartbeat.json",{"n":count}); count+=1
+                try:
+                    count=0
+                    while not stop.is_set():
+                        atomic_json(outputs/"heartbeat.json",{"n":count})
+                        writes.append(count)
+                        count+=1
+                except BaseException as error:
+                    errors.append(error)
             thread=threading.Thread(target=pulse); thread.start()
             scans=0
             try:
@@ -253,7 +260,11 @@ class DiskScanTests(unittest.TestCase):
                     self.assertGreaterEqual(tree_bytes(outputs),100)
                     scans+=1
             finally:
-                stop.set(); thread.join()
+                stop.set(); thread.join(timeout=10)
+            self.assertFalse(thread.is_alive(),"heartbeat writer did not terminate")
+            self.assertEqual(errors,[],"heartbeat writer failed")
+            self.assertGreaterEqual(len(writes),2,"heartbeat writer did not progress")
+            self.assertEqual(json.loads((outputs/"heartbeat.json").read_text())["n"],writes[-1])
             self.assertGreater(scans,0)
 
     def test_real_disk_budget_exceedance_is_counted_across_nested_files(self):

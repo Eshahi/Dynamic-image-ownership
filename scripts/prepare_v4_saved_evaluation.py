@@ -44,7 +44,7 @@ def base(run, stage, script, budget, resources):
 
 
 def build_fixture():
-    result = base("c4-v4-recovery-host-check-002","C4-v4-recovery-host-preflight","v4_host_fixture.py",
+    result = base("c4-v4-recovery-host-check-003","C4-v4-recovery-host-preflight","v4_host_fixture.py",
                   {"max_seconds":60,"max_usd":0,"hourly_usd":0},{"ram_mib":128,"vram_mib":0,"disk_mib":16})
     result.update(outputs=["outputs/fixture.json","outputs/survival.json"],metrics=["model_free_detached_official_runner_survival"])
     return result
@@ -57,7 +57,7 @@ def build():
         path = parent/item["path"]
         if not path.resolve().is_relative_to(parent.resolve()) or file_sha(path) != item["sha256"]:
             raise ValueError("parent artifact changed")
-    result = base("c4-v4-saved-evaluation-002","C4-v4-saved-evaluation","run_v4_saved_evaluation.py",
+    result = base("c4-v4-saved-evaluation-003","C4-v4-saved-evaluation","run_v4_saved_evaluation.py",
                   {"max_seconds":86400,"max_usd":0,"hourly_usd":0},{"ram_mib":6144,"vram_mib":0,"disk_mib":2048})
     result.update(outputs=["outputs/results.json","outputs/runtime.json","outputs/heartbeat.json",
                            "outputs/artifact-index.json","logs/evaluation-worker.log"],
