@@ -1,5 +1,9 @@
 # Verification of the saved output evaluation phase
 
+## Superseding host-identity correction
+
+The earlier survival-test paragraph below overstates termination proof: the Windows venv Popen launcher differs from the executing interpreter. Actual001 preflight exposed this gap. Its official fixture completed but owner/completion identity equality correctly blocked scientific launch. Current002 preparation and corrected actual-interpreter test are documented in `host-identity-correction.md`; earlier test counts/hashes are historical, not current scientific readiness. No scientific computation occurred in this correction.
+
 Prepared on 2026-10-01 after the user's execution request. This record concerns ordinary software and metadata checks only. No scientific evaluation, model loading, image decoding, generation, human approval, public push or lifecycle transition occurred during preparation.
 
 ## Ordinary checks

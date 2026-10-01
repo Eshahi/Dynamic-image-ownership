@@ -23,7 +23,7 @@ def main():
     parser.add_argument("--output-dir",required=True)
     args = parser.parse_args()
     manifest = json.loads(Path(args.manifest).read_text())
-    if manifest["run_id"] != "c4-v4-saved-evaluation-001" or manifest["execution_target"] != "local":
+    if manifest["run_id"] != "c4-v4-saved-evaluation-002" or manifest["execution_target"] != "local":
         raise ValueError("unlisted evaluation identity")
     if manifest["resources"] != {"ram_mib":6144,"vram_mib":0,"disk_mib":2048}:
         raise ValueError("unlisted CPU envelope")

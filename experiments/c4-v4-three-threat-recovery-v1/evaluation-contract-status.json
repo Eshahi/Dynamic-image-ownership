@@ -1,8 +1,10 @@
 {
   "status": "PREPARED_PENDING_CLEAN_EXACT_REVIEW_AND_ACTUAL_DECISION",
   "experiment_id": "c4-v4-three-threat-recovery-v1",
-  "evaluation_run_id": "c4-v4-saved-evaluation-001",
-  "preflight_run_id": "c4-v4-recovery-host-check-001",
+  "evaluation_run_id": "c4-v4-saved-evaluation-002",
+  "preflight_run_id": "c4-v4-recovery-host-check-002",
+  "previous_preflight": "001 operationally completed but actual-host identity gate blocked; approval consumed and receipts immutable",
+  "previous_evaluation": "001 never dispatched; its approval cannot cover changed code",
   "execution_target": "local",
   "scientific_execution_authorized": false,
   "old_approval_reusable": false,
