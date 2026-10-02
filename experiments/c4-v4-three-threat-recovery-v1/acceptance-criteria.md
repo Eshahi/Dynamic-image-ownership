@@ -14,6 +14,10 @@ Before launching a scientific unit, model-free failure-injection tests must esta
 
 A stale running receipt without its matching process is not live execution. Report unit counts for generated, detected, quality-complete, sealed, failed and missing states separately. Preserve original runner receipts; this design does not advance lifecycle state or invent completion.
 
+## Operational supersession, 2026-10-02
+
+By the user's decision of 2026-10-02 (`research/approval-policy.md`, "Rehearsal tier and infrastructure-only reruns"), three operational statements above change; nothing scientific does. (1) The requirement that loss of the initiating tool/session must not kill an official-runner fixture is replaced by a user-terminal launch: the user starts the official runner from their own terminal and the detached host and host-check manifest leave the path. A worker that loses its launcher stops itself and preserves the sealed prefix, which the `hostloss` rehearsal stage exercises. (2) A scientific package may be presented only after every rehearsal stage of `scripts/rehearse_v4_saved_evaluation.py` has passed on generated synthetic images at the same clean commit. (3) Recovery after a failed attempt no longer needs a new decision when the failure is infrastructure-only: up to two reruns with an identical scientific-core hash, a harness-only diff and a different-identity review are covered by the approval wording. Failures are preserved, evidence from a failed attempt is never reused, and incomplete evidence still cannot become support.
+
 ## Scientific report
 
 Use descriptive source-group and pair-level results, with seeds and binding modes treated as dependent. Report each regeneration dose, each transfer access regime and semantic component versus end-to-end evidence separately. No population FPR, p-values, superiority, legal ownership, native-2K/full-6,900 or latent-method claims. Neither generation nor unit sealing establishes resistance.

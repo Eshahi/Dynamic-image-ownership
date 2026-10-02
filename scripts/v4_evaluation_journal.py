@@ -6,6 +6,7 @@ from pathlib import Path
 import re
 import stat
 import tempfile
+import time
 
 
 def encoded(value):
@@ -28,21 +29,34 @@ PENDING_PREFIX = ".pending-"
 
 
 def atomic_json(path, value):
-    """Single-writer atomic replace, with durable file and directory flush on Linux."""
+    """Single-writer atomic replace, with durable file and directory flush on Linux.
+
+    Returns the bytes written. A reader briefly holding the destination open on the
+    Windows drive makes the replace fail with PermissionError; that alone is retried.
+    """
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
+    data = encoded(value)
     with tempfile.NamedTemporaryFile(dir=path.parent, prefix=PENDING_PREFIX, delete=False) as stream:
-        stream.write(encoded(value))
+        stream.write(data)
         stream.flush()
         os.fsync(stream.fileno())
         temporary = stream.name
-    os.replace(temporary, path)
+    for attempt in range(3):
+        try:
+            os.replace(temporary, path)
+            break
+        except PermissionError:
+            if attempt == 2:
+                raise
+            time.sleep(0.05)
     if os.name == "posix":
         descriptor = os.open(path.parent, os.O_RDONLY | os.O_DIRECTORY)
         try:
             os.fsync(descriptor)
         finally:
             os.close(descriptor)
+    return len(data)
 
 
 def tree_bytes(root):
@@ -80,6 +94,7 @@ class Journal:
     def __init__(self, root, manifest_sha256):
         self.root = Path(root)
         self.binding = manifest_sha256
+        self.bytes = 0
         self.root.mkdir(parents=True, exist_ok=True)
 
     def path(self, row, step):
@@ -87,8 +102,11 @@ class Journal:
             if not re.fullmatch(r"[A-Za-z0-9_.-]+", token) or token in (".", ".."):
                 raise ValueError("invalid journal identity")
         path = self.root / row / (step + ".json")
-        if not path.resolve().is_relative_to(self.root.resolve()) or path.is_symlink():
-            raise ValueError("journal path escapes root")
+        # Tokens hold no separator, so a link is the only way out of the root. Checking
+        # the two links directly avoids resolving both paths on every lookup.
+        for item in (path.parent, path):
+            if item.is_symlink() or item.is_junction():
+                raise ValueError("journal path escapes root")
         return path
 
     def get(self, row, step):
@@ -112,7 +130,7 @@ class Journal:
             if previous != value:
                 raise ValueError("immutable evidence conflict")
             return value
-        atomic_json(self.path(row, step), {"row_id":row, "step":step,
+        self.bytes += atomic_json(self.path(row, step), {"row_id":row, "step":step,
                     "manifest_sha256":self.binding, "value":value, "value_sha256":object_sha(value)})
         return value
 
@@ -136,8 +154,8 @@ class Journal:
         if seal["unit_sha256"] != object_sha(unit):
             raise ValueError("unit recipe changed")
         for item in seal["dependencies"]:
-            path = self.root / item["path"]
-            if not path.resolve().is_relative_to(self.root.resolve()) or file_sha(path) != item["sha256"]:
+            row, _, name = item["path"].partition("/")
+            if not name.endswith(".json") or file_sha(self.path(row, name[:-5])) != item["sha256"]:
                 raise ValueError("sealed dependency corrupted")
         from v4_recovery_design import validate_design_receipt
         validate_design_receipt(unit, [self.get(identity, "complete") for identity in unit["row_ids"]])

@@ -281,11 +281,70 @@ class DiskScanTests(unittest.TestCase):
             with self.assertRaises(FileNotFoundError): file_sha(Path(root)/"missing-input.json")
             with self.assertRaises(FileNotFoundError): tree_bytes(Path(root)/"missing-directory")
 
-    def test_worker_uses_scoped_scan_without_blanket_exception_handling(self):
+    def test_worker_counts_bytes_instead_of_scanning_and_has_no_blanket_exception_handling(self):
         source=Path(__file__).with_name("v4_saved_evaluation_worker.py").read_text()
-        self.assertIn("tree_bytes(outputs) > 2000*1024**2",source)
+        self.assertIn("baseline+journal.bytes+written[0] > disk_limit",source)
+        self.assertEqual(source.count("tree_bytes("),1,"one baseline scan only; never per step")
+        self.assertEqual(source.count("write_results("),2,"one summary per run, not one per unit")
         self.assertNotIn("rglob(\"*\") if p.is_file()) >",source)
         self.assertNotIn("except FileNotFoundError",source)
+
+
+class StorageCostTests(unittest.TestCase):
+    def test_byte_counter_equals_a_real_scan(self):
+        rows,units=fixture()
+        with tempfile.TemporaryDirectory() as root:
+            journal=Journal(root,"c"*64)
+            evaluate_units(units,rows,journal,Fake())
+            self.assertGreater(journal.bytes,0)
+            self.assertEqual(journal.bytes,tree_bytes(root))
+
+    def test_lookups_never_resolve_paths(self):
+        rows,units=fixture()
+        with tempfile.TemporaryDirectory() as root:
+            journal=Journal(root,"c"*64)
+            with unittest.mock.patch.object(Path,"resolve",side_effect=AssertionError("resolve per lookup")):
+                evaluate_units(units,rows,journal,Fake())
+                self.assertTrue(all(journal.verified_seal(u) for u in units))
+                self.assertEqual(len(summarize_journal(units,journal)["sealed_units"]),2)
+
+    @unittest.skipUnless(os.name=="posix","symbolic links need no privilege on POSIX")
+    def test_linked_row_directory_is_rejected(self):
+        with tempfile.TemporaryDirectory() as root, tempfile.TemporaryDirectory() as elsewhere:
+            journal=Journal(root,"c"*64)
+            os.symlink(elsewhere,Path(root)/"linked")
+            with self.assertRaisesRegex(ValueError,"escapes root"): journal.path("linked","image")
+            with self.assertRaisesRegex(ValueError,"escapes root"): journal.put("linked","image",{"a":1})
+
+    def test_seal_dependency_outside_the_journal_is_rejected(self):
+        from v4_evaluation_journal import object_sha
+        for bad in ("../x.json","t3-first/sub/c.json","t3-first/complete","t3-first"):
+            with self.subTest(path=bad),tempfile.TemporaryDirectory() as root:
+                rows,units=fixture()
+                journal=Journal(root,"c"*64)
+                evaluate_units(units,rows,journal,Fake())
+                value=journal.get("unit-0","seal")
+                value["dependencies"][0]["path"]=bad
+                atomic_json(journal.path("unit-0","seal"),{"row_id":"unit-0","step":"seal",
+                    "manifest_sha256":"c"*64,"value":value,"value_sha256":object_sha(value)})
+                with self.assertRaises((ValueError,OSError)): journal.verified_seal(units[0])
+
+    def test_atomic_json_reports_bytes_and_retries_a_briefly_held_destination(self):
+        with tempfile.TemporaryDirectory() as root:
+            path=Path(root)/"value.json"
+            real=os.replace
+            attempts=[]
+            def held(source,target):
+                attempts.append(target)
+                if len(attempts)<3: raise PermissionError(13,"held by a reader")
+                return real(source,target)
+            with unittest.mock.patch("v4_evaluation_journal.os.replace",held):
+                self.assertEqual(atomic_json(path,{"a":1}),path.stat().st_size)
+            self.assertEqual(len(attempts),3)
+            def always(source,target): raise PermissionError(13,"held by a reader")
+            with unittest.mock.patch("v4_evaluation_journal.os.replace",always):
+                with self.assertRaises(PermissionError): atomic_json(path,{"a":2})
+            self.assertEqual(json.loads(path.read_text()),{"a":1})
 
 
 if __name__ == "__main__":
