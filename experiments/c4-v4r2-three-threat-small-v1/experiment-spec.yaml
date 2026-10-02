@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "c4-v4r2-three-threat-small-v1",
+  "task_id": "C4",
+  "question": "Does unchanged image-domain v4 revision 2 with suspect-only pinned CLIP provide complete preliminary evidence for semantic survival, transfer binding, and semantic-instance separation?",
+  "hypothesis": "Clean prerequisites and each frozen axis-specific acceptance criterion hold with no missing controls, deliveries or visual assessments.",
+  "primary_outcome": "Separate clean, T3 per dose, T4 per access regime, and T5 diagnostic plus transfer conclusions; no pooled accuracy.",
+  "secondary_outcomes": [
+    "RGB PSNR/SSIM/LPIPS",
+    "All channel scores and classifier outcomes",
+    "Public-profile C0/C2 empirical counts",
+    "Semantic/perceptual collision and same-instance distances",
+    "Full detector cost including suspect CLIP"
+  ],
+  "datasets": [
+    {
+      "id": "ms-coco",
+      "version": "2017 validation; original ten development IDs for T3/T4; approved additions1675,4795 for twelve-source clean/T5; exact hashes in cohort.json and development-expansion.json",
+      "license": "Retained item-level private/local academic restrictions; no publication or legal clearance",
+      "split": "Exploratory development only; twelve clean/T5 sources, ten T3/T4 sources; full observed graph exclusion for additions; no held-out unlock"
+    }
+  ],
+  "leakage_risks": [
+    "Prior pilot results known; new attack outcomes prospective but overall study exploratory",
+    "Semantic labels must be frozen independently before binding/detector scores",
+    "Pairs and seed repetitions are not independent sources",
+    "Public approximate owner tag is forgeable; demonstrated wrong-owner collision retained",
+    "Revision-1 clean-axis outcomes (12/12 both_match) and revision-1 attack images are known; revision 2 was designed before any real-image revision-2 outcome"
+  ],
+  "preprocessing": "Canonical native EXIF/ICC RGB8 to512BICUBIC,save/reopenPNG before suspect-feature/detector/metriccalls;unchanged v4 revision 2exceptexternalCLIPprofile;nonzeroallfailures retained",
+  "baselines": [
+    "Matched untouched marked inputs",
+    "Unmarked recipient/source controls",
+    "Same-instance binding controls"
+  ],
+  "controls": [
+    "Matched C0/C1 and four-claim corrected owner roster",
+    "Unmarked patch/band shams and no-transfer C0",
+    "Same output four binding ablations",
+    "T3 matched C0/C1 paired seeds and deterministic VAE mode",
+    "Frozen66semanticpairs and7same-semantictransfers"
+  ],
+  "ablations": [
+    "combined",
+    "semantic_only",
+    "perceptual_only",
+    "none"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "stopping_rule": "Fixed537rows/1884authoritativecalls;no retry/tuning;86400second operationalwatchdog;failuresmissing safety kept;3fixedseeds",
+  "acceptance_rule": "See acceptance-criteria.md; complete planned controls, sufficient admissible delivered marks and independent visual assessments required; no latent/legal/populationFPRclaim",
+  "negative_result_policy": "Retain failed embeddings/images, blocked outputs and dependent missing rows; never silently replace sources or tune after outcome",
+  "analysis": {
+    "mode": "exploratory",
+    "metric": "batch_computational_completion_not_scientific_support",
+    "direction": "higher",
+    "conditions": [
+      "batch"
+    ],
+    "expected_runs": [
+      {
+        "run_id": "c4-v4r2-three-threat-dev-001",
+        "condition": "batch",
+        "seed": 0
+      }
+    ],
+    "comparison": null,
+    "confidence_interval": "none",
+    "bootstrap_samples": 100,
+    "random_seed": 0,
+    "multiple_comparisons": "none-single-comparison",
+    "exclusion_rule": "none"
+  }
+}

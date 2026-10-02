@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/Eshahi/Dynamic-image-ownership/blob/main/configs/revised-watermark-v4.schema.json",
   "title": "Content-bound dual-key DCT watermark, image-domain reference v4",
-  "description": "Static shape of a v4 profile. scripts/revised_watermark_v4.py additionally requires the semantic and instance coefficient sets to be disjoint.",
+  "description": "Static shape of a v4 profile. scripts/revised_watermark_v4.py additionally requires JSON integers without a decimal point, the semantic and instance coefficient sets to be disjoint, and positions [0, 1] and [1, 0] to stay unused because the perceptual hash reads them, and each radius to be smaller than its mismatch distance.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -33,7 +33,10 @@
     },
     "semantic_source": {
       "type": "string",
-      "pattern": "^(proxy-layout-v1|external:.{1,128})$"
+      "pattern": "^(proxy-layout-v1|external:[A-Za-z0-9._@/+:-]{1,128})$",
+      "not": {
+        "pattern": "\\s"
+      }
     },
     "minimum_side": {
       "type": "integer",
@@ -63,9 +66,19 @@
         "minItems": 2,
         "maxItems": 2,
         "not": {
-          "const": [
-            0,
-            0
+          "enum": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ]
           ]
         }
       }
@@ -93,9 +106,19 @@
         "minItems": 2,
         "maxItems": 2,
         "not": {
-          "const": [
-            0,
-            0
+          "enum": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ]
           ]
         }
       }
@@ -144,12 +167,14 @@
       "required": [
         "false_positive_target",
         "semantic_radius",
-        "instance_radius"
+        "semantic_mismatch_distance",
+        "instance_radius",
+        "instance_mismatch_distance"
       ],
       "properties": {
         "false_positive_target": {
           "type": "number",
-          "exclusiveMinimum": 0,
+          "minimum": 1e-20,
           "maximum": 0.01
         },
         "semantic_radius": {
@@ -157,10 +182,20 @@
           "minimum": 0,
           "maximum": 15
         },
+        "semantic_mismatch_distance": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16
+        },
         "instance_radius": {
           "type": "integer",
           "minimum": 0,
           "maximum": 15
+        },
+        "instance_mismatch_distance": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16
         }
       }
     }

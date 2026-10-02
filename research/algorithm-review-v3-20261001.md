@@ -58,3 +58,7 @@ The pixel-arm regeneration failure agrees with published results: Zhao et al. an
 ## Consequence
 
 The v4 candidate ([method-amendment-v4.md](method-amendment-v4.md)) was written against these findings: verification through codes carried in the mark with a Hamming tolerance, a key-dependent image-wide descriptor, a keyed carrier, host-rejecting spread spectrum with declared embedding failures, a correlation statistic with a stated false-positive bound, and the proposal's decision states. Whether v4 meets them is for its own independent review, not for this document.
+
+## Addendum, 2026-10-01
+
+Item 2 under "Issues the reviewers missed" recommends key-dependent projections in the keyed profile. The later review of v4 found that keyed projections of public features do not prevent forcing either: the key hides the projection directions, not the features, so an attacker who imports the features makes the codes match without the key (`audits/v4-independent-review-20261001`, adversary F1; `audits/v4-revision-2-verification-20261001`, population P1). The recommendation stands as a necessary condition only.

@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "status": "planning_from_measured_revision_1_stage_timings",
+  "execution_target": "local",
+  "resources": {"vram_mib": 8192, "ram_mib": 6144, "disk_mib": 2048},
+  "budget": {"max_seconds": 86400, "max_usd": 0, "hourly_usd": 0},
+  "estimated_seconds_range": [1800, 7200],
+  "estimation_basis": "Run c4-v4-three-threat-dev-001 measured 1254 s for all embedding, transfer and regeneration stages plus 96 detector calls (detector 0.12 s, CLIP 0.09 s, SD img2img 4.1 s per output). Revision 2 adds a second hash pass and throttled bookkeeping; 1884 calls are expected to take well under one hour. Provisional, not guaranteed.",
+  "no_downloads": true,
+  "no_paid_compute": true,
+  "watchdog_is_not_user_deadline": true
+}

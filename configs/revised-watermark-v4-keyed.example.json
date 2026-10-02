@@ -17,6 +17,8 @@
   "decision": {
     "false_positive_target": 1e-06,
     "semantic_radius": 6,
-    "instance_radius": 6
+    "semantic_mismatch_distance": 10,
+    "instance_radius": 6,
+    "instance_mismatch_distance": 10
   }
 }

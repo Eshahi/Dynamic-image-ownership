@@ -9,25 +9,33 @@ dropped, inside a dependency-free image-domain reference codec:
   semantic feature vector, CLIP in the study profile) and a DCT-based
   perceptual hash ``H``, combined with the OwnerID into a semantic key ``Ws``
   and an instance key ``Wi``;
-* blind detection by correlating 8x8 block-DCT mid-band coefficients with the
-  patterns expected from the re-derived candidate keys;
+* blind detection by correlating low and low-to-mid band 8x8 block-DCT
+  coefficients with the patterns expected from the re-derived candidate keys;
 * the proposal's decision states: both keys found, semantic key only, and a
   watermark that is present but bound to different content.
 
 The embedder is improved spread spectrum (host-rejecting, antipodal) on keyed
-projections of mid-band coefficients, sized by a PSNR budget.  The detection
+projections of those coefficients, sized by a PSNR budget.  The detection
 statistic is a self-normalised correlation whose false-positive probability is
 bounded by Hoeffding's inequality, so thresholds follow from a stated
 false-positive target instead of ad hoc accuracy cut-offs.
 
-Claim boundary: this is an image-domain codec, the labelled pixel comparator
-and DCT-detector positive control of the study.  It does not implement or
-validate latent/initial-noise embedding, it is not evidence of regeneration
-survival, and no detector state establishes legal ownership.  The default
-``public-derived`` profile is the proposal's profile: every derivation is
-public, so anyone can re-embed for any OwnerID.  The ``hmac-keyed`` profile is
-a separately labelled variant whose results must never be pooled with it.  See
-``research/method-amendment-v4.md``.
+Claim boundary: this is an image-domain codec, proposed as a candidate pixel
+comparator and DCT-detector positive control of the study; its adoption is
+undecided.  It does not implement or validate latent/initial-noise embedding,
+it is not evidence of regeneration survival, and no detector state establishes
+legal ownership.  The default ``public-derived`` profile follows the proposal's
+key model: every derivation is public, so anyone can re-embed for any OwnerID.
+The shipped profiles use the ``proxy-layout-v1`` stand-in for the semantic
+vector; the proposal's CLIP vector enters through an ``external:`` profile.
+The ``hmac-keyed`` profile is a separately labelled variant whose results must
+never be pooled with the default.  See ``research/method-amendment-v4.md``.
+
+Revision 2.  Revision 1 is the snapshot committed as 0e91bd2 on
+``codex/18-v4-three-threats`` and used by run ``c4-v4-three-threat-dev-001``.
+Revision 2 changes the perceptual hash and the decision table, so it derives a
+different ``detector_config_id``: the two revisions never read each other's
+marks and their results cannot be confused.
 """
 
 from __future__ import annotations
@@ -36,6 +44,7 @@ import hashlib
 import hmac
 import json
 import math
+import re
 import time
 import unicodedata
 from operator import mul
@@ -45,12 +54,15 @@ from typing import Mapping, Sequence
 
 MAGIC = b"rw-v4"
 VERSION = 4
+REVISION = 2
 BLOCK = 8
 MIN_SIDE = 160
 HASH_GRID = 32
 LAYOUT_GRID = 8
 HASH_COARSE_SHARE = 0.25
 HASH_DETAIL_DEAD_ZONE = 6.0
+# Detail weaker than this (RMS of the compressed values) keeps a proportionally smaller share.
+HASH_DETAIL_FLOOR = 0.4
 HASH_DETAIL_KNEE = 8.0
 HASH_DETAIL_POSITIONS = ((0, 1), (1, 0))
 CODE_BITS = 32
@@ -64,33 +76,72 @@ CHANNEL_BITS = HELPER_CHIPS + TAG_BITS
 SEMANTIC_FREQUENCIES = ((1, 1), (0, 2), (2, 0), (1, 2), (2, 1), (2, 2))
 INSTANCE_FREQUENCIES = ((0, 3), (3, 0), (1, 3), (3, 1), (2, 3), (3, 2))
 PROXY_SOURCE = "proxy-layout-v1"
-EXTERNAL_PREFIX = "external:"
+EXTERNAL_SOURCE = re.compile(r"external:[A-Za-z0-9._@/+:-]{1,128}")
 BINDING_MODES = ("combined", "semantic_only", "perceptual_only", "none")
 PUBLIC_KEY = hashlib.sha256(MAGIC + b"/public-derived-profile-key").digest()
+# Below this target the threshold would exceed the largest attainable score.
+MIN_FALSE_POSITIVE_TARGET = 1e-20
+MAX_ROSTER = 1_000_000
+# Rounding to bytes adds this much mean squared error on its own.
+ROUNDING_MSE = 1.0 / 12.0
+# Numerical guards of the detector.  Projections are in luminance units; a mark
+# has an amplitude of several units, floating-point residue about 1e-13.
+ZERO_PROJECTION = 1e-6
+TIE_TOLERANCE = 1e-9
+TIE_FLOOR = 1e-9
+FINGERPRINT_ROUNDS = 200_000
 
-DEFAULT_PROFILE = {
+_CONSTANTS = {
     "schema_version": "revised-watermark-v4",
     "profile": "image-domain-dual-key-dct-iss",
-    "security": "public-derived",
-    "semantic_source": PROXY_SOURCE,
-    "minimum_side": MIN_SIDE,
-    "semantic_frequencies": [list(pair) for pair in SEMANTIC_FREQUENCIES],
-    "instance_frequencies": [list(pair) for pair in INSTANCE_FREQUENCIES],
     "code_bits": CODE_BITS,
     "tag_bits": TAG_BITS,
-    "embedding": {
-        "target_psnr_db": 42.0,
-        "semantic_energy_share": 0.6,
-        "design_noise_std": 8.0,
-        "passes": 3,
-    },
-    "decision": {
-        "false_positive_target": 1e-6,
-        "semantic_radius": 6,
-        "instance_radius": 6,
-    },
 }
-KEYED_PROFILE = {**DEFAULT_PROFILE, "security": "hmac-keyed"}
+_EMBEDDING_FIELDS = frozenset(("target_psnr_db", "semantic_energy_share", "design_noise_std", "passes"))
+_DECISION_FIELDS = frozenset(
+    ("false_positive_target", "semantic_radius", "semantic_mismatch_distance", "instance_radius", "instance_mismatch_distance")
+)
+_PROFILE_FIELDS = frozenset(_CONSTANTS) | {
+    "security",
+    "semantic_source",
+    "minimum_side",
+    "semantic_frequencies",
+    "instance_frequencies",
+    "embedding",
+    "decision",
+}
+
+
+def _default_profile(security: str) -> dict[str, object]:
+    """A fresh profile each time, so the two module defaults share no nested object."""
+    return {
+        "schema_version": _CONSTANTS["schema_version"],
+        "profile": _CONSTANTS["profile"],
+        "security": security,
+        "semantic_source": PROXY_SOURCE,
+        "minimum_side": MIN_SIDE,
+        "semantic_frequencies": [list(pair) for pair in SEMANTIC_FREQUENCIES],
+        "instance_frequencies": [list(pair) for pair in INSTANCE_FREQUENCIES],
+        "code_bits": CODE_BITS,
+        "tag_bits": TAG_BITS,
+        "embedding": {
+            "target_psnr_db": 42.0,
+            "semantic_energy_share": 0.6,
+            "design_noise_std": 8.0,
+            "passes": 3,
+        },
+        "decision": {
+            "false_positive_target": 1e-6,
+            "semantic_radius": 6,
+            "semantic_mismatch_distance": 10,
+            "instance_radius": 6,
+            "instance_mismatch_distance": 10,
+        },
+    }
+
+
+DEFAULT_PROFILE = _default_profile("public-derived")
+KEYED_PROFILE = _default_profile("hmac-keyed")
 
 # Fields that change what the detector computes.  Embedding strength and
 # decision thresholds are excluded: the correlation detector needs neither the
@@ -180,9 +231,14 @@ def canonical_secret_key(secret_key: bytes | str) -> bytes:
 
 
 def _number(value: object, low: float, high: float, name: str, low_open: bool = False) -> float:
-    if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(float(value)):
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise ValueError(f"{name} must be a finite number")
-    number = float(value)
+    try:
+        number = float(value)
+    except OverflowError as error:
+        raise ValueError(f"{name} must be a finite number") from error
+    if not math.isfinite(number):
+        raise ValueError(f"{name} must be a finite number")
     if number > high or number < low or (low_open and number == low):
         raise ValueError(f"{name} is outside its allowed range")
     return number
@@ -208,18 +264,17 @@ def _frequency_set(value: object, name: str) -> tuple[tuple[int, int], ...]:
 
 def validate_profile(profile: Mapping[str, object]) -> dict[str, object]:
     """Return a checked copy of ``profile``; reject unknown, missing or out-of-range fields."""
-    if not isinstance(profile, Mapping) or set(profile) != set(DEFAULT_PROFILE):
+    if not isinstance(profile, Mapping) or set(profile) != _PROFILE_FIELDS:
         raise ValueError("profile must contain exactly the revised-watermark-v4 fields")
-    for key in ("schema_version", "profile", "code_bits", "tag_bits"):
-        if profile[key] != DEFAULT_PROFILE[key] or isinstance(profile[key], bool):
+    for key, expected in _CONSTANTS.items():
+        # The type check keeps 32.0 out: it would change the canonical JSON and so the carrier.
+        if type(profile[key]) is not type(expected) or profile[key] != expected:
             raise ValueError(f"profile constant mismatch: {key}")
     if profile["security"] not in ("hmac-keyed", "public-derived"):
         raise ValueError("security must be hmac-keyed or public-derived")
     source = profile["semantic_source"]
-    if not isinstance(source, str) or not (
-        source == PROXY_SOURCE or (source.startswith(EXTERNAL_PREFIX) and 1 <= len(source) - len(EXTERNAL_PREFIX) <= 128)
-    ):
-        raise ValueError("semantic_source must be proxy-layout-v1 or external:<feature id>")
+    if not isinstance(source, str) or not (source == PROXY_SOURCE or EXTERNAL_SOURCE.fullmatch(source)):
+        raise ValueError("semantic_source must be proxy-layout-v1 or external:<feature id of 1..128 characters from A-Za-z0-9._@/+:->")
     side = profile["minimum_side"]
     if isinstance(side, bool) or not isinstance(side, int) or not MIN_SIDE <= side <= 16384:
         raise ValueError(f"minimum_side must be an integer of at least {MIN_SIDE}")
@@ -227,8 +282,10 @@ def validate_profile(profile: Mapping[str, object]) -> dict[str, object]:
     instance = _frequency_set(profile["instance_frequencies"], "instance_frequencies")
     if set(semantic) & set(instance):
         raise ValueError("semantic and instance channels must use disjoint coefficients")
+    if (side // BLOCK) ** 2 * min(len(semantic), len(instance)) < CHANNEL_BITS * 4:
+        raise ValueError("a channel has too few coefficient positions for an image of minimum_side")
     embedding = profile["embedding"]
-    if not isinstance(embedding, Mapping) or set(embedding) != set(DEFAULT_PROFILE["embedding"]):
+    if not isinstance(embedding, Mapping) or set(embedding) != _EMBEDDING_FIELDS:
         raise ValueError("embedding must contain exactly the revised-watermark-v4 fields")
     _number(embedding["target_psnr_db"], 30.0, 60.0, "target_psnr_db")
     _number(embedding["semantic_energy_share"], 0.05, 0.95, "semantic_energy_share")
@@ -236,13 +293,13 @@ def validate_profile(profile: Mapping[str, object]) -> dict[str, object]:
     if isinstance(embedding["passes"], bool) or not isinstance(embedding["passes"], int) or not 1 <= embedding["passes"] <= 8:
         raise ValueError("embedding passes must be an integer in 1..8")
     decision = profile["decision"]
-    if not isinstance(decision, Mapping) or set(decision) != set(DEFAULT_PROFILE["decision"]):
+    if not isinstance(decision, Mapping) or set(decision) != _DECISION_FIELDS:
         raise ValueError("decision must contain exactly the revised-watermark-v4 fields")
-    _number(decision["false_positive_target"], 0.0, 1e-2, "false_positive_target", low_open=True)
-    for key in ("semantic_radius", "instance_radius"):
-        radius = decision[key]
-        if isinstance(radius, bool) or not isinstance(radius, int) or not 0 <= radius < CODE_BITS // 2:
-            raise ValueError(f"{key} must be an integer in 0..{CODE_BITS // 2 - 1}")
+    _number(decision["false_positive_target"], MIN_FALSE_POSITIVE_TARGET, 1e-2, "false_positive_target")
+    for name in ("semantic", "instance"):
+        radius, far = decision[name + "_radius"], decision[name + "_mismatch_distance"]
+        if any(isinstance(value, bool) or not isinstance(value, int) for value in (radius, far)) or not 0 <= radius < far <= CODE_BITS // 2:
+            raise ValueError(f"{name} distances must be integers with 0 <= radius < mismatch_distance <= {CODE_BITS // 2}")
     checked = dict(profile)
     checked["semantic_frequencies"] = [list(pair) for pair in semantic]
     checked["instance_frequencies"] = [list(pair) for pair in instance]
@@ -251,8 +308,21 @@ def validate_profile(profile: Mapping[str, object]) -> dict[str, object]:
     return checked
 
 
+def _unique_keys(pairs: list[tuple[str, object]]) -> dict[str, object]:
+    keys = [key for key, _value in pairs]
+    if len(set(keys)) != len(keys):
+        raise ValueError("profile JSON repeats a key")
+    return dict(pairs)
+
+
+def _no_constant(name: str) -> float:
+    raise ValueError(f"profile JSON contains the non-finite literal {name}")
+
+
 def load_profile(path: str | Path) -> dict[str, object]:
-    return validate_profile(json.loads(Path(path).read_text(encoding="utf-8")))
+    """Read and validate a profile; repeated keys and NaN/Infinity literals are errors."""
+    text = Path(path).read_text(encoding="utf-8")
+    return validate_profile(json.loads(text, object_pairs_hook=_unique_keys, parse_constant=_no_constant))
 
 
 def _canonical_json(value: object) -> bytes:
@@ -262,7 +332,8 @@ def _canonical_json(value: object) -> bytes:
 def detector_config_id(profile: Mapping[str, object]) -> str:
     """SHA-256 of the canonical JSON of every field the detector depends on."""
     checked = validate_profile(profile)
-    return hashlib.sha256(MAGIC + b"/config/" + _canonical_json({key: checked[key] for key in _DETECTOR_FIELDS})).hexdigest()
+    static = {key: checked[key] for key in _DETECTOR_FIELDS}
+    return hashlib.sha256(MAGIC + b"/config/r%d/" % REVISION + _canonical_json(static)).hexdigest()
 
 
 def decision_id(profile: Mapping[str, object]) -> str:
@@ -296,11 +367,14 @@ def _resolve(profile: Mapping[str, object] | None, secret_key: bytes | str | Non
     return checked, key, bytes.fromhex(detector_config_id(checked))
 
 
-def _key_fingerprint(checked: Mapping[str, object], key: bytes) -> str:
-    """Non-secret label for the key in use, so keyed results can be grouped by key."""
-    if checked["security"] == "public-derived":
-        return "public"
-    return hmac.new(key, MAGIC + b"/fingerprint", hashlib.sha256).hexdigest()[:16]
+def key_fingerprint(secret_key: bytes | str) -> str:
+    """A label for grouping keyed results by key without storing the key.
+
+    It is deliberately slow, and detection results do not carry it: a cheap
+    fingerprint in a published result would let anyone test key guesses offline.
+    """
+    key = canonical_secret_key(secret_key)
+    return hashlib.pbkdf2_hmac("sha256", key, MAGIC + b"/fingerprint", FINGERPRINT_ROUNDS).hex()[:16]
 
 
 # ---------------------------------------------------------------------------
@@ -312,7 +386,8 @@ def _analyse(image: Sequence[Sequence[float]], planes: Sequence[Sequence[float]]
     """Per full 8x8 block: the block mean, and the requested DCT coefficients.
 
     Only complete blocks are used.  A right/bottom remainder of up to seven
-    pixels is neither read by the carrier nor modified by the embedder.
+    pixels is not read by the hash or the carrier and carries no mark; the
+    embedder only rounds it when it rounds the rest of the image.
     """
     height, width = len(image), len(image[0])
     means: list[list[float]] = []
@@ -326,6 +401,16 @@ def _analyse(image: Sequence[Sequence[float]], planes: Sequence[Sequence[float]]
             coefficients.append([sum(map(mul, block, plane)) for plane in planes])
         means.append(mean_row)
     return means, coefficients
+
+
+def block_coefficients(image: Sequence[Sequence[float]], positions: Sequence[tuple[int, int]]) -> tuple[list[list[float]], list[list[float]]]:
+    """Block means, and the DCT coefficients at ``positions``, of every complete 8x8 block (row-major)."""
+    return _analyse(image, [_plane(u, v) for u, v in positions])
+
+
+def basis_plane(u: int, v: int) -> tuple[float, ...]:
+    """The 64 samples (row-major) of the 8x8 DCT basis function with vertical index ``u`` and horizontal index ``v``."""
+    return _plane(u, v)
 
 
 def _area_weights(source: int, target: int) -> list[list[tuple[int, float]]]:
@@ -377,9 +462,10 @@ def _sign_projections(vector: Sequence[float], key: bytes, config: bytes, label:
     return code
 
 
-def _unit(vector: Sequence[float], weight: float) -> list[float]:
+def _unit(vector: Sequence[float], weight: float, floor: float = 1e-9) -> list[float]:
+    """Scale ``vector`` to length ``weight``, or shorter when its own length is below ``floor``."""
     norm = math.sqrt(sum(value * value for value in vector))
-    return [0.0] * len(vector) if norm < 1e-9 else [value * weight / norm for value in vector]
+    return [0.0] * len(vector) if norm < 1e-9 else [value * weight / max(norm, floor) for value in vector]
 
 
 def _local_detail(field: Sequence[Sequence[float]]) -> list[float]:
@@ -407,7 +493,10 @@ def _perceptual_hash(means: Sequence[Sequence[float]], detail: Sequence[Sequence
     ``means`` gives coarse structure (the classic pHash input: the low band of
     a 32x32 map).  ``detail`` holds each block's (0,1) and (1,0) coefficients,
     its local gradient, which is what differs between two images that share a
-    composition.  Detail carries three quarters of the vector's energy.
+    composition.  Detail carries three quarters of the vector's energy when the
+    image has that much detail.  A smooth image has almost none; its few
+    noise-level entries then keep a proportionally small share instead of being
+    blown up to three quarters, and the hash rests on the coarse part.
     """
     grid = _resample(means, HASH_GRID)
     coarse = []
@@ -420,7 +509,8 @@ def _perceptual_hash(means: Sequence[Sequence[float]], detail: Sequence[Sequence
     fine: list[float] = []
     for position in range(len(HASH_DETAIL_POSITIONS)):
         fine += _local_detail([[block[position] for block in detail[start : start + columns]] for start in range(0, len(detail), columns)])
-    vector = _unit(coarse, math.sqrt(HASH_COARSE_SHARE)) + _unit(fine, math.sqrt(1.0 - HASH_COARSE_SHARE))
+    floor = HASH_DETAIL_FLOOR * math.sqrt(len(fine))
+    vector = _unit(coarse, math.sqrt(HASH_COARSE_SHARE)) + _unit(fine, math.sqrt(1.0 - HASH_COARSE_SHARE), floor)
     return _sign_projections(vector, key, config, b"perceptual-projection")
 
 
@@ -431,12 +521,21 @@ def _layout_features(means: Sequence[Sequence[float]]) -> list[float]:
 
 
 def _semantic_code(features: Sequence[float], key: bytes, config: bytes) -> int:
-    vector = [float(value) for value in features]
+    if isinstance(features, (str, bytes)):
+        raise ValueError("semantic feature vector must be a sequence of numbers")
+    try:
+        vector = [float(value) for value in features]
+    except (TypeError, OverflowError) as error:
+        raise ValueError("semantic feature vector must be a sequence of finite numbers") from error
     if len(vector) < 16 or len(vector) > 65536:
         raise ValueError("semantic feature vector must have 16..65536 entries")
-    if any(not math.isfinite(value) for value in vector) or math.sqrt(sum(value * value for value in vector)) < 1e-12:
+    if any(not math.isfinite(value) for value in vector):
         raise ValueError("semantic feature vector must be finite and non-zero")
-    return _sign_projections(vector, key, config, b"semantic-projection")
+    largest = max(abs(value) for value in vector)
+    if largest < 1e-12:
+        raise ValueError("semantic feature vector must be finite and non-zero")
+    # Dividing by the largest entry makes the code independent of the vector's scale.
+    return _sign_projections([value / largest for value in vector], key, config, b"semantic-projection")
 
 
 def _codes(
@@ -446,11 +545,18 @@ def _codes(
     key: bytes,
     config: bytes,
     supplied: Sequence[float] | None,
+    binding: bool,
 ) -> tuple[int, int]:
+    """Content codes of an image.  ``binding`` is true when a mark is about to be bound to them."""
     if checked["semantic_source"] == PROXY_SOURCE:
         if supplied is not None:
             raise ValueError("the proxy-layout-v1 profile computes its own features")
         features: Sequence[float] = _layout_features(means)
+        if max(abs(value) for value in features) < 1e-9:
+            if binding:
+                raise ValueError("image has no coarse layout to bind: every region has the same mean")
+            # A suspect image may be featureless; its code is then the all-zero code.
+            return 0, _perceptual_hash(means, detail, key, config)
     elif supplied is None:
         raise ValueError("an external semantic_source requires the caller's semantic_features")
     else:
@@ -478,6 +584,7 @@ def layout_features(image: Sequence[Sequence[float]]) -> list[float]:
     It is not CLIP and carries no semantic meaning; the study profile supplies
     the pinned encoder's vector through ``semantic_features`` instead.
     """
+    _check_image(image)
     return _layout_features(_analyse(image, ())[0])
 
 
@@ -531,8 +638,17 @@ def _helper_encode(code: int) -> list[int]:
 
 
 def _helper_decode(soft: Sequence[float]) -> tuple[int, bool]:
-    """Soft-decision decode; positive soft values mean chip 0.  Returns (code, check_ok)."""
+    """Soft-decision decode; positive soft values mean chip 0.  Returns (code, check_ok).
+
+    A symbol whose transform stays within ``ZERO_PROJECTION`` is an erasure and
+    decodes to symbol 0.  Values within ``TIE_TOLERANCE`` (relative) or
+    ``TIE_FLOOR`` (absolute) of the largest count as tied and the lowest index
+    wins, so that the decoded code does not follow the floating-point summation
+    order of an implementation.  The floor matters on near-flat images, whose
+    transform values are small while rounding residue stays about 1e-12.
+    """
     word = 0
+    erased = False
     for start in range(0, HELPER_CHIPS, SYMBOL_CHIPS):
         spectrum = list(soft[start : start + SYMBOL_CHIPS])
         span = 1
@@ -542,10 +658,16 @@ def _helper_decode(soft: Sequence[float]) -> tuple[int, bool]:
                     a, b = spectrum[offset], spectrum[offset + span]
                     spectrum[offset], spectrum[offset + span] = a + b, a - b
             span *= 2
-        index = max(range(SYMBOL_CHIPS), key=lambda i: (abs(spectrum[i]), -i))
+        peak = max(abs(value) for value in spectrum)
+        if peak <= ZERO_PROJECTION:
+            erased = True
+            word <<= SYMBOL_BITS
+            continue
+        window = max(peak * TIE_TOLERANCE, TIE_FLOOR)
+        index = next(i for i in range(SYMBOL_CHIPS) if abs(spectrum[i]) >= peak - window)
         word = (word << SYMBOL_BITS) | (int(spectrum[index] < 0.0) << HADAMARD_ORDER) | index
     code = word >> CHECK_BITS
-    return code, (word & ((1 << CHECK_BITS) - 1)) == _crc4(code)
+    return code, not erased and (word & ((1 << CHECK_BITS) - 1)) == _crc4(code)
 
 
 # ---------------------------------------------------------------------------
@@ -582,9 +704,11 @@ def _correlation(pattern: Sequence[int], projections: Sequence[float]) -> float:
 
     For any fixed projections and an independent uniformly random pattern the
     statistic exceeds ``t`` with probability at most ``exp(-t*t/2)`` (Hoeffding).
+    Projections without energy (a flat image) score zero instead of a ratio of
+    rounding residues.
     """
     energy = math.sqrt(sum(value * value for value in projections))
-    if energy <= 1e-12:
+    if energy <= ZERO_PROJECTION:
         return 0.0
     return sum((-value if bit else value) for bit, value in zip(pattern, projections)) / energy
 
@@ -638,8 +762,10 @@ def _host_rejection(budget_per_bit: float, host_power: float, noise_power: float
     """Choose the host-rejection factor that maximises the detector's signal-to-noise ratio.
 
     Moving a projection from host value ``p`` to ``(1-lam)*p + a*e`` costs
-    ``a*a + lam*lam*host_power`` on average and leaves ``(1-lam)**2*host_power``
-    of host interference (Malvar and Florencio, 2003).
+    ``a*a + lam*lam*host_power`` on average over the key pattern and leaves
+    ``(1-lam)**2*host_power`` of host interference.  The cost expression is
+    derived for this codec; the scheme is improved spread spectrum after
+    Malvar and Florencio (2003).
     """
     best = (-1.0, 0.0, 0.0)
     for step in range(101):
@@ -659,17 +785,22 @@ def _plan(
     secret_key: bytes | str | None,
     profile: Mapping[str, object] | None,
     semantic_features: Sequence[float] | None,
+    reserve_rounding: bool,
 ) -> dict[str, object]:
     checked, key, config = _resolve(profile, secret_key)
     height, width = _check_image(image, int(checked["minimum_side"]))
     owner = canonical_owner(owner_id)
     geometry = _Geometry(checked, key, config, owner, height, width)
     means, coefficients = _analyse(image, geometry.analysis)
-    q, h = _codes(means, coefficients, checked, key, config, semantic_features)
+    q, h = _codes(means, coefficients, checked, key, config, semantic_features, binding=True)
     ws, wi = derive_keys(q, h, owner, key, config)
     host = geometry.projections(coefficients)
     embedding = checked["embedding"]
-    total = 255.0**2 / 10.0 ** (float(embedding["target_psnr_db"]) / 10.0) * height * width
+    target_mse = 255.0**2 / 10.0 ** (float(embedding["target_psnr_db"]) / 10.0)
+    if reserve_rounding:
+        # Byte rounding spends part of the budget by itself; plan the signal with the rest.
+        target_mse = max(target_mse - ROUNDING_MSE, 0.25 * target_mse)
+    total = target_mse * height * width
     share = float(embedding["semantic_energy_share"])
     noise_power = float(embedding["design_noise_std"]) ** 2
     targets, channels = [], []
@@ -709,7 +840,7 @@ def projection_targets(
     by the same detector.  Each slot is ``(block_index, u, v, bit, sign, norm)``
     and ``projection[bit] = sum(sign * C[block, u, v]) / norm`` over its slots.
     """
-    plan = _plan(image, owner_id, secret_key, profile, semantic_features)
+    plan = _plan(image, owner_id, secret_key, profile, semantic_features, reserve_rounding=True)
     geometry: _Geometry = plan["geometry"]
     channels = []
     for channel, name in enumerate(("semantic", "instance")):
@@ -738,16 +869,22 @@ def embed_with_report(
     semantic_features: Sequence[float] | None = None,
     quantize: bool = True,
     strict: bool = True,
+    reserve_rounding: bool | None = None,
 ) -> tuple[list[list[float]], dict[str, object]]:
     """Embed the dual-key payload and verify the result with the real detector.
 
-    ``quantize`` rounds the output to integer luminance levels, so byte rounding
-    is part of the embedding loop rather than an unmodelled later step.  With
+    ``quantize`` rounds the output to integer luminance levels.
+    ``reserve_rounding`` plans the signal with the budget that byte rounding
+    leaves; it defaults to ``quantize`` and is set on its own by a caller that
+    rounds later (:func:`embed_rgb`).  Further passes re-aim at the same
+    targets; they matter only where clipping removed part of the change.  With
     ``strict`` a marked output that the detector does not accept as
     ``both_match`` raises :class:`EmbeddingError`; otherwise the failure is
     returned in the report so a study can keep it in its inventory.
     """
-    plan = _plan(image, owner_id, secret_key, profile, semantic_features)
+    if reserve_rounding is None:
+        reserve_rounding = quantize
+    plan = _plan(image, owner_id, secret_key, profile, semantic_features, bool(reserve_rounding))
     checked, geometry = plan["checked"], plan["geometry"]
     height, width = plan["height"], plan["width"]
     output = [[float(value) for value in row] for row in image]
@@ -782,6 +919,11 @@ def embed_with_report(
                         value = min(255.0, max(0.0, value))
                     row[left + x] = float(value)
         most_clipped = max(most_clipped, clipped)
+    if quantize:
+        # The strip outside the last full block carries no mark but is part of the saved image.
+        for y, row in enumerate(output):
+            for x in range(0 if y >= (height // BLOCK) * BLOCK else blocks_per_row * BLOCK, width):
+                row[x] = float(math.floor(row[x] + 0.5))
     result = detect(output, owner_id, secret_key, checked, semantic_features)
     error = mse(image, output)
     report = {
@@ -789,12 +931,16 @@ def embed_with_report(
         "security": checked["security"],
         "semantic_source": checked["semantic_source"],
         "embedding_domain": "image",
+        "revision": REVISION,
+        "embedding": dict(checked["embedding"]),
+        "decision_id": decision_id(checked),
         "semantic_code": f"{plan['q']:08x}",
         "perceptual_hash": f"{plan['h']:08x}",
-        "psnr_db": None if error == 0.0 else 10.0 * math.log10(255.0**2 / error),
+        "psnr_db": psnr(image, output),
         "mse": error,
         "clipped_fraction": most_clipped / float(height * width),
         "quantized": bool(quantize),
+        "rounding_reserved": bool(reserve_rounding),
         "semantic_channel": plan["channels"][0],
         "instance_channel": plan["channels"][1],
         "verification": result,
@@ -826,6 +972,47 @@ def embed(
 
 def _distance(left: int, right: int) -> int:
     return bin(left ^ right).count("1")
+
+
+_STATUS_RANK = {"unchecked": 0, "match": 0, "uncertain": 1, "mismatch": 2}
+
+
+def _content_status(distance: int, radius: int, far: int, checked: bool) -> str:
+    """Compare a verified key's code with the code of the suspect image.
+
+    Between ``radius`` and ``far`` the comparison abstains: heavy but harmless
+    processing moves a few bits, and that must not read as a transferred mark.
+    """
+    if not checked:
+        return "unchecked"
+    if distance <= radius:
+        return "match"
+    return "mismatch" if distance >= far else "uncertain"
+
+
+def _decide(s_found: bool, s_status: str | None, i_found: bool, i_status: str | None) -> tuple[str, str]:
+    """Map the two key tests and their content statuses to (outcome, proposal_state).
+
+    Only a key that was found has a status; the status of a key that was not
+    found is ignored.
+    """
+    for found, status in ((s_found, s_status), (i_found, i_status)):
+        if found and status not in _STATUS_RANK:
+            raise ValueError("a found key needs a content status")
+    if not s_found and not i_found:
+        return "neither_match", "not_detected"
+    if (s_found and s_status == "mismatch") or (i_found and i_status == "mismatch"):
+        return "content_mismatch", "copy_paste"
+    semantic_ok = s_found and _STATUS_RANK[s_status] == 0
+    instance_ok = i_found and _STATUS_RANK[i_status] == 0
+    if semantic_ok and instance_ok:
+        return "both_match", "authentic"
+    if semantic_ok and not i_found:
+        return "semantic_only", "regenerated"
+    if instance_ok and not s_found:
+        return "instance_only", "unclassified"
+    # A key was found whose code comparison is undecided.
+    return "content_uncertain", "unclassified"
 
 
 def _best(candidates: Sequence[tuple[str, int, int, Sequence[int]]], projections: Sequence[float]) -> tuple[float, str, int, int]:
@@ -866,8 +1053,8 @@ def detect(
     started = time.perf_counter()
     if binding_mode not in BINDING_MODES:
         raise ValueError("binding_mode must be one of " + ", ".join(BINDING_MODES))
-    if isinstance(roster_size, bool) or not isinstance(roster_size, int) or not 1 <= roster_size <= 1_000_000:
-        raise ValueError("roster_size must be an integer in 1..1000000")
+    if isinstance(roster_size, bool) or not isinstance(roster_size, int) or not 1 <= roster_size <= MAX_ROSTER:
+        raise ValueError(f"roster_size must be an integer in 1..{MAX_ROSTER}")
     checked, key, config = _resolve(profile, secret_key)
     if expected_config_id is not None and expected_config_id != config.hex():
         raise ValueError("detector configuration differs from the expected enrolment configuration")
@@ -876,10 +1063,11 @@ def detect(
     decision = checked["decision"]
     target = float(decision["false_positive_target"])
     geometry = _Geometry(checked, key, config, owner, height, width)
+    prepared = time.perf_counter()
     means, coefficients = _analyse(image, geometry.analysis)
     semantic, instance = geometry.projections(coefficients)
     transformed = time.perf_counter()
-    q_now, h_now = _codes(means, coefficients, checked, key, config, semantic_features)
+    q_now, h_now = _codes(means, coefficients, checked, key, config, semantic_features, binding=False)
     featured = time.perf_counter()
 
     q_read, q_check = _helper_decode(semantic[:HELPER_CHIPS])
@@ -905,21 +1093,18 @@ def detect(
     i_distance = _distance(h_bound, h_now) if i_found else None
     check_semantic = binding_mode in ("combined", "semantic_only")
     check_instance = binding_mode in ("combined", "perceptual_only")
-    semantic_ok = s_found and (not check_semantic or s_distance <= int(decision["semantic_radius"]))
-    instance_ok = i_found and (
-        (not check_instance or i_distance <= int(decision["instance_radius"]))
-        and (not check_semantic or _distance(q_instance, q_now) <= int(decision["semantic_radius"]))
+    semantic_limits = (int(decision["semantic_radius"]), int(decision["semantic_mismatch_distance"]), check_semantic)
+    instance_limits = (int(decision["instance_radius"]), int(decision["instance_mismatch_distance"]), check_instance)
+    s_status = _content_status(s_distance, *semantic_limits) if s_found else None
+    # The instance key binds both codes, so it inherits the worse of the two comparisons.
+    i_status = (
+        max(_content_status(i_distance, *instance_limits), _content_status(_distance(q_instance, q_now), *semantic_limits), key=_STATUS_RANK.get)
+        if i_found
+        else None
     )
-    if not s_found and not i_found:
-        outcome, state = "neither_match", "no_watermark"
-    elif (s_found and not semantic_ok) or (i_found and not instance_ok):
-        outcome, state = "content_mismatch", "copy_paste"
-    elif s_found and i_found:
-        outcome, state = "both_match", "authentic"
-    elif s_found:
-        outcome, state = "semantic_only", "regenerated"
-    else:
-        outcome, state = "instance_only", "unclassified"
+    semantic_ok = s_found and _STATUS_RANK[s_status] == 0
+    instance_ok = i_found and _STATUS_RANK[i_status] == 0
+    outcome, state = _decide(s_found, s_status, i_found, i_status)
     finished = time.perf_counter()
     return {
         "outcome": outcome,
@@ -934,6 +1119,7 @@ def detect(
             "candidate": s_label if s_found else None,
             "log10_false_positive_bound": _log10_bound(s_score, len(semantic_candidates) * roster_size),
             "code_distance": s_distance,
+            "content_status": s_status,
             "content_match": bool(semantic_ok),
             "helper_check_ok": bool(q_check),
         },
@@ -945,6 +1131,7 @@ def detect(
             "candidate": i_label if i_found else None,
             "log10_false_positive_bound": _log10_bound(i_score, len(instance_candidates) * roster_size),
             "code_distance": i_distance,
+            "content_status": i_status,
             "content_match": bool(instance_ok),
             "helper_check_ok": bool(h_check),
         },
@@ -955,7 +1142,6 @@ def detect(
         "owners_tested": roster_size,
         "candidates_tested": len(semantic_candidates) + len(instance_candidates),
         "security": checked["security"],
-        "key_fingerprint": _key_fingerprint(checked, key),
         "semantic_source": checked["semantic_source"],
         "embedding_domain": "image",
         "detector_config_id": config.hex(),
@@ -963,8 +1149,11 @@ def detect(
         "version": VERSION,
         "height": height,
         "width": width,
+        "revision": REVISION,
+        # setup: input checks and carrier derivation; transform: block DCT and projections.
         "timing_ms": {
-            "transform": (transformed - started) * 1000.0,
+            "setup": (prepared - started) * 1000.0,
+            "transform": (transformed - prepared) * 1000.0,
             "features": (featured - transformed) * 1000.0,
             "scoring": (finished - featured) * 1000.0,
             "total": (finished - started) * 1000.0,
@@ -980,7 +1169,9 @@ def identify(
     semantic_features: Sequence[float] | None = None,
 ) -> dict[str, object]:
     """Try a roster of OwnerIDs on one image with thresholds corrected for the roster size."""
-    roster = [unicodedata.normalize("NFC", owner) for owner in owner_ids]
+    if isinstance(owner_ids, (str, bytes)):
+        raise ValueError("owner roster must be a sequence of OwnerID strings, not one string")
+    roster = [canonical_owner(owner).decode("utf-8") for owner in owner_ids]
     if not roster or len(set(roster)) != len(roster):
         raise ValueError("owner roster must be non-empty and free of duplicates")
     results = {owner: detect(image, owner, secret_key, profile, semantic_features, roster_size=len(roster)) for owner in roster}
@@ -1000,7 +1191,10 @@ def identify(
 
 def luminance_from_rgb(rgb: Sequence[Sequence[Sequence[float]]]) -> list[list[float]]:
     """sRGB luma Y = 0.299 R + 0.587 G + 0.114 B without gamma linearisation."""
-    return [[0.299 * float(r) + 0.587 * float(g) + 0.114 * float(b) for r, g, b in row] for row in rgb]
+    luma = [[0.299 * float(r) + 0.587 * float(g) + 0.114 * float(b) for r, g, b in row] for row in rgb]
+    if any(not 0.0 <= float(channel) <= 255.0 for row in rgb for pixel in row for channel in pixel):
+        raise ValueError("RGB channel values must be in [0, 255]")
+    return luma
 
 
 def embed_rgb(
@@ -1014,17 +1208,24 @@ def embed_rgb(
     """Mark a colour image: add the luminance change to R, G and B, then round to bytes.
 
     The returned report verifies the rounded RGB output itself, not the
-    intermediate floating-point luminance.
+    intermediate floating-point luminance.  The signal is planned with the
+    budget that the rounding of the three channels leaves: for integer input
+    they round alike, so the luminance loses the same 1/12 as a rounded
+    luminance image.
     """
     source = luminance_from_rgb(rgb)
-    marked, report = embed_with_report(source, owner_id, secret_key, profile, semantic_features, quantize=False, strict=False)
-    output = [
-        [
-            tuple(int(min(255.0, max(0.0, math.floor(float(channel) + after - before + 0.5)))) for channel in pixel)
-            for pixel, before, after in zip(row, source_row, marked_row)
-        ]
-        for row, source_row, marked_row in zip(rgb, source, marked)
-    ]
+    marked, report = embed_with_report(
+        source, owner_id, secret_key, profile, semantic_features, quantize=False, strict=False, reserve_rounding=True
+    )
+    clipped = 0
+    output = []
+    for row, source_row, marked_row in zip(rgb, source, marked):
+        output_row = []
+        for pixel, before, after in zip(row, source_row, marked_row):
+            values = [math.floor(float(channel) + after - before + 0.5) for channel in pixel]
+            clipped += sum(value < 0 or value > 255 for value in values)
+            output_row.append(tuple(int(min(255, max(0, value))) for value in values))
+        output.append(output_row)
     saved = luminance_from_rgb(output)
     result = detect(saved, owner_id, secret_key, profile, semantic_features)
     error = mse(source, saved)
@@ -1033,8 +1234,10 @@ def embed_rgb(
             "verification": result,
             "verified": result["outcome"] == "both_match",
             "quantized": True,
+            # A channel at 0 or 255 cannot take its share of the luminance change.
+            "clipped_fraction": clipped / (3.0 * len(source) * len(source[0])),
             "mse": error,
-            "psnr_db": None if error == 0.0 else 10.0 * math.log10(255.0**2 / error),
+            "psnr_db": psnr(source, saved),
             "quality_domain": "luminance of the rounded RGB output",
         }
     )
@@ -1050,11 +1253,16 @@ def detect_rgb(
     profile: Mapping[str, object] | None = None,
     semantic_features: Sequence[float] | None = None,
     binding_mode: str = "combined",
+    roster_size: int = 1,
+    expected_config_id: str | None = None,
 ) -> dict[str, object]:
-    return detect(luminance_from_rgb(rgb), owner_id, secret_key, profile, semantic_features, binding_mode)
+    """:func:`detect` on the luminance of an RGB image."""
+    luma = luminance_from_rgb(rgb)
+    return detect(luma, owner_id, secret_key, profile, semantic_features, binding_mode, roster_size, expected_config_id)
 
 
 def mse(left: Sequence[Sequence[float]], right: Sequence[Sequence[float]]) -> float:
+    """Mean squared error between two images of the same shape."""
     if len(left) != len(right) or any(len(a) != len(b) for a, b in zip(left, right)):
         raise ValueError("image shapes differ")
     values = [(float(a) - float(b)) ** 2 for row_a, row_b in zip(left, right) for a, b in zip(row_a, row_b)]
