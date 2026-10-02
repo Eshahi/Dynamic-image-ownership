@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "status": "planning_from_revision_2_stage_timings_and_v5_synthetic_timings",
+  "execution_target": "local",
+  "resources": {
+    "vram_mib": 8192,
+    "ram_mib": 6144,
+    "disk_mib": 2048
+  },
+  "budget": {
+    "max_seconds": 86400,
+    "max_usd": 0,
+    "hourly_usd": 0
+  },
+  "estimated_seconds_range": [
+    1200,
+    5400
+  ],
+  "estimation_basis": "Revision-2 run: 751 s for 1,884 calls. v5 on Windows: embedding about 1.5 s, one detector call about 0.3 s, one two-tier projection transfer about 6 s (47 transfers), img2img about 0.45 s per output. The rehearsal on synthetic images gives the measured figure for this exact worker. Provisional, not guaranteed.",
+  "no_downloads": true,
+  "no_paid_compute": true,
+  "watchdog_is_not_user_deadline": true
+}

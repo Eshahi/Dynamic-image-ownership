@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "c4-v5-two-tier-regeneration-v1",
+  "task_id": "C4",
+  "question": "Does the image-domain v5 two-tier codec with the suspect-only pinned CLIP vector keep the semantic key through the VAE round trip and SD 1.5 img2img on the reserved photographs, and do transfer binding and semantic-instance separation still hold?",
+  "hypothesis": "Clean prerequisites and each frozen axis-specific acceptance criterion hold with no missing controls, deliveries or visual assessments. The author's recorded expectation is that the T3 survival criterion fails at every img2img strength (plan.md).",
+  "primary_outcome": "Separate clean, T3 per dose, T4 per arm, and T5 diagnostic plus transfer conclusions; no pooled accuracy.",
+  "secondary_outcomes": [
+    "RGB PSNR/SSIM/LPIPS",
+    "Recomputed and decoded scores of both keys, corrected code distances and classifier outcomes",
+    "Proposal-state labels of regenerated marked images",
+    "Supplementary ordinary-processing outcomes (JPEG 75, resize to 384)",
+    "Semantic/perceptual collision and same-instance distances",
+    "Full detector cost including suspect CLIP"
+  ],
+  "datasets": [
+    {
+      "id": "ms-coco",
+      "version": "2017 validation; original ten development IDs for T3/T4; approved additions1675,4795 for twelve-source clean/T5; exact hashes in cohort.json and development-expansion.json",
+      "license": "Retained item-level private/local academic restrictions; no publication or legal clearance",
+      "split": "Exploratory development only; twelve clean/T5 sources, ten T3/T4 sources; full observed graph exclusion for additions; no held-out unlock"
+    }
+  ],
+  "leakage_risks": [
+    "Prior revision-1 and revision-2 results on the same photographs are known; v5 was designed after them and its constants were chosen on synthetic hosts only",
+    "Semantic labels were frozen before any binding or detector score",
+    "Pairs and seed repetitions are not independent sources",
+    "The public profile is forgeable by design; any owner can be embedded by anyone",
+    "The mask constants and the PSNR floor were chosen by the author's inspection of synthetic images"
+  ],
+  "preprocessing": "Canonical native EXIF/ICC RGB8 to 512 BICUBIC, save and reopen PNG before every suspect-feature, detector and metric call; v5 revision 1 with the external CLIP profile; all failures retained",
+  "baselines": [
+    "Matched untouched marked inputs",
+    "Unmarked recipient/source controls",
+    "Same-instance binding controls"
+  ],
+  "controls": [
+    "Matched C0/C1 and four-claim corrected owner roster",
+    "Unmarked projection sham and no-transfer C0",
+    "Same output four binding ablations",
+    "T3 matched C0/C1 paired seeds and deterministic VAE mode",
+    "Frozen 66 semantic pairs and 7 same-semantic transfers",
+    "Supplementary ordinary processing of C0 and C1"
+  ],
+  "ablations": [
+    "combined",
+    "semantic_only",
+    "perceptual_only",
+    "none"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "stopping_rule": "Fixed 617 rows / 2204 authoritative calls; no retry or tuning; 86400 second operational watchdog; failures and safety-checker blocks kept; 3 fixed seeds",
+  "acceptance_rule": "See acceptance-criteria.md; complete planned controls, sufficient admissible delivered marks and independent visual assessments required; no latent, legal or population-FPR claim",
+  "negative_result_policy": "Retain failed embeddings/images, blocked outputs and dependent missing rows; never silently replace sources or tune after outcome",
+  "analysis": {
+    "mode": "exploratory",
+    "metric": "batch_computational_completion_not_scientific_support",
+    "direction": "higher",
+    "conditions": [
+      "batch"
+    ],
+    "expected_runs": [
+      {
+        "run_id": "c4-v5-two-tier-dev-001",
+        "condition": "batch",
+        "seed": 0
+      }
+    ],
+    "comparison": null,
+    "confidence_interval": "none",
+    "bootstrap_samples": 100,
+    "random_seed": 0,
+    "multiple_comparisons": "none-single-comparison",
+    "exclusion_rule": "none"
+  }
+}

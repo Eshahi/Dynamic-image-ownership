@@ -1,0 +1,36 @@
+{
+  "schema_version": "revised-watermark-v5",
+  "profile": "two-tier-dual-key-dct",
+  "security": "public-derived",
+  "semantic_source": "external:clip-vit-b32-a6-40d365715913",
+  "minimum_side": 256,
+  "robust_frequencies": [[0, 1], [0, 2], [0, 3], [0, 4], [1, 0], [1, 1], [1, 2], [1, 3], [1, 4], [2, 0], [2, 1], [2, 2], [2, 3], [2, 4], [3, 0], [3, 1], [3, 2], [3, 3], [3, 4], [4, 0], [4, 1], [4, 2], [4, 3], [4, 4]],
+  "instance_frequencies": [[0, 3], [3, 0], [1, 3], [3, 1], [2, 3], [3, 2]],
+  "code_bits": 32,
+  "segment_chips": 10,
+  "canonical_side": 128,
+  "robust": {
+    "floor": 12.0,
+    "whitening": 1.0
+  },
+  "embedding": {
+    "visibility": 1.0,
+    "mask_base": 0.4,
+    "mask_weber": 0.35,
+    "mask_cap": 5.0,
+    "block_ratio_cap": 1.5,
+    "min_robust_psnr_db": 36.0,
+    "design_gain": 0.5,
+    "design_noise": 0.3,
+    "instance_psnr_db": 47.0,
+    "instance_noise_std": 8.0,
+    "passes": 3
+  },
+  "decision": {
+    "false_positive_target": 1e-06,
+    "semantic_radius": 6,
+    "semantic_mismatch_distance": 10,
+    "instance_radius": 6,
+    "instance_mismatch_distance": 10
+  }
+}
