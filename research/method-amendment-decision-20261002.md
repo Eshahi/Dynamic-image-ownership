@@ -63,8 +63,22 @@ Further judgement calls of this continuation, for the user to confirm or reject:
 6. **Revision 2 replaces revision 1 in the study package** before any photograph was marked: the package's codec, profiles, worker check, transfer arm and tests were moved to revision 2 on the study branch in a second local commit. The acceptance criteria are unchanged. Revision 1 stays reproducible at `f9087a2`.
 7. **The operating point moved to the admissibility edge** (deviation 27): the default now spends the quality margin down to about 35.2 dB, where revision 1 stayed at 36 to 45 dB.
 
+On 2026-10-03, after a context compaction and while the real study's manifest was being prepared:
+
+> به بهبود الکوریتم با همون دسترسی های قبلی که کامل بود ادامه بده.
+
+"Continue improving the algorithm with the same permissions as before, which were complete." Taken to authorize, as before, engineering of the candidate on synthetic images with the local pipeline, CLIP and LPIPS, local commits on the study branch and a rehearsal; not a run on study images, adoption, a push or remote compute. Revision 3 was designed on that basis (amendment, section "Revision 2" is followed by "Revision 3"). It changes the embedder only and keeps the detector and `detector_config_id` of revision 2. The manifest `.thesis-build/v5-study-final-001.json` built that day at `a1c2d71` (SHA-256 `badeb757...`) was never presented or approved and is superseded once the package moves to revision 3.
+
+Further judgement calls of this continuation, for the user to confirm or reject:
+
+8. **Model weights on synthetic images again,** as in calls 1 and 5, for the revision-3 lab, a carrier probe and a second held-out set of twenty synthetic hosts (`dev_v5_holdout_hosts.py --set holdout2`, seeds 3000 to 3015 and 300 to 303).
+9. **Revision 3 replaces revision 2 in the study package** before any photograph was marked, in a third local commit; the acceptance criteria are unchanged. Revision 2 stays reproducible at `a1c2d71`, and the revision-3 code reproduces it bit for bit with `design_gain` 0.5, `fill_order` 0 and `colour` `equal`.
+10. **A known side effect was accepted:** the stronger key pattern draws together the perceptual hashes of two images carrying the same copied mark, so one within-composition copy in the tests now reads `content_uncertain` instead of `content_mismatch` (amendment, "Revision 3"). It is never a false attribution, but it is a weaker copy-paste signal in that case.
+
+Rehearsal record: rehearsal 002 of the study package at the clean commit `a1c2d71` (manifest `.thesis-build/v5-study-rehearsal-manifest-002.json`, SHA-256 `c6676b4da01f539ffc718476611f767cf44643dfda8faa50d82548222fb89cd7`) ran through the official launcher and worker on synthetic stand-ins, returned 0, completed 2,204 of 2,204 detector calls with no failed stage, and wrote only under `.thesis-build/rehearsal/v5-study-rehearsal-002/` (analysis in `analysis.json` there). The package may now be presented, after an independent review, for the user's manifest-specific approval; no manifest of the real study has been built.
+
 ## Consequences
 
 Before any scientific use: an independent review of the amendment, the codec, the tests and the package; the user's decision on adoption as comparator and, for deviations 17, 18, 20 and 27, the supervisor's; the user's manifest-specific approval of the study and its launch by the user; human visual assessment of marked images.
 
-Cost and schedule consequences have not been assessed. Decision authority: the user for adoption and for the seven judgement calls above; the supervisor for deviations 17, 18, 20 and 27. Issue: #18.
+Cost and schedule consequences have not been assessed. Decision authority: the user for adoption and for the ten judgement calls above; the supervisor for deviations 17, 18, 20, 27 and 29. Issue: #18.

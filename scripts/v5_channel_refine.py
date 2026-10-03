@@ -118,9 +118,14 @@ class Refiner:
         height, width = rgb.shape[:2]
         if height % SIDE or width % SIDE:
             raise ValueError("the refinement stage needs image sides that are multiples of 128")
-        contract = codec.robust_plan(codec.luminance_from_rgb(rgb.tolist()), owner_id, secret_key, profile, semantic_features)
+        # Revision 3: the change goes along each pixel's colour direction and the PSNR floor is on the RGB error.
+        directions = codec.colour_directions(rgb.tolist(), profile)
+        weights = [[(r * r + g * g + b * b) / 3.0 for r, g, b in row] for row in directions]
+        contract = codec.robust_plan(codec.luminance_from_rgb(rgb.tolist()), owner_id, secret_key, profile, semantic_features, error_weights=weights)
         device = self.device
         tensor = lambda values: torch.tensor(values, dtype=torch.float32, device=device)  # noqa: E731
+        colour = tensor(directions).permute(2, 0, 1)  # (3, height, width)
+        error_weights = tensor(weights)
         positions = contract["positions"]
         kernel = (height // SIDE, width // SIDE)
 
@@ -159,12 +164,12 @@ class Refiner:
             change = value * plan["mask"][:, None]
             with torch.no_grad():
                 block = torch.clamp(block_cap / (self._ratios(change, plan) + 1e-9), max=1.0)
-                error = float((self._render(change * block[:, None], plan) ** 2).mean())
+                error = float((self._render(change * block[:, None], plan) ** 2 * error_weights).mean())
                 total = min(1.0, math.sqrt(floor_mse / error)) if error > 0 else 1.0
             return change * block[:, None] * total * 0.999  # a margin for the codec's own arithmetic
 
         def marked(value: torch.Tensor) -> torch.Tensor:
-            return (host + self._render(project(value), plan)[None]).clamp(0, 255)
+            return (host + self._render(project(value), plan)[None] * colour).clamp(0, 255)
 
         with torch.no_grad():
             before = {"clean": float(self._score(marked(variable), plan)), "round_trip": float(self._score(self.round_trip(marked(variable)), plan))}

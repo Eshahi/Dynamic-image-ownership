@@ -98,8 +98,8 @@ def hosts(which: str = "dev") -> list[tuple[str, np.ndarray]]:
     """``dev``: the tuning hosts; ``holdout``: the held-out set of ``dev_v5_holdout_hosts`` (never used for tuning)."""
     from PIL import Image
 
-    if which == "holdout":
-        return [(path.stem, np.asarray(Image.open(path).convert("RGB"))) for path in sorted((probe.OUTPUT / "holdout").glob("holdout-*.png"))]
+    if which in ("holdout", "holdout2"):
+        return [(path.stem, np.asarray(Image.open(path).convert("RGB"))) for path in sorted((probe.OUTPUT / which).glob(f"{which}-*.png"))]
     out = [(f"procedural-{index}", probe.procedural(100 + index)) for index in range(4)]
     for path in sorted((probe.OUTPUT / "hosts").glob("generated-*.png")):
         out.append((path.stem, np.asarray(Image.open(path).convert("RGB"))))
@@ -144,7 +144,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--tag", default="default")
     parser.add_argument("--profile", help="profile JSON to start from instead of the codec default")
-    parser.add_argument("--hosts", default="dev", choices=("dev", "holdout"))
+    parser.add_argument("--hosts", default="dev", choices=("dev", "holdout", "holdout2"))
     parser.add_argument("--visibility", type=float)
     parser.add_argument("--cap", type=float, help="block_ratio_cap")
     parser.add_argument("--weber", type=float)

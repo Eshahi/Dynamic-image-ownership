@@ -35,6 +35,15 @@ random signs of Bentkus and Dzindzalieta instead of Hoeffding's.  Revision 1 is
 the snapshot committed as f9087a2 on ``claude/v5-two-tier-study``; the two
 revisions derive different ``detector_config_id`` values.
 
+Revision 3 changes the embedder only; the detector, its configuration and its
+``detector_config_id`` are those of revision 2, so either revision's marks are
+read the same way.  The host rejection is designed for a channel that returns
+a fifth of what is added (img2img at low strength) instead of a half, which
+spends more of the budget on the key pattern; the fill raises quiet blocks,
+where regeneration changes the least, before busy ones; and a colour image
+receives its luminance change at constant chromaticity, like a change of
+illumination, with the PSNR floor measured on the RGB error it causes.
+
 Claim boundary: an image-domain codec and candidate comparator.  It does not
 implement latent or initial-noise embedding, no detector state establishes
 legal ownership, and survival of regeneration is a measured property of a
@@ -70,7 +79,9 @@ if base.REVISION != 2 or base.CHANNEL_BITS != 320:
 
 MAGIC = b"rw-v5"
 VERSION = 5
-REVISION = 2
+REVISION = 3
+# Revision of the detector (and of ``detector_config_id``); revision 3 changed the embedder only.
+DETECTOR_REVISION = 2
 BLOCK = 8
 CANONICAL_SIDE = 128
 MIN_SIDE = 256
@@ -104,11 +115,15 @@ _EMBEDDING_FIELDS = frozenset(
         "shape_percentile",
         "design_gain",
         "design_noise",
+        "fill_order",
+        "colour",
+        "colour_offset",
         "instance_psnr_db",
         "instance_noise_std",
         "passes",
     )
 )
+COLOUR_MODES = ("equal", "proportional")
 _DECISION_FIELDS = base._DECISION_FIELDS
 _PROFILE_FIELDS = frozenset(_CONSTANTS) | {
     "security",
@@ -155,8 +170,11 @@ def _default_profile(security: str) -> dict[str, object]:
             "min_robust_psnr_db": 35.5,
             "shape_window": 3,
             "shape_percentile": 75.0,
-            "design_gain": 0.5,
+            "design_gain": 0.2,
             "design_noise": 0.3,
+            "fill_order": 2.0,
+            "colour": "proportional",
+            "colour_offset": 10.0,
             "instance_psnr_db": 47.0,
             "instance_noise_std": 8.0,
             "passes": 3,
@@ -240,6 +258,10 @@ def validate_profile(profile: Mapping[str, object]) -> dict[str, object]:
     base._number(embedding["shape_percentile"], 0.0, 100.0, "shape_percentile", low_open=True)
     base._number(embedding["design_gain"], 0.0, 1.0, "design_gain", low_open=True)
     base._number(embedding["design_noise"], 0.0, 16.0, "design_noise", low_open=True)
+    base._number(embedding["fill_order"], 0.0, 8.0, "fill_order")
+    if embedding["colour"] not in COLOUR_MODES:
+        raise ValueError("embedding colour must be equal or proportional")
+    base._number(embedding["colour_offset"], 0.0, 255.0, "colour_offset")
     base._number(embedding["instance_psnr_db"], 30.0, 60.0, "instance_psnr_db")
     base._number(embedding["instance_noise_std"], 0.0, 64.0, "instance_noise_std", low_open=True)
     if isinstance(embedding["passes"], bool) or not isinstance(embedding["passes"], int) or not 1 <= embedding["passes"] <= 8:
@@ -271,7 +293,7 @@ def detector_config_id(profile: Mapping[str, object]) -> str:
     """SHA-256 of the canonical JSON of every field the detector depends on."""
     checked = validate_profile(profile)
     static = {key: checked[key] for key in _DETECTOR_FIELDS}
-    return hashlib.sha256(MAGIC + b"/config/r%d/" % REVISION + base._canonical_json(static)).hexdigest()
+    return hashlib.sha256(MAGIC + b"/config/r%d/" % DETECTOR_REVISION + base._canonical_json(static)).hexdigest()
 
 
 def decision_id(profile: Mapping[str, object]) -> str:
@@ -717,24 +739,30 @@ def _shape_factors(image: Sequence[Sequence[float]], checked) -> list[list[float
     return [[min(1.0, level / reference[rows[y] * blocks + columns[x]]) for x, level in enumerate(row)] for y, row in enumerate(levels)]
 
 
-def _block_energies(delta: Sequence[Sequence[float]]) -> tuple[list[float], list[int]]:
-    """Sum of squared pixel changes and pixel count of every coarse block."""
+def _block_energies(delta: Sequence[Sequence[float]], weights: Sequence[Sequence[float]] | None = None) -> tuple[list[float], list[int]]:
+    """Sum of squared pixel changes (times ``weights`` when given) and pixel count of every coarse block."""
     rows, columns = _block_of_pixel(len(delta)), _block_of_pixel(len(delta[0]))
     blocks = CANONICAL_SIDE // BLOCK
     sums, counts = [0.0] * (blocks * blocks), [0] * (blocks * blocks)
     for y, row in enumerate(delta):
         offset = rows[y] * blocks
+        factors = weights[y] if weights is not None else None
         for x, value in enumerate(row):
-            sums[offset + columns[x]] += value * value
+            sums[offset + columns[x]] += value * value * (factors[x] if factors is not None else 1.0)
             counts[offset + columns[x]] += 1
     return sums, counts
 
 
-def _budget(delta, mask, embedding) -> dict[str, float]:
-    """Block ratios (RMS change of a block over its mask) and PSNR of a full-resolution robust change."""
+def _budget(delta, mask, embedding, weights=None) -> dict[str, float]:
+    """Block ratios (RMS change of a block over its mask) and PSNR of a full-resolution robust change.
+
+    The ratios are in luminance.  ``weights`` (see :func:`colour_weights`) puts
+    the error in the domain of the image that receives the change, RGB for a
+    colour image; without it the error is that of the luminance.
+    """
     sums, counts = _block_energies(delta)
     ratios = [math.sqrt(total / count) / level if count else 0.0 for total, count, level in zip(sums, counts, mask)]
-    error = sum(sums) / float(len(delta) * len(delta[0]))
+    error = sum(sums if weights is None else _block_energies(delta, weights)[0]) / float(len(delta) * len(delta[0]))
     return {
         "ratio_rms": math.sqrt(sum(ratio * ratio for ratio in ratios) / len(ratios)),
         "ratio_max": max(ratios),
@@ -743,26 +771,35 @@ def _budget(delta, mask, embedding) -> dict[str, float]:
     }
 
 
-def _fill(unit, mask, embedding) -> tuple[list[float], dict[str, object]]:
-    """Scale factor of every coarse block: as large as the PSNR floor allows, each block clipped at its own cap.
+def _fill(unit, mask, embedding, weights=None) -> tuple[list[float], dict[str, object]]:
+    """Scale factor of every coarse block: quiet blocks first, each block clipped at its own cap, up to the PSNR floor.
 
     ``unit`` is the shaped full-resolution change of the plan.  Visibility acts
     block by block, as a just-noticeable-difference limit (``block_ratio_cap``
     times the block's mask, RMS over the block); the PSNR floor is the only
-    global limit.  A plan that reaches every cap before the floor stops there.
+    global limit.  Block ``b`` is scaled by ``min(s * (1 + mask[b]) ** -fill_order,
+    its cap)`` (mask in grey levels) with one ``s`` for the image: regeneration
+    changes a quiet block least, so a unit of error buys most score there
+    (revision 3; ``fill_order`` 0 is the uniform scale of revision 2).  A plan
+    that reaches every cap before the floor stops there.  ``weights`` measures
+    the floor on the error of the image that receives the change (see
+    :func:`_budget`).
     """
     cap = float(embedding["block_ratio_cap"])
+    order = float(embedding["fill_order"])
     floor_mse = 255.0**2 / 10.0 ** (float(embedding["min_robust_psnr_db"]) / 10.0)
     sums, counts = _block_energies(unit)
+    costs = sums if weights is None else _block_energies(unit, weights)[0]
     pixels = float(len(unit) * len(unit[0]))
     limits = [cap * level / math.sqrt(total / count) if total > 0.0 else math.inf for total, count, level in zip(sums, counts, mask)]
+    priorities = [(1.0 + level) ** -order for level in mask]
     if all(total <= 0.0 for total in sums):
         raise ValueError("the robust change is zero")
 
     def error(scale: float) -> float:
-        return sum(total * min(scale, limit) ** 2 for total, limit in zip(sums, limits)) / pixels
+        return sum(cost * min(scale * priority, limit) ** 2 for cost, limit, priority in zip(costs, limits, priorities)) / pixels
 
-    ceiling = max(limit for limit in limits if math.isfinite(limit))
+    ceiling = max(limit / priority for limit, priority in zip(limits, priorities) if math.isfinite(limit))
     if error(ceiling) <= floor_mse:
         scale, bound = ceiling, "block caps"
     else:
@@ -771,7 +808,7 @@ def _fill(unit, mask, embedding) -> tuple[list[float], dict[str, object]]:
             middle = (low + high) / 2.0
             low, high = (middle, high) if error(middle) < floor_mse else (low, middle)
         scale, bound = low, "psnr floor"
-    return [min(scale, limit) for limit in limits], {"fill_scale": scale, "bound_by": bound}
+    return [min(scale * priority, limit) for limit, priority in zip(limits, priorities)], {"fill_scale": scale, "bound_by": bound}
 
 
 def _apply(unit, factors) -> list[list[float]]:
@@ -876,7 +913,7 @@ def _shaped(image, robust, change, shape) -> list[list[float]]:
     return [[value * factor for value, factor in zip(row, factors)] for row, factors in zip(rendered, shape)]
 
 
-def _closed_form(image, robust, plan, checked):
+def _closed_form(image, robust, plan, checked, weights=None):
     """The plan rendered, shaped and filled.
 
     Returns the final coefficient-domain change (what :func:`robust_plan`
@@ -886,7 +923,7 @@ def _closed_form(image, robust, plan, checked):
     """
     shape = _shape_factors(image, checked)
     unit = _shaped(image, robust, plan["change"], shape)
-    factors, fill = _fill(unit, robust.mask, checked["embedding"])
+    factors, fill = _fill(unit, robust.mask, checked["embedding"], weights)
     change = [[value * factor for value in block] for block, factor in zip(plan["change"], factors)]
     return change, _apply(unit, factors), shape, fill
 
@@ -897,6 +934,7 @@ def robust_plan(
     secret_key: bytes | str | None = None,
     profile: Mapping[str, object] | None = None,
     semantic_features: Sequence[float] | None = None,
+    error_weights: Sequence[Sequence[float]] | None = None,
 ) -> dict[str, object]:
     """Embedder-independent contract of the robust tier.
 
@@ -908,10 +946,13 @@ def robust_plan(
     of coarse block ``b`` (row-major, 16 blocks per row); the image receives
     its rendering multiplied by ``shape`` pixel by pixel.  A change handed back
     to :func:`embed_with_report` is refused when, so rendered and shaped, a
-    block exceeds its cap or the image falls below the PSNR floor.
+    block exceeds its cap or the image falls below the PSNR floor.  For a
+    colour image pass ``error_weights=colour_weights(rgb, profile)``, as
+    :func:`embed_rgb` does, so that the floor is the one it will check.
     """
     checked, _key, config, _owner, height, width, q, robust, ws, plan = _prepare(image, owner_id, secret_key, profile, semantic_features)
-    change, delta, shape, fill = _closed_form(image, robust, plan, checked)
+    weights = _checked_weights(error_weights, height, width)
+    change, delta, shape, fill = _closed_form(image, robust, plan, checked, weights)
     bit_of_slot, signs = robust.carrier
     return {
         "detector_config_id": config.hex(),
@@ -931,10 +972,56 @@ def robust_plan(
         "averaging_gains": list(robust.gains),
         "shape": shape,
         "change": change,
-        "limits": {**_budget(delta, robust.mask, checked["embedding"]), **fill},
+        "limits": {**_budget(delta, robust.mask, checked["embedding"], weights), **fill},
+        "error_domain": "luminance" if weights is None else "weighted",
         "block_ratio_cap": float(checked["embedding"]["block_ratio_cap"]),
         "min_robust_psnr_db": float(checked["embedding"]["min_robust_psnr_db"]),
     }
+
+
+def _checked_weights(weights, height: int, width: int):
+    if weights is None:
+        return None
+    rows = [[float(value) for value in row] for row in weights]
+    if len(rows) != height or any(len(row) != width for row in rows):
+        raise ValueError("error_weights must have the image's shape")
+    if any(not (math.isfinite(value) and value > 0.0) for row in rows for value in row):
+        raise ValueError("error_weights must be finite and positive")
+    return rows
+
+
+def colour_directions(rgb: Sequence[Sequence[Sequence[float]]], profile: Mapping[str, object] | None = None) -> list[list[tuple[float, float, float]]]:
+    """Per pixel, the RGB change that moves the luminance by one grey level (revision 3).
+
+    ``equal`` adds the same value to R, G and B, as revisions 1 and 2 did.
+    ``proportional`` moves the pixel along its own colour, offset by
+    ``colour_offset`` in every channel and scaled to unit luminance: the
+    chromaticity stays, as under a change of illumination, where an equal
+    change would wash out a saturated colour; the offset keeps a dark pixel
+    from putting the whole change into one channel.  A grey pixel gets
+    ``(1, 1, 1)`` either way.
+    """
+    embedding = validate_profile(DEFAULT_PROFILE if profile is None else profile)["embedding"]
+    if embedding["colour"] == "equal":
+        return [[(1.0, 1.0, 1.0) for _pixel in row] for row in rgb]
+    offset = float(embedding["colour_offset"])
+    out = []
+    for row in rgb:
+        out_row = []
+        for pixel in row:
+            r, g, b = (float(channel) + offset for channel in pixel)
+            luma = 0.299 * r + 0.587 * g + 0.114 * b
+            if luma <= 0.0:
+                out_row.append((1.0, 1.0, 1.0))
+            else:
+                out_row.append((r / luma, g / luma, b / luma))
+        out.append(out_row)
+    return out
+
+
+def colour_weights(rgb: Sequence[Sequence[Sequence[float]]], profile: Mapping[str, object] | None = None) -> list[list[float]]:
+    """Per pixel, the mean squared RGB change per squared grey level of luminance change (1 for ``equal``)."""
+    return [[(r * r + g * g + b * b) / 3.0 for r, g, b in row] for row in colour_directions(rgb, profile)]
 
 
 def embed_with_report(
@@ -947,6 +1034,7 @@ def embed_with_report(
     strict: bool = True,
     reserve_rounding: bool | None = None,
     robust_change: Sequence[Sequence[float]] | None = None,
+    error_weights: Sequence[Sequence[float]] | None = None,
 ) -> tuple[list[list[float]], dict[str, object]]:
     """Embed both keys and verify the result with the real detector.
 
@@ -957,17 +1045,26 @@ def embed_with_report(
 
     ``robust_change`` replaces the closed-form robust change with one computed
     elsewhere under the same budget (see :func:`robust_plan`); it is used as it
-    is, never scaled up.  With ``strict`` a marked output that the detector does
-    not accept as ``both_match`` raises :class:`EmbeddingError`; otherwise the
-    failure is returned in the report.
+    is, never scaled up.  ``error_weights`` measures the robust tier's PSNR
+    floor on the error of the image that will receive the change (see
+    :func:`colour_weights`; :func:`embed_rgb` passes them).  With ``strict`` a
+    marked output that the detector does not accept as ``both_match`` raises
+    :class:`EmbeddingError`; otherwise the failure is returned in the report.
     """
+    output, report, _robust_only = _embed_luminance(image, owner_id, secret_key, profile, semantic_features, quantize, strict, reserve_rounding, robust_change, error_weights)
+    return output, report
+
+
+def _embed_luminance(image, owner_id, secret_key, profile, semantic_features, quantize, strict, reserve_rounding, robust_change, error_weights):
+    """:func:`embed_with_report`, also returning the image after the robust tier alone."""
     if reserve_rounding is None:
         reserve_rounding = quantize
     checked, key, config, owner, height, width, q, robust, _ws, plan = _prepare(image, owner_id, secret_key, profile, semantic_features)
     embedding = checked["embedding"]
+    weights = _checked_weights(error_weights, height, width)
     count = len(robust.positions)
     if robust_change is None:
-        _change, delta, _shape, fill = _closed_form(image, robust, plan, checked)
+        _change, delta, _shape, fill = _closed_form(image, robust, plan, checked, weights)
         source = "closed-form"
     else:
         supplied = [[float(value) for value in block] for block in robust_change]
@@ -976,7 +1073,7 @@ def embed_with_report(
         if any(not math.isfinite(value) for block in supplied for value in block):
             raise ValueError("robust_change must be finite")
         delta = _shaped(image, robust, supplied, _shape_factors(image, checked))
-        spent = _budget(delta, robust.mask, embedding)
+        spent = _budget(delta, robust.mask, embedding, weights)
         floor_mse = 255.0**2 / 10.0 ** (float(embedding["min_robust_psnr_db"]) / 10.0)
         if spent["planned_mse"] <= 0.0:
             raise ValueError("the robust change is zero")
@@ -984,9 +1081,10 @@ def embed_with_report(
             raise ValueError("the supplied robust change exceeds the profile's block caps or PSNR floor")
         fill = {"fill_scale": None, "bound_by": "external"}
         source = "external"
-    limits = {**_budget(delta, robust.mask, embedding), **fill}
+    limits = {**_budget(delta, robust.mask, embedding, weights), **fill}
     output = [[min(255.0, max(0.0, float(value) + shift)) for value, shift in zip(row, delta_row)] for row, delta_row in zip(image, delta)]
     robust_mse = mse(image, output)
+    robust_only = [list(row) for row in output]
 
     fragile = _Fragile(checked, key, config, owner, height, width)
     means, coefficients = base._analyse(output, fragile.analysis)
@@ -1018,6 +1116,7 @@ def embed_with_report(
             "amplitude": plan["amplitude"],
             "host_rms": plan["host_rms"],
             "visibility_share": plan["visibility_share"],
+            "error_domain": "luminance" if weights is None else "weighted",
             **limits,
         },
         "instance_channel": instance,
@@ -1028,7 +1127,7 @@ def embed_with_report(
     }
     if strict and not report["verified"]:
         raise EmbeddingError("marked output failed self-verification: " + str(result["outcome"]), report)
-    return output, report
+    return output, report, robust_only
 
 
 def embed(
@@ -1354,23 +1453,33 @@ def embed_rgb(
 ) -> tuple[list[list[tuple[int, int, int]]], dict[str, object]]:
     """Mark a colour image: add the luminance change to R, G and B, then round to bytes.
 
-    The returned report verifies the rounded RGB output itself.
+    The robust tier's change goes along :func:`colour_directions` (revision 3:
+    at constant chromaticity by default) and its PSNR floor is measured on the
+    RGB error that causes; the fragile tier's fine-grained change is added
+    equally to R, G and B.  The returned report verifies the rounded RGB output
+    itself.
     """
     source = luminance_from_rgb(rgb)
-    marked, report = embed_with_report(
-        source, owner_id, secret_key, profile, semantic_features, quantize=False, strict=False, reserve_rounding=True, robust_change=robust_change
+    directions = colour_directions(rgb, profile)
+    weights = [[(r * r + g * g + b * b) / 3.0 for r, g, b in row] for row in directions]
+    marked, report, robust_only = _embed_luminance(
+        source, owner_id, secret_key, profile, semantic_features, False, False, True, robust_change, weights
     )
     clipped = 0
     output = []
-    for row, source_row, marked_row in zip(rgb, source, marked):
+    error = 0.0
+    for row, source_row, robust_row, marked_row, direction_row in zip(rgb, source, robust_only, marked, directions):
         output_row = []
-        for pixel, before, after in zip(row, source_row, marked_row):
-            values = [math.floor(float(channel) + after - before + 0.5) for channel in pixel]
+        for pixel, before, middle, after, direction in zip(row, source_row, robust_row, marked_row, direction_row):
+            values = [math.floor(float(channel) + (middle - before) * weight + (after - middle) + 0.5) for channel, weight in zip(pixel, direction)]
             clipped += sum(value < 0 or value > 255 for value in values)
-            output_row.append(tuple(int(min(255, max(0, value))) for value in values))
+            final = tuple(int(min(255, max(0, value))) for value in values)
+            error += sum((value - float(channel)) ** 2 for value, channel in zip(final, pixel))
+            output_row.append(final)
         output.append(output_row)
     saved = luminance_from_rgb(output)
     result = detect(saved, owner_id, secret_key, profile, semantic_features)
+    rgb_mse = error / (3.0 * len(source) * len(source[0]))
     report.update(
         {
             "verification": result,
@@ -1381,6 +1490,8 @@ def embed_rgb(
             "mse": mse(source, saved),
             "psnr_db": psnr(source, saved),
             "quality_domain": "luminance of the rounded RGB output",
+            "rgb_mse": rgb_mse,
+            "rgb_psnr_db": float("inf") if rgb_mse == 0.0 else 10.0 * math.log10(255.0**2 / rgb_mse),
         }
     )
     if strict and not report["verified"]:

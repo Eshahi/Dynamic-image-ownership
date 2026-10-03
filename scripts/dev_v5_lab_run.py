@@ -82,7 +82,7 @@ def read(image, keys, variant):
     if image is None:
         return None
     y = lab.luma(image)
-    recomputed, decoded, code = lab.score(lab.Analysis(y, keys, variant), keys.q(y))
+    recomputed, decoded, code = lab.score(lab.Analysis(y, keys, {**variant, "_reading": True}), keys.q(y))
     return {"r": round(recomputed, 3), "d": round(decoded, 3), "found": recomputed >= SINGLE or decoded >= SEARCHED}
 
 

@@ -23,8 +23,11 @@
     "min_robust_psnr_db": 33.0,
     "shape_window": 3,
     "shape_percentile": 75.0,
-    "design_gain": 0.5,
+    "design_gain": 0.2,
     "design_noise": 0.3,
+    "fill_order": 2.0,
+    "colour": "proportional",
+    "colour_offset": 10.0,
     "instance_psnr_db": 47.0,
     "instance_noise_std": 8.0,
     "passes": 3

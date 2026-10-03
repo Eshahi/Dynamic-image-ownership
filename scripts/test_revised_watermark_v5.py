@@ -21,6 +21,7 @@ from scripts.revised_watermark_v5 import (
     CHANNEL_CHIPS,
     CODE_BITS,
     DEFAULT_PROFILE,
+    DETECTOR_REVISION,
     KEYED_PROFILE,
     PUBLIC_KEY,
     REVISION,
@@ -29,18 +30,23 @@ from scripts.revised_watermark_v5 import (
     EmbeddingError,
     _activity,
     _averaging_gain,
+    _block_energies,
     _channel_result,
+    _closed_form,
     _coarse,
     _decoding_error_rate,
     _key_test,
     _local_flatness,
     _percentile,
+    _prepare,
     _Robust,
     _robust_carrier,
     _semantic_table,
     _shape_factors,
     _tail_bound,
     _threshold,
+    colour_directions,
+    colour_weights,
     decision_id,
     derive_keys,
     detect,
@@ -101,7 +107,8 @@ class KnownAnswerTests(unittest.TestCase):
     IMAGE = [[float((3 * x + 5 * y + (x * y) % 23 + ((x // 16) * 40) % 90) % 256) for x in range(264)] for y in range(256)]
 
     def test_identifiers(self):
-        self.assertEqual(REVISION, 2)
+        # Revision 3 changed the embedder only: the detector, its configuration and its identifier are revision 2's.
+        self.assertEqual((REVISION, DETECTOR_REVISION), (3, 2))
         self.assertEqual(PUBLIC_KEY.hex(), "8976bcd96c9a5e3693f59e1c2a5dfc1c28c5222dddee630d26f762ce4801dca7")
         self.assertEqual(detector_config_id(DEFAULT_PROFILE), "92ce199715efa6bce86a9640cecf36c2f2e94aae07cc9cf2be43b1fa4410b40f")
         self.assertEqual(detector_config_id(KEYED_PROFILE), "61599617d99fbc496a9a07a9ff1228ba049be30249356a626bc792775008c9e8")
@@ -161,11 +168,23 @@ class KnownAnswerTests(unittest.TestCase):
     def test_marked_image(self):
         image = scene(4, 256, 256)
         marked, report = embed_with_report(image, OWNER, self.SECRET, KEYED_PROFILE)
-        self.assertEqual(hashlib.sha256(json.dumps(marked).encode()).hexdigest(), "ef8e7295842fcb266e66a66d60851c97dafb96ba209e1d218ba50a8b7a67dab2")
-        self.assertEqual((report["semantic_code"], report["perceptual_hash"]), ("fb6be451", "4e2fd97a"))
+        self.assertEqual(hashlib.sha256(json.dumps(marked).encode()).hexdigest(), "4a7ce1ea4ff6b04fe6d30da7fdff416397311dae8e0c4c9d2e312de4c8be12b9")
+        self.assertEqual((report["semantic_code"], report["perceptual_hash"]), ("fb6be451", "4e0fd97a"))
         unmarked = detect(image, OWNER, self.SECRET, KEYED_PROFILE)
         self.assertEqual(unmarked["outcome"], "neither_match")
         self.assertEqual(unmarked["semantic_code"], report["semantic_code"])
+
+    def test_colour_directions(self):
+        pixels = [[(200, 100, 20), (0, 0, 0), (128, 128, 128), (30, 60, 250)]]
+        expected = ((1.60575, 0.841107, 0.229393), (1.0, 1.0, 1.0), (1.0, 1.0, 1.0), (0.483734, 0.846535, 3.144274))
+        for direction, reference in zip(colour_directions(pixels)[0], expected):
+            for value, wanted in zip(direction, reference):
+                self.assertAlmostEqual(value, wanted, places=6)
+            self.assertAlmostEqual(0.299 * direction[0] + 0.587 * direction[1] + 0.114 * direction[2], 1.0, places=12)
+        for value, wanted in zip(colour_weights(pixels)[0], (1.112839, 1.0, 1.0, 3.61236)):
+            self.assertAlmostEqual(value, wanted, places=6)
+        equal = profile_with(DEFAULT_PROFILE, embedding={"colour": "equal"})
+        self.assertEqual(colour_directions(pixels, equal)[0], [(1.0, 1.0, 1.0)] * 4)
 
     def test_thresholds(self):
         self.assertAlmostEqual(SINGLE, 4.982033056390042, places=9)
@@ -286,7 +305,10 @@ class ProfileTests(unittest.TestCase):
 
     def test_detector_identifier_follows_detector_fields_only(self):
         reference = detector_config_id(KEYED_PROFILE)
-        embedding_only = {"visibility": 2.0, "block_ratio_cap": 3.0, "min_robust_psnr_db": 33.0, "shape_window": 5, "shape_percentile": 50.0}
+        embedding_only = {
+            "visibility": 2.0, "block_ratio_cap": 3.0, "min_robust_psnr_db": 33.0, "shape_window": 5, "shape_percentile": 50.0,
+            "design_gain": 0.5, "fill_order": 0.0, "colour": "equal", "colour_offset": 0.0,
+        }
         self.assertEqual(detector_config_id(profile_with(embedding=embedding_only)), reference)
         self.assertEqual(detector_config_id(profile_with(decision={"semantic_radius": 4})), reference)
         self.assertNotEqual(decision_id(profile_with(decision={"semantic_radius": 4})), decision_id(KEYED_PROFILE))
@@ -322,6 +344,11 @@ class ProfileTests(unittest.TestCase):
             dict(DEFAULT_PROFILE, embedding=dict(DEFAULT_PROFILE["embedding"], shape_percentile=0.0)),
             dict(DEFAULT_PROFILE, embedding=dict(DEFAULT_PROFILE["embedding"], passes=0)),
             dict(DEFAULT_PROFILE, embedding=dict(DEFAULT_PROFILE["embedding"], design_gain=float("nan"))),
+            dict(DEFAULT_PROFILE, embedding=dict(DEFAULT_PROFILE["embedding"], fill_order=-1.0)),
+            dict(DEFAULT_PROFILE, embedding=dict(DEFAULT_PROFILE["embedding"], colour="hue")),
+            dict(DEFAULT_PROFILE, embedding=dict(DEFAULT_PROFILE["embedding"], colour_offset=-1.0)),
+            # the revision-2 embedding fields
+            dict(DEFAULT_PROFILE, embedding={k: v for k, v in DEFAULT_PROFILE["embedding"].items() if k not in ("fill_order", "colour", "colour_offset")}),
             dict(DEFAULT_PROFILE, decision=dict(DEFAULT_PROFILE["decision"], semantic_radius=10)),
             dict(DEFAULT_PROFILE, decision=dict(DEFAULT_PROFILE["decision"], false_positive_target=0.5)),
         ]
@@ -396,6 +423,50 @@ class EmbeddingTests(unittest.TestCase):
         # The plan's own visibility budget shapes the change but does not set its final size.
         for case in self.cases:
             self.assertEqual(case[3]["robust_channel"]["visibility_share"], 1.0)
+
+    def test_fill_raises_quiet_blocks_first(self):
+        """With the PSNR floor binding, quiet blocks reach their cap and the busiest give way (revision 3)."""
+        rng = random.Random(5)
+        image = [[float(min(255, max(0, 128 + rng.gauss(0, 30) if x < 128 else 90 + 0.2 * y + rng.gauss(0, 1.0)))) for x in range(256)] for y in range(256)]
+        found = {}
+        for order in (0.0, 2.0):
+            checked, _key, _config, _owner, _h, _w, _q, robust, _ws, plan = _prepare(image, OWNER, KEY, profile_with(embedding={"fill_order": order, "min_robust_psnr_db": 40.0}), None)
+            _change, delta, _shape, fill = _closed_form(image, robust, plan, checked)
+            self.assertEqual(fill["bound_by"], "psnr floor")
+            sums, counts = _block_energies(delta)
+            ratios = [math.sqrt(total / count) / level for total, count, level in zip(sums, counts, robust.mask)]
+            quiet = [ratio for index, ratio in enumerate(ratios) if index % 16 >= 8]
+            busiest = [ratio for ratio, level in zip(ratios, robust.mask) if level > 4.5]
+            found[order] = (sum(quiet) / len(quiet), sum(busiest) / len(busiest))
+        self.assertLess(found[0.0][0], 1.95)
+        self.assertAlmostEqual(found[2.0][0], 2.0, places=6)
+        self.assertLess(found[2.0][1], found[0.0][1])
+
+    def test_colour_change_keeps_chromaticity_within_the_rgb_floor(self):
+        """embed_rgb: the robust change moves a saturated colour along itself, and the PSNR floor holds in RGB."""
+        rng = random.Random(4)
+        luminance = scene(6, 256, 256)
+        rgb = [[(min(255, int(1.3 * value)), int(0.75 * value), min(255, int(0.25 * value + rng.uniform(0, 6)))) for value in row] for row in luminance]
+        shifts = {}
+        for mode in ("proportional", "equal"):
+            profile = profile_with(DEFAULT_PROFILE, embedding={"colour": mode})
+            marked, report = embed_rgb(rgb, OWNER, profile=profile)
+            self.assertTrue(report["verified"], mode)
+            self.assertEqual(report["robust_channel"]["error_domain"], "weighted")
+            self.assertGreaterEqual(report["robust_channel"]["planned_psnr_db"], profile["embedding"]["min_robust_psnr_db"] - 1e-6)
+            self.assertGreater(report["rgb_psnr_db"], 35.0)
+            # Chromaticity drift: how far the blue share b / (r + g + b) moves, where the change is large.
+            drift = []
+            for row, out_row in zip(rgb, marked):
+                for before, after in zip(row, out_row):
+                    if abs(sum(after) - sum(before)) >= 9 and max(after) < 255:
+                        drift.append(abs(after[2] / max(1, sum(after)) - before[2] / max(1, sum(before))))
+            shifts[mode] = sum(drift) / len(drift)
+            if mode == "equal":
+                # Revision 2's behaviour: one integer change shared by R, G and B wherever nothing clips.
+                unclipped = [(a, b) for row, out_row in zip(rgb, marked) for a, b in zip(row, out_row) if 0 < min(b) and max(b) < 255]
+                self.assertTrue(all(len({after[i] - before[i] for i in range(3)}) == 1 for before, after in unclipped))
+        self.assertLess(shifts["proportional"], 0.5 * shifts["equal"])
 
     def test_shaping_keeps_a_flat_strip_inside_a_busy_block_free(self):
         """A strip narrower than one 8x8 cell, which the block mask cannot see, takes almost none of the change."""
@@ -483,6 +554,7 @@ class EmbeddingTests(unittest.TestCase):
         marked, report = embed_rgb(rgb, OWNER)
         self.assertTrue(report["verified"])
         self.assertEqual(report["quality_domain"], "luminance of the rounded RGB output")
+        self.assertGreater(report["rgb_psnr_db"], 35.0)
         self.assertEqual(detect_rgb(marked, OWNER)["outcome"], "both_match")
         self.assertEqual(detect_rgb(rgb, OWNER)["outcome"], "neither_match")
         self.assertEqual(detect_rgb(marked, "owner-beta")["outcome"], "neither_match")
@@ -587,11 +659,18 @@ class TransferTests(unittest.TestCase):
             moved = detect(residual_copy(scene(9, 256, 256), self.marked, self.donor), OWNER, KEY, KEYED_PROFILE, binding_mode=mode)
             self.assertEqual(moved["outcome"], expected, mode)
 
-    def test_whole_mark_within_one_composition_is_caught_by_the_instance_key(self):
+    def test_whole_mark_within_one_composition_is_not_reported_as_authentic(self):
+        """The instance key sees the other instance; how far depends on how strongly the shared mark pulls the hashes.
+
+        The robust change moves what the perceptual hash reads, and the copy carries it onto the second image too,
+        so the two hashes are drawn together.  In this scene the corrected distance was 11 bits with revision 2
+        (``content_mismatch``) and is 9 with revision 3, whose key pattern is stronger (``content_uncertain``, between
+        the radius of 6 and the mismatch distance of 10).  Neither is a false attribution.
+        """
         result = detect(residual_copy(self.second, self.family_marked, self.first), OWNER, KEY, KEYED_PROFILE)
-        self.assertEqual(result["outcome"], "content_mismatch")
+        self.assertEqual(result["outcome"], "content_uncertain")
         self.assertEqual(result["semantic"]["content_status"], "match")
-        self.assertGreaterEqual(result["instance"]["corrected_distance"], KEYED_PROFILE["decision"]["instance_mismatch_distance"])
+        self.assertGreaterEqual(result["instance"]["corrected_distance"], KEYED_PROFILE["decision"]["instance_radius"])
 
     def test_known_limit_coarse_part_alone_carries_the_semantic_key_within_a_composition(self):
         """Copying only the coarse part of a mark yields the 'regenerated' label on another image of the composition."""

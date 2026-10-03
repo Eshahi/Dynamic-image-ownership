@@ -111,8 +111,8 @@ def transfer(recipient, donor, profile, arm):
     computed with the public derivation and the recipient's projections are
     forced to them at the least squared error, three passes per tier.  The
     donor is an actual saved C1 image, or a C0 image for the sham; it is never
-    a freshly re-embedded victim.  With codec revision 2 the robust projections
-    are the detector's weighted ones (slot weights recomputed from each image),
+    a freshly re-embedded victim.  Since codec revision 2 (revision 3 keeps its
+    detector) the robust projections are the detector's weighted ones (slot weights recomputed from each image),
     and every chip's move is spread over its slots in proportion to the slot
     weight, which is the least-squared-error move for that projection.
     """

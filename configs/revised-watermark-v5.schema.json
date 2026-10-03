@@ -169,6 +169,9 @@
         "shape_percentile",
         "design_gain",
         "design_noise",
+        "fill_order",
+        "colour",
+        "colour_offset",
         "instance_psnr_db",
         "instance_noise_std",
         "passes"
@@ -204,12 +207,29 @@
         "design_gain": {
           "type": "number",
           "exclusiveMinimum": 0,
-          "maximum": 1
+          "maximum": 1,
+          "description": "Fraction of an added pattern the channel is expected to return; sets the host rejection of the plan."
         },
         "design_noise": {
           "type": "number",
           "exclusiveMinimum": 0,
           "maximum": 16
+        },
+        "fill_order": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 8,
+          "description": "Revision 3: the fill scales block b by min(s * (1 + mask[b]) ** -fill_order, its cap); 0 is the uniform scale of revision 2."
+        },
+        "colour": {
+          "enum": ["equal", "proportional"],
+          "description": "Revision 3: RGB direction of the robust change of a colour image; proportional keeps the chromaticity."
+        },
+        "colour_offset": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 255,
+          "description": "Offset added to every channel before the proportional direction is formed."
         },
         "instance_psnr_db": {
           "type": "number",

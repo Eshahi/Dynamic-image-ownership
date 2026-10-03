@@ -79,13 +79,46 @@ def coarse(y: np.ndarray) -> np.ndarray:
     return _area(y.shape[0]) @ y @ _area(y.shape[1]).T
 
 
-def coefficients(grid: np.ndarray) -> np.ndarray:
+class Band:
+    """The robust positions of a variant (``positions``: ``max4``, the codec's, ``max5``, ``max6``, ``ring:lo:hi``)."""
+
+    def __init__(self, positions):
+        self.positions = tuple(positions)
+        self.count = len(self.positions)
+        self.order = max(max(u, v) for u, v in self.positions) + 1
+        self.planes = np.array([base._plane(u, v) for u, v in self.positions]).T  # (64, positions)
+
+
+_BANDS: dict[str, Band] = {}
+
+
+def band(spec: str | None) -> Band:
+    spec = spec or "max4"
+    if spec not in _BANDS:
+        kind, *values = spec.split(":")
+        if kind.startswith("max"):
+            top = int(kind[3:])
+            positions = [(u, v) for u in range(top + 1) for v in range(top + 1) if (u, v) != (0, 0)]
+        elif kind == "ring":
+            low, high = int(values[0]), int(values[1])
+            positions = [(u, v) for u in range(high + 1) for v in range(high + 1) if low <= max(u, v) <= high]
+        else:
+            raise ValueError(spec)
+        _BANDS[spec] = Band(positions)
+    return _BANDS[spec]
+
+
+DEFAULT_BAND = band("max4")
+assert DEFAULT_BAND.positions == POSITIONS
+
+
+def coefficients(grid: np.ndarray, band_: Band = DEFAULT_BAND) -> np.ndarray:
     """(blocks, positions) orthonormal DCT coefficients of the coarse grid, blocks row-major."""
-    return grid.reshape(BLOCKS, BLOCK, BLOCKS, BLOCK).transpose(0, 2, 1, 3).reshape(BLOCKS * BLOCKS, 64) @ PLANES
+    return grid.reshape(BLOCKS, BLOCK, BLOCKS, BLOCK).transpose(0, 2, 1, 3).reshape(BLOCKS * BLOCKS, 64) @ band_.planes
 
 
-def whitening(exponent: float) -> np.ndarray:
-    return np.array([math.hypot(u, v) ** exponent for u, v in POSITIONS])
+def whitening(exponent: float, band_: Band = DEFAULT_BAND) -> np.ndarray:
+    return np.array([math.hypot(u, v) ** exponent for u, v in band_.positions])
 
 
 def cell_deviation(y: np.ndarray, cell: int) -> np.ndarray:
@@ -122,9 +155,9 @@ def activity(grid: np.ndarray, y: np.ndarray, cell: int = BLOCK, rank: int = 1) 
     return np.minimum(fine, residual).reshape(-1)
 
 
-def averaging_gains(height: int, width: int) -> np.ndarray:
-    gy, gx = codec._averaging_gain(height, ORDER), codec._averaging_gain(width, ORDER)
-    return np.array([gy[u] * gx[v] for u, v in POSITIONS])
+def averaging_gains(height: int, width: int, band_: Band = DEFAULT_BAND) -> np.ndarray:
+    gy, gx = codec._averaging_gain(height, band_.order), codec._averaging_gain(width, band_.order)
+    return np.array([gy[u] * gx[v] for u, v in band_.positions])
 
 
 class Keys:
@@ -133,11 +166,17 @@ class Keys:
     def __init__(self, owner: str = OWNER, profile=None):
         self.checked, self.key, self.config = codec._resolve(profile or codec.DEFAULT_PROFILE, None)
         self.owner = codec.canonical_owner(owner)
-        chip, sign, _norms = codec._robust_carrier(self.key, self.config, self.owner, COUNT)
-        self.chip = np.array(chip)
-        self.sign = np.array(sign)
+        self._carriers: dict[int, tuple[np.ndarray, np.ndarray]] = {}
+        self.chip, self.sign = self.carrier(COUNT)
         table = codec._semantic_table(self.owner, self.key, self.config)
         self.options = np.array([[table[j][b] for b in (0, 1)] for j in range(codec.CODE_BITS)])  # (32, 2, 10)
+
+    def carrier(self, count: int) -> tuple[np.ndarray, np.ndarray]:
+        """(chip, sign) of every slot for ``count`` positions per block."""
+        if count not in self._carriers:
+            chip, sign, _norms = codec._robust_carrier(self.key, self.config, self.owner, count)
+            self._carriers[count] = (np.array(chip), np.array(sign))
+        return self._carriers[count]
 
     def q(self, y: np.ndarray) -> int:
         h, w = y.shape
@@ -154,18 +193,26 @@ class Analysis:
     def __init__(self, y: np.ndarray, keys: Keys, variant: dict):
         self.y = y
         self.grid = coarse(y)
-        self.c = coefficients(self.grid)
-        self.w = whitening(variant["whitening"])
+        self.band = band(variant.get("positions"))
+        self.c = coefficients(self.grid, self.band)
+        self.w = whitening(variant["whitening"], self.band)
         floor = variant["floor"]
         self.n = np.sqrt(floor * floor + ((self.c * self.w) ** 2).mean(axis=1))
         self.v = (self.c * self.w / self.n[:, None]).reshape(-1)
-        self.gains = averaging_gains(*y.shape)
+        self.gains = averaging_gains(*y.shape, self.band)
         texture = activity(self.grid, y, variant.get("fine_cell", BLOCK), variant.get("fine_rank", 1))
         self.mask = np.minimum(variant["mask_cap"], np.hypot(variant["base"], variant["weber"] * texture))
         self.d = slot_weights(self, variant)
         self.keys = keys
-        self.norms = np.sqrt(np.bincount(keys.chip, weights=self.d**2, minlength=CHIPS))
-        self.x = np.bincount(keys.chip, weights=self.d * keys.sign * self.v, minlength=CHIPS) / self.norms
+        self.chip, self.sign = keys.carrier(self.band.count)
+        self.norms = np.sqrt(np.bincount(self.chip, weights=self.d**2, minlength=CHIPS))
+        values = self.v
+        if variant.get("clip_tau") and variant.get("_reading"):
+            # robust reading: clip every weighted slot value at tau robust standard deviations
+            weighted = self.d * self.v
+            scale = 1.4826 * float(np.median(np.abs(weighted)))
+            values = np.clip(weighted, -variant["clip_tau"] * scale, variant["clip_tau"] * scale) / np.maximum(self.d, 1e-300)
+        self.x = np.bincount(self.chip, weights=self.d * self.sign * values, minlength=CHIPS) / self.norms
 
     def costs(self, variant: dict) -> tuple[np.ndarray, np.ndarray]:
         """Per slot, the cost of a unit move of the normalised coefficient in the visibility and the PSNR budget."""
@@ -184,11 +231,12 @@ def slot_weights(analysis: Analysis, variant: dict) -> np.ndarray:
     chip's move the visibility-bound plan would put there, to the power
     ``gamma``.  It depends on the image only, never on the key.
     """
-    table = np.asarray(variant.get("position_weights") or [1.0] * COUNT, dtype=np.float64)
+    table = np.asarray(variant.get("position_weights") or [1.0] * analysis.band.count, dtype=np.float64)
     if variant["detector"] == "equal":
         return np.tile(table, analysis.c.shape[0])
     energy = (analysis.n[:, None] / (analysis.w * analysis.gains)) ** 2
-    inverse = (analysis.mask[:, None] ** 2 / energy) ** variant["gamma"] * table
+    masked = analysis.mask[:, None] ** variant.get("mask_power", 1.0)
+    inverse = (masked**2 / energy) ** variant["gamma"] * table
     weights = inverse.reshape(-1)
     return weights / math.sqrt((weights**2).mean())
 
@@ -216,7 +264,7 @@ def plan(analysis: Analysis, pattern: np.ndarray, variant: dict, boost: float = 
     plan up afterwards (1 in the codec).
     """
     seen, spent = analysis.costs(variant)
-    chip, sign, d = analysis.keys.chip, analysis.keys.sign, analysis.d
+    chip, sign, d = analysis.chip, analysis.sign, analysis.d
     host = analysis.x
     power = float((host * host).mean())
     norms2 = analysis.norms**2
@@ -255,7 +303,7 @@ def plan(analysis: Analysis, pattern: np.ndarray, variant: dict, boost: float = 
     capacity = np.bincount(chip, weights=d * d / unit, minlength=CHIPS)
     moves = scale * (amplitude * pattern - rejection * host)
     delta = moves[chip] * analysis.norms[chip] * d * sign / (unit * capacity[chip])
-    change = delta.reshape(-1, COUNT) * analysis.n[:, None] / analysis.w
+    change = delta.reshape(-1, analysis.band.count) * analysis.n[:, None] / analysis.w
     return {"change": change, "share": share, "rejection": rejection * scale, "amplitude": amplitude * scale}
 
 
@@ -308,22 +356,24 @@ def fill(change: np.ndarray, ratios: np.ndarray, gains: np.ndarray, block_cap: f
     return change * factors[:, None], mse(low)
 
 
-def render(height: int, width: int, change: np.ndarray, gains: np.ndarray) -> np.ndarray:
+def render(height: int, width: int, change: np.ndarray, gains: np.ndarray, band_: Band = DEFAULT_BAND) -> np.ndarray:
     """numpy copy of ``codec._render``: full-resolution change from per-block coefficient moves."""
+
+    order = band_.order
 
     def axis(source: int):
         coordinate = (np.arange(source) + 0.5) * SIDE / source
         block = np.minimum(BLOCKS - 1, (coordinate // BLOCK).astype(int))
         local = coordinate - block * BLOCK
-        basis = np.stack([(math.sqrt(1.0 / BLOCK) if u == 0 else math.sqrt(2.0 / BLOCK)) * np.cos(local * u * math.pi / BLOCK) for u in range(ORDER)], axis=1)
+        basis = np.stack([(math.sqrt(1.0 / BLOCK) if u == 0 else math.sqrt(2.0 / BLOCK)) * np.cos(local * u * math.pi / BLOCK) for u in range(order)], axis=1)
         return block, basis
 
     rows, row_basis = axis(height)
     columns, column_basis = axis(width)
-    amplitudes = np.zeros((BLOCKS * BLOCKS, ORDER, ORDER))
-    for index, (u, v) in enumerate(POSITIONS):
+    amplitudes = np.zeros((BLOCKS * BLOCKS, order, order))
+    for index, (u, v) in enumerate(band_.positions):
         amplitudes[:, u, v] = change[:, index] / gains[index]
-    amplitudes = amplitudes.reshape(BLOCKS, BLOCKS, ORDER, ORDER)
+    amplitudes = amplitudes.reshape(BLOCKS, BLOCKS, order, order)
     # out[y, x] = sum_uv row_basis[y, u] * A[rows[y], columns[x], u, v] * column_basis[x, v]
     per_row = np.einsum("yu,ybuv->ybv", row_basis, amplitudes[rows])  # (height, blocks_x, order)
     return np.einsum("ybv,xv->yxb", per_row, column_basis)[np.arange(height)[:, None], np.arange(width)[None, :], columns[None, :]]
@@ -377,22 +427,60 @@ def pixel_shape_factors(y: np.ndarray, variant: dict) -> np.ndarray:
     return out
 
 
-def shaped_fill(y: np.ndarray, change: np.ndarray, analysis: Analysis, variant: dict) -> tuple[np.ndarray, dict]:
+LUMA = np.array([0.299, 0.587, 0.114])
+
+
+def colour_directions(rgb: np.ndarray, variant: dict) -> np.ndarray:
+    """Per pixel, the RGB change that moves the luminance by one grey level.
+
+    ``equal`` (the codec) adds the same value to R, G and B; ``proportional``
+    scales the pixel (offset by ``colour_kappa`` so that dark pixels stay
+    bounded) and keeps its chromaticity, like a change of illumination;
+    ``minnorm`` is the direction of least RGB error.  ``colour_blend`` mixes
+    ``proportional`` into ``equal``.
+    """
+    mode = variant.get("colour", "equal")
+    ones = np.ones(rgb.shape)
+    if mode == "equal":
+        return ones
+    if mode == "minnorm":
+        return ones * (LUMA / float((LUMA**2).sum()))
+    base = rgb.astype(np.float64) + variant.get("colour_kappa", 10.0)
+    proportional = base / (base @ LUMA)[..., None]
+    blend = variant.get("colour_blend", 1.0)
+    return (1.0 - blend) * ones + blend * proportional
+
+
+def shaped_fill(y: np.ndarray, change: np.ndarray, analysis: Analysis, variant: dict, weight: np.ndarray | None = None) -> tuple[np.ndarray, dict]:
     """Render the planned shape, apply the pixel shaping, then scale every block up to the PSNR floor.
 
     The block cap and the PSNR floor are measured on the shaped change, i.e. on
-    what is actually added to the image.  Image sides must be multiples of 16.
+    what is actually added to the image.  ``weight`` is the RGB squared error
+    per squared grey level of luminance change (1 for equal RGB changes); the
+    caps are on the luminance change.  Image sides must be multiples of 16.
     """
     height, width = y.shape
-    unit = render(height, width, change, analysis.gains) * shape_factors(y, variant)
+    unit = render(height, width, change, analysis.gains, analysis.band) * shape_factors(y, variant)
     bh, bw = height // BLOCKS, width // BLOCKS
-    energy = (unit**2).reshape(BLOCKS, bh, BLOCKS, bw).mean(axis=(1, 3)).reshape(-1)
-    ratios = np.sqrt(energy) / analysis.mask
+    luma_energy = (unit**2).reshape(BLOCKS, bh, BLOCKS, bw).mean(axis=(1, 3)).reshape(-1)
+    ratios = np.sqrt(luma_energy) / analysis.mask
+    energy = luma_energy if weight is None else (unit**2 * weight).reshape(BLOCKS, bh, BLOCKS, bw).mean(axis=(1, 3)).reshape(-1)
     cap = variant["block_cap"]
+    if "cap_hi" in variant:  # a higher cap for busy blocks, ramped linearly in the mask
+        ramp = np.clip((analysis.mask - variant.get("cap_m_lo", 1.0)) / (variant.get("cap_m_hi", 3.0) - variant.get("cap_m_lo", 1.0)), 0.0, 1.0)
+        cap = cap + (variant["cap_hi"] - cap) * ramp
+    if variant.get("cap_lum"):  # luminance masking (Watson 1993): the cap scales with (block mean / image mean) ** cap_lum
+        means = analysis.grid.reshape(BLOCKS, BLOCK, BLOCKS, BLOCK).mean(axis=(1, 3)).reshape(-1)
+        lum = (np.maximum(means, 1.0) / max(float(means.mean()), 1.0)) ** variant["cap_lum"]
+        cap = cap * np.clip(lum, variant.get("cap_lum_lo", 0.5), variant.get("cap_lum_hi", 2.0))
     floor_mse = 255.0**2 / 10.0 ** (variant["min_psnr"] / 10.0)
+    # value_eta > 0 scales blocks with a small normaliser (cheap per unit of score) further than busy ones
+    omega = (variant["floor"] / analysis.n) ** variant.get("value_eta", 0.0)
+    # value_mask > 0 fills quiet blocks (low channel noise per unit of change) before busy ones
+    omega = omega * (1.0 + analysis.mask / variant.get("value_m0", 1.0)) ** -variant.get("value_mask", 0.0)
 
     def mse(scale: float) -> float:
-        return float((energy * np.minimum(scale, cap / np.maximum(ratios, 1e-300)) ** 2).mean())
+        return float((energy * np.minimum(scale * omega, cap / np.maximum(ratios, 1e-300)) ** 2).mean())
 
     high = 1.0
     while mse(high) < floor_mse and mse(high * 2.0) > mse(high) * (1 + 1e-12) and high < 1e6:
@@ -401,9 +489,9 @@ def shaped_fill(y: np.ndarray, change: np.ndarray, analysis: Analysis, variant: 
     for _ in range(60):
         middle = (low + high) / 2.0
         low, high = (middle, high) if mse(middle) < floor_mse else (low, middle)
-    factors = np.minimum(low, cap / np.maximum(ratios, 1e-300))
+    factors = np.minimum(low * omega, cap / np.maximum(ratios, 1e-300))
     delta = unit * np.kron(factors.reshape(BLOCKS, BLOCKS), np.ones((bh, bw)))
-    final = np.sqrt(energy) * factors / analysis.mask
+    final = np.sqrt(luma_energy) * factors / analysis.mask
     return delta, {"ratio_rms": float(np.sqrt((final**2).mean())), "ratio_max": float(final.max()), "planned_mse": mse(low)}
 
 
@@ -413,21 +501,22 @@ def mark(rgb: np.ndarray, keys: Keys, variant: dict, q: int | None = None) -> tu
     analysis = Analysis(y, keys, variant)
     q = keys.q(y) if q is None else q
     planned = plan(analysis, keys.pattern(q), variant)
+    directions = colour_directions(rgb, variant)
     if variant.get("shape_fill"):
-        delta, limits = shaped_fill(y, planned["change"], analysis, variant)
+        delta, limits = shaped_fill(y, planned["change"], analysis, variant, (directions**2).mean(axis=2))
         if variant.get("two_pass"):
-            unit = render(*y.shape, planned["change"], analysis.gains) * shape_factors(y, variant)
+            unit = render(*y.shape, planned["change"], analysis.gains, analysis.band) * shape_factors(y, variant)
             boost = math.sqrt(float((delta**2).mean()) / float((unit**2).mean()))
             planned = plan(analysis, keys.pattern(q), variant, boost)
             delta, limits = shaped_fill(y, planned["change"], analysis, variant)
             limits["boost"] = boost
     else:
         change, limits = limit(planned["change"], analysis, variant)
-        delta = render(*y.shape, change, analysis.gains)
+        delta = render(*y.shape, change, analysis.gains, analysis.band)
         if variant.get("shape"):
             delta = delta * shape_factors(y, variant)
     shift = np.clip(y + delta, 0.0, 255.0) - y
-    out = np.clip(np.floor(rgb.astype(np.float64) + shift[..., None] + 0.5), 0, 255).astype(np.uint8)
+    out = np.clip(np.floor(rgb.astype(np.float64) + shift[..., None] * directions + 0.5), 0, 255).astype(np.uint8)
     difference = out.astype(np.float64) - rgb
     info = {
         "q": q,

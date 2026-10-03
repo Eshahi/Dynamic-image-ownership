@@ -37,7 +37,7 @@ def rgb(seed):
 
 class PackageTests(unittest.TestCase):
     def test_identity_is_consistent(self):
-        self.assertEqual((v5.VERSION, v5.REVISION), (5, 2))
+        self.assertEqual((v5.VERSION, v5.REVISION, v5.DETECTOR_REVISION), (5, 3, 2))
         self.assertEqual((p.EXP, p.RUN), (prep.EXP, prep.RUN))
         self.assertEqual((launcher.RUN, launcher.REHEARSAL_RUN), (p.RUN, p.REHEARSAL_RUN))
         self.assertEqual(prep.REHEARSAL_RUN, p.REHEARSAL_RUN)
