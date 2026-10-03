@@ -111,7 +111,10 @@ def transfer(recipient, donor, profile, arm):
     computed with the public derivation and the recipient's projections are
     forced to them at the least squared error, three passes per tier.  The
     donor is an actual saved C1 image, or a C0 image for the sham; it is never
-    a freshly re-embedded victim.
+    a freshly re-embedded victim.  With codec revision 2 the robust projections
+    are the detector's weighted ones (slot weights recomputed from each image),
+    and every chip's move is spread over its slots in proportion to the slot
+    weight, which is the least-squared-error move for that projection.
     """
     import revised_watermark_v5 as codec
     base = codec.base
@@ -127,29 +130,27 @@ def transfer(recipient, donor, profile, arm):
     carrier = codec._robust_carrier(key, config, owner, len(checked["robust_frequencies"]))
     fragile = codec._Fragile(checked, key, config, owner, height, width)
     donor_luma = codec.luminance_from_rgb(donor)
-    robust_target = codec._Robust(codec._coarse(donor_luma), checked, carrier).projections
+    robust_target = codec._Robust(codec._coarse(donor_luma), donor_luma, checked, carrier).projections
     fragile_target = fragile.projections(base._analyse(donor_luma, fragile.analysis)[1])
 
     positions = [tuple(pair) for pair in checked["robust_frequencies"]]
     count = len(positions)
-    order = max(max(u, v) for u, v in positions) + 1
-    gain_y, gain_x = codec._averaging_gain(height, order), codec._averaging_gain(width, order)
-    gains = [gain_y[u] * gain_x[v] for u, v in positions]
-    chip_of_slot, signs, norms = carrier
+    chip_of_slot, signs, _counts = carrier
     output = [[[float(c) for c in pixel] for pixel in row] for row in recipient]
     for _ in range(3):
-        robust = codec._Robust(codec._coarse(codec.luminance_from_rgb(output)), checked, carrier)
+        luma = codec.luminance_from_rgb(output)
+        robust = codec._Robust(codec._coarse(luma), luma, checked, carrier)
         unit = [(norm / (weight * gain)) ** 2 for norm in robust.normalisers
-                for weight, gain in zip(robust.weights, gains)]
+                for weight, gain in zip(robust.weights, robust.gains)]
         capacity = [0.0] * codec.CHANNEL_CHIPS
         for slot, chip in enumerate(chip_of_slot):
-            capacity[chip] += 1.0 / unit[slot]
+            capacity[chip] += robust.slot_weights[slot] ** 2 / unit[slot]
         moves = [a - c for a, c in zip(robust_target, robust.projections)]
         amplitudes = [[0.0] * count for _ in robust.normalisers]
         for slot, (chip, sign) in enumerate(zip(chip_of_slot, signs)):
             block, index = divmod(slot, count)
-            delta = moves[chip] * norms[chip] * sign / (unit[slot] * capacity[chip])
-            amplitudes[block][index] = delta * robust.normalisers[block] / (robust.weights[index] * gains[index])
+            delta = moves[chip] * robust.norms[chip] * robust.slot_weights[slot] * sign / (unit[slot] * capacity[chip])
+            amplitudes[block][index] = delta * robust.normalisers[block] / (robust.weights[index] * robust.gains[index])
         shift = codec._render(height, width, positions, amplitudes)
         output = [[[min(255.0, max(0.0, c + s)) for c in pixel] for pixel, s in zip(row, shifts)]
                   for row, shifts in zip(output, shift)]

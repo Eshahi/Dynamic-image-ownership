@@ -25,6 +25,7 @@ from scripts.revised_watermark_v5 import (
     PUBLIC_KEY,
     REVISION,
     SEGMENT_CHIPS,
+    TAIL_CONSTANT,
     EmbeddingError,
     _activity,
     _averaging_gain,
@@ -32,8 +33,14 @@ from scripts.revised_watermark_v5 import (
     _coarse,
     _decoding_error_rate,
     _key_test,
+    _local_flatness,
+    _percentile,
+    _Robust,
     _robust_carrier,
     _semantic_table,
+    _shape_factors,
+    _tail_bound,
+    _threshold,
     decision_id,
     derive_keys,
     detect,
@@ -54,8 +61,8 @@ KEY = "local-test-key-20261002"
 KEYS = (KEY, "second-test-key-0000001")
 OWNER = "owner-alpha"
 CONFIGS = Path(__file__).resolve().parents[1] / "configs"
-SINGLE = v4._threshold(1e-6, 1)
-SEARCHED = v4._threshold(1e-6, 1 << CODE_BITS)
+SINGLE = _threshold(1e-6, 1)
+SEARCHED = _threshold(1e-6, 1 << CODE_BITS)
 
 
 def profile_with(base=KEYED_PROFILE, **changes):
@@ -94,10 +101,10 @@ class KnownAnswerTests(unittest.TestCase):
     IMAGE = [[float((3 * x + 5 * y + (x * y) % 23 + ((x // 16) * 40) % 90) % 256) for x in range(264)] for y in range(256)]
 
     def test_identifiers(self):
-        self.assertEqual(REVISION, 1)
+        self.assertEqual(REVISION, 2)
         self.assertEqual(PUBLIC_KEY.hex(), "8976bcd96c9a5e3693f59e1c2a5dfc1c28c5222dddee630d26f762ce4801dca7")
-        self.assertEqual(detector_config_id(DEFAULT_PROFILE), "433b39fe4e752b9ad311fc98bc0ddd19dfe8734c44ccc9478bda568d6d9ffe41")
-        self.assertEqual(detector_config_id(KEYED_PROFILE), "f579a54b32e51c9d1c8bd151ac99820c853e690b094b02eb7a051bbf76ce9373")
+        self.assertEqual(detector_config_id(DEFAULT_PROFILE), "92ce199715efa6bce86a9640cecf36c2f2e94aae07cc9cf2be43b1fa4410b40f")
+        self.assertEqual(detector_config_id(KEYED_PROFILE), "61599617d99fbc496a9a07a9ff1228ba049be30249356a626bc792775008c9e8")
         self.assertEqual(decision_id(DEFAULT_PROFILE), "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d")
         self.assertNotEqual(detector_config_id(DEFAULT_PROFILE), v4.detector_config_id(v4.DEFAULT_PROFILE))
 
@@ -137,19 +144,52 @@ class KnownAnswerTests(unittest.TestCase):
         for value, expected in zip(_activity(_coarse(self.IMAGE), self.IMAGE)[:6], (2.4869, 2.1706, 2.5327, 3.5253, 3.2463, 2.044)):
             self.assertAlmostEqual(value, expected, places=4)
 
+    def test_slot_weights_mask_and_shaping(self):
+        checked = validate_profile(KEYED_PROFILE)
+        robust = _Robust(_coarse(self.IMAGE), self.IMAGE, checked, _robust_carrier(self.SECRET, self.CONFIG, b"owner", 24))
+        for values, expected in (
+            (robust.mask[:4], (0.957931, 0.858568, 0.972506, 1.297074)),
+            (robust.slot_weights[:6], (0.009947, 0.038847, 0.083955, 0.140947, 0.009981, 0.019799)),
+            (robust.projections[:6], (0.267818, -2.016585, 0.839627, -0.638985, 0.978817, -0.960567)),
+            (_local_flatness(self.IMAGE, 3)[0][:6], (5.925463, 5.925463, 5.925463, 6.616478, 7.333333, 8.069146)),
+            (_shape_factors(self.IMAGE, checked)[0][:6], (0.837077, 0.837077, 0.837077, 0.931371, 1.0, 1.0)),
+        ):
+            for value, reference in zip(values, expected):
+                self.assertAlmostEqual(value, reference, places=6)
+        self.assertEqual(_percentile([4.0, 1.0, 3.0, 2.0], 75.0), 3.25)
+
     def test_marked_image(self):
         image = scene(4, 256, 256)
         marked, report = embed_with_report(image, OWNER, self.SECRET, KEYED_PROFILE)
-        self.assertEqual(hashlib.sha256(json.dumps(marked).encode()).hexdigest(), "14d7eea3ba4ffc3fb743b3b96c9c13fad137374cc0b1409dcd028c60c26c8b27")
-        self.assertEqual((report["semantic_code"], report["perceptual_hash"]), ("e3842637", "31a8f56a"))
+        self.assertEqual(hashlib.sha256(json.dumps(marked).encode()).hexdigest(), "ef8e7295842fcb266e66a66d60851c97dafb96ba209e1d218ba50a8b7a67dab2")
+        self.assertEqual((report["semantic_code"], report["perceptual_hash"]), ("fb6be451", "4e2fd97a"))
         unmarked = detect(image, OWNER, self.SECRET, KEYED_PROFILE)
         self.assertEqual(unmarked["outcome"], "neither_match")
         self.assertEqual(unmarked["semantic_code"], report["semantic_code"])
 
     def test_thresholds(self):
-        self.assertAlmostEqual(SINGLE, 5.256521769756932, places=12)
-        self.assertAlmostEqual(SEARCHED, 8.484835924858244, places=12)
-        self.assertLess(v4._threshold(1e-20, (1 << CODE_BITS) * 1_000_000), math.sqrt(CHANNEL_CHIPS))
+        self.assertAlmostEqual(SINGLE, 4.982033056390042, places=9)
+        self.assertAlmostEqual(SEARCHED, 8.259326826136963, places=9)
+        # Tighter than Hoeffding's exp(-t^2/2), which revision 1 used, and tight where it must be:
+        # two equal weights reach sqrt(2) with probability exactly 1/4, and the bound gives exactly 1/4 there.
+        self.assertLess(SINGLE, v4._threshold(1e-6, 1))
+        self.assertLess(SEARCHED, v4._threshold(1e-6, 1 << CODE_BITS))
+        self.assertAlmostEqual(_tail_bound(math.sqrt(2.0), 1), 0.25, places=12)
+        self.assertAlmostEqual(TAIL_CONSTANT, 3.178656, places=6)
+        self.assertLess(_threshold(1e-20, (1 << CODE_BITS) * 1_000_000), math.sqrt(CHANNEL_CHIPS))
+
+    def test_tail_bound_holds_for_weighted_signs(self):
+        """Exhaustive check on small weighted sums: the exact tail never exceeds the bound."""
+        rng = random.Random(4)
+        for size in (1, 2, 3, 5, 9, 12):
+            for _ in range(20):
+                weights = [rng.uniform(0.05, 1.0) for _ in range(size)]
+                norm = math.sqrt(sum(w * w for w in weights))
+                weights = [w / norm for w in weights]
+                sums = sorted(sum(w if (pattern >> i) & 1 else -w for i, w in enumerate(weights)) for pattern in range(1 << size))
+                for index, value in enumerate(sums):
+                    exact = (len(sums) - index) / len(sums)  # P(S >= value)
+                    self.assertLessEqual(exact, _tail_bound(value - 1e-12, 1) + 1e-12, (size, value))
 
 
 class KeyTestTests(unittest.TestCase):
@@ -212,7 +252,7 @@ class KeyTestTests(unittest.TestCase):
         weak = _channel_result({"recomputed": 6.0, "decoded": 8.0, "code": 5}, 1e-6, 1, 4)
         self.assertEqual((weak["found"], weak["read"], weak["candidate"], weak["threshold"]), (True, False, "recomputed", SINGLE))
         self.assertEqual((weak["code_distance"], weak["corrected_distance"], weak["decoding_error_rate"]), (0, 0.0, None))
-        none = _channel_result({"recomputed": 5.0, "decoded": 8.0, "code": 5}, 1e-6, 1, 4)
+        none = _channel_result({"recomputed": 4.9, "decoded": 8.2, "code": 5}, 1e-6, 1, 4)
         self.assertEqual((none["found"], none["candidate"], none["code_distance"], none["corrected_distance"]), (False, None, None, None))
         self.assertGreater(_channel_result({"recomputed": 6.0, "decoded": 9.0, "code": 5}, 1e-6, 1000, 4)["recomputed_threshold"], SINGLE)
 
@@ -246,10 +286,14 @@ class ProfileTests(unittest.TestCase):
 
     def test_detector_identifier_follows_detector_fields_only(self):
         reference = detector_config_id(KEYED_PROFILE)
-        self.assertEqual(detector_config_id(profile_with(embedding={"visibility": 2.0, "mask_weber": 0.2})), reference)
+        embedding_only = {"visibility": 2.0, "block_ratio_cap": 3.0, "min_robust_psnr_db": 33.0, "shape_window": 5, "shape_percentile": 50.0}
+        self.assertEqual(detector_config_id(profile_with(embedding=embedding_only)), reference)
         self.assertEqual(detector_config_id(profile_with(decision={"semantic_radius": 4})), reference)
         self.assertNotEqual(decision_id(profile_with(decision={"semantic_radius": 4})), decision_id(KEYED_PROFILE))
         self.assertNotEqual(detector_config_id(profile_with(robust={"floor": 8.0})), reference)
+        # The detector weighs slots by the mask, so the mask belongs to the detector configuration.
+        for change in ({"mask_weber": 0.2}, {"mask_base": 0.5}, {"mask_cap": 4.0}, {"weight_exponent": 0.0}, {"whitening": 1.0}):
+            self.assertNotEqual(detector_config_id(profile_with(robust=change)), reference, change)
         self.assertNotEqual(detector_config_id(profile_with(robust_frequencies=[[u, v] for u in range(4) for v in range(4) if u or v])), reference)
         self.assertNotEqual(detector_config_id(profile_with(semantic_source="external:clip-vit-b32")), reference)
 
@@ -265,10 +309,17 @@ class ProfileTests(unittest.TestCase):
             dict(DEFAULT_PROFILE, robust_frequencies=[[1, 1], [1, 1]]),
             dict(DEFAULT_PROFILE, robust_frequencies=[[1, 1], [1, 2]]),  # too few slots for 320 chips
             dict(DEFAULT_PROFILE, instance_frequencies=[[0, 1], [3, 0], [1, 3], [3, 1], [2, 3], [3, 2]]),  # a hash position
-            dict(DEFAULT_PROFILE, robust={"floor": 0.0, "whitening": 1.0}),
-            dict(DEFAULT_PROFILE, robust={"floor": 12.0}),
+            dict(DEFAULT_PROFILE, robust=dict(DEFAULT_PROFILE["robust"], floor=0.0)),
+            dict(DEFAULT_PROFILE, robust={"floor": 12.0, "whitening": 1.0}),  # the revision-1 fields
+            dict(DEFAULT_PROFILE, robust=dict(DEFAULT_PROFILE["robust"], mask_cap=0.1)),
+            dict(DEFAULT_PROFILE, robust=dict(DEFAULT_PROFILE["robust"], weight_exponent=2.5)),
+            dict(DEFAULT_PROFILE, robust=dict(DEFAULT_PROFILE["robust"], whitening=3.5)),
             dict(DEFAULT_PROFILE, embedding=dict(DEFAULT_PROFILE["embedding"], visibility=0.0)),
-            dict(DEFAULT_PROFILE, embedding=dict(DEFAULT_PROFILE["embedding"], mask_cap=0.1)),
+            dict(DEFAULT_PROFILE, embedding=dict(DEFAULT_PROFILE["embedding"], mask_cap=5.0)),  # moved to robust
+            dict(DEFAULT_PROFILE, embedding=dict(DEFAULT_PROFILE["embedding"], block_ratio_cap=0.0)),
+            dict(DEFAULT_PROFILE, embedding=dict(DEFAULT_PROFILE["embedding"], shape_window=0)),
+            dict(DEFAULT_PROFILE, embedding=dict(DEFAULT_PROFILE["embedding"], shape_window=3.0)),
+            dict(DEFAULT_PROFILE, embedding=dict(DEFAULT_PROFILE["embedding"], shape_percentile=0.0)),
             dict(DEFAULT_PROFILE, embedding=dict(DEFAULT_PROFILE["embedding"], passes=0)),
             dict(DEFAULT_PROFILE, embedding=dict(DEFAULT_PROFILE["embedding"], design_gain=float("nan"))),
             dict(DEFAULT_PROFILE, decision=dict(DEFAULT_PROFILE["decision"], semantic_radius=10)),
@@ -323,26 +374,68 @@ class EmbeddingTests(unittest.TestCase):
             self.assertGreater(result["semantic"]["decoded_score"], SEARCHED)
             self.assertGreater(result["instance"]["decoded_score"], SEARCHED)
             robust = report["robust_channel"]
-            self.assertLessEqual(robust["ratio_rms"], embedding["visibility"] + 1e-9)
-            self.assertLessEqual(robust["ratio_max"], embedding["visibility"] * embedding["block_ratio_cap"] + 1e-9)
+            self.assertLessEqual(robust["ratio_max"], embedding["block_ratio_cap"] + 1e-9)
+            self.assertGreaterEqual(robust["planned_psnr_db"], embedding["min_robust_psnr_db"] - 1e-6)
             self.assertGreaterEqual(report["robust_psnr_db"], embedding["min_robust_psnr_db"] - 0.2)
-            self.assertTrue(36.0 < report["psnr_db"] < 50.0)
+            self.assertTrue(35.0 < report["psnr_db"] < 50.0)
             self.assertTrue(all(value == math.floor(value) and 0 <= value <= 255 for row in marked for value in row))
 
-    def test_error_budget_binds_when_visibility_allows_more(self):
-        generous = profile_with(embedding={"visibility": 3.0, "min_robust_psnr_db": 42.0})
-        report = embed_with_report(scene(2, 256, 256), OWNER, KEY, generous)[1]
-        robust = report["robust_channel"]
-        self.assertTrue(robust["psnr_limited"])
-        self.assertAlmostEqual(report["robust_psnr_db"], 42.0, places=1)
-        self.assertLess(robust["ratio_rms"], 3.0)
-        self.assertLessEqual(robust["ratio_max"], 3.0 * generous["embedding"]["block_ratio_cap"] + 1e-9)
-        self.assertLess(robust["visibility_share"], 1.0)
-        # The default profile on the same image is bound by visibility alone.
-        default = self.cases[0][3]["robust_channel"]
-        self.assertFalse(default["psnr_limited"])
-        self.assertEqual(default["visibility_share"], 1.0)
-        self.assertAlmostEqual(default["ratio_rms"], 1.0, places=6)
+    def test_fill_spends_the_tighter_of_block_caps_and_psnr_floor(self):
+        image = scene(2, 256, 256)
+        # Generous caps: the PSNR floor binds and is met exactly.
+        floor_bound = embed_with_report(image, OWNER, KEY, profile_with(embedding={"block_ratio_cap": 8.0, "min_robust_psnr_db": 38.0}))[1]["robust_channel"]
+        self.assertEqual(floor_bound["bound_by"], "psnr floor")
+        self.assertAlmostEqual(floor_bound["planned_psnr_db"], 38.0, places=6)
+        self.assertLess(floor_bound["ratio_max"], 8.0 + 1e-9)
+        # Tight caps: every block reaches its cap before the floor.
+        cap_bound = embed_with_report(image, OWNER, KEY, profile_with(embedding={"block_ratio_cap": 1.0, "min_robust_psnr_db": 30.0}))[1]["robust_channel"]
+        self.assertEqual(cap_bound["bound_by"], "block caps")
+        self.assertAlmostEqual(cap_bound["ratio_max"], 1.0, places=9)
+        self.assertAlmostEqual(cap_bound["ratio_rms"], 1.0, places=9)
+        self.assertGreater(cap_bound["planned_psnr_db"], 30.0)
+        # The plan's own visibility budget shapes the change but does not set its final size.
+        for case in self.cases:
+            self.assertEqual(case[3]["robust_channel"]["visibility_share"], 1.0)
+
+    def test_shaping_keeps_a_flat_strip_inside_a_busy_block_free(self):
+        """A strip narrower than one 8x8 cell, which the block mask cannot see, takes almost none of the change."""
+        rng = random.Random(9)
+        image = [[float(min(255, max(0, 128 + rng.gauss(0, 30)))) for _ in range(256)] for _ in range(256)]
+        for y in range(64, 128):
+            for x in range(66, 72):  # 6 pixels wide, inside the coarse block columns of 16 pixels at x 64..79
+                image[y][x] = 90.0 + rng.gauss(0, 1.0)
+        factors = _shape_factors(image, validate_profile(KEYED_PROFILE))
+        strip = [factors[y][x] for y in range(66, 126) for x in range(67, 71)]
+        busy = [factors[y][x] for y in range(66, 126) for x in range(74, 79)]
+        self.assertLess(max(strip), 0.3)
+        self.assertGreater(sum(busy) / len(busy), 0.8)
+        # The block mask of those blocks is that of the busy part: without shaping the strip would take the full change.
+        checked = validate_profile(KEYED_PROFILE)
+        robust = _Robust(_coarse(image), image, checked, _robust_carrier(b"k" * 16, bytes(range(32)), b"owner", 24))
+        self.assertGreater(min(robust.mask[by * 16 + 4] for by in range(4, 8)), 3.0)
+
+    def test_informed_weights_keep_the_null_distribution(self):
+        """The slot weights come from the image, not the key: on an unmarked image random keys score like noise."""
+        image = scene(6, 256, 256)
+        checked = validate_profile(KEYED_PROFILE)
+        robust = _Robust(_coarse(image), image, checked, _robust_carrier(b"k" * 16, bytes(range(32)), b"owner", 24))
+        self.assertGreater(max(robust.slot_weights) / min(robust.slot_weights), 10.0)  # far from equal
+        rng = random.Random(12)
+        scores = []
+        for _ in range(400):
+            pattern = [rng.choice((-1.0, 1.0)) for _ in range(CHANNEL_CHIPS)]
+            energy = math.sqrt(sum(p * p for p in robust.projections))
+            scores.append(sum(e * p for e, p in zip(pattern, robust.projections)) / energy)
+        mean = sum(scores) / len(scores)
+        spread = math.sqrt(sum((s - mean) ** 2 for s in scores) / len(scores))
+        self.assertLess(abs(mean), 0.2)
+        self.assertTrue(0.85 < spread < 1.15)
+        self.assertLess(max(scores), SINGLE)
+        # Exponent 0 gives every slot weight 1: the statistic of revision 1.
+        equal = _Robust(_coarse(image), image, profile_with(robust={"weight_exponent": 0.0}), _robust_carrier(b"k" * 16, bytes(range(32)), b"owner", 24))
+        self.assertEqual(set(equal.slot_weights), {1.0})
+        chips, _signs, norms = _robust_carrier(b"k" * 16, bytes(range(32)), b"owner", 24)
+        self.assertEqual(equal.norms, norms)
 
     def test_unmarked_wrong_owner_and_wrong_key_are_negatives(self):
         for key, image, marked, _report in self.cases:
@@ -362,8 +455,13 @@ class EmbeddingTests(unittest.TestCase):
         """The tier split: fine detail gone, coarse band kept, reads as the proposal's 'regenerated' state."""
         for key in KEYS:
             marked = embed(scene(2, 512, 512), OWNER, key, KEYED_PROFILE)
-            # Averaging 4x4 pixels leaves the canonical 128x128 image exactly as it was.
-            result = detect(coarsen(marked, 4), OWNER, key, KEYED_PROFILE)
+            # Averaging 4x4 pixels leaves the canonical 128x128 image exactly as it was; the fragile key is
+            # weakened but, with the revision-2 threshold, can still be found (about 5.2 against 4.98).
+            kept = detect(coarsen(marked, 4), OWNER, key, KEYED_PROFILE)
+            self.assertGreater(kept["semantic"]["recomputed_score"], 15.0)
+            self.assertLess(kept["instance"]["recomputed_score"], 7.0)
+            # Averaging 8x8 pixels removes the fragile key and keeps the semantic key.
+            result = detect(coarsen(marked, 8), OWNER, key, KEYED_PROFILE)
             self.assertEqual((result["outcome"], result["proposal_state"]), ("semantic_only", "regenerated"))
             self.assertTrue(result["semantic"]["content_match"])
             self.assertFalse(result["instance"]["found"])
@@ -428,8 +526,8 @@ class EmbeddingTests(unittest.TestCase):
             identify(marked, OWNER, KEYS[0], KEYED_PROFILE)
 
     def test_strict_embedding_reports_a_failed_verification(self):
-        # A budget this small cannot carry the semantic key through the detector's thresholds.
-        starved = profile_with(embedding={"visibility": 0.02})
+        # Block caps this small cannot carry the semantic key through the detector's thresholds.
+        starved = profile_with(embedding={"block_ratio_cap": 0.02})
         image = scene(2, 256, 256)
         with self.assertRaises(EmbeddingError) as caught:
             embed_with_report(image, OWNER, KEY, starved)
@@ -443,8 +541,9 @@ class ExternalEmbedderTests(unittest.TestCase):
     def test_contract_reproduces_the_closed_form(self):
         image = scene(2, 256, 256)
         plan = robust_plan(image, OWNER, KEY, KEYED_PROFILE)
-        self.assertEqual((len(plan["change"]), len(plan["change"][0]), len(plan["chip_of_slot"])), (256, 24, 6144))
-        self.assertEqual(len(plan["pattern"]), CHANNEL_CHIPS)
+        self.assertEqual((len(plan["change"]), len(plan["change"][0]), len(plan["chip_of_slot"]), len(plan["slot_weights"])), (256, 24, 6144, 6144))
+        self.assertEqual((len(plan["pattern"]), len(plan["chip_norms"])), (CHANNEL_CHIPS, CHANNEL_CHIPS))
+        self.assertEqual((len(plan["shape"]), len(plan["shape"][0])), (256, 256))
         own, report = embed_with_report(image, OWNER, KEY, KEYED_PROFILE)
         supplied, external = embed_with_report(image, OWNER, KEY, KEYED_PROFILE, robust_change=plan["change"])
         self.assertEqual(supplied, own)

@@ -11,15 +11,18 @@
   "canonical_side": 128,
   "robust": {
     "floor": 12.0,
-    "whitening": 1.0
+    "mask_base": 0.4,
+    "mask_cap": 5.0,
+    "mask_weber": 0.35,
+    "weight_exponent": 0.5,
+    "whitening": 2.0
   },
   "embedding": {
-    "visibility": 2.0,
-    "mask_base": 0.4,
-    "mask_weber": 0.35,
-    "mask_cap": 5.0,
-    "block_ratio_cap": 1.5,
+    "visibility": 1.0,
+    "block_ratio_cap": 3.0,
     "min_robust_psnr_db": 33.0,
+    "shape_window": 3,
+    "shape_percentile": 75.0,
     "design_gain": 0.5,
     "design_noise": 0.3,
     "instance_psnr_db": 47.0,

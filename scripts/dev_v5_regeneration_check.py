@@ -94,9 +94,12 @@ def lpips_score(metric, left: np.ndarray, right: np.ndarray) -> float:
         return float(metric(tensor(left), tensor(right), normalize=False).item())
 
 
-def hosts() -> list[tuple[str, np.ndarray]]:
+def hosts(which: str = "dev") -> list[tuple[str, np.ndarray]]:
+    """``dev``: the tuning hosts; ``holdout``: the held-out set of ``dev_v5_holdout_hosts`` (never used for tuning)."""
     from PIL import Image
 
+    if which == "holdout":
+        return [(path.stem, np.asarray(Image.open(path).convert("RGB"))) for path in sorted((probe.OUTPUT / "holdout").glob("holdout-*.png"))]
     out = [(f"procedural-{index}", probe.procedural(100 + index)) for index in range(4)]
     for path in sorted((probe.OUTPUT / "hosts").glob("generated-*.png")):
         out.append((path.stem, np.asarray(Image.open(path).convert("RGB"))))
@@ -140,7 +143,10 @@ def brief(result: dict) -> dict:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--tag", default="default")
+    parser.add_argument("--profile", help="profile JSON to start from instead of the codec default")
+    parser.add_argument("--hosts", default="dev", choices=("dev", "holdout"))
     parser.add_argument("--visibility", type=float)
+    parser.add_argument("--cap", type=float, help="block_ratio_cap")
     parser.add_argument("--weber", type=float)
     parser.add_argument("--base", type=float)
     parser.add_argument("--min-psnr", type=float)
@@ -151,10 +157,16 @@ def main() -> int:
     from PIL import Image
     from skimage.metrics import structural_similarity
 
-    profile = codec.validate_profile(codec.DEFAULT_PROFILE)
-    for name, value in (("visibility", args.visibility), ("mask_weber", args.weber), ("mask_base", args.base), ("min_robust_psnr_db", args.min_psnr)):
+    profile = codec.load_profile(args.profile) if args.profile else codec.validate_profile(codec.DEFAULT_PROFILE)
+    for section, name, value in (
+        ("embedding", "visibility", args.visibility),
+        ("embedding", "block_ratio_cap", args.cap),
+        ("robust", "mask_weber", args.weber),
+        ("robust", "mask_base", args.base),
+        ("embedding", "min_robust_psnr_db", args.min_psnr),
+    ):
         if value is not None:
-            profile["embedding"][name] = value
+            profile[section][name] = value
     if args.clip:
         profile["semantic_source"] = CLIP_SOURCE
     profile = codec.validate_profile(profile)
@@ -176,7 +188,7 @@ def main() -> int:
     out_dir.mkdir(parents=True, exist_ok=True)
     rows = []
     started = time.time()
-    selected = hosts()[: args.limit or None]
+    selected = hosts(args.hosts)[: args.limit or None]
     for name, rgb in selected:
         row: dict[str, object] = {"host": name}
         try:
@@ -238,6 +250,7 @@ def main() -> int:
         "codec": {"version": codec.VERSION, "revision": codec.REVISION, "detector_config_id": codec.detector_config_id(profile)},
         "profile": profile,
         "refined": bool(args.refine),
+        "hosts": args.hosts,
         "semantic_source": profile["semantic_source"],
         "owner": OWNER,
         "seeds": list(SEEDS),

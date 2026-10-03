@@ -37,7 +37,7 @@ def rgb(seed):
 
 class PackageTests(unittest.TestCase):
     def test_identity_is_consistent(self):
-        self.assertEqual((v5.VERSION, v5.REVISION), (5, 1))
+        self.assertEqual((v5.VERSION, v5.REVISION), (5, 2))
         self.assertEqual((p.EXP, p.RUN), (prep.EXP, prep.RUN))
         self.assertEqual((launcher.RUN, launcher.REHEARSAL_RUN), (p.RUN, p.REHEARSAL_RUN))
         self.assertEqual(prep.REHEARSAL_RUN, p.REHEARSAL_RUN)
@@ -69,7 +69,7 @@ class PackageTests(unittest.TestCase):
         strong = v5.load_profile(PACKAGE / "profile-strong.json")
         self.assertEqual(v5.detector_config_id(strong), v5.detector_config_id(study))
         changed = {k: (study["embedding"][k], strong["embedding"][k]) for k in study["embedding"] if study["embedding"][k] != strong["embedding"][k]}
-        self.assertEqual(changed, {"visibility": (1.0, 2.0), "min_robust_psnr_db": (36.0, 33.0)})
+        self.assertEqual(changed, {"block_ratio_cap": (2.0, 3.0), "min_robust_psnr_db": (35.5, 33.0)})
         self.assertEqual({k: v for k, v in strong.items() if k != "embedding"}, {k: v for k, v in study.items() if k != "embedding"})
 
     def test_marked_synthetic_roundtrip_and_two_tier_transfer(self):

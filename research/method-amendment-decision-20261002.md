@@ -43,8 +43,28 @@ Recorded by: Claude Code (model `claude-opus-5-5`), the author of the v5 files. 
 
 "Then please do not run those 45 minutes. Record the necessary documentation so that you start whenever I say." The four final development checks then running were stopped at once: two had completed (default and strong profile; reported in the amendment), the CLIP and refinement checks had not and are not reported with the final codec. No GPU job was started afterwards. What remains is listed, with commands, in `experiments/c4-v5-two-tier-regeneration-v1/runbook.md` on the study branch, and waits for the user's word.
 
+Later the same day, after the runbook had been written:
+
+> if you need runpod, or my local laptop will harm, I can provide you.
+
+Answered that neither is needed: the remaining runs are short, local, capped at 8 GB of VRAM and 6 GB of RAM, and cost nothing; paid or remote compute stays the user's decision.
+
+> ادامه بده.
+
+"Continue." Taken as the word to start the runbook. Step 1 ran: the CLIP and refinement checks of revision 1 (`check-r1-clip`, `check-r1-refined`; results in the amendment).
+
+> continue until you reach an accepatable result.
+
+Taken to authorize further engineering of the candidate on synthetic images, without a fixed stopping rule from the user. The author took "acceptable" to mean the preregistered numeric admissibility (RGB PSNR > 35, SSIM > 0.9, LPIPS < 0.1) on every host, the survival rate of 9 in 10 that the criteria ask for, and no detection on any unmarked control, measured on synthetic hosts including a held-out set. Revision 2 was designed on that basis (amendment, section "Revision 2"). It meets the target for the VAE round trip and img2img at 0.05 on the held-out hosts (with the CLIP vector 18 and 17 of 20, against 9 of 10 required), meets the quality and control targets, and does not meet the survival rate at 0.1, 0.2 and 0.4. The author stopped there because the remaining gap is a budget gap, not a design gap: the strong arm at 33 dB still misses 0.2 and 0.4 and loses admissibility, the published regeneration-robust methods operate at 29 to 40 dB, and the sources include a proof that perceptually invisible marks are removable by regeneration at sufficient strength. Whether this is acceptable is the user's judgement.
+
+Further judgement calls of this continuation, for the user to confirm or reject:
+
+5. **Model weights on synthetic images again.** The revision-2 lab and checks loaded the local SD 1.5 pipeline, CLIP and LPIPS on synthetic images only, as in judgement call 1, and generated twenty new synthetic held-out hosts with it (`dev_v5_holdout_hosts.py`). Outputs are under `.thesis-build/rehearsal/`.
+6. **Revision 2 replaces revision 1 in the study package** before any photograph was marked: the package's codec, profiles, worker check, transfer arm and tests were moved to revision 2 on the study branch in a second local commit. The acceptance criteria are unchanged. Revision 1 stays reproducible at `f9087a2`.
+7. **The operating point moved to the admissibility edge** (deviation 27): the default now spends the quality margin down to about 35.2 dB, where revision 1 stayed at 36 to 45 dB.
+
 ## Consequences
 
-Before any scientific use: an independent review of the amendment, the codec, the tests and the package; the user's decision on adoption as comparator and, for deviations 17, 18 and 20, the supervisor's; the user's manifest-specific approval of the study and its launch by the user; human visual assessment of marked images.
+Before any scientific use: an independent review of the amendment, the codec, the tests and the package; the user's decision on adoption as comparator and, for deviations 17, 18, 20 and 27, the supervisor's; the user's manifest-specific approval of the study and its launch by the user; human visual assessment of marked images.
 
-Cost and schedule consequences have not been assessed. Decision authority: the user for adoption and for the four judgement calls above; the supervisor for deviations 17, 18 and 20. Issue: #18.
+Cost and schedule consequences have not been assessed. Decision authority: the user for adoption and for the seven judgement calls above; the supervisor for deviations 17, 18, 20 and 27. Issue: #18.

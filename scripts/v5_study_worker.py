@@ -55,8 +55,8 @@ def run(manifest_path, output_path, rehearsal=False):
     from a6_clip_visual import load_visual_encoder
     from qim_rgb_pilot import canonical_rgb, host_path, persist_rgb, quality, write_json
     import revised_watermark_v5 as codec
-    if (codec.VERSION, codec.REVISION) != (5, 1):
-        raise ValueError("v5 revision-1 codec required")
+    if (codec.VERSION, codec.REVISION) != (5, 2):
+        raise ValueError("v5 revision-2 codec required")
     from three_threat_models import (verify_assets, clip_feature, load_regenerator,
                                      load_lpips, lpips_score, validate_generated, DDIM_CONFIG)
     from three_threat_protocol import residual_transfer

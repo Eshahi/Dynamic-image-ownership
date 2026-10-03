@@ -1,11 +1,13 @@
 """Optional embedder stage for v5: refine the robust-tier change through a frozen latent-diffusion channel.
 
 Experimental and separately labelled.  The detector does not change and needs
-no model: this stage only chooses, inside the same visibility budget, a robust
-change whose key correlation is higher *after* the image has passed the frozen
-autoencoder (and, optionally, one noising and denoising step).  It starts from
-the closed-form change of :func:`revised_watermark_v5.robust_plan` and hands
-its result back through ``robust_change``, where the codec checks the budget.
+no model: this stage only chooses, inside the same budget (block caps and PSNR
+floor, measured on the shaped change), a robust change whose key correlation
+is higher *after* the image has passed the frozen autoencoder (and, optionally,
+one noising and denoising step).  It starts from the closed-form change of
+:func:`revised_watermark_v5.robust_plan` and hands its result back through
+``robust_change``, where the codec checks the budget.  Revision 2: the score
+uses the detector's slot weights and the pixel shaping of the contract.
 
 Needs torch and a locally available Stable Diffusion 1.5 pipeline (the science
 interpreter); the reference codec and its tests do not import this module.
@@ -88,18 +90,26 @@ class Refiner:
         coefficients = (self.dct8 @ blocks @ self.dct8.T)[:, :, plan["us"], plan["vs"]].reshape(-1, len(plan["us"]))
         whitened = coefficients * plan["weights"]
         values = (whitened / torch.sqrt(plan["floor"] ** 2 + (whitened**2).mean(dim=1, keepdim=True))).reshape(-1)
-        projections = torch.zeros(codec.CHANNEL_CHIPS, device=self.device).index_add(0, plan["chip"], plan["sign"] * values) / plan["norms"]
+        # The slot weights are those of the marked image's analysis, held fixed here.
+        weighted = plan["slot_weights"] * plan["sign"] * values
+        projections = torch.zeros(codec.CHANNEL_CHIPS, device=self.device).index_add(0, plan["chip"], weighted) / plan["norms"]
         return (plan["pattern"] * projections).sum() / projections.norm()
 
     def _render(self, change: torch.Tensor, plan: dict) -> torch.Tensor:
+        """Shaped full-resolution change, as the codec adds it."""
         amplitudes = change / plan["gains"]
         pixels = torch.einsum("bp,pi,pj->bij", amplitudes, plan["basis_y"], plan["basis_x"])
         rows, columns = pixels.shape[1], pixels.shape[2]
         count = SIDE // BLOCK
-        return pixels.reshape(count, count, rows, columns).permute(0, 2, 1, 3).reshape(count * rows, count * columns)
+        return pixels.reshape(count, count, rows, columns).permute(0, 2, 1, 3).reshape(count * rows, count * columns) * plan["shape"]
 
     def _ratios(self, change: torch.Tensor, plan: dict) -> torch.Tensor:
-        return torch.sqrt(((change / plan["gains"]) ** 2).sum(dim=1) / (BLOCK * BLOCK)) / plan["mask"]
+        """RMS of each coarse block's shaped change over its mask."""
+        pixels = self._render(change, plan)
+        count = SIDE // BLOCK
+        rows, columns = pixels.shape[0] // count, pixels.shape[1] // count
+        energy = (pixels**2).reshape(count, rows, count, columns).mean(dim=(1, 3)).reshape(-1)
+        return torch.sqrt(energy) / plan["mask"]
 
     # -- refinement ----------------------------------------------------------
 
@@ -127,28 +137,31 @@ class Refiner:
             "floor": float(contract["floor"]),
             "chip": torch.tensor(contract["chip_of_slot"], device=device),
             "sign": tensor(contract["sign_of_slot"]),
+            "slot_weights": tensor(contract["slot_weights"]),
             "norms": tensor(contract["chip_norms"]),
             "pattern": tensor(contract["pattern"]),
             "mask": tensor(contract["mask"]),
             "gains": tensor(contract["averaging_gains"]),
+            "shape": tensor(contract["shape"]),
             "basis_y": basis(kernel[0], [pair[0] for pair in positions]),
             "basis_x": basis(kernel[1], [pair[1] for pair in positions]),
         }
         start = tensor(contract["change"])
-        budget = float(contract["limits"]["ratio_rms"])  # what the closed form spent: the visibility, or less at the PSNR floor
-        block_cap = float(contract["block_ratio_cap"]) * float(contract["visibility"])
+        block_cap = float(contract["block_ratio_cap"])
+        floor_mse = 255.0**2 / 10.0 ** (float(contract["min_robust_psnr_db"]) / 10.0)
         host = torch.tensor(rgb, dtype=torch.float32, device=device).permute(2, 0, 1)
         variable = (start / plan["mask"][:, None]).requires_grad_(True)
         optimiser = torch.optim.Adam([variable], lr=self.learning_rate)
         generator = torch.Generator(device=device).manual_seed(self.seed)
 
         def project(value: torch.Tensor) -> torch.Tensor:
+            """Clip every block at its cap, then the whole change at the PSNR floor (both on the shaped change)."""
             change = value * plan["mask"][:, None]
             with torch.no_grad():
-                ratios = self._ratios(change, plan)
-                block = torch.clamp(block_cap / (ratios + 1e-9), max=1.0)
-                total = min(1.0, budget / float(torch.sqrt(((ratios * block) ** 2).mean())))
-            return change * block[:, None] * total
+                block = torch.clamp(block_cap / (self._ratios(change, plan) + 1e-9), max=1.0)
+                error = float((self._render(change * block[:, None], plan) ** 2).mean())
+                total = min(1.0, math.sqrt(floor_mse / error)) if error > 0 else 1.0
+            return change * block[:, None] * total * 0.999  # a margin for the codec's own arithmetic
 
         def marked(value: torch.Tensor) -> torch.Tensor:
             return (host + self._render(project(value), plan)[None]).clamp(0, 255)

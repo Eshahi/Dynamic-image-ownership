@@ -3,7 +3,7 @@
   "experiment_id": "c4-v5-two-tier-regeneration-v1",
   "task_id": "C4",
   "question": "Does the image-domain v5 two-tier codec with the suspect-only pinned CLIP vector keep the semantic key through the VAE round trip and SD 1.5 img2img on the reserved photographs, and do transfer binding and semantic-instance separation still hold?",
-  "hypothesis": "Clean prerequisites and each frozen axis-specific acceptance criterion hold with no missing controls, deliveries or visual assessments. The author's recorded expectation is that the T3 survival criterion fails at every img2img strength (plan.md).",
+  "hypothesis": "Clean prerequisites and each frozen axis-specific acceptance criterion hold with no missing controls, deliveries or visual assessments. The author's recorded expectation is that the T3 survival criterion fails at 0.1, 0.2 and 0.4 and possibly at 0.05, and that the VAE stratum meets the mechanism observation (plan.md).",
   "primary_outcome": "Separate clean, T3 per dose, T4 per arm, and T5 diagnostic plus transfer conclusions; no pooled accuracy.",
   "secondary_outcomes": [
     "RGB PSNR/SSIM/LPIPS",
@@ -26,9 +26,10 @@
     "Semantic labels were frozen before any binding or detector score",
     "Pairs and seed repetitions are not independent sources",
     "The public profile is forgeable by design; any owner can be embedded by anyone",
-    "The mask constants and the PSNR floor were chosen by the author's inspection of synthetic images"
+    "The mask constants and the PSNR floor were chosen by the author's inspection of synthetic images",
+    "Codec revision 2 was designed on synthetic images passed through the same SD 1.5 autoencoder and img2img as the attack, and checked on twenty held-out synthetic images; no photograph was used"
   ],
-  "preprocessing": "Canonical native EXIF/ICC RGB8 to 512 BICUBIC, save and reopen PNG before every suspect-feature, detector and metric call; v5 revision 1 with the external CLIP profile; all failures retained",
+  "preprocessing": "Canonical native EXIF/ICC RGB8 to 512 BICUBIC, save and reopen PNG before every suspect-feature, detector and metric call; v5 revision 2 with the external CLIP profile; all failures retained",
   "baselines": [
     "Matched untouched marked inputs",
     "Unmarked recipient/source controls",

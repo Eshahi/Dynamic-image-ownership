@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/Eshahi/Dynamic-image-ownership/blob/main/configs/revised-watermark-v5.schema.json",
-  "title": "Two-tier dual-key DCT watermark, image-domain reference v5",
-  "description": "Static shape of a v5 profile. scripts/revised_watermark_v5.py additionally requires JSON integers without a decimal point, at least 1280 coefficient slots per channel, positions [0, 1] and [1, 0] to stay out of the instance set because the perceptual hash reads them, mask_cap not below mask_base, and each radius to be smaller than its mismatch distance.",
+  "title": "Two-tier dual-key DCT watermark, image-domain reference v5 (revision 2)",
+  "description": "Static shape of a v5 revision-2 profile. scripts/revised_watermark_v5.py additionally requires JSON integers without a decimal point, at least 1280 coefficient slots per channel, positions [0, 1] and [1, 0] to stay out of the instance set because the perceptual hash reads them, mask_cap not below mask_base, and each radius to be smaller than its mismatch distance. Revision 1 profiles (mask fields under embedding, no weight_exponent or shaping fields) are rejected.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -24,8 +24,16 @@
     "position": {
       "type": "array",
       "prefixItems": [
-        {"type": "integer", "minimum": 0, "maximum": 7},
-        {"type": "integer", "minimum": 0, "maximum": 7}
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 7
+        },
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 7
+        }
       ],
       "items": false,
       "minItems": 2,
@@ -33,21 +41,42 @@
     }
   },
   "properties": {
-    "schema_version": {"const": "revised-watermark-v5"},
-    "profile": {"const": "two-tier-dual-key-dct"},
-    "security": {"enum": ["public-derived", "hmac-keyed"]},
+    "schema_version": {
+      "const": "revised-watermark-v5"
+    },
+    "profile": {
+      "const": "two-tier-dual-key-dct"
+    },
+    "security": {
+      "enum": [
+        "public-derived",
+        "hmac-keyed"
+      ]
+    },
     "semantic_source": {
       "type": "string",
       "pattern": "^(proxy-layout-v1|external:[A-Za-z0-9._@/+:-]{1,128})$"
     },
-    "minimum_side": {"type": "integer", "minimum": 256, "maximum": 16384},
+    "minimum_side": {
+      "type": "integer",
+      "minimum": 256,
+      "maximum": 16384
+    },
     "robust_frequencies": {
       "description": "Positions of the 8x8 block DCT of the image area-averaged to canonical_side x canonical_side; read by the semantic key.",
       "type": "array",
       "minItems": 5,
       "maxItems": 48,
       "uniqueItems": true,
-      "items": {"$ref": "#/$defs/position", "not": {"const": [0, 0]}}
+      "items": {
+        "$ref": "#/$defs/position",
+        "not": {
+          "const": [
+            0,
+            0
+          ]
+        }
+      }
     },
     "instance_frequencies": {
       "description": "Positions of the 8x8 block DCT at full resolution; read by the instance key.",
@@ -55,18 +84,78 @@
       "minItems": 1,
       "maxItems": 48,
       "uniqueItems": true,
-      "items": {"$ref": "#/$defs/position", "not": {"enum": [[0, 0], [0, 1], [1, 0]]}}
+      "items": {
+        "$ref": "#/$defs/position",
+        "not": {
+          "enum": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ]
+          ]
+        }
+      }
     },
-    "code_bits": {"const": 32},
-    "segment_chips": {"const": 10},
-    "canonical_side": {"const": 128},
+    "code_bits": {
+      "const": 32
+    },
+    "segment_chips": {
+      "const": 10
+    },
+    "canonical_side": {
+      "const": 128
+    },
     "robust": {
+      "description": "Fields the detector depends on; all enter detector_config_id. The mask is here because the detector weights slots by it.",
       "type": "object",
       "additionalProperties": false,
-      "required": ["floor", "whitening"],
+      "required": [
+        "floor",
+        "whitening",
+        "weight_exponent",
+        "mask_base",
+        "mask_weber",
+        "mask_cap"
+      ],
       "properties": {
-        "floor": {"type": "number", "exclusiveMinimum": 0, "maximum": 256},
-        "whitening": {"type": "number", "minimum": 0, "maximum": 2}
+        "floor": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 256
+        },
+        "whitening": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "weight_exponent": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "mask_base": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 16
+        },
+        "mask_weber": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "mask_cap": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 64
+        }
       }
     },
     "embedding": {
@@ -74,11 +163,10 @@
       "additionalProperties": false,
       "required": [
         "visibility",
-        "mask_base",
-        "mask_weber",
-        "mask_cap",
         "block_ratio_cap",
         "min_robust_psnr_db",
+        "shape_window",
+        "shape_percentile",
         "design_gain",
         "design_noise",
         "instance_psnr_db",
@@ -86,17 +174,58 @@
         "passes"
       ],
       "properties": {
-        "visibility": {"type": "number", "exclusiveMinimum": 0, "maximum": 8},
-        "mask_base": {"type": "number", "exclusiveMinimum": 0, "maximum": 16},
-        "mask_weber": {"type": "number", "minimum": 0, "maximum": 2},
-        "mask_cap": {"type": "number", "exclusiveMinimum": 0, "maximum": 64},
-        "block_ratio_cap": {"type": "number", "minimum": 1, "maximum": 16},
-        "min_robust_psnr_db": {"type": "number", "minimum": 25, "maximum": 60},
-        "design_gain": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
-        "design_noise": {"type": "number", "exclusiveMinimum": 0, "maximum": 16},
-        "instance_psnr_db": {"type": "number", "minimum": 30, "maximum": 60},
-        "instance_noise_std": {"type": "number", "exclusiveMinimum": 0, "maximum": 64},
-        "passes": {"type": "integer", "minimum": 1, "maximum": 8}
+        "visibility": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 8,
+          "description": "Visibility budget of the plan; shapes the change, the fill sets its size."
+        },
+        "block_ratio_cap": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 16,
+          "description": "RMS change of a coarse block, after shaping, over its mask."
+        },
+        "min_robust_psnr_db": {
+          "type": "number",
+          "minimum": 25,
+          "maximum": 60
+        },
+        "shape_window": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 15
+        },
+        "shape_percentile": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 100
+        },
+        "design_gain": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1
+        },
+        "design_noise": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 16
+        },
+        "instance_psnr_db": {
+          "type": "number",
+          "minimum": 30,
+          "maximum": 60
+        },
+        "instance_noise_std": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 64
+        },
+        "passes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8
+        }
       }
     },
     "decision": {
@@ -110,11 +239,31 @@
         "instance_mismatch_distance"
       ],
       "properties": {
-        "false_positive_target": {"type": "number", "minimum": 1e-20, "maximum": 0.01},
-        "semantic_radius": {"type": "integer", "minimum": 0, "maximum": 15},
-        "semantic_mismatch_distance": {"type": "integer", "minimum": 1, "maximum": 16},
-        "instance_radius": {"type": "integer", "minimum": 0, "maximum": 15},
-        "instance_mismatch_distance": {"type": "integer", "minimum": 1, "maximum": 16}
+        "false_positive_target": {
+          "type": "number",
+          "minimum": 1e-20,
+          "maximum": 0.01
+        },
+        "semantic_radius": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 15
+        },
+        "semantic_mismatch_distance": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16
+        },
+        "instance_radius": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 15
+        },
+        "instance_mismatch_distance": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16
+        }
       }
     }
   }

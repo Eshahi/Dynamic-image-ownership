@@ -24,6 +24,17 @@ The module reuses the primitives of ``revised_watermark_v4`` (revision 2),
 which stays untouched; v5 derives its own ``detector_config_id`` and reads no
 v4 mark.
 
+Revision 2 (same day as revision 1, before any photograph was marked)
+strengthens the robust tier where the synthetic development channel showed it
+weak: the detector weights every slot by the share of the mark the embedder
+puts there (recomputed from the suspect image, independent of the key); the
+whitening exponent is 2; visibility is limited block by block, a flat strip
+inside a busy block is protected pixel by pixel, and the PSNR floor is the
+only global limit; the thresholds follow the tight Gaussian bound for weighted
+random signs of Bentkus and Dzindzalieta instead of Hoeffding's.  Revision 1 is
+the snapshot committed as f9087a2 on ``claude/v5-two-tier-study``; the two
+revisions derive different ``detector_config_id`` values.
+
 Claim boundary: an image-domain codec and candidate comparator.  It does not
 implement latent or initial-noise embedding, no detector state establishes
 legal ownership, and survival of regeneration is a measured property of a
@@ -59,7 +70,7 @@ if base.REVISION != 2 or base.CHANNEL_BITS != 320:
 
 MAGIC = b"rw-v5"
 VERSION = 5
-REVISION = 1
+REVISION = 2
 BLOCK = 8
 CANONICAL_SIDE = 128
 MIN_SIDE = 256
@@ -83,15 +94,14 @@ _CONSTANTS = {
     "segment_chips": SEGMENT_CHIPS,
     "canonical_side": CANONICAL_SIDE,
 }
-_ROBUST_FIELDS = frozenset(("floor", "whitening"))
+_ROBUST_FIELDS = frozenset(("floor", "whitening", "weight_exponent", "mask_base", "mask_weber", "mask_cap"))
 _EMBEDDING_FIELDS = frozenset(
     (
         "visibility",
-        "mask_base",
-        "mask_weber",
-        "mask_cap",
         "block_ratio_cap",
         "min_robust_psnr_db",
+        "shape_window",
+        "shape_percentile",
         "design_gain",
         "design_noise",
         "instance_psnr_db",
@@ -138,14 +148,13 @@ def _default_profile(security: str) -> dict[str, object]:
         "code_bits": CODE_BITS,
         "segment_chips": SEGMENT_CHIPS,
         "canonical_side": CANONICAL_SIDE,
-        "robust": {"floor": 12.0, "whitening": 1.0},
+        "robust": {"floor": 12.0, "whitening": 2.0, "weight_exponent": 0.5, "mask_base": 0.4, "mask_weber": 0.35, "mask_cap": 5.0},
         "embedding": {
             "visibility": 1.0,
-            "mask_base": 0.4,
-            "mask_weber": 0.35,
-            "mask_cap": 5.0,
-            "block_ratio_cap": 1.5,
-            "min_robust_psnr_db": 36.0,
+            "block_ratio_cap": 2.0,
+            "min_robust_psnr_db": 35.5,
+            "shape_window": 3,
+            "shape_percentile": 75.0,
             "design_gain": 0.5,
             "design_noise": 0.3,
             "instance_psnr_db": 47.0,
@@ -214,16 +223,21 @@ def validate_profile(profile: Mapping[str, object]) -> dict[str, object]:
     if not isinstance(robust, Mapping) or set(robust) != _ROBUST_FIELDS:
         raise ValueError("robust must contain exactly the revised-watermark-v5 fields")
     base._number(robust["floor"], 0.0, 256.0, "robust floor", low_open=True)
-    base._number(robust["whitening"], 0.0, 2.0, "robust whitening")
+    base._number(robust["whitening"], 0.0, 3.0, "robust whitening")
+    base._number(robust["weight_exponent"], 0.0, 2.0, "robust weight_exponent")
+    base._number(robust["mask_base"], 0.0, 16.0, "mask_base", low_open=True)
+    base._number(robust["mask_weber"], 0.0, 2.0, "mask_weber")
+    base._number(robust["mask_cap"], float(robust["mask_base"]), 64.0, "mask_cap")
     embedding = profile["embedding"]
     if not isinstance(embedding, Mapping) or set(embedding) != _EMBEDDING_FIELDS:
         raise ValueError("embedding must contain exactly the revised-watermark-v5 fields")
     base._number(embedding["visibility"], 0.0, 8.0, "visibility", low_open=True)
-    base._number(embedding["mask_base"], 0.0, 16.0, "mask_base", low_open=True)
-    base._number(embedding["mask_weber"], 0.0, 2.0, "mask_weber")
-    base._number(embedding["mask_cap"], float(embedding["mask_base"]), 64.0, "mask_cap")
-    base._number(embedding["block_ratio_cap"], 1.0, 16.0, "block_ratio_cap")
+    base._number(embedding["block_ratio_cap"], 0.0, 16.0, "block_ratio_cap", low_open=True)
     base._number(embedding["min_robust_psnr_db"], 25.0, 60.0, "min_robust_psnr_db")
+    window = embedding["shape_window"]
+    if isinstance(window, bool) or not isinstance(window, int) or not 1 <= window <= 15:
+        raise ValueError("shape_window must be an integer in 1..15")
+    base._number(embedding["shape_percentile"], 0.0, 100.0, "shape_percentile", low_open=True)
     base._number(embedding["design_gain"], 0.0, 1.0, "design_gain", low_open=True)
     base._number(embedding["design_noise"], 0.0, 16.0, "design_noise", low_open=True)
     base._number(embedding["instance_psnr_db"], 30.0, 60.0, "instance_psnr_db")
@@ -417,20 +431,46 @@ def _activity(coarse: Sequence[Sequence[float]], image: Sequence[Sequence[float]
 
 
 class _Robust:
-    """Analysis of the robust tier of one image: coefficients, normalisers and chip projections."""
+    """Analysis of the robust tier of one image: coefficients, normalisers, mask, slot weights and chip projections.
 
-    def __init__(self, coarse, checked, carrier):
+    Revision 2 weights every slot by how much of the mark the embedder puts
+    there, recomputed from the image itself: ``(mask * whitening * gain /
+    normaliser) ** (2 * weight_exponent)``.  With exponent 0 every slot counts
+    once, as in revision 1.  The weights never depend on the key, so for an
+    unmarked image the statistic is still a weighted sum of independent random
+    signs and the false-positive bound holds unchanged.
+    """
+
+    def __init__(self, coarse, image, checked, carrier):
+        robust = checked["robust"]
         self.positions = tuple(tuple(pair) for pair in checked["robust_frequencies"])
-        self.weights = _whitening(self.positions, float(checked["robust"]["whitening"]))
-        floor = float(checked["robust"]["floor"])
+        self.weights = _whitening(self.positions, float(robust["whitening"]))
+        floor = float(robust["floor"])
         self.coefficients = base._analyse(coarse, [base._plane(u, v) for u, v in self.positions])[1]
         count = len(self.positions)
         self.normalisers = [
             math.sqrt(floor * floor + sum((value * weight) ** 2 for value, weight in zip(block, self.weights)) / count) for block in self.coefficients
         ]
         self.values = [value * weight / norm for block, norm in zip(self.coefficients, self.normalisers) for value, weight in zip(block, self.weights)]
-        self.carrier = carrier
-        self.projections = base._project(self.values, *carrier)
+        order = max(max(u, v) for u, v in self.positions) + 1
+        gain_y, gain_x = _averaging_gain(len(image), order), _averaging_gain(len(image[0]), order)
+        self.gains = [gain_y[u] * gain_x[v] for u, v in self.positions]
+        base_level, weber, cap = float(robust["mask_base"]), float(robust["mask_weber"]), float(robust["mask_cap"])
+        self.mask = [min(cap, math.hypot(base_level, weber * value)) for value in _activity(coarse, image)]
+        exponent = float(robust["weight_exponent"])
+        self.slot_weights = [
+            (level * weight * gain / norm) ** (2.0 * exponent)
+            for level, norm in zip(self.mask, self.normalisers)
+            for weight, gain in zip(self.weights, self.gains)
+        ]
+        bit_of_slot, signs, _norms = carrier
+        totals, squares = [0.0] * CHANNEL_CHIPS, [0.0] * CHANNEL_CHIPS
+        for value, chip, sign, factor in zip(self.values, bit_of_slot, signs, self.slot_weights):
+            totals[chip] += factor * sign * value
+            squares[chip] += factor * factor
+        self.carrier = (bit_of_slot, signs)
+        self.norms = [math.sqrt(square) for square in squares]
+        self.projections = [total / norm for total, norm in zip(totals, self.norms)]
 
 
 def _robust_carrier(key: bytes, config: bytes, owner: bytes, positions: int):
@@ -510,56 +550,56 @@ def _render(height: int, width: int, positions, amplitudes: Sequence[Sequence[fl
     return out
 
 
-def _plan_robust(robust: _Robust, coarse, image, pattern: Sequence[float], checked) -> dict[str, object]:
-    """Closed-form masked improved spread spectrum on the robust tier.
+def _plan_robust(robust: _Robust, pattern: Sequence[float], checked) -> dict[str, object]:
+    """Closed-form masked improved spread spectrum on the robust tier: the shape of the change.
 
-    The chip projections of the normalised coefficients are moved towards
-    ``A * pattern`` after removing the share ``lambda`` of their host value.
-    Two budgets bound the change: a visibility budget (the RMS over blocks of
-    each block's RMS grey-level change divided by its mask) and an error budget
-    (the PSNR floor).  Every chip's move is spread over its slots at the least
-    cost in a weighted sum of the two.  Eleven weights are tried, starting with
-    visibility alone; a weight replaces the best so far only if its plan,
-    scaled until the tighter budget is met, promises at least 1% more.
-    An image with flat areas is bound by visibility alone, as if the error
-    budget did not exist; a textured image is bound by both.
+    The weighted chip projections of the normalised coefficients are moved
+    towards ``A * pattern`` after removing the share ``lambda`` of their host
+    value.  Two budgets shape the plan: a visibility budget (the RMS over blocks
+    of each block's RMS grey-level change divided by its mask) and an error
+    budget (the PSNR floor).  Every chip's move is spread over its slots at the
+    least cost in a weighted sum of the two, in proportion to each slot's
+    detector weight.  Eleven weights are tried, starting with visibility alone;
+    a weight replaces the best so far only if its plan, scaled until the
+    tighter budget is met, promises at least 1% more.  The plan fixes the shape
+    and the host rejection; :func:`_fill` then sets the scale of every block.
     """
     embedding = checked["embedding"]
-    positions = robust.positions
-    count = len(positions)
-    order = max(max(u, v) for u, v in positions) + 1
-    gain_y, gain_x = _averaging_gain(len(image), order), _averaging_gain(len(image[0]), order)
-    gains = [gain_y[u] * gain_x[v] for u, v in positions]
-    base_level, weber, cap = float(embedding["mask_base"]), float(embedding["mask_weber"]), float(embedding["mask_cap"])
-    activity = _activity(coarse, image)
-    mask = [min(cap, math.hypot(base_level, weber * value)) for value in activity]
-    bit_of_slot, signs, norms = robust.carrier
+    count = len(robust.positions)
+    bit_of_slot, signs = robust.carrier
+    weights_of_slot = robust.slot_weights
+    norms = robust.norms
     blocks = len(robust.normalisers)
     visibility = float(embedding["visibility"])
     floor_mse = 255.0**2 / 10.0 ** (float(embedding["min_robust_psnr_db"]) / 10.0)
     # Cost of a unit move of a normalised coefficient in each budget, each scaled so that the budget is 1.
     seen, spent = [], []
     for block, norm in enumerate(robust.normalisers):
-        for weight, gain in zip(robust.weights, gains):
+        for weight, gain in zip(robust.weights, robust.gains):
             energy = (norm / (weight * gain)) ** 2 / (BLOCK * BLOCK)  # mean squared grey-level change of the block
-            seen.append(energy / (mask[block] ** 2 * visibility * visibility * blocks))
+            seen.append(energy / (robust.mask[block] ** 2 * visibility * visibility * blocks))
             spent.append(energy / (floor_mse * blocks))
     host = robust.projections
     power = sum(p * p for p in host) / CHANNEL_CHIPS
     design_gain, design_noise = float(embedding["design_gain"]), float(embedding["design_noise"])
+
+    def capacities(unit):
+        capacity = [0.0] * CHANNEL_CHIPS
+        seen_sum = [0.0] * CHANNEL_CHIPS
+        spent_sum = [0.0] * CHANNEL_CHIPS
+        for slot, chip in enumerate(bit_of_slot):
+            share_of_move = weights_of_slot[slot] / unit[slot]
+            capacity[chip] += weights_of_slot[slot] * share_of_move
+            seen_sum[chip] += seen[slot] * share_of_move * share_of_move
+            spent_sum[chip] += spent[slot] * share_of_move * share_of_move
+        return capacity, seen_sum, spent_sum
+
     best = None
     for step in range(10, -1, -1):
         share = step / 10.0
         found = None
         unit = [share * a + (1.0 - share) * b for a, b in zip(seen, spent)]
-        capacity = [0.0] * CHANNEL_CHIPS
-        seen_sum = [0.0] * CHANNEL_CHIPS
-        spent_sum = [0.0] * CHANNEL_CHIPS
-        for slot, chip in enumerate(bit_of_slot):
-            inverse = 1.0 / unit[slot]
-            capacity[chip] += inverse
-            seen_sum[chip] += seen[slot] * inverse * inverse
-            spent_sum[chip] += spent[slot] * inverse * inverse
+        capacity, seen_sum, spent_sum = capacities(unit)
         cost = [norm * norm / value for norm, value in zip(norms, capacity)]  # per unit squared move of a chip projection
         total = sum(cost)
         cross = sum(c * e * p for c, e, p in zip(cost, pattern, host))
@@ -586,19 +626,15 @@ def _plan_robust(robust: _Robust, coarse, image, pattern: Sequence[float], check
         raise ValueError("the robust tier has no admissible plan for this image")
     _promise, share, rejection, amplitude, scale = best
     unit = [share * a + (1.0 - share) * b for a, b in zip(seen, spent)]
-    capacity = [0.0] * CHANNEL_CHIPS
-    for slot, chip in enumerate(bit_of_slot):
-        capacity[chip] += 1.0 / unit[slot]
+    capacity = capacities(unit)[0]
     moves = [scale * (amplitude * e - rejection * p) for e, p in zip(pattern, host)]
     change = [[0.0] * count for _ in range(blocks)]
     for slot, (chip, sign) in enumerate(zip(bit_of_slot, signs)):
         block, index = divmod(slot, count)
-        delta = moves[chip] * norms[chip] * sign / (unit[slot] * capacity[chip])
+        delta = moves[chip] * norms[chip] * weights_of_slot[slot] * sign / (unit[slot] * capacity[chip])
         change[block][index] = delta * robust.normalisers[block] / robust.weights[index]
     return {
         "change": change,
-        "mask": mask,
-        "gains": gains,
         "host_rejection": rejection * scale,
         "amplitude": amplitude * scale,
         "host_rms": math.sqrt(power),
@@ -606,41 +642,142 @@ def _plan_robust(robust: _Robust, coarse, image, pattern: Sequence[float], check
     }
 
 
-def _block_ratios(change, gains, mask) -> list[float]:
-    """RMS grey-level change of each coarse block divided by its mask."""
-    return [math.sqrt(sum((value / gain) ** 2 for value, gain in zip(block, gains)) / (BLOCK * BLOCK)) / level for block, level in zip(change, mask)]
+def _block_of_pixel(source: int) -> list[int]:
+    """Coarse block index of every pixel of an axis, as :func:`_render` assigns it."""
+    return [block for block, _values in _axis_basis(source, 1)]
 
 
-def _limit_robust(change, gains, mask, embedding, external: bool) -> tuple[list[list[float]], dict[str, float]]:
-    """Enforce the visibility and PSNR limits of the profile on a robust-tier change; clip single blocks.
+def _local_flatness(image: Sequence[Sequence[float]], window: int) -> list[list[float]]:
+    """Per pixel: the standard deviation of the flattest ``window`` x ``window`` window that contains it.
 
-    A change is never scaled up: the plan already spends what the two budgets
-    allow, and an external change is taken as it is unless it spends too much.
+    A flat strip at least ``window`` pixels wide therefore reads as flat right
+    up to its edge, however busy the pixels beside it are.
     """
-    visibility = float(embedding["visibility"])
-    block_cap = float(embedding["block_ratio_cap"]) * visibility
-    floor_mse = 255.0**2 / 10.0 ** (float(embedding["min_robust_psnr_db"]) / 10.0)
-    ratios = _block_ratios(change, gains, mask)
-    rms = math.sqrt(sum(ratio * ratio for ratio in ratios) / len(ratios))
-    if rms <= 0.0:
-        raise ValueError("the robust change is zero")
-    if external and rms > visibility * EXTERNAL_TOLERANCE:
-        raise ValueError("the supplied robust change exceeds the profile's visibility budget")
-    scale = min(1.0, visibility / rms)
-    scaled = [[value * scale * min(1.0, block_cap / (ratio * scale)) if ratio > 0.0 else 0.0 for value in block] for block, ratio in zip(change, ratios)]
-    error = sum((value / gain) ** 2 for block in scaled for value, gain in zip(block, gains)) / (BLOCK * BLOCK * len(scaled))
-    limited = error >= floor_mse * (1.0 - 1e-6)  # the error budget binds
-    if error > floor_mse:
-        factor = math.sqrt(floor_mse / error)
-        scaled = [[value * factor for value in block] for block in scaled]
-        error = floor_mse
-    ratios = _block_ratios(scaled, gains, mask)
-    return scaled, {
+    height, width = len(image), len(image[0])
+    window = max(1, min(window, height, width))
+    # Integral images of the values and their squares.
+    total = [[0.0] * (width + 1) for _ in range(height + 1)]
+    square = [[0.0] * (width + 1) for _ in range(height + 1)]
+    for y in range(height):
+        row, above_t, above_s, here_t, here_s = image[y], total[y], square[y], total[y + 1], square[y + 1]
+        running_t = running_s = 0.0
+        for x in range(width):
+            value = float(row[x])
+            running_t += value
+            running_s += value * value
+            here_t[x + 1] = above_t[x + 1] + running_t
+            here_s[x + 1] = above_s[x + 1] + running_s
+    area = float(window * window)
+    rows, columns = height - window + 1, width - window + 1
+    deviation = []
+    for y in range(rows):
+        t0, t1, s0, s1 = total[y], total[y + window], square[y], square[y + window]
+        line = []
+        for x in range(columns):
+            sum_t = t1[x + window] - t1[x] - t0[x + window] + t0[x]
+            sum_s = s1[x + window] - s1[x] - s0[x + window] + s0[x]
+            mean = sum_t / area
+            line.append(math.sqrt(max(0.0, sum_s / area - mean * mean)))
+        deviation.append(line)
+    # Minimum over the windows that contain each pixel: a separable running minimum.
+    across = [[min(line[max(0, x - window + 1) : min(columns, x + 1)]) for x in range(width)] for line in deviation]
+    return [[min(across[k][x] for k in range(max(0, y - window + 1), min(rows, y + 1))) for x in range(width)] for y in range(height)]
+
+
+def _percentile(values: Sequence[float], percent: float) -> float:
+    """Linear-interpolation percentile of a non-empty sequence (numpy's default rule)."""
+    ordered = sorted(values)
+    position = (len(ordered) - 1) * percent / 100.0
+    low = int(math.floor(position))
+    high = min(low + 1, len(ordered) - 1)
+    return ordered[low] + (ordered[high] - ordered[low]) * (position - low)
+
+
+def _shape_factors(image: Sequence[Sequence[float]], checked) -> list[list[float]]:
+    """Per pixel: the share of the planned change it takes, from the flatness of its own neighbourhood.
+
+    Each pixel gets the just-noticeable level of the mask formula from
+    :func:`_local_flatness`.  A pixel flatter than the ``shape_percentile``-th
+    pixel of its coarse block takes a proportionally smaller share; pixels as
+    busy as most of their block take all of it.  This keeps a flat strip
+    inside a busy block, which the block mask cannot see, free of the change.
+    """
+    robust, embedding = checked["robust"], checked["embedding"]
+    base_level, weber = float(robust["mask_base"]), float(robust["mask_weber"])
+    levels = [[math.hypot(base_level, weber * value) for value in row] for row in _local_flatness(image, int(embedding["shape_window"]))]
+    rows, columns = _block_of_pixel(len(image)), _block_of_pixel(len(image[0]))
+    blocks = CANONICAL_SIDE // BLOCK
+    members: list[list[float]] = [[] for _ in range(blocks * blocks)]
+    for y, row in enumerate(levels):
+        offset = rows[y] * blocks
+        for x, level in enumerate(row):
+            members[offset + columns[x]].append(level)
+    percent = float(embedding["shape_percentile"])
+    reference = [_percentile(values, percent) for values in members]
+    return [[min(1.0, level / reference[rows[y] * blocks + columns[x]]) for x, level in enumerate(row)] for y, row in enumerate(levels)]
+
+
+def _block_energies(delta: Sequence[Sequence[float]]) -> tuple[list[float], list[int]]:
+    """Sum of squared pixel changes and pixel count of every coarse block."""
+    rows, columns = _block_of_pixel(len(delta)), _block_of_pixel(len(delta[0]))
+    blocks = CANONICAL_SIDE // BLOCK
+    sums, counts = [0.0] * (blocks * blocks), [0] * (blocks * blocks)
+    for y, row in enumerate(delta):
+        offset = rows[y] * blocks
+        for x, value in enumerate(row):
+            sums[offset + columns[x]] += value * value
+            counts[offset + columns[x]] += 1
+    return sums, counts
+
+
+def _budget(delta, mask, embedding) -> dict[str, float]:
+    """Block ratios (RMS change of a block over its mask) and PSNR of a full-resolution robust change."""
+    sums, counts = _block_energies(delta)
+    ratios = [math.sqrt(total / count) / level if count else 0.0 for total, count, level in zip(sums, counts, mask)]
+    error = sum(sums) / float(len(delta) * len(delta[0]))
+    return {
         "ratio_rms": math.sqrt(sum(ratio * ratio for ratio in ratios) / len(ratios)),
         "ratio_max": max(ratios),
         "planned_mse": error,
-        "psnr_limited": limited,
+        "planned_psnr_db": float("inf") if error <= 0.0 else 10.0 * math.log10(255.0**2 / error),
     }
+
+
+def _fill(unit, mask, embedding) -> tuple[list[float], dict[str, object]]:
+    """Scale factor of every coarse block: as large as the PSNR floor allows, each block clipped at its own cap.
+
+    ``unit`` is the shaped full-resolution change of the plan.  Visibility acts
+    block by block, as a just-noticeable-difference limit (``block_ratio_cap``
+    times the block's mask, RMS over the block); the PSNR floor is the only
+    global limit.  A plan that reaches every cap before the floor stops there.
+    """
+    cap = float(embedding["block_ratio_cap"])
+    floor_mse = 255.0**2 / 10.0 ** (float(embedding["min_robust_psnr_db"]) / 10.0)
+    sums, counts = _block_energies(unit)
+    pixels = float(len(unit) * len(unit[0]))
+    limits = [cap * level / math.sqrt(total / count) if total > 0.0 else math.inf for total, count, level in zip(sums, counts, mask)]
+    if all(total <= 0.0 for total in sums):
+        raise ValueError("the robust change is zero")
+
+    def error(scale: float) -> float:
+        return sum(total * min(scale, limit) ** 2 for total, limit in zip(sums, limits)) / pixels
+
+    ceiling = max(limit for limit in limits if math.isfinite(limit))
+    if error(ceiling) <= floor_mse:
+        scale, bound = ceiling, "block caps"
+    else:
+        low, high = 0.0, ceiling
+        for _ in range(100):
+            middle = (low + high) / 2.0
+            low, high = (middle, high) if error(middle) < floor_mse else (low, middle)
+        scale, bound = low, "psnr floor"
+    return [min(scale, limit) for limit in limits], {"fill_scale": scale, "bound_by": bound}
+
+
+def _apply(unit, factors) -> list[list[float]]:
+    rows, columns = _block_of_pixel(len(unit)), _block_of_pixel(len(unit[0]))
+    blocks = CANONICAL_SIDE // BLOCK
+    return [[value * factors[rows[y] * blocks + columns[x]] for x, value in enumerate(row)] for y, row in enumerate(unit)]
 
 
 # ---------------------------------------------------------------------------
@@ -725,11 +862,33 @@ def _prepare(image, owner_id, secret_key, profile, semantic_features):
     means = base._analyse(image, ())[0]
     q = _semantic(means, checked, key, config, semantic_features, binding=True)
     coarse = _coarse(image)
-    robust = _Robust(coarse, checked, _robust_carrier(key, config, owner, len(checked["robust_frequencies"])))
+    robust = _Robust(coarse, image, checked, _robust_carrier(key, config, owner, len(checked["robust_frequencies"])))
     table = _semantic_table(owner, key, config)
     ws = [chip for segment in range(CODE_BITS) for chip in table[segment][_bit(q, segment)]]
-    plan = _plan_robust(robust, coarse, image, ws, checked)
+    plan = _plan_robust(robust, ws, checked)
     return checked, key, config, owner, height, width, q, robust, ws, plan
+
+
+def _shaped(image, robust, change, shape) -> list[list[float]]:
+    """Full-resolution luminance change of a coefficient-domain robust change, after the pixel shaping."""
+    amplitudes = [[value / gain for value, gain in zip(block, robust.gains)] for block in change]
+    rendered = _render(len(image), len(image[0]), robust.positions, amplitudes)
+    return [[value * factor for value, factor in zip(row, factors)] for row, factors in zip(rendered, shape)]
+
+
+def _closed_form(image, robust, plan, checked):
+    """The plan rendered, shaped and filled.
+
+    Returns the final coefficient-domain change (what :func:`robust_plan`
+    hands out), the full-resolution change, the shaping factors and the fill
+    report.  Rendering is linear block by block, so scaling a block's
+    coefficients scales its pixels by the same factor.
+    """
+    shape = _shape_factors(image, checked)
+    unit = _shaped(image, robust, plan["change"], shape)
+    factors, fill = _fill(unit, robust.mask, checked["embedding"])
+    change = [[value * factor for value in block] for block, factor in zip(plan["change"], factors)]
+    return change, _apply(unit, factors), shape, fill
 
 
 def robust_plan(
@@ -743,16 +902,17 @@ def robust_plan(
 
     Returns what an external embedder -- for example one that refines the
     change through a frozen autoencoder -- needs in order to be read by this
-    detector: the slot layout, the key pattern, the block masks, the closed
-    form change as a starting point and the budget that change used.
-    ``change[b][k]`` is the move of coarse coefficient ``positions[k]`` of
-    coarse block ``b`` (row-major, 16 blocks per row).  A change handed back to
-    :func:`embed_with_report` is refused when it spends more than the profile's
-    visibility budget.
+    detector: the slot layout and weights, the key pattern, the block masks,
+    the pixel shaping, the closed-form change as a starting point and its
+    budget.  ``change[b][k]`` is the move of coarse coefficient ``positions[k]``
+    of coarse block ``b`` (row-major, 16 blocks per row); the image receives
+    its rendering multiplied by ``shape`` pixel by pixel.  A change handed back
+    to :func:`embed_with_report` is refused when, so rendered and shaped, a
+    block exceeds its cap or the image falls below the PSNR floor.
     """
     checked, _key, config, _owner, height, width, q, robust, ws, plan = _prepare(image, owner_id, secret_key, profile, semantic_features)
-    change, limits = _limit_robust(plan["change"], plan["gains"], plan["mask"], checked["embedding"], external=False)
-    bit_of_slot, signs, norms = robust.carrier
+    change, delta, shape, fill = _closed_form(image, robust, plan, checked)
+    bit_of_slot, signs = robust.carrier
     return {
         "detector_config_id": config.hex(),
         "semantic_code": f"{q:08x}",
@@ -764,13 +924,14 @@ def robust_plan(
         "floor": float(checked["robust"]["floor"]),
         "chip_of_slot": list(bit_of_slot),
         "sign_of_slot": list(signs),
-        "chip_norms": list(norms),
+        "slot_weights": list(robust.slot_weights),
+        "chip_norms": list(robust.norms),
         "pattern": list(ws),
-        "mask": plan["mask"],
-        "averaging_gains": plan["gains"],
+        "mask": list(robust.mask),
+        "averaging_gains": list(robust.gains),
+        "shape": shape,
         "change": change,
-        "limits": limits,
-        "visibility": float(checked["embedding"]["visibility"]),
+        "limits": {**_budget(delta, robust.mask, checked["embedding"]), **fill},
         "block_ratio_cap": float(checked["embedding"]["block_ratio_cap"]),
         "min_robust_psnr_db": float(checked["embedding"]["min_robust_psnr_db"]),
     }
@@ -795,9 +956,10 @@ def embed_with_report(
     instance key bound to that hash goes into the fragile tier last.
 
     ``robust_change`` replaces the closed-form robust change with one computed
-    elsewhere under the same budget (see :func:`robust_plan`).  With ``strict``
-    a marked output that the detector does not accept as ``both_match`` raises
-    :class:`EmbeddingError`; otherwise the failure is returned in the report.
+    elsewhere under the same budget (see :func:`robust_plan`); it is used as it
+    is, never scaled up.  With ``strict`` a marked output that the detector does
+    not accept as ``both_match`` raises :class:`EmbeddingError`; otherwise the
+    failure is returned in the report.
     """
     if reserve_rounding is None:
         reserve_rounding = quantize
@@ -805,7 +967,7 @@ def embed_with_report(
     embedding = checked["embedding"]
     count = len(robust.positions)
     if robust_change is None:
-        change, limits = _limit_robust(plan["change"], plan["gains"], plan["mask"], embedding, external=False)
+        _change, delta, _shape, fill = _closed_form(image, robust, plan, checked)
         source = "closed-form"
     else:
         supplied = [[float(value) for value in block] for block in robust_change]
@@ -813,10 +975,16 @@ def embed_with_report(
             raise ValueError("robust_change must give one value per robust position of every coarse block")
         if any(not math.isfinite(value) for block in supplied for value in block):
             raise ValueError("robust_change must be finite")
-        change, limits = _limit_robust(supplied, plan["gains"], plan["mask"], embedding, external=True)
+        delta = _shaped(image, robust, supplied, _shape_factors(image, checked))
+        spent = _budget(delta, robust.mask, embedding)
+        floor_mse = 255.0**2 / 10.0 ** (float(embedding["min_robust_psnr_db"]) / 10.0)
+        if spent["planned_mse"] <= 0.0:
+            raise ValueError("the robust change is zero")
+        if spent["ratio_max"] > float(embedding["block_ratio_cap"]) * EXTERNAL_TOLERANCE or spent["planned_mse"] > floor_mse * EXTERNAL_TOLERANCE**2:
+            raise ValueError("the supplied robust change exceeds the profile's block caps or PSNR floor")
+        fill = {"fill_scale": None, "bound_by": "external"}
         source = "external"
-    amplitudes = [[value / gain for value, gain in zip(block, plan["gains"])] for block in change]
-    delta = _render(height, width, robust.positions, amplitudes)
+    limits = {**_budget(delta, robust.mask, embedding), **fill}
     output = [[min(255.0, max(0.0, float(value) + shift)) for value, shift in zip(row, delta_row)] for row, delta_row in zip(image, delta)]
     robust_mse = mse(image, output)
 
@@ -877,6 +1045,35 @@ def embed(
 # ---------------------------------------------------------------------------
 # Phase 3: blind correlation detection and the proposal's decision states
 # ---------------------------------------------------------------------------
+
+
+# Bentkus and Dzindzalieta (2015): for independent random signs e_i and weights with sum a_i^2 <= 1,
+# P(sum a_i e_i >= t) <= c * P(Z >= t) with Z standard normal and the optimal c = 1 / (4 P(Z >= sqrt 2)).
+TAIL_CONSTANT = 1.0 / (2.0 * math.erfc(1.0))
+
+
+def _tail_bound(score: float, patterns: int) -> float:
+    """Upper bound on the chance that one of ``patterns`` independent sign patterns scores ``score`` or more."""
+    return TAIL_CONSTANT * patterns * 0.5 * math.erfc(score / math.sqrt(2.0))
+
+
+def _threshold(false_positive_target: float, patterns: int) -> float:
+    """Smallest score whose bound over ``patterns`` tries stays at or below the false-positive target.
+
+    Revision 1 used Hoeffding's bound ``exp(-t*t/2)``, which is valid for the
+    same statistic but looser: 5.26 against 4.98 for one pattern at 1e-6.
+    """
+    low, high = 0.0, 64.0
+    for _ in range(200):
+        middle = (low + high) / 2.0
+        low, high = (middle, high) if _tail_bound(middle, patterns) > false_positive_target else (low, middle)
+    return high
+
+
+def _log10_bound(score: float, patterns: int) -> float:
+    if score <= 0.0:
+        return 0.0
+    return min(0.0, math.log10(TAIL_CONSTANT * patterns) + math.log10(0.5 * math.erfc(score / math.sqrt(2.0))))
 
 
 def _key_test(projections: Sequence[float], options: Sequence[Sequence[Sequence[float]]], recomputed: int) -> dict[str, float | int]:
@@ -945,8 +1142,8 @@ def _channel_result(test, target: float, roster_size: int, recomputed_code: int)
     for a strong mark).  A key found by its recomputed pattern alone is too
     weak to be read and counts as carrying the recomputed code.
     """
-    single = base._threshold(target, roster_size)
-    searched = base._threshold(target, (1 << CODE_BITS) * roster_size)
+    single = _threshold(target, roster_size)
+    searched = _threshold(target, (1 << CODE_BITS) * roster_size)
     by_decoding = test["decoded"] >= searched
     by_recomputation = test["recomputed"] >= single
     decoded_code = int(test["code"])
@@ -978,7 +1175,7 @@ def _channel_result(test, target: float, roster_size: int, recomputed_code: int)
         "code_distance": distance,
         "corrected_distance": corrected,
         "decoding_error_rate": error_rate,
-        "log10_false_positive_bound": base._log10_bound(score, patterns),
+        "log10_false_positive_bound": _log10_bound(score, patterns),
     }
 
 
@@ -1021,7 +1218,7 @@ def detect(
     prepared = time.perf_counter()
     means, coefficients = base._analyse(image, fragile.analysis)
     instance_projections = fragile.projections(coefficients)
-    robust = _Robust(_coarse(image), checked, carrier)
+    robust = _Robust(_coarse(image), image, checked, carrier)
     transformed = time.perf_counter()
     q_now = _semantic(means, checked, key, config, semantic_features, binding=False)
     h_now = base._perceptual_hash(means, coefficients, key, config)

@@ -16,7 +16,7 @@
     1200,
     5400
   ],
-  "estimation_basis": "Revision-2 run: 751 s for 1,884 calls. v5 on Windows: embedding about 1.5 s, one detector call about 0.3 s, one two-tier projection transfer about 6 s (47 transfers), img2img about 0.45 s per output. The rehearsal on synthetic images gives the measured figure for this exact worker. Provisional, not guaranteed.",
+  "estimation_basis": "Revision-2 run: 751 s for 1,884 calls. v5 revision 2 on Windows: embedding about 1.5 s, one detector call about 0.2 to 0.3 s, one two-tier projection transfer about 6 s (47 transfers), img2img about 0.45 s per output. The rehearsal on synthetic images gives the measured figure for this exact worker. Provisional, not guaranteed.",
   "no_downloads": true,
   "no_paid_compute": true,
   "watchdog_is_not_user_deadline": true
