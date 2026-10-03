@@ -87,6 +87,7 @@ def main():
         c=v['counts'];s=v['q_drift']
         lines.append(f'| {k} | {v["planned_rows"]} | {c.get("semantic_match",0)} | {c.get("semantic_found_without_content_match",0)} | {c.get("below_both_semantic_thresholds",0)} | {c.get("missing",0)} | {s["mean"]:.2f} / {s["median"]:.1f} / {s["sd"]:.2f} / {s["min"]}–{s["max"]} |')
     lines+=['','q-drift is Hamming distance between the suspect-recomputed semantic code and that of its clean marked source; summaries use only available outputs and do not erase the missing count. Rows and seeds are correlated; these summaries are descriptive. Below both thresholds means neither saved semantic score meets its own unchanged threshold. It does not isolate whether channel distortion, code drift, or both caused the loss. Content mismatch/uncertainty is reported separately from signal absence.','',
+        'C2 is a separate descriptive ablation, not pooled with C1. Only 3/10 clean C2 sources (25394, 147498, 177015) meet the numerical quality criteria; the C2 table above includes all planned sources and does not establish quality-admissible robustness.','',
         '## Copy-paste: quality failures','', '| Row | Recipient | Failed numerical thresholds |','| --- | --- | --- |']
     for r in t4:lines.append(f'| {r["id"]} | {r["recipient_id"]} | {", ".join(r["reasons"])} |')
     lines+=['','These quality failures explain which attempted transfers cannot contribute to recipient coverage; changing a deadline cannot make them admissible. They remain in the original denominators.','',
@@ -97,7 +98,7 @@ def main():
         'Do not repeat the unchanged deterministic batch merely to consume the new 45-minute allowance. It already terminated without a time-limit failure; safety-blocked outputs, low detection scores and insufficient pair/recipient coverage would not be repaired by waiting longer. Do not disable the safety checker or replace failed sources. A subsequent scientific experiment should test a prospectively specified method/coverage hypothesis with fresh exact provenance and retain this baseline. Independent human visual assessment remains outstanding. This diagnostic itself makes no new acceptance claim.','',
         '## Provenance','',f'- Results SHA256: `{digest}`.',f'- Diagnostic script SHA256: `{result["script_sha256"]}`.',
         '- Script: `scripts/analyze_v5_failure_modes.py`; input: MAIN `.thesis-build/v5-study-runs/C4-v5-two-tier-development/c4-v5-two-tier-dev-001/outputs/results.json`.',
-        '- Derived rows: MAIN `.thesis-build/v5-dev001-diagnostic-20261003/diagnostic.json`. Reproduce with the script, the exact result path, `--expected-sha256` above and a fresh `--out` directory.',
+        f'- Derived rows: `{(args.out/"diagnostic.json").resolve().as_posix()}`. Reproduce with the script, the exact result path, `--expected-sha256` above and a fresh `--out` directory.',
         '- Original result report: `experiments/c4-v5-two-tier-regeneration-v1/results-dev-001.md`.']
     (args.out/'diagnostic.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
     print(json.dumps({'T3':{k:v['counts'] for k,v in t3.items()},'T4_inadmissible':len(t4),

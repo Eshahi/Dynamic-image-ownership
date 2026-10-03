@@ -19,6 +19,8 @@ Issue #18. Post-outcome exploratory analysis dated 2026-10-03; this is not a new
 
 q-drift is Hamming distance between the suspect-recomputed semantic code and that of its clean marked source; summaries use only available outputs and do not erase the missing count. Rows and seeds are correlated; these summaries are descriptive. Below both thresholds means neither saved semantic score meets its own unchanged threshold. It does not isolate whether channel distortion, code drift, or both caused the loss. Content mismatch/uncertainty is reported separately from signal absence.
 
+C2 is a separate descriptive ablation, not pooled with C1. Only 3/10 clean C2 sources (25394, 147498, 177015) meet the numerical quality criteria; the C2 table above includes all planned sources and does not establish quality-admissible robustness.
+
 ## Copy-paste: quality failures
 
 | Row | Recipient | Failed numerical thresholds |
@@ -54,7 +56,7 @@ Do not repeat the unchanged deterministic batch merely to consume the new 45-min
 ## Provenance
 
 - Results SHA256: `58766c579377f344770887e6cad8bf4ed779ee207c2b6872b4a24ac4a90b9b4d`.
-- Diagnostic script SHA256: `8ac8968bc05846231ba37f7051c85b32bad56b39918854f7f326d703ca34735a`.
+- Diagnostic script SHA256: `ba39f98b5054d52e01572f04cbfa235f7fc1224be04392eba7c6e1c28ab97382`.
 - Script: `scripts/analyze_v5_failure_modes.py`; input: MAIN `.thesis-build/v5-study-runs/C4-v5-two-tier-development/c4-v5-two-tier-dev-001/outputs/results.json`.
-- Derived rows: MAIN `.thesis-build/v5-dev001-diagnostic-20261003/diagnostic.json`. Reproduce with the script, the exact result path, `--expected-sha256` above and a fresh `--out` directory.
+- Derived rows: `W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/v5-dev001-diagnostic-20261003-final/diagnostic.json`. Reproduce with the script, the exact result path, `--expected-sha256` above and a fresh `--out` directory.
 - Original result report: `experiments/c4-v5-two-tier-regeneration-v1/results-dev-001.md`.
