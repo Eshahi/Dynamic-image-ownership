@@ -1,0 +1,213 @@
+{
+  "reason": "Explicit user pause; all agents interrupted; PTY28450 Ctrl-C exit1; no reconstruction python process remains.",
+  "original_run_metadata_caveat": "run.json still says started and duration0; stopped before finalization; do not infer running/completed.",
+  "last_journal_step": {
+    "id": 80932,
+    "step": 150,
+    "seconds": 1362.25
+  },
+  "last_restart_artifact": "80932-step100.pt",
+  "optimizer_state_saved": false,
+  "files": [
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\1675-step000.png",
+      "bytes": 427724,
+      "sha256": "b15fed94bb2d941f67b7f25d52343187ab84b88b1a6ae9c7f315549db499f878"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\1675-step000.pt",
+      "bytes": 67276,
+      "sha256": "52f0a36dac6156e16fca65ebb93bf56ff239afc8b157cec5493691e1fd707197"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\1675-step050.png",
+      "bytes": 399790,
+      "sha256": "60e8aeecc7116b913cbe474e05b341f662ebb9edccd71c4968273ff416188183"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\1675-step050.pt",
+      "bytes": 67276,
+      "sha256": "ed5ea1cd46a1a644407dacf9f5f14a86cf05a58c7eb66a88c5153c34b6b39c03"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\1675-step100.png",
+      "bytes": 390557,
+      "sha256": "731fb3f2e8a69d2ed9fea4907a309eead97c9938f16ea17a832d4565df510f0c"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\1675-step100.pt",
+      "bytes": 67276,
+      "sha256": "ae67b6715795fbd32e234b325699447d1ccefccc57dc694a732d8ee6ca6b65cd"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\1675-step200.png",
+      "bytes": 381599,
+      "sha256": "3f7a6acd273794e50e00e7622cab3e74a2be503305f9502ac4b9d1396f7aa539"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\1675-step200.pt",
+      "bytes": 67276,
+      "sha256": "c57c5bce6f0084690a70f66bfb7d90db3a0c4b933985082ae0c84e1106e52fd9"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\25394-step000.png",
+      "bytes": 452720,
+      "sha256": "79e7080879bd6460a14902dd13f639447fe1e11e76767ed251b88b7fb08599be"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\25394-step000.pt",
+      "bytes": 67283,
+      "sha256": "c0cf6210418fd79a82168389bc68eff9c742d1fb00ee5755d552c2e492e40a52"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\25394-step050.png",
+      "bytes": 430192,
+      "sha256": "c57d7c6d3d325e48335a86d692f27e02dfbf367f04c0f5748bca96a32bfdb6ca"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\25394-step050.pt",
+      "bytes": 67283,
+      "sha256": "6c8bffb8c1969d16aa51f42b2d861cb7c61a30eeec339f22bb0f310946557ff6"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\25394-step100.png",
+      "bytes": 421274,
+      "sha256": "4da26579b9315d03595826242409a8dc3c21f418e3d7b46fe131babcf8324855"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\25394-step100.pt",
+      "bytes": 67283,
+      "sha256": "1ae802b0d18e40170c987080ca8b8bf905dc1bf87a7d961d9324f2b0c490c935"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\25394-step200.png",
+      "bytes": 410436,
+      "sha256": "2931beabb409337023452f419cb0d610b76deab5da0fbbe76415d978ba4eec9b"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\25394-step200.pt",
+      "bytes": 67283,
+      "sha256": "992fef3e77114749e966c2e13cfca38fa13c609b66ab2da4f43dc661e0da82b7"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\4795-step000.png",
+      "bytes": 526743,
+      "sha256": "0a2e3e6d8caf90a31fc20778acfcc20dba8d22ae9c6605f18d3cf49e67fcb71e"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\4795-step000.pt",
+      "bytes": 67276,
+      "sha256": "170aa27853ebabd5f029abdab1b08818e50293fad0eed60b27fa59403a79ebf0"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\4795-step050.png",
+      "bytes": 476753,
+      "sha256": "34cb2ada85a0ae2fbcba58fc7d073b84e879fb587c6d39cff453183b34a2eb2d"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\4795-step050.pt",
+      "bytes": 67276,
+      "sha256": "5229bdbc73b11675410a27d292f45bf1d8405dccc39832fac5582e8ae5d6e7a1"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\4795-step100.png",
+      "bytes": 462052,
+      "sha256": "63920639eab6350c9c61cac1bd0681117a2bba40b73665869a8e3d0d37b02af3"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\4795-step100.pt",
+      "bytes": 67276,
+      "sha256": "d6515d565f5e6d4efff467af57a8579d4d5d254f3c47876f026505f4689b180d"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\4795-step200.png",
+      "bytes": 445886,
+      "sha256": "84a12217cca096dc1682dc40444d69e6242beeb7105f0aef0fc0cd2b87a47955"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\4795-step200.pt",
+      "bytes": 67276,
+      "sha256": "8d32b87c651f41fa54a8da9a335efba90b1dbd06b1369040d9cf824b30181d2c"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\6012-step000.png",
+      "bytes": 507315,
+      "sha256": "8d3b47323986fe0d9efcd704af28e2698c4fd0ae4664fb8a2de553dd46f68ffd"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\6012-step000.pt",
+      "bytes": 67276,
+      "sha256": "56364b18a8d0f01d2d74125d8a6894e7aa597c9898c1389992287b38a9833ea2"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\6012-step050.png",
+      "bytes": 485607,
+      "sha256": "2b9cb07336a1f3cb6fe22c2ce6a32c2a1f2c1675f7a055ab7e449d2cead86da6"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\6012-step050.pt",
+      "bytes": 67276,
+      "sha256": "62ea7735dd3665fc07c8011c7bddd1e0bd8f5a1f4b6c9c6369f308d5ccd8b3be"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\6012-step100.png",
+      "bytes": 478878,
+      "sha256": "9f23c53600000b1e2fc3cc39496912600bdc694bfb67fb12febaeda4cfba3d44"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\6012-step100.pt",
+      "bytes": 67276,
+      "sha256": "3cbd05a13f8b88fae59be7a4bfbcfdc4ec0a0b5c16a93eeb053eb1719642e0ef"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\6012-step200.png",
+      "bytes": 471042,
+      "sha256": "fe2b26f214b7534ca9fee65097f3517b33fb806f68f4cd4c558e5ab0efbcf2ec"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\6012-step200.pt",
+      "bytes": 67276,
+      "sha256": "e18e114366f82440fede31f3ad55cd678c42d9024d9ae0809ddcb21a80a2a5cf"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\80932-step000.png",
+      "bytes": 488402,
+      "sha256": "d1e4fc05a4f02da2c8d0a983d89f74434a8fdd0ae89d367bf2bc3add7168016e"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\80932-step000.pt",
+      "bytes": 67283,
+      "sha256": "3b35933899c2342a46588471ad4e2bf8dec9cb05120bd7f6cfd2d14667ac7616"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\80932-step050.png",
+      "bytes": 458182,
+      "sha256": "e5851111fa53f26574108e4044aa19c4c7a2779505442d1e8e5a8b2e69205995"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\80932-step050.pt",
+      "bytes": 67283,
+      "sha256": "8460dea3821443b3b81d9997ea69ea2aa9566c4e3e8285652956e8269bb05e3c"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\80932-step100.png",
+      "bytes": 444209,
+      "sha256": "6eedda92873a7f993ce64d0be4f9177773286e234362b84f71cad6a6ef85c6be"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\80932-step100.pt",
+      "bytes": 67283,
+      "sha256": "5402c52969a6a03ef89aae9d4d0ca2e794fc310aed899ccc6bc4b0c747b9c102"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\images.jsonl",
+      "bytes": 22330,
+      "sha256": "a410253382d8c5f37288f8f7f17b91f8886ae72a36b5e30827835a49a0b1dd7c"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction\\run.json",
+      "bytes": 17856,
+      "sha256": "5c1fd2d8de56bc951341f584e0a8a40c7983065f0058d897beac2bb8be7fdf5b"
+    }
+  ]
+}

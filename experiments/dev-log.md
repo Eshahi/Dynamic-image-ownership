@@ -4,3 +4,4 @@
 
 - 2026-10-03: Run `20261003-1455-latent-reconstruction`, commit `3dbc6a6`, development12 posterior-mode/50/100/200-step pure VAE reconstruction, local GPU USD0; started, per-checkpoint journal retained; outcome pending.
 - 2026-10-03: Run `20261003-1507-feature-codes`, commit `8eecaaf`, pinned v5 development features, CPU USD0, completed; full512 C0/C1 AUC .982/.972 vs original sign32 .649/.590; all three predeclared projection realizations retained. No watermark-channel or population claim.
+- 2026-10-03: Explicit user pause. Goal paused; all3agents interrupted; reconstruction session28450 stopped exit1, no process remains. Four images complete200steps; fifthsaved100/journal150. Original run metadata unfinalized; see research/m1-pause-20261003.md and hashed artifact receipt. No other scientific run started.
