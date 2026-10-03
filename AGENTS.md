@@ -27,10 +27,10 @@ Act as the lead researcher, an expert in computer vision, diffusion models, wate
 
 ## Effort and tokens (you choose; this file authorizes setting `model` and `reasoning_effort` on spawned agents)
 
-The main thread runs `gpt-6.1-sol` at high effort (the user's choice) to balance quality and tokens; you cannot change your own model or effort, so escalate by delegation. Spend the strongest reasoning where a wrong answer is expensive, not on routine work.
+The main thread runs at medium effort to save tokens; you cannot raise your own effort, so escalate by delegation. Spend reasoning where a wrong answer is expensive, not on routine work.
 
-- **Escalate** to a fresh agent (`fork_turns: "none"`, or a small number such as `"2"`) on `gpt-6-astra` with `high`, or `xhigh` for the hardest cases, when: choosing or deriving a method design (where the mark lives, capacity, false-positive bounds, cryptographic binding); a result contradicts your expectation and one cheap diagnosis did not explain it; deciding a method amendment or to abandon a design family; the M1 independent review. Give it a self-contained brief (paths, numbers, the exact question) and ask for a file deliverable, not a conversation. Check its reasoning before you adopt it.
-- **Do it yourself** for coding, running and monitoring experiments, tables and plots, reading code and logs, and literature search. Delegate mechanical or parallel work (paper cards, test writing, refactors, batch analysis) to `gpt-6.1-sol` at `low` or `medium`.
+- **Escalate** to a fresh agent (`fork_turns: "none"`, or a small number such as `"2"`) on `gpt-6-astra` with `high`, or `xhigh` for the hardest cases, when: choosing or deriving a method design (where the mark lives, capacity, false-positive bounds, cryptographic binding); a result contradicts your expectation and one cheap diagnosis did not explain it; deciding a method amendment or to abandon a design family; the M1 independent review. Give it a self-contained brief (paths, numbers, the exact question) and ask for a file deliverable, not a conversation.
+- **Stay at medium** for coding, running and monitoring experiments, tables and plots, reading code and logs, and literature search. Use `gpt-6.1-sol` at `low` or `medium` for mechanical or parallel work (paper cards, test writing, refactors, batch analysis).
 - Log each escalation as one line in `experiments/dev-log.md` (reason, model, effort). Never use `max` or `ultra`. Keep the main context lean: read by search or line range, and send long output to files.
 
 ## Integrity rules (unchanged, these are academic standards)
