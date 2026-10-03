@@ -1,0 +1,66 @@
+{
+  "schema_version": "m1-gs-development-manifest-v1",
+  "data_split": "synthetic",
+  "config": {
+    "generation_steps": 50,
+    "generation_cfg": 7.5,
+    "inversion_steps": 50,
+    "inversion_cfg": 1.0,
+    "attack_steps": 20,
+    "attack_cfg": 1.0,
+    "attack_eta": 0.0,
+    "strengths": [
+      0.05,
+      0.1,
+      0.2,
+      0.4
+    ],
+    "attack_seeds": [
+      0,
+      1,
+      2
+    ],
+    "payload_bits": 256,
+    "channel_factor": 1,
+    "hw_factor": 8,
+    "threshold": 0.7,
+    "size": [
+      512,
+      512
+    ],
+    "precision": "float16",
+    "whitening": "SHAKE256-domain-separated-key-nonce-XOR",
+    "gpu_budget_bytes": 10737418240
+  },
+  "cases": [
+    {
+      "id": "prompt-0",
+      "prompt": "a photograph of a mountain lake at sunrise, detailed landscape",
+      "seed": 1000
+    },
+    {
+      "id": "prompt-1",
+      "prompt": "a photograph of a city street with parked cars and shop fronts",
+      "seed": 1001
+    },
+    {
+      "id": "prompt-2",
+      "prompt": "a close-up photograph of a bowl of fruit on a wooden table",
+      "seed": 1002
+    },
+    {
+      "id": "prompt-3",
+      "prompt": "a photograph of a brown dog running on a beach",
+      "seed": 1003
+    }
+  ],
+  "development_key_hex": "ff99f6aa2e1041ad54c90563c9ac39600812ad84d63e9bd1d56bd510fdf70285",
+  "wrong_key_hex": "e2d6289268ce108b4bb4ec2a7c7684d42461373b65a0246e183329cd5447acbd",
+  "notes": [
+    "Synthetic prompt-only native latent watermark baseline; no existing-photo attribution claim.",
+    "SD1.5 adaptation of Gaussian Shading; SHAKE256 whitening replaces unavailable ChaCha20. Public development keys provide no secrecy or security proof.",
+    "Threshold0.7 fixed before data; C0 and wrong-key false positives are exploratory frequencies only.",
+    "Payload repeated spatially64 times with strict majority threshold32; no payload permutation.",
+    "C0/C1 share half-normal magnitudes as paired counterfactuals, signs differ; no fixed-source image quality interpretation."
+  ]
+}
