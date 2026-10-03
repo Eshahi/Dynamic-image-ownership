@@ -1,5 +1,7 @@
 # Scope guard
 
+> Amended 2026-10-03: development compute and documented method amendments are delegated to the agent and reviewed at milestones; see `approval-policy.md`, "Autonomous handoff, 2026-10-03". The claim boundaries below are unchanged.
+
 Issue #4, source task `method-6`. Applies to README, architecture specifications, code, experiments and thesis claims. Authority: immutable proposal/source ledger, `research-contract.md`, and `approval-policy.md`. The original plan and hash-bound historical decisions remain unchanged.
 
 ## allowed_method

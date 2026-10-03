@@ -1,5 +1,7 @@
 # A4 stop, continuation and failure rules
 
+> Amended 2026-10-03: for development work (synthetic or development-split data, local, USD 0), `STOP_COMPUTE` and `STOP_METHOD` no longer pause work; see `approval-policy.md`, "Autonomous handoff, 2026-10-03". Confirmatory runs on held-out data keep these rules.
+
 Status 2026-09-23: prospective control document for issue #5. A stop pauses the affected branch or exact run; it does not erase negative evidence or stop unrelated safe work. The official Spec Kit controller alone advances lifecycle gates. No scientific experiment is approved by this document. Related criteria and counts: `acceptance.md`, `sample-size.md`; authority: `approval-policy.md`, `scope-guard.md`, A3/A5.
 
 | Trigger | Evidence required | Status | Allowed next action |

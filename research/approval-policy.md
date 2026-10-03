@@ -73,3 +73,26 @@ Decided by the user on 2026-10-02 after three harness failures each consumed an 
 The rerun approval file names its actor as `delegated:<agent identity> under user standing decision 2026-10-02`, never as the user, and its source reference cites the original approval digest, the scientific-core hash, the rerun ordinal, the review receipt and the rerun-check output. Anything that fails a condition needs a new decision from the user.
 
 **Launch.** The user starts scientific runs from their own terminal through the official runner. Agents prepare, review and monitor; they do not leave a scientific run as a background process of a finished turn.
+
+## Autonomous handoff, 2026-10-03
+
+**Source.** The user's message in Claude Code session `306009c7-f156-43a4-a6a7-e543c6058349` on 2026-10-03, transcribed verbatim by Claude (Anthropic), not by the user:
+
+> من احساس میکنم که کدکس خیلی کند پیش میره و همش منتظر تایید من میمونه. حقیقت اینه من درگیر پروژه های دیگه ای هستم و نیاز دارم که این مورد رو کاملا handoff کنم به کدکس و فقط در پایان مراحل مهم، مثلا تکمیل الگوریتم پیشنهادی، بیام و اونو بررسی کنم و این بررسی ها الان خیلی خیلی زیاده. حس میکنم کدکس خنگ شده و از تمام قابلیت هاش در زمینه computer vision و رمزنگاری و ریسرچ استفاده نمیکنه. میخوام که منبع اصلی خودش باشه. ببین چه تغییراتی میتونی بدی تا ایده آلی که من دنبالشم بهش نزدیک بشیم.
+
+English translation: "I feel Codex moves very slowly and keeps waiting for my approval. I am busy with other projects and need to hand this over to Codex completely, coming back only at the end of important stages, for example completion of the proposed algorithm, to review it; these reviews are far too many now. Codex seems to have become dumb and does not use its full capabilities in computer vision, cryptography and research. I want it to be its own primary source. See what changes you can make to bring us closer to this ideal."
+
+In the same session the user chose, from offered options: downloads of free open-source code, model weights and papers are allowed with a size cap and license record; quality is preferred over token cost (main model at the highest practical reasoning effort, larger context before compaction).
+
+**Effect.** This section supersedes every contrary clause above, in `research/stop-rules.md`, `research/scope-guard.md`, `research/proposal-aligned-plan-20260930.md`, the continuation history and skill files, for the remainder of the project unless the user changes it. `AGENTS.md` carries the operating rules.
+
+1. **Continuation.** The handoff is a standing instruction to keep working. Agents continue across turns (a thread goal set with `/goal` is the mechanism) until a milestone is complete or a hard stop applies. "Continue when the user sends a message" and "finish the next bounded task" no longer limit a turn.
+2. **Milestones are the review points.** M1 (proposed algorithm complete) and M2 (confirmatory results), as defined in `AGENTS.md`, plus the 2026-10-13 report above. Everything between milestones is delegated, including design choices, method amendments, experiments, retries, model and agent selection.
+3. **Development compute is delegated.** Experiments on synthetic or development-split data with local hardware and USD 0 need no approval, no rehearsal, no official runner and no per-run review. The 45-minute ceiling of 2026-10-03 applied to the official runner package and does not limit development runs; runs over about an hour must be resumable. Provenance is the lightweight run record in `AGENTS.md`. Development results are exploratory evidence only.
+4. **Confirmatory compute** on held-out data keeps the "Compute approval" row: the user approves the exact package at a milestone review; the rehearsal tier and infrastructure-only rerun allowance of 2026-10-02 still apply to it.
+5. **Method amendments** no longer pause work. Record each one (source requirement, evidence, the alternative, effect on questions, data and claims) in a method amendment document and continue; the user reviews adoption at M1. Research questions and hypotheses are never deleted or relabelled; contradicted hypotheses are reported as contradicted.
+6. **Independent review** is required once per milestone package, not per step or per package of development work.
+7. **Downloads.** Free, open-source code, model weights, datasets and papers from their official sources (GitHub, Hugging Face, arXiv, project pages) are allowed. Record URL, revision, license and SHA-256 in `research/downloads.md`; total under 30 GB; no unvetted installers or binaries; gated, paid or license-incompatible material needs the user.
+8. **GitHub** progress is recorded at milestones only.
+
+Not granted: paid compute, paid APIs or purchases; pushing, publishing or any external communication; credentials; edits to the proposal, claim ledger, source plan, `THESIS_GUIDE_OFFLINE.html` or retained run outputs; use of held-out data before the confirmatory approval; fabricated human verdicts or Spec Kit transitions; chapter finalization, submission or publication acceptance.
