@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "gaussian-shannon",
+  "citation_key": "zhang2026gaussianshannon",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2603.26167v1",
+  "title": "Gaussian Shannon: High-Precision Diffusion Model Watermarking Based on Communication",
+  "authors": [
+    "Yi Zhang",
+    "Hongbo Huang",
+    "Liang-Jie Zhang"
+  ],
+  "year": 2026,
+  "venue": null,
+  "access_date": "2026-10-03",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "artifacts/gaussian-shannon.html",
+    "sha256": "78674a490e9d009f31fe5530111c485176c4c6438007f214bb3e66f511837767"
+  },
+  "limitations": [
+    "Preprint; ordinary-noise averages are not T3 guarantee. LDPC parity success alone is not cryptographic authentication. Dependent errors challenge iid communication bounds."
+  ]
+}

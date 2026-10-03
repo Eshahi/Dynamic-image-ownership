@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "prc-image",
+  "citation_key": "gunn2024prcimage",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2410.07369v2",
+  "title": "An undetectable watermark for generative image models",
+  "authors": [
+    "Sam Gunn",
+    "Xuandong Zhao",
+    "Dawn Song"
+  ],
+  "year": 2024,
+  "venue": null,
+  "access_date": "2026-10-03",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "artifacts/prc-image.html",
+    "sha256": "e39642ba273f96d80a493c22bde7b0986952dd16e83349edcd80edc4863cdc46"
+  },
+  "limitations": [
+    "Sec3.2/C.3 finite experimental parameters do not satisfy strict pseudorandomness proof bounds. Detection is inversion dependent. FID is distributional, not paired perceptual preservation."
+  ]
+}

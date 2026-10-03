@@ -121,7 +121,7 @@ def run(manifest_path, output):
     commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     fingerprint = {"manifest_sha256": digest(manifest_path), "script_sha256": digest(__file__), "commit": commit}
     fingerprint["dependency_sha256"] = {name: digest(ROOT / "scripts" / name) for name in
-        ("three_threat_models.py", "m1_latent_reconstruction.py", "check_a6_lpips_assets.py", "verify_science_assets.py")}
+        ("three_threat_models.py", "m1_latent_reconstruction.py", "check_a6_lpips_assets.py", "verify_science_assets.py", "a6_clip_visual.py")}
     previous_duration = 0.0
     if output.exists():
         prior = json.loads((output / "run.json").read_text(encoding="utf-8"))
@@ -175,6 +175,9 @@ def run(manifest_path, output):
         record["scheduler"] = dict(pipe.scheduler.config)
         record["inverse_scheduler"] = dict(inverse.config)
         metric = load_lpips(ASSETS, lpips_package)
+        from a6_clip_visual import load_visual_encoder
+        from three_threat_models import clip_feature
+        clip_model, clip_transform = load_visual_encoder(ASSETS / "clip/ViT-B-32.pt", device="cpu")
         write(output / "run.json", record)
         channels = [("clean", None, None), ("vae", None, None)] + [
             (f"regen-{s:g}-seed{a}", s, a) for s in CONFIG["strengths"] for a in CONFIG["attack_seeds"]]
@@ -198,6 +201,7 @@ def run(manifest_path, output):
                 originals[arm] = Image.open(path).convert("RGB")
             clean_comparison = quality(np.asarray(originals["C0"]), np.asarray(originals["C1"]))
             clean_comparison["lpips_alex"] = lpips_score(metric, np.asarray(originals["C0"]), np.asarray(originals["C1"]))
+            original_features = {arm: clip_feature(clip_model, clip_transform, np.asarray(im)) for arm, im in originals.items()}
             for channel, strength, attack_seed in channels:
                 for arm in ("C0", "C1"):
                     if (cid, arm, channel) in done:
@@ -235,6 +239,7 @@ def run(manifest_path, output):
                     detector_seconds = time.monotonic() - det_started
                     q = quality(np.asarray(source), np.asarray(image))
                     q["lpips_alex"] = lpips_score(metric, np.asarray(source), np.asarray(image))
+                    q["clip_cosine"] = float((original_features[arm] * clip_feature(clip_model, clip_transform, np.asarray(image))).sum())
                     row = {"case":cid,"prompt":case["prompt"],"generation_seed":seed,"arm":arm,"channel":channel,
                            "strength":strength,"attack_seed":attack_seed,"image":path.name,"image_sha256":digest(path),
                            "bit_accuracy":accuracy,"detected":accuracy>=CONFIG["threshold"],"exact_payload":accuracy==1.0,

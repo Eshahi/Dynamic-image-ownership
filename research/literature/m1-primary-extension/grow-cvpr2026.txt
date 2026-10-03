@@ -1,0 +1,816 @@
+PAGE 1
+GROW: Watermark Generation with Progressive Guidance for Diffusion Models
+Pengcheng Luo1, Zexi Jia2*, Yijia Zhong3, Jinchao Zhang2, Jie Zhou2
+1School of Intelligence Science and Technology, Peking University
+1State Key Laboratory of General Artificial Intelligence, Peking University
+2WeChat AI, Tencent Inc., China
+3College of Computer Science and Artificial Intelligence, Fudan University
+Abstract
+Digital watermarking is a cornerstone for copyright pro-
+tection. With the rapid advancement of generative models
+like diffusion models, in-generation and training-free wa-
+termarking techniques have garnered more attention for
+their endogeneity and convenience. These methods typi-
+cally embed a watermark into the initial noise, where wa-
+termark extraction relies on Denoising Diffusion Implicit
+Models (DDIM) inversion. However , the computationally
+intensive extraction process severely hinders their path to-
+ward practical deployment. To overcome this critical bot-
+tleneck, we propose GROW, a novel training-free paradigm
+that reframes watermarking from a one-shot “embedding”
+to a progressive “growth”. By progressively guiding using
+frequency-domain gradients, GROW naturally weaves the
+watermark into the image, which enables inversion-free ex-
+traction. Comprehensive experiments on multiple datasets
+show that GROW not only achieves superior robustness and
+imperceptibility but also offers a detection speed nearly
+100x faster than inversion-based techniques. The code will
+be made publicly available.
+1. Introduction
+The rapid advancement of generative models, particularly
+diffusion models (DMs) [19, 29, 33, 36, 37] has revolution-
+ized AI-generated content (AIGC), enabling the creation of
+photorealistic images from textual prompts. This accessi-
+bility, however, brings significant challenges in copyright
+protection and content traceability [5, 22]. Digital water-
+marking [20] is a critical technology to address these is-
+sues by embedding imperceptible information into gener-
+ated images, thereby providing a means for authentication
+and provenance tracking.
+Existing watermarking methods for diffusion models can
+be broadly classified into three categories.Post-processing
+*Corresponding author.
+Figure 1. A comparison of watermarking paradigms for diffu-
+sion models.(a) Initial-Noise Watermarking:The dominant
+paradigm, based on passive scattering, embeds a watermark in the
+initial noise and relies on costly inversion for extraction.(b) Pro-
+gressive Guidance Watermarking:Our new paradigm GROW,
+based on active guidance, progressively guides the generation pro-
+cess, which enables inversion-free extraction.
+methods [6, 7, 35, 41, 44] directly alter the final image,
+often at the cost of visual quality and robustness. In con-
+trast, in-generation watermarking integrates the watermark
+directly into the generation process. This provides a cru-
+cial advantage of endogeneity: the watermark is semanti-
+cally hidden within the image. Consequently, its complete
+removal would require knowledge of the diffusion model’s
+internal parameters, access to which is typically impracti-
+cal. Within in-generation methods,Fine-tuning-basedap-
+proaches [4, 8, 10, 11, 13, 14, 24, 27, 28, 31, 39, 43] em-
+bed the watermark by either modifying the model’s param-
+eters or introducing it as a conditional input, which requires
+extensive computational resources for retraining. More re-
+cently,Training-freemethods [2, 3, 9, 15, 21, 23, 25, 34,
+This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.
+Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+35978
+
+PAGE 2
+38, 40] have emerged as a flexible alternative. These meth-
+ods typically operate by manipulating the initial noise latent
+before the denoising process begins.
+A seminal work in this area, Tree-Ring [38], embeds wa-
+termarks by creating specific patterns in the initial noise la-
+tent. This foundational idea has inspired a series of sub-
+sequent methods [2, 3, 9, 15, 21, 23, 25, 34, 40] that also
+operate on the initial noise. While ingenious, these initial-
+noise-based methods share a critical flaw: their reliance on
+a computationally expensive DDIM inversion process [36]
+to recover the initial noise for watermark detection. This se-
+vere latency bottleneck hinders their practicality for large-
+scale, real-time applications. Instead of embedding water-
+mark into initial noise, a naive approach might be to add
+the watermark to the final latent representation just before
+decoding. However, our experiments in Figure 6 show that
+this drastically disrupts the learned data distribution, lead-
+ing to severe image degradation.
+We realize that the solution lies not in abandoning the
+principle of endogeneity, but in rethinking its mechanism.
+The robustness of initial-noise-based methods stems from a
+passive scatteringprocess, where the denoising model im-
+plicitly filters a watermarked noise, fusing a portion of it
+with the image semantics. Our key insight is to achieve
+this same desirable fusion throughactive guidance. As
+depicted in Figure 1(b), we bridge image generation and
+watermark generation by leveraging the model’s own it-
+erative denoising process. Instead of modifying the ini-
+tial noise, we introduce a gradient-based guidance mech-
+anism. At each denoising step, we compute the difference
+between the latent features (in the frequency domain) and a
+fixed target watermark pattern. The gradient of this differ-
+ence is then used to gently steer the generation, constitut-
+ing a progressive guidance approach. The subtle perturba-
+tions introduced at each step accumulate along the model’s
+learned data manifold. In subsequent steps, the U-Net de-
+noiser, driven by the conditioning signal, naturally incorpo-
+rates these perturbations into the emerging image textures
+like feathers and tree bark, resulting in a deeply fused wa-
+termark.
+This reformulation forms the core of our method,
+GROW(Generation with progressiveWatermarking).
+Crucially, it retains the semantic fusion advantage of prior
+work while offering a decisive practical benefit: extrac-
+tion is direct, efficient, and completely free from inversion.
+GROW thus establishes a new paradigm, shifting from a
+static ”imprint” to a dynamic ”co-evolution” between the
+image and the watermark.
+Our work makes three key contributions:
+• We propose GROW, a novel training-free paradigm that
+reframes watermarking as a progressive guidance pro-
+cess, eliminating the dependency on costly model inver-
+sion for extraction.
+• We develop a novel mechanism that leverages gradient
+guidance in the frequency domain to weave the water-
+mark into the final latent representations.
+• We empirically demonstrate that GROW not only sur-
+passes existing methods in robustness and imperceptibil-
+ity but also achieves a nearly 100x speedup in extraction,
+offers a fast and practical watermarking solution.
+2. Related Works
+Recent research on image watermarking can be broadly cat-
+egorized into three categories.
+Post-processing-based: These watermarking algo-
+rithms [6, 7, 35, 41, 44] are applied directly to the final gen-
+erated images. These methods, often adapted from classical
+techniques [35, 44], typically operate in the spatial domain,
+a transform domain (e.g., DCT, DWT) or a latent space to
+embed the watermark signal. For example, RivaGAN [41]
+uses a GAN-based framework with an encoder-decoder ar-
+chitecture to embed and extract watermarks.
+Fine-tuning-based: To achieve deeper integration, ap-
+proaches amalgamate the watermarking process with the
+model’s architecture [4, 8, 10, 11, 13, 14, 24, 27, 28, 31,
+39, 43]. These approaches typically modify a pre-trained
+diffusion model to instill a watermarking capability. For
+instance, Stable Signature [14] fine-tunes the V AE decoder
+with a dedicated watermark extractor, enabling the decoder
+to implicitly embed a signature during image reconstruc-
+tion. Other works [27, 43] propose fine-tuning a specific
+trigger to hidden watermark. Some methods also intro-
+duce the watermark as a conditional input during the train-
+ing phase [39]. Although these methods can produce high-
+quality watermarked images, they require significant com-
+putational resources for retraining and result in modified
+model parameters, which can be a major barrier for prac-
+tical deployment.
+Training-free: Recently, training-free methods [2, 3, 9,
+15, 21, 23, 25, 34, 40] have emerged as a flexible, plug-
+and-play alternative. Their dominant strategy, as illustrated
+in Figure 1(a), is to manipulate the initial noise latentz T .
+The seminal work, Tree-Ring [38], demonstrated that wa-
+termark information can be embedded in the initial noise.
+This foundational idea has inspired a lineage of research.
+For instance, WIND [2] focuses on designing specific pat-
+terns for improved robustness, while SEAL [3] innovatively
+links the watermark to the semantic content of the input
+prompt. Gaussian Shading [40] proposes mapping the wa-
+termark to a distribution-preserving Gaussian representa-
+tion to achieve performance-lossless embedding. Despite
+their ingenuity, a critical flaw shared by all these initial-
+noise-based methods is their reliance on a computationally
+expensive inversion process [36] for watermark detection.
+Recovering the initial noise latent from a given image is a
+time-consuming procedure that severely hinders the prac-
+35979
+
+PAGE 3
+ticality of these methods for large-scale, real-time applica-
+tions. Our work GROW, belongs to the training-free cate-
+gory but introduces a fundamentally different paradigm that
+circumvents this inversion requirement entirely. We present
+a theoretical analysis in supplementary material.
+3. Preliminaries
+3.1. Latent Diffusion Models
+Latent Diffusion Models (LDMs) [33] generate images by
+iteratively denoising a random latent variablez T using a U-
+Net model. A key step in modern schedulers is predicting
+the ”clean” latent ˆz0 from the noisy latentz t and the pre-
+dicted noiseE θ(zt, t, c):
+ˆz0 = 1√¯αt
+(zt −
+√
+1−¯αtEθ(zt, t, c)), (1)
+where¯αt is a noise schedule parameter andcis the con-
+ditioning. Our method leverages this predicted ˆz0 as the
+target for guidance. The final latentz 0 is then decoded into
+an imagex=D(z 0)by a V AE decoderD.
+3.2. Guidance in Diffusion Models
+Guidance techniques are fundamental to controlling the
+generation process in diffusion models.
+Classifier Guidance[12], an early approach, steers gen-
+eration by incorporating gradients from a pre-trained clas-
+sifier pϕ(y|zt) into the noise prediction:
+ˆE=E θ(zt, t)−σ t∇zt logp ϕ(y|zt) (2)
+where Eθ(zt, t) is the model’s predicted noise, σt is the
+noise schedule, and ∇zt logp ϕ(y|zt) is the gradient of the
+classifier with respect to the latent zt for class y. While
+powerful, this method requires training a separate classifier
+on noisy data and can compromise sample diversity.
+Classifier-Free Guidance (CFG)[18] has become the
+mainstream approach by circumventing the need for a sep-
+arate classifier. It achieves this by jointly training the dif-
+fusion model on conditional and unconditional inputs and
+interpolating their noise predictions during inference:
+ˆECFG =E θ(zt, t,∅) +w·(E θ(zt, t, c)− E θ(zt, t,∅)) (3)
+Here, Eθ(zt, t, c) is the conditional prediction (with prompt
+c), Eθ(zt, t,∅) is the unconditional prediction (with empty
+prompt ∅), and w >1 is the guidance scale that amplifies
+the direction pointed by the conditional prediction. This
+allows for flexible control over the trade-off between sample
+quality and adherence to the condition.
+Our work is conceptually inspired by these guidance
+paradigms. We adapt the core idea of steering the denoising
+trajectory to the novel task of invisible watermarking. In-
+stead of guiding semantic attributes like ”an astronaut rid-
+ing a horse,” we guide the generation process to subtly and
+progressively incorporate a watermark signal, leveraging a
+similar mechanism to achieve deep fusion within the natural
+image manifold.
+4. Method
+4.1. Overview
+Our proposed method, GROW, introduces a new paradigm
+for training-free watermarking. Instead of embedding a
+static pattern into the initial noise, we progressively guide
+the generation process towards a predefined watermark tar-
+get. This is achieved by treating watermarking as an opti-
+mization problem solved concurrently with denoising. The
+overall framework is depicted in Figure 2.
+4.2. GROW
+4.2.1. Frequency-Domain Watermark Encoding
+To create a watermark that is both imperceptible and robust,
+we embed it in the frequency domain of the latent space us-
+ing the Discrete Cosine Transform (DCT). We strategically
+choose to embed the watermark in the mid-frequency band.
+This choice is crucial: embedding in low-frequency com-
+ponents would visibly distort the core structure of the im-
+age, while embedding in high-frequency components would
+make the watermark vulnerable to removal by common
+operations like JPEG compression or blurring. The mid-
+frequency band thus offers an optimal trade-off between vi-
+sual quality and robustness.
+First, a secret messageWis converted into a binary bit
+sequencew. Given a secret keyK, we use a seeded pseudo-
+random number generator to generate a binary mask matrix
+M. The bit sequencewis repeated and mapped to mask
+matrix to define a target signal matrixS:
+S(u, v) =
+(
+α·(2w i −1)ifM(u, v) = 1
+0otherwise (4)
+wherew i is the bit assigned to the coordinate(u, v), andα
+is the watermark strength.
+4.2.2. Progressive Watermark Guidance
+This is the core of our method. Instead of modifying the
+initial noisez T , we apply a gentle guidance force during the
+denoising process, steering the generation towards a final
+latentz 0 whose DCT coefficients match our target signal
+S. This guidance is applied for stepst > T·r start, where
+rstart is a ratio controlling the start of watermarking (e.g.,
+0.5).
+At each guided denoising stept, the process is as follows
+(summarized in Algorithm 1):
+Predict Clean Latent: Using the current latentz t and
+the U-Net’s noise predictionE θ, we first estimate the pre-
+dicted clean latent ˆz0 using Equation 1.
+35980
+
+PAGE 4
+Figure 2. The overall framework of our proposed method, GROW.(a) Watermark generation:A secret messageWis first converted
+into a bit sequencew. The watermarkwis embedded into the target frequency domain at the positions defined by a maskM, which is
+generated from a secret keyK. During the iterative denoising process, we compute a loss between the DCT of the predicted clean latentz t
+and the target signal. The gradient of this loss guides the generation, progressively embedding the watermark.(b) Watermark extraction:
+To extract the watermark, the final image is encoded back to its latent representationz 0. We then apply DCT and, using the keyK, check
+the signs of the coefficients at the locations specified by the maskM. To ensure robustness, each bit of the message is embedded multiple
+times; a majority vote among these redundant copies reveals the final bit, making the extraction highly resilient to distortions. This process
+is direct and requires no inversion.
+Calculate and Apply Gradient Guidance: We trans-
+form the predicted latent ˆz0 into the frequency domain us-
+ing DCT. A watermark lossL wm is computed as the Mean
+Squared Error (MSE) between the DCT coefficients of ˆz0
+and our target signalS, exclusively at the locations speci-
+fied by the maskM:
+Lwm =||(DCT( ˆz0)−S)⊙M|| 2
+2 (5)
+The gradient of this loss with respect toˆz0 is then computed
+and used to steer the prediction in a single step:
+ˆzguided
+0 = ˆz0 −η∇ ˆz0 Lwm (6)
+whereηis the guidance scale.
+Update Noise Prediction for Scheduler: The standard
+scheduler requires a noise prediction to compute the next la-
+tentz t−1. Since we have modified the predicted clean latent
+to ˆzguided
+0 , we must derive a new, corresponding noise pre-
+diction. By rearranging Equation 1, we compute this guided
+noiseE guided.
+E guided = 1√1−¯αt
+(zt − √¯αtˆzguided
+0 ) (7)
+This new noise, which now implicitly contains the wa-
+termark signal, is then used as the conditional prediction
+Eθ(zt, t, c). The guided prediction is then used within
+the standard Classifier-Free Guidance (CFG) framework in
+Eq. 3 to compute the final noise prediction for the current
+step.
+4.2.3. Watermark Extraction
+The extraction process, summarized in Algorithm 1, re-
+quires no inversion. Given a potentially watermarked image
+x, we first obtain its latent representationz 0 using the V AE
+encoder. We then apply the DCT toz 0 to get its frequency
+representationF.
+Concurrently, the secret keyKis used to deterministi-
+cally regenerate the binary maskM, which identifies the ex-
+act frequency locations where the watermark bits were em-
+bedded. For each location(u, v)where the maskM(u, v)is
+1, we extract a single bit by checking the sign of the corre-
+sponding DCT coefficientF(u, v): a positive sign decodes
+to ’1’, and a negative sign decodes to ’0’. Since each bit was
+repeated multiple times, we use a majority vote to determine
+the final value for each bit, enhancing the robustness of the
+extraction. Finally, the collected sequence of bits is con-
+verted back into the messageW.
+4.3. Analysis: Progressive Guidance is Effective
+Progressive guidance succeeds where a naive one-step in-
+jection into the final latentz 0 fails catastrophically in Fig-
+ure 6. The answer lies in how GROW harmonizes with the
+iterative nature of the diffusion process, which can be at-
+tributed to two key principles:
+Incremental Perturbations:The naive approach ap-
+plies a single, large perturbation, pushing the final latent
+point far off the learned data manifold. In contrast, GROW
+35981
+
+PAGE 5
+Algorithm 1GROW: Generation and Extraction
+1:procedureGENERATE(promptc,messageW,keyK, ...)
+2:S←GenerateTargetSignal(W, K) ▷ Create target
+watermark signal
+3:z T ∼ N(0,I)
+4:fort=T, . . . ,1do
+5:E θ ←U-Net(z t, t, c)
+6: ˆz0 ←PredictCleanLatent(z t,E θ, t)
+7:ift > T·r start then ▷ If in guidance phase
+8:g← ∇ ˆz0Loss(DCT(ˆz0),S) ▷ Compute
+watermark gradient
+9:E θ ←ApplyGuidance(E θ,g, η) ▷ Update
+noise with guidance
+10:end if
+11:E final ←ApplyCFG(E θ, ...)
+12:z t−1 ←SchedulerStep(E final, t,z t)
+13:end for
+14:returnx←V AE.decode(z 0)
+15:end procedure
+16:procedureEXTRACT(imagex,keyK)
+17:M←GenerateMask(K) ▷ Regenerate watermark
+mask
+18:z 0 ←V AE.encode(x)
+19:F←DCT(z 0)
+20:bits←Sign(F[M]) ▷ Extract bits from signs at
+masked locations
+21:W←BitsToMessage(bits)
+22:returnW
+23:end procedure
+applies a series of subtle, gradient-based updates at each
+step. These small adjustments gently steer the generation
+trajectory along the manifold’s tangent space, preserving se-
+mantic integrity throughout the process.
+Collaborative Refinement:Crucially, the U-Net does
+not treat these small perturbations as noise to be eliminated.
+Instead, leveraging its powerful learned priors, it interprets
+them as high-frequency details to be rendered. The net-
+work collaboratively weaves the watermark’s frequency sig-
+nal into plausible image textures, such as the grain of wood
+or ripples in water rather than leaving them as artifacts.
+5. Experiments
+5.1. Datasets and Metrics
+Datasets. To ensure a comprehensive evaluation, we con-
+duct tests on 1,000 generated images for each method from
+two widely-used datasets: MS-COCO [26] for photoreal-
+istic images and Stable-Diffusion-Prompts [16] for artistic
+and complex concepts.
+Metrics. We evaluate performance from two perspec-
+tives:Imperceptibility.We measure the visual quality of
+watermarked images using PSNR, SSIM, Fr´echet Inception
+Distance (FID) [17], and LPIPS [42]. For PSNR, SSIM,
+higher is better. For FID, LPIPS, lower is better.
+Robustness to attacks.We evaluate the robustness of
+the embedded watermark by measuring the Message Accu-
+racy (M-ACC) after applying various attacks. M-ACC is a
+strict metric that calculates the percentage of images from
+which the entire embedded message is recovered without
+any bit errors. This is significantly more challenging than
+Bit Accuracy and more meaningful for practical applica-
+tions where message integrity is paramount. The attacks
+include Rotation, JPEG compression, Cropping, Gaussian
+Blur, Gaussian Noise, Brightness adjustment and adversar-
+ial attack Diff-Pure [30] (illustrated in Figure 3).
+5.2. Implementation Details
+All experiments are performed using the Stable Diffusion
+v2.1-base [33] model. We compare GROW against a wide
+range of watermarking methods, including post-processing
+based (DwtDctSvd [35], Hidden [44]) and other training-
+free methods (Tree-Ring [38], RingID [9], Gaussian Shad-
+ing [40], WIND [2]).
+All experiments are conducted using the PyTorch 1.13.0
+framework, running on a single Tesla T4 GPU. For our
+method, we set the default parameters toα= 0.5,η= 100,
+sample 50 steps andr start = 0.5to test. And our exper-
+iments embed a 16-bit watermark in the first channel of
+the V AE features. However, our framework is flexible, and
+other channels can also be utilized to embed watermarks,
+either independently or concurrently, allowing for higher-
+capacity watermarking.
+5.3. Experimental Results
+Imperceptibility. A critical requirement for any water-
+marking technique is that it must not degrade the visual
+quality of the generated content. As shown in Table 1,
+Figure 3. Watermarked image is attacked by different noise, in-
+cluding (a) with watermark, (b) Rotation 75°, (c) JPEG 25, (d)
+Random Crop 25%, (e) GauBlur r=4, (f) Noiseσ=0.05, (g) Bright-
+ness factor=6 and (h) Adversarial Attack s=0.5.
+35982
+
+PAGE 6
+Figure 4. Visual comparisons of different methods using various prompts, including Hidden, Tree-Ring, WIND, and our GROW.
+Table 1. Comparison of different watermarking methods across datasets. For imperceptibility metrics (PSNR, SSIM, FID, LPIPS), we
+report the performance on clean images. For robustness, we report the M-ACC (%) under various attacks. Best results are inbold, second
+best are underlined.
+Method Imperceptibility Robustness to Attacks
+PSNR↑SSIM↑FID↓LPIPS↓ Clean Rotation JPEG Crop Blur Noise Brightness Adversarial Avg
+Dataset: Stable-Diffusion-Prompts
+DwtDctSvd [35]39.38 0.9825.010.031.00 0.45 0.03 0.52 0.47 0.70 0.11 0.59 0.483
+Hidden [44] 23.05 0.82 24.51 0.08 0.91 0.79 0.53 0.91 0.76 0.75 0.74 0.65 0.755
+Tree-Ring [38] 15.25 0.54 25.93 0.42 0.99 0.02 0.42 0.04 0.61 0.53 0.42 0.85 0.485
+RingID [9] 13.56 0.45 26.30 0.45 1.00 1.00 1.00 0.53 0.991.000.96 0.87 0.918
+Gaussian Shading [40] 24.83 0.81 25.45 0.07 1.00 0.58 1.00 0.92 0.91 0.960.980.91 0.907
+WIND [2] 13.16 0.47 24.12 0.39 1.00 0.72 1.00 0.86 0.99 0.98 0.97 0.89 0.926
+GROW 28.09 0.84 18.90 0.06 1.00 1.00 1.00 1.00 1.00 0.93 0.94 0.94 0.976
+Dataset: MS-COCO
+DwtDctSvd [35]42.05 0.9924.65 0.04 1.00 0.47 0.06 0.50 0.45 0.72 0.14 0.56 0.487
+Hidden [44] 23.75 0.80 23.21 0.09 0.94 0.76 0.57 0.93 0.75 0.79 0.71 0.67 0.765
+Tree-Ring [38] 16.48 0.27 22.38 0.43 0.99 0.05 0.46 0.08 0.64 0.50 0.44 0.87 0.504
+RingID [9] 15.73 0.51 23.63 0.48 1.00 1.00 1.00 0.57 0.970.980.97 0.88 0.921
+Gaussian Shading [40] 26.21 0.83 22.45 0.07 1.00 0.59 1.00 0.92 0.94 0.97 0.96 0.93 0.913
+WIND [2] 7.44 0.26 21.89 0.44 1.00 0.75 1.00 0.84 0.98 0.97 0.96 0.90 0.925
+GROW 27.54 0.85 12.32 0.05 1.00 1.00 1.00 1.00 0.99 0.91 0.98 0.95 0.978
+GROW demonstrates excellent performance in preserving
+image fidelity. High PSNR and SSIM scores, along with
+a low LPIPS value, indicate that our method does not in-
+troduce significant pixel-level distortions and that the wa-
+termarked images are structurally very similar to the origi-
+nals. Furthermore, GROW achieves a remarkable FID score
+of12.32on MS-COCO, signifying that the distribution of
+our watermarked images closely matches that of authentic,
+non-watermarked images, thus preserving the high genera-
+tion quality of the underlying diffusion model. The qual-
+itative comparisons in Figure 4 visually confirm the supe-
+rior imperceptibility of our method.Robustness. As pre-
+sented in Table 1, GROW demonstrates superior perfor-
+mance across the board. On the Stable-Diffusion-Prompts
+dataset, GROW achieves an average robustness M-ACC
+of 97.6%, and on MS-COCO, it reaches a higher 97.8%
+against a wide array of common distortions. This surpasses
+other methods, particularly recent training-free approaches.
+35983
+
+PAGE 7
+Table 2. Comparison of different watermarking methods across diffusion models. For imperceptibility (PSNR, SSIM, FID, LPIPS), we
+report performance on clean images. For robustness, we report the average Message Accuracy (M-ACC) across all attacks. Best results are
+inbold, second best are underlined.
+Method Imperceptibility Robustness to Attacks
+PSNR↑SSIM↑FID↓LPIPS↓ Clean Rotation JPEG Crop Blur Noise Brightness Adversarial Avg
+Model: stable-diffusion-v1-5
+Tree-Ring[38] 14.25 0.35 25.18 0.45 0.97 0.02 0.41 0.05 0.58 0.45 0.39 0.83 0.463
+RingID[9] 13.85 0.44 26.45 0.49 1.00 1.00 1.00 0.51 0.940.990.95 0.85 0.898
+Gaussian Shading[40] 24.75 0.79 24.85 0.09 1.00 0.52 1.00 0.87 0.89 0.94 0.93 0.89 0.883
+WIND[2] 6.85 0.22 23.15 0.46 1.00 0.68 1.00 0.79 0.96 0.95 0.92 0.86 0.901
+GROW 26.85 0.82 15.75 0.07 1.00 1.00 1.00 1.00 0.97 0.87 0.96 0.91 0.965
+Model: stable-diffusion-xl-base-1.0
+Tree-Ring [38] 17.15 0.29 23.85 0.44 0.98 0.04 0.43 0.07 0.61 0.47 0.42 0.84 0.483
+RingID[9] 16.25 0.53 24.75 0.47 1.00 1.00 1.00 0.55 0.950.980.96 0.86 0.913
+Gaussian Shading[40] 27.35 0.84 23.15 0.06 1.00 0.57 1.00 0.90 0.92 0.96 0.95 0.92 0.915
+WIND [2] 8.15 0.28 22.45 0.43 1.00 0.73 1.00 0.82 0.97 0.96 0.95 0.89 0.928
+GROW 28.25 0.86 13.45 0.04 1.00 1.00 1.00 1.00 0.98 0.90 0.97 0.94 0.981
+Table 3. Time efficiency comparison (format: total generation
+time/watermark overhead and extraction time). All times are mea-
+sured in seconds per image on a single Tesla T4 GPU. Our method
+avoids costly inversion, enabling fast watermark extraction.
+Method Generation
+Time (s)↓
+Extraction
+Time (s)↓
+Tree-Ring 21.03/0.0419.70
+RingID 21.07/0.08 15.30
+Gaussian Shading 21.24/0.25 12.50
+WIND 21.17/0.18 21.70
+GROW (Ours) 21.16/0.17 0.24
+Additionally, we conduct verification experiments in sup-
+plementary material to distinguish between watermarked
+and non-watermarked images.
+Extraction Efficiency. Many contemporary methods,
+such as Tree-Ring, rely on the computationally expensive
+DDIM inversion process for extraction, making them un-
+suitable for real-time applications. All methods generate
+a watermark-free image under the same conditions takes
+20.99 seconds. As shown in Table 3, all compared meth-
+ods exhibit similar total generation times, as the minor over-
+head introduced by each watermarking algorithm is negligi-
+ble compared to the 50-step DDIM sampling process. For
+instance, GROW’s progressive guidance adds only 0.17 sec-
+onds. The crucial advantage lies in extraction: GROW’s
+inversion-free mechanism is exceptionally efficient, achiev-
+ing an extraction time of just 0.24 seconds, which is nearly
+100x faster than inversion-based techniques. This dramatic
+efficiency gain makes GROW a viable and practical solu-
+tion for deployment in production environments where fast
+verification is essential.
+5.4. Different Diffusion Models
+To assess the generalizability of our approach, we evaluated
+GROW and other methods on both stable-diffusion-v1-5
+[32] and the more advanced stable-diffusion-xl-base-1.0 [1]
+(SDXL) model. The comprehensive results in Table 2 con-
+firm that GROW’s advantages are model-agnostic. Across
+both architectures, GROW consistently achieves a balance
+of high imperceptibility and robustness. This suggests that
+the progressive guidance mechanism is a fundamental and
+portable technique for watermarking diffusion models.
+5.5. Hyperparameters Analysis
+In each experiment, we vary a single parameter while keep-
+ing others at their default optimal values (α= 0.5, η=
+100, rstart = 0.5). The results, which plot the trade-off be-
+tween robustness (Accuracy) and image quality (FID), are
+shown in Figure 5.
+Effect of Watermark Strength (α).As illustrated in
+Figure 5(a), the watermark strengthαdirectly controls the
+trade-off between robustness and imperceptibility. Increas-
+ingαfrom 0.3 to 0.7 boosts the average M-ACC from 92%
+to 99%, as a stronger signal is more resilient to attacks.
+However, this comes at the cost of image quality, with the
+FID score degrading from 9.5 to 28.2.
+Effect of Guidance Scale (η).The guidance scaleηde-
+termines how forcefully the watermark is injected at each
+step. Figure 5(b) shows that increasingηfrom 50 to 100
+significantly improves M-ACC from 90% to 99%. Beyond
+this point, accuracy saturates. Interestingly, the FID score
+shows that image quality is optimal aroundη= 125(FID
+15.1) before slightly degrading, suggesting that an exces-
+sively high scale can be counterproductive.
+Effect of Start Ratio (r start).The start ratior start de-
+fines at which point in the diffusion process the watermark-
+ing guidance begins. As shown in Figure 5(c), applying the
+35984
+
+PAGE 8
+Figure 5. Ablation studies on key hyperparameters. We plot the trade-off between image quality (FID, blue line) and robustness (M-ACC,
+orange line). (a) Watermark strengthα. (b) The guidance scaleη. (c) Start Ratio.
+Table 4. Quantitative comparison of image quality for the progres-
+sive guidance ablation study.
+Method FID↓PSNR↑SSIM↑
+One-Step 157.8 11.36 0.19
+GROW 12.32 27.54 0.85
+guidance earlier (i.e., a smallerr start) enhances robustness.
+For example, starting atr start = 0.3yields a high M-ACC
+of 97%. This is because an earlier start allows the water-
+mark to be integrated over more diffusion steps, weaving
+it more deeply into the image’s semantic structure. Con-
+versely, starting too late (e.g.,r start = 0.9) results in a
+noticeable drop in robustness (92%).
+5.6. Ablation Study on Progressive Guidance
+To validate the necessity of our progressive guidance mech-
+anism, we conduct a crucial ablation study against a sim-
+plified ”one-step” baseline. This baseline injects the same
+DCT-based watermark pattern directly into the final latent
+space (z 0) just before decoding, using an identical water-
+mark strength. The results are striking. As shown in the
+visual comparison in Figure 6, the one-step method com-
+pletely corrupts the image content. We quantify this degra-
+dation on MS-COCO dataset using standard image quality
+metrics in Table 4. The one-step method leads to a catas-
+trophic collapse in image quality, with FID soaring while
+PSNR and SSIM plummet. This experiment unequivocally
+demonstrates that progressively integrating the watermark
+is essential for embedding a strong signal without a disas-
+trous loss of image quality.
+6. Limitations and Future Work
+Despite its strong performance, GROW, as a training-free
+method in the DCT domain, has limitations. Its robustness
+can be compromised by random ratio stretching, and its ca-
+pacity is inherently constrained by the frequency domain
+structure. A promising future direction is to replace the
+static DCT domain with a learnable, attack-resilient repre-
+Figure 6. A visual comparison using prompts from the MS-COCO
+dataset. (a)Non-watermarked image. (b) Watermarked image by
+GROW. (c) One-step method.
+sentation space. By training a dedicated encoder, one could
+generate a robust watermark embedding space optimized
+against a wide range of attacks. This learned space could
+then be integrated into our progressive guidance framework,
+potentially creating a new generation of watermarks with
+significantly enhanced security and robustness.
+7. Conclusion
+We proposed GROW, a novel and effective training-free wa-
+termarking paradigm for diffusion models. By reformulat-
+ing watermark embedding as a progressive guidance task,
+our method iteratively guides the generation to form a wa-
+termark throughout the denoising process. This multi-step
+integration strategy ensures that the watermark is deeply
+fused with the generated content, achieving an excellent
+balance between imperceptibility and robustness. Extensive
+experiments validate that GROW significantly surpasses ex-
+isting methods, demonstrating resilience to a wide range of
+attacks while preserving the high fidelity of the original dif-
+fusion model. Furthermore, by bypassing the computation-
+ally expensive inversion step required by many prior meth-
+ods, GROW enables highly efficient watermark extraction.
+35985
+
+PAGE 9
+Acknowledgements
+This work was completed at the Pattern Recognition
+Center, WeChat AI, Tencent. The authors would like to
+express their sincere gratitude to Professor Anil K. Jain for
+his valuable guidance, insightful discussions, and contin-
+uous encouragement, which greatly benefited this work.
+References
+[1] Stability AI. Stable diffusion xl base 1.0 model
+card.https://huggingface.co/stabilityai/
+stable-diffusion-xl-base-1.0, 2023. 7
+[2] Kasra Arabi, Benjamin Feuer, R Teal Witter, Chinmay
+Hegde, and Niv Cohen. Hidden in the noise: Two-
+stage robust watermarking for images.arXiv preprint
+arXiv:2412.04653, 2024. 1, 2, 5, 6, 7
+[3] Kasra Arabi, R Teal Witter, Chinmay Hegde, and Niv Cohen.
+Seal: Semantic aware image watermarking. InProceedings
+of the IEEE/CVF International Conference on Computer Vi-
+sion, pages 16196–16205, 2025. 1, 2
+[4] Vishal Asnani, John Collomosse, Tu Bui, Xiaoming Liu, and
+Shruti Agarwal. Promark: Proactive diffusion watermarking
+for causal attribution. InProceedings of the IEEE/CVF Con-
+ference on Computer Vision and Pattern Recognition, pages
+10802–10811, 2024. 1, 2
+[5] Charlotte Bird, Eddie Ungless, and Atoosa Kasirzadeh. Ty-
+pology of risks of generative text-to-image models. InPro-
+ceedings of the 2023 AAAI/ACM Conference on AI, Ethics,
+and Society, pages 396–410, 2023. 1
+[6] Tu Bui, Shruti Agarwal, and John Collomosse. Trust-
+mark: Universal watermarking for arbitrary resolution im-
+ages.arXiv preprint arXiv:2311.18297, 2023. 1, 2
+[7] Tu Bui, Shruti Agarwal, Ning Yu, and John Collomosse.
+Rosteals: Robust steganography using autoencoder latent
+space. InProceedings of the IEEE/CVF conference on com-
+puter vision and pattern recognition, pages 933–942, 2023.
+1, 2
+[8] Hai Ci, Yiren Song, Pei Yang, Jinheng Xie, and Mike Zheng
+Shou. Wmadapter: Adding watermark control to latent dif-
+fusion models.arXiv preprint arXiv:2406.08337, 2024. 1,
+2
+[9] Hai Ci, Pei Yang, Yiren Song, and Mike Zheng Shou.
+Ringid: Rethinking tree-ring watermarking for enhanced
+multi-key identification. InEuropean Conference on Com-
+puter Vision, pages 338–354. Springer, 2024. 1, 2, 5, 6, 7
+[10] Yingqian Cui, Jie Ren, Han Xu, Pengfei He, Hui Liu, Lichao
+Sun, Yue Xing, and Jiliang Tang. Diffusionshield: A wa-
+termark for copyright protection against generative diffusion
+models.arXiv preprint arXiv:2306.04642, 2023. 1, 2
+[11] Naresh Kumar Devulapally, Mingzhen Huang, Vishal As-
+nani, Shruti Agarwal, Siwei Lyu, and Vishnu Suresh
+Lokhande. Your text encoder can be an object-level wa-
+termarking controller. InProceedings of the IEEE/CVF In-
+ternational Conference on Computer Vision, pages 16576–
+16585, 2025. 1, 2
+[12] Prafulla Dhariwal and Alexander Nichol. Diffusion models
+beat gans on image synthesis.Advances in neural informa-
+tion processing systems, 34:8780–8794, 2021. 3
+[13] Weitao Feng, Wenbo Zhou, Jiyan He, Jie Zhang, Tianyi Wei,
+Guanlin Li, Tianwei Zhang, Weiming Zhang, and Nenghai
+Yu. Aqualora: Toward white-box protection for customized
+stable diffusion models via watermark lora.arXiv preprint
+arXiv:2405.11135, 2024. 1, 2
+[14] Pierre Fernandez, Guillaume Couairon, Herv ´e J ´egou,
+Matthijs Douze, and Teddy Furon. The stable signature:
+Rooting watermarks in latent diffusion models. InProceed-
+ings of the IEEE/CVF International Conference on Com-
+puter Vision, pages 22466–22477, 2023. 1, 2
+[15] Sam Gunn, Xuandong Zhao, and Dawn Song. An un-
+detectable watermark for generative image models.arXiv
+preprint arXiv:2410.07369, 2024. 1, 2
+[16] Gustavosta. Stable-diffusion-prompts.https :
+/ / huggingface . co / datasets / Gustavosta /
+Stable-Diffusion-Prompts, 2024. 5
+[17] Martin Heusel, Hubert Ramsauer, Thomas Unterthiner,
+Bernhard Nessler, and Sepp Hochreiter. Gans trained by a
+two time-scale update rule converge to a local nash equilib-
+rium.Advances in neural information processing systems,
+30, 2017. 5
+[18] Jonathan Ho and Tim Salimans. Classifier-free diffusion
+guidance.arXiv preprint arXiv:2207.12598, 2022. 3
+[19] Jonathan Ho, Ajay Jain, and Pieter Abbeel. Denoising dif-
+fusion probabilistic models.Advances in neural information
+processing systems, 33:6840–6851, 2020. 1
+[20] Khalid M Hosny, Amal Magdi, Osama ElKomy, and
+Hanaa M Hamza. Digital image watermarking using deep
+learning: A survey.Computer Science Review, 53:100662,
+2024. 1
+[21] Runyi Hu, Jie Zhang, Yiming Li, Jiwei Li, Qing Guo,
+Han Qiu, and Tianwei Zhang. Supermark: Robust and
+training-free image watermarking via diffusion-based super-
+resolution.arXiv preprint arXiv:2412.10049, 2024. 1, 2
+[22] Kokil Jaidka, Tsuhan Chen, Simon Chesterman, Wynne Hsu,
+Min-Yen Kan, Mohan Kankanhalli, Mong Li Lee, Gyula
+Seres, Terence Sim, Araz Taeihagh, et al. Misinformation,
+disinformation, and generative ai: Implications for percep-
+tion and policy.Digital Government: Research and Practice,
+6(1):1–15, 2025. 1
+[23] Liangqi Lei, Keke Gai, Jing Yu, and Liehuang Zhu. Dif-
+fusetrace: A transparent and flexible watermarking scheme
+for latent diffusion model.arXiv preprint arXiv:2405.02696,
+2024. 1, 2
+[24] Liangqi Lei, Keke Gai, Jing Yu, Liehuang Zhu, and Qi
+Wu. Secure and efficient watermarking for latent diffu-
+sion models in model distribution scenarios.arXiv preprint
+arXiv:2502.13345, 2025. 1, 2
+[25] Kecen Li, Zhicong Huang, Xinwen Hou, and Cheng Hong.
+Gaussmarker: Robust dual-domain watermark for diffusion
+models.arXiv preprint arXiv:2506.11444, 2025. 1, 2
+[26] Tsung-Yi Lin, Michael Maire, Serge Belongie, James Hays,
+Pietro Perona, Deva Ramanan, Piotr Doll´ar, and C Lawrence
+Zitnick. Microsoft coco: Common objects in context. In
+35986
+
+PAGE 10
+European conference on computer vision, pages 740–755.
+Springer, 2014. 5
+[27] Yugeng Liu, Zheng Li, Michael Backes, Yun Shen, and
+Yang Zhang. Watermarking diffusion model.arXiv preprint
+arXiv:2305.12502, 2023. 1, 2
+[28] Shilin Lu, Zihan Zhou, Jiayou Lu, Yuanzhi Zhu, and Adams
+Wai-Kin Kong. Robust watermarking using generative pri-
+ors against image editing: From benchmarking to advances.
+arXiv preprint arXiv:2410.18775, 2024. 1, 2
+[29] Alex Nichol, Prafulla Dhariwal, Aditya Ramesh, Pranav
+Shyam, Pamela Mishkin, Bob McGrew, Ilya Sutskever, and
+Mark Chen. Glide: Towards photorealistic image generation
+and editing with text-guided diffusion models.arXiv preprint
+arXiv:2112.10741, 2021. 1
+[30] Weili Nie, Brandon Guo, Yujia Huang, Chaowei Xiao, Arash
+Vahdat, and Anima Anandkumar. Diffusion models for
+adversarial purification.arXiv preprint arXiv:2205.07460,
+2022. 5
+[31] Ahmad Rezaei, Mohammad Akbari, Saeed Ranjbar Alvar,
+Arezou Fatemi, and Yong Zhang. Lawa: Using latent space
+for in-generation image watermarking. InEuropean Confer-
+ence on Computer Vision, pages 118–136. Springer, 2024. 1,
+2
+[32] Robin Rombach and Patrick Esser. Stable diffusion v1-5
+model card.https://huggingface.co/stable-
+diffusion - v1 - 5 / stable - diffusion - v1 - 5,
+2022. 7
+[33] Robin Rombach, Andreas Blattmann, Dominik Lorenz,
+Patrick Esser, and Bj ¨orn Ommer. High-resolution image
+synthesis with latent diffusion models. InProceedings of
+the IEEE/CVF conference on computer vision and pattern
+recognition, pages 10684–10695, 2022. 1, 3, 5
+[34] Kareem Shehata, Aashish Kolluri, and Prateek Saxena. Clue-
+mark: Watermarking diffusion models using clwe.arXiv
+preprint arXiv:2411.11434, 2024. 1, 2
+[35] Frank Y Shih.Digital watermarking and steganography:
+fundamentals and techniques. CRC press, 2017. 1, 2, 5, 6
+[36] Jiaming Song, Chenlin Meng, and Stefano Ermon.
+Denoising diffusion implicit models.arXiv preprint
+arXiv:2010.02502, 2020. 1, 2
+[37] Yang Song and Stefano Ermon. Generative modeling by esti-
+mating gradients of the data distribution.Advances in neural
+information processing systems, 32, 2019. 1
+[38] Yuxin Wen, John Kirchenbauer, Jonas Geiping, and Tom
+Goldstein. Tree-ring watermarks: Fingerprints for diffu-
+sion images that are invisible and robust.arXiv preprint
+arXiv:2305.20030, 2023. 2, 5, 6, 7
+[39] Cheng Xiong, Chuan Qin, Guorui Feng, and Xinpeng Zhang.
+Flexible and secure watermarking for latent diffusion model.
+InProceedings of the 31st ACM International Conference on
+Multimedia, pages 1668–1676, 2023. 1, 2
+[40] Zijin Yang, Kai Zeng, Kejiang Chen, Han Fang, Weim-
+ing Zhang, and Nenghai Yu. Gaussian shading: Prov-
+able performance-lossless image watermarking for diffusion
+models. InProceedings of the IEEE/CVF Conference on
+Computer Vision and Pattern Recognition, pages 12162–
+12171, 2024. 2, 5, 6, 7
+[41] Kevin Alex Zhang, Lei Xu, Alfredo Cuesta-Infante, and
+Kalyan Veeramachaneni. Robust invisible video watermark-
+ing with attention.arXiv preprint arXiv:1909.01285, 2019.
+1, 2
+[42] Richard Zhang, Phillip Isola, Alexei A Efros, Eli Shecht-
+man, and Oliver Wang. The unreasonable effectiveness of
+deep features as a perceptual metric. InProceedings of the
+IEEE conference on computer vision and pattern recogni-
+tion, pages 586–595, 2018. 5
+[43] Yunqing Zhao, Tianyu Pang, Chao Du, Xiao Yang, Ngai-
+Man Cheung, and Min Lin. A recipe for watermarking dif-
+fusion models.arXiv preprint arXiv:2303.10137, 2023. 1,
+2
+[44] Jiren Zhu, Russell Kaplan, Justin Johnson, and Li Fei-Fei.
+Hidden: Hiding data with deep networks. InProceedings of
+the European conference on computer vision (ECCV), pages
+657–672, 2018. 1, 2, 5, 6
+35987

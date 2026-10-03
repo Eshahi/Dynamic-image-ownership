@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "wind",
+  "citation_key": "arabi2025wind",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2412.04653v5",
+  "title": "Hidden in the Noise: Two-Stage Robust Watermarking for Images",
+  "authors": [
+    "Kasra Arabi",
+    "Benjamin Feuer",
+    "R. Teal Witter",
+    "Chinmay Hegde",
+    "Niv Cohen"
+  ],
+  "year": 2025,
+  "venue": "ICLR 2025",
+  "access_date": "2026-10-03",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "artifacts/wind.html",
+    "sha256": "9ad1ef3abdc4ba0081ffb01e556c26429b11bad57e5d2babe3e5f72a91e168f4"
+  },
+  "limitations": [
+    "Search bank and inversion cost are essential side information. Paper regen settings do not directly equal local img2img strength .4. Finite/reused initial-noise pool affects multi-query distribution."
+  ]
+}

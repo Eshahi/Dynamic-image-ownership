@@ -1,0 +1,309 @@
+{
+  "request_id": "m1-latent-survey-20261003",
+  "papers": [
+    {
+      "schema_version": "1.0",
+      "paper_id": "tree-ring",
+      "citation_key": "wen2023treering",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2305.20030v3",
+      "title": "Tree-Ring Watermarks: Fingerprints for Diffusion Images that are Invisible and Robust",
+      "authors": [
+        "Yuxin Wen",
+        "John Kirchenbauer",
+        "Jonas Geiping",
+        "Tom Goldstein"
+      ],
+      "year": 2023,
+      "venue": "NeurIPS 2023",
+      "access_date": "2026-10-03",
+      "source_type": "paper",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "artifacts/tree-ring.html",
+        "sha256": "c6fca8e31df0f6f367bef6a166d03da51a34b371f1e4fa15e43d4d447d861136"
+      },
+      "limitations": [
+        "Fourier invariance is heuristic through nonlinear model. Distribution changes and multi-key limitations. No lightweight DCT detector demonstrated."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "gaussian-shading",
+      "citation_key": "yang2024gaussianshading",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2404.04956v1",
+      "title": "Gaussian Shading: Provable Performance-Lossless Image Watermarking for Diffusion Models",
+      "authors": [
+        "Zijin Yang",
+        "Kai Zeng",
+        "Kejiang Chen",
+        "Han Fang",
+        "Weiming Zhang",
+        "Nenghai Yu"
+      ],
+      "year": 2024,
+      "venue": "CVPR 2024",
+      "access_date": "2026-10-03",
+      "source_type": "paper",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "artifacts/gaussian-shading.html",
+        "sha256": "90d5175d54883bbe0fa7fd4917eead4122a6e03cf7439ad761c0c5facd50cd11"
+      },
+      "limitations": [
+        "Assumes private diffusion model; stream key management required. Repeated-key or nonce misuse invalidates security reasoning. Reported .4 is sign flip rate, not regeneration strength."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "prc-image",
+      "citation_key": "gunn2024prcimage",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2410.07369v2",
+      "title": "An undetectable watermark for generative image models",
+      "authors": [
+        "Sam Gunn",
+        "Xuandong Zhao",
+        "Dawn Song"
+      ],
+      "year": 2024,
+      "venue": null,
+      "access_date": "2026-10-03",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "artifacts/prc-image.html",
+        "sha256": "e39642ba273f96d80a493c22bde7b0986952dd16e83349edcd80edc4863cdc46"
+      },
+      "limitations": [
+        "Sec3.2/C.3 finite experimental parameters do not satisfy strict pseudorandomness proof bounds. Detection is inversion dependent. FID is distributional, not paired perceptual preservation."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "ringid",
+      "citation_key": "ci2024ringid",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2404.14055v2",
+      "title": "RingID: Rethinking Tree-Ring Watermarking for Enhanced Multi-Key Identification",
+      "authors": [
+        "Hai Ci",
+        "Pei Yang",
+        "Yiren Song",
+        "Mike Zheng Shou"
+      ],
+      "year": 2024,
+      "venue": null,
+      "access_date": "2026-10-03",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "artifacts/ringid.html",
+        "sha256": "66b12a3ff4ee779a416dd0940c59353e2343f034dd77cc191dee4885e9c54b75"
+      },
+      "limitations": [
+        "Severe crop/scale identification failure remains. Larger key spaces reduce robustness/quality. No content-bound identity or image-only DCT extraction."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "robin",
+      "citation_key": "huang2024robin",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2411.03862v2",
+      "title": "ROBIN: Robust and Invisible Watermarks for Diffusion Models with Adversarial Optimization",
+      "authors": [
+        "Huayang Huang",
+        "Yu Wu",
+        "Qian Wang"
+      ],
+      "year": 2024,
+      "venue": "NeurIPS 2024",
+      "access_date": "2026-10-03",
+      "source_type": "paper",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "artifacts/robin.html",
+        "sha256": "c2fb992c904b6bea12ceee7ba19c6529c5d8a1aa769b10fb0c34e7fe7646fb9e"
+      },
+      "limitations": [
+        "Still needs diffusion model, inversion, injection point and watermark key; .531s is hardware-specific. Main table ordinary transformations is not a regeneration sweep. Hiding prompt during inversion hurts recovery."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "wind",
+      "citation_key": "arabi2025wind",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2412.04653v5",
+      "title": "Hidden in the Noise: Two-Stage Robust Watermarking for Images",
+      "authors": [
+        "Kasra Arabi",
+        "Benjamin Feuer",
+        "R. Teal Witter",
+        "Chinmay Hegde",
+        "Niv Cohen"
+      ],
+      "year": 2025,
+      "venue": "ICLR 2025",
+      "access_date": "2026-10-03",
+      "source_type": "paper",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "artifacts/wind.html",
+        "sha256": "9ad1ef3abdc4ba0081ffb01e556c26429b11bad57e5d2babe3e5f72a91e168f4"
+      },
+      "limitations": [
+        "Search bank and inversion cost are essential side information. Paper regen settings do not directly equal local img2img strength .4. Finite/reused initial-noise pool affects multi-query distribution."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "gaussian-shannon",
+      "citation_key": "zhang2026gaussianshannon",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2603.26167v1",
+      "title": "Gaussian Shannon: High-Precision Diffusion Model Watermarking Based on Communication",
+      "authors": [
+        "Yi Zhang",
+        "Hongbo Huang",
+        "Liang-Jie Zhang"
+      ],
+      "year": 2026,
+      "venue": null,
+      "access_date": "2026-10-03",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "artifacts/gaussian-shannon.html",
+        "sha256": "78674a490e9d009f31fe5530111c485176c4c6438007f214bb3e66f511837767"
+      },
+      "limitations": [
+        "Preprint; ordinary-noise averages are not T3 guarantee. LDPC parity success alone is not cryptographic authentication. Dependent errors challenge iid communication bounds."
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "m1-latent-1",
+      "claim": "Overwrites circular low-frequency Fourier coefficients of initial noise with zero, random, or constant-per-ring keys. DDIM inversion with empty prompt recovers approximate noise; masked L1 matching or noncentral chi-square test detects it. Main SD2 experiments use radius10, CFG7.5, generation/detection50 steps. Detector needs model, watermark key/mask and inversion; original prompt unnecessary. Table1 Tree-RingZeros clean AUC/TPR@1%FPR .999/.999, averaged manipulation .963/.715; FID26.56 versus unmarked25.29. Main benchmark covers ordinary transformations, not a general img2img regeneration guarantee.",
+      "source_id": "tree-ring",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Sec.3.2-3.4; Sec.4.1-4.2/Table1",
+      "confidence": "high",
+      "limitations": [
+        "Fourier invariance is heuristic through nonlinear model. Distribution changes and multi-key limitations. No lightweight DCT detector demonstrated."
+      ],
+      "assumptions": [
+        "Reported results describe author experiments, not a local reproduction."
+      ]
+    },
+    {
+      "claim_id": "m1-latent-2",
+      "claim": "Repeats a 256-bit payload 64 times (fc1,fhw8,l1), stream-encrypts, samples Gaussian quantile intervals (one bit means sign), then standard denoising. Detector needs model, secret cipher key/nonce, payload reference and 50-step DDIM inversion with empty prompt/CFG1. Table1 SD1.4/2.0/2.1 clean TPR1; averaged nine transformations TPR .997/.998/.996 and bit accuracy .9753/.9749/.9724. Inversion attack flips latent signs; Fig7c reports reliable extraction below flip rate .4, which is not img2img strength .4. Sec4.5 explicitly admits prompt-change forgery can frame the prior owner.",
+      "source_id": "gaussian-shading",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Sec.3.2-3.4; Sec.4.1/Table1; Sec.4.5-5",
+      "confidence": "high",
+      "limitations": [
+        "Assumes private diffusion model; stream key management required. Repeated-key or nonce misuse invalidates security reasoning. Reported .4 is sign flip rate, not regeneration strength."
+      ],
+      "assumptions": [
+        "Reported results describe author experiments, not a local reproduction."
+      ]
+    },
+    {
+      "claim_id": "m1-latent-3",
+      "claim": "PRC codeword sets initial-noise signs; independently sampled Gaussian magnitudes preserve marginal prior. Model inversion recovers noisy signed observations, detector uses weighted parity evidence; belief propagation decodes messages. Main SD2.1 uses CFG3, DPM-Solver50, exact DPM inversion50/order0. AppA.2 diffusion regeneration uses SD2.1 at diffusion steps10,20,30,50,80,100,150,200; VAE regeneration uses CompressAI Bmshj2018/Cheng2020 factors1-6. Sec4.3 says tested attacks do not drive TPR below .99 while FID<70; JPEG20 gives .94 at degraded quality. 512-bit decoder is weaker than detector; clean capacity reaches2500. Theorem2 probability is over independent random watermark keys for a fixed image.",
+      "source_id": "prc-image",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Sec.3.2/Theorems1-2; Sec.4.1,4.3-4.4; App.A.2,C.3",
+      "confidence": "high",
+      "limitations": [
+        "Sec3.2/C.3 finite experimental parameters do not satisfy strict pseudorandomness proof bounds. Detection is inversion dependent. FID is distributional, not paired perceptual preservation."
+      ],
+      "assumptions": [
+        "Reported results describe author experiments, not a local reproduction."
+      ]
+    },
+    {
+      "claim_id": "m1-latent-4",
+      "claim": "Combines discretized concentric rings on latent channel3 with noise-pattern watermark on channel0; spatial shift, centered real-conjugate-symmetric imprinting and rounder drawing improve rotation. DDIM inversion50 and candidate-key channel-normalized minimum L1 matching identify keys. Detector requires diffusion model and candidate pattern bank. Table2 with2048 keys: RingID clean1.000, rotation .860, crop/scale .080, average .819; Tree-Ring clean .200, average .066. Sec4 finds discarding imaginary FFT component creates a distribution shift aiding presence verification but not key identification.",
+      "source_id": "ringid",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Sec.4.2-4.4; Sec.5; Sec.6.1/Table2",
+      "confidence": "high",
+      "limitations": [
+        "Severe crop/scale identification failure remains. Larger key spaces reduce robustness/quality. No content-bound identity or image-only DCT extraction."
+      ],
+      "assumptions": [
+        "Reported results describe author experiments, not a local reproduction."
+      ]
+    },
+    {
+      "claim_id": "m1-latent-5",
+      "claim": "Injects a strong frequency watermark into an intermediate diffusion state (training timestep200-300), jointly optimizes watermark and reusable hiding prompt; remaining denoising conceals it. Detector uses null prompt CFG1 and partial inversion to injection state, then L1 reference matching. Main SD2 uses50-step DPM-Solver; watermark optimization50 images/1000 rounds. Table1 SD average attack AUC .983 versus Tree-Ring .975; verification .531s versus2.599s on RTX3090. Table3 stacked attacks reduce ROBIN AUC from .973 to .556 (last listed setting).",
+      "source_id": "robin",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Sec.3.1-3.4; Sec.4.1/Table1; Table3",
+      "confidence": "high",
+      "limitations": [
+        "Still needs diffusion model, inversion, injection point and watermark key; .531s is hardware-specific. Main table ordinary transformations is not a regeneration sweep. Hiding prompt during inversion hurts recovery."
+      ],
+      "assumptions": [
+        "Reported results describe author experiments, not a local reproduction."
+      ]
+    },
+    {
+      "claim_id": "m1-latent-6",
+      "claim": "Secret salt and index seed reproducible Gaussian initial-noise identities; Fourier group identifiers reduce candidate search; full variant falls back to full noise bank. Needs owner model, secret salt, index bank and50-step inversion. Main SD2 sampling/inversion50. Table2 original/re-generated/unrelated noise cosine mean .888/.824/.000 (SD .053/.062/.008). Regeneration is Zhao noise-then-denoise attack; Table7 full search among10000 noises gives100% at10-50 repeated regenerations, cosine .493 decreasing to .121. Table1 WINDfull2048 crop/scale .930 versus fast2048 .060.",
+      "source_id": "wind",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Sec.3-4/Algorithms1-2; Sec.5.1/Table2; App.D.3/Table7",
+      "confidence": "high",
+      "limitations": [
+        "Search bank and inversion cost are essential side information. Paper regen settings do not directly equal local img2img strength .4. Finite/reused initial-noise pool affects multi-query distribution."
+      ],
+      "assumptions": [
+        "Reported results describe author experiments, not a local reproduction."
+      ]
+    },
+    {
+      "claim_id": "m1-latent-7",
+      "claim": "LDPC encodes payload, repeats codeword, pseudorandomly modulates Gaussian signs; empty-prompt DDIM inversion50/CFG1 recovers copies. Attempts individual LDPC decode, then majority plus LDPC, else verification only. SD1.4/2.0/2.1 default256 bits, redundancy16, rate .25, DDIM50/CFG7.5. Table1 average ordinary-noise exact-message recovery .968/.966/.965 versus GS .399/.387/.381. Table3 DDIM exact recovery under noise .965 versus DPM-Solver .895. Fig5 includes VAE/diffusion/embedding attacks, but does not specify an img2img-strength-compatible regeneration setting there.",
+      "source_id": "gaussian-shannon",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Sec.3.1-3.4; Sec.4.1/Table1; Fig5/Table3",
+      "confidence": "high",
+      "limitations": [
+        "Preprint; ordinary-noise averages are not T3 guarantee. LDPC parity success alone is not cryptographic authentication. Dependent errors challenge iid communication bounds."
+      ],
+      "assumptions": [
+        "Reported results describe author experiments, not a local reproduction."
+      ]
+    }
+  ],
+  "assumptions": [
+    "No held-out thesis data inspected. Author results are not interchangeable across attack definitions, detection metrics or model versions."
+  ],
+  "open_questions": [
+    "Can the proposal image-DCT extractor retain any information about an initial-noise watermark without diffusion inversion?",
+    "Can a registered content descriptor plus signature reject transplanted watermarks while tolerating regeneration drift?",
+    "How strongly correlated are latent-bit errors under local SD1.5 img2img regeneration?"
+  ]
+}

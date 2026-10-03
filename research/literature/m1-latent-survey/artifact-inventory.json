@@ -1,0 +1,51 @@
+[
+  {
+    "id": "tree-ring",
+    "url": "https://arxiv.org/html/2305.20030v3",
+    "revision": "2305.20030v3",
+    "bytes": 296259,
+    "sha256": "c6fca8e31df0f6f367bef6a166d03da51a34b371f1e4fa15e43d4d447d861136"
+  },
+  {
+    "id": "gaussian-shading",
+    "url": "https://arxiv.org/html/2404.04956v1",
+    "revision": "2404.04956v1",
+    "bytes": 453163,
+    "sha256": "90d5175d54883bbe0fa7fd4917eead4122a6e03cf7439ad761c0c5facd50cd11"
+  },
+  {
+    "id": "prc-image",
+    "url": "https://arxiv.org/html/2410.07369v2",
+    "revision": "2410.07369v2",
+    "bytes": 417260,
+    "sha256": "e39642ba273f96d80a493c22bde7b0986952dd16e83349edcd80edc4863cdc46"
+  },
+  {
+    "id": "ringid",
+    "url": "https://arxiv.org/html/2404.14055v2",
+    "revision": "2404.14055v2",
+    "bytes": 370788,
+    "sha256": "66b12a3ff4ee779a416dd0940c59353e2343f034dd77cc191dee4885e9c54b75"
+  },
+  {
+    "id": "robin",
+    "url": "https://arxiv.org/html/2411.03862v2",
+    "revision": "2411.03862v2",
+    "bytes": 323865,
+    "sha256": "c2fb992c904b6bea12ceee7ba19c6529c5d8a1aa769b10fb0c34e7fe7646fb9e"
+  },
+  {
+    "id": "wind",
+    "url": "https://arxiv.org/html/2412.04653v5",
+    "revision": "2412.04653v5",
+    "bytes": 310265,
+    "sha256": "9ad1ef3abdc4ba0081ffb01e556c26429b11bad57e5d2babe3e5f72a91e168f4"
+  },
+  {
+    "id": "gaussian-shannon",
+    "url": "https://arxiv.org/html/2603.26167v1",
+    "revision": "2603.26167v1",
+    "bytes": 431893,
+    "sha256": "78674a490e9d009f31fe5530111c485176c4c6438007f214bb3e66f511837767"
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "zodiac-v2",
+    "url": "https://arxiv.org/html/2401.04247v2",
+    "path": "research\\literature\\m1-primary-extension\\zodiac-v2.html",
+    "bytes": 647955,
+    "sha256": "c2dd9548a3b7e6f5e5ef7d6762dbf45a65346b95be9a4c55f55f2b9df50e3f79",
+    "license": "Paper copyright retained by authors/publisher; official open-access research copy; no code reuse implied."
+  },
+  {
+    "id": "seal-v4",
+    "url": "https://arxiv.org/html/2503.12172v4",
+    "path": "research\\literature\\m1-primary-extension\\seal-v4.html",
+    "bytes": 278532,
+    "sha256": "953d4ab874fb9bbedfc365052777c291fa405665d6c3692eff69c2a4f5beb750",
+    "license": "Paper copyright retained by authors/publisher; official open-access research copy; no code reuse implied."
+  },
+  {
+    "id": "ctrlregen-v2",
+    "url": "https://arxiv.org/html/2410.05470v2",
+    "path": "research\\literature\\m1-primary-extension\\ctrlregen-v2.html",
+    "bytes": 261501,
+    "sha256": "bcf6954245a45313525b56acbb9eccf31a59cf3671cb8db9f24d0562d9f39dfe",
+    "license": "Paper copyright retained by authors/publisher; official open-access research copy; no code reuse implied."
+  },
+  {
+    "id": "grow-cvpr2026",
+    "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Luo_GROW_Watermark_Generation_with_Progressive_Guidance_for_Diffusion_Models_CVPR_2026_paper.pdf",
+    "path": "research\\literature\\m1-primary-extension\\grow-cvpr2026.pdf",
+    "bytes": 10045973,
+    "sha256": "484969c867bf2b879aa675ca1eec6de4093d10f7225547c301d0ee32bede4fce",
+    "license": "Paper copyright retained by authors/publisher; official open-access research copy; no code reuse implied."
+  },
+  {
+    "id": "stable-signature-v2",
+    "url": "https://arxiv.org/html/2303.15435v2",
+    "path": "research\\literature\\m1-primary-extension\\stable-signature-v2.html",
+    "bytes": 509715,
+    "sha256": "dd68ec42731bf12a74476f3a7a7d1d0335d1039c82ad52d99ff58f29b8913c93",
+    "license": "Author/publisher rights retained; official research reading copy."
+  },
+  {
+    "id": "wam-v2",
+    "url": "https://arxiv.org/html/2411.07231v2",
+    "path": "research\\literature\\m1-primary-extension\\wam-v2.html",
+    "bytes": 526574,
+    "sha256": "d4941f679685d91b96236c061d4d49c07c7da6592458a6e431dbbdbd8caaf294",
+    "license": "Author/publisher rights retained; official research reading copy."
+  },
+  {
+    "id": "waves-v2",
+    "url": "https://arxiv.org/html/2401.08573v2",
+    "path": "research\\literature\\m1-primary-extension\\waves-v2.html",
+    "bytes": 491206,
+    "sha256": "a81b1709a9f3b52c17a8832cc278b651dc651faa80af595bb77fc03e9e5d5968",
+    "license": "Author/publisher rights retained; official research reading copy."
+  },
+  {
+    "id": "stegastamp-cvpr2020",
+    "url": "https://openaccess.thecvf.com/content_CVPR_2020/papers/Tancik_StegaStamp_Invisible_Hyperlinks_in_Physical_Photographs_CVPR_2020_paper.pdf",
+    "path": "research\\literature\\m1-primary-extension\\stegastamp-cvpr2020.pdf",
+    "bytes": 2393782,
+    "sha256": "ab57fbc1ae99931590165fca9df88dff996fcc9e80b4621a8983c7bb1f0a22cf",
+    "license": "Author/publisher rights retained; official research reading copy."
+  }
+]

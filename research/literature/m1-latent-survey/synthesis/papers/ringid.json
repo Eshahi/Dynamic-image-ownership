@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "ringid",
+  "citation_key": "ci2024ringid",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2404.14055v2",
+  "title": "RingID: Rethinking Tree-Ring Watermarking for Enhanced Multi-Key Identification",
+  "authors": [
+    "Hai Ci",
+    "Pei Yang",
+    "Yiren Song",
+    "Mike Zheng Shou"
+  ],
+  "year": 2024,
+  "venue": null,
+  "access_date": "2026-10-03",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "artifacts/ringid.html",
+    "sha256": "66b12a3ff4ee779a416dd0940c59353e2343f034dd77cc191dee4885e9c54b75"
+  },
+  "limitations": [
+    "Severe crop/scale identification failure remains. Larger key spaces reduce robustness/quality. No content-bound identity or image-only DCT extraction."
+  ]
+}

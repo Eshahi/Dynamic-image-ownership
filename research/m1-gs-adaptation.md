@@ -12,6 +12,8 @@ Four fixed prompts and seeds1000-1003 each produce C0 and C1. Clean and determin
 
 Threshold0.7 is fixed before execution; C0 and wrong-key frequencies have four cases per channel and cannot substantiate population FPR. No claimed binomial false-positive bound is applied to correlated repeated payload bits or public development secrets. T4/T5 content binding remains outside this native comparator.
 
+Before the first scientific run, add the pinned CLIP ViT-B/32 CPU evaluator to measure cosine of each attacked image against its same-arm clean image. This feature is evaluator-only and never enters the Gaussian Shading detector. It is a descriptive semantic-retention proxy, not an independent human content judgment. Asset and helper-code hashes are included in provenance.
+
 Run provenance records commit, script/manifest SHA256, all configuration/seeds, asset lock verification, runtime versions, duration and started/completed/error state. Image and row journals support resume with identical commit/script/manifest only. Resume never silently treats error as success. Parent commits source before scientific execution; no GPU experiment was run by the implementation agent. Finite codec tests cover exact recovery,31-versus33 corrupted repeated tiles, nonce/key separation and invalid shape, and passed3/3. Those tests are implementation checks rather than scientific evidence.
 
 Example (after parent commit):

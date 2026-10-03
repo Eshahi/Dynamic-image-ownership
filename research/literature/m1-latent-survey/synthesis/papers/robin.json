@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "robin",
+  "citation_key": "huang2024robin",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2411.03862v2",
+  "title": "ROBIN: Robust and Invisible Watermarks for Diffusion Models with Adversarial Optimization",
+  "authors": [
+    "Huayang Huang",
+    "Yu Wu",
+    "Qian Wang"
+  ],
+  "year": 2024,
+  "venue": "NeurIPS 2024",
+  "access_date": "2026-10-03",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "artifacts/robin.html",
+    "sha256": "c2fb992c904b6bea12ceee7ba19c6529c5d8a1aa769b10fb0c34e7fe7646fb9e"
+  },
+  "limitations": [
+    "Still needs diffusion model, inversion, injection point and watermark key; .531s is hardware-specific. Main table ordinary transformations is not a regeneration sweep. Hiding prompt during inversion hurts recovery."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "tree-ring",
+  "citation_key": "wen2023treering",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2305.20030v3",
+  "title": "Tree-Ring Watermarks: Fingerprints for Diffusion Images that are Invisible and Robust",
+  "authors": [
+    "Yuxin Wen",
+    "John Kirchenbauer",
+    "Jonas Geiping",
+    "Tom Goldstein"
+  ],
+  "year": 2023,
+  "venue": "NeurIPS 2023",
+  "access_date": "2026-10-03",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "artifacts/tree-ring.html",
+    "sha256": "c6fca8e31df0f6f367bef6a166d03da51a34b371f1e4fa15e43d4d447d861136"
+  },
+  "limitations": [
+    "Fourier invariance is heuristic through nonlinear model. Distribution changes and multi-key limitations. No lightweight DCT detector demonstrated."
+  ]
+}

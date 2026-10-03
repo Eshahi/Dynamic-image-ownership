@@ -1,0 +1,61 @@
+{
+  "schema_version": "m1-progressive-synthetic-v1",
+  "data_split": "synthetic",
+  "config": {
+    "alphas": [
+      0.1,
+      0.3,
+      0.5
+    ],
+    "etas": [
+      25.0,
+      100.0
+    ],
+    "steps": 50,
+    "start_ratio": 0.5,
+    "guidance_scale": 7.5,
+    "bits": 16,
+    "repetitions": 8,
+    "channel": 0,
+    "band_sum": [
+      16,
+      48
+    ],
+    "carrier_seed": "m1-progressive-public-v1",
+    "payload": "1011010001101001",
+    "threshold": 0.875,
+    "wrong_payload_queries": 64,
+    "wrong_payload_seed": "m1-progressive-wrong-payload-v1",
+    "attack_strengths": [
+      0.1,
+      0.4
+    ],
+    "attack_seed": 0,
+    "gpu_budget_bytes": 10737418240,
+    "guidance_phase": "first-half-after-CFG",
+    "loss": "masked mean square: denominator128",
+    "size": [
+      512,
+      512
+    ]
+  },
+  "cases": [
+    {
+      "seed": 1000,
+      "prompt": "a photograph of a mountain lake at sunrise, detailed landscape"
+    },
+    {
+      "seed": 1001,
+      "prompt": "a photograph of a city street with parked cars and shop fronts"
+    },
+    {
+      "seed": 1002,
+      "prompt": "a close-up photograph of a bowl of fruit on a wooden table"
+    },
+    {
+      "seed": 1003,
+      "prompt": "a photograph of a brown dog running on a beach"
+    }
+  ],
+  "label": "Exploratory public16bit carrier; no dual-content-key success claim"
+}
