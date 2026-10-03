@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "status": "planning_from_revision_2_stage_timings_and_v5_synthetic_timings",
+  "status": "updated_after_dev_001_user_requested_45_minute_ceiling",
   "execution_target": "local",
   "resources": {
     "vram_mib": 8192,
@@ -8,16 +8,16 @@
     "disk_mib": 2048
   },
   "budget": {
-    "max_seconds": 86400,
+    "max_seconds": 2700,
     "max_usd": 0,
     "hourly_usd": 0
   },
   "estimated_seconds_range": [
-    1200,
-    5400
+    900,
+    1500
   ],
-  "estimation_basis": "Revision-2 run: 751 s for 1,884 calls. v5 revision 2 on Windows: embedding about 1.5 s, one detector call about 0.2 to 0.3 s, one two-tier projection transfer about 6 s (47 transfers), img2img about 0.45 s per output. The rehearsal on synthetic images gives the measured figure for this exact worker. Provisional, not guaranteed.",
+  "estimation_basis": "Retained v5 revision-3 worker: 895.158 s; official runner wall time about 920 s. Same-commit synthetic rehearsal 003 previously about 941 s. Range is an estimate, not a promise; the new hard outer ceiling is 2700 s.",
   "no_downloads": true,
   "no_paid_compute": true,
-  "watchdog_is_not_user_deadline": true
+  "watchdog_is_not_user_deadline": false
 }

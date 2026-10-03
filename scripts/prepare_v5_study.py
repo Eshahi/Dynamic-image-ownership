@@ -8,6 +8,7 @@ import hashlib
 import json
 from pathlib import Path
 import subprocess
+from v5_study_limits import BUDGET
 
 ROOT=Path(__file__).resolve().parents[1]
 EXP="c4-v5-two-tier-regeneration-v1"
@@ -41,7 +42,7 @@ def build(rehearsal=False):
              "three_threat_protocol.py","three_threat_models.py","v5_study_protocol.py",
              "v4_study_models.py","v4_study_boundary.py","v5_study_worker.py","run_v5_study.py","prepare_v5_study.py",
              "analyze_v5_study.py","test_revised_watermark_v5.py","test_revised_watermark_v4.py","test_v5_study.py",
-             "watermark_synthetic.py"]
+             "watermark_synthetic.py", "v5_study_limits.py", "test_v5_limits.py"]
     files=["scripts/"+p for p in scripts]
     files+=["research/a6-candidate-model-assets.json","research/proposal-aligned-plan-20260930.md",
             "research/method-amendment-v5.md","research/method-amendment-decision-20261002.md",
@@ -66,7 +67,7 @@ def build(rehearsal=False):
             "metrics":["rgb_quality","suspect_only_clip_two_tier_detection","regeneration_dose_response",
                        "ordinary_processing_supplementary","transfer_delivery_binding_false_attribution",
                        "semantic_instance_code_distances"],
-            "budget":{"max_seconds":86400,"max_usd":0,"hourly_usd":0},
+            "budget":dict(BUDGET),
             "resources":{"vram_mib":8192,"ram_mib":6144,"disk_mib":2048},
             "cleanup_policy":"stop-for-recovery"}
 

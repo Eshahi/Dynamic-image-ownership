@@ -1,6 +1,8 @@
 # Runbook: what is left to run for v5, in order
 
-Written 2026-10-02; updated the same day after the user's "ادامه بده" ("continue") and "continue until you reach an acceptable result", and on 2026-10-03 after "continue improving the algorithm". Paths are those of this machine. `PY` is the stdlib interpreter `W:\Prrojects\image ownership\THESIS_GUIDE_OFFLINE_v5\.thesis-build\venv\Scripts\python.exe`, `SCI` the science interpreter `...\.thesis-build\a6-science-venv\Scripts\python.exe`, `WT` this worktree `C:\Users\Soroush\.codex\worktrees\v5-study\THESIS_GUIDE_OFFLINE_v5`, `MAIN` the main checkout.
+> Current status (2026-10-03): dev-001 has finished; see `results-dev-001.md`. The instructions below describe the historical preparation. The user subsequently authorized needed local experiments with a 45-minute ceiling and retained Codex launch responsibility. Current harness deadlines are 2500 s worker, 2600 s WSL plus 30 s kill grace, 2650 s launcher and 2700 s official runner. Historical manifests/approvals remain unchanged and cannot be reused with this changed code. No new scientific run is packaged here; a future run requires a new identity, same-commit full rehearsal and exact runner provenance.
+
+Written 2026-10-02; updated the same day after the user's "Ø§Ø¯Ø§Ù…Ù‡ Ø¨Ø¯Ù‡" ("continue") and "continue until you reach an acceptable result", and on 2026-10-03 after "continue improving the algorithm". Paths are those of this machine. `PY` is the stdlib interpreter `W:\Prrojects\image ownership\THESIS_GUIDE_OFFLINE_v5\.thesis-build\venv\Scripts\python.exe`, `SCI` the science interpreter `...\.thesis-build\a6-science-venv\Scripts\python.exe`, `WT` this worktree `C:\Users\Soroush\.codex\worktrees\v5-study\THESIS_GUIDE_OFFLINE_v5`, `MAIN` the main checkout.
 
 Before any GPU step: no other GPU job may be running (`nvidia-smi`), and the worker needs 8.7 GB of free VRAM.
 

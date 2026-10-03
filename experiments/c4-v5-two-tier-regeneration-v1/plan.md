@@ -1,5 +1,7 @@
 # Small v5 study: does the two-tier codec keep the semantic key through regeneration?
 
+> Current status (2026-10-03): dev-001 has finished; see `results-dev-001.md`. The instructions below describe the historical preparation. The user subsequently authorized needed local experiments with a 45-minute ceiling and retained Codex launch responsibility. Current harness deadlines are 2500 s worker, 2600 s WSL plus 30 s kill grace, 2650 s launcher and 2700 s official runner. Historical manifests/approvals remain unchanged and cannot be reused with this changed code. No new scientific run is packaged here; a future run requires a new identity, same-commit full rehearsal and exact runner provenance.
+
 Prospective and exploratory. It applies `research/research-contract.md` and `research/scope-guard.md` and is linked to issue 18. It tests the v5 codec (`research/method-amendment-v5.md`) as an image-domain comparator only: not latent embedding, not legal ownership. RQ-02 and HYP-02 stay open. **Prepared on 2026-10-02; not approved and not run.** Moved from codec revision 1 to revision 2 on the same day and to revision 3 on 2026-10-03, before any photograph was marked with any of them; the acceptance criteria did not change.
 
 ## Why this study

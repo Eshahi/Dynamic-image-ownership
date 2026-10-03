@@ -8,6 +8,7 @@ import json
 import os
 from pathlib import Path
 import subprocess
+from v5_study_limits import BUDGET, WSL_SECONDS, KILL_GRACE_SECONDS, LAUNCHER_SECONDS
 
 
 def linux_path(path):
@@ -24,7 +25,7 @@ REHEARSAL_RUN = RUN + "-rehearsal"
 def command(manifest, output, rehearsal=False):
     worker = Path(__file__).with_name("v5_study_worker.py")
     return ["C:/Windows/System32/wsl.exe", "--exec", "timeout", "--signal=TERM",
-            "--kill-after=30s", "86200s", "env", "-i", "PATH=/usr/bin:/bin", "LANG=C.UTF-8",
+            f"--kill-after={KILL_GRACE_SECONDS}s", f"{WSL_SECONDS}s", "env", "-i", "PATH=/usr/bin:/bin", "LANG=C.UTF-8",
             "OPENBLAS_NUM_THREADS=1", "OMP_NUM_THREADS=1", "MKL_NUM_THREADS=1",
             "PYTHONHASHSEED=0", "PYTHONNOUSERSITE=1", "CUBLAS_WORKSPACE_CONFIG=:4096:8",
             "HF_HUB_OFFLINE=1", "TRANSFORMERS_OFFLINE=1", "DIFFUSERS_OFFLINE=1",
@@ -43,7 +44,7 @@ def main():
     if manifest["run_id"] not in (RUN, REHEARSAL_RUN) or manifest["execution_target"] != "local":
         raise ValueError("unexpected execution identity/target")
     rehearsal = manifest["run_id"] == REHEARSAL_RUN
-    if manifest["budget"] != {"max_seconds": 86400, "max_usd": 0, "hourly_usd": 0}:
+    if manifest["budget"] != BUDGET:
         raise ValueError("unexpected operational watchdog/cost budget")
     output = Path(args.output_dir)
     if rehearsal:
@@ -54,7 +55,7 @@ def main():
                 {"SYSTEMROOT", "WINDIR", "PATH", "TEMP", "TMP", "USERPROFILE", "LOCALAPPDATA"}}
     with (output / "logs/study-worker.log").open("x", encoding="utf-8") as log:
         result = subprocess.run(command(args.manifest, output, rehearsal), stdout=log,
-                                stderr=subprocess.STDOUT, timeout=86300, env=safe_env)
+                                stderr=subprocess.STDOUT, timeout=LAUNCHER_SECONDS, env=safe_env)
     return result.returncode
 
 

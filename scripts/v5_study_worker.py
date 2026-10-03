@@ -16,6 +16,7 @@ import os
 from pathlib import Path
 import resource
 import time
+from v5_study_limits import BUDGET, WORKER_SECONDS
 
 from v5_study_protocol import (OWNERS, EXPANDED_IDS, ORIGINAL_IDS, EXP, RUN, REHEARSAL_RUN, CALLS,
                                inventory, claims, planned_calls, transfer, distance, ordinary)
@@ -66,7 +67,7 @@ def run(manifest_path, output_path, rehearsal=False):
     expected_run = REHEARSAL_RUN if rehearsal else RUN
     if (manifest["experiment_id"], manifest["run_id"], manifest["execution_target"]) != (EXP, expected_run, "local"):
         raise ValueError("unlisted v5 experiment")
-    if manifest["seeds"] != [0, 1, 2] or manifest["budget"] != {"max_seconds": 86400, "max_usd": 0, "hourly_usd": 0}:
+    if manifest["seeds"] != [0, 1, 2] or manifest["budget"] != BUDGET:
         raise ValueError("fixed seed/watchdog profile differs")
     if manifest["resources"] != {"vram_mib": 8192, "ram_mib": 6144, "disk_mib": 2048}:
         raise ValueError("fixed resources differ")
@@ -157,7 +158,7 @@ def run(manifest_path, output_path, rehearsal=False):
         write_json(output / "outputs/runtime.json", runtime_receipt)
 
     def guard():
-        if time.monotonic() - started >= 86000:
+        if time.monotonic() - started >= WORKER_SECONDS:
             raise TimeoutError("operational watchdog reached")
         if resource.getrusage(resource.RUSAGE_SELF).ru_maxrss > 6144 * 1024:
             raise MemoryError("RAM ceiling reached")

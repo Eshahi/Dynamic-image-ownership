@@ -54,7 +54,7 @@
     1,
     2
   ],
-  "stopping_rule": "Fixed 617 rows / 2204 authoritative calls; no retry or tuning; 86400 second operational watchdog; failures and safety-checker blocks kept; 3 fixed seeds",
+  "stopping_rule": "Fixed 617 rows / 2204 authoritative calls; no retry or tuning; 2700 second user-requested operational ceiling (prospective harness amendment 2026-10-03; retained dev-001 used the original ceiling); failures and safety-checker blocks kept; 3 fixed seeds",
   "acceptance_rule": "See acceptance-criteria.md; complete planned controls, sufficient admissible delivered marks and independent visual assessments required; no latent, legal or population-FPR claim",
   "negative_result_policy": "Retain failed embeddings/images, blocked outputs and dependent missing rows; never silently replace sources or tune after outcome",
   "analysis": {
