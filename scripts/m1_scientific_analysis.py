@@ -56,11 +56,12 @@ def cell_identity(unit):
     base=[unit['method'],axis,arm,role]
     if axis=='clean':return tuple(base),unit['group_id']
     if axis=='T3':return tuple(base+[unit['attack_channel']['id']]),unit['group_id']
-    if axis=='T4':return tuple(base+[str(unit['patch_size']),unit['donor_arm']]),str(unit['pair_index'])
-    if axis=='T5':return tuple(base+[unit['endpoint']]),unit['pair_id']
+    stratum='same-public-owner' if unit.get('same_public_owner') else 'different-public-owner'
+    if axis=='T4':return tuple(base+[str(unit['patch_size']),unit['donor_arm'],stratum]),str(unit['pair_index'])
+    if axis=='T5':return tuple(base+[unit['endpoint'],stratum]),unit['pair_id']
     raise ValueError('Unknown planned axis')
 
-def analyze_verified_units(planned,observed,*,t5_selected_pairs=None):
+def analyze_verified_units(planned,observed,*,t5_selected_pairs=None,owner_schedule=None):
     """Caller supplies artifact-verified observations; missing/invalid stays adverse.
 
     Each observed query repeats all scientific metadata from its planned unit,
@@ -70,13 +71,27 @@ def analyze_verified_units(planned,observed,*,t5_selected_pairs=None):
     """
     by_id={u['id']:u for u in planned}
     if len(by_id)!=len(planned):raise ValueError('Duplicate planned unit')
+    enrolled=dict(owner_schedule or {})
+    for unit in planned:
+        if unit.get('axis')=='clean' and unit.get('claim_role')=='marked-correct':
+            uid,owner=unit['source_uid'],unit['owner']
+            if uid in enrolled and enrolled[uid]!=owner:raise ValueError('Conflicting enrolled owner schedule')
+            enrolled[uid]=owner
+    for unit in planned:
+        if unit.get('kind')!='query' or unit.get('axis') not in ('T4','T5'):continue
+        try:
+            same=(enrolled[unit['donor_uid']]==enrolled[unit['recipient_uid']] if unit['axis']=='T4'
+                  else enrolled[unit['source_uid']]==unit['owner'])
+        except KeyError as error:raise ValueError('Exact owner schedule required for paired claims') from error
+        if type(unit.get('same_public_owner')) is not bool or unit['same_public_owner']!=same:
+            raise ValueError('Paired public-owner equality flag differs')
     actual={}
     for row in observed:
         if row.get('id') not in by_id or row['id'] in actual:raise ValueError('Extra/duplicate observed unit')
         actual[row['id']]=row
     errors={};groups={};quality_groups={};ledger=[]
     metadata=('method','source_uid','group_id','axis','arm','owner','claim_role','attack_channel',
-      'pair_index','donor_uid','recipient_uid','patch_size','donor_arm','pair_id','endpoint')
+      'pair_index','donor_uid','recipient_uid','patch_size','donor_arm','pair_id','endpoint','same_public_owner','seed_uint64_hex')
     for unit in planned:
         if unit.get('kind') not in ('image','query','stage'):raise ValueError('Unknown planned unit kind')
         row=actual.get(unit['id']);value=None;q=None
@@ -114,7 +129,10 @@ def analyze_verified_units(planned,observed,*,t5_selected_pairs=None):
               observed_valid=bounds(sum(valid),len(valid)),
               possible_full_denominator_rate=[sum(valid)/len(obs),(sum(valid)+missing)/len(obs)],
               meaning='Component support is descriptive, not independently a false-attribution verdict')
-            if channel=='both' and not (axis=='T4' and role=='recipient'):
+            same_owner_pair=axis in ('T4','T5') and key[-1]=='same-public-owner'
+            if channel=='both' and same_owner_pair:
+                item['meaning']='Same public owner: descriptive support, not false cross-owner attribution or an instance-origin test'
+            if channel=='both' and not (axis=='T4' and role=='recipient') and not same_owner_pair:
                 item['conservative']=cell(group['units'],obs,event_kind='positive_success' if positive else 'negative_error')
                 if axis!='clean':
                     item['conservative'].pop('numerical_target');item['conservative'].pop('meets_numerical_target')

@@ -46,7 +46,7 @@ def generated_seeds():return [0,1]
 
 
 def dependency_paths():
-    names=['m1_scientific_unit_engine.py','m1_verified_unit_sink.py','m1_candidate_process_identity.py','m1_git_input_identity.py','m1_candidate_rehearsal_worker.py','m1_candidate_model_context.py','m1_confirmatory_image_operations.py','m1_confirmatory_t5_pairs.py','m1_candidate_adapter.py','m1_owner_interface.py','a4_protocol_reference.py','m1_canonical_source.py','m1_source_initialization.py',
+    names=['m1_target_normalization_audit.py','m1_scientific_unit_engine.py','m1_verified_unit_sink.py','m1_candidate_process_identity.py','m1_git_input_identity.py','m1_candidate_rehearsal_worker.py','m1_candidate_model_context.py','m1_confirmatory_image_operations.py','m1_confirmatory_t5_pairs.py','m1_candidate_adapter.py','m1_owner_interface.py','a4_protocol_reference.py','m1_canonical_source.py','m1_source_initialization.py',
       'm1_terminal_continuous.py','m1_terminal_repeatability.py','m1_blind_noise_core.py',
       'm1_blind_noise.py','m1_dual_latent.py','m1_phase_residual.py','m1_phasemark.py',
       'm1_latent_reconstruction.py','revised_watermark_v5.py','revised_watermark_v4.py',
@@ -382,7 +382,8 @@ def audit_rehearsal_run(directory):
     cps=record['checkpoints'];expected=range(0,101,10) if record['outcome']=='prefix_completed' else range(0,201,10)
     if record['stage']=='resume':expected=range(100,201,10)
     if [c['step'] for c in cps if c['phase']=='initialization']!=list(expected):raise ValueError('Fixed initialization checkpoint inventory')
-    target=torch.from_numpy(source.copy()).permute(2,0,1)[None].float()/255;initializer_payload=None
+    from m1_target_normalization_audit import target_from_rgb8
+    target=target_from_rgb8(source,record['binding']['runtime']);initializer_payload=None
     for cp in cps:
         path=destination(cp['path'])
         if not path.is_relative_to(base) or file_sha(path)!=cp['sha256']:raise ValueError('Checkpoint ownership/hash')

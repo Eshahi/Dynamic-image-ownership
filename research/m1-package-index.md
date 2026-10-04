@@ -12,7 +12,7 @@ Status2026-10-04: **incomplete, development continues**. This is a navigation ai
 
 | Object | Current supported status | Main report |
 |---|---|---|
-|A, terminal latent optimization|Open; fresh original200+A-C100 two-source gate passes; ten-source expansion and full threats remain|[End-to-end pilot](m1-e2e-pilot-results.md)|
+|A, terminal latent optimization|Open; two-source promotion gate passes, and the next two fixed sources6012/25394 pass clean/VAE checks; eight further sources and full threats remain|[End-to-end pilot](m1-e2e-pilot-results.md)|
 |Original A dual comparator|Twelve-source clean/VAE and fixed threat grid retained; transfer/collision delivery limitations explicit|[Threat results](m1-A-hybrid-threat-results.md), [binding controls](m1-A-binding-ablation-results.md)|
 |B, initial-noise insertion|Finite declared branch closed; generated GS/native/lightweight baseline retained; photographic dual adaptation fails clean prerequisites|[B bounded receipt](m1-family-B-bounded-receipt.md)|
 |C, progressive latent insertion|Finite declared branch closed; clean/VAE success followed by failed conditional diffusion gate|[C bounded receipt](m1-family-C-bounded-receipt.md)|
@@ -24,5 +24,7 @@ The two closed families do not complete M1. The remaining successful A pilot mus
 ## Confirmatory preparation and remaining exit work
 
 The [narrow confirmatory draft](m1-confirmatory-draft.md), [planned inventory](m1-confirmatory-planned-inventory.md), [external receipt index](m1-confirmatory-external-index.md), [endpoint rules](m1-confirmatory-endpoints.md) and [worker build plan](m1-confirmatory-worker-build-plan.md) separate preparation from source access. Candidate-specific core adoption, final manifest/budget freeze, shared scientific worker, authentic official launch/source contract, complete candidate-identical lifecycle rehearsals and one fresh independent milestone review remain outstanding.
+
+The actual generated worker now consumes the [shared unit engine](m1-scientific-unit-engine.md) and [verified unit sink](m1-verified-unit-sink.md). Its full GPU rehearsal is underway; CPU tests alone do not establish full/resume parity. The [authority verifier](m1-scientific-authority.md) joins genuine future user and controller records without creating them. The [scientific summaries](m1-scientific-analysis.md) and [retained-result audit](m1-scientific-result-audit.md) have targeted CPU tests, while full scientific collection and launch integration remain unfinished.
 
 At exit, replace this status with the actual selected method/core, complete development frontier and acceptance or three-family bounded-failure result; attach exact executable confirmatory manifests, measured resources, passing tests/rehearsals and the independent review. Only then present the Persian M1 report and the user's single decision: approve that precise confirmatory package, or redirect. This index grants no authority to run it.

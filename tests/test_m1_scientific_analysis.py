@@ -36,9 +36,20 @@ class AnalysisTests(unittest.TestCase):
         p=[dict(unit(0),kind='image')];r=a.analyze_verified_units(p,[])
         self.assertEqual(r['clean_quality']['candidate']['missing'],1)
     def test_t4_recipient_has_no_false_attribution_target(self):
-        u=dict(unit(0),axis='T4',claim_role='recipient',pair_index=0,patch_size=128,donor_arm='C1')
-        r=a.analyze_verified_units([u],[result(u)])
+        u=dict(unit(0),axis='T4',claim_role='recipient',pair_index=0,patch_size=128,donor_arm='C1',
+            donor_uid='donor',recipient_uid='u0',same_public_owner=False)
+        r=a.analyze_verified_units([u],[result(u)],owner_schedule={'donor':'other','u0':'fixture-owner'})
         self.assertNotIn('conservative',r['cells'][0]['endpoints']['both'])
+    def test_same_owner_t5_does_not_create_false_attribution(self):
+        u=dict(unit(0),axis='T5',claim_role='cross',pair_id='p0',endpoint='left',same_public_owner=True)
+        r=a.analyze_verified_units([u],[result(u)],owner_schedule={'u0':'fixture-owner'})
+        self.assertEqual(r['cells'][0]['key'][-1],'same-public-owner')
+        self.assertNotIn('conservative',r['cells'][0]['endpoints']['both'])
+        self.assertEqual(r['cells'][0]['endpoints']['both']['supported'],1)
+    def test_same_owner_flag_cannot_be_forged(self):
+        u=dict(unit(0),axis='T5',claim_role='cross',pair_id='p0',endpoint='left',same_public_owner=False)
+        with self.assertRaisesRegex(ValueError,'equality flag'):
+            a.analyze_verified_units([u],[],owner_schedule={'u0':'fixture-owner'})
     def test_t3_cell_is_descriptive_without_clean_target(self):
         u=dict(unit(0),axis='T3',claim_role='correct',attack_channel={'id':'DDIM-s10-r0'})
         c=a.analyze_verified_units([u],[result(u)])['cells'][0]['endpoints']['both']['conservative']
