@@ -16,6 +16,8 @@ import struct
 import numpy as np
 
 VERSION = "m1-blind-noise-template-v1"
+MAP_VERSION = "m1-blind-noise-template-v1"
+OWNER_INTERFACE_VERSION = "m1-public-owner-interface-v1"
 N = 16384
 M = 8192
 FEATURE_DIM = 512
@@ -23,11 +25,13 @@ HASH_BITS = 32
 THRESHOLD = 4.0
 UNIT_NORM_TOLERANCE = 1e-6
 OWNERS = tuple(f"qim-pilot-owner-{suffix}" for suffix in ("alpha", "beta", "gamma", "delta"))
+A4_OWNERS = tuple(f"thesis:owner:{index:02d}" for index in range(16))
+ACCEPTED_OWNERS = OWNERS + A4_OWNERS
 
 
 def _owner(owner: str) -> str:
-    if not isinstance(owner, str) or owner not in OWNERS:
-        raise ValueError("owner must be one of the four frozen ASCII public owners")
+    if not isinstance(owner, str) or owner not in ACCEPTED_OWNERS:
+        raise ValueError("owner must be one of the twenty frozen ASCII public owners")
     return owner
 
 
@@ -37,7 +41,7 @@ def _frame(value: str) -> bytes:
 
 
 def _prefix(domain: str, owner: str) -> bytes:
-    return _frame(VERSION) + _frame(domain) + _frame(owner)
+    return _frame(MAP_VERSION) + _frame(domain) + _frame(owner)
 
 
 def _permutation(domain: str, owner: str, n: int) -> np.ndarray:
@@ -113,7 +117,7 @@ class _Maps:
     r_i: np.ndarray
 
 
-@lru_cache(maxsize=len(OWNERS))
+@lru_cache(maxsize=len(ACCEPTED_OWNERS))
 def _owner_maps(owner: str) -> _Maps:
     _owner(owner)
     coordinates = _permutation("coordinates", owner, N)

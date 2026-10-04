@@ -114,7 +114,8 @@ def audit(output, development_run):
     started = time.monotonic()
     record = dict(schema=VERSION, data_split='synthetic-and-retained-development', command=sys.argv,
                   config=CONFIG, seeds=[0, 1],
-                  outcome='started', errors=[], duration_seconds=0.)
+                  outcome='started', compatibility_passed=False, errors=[], duration_seconds=0.,
+                  old_source_sha256=REFERENCE_SHA, new_source_sha256=sha(ROOT/'scripts/m1_blind_noise_core.py'))
     def write(name, value):
         (output/name).write_text(json.dumps(normalize(value), indent=2, allow_nan=False)+'\n', encoding='utf-8')
     def check():
@@ -184,6 +185,15 @@ def audit(output, development_run):
                         raise ValueError('Invalid alignment or failed exact-template diagonal')
                     alignment.append(dict(fixture=j,donor=donor,owner=owner,diagonal=donor==owner,**scores))
         write('projection-diagnostics.json',diagnostics);write('alignment.json',alignment);write('null.json',null)
+        maxima=[]
+        for j in range(32):
+            for donor in core.A4_OWNERS:
+                cross_row=[r for r in alignment if r['fixture']==j and r['donor']==donor and not r['diagonal']]
+                maxima.append(dict(fixture=j,donor=donor,**{k:max(r[k] for r in cross_row) for k in ('s','i')}))
+        write('alignment-row-maxima.json',maxima)
+        write('null-owner-extrema.json',[
+            dict(owner=owner,**{k:[min(r[k] for r in null if r['owner']==owner),max(r[k] for r in null if r['owner']==owner)] for k in ('s','i')})
+            for owner in core.A4_OWNERS])
         # Direct old/new replay on retained model arrays, never model/pixel inference.
         base=Path(development_run).resolve()
         if not base.is_relative_to((MAIN/'.thesis-build/dev-runs').resolve()):
@@ -219,6 +229,7 @@ def audit(output, development_run):
         if record['summary']['null_invalid']:
             raise ValueError('Invalid synthetic null observation')
         record['outcome']='completed'
+        record['compatibility_passed']=True
         record['interpretation']='Exact compatibility and finite synthetic geometry only; no photograph FPR or authentication inference; no owner/threshold selection.'
     except Exception as exc:
         record['outcome']='failed';record['errors'].append(repr(exc))

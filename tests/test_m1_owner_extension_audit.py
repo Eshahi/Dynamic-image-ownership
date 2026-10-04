@@ -8,6 +8,16 @@ import m1_blind_noise_core as core
 
 
 class OwnerAuditTests(unittest.TestCase):
+    def test_exact_extended_owner_domain_without_aliases(self):
+        self.assertEqual(len(core.ACCEPTED_OWNERS),20)
+        self.assertEqual(core.OWNERS,core.ACCEPTED_OWNERS[:4])
+        self.assertEqual(core.MAP_VERSION,core.VERSION)
+        for owner in core.ACCEPTED_OWNERS:
+            self.assertEqual(core._owner(owner),owner)
+        for owner in (None,0,True,'','thesis:owner:0','thesis:owner:16',
+                      'THESIS:OWNER:00','thesis:owner:00 ','thesis:owner:００'):
+            with self.assertRaises(ValueError):core._owner(owner)
+
     def test_exact_comparator_rejects_tiny_changes_and_type_loss(self):
         a={'x':np.array([1.]),'value':1}
         audit.compare_exact(a,{'x':np.array([1.]),'value':1},'same')

@@ -124,7 +124,7 @@ class BlindNoiseCoreTests(unittest.TestCase):
         alpha["v_s"][:] = 0
         recreated = core.template(self.E, self.H, self.owner)
         self.assertAlmostEqual(np.linalg.norm(recreated["v_s"]), 1, places=13)
-        self.assertEqual(core._owner_maps.cache_info().maxsize, 4)
+        self.assertEqual(core._owner_maps.cache_info().maxsize, 20)
 
     def test_threshold_inclusive_four_three_states_and_abstentions(self):
         for s, i, expected in ((4, 4, "both_match"), (4, np.nextafter(4., -np.inf), "semantic_only"),
