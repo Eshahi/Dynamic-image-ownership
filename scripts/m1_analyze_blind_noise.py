@@ -48,6 +48,7 @@ def expected_state(s,i):
 
 def decision_errors(d):
     if not isinstance(d,dict):return ['missing owner decision']
+    if not {'s','i','flags','denominators','state','errors'}.issubset(d) or any(not isinstance(d.get(k),dict) or set(d[k])!={'s','i'} for k in ('flags','denominators')):return ['missing/malformed score/flag/denominator fields']
     invalid=d.get('state')=='invalid_measurement'
     errors=[]
     for k in ('s','i'):
@@ -60,7 +61,7 @@ def decision_errors(d):
     return errors
 
 def projection_errors(d):
-    if not isinstance(d,dict) or any(not finite(d.get(k)) for k in PROJECTION):return ['missing/nonfinite projection fields']
+    if not isinstance(d,dict) or 'normalization_error_bound' not in d or any(not finite(d.get(k)) for k in PROJECTION):return ['missing/nonfinite projection fields']
     if d['norm_sq_1']<=0 or d['norm_sq_2']<=0 or any(d[k]<0 for k in ('inner_error','normalized_error','delta','variance_inner','variance_norm_1','variance_norm_2')):return ['invalid projection norms/errors/variances']
     bound=d.get('normalization_error_bound')
     if (d['delta']<1 and (not finite(bound) or bound<0)) or (d['delta']>=1 and bound is not None):return ['invalid normalization bound']
@@ -132,7 +133,7 @@ def summarize(rows,provenance_ok):
                         for k in ('s','i'):metrics[o+'_'+k]=distribution([r['owner_decisions'][o][k] for r in valid])
                         for k in PROJECTION+('normalization_error_bound',):metrics[o+'_projection_'+k]=distribution([r['projection_diagnostics'][o][k] for r in valid])
                     for k in ('l2','rounding_l2','template_rms'):metrics['perturbation_'+k]=distribution([r.get('perturbation',{}).get(k) for r in valid if isinstance(r.get('perturbation'),dict)])
-                    groups.append(dict(route=route,alpha=alpha,control=control,dose=dose,planned_rows=2,distinct_source_n=len({r['source_id'] for r in g}),complete_rows=len(valid),missing_or_failed_rows=2-len(valid),quality_all_three_n=sum(quality_pass(r['quality_vs_source']) for r in valid),states=states,metrics=metrics))
+                    groups.append(dict(route=route,alpha=alpha,control=control,dose=dose,planned_rows=2,distinct_source_n=len({r['source_id'] for r in g}),complete_distinct_source_n=len({r['source_id'] for r in valid}),complete_rows=len(valid),missing_or_failed_rows=2-len(valid),quality_all_three_n=sum(quality_pass(r['quality_vs_source']) for r in valid),states=states,metrics=metrics))
     gates=[]
     for route in ROUTES:
         for alpha in ALPHAS:
