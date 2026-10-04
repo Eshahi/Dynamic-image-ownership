@@ -1,0 +1,45 @@
+{
+  "schema": "m1-blind-noise-template-v1",
+  "data_split": "development",
+  "cases": [
+    {
+      "id": 1675,
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000001675.jpg",
+      "sha256": "6ba641627c08ef424b7dc3e6cee069aa0dd49615a31c54ae0de1ecd1fabd9dea"
+    },
+    {
+      "id": 4795,
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000004795.jpg",
+      "sha256": "6f8994bac6aef0602d4aa4397ecd4b7d579f5b18f66058a2df021352dd22bdc6"
+    }
+  ],
+  "alphas": [
+    0.025,
+    0.05,
+    0.1
+  ],
+  "routes": [
+    "pure",
+    "hybrid"
+  ],
+  "owners": [
+    "qim-pilot-owner-alpha",
+    "qim-pilot-owner-beta",
+    "qim-pilot-owner-gamma",
+    "qim-pilot-owner-delta"
+  ],
+  "thresholds": {
+    "s": 4.0,
+    "i": 4.0
+  },
+  "steps": 50,
+  "guidance_scale": 1.0,
+  "eta": 0.0,
+  "seed": 0,
+  "run_seconds_cap": 900,
+  "gpu_budget_bytes": 10737418240,
+  "ram_budget_bytes": 17179869184,
+  "artifact_budget_bytes": 524288000,
+  "profile": "configs/revised-watermark-v5.example.json",
+  "selection": "smallest hybrid dose passing frozen clean quality and carrier gates"
+}
