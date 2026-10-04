@@ -1,0 +1,17 @@
+{
+  "schema_version": "m1-gs-terminal-sign-v1",
+  "data_split": "synthetic",
+  "config": {
+    "presence_matches": 180,
+    "posterior": "mode",
+    "precision": "float16",
+    "batch_size": 1,
+    "units": "scaled-terminal-VAE-latent",
+    "gpu_budget_bytes": 10737418240,
+    "ram_budget_bytes": 17179869184,
+    "artifact_budget_bytes": 104857600,
+    "seconds_cap": 1200
+  },
+  "native_script_sha256": "5249122b9493d33869f24f9cae99eac87d3eec69ecd2f561938a28a809c6cd92",
+  "native_manifest_sha256": "88ef9fa1caabbeb3f5db7ea35212244144ed7778ab8463abb3bf4a4a5bfcdd89"
+}
