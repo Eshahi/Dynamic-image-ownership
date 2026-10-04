@@ -7,6 +7,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import numpy as np
 import torch
@@ -19,6 +20,12 @@ import m1_terminal_continuous as method
 
 class TerminalContinuousTests(unittest.TestCase):
     def setUp(self):
+        # These analytic fixtures exercise CPU Adam continuation. The production
+        # checkpoint helper also snapshots CUDA; do not initialize a real GPU
+        # merely to represent the fixture's absent CUDA state.
+        cuda_rng = patch.object(torch.cuda, 'get_rng_state_all', return_value=[])
+        cuda_rng.start()
+        self.addCleanup(cuda_rng.stop)
         self.rng=np.random.default_rng(810)
         self.E=self.rng.normal(size=512);self.E/=np.linalg.norm(self.E)
         self.H=0xBA84B4B8
