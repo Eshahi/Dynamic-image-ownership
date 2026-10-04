@@ -1,6 +1,6 @@
 """CPU-only A-C receipt, saved-endpoint and quality-cap analysis; no model loads."""
 from __future__ import annotations
-import argparse, csv, hashlib, json, math, subprocess, sys, time
+import argparse, ast, csv, hashlib, json, math, subprocess, sys, time
 from pathlib import Path
 import numpy as np
 from PIL import Image
@@ -99,6 +99,48 @@ def gates(rows,integrity):
     return dict(inventory_complete=complete,receipt_integrity=integrity,clean_quality=cleanq,clean_blind_both=cleanboth,
         cycle_blind_semantic=cycles,negative_queries=neg,
         promotion=None if not eligible else cleanq['positive']==2 and cleanboth['positive']==2 and cycles['positive']==2 and neg['below_both']==28)
+
+def dependency_set(source_code):
+    paths=set(DEPENDENCIES)
+    if 'research/m1-terminal-continuous-recovery.md' in source_code:paths.add('research/m1-terminal-continuous-recovery.md')
+    return paths
+
+def validate_dependencies(run):
+    deps=run.get('committed_files',{})
+    code=subprocess.check_output(['git','show',run['commit']+':scripts/m1_terminal_continuous.py'],cwd=ROOT)
+    if set(deps)!=dependency_set(code.decode('utf-8')):raise ValueError('Dependency set incomplete/unexpected for source commit')
+    # Working bytes may use either LF or Windows checkout CRLF. Verify both
+    # against the source blob, rather than requiring the old execution file
+    # to equal the intentionally amended current runner.
+    for rel,r in deps.items():
+        blob=subprocess.check_output(['git','show',run['commit']+':'+rel],cwd=ROOT)
+        oid=subprocess.check_output(['git','rev-parse',run['commit']+':'+rel],cwd=ROOT,text=True).strip()
+        candidates=(blob,blob.replace(b'\r\n',b'\n').replace(b'\n',b'\r\n'))
+        if oid!=r['git_blob_oid'] or r['working_sha256'] not in {hashlib.sha256(v).hexdigest() for v in candidates}:raise ValueError('Dependency source blob/SHA: '+rel)
+        if rel not in ('scripts/m1_terminal_continuous.py','research/m1-terminal-continuous-recovery.md') and sha(ROOT/rel)!=r['working_sha256']:raise ValueError('Scientific dependency working SHA: '+rel)
+    old=ast.parse(code);current=ast.parse((ROOT/'scripts/m1_terminal_continuous.py').read_text())
+    functions=lambda tree:{v.name:ast.dump(v,include_attributes=False) for v in tree.body if isinstance(v,(ast.FunctionDef,ast.ClassDef)) and v.name!='run'}
+    before,after=functions(old),functions(current)
+    if any(after.get(k)!=v for k,v in before.items()):raise ValueError('Current imported scientific/reader function differs from source commit')
+    return len(deps)
+
+def verify_replay(run):
+    receipt=run.get('replay_reference')
+    if not receipt:return None
+    if run.get('resume_input'):raise ValueError('Recovery replay cannot also resume')
+    path=Path(receipt['path']).resolve()
+    if not path.is_relative_to((runner.MAIN/'.thesis-build/dev-runs').resolve()) or sha(path)!=receipt['sha256']:raise ValueError('Replay reference path/hash mismatch')
+    reference=read(path)
+    if reference.get('config')!=run.get('config') or reference.get('schema')!=runner.VERSION or reference.get('data_split')!='development' or reference.get('commit')!=receipt.get('commit'):raise ValueError('Replay source configuration/commit mismatch')
+    if [v['source_id'] for v in reference['case_events'] if v.get('outcome')=='completed']!=[runner.IDS[0]]:raise ValueError('Replay requires exactly completed first source')
+    current=[v for v in run['case_events'] if v.get('source_id')==runner.IDS[0]]
+    if len(current)!=1:raise ValueError('Replay current source missing/duplicate')
+    report=current[0].get('execution_replay')
+    if not isinstance(report,dict) or report.get('passed') is not True:raise ValueError('Recovery execution replay absent/not positive')
+    expected=runner.verify_completed_case_replay(current[0],run['conditions'],reference)
+    equal(report,expected,'execution replay')
+    return dict(verified=True,reference=receipt,report=expected,original_duration_seconds=reference.get('duration_seconds'),
+        total_original_plus_recovery_seconds=reference['duration_seconds']+run['duration_seconds'])
 
 class Audit:
     def __init__(self,input_dir):self.base=Path(input_dir).resolve();self.artifacts={};self.paths={}
@@ -218,14 +260,7 @@ def analyze(input_dir,output_dir):
         if run.get('schema')!=runner.VERSION or run.get('data_split')!='development':raise ValueError('Wrong source schema/split')
         cfg=runner.configuration();equal(run.get('config'),cfg,'config');equal(read(base/'manifest.json'),cfg,'manifest')
         if run.get('manifest_sha256')!=sha(base/'manifest.json'):raise ValueError('Manifest hash mismatch')
-        deps=run.get('committed_files',{})
-        if set(deps)!=set(DEPENDENCIES):raise ValueError('Dependency set incomplete/unexpected')
-        for rel,r in deps.items():
-            p=ROOT/rel
-            if sha(p)!=r['working_sha256']:raise ValueError('Dependency working SHA: '+rel)
-            oid=subprocess.check_output(['git','rev-parse',run['commit']+':'+rel],cwd=ROOT,text=True).strip()
-            working=subprocess.check_output(['git','hash-object','--path='+rel,str(p)],cwd=ROOT,text=True).strip()
-            if oid!=r['git_blob_oid'] or oid!=working:raise ValueError('Dependency commit/blob: '+rel)
+        record['verified_dependency_count']=validate_dependencies(run)
         for c in cfg['cases']:
             if sha(c['path'])!=c['sha256']:raise ValueError('Raw development source SHA mismatch')
         for path,digest in run.get('output_hashes',{}).items():
@@ -278,6 +313,8 @@ def analyze(input_dir,output_dir):
         value=attempt(rid,lambda:verify_row(audit,row,*ctx,profile)) if row and ctx and profile else None
         results[rid]=value or dict(**planned,verified=False,input_outcome=row.get('outcome') if row else None,reason=errors[before:] or ['Missing/invalid source or condition'],quality_pass=None,blind_both=None,blind_semantic=None)
         results[rid]['human_visual_verdict']=None
+    if any(v.get('execution_replay') for v in events) and not run.get('replay_reference'):errors.append('Execution replay report lacks frozen reference')
+    if run.get('replay_reference'):record['recovery_replay']=attempt('recovery execution replay',lambda:verify_replay(run))
     record['source_outcome']=run.get('outcome');record['source_error']=run.get('error')
     if run.get('outcome')!='completed':errors.append('Source run is '+str(run.get('outcome'))+'; retained source error: '+str(run.get('error')))
     for r in results.values():

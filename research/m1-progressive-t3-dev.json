@@ -1,0 +1,164 @@
+{
+  "schema_version": "m1-progressive-conditional-t3-v1",
+  "data_split": "synthetic",
+  "source_dir": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0950-progressive-redundancy",
+  "source_run_sha256": "a232861b4062025afe501e27916b3ed96528df750aff8fb8774891aacec8d5e0",
+  "source_commit": "f762f336229310947e1047cdbe37b97bb5b7a2d5",
+  "source_manifest_sha256": "56cd7081887f437d395c20842b412dff1960a3e87c8407ebf931da7a9226bd05",
+  "inputs": [
+    {
+      "generation_id": "seed1000-C0-replay",
+      "seed": 1000,
+      "arm": "C0-replay",
+      "intended_payload": "1011010001101001",
+      "artifact": {
+        "path": "seed1000-C0-replay-clean.png",
+        "sha256": "66d70625a2d82fa264c180218769b017c65c7ba5270867f5814b80d54dce24c0",
+        "bytes": 489585
+      }
+    },
+    {
+      "generation_id": "seed1000-C-Q5M5",
+      "seed": 1000,
+      "arm": "C-Q5M5",
+      "intended_payload": "1011010001101001",
+      "artifact": {
+        "path": "seed1000-C-Q5M5-clean.png",
+        "sha256": "5dd3d04244db1149f1002be5fe5aa52d3c5ae62dfb3d730e117a10d806b3937e",
+        "bytes": 489925
+      }
+    },
+    {
+      "generation_id": "seed1000-C-Q5M5-complement",
+      "seed": 1000,
+      "arm": "C-Q5M5-complement",
+      "intended_payload": "0100101110010110",
+      "artifact": {
+        "path": "seed1000-C-Q5M5-complement-clean.png",
+        "sha256": "55a5adae56255219747af74f9e1c7ffdc7b3284471819d427fd708bcffb3d120",
+        "bytes": 489550
+      }
+    },
+    {
+      "generation_id": "seed1001-C0-replay",
+      "seed": 1001,
+      "arm": "C0-replay",
+      "intended_payload": "1011010001101001",
+      "artifact": {
+        "path": "seed1001-C0-replay-clean.png",
+        "sha256": "5f1db1dcf1d102757423f13f96f04ab347fbcfdd0e95440072208ef564836947",
+        "bytes": 504982
+      }
+    },
+    {
+      "generation_id": "seed1001-C-Q5M5",
+      "seed": 1001,
+      "arm": "C-Q5M5",
+      "intended_payload": "1011010001101001",
+      "artifact": {
+        "path": "seed1001-C-Q5M5-clean.png",
+        "sha256": "df0d039fe17f8474fa0b470b2efbe339ac2ec1bb312f7d3eafd0011ab30d3d65",
+        "bytes": 504967
+      }
+    },
+    {
+      "generation_id": "seed1001-C-Q5M5-complement",
+      "seed": 1001,
+      "arm": "C-Q5M5-complement",
+      "intended_payload": "0100101110010110",
+      "artifact": {
+        "path": "seed1001-C-Q5M5-complement-clean.png",
+        "sha256": "5f185635d57fdce0004dc3f0614ff237be22a48b15de118fb33053239e5ab87d",
+        "bytes": 505440
+      }
+    },
+    {
+      "generation_id": "seed1002-C0-replay",
+      "seed": 1002,
+      "arm": "C0-replay",
+      "intended_payload": "1011010001101001",
+      "artifact": {
+        "path": "seed1002-C0-replay-clean.png",
+        "sha256": "e6b0945fcc53ca591039505a16d37bb430e23ce1823d873fdbf606bca3db4fc6",
+        "bytes": 437362
+      }
+    },
+    {
+      "generation_id": "seed1002-C-Q5M5",
+      "seed": 1002,
+      "arm": "C-Q5M5",
+      "intended_payload": "1011010001101001",
+      "artifact": {
+        "path": "seed1002-C-Q5M5-clean.png",
+        "sha256": "5e00d6114c0e09524f3278ac077cee0190a27d4d62389e8afc31c70807c5400b",
+        "bytes": 438120
+      }
+    },
+    {
+      "generation_id": "seed1002-C-Q5M5-complement",
+      "seed": 1002,
+      "arm": "C-Q5M5-complement",
+      "intended_payload": "0100101110010110",
+      "artifact": {
+        "path": "seed1002-C-Q5M5-complement-clean.png",
+        "sha256": "29a12c424471e069ed71725ef3318af5ac430e1c0255e97077fc7ef13db535ff",
+        "bytes": 437820
+      }
+    },
+    {
+      "generation_id": "seed1003-C0-replay",
+      "seed": 1003,
+      "arm": "C0-replay",
+      "intended_payload": "1011010001101001",
+      "artifact": {
+        "path": "seed1003-C0-replay-clean.png",
+        "sha256": "e390a9862ba30370c9fa23afc2efdb194a7d8a00a884139ec2bd3efa2802a503",
+        "bytes": 362833
+      }
+    },
+    {
+      "generation_id": "seed1003-C-Q5M5",
+      "seed": 1003,
+      "arm": "C-Q5M5",
+      "intended_payload": "1011010001101001",
+      "artifact": {
+        "path": "seed1003-C-Q5M5-clean.png",
+        "sha256": "a04aba1dab85a31ccf94f9a9aeb898245458cd67816b23aee1459db249b44eae",
+        "bytes": 363348
+      }
+    },
+    {
+      "generation_id": "seed1003-C-Q5M5-complement",
+      "seed": 1003,
+      "arm": "C-Q5M5-complement",
+      "intended_payload": "0100101110010110",
+      "artifact": {
+        "path": "seed1003-C-Q5M5-complement-clean.png",
+        "sha256": "bc755a680737862cd9c21a2791e140c8e9722f8a59c34b5f3c760a88ea1502ef",
+        "bytes": 362970
+      }
+    }
+  ],
+  "operator": "C-Q5M5",
+  "strengths": [
+    0.1,
+    0.4
+  ],
+  "steps": 20,
+  "guidance_scale": 1.0,
+  "sampler_eta": 0.0,
+  "prompt": "",
+  "negative_prompt": "",
+  "attack_seed": 0,
+  "presence_matches": 14,
+  "planned_counts": {
+    "source_images": 12,
+    "attack_conditions": 24,
+    "unet_calls": 120,
+    "source_clusters": 4
+  },
+  "run_seconds_cap": 180,
+  "gpu_budget_bytes": 10737418240,
+  "ram_budget_bytes": 17179869184,
+  "artifact_budget_bytes": 157286400
+}

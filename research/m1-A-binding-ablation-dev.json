@@ -1,0 +1,2693 @@
+{
+  "schema": "m1-A-binding-ablation-v1",
+  "data_split": "development",
+  "source_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats",
+  "source_run_sha256": "7929d9cbbf7a9314f7959d85144fe26d99324ffd7ecc10e40455f5f623ce07a6",
+  "source_conditions_sha256": "404aefbe30d934b8405732cf62a3765da4550fba30e5ee7f4030a11eeb5a5b4e",
+  "source_commit": "9267e6e4879c7f9101dee9ca75ecc49195b6aa94",
+  "source_manifest_sha256": "7ff2ba30bf0004c5abc2f5ac33b2ddd60da1d69140def2c586bdbf5013ac52c6",
+  "profile": {
+    "schema_version": "revised-watermark-v5",
+    "profile": "two-tier-dual-key-dct",
+    "security": "public-derived",
+    "semantic_source": "external:clip-vit-b32-a6-40d365715913",
+    "minimum_side": 256,
+    "robust_frequencies": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "instance_frequencies": [
+      [
+        0,
+        3
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "code_bits": 32,
+    "segment_chips": 10,
+    "canonical_side": 128,
+    "robust": {
+      "floor": 12.0,
+      "mask_base": 0.4,
+      "mask_cap": 5.0,
+      "mask_weber": 0.35,
+      "weight_exponent": 0.5,
+      "whitening": 2.0
+    },
+    "embedding": {
+      "visibility": 1.0,
+      "block_ratio_cap": 2.0,
+      "min_robust_psnr_db": 35.5,
+      "shape_window": 3,
+      "shape_percentile": 75.0,
+      "design_gain": 0.2,
+      "design_noise": 0.3,
+      "fill_order": 2.0,
+      "colour": "proportional",
+      "colour_offset": 10.0,
+      "instance_psnr_db": 47.0,
+      "instance_noise_std": 8.0,
+      "passes": 3
+    },
+    "decision": {
+      "false_positive_target": 1e-06,
+      "semantic_radius": 6,
+      "semantic_mismatch_distance": 10,
+      "instance_radius": 6,
+      "instance_mismatch_distance": 10
+    }
+  },
+  "owner": "qim-pilot-owner-alpha",
+  "roster_size": 1,
+  "modes": [
+    "combined",
+    "none",
+    "semantic_only",
+    "perceptual_only"
+  ],
+  "planned_pngs": 87,
+  "planned_calls": 348,
+  "t4_pngs": 80,
+  "t5_transfer_pngs": 7,
+  "minimum_distinct_t4_recipients": 10,
+  "source_clusters": 12,
+  "enrollment_runs": [
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-2347-A-hybrid-pilot\\run.json",
+      "sha256": "0e56178cbdf483ac790bef3c2b575ca9e072b3a4ca0f65a93a4a20f93848a677",
+      "commit": "421787d14cfaceaa41c94141f517e1730da0390a",
+      "outcome": "completed",
+      "case_ids": [
+        1675,
+        4795
+      ],
+      "order": 0
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\run.json",
+      "sha256": "8c435eeaf94bae86ab476692f4a2894606fe588f538560e71b2765da1d56da4d",
+      "commit": "dc012fbc6a466f017fb3d837506ed1a0a8b079c6",
+      "outcome": "completed",
+      "case_ids": [
+        6012,
+        25394
+      ],
+      "order": 1
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\run.json",
+      "sha256": "e7fcedbaf644a3a557dd9ba817e272fca183c6a3b886ecf5b3a54ea03bfd0d8c",
+      "commit": "dc012fbc6a466f017fb3d837506ed1a0a8b079c6",
+      "outcome": "completed",
+      "case_ids": [
+        80932,
+        109798,
+        134882,
+        147498
+      ],
+      "order": 2
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\run.json",
+      "sha256": "7a3f110221e68fec463f74e54ac00dff311bee85de6ad27e65efdec3bea77eab",
+      "commit": "ba94b542f76e57ef3270ef55e8057e9227f39202",
+      "outcome": "completed",
+      "case_ids": [
+        177015,
+        190676,
+        468505,
+        499768
+      ],
+      "order": 3
+    }
+  ],
+  "input_errors": [],
+  "conditions": [
+    {
+      "id": "t4-residual-6012-25394-0.5",
+      "axis": "T4",
+      "donor_id": 6012,
+      "recipient_id": 25394,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "1c60c122491cca0a06aa61c33343ebeee29c944cd236bdccbd6b3df79128aeb6",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-6012-25394-0.5-1791104410992439800.png",
+        "sha256": "7f4fff562ca415ec150db5a57da7bc1c53fb37be97beb762bd6418b8fd65a678"
+      },
+      "donor_enrollment": {
+        "semantic_code": "ba84b4b8",
+        "perceptual_hash": "a003e39d",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "8974f1763627d2df54354cfaba520100635227646f42f405cbe3ac1689057252",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "e9544cb33c2499b089710418be401dfff1ed9a2e5bc81702785310bb3310f2a2",
+        "patterns_sha256": "892d650a1b0ffda01182403d14fafa3d32c664160bbde4d8565cfd9633173626",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\25394-source.png",
+        "sha256": "aeee569ff9b3ac5d8bfe4676cead804fa9a24bd7e6fcfa1f4fdfce12a230bd26"
+      }
+    },
+    {
+      "id": "t4-residual-6012-25394-1.0",
+      "axis": "T4",
+      "donor_id": 6012,
+      "recipient_id": 25394,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "96633272a3f75cd490c60ec3c520f7299fa3226fa2b085938497b796f0562a8a",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-6012-25394-1.0-1791104411593032200.png",
+        "sha256": "efa5e4f88970eb8fbb98c2ec000701ba7f32f6afc028ada18330760c51e083d0"
+      },
+      "donor_enrollment": {
+        "semantic_code": "ba84b4b8",
+        "perceptual_hash": "a003e39d",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "8974f1763627d2df54354cfaba520100635227646f42f405cbe3ac1689057252",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "e9544cb33c2499b089710418be401dfff1ed9a2e5bc81702785310bb3310f2a2",
+        "patterns_sha256": "892d650a1b0ffda01182403d14fafa3d32c664160bbde4d8565cfd9633173626",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\25394-source.png",
+        "sha256": "aeee569ff9b3ac5d8bfe4676cead804fa9a24bd7e6fcfa1f4fdfce12a230bd26"
+      }
+    },
+    {
+      "id": "t4-public_projection-6012-25394",
+      "axis": "T4",
+      "donor_id": 6012,
+      "recipient_id": 25394,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "29123b4528e2912bea44d0f955a07c1e4c7a14013fc8a79763524661d0a8d9dd",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-public_projection-6012-25394-1791104414854946700.png",
+        "sha256": "4d0bf80f1845841b61d5dffa63199127c4b79d2da58ff00c226397e46e02b80d"
+      },
+      "donor_enrollment": {
+        "semantic_code": "ba84b4b8",
+        "perceptual_hash": "a003e39d",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "8974f1763627d2df54354cfaba520100635227646f42f405cbe3ac1689057252",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "e9544cb33c2499b089710418be401dfff1ed9a2e5bc81702785310bb3310f2a2",
+        "patterns_sha256": "892d650a1b0ffda01182403d14fafa3d32c664160bbde4d8565cfd9633173626",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\25394-source.png",
+        "sha256": "aeee569ff9b3ac5d8bfe4676cead804fa9a24bd7e6fcfa1f4fdfce12a230bd26"
+      }
+    },
+    {
+      "id": "t4-unmarked_projection_sham-6012-25394",
+      "axis": "T4",
+      "donor_id": 6012,
+      "recipient_id": 25394,
+      "arm": "unmarked_projection_sham",
+      "source_outcome": "completed",
+      "source_row_sha256": "b0da351673b22a9f82d48aaac5e3a0899fe69c3156d2b583d5e1ecc9b161fa34",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-unmarked_projection_sham-6012-25394-1791104418176222200.png",
+        "sha256": "3bc04cff7b3a62694e88427d434a16706254fff5b3dc7d1ea87479233ee9a9dc"
+      },
+      "donor_enrollment": {
+        "semantic_code": "ba84b4b8",
+        "perceptual_hash": "a003e39d",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "8974f1763627d2df54354cfaba520100635227646f42f405cbe3ac1689057252",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "e9544cb33c2499b089710418be401dfff1ed9a2e5bc81702785310bb3310f2a2",
+        "patterns_sha256": "892d650a1b0ffda01182403d14fafa3d32c664160bbde4d8565cfd9633173626",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\25394-source.png",
+        "sha256": "aeee569ff9b3ac5d8bfe4676cead804fa9a24bd7e6fcfa1f4fdfce12a230bd26"
+      }
+    },
+    {
+      "id": "t4-residual-6012-147498-0.5",
+      "axis": "T4",
+      "donor_id": 6012,
+      "recipient_id": 147498,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "422e835b50f42825f37c5932f8c00f9543d24668627a578041548f6beecbe7fa",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-6012-147498-0.5-1791104418779575700.png",
+        "sha256": "83a8b7602d26caeb6e08fb94a842f12ece575d9c0b61526f69437c7a9210642b"
+      },
+      "donor_enrollment": {
+        "semantic_code": "ba84b4b8",
+        "perceptual_hash": "a003e39d",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "8974f1763627d2df54354cfaba520100635227646f42f405cbe3ac1689057252",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "e9544cb33c2499b089710418be401dfff1ed9a2e5bc81702785310bb3310f2a2",
+        "patterns_sha256": "892d650a1b0ffda01182403d14fafa3d32c664160bbde4d8565cfd9633173626",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\147498-source.png",
+        "sha256": "6aed2cc97734082702e8a176f2cf12f7b62fbaa7d5463f33a23bd64c986c1ad9"
+      }
+    },
+    {
+      "id": "t4-residual-6012-147498-1.0",
+      "axis": "T4",
+      "donor_id": 6012,
+      "recipient_id": 147498,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "b76bf571ce8f344e40f37715e977376b365467c018571ece03d884e7ddfd5ac3",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-6012-147498-1.0-1791104419377212000.png",
+        "sha256": "b9483f9e366c214334cc1a00c55f812d7a638ca8045f18f6b799438cf5329250"
+      },
+      "donor_enrollment": {
+        "semantic_code": "ba84b4b8",
+        "perceptual_hash": "a003e39d",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "8974f1763627d2df54354cfaba520100635227646f42f405cbe3ac1689057252",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "e9544cb33c2499b089710418be401dfff1ed9a2e5bc81702785310bb3310f2a2",
+        "patterns_sha256": "892d650a1b0ffda01182403d14fafa3d32c664160bbde4d8565cfd9633173626",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\147498-source.png",
+        "sha256": "6aed2cc97734082702e8a176f2cf12f7b62fbaa7d5463f33a23bd64c986c1ad9"
+      }
+    },
+    {
+      "id": "t4-public_projection-6012-147498",
+      "axis": "T4",
+      "donor_id": 6012,
+      "recipient_id": 147498,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "663d9662c38e460073a5859ec27428218363bea677104cfe60833b8293546217",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-public_projection-6012-147498-1791104422565122900.png",
+        "sha256": "6809454e7de02e7aad7d28fa2808f70f01d38a55cde87b3e23f104d8084ecd57"
+      },
+      "donor_enrollment": {
+        "semantic_code": "ba84b4b8",
+        "perceptual_hash": "a003e39d",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "8974f1763627d2df54354cfaba520100635227646f42f405cbe3ac1689057252",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "e9544cb33c2499b089710418be401dfff1ed9a2e5bc81702785310bb3310f2a2",
+        "patterns_sha256": "892d650a1b0ffda01182403d14fafa3d32c664160bbde4d8565cfd9633173626",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\147498-source.png",
+        "sha256": "6aed2cc97734082702e8a176f2cf12f7b62fbaa7d5463f33a23bd64c986c1ad9"
+      }
+    },
+    {
+      "id": "t4-unmarked_projection_sham-6012-147498",
+      "axis": "T4",
+      "donor_id": 6012,
+      "recipient_id": 147498,
+      "arm": "unmarked_projection_sham",
+      "source_outcome": "completed",
+      "source_row_sha256": "1186168e36e54a0b751476bb995240cd92cc3a5d73bcfe6ea8b94eb0adeca37e",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-unmarked_projection_sham-6012-147498-1791104425795015300.png",
+        "sha256": "801d6765b6d6dbe7de3e61d3004f1b431506fb0674f26999addec4ca48b75c21"
+      },
+      "donor_enrollment": {
+        "semantic_code": "ba84b4b8",
+        "perceptual_hash": "a003e39d",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "8974f1763627d2df54354cfaba520100635227646f42f405cbe3ac1689057252",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "e9544cb33c2499b089710418be401dfff1ed9a2e5bc81702785310bb3310f2a2",
+        "patterns_sha256": "892d650a1b0ffda01182403d14fafa3d32c664160bbde4d8565cfd9633173626",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\147498-source.png",
+        "sha256": "6aed2cc97734082702e8a176f2cf12f7b62fbaa7d5463f33a23bd64c986c1ad9"
+      }
+    },
+    {
+      "id": "t4-residual-25394-80932-0.5",
+      "axis": "T4",
+      "donor_id": 25394,
+      "recipient_id": 80932,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "217945ffadd7220cb298807f4212f7730a8f1f79786a7c084e909746f7a8f903",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-25394-80932-0.5-1791104426398268300.png",
+        "sha256": "fd64cae35e58d5ff1c0c64f737ec8a17c643f8f38512346e9460238a1a158b85"
+      },
+      "donor_enrollment": {
+        "semantic_code": "cbc5a778",
+        "perceptual_hash": "86cb5f8a",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "7cf34edc36cd2abc8f234dea67e6cfdce4faa6bb939b634ac8cf91ba0c2482d2",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "db6434770d5be525c7b315d0911c303018cf0680baf10139baf341bf1900910c",
+        "patterns_sha256": "4c3c4763c611ce2e26d7966a239f38a8e6b59c23593314cf22906b44c317831d",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\80932-source.png",
+        "sha256": "e1c6ebb01696da2ea171bcacce06898d502c5ac7a7e5cb3516d6494b5e835982"
+      }
+    },
+    {
+      "id": "t4-residual-25394-80932-1.0",
+      "axis": "T4",
+      "donor_id": 25394,
+      "recipient_id": 80932,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "088a535591ffa5a9d94c196ba509b1777df0fa62545c55a5227f8aeb1fe6e41d",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-25394-80932-1.0-1791104426969844100.png",
+        "sha256": "c03bb526559c5f487976bfecbe62b8412afc1ff1abdca793ed352fbe87a07874"
+      },
+      "donor_enrollment": {
+        "semantic_code": "cbc5a778",
+        "perceptual_hash": "86cb5f8a",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "7cf34edc36cd2abc8f234dea67e6cfdce4faa6bb939b634ac8cf91ba0c2482d2",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "db6434770d5be525c7b315d0911c303018cf0680baf10139baf341bf1900910c",
+        "patterns_sha256": "4c3c4763c611ce2e26d7966a239f38a8e6b59c23593314cf22906b44c317831d",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\80932-source.png",
+        "sha256": "e1c6ebb01696da2ea171bcacce06898d502c5ac7a7e5cb3516d6494b5e835982"
+      }
+    },
+    {
+      "id": "t4-public_projection-25394-80932",
+      "axis": "T4",
+      "donor_id": 25394,
+      "recipient_id": 80932,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "4054b6815e5cc852a21f264ae12b80546c1a1f8bf1e6ab1d9757b4b2e8aa8b3f",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-public_projection-25394-80932-1791104430162339400.png",
+        "sha256": "7da07f3a0df0f8848df3bf638aa253221ad3d310221a034cc1fd505424167151"
+      },
+      "donor_enrollment": {
+        "semantic_code": "cbc5a778",
+        "perceptual_hash": "86cb5f8a",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "7cf34edc36cd2abc8f234dea67e6cfdce4faa6bb939b634ac8cf91ba0c2482d2",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "db6434770d5be525c7b315d0911c303018cf0680baf10139baf341bf1900910c",
+        "patterns_sha256": "4c3c4763c611ce2e26d7966a239f38a8e6b59c23593314cf22906b44c317831d",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\80932-source.png",
+        "sha256": "e1c6ebb01696da2ea171bcacce06898d502c5ac7a7e5cb3516d6494b5e835982"
+      }
+    },
+    {
+      "id": "t4-unmarked_projection_sham-25394-80932",
+      "axis": "T4",
+      "donor_id": 25394,
+      "recipient_id": 80932,
+      "arm": "unmarked_projection_sham",
+      "source_outcome": "completed",
+      "source_row_sha256": "9a82d6dbb4eb72fe1b7e9c45a73140ba465332cbf4422f165ff606712cc25da7",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-unmarked_projection_sham-25394-80932-1791104433352331800.png",
+        "sha256": "3a3a9379c9fa006327c932676e28d5fd26ac1f0dfd16d18da3c4279ddf67add7"
+      },
+      "donor_enrollment": {
+        "semantic_code": "cbc5a778",
+        "perceptual_hash": "86cb5f8a",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "7cf34edc36cd2abc8f234dea67e6cfdce4faa6bb939b634ac8cf91ba0c2482d2",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "db6434770d5be525c7b315d0911c303018cf0680baf10139baf341bf1900910c",
+        "patterns_sha256": "4c3c4763c611ce2e26d7966a239f38a8e6b59c23593314cf22906b44c317831d",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\80932-source.png",
+        "sha256": "e1c6ebb01696da2ea171bcacce06898d502c5ac7a7e5cb3516d6494b5e835982"
+      }
+    },
+    {
+      "id": "t4-residual-25394-177015-0.5",
+      "axis": "T4",
+      "donor_id": 25394,
+      "recipient_id": 177015,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "41d86d4f8d16568b5b29e4e3b26f7737e2d76bb332f917e713577ce186d4c5f9",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-25394-177015-0.5-1791104433960560800.png",
+        "sha256": "d72202b770a6e7e8883f520a72acca9f25864510a7755b65c2192b2f984eee43"
+      },
+      "donor_enrollment": {
+        "semantic_code": "cbc5a778",
+        "perceptual_hash": "86cb5f8a",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "7cf34edc36cd2abc8f234dea67e6cfdce4faa6bb939b634ac8cf91ba0c2482d2",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "db6434770d5be525c7b315d0911c303018cf0680baf10139baf341bf1900910c",
+        "patterns_sha256": "4c3c4763c611ce2e26d7966a239f38a8e6b59c23593314cf22906b44c317831d",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\177015-source.png",
+        "sha256": "07dfb8c49bac6844f5e7d876560860c99f3ba18e48a6c887a0a79e431630ff26"
+      }
+    },
+    {
+      "id": "t4-residual-25394-177015-1.0",
+      "axis": "T4",
+      "donor_id": 25394,
+      "recipient_id": 177015,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "4c75e25e1fbf941ae0c10e32f0d26c81c5751a69443dfbd1a32b28219e8e7241",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-25394-177015-1.0-1791104434568607200.png",
+        "sha256": "31dc178b6550307fba3529db4e2254e9ed64e227df7d85fd8220a420f328d87a"
+      },
+      "donor_enrollment": {
+        "semantic_code": "cbc5a778",
+        "perceptual_hash": "86cb5f8a",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "7cf34edc36cd2abc8f234dea67e6cfdce4faa6bb939b634ac8cf91ba0c2482d2",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "db6434770d5be525c7b315d0911c303018cf0680baf10139baf341bf1900910c",
+        "patterns_sha256": "4c3c4763c611ce2e26d7966a239f38a8e6b59c23593314cf22906b44c317831d",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\177015-source.png",
+        "sha256": "07dfb8c49bac6844f5e7d876560860c99f3ba18e48a6c887a0a79e431630ff26"
+      }
+    },
+    {
+      "id": "t4-public_projection-25394-177015",
+      "axis": "T4",
+      "donor_id": 25394,
+      "recipient_id": 177015,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "c3702b0b89fb5864925f7e9cdf3745c5b3e5013292c0f45496c581a6532e9f49",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-public_projection-25394-177015-1791104437849583900.png",
+        "sha256": "ddf842bb893f53df0d4011129e23bc778e97dd9b0f1578be4a84225129e4c9cb"
+      },
+      "donor_enrollment": {
+        "semantic_code": "cbc5a778",
+        "perceptual_hash": "86cb5f8a",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "7cf34edc36cd2abc8f234dea67e6cfdce4faa6bb939b634ac8cf91ba0c2482d2",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "db6434770d5be525c7b315d0911c303018cf0680baf10139baf341bf1900910c",
+        "patterns_sha256": "4c3c4763c611ce2e26d7966a239f38a8e6b59c23593314cf22906b44c317831d",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\177015-source.png",
+        "sha256": "07dfb8c49bac6844f5e7d876560860c99f3ba18e48a6c887a0a79e431630ff26"
+      }
+    },
+    {
+      "id": "t4-unmarked_projection_sham-25394-177015",
+      "axis": "T4",
+      "donor_id": 25394,
+      "recipient_id": 177015,
+      "arm": "unmarked_projection_sham",
+      "source_outcome": "completed",
+      "source_row_sha256": "3030d11db641109090e008ad614d7835341dade9ec356176ad59411d3353680f",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-unmarked_projection_sham-25394-177015-1791104441146024000.png",
+        "sha256": "9a737e339a4b83a43ab59d019c57052cc97138f868b3a3650cbdbed0f6537655"
+      },
+      "donor_enrollment": {
+        "semantic_code": "cbc5a778",
+        "perceptual_hash": "86cb5f8a",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "7cf34edc36cd2abc8f234dea67e6cfdce4faa6bb939b634ac8cf91ba0c2482d2",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "db6434770d5be525c7b315d0911c303018cf0680baf10139baf341bf1900910c",
+        "patterns_sha256": "4c3c4763c611ce2e26d7966a239f38a8e6b59c23593314cf22906b44c317831d",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\177015-source.png",
+        "sha256": "07dfb8c49bac6844f5e7d876560860c99f3ba18e48a6c887a0a79e431630ff26"
+      }
+    },
+    {
+      "id": "t4-residual-80932-109798-0.5",
+      "axis": "T4",
+      "donor_id": 80932,
+      "recipient_id": 109798,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "2f7a224223ae94a66857525943f87d3c4bed08baf211dedd88a4c33c263accdd",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-80932-109798-0.5-1791104441746621700.png",
+        "sha256": "3081291c33ff1fb0bfdeb15fda76f257872bd4b9a4ab2c8486215b3961f9d034"
+      },
+      "donor_enrollment": {
+        "semantic_code": "6aeda634",
+        "perceptual_hash": "e17746ea",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "dc6d42a95544910c903bc02bc4488de4766c48048df4c3ef954104d54732e564",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "d1515a4ba84dfd28ff3528d6b1fa765a353a9b1ff15981dfebe78ad774989eee",
+        "patterns_sha256": "46c2b1848f2ece0af0e3193f1c7ba34e18bfa1d85ebcbb389833b77254152c44",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\109798-source.png",
+        "sha256": "aa7c43c49e8489df4d2c6423178a94a99b4efc609e0dc4d491bbf66358c466a7"
+      }
+    },
+    {
+      "id": "t4-residual-80932-109798-1.0",
+      "axis": "T4",
+      "donor_id": 80932,
+      "recipient_id": 109798,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "79e75326e0b3640742c01d4e2a58645f1087fddb713f13771f1b4fd9d0fbdfb6",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-80932-109798-1.0-1791104442327296500.png",
+        "sha256": "a019b14bd745526634f90544d3710a475533527fd7d50b04ae95af753ee4346a"
+      },
+      "donor_enrollment": {
+        "semantic_code": "6aeda634",
+        "perceptual_hash": "e17746ea",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "dc6d42a95544910c903bc02bc4488de4766c48048df4c3ef954104d54732e564",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "d1515a4ba84dfd28ff3528d6b1fa765a353a9b1ff15981dfebe78ad774989eee",
+        "patterns_sha256": "46c2b1848f2ece0af0e3193f1c7ba34e18bfa1d85ebcbb389833b77254152c44",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\109798-source.png",
+        "sha256": "aa7c43c49e8489df4d2c6423178a94a99b4efc609e0dc4d491bbf66358c466a7"
+      }
+    },
+    {
+      "id": "t4-public_projection-80932-109798",
+      "axis": "T4",
+      "donor_id": 80932,
+      "recipient_id": 109798,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "1163483e74aa004b7e33991c536cf6158e261f0aea3ac685af00eeb70ad5a9e2",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-public_projection-80932-109798-1791104445497340000.png",
+        "sha256": "19ed73d59cade69929fbe1bb82e11f8deef54a2c52d461661ee95002f4a69fd3"
+      },
+      "donor_enrollment": {
+        "semantic_code": "6aeda634",
+        "perceptual_hash": "e17746ea",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "dc6d42a95544910c903bc02bc4488de4766c48048df4c3ef954104d54732e564",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "d1515a4ba84dfd28ff3528d6b1fa765a353a9b1ff15981dfebe78ad774989eee",
+        "patterns_sha256": "46c2b1848f2ece0af0e3193f1c7ba34e18bfa1d85ebcbb389833b77254152c44",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\109798-source.png",
+        "sha256": "aa7c43c49e8489df4d2c6423178a94a99b4efc609e0dc4d491bbf66358c466a7"
+      }
+    },
+    {
+      "id": "t4-unmarked_projection_sham-80932-109798",
+      "axis": "T4",
+      "donor_id": 80932,
+      "recipient_id": 109798,
+      "arm": "unmarked_projection_sham",
+      "source_outcome": "completed",
+      "source_row_sha256": "38af00222d9c6123e4216857f31719c38cb9706a0475f4135a6f69d3cfbc359e",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-unmarked_projection_sham-80932-109798-1791104448701228300.png",
+        "sha256": "48f4eaf0d85f8385365d66b82ff26a33b76bbf0d6a96688897fe2e658a04ba05"
+      },
+      "donor_enrollment": {
+        "semantic_code": "6aeda634",
+        "perceptual_hash": "e17746ea",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "dc6d42a95544910c903bc02bc4488de4766c48048df4c3ef954104d54732e564",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "d1515a4ba84dfd28ff3528d6b1fa765a353a9b1ff15981dfebe78ad774989eee",
+        "patterns_sha256": "46c2b1848f2ece0af0e3193f1c7ba34e18bfa1d85ebcbb389833b77254152c44",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\109798-source.png",
+        "sha256": "aa7c43c49e8489df4d2c6423178a94a99b4efc609e0dc4d491bbf66358c466a7"
+      }
+    },
+    {
+      "id": "t4-residual-80932-190676-0.5",
+      "axis": "T4",
+      "donor_id": 80932,
+      "recipient_id": 190676,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "b6947bda2b8a69bbcce7f125662d711be8d0a8440b38e86869792005ef1d270a",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-80932-190676-0.5-1791104449311920600.png",
+        "sha256": "fd3a00f5f873ea2c63c30adebcc2d6ef29b90e88590b6ade99d78b3e04f9defb"
+      },
+      "donor_enrollment": {
+        "semantic_code": "6aeda634",
+        "perceptual_hash": "e17746ea",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "dc6d42a95544910c903bc02bc4488de4766c48048df4c3ef954104d54732e564",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "d1515a4ba84dfd28ff3528d6b1fa765a353a9b1ff15981dfebe78ad774989eee",
+        "patterns_sha256": "46c2b1848f2ece0af0e3193f1c7ba34e18bfa1d85ebcbb389833b77254152c44",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\190676-source.png",
+        "sha256": "a36bd62e1d43c406288a87af0e6a2b668347cbbf379154869e6390a5ab8487bc"
+      }
+    },
+    {
+      "id": "t4-residual-80932-190676-1.0",
+      "axis": "T4",
+      "donor_id": 80932,
+      "recipient_id": 190676,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "0040ce6b186e8efbad44f7ed7fd5f999f8f1e223323bbc95fc30d6b72f23585c",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-80932-190676-1.0-1791104449907557900.png",
+        "sha256": "4c4e23420eed8ab711961bfafc8c7cae0694fdd11d304f8cc00ca3c6a4d98929"
+      },
+      "donor_enrollment": {
+        "semantic_code": "6aeda634",
+        "perceptual_hash": "e17746ea",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "dc6d42a95544910c903bc02bc4488de4766c48048df4c3ef954104d54732e564",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "d1515a4ba84dfd28ff3528d6b1fa765a353a9b1ff15981dfebe78ad774989eee",
+        "patterns_sha256": "46c2b1848f2ece0af0e3193f1c7ba34e18bfa1d85ebcbb389833b77254152c44",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\190676-source.png",
+        "sha256": "a36bd62e1d43c406288a87af0e6a2b668347cbbf379154869e6390a5ab8487bc"
+      }
+    },
+    {
+      "id": "t4-public_projection-80932-190676",
+      "axis": "T4",
+      "donor_id": 80932,
+      "recipient_id": 190676,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "4f906969556337636f875002e0580cebca9ddce35e0146d58c0d9fea378b5516",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-public_projection-80932-190676-1791104453127687300.png",
+        "sha256": "afa22890c6199d9e69c6ecc152d7723657e715b3706f739fffc1997ab79ae06b"
+      },
+      "donor_enrollment": {
+        "semantic_code": "6aeda634",
+        "perceptual_hash": "e17746ea",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "dc6d42a95544910c903bc02bc4488de4766c48048df4c3ef954104d54732e564",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "d1515a4ba84dfd28ff3528d6b1fa765a353a9b1ff15981dfebe78ad774989eee",
+        "patterns_sha256": "46c2b1848f2ece0af0e3193f1c7ba34e18bfa1d85ebcbb389833b77254152c44",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\190676-source.png",
+        "sha256": "a36bd62e1d43c406288a87af0e6a2b668347cbbf379154869e6390a5ab8487bc"
+      }
+    },
+    {
+      "id": "t4-unmarked_projection_sham-80932-190676",
+      "axis": "T4",
+      "donor_id": 80932,
+      "recipient_id": 190676,
+      "arm": "unmarked_projection_sham",
+      "source_outcome": "completed",
+      "source_row_sha256": "4de1a3716487043e09fa0e7ed929d9eb41f2fe6185103b1ae377f0df3be0398a",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-unmarked_projection_sham-80932-190676-1791104456278284000.png",
+        "sha256": "eb0f315a0bb0e70e25c4e925b17fa53acf88857bc6e80d61cc6325dd5808a575"
+      },
+      "donor_enrollment": {
+        "semantic_code": "6aeda634",
+        "perceptual_hash": "e17746ea",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "dc6d42a95544910c903bc02bc4488de4766c48048df4c3ef954104d54732e564",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "d1515a4ba84dfd28ff3528d6b1fa765a353a9b1ff15981dfebe78ad774989eee",
+        "patterns_sha256": "46c2b1848f2ece0af0e3193f1c7ba34e18bfa1d85ebcbb389833b77254152c44",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\190676-source.png",
+        "sha256": "a36bd62e1d43c406288a87af0e6a2b668347cbbf379154869e6390a5ab8487bc"
+      }
+    },
+    {
+      "id": "t4-residual-109798-134882-0.5",
+      "axis": "T4",
+      "donor_id": 109798,
+      "recipient_id": 134882,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "fdb125ff7af03ed26e321d4cd9ae54f73b9b25590c955f12bb5dfc594299ece2",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-109798-134882-0.5-1791104456874404700.png",
+        "sha256": "2517c006835665140325b9757818342f09a9807afb66b15700333edc31077664"
+      },
+      "donor_enrollment": {
+        "semantic_code": "d1c4a434",
+        "perceptual_hash": "a60af130",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "b694e3b245757fcd43c08d8fca17fdbd18bfb11c1fd29c98f9ceacb617c80871",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "b530c6fe8215e8f96f8bbaa2c2562a253f5df41138ce76c4e1707ba466f8ba42",
+        "patterns_sha256": "affc4a1555f07f7607f1db3932dde54b9aefb733aa2c187feacfbfcaaf78c115",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\134882-source.png",
+        "sha256": "1dbfdb155741b53ea9e848de0a278d26837344d09099345ab40bd78536a4b86f"
+      }
+    },
+    {
+      "id": "t4-residual-109798-134882-1.0",
+      "axis": "T4",
+      "donor_id": 109798,
+      "recipient_id": 134882,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "e5eeabd6033d44a5ef47dfa035b632fd5b59c11175d1bace8fb30cb01cad4dfe",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-109798-134882-1.0-1791104457430175000.png",
+        "sha256": "854c80d4e954f87511bd79fea22bfa6e4f42fd513914316e52bb9176867eb0ac"
+      },
+      "donor_enrollment": {
+        "semantic_code": "d1c4a434",
+        "perceptual_hash": "a60af130",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "b694e3b245757fcd43c08d8fca17fdbd18bfb11c1fd29c98f9ceacb617c80871",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "b530c6fe8215e8f96f8bbaa2c2562a253f5df41138ce76c4e1707ba466f8ba42",
+        "patterns_sha256": "affc4a1555f07f7607f1db3932dde54b9aefb733aa2c187feacfbfcaaf78c115",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\134882-source.png",
+        "sha256": "1dbfdb155741b53ea9e848de0a278d26837344d09099345ab40bd78536a4b86f"
+      }
+    },
+    {
+      "id": "t4-public_projection-109798-134882",
+      "axis": "T4",
+      "donor_id": 109798,
+      "recipient_id": 134882,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "e18ab810ccc9dc886a045b7513a00c5e73e7142db9d697d573b0f78b927bb3e7",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-public_projection-109798-134882-1791104460615725800.png",
+        "sha256": "3336079df955d9f262cd8bf92ab6b933ef2c0520e00306a4bc14320f8513d9c3"
+      },
+      "donor_enrollment": {
+        "semantic_code": "d1c4a434",
+        "perceptual_hash": "a60af130",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "b694e3b245757fcd43c08d8fca17fdbd18bfb11c1fd29c98f9ceacb617c80871",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "b530c6fe8215e8f96f8bbaa2c2562a253f5df41138ce76c4e1707ba466f8ba42",
+        "patterns_sha256": "affc4a1555f07f7607f1db3932dde54b9aefb733aa2c187feacfbfcaaf78c115",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\134882-source.png",
+        "sha256": "1dbfdb155741b53ea9e848de0a278d26837344d09099345ab40bd78536a4b86f"
+      }
+    },
+    {
+      "id": "t4-unmarked_projection_sham-109798-134882",
+      "axis": "T4",
+      "donor_id": 109798,
+      "recipient_id": 134882,
+      "arm": "unmarked_projection_sham",
+      "source_outcome": "completed",
+      "source_row_sha256": "0d5c86a86443aa5c52cf9087ffdf8a07a6e464a9247a6956fba84187a51ce2fd",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-unmarked_projection_sham-109798-134882-1791104463830282200.png",
+        "sha256": "f57e26d4cb0b74b2ed072c10e166c598c8fc39595d963efdc4ddacdc0c5181d8"
+      },
+      "donor_enrollment": {
+        "semantic_code": "d1c4a434",
+        "perceptual_hash": "a60af130",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "b694e3b245757fcd43c08d8fca17fdbd18bfb11c1fd29c98f9ceacb617c80871",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "b530c6fe8215e8f96f8bbaa2c2562a253f5df41138ce76c4e1707ba466f8ba42",
+        "patterns_sha256": "affc4a1555f07f7607f1db3932dde54b9aefb733aa2c187feacfbfcaaf78c115",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\134882-source.png",
+        "sha256": "1dbfdb155741b53ea9e848de0a278d26837344d09099345ab40bd78536a4b86f"
+      }
+    },
+    {
+      "id": "t4-residual-109798-468505-0.5",
+      "axis": "T4",
+      "donor_id": 109798,
+      "recipient_id": 468505,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "607b12ff39e94127e791aafb62366a0994d9d56962486b8bbb53ec186173019b",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-109798-468505-0.5-1791104464430282300.png",
+        "sha256": "20ea914ce8645783bd616c96028e54f6462349d9c2bad8af7f4cf8897685d93d"
+      },
+      "donor_enrollment": {
+        "semantic_code": "d1c4a434",
+        "perceptual_hash": "a60af130",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "b694e3b245757fcd43c08d8fca17fdbd18bfb11c1fd29c98f9ceacb617c80871",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "b530c6fe8215e8f96f8bbaa2c2562a253f5df41138ce76c4e1707ba466f8ba42",
+        "patterns_sha256": "affc4a1555f07f7607f1db3932dde54b9aefb733aa2c187feacfbfcaaf78c115",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\468505-source.png",
+        "sha256": "f7564aca3eadeb9b7fa3eba03bedc144efd46f7005a385211d948ddd5e702a48"
+      }
+    },
+    {
+      "id": "t4-residual-109798-468505-1.0",
+      "axis": "T4",
+      "donor_id": 109798,
+      "recipient_id": 468505,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "b9b9863b55edca2f84166afbc2a299ade98bedae6817ce8ad05af98da3001f51",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-109798-468505-1.0-1791104465016775600.png",
+        "sha256": "75e5026e00eade81bc4959d492ab336e425c3dc27d299755ebf50b293e40fe60"
+      },
+      "donor_enrollment": {
+        "semantic_code": "d1c4a434",
+        "perceptual_hash": "a60af130",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "b694e3b245757fcd43c08d8fca17fdbd18bfb11c1fd29c98f9ceacb617c80871",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "b530c6fe8215e8f96f8bbaa2c2562a253f5df41138ce76c4e1707ba466f8ba42",
+        "patterns_sha256": "affc4a1555f07f7607f1db3932dde54b9aefb733aa2c187feacfbfcaaf78c115",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\468505-source.png",
+        "sha256": "f7564aca3eadeb9b7fa3eba03bedc144efd46f7005a385211d948ddd5e702a48"
+      }
+    },
+    {
+      "id": "t4-public_projection-109798-468505",
+      "axis": "T4",
+      "donor_id": 109798,
+      "recipient_id": 468505,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "3f98d6e9bc4dd087a6bab7cbf704d5d2e655a52f496cce732e861569569566fe",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-public_projection-109798-468505-1791104468164996900.png",
+        "sha256": "a0db48fb17234a741eeb16a995882b3a346324044192285730471b7412720ef9"
+      },
+      "donor_enrollment": {
+        "semantic_code": "d1c4a434",
+        "perceptual_hash": "a60af130",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "b694e3b245757fcd43c08d8fca17fdbd18bfb11c1fd29c98f9ceacb617c80871",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "b530c6fe8215e8f96f8bbaa2c2562a253f5df41138ce76c4e1707ba466f8ba42",
+        "patterns_sha256": "affc4a1555f07f7607f1db3932dde54b9aefb733aa2c187feacfbfcaaf78c115",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\468505-source.png",
+        "sha256": "f7564aca3eadeb9b7fa3eba03bedc144efd46f7005a385211d948ddd5e702a48"
+      }
+    },
+    {
+      "id": "t4-unmarked_projection_sham-109798-468505",
+      "axis": "T4",
+      "donor_id": 109798,
+      "recipient_id": 468505,
+      "arm": "unmarked_projection_sham",
+      "source_outcome": "completed",
+      "source_row_sha256": "00380f9362e55174d6fad03942a32e0caf92d3ff598a27bc2c09d52cb4d1bba6",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-unmarked_projection_sham-109798-468505-1791104471338868800.png",
+        "sha256": "d825f3f4270c7f20406a36636ffe2e4b1fe93a556bee0b1d88532991e13d0585"
+      },
+      "donor_enrollment": {
+        "semantic_code": "d1c4a434",
+        "perceptual_hash": "a60af130",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "b694e3b245757fcd43c08d8fca17fdbd18bfb11c1fd29c98f9ceacb617c80871",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "b530c6fe8215e8f96f8bbaa2c2562a253f5df41138ce76c4e1707ba466f8ba42",
+        "patterns_sha256": "affc4a1555f07f7607f1db3932dde54b9aefb733aa2c187feacfbfcaaf78c115",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\468505-source.png",
+        "sha256": "f7564aca3eadeb9b7fa3eba03bedc144efd46f7005a385211d948ddd5e702a48"
+      }
+    },
+    {
+      "id": "t4-residual-134882-147498-0.5",
+      "axis": "T4",
+      "donor_id": 134882,
+      "recipient_id": 147498,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "36a24dbdcad4b23f98c1d2f77623492c6a716ab24cbd08cbb05a6bc8ce25168c",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-134882-147498-0.5-1791104471936317700.png",
+        "sha256": "9f929f517bbdef2c38a48e89651bcc9d0975df5141225fc2edcfe0de89e9c90b"
+      },
+      "donor_enrollment": {
+        "semantic_code": "a0c0b53c",
+        "perceptual_hash": "a4f15337",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "f61aada47eb24ecc2baccd1f2b0ccc389c059b818fff5ae467a2d814295ae7fc",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "0f36cbbf84bb6cc8395015dea47a1dd64fd03d208550147c0d7cf4e2371df8bc",
+        "patterns_sha256": "0be3d770d71d82b53e06eda4958154c3643ecfba96cb50dc50132e47595b6a51",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\147498-source.png",
+        "sha256": "6aed2cc97734082702e8a176f2cf12f7b62fbaa7d5463f33a23bd64c986c1ad9"
+      }
+    },
+    {
+      "id": "t4-residual-134882-147498-1.0",
+      "axis": "T4",
+      "donor_id": 134882,
+      "recipient_id": 147498,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "4d4e0c1f650e17d3c73b14b09f2d3eed48210ec4244212513efdf846954cdf21",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-134882-147498-1.0-1791104472496326300.png",
+        "sha256": "8bfcd4171560d3cc57ac18b7642504e4ff0433efeb6a222bba1a62378c6f9117"
+      },
+      "donor_enrollment": {
+        "semantic_code": "a0c0b53c",
+        "perceptual_hash": "a4f15337",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "f61aada47eb24ecc2baccd1f2b0ccc389c059b818fff5ae467a2d814295ae7fc",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "0f36cbbf84bb6cc8395015dea47a1dd64fd03d208550147c0d7cf4e2371df8bc",
+        "patterns_sha256": "0be3d770d71d82b53e06eda4958154c3643ecfba96cb50dc50132e47595b6a51",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\147498-source.png",
+        "sha256": "6aed2cc97734082702e8a176f2cf12f7b62fbaa7d5463f33a23bd64c986c1ad9"
+      }
+    },
+    {
+      "id": "t4-public_projection-134882-147498",
+      "axis": "T4",
+      "donor_id": 134882,
+      "recipient_id": 147498,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "64636858383ec4affb5d6fca82d7d524aaeeb87e91c8c51d50a0aef6b1e1c256",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-public_projection-134882-147498-1791104475705909900.png",
+        "sha256": "6354bff34971a02406eaae39941b88fd11799e18e41f9842ec94554fa9defdbb"
+      },
+      "donor_enrollment": {
+        "semantic_code": "a0c0b53c",
+        "perceptual_hash": "a4f15337",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "f61aada47eb24ecc2baccd1f2b0ccc389c059b818fff5ae467a2d814295ae7fc",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "0f36cbbf84bb6cc8395015dea47a1dd64fd03d208550147c0d7cf4e2371df8bc",
+        "patterns_sha256": "0be3d770d71d82b53e06eda4958154c3643ecfba96cb50dc50132e47595b6a51",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\147498-source.png",
+        "sha256": "6aed2cc97734082702e8a176f2cf12f7b62fbaa7d5463f33a23bd64c986c1ad9"
+      }
+    },
+    {
+      "id": "t4-unmarked_projection_sham-134882-147498",
+      "axis": "T4",
+      "donor_id": 134882,
+      "recipient_id": 147498,
+      "arm": "unmarked_projection_sham",
+      "source_outcome": "completed",
+      "source_row_sha256": "19f00ac79dba70590a68e30f0fd8e736e8249765c9d26049268a88e03d3eded8",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-unmarked_projection_sham-134882-147498-1791104478868068600.png",
+        "sha256": "132b0975c88a1e1f9065d1757d84e66ff9f0709d6a67f8081f5f823e994e8378"
+      },
+      "donor_enrollment": {
+        "semantic_code": "a0c0b53c",
+        "perceptual_hash": "a4f15337",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "f61aada47eb24ecc2baccd1f2b0ccc389c059b818fff5ae467a2d814295ae7fc",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "0f36cbbf84bb6cc8395015dea47a1dd64fd03d208550147c0d7cf4e2371df8bc",
+        "patterns_sha256": "0be3d770d71d82b53e06eda4958154c3643ecfba96cb50dc50132e47595b6a51",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\147498-source.png",
+        "sha256": "6aed2cc97734082702e8a176f2cf12f7b62fbaa7d5463f33a23bd64c986c1ad9"
+      }
+    },
+    {
+      "id": "t4-residual-134882-499768-0.5",
+      "axis": "T4",
+      "donor_id": 134882,
+      "recipient_id": 499768,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "d10fb27fb1396682bd6cd5199688a138ca7af63cbe5038a3b0d50192564590c4",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-134882-499768-0.5-1791104479462576400.png",
+        "sha256": "fc27545174ee90aa4331c99938e4da300178b8d21ee07b8f7bc55dde4b96857f"
+      },
+      "donor_enrollment": {
+        "semantic_code": "a0c0b53c",
+        "perceptual_hash": "a4f15337",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "f61aada47eb24ecc2baccd1f2b0ccc389c059b818fff5ae467a2d814295ae7fc",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "0f36cbbf84bb6cc8395015dea47a1dd64fd03d208550147c0d7cf4e2371df8bc",
+        "patterns_sha256": "0be3d770d71d82b53e06eda4958154c3643ecfba96cb50dc50132e47595b6a51",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\499768-source.png",
+        "sha256": "832c4476672c530af4b887825cffc4710f6836aa0df95385e52d13314daace16"
+      }
+    },
+    {
+      "id": "t4-residual-134882-499768-1.0",
+      "axis": "T4",
+      "donor_id": 134882,
+      "recipient_id": 499768,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "e47efa7fd5ce1c390e45e7ccca0ae23fa4483103d5b70711fe9dbc7cc2a93e7d",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-134882-499768-1.0-1791104480042470500.png",
+        "sha256": "067e7807093bfc770d28a57578447c5c000a42f1d0815ab2240db5ab6d122560"
+      },
+      "donor_enrollment": {
+        "semantic_code": "a0c0b53c",
+        "perceptual_hash": "a4f15337",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "f61aada47eb24ecc2baccd1f2b0ccc389c059b818fff5ae467a2d814295ae7fc",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "0f36cbbf84bb6cc8395015dea47a1dd64fd03d208550147c0d7cf4e2371df8bc",
+        "patterns_sha256": "0be3d770d71d82b53e06eda4958154c3643ecfba96cb50dc50132e47595b6a51",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\499768-source.png",
+        "sha256": "832c4476672c530af4b887825cffc4710f6836aa0df95385e52d13314daace16"
+      }
+    },
+    {
+      "id": "t4-public_projection-134882-499768",
+      "axis": "T4",
+      "donor_id": 134882,
+      "recipient_id": 499768,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "05b410482c3f40d94dd99eb9397ae64f30f26977ede1953bbba3d94025e7ddc7",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-public_projection-134882-499768-1791104483256320000.png",
+        "sha256": "8b8a81baf702be9331d640e47505cbdbcc8b06236879f04eff5296bfcb4fb44e"
+      },
+      "donor_enrollment": {
+        "semantic_code": "a0c0b53c",
+        "perceptual_hash": "a4f15337",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "f61aada47eb24ecc2baccd1f2b0ccc389c059b818fff5ae467a2d814295ae7fc",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "0f36cbbf84bb6cc8395015dea47a1dd64fd03d208550147c0d7cf4e2371df8bc",
+        "patterns_sha256": "0be3d770d71d82b53e06eda4958154c3643ecfba96cb50dc50132e47595b6a51",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\499768-source.png",
+        "sha256": "832c4476672c530af4b887825cffc4710f6836aa0df95385e52d13314daace16"
+      }
+    },
+    {
+      "id": "t4-unmarked_projection_sham-134882-499768",
+      "axis": "T4",
+      "donor_id": 134882,
+      "recipient_id": 499768,
+      "arm": "unmarked_projection_sham",
+      "source_outcome": "completed",
+      "source_row_sha256": "1c6c4b6250c5678094dec1051b321ecbae880b89441ef9c8e7b11a5ea2481cae",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-unmarked_projection_sham-134882-499768-1791104486481449100.png",
+        "sha256": "a097bda3fdd95dbacfd01c56e51ed4e31aee2f9046621768ee7c4ac9301f09a0"
+      },
+      "donor_enrollment": {
+        "semantic_code": "a0c0b53c",
+        "perceptual_hash": "a4f15337",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "f61aada47eb24ecc2baccd1f2b0ccc389c059b818fff5ae467a2d814295ae7fc",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "0f36cbbf84bb6cc8395015dea47a1dd64fd03d208550147c0d7cf4e2371df8bc",
+        "patterns_sha256": "0be3d770d71d82b53e06eda4958154c3643ecfba96cb50dc50132e47595b6a51",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\499768-source.png",
+        "sha256": "832c4476672c530af4b887825cffc4710f6836aa0df95385e52d13314daace16"
+      }
+    },
+    {
+      "id": "t4-residual-147498-177015-0.5",
+      "axis": "T4",
+      "donor_id": 147498,
+      "recipient_id": 177015,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "1a047ddfb0c4c0b6fd1ef52c367adc9f0f86f6f4015cf3e780505afef5717803",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-147498-177015-0.5-1791104487074426500.png",
+        "sha256": "486bbdfe131539f4adafb8bb40c47232b6f280175c474be7e0850364e8d4bf57"
+      },
+      "donor_enrollment": {
+        "semantic_code": "f9c49634",
+        "perceptual_hash": "de782f11",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "9f00b608306c533a82b913a0311328a2620c05a262a440544b9259b34542ecdf",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "774dac194f570a711ddefde47ae4b611b31c253c885634ecdce35871be473337",
+        "patterns_sha256": "7ed94712ef162f2a6984e35fb72d899fa95e361d164c7ccb6ac1a93bcff4d2cf",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\177015-source.png",
+        "sha256": "07dfb8c49bac6844f5e7d876560860c99f3ba18e48a6c887a0a79e431630ff26"
+      }
+    },
+    {
+      "id": "t4-residual-147498-177015-1.0",
+      "axis": "T4",
+      "donor_id": 147498,
+      "recipient_id": 177015,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "0739c92a044aa218d8bf63faf26ce1a74d856d3366066af6c0a1952d392b2111",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-147498-177015-1.0-1791104487630302400.png",
+        "sha256": "eff1a7a17275bf670c489bc4d1c93b98884f4e8d4ec43606fd6df1af7a962309"
+      },
+      "donor_enrollment": {
+        "semantic_code": "f9c49634",
+        "perceptual_hash": "de782f11",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "9f00b608306c533a82b913a0311328a2620c05a262a440544b9259b34542ecdf",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "774dac194f570a711ddefde47ae4b611b31c253c885634ecdce35871be473337",
+        "patterns_sha256": "7ed94712ef162f2a6984e35fb72d899fa95e361d164c7ccb6ac1a93bcff4d2cf",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\177015-source.png",
+        "sha256": "07dfb8c49bac6844f5e7d876560860c99f3ba18e48a6c887a0a79e431630ff26"
+      }
+    },
+    {
+      "id": "t4-public_projection-147498-177015",
+      "axis": "T4",
+      "donor_id": 147498,
+      "recipient_id": 177015,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "003d816fac2a52de7bd03331f20bf911d090012f74a4a3bb266eb5fb0045b17b",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-public_projection-147498-177015-1791104490795614400.png",
+        "sha256": "5191e440f71eb9da3b7240b5fa6a2761518e109c5d979b2454395c77b1bc224b"
+      },
+      "donor_enrollment": {
+        "semantic_code": "f9c49634",
+        "perceptual_hash": "de782f11",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "9f00b608306c533a82b913a0311328a2620c05a262a440544b9259b34542ecdf",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "774dac194f570a711ddefde47ae4b611b31c253c885634ecdce35871be473337",
+        "patterns_sha256": "7ed94712ef162f2a6984e35fb72d899fa95e361d164c7ccb6ac1a93bcff4d2cf",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\177015-source.png",
+        "sha256": "07dfb8c49bac6844f5e7d876560860c99f3ba18e48a6c887a0a79e431630ff26"
+      }
+    },
+    {
+      "id": "t4-unmarked_projection_sham-147498-177015",
+      "axis": "T4",
+      "donor_id": 147498,
+      "recipient_id": 177015,
+      "arm": "unmarked_projection_sham",
+      "source_outcome": "completed",
+      "source_row_sha256": "04ba1713194dbdc8af11bbb015f0ee6dc6b6b30b9a75fbd3f38a55c88401d942",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-unmarked_projection_sham-147498-177015-1791104494009132300.png",
+        "sha256": "f14e2f62f83812a5bc364c2922606023a526e90872ca8e2c4ab5a3c9cea407af"
+      },
+      "donor_enrollment": {
+        "semantic_code": "f9c49634",
+        "perceptual_hash": "de782f11",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "9f00b608306c533a82b913a0311328a2620c05a262a440544b9259b34542ecdf",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "774dac194f570a711ddefde47ae4b611b31c253c885634ecdce35871be473337",
+        "patterns_sha256": "7ed94712ef162f2a6984e35fb72d899fa95e361d164c7ccb6ac1a93bcff4d2cf",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\177015-source.png",
+        "sha256": "07dfb8c49bac6844f5e7d876560860c99f3ba18e48a6c887a0a79e431630ff26"
+      }
+    },
+    {
+      "id": "t4-residual-147498-6012-0.5",
+      "axis": "T4",
+      "donor_id": 147498,
+      "recipient_id": 6012,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "7fff269dcd48830932984f04929d8367c1a7294ff07d1505d1b3703b61535d2d",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-147498-6012-0.5-1791104494656292300.png",
+        "sha256": "8351781de037076bff7d7f954ee167c9da9e2854906696dfedf33145cb2963fb"
+      },
+      "donor_enrollment": {
+        "semantic_code": "f9c49634",
+        "perceptual_hash": "de782f11",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "9f00b608306c533a82b913a0311328a2620c05a262a440544b9259b34542ecdf",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "774dac194f570a711ddefde47ae4b611b31c253c885634ecdce35871be473337",
+        "patterns_sha256": "7ed94712ef162f2a6984e35fb72d899fa95e361d164c7ccb6ac1a93bcff4d2cf",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\6012-source.png",
+        "sha256": "7dd4d42c163ee2ad82d8305f5085b62a03255b84442d1b6961088b4e6aeb2610"
+      }
+    },
+    {
+      "id": "t4-residual-147498-6012-1.0",
+      "axis": "T4",
+      "donor_id": 147498,
+      "recipient_id": 6012,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "5950f2554fa66af7a1eebf088ed18e4bd7d3689fb6180d2dd51b31cdf9e25cf6",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-147498-6012-1.0-1791104495285292300.png",
+        "sha256": "135b7f79d02c79a00f4967cd2f4f2c9bb8cf9ab6c6f256f23ec196aaf4aac9ab"
+      },
+      "donor_enrollment": {
+        "semantic_code": "f9c49634",
+        "perceptual_hash": "de782f11",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "9f00b608306c533a82b913a0311328a2620c05a262a440544b9259b34542ecdf",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "774dac194f570a711ddefde47ae4b611b31c253c885634ecdce35871be473337",
+        "patterns_sha256": "7ed94712ef162f2a6984e35fb72d899fa95e361d164c7ccb6ac1a93bcff4d2cf",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\6012-source.png",
+        "sha256": "7dd4d42c163ee2ad82d8305f5085b62a03255b84442d1b6961088b4e6aeb2610"
+      }
+    },
+    {
+      "id": "t4-public_projection-147498-6012",
+      "axis": "T4",
+      "donor_id": 147498,
+      "recipient_id": 6012,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "58e9357ad9a366f154d8e17a871fb285a2f239973cf6eeb37c6a65b5e62b80c8",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-public_projection-147498-6012-1791104498640384100.png",
+        "sha256": "2a7ddd773b3d23f1119b43efcc438ab552d1b8b6ba19525f344d57fad77c8fee"
+      },
+      "donor_enrollment": {
+        "semantic_code": "f9c49634",
+        "perceptual_hash": "de782f11",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "9f00b608306c533a82b913a0311328a2620c05a262a440544b9259b34542ecdf",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "774dac194f570a711ddefde47ae4b611b31c253c885634ecdce35871be473337",
+        "patterns_sha256": "7ed94712ef162f2a6984e35fb72d899fa95e361d164c7ccb6ac1a93bcff4d2cf",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\6012-source.png",
+        "sha256": "7dd4d42c163ee2ad82d8305f5085b62a03255b84442d1b6961088b4e6aeb2610"
+      }
+    },
+    {
+      "id": "t4-unmarked_projection_sham-147498-6012",
+      "axis": "T4",
+      "donor_id": 147498,
+      "recipient_id": 6012,
+      "arm": "unmarked_projection_sham",
+      "source_outcome": "completed",
+      "source_row_sha256": "96287611263eb4223a7cca0b02128e268d845410f5e13a17b41ebf7a9052ea97",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-unmarked_projection_sham-147498-6012-1791104501813857200.png",
+        "sha256": "eb4a2ccbe5501f9363ab1915e4b77297341aa8fe0ea1fcc89be35ca31857a44e"
+      },
+      "donor_enrollment": {
+        "semantic_code": "f9c49634",
+        "perceptual_hash": "de782f11",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "9f00b608306c533a82b913a0311328a2620c05a262a440544b9259b34542ecdf",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "774dac194f570a711ddefde47ae4b611b31c253c885634ecdce35871be473337",
+        "patterns_sha256": "7ed94712ef162f2a6984e35fb72d899fa95e361d164c7ccb6ac1a93bcff4d2cf",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\6012-source.png",
+        "sha256": "7dd4d42c163ee2ad82d8305f5085b62a03255b84442d1b6961088b4e6aeb2610"
+      }
+    },
+    {
+      "id": "t4-residual-177015-190676-0.5",
+      "axis": "T4",
+      "donor_id": 177015,
+      "recipient_id": 190676,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "0fa453b1dc20585fa8adbe74401553c2c7ccfee7387be919be7dea7ab33b3288",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-177015-190676-0.5-1791104502436157700.png",
+        "sha256": "f531a7bcb705624bd62d7ba884f0e894d1e195b330f825db48c3d17c6f947eb9"
+      },
+      "donor_enrollment": {
+        "semantic_code": "ab44a9b8",
+        "perceptual_hash": "e636460e",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "6f5962d2d016232bbee288c434344956a35da7ad3b3d771e70a962878032c8d5",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "43f30882b91588dbd9c14066e07cbedf672a5f7af542283e1ab05e08c1fe507c",
+        "patterns_sha256": "c7b92d9bda2777bc88193fab6e43c01d66226ecd7231d89135172e316a6cfc16",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\190676-source.png",
+        "sha256": "a36bd62e1d43c406288a87af0e6a2b668347cbbf379154869e6390a5ab8487bc"
+      }
+    },
+    {
+      "id": "t4-residual-177015-190676-1.0",
+      "axis": "T4",
+      "donor_id": 177015,
+      "recipient_id": 190676,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "d0bd82542bd90da65bf4fb4340fa02013d4dc98f0bdbef70dad4924bedee2fc2",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-177015-190676-1.0-1791104502995157600.png",
+        "sha256": "49b4d7c5a1e4dc5eb84ec5b167a510de32aed3b65aa17eed45f4725b3638d64b"
+      },
+      "donor_enrollment": {
+        "semantic_code": "ab44a9b8",
+        "perceptual_hash": "e636460e",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "6f5962d2d016232bbee288c434344956a35da7ad3b3d771e70a962878032c8d5",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "43f30882b91588dbd9c14066e07cbedf672a5f7af542283e1ab05e08c1fe507c",
+        "patterns_sha256": "c7b92d9bda2777bc88193fab6e43c01d66226ecd7231d89135172e316a6cfc16",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\190676-source.png",
+        "sha256": "a36bd62e1d43c406288a87af0e6a2b668347cbbf379154869e6390a5ab8487bc"
+      }
+    },
+    {
+      "id": "t4-public_projection-177015-190676",
+      "axis": "T4",
+      "donor_id": 177015,
+      "recipient_id": 190676,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "a3c049ab5f29396ca89ce47dc9500dc369e4fd1bbc7aa6a5351e1c5dfa44ee15",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-public_projection-177015-190676-1791104506215922200.png",
+        "sha256": "a1d3536f6fbcf080ede05651f92b8c2527402d08e4b184620c810e7bcf93458d"
+      },
+      "donor_enrollment": {
+        "semantic_code": "ab44a9b8",
+        "perceptual_hash": "e636460e",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "6f5962d2d016232bbee288c434344956a35da7ad3b3d771e70a962878032c8d5",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "43f30882b91588dbd9c14066e07cbedf672a5f7af542283e1ab05e08c1fe507c",
+        "patterns_sha256": "c7b92d9bda2777bc88193fab6e43c01d66226ecd7231d89135172e316a6cfc16",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\190676-source.png",
+        "sha256": "a36bd62e1d43c406288a87af0e6a2b668347cbbf379154869e6390a5ab8487bc"
+      }
+    },
+    {
+      "id": "t4-unmarked_projection_sham-177015-190676",
+      "axis": "T4",
+      "donor_id": 177015,
+      "recipient_id": 190676,
+      "arm": "unmarked_projection_sham",
+      "source_outcome": "completed",
+      "source_row_sha256": "c3349979f597069d5a8e4f456f2e5259e27b451a881698855ce81f5ab8518e4f",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-unmarked_projection_sham-177015-190676-1791104509462301000.png",
+        "sha256": "0c84942117deb09f2d38f0663b531d2f5e057d054d989b59f4de105574c3464c"
+      },
+      "donor_enrollment": {
+        "semantic_code": "ab44a9b8",
+        "perceptual_hash": "e636460e",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "6f5962d2d016232bbee288c434344956a35da7ad3b3d771e70a962878032c8d5",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "43f30882b91588dbd9c14066e07cbedf672a5f7af542283e1ab05e08c1fe507c",
+        "patterns_sha256": "c7b92d9bda2777bc88193fab6e43c01d66226ecd7231d89135172e316a6cfc16",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\190676-source.png",
+        "sha256": "a36bd62e1d43c406288a87af0e6a2b668347cbbf379154869e6390a5ab8487bc"
+      }
+    },
+    {
+      "id": "t4-residual-177015-25394-0.5",
+      "axis": "T4",
+      "donor_id": 177015,
+      "recipient_id": 25394,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "4c21323c7292ef453c356ce91bfa88ffd1aed67591853fa3071f89470b25cf63",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-177015-25394-0.5-1791104510068659500.png",
+        "sha256": "109de07bd1fb0caa3efdcba96cd83a7e283e06da4e646624bdfbb64275d9382d"
+      },
+      "donor_enrollment": {
+        "semantic_code": "ab44a9b8",
+        "perceptual_hash": "e636460e",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "6f5962d2d016232bbee288c434344956a35da7ad3b3d771e70a962878032c8d5",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "43f30882b91588dbd9c14066e07cbedf672a5f7af542283e1ab05e08c1fe507c",
+        "patterns_sha256": "c7b92d9bda2777bc88193fab6e43c01d66226ecd7231d89135172e316a6cfc16",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\25394-source.png",
+        "sha256": "aeee569ff9b3ac5d8bfe4676cead804fa9a24bd7e6fcfa1f4fdfce12a230bd26"
+      }
+    },
+    {
+      "id": "t4-residual-177015-25394-1.0",
+      "axis": "T4",
+      "donor_id": 177015,
+      "recipient_id": 25394,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "6338554284c0c972a09d844c5037ebed085951c1cc34498916f82c37b708b303",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-177015-25394-1.0-1791104510663033100.png",
+        "sha256": "ffedc3c4414e714c15ddfddaf7ec89c9cd34ab5808f3321e0d6b21c7d3d82b67"
+      },
+      "donor_enrollment": {
+        "semantic_code": "ab44a9b8",
+        "perceptual_hash": "e636460e",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "6f5962d2d016232bbee288c434344956a35da7ad3b3d771e70a962878032c8d5",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "43f30882b91588dbd9c14066e07cbedf672a5f7af542283e1ab05e08c1fe507c",
+        "patterns_sha256": "c7b92d9bda2777bc88193fab6e43c01d66226ecd7231d89135172e316a6cfc16",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\25394-source.png",
+        "sha256": "aeee569ff9b3ac5d8bfe4676cead804fa9a24bd7e6fcfa1f4fdfce12a230bd26"
+      }
+    },
+    {
+      "id": "t4-public_projection-177015-25394",
+      "axis": "T4",
+      "donor_id": 177015,
+      "recipient_id": 25394,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "34d1ac9bedc8606e018c50ab74aa6648cd1097a233ac564fa07a88ea147c3cd7",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-public_projection-177015-25394-1791104513843588700.png",
+        "sha256": "61dffcd396cdb34fc2b37dccb515a86b5d55768306e88a5550ac131c244d4ba5"
+      },
+      "donor_enrollment": {
+        "semantic_code": "ab44a9b8",
+        "perceptual_hash": "e636460e",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "6f5962d2d016232bbee288c434344956a35da7ad3b3d771e70a962878032c8d5",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "43f30882b91588dbd9c14066e07cbedf672a5f7af542283e1ab05e08c1fe507c",
+        "patterns_sha256": "c7b92d9bda2777bc88193fab6e43c01d66226ecd7231d89135172e316a6cfc16",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\25394-source.png",
+        "sha256": "aeee569ff9b3ac5d8bfe4676cead804fa9a24bd7e6fcfa1f4fdfce12a230bd26"
+      }
+    },
+    {
+      "id": "t4-unmarked_projection_sham-177015-25394",
+      "axis": "T4",
+      "donor_id": 177015,
+      "recipient_id": 25394,
+      "arm": "unmarked_projection_sham",
+      "source_outcome": "completed",
+      "source_row_sha256": "9372ad2e50f1cfafd61e286b4ba0fb5cad15106a626c3f0887a49c7676674351",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-unmarked_projection_sham-177015-25394-1791104516979361800.png",
+        "sha256": "a76f0c91b5d276bb826044b8b320849e2563c5fb45ce4e6d62c339717af0bb4f"
+      },
+      "donor_enrollment": {
+        "semantic_code": "ab44a9b8",
+        "perceptual_hash": "e636460e",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "6f5962d2d016232bbee288c434344956a35da7ad3b3d771e70a962878032c8d5",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "43f30882b91588dbd9c14066e07cbedf672a5f7af542283e1ab05e08c1fe507c",
+        "patterns_sha256": "c7b92d9bda2777bc88193fab6e43c01d66226ecd7231d89135172e316a6cfc16",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\25394-source.png",
+        "sha256": "aeee569ff9b3ac5d8bfe4676cead804fa9a24bd7e6fcfa1f4fdfce12a230bd26"
+      }
+    },
+    {
+      "id": "t4-residual-190676-468505-0.5",
+      "axis": "T4",
+      "donor_id": 190676,
+      "recipient_id": 468505,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "942293f4b3c9f47c3ff68e06fd62cad074d0c8676242789b19a2fdb723af0157",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-190676-468505-0.5-1791104517597054800.png",
+        "sha256": "56b6178e1b967bd5e57541544aceb38842e4152dd1bb673f0d2c03a0d7322796"
+      },
+      "donor_enrollment": {
+        "semantic_code": "320685a4",
+        "perceptual_hash": "c09047e1",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "f978cf2557acf02a43574d4aa41c48a65134bc1d81606b23a49e8e130394968b",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "f0136d7f8750b07f4d83506f662917ed39ddc168860ccee8b51811d8fc4114f6",
+        "patterns_sha256": "1f4d4c1b334e8ab5d0456c24687f30b749246e5dddfd00a0c5d225e570668f9f",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\468505-source.png",
+        "sha256": "f7564aca3eadeb9b7fa3eba03bedc144efd46f7005a385211d948ddd5e702a48"
+      }
+    },
+    {
+      "id": "t4-residual-190676-468505-1.0",
+      "axis": "T4",
+      "donor_id": 190676,
+      "recipient_id": 468505,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "624bc0f9e869227171c1036294d37613645ad5562a3cc0cdb55cb5cac379b916",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-190676-468505-1.0-1791104518186405000.png",
+        "sha256": "3bc8f7d0761e14a6361e0e413694f2ce6e0d81976a9d7be79c75f9654af489b3"
+      },
+      "donor_enrollment": {
+        "semantic_code": "320685a4",
+        "perceptual_hash": "c09047e1",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "f978cf2557acf02a43574d4aa41c48a65134bc1d81606b23a49e8e130394968b",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "f0136d7f8750b07f4d83506f662917ed39ddc168860ccee8b51811d8fc4114f6",
+        "patterns_sha256": "1f4d4c1b334e8ab5d0456c24687f30b749246e5dddfd00a0c5d225e570668f9f",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\468505-source.png",
+        "sha256": "f7564aca3eadeb9b7fa3eba03bedc144efd46f7005a385211d948ddd5e702a48"
+      }
+    },
+    {
+      "id": "t4-public_projection-190676-468505",
+      "axis": "T4",
+      "donor_id": 190676,
+      "recipient_id": 468505,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "9b3f86a0cd14b92d7c71a8a6aee0055ade6fe71a136ce52f372f25cf7ced6c97",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-public_projection-190676-468505-1791104521430402800.png",
+        "sha256": "add65abc5fd8f5a85e07d56596c84714edd392e898df35a1d9a73c7992cbbbd2"
+      },
+      "donor_enrollment": {
+        "semantic_code": "320685a4",
+        "perceptual_hash": "c09047e1",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "f978cf2557acf02a43574d4aa41c48a65134bc1d81606b23a49e8e130394968b",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "f0136d7f8750b07f4d83506f662917ed39ddc168860ccee8b51811d8fc4114f6",
+        "patterns_sha256": "1f4d4c1b334e8ab5d0456c24687f30b749246e5dddfd00a0c5d225e570668f9f",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\468505-source.png",
+        "sha256": "f7564aca3eadeb9b7fa3eba03bedc144efd46f7005a385211d948ddd5e702a48"
+      }
+    },
+    {
+      "id": "t4-unmarked_projection_sham-190676-468505",
+      "axis": "T4",
+      "donor_id": 190676,
+      "recipient_id": 468505,
+      "arm": "unmarked_projection_sham",
+      "source_outcome": "completed",
+      "source_row_sha256": "17345d4e5c1c2b3cb14ac244f18b502ad70a609295d0b663c15db669d0fa9369",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-unmarked_projection_sham-190676-468505-1791104524703515600.png",
+        "sha256": "ae2b57571e3cfe9c59faa7d7ac6ea5bcec74c709c7194ccad6fd7d51b1e0eb55"
+      },
+      "donor_enrollment": {
+        "semantic_code": "320685a4",
+        "perceptual_hash": "c09047e1",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "f978cf2557acf02a43574d4aa41c48a65134bc1d81606b23a49e8e130394968b",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "f0136d7f8750b07f4d83506f662917ed39ddc168860ccee8b51811d8fc4114f6",
+        "patterns_sha256": "1f4d4c1b334e8ab5d0456c24687f30b749246e5dddfd00a0c5d225e570668f9f",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\468505-source.png",
+        "sha256": "f7564aca3eadeb9b7fa3eba03bedc144efd46f7005a385211d948ddd5e702a48"
+      }
+    },
+    {
+      "id": "t4-residual-190676-80932-0.5",
+      "axis": "T4",
+      "donor_id": 190676,
+      "recipient_id": 80932,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "00e8b182c79f67dc0895f47c4d717737d9177ebc82085ccd5fd79a94679f9c93",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-190676-80932-0.5-1791104525285851600.png",
+        "sha256": "6a4941f2af9d597f766e824182a5d808af7e248c936719e404545ca6b084b0db"
+      },
+      "donor_enrollment": {
+        "semantic_code": "320685a4",
+        "perceptual_hash": "c09047e1",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "f978cf2557acf02a43574d4aa41c48a65134bc1d81606b23a49e8e130394968b",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "f0136d7f8750b07f4d83506f662917ed39ddc168860ccee8b51811d8fc4114f6",
+        "patterns_sha256": "1f4d4c1b334e8ab5d0456c24687f30b749246e5dddfd00a0c5d225e570668f9f",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\80932-source.png",
+        "sha256": "e1c6ebb01696da2ea171bcacce06898d502c5ac7a7e5cb3516d6494b5e835982"
+      }
+    },
+    {
+      "id": "t4-residual-190676-80932-1.0",
+      "axis": "T4",
+      "donor_id": 190676,
+      "recipient_id": 80932,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "f565d04686a4126bfe65227776a4549ea283f1c7b86dadd6f482f7b375f7a11a",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-190676-80932-1.0-1791104525889835900.png",
+        "sha256": "7d2db233ad9eed619bd43b8ebe5d0cd4526fa27de5540030c83c1b1b5c0baba0"
+      },
+      "donor_enrollment": {
+        "semantic_code": "320685a4",
+        "perceptual_hash": "c09047e1",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "f978cf2557acf02a43574d4aa41c48a65134bc1d81606b23a49e8e130394968b",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "f0136d7f8750b07f4d83506f662917ed39ddc168860ccee8b51811d8fc4114f6",
+        "patterns_sha256": "1f4d4c1b334e8ab5d0456c24687f30b749246e5dddfd00a0c5d225e570668f9f",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\80932-source.png",
+        "sha256": "e1c6ebb01696da2ea171bcacce06898d502c5ac7a7e5cb3516d6494b5e835982"
+      }
+    },
+    {
+      "id": "t4-public_projection-190676-80932",
+      "axis": "T4",
+      "donor_id": 190676,
+      "recipient_id": 80932,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "1f93bf7c00510cd86a62a983c4596ebb1898014fbb28a324350b62e9becf991c",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-public_projection-190676-80932-1791104529146282800.png",
+        "sha256": "58a1d42b03c6fc55e39fc731c24b937bede13ae52d0108128c0858c4834411c2"
+      },
+      "donor_enrollment": {
+        "semantic_code": "320685a4",
+        "perceptual_hash": "c09047e1",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "f978cf2557acf02a43574d4aa41c48a65134bc1d81606b23a49e8e130394968b",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "f0136d7f8750b07f4d83506f662917ed39ddc168860ccee8b51811d8fc4114f6",
+        "patterns_sha256": "1f4d4c1b334e8ab5d0456c24687f30b749246e5dddfd00a0c5d225e570668f9f",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\80932-source.png",
+        "sha256": "e1c6ebb01696da2ea171bcacce06898d502c5ac7a7e5cb3516d6494b5e835982"
+      }
+    },
+    {
+      "id": "t4-unmarked_projection_sham-190676-80932",
+      "axis": "T4",
+      "donor_id": 190676,
+      "recipient_id": 80932,
+      "arm": "unmarked_projection_sham",
+      "source_outcome": "completed",
+      "source_row_sha256": "684c1382f5024705b39c9599118a06fbfe2b799505afbe8eb4f23b4194099b4e",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-unmarked_projection_sham-190676-80932-1791104532358434800.png",
+        "sha256": "59c40a8b2a0e3da0df0cdc85311f967df3760e75110b362993138eaf3ef3d5c0"
+      },
+      "donor_enrollment": {
+        "semantic_code": "320685a4",
+        "perceptual_hash": "c09047e1",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "f978cf2557acf02a43574d4aa41c48a65134bc1d81606b23a49e8e130394968b",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "f0136d7f8750b07f4d83506f662917ed39ddc168860ccee8b51811d8fc4114f6",
+        "patterns_sha256": "1f4d4c1b334e8ab5d0456c24687f30b749246e5dddfd00a0c5d225e570668f9f",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\80932-source.png",
+        "sha256": "e1c6ebb01696da2ea171bcacce06898d502c5ac7a7e5cb3516d6494b5e835982"
+      }
+    },
+    {
+      "id": "t4-residual-468505-499768-0.5",
+      "axis": "T4",
+      "donor_id": 468505,
+      "recipient_id": 499768,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "68b2e56a9109491c01135a4c11ce47b4e2d4a9dfefc0a3053f2528d0d55cc725",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-468505-499768-0.5-1791104532948647800.png",
+        "sha256": "014ba9e1a2c150111263aa4c28d30071942a99b87f062bc1b01f2a5f65d7714a"
+      },
+      "donor_enrollment": {
+        "semantic_code": "0bada430",
+        "perceptual_hash": "75671881",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "6817cab8afa85037cb54401fed5492eda63608aa9c9933c0a86634b1d1743415",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "55cd1db169eb2313cd1fc985b5f2ce9596c5f72c7e9f4cdb7fc2bcd5ed8c53cd",
+        "patterns_sha256": "ad7d1729410a923622bcc33a5cc1399b230231becd2a7405f10d3b8f4fd730ea",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\499768-source.png",
+        "sha256": "832c4476672c530af4b887825cffc4710f6836aa0df95385e52d13314daace16"
+      }
+    },
+    {
+      "id": "t4-residual-468505-499768-1.0",
+      "axis": "T4",
+      "donor_id": 468505,
+      "recipient_id": 499768,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "e9f3e9c9c3f658a1876685a870faeadeb3b297cb295b9e83722f3cb53ad946f7",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-468505-499768-1.0-1791104533514020000.png",
+        "sha256": "d7e3c1829e1dabd5f2b959b330e83ba0840faff77dd391a5540b58651162b02f"
+      },
+      "donor_enrollment": {
+        "semantic_code": "0bada430",
+        "perceptual_hash": "75671881",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "6817cab8afa85037cb54401fed5492eda63608aa9c9933c0a86634b1d1743415",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "55cd1db169eb2313cd1fc985b5f2ce9596c5f72c7e9f4cdb7fc2bcd5ed8c53cd",
+        "patterns_sha256": "ad7d1729410a923622bcc33a5cc1399b230231becd2a7405f10d3b8f4fd730ea",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\499768-source.png",
+        "sha256": "832c4476672c530af4b887825cffc4710f6836aa0df95385e52d13314daace16"
+      }
+    },
+    {
+      "id": "t4-public_projection-468505-499768",
+      "axis": "T4",
+      "donor_id": 468505,
+      "recipient_id": 499768,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "2066a3da3f81f553615513ff3ab249c0c2f40ba1b49786c0c29f4b824740aa59",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-public_projection-468505-499768-1791104536679170200.png",
+        "sha256": "232ac7892c55de994ebc9328f3204f8ee128b94b73d42ef22439ca1c3e6f3a17"
+      },
+      "donor_enrollment": {
+        "semantic_code": "0bada430",
+        "perceptual_hash": "75671881",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "6817cab8afa85037cb54401fed5492eda63608aa9c9933c0a86634b1d1743415",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "55cd1db169eb2313cd1fc985b5f2ce9596c5f72c7e9f4cdb7fc2bcd5ed8c53cd",
+        "patterns_sha256": "ad7d1729410a923622bcc33a5cc1399b230231becd2a7405f10d3b8f4fd730ea",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\499768-source.png",
+        "sha256": "832c4476672c530af4b887825cffc4710f6836aa0df95385e52d13314daace16"
+      }
+    },
+    {
+      "id": "t4-unmarked_projection_sham-468505-499768",
+      "axis": "T4",
+      "donor_id": 468505,
+      "recipient_id": 499768,
+      "arm": "unmarked_projection_sham",
+      "source_outcome": "completed",
+      "source_row_sha256": "3decda560722dd1184bb0ed90a3f10fb0629587a74c119d22c9650ea015806ca",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-unmarked_projection_sham-468505-499768-1791104539979744200.png",
+        "sha256": "62e0570640d0c02e0db1ed80ade36951318f3845b835bc613fe2cb4a064dde7e"
+      },
+      "donor_enrollment": {
+        "semantic_code": "0bada430",
+        "perceptual_hash": "75671881",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "6817cab8afa85037cb54401fed5492eda63608aa9c9933c0a86634b1d1743415",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "55cd1db169eb2313cd1fc985b5f2ce9596c5f72c7e9f4cdb7fc2bcd5ed8c53cd",
+        "patterns_sha256": "ad7d1729410a923622bcc33a5cc1399b230231becd2a7405f10d3b8f4fd730ea",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\499768-source.png",
+        "sha256": "832c4476672c530af4b887825cffc4710f6836aa0df95385e52d13314daace16"
+      }
+    },
+    {
+      "id": "t4-residual-468505-109798-0.5",
+      "axis": "T4",
+      "donor_id": 468505,
+      "recipient_id": 109798,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "3c347f18350f551df4fc1e2d4ff4890d5b32b5f5e13913a30f2a010d81046e56",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-468505-109798-0.5-1791104540573200800.png",
+        "sha256": "08390f7e6530e8b28950451b47b675757bcc74da0e5b0cabf2bd0fe2a1d1c10c"
+      },
+      "donor_enrollment": {
+        "semantic_code": "0bada430",
+        "perceptual_hash": "75671881",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "6817cab8afa85037cb54401fed5492eda63608aa9c9933c0a86634b1d1743415",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "55cd1db169eb2313cd1fc985b5f2ce9596c5f72c7e9f4cdb7fc2bcd5ed8c53cd",
+        "patterns_sha256": "ad7d1729410a923622bcc33a5cc1399b230231becd2a7405f10d3b8f4fd730ea",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\109798-source.png",
+        "sha256": "aa7c43c49e8489df4d2c6423178a94a99b4efc609e0dc4d491bbf66358c466a7"
+      }
+    },
+    {
+      "id": "t4-residual-468505-109798-1.0",
+      "axis": "T4",
+      "donor_id": 468505,
+      "recipient_id": 109798,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "1ad5ca53cf6bd722b3ba40a3bffe8b7cbf84bb3eb18a5d6636795187ce01efdd",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-468505-109798-1.0-1791104541228456900.png",
+        "sha256": "05dec2c23d3167da13b32db357cd5159083713cfbc933b0b0f3e17a2185546c3"
+      },
+      "donor_enrollment": {
+        "semantic_code": "0bada430",
+        "perceptual_hash": "75671881",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "6817cab8afa85037cb54401fed5492eda63608aa9c9933c0a86634b1d1743415",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "55cd1db169eb2313cd1fc985b5f2ce9596c5f72c7e9f4cdb7fc2bcd5ed8c53cd",
+        "patterns_sha256": "ad7d1729410a923622bcc33a5cc1399b230231becd2a7405f10d3b8f4fd730ea",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\109798-source.png",
+        "sha256": "aa7c43c49e8489df4d2c6423178a94a99b4efc609e0dc4d491bbf66358c466a7"
+      }
+    },
+    {
+      "id": "t4-public_projection-468505-109798",
+      "axis": "T4",
+      "donor_id": 468505,
+      "recipient_id": 109798,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "2f4961e06039366f974aa4207a6e18c1a6f45cd336888e5bad24cb32a02d9d39",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-public_projection-468505-109798-1791104544511136900.png",
+        "sha256": "1a706620b0c614442bacecb1342ffe7da1772fec4b2b2a393539e9f859551426"
+      },
+      "donor_enrollment": {
+        "semantic_code": "0bada430",
+        "perceptual_hash": "75671881",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "6817cab8afa85037cb54401fed5492eda63608aa9c9933c0a86634b1d1743415",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "55cd1db169eb2313cd1fc985b5f2ce9596c5f72c7e9f4cdb7fc2bcd5ed8c53cd",
+        "patterns_sha256": "ad7d1729410a923622bcc33a5cc1399b230231becd2a7405f10d3b8f4fd730ea",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\109798-source.png",
+        "sha256": "aa7c43c49e8489df4d2c6423178a94a99b4efc609e0dc4d491bbf66358c466a7"
+      }
+    },
+    {
+      "id": "t4-unmarked_projection_sham-468505-109798",
+      "axis": "T4",
+      "donor_id": 468505,
+      "recipient_id": 109798,
+      "arm": "unmarked_projection_sham",
+      "source_outcome": "completed",
+      "source_row_sha256": "4aa3f532a0e7b8f116bd6660a8a5f5a367cd180d65d7e3e522a09249b2e7a4f9",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-unmarked_projection_sham-468505-109798-1791104547651477000.png",
+        "sha256": "9f8c41de890a7040f432059bef2766d24d17e3eb5f4aded2e1d0aa8b769df554"
+      },
+      "donor_enrollment": {
+        "semantic_code": "0bada430",
+        "perceptual_hash": "75671881",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "6817cab8afa85037cb54401fed5492eda63608aa9c9933c0a86634b1d1743415",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "55cd1db169eb2313cd1fc985b5f2ce9596c5f72c7e9f4cdb7fc2bcd5ed8c53cd",
+        "patterns_sha256": "ad7d1729410a923622bcc33a5cc1399b230231becd2a7405f10d3b8f4fd730ea",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\109798-source.png",
+        "sha256": "aa7c43c49e8489df4d2c6423178a94a99b4efc609e0dc4d491bbf66358c466a7"
+      }
+    },
+    {
+      "id": "t4-residual-499768-6012-0.5",
+      "axis": "T4",
+      "donor_id": 499768,
+      "recipient_id": 6012,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "561a0d36c4e992eae60cf902a0a4ee4940eaa7b5e28fbee3ac1c2b3e5cdb0639",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-499768-6012-0.5-1791104548255165300.png",
+        "sha256": "16a99c7225b5b1e04b8c75de8aa8866183b3bf00add8548c99ab227fcdb80d37"
+      },
+      "donor_enrollment": {
+        "semantic_code": "bad2bc3c",
+        "perceptual_hash": "252e7b79",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "910af979614ee19f312ac3b925af14af1577b13206adcb4927e68b3b80d5a37c",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "1e68bf0cd8844523c2ba775067eede3382c88b65c37ac3eeea11a9050aa57c7d",
+        "patterns_sha256": "08c95766010d5cf80b151d37c878f7d11913eb874e3006a6f9f8d3b2c1dd88a0",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\6012-source.png",
+        "sha256": "7dd4d42c163ee2ad82d8305f5085b62a03255b84442d1b6961088b4e6aeb2610"
+      }
+    },
+    {
+      "id": "t4-residual-499768-6012-1.0",
+      "axis": "T4",
+      "donor_id": 499768,
+      "recipient_id": 6012,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "e339d241aaa87252887bd8db7cd0bf7d20d14e3e22a31c4887b55f60de6d162e",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-499768-6012-1.0-1791104548830056000.png",
+        "sha256": "10cd491533c0277855483f12ef29b73bb677c56cff1cd1b9b0c87d63f0da3f4a"
+      },
+      "donor_enrollment": {
+        "semantic_code": "bad2bc3c",
+        "perceptual_hash": "252e7b79",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "910af979614ee19f312ac3b925af14af1577b13206adcb4927e68b3b80d5a37c",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "1e68bf0cd8844523c2ba775067eede3382c88b65c37ac3eeea11a9050aa57c7d",
+        "patterns_sha256": "08c95766010d5cf80b151d37c878f7d11913eb874e3006a6f9f8d3b2c1dd88a0",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\6012-source.png",
+        "sha256": "7dd4d42c163ee2ad82d8305f5085b62a03255b84442d1b6961088b4e6aeb2610"
+      }
+    },
+    {
+      "id": "t4-public_projection-499768-6012",
+      "axis": "T4",
+      "donor_id": 499768,
+      "recipient_id": 6012,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "155ba3419ee42fa84edf8f0bac8330c2002647067d57fac1b8a50a07c070b355",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-public_projection-499768-6012-1791104551991214700.png",
+        "sha256": "2e1a8faa9fbfb82a2555f525cf5e29c046f04936ef4a77ef816fe47afbc91bcf"
+      },
+      "donor_enrollment": {
+        "semantic_code": "bad2bc3c",
+        "perceptual_hash": "252e7b79",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "910af979614ee19f312ac3b925af14af1577b13206adcb4927e68b3b80d5a37c",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "1e68bf0cd8844523c2ba775067eede3382c88b65c37ac3eeea11a9050aa57c7d",
+        "patterns_sha256": "08c95766010d5cf80b151d37c878f7d11913eb874e3006a6f9f8d3b2c1dd88a0",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\6012-source.png",
+        "sha256": "7dd4d42c163ee2ad82d8305f5085b62a03255b84442d1b6961088b4e6aeb2610"
+      }
+    },
+    {
+      "id": "t4-unmarked_projection_sham-499768-6012",
+      "axis": "T4",
+      "donor_id": 499768,
+      "recipient_id": 6012,
+      "arm": "unmarked_projection_sham",
+      "source_outcome": "completed",
+      "source_row_sha256": "d22057673fab7e36e72c17b6ae99d3add37388d08073bae9d8fba202401947fb",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-unmarked_projection_sham-499768-6012-1791104555204421600.png",
+        "sha256": "1698f6204e40a3ad8b7e30c32ebd196660921a746dacbe98455d63ff23b9d13e"
+      },
+      "donor_enrollment": {
+        "semantic_code": "bad2bc3c",
+        "perceptual_hash": "252e7b79",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "910af979614ee19f312ac3b925af14af1577b13206adcb4927e68b3b80d5a37c",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "1e68bf0cd8844523c2ba775067eede3382c88b65c37ac3eeea11a9050aa57c7d",
+        "patterns_sha256": "08c95766010d5cf80b151d37c878f7d11913eb874e3006a6f9f8d3b2c1dd88a0",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\6012-source.png",
+        "sha256": "7dd4d42c163ee2ad82d8305f5085b62a03255b84442d1b6961088b4e6aeb2610"
+      }
+    },
+    {
+      "id": "t4-residual-499768-134882-0.5",
+      "axis": "T4",
+      "donor_id": 499768,
+      "recipient_id": 134882,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "096cd82e8a77d9919d2550516598b15c34ffed4ab5e7385f898b0e457d979b43",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-499768-134882-0.5-1791104555802922500.png",
+        "sha256": "aeabb621b8a6b2132a14d4ce63a5e974160f01e54a9248859868b4e7ca91bec3"
+      },
+      "donor_enrollment": {
+        "semantic_code": "bad2bc3c",
+        "perceptual_hash": "252e7b79",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "910af979614ee19f312ac3b925af14af1577b13206adcb4927e68b3b80d5a37c",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "1e68bf0cd8844523c2ba775067eede3382c88b65c37ac3eeea11a9050aa57c7d",
+        "patterns_sha256": "08c95766010d5cf80b151d37c878f7d11913eb874e3006a6f9f8d3b2c1dd88a0",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\134882-source.png",
+        "sha256": "1dbfdb155741b53ea9e848de0a278d26837344d09099345ab40bd78536a4b86f"
+      }
+    },
+    {
+      "id": "t4-residual-499768-134882-1.0",
+      "axis": "T4",
+      "donor_id": 499768,
+      "recipient_id": 134882,
+      "arm": "clean_donor_residual",
+      "source_outcome": "completed",
+      "source_row_sha256": "20e3e69ba589254e35c0bf29f35ce363bb639ee613d0e6cfe6d4c9c48134aab3",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-residual-499768-134882-1.0-1791104556425456300.png",
+        "sha256": "6ff4c4a0ef0cecfe1db6f47d6c14349b93c2a1a4a80d29a41b03a0a2cd4d895d"
+      },
+      "donor_enrollment": {
+        "semantic_code": "bad2bc3c",
+        "perceptual_hash": "252e7b79",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "910af979614ee19f312ac3b925af14af1577b13206adcb4927e68b3b80d5a37c",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "1e68bf0cd8844523c2ba775067eede3382c88b65c37ac3eeea11a9050aa57c7d",
+        "patterns_sha256": "08c95766010d5cf80b151d37c878f7d11913eb874e3006a6f9f8d3b2c1dd88a0",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\134882-source.png",
+        "sha256": "1dbfdb155741b53ea9e848de0a278d26837344d09099345ab40bd78536a4b86f"
+      }
+    },
+    {
+      "id": "t4-public_projection-499768-134882",
+      "axis": "T4",
+      "donor_id": 499768,
+      "recipient_id": 134882,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "ea92fa1ef378c6b1c62e131ecb55fec9e0b91a7f0c1d0ee805adf8a4f2612627",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-public_projection-499768-134882-1791104559591175700.png",
+        "sha256": "69e5552590490ebf13e4e363e07a887f695d9d74ba77873f6a3be67014c9cd97"
+      },
+      "donor_enrollment": {
+        "semantic_code": "bad2bc3c",
+        "perceptual_hash": "252e7b79",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "910af979614ee19f312ac3b925af14af1577b13206adcb4927e68b3b80d5a37c",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "1e68bf0cd8844523c2ba775067eede3382c88b65c37ac3eeea11a9050aa57c7d",
+        "patterns_sha256": "08c95766010d5cf80b151d37c878f7d11913eb874e3006a6f9f8d3b2c1dd88a0",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\134882-source.png",
+        "sha256": "1dbfdb155741b53ea9e848de0a278d26837344d09099345ab40bd78536a4b86f"
+      }
+    },
+    {
+      "id": "t4-unmarked_projection_sham-499768-134882",
+      "axis": "T4",
+      "donor_id": 499768,
+      "recipient_id": 134882,
+      "arm": "unmarked_projection_sham",
+      "source_outcome": "completed",
+      "source_row_sha256": "7351b23e0336962bf090d6abbef3185042c29dd03744085574b83e0374c21e4c",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t4-unmarked_projection_sham-499768-134882-1791104562764270200.png",
+        "sha256": "3c708e885b74467f0fecd400f7f2a9b615136eff374708da236fce619c79827b"
+      },
+      "donor_enrollment": {
+        "semantic_code": "bad2bc3c",
+        "perceptual_hash": "252e7b79",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "910af979614ee19f312ac3b925af14af1577b13206adcb4927e68b3b80d5a37c",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "1e68bf0cd8844523c2ba775067eede3382c88b65c37ac3eeea11a9050aa57c7d",
+        "patterns_sha256": "08c95766010d5cf80b151d37c878f7d11913eb874e3006a6f9f8d3b2c1dd88a0",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\134882-source.png",
+        "sha256": "1dbfdb155741b53ea9e848de0a278d26837344d09099345ab40bd78536a4b86f"
+      }
+    },
+    {
+      "id": "t5-transfer-1675-4795",
+      "axis": "T5-transfer",
+      "donor_id": 1675,
+      "recipient_id": 4795,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "784089fb7d7ac3cba3ce5ada1121d2881dcf239e2937641c8436057dcc1f902c",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t5-transfer-1675-4795-1791104565965547900.png",
+        "sha256": "ab3c304c983e656d2237dba0f7ff53ff71d83269bb597bc8b73576bdb639946d"
+      },
+      "donor_enrollment": {
+        "semantic_code": "6aa41e3c",
+        "perceptual_hash": "0ba0e08b",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "9cce870c4d0c6318fe0897639a25c7fa537aec02e222b45bebe1c7a21a3e3c6e",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "05dc2779c80f5b050f0ecbde5c84c40f2f521cf999b9db1362d697155e487760",
+        "patterns_sha256": "0b3745802b140db2b015fdcc180b002a5bd2e7410b4476595ed5cfdaf1315cda",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-2347-A-hybrid-pilot\\4795-source.png",
+        "sha256": "fc5983fb90791e2e494834378d1610f3509f0f72ec8a9beb667ba133d8643033"
+      }
+    },
+    {
+      "id": "t5-transfer-1675-134882",
+      "axis": "T5-transfer",
+      "donor_id": 1675,
+      "recipient_id": 134882,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "78f7fe7da46ae6d9ba610eb8696ecfa775127c95af9301c4cdcda6969e2a0cfe",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t5-transfer-1675-134882-1791104569154357100.png",
+        "sha256": "2e38f6c2d9993643456a6503b0d69e9b1e00f1daf8e6e706310c8d43ab001dca"
+      },
+      "donor_enrollment": {
+        "semantic_code": "6aa41e3c",
+        "perceptual_hash": "0ba0e08b",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "9cce870c4d0c6318fe0897639a25c7fa537aec02e222b45bebe1c7a21a3e3c6e",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "05dc2779c80f5b050f0ecbde5c84c40f2f521cf999b9db1362d697155e487760",
+        "patterns_sha256": "0b3745802b140db2b015fdcc180b002a5bd2e7410b4476595ed5cfdaf1315cda",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\134882-source.png",
+        "sha256": "1dbfdb155741b53ea9e848de0a278d26837344d09099345ab40bd78536a4b86f"
+      }
+    },
+    {
+      "id": "t5-transfer-1675-177015",
+      "axis": "T5-transfer",
+      "donor_id": 1675,
+      "recipient_id": 177015,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "fed984ff859c95fc41cd547c925fdd610c9a872ac8122db64db375a3ad3aef09",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t5-transfer-1675-177015-1791104572336247900.png",
+        "sha256": "d149423530f31e07308fc88a119b47fd1e02b356098e910225100cd357dca641"
+      },
+      "donor_enrollment": {
+        "semantic_code": "6aa41e3c",
+        "perceptual_hash": "0ba0e08b",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "9cce870c4d0c6318fe0897639a25c7fa537aec02e222b45bebe1c7a21a3e3c6e",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "05dc2779c80f5b050f0ecbde5c84c40f2f521cf999b9db1362d697155e487760",
+        "patterns_sha256": "0b3745802b140db2b015fdcc180b002a5bd2e7410b4476595ed5cfdaf1315cda",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\177015-source.png",
+        "sha256": "07dfb8c49bac6844f5e7d876560860c99f3ba18e48a6c887a0a79e431630ff26"
+      }
+    },
+    {
+      "id": "t5-transfer-4795-134882",
+      "axis": "T5-transfer",
+      "donor_id": 4795,
+      "recipient_id": 134882,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "e7564fc4b588d53748cddffda11bc3502e8dde9cf6a563b8e7c5c82485f420fe",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t5-transfer-4795-134882-1791104575573832400.png",
+        "sha256": "6d57e82969a0caf4574e0f400d25a3b9e164afb0c5f039f4c38318e6a60dac40"
+      },
+      "donor_enrollment": {
+        "semantic_code": "aa440fb8",
+        "perceptual_hash": "ea8ed24f",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "d7349d172153462d1af71ebbdac0ad49bf7f34679f485dbb04990bb5d6f2ea8d",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "17ce798c63d5b4dea39e8b110c0b996e875f20db2ba0a7dee981a66f2c54e146",
+        "patterns_sha256": "0fc62d601b1b9431220f5331d3058e27a6c655264daec75993a89a394993e637",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\134882-source.png",
+        "sha256": "1dbfdb155741b53ea9e848de0a278d26837344d09099345ab40bd78536a4b86f"
+      }
+    },
+    {
+      "id": "t5-transfer-4795-177015",
+      "axis": "T5-transfer",
+      "donor_id": 4795,
+      "recipient_id": 177015,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "8cd34f9ea15908a585389e113a251a41616d5bae89c73d99d629952fde4d0682",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t5-transfer-4795-177015-1791104578797711800.png",
+        "sha256": "0d394389ff7129b5a99a1ca6bd7348534bbd257d22c25e8f9153d3333f15c6ac"
+      },
+      "donor_enrollment": {
+        "semantic_code": "aa440fb8",
+        "perceptual_hash": "ea8ed24f",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "d7349d172153462d1af71ebbdac0ad49bf7f34679f485dbb04990bb5d6f2ea8d",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "17ce798c63d5b4dea39e8b110c0b996e875f20db2ba0a7dee981a66f2c54e146",
+        "patterns_sha256": "0fc62d601b1b9431220f5331d3058e27a6c655264daec75993a89a394993e637",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\177015-source.png",
+        "sha256": "07dfb8c49bac6844f5e7d876560860c99f3ba18e48a6c887a0a79e431630ff26"
+      }
+    },
+    {
+      "id": "t5-transfer-80932-468505",
+      "axis": "T5-transfer",
+      "donor_id": 80932,
+      "recipient_id": 468505,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "8dac018f964c0a62dcd223b8be77793a35263ea2c57dd9370d2077ba7e404226",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t5-transfer-80932-468505-1791104582124663300.png",
+        "sha256": "3b464cf3c18d817b5f8a68f499d27ee71c24060fdf769182b1de9498751e2b76"
+      },
+      "donor_enrollment": {
+        "semantic_code": "6aeda634",
+        "perceptual_hash": "e17746ea",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "dc6d42a95544910c903bc02bc4488de4766c48048df4c3ef954104d54732e564",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "d1515a4ba84dfd28ff3528d6b1fa765a353a9b1ff15981dfebe78ad774989eee",
+        "patterns_sha256": "46c2b1848f2ece0af0e3193f1c7ba34e18bfa1d85ebcbb389833b77254152c44",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\468505-source.png",
+        "sha256": "f7564aca3eadeb9b7fa3eba03bedc144efd46f7005a385211d948ddd5e702a48"
+      }
+    },
+    {
+      "id": "t5-transfer-134882-177015",
+      "axis": "T5-transfer",
+      "donor_id": 134882,
+      "recipient_id": 177015,
+      "arm": "public_projection",
+      "source_outcome": "completed",
+      "source_row_sha256": "eb6edb5a3415fe2b5e3ad676f52c43d766377df0e1d6690ae16d74b46ae7cd10",
+      "image": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0900-A-hybrid-threats\\t5-transfer-134882-177015-1791104585400512500.png",
+        "sha256": "8012ac449181798cb079eb07b7489c4a77e25c9fd505f8c9385bf9b31506f9fb"
+      },
+      "donor_enrollment": {
+        "semantic_code": "a0c0b53c",
+        "perceptual_hash": "a4f15337",
+        "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+        "decision_id": "7c44fc85ce6e4e34c48ffd8c18222d42e22eea3eabc70a400f19228fa93c974d",
+        "source_rgb8_sha256": "f61aada47eb24ecc2baccd1f2b0ccc389c059b818fff5ae467a2d814295ae7fc",
+        "instance_binding": "source-phash-before-watermark",
+        "surrogate_slot_weights_sha256": "0f36cbbf84bb6cc8395015dea47a1dd64fd03d208550147c0d7cf4e2371df8bc",
+        "patterns_sha256": "0be3d770d71d82b53e06eda4958154c3643ecfba96cb50dc50132e47595b6a51",
+        "surrogate_is_final_detector": false
+      },
+      "recipient_source": {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\177015-source.png",
+        "sha256": "07dfb8c49bac6844f5e7d876560860c99f3ba18e48a6c887a0a79e431630ff26"
+      }
+    }
+  ],
+  "quality": {
+    "psnr_gt": 35.0,
+    "ssim_gt": 0.9,
+    "lpips_lt": 0.1,
+    "lpips_measurement": "retained original-A hash-pinned CPU LPIPS; not rerun"
+  },
+  "delivery": {
+    "carrier": "binding-none found; same owner is not donor identity",
+    "attribution": "read decoded code, corrected Hamming versus frozen donor source q/h; existing radius6",
+    "semantic_and_dual_separate": true,
+    "sham_never_counts_as_delivery": true
+  },
+  "run_seconds_cap": 1800,
+  "ram_budget_bytes": 17179869184,
+  "artifact_budget_bytes": 52428800,
+  "gpu": false,
+  "human_visual_verdict": null
+}

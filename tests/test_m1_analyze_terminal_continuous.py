@@ -120,4 +120,38 @@ class AnalysisTests(unittest.TestCase):
             self.assertEqual(record['source_error'],'synthetic safety refusal')
             self.assertTrue(any('missing or duplicate' in e for e in record['errors']))
 
+    def test_source_specific_dependency_set_19_20(self):
+        self.assertEqual(len(a.dependency_set('old execution code')),19)
+        self.assertEqual(len(a.dependency_set('research/m1-terminal-continuous-recovery.md')),20)
+        current=(a.ROOT/'scripts/m1_terminal_continuous.py').read_bytes()
+        paths=a.dependency_set(current.decode())
+        run={'commit':'fixture','committed_files':{rel:{'git_blob_oid':'0'*40,'working_sha256':a.sha(a.ROOT/rel)} for rel in paths}}
+        def git(args,**kwargs):
+            rel=args[-1].split(':',1)[1]
+            if args[1]=='rev-parse':return '0'*40+'\n'
+            return (a.ROOT/rel).read_bytes().replace(b'\r\n',b'\n')
+        with patch.object(a.subprocess,'check_output',side_effect=git):
+            self.assertEqual(a.validate_dependencies(run),20)
+            missing=copy.deepcopy(run);del missing['committed_files']['research/m1-terminal-continuous-recovery.md']
+            with self.assertRaisesRegex(ValueError,'Dependency set'):a.validate_dependencies(missing)
+            changed=copy.deepcopy(run);changed['committed_files']['scripts/m1_blind_noise_core.py']['working_sha256']='0'*64
+            with self.assertRaisesRegex(ValueError,'blob/SHA'):a.validate_dependencies(changed)
+    def test_recovery_replay_positive_metadata_and_reference_hash(self):
+        with tempfile.TemporaryDirectory() as d:
+            main=Path(d);base=main/'.thesis-build/dev-runs/reference';base.mkdir(parents=True)
+            report=dict(source_id=1675,passed=True,images=4,reader_arrays=8,endpoint_fields=['u','optimizer','rng','step'],provenance_identity_compared=False,caveat='fixture')
+            reference=dict(schema=a.runner.VERSION,data_split='development',config={},commit='old',duration_seconds=5.,case_events=[dict(source_id=1675,outcome='completed')])
+            a.write(base/'run.json',reference)
+            run=dict(config={},duration_seconds=10.,conditions=[],case_events=[dict(source_id=1675,execution_replay=report)],
+                replay_reference=dict(path=str(base/'run.json'),sha256=a.sha(base/'run.json'),commit='old'))
+            with patch.object(a.runner,'MAIN',main),patch.object(a.runner,'verify_completed_case_replay',return_value=report) as parity:
+                self.assertTrue(a.verify_replay(run)['verified']);self.assertEqual(a.verify_replay(run)['total_original_plus_recovery_seconds'],15.)
+                parity.assert_called()
+                changed=copy.deepcopy(run);changed['case_events'][0]['execution_replay']['passed']=False
+                with self.assertRaisesRegex(ValueError,'not positive'):a.verify_replay(changed)
+                changed=copy.deepcopy(run);changed['replay_reference']['sha256']='0'*64
+                with self.assertRaisesRegex(ValueError,'path/hash'):a.verify_replay(changed)
+                changed=copy.deepcopy(run);changed['resume_input']={'dummy':True}
+                with self.assertRaisesRegex(ValueError,'also resume'):a.verify_replay(changed)
+
 if __name__=='__main__':unittest.main()
