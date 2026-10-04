@@ -9,6 +9,7 @@ import argparse
 import hashlib
 import importlib.metadata
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -48,6 +49,112 @@ def write(path, value):
     temp = path.with_suffix(path.suffix + ".tmp")
     temp.write_text(json.dumps(value, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     temp.replace(path)
+
+
+def require_committed(paths):
+    receipts = {}
+    for path in paths:
+        path = Path(path).resolve()
+        relative = path.relative_to(ROOT).as_posix()
+        committed = subprocess.check_output(["git", "rev-parse", "HEAD:" + relative], cwd=ROOT, text=True).strip()
+        current = subprocess.check_output(["git", "hash-object", "--path=" + relative, str(path)], cwd=ROOT, text=True).strip()
+        if current != committed:
+            raise ValueError("Scientific input differs from HEAD: " + relative)
+        receipts[relative] = {"working_sha256": digest(path), "git_blob_oid": committed}
+    return receipts
+
+
+def channels_for_run():
+    return [("clean", None, None), ("vae", None, None)] + [
+        (f"regen-{s:g}-seed{a}", s, a) for s in CONFIG["strengths"] for a in CONFIG["attack_seeds"]]
+
+
+def expected_artifacts(manifest):
+    return {f"{c['id']}-{arm}-{channel}.png" for c in manifest["cases"] for arm in ("C0", "C1")
+            for channel in ["original"] + [x[0] for x in channels_for_run()]}
+
+
+def verify_artifact(output, name, artifacts):
+    path = output / name
+    receipt = artifacts.get(name)
+    if receipt is None or not path.is_file() or path.stat().st_size != receipt["size_bytes"] or digest(path) != receipt["sha256"]:
+        raise ValueError("Missing/corrupt/unreceipted artifact; refused reuse/overwrite: " + name)
+    return path
+
+
+def save_artifact(image, output, name, artifacts):
+    path = output / name
+    if path.exists() or name in artifacts:
+        raise ValueError("Refused artifact overwrite: " + name)
+    image.save(path)
+    artifacts[name] = {"sha256": digest(path), "size_bytes": path.stat().st_size}
+    write(output / "artifacts.json", artifacts)
+
+
+def load_resume_state(output, manifest, prior=None):
+    """Validate before model imports; refuse truncated journals without altering bytes."""
+    receipt_path = output / "artifacts.json"
+    artifacts = json.loads(receipt_path.read_text(encoding="utf-8")) if receipt_path.exists() else {}
+    expected = expected_artifacts(manifest)
+    if not isinstance(artifacts, dict) or set(artifacts) - expected:
+        raise ValueError("Unexpected artifact receipt entries")
+    for name in artifacts:
+        verify_artifact(output, name, artifacts)
+    for path in output.glob("*.png"):
+        if path.name not in artifacts:
+            raise ValueError("Unreceipted artifact preserved; refused overwrite: " + path.name)
+    journal = output / "rows.jsonl"
+    row_receipt = output / "rows-receipt.json"
+    rows = []
+    if journal.exists():
+        raw = journal.read_bytes()
+        if raw and not raw.endswith(b"\n"):
+            raise ValueError("Truncated journal preserved unchanged; manual versioned recovery required")
+        if not row_receipt.is_file():
+            raise ValueError("Journal receipt missing; journal preserved unchanged")
+        pinned = json.loads(row_receipt.read_text(encoding="utf-8"))
+        if pinned.get("sha256") != digest(journal) or pinned.get("size_bytes") != len(raw):
+            raise ValueError("Journal receipt mismatch; journal preserved unchanged")
+        try:
+            rows = [json.loads(line) for line in raw.decode("utf-8").splitlines()]
+        except (ValueError, UnicodeError) as exc:
+            raise ValueError("Invalid journal preserved unchanged") from exc
+        if pinned.get("row_count") != len(rows):
+            raise ValueError("Journal row count mismatch")
+    elif row_receipt.exists():
+        raise ValueError("Receipted journal missing")
+    planned = {(c["id"], arm, x[0]): c for c in manifest["cases"] for arm in ("C0", "C1") for x in channels_for_run()}
+    seen = set()
+    for row in rows:
+        key = (row.get("case"), row.get("arm"), row.get("channel"))
+        if key not in planned or key in seen:
+            raise ValueError("Unplanned/duplicate completed journal row")
+        seen.add(key)
+        case = planned[key]
+        name = f"{key[0]}-{key[1]}-{key[2]}.png"
+        if row.get("image") != name or row.get("prompt") != case["prompt"] or row.get("generation_seed") != case["seed"]:
+            raise ValueError("Completed row identity mismatch")
+        verify_artifact(output, name, artifacts)
+        if row.get("image_sha256") != artifacts[name]["sha256"]:
+            raise ValueError("Completed row image hash mismatch")
+        verify_artifact(output, f"{key[0]}-{key[1]}-original.png", artifacts)
+    if prior and prior.get("outcome") == "completed":
+        if seen != set(planned) or set(artifacts) != expected or prior.get("completed_rows") != len(rows):
+            raise ValueError("Completed run has missing rows/artifacts")
+        for name in ("rows.jsonl", "artifacts.json", "rows-receipt.json", "summary.json"):
+            path = output / name
+            if not path.is_file() or prior.get("completed_file_sha256", {}).get(name) != digest(path):
+                raise ValueError("Completed run provenance mismatch: " + name)
+    return artifacts, rows, seen
+
+
+def append_row(journal, row, row_count):
+    with journal.open("a", encoding="utf-8", newline="\n") as f:
+        f.write(json.dumps(row, allow_nan=False) + "\n")
+        f.flush()
+        os.fsync(f.fileno())
+    write(journal.parent / "rows-receipt.json", {"sha256": digest(journal),
+          "size_bytes": journal.stat().st_size, "row_count": row_count})
 
 
 def bitstream(key, nonce, count, domain=b"m1-gs-whitening-v1"):
@@ -118,20 +225,26 @@ def run(manifest_path, output):
     started = time.monotonic()
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     validate(manifest)
+    dependency_names = ("three_threat_models.py", "three_threat_protocol.py", "m1_latent_reconstruction.py",
+                        "check_a6_lpips_assets.py", "verify_science_assets.py", "a6_clip_visual.py")
+    dependencies = [ROOT / "scripts" / name for name in dependency_names] + [ROOT / "research/a6-candidate-model-assets.json"]
+    committed_files = require_committed([Path(__file__), manifest_path] + dependencies)
     commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     fingerprint = {"manifest_sha256": digest(manifest_path), "script_sha256": digest(__file__), "commit": commit}
-    fingerprint["dependency_sha256"] = {name: digest(ROOT / "scripts" / name) for name in
-        ("three_threat_models.py", "m1_latent_reconstruction.py", "check_a6_lpips_assets.py", "verify_science_assets.py", "a6_clip_visual.py")}
+    fingerprint["dependency_sha256"] = {p.relative_to(ROOT).as_posix(): digest(p) for p in dependencies}
+    fingerprint["committed_files"] = committed_files
     previous_duration = 0.0
+    prior = None
     if output.exists():
         prior = json.loads((output / "run.json").read_text(encoding="utf-8"))
         if any(prior.get(k) != v for k, v in fingerprint.items()):
             raise ValueError("Resume requires identical manifest, script and commit")
-        if prior.get("outcome") == "completed":
-            return 0
         previous_duration = prior.get("duration_seconds", 0.0)
     else:
         output.mkdir(parents=True)
+    artifacts, rows, done = load_resume_state(output, manifest, prior)
+    if prior and prior.get("outcome") == "completed":
+        return 0
     record = {"schema_version": "m1-gs-development-run-v1", **fingerprint,
               "command": sys.argv, "config": CONFIG, "seeds": [1000,1001,1002,1003,0,1,2],
               "data_split": "synthetic", "duration_seconds": previous_duration,
@@ -141,8 +254,6 @@ def run(manifest_path, output):
               "false_positive_definition": "Empirical threshold0.7 positives on paired C0 images and C1 wrong-key queries; no population-FPR guarantee"}
     write(output / "run.json", record)
     journal = output / "rows.jsonl"
-    rows = [json.loads(s) for s in journal.read_text(encoding="utf-8").splitlines()] if journal.exists() else []
-    done = {(r["case"], r["arm"], r["channel"]) for r in rows}
     try:
         from three_threat_models import block_network, DDIM_CONFIG, validate_generated, verify_assets, load_lpips, lpips_score
         block_network()
@@ -179,8 +290,7 @@ def run(manifest_path, output):
         from three_threat_models import clip_feature
         clip_model, clip_transform = load_visual_encoder(ASSETS / "clip/ViT-B-32.pt", device="cpu")
         write(output / "run.json", record)
-        channels = [("clean", None, None), ("vae", None, None)] + [
-            (f"regen-{s:g}-seed{a}", s, a) for s in CONFIG["strengths"] for a in CONFIG["attack_seeds"]]
+        channels = channels_for_run()
         for case in manifest["cases"]:
             cid, seed = case["id"], case["seed"]
             payload = payload_for(seed)
@@ -191,13 +301,14 @@ def run(manifest_path, output):
             originals = {}
             for arm, noise in (("C0", base), ("C1", marked)):
                 path = output / f"{cid}-{arm}-original.png"
-                if not path.exists():
+                if path.name not in artifacts:
                     with torch.inference_mode():
                         result = pipe(prompt=case["prompt"], negative_prompt="", height=512, width=512,
                                       num_inference_steps=50, guidance_scale=7.5, eta=0.0,
                                       latents=torch.from_numpy(noise).to("cuda",dtype=torch.float16),
                                       generator=torch.Generator(device="cuda").manual_seed(seed), output_type="pil")
-                    validate_generated(result).save(path)
+                    save_artifact(validate_generated(result), output, path.name, artifacts)
+                verify_artifact(output, path.name, artifacts)
                 originals[arm] = Image.open(path).convert("RGB")
             clean_comparison = quality(np.asarray(originals["C0"]), np.asarray(originals["C1"]))
             clean_comparison["lpips_alex"] = lpips_score(metric, np.asarray(originals["C0"]), np.asarray(originals["C1"]))
@@ -209,7 +320,8 @@ def run(manifest_path, output):
                     row_started = time.monotonic()
                     source = originals[arm]
                     path = output / f"{cid}-{arm}-{channel}.png"
-                    if path.exists():
+                    if path.name in artifacts:
+                        verify_artifact(output, path.name, artifacts)
                         image = Image.open(path).convert("RGB")
                     else:
                         with torch.inference_mode():
@@ -228,7 +340,7 @@ def run(manifest_path, output):
                                                   num_inference_steps=20, guidance_scale=1.0, eta=0.0,
                                                   generator=torch.Generator(device="cuda").manual_seed(attack_seed), output_type="pil")
                                 image = validate_generated(result)
-                        image.save(path)
+                        save_artifact(image, output, path.name, artifacts)
                         image = Image.open(path).convert("RGB")
                     det_started = time.monotonic()
                     recovered = invert(pipe, image, inverse)
@@ -246,9 +358,7 @@ def run(manifest_path, output):
                            "wrong_key_bit_accuracy":wrong_accuracy,"wrong_key_detected":wrong_accuracy>=CONFIG["threshold"],
                            "detector_seconds":detector_seconds,"detector_unet_evaluations":50,"quality_vs_same_arm_original":q,
                            "C1_quality_vs_paired_C0_clean":clean_comparison,"duration_seconds":time.monotonic()-row_started}
-                    with journal.open("a",encoding="utf-8") as f:
-                        f.write(json.dumps(row,allow_nan=False)+"\n")
-                        f.flush()
+                    append_row(journal, row, len(rows)+1)
                     rows.append(row)
                     done.add((cid,arm,channel))
                     record.update(completed_rows=len(rows),duration_seconds=previous_duration+time.monotonic()-started)
@@ -263,12 +373,16 @@ def run(manifest_path, output):
                               "C0_n":len(c0),"C0_false_positives":sum(r["detected"] for r in c0),
                               "C1_wrong_key_n":len(c1),"C1_wrong_key_false_positives":sum(r["wrong_key_detected"] for r in c1)}
         write(output/"summary.json",summary)
+        record["completed_file_sha256"] = {name: digest(output/name) for name in
+            ("rows.jsonl", "artifacts.json", "rows-receipt.json", "summary.json")}
         record.update(outcome="completed",completed_rows=len(rows),duration_seconds=previous_duration+time.monotonic()-started)
         write(output/"run.json",record)
         return 0
-    except Exception as exc:
-        record.update(outcome="error",error_type=type(exc).__name__,error=str(exc),traceback=traceback.format_exc(),
+    except (Exception, KeyboardInterrupt) as exc:
+        record.update(outcome="interrupted" if isinstance(exc, KeyboardInterrupt) else "error",error_type=type(exc).__name__,error=str(exc),traceback=traceback.format_exc(),
                       completed_rows=len(rows),duration_seconds=previous_duration+time.monotonic()-started)
+        record["recovery_file_sha256"] = {name: digest(output/name) for name in
+            ("rows.jsonl", "artifacts.json", "rows-receipt.json") if (output/name).is_file()}
         write(output/"run.json",record)
         raise
 
