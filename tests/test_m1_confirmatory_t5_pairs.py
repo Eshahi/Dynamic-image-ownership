@@ -56,6 +56,8 @@ class PairTests(unittest.TestCase):
             target.schedule([row('a', 2**32)], ['a'])
         with self.assertRaises(ValueError):
             target.schedule([value], ['a'], limit=31)
+        with self.assertRaises(ValueError):
+            target.schedule([], [str(i) for i in range(301)])
 
 
 if __name__ == '__main__':

@@ -43,6 +43,8 @@ def schedule(observations, frozen_uids, limit=30):
     """
     if type(limit) is not int or not 1 <= limit <= 30:
         raise ValueError('Bounded pair limit must be1..30')
+    if not 1 <= len(frozen_uids) <= 300:
+        raise ValueError('Source cohort must be bounded to1..300')
     if len(frozen_uids) != len(set(frozen_uids)) or not all(type(u) is str and u for u in frozen_uids):
         raise ValueError('Frozen UIDs must be unique nonempty strings')
     rows = {}
