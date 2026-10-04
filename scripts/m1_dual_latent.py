@@ -200,6 +200,20 @@ class FixedPatternObjective:
         return self.score(s, self.ws), self.score(i, self.wi)
 
 
+def load_pinned_clip():
+    """Load only the verified MAIN asset, independently of legacy probe roots."""
+    import torch
+    from PIL import Image
+    from scripts.a6_clip_visual import load_visual_encoder
+    model, transform = load_visual_encoder(ASSETS / "clip/ViT-B-32.pt", device="cpu")
+
+    def feature(rgb):
+        with torch.inference_mode():
+            value = model.encode_image(transform(Image.fromarray(rgb)).unsqueeze(0)).float()
+        return (value / torch.linalg.vector_norm(value)).reshape(-1).tolist()
+    return feature
+
+
 def blind_detect(rgb, owner, profile, feature_extractor):
     """Suspect-only verification boundary: no source key/features accepted."""
     import numpy as np
@@ -474,7 +488,6 @@ def run(manifest_path, output, reconstruction_run=None):
         import torch
         from diffusers import AutoencoderKL
         from scripts.m1_latent_reconstruction import quality
-        from scripts.dev_v5_regeneration_check import load_clip
         from scripts.check_a6_lpips_assets import verify_package
         if not torch.cuda.is_available():
             raise RuntimeError("CUDA unavailable")
@@ -493,7 +506,7 @@ def run(manifest_path, output, reconstruction_run=None):
             if path.stat().st_size != item["size_bytes"] or sha(path) != item["sha256"]:
                 raise ValueError("Asset mismatch: " + item["path"])
         record["asset_files"] = assets
-        feature = load_clip()
+        feature = load_pinned_clip()
         record["clip_adapter_sha256"] = sha(sys.modules["a6_clip_visual"].__file__)
         package = Path(importlib.metadata.distribution("lpips").locate_file("lpips"))
         verify_package(package)

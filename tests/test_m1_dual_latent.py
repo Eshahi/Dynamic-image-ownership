@@ -12,6 +12,11 @@ from scripts import m1_dual_latent as method
 
 
 class DualLatentTests(unittest.TestCase):
+    def test_clip_uses_authoritative_asset_root(self):
+        with patch("scripts.a6_clip_visual.load_visual_encoder", return_value=(object(), object())) as loader:
+            self.assertTrue(callable(method.load_pinned_clip()))
+        loader.assert_called_once_with(method.MAIN / ".thesis-build/assets/a6/clip/ViT-B-32.pt", device="cpu")
+
     @classmethod
     def setUpClass(cls):
         torch.set_num_threads(2)
