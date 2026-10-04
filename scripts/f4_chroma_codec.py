@@ -80,11 +80,16 @@ def robust_projections(rgb, checked, key, config, owner, planes=("Cr",)) -> list
     return [t / math.sqrt(s) if s > 0 else 0.0 for t, s in zip(totals, squares)]
 
 
-def embed_rgb(rgb, owner_id: str, profile: Mapping[str, object], semantic_features: Sequence[float], planes=("Cr",)):
+def embed_rgb(rgb, owner_id: str, profile: Mapping[str, object], semantic_features: Sequence[float], planes=("Cr",),
+              smooth_sigma: float = 0.0):
     """Return (RGB8 rows, report); the report verifies the rounded output with :func:`detect_rgb`.
 
     Every plane in ``planes`` gets its own closed-form robust change towards
     the same semantic key pattern, under its own block caps and PSNR floor.
+    ``smooth_sigma`` > 0 blurs each plane's change with a Gaussian of that many
+    pixels before it is applied: v5 renders every 32x32 coarse block on its
+    own, so the change has edges at block borders, which add visible detail
+    above the band regeneration keeps.  The detector is unchanged.
     """
     checked, key, config = v5._resolve(profile, None)
     luma = v5.luminance_from_rgb(rgb)
@@ -104,7 +109,11 @@ def embed_rgb(rgb, owner_id: str, profile: Mapping[str, object], semantic_featur
         weight = sum(c * c for c in direction) / 3.0
         weights = [[weight] * width for _ in range(height)]
         _change, delta, _shape, fill = v5._closed_form(plane, robust, plan, checked, weights)
-        channels[name] = dict(host_rejection=plan["host_rejection"], amplitude=plan["amplitude"], host_rms=plan["host_rms"],
+        if smooth_sigma > 0:
+            import numpy as np
+            from scipy.ndimage import gaussian_filter
+            delta = gaussian_filter(np.asarray(delta, dtype=np.float64), smooth_sigma, mode="reflect").tolist()
+        channels[name] = dict(smooth_sigma=smooth_sigma,host_rejection=plan["host_rejection"], amplitude=plan["amplitude"], host_rms=plan["host_rms"],
                               **v5._budget(delta, robust.mask, checked["embedding"], weights), **fill)
         for out_row, d_row in zip(rgb_change, delta):
             for pixel, d in zip(out_row, d_row):

@@ -68,6 +68,7 @@ def main():
     p.add_argument("--robust-override", type=str, default="{}", help="JSON merged into profile['robust']")
     p.add_argument("--workers", type=int, default=5, help="CPU processes for blind detection")
     p.add_argument("--planes", default="Cr", help="comma-separated robust chroma planes, e.g. Cr or Cr,Cb")
+    p.add_argument("--smooth-sigma", type=float, default=0.0, help="embedder-side Gaussian on each plane's change (pixels)")
     a = p.parse_args()
     import torch
     from PIL import Image
@@ -130,7 +131,8 @@ def main():
     for sid, path in SOURCES.items():
         source = np.asarray(Image.open(path).convert("RGB"), np.uint8)
         tick = time.monotonic()
-        marked_rows, report = f4.embed_rgb(source.tolist(), OWNERS[0], profile, feature(source), planes=planes)
+        marked_rows, report = f4.embed_rgb(source.tolist(), OWNERS[0], profile, feature(source), planes=planes,
+                                             smooth_sigma=a.smooth_sigma)
         marked, receipt = save(f"clean-{sid}-C1", np.asarray(marked_rows, np.uint8))
         q = quality(source, marked)
         q["lpips"] = models.lpips_score(metric, source, marked)
@@ -192,7 +194,7 @@ def main():
                               only_f4=sum(f4ok[k] and not v5ok[k] for k in keys), only_v5=sum(v5ok[k] and not f4ok[k] for k in keys))
     embeds = [r for r in rows if r.get("outcome") == "embedded"]
     run = dict(schema="f4-gate-v1", data_split="development", family=f4.FAMILY, revision=f4.REVISION, commit=commit,
-               command=sys.argv, planes=planes, profile=profile, detector_config_id=v5.detector_config_id(profile),
+               command=sys.argv, planes=planes, smooth_sigma=a.smooth_sigma, profile=profile, detector_config_id=v5.detector_config_id(profile),
                owners=OWNERS, strengths=STRENGTHS, seeds=SEEDS, sources=list(SOURCES),
                attack="pinned SD1.5 DDIM img2img 20 steps, empty prompt, CFG 1, eta 0; VAE posterior mode",
                duration_seconds=time.monotonic() - started, outcome="completed",
