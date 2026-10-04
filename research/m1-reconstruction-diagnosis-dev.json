@@ -1,0 +1,32 @@
+{
+  "schema_version": "m1-reconstruction-diagnosis-v1",
+  "experiment_id": "m1-decoder-fit-extrema-adam005-v1",
+  "data_split": "development",
+  "cohort_manifest": "research/m1-reconstruction-dev.json",
+  "input_runs": [
+    "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/dev-runs/20261003-1455-latent-reconstruction",
+    "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/dev-runs/20261003-2255-latent-reconstruction-recovery"
+  ],
+  "case_roles": ["best", "worst"],
+  "config": {
+    "initial_step": 200,
+    "additional_steps": 400,
+    "evaluation_total_steps": [200, 300, 400, 600],
+    "optimizer": "Adam-reset",
+    "learning_rate": 0.005,
+    "betas": [0.9, 0.999],
+    "epsilon": 1e-8,
+    "precision": "float32",
+    "batch_size": 1,
+    "size": [512, 512],
+    "objective": "unclamped decoded RGB MSE to canonical source",
+    "decoder_checkpoint": true,
+    "snapshot_every": 10,
+    "seed": 0,
+    "gpu_budget_bytes": 10737418240,
+    "run_seconds_cap": 3600,
+    "selection": "complete12-step200-PSNR-extrema-ties-numeric-ID",
+    "plateau_comparison_steps": [400, 600],
+    "plateau_gain_db_lt": 0.25
+  }
+}
