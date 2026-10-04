@@ -11,7 +11,7 @@ from m1_windows_job import OwnedJobProcess
 
 ROOT=Path(__file__).resolve().parents[1]
 MAIN=Path('W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5')
-ALLOWED={'m1_source_initialization_audit.py','m1_terminal_e2e.py'}
+ALLOWED={'m1_source_initialization_audit.py','m1_terminal_e2e.py','m1_assess_terminal_e2e.py'}
 
 
 def run(script,arguments,destination,timeout=1800):
