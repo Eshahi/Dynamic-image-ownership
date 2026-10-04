@@ -1,0 +1,31 @@
+{
+  "schema_version": "m1-gs-lightweight-positive-probe-v1",
+  "data_split": "synthetic",
+  "config": {
+    "channels": [
+      "clean",
+      "vae",
+      "regen-0.4-seed0"
+    ],
+    "presence_matches": 180,
+    "precision": "float16",
+    "posterior": "mode",
+    "batch_size": 1,
+    "scale": 0.18215,
+    "shape": [
+      1,
+      4,
+      64,
+      64
+    ],
+    "gpu_budget_bytes": 10737418240,
+    "artifact_budget_bytes": 104857600,
+    "seconds_cap": 120,
+    "readout_nonce_count": 4,
+    "column_roll": 1
+  },
+  "source_locks": {
+    "lightweight_run_sha256": "55b9edf853195abbd0c282442547442266d48570d5635da98e390fc89bd8789a",
+    "lightweight_conditions_sha256": "5449d453af2e8a11855135105104e9e72fb15d77394438211bdb17cc5b161935"
+  }
+}
