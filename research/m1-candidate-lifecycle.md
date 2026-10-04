@@ -1,0 +1,33 @@
+# Generated candidate lifecycle preparation
+
+This is generated-image infrastructure preparation for the current A-C adapter. It neither selects the final candidate nor authorizes scientific/held-out inputs, records a user verdict, or claims a rehearsal passed. Actual GPU runs are unperformed. The generic JSON-token harness remains separate.
+
+`scripts/m1_candidate_lifecycle.py` preserves the official `--manifest FILE --output-dir DIRECTORY` entry point and launches `m1_candidate_rehearsal_worker.py` with the pinned science interpreter. It validates the strict official envelope plus a narrower generated-only dataset/seed/output/dependency allowlist. Every execution dependency must match its bytes in the exact current commit. Generated-source images are constructed by the scientific worker; this launcher exposes no external image, annotation or dataset path.
+
+All output paths must remain below authoritative MAIN `.thesis-build/rehearsal/`. Traversal and reparse destinations are refused. The official dispatcher envelope is accepted using the existing envelope verifier; unrelated preexisting output artifacts and stale exclusive locks are refused. The launcher retains checkpoints and failures without repairing or overwriting them.
+
+The private child is created suspended by the existing `OwnedJobProcess`. After Job assignment is verified, its `before_resume` hook persists a launch scope binding the exact manifest/config/core/worker hashes, PID/private Job identity, output, frozen stage/scenario, generator-unit index, optional upstream receipts, deadline and token hash. A fresh secret is inherited only through environment variables, which are restored immediately after child creation. The child must validate this scope before source/model work. This is a deny-default generated rehearsal handshake, not an authenticated official scientific capability or protection against a malicious user with access to the same Windows account.
+
+The frozen catalog `research/m1-candidate-lifecycle-v1.json` contains real, scale, prefix, resume, kill, term, finalterm, timeout-early, timeout-unit, hostloss and seven error-phase cases. Scale is two fixed generated source units, run sequentially. Prefix stops at initializer checkpoint100; resume must continue that exact full optimizer/RNG checkpoint to200 and then independent embedding100. No failure selects a new step count, dose or parameter. Kill, term, timeout-unit and hostloss trigger at the earliest retained initializer10 checkpoint. Raw-receipt/externally decoded-data injections are inapplicable to literal generated images and remain an explicit separate scientific-worker gap.
+
+Kill terminates the exact owned Job. Term writes a cooperative stop request, then terminates the Job after bounded grace if needed. `m1_owned_cleanup_evidence.py` queries the private Job's active process count and PID list, terminates that exact Job, and verifies count0 with the handle still alive before closing it. It retains observed owned PIDs, read-only `nvidia-smi` free-memory baselines and post-close owned compute-PID absence. Missing telemetry or nonquiescent Job refuses completion. Memory deltas are descriptive because unrelated activity and WDDM/driver visibility can affect them; they are not a global resource proof.
+
+Hostloss abruptly exits the launcher at the frozen checkpoint, retaining its stale lock/started journal; the OS closes the private Job handle. The suite coordinator itself owns the launcher through another private Job and measures its full descendant cleanup, including this case. Actual descendant/GPU cleanup still requires execution evidence; mocked measurements and a closed root-process receipt do not establish GPU release.
+
+Preparation and execution seams:
+
+```text
+python scripts/m1_candidate_lifecycle.py --prepare-suite MAIN_REHEARSAL/FRESH_MANIFESTS
+python scripts/m1_candidate_lifecycle.py --manifest MANIFEST --output-dir MAIN_REHEARSAL/FRESH_ATTEMPT
+python scripts/m1_candidate_lifecycle.py --coordinate-suite SUITE_JSON --suite-case real --output-dir MAIN_REHEARSAL/FRESH_COORDINATOR
+```
+
+The coordinator runs one or two explicitly selected fixed cases per process, with a3500-second guard, per-attempt journal and immutable artifact hashes. The full planned catalog remains visible. Other cases use fresh coordinator directories; this makes the suite resumable without a process lasting many hours. Scale runs generator units0/1 in separate owned child attempts. No parallel GPU work is launched.
+
+Recovery is currently a generated-only development seam: `--upstream-receipt FILE` names exact run/checkpoint receipts contained in MAIN rehearsal. Scientific recovery requires an adopted official input contract and remains unavailable. The coordinator performs the worker's CPU prefix checkpoint audit before writing a handoff to resume; use `--suite-case prefix --suite-case resume`, or provide a retained `--prefix-directory`. An exact full reference can be supplied with `--reference-full-directory`; the worker's CPU comparison checks full200+100 versus interrupted/resumed checkpoint state and saved outputs. Missing parity evidence is explicit; successful process exit does not establish it. Parent execution must retain resource measurements and audit results before declaring readiness.
+
+The launcher records `scientific_verdict=NOT_EVIDENCE`. The coordinator requires explicit `passes=true` and all six initializer, embedding Adam/RNG, endpoint RGB8, blind-decision, overlap-inventory and overlapping-state equality checks to be true. All22 overlapping initializer100..200 and embedding0..100 state checks must exist and be true. Missing, nonboolean, contradictory or false checks produce a failed candidate receipt audit. Remaining package requirements include GPU lifecycle executions, full/resumed strict parity, scientific metric/degenerate-case checks, complete threat/comparator lifecycle integration, official dispatcher preview at the final clean commit, and authenticated source/approval issuance for any later held-out worker. None is replaced by mocked CPU containment tests.
+
+CPU-only tests exercise exact envelopes, generated-only dependency allowlists, destination guards, pre-resume scope ordering, secret restoration, immutable recovery receipts and checkpoint-trigger semantics. They initialize no GPU and execute no candidate trajectory.
+
+Input receipt note: exact working SHA256 is checked separately from normalized Git blob identity via `m1_git_input_identity.verify_git_input`. Both identities are retained; legitimate CRLF/LF checkout forms pass only when the actual manifest bytes and committed normalized content each match. No scientific file is rewritten.

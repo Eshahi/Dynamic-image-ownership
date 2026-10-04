@@ -1,0 +1,264 @@
+{
+  "schema": "m1-candidate-lifecycle-v1",
+  "mode": "generated-candidate-only",
+  "seeds": [
+    0,
+    1
+  ],
+  "cases": {
+    "real": {
+      "stage": "full",
+      "stop_phase": null,
+      "stop_step": null,
+      "control": {
+        "action": "none",
+        "phase": null,
+        "step": null,
+        "after_seconds": null,
+        "grace_seconds": 5
+      },
+      "injection": null
+    },
+    "scale": {
+      "stage": "full",
+      "stop_phase": null,
+      "stop_step": null,
+      "control": {
+        "action": "none",
+        "phase": null,
+        "step": null,
+        "after_seconds": null,
+        "grace_seconds": 5
+      },
+      "injection": null
+    },
+    "prefix": {
+      "stage": "prefix",
+      "stop_phase": "initialization",
+      "stop_step": 100,
+      "control": {
+        "action": "none",
+        "phase": null,
+        "step": null,
+        "after_seconds": null,
+        "grace_seconds": 5
+      },
+      "injection": null
+    },
+    "resume": {
+      "stage": "resume",
+      "stop_phase": null,
+      "stop_step": null,
+      "control": {
+        "action": "none",
+        "phase": null,
+        "step": null,
+        "after_seconds": null,
+        "grace_seconds": 5
+      },
+      "injection": null
+    },
+    "kill": {
+      "stage": "full",
+      "stop_phase": null,
+      "stop_step": null,
+      "control": {
+        "action": "kill",
+        "phase": "initialization",
+        "step": 10,
+        "after_seconds": null,
+        "grace_seconds": 10
+      },
+      "injection": null
+    },
+    "term": {
+      "stage": "full",
+      "stop_phase": null,
+      "stop_step": null,
+      "control": {
+        "action": "term",
+        "phase": "initialization",
+        "step": 10,
+        "after_seconds": null,
+        "grace_seconds": 10
+      },
+      "injection": null
+    },
+    "hostloss": {
+      "stage": "full",
+      "stop_phase": null,
+      "stop_step": null,
+      "control": {
+        "action": "hostloss",
+        "phase": "initialization",
+        "step": 10,
+        "after_seconds": null,
+        "grace_seconds": 10
+      },
+      "injection": null
+    },
+    "finalterm": {
+      "stage": "full",
+      "stop_phase": null,
+      "stop_step": null,
+      "control": {
+        "action": "term",
+        "phase": "finalization",
+        "step": null,
+        "after_seconds": null,
+        "grace_seconds": 1
+      },
+      "injection": null
+    },
+    "timeout-early": {
+      "stage": "full",
+      "stop_phase": null,
+      "stop_step": null,
+      "control": {
+        "action": "timeout",
+        "phase": null,
+        "step": null,
+        "after_seconds": 0.1,
+        "grace_seconds": 0
+      },
+      "injection": null
+    },
+    "timeout-unit": {
+      "stage": "full",
+      "stop_phase": null,
+      "stop_step": null,
+      "control": {
+        "action": "timeout",
+        "phase": "initialization",
+        "step": 10,
+        "after_seconds": null,
+        "grace_seconds": 0
+      },
+      "injection": null
+    },
+    "error-model": {
+      "stage": "full",
+      "stop_phase": null,
+      "stop_step": null,
+      "control": {
+        "action": "none",
+        "phase": null,
+        "step": null,
+        "after_seconds": null,
+        "grace_seconds": 5
+      },
+      "injection": {
+        "phase": "model",
+        "action": "raise",
+        "at_step": null
+      }
+    },
+    "error-initializer": {
+      "stage": "full",
+      "stop_phase": null,
+      "stop_step": null,
+      "control": {
+        "action": "none",
+        "phase": null,
+        "step": null,
+        "after_seconds": null,
+        "grace_seconds": 5
+      },
+      "injection": {
+        "phase": "initializer",
+        "action": "raise",
+        "at_step": 10
+      }
+    },
+    "error-embedding": {
+      "stage": "full",
+      "stop_phase": null,
+      "stop_step": null,
+      "control": {
+        "action": "none",
+        "phase": null,
+        "step": null,
+        "after_seconds": null,
+        "grace_seconds": 5
+      },
+      "injection": {
+        "phase": "embedding",
+        "action": "raise",
+        "at_step": 10
+      }
+    },
+    "error-save": {
+      "stage": "full",
+      "stop_phase": null,
+      "stop_step": null,
+      "control": {
+        "action": "none",
+        "phase": null,
+        "step": null,
+        "after_seconds": null,
+        "grace_seconds": 5
+      },
+      "injection": {
+        "phase": "save",
+        "action": "raise",
+        "at_step": null
+      }
+    },
+    "error-detector": {
+      "stage": "full",
+      "stop_phase": null,
+      "stop_step": null,
+      "control": {
+        "action": "none",
+        "phase": null,
+        "step": null,
+        "after_seconds": null,
+        "grace_seconds": 5
+      },
+      "injection": {
+        "phase": "detector",
+        "action": "raise",
+        "at_step": null
+      }
+    },
+    "error-safety": {
+      "stage": "full",
+      "stop_phase": null,
+      "stop_step": null,
+      "control": {
+        "action": "none",
+        "phase": null,
+        "step": null,
+        "after_seconds": null,
+        "grace_seconds": 5
+      },
+      "injection": {
+        "phase": "safety",
+        "action": "raise",
+        "at_step": null
+      }
+    },
+    "error-finalization": {
+      "stage": "full",
+      "stop_phase": null,
+      "stop_step": null,
+      "control": {
+        "action": "none",
+        "phase": null,
+        "step": null,
+        "after_seconds": null,
+        "grace_seconds": 5
+      },
+      "injection": {
+        "phase": "finalization",
+        "action": "raise",
+        "at_step": null
+      }
+    }
+  },
+  "unimplemented": [
+    "External raw receipt/decode injection is inapplicable to literal generated images",
+    "Official scientific capability and approval integration unavailable",
+    "GPU cleanup and exact continuation require execution evidence"
+  ]
+}
