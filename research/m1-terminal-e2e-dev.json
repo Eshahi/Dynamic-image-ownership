@@ -1,0 +1,104 @@
+{
+  "schema": "m1-terminal-continuous-e2e-v1",
+  "data_split": "development",
+  "cases": [
+    {
+      "id": 1675,
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000001675.jpg",
+      "sha256": "6ba641627c08ef424b7dc3e6cee069aa0dd49615a31c54ae0de1ecd1fabd9dea"
+    },
+    {
+      "id": 4795,
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000004795.jpg",
+      "sha256": "6f8994bac6aef0602d4aa4397ecd4b7d579f5b18f66058a2df021352dd22bdc6"
+    },
+    {
+      "id": 6012,
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000006012.jpg",
+      "sha256": "7cd0d627b15c09f373aa613d013fb2d8ae6bd20bcce0d98aa31b963e6bcca495"
+    },
+    {
+      "id": 25394,
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000025394.jpg",
+      "sha256": "f13f54a3cbe28140004425b1b010c51bd5be0e4c4da1d4b1e382e3e0b426e316"
+    },
+    {
+      "id": 80932,
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000080932.jpg",
+      "sha256": "c5bdb620680ad74c2bb788cabbf3374d68285bec3a2023fadf0ffc7eb257ba72"
+    },
+    {
+      "id": 109798,
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000109798.jpg",
+      "sha256": "8fafbfb6d1c320f9efc59291748c0b9a730726db311364c03280b2de39fe656f"
+    },
+    {
+      "id": 134882,
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000134882.jpg",
+      "sha256": "d2a42fe606563d125e105246e6cd473f098338364b51f085da8a97d5943876c5"
+    },
+    {
+      "id": 147498,
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000147498.jpg",
+      "sha256": "70c27d6d67cafe8d0d5a91a6913bc26ce1ba68f7cb69cdec60e96894ac1ec5d6"
+    },
+    {
+      "id": 177015,
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000177015.jpg",
+      "sha256": "13bc4db7ed2ac2612fd03cbb25a597712f99cf1e44784d4abde5aca47f6999c7"
+    },
+    {
+      "id": 190676,
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000190676.jpg",
+      "sha256": "d2302cb8d9e0d37a4a150d79ffbb4ba9b1adfd2bcfd477b7b64581ba40e00b7b"
+    },
+    {
+      "id": 468505,
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000468505.jpg",
+      "sha256": "a3327665e199c84b0ad0e69c8e3f3f6df13902eb3b8580a0708c2c6cade370b6"
+    },
+    {
+      "id": 499768,
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000499768.jpg",
+      "sha256": "8570324bcf64969f77f938941778a8fc69ec5a8943f0945511ce4ab09bce5a3a"
+    }
+  ],
+  "reconstruction_step": 200,
+  "owners": [
+    "qim-pilot-owner-alpha",
+    "qim-pilot-owner-beta",
+    "qim-pilot-owner-gamma",
+    "qim-pilot-owner-delta"
+  ],
+  "threshold": 4.0,
+  "steps": 100,
+  "learning_rate": 0.01,
+  "adam_betas": [
+    0.9,
+    0.999
+  ],
+  "adam_eps": 1e-08,
+  "seed": 0,
+  "checkpoint_every": 10,
+  "semantic_margin": 6.0,
+  "instance_margin": 8.0,
+  "cycle_margin": 6.0,
+  "cycle_every": 2,
+  "quality_weight": 0.01,
+  "psnr_cap_db": 35.2,
+  "bisection_steps": 36,
+  "embedder_precision": "float32",
+  "reader_precision": "float16",
+  "profile": "configs/revised-watermark-v5.example.json",
+  "run_seconds_cap": 1800,
+  "gpu_budget_bytes": 10737418240,
+  "gpu_reserve_bytes": 536870912,
+  "ram_budget_bytes": 17179869184,
+  "artifact_budget_bytes": 524288000,
+  "final_selection": "last-fixed-step; quality-only cap",
+  "initialization": "verified deterministic original200 bridge only",
+  "execution_phase_seed": 0,
+  "execution_rng_policy": "fresh_phase_zero_resume_restores_saved_rng",
+  "source_execution": "one source per owned process; original two-source gate before other ten",
+  "gate": "clean quality+clean both+VAE semantic+all fourteen per-source negative queries"
+}
