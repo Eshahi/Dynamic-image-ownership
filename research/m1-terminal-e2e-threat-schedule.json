@@ -1,0 +1,4779 @@
+{
+  "schema": "m1-terminal-e2e-threats-v1",
+  "data_split": "development",
+  "candidate": "m1-terminal-continuous-e2e-v1",
+  "attack_version": "ac-native-projection-v1",
+  "owners": [
+    "qim-pilot-owner-alpha",
+    "qim-pilot-owner-beta",
+    "qim-pilot-owner-gamma",
+    "qim-pilot-owner-delta"
+  ],
+  "threshold": 4.0,
+  "source_ids": [
+    1675,
+    4795,
+    6012,
+    25394,
+    80932,
+    109798,
+    134882,
+    147498,
+    177015,
+    190676,
+    468505,
+    499768
+  ],
+  "labels_sha256": "89dd92ebbd1c0807880178146ae1ff7dd5b1dfb682229f45a7524656b6f7ceae",
+  "conditions": [
+    {
+      "id": "t4-residual-6012-25394-0.5",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 6012,
+      "recipient_id": 25394,
+      "scale": 0.5,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-residual-6012-25394-1.0",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 6012,
+      "recipient_id": 25394,
+      "scale": 1.0,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-public_projection-6012-25394",
+      "axis": "T4",
+      "arm": "public_projection",
+      "donor_id": 6012,
+      "recipient_id": 25394,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-unmarked_projection_sham-6012-25394",
+      "axis": "T4",
+      "arm": "unmarked_projection_sham",
+      "donor_id": 6012,
+      "recipient_id": 25394,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-residual-6012-147498-0.5",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 6012,
+      "recipient_id": 147498,
+      "scale": 0.5,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-residual-6012-147498-1.0",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 6012,
+      "recipient_id": 147498,
+      "scale": 1.0,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-public_projection-6012-147498",
+      "axis": "T4",
+      "arm": "public_projection",
+      "donor_id": 6012,
+      "recipient_id": 147498,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-unmarked_projection_sham-6012-147498",
+      "axis": "T4",
+      "arm": "unmarked_projection_sham",
+      "donor_id": 6012,
+      "recipient_id": 147498,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-residual-25394-80932-0.5",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 25394,
+      "recipient_id": 80932,
+      "scale": 0.5,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-residual-25394-80932-1.0",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 25394,
+      "recipient_id": 80932,
+      "scale": 1.0,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-public_projection-25394-80932",
+      "axis": "T4",
+      "arm": "public_projection",
+      "donor_id": 25394,
+      "recipient_id": 80932,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-unmarked_projection_sham-25394-80932",
+      "axis": "T4",
+      "arm": "unmarked_projection_sham",
+      "donor_id": 25394,
+      "recipient_id": 80932,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-residual-25394-177015-0.5",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 25394,
+      "recipient_id": 177015,
+      "scale": 0.5,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-residual-25394-177015-1.0",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 25394,
+      "recipient_id": 177015,
+      "scale": 1.0,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-public_projection-25394-177015",
+      "axis": "T4",
+      "arm": "public_projection",
+      "donor_id": 25394,
+      "recipient_id": 177015,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-unmarked_projection_sham-25394-177015",
+      "axis": "T4",
+      "arm": "unmarked_projection_sham",
+      "donor_id": 25394,
+      "recipient_id": 177015,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-residual-80932-109798-0.5",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 80932,
+      "recipient_id": 109798,
+      "scale": 0.5,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-residual-80932-109798-1.0",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 80932,
+      "recipient_id": 109798,
+      "scale": 1.0,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-public_projection-80932-109798",
+      "axis": "T4",
+      "arm": "public_projection",
+      "donor_id": 80932,
+      "recipient_id": 109798,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-unmarked_projection_sham-80932-109798",
+      "axis": "T4",
+      "arm": "unmarked_projection_sham",
+      "donor_id": 80932,
+      "recipient_id": 109798,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-residual-80932-190676-0.5",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 80932,
+      "recipient_id": 190676,
+      "scale": 0.5,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-residual-80932-190676-1.0",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 80932,
+      "recipient_id": 190676,
+      "scale": 1.0,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-public_projection-80932-190676",
+      "axis": "T4",
+      "arm": "public_projection",
+      "donor_id": 80932,
+      "recipient_id": 190676,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-unmarked_projection_sham-80932-190676",
+      "axis": "T4",
+      "arm": "unmarked_projection_sham",
+      "donor_id": 80932,
+      "recipient_id": 190676,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-residual-109798-134882-0.5",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 109798,
+      "recipient_id": 134882,
+      "scale": 0.5,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-residual-109798-134882-1.0",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 109798,
+      "recipient_id": 134882,
+      "scale": 1.0,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-public_projection-109798-134882",
+      "axis": "T4",
+      "arm": "public_projection",
+      "donor_id": 109798,
+      "recipient_id": 134882,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-unmarked_projection_sham-109798-134882",
+      "axis": "T4",
+      "arm": "unmarked_projection_sham",
+      "donor_id": 109798,
+      "recipient_id": 134882,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-residual-109798-468505-0.5",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 109798,
+      "recipient_id": 468505,
+      "scale": 0.5,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-residual-109798-468505-1.0",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 109798,
+      "recipient_id": 468505,
+      "scale": 1.0,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-public_projection-109798-468505",
+      "axis": "T4",
+      "arm": "public_projection",
+      "donor_id": 109798,
+      "recipient_id": 468505,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-unmarked_projection_sham-109798-468505",
+      "axis": "T4",
+      "arm": "unmarked_projection_sham",
+      "donor_id": 109798,
+      "recipient_id": 468505,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-residual-134882-147498-0.5",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 134882,
+      "recipient_id": 147498,
+      "scale": 0.5,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-residual-134882-147498-1.0",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 134882,
+      "recipient_id": 147498,
+      "scale": 1.0,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-public_projection-134882-147498",
+      "axis": "T4",
+      "arm": "public_projection",
+      "donor_id": 134882,
+      "recipient_id": 147498,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-unmarked_projection_sham-134882-147498",
+      "axis": "T4",
+      "arm": "unmarked_projection_sham",
+      "donor_id": 134882,
+      "recipient_id": 147498,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-residual-134882-499768-0.5",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 134882,
+      "recipient_id": 499768,
+      "scale": 0.5,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-residual-134882-499768-1.0",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 134882,
+      "recipient_id": 499768,
+      "scale": 1.0,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-public_projection-134882-499768",
+      "axis": "T4",
+      "arm": "public_projection",
+      "donor_id": 134882,
+      "recipient_id": 499768,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-unmarked_projection_sham-134882-499768",
+      "axis": "T4",
+      "arm": "unmarked_projection_sham",
+      "donor_id": 134882,
+      "recipient_id": 499768,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-residual-147498-177015-0.5",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 147498,
+      "recipient_id": 177015,
+      "scale": 0.5,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-residual-147498-177015-1.0",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 147498,
+      "recipient_id": 177015,
+      "scale": 1.0,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-public_projection-147498-177015",
+      "axis": "T4",
+      "arm": "public_projection",
+      "donor_id": 147498,
+      "recipient_id": 177015,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-unmarked_projection_sham-147498-177015",
+      "axis": "T4",
+      "arm": "unmarked_projection_sham",
+      "donor_id": 147498,
+      "recipient_id": 177015,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-residual-147498-6012-0.5",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 147498,
+      "recipient_id": 6012,
+      "scale": 0.5,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-residual-147498-6012-1.0",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 147498,
+      "recipient_id": 6012,
+      "scale": 1.0,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-public_projection-147498-6012",
+      "axis": "T4",
+      "arm": "public_projection",
+      "donor_id": 147498,
+      "recipient_id": 6012,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-unmarked_projection_sham-147498-6012",
+      "axis": "T4",
+      "arm": "unmarked_projection_sham",
+      "donor_id": 147498,
+      "recipient_id": 6012,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-residual-177015-190676-0.5",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 177015,
+      "recipient_id": 190676,
+      "scale": 0.5,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-residual-177015-190676-1.0",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 177015,
+      "recipient_id": 190676,
+      "scale": 1.0,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-public_projection-177015-190676",
+      "axis": "T4",
+      "arm": "public_projection",
+      "donor_id": 177015,
+      "recipient_id": 190676,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-unmarked_projection_sham-177015-190676",
+      "axis": "T4",
+      "arm": "unmarked_projection_sham",
+      "donor_id": 177015,
+      "recipient_id": 190676,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-residual-177015-25394-0.5",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 177015,
+      "recipient_id": 25394,
+      "scale": 0.5,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-residual-177015-25394-1.0",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 177015,
+      "recipient_id": 25394,
+      "scale": 1.0,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-public_projection-177015-25394",
+      "axis": "T4",
+      "arm": "public_projection",
+      "donor_id": 177015,
+      "recipient_id": 25394,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-unmarked_projection_sham-177015-25394",
+      "axis": "T4",
+      "arm": "unmarked_projection_sham",
+      "donor_id": 177015,
+      "recipient_id": 25394,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-residual-190676-468505-0.5",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 190676,
+      "recipient_id": 468505,
+      "scale": 0.5,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-residual-190676-468505-1.0",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 190676,
+      "recipient_id": 468505,
+      "scale": 1.0,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-public_projection-190676-468505",
+      "axis": "T4",
+      "arm": "public_projection",
+      "donor_id": 190676,
+      "recipient_id": 468505,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-unmarked_projection_sham-190676-468505",
+      "axis": "T4",
+      "arm": "unmarked_projection_sham",
+      "donor_id": 190676,
+      "recipient_id": 468505,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-residual-190676-80932-0.5",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 190676,
+      "recipient_id": 80932,
+      "scale": 0.5,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-residual-190676-80932-1.0",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 190676,
+      "recipient_id": 80932,
+      "scale": 1.0,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-public_projection-190676-80932",
+      "axis": "T4",
+      "arm": "public_projection",
+      "donor_id": 190676,
+      "recipient_id": 80932,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-unmarked_projection_sham-190676-80932",
+      "axis": "T4",
+      "arm": "unmarked_projection_sham",
+      "donor_id": 190676,
+      "recipient_id": 80932,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-residual-468505-499768-0.5",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 468505,
+      "recipient_id": 499768,
+      "scale": 0.5,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-residual-468505-499768-1.0",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 468505,
+      "recipient_id": 499768,
+      "scale": 1.0,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-public_projection-468505-499768",
+      "axis": "T4",
+      "arm": "public_projection",
+      "donor_id": 468505,
+      "recipient_id": 499768,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-unmarked_projection_sham-468505-499768",
+      "axis": "T4",
+      "arm": "unmarked_projection_sham",
+      "donor_id": 468505,
+      "recipient_id": 499768,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-residual-468505-109798-0.5",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 468505,
+      "recipient_id": 109798,
+      "scale": 0.5,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-residual-468505-109798-1.0",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 468505,
+      "recipient_id": 109798,
+      "scale": 1.0,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-public_projection-468505-109798",
+      "axis": "T4",
+      "arm": "public_projection",
+      "donor_id": 468505,
+      "recipient_id": 109798,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-unmarked_projection_sham-468505-109798",
+      "axis": "T4",
+      "arm": "unmarked_projection_sham",
+      "donor_id": 468505,
+      "recipient_id": 109798,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-residual-499768-6012-0.5",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 499768,
+      "recipient_id": 6012,
+      "scale": 0.5,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-residual-499768-6012-1.0",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 499768,
+      "recipient_id": 6012,
+      "scale": 1.0,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-public_projection-499768-6012",
+      "axis": "T4",
+      "arm": "public_projection",
+      "donor_id": 499768,
+      "recipient_id": 6012,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-unmarked_projection_sham-499768-6012",
+      "axis": "T4",
+      "arm": "unmarked_projection_sham",
+      "donor_id": 499768,
+      "recipient_id": 6012,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-residual-499768-134882-0.5",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 499768,
+      "recipient_id": 134882,
+      "scale": 0.5,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-residual-499768-134882-1.0",
+      "axis": "T4",
+      "arm": "clean_donor_residual",
+      "donor_id": 499768,
+      "recipient_id": 134882,
+      "scale": 1.0,
+      "query_budget": 0
+    },
+    {
+      "id": "t4-public_projection-499768-134882",
+      "axis": "T4",
+      "arm": "public_projection",
+      "donor_id": 499768,
+      "recipient_id": 134882,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t4-unmarked_projection_sham-499768-134882",
+      "axis": "T4",
+      "arm": "unmarked_projection_sham",
+      "donor_id": 499768,
+      "recipient_id": 134882,
+      "query_budget": 0,
+      "carrier_knowledge": "public"
+    },
+    {
+      "id": "t5-1675-4795",
+      "axis": "T5",
+      "left": 1675,
+      "right": 4795,
+      "semantic_label": "same"
+    },
+    {
+      "id": "t5-transfer-1675-4795",
+      "axis": "T5-transfer",
+      "donor_id": 1675,
+      "recipient_id": 4795,
+      "arm": "public_projection",
+      "semantic_label": "same",
+      "query_budget": 0
+    },
+    {
+      "id": "t5-1675-6012",
+      "axis": "T5",
+      "left": 1675,
+      "right": 6012,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-1675-25394",
+      "axis": "T5",
+      "left": 1675,
+      "right": 25394,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-1675-80932",
+      "axis": "T5",
+      "left": 1675,
+      "right": 80932,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-1675-109798",
+      "axis": "T5",
+      "left": 1675,
+      "right": 109798,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-1675-134882",
+      "axis": "T5",
+      "left": 1675,
+      "right": 134882,
+      "semantic_label": "same"
+    },
+    {
+      "id": "t5-transfer-1675-134882",
+      "axis": "T5-transfer",
+      "donor_id": 1675,
+      "recipient_id": 134882,
+      "arm": "public_projection",
+      "semantic_label": "same",
+      "query_budget": 0
+    },
+    {
+      "id": "t5-1675-147498",
+      "axis": "T5",
+      "left": 1675,
+      "right": 147498,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-1675-177015",
+      "axis": "T5",
+      "left": 1675,
+      "right": 177015,
+      "semantic_label": "same"
+    },
+    {
+      "id": "t5-transfer-1675-177015",
+      "axis": "T5-transfer",
+      "donor_id": 1675,
+      "recipient_id": 177015,
+      "arm": "public_projection",
+      "semantic_label": "same",
+      "query_budget": 0
+    },
+    {
+      "id": "t5-1675-190676",
+      "axis": "T5",
+      "left": 1675,
+      "right": 190676,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-1675-468505",
+      "axis": "T5",
+      "left": 1675,
+      "right": 468505,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-1675-499768",
+      "axis": "T5",
+      "left": 1675,
+      "right": 499768,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-4795-6012",
+      "axis": "T5",
+      "left": 4795,
+      "right": 6012,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-4795-25394",
+      "axis": "T5",
+      "left": 4795,
+      "right": 25394,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-4795-80932",
+      "axis": "T5",
+      "left": 4795,
+      "right": 80932,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-4795-109798",
+      "axis": "T5",
+      "left": 4795,
+      "right": 109798,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-4795-134882",
+      "axis": "T5",
+      "left": 4795,
+      "right": 134882,
+      "semantic_label": "same"
+    },
+    {
+      "id": "t5-transfer-4795-134882",
+      "axis": "T5-transfer",
+      "donor_id": 4795,
+      "recipient_id": 134882,
+      "arm": "public_projection",
+      "semantic_label": "same",
+      "query_budget": 0
+    },
+    {
+      "id": "t5-4795-147498",
+      "axis": "T5",
+      "left": 4795,
+      "right": 147498,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-4795-177015",
+      "axis": "T5",
+      "left": 4795,
+      "right": 177015,
+      "semantic_label": "same"
+    },
+    {
+      "id": "t5-transfer-4795-177015",
+      "axis": "T5-transfer",
+      "donor_id": 4795,
+      "recipient_id": 177015,
+      "arm": "public_projection",
+      "semantic_label": "same",
+      "query_budget": 0
+    },
+    {
+      "id": "t5-4795-190676",
+      "axis": "T5",
+      "left": 4795,
+      "right": 190676,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-4795-468505",
+      "axis": "T5",
+      "left": 4795,
+      "right": 468505,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-4795-499768",
+      "axis": "T5",
+      "left": 4795,
+      "right": 499768,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-6012-25394",
+      "axis": "T5",
+      "left": 6012,
+      "right": 25394,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-6012-80932",
+      "axis": "T5",
+      "left": 6012,
+      "right": 80932,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-6012-109798",
+      "axis": "T5",
+      "left": 6012,
+      "right": 109798,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-6012-134882",
+      "axis": "T5",
+      "left": 6012,
+      "right": 134882,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-6012-147498",
+      "axis": "T5",
+      "left": 6012,
+      "right": 147498,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-6012-177015",
+      "axis": "T5",
+      "left": 6012,
+      "right": 177015,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-6012-190676",
+      "axis": "T5",
+      "left": 6012,
+      "right": 190676,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-6012-468505",
+      "axis": "T5",
+      "left": 6012,
+      "right": 468505,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-6012-499768",
+      "axis": "T5",
+      "left": 6012,
+      "right": 499768,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-25394-80932",
+      "axis": "T5",
+      "left": 25394,
+      "right": 80932,
+      "semantic_label": "uncertain"
+    },
+    {
+      "id": "t5-25394-109798",
+      "axis": "T5",
+      "left": 25394,
+      "right": 109798,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-25394-134882",
+      "axis": "T5",
+      "left": 25394,
+      "right": 134882,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-25394-147498",
+      "axis": "T5",
+      "left": 25394,
+      "right": 147498,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-25394-177015",
+      "axis": "T5",
+      "left": 25394,
+      "right": 177015,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-25394-190676",
+      "axis": "T5",
+      "left": 25394,
+      "right": 190676,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-25394-468505",
+      "axis": "T5",
+      "left": 25394,
+      "right": 468505,
+      "semantic_label": "uncertain"
+    },
+    {
+      "id": "t5-25394-499768",
+      "axis": "T5",
+      "left": 25394,
+      "right": 499768,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-80932-109798",
+      "axis": "T5",
+      "left": 80932,
+      "right": 109798,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-80932-134882",
+      "axis": "T5",
+      "left": 80932,
+      "right": 134882,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-80932-147498",
+      "axis": "T5",
+      "left": 80932,
+      "right": 147498,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-80932-177015",
+      "axis": "T5",
+      "left": 80932,
+      "right": 177015,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-80932-190676",
+      "axis": "T5",
+      "left": 80932,
+      "right": 190676,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-80932-468505",
+      "axis": "T5",
+      "left": 80932,
+      "right": 468505,
+      "semantic_label": "same"
+    },
+    {
+      "id": "t5-transfer-80932-468505",
+      "axis": "T5-transfer",
+      "donor_id": 80932,
+      "recipient_id": 468505,
+      "arm": "public_projection",
+      "semantic_label": "same",
+      "query_budget": 0
+    },
+    {
+      "id": "t5-80932-499768",
+      "axis": "T5",
+      "left": 80932,
+      "right": 499768,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-109798-134882",
+      "axis": "T5",
+      "left": 109798,
+      "right": 134882,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-109798-147498",
+      "axis": "T5",
+      "left": 109798,
+      "right": 147498,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-109798-177015",
+      "axis": "T5",
+      "left": 109798,
+      "right": 177015,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-109798-190676",
+      "axis": "T5",
+      "left": 109798,
+      "right": 190676,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-109798-468505",
+      "axis": "T5",
+      "left": 109798,
+      "right": 468505,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-109798-499768",
+      "axis": "T5",
+      "left": 109798,
+      "right": 499768,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-134882-147498",
+      "axis": "T5",
+      "left": 134882,
+      "right": 147498,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-134882-177015",
+      "axis": "T5",
+      "left": 134882,
+      "right": 177015,
+      "semantic_label": "same"
+    },
+    {
+      "id": "t5-transfer-134882-177015",
+      "axis": "T5-transfer",
+      "donor_id": 134882,
+      "recipient_id": 177015,
+      "arm": "public_projection",
+      "semantic_label": "same",
+      "query_budget": 0
+    },
+    {
+      "id": "t5-134882-190676",
+      "axis": "T5",
+      "left": 134882,
+      "right": 190676,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-134882-468505",
+      "axis": "T5",
+      "left": 134882,
+      "right": 468505,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-134882-499768",
+      "axis": "T5",
+      "left": 134882,
+      "right": 499768,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-147498-177015",
+      "axis": "T5",
+      "left": 147498,
+      "right": 177015,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-147498-190676",
+      "axis": "T5",
+      "left": 147498,
+      "right": 190676,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-147498-468505",
+      "axis": "T5",
+      "left": 147498,
+      "right": 468505,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-147498-499768",
+      "axis": "T5",
+      "left": 147498,
+      "right": 499768,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-177015-190676",
+      "axis": "T5",
+      "left": 177015,
+      "right": 190676,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-177015-468505",
+      "axis": "T5",
+      "left": 177015,
+      "right": 468505,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-177015-499768",
+      "axis": "T5",
+      "left": 177015,
+      "right": 499768,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-190676-468505",
+      "axis": "T5",
+      "left": 190676,
+      "right": 468505,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-190676-499768",
+      "axis": "T5",
+      "left": 190676,
+      "right": 499768,
+      "semantic_label": "different"
+    },
+    {
+      "id": "t5-468505-499768",
+      "axis": "T5",
+      "left": 468505,
+      "right": 499768,
+      "semantic_label": "different"
+    },
+    {
+      "id": "clean-1675-C0",
+      "axis": "clean",
+      "source_id": 1675,
+      "control": "C0"
+    },
+    {
+      "id": "vae-1675-C0",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C0",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-1675-0.05-0-C0",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-1675-0.05-1-C0",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-1675-0.05-2-C0",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-1675-0.1-0-C0",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-1675-0.1-1-C0",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-1675-0.1-2-C0",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-1675-0.2-0-C0",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-1675-0.2-1-C0",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-1675-0.2-2-C0",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-1675-0.4-0-C0",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-1675-0.4-1-C0",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-1675-0.4-2-C0",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-1675-C1",
+      "axis": "clean",
+      "source_id": 1675,
+      "control": "C1"
+    },
+    {
+      "id": "vae-1675-C1",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C1",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-1675-0.05-0-C1",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-1675-0.05-1-C1",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-1675-0.05-2-C1",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-1675-0.1-0-C1",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-1675-0.1-1-C1",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-1675-0.1-2-C1",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-1675-0.2-0-C1",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-1675-0.2-1-C1",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-1675-0.2-2-C1",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-1675-0.4-0-C1",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-1675-0.4-1-C1",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-1675-0.4-2-C1",
+      "axis": "T3",
+      "source_id": 1675,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-4795-C0",
+      "axis": "clean",
+      "source_id": 4795,
+      "control": "C0"
+    },
+    {
+      "id": "vae-4795-C0",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C0",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-4795-0.05-0-C0",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-4795-0.05-1-C0",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-4795-0.05-2-C0",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-4795-0.1-0-C0",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-4795-0.1-1-C0",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-4795-0.1-2-C0",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-4795-0.2-0-C0",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-4795-0.2-1-C0",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-4795-0.2-2-C0",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-4795-0.4-0-C0",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-4795-0.4-1-C0",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-4795-0.4-2-C0",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-4795-C1",
+      "axis": "clean",
+      "source_id": 4795,
+      "control": "C1"
+    },
+    {
+      "id": "vae-4795-C1",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C1",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-4795-0.05-0-C1",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-4795-0.05-1-C1",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-4795-0.05-2-C1",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-4795-0.1-0-C1",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-4795-0.1-1-C1",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-4795-0.1-2-C1",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-4795-0.2-0-C1",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-4795-0.2-1-C1",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-4795-0.2-2-C1",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-4795-0.4-0-C1",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-4795-0.4-1-C1",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-4795-0.4-2-C1",
+      "axis": "T3",
+      "source_id": 4795,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-6012-C0",
+      "axis": "clean",
+      "source_id": 6012,
+      "control": "C0"
+    },
+    {
+      "id": "vae-6012-C0",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C0",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-6012-0.05-0-C0",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-6012-0.05-1-C0",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-6012-0.05-2-C0",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-6012-0.1-0-C0",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-6012-0.1-1-C0",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-6012-0.1-2-C0",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-6012-0.2-0-C0",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-6012-0.2-1-C0",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-6012-0.2-2-C0",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-6012-0.4-0-C0",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-6012-0.4-1-C0",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-6012-0.4-2-C0",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-6012-C1",
+      "axis": "clean",
+      "source_id": 6012,
+      "control": "C1"
+    },
+    {
+      "id": "vae-6012-C1",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C1",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-6012-0.05-0-C1",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-6012-0.05-1-C1",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-6012-0.05-2-C1",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-6012-0.1-0-C1",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-6012-0.1-1-C1",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-6012-0.1-2-C1",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-6012-0.2-0-C1",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-6012-0.2-1-C1",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-6012-0.2-2-C1",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-6012-0.4-0-C1",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-6012-0.4-1-C1",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-6012-0.4-2-C1",
+      "axis": "T3",
+      "source_id": 6012,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-25394-C0",
+      "axis": "clean",
+      "source_id": 25394,
+      "control": "C0"
+    },
+    {
+      "id": "vae-25394-C0",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C0",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-25394-0.05-0-C0",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-25394-0.05-1-C0",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-25394-0.05-2-C0",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-25394-0.1-0-C0",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-25394-0.1-1-C0",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-25394-0.1-2-C0",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-25394-0.2-0-C0",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-25394-0.2-1-C0",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-25394-0.2-2-C0",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-25394-0.4-0-C0",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-25394-0.4-1-C0",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-25394-0.4-2-C0",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-25394-C1",
+      "axis": "clean",
+      "source_id": 25394,
+      "control": "C1"
+    },
+    {
+      "id": "vae-25394-C1",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C1",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-25394-0.05-0-C1",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-25394-0.05-1-C1",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-25394-0.05-2-C1",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-25394-0.1-0-C1",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-25394-0.1-1-C1",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-25394-0.1-2-C1",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-25394-0.2-0-C1",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-25394-0.2-1-C1",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-25394-0.2-2-C1",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-25394-0.4-0-C1",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-25394-0.4-1-C1",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-25394-0.4-2-C1",
+      "axis": "T3",
+      "source_id": 25394,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-80932-C0",
+      "axis": "clean",
+      "source_id": 80932,
+      "control": "C0"
+    },
+    {
+      "id": "vae-80932-C0",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C0",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-80932-0.05-0-C0",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-80932-0.05-1-C0",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-80932-0.05-2-C0",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-80932-0.1-0-C0",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-80932-0.1-1-C0",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-80932-0.1-2-C0",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-80932-0.2-0-C0",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-80932-0.2-1-C0",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-80932-0.2-2-C0",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-80932-0.4-0-C0",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-80932-0.4-1-C0",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-80932-0.4-2-C0",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-80932-C1",
+      "axis": "clean",
+      "source_id": 80932,
+      "control": "C1"
+    },
+    {
+      "id": "vae-80932-C1",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C1",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-80932-0.05-0-C1",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-80932-0.05-1-C1",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-80932-0.05-2-C1",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-80932-0.1-0-C1",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-80932-0.1-1-C1",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-80932-0.1-2-C1",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-80932-0.2-0-C1",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-80932-0.2-1-C1",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-80932-0.2-2-C1",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-80932-0.4-0-C1",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-80932-0.4-1-C1",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-80932-0.4-2-C1",
+      "axis": "T3",
+      "source_id": 80932,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-109798-C0",
+      "axis": "clean",
+      "source_id": 109798,
+      "control": "C0"
+    },
+    {
+      "id": "vae-109798-C0",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C0",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-109798-0.05-0-C0",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-109798-0.05-1-C0",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-109798-0.05-2-C0",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-109798-0.1-0-C0",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-109798-0.1-1-C0",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-109798-0.1-2-C0",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-109798-0.2-0-C0",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-109798-0.2-1-C0",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-109798-0.2-2-C0",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-109798-0.4-0-C0",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-109798-0.4-1-C0",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-109798-0.4-2-C0",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-109798-C1",
+      "axis": "clean",
+      "source_id": 109798,
+      "control": "C1"
+    },
+    {
+      "id": "vae-109798-C1",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C1",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-109798-0.05-0-C1",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-109798-0.05-1-C1",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-109798-0.05-2-C1",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-109798-0.1-0-C1",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-109798-0.1-1-C1",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-109798-0.1-2-C1",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-109798-0.2-0-C1",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-109798-0.2-1-C1",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-109798-0.2-2-C1",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-109798-0.4-0-C1",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-109798-0.4-1-C1",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-109798-0.4-2-C1",
+      "axis": "T3",
+      "source_id": 109798,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-134882-C0",
+      "axis": "clean",
+      "source_id": 134882,
+      "control": "C0"
+    },
+    {
+      "id": "vae-134882-C0",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C0",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-134882-0.05-0-C0",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-134882-0.05-1-C0",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-134882-0.05-2-C0",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-134882-0.1-0-C0",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-134882-0.1-1-C0",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-134882-0.1-2-C0",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-134882-0.2-0-C0",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-134882-0.2-1-C0",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-134882-0.2-2-C0",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-134882-0.4-0-C0",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-134882-0.4-1-C0",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-134882-0.4-2-C0",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-134882-C1",
+      "axis": "clean",
+      "source_id": 134882,
+      "control": "C1"
+    },
+    {
+      "id": "vae-134882-C1",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C1",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-134882-0.05-0-C1",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-134882-0.05-1-C1",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-134882-0.05-2-C1",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-134882-0.1-0-C1",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-134882-0.1-1-C1",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-134882-0.1-2-C1",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-134882-0.2-0-C1",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-134882-0.2-1-C1",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-134882-0.2-2-C1",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-134882-0.4-0-C1",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-134882-0.4-1-C1",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-134882-0.4-2-C1",
+      "axis": "T3",
+      "source_id": 134882,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-147498-C0",
+      "axis": "clean",
+      "source_id": 147498,
+      "control": "C0"
+    },
+    {
+      "id": "vae-147498-C0",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C0",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-147498-0.05-0-C0",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-147498-0.05-1-C0",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-147498-0.05-2-C0",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-147498-0.1-0-C0",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-147498-0.1-1-C0",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-147498-0.1-2-C0",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-147498-0.2-0-C0",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-147498-0.2-1-C0",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-147498-0.2-2-C0",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-147498-0.4-0-C0",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-147498-0.4-1-C0",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-147498-0.4-2-C0",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-147498-C1",
+      "axis": "clean",
+      "source_id": 147498,
+      "control": "C1"
+    },
+    {
+      "id": "vae-147498-C1",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C1",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-147498-0.05-0-C1",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-147498-0.05-1-C1",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-147498-0.05-2-C1",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-147498-0.1-0-C1",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-147498-0.1-1-C1",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-147498-0.1-2-C1",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-147498-0.2-0-C1",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-147498-0.2-1-C1",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-147498-0.2-2-C1",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-147498-0.4-0-C1",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-147498-0.4-1-C1",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-147498-0.4-2-C1",
+      "axis": "T3",
+      "source_id": 147498,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-177015-C0",
+      "axis": "clean",
+      "source_id": 177015,
+      "control": "C0"
+    },
+    {
+      "id": "vae-177015-C0",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C0",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-177015-0.05-0-C0",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-177015-0.05-1-C0",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-177015-0.05-2-C0",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-177015-0.1-0-C0",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-177015-0.1-1-C0",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-177015-0.1-2-C0",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-177015-0.2-0-C0",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-177015-0.2-1-C0",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-177015-0.2-2-C0",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-177015-0.4-0-C0",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-177015-0.4-1-C0",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-177015-0.4-2-C0",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-177015-C1",
+      "axis": "clean",
+      "source_id": 177015,
+      "control": "C1"
+    },
+    {
+      "id": "vae-177015-C1",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C1",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-177015-0.05-0-C1",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-177015-0.05-1-C1",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-177015-0.05-2-C1",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-177015-0.1-0-C1",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-177015-0.1-1-C1",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-177015-0.1-2-C1",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-177015-0.2-0-C1",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-177015-0.2-1-C1",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-177015-0.2-2-C1",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-177015-0.4-0-C1",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-177015-0.4-1-C1",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-177015-0.4-2-C1",
+      "axis": "T3",
+      "source_id": 177015,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-190676-C0",
+      "axis": "clean",
+      "source_id": 190676,
+      "control": "C0"
+    },
+    {
+      "id": "vae-190676-C0",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C0",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-190676-0.05-0-C0",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-190676-0.05-1-C0",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-190676-0.05-2-C0",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-190676-0.1-0-C0",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-190676-0.1-1-C0",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-190676-0.1-2-C0",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-190676-0.2-0-C0",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-190676-0.2-1-C0",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-190676-0.2-2-C0",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-190676-0.4-0-C0",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-190676-0.4-1-C0",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-190676-0.4-2-C0",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-190676-C1",
+      "axis": "clean",
+      "source_id": 190676,
+      "control": "C1"
+    },
+    {
+      "id": "vae-190676-C1",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C1",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-190676-0.05-0-C1",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-190676-0.05-1-C1",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-190676-0.05-2-C1",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-190676-0.1-0-C1",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-190676-0.1-1-C1",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-190676-0.1-2-C1",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-190676-0.2-0-C1",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-190676-0.2-1-C1",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-190676-0.2-2-C1",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-190676-0.4-0-C1",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-190676-0.4-1-C1",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-190676-0.4-2-C1",
+      "axis": "T3",
+      "source_id": 190676,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-468505-C0",
+      "axis": "clean",
+      "source_id": 468505,
+      "control": "C0"
+    },
+    {
+      "id": "vae-468505-C0",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C0",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-468505-0.05-0-C0",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-468505-0.05-1-C0",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-468505-0.05-2-C0",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-468505-0.1-0-C0",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-468505-0.1-1-C0",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-468505-0.1-2-C0",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-468505-0.2-0-C0",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-468505-0.2-1-C0",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-468505-0.2-2-C0",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-468505-0.4-0-C0",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-468505-0.4-1-C0",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-468505-0.4-2-C0",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-468505-C1",
+      "axis": "clean",
+      "source_id": 468505,
+      "control": "C1"
+    },
+    {
+      "id": "vae-468505-C1",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C1",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-468505-0.05-0-C1",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-468505-0.05-1-C1",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-468505-0.05-2-C1",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-468505-0.1-0-C1",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-468505-0.1-1-C1",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-468505-0.1-2-C1",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-468505-0.2-0-C1",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-468505-0.2-1-C1",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-468505-0.2-2-C1",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-468505-0.4-0-C1",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-468505-0.4-1-C1",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-468505-0.4-2-C1",
+      "axis": "T3",
+      "source_id": 468505,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-499768-C0",
+      "axis": "clean",
+      "source_id": 499768,
+      "control": "C0"
+    },
+    {
+      "id": "vae-499768-C0",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C0",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-499768-0.05-0-C0",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-499768-0.05-1-C0",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-499768-0.05-2-C0",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-499768-0.1-0-C0",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-499768-0.1-1-C0",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-499768-0.1-2-C0",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-499768-0.2-0-C0",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-499768-0.2-1-C0",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-499768-0.2-2-C0",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-499768-0.4-0-C0",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-499768-0.4-1-C0",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-499768-0.4-2-C0",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C0",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    },
+    {
+      "id": "clean-499768-C1",
+      "axis": "clean",
+      "source_id": 499768,
+      "control": "C1"
+    },
+    {
+      "id": "vae-499768-C1",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C1",
+      "dose": "vae_mode",
+      "seed": null,
+      "strength": null
+    },
+    {
+      "id": "t3-499768-0.05-0-C1",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 0
+    },
+    {
+      "id": "t3-499768-0.05-1-C1",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 1
+    },
+    {
+      "id": "t3-499768-0.05-2-C1",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.05,
+      "seed": 2
+    },
+    {
+      "id": "t3-499768-0.1-0-C1",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 0
+    },
+    {
+      "id": "t3-499768-0.1-1-C1",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 1
+    },
+    {
+      "id": "t3-499768-0.1-2-C1",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.1,
+      "seed": 2
+    },
+    {
+      "id": "t3-499768-0.2-0-C1",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 0
+    },
+    {
+      "id": "t3-499768-0.2-1-C1",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 1
+    },
+    {
+      "id": "t3-499768-0.2-2-C1",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.2,
+      "seed": 2
+    },
+    {
+      "id": "t3-499768-0.4-0-C1",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 0
+    },
+    {
+      "id": "t3-499768-0.4-1-C1",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 1
+    },
+    {
+      "id": "t3-499768-0.4-2-C1",
+      "axis": "T3",
+      "source_id": 499768,
+      "control": "C1",
+      "dose": "diffusion",
+      "strength": 0.4,
+      "seed": 2
+    }
+  ],
+  "partitions": {
+    "shard-0": [
+      "clean-1675-C0",
+      "vae-1675-C0",
+      "t3-1675-0.05-0-C0",
+      "t3-1675-0.05-1-C0",
+      "t3-1675-0.05-2-C0",
+      "t3-1675-0.1-0-C0",
+      "t3-1675-0.1-1-C0",
+      "t3-1675-0.1-2-C0",
+      "t3-1675-0.2-0-C0",
+      "t3-1675-0.2-1-C0",
+      "t3-1675-0.2-2-C0",
+      "t3-1675-0.4-0-C0",
+      "t3-1675-0.4-1-C0",
+      "t3-1675-0.4-2-C0",
+      "clean-1675-C1",
+      "vae-1675-C1",
+      "t3-1675-0.05-0-C1",
+      "t3-1675-0.05-1-C1",
+      "t3-1675-0.05-2-C1",
+      "t3-1675-0.1-0-C1",
+      "t3-1675-0.1-1-C1",
+      "t3-1675-0.1-2-C1",
+      "t3-1675-0.2-0-C1",
+      "t3-1675-0.2-1-C1",
+      "t3-1675-0.2-2-C1",
+      "t3-1675-0.4-0-C1",
+      "t3-1675-0.4-1-C1",
+      "t3-1675-0.4-2-C1",
+      "clean-4795-C0",
+      "vae-4795-C0",
+      "t3-4795-0.05-0-C0",
+      "t3-4795-0.05-1-C0",
+      "t3-4795-0.05-2-C0",
+      "t3-4795-0.1-0-C0",
+      "t3-4795-0.1-1-C0",
+      "t3-4795-0.1-2-C0",
+      "t3-4795-0.2-0-C0",
+      "t3-4795-0.2-1-C0",
+      "t3-4795-0.2-2-C0",
+      "t3-4795-0.4-0-C0",
+      "t3-4795-0.4-1-C0",
+      "t3-4795-0.4-2-C0",
+      "clean-4795-C1",
+      "vae-4795-C1",
+      "t3-4795-0.05-0-C1",
+      "t3-4795-0.05-1-C1",
+      "t3-4795-0.05-2-C1",
+      "t3-4795-0.1-0-C1",
+      "t3-4795-0.1-1-C1",
+      "t3-4795-0.1-2-C1",
+      "t3-4795-0.2-0-C1",
+      "t3-4795-0.2-1-C1",
+      "t3-4795-0.2-2-C1",
+      "t3-4795-0.4-0-C1",
+      "t3-4795-0.4-1-C1",
+      "t3-4795-0.4-2-C1"
+    ],
+    "shard-1": [
+      "clean-6012-C0",
+      "vae-6012-C0",
+      "t3-6012-0.05-0-C0",
+      "t3-6012-0.05-1-C0",
+      "t3-6012-0.05-2-C0",
+      "t3-6012-0.1-0-C0",
+      "t3-6012-0.1-1-C0",
+      "t3-6012-0.1-2-C0",
+      "t3-6012-0.2-0-C0",
+      "t3-6012-0.2-1-C0",
+      "t3-6012-0.2-2-C0",
+      "t3-6012-0.4-0-C0",
+      "t3-6012-0.4-1-C0",
+      "t3-6012-0.4-2-C0",
+      "clean-6012-C1",
+      "vae-6012-C1",
+      "t3-6012-0.05-0-C1",
+      "t3-6012-0.05-1-C1",
+      "t3-6012-0.05-2-C1",
+      "t3-6012-0.1-0-C1",
+      "t3-6012-0.1-1-C1",
+      "t3-6012-0.1-2-C1",
+      "t3-6012-0.2-0-C1",
+      "t3-6012-0.2-1-C1",
+      "t3-6012-0.2-2-C1",
+      "t3-6012-0.4-0-C1",
+      "t3-6012-0.4-1-C1",
+      "t3-6012-0.4-2-C1",
+      "clean-25394-C0",
+      "vae-25394-C0",
+      "t3-25394-0.05-0-C0",
+      "t3-25394-0.05-1-C0",
+      "t3-25394-0.05-2-C0",
+      "t3-25394-0.1-0-C0",
+      "t3-25394-0.1-1-C0",
+      "t3-25394-0.1-2-C0",
+      "t3-25394-0.2-0-C0",
+      "t3-25394-0.2-1-C0",
+      "t3-25394-0.2-2-C0",
+      "t3-25394-0.4-0-C0",
+      "t3-25394-0.4-1-C0",
+      "t3-25394-0.4-2-C0",
+      "clean-25394-C1",
+      "vae-25394-C1",
+      "t3-25394-0.05-0-C1",
+      "t3-25394-0.05-1-C1",
+      "t3-25394-0.05-2-C1",
+      "t3-25394-0.1-0-C1",
+      "t3-25394-0.1-1-C1",
+      "t3-25394-0.1-2-C1",
+      "t3-25394-0.2-0-C1",
+      "t3-25394-0.2-1-C1",
+      "t3-25394-0.2-2-C1",
+      "t3-25394-0.4-0-C1",
+      "t3-25394-0.4-1-C1",
+      "t3-25394-0.4-2-C1"
+    ],
+    "shard-2": [
+      "clean-80932-C0",
+      "vae-80932-C0",
+      "t3-80932-0.05-0-C0",
+      "t3-80932-0.05-1-C0",
+      "t3-80932-0.05-2-C0",
+      "t3-80932-0.1-0-C0",
+      "t3-80932-0.1-1-C0",
+      "t3-80932-0.1-2-C0",
+      "t3-80932-0.2-0-C0",
+      "t3-80932-0.2-1-C0",
+      "t3-80932-0.2-2-C0",
+      "t3-80932-0.4-0-C0",
+      "t3-80932-0.4-1-C0",
+      "t3-80932-0.4-2-C0",
+      "clean-80932-C1",
+      "vae-80932-C1",
+      "t3-80932-0.05-0-C1",
+      "t3-80932-0.05-1-C1",
+      "t3-80932-0.05-2-C1",
+      "t3-80932-0.1-0-C1",
+      "t3-80932-0.1-1-C1",
+      "t3-80932-0.1-2-C1",
+      "t3-80932-0.2-0-C1",
+      "t3-80932-0.2-1-C1",
+      "t3-80932-0.2-2-C1",
+      "t3-80932-0.4-0-C1",
+      "t3-80932-0.4-1-C1",
+      "t3-80932-0.4-2-C1",
+      "clean-109798-C0",
+      "vae-109798-C0",
+      "t3-109798-0.05-0-C0",
+      "t3-109798-0.05-1-C0",
+      "t3-109798-0.05-2-C0",
+      "t3-109798-0.1-0-C0",
+      "t3-109798-0.1-1-C0",
+      "t3-109798-0.1-2-C0",
+      "t3-109798-0.2-0-C0",
+      "t3-109798-0.2-1-C0",
+      "t3-109798-0.2-2-C0",
+      "t3-109798-0.4-0-C0",
+      "t3-109798-0.4-1-C0",
+      "t3-109798-0.4-2-C0",
+      "clean-109798-C1",
+      "vae-109798-C1",
+      "t3-109798-0.05-0-C1",
+      "t3-109798-0.05-1-C1",
+      "t3-109798-0.05-2-C1",
+      "t3-109798-0.1-0-C1",
+      "t3-109798-0.1-1-C1",
+      "t3-109798-0.1-2-C1",
+      "t3-109798-0.2-0-C1",
+      "t3-109798-0.2-1-C1",
+      "t3-109798-0.2-2-C1",
+      "t3-109798-0.4-0-C1",
+      "t3-109798-0.4-1-C1",
+      "t3-109798-0.4-2-C1"
+    ],
+    "shard-3": [
+      "clean-134882-C0",
+      "vae-134882-C0",
+      "t3-134882-0.05-0-C0",
+      "t3-134882-0.05-1-C0",
+      "t3-134882-0.05-2-C0",
+      "t3-134882-0.1-0-C0",
+      "t3-134882-0.1-1-C0",
+      "t3-134882-0.1-2-C0",
+      "t3-134882-0.2-0-C0",
+      "t3-134882-0.2-1-C0",
+      "t3-134882-0.2-2-C0",
+      "t3-134882-0.4-0-C0",
+      "t3-134882-0.4-1-C0",
+      "t3-134882-0.4-2-C0",
+      "clean-134882-C1",
+      "vae-134882-C1",
+      "t3-134882-0.05-0-C1",
+      "t3-134882-0.05-1-C1",
+      "t3-134882-0.05-2-C1",
+      "t3-134882-0.1-0-C1",
+      "t3-134882-0.1-1-C1",
+      "t3-134882-0.1-2-C1",
+      "t3-134882-0.2-0-C1",
+      "t3-134882-0.2-1-C1",
+      "t3-134882-0.2-2-C1",
+      "t3-134882-0.4-0-C1",
+      "t3-134882-0.4-1-C1",
+      "t3-134882-0.4-2-C1",
+      "clean-147498-C0",
+      "vae-147498-C0",
+      "t3-147498-0.05-0-C0",
+      "t3-147498-0.05-1-C0",
+      "t3-147498-0.05-2-C0",
+      "t3-147498-0.1-0-C0",
+      "t3-147498-0.1-1-C0",
+      "t3-147498-0.1-2-C0",
+      "t3-147498-0.2-0-C0",
+      "t3-147498-0.2-1-C0",
+      "t3-147498-0.2-2-C0",
+      "t3-147498-0.4-0-C0",
+      "t3-147498-0.4-1-C0",
+      "t3-147498-0.4-2-C0",
+      "clean-147498-C1",
+      "vae-147498-C1",
+      "t3-147498-0.05-0-C1",
+      "t3-147498-0.05-1-C1",
+      "t3-147498-0.05-2-C1",
+      "t3-147498-0.1-0-C1",
+      "t3-147498-0.1-1-C1",
+      "t3-147498-0.1-2-C1",
+      "t3-147498-0.2-0-C1",
+      "t3-147498-0.2-1-C1",
+      "t3-147498-0.2-2-C1",
+      "t3-147498-0.4-0-C1",
+      "t3-147498-0.4-1-C1",
+      "t3-147498-0.4-2-C1"
+    ],
+    "shard-4": [
+      "clean-177015-C0",
+      "vae-177015-C0",
+      "t3-177015-0.05-0-C0",
+      "t3-177015-0.05-1-C0",
+      "t3-177015-0.05-2-C0",
+      "t3-177015-0.1-0-C0",
+      "t3-177015-0.1-1-C0",
+      "t3-177015-0.1-2-C0",
+      "t3-177015-0.2-0-C0",
+      "t3-177015-0.2-1-C0",
+      "t3-177015-0.2-2-C0",
+      "t3-177015-0.4-0-C0",
+      "t3-177015-0.4-1-C0",
+      "t3-177015-0.4-2-C0",
+      "clean-177015-C1",
+      "vae-177015-C1",
+      "t3-177015-0.05-0-C1",
+      "t3-177015-0.05-1-C1",
+      "t3-177015-0.05-2-C1",
+      "t3-177015-0.1-0-C1",
+      "t3-177015-0.1-1-C1",
+      "t3-177015-0.1-2-C1",
+      "t3-177015-0.2-0-C1",
+      "t3-177015-0.2-1-C1",
+      "t3-177015-0.2-2-C1",
+      "t3-177015-0.4-0-C1",
+      "t3-177015-0.4-1-C1",
+      "t3-177015-0.4-2-C1",
+      "clean-190676-C0",
+      "vae-190676-C0",
+      "t3-190676-0.05-0-C0",
+      "t3-190676-0.05-1-C0",
+      "t3-190676-0.05-2-C0",
+      "t3-190676-0.1-0-C0",
+      "t3-190676-0.1-1-C0",
+      "t3-190676-0.1-2-C0",
+      "t3-190676-0.2-0-C0",
+      "t3-190676-0.2-1-C0",
+      "t3-190676-0.2-2-C0",
+      "t3-190676-0.4-0-C0",
+      "t3-190676-0.4-1-C0",
+      "t3-190676-0.4-2-C0",
+      "clean-190676-C1",
+      "vae-190676-C1",
+      "t3-190676-0.05-0-C1",
+      "t3-190676-0.05-1-C1",
+      "t3-190676-0.05-2-C1",
+      "t3-190676-0.1-0-C1",
+      "t3-190676-0.1-1-C1",
+      "t3-190676-0.1-2-C1",
+      "t3-190676-0.2-0-C1",
+      "t3-190676-0.2-1-C1",
+      "t3-190676-0.2-2-C1",
+      "t3-190676-0.4-0-C1",
+      "t3-190676-0.4-1-C1",
+      "t3-190676-0.4-2-C1"
+    ],
+    "shard-5": [
+      "clean-468505-C0",
+      "vae-468505-C0",
+      "t3-468505-0.05-0-C0",
+      "t3-468505-0.05-1-C0",
+      "t3-468505-0.05-2-C0",
+      "t3-468505-0.1-0-C0",
+      "t3-468505-0.1-1-C0",
+      "t3-468505-0.1-2-C0",
+      "t3-468505-0.2-0-C0",
+      "t3-468505-0.2-1-C0",
+      "t3-468505-0.2-2-C0",
+      "t3-468505-0.4-0-C0",
+      "t3-468505-0.4-1-C0",
+      "t3-468505-0.4-2-C0",
+      "clean-468505-C1",
+      "vae-468505-C1",
+      "t3-468505-0.05-0-C1",
+      "t3-468505-0.05-1-C1",
+      "t3-468505-0.05-2-C1",
+      "t3-468505-0.1-0-C1",
+      "t3-468505-0.1-1-C1",
+      "t3-468505-0.1-2-C1",
+      "t3-468505-0.2-0-C1",
+      "t3-468505-0.2-1-C1",
+      "t3-468505-0.2-2-C1",
+      "t3-468505-0.4-0-C1",
+      "t3-468505-0.4-1-C1",
+      "t3-468505-0.4-2-C1",
+      "clean-499768-C0",
+      "vae-499768-C0",
+      "t3-499768-0.05-0-C0",
+      "t3-499768-0.05-1-C0",
+      "t3-499768-0.05-2-C0",
+      "t3-499768-0.1-0-C0",
+      "t3-499768-0.1-1-C0",
+      "t3-499768-0.1-2-C0",
+      "t3-499768-0.2-0-C0",
+      "t3-499768-0.2-1-C0",
+      "t3-499768-0.2-2-C0",
+      "t3-499768-0.4-0-C0",
+      "t3-499768-0.4-1-C0",
+      "t3-499768-0.4-2-C0",
+      "clean-499768-C1",
+      "vae-499768-C1",
+      "t3-499768-0.05-0-C1",
+      "t3-499768-0.05-1-C1",
+      "t3-499768-0.05-2-C1",
+      "t3-499768-0.1-0-C1",
+      "t3-499768-0.1-1-C1",
+      "t3-499768-0.1-2-C1",
+      "t3-499768-0.2-0-C1",
+      "t3-499768-0.2-1-C1",
+      "t3-499768-0.2-2-C1",
+      "t3-499768-0.4-0-C1",
+      "t3-499768-0.4-1-C1",
+      "t3-499768-0.4-2-C1"
+    ],
+    "transfers": [
+      "t4-residual-6012-25394-0.5",
+      "t4-residual-6012-25394-1.0",
+      "t4-public_projection-6012-25394",
+      "t4-unmarked_projection_sham-6012-25394",
+      "t4-residual-6012-147498-0.5",
+      "t4-residual-6012-147498-1.0",
+      "t4-public_projection-6012-147498",
+      "t4-unmarked_projection_sham-6012-147498",
+      "t4-residual-25394-80932-0.5",
+      "t4-residual-25394-80932-1.0",
+      "t4-public_projection-25394-80932",
+      "t4-unmarked_projection_sham-25394-80932",
+      "t4-residual-25394-177015-0.5",
+      "t4-residual-25394-177015-1.0",
+      "t4-public_projection-25394-177015",
+      "t4-unmarked_projection_sham-25394-177015",
+      "t4-residual-80932-109798-0.5",
+      "t4-residual-80932-109798-1.0",
+      "t4-public_projection-80932-109798",
+      "t4-unmarked_projection_sham-80932-109798",
+      "t4-residual-80932-190676-0.5",
+      "t4-residual-80932-190676-1.0",
+      "t4-public_projection-80932-190676",
+      "t4-unmarked_projection_sham-80932-190676",
+      "t4-residual-109798-134882-0.5",
+      "t4-residual-109798-134882-1.0",
+      "t4-public_projection-109798-134882",
+      "t4-unmarked_projection_sham-109798-134882",
+      "t4-residual-109798-468505-0.5",
+      "t4-residual-109798-468505-1.0",
+      "t4-public_projection-109798-468505",
+      "t4-unmarked_projection_sham-109798-468505",
+      "t4-residual-134882-147498-0.5",
+      "t4-residual-134882-147498-1.0",
+      "t4-public_projection-134882-147498",
+      "t4-unmarked_projection_sham-134882-147498",
+      "t4-residual-134882-499768-0.5",
+      "t4-residual-134882-499768-1.0",
+      "t4-public_projection-134882-499768",
+      "t4-unmarked_projection_sham-134882-499768",
+      "t4-residual-147498-177015-0.5",
+      "t4-residual-147498-177015-1.0",
+      "t4-public_projection-147498-177015",
+      "t4-unmarked_projection_sham-147498-177015",
+      "t4-residual-147498-6012-0.5",
+      "t4-residual-147498-6012-1.0",
+      "t4-public_projection-147498-6012",
+      "t4-unmarked_projection_sham-147498-6012",
+      "t4-residual-177015-190676-0.5",
+      "t4-residual-177015-190676-1.0",
+      "t4-public_projection-177015-190676",
+      "t4-unmarked_projection_sham-177015-190676",
+      "t4-residual-177015-25394-0.5",
+      "t4-residual-177015-25394-1.0",
+      "t4-public_projection-177015-25394",
+      "t4-unmarked_projection_sham-177015-25394",
+      "t4-residual-190676-468505-0.5",
+      "t4-residual-190676-468505-1.0",
+      "t4-public_projection-190676-468505",
+      "t4-unmarked_projection_sham-190676-468505",
+      "t4-residual-190676-80932-0.5",
+      "t4-residual-190676-80932-1.0",
+      "t4-public_projection-190676-80932",
+      "t4-unmarked_projection_sham-190676-80932",
+      "t4-residual-468505-499768-0.5",
+      "t4-residual-468505-499768-1.0",
+      "t4-public_projection-468505-499768",
+      "t4-unmarked_projection_sham-468505-499768",
+      "t4-residual-468505-109798-0.5",
+      "t4-residual-468505-109798-1.0",
+      "t4-public_projection-468505-109798",
+      "t4-unmarked_projection_sham-468505-109798",
+      "t4-residual-499768-6012-0.5",
+      "t4-residual-499768-6012-1.0",
+      "t4-public_projection-499768-6012",
+      "t4-unmarked_projection_sham-499768-6012",
+      "t4-residual-499768-134882-0.5",
+      "t4-residual-499768-134882-1.0",
+      "t4-public_projection-499768-134882",
+      "t4-unmarked_projection_sham-499768-134882",
+      "t5-1675-4795",
+      "t5-transfer-1675-4795",
+      "t5-1675-6012",
+      "t5-1675-25394",
+      "t5-1675-80932",
+      "t5-1675-109798",
+      "t5-1675-134882",
+      "t5-transfer-1675-134882",
+      "t5-1675-147498",
+      "t5-1675-177015",
+      "t5-transfer-1675-177015",
+      "t5-1675-190676",
+      "t5-1675-468505",
+      "t5-1675-499768",
+      "t5-4795-6012",
+      "t5-4795-25394",
+      "t5-4795-80932",
+      "t5-4795-109798",
+      "t5-4795-134882",
+      "t5-transfer-4795-134882",
+      "t5-4795-147498",
+      "t5-4795-177015",
+      "t5-transfer-4795-177015",
+      "t5-4795-190676",
+      "t5-4795-468505",
+      "t5-4795-499768",
+      "t5-6012-25394",
+      "t5-6012-80932",
+      "t5-6012-109798",
+      "t5-6012-134882",
+      "t5-6012-147498",
+      "t5-6012-177015",
+      "t5-6012-190676",
+      "t5-6012-468505",
+      "t5-6012-499768",
+      "t5-25394-80932",
+      "t5-25394-109798",
+      "t5-25394-134882",
+      "t5-25394-147498",
+      "t5-25394-177015",
+      "t5-25394-190676",
+      "t5-25394-468505",
+      "t5-25394-499768",
+      "t5-80932-109798",
+      "t5-80932-134882",
+      "t5-80932-147498",
+      "t5-80932-177015",
+      "t5-80932-190676",
+      "t5-80932-468505",
+      "t5-transfer-80932-468505",
+      "t5-80932-499768",
+      "t5-109798-134882",
+      "t5-109798-147498",
+      "t5-109798-177015",
+      "t5-109798-190676",
+      "t5-109798-468505",
+      "t5-109798-499768",
+      "t5-134882-147498",
+      "t5-134882-177015",
+      "t5-transfer-134882-177015",
+      "t5-134882-190676",
+      "t5-134882-468505",
+      "t5-134882-499768",
+      "t5-147498-177015",
+      "t5-147498-190676",
+      "t5-147498-468505",
+      "t5-147498-499768",
+      "t5-177015-190676",
+      "t5-177015-468505",
+      "t5-177015-499768",
+      "t5-190676-468505",
+      "t5-190676-499768",
+      "t5-468505-499768"
+    ]
+  },
+  "attack_settings": {
+    "strengths": [
+      0.05,
+      0.1,
+      0.2,
+      0.4
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "steps": 20,
+    "guidance_scale": 1.0,
+    "prompt": "",
+    "negative_prompt": "",
+    "eta": 0.0,
+    "diffusion_posterior": "unchanged pinned img2img pipeline sampling/noising",
+    "vae": "posterior-mode",
+    "projection_dtype": "float64 then pinned fp16 decoder",
+    "projection_conversion": "CPU float64 division by 0.18215, then one NumPy FP16 cast; direct FP16 decode",
+    "projection_precision_version": "ac-native-projection-precision-v1",
+    "projection_cap_db": 35.2,
+    "bisection_steps": 36,
+    "adaptive_detector_decision_queries": 0
+  },
+  "budgets": {
+    "run_seconds_cap": 1800,
+    "gpu_budget_bytes": 10737418240,
+    "gpu_reserve_bytes": 536870912,
+    "ram_budget_bytes": 17179869184,
+    "artifact_budget_bytes": 524288000
+  },
+  "planned_counts": {
+    "conditions": 489,
+    "images": 423,
+    "primary_queries": 1692,
+    "negative_slots": 1437,
+    "source_oracles": 336,
+    "transfer_tuples": 348,
+    "anchor_tuples": 216,
+    "cross_templates": 264,
+    "diagnostic_queries": 1164,
+    "primary_plus_diagnostic": 2856,
+    "pair_geometry": 528,
+    "transfer_geometry": 348
+  }
+}
