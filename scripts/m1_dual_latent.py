@@ -507,7 +507,7 @@ def run(manifest_path, output, reconstruction_run=None):
                 raise ValueError("Asset mismatch: " + item["path"])
         record["asset_files"] = assets
         feature = load_pinned_clip()
-        record["clip_adapter_sha256"] = sha(sys.modules["a6_clip_visual"].__file__)
+        record["clip_adapter_sha256"] = sha(sys.modules["scripts.a6_clip_visual"].__file__)
         package = Path(importlib.metadata.distribution("lpips").locate_file("lpips"))
         verify_package(package)
         metric = load_lpips(ASSETS, package)
