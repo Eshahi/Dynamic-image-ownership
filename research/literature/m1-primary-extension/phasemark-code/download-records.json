@@ -1,0 +1,34 @@
+[
+  {
+    "path": "research\\literature\\m1-primary-extension\\phasemark-code\\LICENSE",
+    "url": "https://raw.githubusercontent.com/thomas11809/PhaseMark/dfe42ad0449459e26fe1579957c6d05ccdee9b92/LICENSE",
+    "revision": "dfe42ad0449459e26fe1579957c6d05ccdee9b92",
+    "license": "CC-BY-NC-4.0",
+    "sha256": "f2f715abab48515faa39f2e42e07ed3518da2fdae36838e6e48ea4a20c2678b8",
+    "size_bytes": 777
+  },
+  {
+    "path": "research\\literature\\m1-primary-extension\\phasemark-code\\utils.py",
+    "url": "https://raw.githubusercontent.com/thomas11809/PhaseMark/dfe42ad0449459e26fe1579957c6d05ccdee9b92/utils.py",
+    "revision": "dfe42ad0449459e26fe1579957c6d05ccdee9b92",
+    "license": "CC-BY-NC-4.0",
+    "sha256": "de23bef357e3524dde2cead837c0d08d112610ed652374e230c3d0621395178d",
+    "size_bytes": 29735
+  },
+  {
+    "path": "research\\literature\\m1-primary-extension\\phasemark-code\\fast_try.py",
+    "url": "https://raw.githubusercontent.com/thomas11809/PhaseMark/dfe42ad0449459e26fe1579957c6d05ccdee9b92/fast_try.py",
+    "revision": "dfe42ad0449459e26fe1579957c6d05ccdee9b92",
+    "license": "CC-BY-NC-4.0",
+    "sha256": "8867b19b732f85d919fc2f5f67f5555661157f550faba1bd3049619fa6b767fe",
+    "size_bytes": 12381
+  },
+  {
+    "path": "research\\literature\\m1-primary-extension\\phasemark-code\\README.md",
+    "url": "https://raw.githubusercontent.com/thomas11809/PhaseMark/dfe42ad0449459e26fe1579957c6d05ccdee9b92/README.md",
+    "revision": "dfe42ad0449459e26fe1579957c6d05ccdee9b92",
+    "license": "CC-BY-NC-4.0",
+    "sha256": "3e9aeed30cd0717040270acc49f5a0e897a80355f916ed2878f658ff80b5dcd2",
+    "size_bytes": 21059
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "access_date": "2026-10-03",
+  "limitations": [
+    "Detector runtime/steps and attack-strength/sample-count pins absent in inspected sections. Ratio thresholds in Sec3.3 versus count35 in Sec6.4 are unresolved. Independent-match assumption is not empirical FPR. No digital signature or DCT/OwnerID binding."
+  ],
+  "title": "SLICE: Semantic Latent Injection via Compartmentalized Embedding for Image Watermarking",
+  "citation_key": "Gao2026SLICEv1",
+  "doi": null,
+  "inspected_content": "full-text",
+  "schema_version": "1.0",
+  "paper_id": "slice",
+  "source_type": "preprint",
+  "verification": "verified",
+  "venue": null,
+  "inspection": {
+    "artifact": "slice-v1.html",
+    "sha256": "676b1cac2641ffd0703dcc8124e81bead7df747dac37103612db2b066f9026b6"
+  },
+  "year": 2026,
+  "canonical_url": "https://arxiv.org/html/2603.12749v1",
+  "authors": [
+    "Zheng Gao",
+    "Yifan Yang",
+    "Xiaoyu Li",
+    "Xiaoyan Feng",
+    "Haoran Fan",
+    "Yang Song",
+    "Jiaojiao Jiang"
+  ]
+}

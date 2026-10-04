@@ -1,0 +1,27 @@
+{
+  "access_date": "2026-10-03",
+  "limitations": [
+    "Paper-reported outcomes, not a local reproduction or photographic evidence. Training requires LCM plus pretraining/main learning; pretrained assets not acquired. Eq14 scaled delta/N conflicts with inference Eq5/Alg3 unscaled delta. Exact severity corresponding to Table2 is unclear."
+  ],
+  "title": "Transferable Multi-Bit Watermarking Across Frozen Diffusion Models via Latent Consistency Bridges",
+  "citation_key": "NguyenLe2026DiffMarkv1",
+  "doi": null,
+  "inspected_content": "full-text",
+  "schema_version": "1.0",
+  "paper_id": "diffmark",
+  "source_type": "preprint",
+  "verification": "verified",
+  "venue": null,
+  "inspection": {
+    "artifact": "diffmark-v1.html",
+    "sha256": "122ac0503f563d0dc668f288964e6dddab329609fe17b1e68bc96eb323cb423b"
+  },
+  "year": 2026,
+  "canonical_url": "https://arxiv.org/html/2603.20304v1",
+  "authors": [
+    "Hong-Hanh Nguyen-Le",
+    "Van-Tuan Tran",
+    "Thuc D. Nguyen",
+    "Nhien-An Le-Khac"
+  ]
+}

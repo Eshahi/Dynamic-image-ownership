@@ -1,0 +1,3420 @@
+  
+ 
+ 
+ Transferable Multi-Bit Watermarking Across Frozen Diffusion Models via Latent Consistency Bridges 
+ 
+ 
+ 
+   
+ 
+  // Restore the saved color scheme preference, or
+  // enact the browser preference if "automatic", 
+  // without expecting DOM load to have completed.
+  //
+  // Also restore any saved readingmode and ToC display preferences.
+  function initializeReadingPreferences() {
+    let saved_theme = localStorage.getItem("ar5iv_theme") || "automatic";
+    if (saved_theme === "automatic") {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        saved_theme = "dark";
+      }
+    }
+    if (saved_theme == "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+
+    const tocDisplay = localStorage.getItem('arxiv_html_paper_toc_display');
+    if (tocDisplay) {
+      document.documentElement.setAttribute("data-toc-display", tocDisplay);
+    }
+    const readingMode = localStorage.getItem('arxiv_html_paper_reading_mode');
+    if (readingMode) {
+      document.documentElement.setAttribute("data-reading-mode", readingMode);
+    }
+    // Pre-apply spinout-banner dismissal here, before the banner paints, so it
+    // never flashes in only to be hidden later by the deferred arxiv-header.js.
+    // Key matches arxiv-header.js: "arxiv-banner-dismissed:" + data-banner-name.
+    if (localStorage.getItem('arxiv-banner-dismissed:spinout-nonprofit')) {
+      document.documentElement.setAttribute("data-banner-dismissed", "");
+    }
+  }
+  // Run as soon as JS starts, to minimize repainting
+  initializeReadingPreferences();
+ 
+ 
+ 
+ 
+ 
+ 
+   
+  /* Banner pre-dismissal (set above before paint -> no flash-then-hide) and
+     reading-mode chrome hiding. */
+  html[data-banner-dismissed] .ds-announcement { display: none; }
+  html[data-reading-mode="enabled"] .ds-announcement,
+  html[data-reading-mode="enabled"] .ds-site-footer { display: none; }
+  /* Keep the announcement text dark on the Open-Blue band in both colour themes
+     (otherwise it inherits the paper's warm-wash text in dark mode and washes out). */
+  .ds-announcement-text { color: var(--arxiv-ink, #1c1a17); }
+ 
+  
+ 
+ 
+ 
+   
+     
+       Report GitHub Issue 
+       × 
+     
+
+     
+       Title: 
+       
+
+       Content selection saved. Describe the issue below: 
+
+       Description: 
+        
+     
+
+     
+       Submit without GitHub 
+       Submit in GitHub 
+     
+   
+  
+     
+     arXiv is now an independent nonprofit! 
+     Learn more 
+     × 
+   
+
+ 
+   
+      
+       Back to arXiv 
+     
+   
+   
+   
+     Why HTML? 
+     
+       
+         
+       
+       Report Issue  
+     
+     
+       
+         
+         
+       
+       Back to Abstract 
+     
+     
+     
+       
+         
+       
+       Download PDF  
+     
+     
+       
+         
+         
+       
+     
+     
+     
+        
+         
+       
+     
+     
+     
+       
+         
+           
+           
+         
+       
+       
+         
+           
+           
+         
+       
+       
+         
+           
+           
+         
+       
+     
+   
+  
+ 
+ 
+   Abstract   
+    1  Introduction   
+    2  Preliminaries  
+ 
+    2.1  Latent Diffusion Models   
+    2.2  Latent Consistency Models   
+  
+    3  DiffMark: Differentiable Watermarking  
+ 
+    3.1  Watermark Embedding via Persistent Delta Injection  
+ 
+    3.1.1  Delta Injection Mechanism   
+    3.1.2  Perturbation Regularization   
+    3.1.3  Encoder-Decoder Pretraining   
+  
+    3.2  LCM as a Differentiable Training Bridge  
+ 
+    3.2.1  LCM path (differentiable)   
+    3.2.2  DDIM path (non-differentiable).   
+    3.2.3  Imperceptibility Preservation   
+    3.2.4  False-Positive Suppression   
+  
+    3.3  Multi-stage Curriculum Training Strategy   
+  
+    4  Experiments  
+ 
+    4.1  Experimental Settings   
+    4.2  Watermark Detection and Image Quality   
+    4.3  Identification Analysis  
+ 
+    4.3.1  Watermark Identification Problem   
+    4.3.2  Experimental Design   
+    4.3.3  Attack scenarios   
+    4.3.4  Empirical Identification Results at Very Large Scale   
+  
+    4.4  Key Flexibility   
+    4.5  Cross-Model Transferability   
+    4.6  Watermark Detection Latency   
+    4.7  Robustness   
+    4.8  Ablation Study  
+ 
+    4.8.1  LCM Step Ablation   
+    4.8.2  Bit Length Ablation   
+    4.8.3  Watermark Signal Visualization   
+    4.8.4  More Qualitative Results   
+  
+  
+    5  Related Works  
+ 
+    5.1  Post-hoc Image Watermarking   
+    5.2  Watermarking Diffusion Models   
+  
+    6  Conclusion   
+    7  Acknowledgment   
+   References   
+    A  Detailed Related Work  
+ 
+    A.1  Post-hoc Image Watermarking   
+    A.2  Watermarking Diffusion Models  
+ 
+   Sampling-based methods   
+   Fine-tuning-based methods   
+  
+  
+    B  Details in Encoder-Decoder Pretraining  
+ 
+    B.1  Encoder Architecture   
+    B.2  Decoder Architecture   
+  
+    C  Details in Curriculum Training  
+ 
+    C.1  Delta Annealing Schedule   
+    C.2  Gradient Analysis of Training Collapse   
+  
+    D  Details in Imperceptibility Loss Functions  
+ 
+   Latent fidelity loss     ℒ  lafid   \mathcal{L}_{\mathrm{lafid}}   .   
+   Peak regional variational loss     ℒ  prvl   \mathcal{L}_{\mathrm{prvl}}   .   
+   Frequency constraint     ℒ  freq   \mathcal{L}_{\mathrm{freq}}   .   
+  
+    E  Additional Implementation Details   
+    F  Details about Attacks   
+    G  Pseudo-codes  
+ 
+    G.1  Encoder-Decoder Pretraining   
+    G.2  Dual-path Training   
+    G.3  Watermark Embedding (Inference)   
+    G.4  Watermark Detection (Inference)   
+  
+  
+ 
+ 
+ 
+   
+    License: CC BY-NC-ND 4.0
+   
+   
+arXiv:2603.20304v1 [cs.CV] 19 Mar 2026 
+  
+ 
+ Transferable Multi-Bit Watermarking Across Frozen Diffusion Models via Latent Consistency Bridges 
+ 
+ 
+ Hong-Hanh Nguyen-Le
+   †    †  thanks:  Equal contribution.     
+  Affiliation:  University College Dublin, Ireland
+ 
+  Email:    hong-hanh.nguyen-le@ucdconnect.ie  
+    
+     
+ Van-Tuan Tran  1    1  footnotemark:  
+           1 
+          
+          
+          
+          
+          
+          
+          
+           
+   
+  Affiliation:  Trinity College Dublin, Ireland
+ 
+  Email:    tranva@tcd.ie  
+    
+     
+ Thuc D. Nguyen
+   
+  Affiliation:  Ho Chi Minh City University of Science
+ 
+  Email:    ndthuc@fit.hcmus.edu.vn  
+    
+     
+ Nhien-An Le-Khac
+   
+  Affiliation:  University College Dublin, Ireland
+ 
+  Email:    an.lekhac@ucd.ie  
+     
+
+  Abstract 
+    
+ As diffusion models (DMs) enable photorealistic image generation at unprecedented scale, watermarking techniques have become essential for provenance establishment and accountability. Existing methods face challenges: sampling-based approaches operate on frozen models but require costly    N  N   -step Denoising Diffusion Implicit Models (DDIM) inversion (typically     N  =  50   N=50   ) for zero-bit-only detection; fine-tuning-based methods achieve fast multi-bit extraction but couple the watermark to a specific model checkpoint, requiring retraining for each architecture. We propose DiffMark, a plug-and-play watermarking method that offers three key advantages over existing approaches: single-pass multi-bit detection, per-image key flexibility, and cross-model transferability. Rather than encoding the watermark into the initial noise vector, DiffMark injects a persistent learned perturbation    δ  \delta    at every denoising step of a completely frozen DM. The watermark signal accumulates in the final denoised latent     z  0   z_{0}    and is recovered in a single forward pass. The central challenge of backpropagating gradients through a frozen UNet without traversing the full denoising chain is addressed by employing Latent Consistency Models (LCM) as a differentiable training bridge. This reduces the number of gradient steps from 50 DDIM to 4 LCM and enables a single-pass detection at 16.4 ms, a     45  ×   45\times    speedup over sampling-based methods. Moreover, by this design, the encoder learns to map any runtime secret to a unique perturbation at inference time, providing genuine per-image key flexibility and transferability to unseen diffusion-based architectures without per-model fine-tuning. Although achieving these advantages, DiffMark also maintains competitive watermark robustness against distortion, regeneration, and adversarial attacks. 
+  
+ 
+ 
+  1  Introduction 
+
+   
+   Figure 1 :   Comparison of watermarking paradigms for DMs.
+(a) Sampling-based methods, (b) Fine-tuning-based methods modify model weights for fast multi-bit detection, and (c) DiffMark (Ours) injects a learned perturbation    δ  \delta    at every step of a frozen UNet, enabling fast single-pass multi-bit detection without weight modification.  
+ 
+ 
+ The rapid proliferation of diffusion-based generative models   Rombach et al. (2022) ;  Podell et al. (2024) ;  Ruiz et al. (2023) ;  Esser et al. (2024)   has enabled photorealistic image creation at unprecedented scale, raising urgent concerns about deepfakes, misinformation, and copyright infringement   Pearson and Zinets (2022) ;  Pezenik and Shepherd (2024) ;  Tenbarge (2024) ;  CNN (2024)  . These real-world malicious cases have prompted regulatory responses worldwide: the EU AI Act mandates machine-readable labeling of AI-generated content   European Parliament and Council of the European Union (2024)  , and C2PA has established technical standards for content authentication   Coalition for Content Provenance and Authenticity (2024)  . 
+ 
+ 
+ In this landscape, watermarking has emerged as a critical provenance technique for embedding imperceptible yet recoverable signals into generated images   Nguyen-Le et al. (2025)  . However, existing methods for diffusion models (DMs) face complementary limitations. First,  sampling-based methods    Wen et al. (2023) ;  Ci et al. (2024) ;  Li et al. (2025)   embed watermark information into the initial noise vector     z  T   z_{T}    or intermediate latent variables, and recover it via Denoising Diffusion Implicit Models (DDIM) inversion   Song et al. (2020)  . Despite enabling plug-and-play deployment, they suffer from three critical drawbacks: (i) detection requires running    N  N   -step DDIM inversion (typically     N  =  50   N=50   ), which is costly at platform scale; (ii) most support only zero-bit detection (watermark present or absent), which is impossible for user identification; and (iii) per-image key assignment requires regenerating a new pattern for each image. Second,  fine-tuning-based methods    Fernandez et al. (2023) ;  Feng et al. (2024) ;  Xiong et al. (2023)   modify model components, typically the VAE decoder, to enable single-pass multi-bit extraction, but couple the watermark to a specific checkpoint: each new architecture or model variant requires retraining, and all images produced share the same embedded key. 
+ 
+ 
+ In this paper, we propose  DiffMark , a plug-and-play multi-bit watermarking method that resolves existing limitations. Fig.   1   shows the differences between DiffMark and other methods.
+Our key insight is that the watermark need not reside in the initial noise     z  T   z_{T}   , which forces costly inversion for recovery, but can instead be embedded as a persistent learned perturbation    δ  \delta    injected at every denoising step of a frozen DM. A lightweight encoder is used to map an arbitrary    L  L   -bit secret to a single latent-space perturbation     δ  ∈   ℝ   4  ×  h  ×  w     \delta\in\mathbb{R}^{4\times h\times w}   , enabling multi-bit capacity and per-image key assignment at inference time. Because    δ  \delta    accumulates throughout the sampling trajectory, its signal is naturally concentrated in the final denoised latent     z  0   z_{0}   , enabling a lightweight decoder     D  ψ   D_{\psi}    to recover the embedded secret in a single forward pass. Since the entire DM remains completely frozen, the central challenge is: 
+ 
+                
+ 
+  How can we backpropagate the gradients back to the encoder without traversing the full DDIM denoising chain?  
+        
+ 
+ 
+ We address this by employing Latent Consistency Models (LCMs)   Luo et al. (2023)   as a  differentiable training bridge , distilling the multi-step denoising process into     K  =  4   K=4    forward passes and providing a tractable gradient path through the frozen UNet. A parallel full-step DDIM path, detached from the encoder graph, supplies the decoder with high-fidelity supervision. This dual-path design decouples two competing requirements: short differentiable paths for encoder learning and realistic high-quality latents for decoder calibration. We further introduce a multi-stage curriculum that prevents optimization collapse by activating reconstruction, imperceptibility, and robustness objectives in strict succession. At inference time, watermarked images are generated with the standard DDIM sampler only at full quality, introducing no runtime overhead. 
+ 
+ 
+  Our contributions.  In summary, our proposed DiffMark offers key advantages over existing methods: 
+ 
+  •  
+ 
+  Single-pass multi-bit detection : A lightweight decoder extracts the full    L  L   -bit secret directly from the denoised latent     z  0   z_{0}    at 16.4 ms, a     45  ×   45\times    speedup over sampling-based methods. With     L  =  64   L=64    bits, DiffMark provides sufficient capacity for reliable user identification at platform scale. 
+  
+  •  
+ 
+  Key flexibility : By leveraging LCMs as a differentiable training bridge, the encoder learns to map an arbitrary    L  L   -bit secret to a perturbation at inference time, enabling each generated image to carry a unique key without re-training or fine-tuning. 
+  
+  •  
+ 
+  Cross-model transferability : The single trained encoder-decoder pair transfers directly across DMs without per-model fine-tuning. 
+  
+  •  
+ 
+  Robustness : DiffMark still achieves near-perfect bit accuracy under 13 attack types, including distortion, regeneration, and adversarial attacks, across three datasets: MS-COCO 2017, DiffusionDB, and DALL-E3. 
+  
+ 
+ 
+ 
+ 
+  2  Preliminaries 
+
+ 
+  2.1  Latent Diffusion Models 
+
+ 
+ Latent Diffusion Models (LDMs)   Rombach et al. (2022) ;  Podell et al. (2024)   operate in a compressed latent space defined by a pretrained VAE: an encoder    ℰ  \mathcal{E}    maps an image     x  ∈   ℝ   3  ×  H  ×  W     x\in\mathbb{R}^{3\times H\times W}    to a latent representation     z  =   ℰ  ⁡   (  x  )    ∈   ℝ   c  ×  h  ×  w     z=\mathcal{E}(x)\in\mathbb{R}^{c\times h\times w}   , and a decoder
+reconstructs      x  ^   =   𝒟  ⁡   (  z  )     \hat{x}=\mathcal{D}(z)   . A denoising UNet     ϵ  θ   \epsilon_{\theta}    is trained to reverse a forward process that progressively corrupts a clean latent     z  0   z_{0}   : 
+ 
+
+  
+  
+        z  t   =       α  ¯   t    ​   z  0    +     1  −    α  ¯   t     ​  ϵ     ,   ϵ  ∼   𝒩  ⁡   (  0  ,  𝐈  )      ,   z_{t}=\sqrt{\bar{\alpha}_{t}}\,z_{0}+\sqrt{1-\bar{\alpha}_{t}}\,\epsilon,\quad\epsilon\sim\mathcal{N}(0,\mathbf{I}),    
+  
+  (1)    
+ 
+ where       α  ¯   t   =    ∏   i  =  1   t    α  i     \bar{\alpha}_{t}=\prod_{i=1}^{t}\alpha_{i}   . Image generation proceeds by sampling      z  T   ∼   𝒩  ⁡   (  0  ,  𝐈  )     z_{T}\sim\mathcal{N}(0,\mathbf{I})    and iteratively denoising via a sampler such as DDIM   Song et al. (2020)  : 
+ 
+
+  
+  
+       z   t  −  1    =       α  ¯    t  −  1     ​   (     z  t   −     1  −    α  ¯   t     ​    ϵ  ^   t        α  ¯   t     )    +     1  −    α  ¯    t  −  1      ​    ϵ  ^   t      ,   z_{t-1}=\sqrt{\bar{\alpha}_{t-1}}\left(\frac{z_{t}-\sqrt{1-\bar{\alpha}_{t}}\,\hat{\epsilon}_{t}}{\sqrt{\bar{\alpha}_{t}}}\right)+\sqrt{1-\bar{\alpha}_{t-1}}\,\hat{\epsilon}_{t},    
+  
+  (2)    
+ 
+ where       ϵ  ^   t   =    ϵ  θ   ​   (   z  t   ,  t  ,  c  )     \hat{\epsilon}_{t}=\epsilon_{\theta}(z_{t},t,c)    is the predicted noise. When classifier-free guidance (CFG)   Ho and Salimans (2022)   is used, the noise estimate is replaced by a linear combination of conditional and unconditional predictions:       ϵ  ^   t   =    ϵ  uncond   +   w  ⋅   (    ϵ  cond   −   ϵ  uncond    )      \hat{\epsilon}_{t}=\epsilon_{\text{uncond}}+w\cdot(\epsilon_{\text{cond}}-\epsilon_{\text{uncond}})   , where    w  w    is the guidance scale. The deterministic nature of DDIM also permits  inversion : given a clean latent     z  0   z_{0}   , one can recover an approximate initial noise     z  T   z_{T}    by reversing Eq.(  2  ), a property exploited by sampling-based watermarking methods   Wen et al. (2023) ;  Ci et al. (2024) ;  Li et al. (2025)   for watermark detection. 
+ 
+ 
+ 
+  2.2  Latent Consistency Models 
+
+ 
+ Latent Consistency Models (LCMs)   Luo et al. (2023)   extend consistency distillation   Song et al. (2023)   to the latent space of pretrained LDMs. An LCM learns a consistency function      f  θ   :    (   z  t   ,  ω  ,  c  ,  t  )   ↦   z  0     f_{\theta}:(z_{t},\omega,c,t)\mapsto z_{0}    that directly predicts the solution of the  augmented Probability Flow Ordinary Differential Equation (PF-ODE) , which incorporates classifier-free guidance: 
+ 
+
+  
+  
+         d  ​   z  t     d  ​  t    =     f  ⁡   (  t  )    ​   z  t    +      g  2   ​   (  t  )     2  ​   σ  t     ​    ϵ  ~   θ   ​   (   z  t   ,  ω  ,  c  ,  t  )      ,    z  T   ∼   𝒩  ⁡   (  0  ,     σ  ~   2   ​  𝐈   )      ,   \frac{dz_{t}}{dt}=f(t)\,z_{t}+\frac{g^{2}(t)}{2\sigma_{t}}\,\tilde{\epsilon}_{\theta}(z_{t},\omega,c,t),\quad z_{T}\sim\mathcal{N}(0,\tilde{\sigma}^{2}\mathbf{I}),    
+  
+  (3)    
+ 
+ where        ϵ  ~   θ   ​   (   z  t   ,  ω  ,  c  ,  t  )    =     (   1  +  ω   )   ​   ϵ  θ   ​   (   z  t   ,  c  ,  t  )    −   ω  ​   ϵ  θ   ​   (   z  t   ,  ∅  ,  t  )      \tilde{\epsilon}_{\theta}(z_{t},\omega,c,t)=(1+\omega)\,\epsilon_{\theta}(z_{t},c,t)-\omega\,\epsilon_{\theta}(z_{t},\varnothing,t)    is the guided noise prediction and    ω  \omega    is the guidance scale. LCMs are trained by minimizing the latent consistency distillation loss: 
+ 
+
+  
+  
+       ℒ  LCD   =    𝔼   z  ,  c  ,  ω  ,  n    ​   [    d   ⁡   (    f  θ   ​   (   z   t   n  +  k     ,  ω  ,  c  ,   t   n  +  k    )    ,    f   θ  −    ​   (    z  ^    t  n    Ψ  ,  ω    ,  ω  ,  c  ,   t  n   )    )    ]     ,   \mathcal{L}_{\text{LCD}}=\mathbb{E}_{z,c,\omega,n}\!\left[\,d\!\left(f_{\theta}(z_{t_{n+k}},\omega,c,t_{n+k}),\;f_{\theta^{-}}(\hat{z}^{\Psi,\omega}_{t_{n}},\omega,c,t_{n})\right)\right],    
+  
+  (4)    
+ 
+ where      z  ^    t  n    Ψ  ,  ω    \hat{z}^{\Psi,\omega}_{t_{n}}    is estimated from     z   t   n  +  k     z_{t_{n+k}}    using an ODE solver    Ψ  \Psi    (e.g., DDIM),     θ  −   \theta^{-}    denotes an exponential moving average of the parameters,     d  ⁡   (  ⋅  ,  ⋅  )    d(\cdot,\cdot)    is a distance metric, and    k  k    is a skipping-step interval that accelerates convergence by enforcing consistency over larger timestep gaps. 
+ 
+ 
+ A key property of LCMs for our work is that they distill the multi-step PF-ODE solving process into as few as 2 to 4 forward passes while faithfully approximating the solution of the pretrained model’s PF-ODE. This compression is the key property we exploit: gradients can flow from a downstream loss through the few LCM steps back to the input latent, which is computationally prohibitive with    N  N   -step DDIM sampling. 
+ 
+ 
+ 
+ 
+   
+   (a)    At inference: a lightweight encoder     E  ϕ   E_{\phi}    maps an    L  L   -bit secret    s  s    to a perturbation    δ  \delta    injected at every denoising step of a frozen UNet. A decoder     D  ψ   D_{\psi}    recovers the secret from the final latent     z  0   z_{0}    in a single forward pass.  
+     
+  
+   (b)    Dual-path training: the differentiable LCM path (    K  =  4   K{=}4    steps) provides encoder gradients via     ℒ  lcm   \mathcal{L}_{\mathrm{lcm}}   , while the full DDIM path (    N  =  50   N{=}50    steps) supplies high-fidelity decoder supervision via     ℒ  ddim   \mathcal{L}_{\mathrm{ddim}}   .  
+   
+   Figure 2 :   Overview of DiffMark.  
+ 
+ 
+ 
+ 
+  3  DiffMark: Differentiable Watermarking 
+
+ 
+ Given an    L  L   -bit secret     s  ∈    {   0  ,  1   }   L    s\in\{0,1\}^{L}   , our goal is to embed    s  s    into a diffusion-generated images satisfying three requirements: (i)    s  s    is recoverable in a  single-forward pass ; (ii) the watermarked image is  visually indistinguishable  from a clean sample, and (iii) the watermark is embedded  without modifying  the weights of the underlying DM. DiffMark achieves these goals through two core ideas. First, instead of encoding the watermark into the initial noise     z  T   z_{T}      Wen et al. (2023) ;  Li et al. (2025) ;  Ci et al. (2024)  , which necessitates costly inversion for recovery, we embed it as a persistent learned perturbation    δ  \delta    at every denoising step (Sec.   3.1  ). This perturbation accumulates in the final denoised latent     z  0   z_{0}    and can be extracted by a single forward pass through a lightweight decoder     D  ψ   D_{\psi}   . Second, to enable end-to-end encoder training through the frozen UNet, we propose to employ LCM as a differentiable training bridge (Sec.   3.2  ). Additionally, we introduce a multi-stage curriculum training strategy to prevent the training collapse (Sec.   3.3  ). Fig.   2   provides an overview of DiffMark at inference time and its dual-path training strategy. 
+ 
+ 
+  3.1  Watermark Embedding via Persistent Delta Injection 
+
+ 
+  3.1.1  Delta Injection Mechanism 
+
+ 
+ Given an    L  L   -bit secret     s  ∈    {   0  ,  1   }   L    s\in\{0,1\}^{L}   , a lightweight encoder     E  ϕ   E_{\phi}    maps    s  s    to a latent-space perturbation     δ  =    E  ϕ   ​   (  s  )    ∈   ℝ   c  ×  h  ×  w     \delta=E_{\phi}(s)\in\mathbb{R}^{c\times h\times w}   , where     c  ,  h  ,  w   c,h,w    match the dimensions of the diffusion latent space. The encoder is called once, and the same    δ  \delta    is reused at every denoising step. We modify the standard DDIM sampling process   Song et al. (2020)   as follows. Let     {    t  1   ,   t  2   ,  …  ,   t  N    }   \{t_{1},t_{2},\ldots,t_{N}\}    denote the denoising timestep scheduleand let      z  T   ∼   𝒩  ⁡   (  0  ,  𝐈  )     z_{T}\sim\mathcal{N}(0,\mathbf{I})    be the initial noise. At each step      k  =  1   ,  …  ,  N   k=1,\ldots,N   , the watermarked denoising trajectory is: 
+ 
+
+  
+  
+      z  ~    t  k    \displaystyle\tilde{z}_{t_{k}}    
+        =    z   t  k    +  δ    ,   \displaystyle=z_{t_{k}}+\delta,    
+  
+  (5)    
+  
+  
+      ϵ  ^    t  k    \displaystyle\hat{\epsilon}_{t_{k}}    
+        =     (   1  +  w   )   ​   ϵ  θ   ​   (    z  ~    t  k    ,   t  k   ,  c  )    −   w  ​   ϵ  θ   ​   (    z  ~    t  k    ,   t  k   ,  ∅  )      ,   \displaystyle=(1+w)\,\epsilon_{\theta}(\tilde{z}_{t_{k}},t_{k},c)-w\,\epsilon_{\theta}(\tilde{z}_{t_{k}},t_{k},\varnothing),    
+  
+  (6)    
+  
+  
+     z   t   k  +  1     \displaystyle z_{t_{k+1}}    
+        =       α  ¯    t   k  +  1      ​   (       z  ~    t  k    −     1  −    α  ¯    t  k      ​    ϵ  ^    t  k         α  ¯    t  k       )    +     1  −    α  ¯    t   k  +  1       ​    ϵ  ^    t  k       ,   \displaystyle=\sqrt{\bar{\alpha}_{t_{k+1}}}\left(\frac{\tilde{z}_{t_{k}}-\sqrt{1-\bar{\alpha}_{t_{k}}}\,\hat{\epsilon}_{t_{k}}}{\sqrt{\bar{\alpha}_{t_{k}}}}\right)+\sqrt{1-\bar{\alpha}_{t_{k+1}}}\,\hat{\epsilon}_{t_{k}},    
+  
+  (7)    
+ 
+ 
+ 
+ where     ϵ  θ   \epsilon_{\theta}    is the frozen UNet,    c  c    is the text conditioning,    ∅  \varnothing    denotes the null condition for classifier-free guidance with scale    w  w   , and      α  ¯   t   \bar{\alpha}_{t}    is the cumulative noise schedule. Because    δ  \delta    is injected  before  each UNet evaluation, the noise prediction      ϵ  ^    t  k    \hat{\epsilon}_{t_{k}}    is conditioned on the perturbed latent      z  ~    t  k    \tilde{z}_{t_{k}}   , and its effect on the denoising trajectory accumulates through subsequent DDIM updates (Eq. (  7  )), progressively shaping the final latent     z  0   z_{0}   . A lightweight decoder     D  ψ   D_{\psi}    then recovers the secret in a single forward pass:      s  ^   =    D  ψ   ​   (   z  0   )    ∈   ℝ   L  ×  2     \hat{s}=D_{\psi}(z_{0})\in\mathbb{R}^{L\times 2}   , enabling multi-bit capacity for user identification without costly inversion. 
+ 
+ 
+ 
+  3.1.2  Perturbation Regularization 
+
+ 
+ Unlike sampling-based methods that replace     z  T   z_{T}    with a watermark-carrying noise vector, DiffMark leaves      z  T   ∼   𝒩  ⁡   (  0  ,  𝐈  )     z_{T}\sim\mathcal{N}(0,\mathbf{I})    entirely unmodified. To keep the UNet operating within its trained regime and minimize perceptible artifacts in the generated image, we regularize    δ  \delta    through two complementary constraints. First, a magnitude loss penalizes deviations of    δ  \delta   ’s standard deviation from a target value     σ  target   \sigma_{\text{target}}   : 
+ 
+
+  
+  
+       ℒ  mag   =    (    σ  ⁡   (  δ  )    −   σ  target    )   2    ,   \mathcal{L}_{\mathrm{mag}}=\bigl(\sigma(\delta)-\sigma_{\mathrm{target}}\bigr)^{2},    
+  
+  (8)    
+ 
+ where     σ  target   \sigma_{\text{target}}    is annealed from a relaxed initial value to a tighter final value over training (Appendix   C.1  ). Second, a KL divergence term regularizes the encoder’s variational distribution toward the standard Gaussian: 
+ 
+
+  
+  
+      ℒ  KL   =   KL    (   q  ϕ    (  δ  ∣  s  )   ∥  𝒩   (  0  ,  𝐈  )   )   =  −   1   2  ​   |  δ  |      ∑   j  =  1    |  δ  |     (  1  +  log   σ  j  2   −   μ  j  2   −   σ  j  2   )   ,   \mathcal{L}_{\mathrm{KL}}=\mathrm{KL}\!\bigl(q_{\phi}(\delta\mid s)\;\|\;\mathcal{N}(0,\mathbf{I})\bigr)=-\frac{1}{2|\delta|}\sum_{j=1}^{|\delta|}\Bigl(1+\log\sigma_{j}^{2}-\mu_{j}^{2}-\sigma_{j}^{2}\Bigr),    
+  
+  (9)    
+ 
+ where     μ  j   \mu_{j}    and     σ  j  2   \sigma_{j}^{2}    are the mean and variance produced by the encoder’s variational heads. Together, these terms enforce      ‖  δ  ‖   ≪   ‖   z  T   ‖    \|\delta\|\ll\|z_{T}\|   , ensuring that each perturbed input       z  ~    t  k    =    z   t  k    +  δ    \tilde{z}_{t_{k}}=z_{t_{k}}+\delta    remains close to the clean trajectory. 
+ 
+ 
+ 
+  3.1.3  Encoder-Decoder Pretraining 
+
+ 
+ Prior to full training with the diffusion model, the encoder and decoder are jointly pretrained to establish a reliable secret-to-perturbation mapping. The encoder produces     δ  =    E  ϕ   ​   (  s  )     \delta=E_{\phi}(s)    for a randomly sampled secret     s  ∼   Bernoulli  ​    (  0.5  )   L     s\sim\mathrm{Bernoulli}(0.5)^{L}   , and the decoder is trained to recover    s  s    from both    δ  \delta    and noisy variants     δ  +  ϵ   \delta+\epsilon   ,     ϵ  ∼   𝒩  ⁡   (  0  ,    σ  n  2   ​  𝐈   )     \epsilon\sim\mathcal{N}(0,\sigma_{n}^{2}\mathbf{I})   , where     σ  n   \sigma_{n}    increases over training. The decoder is supervised with the per-bit cross-entropy loss: 
+ 
+
+  
+  
+      ℒ  CE    (  𝐨  ,  s  )   =  −   1  L    ∑   i  =  1   L    ∑   c  ∈   {   0  ,  1   }     𝟙   [   s  i   =  c  ]   log   p   i  ,  c    ,   \mathcal{L}_{\mathrm{CE}}(\mathbf{o},s)=-\frac{1}{L}\sum_{i=1}^{L}\sum_{c\in\{0,1\}}\mathbbm{1}[s_{i}=c]\,\log p_{i,c},    
+  
+  (10)    
+ 
+ where     𝐨  =    D  ψ   ​   (  ⋅  )    ∈   ℝ   L  ×  2     \mathbf{o}=D_{\psi}(\cdot)\in\mathbb{R}^{L\times 2}    and
+     p   i  ,  c    =    exp  ⁡   (   𝐨   i  ,  c    )      exp  ⁡   (   𝐨   i  ,  0    )    +   exp  ⁡   (   𝐨   i  ,  1    )       p_{i,c}=\frac{\exp(\mathbf{o}_{i,c})}{\exp(\mathbf{o}_{i,0})+\exp(\mathbf{o}_{i,1})}   . We further introduce an orthogonality loss     ℒ  orth   \mathcal{L}_{\mathrm{orth}}    to prevent the encoder from mapping all secrets to the same perturbation. This loss is defined as the mean pairwise cosine similarity between perturbations within a batch: 
+ 
+
+  
+  
+       ℒ  orth   =    1   B  ⁡   (   B  −  1   )     ​    ∑   i  ≠  j       ⟨    δ  i   ,   δ  j    ⟩   F      ‖   δ  i   ‖   F   ​    ‖   δ  j   ‖   F        ,   \mathcal{L}_{\text{orth}}=\frac{1}{B(B-1)}\sum_{i\neq j}\frac{\langle\delta_{i},\delta_{j}\rangle_{F}}{\|\delta_{i}\|_{F}\|\delta_{j}\|_{F}},    
+  
+  (11)    
+ 
+ where      ⟨   ⋅  ,  ⋅   ⟩   F   \langle\cdot,\cdot\rangle_{F}    and     ∥  ⋅  ∥     F    \|\cdot\|_{F}    denote the Frobenius inner product and norm, respectively. Minimizing     ℒ  orth   \mathcal{L}_{\mathrm{orth}}    encourages different secrets to produce orthogonal perturbations, ensuring that the decoder can distinguish them. Details in encoder-decoder architectures are provided in Appendix   B  . 
+ 
+ 
+ 
+ 
+  3.2  LCM as a Differentiable Training Bridge 
+
+ 
+ The delta injection mechanism described in Sec.   3.1   requires backpropagating gradients from the decoder     D  ψ   D_{\psi}    through the entire denoising trajectory to the encoder     E  ϕ   E_{\phi}   . Standard DDIM sampling with     N  =  50   N=50    steps creates a computational graph of    N  N    sequential UNet evaluations, making this prohibitive in both memory and gradient stability. Our key observation is that the encoder does not require the full    N  N   -step DDIM path for gradient computation; it only needs a  differentiable approximation  that faithfully represents how    δ  \delta    influences     z  0   z_{0}   . 
+ 
+ 
+ We address this by employing Latent Consistency Models   Luo et al. (2023)   as a differentiable training bridge. However, LCM’s few-step approximation produces latents of lower fidelity than full DDIM. We therefore introduce a  dual-path training strategy  that decouples encoder optimization from decoder calibration: a short, differentiable LCM path provides the encoder with a tractable gradient signal, while a parallel full-step DDIM path supplies the decoder with high-fidelity supervision. 
+ 
+ 
+  3.2.1  LCM path (differentiable) 
+
+ 
+ Starting from      z   t  1    =   z  T    z_{t_{1}}=z_{T}   , each of the     K  =  4   K=4    LCM steps applies delta injection followed by the frozen LCM forward: 
+ 
+
+  
+  
+       z  ~    t  k    =   z   t  k    +  δ  ,   z   t   k  +  1     =   LCM  θ    (    z  ~    t  k    ,   t  k   ,  c  )   ,  k  =  1  ,  …  ,  K  ,   \tilde{z}_{t_{k}}=z_{t_{k}}+\delta,\qquad z_{t_{k+1}}=\mathrm{LCM}_{\theta}(\tilde{z}_{t_{k}},\,t_{k},\,c),\quad k=1,\dots,K,    
+  
+  (12)    
+ 
+ 
+ 
+ yielding the denoised latent     z  0  lcm   z_{0}^{\text{lcm}}   . Because the LCM forward pass is fully differentiable, the reconstruction loss      ℒ  lcm   =    ℒ  CE   ​   (    D  ψ   ​   (   z  0  lcm   )    ,  s  )     \mathcal{L}_{\text{lcm}}=\mathcal{L}_{\text{CE}}(D_{\psi}(z_{0}^{\text{lcm}}),s)    provides primary gradient signal to     E  ϕ   E_{\phi}    via the entire chain: 
+ 
+
+  
+  
+     ∇     ϕ   ℒ     lcm   :    ℒ  lcm    →  ∇    D  ψ    →  ∇    z  0  lcm    →  ∇       LCM  ​  step  ​  K   →  ⋯  →   LCM  ​  step  ​   1    ⏟    K  ​  differentiable steps     →  ∇   δ   →  ∇    E  ϕ     \nabla_{\phi}\mathcal{L}_{\mathrm{lcm}}:\quad\resizebox{19218570}{}{$\mathcal{L}_{\mathrm{lcm}}\xrightarrow{\nabla}D_{\psi}\xrightarrow{\nabla}z_{0}^{\mathrm{lcm}}\xrightarrow{\nabla}\underbrace{\mathrm{LCM\ step}\ K\;\to\;\cdots\;\to\;\mathrm{LCM\ step}\ 1}_{K\ \text{differentiable steps}}\xrightarrow{\nabla}\delta\xrightarrow{\nabla}E_{\phi}$}    
+  
+  (13)    
+ 
+ The frozen UNet weights    θ  \theta    are never updated; gradients pass  through  the UNet but do not modify it. 
+ 
+ 
+ 
+  3.2.2  DDIM path (non-differentiable). 
+
+ 
+ In parallel, the standard    N  N   -step DDIM sampler (    N  =  50   N{=}50   ) runs with the same     z  T   z_{T}    and a stop-gradient copy      δ  ¯   =   sg  ⁡   (  δ  )     \bar{\delta}=\mathrm{sg}(\delta)   , which each injection scaled by     1  /  N   1/N    to match the cumulative perturbation of the LCM path: 
+ 
+
+  
+  
+       z  ~    t  k    =   z   t  k    +     δ  ¯   N    ,   z   t   k  +  1     =   DDIM  θ    (    z  ~    t  k    ,   t  k   ,  c  )   ,  k  =  1  ,  …  ,  N  .   \tilde{z}_{t_{k}}=z_{t_{k}}+\tfrac{\bar{\delta}}{N},\qquad z_{t_{k+1}}=\mathrm{DDIM}_{\theta}(\tilde{z}_{t_{k}},\,t_{k},\,c),\quad k=1,\dots,N.    
+  
+  (14)    
+ 
+ 
+ 
+ The resulting high-fidelity latent     z  0  ddim   z_{0}^{\mathrm{ddim}}    drives the DDIM supervision loss      ℒ  ddim   =    ℒ  CE   ​   (    D  ψ   ​   (   z  0  ddim   )    ,  s  )     \mathcal{L}_{\mathrm{ddim}}=\mathcal{L}_{\mathrm{CE}}\!\bigl(D_{\psi}(z_{0}^{\mathrm{ddim}}),\,s\bigr)   , which trains the decoder on realistic full-quality outputs without propagating gradients to the encoder. 
+ 
+ 
+ Together, the LCM path teaches the encoder  where  to place the watermark signal via a short, differentiable computational graph, while the DDIM path teaches the decoder  how  to extract it from the high-fidelity latents it will encounter at inference. 
+ 
+ 
+ 
+  3.2.3  Imperceptibility Preservation 
+
+ 
+ Because    δ  \delta    is injected in the latent space of the DM, even small deviations in     z  0   z_{0}    can be amplified by the nonlinear VAE decoder into perceptible pixel-space artifacts. We design a  latent fidelity  loss to penalize distortion directly in latent space, before the lossy decoding step: 
+ 
+
+  
+  
+       ℒ  lafid   =   MSE  ⁡   (   z  0  lcm   ,   z  0   lcm  ,  clean    )     ,   \mathcal{L}_{\mathrm{lafid}}=\mathrm{MSE}(z_{0}^{\mathrm{lcm}},\,z_{0}^{\mathrm{lcm,clean}}),    
+  
+  (15)    
+ 
+ where     z  0   lcm  ,  clean    z_{0}^{\mathrm{lcm,clean}}    is the LCM output from the same     z  T   z_{T}    with zero perturbation.
+While     ℒ  lafid   \mathcal{L}_{\mathrm{lafid}}    controls global latent distortion, the watermark energy may still concentrate in localised pixel regions after VAE decoding. We therefore additionally employ the peak regional variational loss   Feng et al. (2024)   to distribute the watermark energy across the entire image. Finally, inspired by the work   Li et al. (2025)  , we also constrain the frequency-domain characteristics of    δ  \delta    into high frequencies, where the human visual system is least sensitive. Details about these loss functions can be found in Appendix   D  . 
+ 
+ 
+ 
+  3.2.4  False-Positive Suppression 
+
+ 
+ To prevent the decoder from outputting confident predictions on  any  input, we apply a  negative entropy  loss on non-watermarked latents     z  0  clean   z_{0}^{\mathrm{clean}}    produced by DDIM without delta injection: 
+ 
+
+  
+  
+      ℒ  neg   =  −   1   B  ​  L     ∑   b  ,  i     H    (   D  ψ     (   z  0  clean   )    b  ,  i    )   ,   \mathcal{L}_{\mathrm{neg}}=-\frac{1}{BL}\sum_{b,i}H\!\bigl(D_{\psi}(z_{0}^{\mathrm{clean}})_{b,i}\bigr),    
+  
+  (16)    
+ 
+ where     H  ⁡   (  ⋅  )    H(\cdot)    denotes the per-bit entropy of the softmax output. Maximising the decoder’s output entropy on clean images drives the per-bit predictions toward a uniform distribution over     {  0  ,  1  }   \{0,1\}   , ensuring that unwatermarked content yields near-chance bit accuracy and thus prevents false detection. 
+ 
+ 
+ 
+ 
+  3.3  Multi-stage Curriculum Training Strategy 
+
+ 
+ Training DiffMark requires jointly optimizing two competing objectives: watermark
+detection accuracy and imperceptibility. Naively activating all objectives from
+initialization leads to training collapse: imperceptibility losses drive
+     ‖  δ  ‖   →  0   \|\delta\|\to 0   , whereas the reconstruction losses require     ‖  δ  ‖   \|\delta\|    to remain
+sufficiently large for reliable decoding. We resolve this conflict by partitioning
+the objectives into two curriculum-gated groups, 
+ 
+
+  
+  
+        𝒢  rec   =   {   ℒ  lcm   ,   ℒ  ddim   }    ,    𝒢  imp   =   {    ℒ  lafid   ,   ℒ  prvl   ,   ℒ  freq   ,   ℒ  neg    }     ,   \mathcal{G}_{\mathrm{rec}}=\{\mathcal{L}_{\mathrm{lcm}},\,\mathcal{L}_{\mathrm{ddim}}\},\qquad\mathcal{G}_{\mathrm{imp}}=\{\mathcal{L}_{\mathrm{lafid}},\,\mathcal{L}_{\mathrm{prvl}},\,\mathcal{L}_{\mathrm{freq}},\,\mathcal{L}_{\mathrm{neg}}\},    
+  
+  (17)    
+ 
+ 
+   
+   Figure 3 :   Curriculum training strategy. 
+Loss groups are activated in strict order (Eq. (  17  )):
+reconstruction     𝒢  rec   \mathcal{G}_{\mathrm{rec}}    (blue)    →  \to   
+imperceptibility     𝒢  imp   \mathcal{G}_{\mathrm{imp}}    (green).   
+ 
+ 
+ and activating them in a strict order. Each loss     ℒ  i   \mathcal{L}_{i}    is gated by      g  i    (  t  )   =  𝟙   [  t  ≥   τ  i   ]    g_{i}(t)=\mathbbm{1}[t\geq\tau_{i}]   , where     τ  i   \tau_{i}    is its activation step. The schedule satisfies:        max   i  ∈   𝒢  rec     ⁡   τ  i    ≤    min   j  ∈   𝒢  imp     ⁡   τ  j     ,   \max_{i\in\mathcal{G}_{\mathrm{rec}}}\tau_{i}\leq\min_{j\in\mathcal{G}_{\mathrm{imp}}}\tau_{j},   
+so the encoder–decoder pair first establishes a decodable watermark, then refines it for imperceptibility. The total loss at step    t  t    is:       ℒ  ⁡   (  t  )    =    ∑  i        g  i   ​   (  t  )    ⋅   w  i    ​   (  t  )    ⋅   ℒ  i      ,   \mathcal{L}(t)=\sum_{i}g_{i}(t)\cdot w_{i}(t)\cdot\mathcal{L}_{i},   
+where      w  i   ​   (  t  )    w_{i}(t)    is the weight for each term. 
+ 
+ 
+ 
+ 
+  4  Experiments 
+
+ 
+  4.1  Experimental Settings 
+
+ 
+  Baselines & Datasets.  We utilize 3 public datasets for evaluation: MS-COCO 2017   Lin et al. (2014)  , DiffusionDB   Wang et al. (2023)  , and DALL-E3   An et al. (2024)  . For each dataset, we select 1000 images for evaluation.    10,000  10,000    images from DiffusionDB are utilized for training. Regarding baselines, we compare with 5 methods, including StegaStamp   Tancik et al. (2020)  , Stable Signature   Fernandez et al. (2023)  , AquaLoRA robust version   Feng et al. (2024)  , Tree-Ring   Wen et al. (2023)  , RingID   Ci et al. (2024)  , and Shallow Diffuse   Li et al. (2025)  . 
+ 
+ 
+  Evaluation Metrics.  To evaluate watermark detection accuracy, we calculate the bit accuracy (Bit ACC) and TPR     @  ​  0.1   %   @0.1\%   FPR. For image quality evaluation, we use PSNR   Jähne (2005)  , LPIPS   Zhang et al. (2018)  , FID   Heusel et al. (2017)   and CLIP-FID   An et al. (2024)  . 
+ 
+ 
+  Implementation Details. 
+We adopt Stable Diffusion v1.5   Rombach et al. (2022)   as the base diffusion model with its components kept frozen throughout training and inference. For the differentiable LCM bridge, we use
+LCM_Dreamshaper_v7   Luo et al. (2023)   with     K  =  4   K{=}4    denoising steps. During pretraining, the encoder and decoder are jointly trained for up to    50,000  50{,}000    (batch size    64  64   ) steps using AdamW at     3  ×   10   −  4     3{\times}10^{-4}    (encoder) and     1  ×   10   −  4     1{\times}10^{-4}    (decoder). Fine-tuning with DM runs for    10,000  10{,}000    steps with batch size    16  16   . We use AdamW with learning rates     5  ×   10   −  5     5{\times}10^{-5}    (encoder) and     3  ×   10   −  4     3{\times}10^{-4}    (decoder), linear warmup over    500  500    steps followed by linear decay to     10   −  6    10^{-6}   . More details are provided in Appendix   E  . 
+ 
+ 
+   Table 1 :   Quantitative comparison on DiffusionDB, DALL-E3, and MS-COCO. “Plug&Play” indicates whether the method operates on a frozen, unmodified diffusion model. Detection accuracy is measured on clean (unattacked) watermarked images. Generation consistency metrics compare watermarked vs. unwatermarked images from the same noise.  Best  results among plug-and-play methods are  bolded ;  overall best  are underlined.  
+  
+ 
+ 
+  
+  
+  
+  
+ Detection Accuracy 
+ Generation Consistency 
+ Generation Quality  
+ 
+ Method 
+ Type 
+ 
+ 
+ 
+ Plug  
+ 
+ &Play  
+  
+ Multi-bit 
+ 
+ 
+ 
+ Bit Acc  
+ 
+ (Clean)  
+  
+ 
+ 
+ 
+ TPR@1%FPR  
+ 
+ (Clean)  
+  
+ 
+ 
+ 
+ TPR@0.1%FPR  
+ 
+ (Clean)  
+  
+ PSNR   ↑  \uparrow    
+ LPIPS   ↓  \downarrow    
+ FID   ↓  \downarrow    
+ CLIP-FID   ↓  \downarrow     
+ 
+  DiffusionDB   
+ 
+ StegaStamp 
+ Post Generation 
+    ×  \times    
+ 100 bits 
+  0.9994  
+ 1.0 
+ 1.0 
+ 11.34 
+ 0.7171 
+ 54.82 
+ 10.26  
+ 
+ Stable Signature 
+  Fine-tuning  
+    ×  \times    
+ 48 bits 
+ 0.9950 
+  0.9999  
+ 0.9900 
+ 16.23 
+ 0.5164 
+ 46.81 
+ 4.61  
+ 
+ AquaLoRA 
+    ×  \times    
+ 48 bits 
+ 0.9355 
+ 0.9970 
+ 0.9910 
+  20.59  
+  0.4791  
+  32.32  
+  1.98   
+ 
+ Tree-Ring 
+  Sampling  
+    ✓  \checkmark    
+ 0 bit 
+ — 
+ 1.0 
+ 1.0 
+ 11.02 
+ 0.7441 
+ 47.09 
+ 4.65  
+ 
+ RingID 
+    ✓  \checkmark    
+ 11 bits 
+ — 
+ 1.0 
+ 1.0 
+ 10.74 
+ 0.7481 
+ 47.18 
+ 4.77  
+ 
+ Shallow Diffuse 
+    ✓  \checkmark    
+ 0 bit 
+ — 
+ 1.0 
+ 1.0 
+  11.01  
+ 0.7469 
+ 43.37 
+ 4.10  
+ 
+  DiffMark (Ours)  
+  
+    ✓  \checkmark    
+  64 bits  
+  0.9381  
+  1.0  
+  1.0  
+  11.01  
+  0.7224  
+  38.07  
+  2.20   
+ 
+  DALL-E3   
+ 
+ StegaStamp 
+ Post Generation 
+    ×  \times    
+ 100 bits 
+  0.9988  
+ — 
+ 1.0 
+ 9.48 
+ 0.7715 
+ 113.54 
+ 23.92  
+ 
+ Stable Signature 
+  Fine-tuning  
+    ×  \times    
+ 48 bits 
+ 0.9915 
+ — 
+ 1.0 
+ 13.51 
+ 0.5812 
+ 96.51 
+ 9.43  
+ 
+ AquaLoRA 
+    ×  \times    
+ 48 bits 
+ 0.9124 
+ — 
+ 0.9440 
+  18.28  
+  0.3120  
+  70.00  
+  4.98   
+ 
+ Tree-Ring 
+  Sampling  
+    ✓  \checkmark    
+ 0 bit 
+ — 
+ — 
+ 1.0 
+ 9.74 
+ 0.7643 
+ 98.59 
+ 9.97  
+ 
+ RingID 
+    ✓  \checkmark    
+ 11 bits 
+ — 
+ — 
+ — 
+ 9.39 
+ 0.7715 
+  92.72  
+  7.29   
+ 
+ Shallow Diffuse 
+    ✓  \checkmark    
+ 0 bit 
+ — 
+ — 
+ 1.0 
+ 9.70 
+ 0.7725 
+ 97.88 
+ 9.53  
+ 
+  DiffMark (Ours)  
+  
+    ✓  \checkmark    
+  64 bits  
+  0.9417  
+  —  
+  1.0  
+  9.75  
+  0.7496  
+  93.86  
+  7.61   
+ 
+  MS-COCO   
+ 
+ StegaStamp 
+ Post Generation 
+    ×  \times    
+ 100 bits 
+  0.9986  
+ — 
+ 1.0 
+ 8.79 
+ 0.7809 
+ 159.57 
+ 32.34  
+ 
+ Stable Signature 
+  Fine-tuning  
+    ×  \times    
+ 48 bits 
+ 0.9981 
+ — 
+ 1.0 
+ 12.96 
+ 0.5282 
+ 65.13 
+ 5.96  
+ 
+ AquaLoRA 
+    ×  \times    
+ 48 bits 
+ 0.9251 
+ — 
+ 0.9940 
+  17.49  
+  0.2872  
+  46.87  
+  3.61   
+ 
+ Tree-Ring 
+  Sampling  
+    ✓  \checkmark    
+ 0 bit 
+ — 
+ — 
+ 1.0 
+ 8.98 
+ 0.7349 
+ 70.22 
+ 6.63  
+ 
+ RingID 
+    ✓  \checkmark    
+ 11 bits 
+ — 
+ — 
+ — 
+ 8.66 
+ 0.7405 
+ 102.34 
+ 10.33  
+ 
+ Shallow Diffuse 
+    ✓  \checkmark    
+ 0 bit 
+ — 
+ — 
+ 1.0 
+ 8.89 
+ 0.7444 
+ 68.77 
+ 6.50  
+ 
+  DiffMark (Ours)  
+  
+    ✓  \checkmark    
+  64 bits  
+  0.9407  
+  —  
+  1.0  
+  8.91  
+  0.7343  
+  67.86  
+  5.74   
+ 
+  
+ 
+ 
+ 
+  4.2  Watermark Detection and Image Quality 
+
+ 
+ Tab.   1   compares all methods on clean watermarked images generated from DiffusionDB, DALL-E3, and MS-COCO 2017 prompts. Several key findings emerge across all three datasets. 
+ 
+ 
+ Compared to sampling-based methods, DiffMark achieves a perfect TPR of 1.0 at both 1% and 0.1% FPR thresholds on DiffusionDB and MS-COCO, and at 0.1% FPR on DALL-E3, while additionally providing 64-bit multi-bit capacity and single-pass detection (Sec.   4.6  ). DiffMark also consistently achieves higher per-bit accuracy than AquaLoRA across all datasets (0.9381 vs. 0.9355 on DiffusionDB; 0.9417 vs. 0.9124 on DALL-E3; 0.9407 vs. 0.9251 on MS-COCO) despite embedding a strictly longer secret (64 bits vs. 48 bits), yielding a larger identification key space (    2  64   2^{64}    vs.     2  48   2^{48}   ) without sacrificing detection reliability. In contrast, AquaLoRA’s TPR drops to 0.9440 on DALL-E3 at 0.1% FPR, indicating that its shorter secret does not fully compensate for the lower per-bit accuracy under stringent false-positive constraints. 
+ 
+ 
+ DiffMark also preserves competitive generation quality across all prompt distributions. On DiffusionDB, it achieves the best CLIP-FID (2.20) among all methods; on MS-COCO, it attains the lowest FID (67.86) and CLIP-FID (5.74), outperforming all sampling-based baselines; and on DALL-E3, it obtains a CLIP-FID of 7.61, second only to RingID (7.29) while providing 64-bit multi-bit capacity that RingID lacks. Although fine-tuning-based methods (i.e., Stable Signature and AquaLoRA) achieve the best generation consistency, they are tied to a single DM and cannot transfer across architectures without retraining/fine-tuning. DiffMark overcomes this limitation, as demonstrated by the cross-model analysis in Sec.   4.5  . These results confirm that the dual-path training strategy and persistent delta injection generalize across prompt distributions without degrading either detection reliability or perceptual quality. 
+ 
+ 
+ 
+  4.3  Identification Analysis 
+
+ 
+  4.3.1  Watermark Identification Problem 
+
+ 
+ In a deployment scenario with    N  N    registered users, each user     i  ∈   {   1  ,  ⋯  ,  N   }    i\in\{1,\cdots,N\}    is assigned a unique    L  L   -bit secret key      s   (  i  )    ∈    {  0  ,  1  }   L    s^{(i)}\in\{0,1\}^{L}   , and the set of all registered keys is denoted     𝒮  =   {   s   (  1  )    ,  ⋯  ,   s   (  N  )    }    \mathcal{S}=\{s^{(1)},\cdots,s^{(N)}\}   . Given a query image    x  x   , the decoder produces a soft prediction      s  ^   =    arg  ⁡  max   ​   D  ψ   ​   (   ℰ  ⁡   (  x  )    )     \hat{s}=\arg\max D_{\psi}(\mathcal{E}(x))   , where    ℰ  \mathcal{E}    denotes the VAE encoder. The identification task is to determine which user generated the image, i.e., to find      i  ∗   =    arg  ⁡   min  i    ​   d  H   ​   (   s  ^   ,   s   (  i  )    )     i^{*}=\arg\min_{i}d_{H}(\hat{s},\,s^{(i)})   , where      d  H   ​   (  ⋅  ,  ⋅  )    d_{H}(\cdot,\cdot)    denotes Hamming distance. Identification succeeds when the decoded secret     s  ^   \hat{s}    is closer to the true key     s   (  i  )    s^{(i)}    than to every other registered key. 
+ 
+ 
+ 
+  4.3.2  Experimental Design 
+
+ 
+ We generate 1,000 watermarked images from DiffusionDB prompts using SD v1.5, each embedded with an independently sampled random 64-bit secret      s  i   ∼   Uniform  ​   (    {  0  ,  1  }   64   )     s_{i}\sim\text{Uniform}(\{0,1\}^{64})   . All images are generated at     512  ×  512   512\times 512    resolution using DDIM with     N  =  50   N{=}50    steps. To evaluate identification across a wide range of deployment scales, we construct user databases of size     N  ∈   {   10  ,   10  2   ,   10  3   ,   10  4   ,   10  5   ,   10  6    }    N\in\{10,10^{2},10^{3},10^{4},10^{5},10^{6}\}    for attacked scenarios and extend to     N  ∈   {   10  7   ,   10  8   }    N\in\{10^{7},10^{8}\}    for the clean setting. We employ a two-tier scaling strategy: 
+ 
+  •  
+ 
+  Tier 1  (    N  ≤  1,000   N\leq 1{,}000   ): subsample    N  N    real keys from the pool of 1,000 ground-truth keys. 
+  
+  •  
+ 
+  Tier 2  (    N  >  1,000   N>1{,}000   ): include all 1,000 real keys and fill the remaining     N  −  1,000   N-1{,}000    entries with random distractor keys sampled uniformly from      {   0  ,  1   }   64   \{0,1\}^{64}   . 
+  
+ 
+ 
+ 
+ For each query image     x  i   x_{i}    with ground-truth key     s   (  i  )    s^{(i)}   , we: (1) encode it to the latent space      z  0   =    ℰ  ⁡   (   x  i   )    ⋅   f  s     z_{0}=\mathcal{E}(x_{i})\cdot f_{s}   ; (2) decode the secret       s  ^   i   =    arg  ⁡  max   ​   D  ψ   ​   (   z  0   )     \hat{s}_{i}=\arg\max D_{\psi}(z_{0})   ; (3) compute the Hamming distance      d  H   ​   (    s  ^   i   ,   s   (  j  )    )    d_{H}(\hat{s}_{i},\,s^{(j)})    to every key     s   (  j  )    s^{(j)}    in the database; and (4) rank the correct key     s   (  i  )    s^{(i)}    among all database entries by ascending Hamming distance. The image is correctly identified if its ground-truth key achieves rank 1 (i.e., has the smallest Hamming distance). We report  Top-1 identification accuracy , the fraction of images whose ground-truth key is ranked first, as the primary metric. 
+ 
+ 
+ For each database size, we repeat the experiment over 10 independent trials with different random database compositions and report the mean. This accounts for variance introduced by the random distractor keys in Tier 2. 
+ 
+ 
+ 
+ 
+   
+   (a)    Clean identification scaling. Top-1 identification accuracy as a function of database size (number of registered users) without any attack. DiffMark (64-bit secret, mean BER       =   4.3  %    =4.3\%   ) achieves perfect identification up to     10  6   10^{6}    users and       ≥   99.97  %    {\geq}99.97\%    at     10  8   10^{8}    users.  
+   
+   
+   (b)    Identification accuracy under attacks. Top-1 accuracy vs. database size for representative distortion (solid) and regeneration (dashed) attacks. Most attacks preserve       >   95  %    >95\%    identification at     10  6   10^{6}    users.  
+   
+   Figure 4 :   User identification scaling analysis.  
+ 
+ 
+ 
+  4.3.3  Attack scenarios 
+
+ 
+ Beyond the clean (no-attack) setting, we evaluate identification under 13 attack scenarios as described in Appendix   F  . Attacked images are decoded using the same procedure, and the decoded bits are matched against the database. 
+ 
+ 
+ 
+  4.3.4  Empirical Identification Results at Very Large Scale 
+
+ 
+ Fig.   4(a)   evaluates the clean (no-attack) setting, scaling the number of registered users from     N  =  10   N{=}10    to     N  =   10  8    N{=}10^{8}   . DiffMark achieves perfect Top-1 accuracy up to     10  6   10^{6}    users and maintains       ≥   99.97  %    {\geq}99.97\%    at     10  8   10^{8}    users, confirming that the 64-bit secret provides ample identification capacity for platform-scale deployment. 
+ 
+ 
+ Fig.   4(b)   extends this analysis to adversarial conditions, reporting Top-1 accuracy under representative distortion and regeneration attacks as a function of database size (   N  N    up to     10  6   10^{6}   ). Photometric distortions (brightness, contrast, JPEG compression, noise) and regeneration attacks (diffusion-based regen,     2  ×   2{\times}    diffusion rinse) preserve near-perfect identification even at     N  =   10  6    N{=}10^{6}   , demonstrating that the watermark signal embedded by DiffMark is sufficiently robust for large-scale user attribution.
+Only geometric attacks (rotation, resized crop, blur) degrade BER to       ∼   50  %    {\sim}50\%   , collapsing identification, which is consistent with the detection-level vulnerabilities reported in Tab.   2  . 
+ 
+ 
+ 
+ 
+  4.4  Key Flexibility 
+
+ 
+ In this experiment, we show that DiffMark can decode an  arbitrary  secret embedded at generation time, not merely a single predetermined key used during training. For each method, we generate two sets of 1,000 images from DiffusionDB prompts: 
+ 
+  •  
+ 
+  Fixed-key set.  All images are generated with the same predetermined secret     s  ∗   s^{*}    appeared during the training process. 
+  
+  •  
+ 
+  Random-key set.  Each image    i  i    is assigned an independent secret      s  i   ∼   Uniform  ​   (    {  0  ,  1  }   L   )     s_{i}\sim\text{Uniform}(\{0,1\}^{L})   , sampled at generation time. 
+  
+ 
+ All images are generated at     512  ×  512   512\times 512    resolution with SDv1.5. No post-processing or attack augmentation is applied. Each image is decoded by the corresponding method’s detector to recover     s  ^   \hat{s}   . We report: (1)  Per-image BER :      BER  i   =   1  L    ∑   j  =  1   L   𝟙   [    s  ^    i  ,  j    ≠   s   i  ,  j    ]    \text{BER}_{i}=\frac{1}{L}\sum^{L}_{j=1}\mathbbm{1}[\hat{s}_{i,j}\neq s_{i,j}]   ; (2)  Mean and standard deviation of BER  across all    1,000  1{,}000    images per set. 
+ 
+   
+   Figure 5 :   Bit Error Rate (BER) distributions for fixed-key and random-key generation across methods. Each violin shows the per-image BER over    1,000  1{,}000    images; wider regions indicate higher density.  
+ 
+ 
+  Bit Error Rate Distributions.  From Fig.   5  , we can observe that DiffMark’s performance is consistent regardless of whether a predetermined or arbitrary per-image key is used. Furthermore, per-image BER is uncorrelated with the Hamming distance between the runtime secret and the training key, demonstrating genuine generalisation across the full     2  64   2^{64}    key space rather than interpolation near a fixed anchor. In contrast, AquaLoRA degrades sharply from     6.42  %   6.42\%    (fixed) to     28.16  %   28.16\%    (random), exposing overfitting to their training key. 
+ 
+ 
+  Hamming Distance Analysis.  To test whether decoding error depends on the proximity of a runtime secret to the training key     s  ∗   s^{*}   , we partition the random-key set into bins by Hamming distance      d  H   ​   (   s  i   ,   s  ∗   )    d_{H}(s_{i},s^{*})    and compute mean BER per bin. We additionally compute the Pearson correlation    r  r    between      d  H   ​   (   s  i   ,   s  ∗   )    d_{H}(s_{i};s^{*})    and     BER  i   \text{BER}_{i}    over all    1,000  1{,}000    images. From Fig.   6  , for both methods, Pearson correlations are statistically significant: DiffMark yields     r  =   −  0.021    r=-0.021    (    p  =  0.52   p=0.52   ), while AquaLoRA yields     r  =  0.028   r=0.028    (    p  =  0.37   p=0.37   ). Binned analysis confirms this: for DiffMark, mean BER is 6.25%, 4.64%, and 4.55% across the low, mid, and high Hamming distance terciles, respectively; for AquaLoRA, the corresponding values are 31.25%, 28.17%, and 25.00%. The absence of a significant trend in either method indicates that both encoders generalize uniformly across the key space. This means that BER does not increase for keys distant from the training distribution center. This is a desirable property for practical multi-key deployment, as it ensures that any randomly sampled key achieves comparable decoding accuracy. 
+ 
+   
+   Figure 6 :   Per-image BER as a function of Hamming distance from the training key     s  ∗   s^{*}   .  
+ 
+ 
+ 
+  4.5  Cross-Model Transferability 
+
+ 
+  Under Clean Context.  This experiment demonstrates that DiffMark can generalize beyond the model on which it was trained. In contrast to fine-tuning-based methods such as Stable Signature, which requires retraining the UNet decoder for each target model, and AquaLoRA, which requires fitting model-specific LoRA modules, DiffMark imposes no such overhead. We evaluate this property by training exclusively on SD 1.5 and testing on four unseen models, including SD-2.1   Rombach et al. (2022)  , DreamShaper 8   Lykon (2023)  , Realistic Vision 5.1   Vision (2023)  , and OpenJourney v4   PromptHero (2023)  , without any fine-tuning. As shown in Fig.   7  , DiffMark achieves 93.3–95.5% bit accuracy across all target models, confirming that DiffMark is a genuinely plug-and-play solution deployable across various SD-family models without per-model retraining. 
+ 
+   
+   Figure 7 :   Cross-model transferability of DiffMark. Bit accuracy on four unseen SD-family models after training exclusively on SD 1.5, with no per-model fine-tuning.  
+ 
+ 
+  Under Attack Context.  Fig.   8   reveals two key results about DiffMark’s cross-model robustness. First, the attack sensitivity profile of unseen models closely mirrors that of the SD 1.5 training model: all four target architectures achieve near-perfect TPR on photometric distortions (brightness, contrast, noise, JPEG, erasing) while scoring zero on geometric attacks (rotation, crop-resize), precisely replicating the pattern reported in Tab.   2  . This consistency confirms that the robustness characteristics are inherited from the shared latent-space structure rather than being artifacts of the training model overfitting. Second, under regeneration attacks, there is a notable TPR drop under Regen-VAE for DreamShaper 8 and Realistic Vision 5.1. Future work can explore the reason behind this issue. 
+ 
+   
+   Figure 8 :   Cross-model transferability of DiffMark under attack. TPR@0.1%FPR is reported for five SD-family models across eight distortion attacks (left) and six regeneration attacks (right). DiffMark is trained exclusively on SD 1.5; no per-model fine-tuning is applied to the four unseen models.  
+ 
+ 
+ 
+  4.6  Watermark Detection Latency 
+
+   
+   Figure 9 :   Decode latency comparison (per image, L40S GPU). Latencies are averaged over 100 images; the x-axis is on a log scale.  
+ 
+ 
+ Fig.   9   reports per-image decode latency measured on an L40S GPU averaged over 100 images. Sampling-based methods incur latencies of 754.9 ms (Tree-Ring), 753.2 ms (RingID), and 239.8 ms (Shallow Diffuse), as all three require running    N  N   -step DDIM inversion to recover the initial noise vector before pattern matching. DiffMark reduces detection latency to 16.4 ms, achieving a     45  ×   45\times    speedup over these methods. Compared to fine-tuning-based methods that also achieve single-pass detection, DiffMark incurs a modest overhead attributable to the additional VAE encoding step (     z  0   =    ℰ  ⁡   (  x  )    ⋅   f  s     z_{0}=\mathcal{E}(x)\cdot f_{s}   ) absent in methods that embed the watermark directly in pixel space. 
+ 
+ 
+ 
+  4.7  Robustness 
+
+ 
+   Table 2 :   Robustness evaluation across 13 attacks on DiffusionDB, DALL-E3, and MS-COCO (TPR@0.1%FPR).  Best  results are  bolded .  
+ 
+ 
+ 
+ Attack 
+ Type 
+ StegaStamp 
+ 
+ 
+ 
+ Stable  
+ 
+ Signature  
+  
+ AquaLoRA 
+ Tree-Ring 
+ RingID 
+ 
+ 
+ 
+ Shallow  
+ 
+ Diffuse  
+  
+  DiffMark (Ours)   
+ 
+ 
+ 
+  DiffusionDB   
+ 
+ Bright 
+  
+ 
+ 
+ Distortion  
+ 
+ Attacks  
+   
+ 1.00 
+ 1.00 
+ 0.96 
+ 0.74 
+ 1.00 
+ 1.00 
+  1.00   
+ 
+ Compress 
+  1.00  
+  1.00  
+ 0.99 
+ 0.74 
+ 1.00 
+ 1.00 
+  1.00   
+ 
+ Contrast 
+  1.00  
+  1.00  
+ 0.97 
+ 0.74 
+ 0.98 
+ 1.00 
+  1.00   
+ 
+ Erase 
+  1.00  
+  1.00  
+ 0.96 
+ 0.51 
+  1.00  
+  1.00  
+  1.00   
+ 
+ RCrop 
+ 0.39 
+  1.00  
+ 0.91 
+ 0.03 
+ 0.01 
+ 0.00 
+  0.00   
+ 
+ Rotation 
+ 0.00 
+ 0.65 
+ 0.00 
+ 0.16 
+  1.00  
+ 0.00 
+  0.00   
+ 
+ Blur 
+ 0.48 
+ 0.00 
+ 0.96 
+ 0.23 
+  1.00  
+ 0.00 
+  0.00   
+ 
+ Noise 
+  1.00  
+ 0.99 
+ 0.96 
+ 0.79 
+ 0.99 
+  1.00  
+  0.99   
+ 
+ Regen-VAE 
+  
+ 
+ 
+ Regeneration  
+ 
+ Attacks  
+   
+  1.00  
+ 0.36 
+ 0.94 
+ 0.51 
+ 0.97 
+ 0.87 
+  0.81   
+ 
+ Regen-Diff 
+ 0.23 
+ 0.02 
+ 0.78 
+ 0.80 
+ 0.94 
+ 1.00 
+  1.00   
+ 
+ Rinse-2Xdiff 
+ 0.11 
+ 0.01 
+ 0.52 
+ 0.82 
+ 0.81 
+ 0.99 
+  1.00   
+ 
+ Adv-KLVAE8 
+  
+ 
+ 
+ Adversarial  
+ 
+ Attacks  
+   
+ 0.26 
+  1.00  
+ 0.98 
+ 0.29 
+ 0.31 
+ 0.60 
+  0.31   
+ 
+ Adv-RN18 
+ 0.17 
+ 0.98 
+ 0.99 
+ 0.87 
+ 0.37 
+ 0.58 
+  1.00   
+ 
+  Average  
+  0.59  
+  0.69  
+  0.84  
+  0.56  
+  0.80  
+  0.70  
+  0.70   
+ 
+  DALL-E3   
+ 
+ Bright 
+  
+ 
+ 
+ Distortion  
+ 
+ Attacks  
+   
+  1.00  
+  1.00  
+ 0.89 
+ 0.64 
+  1.00  
+  1.00  
+  1.00   
+ 
+ Compress 
+  1.00  
+ 0.98 
+ 0.93 
+ 0.78 
+  1.00  
+  1.00  
+  1.00   
+ 
+ Contrast 
+  1.00  
+  1.00  
+ 0.87 
+ 0.73 
+  1.00  
+  1.00  
+  1.00   
+ 
+ Erase 
+  1.00  
+  1.00  
+ 0.88 
+ 0.53 
+  1.00  
+  1.00  
+  1.00   
+ 
+ RCrop 
+ 0.37 
+  1.00  
+ 0.82 
+ 0.03 
+ 0.00 
+ 0.00 
+  0.00   
+ 
+ Rotation 
+ 0.00 
+ 0.78 
+ 0.00 
+ 0.14 
+  1.00  
+ 0.00 
+  0.02   
+ 
+ Blur 
+ 0.17 
+ 0.00 
+ 0.85 
+  1.00  
+  1.00  
+ 0.01 
+  0.01   
+ 
+ Noise 
+  1.00  
+ 0.99 
+ 0.93 
+ 0.73 
+ 0.98 
+  1.00  
+  0.99   
+ 
+ Regen-VAE 
+  
+ 
+ 
+ Regeneration  
+ 
+ Attacks  
+   
+  1.00  
+ 0.00 
+ 0.80 
+ 0.49 
+  1.00  
+ 0.90 
+  0.90   
+ 
+ Regen-Diff 
+ 0.99 
+ 0.00 
+ 0.88 
+ 0.84 
+ 0.98 
+  1.00  
+  1.00   
+ 
+ Rinse-2Xdiff 
+ 0.72 
+ 0.00 
+ 0.66 
+ 0.78 
+ 0.82 
+  0.99  
+  0.99   
+ 
+ Adv-KLVAE8 
+  
+ 
+ 
+ Adversarial  
+ 
+ Attacks  
+   
+  1.00  
+  1.00  
+ 0.90 
+ 0.85 
+ 0.00 
+ 0.60 
+  0.50   
+ 
+ Adv-RN18 
+  1.00  
+  1.00  
+ 0.94 
+  1.00  
+ 0.00 
+  1.00  
+  1.00   
+ 
+  Average  
+  0.79  
+  0.67  
+  0.80  
+  0.66  
+  0.75  
+  0.73  
+  0.72   
+ 
+  MS-COCO   
+ 
+ Bright 
+  
+ 
+ 
+ Distortion  
+ 
+ Attacks  
+   
+  1.00  
+  1.00  
+ 0.99 
+ 0.76 
+  1.00  
+  1.00  
+  1.00   
+ 
+ Compress 
+  1.00  
+  1.00  
+  1.00  
+ 0.90 
+  1.00  
+  1.00  
+  1.00   
+ 
+ Contrast 
+  1.00  
+  1.00  
+ 0.99 
+ 0.86 
+  1.00  
+  1.00  
+  1.00   
+ 
+ Erase 
+  1.00  
+  1.00  
+  1.00  
+ 0.78 
+  1.00  
+  1.00  
+  1.00   
+ 
+ RCrop 
+ 0.42 
+  1.00  
+ 0.99 
+ 0.09 
+ 0.05 
+ 0.02 
+  0.01   
+ 
+ Rotation 
+ 0.01 
+ 0.98 
+ 0.00 
+ 0.52 
+  1.00  
+ 0.03 
+  0.02   
+ 
+ Blur 
+ 0.43 
+ 0.00 
+  0.99  
+ 0.44 
+  0.99  
+ 0.03 
+  0.01   
+ 
+ Noise 
+  1.00  
+  1.00  
+  1.00  
+ 0.82 
+  1.00  
+  1.00  
+  0.99   
+ 
+ Regen-VAE 
+  
+ 
+ 
+ Regeneration  
+ 
+ Attacks  
+   
+  1.00  
+ 0.02 
+ 0.98 
+ 0.68 
+  1.00  
+ 0.97 
+  0.97   
+ 
+ Regen-Diff 
+ 0.98 
+ 0.02 
+  1.00  
+ 0.91 
+  1.00  
+  1.00  
+  1.00   
+ 
+ Rinse-2Xdiff 
+ 0.89 
+ 0.01 
+ 0.94 
+ 0.88 
+  1.00  
+  0.99  
+  1.00   
+ 
+ Adv-KLVAE8 
+  
+ 
+ 
+ Adversarial  
+ 
+ Attacks  
+   
+  1.00  
+  1.00  
+ 0.99 
+ 0.50 
+ 0.55 
+ 0.72 
+  0.74   
+ 
+ Adv-RN18 
+  1.00  
+  1.00  
+  1.00  
+ 0.91 
+ 0.67 
+  1.00  
+  1.00   
+ 
+  Average  
+  0.83  
+  0.69  
+  0.91  
+  0.70  
+  0.87  
+  0.75  
+  0.75   
+ 
+ 
+ 
+ 
+ Tab.   2   reports TPR@0.1%FPR under 13 attack types across DiffusionDB, DALL-E3, and MS-COCO. From this table, we can observe that: 
+ 
+  •  
+ 
+  Robustness-oriented methods lead on average TPR . AquaLoRA and RingID, which explicitly target robustness during training, attain the highest average TPR across all three datasets. On DiffusionDB, AquaLoRA reaches 0.84 and RingID 0.80; on DALL-E3, AquaLoRA reaches 0.80 and RingID 0.75; on MS-COCO, AquaLoRA achieves 0.91 and RingID 0.87. 
+  
+  •  
+ 
+  DiffMark is competitive without explicit robustness training . Although robustness is not the primary design focus of DiffMark, it achieves an average TPR of 0.70 on DiffusionDB, 0.72 on DALL-E3, and 0.75 on MS-COCO. DiffMark attains perfect or near-perfect TPR on all photometric distortion attacks (brightness, contrast, JPEG, Gaussian noise, random erasing) and on the two strongest regeneration attacks (Regen-Diff, Rinse-2   ×  \times   Diff) across all datasets. These results confirm the advantages of embedding into the latent space rather than pixel one   Feng et al. (2024)  . Persistent delta injection reinforces the watermark signal at every denoising step, making it difficult for regeneration and black-box adversarial attacks to erase the mark without substantially altering image content. DiffMark uniquely offers per-image key flexibility and cross-model transferability without any fine-tuning, capabilities that none of the baselines provide simultaneously. 
+  
+  •  
+ 
+ However,  for DiffMark, the same geometric and frequency-domain vulnerabilities persist across all datasets : rotation, blur, and resized crop introduce large geometric or spatial-frequency distortions that corrupt the latent encoding      z  0   =    ℰ  ⁡   (  x  )    ⋅   f  s     z_{0}=\mathcal{E}(x)\cdot f_{s}    before the decoder can operate. This limitation also affects Shallow Diffuse. Since the grey-box adversarial attack Adv-KLVAE8 directly targets the VAE encoder, it disrupts the latent representations on which DiffMark’s decoder depends. 
+  
+ 
+ 
+ 
+ 
+ 
+   
+   (a)    Training curves for     K  ∈   {   2  ,  4  ,  8   }    K\in\{2,4,8\}   . LCM steps.  
+   
+   
+   (b)    Image Quality vs. Detection Accuracy Trade-off.  
+   
+   Figure 10 :   LCM Step Ablation  
+ 
+ 
+ 
+  4.8  Ablation Study 
+
+ 
+  4.8.1  LCM Step Ablation 
+
+ 
+ Fig.   10   examines how the number of LCM steps    K  K    affects the accuracy–imperceptibility tradeoff. While     K  =  2   K=2    converges fastest, it degrades image quality (LPIPS       ≈  0.14   \approx 0.14   ), while     K  =  8   K=8    improves quality but slows convergence and reduces bit accuracy.     K  =  4   K=4    achieves the optimal balance between detection accuracy and imperceptibility, and is adopted as our default. 
+ 
+ 
+ 
+ 
+   
+   (a)    Training curves for     L  ∈   {   48  ,  64  ,  128  ,  256   }    L\in\{48,64,128,256\}    bit.  
+   
+   
+   (b)    Quality–capacity tradeoff across bit length.  
+   
+   Figure 11 :   Bit Length Ablation.  
+ 
+ 
+ 
+  4.8.2  Bit Length Ablation 
+
+ 
+ Fig.   11   reveals that     L  =  128   L=128    suffers a training collapse at step    600  600   , where     ℒ  orth   \mathcal{L}_{\text{orth}}    can no longer maintain diverse perturbations within the latent budget, driving      ‖  δ  ‖   →  0   \|\delta\|\rightarrow 0   . The image quality gap between 48 and 64 bits is modest, while 256 bits incurs a severe quality penalty (LPIPS 0.508). We adopt     L  =  64   L=64    as it provides sufficient capacity for identification across     2  64   2^{64}    keys while preserving competitive image quality. 
+ 
+  
+   Figure 12 :   Watermark signal analysis. Columns from left to right: watermarked image, clean image (same     𝐳  T   \mathbf{z}_{T}    and prompt), difference map (    10  ×   10\times    amplified), and delta heatmap (L2 norm across latent channels). The watermark perturbation is imperceptible in pixel space while maintaining spatially uniform energy in latent space.  
+ 
+ 
+ 
+  4.8.3  Watermark Signal Visualization 
+
+ 
+ We visualize the learned watermark signal to provide qualitative insight into how DiffMark embeds information. 
+ 
+ 
+  Signal analysis. 
+  Figure   12   shows watermarked and clean images side-by-side with their amplified difference maps and latent delta heatmaps. The difference maps (pixel-space     |    𝐱  wm   −   𝐱  clean    |   |\mathbf{x}_{\text{wm}}-\mathbf{x}_{\text{clean}}|   , amplified     10  ×   10\times   ) reveal that the watermark concentrates along edges and textured regions, consistent with the high-frequency constraint     ℒ  freq   \mathcal{L}_{\text{freq}}   . The delta heatmaps show spatially uniform energy distribution, validating the PRVL regularizer (Sec.   3.2.3  ). 
+ 
+ 
+  Training progression. 
+  Figure   13   illustrates how the    δ  \delta    signal evolves during curriculum training. Before PRVL activation (step 439), the    δ  \delta    exhibits uneven spatial distribution.
+After PRVL (step 939), energy becomes uniformly distributed across the     64  ×  64   64\times 64    latent grid. In the difference maps, the frequency constraint progressively steers perturbations away from smooth regions toward edges and textures, improving imperceptibility. 
+ 
+  
+   Figure 13 :   Training progression of the watermark signal. Top row:    δ  \delta    heatmaps; bottom row: difference maps. Left to right: early training (pre-PRVL), mid training (post-PRVL), and late training (near convergence). The PRVL regularizer enforces spatial uniformity in    δ  \delta   , while     ℒ  freq   \mathcal{L}_{\text{freq}}    pushes pixel-space differences toward high-frequency regions.  
+ 
+ 
+  Per-channel    δ  \delta    structure. 
+  Figure   14   decomposes the learned     𝜹  ∈   ℝ   4  ×  64  ×  64     \bm{\delta}\in\mathbb{R}^{4\times 64\times 64}    into its four latent channels. Each channel carries a distinct spatial pattern with both positive and negative perturbations, confirming that the encoder distributes the watermark signal across all latent dimensions rather than concentrating it in a single channel. 
+ 
+  
+   Figure 14 :   Per-channel    δ  \delta    decomposition. Left: overall L2 norm across channels. Right four panels: individual latent channels visualized with a diverging colormap. The watermark signal is distributed across all four channels with distinct spatial patterns.  
+ 
+ 
+  Frequency spectrum analysis. 
+  Figure   15   presents the 2D FFT power spectrum of the learned    δ  \delta   , validating the effect of the frequency constraint     ℒ  freq   \mathcal{L}_{\text{freq}}   .
+The radial power profile shows suppressed energy within the low-frequency radius (    r  <  10   r<10   ), confirming that the encoder has learned to avoid low-frequency perturbations that would be perceptually salient. The remaining energy is distributed across mid-to-high frequencies, which correspond to edges and fine textures in pixel space. 
+ 
+  
+   Figure 15 :   Frequency domain analysis of the    δ  \delta    signal. (a) Average log power spectrum across all samples and channels, with DC at center. (b) Radial power profile showing suppressed low-frequency energy below the configured radius (red dashed line). (c) Single-example power spectrum for channel 0.  
+ 
+ 
+  Difference map overlay. 
+  Figure   16   overlays the pixel-space difference heatmap onto the watermarked images, revealing that the watermark perturbation concentrates at edges, contours, and high-texture regions. This spatial distribution aligns with human visual masking, where modifications in high-frequency regions are less perceptible. 
+ 
+  
+   Figure 16 :   Difference map overlay on watermarked images. Top row: watermarked images. Bottom row: same images with the mean absolute difference rendered as a semi-transparent heatmap. Bright regions indicate stronger watermark perturbation, which concentrates at edges and textures.  
+ 
+ 
+ 
+  4.8.4  More Qualitative Results 
+
+ 
+ Fig.   17   provides watermarked images generated by DiffMark with their corresponding input prompts. 
+ 
+ 
+ 
+ 
+  
+ “frontier town in Wind River Valley, greenery, Jordan Grimmer, Noah Bradley” 
+   
+  
+ “an beautiful elven house in a sunny forest glade, fantasy, artstation, smooth, illustration” 
+   
+  
+ “forest of pink maples tree, cumulonimbus, blue sky, strong sunlight, lot of light radiosity, gaston bussiere, craig mullins, krenz cushart, simon stalenhag, john harris, 4 k detailed image” 
+   
+  
+ “a beautiful landscape photography of ciucas mountains mountains a yellow intricate tree in the foreground sunset dramatic lighting by marc adamus” 
+     
+  
+ “a tree near a pond, a castle and mist and swirly clouds in the background, fantastic landscape, hyperrealism, no blur, 4k resolution, ultra detailed, style of Anton Fadeev, Ivan Shishkin, John Berkey, James Jean” 
+   
+  
+ “a tree near a pond, a castle and mist and swirly clouds in the background, fantastic landscape, hyperrealism, no blur, 4k resolution, ultra detailed, style of Anton Fadeev, Ivan Shishkin, John Berkey” 
+   
+  
+ “painting of a landscape, concept art, blurry, broad strokes, canvas, first light, majestic mountains, lake, lush grass, dramatic clouds, soft light, by greg rutkowski and jakub rozalski, lip comarella and eytan zana” 
+   
+  
+ “a beautiful painting of a singular lighthouse, shining its light across a tumultuous sea of blood by greg rutkowski and thomas kinkade, trending on artstation” 
+   
+   Figure 17 :   Qualitative examples of watermarked images generated by DiffMark with their corresponding input prompts. The embedded watermark is visually imperceptible.  
+ 
+ 
+ Fig.   18   presents qualitative examples of DiffMark applied across five SD-family models, using identical prompts and watermark secrets. These results complement the quantitative findings in Sec.   4.5   by demonstrating that cross-model transferability incurs no perceptual cost. 
+ 
+  
+   Figure 18 :   Qualitative cross-model transferability of DiffMark. 
+Each column shares the same prompt; each row corresponds to a different SD-family model. DiffMark is trained exclusively on SD 1.5 and applied to four unseen models (SD 2.1, DreamShaper 8, Realistic Vision 5.1, OpenJourney v4) without any per-model fine-tuning.
+   
+ 
+ 
+ 
+ 
+ 
+  5  Related Works 
+
+ 
+  5.1  Post-hoc Image Watermarking 
+
+ 
+ Post-hoc methods embed signals into existing images regardless of their generation process. Classical approaches modify transform-domain coefficients (DCT, SVD)   Al-Haj (2007) ;  Navas et al. (2008)   but are vulnerable to modern compression and editing. Deep learning methods train encoder–decoder pairs end-to-end with differentiable noise layers   Zhu et al. (2018) ;  Jia et al. (2021)  , aggressive print-photograph augmentation   Tancik et al. (2020)  , and adversarial training   Zhang et al. (2019) ;  Bui et al. (2023)  . More recently, WAM   Sander et al. (2025)   reformulates watermarking as a segmentation task for localized multi-message extraction. However, post-hoc methods operate on high-resolution pixel representations (e.g.,     512  ×  512  ×  3   512{\times}512{\times}3   ), introducing computational overhead and potential visual artifacts. 
+ 
+ 
+ 
+  5.2  Watermarking Diffusion Models 
+
+ 
+  Sampling-based methods  modify the initial noise     z  T   z_{T}    while keeping model weights frozen. Tree-Ring   Wen et al. (2023)   embeds a concentric Fourier-space pattern into     z  T   z_{T}    and recovers it via    N  N   -step DDIM inversion for zero-bit detection. RingID   Ci et al. (2024)   extends this to multi-key identification, and Shallow Diffuse   Li et al. (2025)   improves robustness by projecting the watermark onto a low-dimensional subspace of     z  T   z_{T}   . Despite their plug-and-play nature, all these methods rely on DDIM inversion for detection, requiring       ∼  50   {\sim}50    sequential UNet evaluations that are prohibitive at platform scale.  Fine-tuning-based methods  couple watermarking to the model itself: Stable Signature   Fernandez et al. (2023)   fine-tunes the VAE decoder jointly with a pre-trained extractor for single-pass multi-bit extraction; AquaLoRA   Feng et al. (2024)   embeds watermark information in the UNet via LoRA for improved resilience to module removal. While these methods achieve fast multi-bit detection, they couple the watermark to a specific model checkpoint: each model variant requires its own watermarking procedure. Further details are provided in Appendix   A  . 
+ 
+ 
+ 
+ 
+  6  Conclusion 
+
+ 
+ In this work, we present DiffMark, a plug-and-play multi-bit watermarking method for DMs that resolves three existing limitations: (i) detection requires full DDIM inversion, (ii) most support zero-bit detection only, and (iii) per-image key assignment requires retraining/fine-tuning. By injecting a persistent learned perturbation    δ  \delta    at every denoising step of a frozen UNet, DiffMark accumulates a recoverable signal in     z  0   z_{0}    without modifying model weights. The key enabler is LCMs as a differentiable training bridge, reducing the gradient path from 50 DDIM steps to 4 LCM steps, while a parallel full-step DDIM path supplies high-fidelity decoder supervision. Extensive experiments on 3 datasets confirm that DiffMark achieves single-pass 64-bit detection at 16.4 ms, a     45  ×   45\times    speedup over sampling-based methods, with per-image key flexibility and cross-model transferability to unseen SD-family architectures without any fine-tuning. However, DiffMark is currently not robust against cropping, rotation, blurring, and grey-box adversarial attacks on the VAE encoder, since they corrupt the latent representation before decoding. Future work should employ latent-space adversarial training and extend this work to architectures with fundamentally different latent spaces, such as flow-matching models. 
+ 
+  
+ 
+ 
+  7  Acknowledgment 
+
+ 
+ This publication has emanated from research conducted with the financial support of Science Foundation Ireland under Grant number 18/CRT/6183. 
+ 
+ 
+ 
+ References 
+
+ 
+  Al-Haj (2007) 
+  A. Al-Haj 
+ 
+  Combined dwt-dct digital image watermarking .
+ 
+  Journal of computer science   3  ( 9 ),  pp. 740–746 .
+ 
+ Cited by:   §A.1  ,
+  §5.1  .
+  
+  An  et al.  (2024) 
+  B. An, M. Ding, T. Rabbani, A. Agrawal, Y. Xu, C. Deng, S. Zhu, A. Mohamed, Y. Wen, T. Goldstein,  et al.  
+ 
+  WAVES: benchmarking the robustness of image watermarks .
+ 
+ In  Forty-first International Conference on Machine Learning ,
+ 
+ Cited by:   Appendix E  ,
+  Appendix F  ,
+  Appendix F  ,
+  §4.1  ,
+  §4.1  .
+  
+  Bui  et al.  (2023) 
+  T. Bui, S. Agarwal, and J. Collomosse 
+ 
+  Trustmark: universal watermarking for arbitrary resolution images .
+ 
+  arXiv preprint arXiv:2311.18297 .
+ 
+ Cited by:   §A.1  ,
+  §5.1  .
+  
+  Ci  et al.  (2024) 
+  H. Ci, P. Yang, Y. Song, and M. Z. Shou 
+ 
+  Ringid: rethinking tree-ring watermarking for enhanced multi-key identification .
+ 
+ In  European conference on computer vision ,
+ 
+  pp. 338–354 .
+ 
+ Cited by:   §A.2  ,
+  §1  ,
+  §2.1  ,
+  §3  ,
+  §4.1  ,
+  §5.2  .
+  
+  CNN (2024) 
+  CNN 
+ 
+  Finance worker pays out $25 million after video call with deepfake CFO .
+ 
+ Note:   https://edition.cnn.com/2024/02/04/asia/deepfake-cfo-scam-hong-kong-intl-hnk/index.html Accessed: 28 June 2025 
+ 
+ Cited by:   §1  .
+  
+  Coalition for Content Provenance and Authenticity (2024) 
+  Coalition for Content Provenance and Authenticity 
+ 
+  C2PA technical specification, version 2.1 .
+ 
+ Note:   https://c2pa.org/specifications/specifications/2.1/specs/C2PA_Specification.html  
+ 
+ Cited by:   §1  .
+  
+  Esser  et al.  (2024) 
+  P. Esser, S. Kulal, A. Blattmann, R. Entezari, J. Müller, H. Saini, Y. Levi, D. Lorenz, A. Sauer, F. Boesel,  et al.  
+ 
+  Scaling rectified flow transformers for high-resolution image synthesis .
+ 
+ In  Forty-first international conference on machine learning ,
+ 
+ Cited by:   §1  .
+  
+  European Parliament and Council of the European Union (2024) 
+  European Parliament and Council of the European Union 
+ 
+  Regulation (EU) 2024/1689 of the European Parliament and of the Council – the artificial intelligence act .
+ 
+ Note:  Official Journal of the European Union, Article 50 
+ 
+ Cited by:   §1  .
+  
+  Feng  et al.  (2024) 
+  W. Feng, W. Zhou, J. He, J. Zhang, T. Wei, G. Li, T. Zhang, W. Zhang, and N. Yu 
+ 
+  AquaLoRA: toward white-box protection for customized stable diffusion models via watermark lora .
+ 
+ In  Proceedings of the 41st International Conference on Machine Learning ,
+ 
+  pp. 13423–13444 .
+ 
+ Cited by:   §A.2  ,
+  Appendix D  ,
+  §1  ,
+  §3.2.3  ,
+  2nd item  ,
+  §4.1  ,
+  §5.2  .
+  
+  Fernandez  et al.  (2023) 
+  P. Fernandez, G. Couairon, H. Jégou, M. Douze, and T. Furon 
+ 
+  The stable signature: rooting watermarks in latent diffusion models .
+ 
+ In  Proceedings of the IEEE/CVF International Conference on Computer Vision ,
+ 
+  pp. 22466–22477 .
+ 
+ Cited by:   §A.2  ,
+  §1  ,
+  §4.1  ,
+  §5.2  .
+  
+  Fernandez  et al.  (2022) 
+  P. Fernandez, A. Sablayrolles, T. Furon, H. Jégou, and M. Douze 
+ 
+  Watermarking images in self-supervised latent spaces .
+ 
+ In  ICASSP 2022-2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) ,
+ 
+  pp. 3054–3058 .
+ 
+ Cited by:   §A.1  .
+  
+  Heusel  et al.  (2017) 
+  M. Heusel, H. Ramsauer, T. Unterthiner, B. Nessler, and S. Hochreiter 
+ 
+  Gans trained by a two time-scale update rule converge to a local nash equilibrium .
+ 
+  Advances in neural information processing systems   30 .
+ 
+ Cited by:   §4.1  .
+  
+  Ho and Salimans (2022) 
+  J. Ho and T. Salimans 
+ 
+  Classifier-free diffusion guidance .
+ 
+  arXiv preprint arXiv:2207.12598 .
+ 
+ Cited by:   §2.1  .
+  
+  Huang  et al.  (2024) 
+  H. Huang, Y. Wu, and Q. Wang 
+ 
+  Robin: robust and invisible watermarks for diffusion models with adversarial optimization .
+ 
+  Advances in Neural Information Processing Systems   37 ,  pp. 3937–3963 .
+ 
+ Cited by:   §A.2  .
+  
+  Jähne (2005) 
+  B. Jähne 
+ 
+  Digital image processing .
+ 
+   Springer .
+ 
+ Cited by:   §4.1  .
+  
+  Jia  et al.  (2021) 
+  Z. Jia, H. Fang, and W. Zhang 
+ 
+  Mbrs: enhancing robustness of dnn-based watermarking by mini-batch of real and simulated jpeg compression .
+ 
+ In  Proceedings of the 29th ACM international conference on multimedia ,
+ 
+  pp. 41–49 .
+ 
+ Cited by:   §A.1  ,
+  §5.1  .
+  
+  Li  et al.  (2025) 
+  W. Li, H. Zhang, and Q. Qu 
+ 
+  Shallow diffuse: robust and invisible watermarking through low-dim subspaces in diffusion models .
+ 
+ In  The Thirty-ninth Annual Conference on Neural Information Processing Systems ,
+ 
+ Cited by:   §A.2  ,
+  Appendix D  ,
+  §1  ,
+  §2.1  ,
+  §3.2.3  ,
+  §3  ,
+  §4.1  ,
+  §5.2  .
+  
+  Lin  et al.  (2014) 
+  T. Lin, M. Maire, S. Belongie, J. Hays, P. Perona, D. Ramanan, P. Dollár, and C. L. Zitnick 
+ 
+  Microsoft coco: common objects in context .
+ 
+ In  European conference on computer vision ,
+ 
+  pp. 740–755 .
+ 
+ Cited by:   Appendix E  ,
+  §4.1  .
+  
+  Luo  et al.  (2023) 
+  S. Luo, Y. Tan, L. Huang, J. Li, and H. Zhao 
+ 
+  Latent consistency models: synthesizing high-resolution images with few-step inference .
+ 
+  arXiv preprint arXiv:2310.04378 .
+ 
+ Cited by:   §1  ,
+  §2.2  ,
+  §3.2  ,
+  §4.1  .
+  
+  Lykon (2023) 
+  Lykon 
+ 
+  DreamShaper 8 .
+ 
+ Note:   https://huggingface.co/Lykon/dreamshaper-8  
+ 
+ Cited by:   §4.5  .
+  
+  Navas  et al.  (2008) 
+  K. Navas, M. C. Ajay, M. Lekshmi, T. S. Archana, and M. Sasikumar 
+ 
+  Dwt-dct-svd based watermarking .
+ 
+ In  2008 3rd international conference on communication systems software and middleware and workshops (COMSWARE’08) ,
+ 
+  pp. 271–274 .
+ 
+ Cited by:   §A.1  ,
+  §5.1  .
+  
+  Neekhara  et al.  (2022) 
+  P. Neekhara, S. Hussain, X. Zhang, K. Huang, J. McAuley, and F. Koushanfar 
+ 
+  FaceSigns: semi-fragile neural watermarks for media authentication and countering deepfakes .
+ 
+  arXiv preprint arXiv:2204.01960 .
+ 
+ Cited by:   §A.1  .
+  
+  Nguyen-Le  et al.  (2025) 
+  H. Nguyen-Le, V. Tran, T. Nguyen, and N. Le-Khac 
+ 
+  A survey on proactive deepfake defense: disruption and watermarking .
+ 
+  ACM Computing Surveys   58  ( 5 ),  pp. 1–37 .
+ 
+ Cited by:   §1  .
+  
+  Pearson and Zinets (2022) 
+  J. Pearson and N. Zinets 
+ 
+  Deepfake footage purports to show ukrainian president capitulating .
+ 
+ Note:   https://www.reuters.com/world/europe/deepfake-footage-purports-show-ukrainian-president-capitulating-2022-03-16 Accessed: 12 February 2026 
+ 
+ Cited by:   §1  .
+  
+  Pezenik and Shepherd (2024) 
+  S. Pezenik and B. Shepherd 
+ 
+  Fake biden robocall urges new hampshire voters to skip their primary .
+ 
+ Note:   https://abcnews.com/Politics/fake-biden-robocall-urges-new-hampshire-voters-skip/story?id=106580926 Accessed: 12 February 2026 
+ 
+ Cited by:   §1  .
+  
+  Podell  et al.  (2024) 
+  D. Podell, Z. English, K. Lacey, A. Blattmann, T. Dockhorn, J. Müller, J. Penna, and R. Rombach 
+ 
+  SDXL: improving latent diffusion models for high-resolution image synthesis .
+ 
+ In  The Twelfth International Conference on Learning Representations ,
+ 
+ Cited by:   §1  ,
+  §2.1  .
+  
+  PromptHero (2023) 
+  PromptHero 
+ 
+  OpenJourney v4 .
+ 
+ Note:   https://huggingface.co/prompthero/openjourney-v4  
+ 
+ Cited by:   §4.5  .
+  
+  Rombach  et al.  (2022) 
+  R. Rombach, A. Blattmann, D. Lorenz, P. Esser, and B. Ommer 
+ 
+  High-resolution image synthesis with latent diffusion models .
+ 
+ In  Proceedings of the IEEE/CVF conference on computer vision and pattern recognition ,
+ 
+  pp. 10684–10695 .
+ 
+ Cited by:   §1  ,
+  §2.1  ,
+  §4.1  ,
+  §4.5  .
+  
+  Ruiz  et al.  (2023) 
+  N. Ruiz, Y. Li, V. Jampani, Y. Pritch, M. Rubinstein, and K. Aberman 
+ 
+  Dreambooth: fine tuning text-to-image diffusion models for subject-driven generation .
+ 
+ In  Proceedings of the IEEE/CVF conference on computer vision and pattern recognition ,
+ 
+  pp. 22500–22510 .
+ 
+ Cited by:   §1  .
+  
+  Sander  et al.  (2025) 
+  T. Sander, P. Fernandez, A. Durmus, T. Furon, and M. Douze 
+ 
+  Watermark anything with localized messages .
+ 
+ In  International Conference on Learning Representations-ICLR 2025 ,
+ 
+ Cited by:   §A.1  ,
+  §5.1  .
+  
+  Song  et al.  (2020) 
+  J. Song, C. Meng, and S. Ermon 
+ 
+  Denoising diffusion implicit models .
+ 
+ In  International Conference on Learning Representations ,
+ 
+ Cited by:   §1  ,
+  §2.1  ,
+  §3.1.1  .
+  
+  Song  et al.  (2023) 
+  Y. Song, P. Dhariwal, M. Chen, and I. Sutskever 
+ 
+  Consistency models .
+ 
+ In  Proceedings of the 40th International Conference on Machine Learning ,
+ 
+  pp. 32211–32252 .
+ 
+ Cited by:   §2.2  .
+  
+  Tancik  et al.  (2020) 
+  M. Tancik, B. Mildenhall, and R. Ng 
+ 
+  Stegastamp: invisible hyperlinks in physical photographs .
+ 
+ In  Proceedings of the IEEE/CVF conference on computer vision and pattern recognition ,
+ 
+  pp. 2117–2126 .
+ 
+ Cited by:   §A.1  ,
+  §4.1  ,
+  §5.1  .
+  
+  Tenbarge (2024) 
+  K. Tenbarge 
+ 
+  Explicit, AI-generated taylor swift images spread rapidly on social media .
+ 
+ Note:   https://www.nbcnews.com/tech/tech-news/explicit-ai-generated-taylor-swift-images-continue-proliferate-x-insta-rcna136193 Accessed: 28 June 2025 
+ 
+ Cited by:   §1  .
+  
+  Vision (2023) 
+  R. Vision 
+ 
+  Realistic Vision V5.1 .
+ 
+ Note:   https://huggingface.co/SG161222/Realistic_Vision_V5.1_noVAE  
+ 
+ Cited by:   §4.5  .
+  
+  Wang  et al.  (2024) 
+  T. Wang, M. Huang, H. Cheng, X. Zhang, and Z. Shen 
+ 
+  Proactive deepfake detection via training-free landmark perceptual watermarks .
+ 
+ In  ACM Multimedia 2024 ,
+ 
+ Cited by:   §A.1  .
+  
+  Wang  et al.  (2023) 
+  Z. J. Wang, E. Montoya, D. Munechika, H. Yang, B. Hoover, and D. H. Chau 
+ 
+  Diffusiondb: a large-scale prompt gallery dataset for text-to-image generative models .
+ 
+ In  Proceedings of the 61st annual meeting of the association for computational linguistics (volume 1: Long papers) ,
+ 
+  pp. 893–911 .
+ 
+ Cited by:   Appendix E  ,
+  §4.1  .
+  
+  Wen  et al.  (2023) 
+  Y. Wen, J. Kirchenbauer, J. Geiping, and T. Goldstein 
+ 
+  Tree-ring watermarks: fingerprints for diffusion images that are invisible and robust .
+ 
+  arXiv preprint arXiv:2305.20030 .
+ 
+ Cited by:   §A.2  ,
+  §1  ,
+  §2.1  ,
+  §3  ,
+  §4.1  ,
+  §5.2  .
+  
+  Wu  et al.  (2023) 
+  X. Wu, X. Liao, and B. Ou 
+ 
+  Sepmark: deep separable watermarking for unified source tracing and deepfake detection .
+ 
+ In  Proceedings of the 31st ACM International Conference on Multimedia ,
+ 
+  pp. 1190–1201 .
+ 
+ Cited by:   §A.1  .
+  
+  Xiong  et al.  (2023) 
+  C. Xiong, C. Qin, G. Feng, and X. Zhang 
+ 
+  Flexible and secure watermarking for latent diffusion model .
+ 
+ In  Proceedings of the 31st ACM International Conference on Multimedia ,
+ 
+  pp. 1668–1676 .
+ 
+ Cited by:   §A.2  ,
+  §1  .
+  
+  Zhang  et al.  (2019) 
+  K. A. Zhang, L. Xu, A. Cuesta-Infante, and K. Veeramachaneni 
+ 
+  Robust invisible video watermarking with attention .
+ 
+  arXiv preprint arXiv:1909.01285 .
+ 
+ Cited by:   §A.1  ,
+  §5.1  .
+  
+  Zhang  et al.  (2018) 
+  R. Zhang, P. Isola, A. A. Efros, E. Shechtman, and O. Wang 
+ 
+  The unreasonable effectiveness of deep features as a perceptual metric .
+ 
+ In  Proceedings of the IEEE conference on computer vision and pattern recognition ,
+ 
+  pp. 586–595 .
+ 
+ Cited by:   §4.1  .
+  
+  Zhu  et al.  (2018) 
+  J. Zhu, R. Kaplan, J. Johnson, and L. Fei-Fei 
+ 
+  Hidden: hiding data with deep networks .
+ 
+ In  Proceedings of the European conference on computer vision (ECCV) ,
+ 
+  pp. 657–672 .
+ 
+ Cited by:   §A.1  ,
+  §5.1  .
+  
+ 
+ 
+  
+ 
+ Appendix 
+
+ 
+ 
+  Appendix A  Detailed Related Work 
+
+ 
+  A.1  Post-hoc Image Watermarking 
+
+ 
+ Post-hoc watermarking methods embed imperceptible signals into  existing  images, regardless of how they were generated.
+Classical approaches modify coefficients in transform domains, such as Discrete Cosine Transform (DCT), Singular Value Decomposition (SVD)   Al-Haj [2007] ,  Navas et al. [2008]  . However, these methods are sensitive to compression algorithms and image editing techniques encountered in modern image-sharing platforms. Additionally, encryption schemes are also employed to prevent the removal of watermarks from adversarial   Neekhara et al. [2022] ,  Wang et al. [2024]  . 
+ 
+ 
+ Deep learning has enabled a more powerful paradigm: jointly training an encoder–decoder pair end-to-end with differentiable noise layers to learn robust embeddings. HiDDeN   Zhu et al. [2018]   introduces this  encoder–noise layer–decoder  architecture, where differentiable noise layers inserted between the encoder and decoder during training force the model to learn robust encodings against Gaussian blur, cropping, and JPEG compression. MBRS   Jia et al. [2021]   improves JPEG robustness by alternating between real and simulated compression across mini-batches. StegaStamp   Tancik et al. [2020]   significantly raises the robustness bar by targeting  physical-world  distortions: it trains with aggressive augmentations simulating the print-and-photograph pipeline, including perspective warping via spatial transformer networks. RivaGAN   Zhang et al. [2019]   introduces an adversarial training strategy where a dedicated attack network attempts to remove the watermark during training, pushing the encoder to find more resilient embedding strategies. This adversarial formulation was further developed by subsequent works that incorporated GAN-based discriminators to simultaneously improve watermarked image quality   Bui et al. [2023]  . SepMark   Wu et al. [2023]   re-constructs this encoder–noise layer–decoder architecture into a novel deep separable watermarking framework that employs a single encoder alongside two distinct decoders: one robust and one semi-robust. Rather than embedding the watermark into the pixel-space, Fernandez   Fernandez et al. [2022]   proposed watermarking in the latent space of self-supervised networks (e.g., DINO). This approach is resolution-agnostic and benefits from the transformation-invariant representations learned by self-supervised models, but the iterative per-image optimization makes embedding slower. More recently, the Watermark Anything Model (WAM)   Sander et al. [2025]   reformulated watermarking as a segmentation task for localized multi-message extraction. 
+ 
+ 
+ However, there are two main limitations of these post-hoc methods. First, since these methods operate on high-resolution pixel representations (e.g.,     512  ×  512  ×  3   512\times 512\times 3   , they introduce substantial computational overhead and latency. Second, applying watermarks post-hoc in pixel space can introduce visual artifacts into the generated images. 
+ 
+ 
+ 
+  A.2  Watermarking Diffusion Models 
+
+ 
+ Methods that embed watermarks during the diffusion generation process fall into two families. 
+ 
+ 
+ Sampling-based methods 
+
+ 
+ modify the sampling noise while keeping model weights frozen.
+Tree-Ring   Wen et al. [2023]   pioneers this direction by embedding a concentric Fourier-space pattern into     z  T   z_{T}   . At detection time, the pattern is recovered by running a 50-step DDIM inversion, yielding a zero-bit (present/absent) decision. RingID   Ci et al. [2024]   extends Tree-Ring to multi-key identification by assigning distinct ring patterns to different users, though detection still requires full inversion. Shallow Diffuse   Li et al. [2025]   improves robustness by projecting the watermark to a low-dimensional subspace of     z  T   z_{T}    that is less affected by the denoising trajectory, demonstrating resilience against regeneration attacks. ROBIN   Huang et al. [2024]   departs from modifying     z  T   z_{T}    entirely and instead implants a watermark at an intermediate diffusion state, using adversarial prompt optimization to hide the signal during subsequent denoising. Despite their plug-and-play nature, all these methods rely on DDIM inversion for detection, which requires       ∼  50   {\sim}50    sequential UNet evaluations and is therefore prohibitive at platform scale. 
+ 
+ 
+ 
+ Fine-tuning-based methods 
+
+ 
+ modify model components, most commonly the VAE decoder or the UNet, so that every generated image inherently carries an extractable watermark.
+Stable Signature   Fernandez et al. [2023]   fine-tunes the VAE decoder jointly with a pre-trained extractor network, enabling multi-bit extraction in a single forward pass through the lightweight decoder without any inversion. AquaLoRA   Feng et al. [2024]   targets the white-box setting where adversaries have full model access. The method merges watermark information directly into the UNet via a LoRA module, making the watermark inseparable from the model weights and resilient to module removal. Xiong   Xiong et al. [2023]   propose embedding the secret within the latent decoder with flexible capacity control. While these methods achieve fast, multi-bit detection, they fundamentally couple the watermark to a specific model checkpoint: each model variant or fine-tuned derivative requires its own watermarking procedure. 
+ 
+ 
+  Positioning of DiffMark. 
+As summarized in Fig.   1  , DiffMark bridges the two families. Like sampling-based methods, it operates on a frozen, unmodified diffusion model and requires no weight modification, making it truly plug-and-play across any LCM-compatible architecture. Like fine-tuning-based methods, it enables single-pass, multi-bit detection via a lightweight learned decoder, avoiding the costly inversion bottleneck. The key enabler is using LCMs as a differentiable training bridge: rather than embedding information in     z  T   z_{T}    (which forces inversion for recovery) or fine-tuning model weights (which couples the watermark to a specific checkpoint), DiffMark injects a learned perturbation    δ  \delta    at every denoising step of the frozen model, allowing the watermark signal to accumulate in     z  0   z_{0}    where it can be directly extracted. 
+ 
+ 
+ 
+ 
+ 
+  Appendix B  Details in Encoder-Decoder Pretraining 
+
+ 
+  B.1  Encoder Architecture 
+
+ 
+ Each bit position    i  i    is associated with two learnable embeddings in a table     𝐖  ∈   ℝ    2  ​  L   ×   d  e      \mathbf{W}\in\mathbb{R}^{2L\times d_{e}}   , one for each binary value. Given a secret    s  s   , the encoder retrieves the appropriate embedding for every bit and sums them into a single vector     𝐱  =    ∑  i    𝐖  ⁡   [    2  ​  i   +   s  i    ]     ∈   ℝ   d  e     \mathbf{x}=\sum_{i}\mathbf{W}[2i+s_{i}]\in\mathbb{R}^{d_{e}}   . This aggregated vector is then used to modulate a learned spatial basis     𝐁  ∈   ℝ    d  e   ×  h  ×  w     \mathbf{B}\in\mathbb{R}^{d_{e}\times h\times w}    via an outer product: 
+ 
+
+  
+  
+       𝐗   d  ,  i  ,  j    =     ∑   d  ′     𝐱   d  ′     ⋅   𝐁    d  ′   ,  i  ,  j      ,   \mathbf{X}_{d,i,j}=\sum_{d^{\prime}}\mathbf{x}_{d^{\prime}}\cdot\mathbf{B}_{d^{\prime},i,j},    
+    
+ 
+ which lifts the secret representation to the full spatial resolution of the latent space. The resulting feature map is refined by three convolutional blocks ( Conv2d(3   ×  \times   3)  + SiLU + BN, channels:      d  e   →  32  →  16  →  8   d_{e}\rightarrow 32\rightarrow 16\rightarrow 8   ), after which two parallel     3  ×  3   3\times 3    convolution heads produce the parameters of a diagonal Gaussian:     μ  ∈   ℝ   c  ×  h  ×  w     \mu\in\mathbb{R}^{c\times h\times w}    and     log  ⁡   σ  2    \log\sigma^{2}   . A learnable scalar    α  \alpha    (initialized to 0.1) globally scales the output, providing a single knob to control perturbation strength independently of the learned feature magnitudes. The complete encoder contains 295,265 parameters (Tab.   3  ). 
+ 
+ 
+   Table 3 :   Parameter breakdown of the encoder and decoder.  
+ 
+ 
+ Module 
+ Component 
+ Parameters  
+ 
+  Encoder     E  ϕ   E_{\phi}     
+ Bit embeddings (     2  ​  L   ×   d  e    2L\times d_{e}   ) 
+ 8,192  
+ 
+ Spatial basis    𝐁  \mathbf{B}    (     d  e   ×  h  ×  w   d_{e}\times h\times w   ) 
+ 262,144  
+ 
+ Refinement convolutions 
+    ∼  {\sim}   24K  
+ 
+ Variational heads (   μ  \mu   ,     log  ⁡   σ  2    \log\sigma^{2}   ) 
+    ∼  {\sim}   580  
+ 
+  Total  
+  295,265   
+ 
+  Decoder     D  ψ   D_{\psi}     
+ Input conv + 5 downsample blocks 
+    ∼  {\sim}   700K  
+ 
+ MLP head 
+    ∼  {\sim}   1.64M  
+ 
+  Total  
+  2,339,704   
+ 
+ 
+ 
+ 
+  B.2  Decoder Architecture 
+
+ 
+ The decoder     D  ψ   D_{\psi}    operates on the final denoised latent      z  0   ∈   ℝ   4  ×  h  ×  w     z_{0}\in\mathbb{R}^{4\times h\times w}   , which already carries the accumulated watermark signal. Its design follows a standard classification backbone: a convolutional feature extractor followed by a fully connected classification head. 
+ 
+ 
+ The feature extractor begins with a     3  ×  3   3\times 3    input convolution (    4  →  8   4\rightarrow 8    channels, Sigmoid Linear Unit (SiLU)) and proceeds through five strided downsample blocks ( Conv2d(4   ×  \times   4, stride 2)  + SiLU + BN), progressively increasing channels (    8  →  16  →  32  →  64  →  128  →  256   8\rightarrow 16\rightarrow 32\rightarrow 64\rightarrow 128\rightarrow 256   ) while reducing spatial resolution from     64  ×  64   64\times 64    to     2  ×  2   2\times 2   . BatchNorm is omitted from the final block to preserve representational flexibility near the classification boundary. 
+ 
+ 
+ The resulting     256  ×  2  ×  2   256\times 2\times 2    tensor is flattened to a 1,024-dimensional vector and processed by a three-layer MLP (    1024  →  1024  →  512  →   2  ​  L    1024\rightarrow 1024\rightarrow 512\rightarrow 2L   , with SiLU activations between layers). The output is reshaped to     ℝ   L  ×  2    \mathbb{R}^{L\times 2}   , providing per-bit logits from which the secret is recovered as       s  ^   i   =   arg  ⁡    max  c   ⁡   logits   i  ,  c       \hat{s}_{i}=\arg\max_{c}\text{logits}_{i,c}   . The decoder totals 2,339,704 parameters, with the MLP head accounting for the majority (   ∼  \sim   1.64M). 
+ 
+ 
+ 
+ 
+  Appendix C  Details in Curriculum Training 
+
+ 
+ This appendix provides the formal schedule definitions and gradient-level analysis from Sec.   3.3  . 
+ 
+ 
+  C.1  Delta Annealing Schedule 
+
+ 
+ The magnitude target     σ  target   \sigma_{\mathrm{target}}    in     ℒ  mag   \mathcal{L}_{\mathrm{mag}}    (Eq. (  8  )) follows a cosine schedule that transitions from a relaxed initial value to a tighter final value: 
+ 
+
+  
+  
+        σ  target   ​   (  t  )    =    σ  s   +      σ  e   −   σ  s    2   ​   (   1  −   cos  ⁡   (   π  ⋅   min  ⁡   (   t  /   T  a    ,   1  )     )     )      ,   \sigma_{\mathrm{target}}(t)=\sigma_{\mathrm{s}}+\frac{\sigma_{\mathrm{e}}-\sigma_{\mathrm{s}}}{2}\Bigl(1-\cos\bigl(\pi\cdot\min(t/T_{a},\,1)\bigr)\Bigr),    
+  
+  (18)    
+ 
+ where      σ  s   >   σ  e   >  0   \sigma_{\mathrm{s}}>\sigma_{\mathrm{e}}>0    are the initial and final targets and     T  a   T_{a}    is the annealing horizon. At     t  =  0   t=0   , the target equals     σ  s   \sigma_{\mathrm{s}}   , assigning the encoder a large perturbation budget for establishing a decodable signal. As training progresses, the target smoothly decreases to     σ  e   \sigma_{\mathrm{e}}   , enforcing imperceptibility. The cosine shape provides a gradual transition in the middle of training, avoiding abrupt changes in constraints that could destabilize optimization. 
+ 
+ 
+ 
+  C.2  Gradient Analysis of Training Collapse 
+
+ 
+ We provide a more detailed analysis of the optimization failure mode that motivates the curriculum. Consider the encoder gradient at initialization (    t  =  0   t=0   ) when all losses are active simultaneously. The two dominant terms contributing gradients to     E  ϕ   E_{\phi}    are the LCM reconstruction loss and the latent fidelity loss: 
+ 
+
+  
+  
+         ∇  ϕ   ℒ   ​   (  0  )    ⊃       ∇  ϕ    ℒ  lcm    ⏟     requires   ​   ‖  δ  ‖    >  0    +    w  lafid   ⋅      ∇  ϕ    ℒ  lafid    ⏟     drives   ​  δ   →  0       .   \nabla_{\phi}\mathcal{L}(0)\;\supset\;\underbrace{\nabla_{\phi}\mathcal{L}_{\mathrm{lcm}}}_{\text{requires }\|\delta\|>0}\;+\;w_{\mathrm{lafid}}\cdot\underbrace{\nabla_{\phi}\mathcal{L}_{\mathrm{lafid}}}_{\text{drives }\delta\to 0}.    
+  
+  (19)    
+ 
+ 
+ 
+ The reconstruction gradient      ∇  ϕ    ℒ  lcm    \nabla_{\phi}\mathcal{L}_{\mathrm{lcm}}    flows through the chain      ℒ  lcm   →   D  ψ   →   z  0  lcm   →  LCM  →  δ  →   E  ϕ    \mathcal{L}_{\mathrm{lcm}}\to D_{\psi}\to z_{0}^{\mathrm{lcm}}\to\text{LCM}\to\delta\to E_{\phi}   . At initialization, the randomly initialized decoder     D  ψ   D_{\psi}    produces near-uniform predictions regardless of     z  0   z_{0}   , yielding       ∇   z  0     ℒ  lcm    ≈  0   \nabla_{z_{0}}\mathcal{L}_{\mathrm{lcm}}\approx 0   . Consequently, the useful gradient signal reaching     E  ϕ   E_{\phi}    is negligible. 
+ 
+ 
+ In contrast, the latent fidelity gradient       ∇  ϕ    ℒ  lafid    =     ∇  ϕ   MSE   ​   (   z  0  lcm   ,   z  0   lcm  ,  clean    )     \nabla_{\phi}\mathcal{L}_{\mathrm{lafid}}=\nabla_{\phi}\mathrm{MSE}(z_{0}^{\mathrm{lcm}},z_{0}^{\mathrm{lcm,clean}})    is well-defined from the first step: any nonzero    δ  \delta    produces a nonzero      z  0  lcm   −   z  0   lcm  ,  clean     z_{0}^{\mathrm{lcm}}-z_{0}^{\mathrm{lcm,clean}}   , providing a strong gradient that pushes     δ  →  0   \delta\to 0   . The PRVL and frequency losses exhibit analogous behavior. The resulting gradient imbalance causes     ‖  δ  ‖   \|\delta\|    to collapse before the decoder can learn to exploit the watermark signal, leading to the trivial solution     δ  =  0   \delta=0   . 
+ 
+ 
+ The curriculum prevents this by activating     𝒢  imp   \mathcal{G}_{\mathrm{imp}}    only after the decoder has been sufficiently trained on     𝒢  rec   \mathcal{G}_{\mathrm{rec}}   . At this point,     D  ψ   D_{\psi}    produces informative gradients       ∇   z  0     ℒ  lcm    ≠  0   \nabla_{z_{0}}\mathcal{L}_{\mathrm{lcm}}\neq 0    that counterbalance the imperceptibility losses, enabling stable co-optimization of accuracy and quality. 
+ 
+ 
+ 
+ 
+  Appendix D  Details in Imperceptibility Loss Functions 
+
+ 
+ Latent fidelity loss     ℒ  lafid   \mathcal{L}_{\mathrm{lafid}}   . 
+
+ 
+ 
+
+  
+  
+       ℒ  lafid   =    MSE   ⁡   (   z  0  lcm   ,   z  0   lcm  ,  clean    )     ,   \mathcal{L}_{\mathrm{lafid}}=\mathrm{MSE}\!\bigl(z_{0}^{\mathrm{lcm}},\;z_{0}^{\mathrm{lcm,clean}}\bigr),    
+  
+  (20)    
+ 
+ where     z  0   lcm  ,  clean    z_{0}^{\mathrm{lcm,clean}}    is the LCM output from the same     z  T   z_{T}    with zero delta (detached from the encoder graph). This penalizes the global latent-space distortion introduced by    δ  \delta    before VAE decoding amplifies it into pixel-space artefacts. Weight      w  lafid   =  0.1   w_{\mathrm{lafid}}{=}0.1   . 
+ 
+ 
+ 
+ Peak regional variational loss     ℒ  prvl   \mathcal{L}_{\mathrm{prvl}}   . 
+
+ 
+ While     ℒ  lafid   \mathcal{L}_{\mathrm{lafid}}    controls global distortion, the watermark energy may still concentrate in localized pixel patches. Following   Feng et al. [2024]  , we penalize the worst-case 32   ×  \times   32 regional mean absolute difference: 
+ 
+
+  
+  
+       ℒ  prvl   =     max  p   ⁡   conv2d    ​    (    mean  c   ​   [   |    x  wm   −   x  clean    |   ]    ,   K   32  ×  32    )   p     ,   \mathcal{L}_{\mathrm{prvl}}=\max_{p}\;\mathrm{conv2d}\!\Bigl(\mathrm{mean}_{c}\bigl[|x_{\mathrm{wm}}-x_{\mathrm{clean}}|\bigr],\;K_{32\times 32}\Bigr)_{p},    
+  
+  (21)    
+ 
+ where      K   32  ×  32    =    1   32  2    ⋅   𝟏   32  ×  32      K_{32\times 32}=\frac{1}{32^{2}}\cdot\mathbf{1}_{32\times 32}    is a uniform averaging kernel. Minimising     ℒ  prvl   \mathcal{L}_{\mathrm{prvl}}    forces the encoder to distribute watermark energy uniformly across the image plane. Gradients flow through VAE decoding and the LCM path back to     E  ϕ   E_{\phi}   . Weight      w  prvl   =  1.5   w_{\mathrm{prvl}}{=}1.5   . 
+ 
+ 
+ 
+ Frequency constraint     ℒ  freq   \mathcal{L}_{\mathrm{freq}}   . 
+
+ 
+ 
+
+  
+  
+        ℒ  freq   =    mean  ⁡   (   P  low   )      mean  ⁡   (  P  )    +   10   −  8       ,   P  =    |   ℱ  ⁡   (  δ  )    |   2     ,   \mathcal{L}_{\mathrm{freq}}=\frac{\mathrm{mean}(P_{\mathrm{low}})}{\mathrm{mean}(P)+10^{-8}},\qquad P=|\mathcal{F}(\delta)|^{2},    
+  
+  (22)    
+ 
+ where    ℱ  \mathcal{F}    is the centered 2D FFT and     P  low   P_{\mathrm{low}}    is the power inside a disk of radius 10 centered at DC. Penalizing the low-frequency energy ratio pushes    δ  \delta    toward high-frequency components (edges and textures), where the human visual system is least sensitive   Li et al. [2025]  . Weight      w  freq   =  0.5   w_{\mathrm{freq}}{=}0.5   ; active from step 0. 
+ 
+ 
+ 
+ 
+  Appendix E  Additional Implementation Details 
+
+ 
+  Curriculum Schedule.  Following the strategy in Sec.   3.3  , the loss groups are activated at      τ  rec   =  0   \tau_{\text{rec}}{=}0    and      τ  imp   =  500   \tau_{\text{imp}}{=}500   . The delta magnitude target     σ  target   \sigma_{\text{target}}    is annealed from      σ  s   =  0.10   \sigma_{s}{=}0.10    to      σ  e   =  0.05   \sigma_{e}{=}0.05    over    5,000  5{,}000    steps via Eq. (  18  ). 
+ 
+ 
+  Training Hyperparameters.  Table   4   lists all hyperparameters for training. 
+ 
+ 
+   Table 4 :   Training hyperparameters.  
+ 
+ 
+ Parameter 
+ Value  
+ 
+ Training steps 
+ 10,000  
+ 
+ Batch size 
+ 16  
+ 
+ Optimizer 
+ AdamW  
+ 
+ Learning rate (encoder / decoder) 
+     5  ×   10   −  5     5{\times}10^{-5}    /     3  ×   10   −  4     3{\times}10^{-4}     
+ 
+ LR schedule 
+ Warmup (500 steps) + linear decay to     10   −  6    10^{-6}     
+ 
+ Gradient clip (encoder / decoder) 
+ 5.0 / 1.0  
+ 
+ Precision 
+ bf16 mixed-precision  
+ 
+ LCM steps (   K  K   ) / DDIM steps (   N  N   ) 
+ 4 / 50  
+ 
+ Guidance scale (   w  w   ) 
+ 7.5  
+ 
+ Curriculum gates  
+ 
+     τ  rec   \tau_{\text{rec}}    /     τ  imp   \tau_{\text{imp}}    
+ 0 / 500  
+ 
+ Delta annealing (cosine)  
+ 
+      σ  s   →   σ  e    \sigma_{s}\to\sigma_{e}    
+     0.10  →  0.05   0.10\to 0.05     
+ 
+     T  a   T_{a}    
+ 5,000  
+ 
+ 
+ 
+  Loss Weights.  Table   5   provides the complete loss weight configuration. 
+ 
+ 
+   Table 5 :   Loss weights for main training.  
+ 
+ 
+ Loss 
+ Symbol 
+ Weight  
+ 
+ LCM reconstruction 
+     w  lcm   w_{\text{lcm}}    
+ 1.0  
+ 
+ DDIM supervision 
+     w  ddim   w_{\text{ddim}}    
+ 1.0  
+ 
+ Magnitude constraint 
+     w  mag   w_{\text{mag}}    
+ 5.0 (MSE variant)  
+ 
+ KL regularization 
+    β  \beta    
+     0.001  →  0.05   0.001\to 0.05   
+(warmup, 1K steps)  
+ 
+ Orthogonality 
+     w  orth   w_{\text{orth}}    
+ 0.1  
+ 
+ PRVL 
+     w  prvl   w_{\text{prvl}}    
+ 1.5  
+ 
+ Latent fidelity 
+     w  lafid   w_{\text{lafid}}    
+ 0.1  
+ 
+ Frequency constraint 
+     w  freq   w_{\text{freq}}    
+ 0.5  
+ 
+ Negative entropy 
+     w  neg   w_{\text{neg}}    
+ 0.01  
+ 
+ Regeneration (VAE round-trip) 
+     w  regen   w_{\text{regen}}    
+ 1.0  
+ 
+ 
+ 
+  Evaluation.  For each evaluation dataset (MS-COCO 2017   Lin et al. [2014]  ,
+DiffusionDB   Wang et al. [2023]  , DALL-E3   An et al. [2024]  ),    1,000  1{,}000    prompts are randomly selected. For each prompt, a watermarked image is generated at     512  ×  512   512\times 512    resolution using DDIM with     N  =  50   N{=}50    steps. Given a test image    x  x   , detection proceeds in two steps: (i) encode to latent space,      z  0   =    ℰ  ⁡   (  x  )    ⋅   f  s     z_{0}=\mathcal{E}(x)\cdot f_{s}   ; (ii) extract the secret,      s  ^   =    arg  ⁡  max   ​   D  ψ   ​   (   z  0   )     \hat{s}=\arg\max D_{\psi}(z_{0})   . Bit accuracy is     Bit ACC  =  1  −   1  L    ∑   i  =  1   L   𝟙   [    s  ^   i   ≠   s  i   ]    \text{Bit~ACC}=1-\frac{1}{L}\sum_{i=1}^{L}\mathbbm{1}[\hat{s}_{i}\neq s_{i}]   . 
+ 
+ 
+ 
+  Appendix F  Details about Attacks 
+
+ 
+ We evaluate the robustness of DiffMark under 13 types of attacks, which are categorized into: distortion, regeneration, and adversarial attacks. 
+ 
+ 
+  Distortion Attacks.  We evaluate robustness under 8 distortion attacks spanning geometric transformations (rotation, resized crop, random erasing), photometric perturbations (brightness, contrast, additive Gaussian noise), and signal-level corruptions (Gaussian blur, JPEG compression). Each attack is parameterized by a severity level that ranges from benign to aggressive, as summarized in Table   6  . 
+ 
+ 
+   Table 6 :   Summary of distortion attacks used for robustness evaluation.  
+ 
+ 
+ Attack 
+ ID 
+ Mechanism 
+ Strength Range  
+ 
+ Rotation 
+  Rotation  
+ Rotate by angle 
+      0  ∘   →   45  ∘    0^{\circ}\to 45^{\circ}     
+ 
+ Resized Crop 
+  RCrop  
+ Crop + resize 
+ scale     1.0  →  0.5   1.0\to 0.5     
+ 
+ Random Erasing 
+  Erase  
+ Zero-fill random patch 
+      0  %   →   25  %    0\%\to 25\%    area  
+ 
+ Brightness 
+  Bright  
+ Enhance brightness 
+ factor     1.0  →  2.0   1.0\to 2.0     
+ 
+ Contrast 
+  Contrast  
+ Enhance contrast 
+ factor     1.0  →  2.0   1.0\to 2.0     
+ 
+ Gaussian Blur 
+  Blur  
+ Gaussian blur kernel 
+ size     0  →  20   0\to 20     
+ 
+ Additive Noise 
+  Noise  
+ Gaussian noise     𝒩  ⁡   (  0  ,   σ  2   )    \mathcal{N}(0,\sigma^{2})    
+    σ  \sigma   :     0.0  →  0.1   0.0\to 0.1     
+ 
+ JPEG Compression 
+  Compress  
+ Lossy re-encoding 
+ quality     90  →  10   90\to 10     
+ 
+ 
+ 
+  Regeneration Attacks.  Regeneration attacks aim to overwrite the watermark by re-encoding a watermarked image into a latent representation and reconstructing it through an alternative generative model. We adopt three variants from the WAVES benchmark   An et al. [2024]  .  Regen-VAE  passes the image through a pretrained compression VAE.  Regen-Diff  encodes the image into the latent space of a surrogate DM (Stable Diffusion v1.4), adds noise for a specified number of timesteps, and re-denoises, with the number of noising steps as the strength parameter.  Rinse-2xDiff  repeats this diffusive regeneration twice, achieving stronger watermark removal at the cost of greater quality degradation. These attacks are summarized in Table   7  . 
+ 
+ 
+   Table 7 :   Summary of regeneration and adversarial attacks used for robustness evaluation.  
+ 
+ 
+ Attack 
+ ID 
+ Strength Range  
+ 
+  Regeneration attacks   
+ 
+ VAE 
+  Regen-VAE  
+ quality     1  →  7   1\to 7     
+ 
+ Diffusion 
+  Regen-Diff  
+ steps     40  →  200   40\to 200     
+ 
+ Rinsing (2   ×  \times   ) 
+  Rinse-2xDiff  
+ steps     20  →  100   20\to 100     
+ 
+  Adversarial attacks   
+ 
+ KL-VAE (grey-box) 
+  Adv-KLVAE8  
+    ϵ  \epsilon   :      2  /  255   →   8  /  255    2/255\to 8/255     
+ 
+ ResNet-18 (black-box) 
+  Adv-RN18  
+    ϵ  \epsilon   :      2  /  255   →   8  /  255    2/255\to 8/255     
+ 
+ 
+ 
+  Adversarial Attacks.  Adversarial attacks craft imperceptible perturbations to disrupt the watermark detection pipeline. We evaluate two embedding attacks from WAVES   An et al. [2024]  , which maximize the     ℓ  2   \ell_{2}    divergence between the latent representation of the adversarial image and the original within an     ℓ  ∞   \ell_{\infty}    ball of radius    ϵ  \epsilon   , solved via PGD.  AdvEmbG-KLVAE8  uses the same KL-VAE encoder as the victim model (grey-box setting), while  AdvEmbB-RN18  targets a pretrained ResNet-18 encoder (black-box setting). The perturbation budget     ϵ  ∈   {    2  /  255   ,   4  /  255   ,   6  /  255   ,   8  /  255    }    \epsilon\in\{2/255,4/255,6/255,8/255\}    controls attack strength. 
+ 
+ 
+ 
+  Appendix G  Pseudo-codes 
+
+ 
+  G.1  Encoder-Decoder Pretraining 
+
+ 
+   Algorithm 1    Encoder-Decoder Pretraining 
+ 
+ 
+                0:  
+              
+              
+             Encoder     E  ϕ   E_{\phi}   , Decoder     D  ψ   D_{\psi}   , secret length    L  L   , pretraining steps     N  pre   N_{\mathrm{pre}}   , noise schedule      σ  start   →   σ  end    \sigma_{\mathrm{start}}\to\sigma_{\mathrm{end}}   
+
+ 
+ 
+                0:  
+              
+              
+             Pretrained     E  ϕ   E_{\phi}   ,     D  ψ   D_{\psi}   
+
+ 
+ 
+                1:  
+              
+              
+              for       t  =  1   ,  …  ,   N  pre    t=1,\dots,N_{\mathrm{pre}}     do 
+
+
+
+ 
+ 
+                2:  
+              
+              
+                  s  ∼   Bernoulli  ​    (  0.5  )   L     s\sim\mathrm{Bernoulli}(0.5)^{L}   
+
+ 
+ 
+                3:  
+              
+              
+                  δ  ←    E  ϕ   ​   (  s  )     \delta\leftarrow E_{\phi}(s)   
+
+ 
+ 
+                4:  
+              
+              
+              {Clean reconstruction}
+
+ 
+ 
+                5:  
+              
+              
+                   𝐨  clean   ←    D  ψ   ​   (  δ  )     \mathbf{o}_{\mathrm{clean}}\leftarrow D_{\psi}(\delta)   
+
+ 
+ 
+                6:  
+              
+              
+                   ℒ  clean   ←    ℒ  CE   ​   (   𝐨  clean   ,  s  )     \mathcal{L}_{\mathrm{clean}}\leftarrow\mathcal{L}_{\mathrm{CE}}(\mathbf{o}_{\mathrm{clean}},\,s)    {Eq. (  10  )}
+
+ 
+ 
+                7:  
+              
+              
+              {Noisy reconstruction (curriculum)}
+
+ 
+ 
+                8:  
+              
+              
+                   σ  n   ←    σ  start   +     (    σ  end   −   σ  start    )   ⋅  t   /   N  pre      \sigma_{n}\leftarrow\sigma_{\mathrm{start}}+(\sigma_{\mathrm{end}}-\sigma_{\mathrm{start}})\cdot t/N_{\mathrm{pre}}   
+
+ 
+ 
+                9:  
+              
+              
+                  ϵ  ∼   𝒩  ⁡   (  0  ,    σ  n  2   ​  𝐈   )     \epsilon\sim\mathcal{N}(0,\sigma_{n}^{2}\mathbf{I})   
+
+ 
+ 
+                10:  
+              
+              
+                   𝐨  noisy   ←    D  ψ   ​   (   δ  +  ϵ   )     \mathbf{o}_{\mathrm{noisy}}\leftarrow D_{\psi}(\delta+\epsilon)   
+
+ 
+ 
+                11:  
+              
+              
+                   ℒ  noisy   ←    ℒ  CE   ​   (   𝐨  noisy   ,  s  )     \mathcal{L}_{\mathrm{noisy}}\leftarrow\mathcal{L}_{\mathrm{CE}}(\mathbf{o}_{\mathrm{noisy}},\,s)   
+
+ 
+ 
+                12:  
+              
+              
+              {Regularization}
+
+ 
+ 
+                13:  
+              
+              
+                   ℒ  orth   ←    1   B  ⁡   (   B  −  1   )     ​    ∑   i  ≠  j       ⟨    δ  i   ,   δ  j    ⟩   F      ‖   δ  i   ‖   F   ​    ‖   δ  j   ‖   F        \mathcal{L}_{\mathrm{orth}}\leftarrow\frac{1}{B(B-1)}\sum_{i\neq j}\frac{\langle\delta_{i},\delta_{j}\rangle_{F}}{\|\delta_{i}\|_{F}\|\delta_{j}\|_{F}}    {Eq. (  11  )}
+
+ 
+ 
+                14:  
+              
+              
+                  ℒ  ←     w  r   ⋅   ℒ  clean    +    w  n   ⋅   ℒ  noisy    +    w  orth   ⋅   ℒ  orth      \mathcal{L}\leftarrow w_{r}\cdot\mathcal{L}_{\mathrm{clean}}+w_{n}\cdot\mathcal{L}_{\mathrm{noisy}}+w_{\mathrm{orth}}\cdot\mathcal{L}_{\mathrm{orth}}   
+
+ 
+ 
+                15:  
+              
+              
+              Update     ϕ  ,  ψ   \phi,\psi    via AdamW on     ∇  ℒ   \nabla\mathcal{L}   
+
+ 
+ 
+                16:  
+              
+              
+               if  clean accuracy       ≥  0.99   \geq 0.99    for 10 consecutive steps  then 
+
+
+
+ 
+ 
+                17:  
+              
+              
+                break 
+
+ 
+ 
+                18:  
+              
+              
+               end   if 
+ 
+ 
+                19:  
+              
+              
+              end   for 
+ 
+ 
+ 
+ 
+ 
+  G.2  Dual-path Training 
+
+ 
+   Algorithm 2    DiffMark Training with Dual-Path LCM Bridge 
+ 
+ 
+                0:  
+              
+              
+              Pretrained encoder      E  ϕ   E_{\phi}    , decoder      D  ψ   D_{\psi}    ; frozen UNet      ϵ  θ   \epsilon_{\theta}    , LCM, VAE (     ℰ  ,  𝒟   \mathcal{E},\mathcal{D}    ); curriculum gates       τ  rec   ,   τ  imp   ,   τ  rob    \tau_{\mathrm{rec}},\tau_{\mathrm{imp}},\tau_{\mathrm{rob}}    ; training steps     T  T    
+ 
+ 
+ 
+                0:  
+              
+              
+              Trained      E  ϕ   E_{\phi}    ,      D  ψ   D_{\psi}    
+ 
+ 
+ 
+                1:  
+              
+              
+                for         t  =  1   ,  …  ,  T   t=1,\dots,T       do  
+
+
+ 
+ 
+ 
+                2:  
+              
+              
+                     s  ∼   Bernoulli  ​    (  0.5  )   L     s\sim\mathrm{Bernoulli}(0.5)^{L}    ;       z  T   ∼   𝒩  ⁡   (  0  ,  𝐈  )     z_{T}\sim\mathcal{N}(0,\mathbf{I})    ;      c  ←   CLIP  ⁡   (  prompt  )     c\leftarrow\mathrm{CLIP}(\text{prompt})    
+ 
+ 
+ 
+                3:  
+              
+              
+                     δ  ←    E  ϕ   ​   (  s  )     \delta\leftarrow E_{\phi}(s)    
+ 
+ 
+ 
+                4:  
+              
+              
+                 
+ 
+ 
+                5:  
+              
+              
+                {  LCM path   (differentiable,      K  =  4   K{=}4     steps)}
+ 
+ 
+ 
+                6:  
+              
+              
+                     z  ←   z  T    z\leftarrow z_{T}    
+ 
+ 
+ 
+                7:  
+              
+              
+                  for         k  =  1   ,  …  ,  K   k=1,\dots,K       do  
+
+
+ 
+ 
+ 
+                8:  
+              
+              
+                       z  ~   ←   z  +  δ    \tilde{z}\leftarrow z+\delta     {Delta injection (Eq. (   5   ))}
+ 
+ 
+ 
+                9:  
+              
+              
+                      z  ←    LCM  θ   ​   (   z  ~   ,   t  k   ,  c  )     z\leftarrow\mathrm{LCM}_{\theta}(\tilde{z},\,t_{k},\,c)    
+ 
+ 
+ 
+                10:  
+              
+              
+                  end     for 
+ 
+ 
+                11:  
+              
+              
+                      z  0  lcm   ←  z   z_{0}^{\mathrm{lcm}}\leftarrow z    
+ 
+ 
+ 
+                12:  
+              
+              
+                      ℒ  lcm   ←    ℒ  CE   ​   (    D  ψ   ​   (   z  0  lcm   )    ,  s  )     \mathcal{L}_{\mathrm{lcm}}\leftarrow\mathcal{L}_{\mathrm{CE}}(D_{\psi}(z_{0}^{\mathrm{lcm}}),\,s)     {Eq. (   13   ):     ∇  \nabla     to both      E  ϕ   E_{\phi}    ,      D  ψ   D_{\psi}    }
+ 
+ 
+ 
+                13:  
+              
+              
+                 
+ 
+ 
+                14:  
+              
+              
+                {  DDIM path   (non-differentiable,      N  =  50   N{=}50     steps)}
+ 
+ 
+ 
+                15:  
+              
+              
+                      δ  ¯   ←   sg  ⁡   (  δ  )     \bar{\delta}\leftarrow\mathrm{sg}(\delta)     {Stop gradient}
+ 
+ 
+ 
+                16:  
+              
+              
+                     z  ←   z  T    z\leftarrow z_{T}    
+ 
+ 
+ 
+                17:  
+              
+              
+                  for         k  =  1   ,  …  ,  N   k=1,\dots,N       do  
+
+
+ 
+ 
+ 
+                18:  
+              
+              
+                       z  ~   ←   z  +    δ  ¯   /  N     \tilde{z}\leftarrow z+\bar{\delta}/N     {Scaled injection (Eq. (   14   ))}
+ 
+ 
+ 
+                19:  
+              
+              
+                      z  ←    DDIM  θ   ​   (   z  ~   ,   t  k   ,  c  )     z\leftarrow\mathrm{DDIM}_{\theta}(\tilde{z},\,t_{k},\,c)    
+ 
+ 
+ 
+                20:  
+              
+              
+                  end     for 
+ 
+ 
+                21:  
+              
+              
+                      z  0  ddim   ←  z   z_{0}^{\mathrm{ddim}}\leftarrow z    
+ 
+ 
+ 
+                22:  
+              
+              
+                      ℒ  ddim   ←    ℒ  CE   ​   (    D  ψ   ​   (   z  0  ddim   )    ,  s  )     \mathcal{L}_{\mathrm{ddim}}\leftarrow\mathcal{L}_{\mathrm{CE}}(D_{\psi}(z_{0}^{\mathrm{ddim}}),\,s)     {    ∇  \nabla     to      D  ψ   D_{\psi}     only}
+ 
+ 
+ 
+                23:  
+              
+              
+                 
+ 
+ 
+                24:  
+              
+              
+                {  Curriculum-gated losses  }
+ 
+ 
+ 
+                25:  
+              
+              
+                     ℒ  ←    ℒ  lcm   +   ℒ  ddim   +    w  mag   ⋅   ℒ  mag      \mathcal{L}\leftarrow\mathcal{L}_{\mathrm{lcm}}+\mathcal{L}_{\mathrm{ddim}}+w_{\mathrm{mag}}\cdot\mathcal{L}_{\mathrm{mag}}    
+ 
+ 
+ 
+                26:  
+              
+              
+                  if        t  ≥   τ  imp    t\geq\tau_{\mathrm{imp}}       then  
+
+
+ 
+ 
+ 
+                27:  
+              
+              
+                       z  0  clean   ←    sg   ⁡   (   LCM  ⁡   (   z  T   ,  𝟎  ,  c  )    )     z_{0}^{\mathrm{clean}}\leftarrow\mathrm{sg}\!\bigl(\mathrm{LCM}(z_{T},\mathbf{0},c)\bigr)    
+ 
+ 
+ 
+                28:  
+              
+              
+                      ℒ  +    =     w  lafid   ⋅   MSE  ⁡   (   z  0  lcm   ,   z  0  clean   )     +    w  prvl   ⋅   ℒ  prvl    +    w  freq   ⋅   ℒ  freq      \mathcal{L}\mathrel{+}=w_{\mathrm{lafid}}\cdot\mathrm{MSE}(z_{0}^{\mathrm{lcm}},z_{0}^{\mathrm{clean}})+w_{\mathrm{prvl}}\cdot\mathcal{L}_{\mathrm{prvl}}+w_{\mathrm{freq}}\cdot\mathcal{L}_{\mathrm{freq}}    
+ 
+ 
+ 
+                29:  
+              
+              
+                 {VAE round-trip robustness}
+ 
+ 
+ 
+                30:  
+              
+              
+                       z  0  regen   ←    ℰ  ⁡   (   clamp  ⁡   (   𝒟  ⁡   (    z  0  ddim   /   f  s    )    ,   −  1   ,   1  )    )    ⋅   f  s     z_{0}^{\mathrm{regen}}\leftarrow\mathcal{E}\bigl(\mathrm{clamp}(\mathcal{D}(z_{0}^{\mathrm{ddim}}/f_{s}),\,{-1},\,1)\bigr)\cdot f_{s}    
+ 
+ 
+ 
+                31:  
+              
+              
+                      ℒ  +    =     w  neg   ⋅   ℒ  neg    +     w  regen   ⋅   ℒ  CE    ​   (    D  ψ   ​   (   z  0  regen   )    ,  s  )      \mathcal{L}\mathrel{+}=w_{\mathrm{neg}}\cdot\mathcal{L}_{\mathrm{neg}}+w_{\mathrm{regen}}\cdot\mathcal{L}_{\mathrm{CE}}(D_{\psi}(z_{0}^{\mathrm{regen}}),s)    
+ 
+ 
+ 
+                32:  
+              
+              
+                  end     if 
+ 
+ 
+                33:  
+              
+              
+                 
+ 
+ 
+                34:  
+              
+              
+                {  Update  }
+ 
+ 
+ 
+                35:  
+              
+              
+                     ℒ  .   backward  ​   (  )     \mathcal{L}.\text{backward}()    
+ 
+ 
+ 
+                36:  
+              
+              
+                Clip      ∇  ϕ   \nabla_{\phi}     to norm 5.0; clip      ∇  ψ   \nabla_{\psi}     to norm 1.0
+ 
+ 
+ 
+                37:  
+              
+              
+                Update      ϕ  ,  ψ   \phi,\psi     via AdamW
+ 
+ 
+ 
+                38:  
+              
+              
+                      σ  target   ←   CosineAnneal  ​   (  t  ,   σ  s   ,   σ  e   ,   T  a   )     \sigma_{\mathrm{target}}\leftarrow\text{CosineAnneal}(t,\sigma_{s},\sigma_{e},T_{a})    
+ 
+ 
+ 
+                39:  
+              
+              
+                end     for 
+ 
+ 
+ 
+ 
+ 
+  G.3  Watermark Embedding (Inference) 
+
+ 
+   Algorithm 3    Watermark Embedding (Inference) 
+ 
+ 
+                0:  
+              
+              
+             Secret     s  ∈    {   0  ,  1   }   L    s\in\{0,1\}^{L}   , text prompt    p  p   , trained encoder     E  ϕ   E_{\phi}   , frozen UNet     ϵ  θ   \epsilon_{\theta}   , VAE decoder    𝒟  \mathcal{D}   , DDIM steps    N  N   , guidance scale    w  w   
+
+ 
+ 
+                0:  
+              
+              
+             Watermarked image     x  wm   x_{\mathrm{wm}}   
+
+ 
+ 
+                1:  
+              
+              
+                 δ  ←    E  ϕ   ​   (  s  )     \delta\leftarrow E_{\phi}(s)   
+
+ 
+ 
+                2:  
+              
+              
+                  z  T   ∼   𝒩  ⁡   (  0  ,  𝐈  )     z_{T}\sim\mathcal{N}(0,\mathbf{I})   
+
+ 
+ 
+                3:  
+              
+              
+                 c  ←   CLIP  ⁡   (  p  )     c\leftarrow\mathrm{CLIP}(p)   
+
+ 
+ 
+                4:  
+              
+              
+                 z  ←   z  T    z\leftarrow z_{T}   
+
+ 
+ 
+                5:  
+              
+              
+              for       k  =  1   ,  …  ,  N   k=1,\dots,N     do 
+
+
+
+ 
+ 
+                6:  
+              
+              
+                   z  ~   ←   z  +  δ    \tilde{z}\leftarrow z+\delta    {Persistent delta injection}
+
+ 
+ 
+                7:  
+              
+              
+                   ϵ  ^   ←     (   1  +  w   )   ​   ϵ  θ   ​   (   z  ~   ,   t  k   ,  c  )    −   w  ​   ϵ  θ   ​   (   z  ~   ,   t  k   ,  ∅  )      \hat{\epsilon}\leftarrow(1+w)\,\epsilon_{\theta}(\tilde{z},t_{k},c)-w\,\epsilon_{\theta}(\tilde{z},t_{k},\varnothing)    {CFG}
+
+ 
+ 
+                8:  
+              
+              
+                  z  ←       α  ¯    t   k  +  1      ​   (     z  ~   −     1  −    α  ¯    t  k      ​   ϵ  ^        α  ¯    t  k      )    +     1  −    α  ¯    t   k  +  1       ​   ϵ  ^      z\leftarrow\sqrt{\bar{\alpha}_{t_{k+1}}}\left(\frac{\tilde{z}-\sqrt{1-\bar{\alpha}_{t_{k}}}\,\hat{\epsilon}}{\sqrt{\bar{\alpha}_{t_{k}}}}\right)+\sqrt{1-\bar{\alpha}_{t_{k+1}}}\,\hat{\epsilon}    {DDIM step}
+
+ 
+ 
+                9:  
+              
+              
+              end   for 
+ 
+ 
+                10:  
+              
+              
+                  z  0   ←  z   z_{0}\leftarrow z   
+
+ 
+ 
+                11:  
+              
+              
+                  x  wm   ←   𝒟  ⁡   (    z  0   /   f  s    )     x_{\mathrm{wm}}\leftarrow\mathcal{D}(z_{0}/f_{s})   
+
+ 
+ 
+                12:  
+              
+              
+              return       x  wm   x_{\mathrm{wm}}   
+
+ 
+ 
+ 
+ 
+ 
+  G.4  Watermark Detection (Inference) 
+
+ 
+   Algorithm 4    Watermark Detection (Inference) 
+ 
+ 
+                0:  
+              
+              
+             Test image    x  x   , trained decoder     D  ψ   D_{\psi}   , VAE encoder    ℰ  \mathcal{E}   , scaling factor     f  s   f_{s}   , detection threshold    τ  \tau   
+
+ 
+ 
+                0:  
+              
+              
+             Recovered secret     s  ^   \hat{s}   , detection decision
+
+ 
+ 
+                1:  
+              
+              
+                  z  0   ←    ℰ  ⁡   (  x  )    ⋅   f  s     z_{0}\leftarrow\mathcal{E}(x)\cdot f_{s}    {Encode to latent space}
+
+ 
+ 
+                2:  
+              
+              
+                 𝐨  ←    D  ψ   ​   (   z  0   )    ∈   ℝ   L  ×  2     \mathbf{o}\leftarrow D_{\psi}(z_{0})\in\mathbb{R}^{L\times 2}    {Single forward pass}
+
+ 
+ 
+                3:  
+              
+              
+                   s  ^   i   ←   arg  ⁡    max   c  ∈   {   0  ,  1   }     ⁡   𝐨   i  ,  c       \hat{s}_{i}\leftarrow\arg\max_{c\in\{0,1\}}\mathbf{o}_{i,c}    for      i  =  1   ,  …  ,  L   i=1,\dots,L    {Per-bit hard decision}
+
+ 
+ 
+                4:  
+              
+              
+             {Hypothesis test (Sec. G.2)}
+
+ 
+ 
+                5:  
+              
+              
+              if  registered secret     s  ∗   s^{*}    is provided  then 
+
+
+
+ 
+ 
+                6:  
+              
+              
+                  m  ←   ∑   i  =  1   L   𝟙   [    s  ^   i   =   s  i  ∗   ]    m\leftarrow\sum_{i=1}^{L}\mathbbm{1}[\hat{s}_{i}=s^{*}_{i}]    {Matching bits}
+
+ 
+ 
+                7:  
+              
+              
+               if      m  >  τ   m>\tau     then 
+
+
+
+ 
+ 
+                8:  
+              
+              
+                return       s  ^   \hat{s}   ,  Watermarked 
+
+ 
+ 
+                9:  
+              
+              
+               else 
+
+
+ 
+ 
+                10:  
+              
+              
+                return       s  ^   \hat{s}   ,  Not Watermarked 
+
+ 
+ 
+                11:  
+              
+              
+               end   if 
+ 
+ 
+                12:  
+              
+              
+              end   if 
+ 
+ 
+                13:  
+              
+              
+              return       s  ^   \hat{s}   
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+    Experimental support, please
+     view the build logs 
+    for errors. Generated by
+     
+       
+        L
+         A 
+        T
+         E 
+       
+       xml 
+       
+     .
+   
+   
+     Instructions for reporting errors 
+     We are continuing to improve HTML versions of papers, and your feedback helps enhance accessibility and mobile
+      support. To report errors in the HTML that will help us improve conversion and rendering, choose any of the
+      methods listed below: 
+     
+       Click the "Report Issue"  ( 
+             
+           )  button, located in the page header. 
+     
+      Tip:  You can select the relevant text first, to include it in your report. 
+     Our team has already identified  the following issues . We appreciate your time reviewing and reporting rendering errors we
+      may not have found yet. Your efforts will help us improve the HTML versions for all readers, because disability
+      should not be a barrier to accessing research. Thank you for your continued support in championing open access for
+      all. 
+     Have a free development cycle? Help support accessibility at arXiv! Our collaborators at LaTeXML maintain a  list of packages that need conversion , and welcome  developer contributions . 
+   
+  
+   
+     
+       
+        We gratefully acknowledge support from
+        our  major funders ,
+          member institutions   ,    ,
+        and all contributors.
+       
+       
+         About 
+         · 
+         Help 
+         · 
+         Contact 
+         · 
+         Subscribe 
+         · 
+         Copyright 
+         · 
+         Privacy 
+         · 
+         Accessibility 
+         · 
+         Operational Status  (opens in new tab)  
+       
+     
+
+     
+       Major funding support from 
+       
+         
+           
+         
+         
+           
+         
+         
+           
+         
+       
+     
+   
+  
+   
+      
+       
+     
+   
+  
+ 
+

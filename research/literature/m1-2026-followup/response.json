@@ -1,0 +1,131 @@
+{
+  "papers": [
+    {
+      "access_date": "2026-10-03",
+      "limitations": [
+        "Detector runtime/steps and attack-strength/sample-count pins absent in inspected sections. Ratio thresholds in Sec3.3 versus count35 in Sec6.4 are unresolved. Independent-match assumption is not empirical FPR. No digital signature or DCT/OwnerID binding."
+      ],
+      "title": "SLICE: Semantic Latent Injection via Compartmentalized Embedding for Image Watermarking",
+      "citation_key": "Gao2026SLICEv1",
+      "doi": null,
+      "inspected_content": "full-text",
+      "schema_version": "1.0",
+      "paper_id": "slice",
+      "source_type": "preprint",
+      "verification": "verified",
+      "venue": null,
+      "inspection": {
+        "artifact": "slice-v1.html",
+        "sha256": "676b1cac2641ffd0703dcc8124e81bead7df747dac37103612db2b066f9026b6"
+      },
+      "year": 2026,
+      "canonical_url": "https://arxiv.org/html/2603.12749v1",
+      "authors": [
+        "Zheng Gao",
+        "Yifan Yang",
+        "Xiaoyu Li",
+        "Xiaoyan Feng",
+        "Haoran Fan",
+        "Yang Song",
+        "Jiaojiao Jiang"
+      ]
+    },
+    {
+      "access_date": "2026-10-03",
+      "limitations": [
+        "Paper-reported outcomes, not a local reproduction or photographic evidence. Training requires LCM plus pretraining/main learning; pretrained assets not acquired. Eq14 scaled delta/N conflicts with inference Eq5/Alg3 unscaled delta. Exact severity corresponding to Table2 is unclear."
+      ],
+      "title": "Transferable Multi-Bit Watermarking Across Frozen Diffusion Models via Latent Consistency Bridges",
+      "citation_key": "NguyenLe2026DiffMarkv1",
+      "doi": null,
+      "inspected_content": "full-text",
+      "schema_version": "1.0",
+      "paper_id": "diffmark",
+      "source_type": "preprint",
+      "verification": "verified",
+      "venue": null,
+      "inspection": {
+        "artifact": "diffmark-v1.html",
+        "sha256": "122ac0503f563d0dc668f288964e6dddab329609fe17b1e68bc96eb323cb423b"
+      },
+      "year": 2026,
+      "canonical_url": "https://arxiv.org/html/2603.20304v1",
+      "authors": [
+        "Hong-Hanh Nguyen-Le",
+        "Van-Tuan Tran",
+        "Thuc D. Nguyen",
+        "Nhien-An Le-Khac"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "2026-slice-direct",
+      "stance": "supporting",
+      "source_id": "slice",
+      "locator": "Sections 3.1-3.3, 4 assumptions/Theorem4.4, 5, 6.1-6.5; Tables1-4",
+      "limitations": [
+        "Detector runtime/steps and attack-strength/sample-count pins absent in inspected sections. Ratio thresholds in Sec3.3 versus count35 in Sec6.4 are unresolved. Independent-match assumption is not empirical FPR. No digital signature or DCT/OwnerID binding."
+      ],
+      "kind": "direct-evidence",
+      "assumptions": [
+        "Full-text source inspected; author measurements not independently reproduced."
+      ],
+      "confidence": "high",
+      "claim": "Four keyed semantic latent partitions require DDIM inversion and VLM re-extraction. Table1 forgery ASR LFA/RPM/CSI=0/5/19 percent, not regeneration survival. Table4 cropping/scaling active AUC0.054. SD2/Qwen3-VL, generated reference and regenerated marked image, not photographic preservation."
+    },
+    {
+      "claim_id": "2026-slice-inference",
+      "stance": "inconclusive",
+      "source_id": "slice",
+      "locator": "Sections 3.1-3.3, 4 assumptions/Theorem4.4, 5, 6.1-6.5; Tables1-4",
+      "limitations": [
+        "Detector runtime/steps and attack-strength/sample-count pins absent in inspected sections. Ratio thresholds in Sec3.3 versus count35 in Sec6.4 are unresolved. Independent-match assumption is not empirical FPR. No digital signature or DCT/OwnerID binding."
+      ],
+      "kind": "agent-inference",
+      "assumptions": [
+        "Local method scope requires photographic fidelity and content-bound identity."
+      ],
+      "confidence": "medium",
+      "claim": "Inversion plus VLM is incompatible with an image-DCT-only lightweight detector. Semantic partitions identify factor mismatches, not a validated pixel copy-paste map."
+    },
+    {
+      "claim_id": "2026-diffmark-direct",
+      "stance": "supporting",
+      "source_id": "diffmark",
+      "locator": "Sections3.1-3.3,4.1-4.7; Tables1-2; AppendicesB,E,F,G.3-G.4",
+      "limitations": [
+        "Paper-reported outcomes, not a local reproduction or photographic evidence. Training requires LCM plus pretraining/main learning; pretrained assets not acquired. Eq14 scaled delta/N conflicts with inference Eq5/Alg3 unscaled delta. Exact severity corresponding to Table2 is unclear."
+      ],
+      "kind": "direct-evidence",
+      "assumptions": [
+        "Full-text source inspected; author measurements not independently reproduced."
+      ],
+      "confidence": "high",
+      "claim": "Persistent learned denoising delta; VAE encoder plus2349704-parameter decoder, no inversion. Sec4.6 latency16.4ms L40S. Table2 DiffusionDB TPR0.81 VAE,1.00 diffusion/twice-diffusion,0.00 crop/rotation/blur. AppF surrogate SD1.4 diffusion40-200 noising steps; Table1 COCO PSNR8.91/LPIPS0.7343 compares generated counterfactuals."
+    },
+    {
+      "claim_id": "2026-diffmark-inference",
+      "stance": "inconclusive",
+      "source_id": "diffmark",
+      "locator": "Sections3.1-3.3,4.1-4.7; Tables1-2; AppendicesB,E,F,G.3-G.4",
+      "limitations": [
+        "Paper-reported outcomes, not a local reproduction or photographic evidence. Training requires LCM plus pretraining/main learning; pretrained assets not acquired. Eq14 scaled delta/N conflicts with inference Eq5/Alg3 unscaled delta. Exact severity corresponding to Table2 is unclear."
+      ],
+      "kind": "agent-inference",
+      "assumptions": [
+        "Local method scope requires photographic fidelity and content-bound identity."
+      ],
+      "confidence": "medium",
+      "claim": "A learned native extractor is a useful method-amendment direction, but VAE cost remains. Arbitrary public payload imprinting is not signed content-authenticated ownership; existing-photo T4/T5 and quality remain unproved."
+    }
+  ],
+  "assumptions": [
+    "No held-out thesis data, paper code or model weights inspected/executed."
+  ],
+  "open_questions": [
+    "Can a trained native extractor meet fixed photographic fidelity and regeneration targets on local SD1.5?",
+    "What are the exact reproducible attack severities, thresholds and training/inference delta scale?"
+  ],
+  "request_id": "m1-2026-followup-20261003"
+}

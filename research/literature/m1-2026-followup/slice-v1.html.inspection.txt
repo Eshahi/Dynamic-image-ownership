@@ -1,0 +1,1748 @@
+  
+ 
+ 
+ SLICE: Semantic Latent Injection via Compartmentalized Embedding for Image Watermarking 
+ 
+ 
+ 
+   
+ 
+  // Restore the saved color scheme preference, or
+  // enact the browser preference if "automatic", 
+  // without expecting DOM load to have completed.
+  //
+  // Also restore any saved readingmode and ToC display preferences.
+  function initializeReadingPreferences() {
+    let saved_theme = localStorage.getItem("ar5iv_theme") || "automatic";
+    if (saved_theme === "automatic") {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        saved_theme = "dark";
+      }
+    }
+    if (saved_theme == "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+
+    const tocDisplay = localStorage.getItem('arxiv_html_paper_toc_display');
+    if (tocDisplay) {
+      document.documentElement.setAttribute("data-toc-display", tocDisplay);
+    }
+    const readingMode = localStorage.getItem('arxiv_html_paper_reading_mode');
+    if (readingMode) {
+      document.documentElement.setAttribute("data-reading-mode", readingMode);
+    }
+    // Pre-apply spinout-banner dismissal here, before the banner paints, so it
+    // never flashes in only to be hidden later by the deferred arxiv-header.js.
+    // Key matches arxiv-header.js: "arxiv-banner-dismissed:" + data-banner-name.
+    if (localStorage.getItem('arxiv-banner-dismissed:spinout-nonprofit')) {
+      document.documentElement.setAttribute("data-banner-dismissed", "");
+    }
+  }
+  // Run as soon as JS starts, to minimize repainting
+  initializeReadingPreferences();
+ 
+ 
+ 
+ 
+ 
+ 
+   
+  /* Banner pre-dismissal (set above before paint -> no flash-then-hide) and
+     reading-mode chrome hiding. */
+  html[data-banner-dismissed] .ds-announcement { display: none; }
+  html[data-reading-mode="enabled"] .ds-announcement,
+  html[data-reading-mode="enabled"] .ds-site-footer { display: none; }
+  /* Keep the announcement text dark on the Open-Blue band in both colour themes
+     (otherwise it inherits the paper's warm-wash text in dark mode and washes out). */
+  .ds-announcement-text { color: var(--arxiv-ink, #1c1a17); }
+ 
+  
+ 
+ 
+ 
+   
+     
+       Report GitHub Issue 
+       × 
+     
+
+     
+       Title: 
+       
+
+       Content selection saved. Describe the issue below: 
+
+       Description: 
+        
+     
+
+     
+       Submit without GitHub 
+       Submit in GitHub 
+     
+   
+  
+     
+     arXiv is now an independent nonprofit! 
+     Learn more 
+     × 
+   
+
+ 
+   
+      
+       Back to arXiv 
+     
+   
+   
+   
+     Why HTML? 
+     
+       
+         
+       
+       Report Issue  
+     
+     
+       
+         
+         
+       
+       Back to Abstract 
+     
+     
+     
+       
+         
+       
+       Download PDF  
+     
+     
+       
+         
+         
+       
+     
+     
+     
+        
+         
+       
+     
+     
+     
+       
+         
+           
+           
+         
+       
+       
+         
+           
+           
+         
+       
+       
+         
+           
+           
+         
+       
+     
+   
+  
+ 
+ 
+   Abstract   
+    1  Introduction  
+ 
+   Roadmap.   
+  
+    2  Related Work  
+ 
+    2.1  Watermarking for Generative Models   
+    2.2  Diffusion Models and Latent Inversion   
+    2.3  Semantic Control and Disentangled Representations   
+  
+    3  Method  
+ 
+    3.1  Prompt-Conditioned Factorized Semantic Extraction   
+    3.2  Spatially-Partitioned Semantic Injection   
+    3.3  Watermark Detection   
+  
+    4  Theoretical Analysis   
+    5  Prompt Language Selection   
+    6  Experiment  
+ 
+    6.1  Resistance Against Generative Forgery Attacks   
+    6.2  Robustness Against Common Image Corruptions   
+    6.3  Evaluation of Semantic Alignment and Visual Fidelity   
+    6.4  Case Study: Multi-Granularity Verification   
+    6.5  Limitation and Mitigation: A Joint Defense Paradigm   
+  
+    7  Conclusion   
+   References   
+    A  Proof of Theorem      
+    B  Proof of Theorem      
+  
+ 
+ 
+ 
+   
+    License: CC BY 4.0
+   
+   
+arXiv:2603.12749v1 [cs.CV] 13 Mar 2026 
+  
+ 
+ SLICE: Semantic Latent Injection via Compartmentalized Embedding for Image Watermarking
+ 
+ 
+ 
+ 
+ 
+ 
+ Zheng Gao 1  
+   Yifan Yang 1  
+   Xiaoyu Li 1  
+   Xiaoyan Feng 2   
+ 
+ 
+ 
+ 
+ Haoran Fan 1  
+   Yang Song 1  
+   Jiaojiao Jiang 1   
+ 
+  1 University of New South Wales  
+ 
+  2 Griffith University  
+ 
+   
+
+  Abstract 
+    
+ Watermarking the initial noise of diffusion models has emerged as a promising approach for image provenance, but content-independent noise patterns can be forged via inversion and regeneration attacks. Recent semantic-aware watermarking methods improve robustness by conditioning verification on image semantics. However, their reliance on a single global semantic binding makes them vulnerable to localized but globally coherent semantic edits.
+To address this limitation and provide a trustworthy semantic-aware watermark, we propose  S emantic  L atent  I njection via  C ompartmentalized  E mbedding ( SLICE ). Our framework decouples image semantics into four semantic factors ( subject ,  environment ,  action , and  detail ) and precisely anchors them to distinct regions in the initial Gaussian noise. This fine-grained semantic binding enables advanced watermark verification where semantic tampering is detectable and localizable. We theoretically justify why SLICE enables robust and reliable tamper localization and provides statistical guarantees on false-accept rates. Experimental results demonstrate that SLICE significantly outperforms existing baselines against advanced semantic-guided regeneration attacks, substantially reducing attack success while preserving image quality and semantic fidelity. Overall, SLICE offers a practical, training-free provenance solution that is both fine-grained in diagnosis and robust to realistic adversarial manipulations.
+  0    0  footnotetext:  Corresponding to: zheng.gao1@unsw.edu.au, jiaojiao.jiang@unsw.edu.au    
+  
+ 
+ 
+  1  Introduction 
+
+ 
+ Diffusion models  [ 20 ,  39 ,  36 ,  10 ,  29 ]  have become a dominant paradigm for image synthesis, powering creative tools, editing systems, and large-scale content generation. As these models are increasingly deployed in real applications, determining whether an image was generated by AI and whether it has been subsequently manipulated has become a central provenance challenge  [ 42 ,  5 ] . Watermarking is especially advantageous in this context because it embeds an  active  signal directly into the visual data, ensuring provenance persists even when external metadata is stripped, decoupled, or overwritten  [ 43 ,  13 ,  46 ] . 
+ 
+ 
+ Existing watermarking methods for generative models span a broad spectrum. Early approaches largely operate in pixel or frequency space, or require modifying model parameters during training or fine-tuning. Representative examples include post-processing methods such as HiNet  [ 25 ]  and training-based approaches such as Artificial Fingerprinting  [ 48 ]  and Stable Signature  [ 13 ] . While these methods establish the feasibility of generative provenance, they are not well matched to modern latent diffusion pipelines: post-hoc signals are often brittle under inversion, resampling, or compression, whereas training-dependent schemes introduce substantial computational and operational overhead when models, keys, or user identities must change. 
+ 
+ 
+ Training-free watermarking in the initial noise space offers a more deployable alternative. Tree-Ring  [ 43 ] , Gaussian Shading  [ 46 ] , and WIND  [ 1 ]  embed watermark patterns directly into the diffusion sampling process and therefore avoid repeated retraining. However, because these methods are largely content-independent, their watermark patterns can often be forged, transplanted, or removed through generative forgery attacks such as Latent Forgery Attack (LFA)  [ 24 ]  and Regeneration with a Private Model (RPM)  [ 1 ,  34 ] .
+More fundamentally, recent theoretical and empirical evidence shows that
+pixel-level invisible watermarks are provably removable via regeneration
+attacks  [ 50 ] , underscoring the need for watermarks
+grounded in image semantics rather than low-level signal patterns.
+To address this, Semantic Aware Image Watermarking (SEAL)  [ 2 ]  takes an important step forward by making the watermark  semantic-aware : detection is conditioned on the image content rather than on a fixed global pattern alone. This significantly improves resistance to generative forgery attacks and highlights the promise of semantic watermarking for AI provenance. 
+ 
+ 
+ Despite this progress, current semantic watermarking schemes are still vulnerable to generative forgery attacks because they rely on a  single global semantic binding . The recent Coherence-Preserving Semantic Injection (CSI) attack  [ 16 ]  demonstrates that an adversary can perform locally targeted but globally coherent semantic edits that preserve overall scene plausibility while perturbing exactly those semantics on which watermark verification depends, making the watermark detectable while malicious content is injected. In other words, the image may remain semantically consistent at the holistic level and the watermark remains valid, yet critical local factors—such as the  subject ,  action ,  environment , or a discriminative  detail —can be maliciously altered. Once the watermark is tied to a monolithic global descriptor, such fine-grained edits can invalidate the binding without visibly destroying the image. 
+ 
+ 
+ Our key observation is that image semantics is not monolithic. For provenance, an image is better modeled as a composition of partially independent semantic factors that are also spatially grounded. Recent advances in diffusion control and latent decomposition suggest that semantics can be localized and manipulated in a structured way without retraining, through spatial control and semantically interpretable latent directions  [ 44 ,  3 ,  15 ] . This motivates a different watermarking principle: rather than binding one global semantic code to the entire latent, we should  disentangle semantics and compartmentalize the watermark . Under such a design, localized semantic edits should induce localized verification failures, making tampering not only detectable but also localizable. 
+ 
+ 
+ Motivated by the above principle, we propose  S emantic  L atent  I njection via  C ompartmentalized  E mbedding ( SLICE ), a training-free semantic watermarking framework for diffusion models. Given a reference image, SLICE extracts a structured semantic representation and decomposes it into four semantic factors:  subject ,  environment ,  action , and  detail . Using keyed hashing and noise synthesis, SLICE then binds each factor to a dedicated, non-overlapping partition of the initial latent noise. This spatial-semantic design yields a compartmentalized watermark whose evidence is distributed across multiple latent partitions rather than collapsed into a single global code. At detection time, SLICE reconstructs reference noise from the semantics of a suspect image and performs both partition-wise and global verification. This enables the detector to distinguish among pristine watermarked images, images containing localized semantic tampering, and images that are unwatermarked or severely altered. By aligning semantic factors with separate latent partitions, SLICE turns localized edits into partition-specific mismatches, addressing the limitation of existing semantic schemes that are insensitive to such edits. 
+ 
+ 
+ We summarize our contributions as follows: (i) We identify a key limitation of existing semantic watermarks: global semantic binding is vulnerable to localized but globally coherent edits. (ii) We propose SLICE, a training-free watermarking framework that decomposes image semantics into four factors and binds each to a dedicated latent partition via compartmentalized embedding, enabling a unified verification strategy that authenticates global provenance while localizing semantic tampering. (iii) We provide a theoretical justification for SLICE’s robust and reliable tamper localization, along with statistical guarantees on false-accept rates. (iv) Extensive experiments are conducted to demonstrate strong robustness of SLICE against generative forgery attacks while preserving image quality and semantic fidelity. 
+ 
+ 
+ Roadmap. 
+
+ 
+ Section   2   reviews some related work. Section   3   details the SLICE framework, covering factorized semantic extraction, spatially-partitioned injection, and three-state detection. Section   4   provides theoretical guarantees on tamper localization and false-accept rates. Section   5   justifies our prompt language selection. Section   6   presents experimental results. Section   7   concludes the paper and outlines future directions. 
+ 
+ 
+ 
+ 
+  2  Related Work 
+
+ 
+  2.1  Watermarking for Generative Models 
+
+ 
+ Watermarking for generative models has evolved along parallel tracks in both
+language and image domains. In LLMs, early inference-time methods established
+detection through token-level distribution
+biasing  [ 27 ] , with subsequent work introducing
+unbiased or distortion-free
+schemes  [ 22 ,  28 ] . A key shift occurred when
+researchers began anchoring watermark evidence to higher-level
+structure—SemStamp  [ 21 ]  binds to sentence-level semantics,
+while multi-bit methods  [ 47 ,  12 ]  further enable
+source tracing with provable quality preservation. This trajectory, from global
+statistical signals toward semantically grounded provenance, is mirrored in the
+image domain. 
+ 
+ 
+ For diffusion models, existing watermarking techniques primarily fall into three
+paradigms. Post-processing methods are highly vulnerable to regenerative attacks
+(e.g., SDEdit or JPEG compression). Model fine-tuning methods (e.g., Stable
+Signature  [ 13 ] , WOUAF  [ 26 ] ) embed signals
+into network weights to improve robustness, but incur prohibitive training costs
+and degrade zero-shot generation quality. Our approach aligns with the
+training-free paradigm  [ 43 ,  17 ] , which
+modifies the initial noise or inference trajectory to preserve generative
+fidelity. Representative methods include Tree-Ring  [ 43 ] ,
+Gaussian Shading  [ 46 ] , WIND  [ 1 ] ,
+and ROBIN  [ 23 ] , Ring-ID  [ 9 ]  and PRC  [ 18 ] . However, these mainstream
+training-free methods rely on global, content-independent spatial injection,
+leaving them susceptible to localized geometric deformations or cropping.
+This content-independence also exposes them to  generative forgery attacks .
+Black-box adversaries
+can forge or remove latent-noise watermarks by leveraging a proxy diffusion
+model  [ 34 ] , while a recent theoretical analysis frames semantic
+watermark forgery as a rate–distortion problem  [ 30 ] , revealing fundamental limits on
+proxy-based attacks. The Coherence-Preserving Semantic Injection (CSI)
+attack  [ 16 ]  further shows that locally targeted but globally
+coherent edits can bypass semantic-aware watermarks such as
+SEAL  [ 2 ] . These attacks collectively motivate the need for
+fine-grained semantic binding, which is the core design principle of SLICE. 
+ 
+ 
+ 
+  2.2  Diffusion Models and Latent Inversion 
+
+ 
+ Latent Diffusion Models
+(LDMs)  [ 20 ,  39 ,  36 ]  have revolutionized
+generative AI by performing iterative denoising within a compressed latent space.
+For watermarking, their deterministic sampling mechanism (e.g., DDIM) is crucial,
+as it establishes a strict bijective mapping between the initial noise
+distribution and the generated
+image  [ 38 ,  39 ] . Recent analyses on inversion
+stability  [ 41 ,  31 ]  confirm that optimizing
+the noise schedule effectively mitigates accumulated trajectory errors.
+While more recent architectures based on rectified
+flows  [ 10 ]  adopt different sampling strategies, the
+principle of deterministic invertibility remains central.
+This structural stability theoretically renders the initial noise space an
+optimal, mathematically rigorous carrier for covert signal injection. 
+ 
+ 
+ 
+  2.3  Semantic Control and Disentangled Representations 
+
+ 
+ To overcome the limitation of global watermarks, we draw upon recent
+advancements in training-free semantic control. In LDMs, self-attention dictates
+geometric topology, while cross-attention precisely localizes text-driven
+features  [ 33 ] . Frameworks like
+Attend-and-Excite  [ 6 ]  and BoxDiff  [ 44 ] 
+exploit these attention maps during inference to achieve strict spatial
+partitioning. Concurrently, latent disentanglement
+research  [ 15 ,  45 ,  3 ] 
+demonstrates the ability to isolate specific visual attributes without semantic
+interference. We repurpose these mechanisms to strictly anchor the watermark
+within specific, disentangled semantic regions (e.g., a foreground object’s
+attention mask). This semantic-binding strategy ensures that as long as the core
+object remains visually recognizable after an attack, the embedded watermark can
+be successfully recovered. 
+ 
+ 
+ 
+ 
+  3  Method 
+
+  
+   Figure 1 :   The overall framework of SLICE. 
+   
+ 
+ 
+ In this section, we introduce the framework of SLICE, as illustrated in Fig.   1  . At high level, SLICE embeds a semantic watermark by decomposing image content into four semantic factors ( subject ,  environment ,  action , and  detail ) and binding each factor to a dedicated spatial partition of the initial latent. At detection time, the same factorized semantics are re-extracted from a suspect image to reconstruct a reference latent, which is then compared with the inverted latent in a partition-wise manner. This design enables both global provenance verification and localization of semantic tampering. 
+ 
+ 
+  3.1  Prompt-Conditioned Factorized Semantic Extraction 
+
+ 
+ Given a conditioning prompt    c  c   , we first sample a random latent      𝐳  rand   ∈   ℝ   h  ×  w  ×  d     \mathbf{z}_{\mathrm{rand}}\in\mathbb{R}^{h\times w\times d}    from a Gaussian distribution, and generate an unwatermarked reference image      𝐱  ref   =   𝒟  ⁡   (   𝐳  rand   ,  c  )    ∈   ℝ   H  ×  W  ×  3     \mathbf{x}_{\mathrm{ref}}=\mathcal{D}(\mathbf{z}_{\mathrm{rand}},c)\in\mathbb{R}^{H\times W\times 3}   , where    𝒟  \mathcal{D}    denotes a pretrained latent diffusion model. The reference image     𝐱  ref   \mathbf{x}_{\mathrm{ref}}    represents the intended visual content and serves as the basis for semantic watermark construction. 
+ 
+ 
+ To make the watermark sensitive to localized semantic edits, we avoid using a single holistic caption and instead decompose the image into four semantic factors. Specifically, we define the set 
+ 
+
+  
+  
+     𝒦  =   {   sub  ,  env  ,  act  ,  det   }    \displaystyle\mathcal{K}=\{\mathrm{sub},\mathrm{env},\mathrm{act},\mathrm{det}\}    
+    
+ 
+ whose elements correspond to  subject ,  environment ,  action , and  detail , respectively. These four factors capture crucial elements of the semantics of an image from distinct and complete aspects. To obtain these factors, we then use a vision-language model (VLM)     Φ  θ   \Phi_{\theta}    together with a carefully designed meta-prompt     𝒫  meta   \mathcal{P}_{\mathrm{meta}}    to extract a structured descriptor set 
+ 
+
+  
+  
+      𝒮  =    {   s  k   }    k  ∈  𝒦    =    Φ  θ   ​   (   𝐱  ref   ,   𝒫  meta   )     .   \displaystyle\mathcal{S}=\{s_{k}\}_{k\in\mathcal{K}}=\Phi_{\theta}(\mathbf{x}_{\mathrm{ref}},\mathcal{P}_{\mathrm{meta}}).    
+    
+ 
+ 
+ 
+ The role of     𝒫  meta   \mathcal{P}_{\mathrm{meta}}    is to constrain the VLM output into a consistent four-field format, so that each descriptor captures one semantic factor rather than a mixed description of the entire image. This factorized representation is crucial for SLICE: it provides a stable semantic basis for watermark generation and later enables factor-specific verification during detection. The details of the meta-prompt are in Fig.   2  . 
+ 
+                
+ 
+  Meta-Prompt     𝒫  meta   \mathcal{P}_{\mathrm{meta}}    for Factorized Semantic Extraction  
+         
+ 
+  [System Instruction] 
+You are a semantic disentanglement engine. Below is a demonstration of how to decouple visual semantics into four semantic factors.  Based on this example, strictly analyze the target image and output the concise descriptors for the following four categories:    
+  [Demonstration] 
+ Input:     <  <   Image: A young boy running on a grassy field   >  >   
+ Output:    
+ 
+  •  
+ 
+  [Subject]  : Young boy.  
+  
+  •  
+ 
+  [Action]  : Running, sprinting forward.  
+  
+  •  
+ 
+  [Environment]  : Grassy field, daytime, park setting.  
+  
+  •  
+ 
+  [Detail]  : Red t-shirt, motion blur on legs.  
+  
+ 
+  [Inference Task] 
+ Input:     <  <   Target Image     𝐱   r  ​  e  ​  f    \mathbf{x}_{ref}      >  >   
+ Output: 
+(Strictly follow the format above to generate the four descriptors…)   
+        
+  Figure 2:   Structure of the Meta-Prompt     𝒫  meta   \mathcal{P}_{\mathrm{meta}}   . 
+ 
+ 
+ 
+ 
+  3.2  Spatially-Partitioned Semantic Injection 
+
+ 
+ Let the latent space of the diffusion model be a subset of     ℝ   h  ×  w  ×  d    \mathbb{R}^{h\times w\times d}   .
+To bind each semantic factor to a distinct spatial region, we partition the latent grid into four disjoint regions      {   Ω  k   }    k  ∈  𝒦    \{\Omega_{k}\}_{k\in\mathcal{K}}    such that 
+ 
+
+  
+  
+         Ω  k   ∩   Ω   k  ′     =   ∅  ​  for  ​  k   ≠   k  ′    ,      ⋃   k  ∈  𝒦      Ω  k    =    {  1  ,  …  ,  h  }   ×   {  1  ,  …  ,  w  }      ,   \displaystyle\Omega_{k}\cap\Omega_{k^{\prime}}=\varnothing~~\mathrm{for}~k\neq k^{\prime},\quad\bigcup_{k\in\mathcal{K}}\Omega_{k}=\{1,\ldots,h\}\times\{1,\ldots,w\},    
+    
+ 
+ where each region     Ω  k   \Omega_{k}    is assigned to one semantic factor     k  ∈  𝒦   k\in\mathcal{K}   . 
+ 
+ 
+ Let     E  ⁡   (  ⋅  )    E(\cdot)    denote the text encoder and let     H  ⁡   (  ⋅  ,  ⋅  ,  σ  )    H(\cdot,\cdot,\sigma)    denote a keyed hash-based synthesis function parameterized by a secret key    σ  \sigma   . For each semantic factor     k  ∈  𝒦   k\in\mathcal{K}   , and each spatial position     p  =   (  i  ,  j  )   ∈   Ω  k    p=(i,j)\in\Omega_{k}   , we generate the corresponding latent value as 
+ 
+
+  
+  
+         𝐳  T   ​   (  p  )    =   H  ⁡   (   E  ⁡   (   s  k   )    ,  p  ,  σ  )     ,    ∀  p   ∈   Ω  k    ,   k  ∈  𝒦    .   \displaystyle\mathbf{z}_{T}(p)=H(E(s_{k}),p,\sigma),\quad\forall p\in\Omega_{k},k\in\mathcal{K}.    
+    
+ 
+ In other words, the latent entries inside each region     Ω  k   \Omega_{k}    depend only on the descriptor     s  k   s_{k}   , the spatial position    p  p   , and the secret key    σ  \sigma   . 
+ 
+ 
+ By assembling all regions, we obtain the full watermarked latent     𝐳  T   \mathbf{z}_{T}   , and the final watermarked image is generated as      𝐱  w   =   𝒟  ⁡   (   𝐳  T   ,  c  )     \mathbf{x}_{w}=\mathcal{D}(\mathbf{z}_{T},c)   . This compartmentalized design is the core of SLICE. Unlike global semantic watermarking methods that embed a single signal across the entire latent, our method binds each semantic factor to a dedicated latent partition. As a result, a localized semantic edit is expected to disrupt mainly the corresponding partition, while unrelated partitions remain comparatively stable. 
+ 
+ 
+ 
+  3.3  Watermark Detection 
+
+ 
+ At detection time, given a suspect image     x  s   x_{s}   , we first apply the deterministic DDIM inversion  [ 38 ]  to recover its approximate initial latent      𝐳  inv   =   Inversion  ⁡   (   𝐱  s   )     \mathbf{z}_{\mathrm{inv}}=\mathrm{Inversion}(\mathbf{x}_{s})   . Next, using the same VLM     Φ  θ   \Phi_{\theta}    and the same meta prompt     𝒫  meta   \mathcal{P}_{\mathrm{meta}}   , we re-extract the semantic descriptors from the suspect image: 
+ 
+
+  
+  
+       S  ~   =    {   s  ~   }    k  ∈  𝒦    =    Φ  θ   ​   (   x  s   ,   𝒫  meta   )     .   \displaystyle\widetilde{S}=\{\widetilde{s}\}_{k\in\mathcal{K}}=\Phi_{\theta}(x_{s},\mathcal{P}_{\mathrm{meta}}).    
+    
+ 
+ Based on these re-extracted descriptors, we reconstruct a reference latent      𝐳  ^   T   \widehat{\mathbf{z}}_{T}    using the same synthesis rule as in the generation phase: 
+ 
+
+  
+  
+       OPEN      𝐳  ^   T   ​   (  p  )    =   H  ⁡   (   E  ⁡   (    s  ~   k   )    ,  p  ,  σ  )     )   ,   p  ∈   Ω  k     .   \displaystyle\widehat{\mathbf{z}}_{T}(p)=H(E(\widetilde{s}_{k}),p,\sigma)),\quad p\in\Omega_{k}.    
+    
+ 
+ 
+ 
+ We then compare the inverted latent     𝐳  inv   \mathbf{z}_{\mathrm{inv}}    and the reconstructed latent      𝐳  ^   T   \widehat{\mathbf{z}}_{T}    in a pointwise manner. For each spatial location    p  p   , we define the distance
+      d  ⁡   (  p  )    =    ‖    𝐳  inv   −     𝐳  ^   T   ​   (  p  )     ‖   2    ,   d(p)=\|\mathbf{z}_{\mathrm{inv}}-\widehat{\mathbf{z}}_{T}(p)\|_{2},   
+where the norm is computed over the latent dimension. A location is considered matched if      d  ⁡   (  p  )    ≤  τ   d(p)\leq\tau    where    τ  \tau    is a pixel-level distance threshold. We define the region-level match ratio and the global match ratio as 
+ 
+
+  
+  
+      m  k   =    1   |   Ω  k   |       ∑   p  ∈   Ω  k      𝟏   [  d   (  p  )   ≤   τ  k   ]   ,  ∀  k  ∈  𝒦  ,  and   m  g   =    1   h  ​  w       ∑  p    𝟏   [  d   (  p  )   ≤   τ  d   ]   ,   \displaystyle m_{k}=\frac{1}{|\Omega_{k}|}\sum_{p\in\Omega_{k}}\mathbf{1}[d(p)\leq\tau_{k}],~~\forall k\in\mathcal{K},~~~\mathrm{and}~~~m_{g}=\frac{1}{hw}\sum_{p}\mathbf{1}[d(p)\leq\tau_{d}],    
+    
+ 
+ respectively, where     𝟏  ​   [  ⋅  ]    \mathbf{1}[\cdot]    denotes the indicator function. 
+ 
+ 
+ Using a set of local thresholds      {   τ  k   }    k  ∈  𝒦    \{\tau_{k}\}_{k\in\mathcal{K}}    and a global threshold     τ  g   \tau_{g}   , the detector outputs one of three states: 
+ 
+ 
+  State I: Authentic and Intact.  The image is classified as authentic and intact when      m  g   ≥   τ  g    m_{g}\geq\tau_{g}    and      m  k   ≥   τ  k    m_{k}\geq\tau_{k}    for all     k  ∈  𝒦   k\in\mathcal{K}   . This indicates that both the global watermark and all factor-specific partitions remain consistent. 
+ 
+ 
+  State II: Localized Semantic Tampering.  The image is classified as semantically tampered when      m  g   ≥   τ  g    m_{g}\geq\tau_{g}    but      m  k   <   τ  k    m_{k}<\tau_{k}    for some     k  ∈  𝒦   k\in\mathcal{K}   . In this case, the image still matches the protected model at a global level, but at least one semantic factor fails local verification. The failed partition directly indicates the likely tampered factor. 
+ 
+ 
+  State III: Unwatermarked or Severely Corrupted.  The image is classified as unwatermarked or severely corrupted when      m  g   <   τ  g    m_{g}<\tau_{g}   . This means that the watermark is either absent or has been destroyed by a strong transformation. 
+ 
+ 
+ 
+ 
+  4  Theoretical Analysis 
+
+ 
+ In this section, we present a theoretical analysis of SLICE. We make some practical assumptions. We first assume that DDIM inversion is accurate on most locations of each region. 
+ 
+ 
+   Assumption 4.1     (Bounded DDIM inversion error) .  
+ 
+  Assume that for each factor     k  ∈  𝒦   k\in\mathcal{K}   , there exists a set      A  k   ⊆   Ω  k    A_{k}\subseteq\Omega_{k}    such that  
+ 
+
+  
+  
+        |   A  k   |   ≥    (   1  −   β  k    )   ​   |   Ω  k   |     ,    and  ​    ‖     𝐳  inv   ​   (  p  )    −    𝐳  T   ​   (  p  )     ‖   2    ≤   ϵ  k    ,    ∀  p   ∈   A  k     .   \displaystyle|A_{k}|\geq(1-\beta_{k})|\Omega_{k}|,~~~\mathrm{and}~~~\|\mathbf{z}_{\mathrm{inv}}(p)-\mathbf{z}_{T}(p)\|_{2}\leq\epsilon_{k},~\forall p\in A_{k}.    
+    
+ 
+ 
+ 
+ 
+ We make the following assumption to model the distinct behaviors of untampered and tampered semantic factors after semantic re-extraction. 
+ 
+ 
+   Assumption 4.2     (Stability and separation of semantic corruption) .  
+ 
+  Let    𝒥  \mathcal{J}          ⊆  𝒦   \subseteq\mathcal{K}    be the set of tampered semantic factors. Assume that for each untampered factor     k  ∈   K  ∖  𝒥    k\in K\setminus\mathcal{J}   , there exists a set      B  k   ⊆   Ω  k    B_{k}\subseteq\Omega_{k}    such that  
+ 
+
+  
+  
+        |   B  k   |   ≥    (   1  −   γ  k    )   ​   |   Ω  k   |     ,    and  ​    ‖     𝐳  ^   T   −    𝐳  T   ​   (  p  )     ‖   2    ≤   δ  k    ,    ∀  p   ∈   B  k     ,   \displaystyle|B_{k}|\geq(1-\gamma_{k})|\Omega_{k}|,~~~\mathrm{and}~~~\|\widehat{\mathbf{z}}_{T}-\mathbf{z}_{T}(p)\|_{2}\leq\delta_{k},~\forall p\in B_{k},    
+    
+ 
+  and for each tampered factor     k  ∈  𝒥   k\in\mathcal{J}   , there exists a set      C  k   ⊆   Ω  k    C_{k}\subseteq\Omega_{k}    such that  
+ 
+
+  
+  
+        |   C  k   |   ≥    ρ  k   ​   |   Ω  k   |     ,    and  ​    ‖     𝐳  ^   T   −    𝐳  T   ​   (  p  )     ‖   2    ≥   Δ  k    ,    ∀  p   ∈   C  k     .   \displaystyle|C_{k}|\geq\rho_{k}|\Omega_{k}|,~~~\mathrm{and}~~~\|\widehat{\mathbf{z}}_{T}-\mathbf{z}_{T}(p)\|_{2}\geq\Delta_{k},~\forall p\in C_{k}.    
+    
+ 
+ 
+ 
+ 
+ Under Assumptions   4.1   and   4.2  , we analyze the partition-wise match ratios when only a subset of semantic factors is corrupted. The key is to choose the local thresholds so that untampered factors tolerate the combined inversion and re-extraction errors, while tampered factors remain separated by a clear margin. The following theorem quantifies the resulting localization guarantees. 
+ 
+ 
+   Theorem 4.3     (Robust localization under partial corruption) .  
+ 
+  Let     𝒥  ⊆  𝒦   \mathcal{J}\subseteq\mathcal{K}    be the set of tampered semantic factors. Assume that Assumptions   4.1   and   4.2   hold. If the set of local threshold      {   τ  k   }    k  ∈  𝒦    \{\tau_{k}\}_{k\in\mathcal{K}}    satisfies      τ  k   ≥    ϵ  k   +   δ  k     \tau_{k}\geq\epsilon_{k}+\delta_{k}    for all     k  ∈   𝒦  ∖  𝒥    k\in\mathcal{K}\setminus\mathcal{J}    and      τ  k   <    Δ  k   −   ϵ  k     \tau_{k}<\Delta_{k}-\epsilon_{k}    for all     k  ∈  J   k\in J   , then the following holds:  
+ 
+  1.  
+ 
+  For every untampered factor      k  ∈   𝒦  ∖  𝒥    k\in\mathcal{K}\setminus\mathcal{J}    , we have       m  k   ≥   1  −   β  k   −   γ  k     m_{k}\geq 1-\beta_{k}-\gamma_{k}    .  
+  
+  2.  
+ 
+  For every tampered factor      k  ∈  𝒥   k\in\mathcal{J}    , we have       m  k   ≤   1  −    (    ρ  k   −   β  k    )   +     m_{k}\leq 1-(\rho_{k}-\beta_{k})_{+}    .  
+  
+  3.  
+ 
+  The global match ratio satisfies  
+ 
+
+  
+  
+         ∑   k  ∈   𝒦  ∖  𝒥          |   Ω  k   |    h  ​  w     ​   (   1  −   β  k   −   γ  k    )     ≤   m  g   ≤      ∑   k  ∈   𝒦  ∖  𝒥         |   Ω  k   |    h  ​  w      +     ∑   k  ∈  𝒥         |   Ω  k   |    h  ​  w     ​   (   1  −    (    ρ  k   −   β  k    )   +    )       .   \displaystyle\sum_{k\in\mathcal{K}\setminus\mathcal{J}}\frac{|\Omega_{k}|}{hw}(1-\beta_{k}-\gamma_{k})\leq m_{g}\leq\sum_{k\in\mathcal{K}\setminus\mathcal{J}}\frac{|\Omega_{k}|}{hw}+\sum_{k\in\mathcal{J}}\frac{|\Omega_{k}|}{hw}\Big(1-(\rho_{k}-\beta_{k})_{+}\Big).    
+    
+ 
+  
+ 
+  We write      a  +   =   max  ⁡   {   a  ,  0   }     a_{+}=\max\{a,0\}    for any     a  ∈  ℝ   a\in\mathbb{R}   .  
+ 
+ 
+ 
+ Theorem   4.3   formalizes the core intuition behind SLICE under partial semantic corruption. With the above threshold choice, untampered regions retain a high match ratio whereas any tampered region must lose matches on a nontrivial subset of locations, and the global match ratio is bounded by the combined contributions of untampered and tampered regions. This explains why SLICE can preserve global provenance evidence while localizing the likely tampered semantic factor. 
+ 
+ 
+ Next, we provide a statistical security guarantee against keyless or unwatermarked inputs. 
+ 
+ 
+   Theorem 4.4     (Exponential false-accept bound for keyless or unwatermarked inputs) .  
+ 
+  Let     x  s   x_{s}    be an unwatermarked image or keyless forgery attempt. We define      I  p   =  𝟏   [  d   (  p  )   ≤   τ  k   ]   .   I_{p}=\mathbf{1}[d(p)\leq\tau_{k}].    Assume that conditioned on the re-extracted semantics     𝒮  ~   \widetilde{\mathcal{S}}   , the variables      {   I  p   }   p   \{I_{p}\}_{p}    are independent and for all position    p  p   ,      ℙ   (    I  p   =  1   ∣   𝒮  ~   )    ≤  q   \P(I_{p}=1\mid\widetilde{\mathcal{S}})\leq q    for some     q  >  0   q>0   . Then the following holds:  
+ 
+  1.  
+ 
+  If      q  <   τ  g    q<\tau_{g}    , the probability that the image is accepted as “watermark present” (i.e. State I or State II) statisfies  
+ 
+
+  
+  
+     ℙ   (  State  I  or  State  II  ∣   𝒮  ~   )   ≤  exp   (  −   hwD  KL    (   τ  g   ∥  q  )   )   ,   \displaystyle\P(\mathrm{State~I~or~State~II}\mid\widetilde{\mathcal{S}})\leq\exp\Big(-hwD_{\mathrm{KL}}(\tau_{g}\|q)\Big),    
+    
+ 
+  where       D  KL    (  a  ∥  b  )   =  a  ln   a  b   +   (  1  −  a  )   ln    1  −  a    1  −  b     D_{\mathrm{KL}}(a\|b)=a\ln\frac{a}{b}+(1-a)\ln\frac{1-a}{1-b}     is the KL-divergence.  
+  
+  2.  
+ 
+  If      q  <   τ  k    q<\tau_{k}     for every      k  ∈  𝒦   k\in\mathcal{K}    , then the probability that the image is accepted as authentic and intact (i.e. State I) satisfies  
+ 
+
+  
+  
+     ℙ   (  State  I  ∣   𝒮  ~   )   ≤  exp   (  −    ∑   k  ∈  𝒦     |   Ω  k   |   D  KL    (   τ  k   ∥  q  )   )   .   \displaystyle\P(\mathrm{State~I}\mid\widetilde{\mathcal{S}})\leq\exp\left(-\sum_{k\in\mathcal{K}}|\Omega_{k}|D_{\mathrm{KL}}(\tau_{k}\|q)\right).    
+    
+ 
+  
+ 
+ 
+ 
+ 
+ Under the assumption that accidental pointwise matches occur independently and with probability at most    q  q   , Theorem   4.4   guarantees that the probability that such an input exceeds the global or local verification thresholds decays exponentially with the number of latent positions. 
+ 
+ 
+ 
+  5  Prompt Language Selection 
+
+   
+   Figure 3 :   Semantic extraction stability across prompt languages . The axes represent text embedding cosine similarity between initial and re-extracted descriptors.   
+ 
+ 
+ Reliable semantic extraction is critical for SLICE, as watermark verification requires the semantic descriptors extracted from the watermarked image to remain consistent with those from the reference image. However, Vision–Language Models (VLMs) may exhibit different instruction-following behaviors across languages, potentially introducing semantic drift during extraction. 
+ 
+ 
+ To study this effect, we evaluate seven prompt languages (Chinese, English, French, Spanish, Portuguese, German, and Japanese). Our evaluation follows a “Semantic Consistency Loop”. First, we deploy a VLM to extract the initial semantic descriptor set     S  ref   S_{\mathrm{ref}}    from the original reference image     𝐱  ref   \mathbf{x}_{\mathrm{ref}}   . Second, using     S  ref   S_{\mathrm{ref}}    as the anchor, we synthesize the corresponding noise partitions and generate the watermarked image     𝐱  w   \mathbf{x}_{w}   . Third, we re-extract the semantic descriptors     S  w   S_{w}    from     𝐱  w   \mathbf{x}_{w}    using the same VLM and Meta-Prompt configuration. Finally, we utilize a BLIP encoder to extract the text embeddings of     S  ref   S_{\mathrm{ref}}    and     S  w   S_{w}   , and quantify the extraction stability by calculating their cosine similarity. 
+ 
+ 
+ As shown in Fig.   3  , Chinese prompts consistently achieve the highest stability across all four semantic dimensions ( subject ,  environment ,  action , and  detail ), with cosine similarity values approaching 1.0. In contrast, other languages show noticeable semantic drift, particularly in “ detail ” and “ action ” dimensions. We attribute this behavior to stronger alignment between the Qwen3-VL model and Chinese prompts, which improves the stability of cross-modal semantic representations. Based on this observation, we adopt Chinese as the default prompt language in our semantic extraction module. 
+ 
+ 
+ 
+  6  Experiment 
+
+ 
+ In this section, we evaluate the effectiveness and robustness of our proposed watermark. We employ the Stable Diffusion V2 model as the primary generation model and utilize QWen3-VL as the Vision-Language Model (VLM) for semantic extraction. 
+ 
+ 
+  Watermark baselines : We select four state-of-the-art watermark techniques for comparison, including content-independent watermarks: Gaussian Shading Watermark (GSW) , Tree-Ring Watermark (TRW) , WIND , and the content-aware semantic watermark SEAL. 
+ 
+ 
+  Attack baselines : To thoroughly test the robustness of our defense, we subject the watermarked images to three advanced semantic attacks: Latent Forgery Attack (LFA)  [ 24 ]  , Regeneration with the Private Model (RPM)  [ 2 ] , and Coherence-Preserving Semantic Injection (CSI)  [ 16 ] . 
+ 
+ 
+  Table 1:   Quantitative comparison of watermark resistance against generative semantic attacks . 
+ 
+ 
+  Detector (ASR %    ↓  \downarrow   )  
+  LFA  [ 24 ]   
+  RPM  [ 2 ]   
+  CSI  [ 16 ]    
+ 
+  Content-independent semantic watermarks   
+ 
+  Gaussian Shading  [ 46 ]   
+  100  
+  100  
+  100   
+ 
+  Tree-Ring  [ 43 ]   
+  93.81  
+  100  
+  100   
+ 
+  WIND  [ 1 ]   
+  100  
+  100  
+  100   
+ 
+  Content-aware semantic watermark   
+ 
+  SEAL  [ 2 ]   
+  0  
+  7  
+  81   
+ 
+  SLICE  
+  0  
+  5  
+  19   
+ 
+  Mean    ↓  \downarrow     
+  58.76  
+  62.40  
+  80.00   
+ 
+ 
+ 
+  6.1  Resistance Against Generative Forgery Attacks 
+
+ 
+ To evaluate the resistance of our proposed watermarking mechanism against generative forgery attacks, we conduct a series of comparative experiments. In this setup, we comprehensively compare the defensive capabilities of our method against mainstream semantic watermarks (Gaussian Shading, Tree-Ring, and WIND) and a content-aware semantic watermark (SEAL). We continue to employ the Attack Success Rate (ASR) as the core evaluation metric. From a defensive perspective, a successful attack is defined as a tampered image erroneously triggering a positive "watermark present" decision from the detector under the predefined threshold. Consequently, a lower ASR indicates stronger resistance of the watermarking scheme against forgery attacks. 
+ 
+ 
+ As shown in Table   1   , when facing generative semantic attacks including LFA, RPM, and the highly potent CSI, the defensive lines of the semantic watermarks (Gaussian Shading, Tree-Ring, and WIND) almost entirely collapse, with the ASRs reaching nearly 100% across the board. In the comparison of content-aware semantic watermarks, although SEAL effectively defends against LFA (0% ASR) and RPM (7% ASR), its defense is severely breached by the more advanced CSI attack, with the ASR surging to 81%. In contrast, our proposed method records exceptionally low ASRs of 0% and 5% against LFA and RPM, respectively. More importantly, even when subjected to the strongest CSI attack that compromised SEAL, our method successfully suppresses the ASR to a remarkably low 19%. 
+ 
+ 
+ These results demonstrate that our mechanism exhibits superior resistance compared to existing baseline defenses. This enhancement is primarily attributed to our Spatially-Partitioned Semantic Injection mechanism. By strictly binding spatial regions to fine-grained semantic attributes within the latent space , any attempt by an attacker to modify local semantics (e.g., maliciously replacing the "Environment" or "Action") immediately disrupts the localized watermark structure within the corresponding partition. Coupled with our rigorous multi-granularity verification logic , the detector can acutely capture localized tampering and trigger an alert, thereby rendering advanced generative forgery attacks ineffective. 
+ 
+ 
+   Table 2 :   Resistance of SLICE against common image perturbations.  
+ 
+ 
+  Transformation  
+ Clean 
+ Rotate 
+ JPEG 
+ Blur 
+ Noise 
+ Bright  
+ 
+  Accuracy  
+  1.000  
+  1.000  
+ 0.990 
+ 0.988 
+ 0.993 
+ 0.941  
+ 
+ 
+ 
+   Table 3 :   CLIP scores before and after SLICE watermark injection .   
+ 
+ 
+  SDP  
+  COCO   
+ 
+ CLIP (before) 
+ CLIP (after) 
+ CLIP (before) 
+ CLIP (after)  
+ 
+ 33.034 
+ 32.789 
+ 31.342 
+ 31.240  
+ 
+ 
+ 
+ 
+  6.2  Robustness Against Common Image Corruptions 
+
+ 
+ To evaluate the reliability of the proposed watermarking mechanism in practical dissemination, we test its robustness against five common non-malicious image perturbations (rotation, JPEG compression, Gaussian blur, Gaussian noise, and brightness adjustment) using detection accuracy as the evaluation metric. As shown in Table   2  , our method maintains a perfect accuracy of 1.0 under both the unperturbed (Clean) baseline and the rotation operation. When subjected to JPEG compression, blur, and noise interference, the accuracy is scarcely affected, reaching 0.990, 0.988, and 0.993, respectively. Even under brightness adjustment, which causes global shifts in pixel values, it sustains a high level of 0.941, demonstrating exceptional stability. 
+ 
+ 
+ This outstanding anti-interference capability is directly attributed to our design that decouples the watermark from fragile low-level pixels. Unlike traditional methods sensitive to pixel shifts, our verification logic relies on the core semantic features extracted by the VLM. Since the aforementioned common image degradations typically cannot substantially alter the macroscopic semantics of an image, the locally reconstructed reference noise remains highly stable. This demonstrates that our high-level semantic watermark possesses remarkable robustness in real-world image propagation scenarios. 
+ 
+ 
+ 
+  6.3  Evaluation of Semantic Alignment and Visual Fidelity 
+
+ 
+ To evaluate the impact of SLICE on the generated image quality and semantic fidelity, we measure the text-image alignment before and after watermark injection across the Stable-Diffusion-Prompts (SDP)  [ 37 ]  and COCO datasets  [ 32 ] , as shown in Table   3  . Using the CLIP score  [ 19 ]  as our quantitative evaluation metric, the results demonstrate that our method introduces a negligible impact: on the SDP dataset, the average CLIP score experiences a marginal decrease from 33.034 to 32.789, with a similarly slight variation observed on the COCO dataset (from 31.342 to 31.240). 
+ 
+ 
+ Beyond quantitative metrics, preserving the perceptual quality and aesthetic integrity of the generated images is a critical prerequisite for any practical watermarking system. To further demonstrate the stealthiness of our approach, we provide a comprehensive qualitative comparison between the unwatermarked baseline generations and our SLICE-protected images in Fig.   4  . As observed in the visual results across both datasets, SLICE introduces no perceptible artifacts, color shifts, or structural distortions. 
+ 
+  
+   Figure 4 :   Qualitative comparison of visual fidelity with and without SLICE watermarking.  
+ 
+ 
+ This exceptional semantic preservation and high visual fidelity are direct consequences of our Spatially-Partitioned Semantic Injection mechanism. Rather than dispersing cryptographic signals globally—which often leads to chaotic feature bleeding and disrupts the global latent space—our approach strictly restricts the decoupled semantic embeddings to non-overlapping local noise partitions. Consequently, SLICE achieves highly robust, multi-granularity provenance verification while flawlessly maintaining the original visual perceptual quality and consistency with the user’s text prompts. 
+ 
+  
+   Figure 5 :   Case study of the proposed multi-granularity verification mechanism .   
+ 
+ 
+ 
+  6.4  Case Study: Multi-Granularity Verification 
+
+ 
+ To intuitively demonstrate SLICE’s multi-granularity verification, we evaluate a set of images using our three-state detection mechanism, as shown in Fig.   5  . The local match threshold for all semantic partitions is empirically set to      τ  k   =  35   \tau_{k}=35   . 
+ 
+ 
+  State I (Authentic & Intact):  For the original watermarked image (a young girl in a yellow hat), the matched patches across all four semantic factors— subject  (133),  action  (90),  detail  (111), and  environment  (152)—significantly exceed the threshold. This robust alignment verifies both global provenance and semantic integrity. 
+ 
+ 
+  State II (Localized Tampering):  When the image undergoes localized tampering (e.g., altered from a girl to a young boy staring forward), our compartmentalized embedding strictly confines the disruption to specific semantic regions. As illustrated in the middle panel of Fig.   5  , changing the character’s gender causes the  subject  matches to drop significantly to 55. Simultaneously, the altered behavior ("staring forward") severely destroys the  action  partition (26) and its associated  detail  (33), causing both to fall below the verification threshold. However, the  environment  (75) and  subject  (55) remain above the threshold, correctly triggering State II. This visually demonstrates SLICE’s capability to precisely capture and localize fine-grained semantic modifications without outright rejecting an image that retains partial provenance. 
+ 
+ 
+  State III (Unwatermarked / Severely Corrupted):  For a completely unrelated image (a cyberpunk nightscape), extreme semantic mismatch causes the matched patches for all factors— subject  (8),  action  (2),  detail  (18), and  environment  (7)—to plummet far below the threshold, correctly triggering the unwatermarked classification. 
+ 
+ 
+ Overall, this case study visually validates that SLICE’s spatial binding elegantly translates complex semantic edits into readable, partition-specific verification states. 
+ 
+ 
+ 
+  6.5  Limitation and Mitigation: A Joint Defense Paradigm 
+
+ 
+ While SLICE demonstrates remarkable robustness against advanced semantic editing, its reliance on spatially-partitioned binding inherently makes it sensitive to extreme geometric distortions. As shown in Table   4  , aggressive Cropping and Scaling (C&S) attacks disrupt the strict spatial correspondence required for latent inversion, causing the active watermark detection AUC to drop to 0.054. 
+ 
+ 
+   Table 4 :   Mitigation of C&S attack via passive forensics.  
+  
+ 
+ 
+  
+  Vulnerability  
+  Mitigation via Passive Forensics (AUC    ↑  \uparrow   )   
+ 
+  Method  
+ Ours (C&S) 
+ Feature Stab. 
+ Resampling 
+ Freq-Texture 
+ ResNet18 
+ Spectral Aniso.  
+ 
+  AUC  
+ 0.054 
+ 0.850 
+ 0.920 
+ 0.940 
+ 0.980 
+  0.990   
+ 
+  
+ 
+ 
+ However, this specific vulnerability is readily mitigated by integrating passive forensic techniques  [ 40 ,  11 ] . Extreme C&S manipulations inevitably leave prominent unnatural artifacts, such as interpolation traces and spectral anomalies. Our evaluations reveal that standard passive detectors—spanning semantic CNNs  [ 4 ,  51 ] , feature-stability metrics  [ 7 ,  8 ] , and spectral analysis  [ 14 ,  35 ] —can easily expose these brute-force attacks, achieving high detection AUCs (0.85–0.99). Therefore, combining the active SLICE watermark with passive forensics establishes a highly robust joint defense paradigm, effectively neutralizing attacks that attempt to bypass semantic verification through destructive spatial transformations. 
+ 
+ 
+ 
+ 
+  7  Conclusion 
+
+ 
+ In this paper, we identify a critical vulnerability in global semantic watermarks: their susceptibility to locally fine-grained but globally coherent edits. To overcome this, we propose Semantic Latent Injection via Compartmentalized Embedding (SLICE). By decoupling image semantics into four factors and anchoring them to spatially-partitioned latent regions, SLICE establishes a powerful multi-granularity verification logic. Extensive experiments demonstrate that our training-free framework significantly outperforms baselines against advanced generative attacks (e.g., LFA, RPM, CSI), accurately localizes tampering, and preserves exceptional visual fidelity. 
+ 
+ 
+ While our spatial binding remains sensitive to extreme geometric distortions, integrating passive forensics effectively mitigates this through a robust joint defense. Moving forward, designing spatially invariant decoupled semantic embeddings remains a promising direction to further advance AI provenance techniques. 
+ 
+ 
+ 
+ References 
+
+ 
+  [1] 
+  K. Arabi, B. Feuer, R. T. Witter, C. Hegde, and N. Cohen   (2025) 
+ 
+  Hidden in the noise: two-stage robust watermarking for images .
+ 
+ In  International Conference on Learning Representations (ICLR) ,
+ 
+ Cited by:   §1  ,
+  §2.1  ,
+  Table 1  .
+  
+  [2] 
+  K. Arabi, R. T. Witter, C. Hegde, and N. Cohen   (2025) 
+ 
+  SEAL: Semantic Aware Image Watermarking .
+ 
+ In  Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) ,
+ 
+  pp. 16196–16205 .
+ 
+ Cited by:   §1  ,
+  §2.1  ,
+  Table 1  ,
+  Table 1  ,
+  §6  .
+  
+  [3] 
+  O. Bar-Tal, L. Yariv, Y. Lipman, and T. Dekel   (2023) 
+ 
+  MultiDiffusion: Fusing Diffusion Paths for Controlled Image Generation .
+ 
+ In  Proceedings of the 40th International Conference on Machine Learning (ICML) ,
+ 
+  pp. 1737–1752 .
+ 
+ Cited by:   §1  ,
+  §2.3  .
+  
+  [4] 
+  B. Bayar and M. C. Stamm   (2018) 
+ 
+  Constrained Convolutional Neural Networks: A New Approach Towards General Purpose Image Manipulation Detection .
+ 
+  IEEE Transactions on Information Forensics and Security   13  ( 11 ),  pp. 2691–2706 .
+ 
+ Cited by:   §6.5  .
+  
+  [5] 
+  Y. Cao, S. Li, Y. Liu, Z. Yan, Y. Dai, P. Yu, and L. Sun   (2025) 
+ 
+  A Survey of AI-Generated Content (AIGC) .
+ 
+  ACM Computing Surveys   57  ( 5 ),  pp. 1–38 .
+ 
+ Cited by:   §1  .
+  
+  [6] 
+  H. Chefer, Y. Alaluf, Y. Vinker, L. Wolf, and D. Cohen-Or   (2023) 
+ 
+  Attend-and-Excite: Attention-Based Semantic Guidance for Text-to-Image Diffusion Models .
+ 
+  ACM transactions on Graphics (TOG)   42  ( 4 ),  pp. 1–10 .
+ 
+ Cited by:   §2.3  .
+  
+  [7] 
+  S. Choi, H. Lee, and M. Lee   (2025) 
+ 
+  Training-free Detection of AI-generated images via Cropping Robustness .
+ 
+ In  Advances in Neural Information Processing Systems (NeurIPS) ,
+ 
+ Cited by:   §6.5  .
+  
+  [8] 
+  S. Choi, S. Park, J. Lee, S. Kim, S. J. Choi, and M. Lee   (2024) 
+ 
+  HFI: A Unified Framework for Training-free Detection and Implicit Watermarking of Latent Diffusion Model Generated Images .
+ 
+  arXiv preprint arXiv:2412.20704 .
+ 
+ Cited by:   §6.5  .
+  
+  [9] 
+  H. Ci, P. Yang, Y. Song, and M. Z. Shou   (2024) 
+ 
+  RingID: rethinking tree-ring watermarking for enhanced multi-key identification .
+ 
+ In  European Conference on Computer Vision (ECCV) ,
+ 
+  pp. 338–354 .
+ 
+ Cited by:   §2.1  .
+  
+  [10] 
+  P. Esser, S. Kulal, A. Blattmann, R. Entezari, J. Müller, H. Saini, Y. Levi, D. Lorenz, A. Sauer, F. Boesel,  et al.    (2024) 
+ 
+  Scaling Rectified Flow Transformers for High-Resolution Image Synthesis .
+ 
+ In  International Conference on Machine Learning (ICML) ,
+ 
+ Cited by:   §1  ,
+  §2.2  .
+  
+  [11] 
+  H. Farid   (2009) 
+ 
+  Image Forgery Detection .
+ 
+  IEEE Signal Processing Magazine   26  ( 2 ),  pp. 16–25 .
+ 
+ Cited by:   §6.5  .
+  
+  [12] 
+  X. Feng, H. Zhang, Y. Zhang, L. Y. Zhang, and S. Pan   (2025) 
+ 
+  BiMark: unbiased multilayer watermarking for large language models .
+ 
+ In  Forty-second International Conference on Machine Learning (ICML) ,
+ 
+ Cited by:   §2.1  .
+  
+  [13] 
+  P. Fernandez, G. Couairon, H. Jégou, M. Douze, and T. Furon   (2023) 
+ 
+  The Stable Signature: Rooting Watermarks in Latent Diffusion Models .
+ 
+ In  Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) ,
+ 
+  pp. 22466–22477 .
+ 
+ Cited by:   §1  ,
+  §1  ,
+  §2.1  .
+  
+  [14] 
+  S. Gabarda and G. Cristóbal   (2007) 
+ 
+  Blind Image Quality Assessment through Anisotropy .
+ 
+  Journal of the Optical Society of America A   24  ( 12 ),  pp. B42–B51 .
+ 
+ Cited by:   §6.5  .
+  
+  [15] 
+  R. Gandikota, Z. Wu, R. Zhang, D. Bau, E. Shechtman, and N. Kolkin   (2025) 
+ 
+  SliderSpace: Decomposing the Visual Capabilities of Diffusion Models .
+ 
+ In  Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) ,
+ 
+  pp. 15994–16003 .
+ 
+ Cited by:   §1  ,
+  §2.3  .
+  
+  [16] 
+  Z. Gao, X. Li, Z. Bao, X. Feng, and J. Jiang   (2026) 
+ 
+  Breaking Semantic-Aware Watermarks via LLM-Guided Coherence-Preserving Semantic Injection .
+ 
+ In  Proceedings of the ACM on Web Conference 2026 ,
+ 
+ Cited by:   §1  ,
+  §2.1  ,
+  Table 1  ,
+  §6  .
+  
+  [17] 
+  E. Gesny, E. Giboulot, T. Furon, and V. Chappelier   (2026) 
+ 
+  Guidance watermarking for diffusion models .
+ 
+ In  International Conference on Learning Representations (ICLR) ,
+ 
+ Note:  Poster. arXiv:2509.22126 
+ 
+ External Links:   Link  
+ 
+ Cited by:   §2.1  .
+  
+  [18] 
+  S. Gunn, X. Zhao, and D. Song   (2025) 
+ 
+  An undetectable watermark for generative image models .
+ 
+ In  The Thirteenth International Conference on Learning Representations (ICLR) ,
+ 
+ Cited by:   §2.1  .
+  
+  [19] 
+  J. Hessel, A. Holtzman, M. Forbes, R. Le Bras, and Y. Choi   (2021) 
+ 
+  CLIPScore: A Reference-free Evaluation Metric for Image Captioning .
+ 
+ In  Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing (EMNLP) ,
+ 
+  pp. 7514–7528 .
+ 
+ Cited by:   §6.3  .
+  
+  [20] 
+  J. Ho, A. Jain, and P. Abbeel   (2020) 
+ 
+  Denoising Diffusion Probabilistic Models .
+ 
+ In  Advances in Neural Information Processing Systems (NeurIPS) ,
+ 
+ Vol.  33 ,  pp. 6840–6851 .
+ 
+ Cited by:   §1  ,
+  §2.2  .
+  
+  [21] 
+  A. Hou, J. Zhang, T. He, Y. Wang, Y. Chuang, H. Wang, L. Shen, B. Van Durme, D. Khashabi, and Y. Tsvetkov   (2024) 
+ 
+  Semstamp: a semantic watermark with paraphrastic robustness for text generation .
+ 
+ In  Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers) ,
+ 
+  pp. 4067–4082 .
+ 
+ Cited by:   §2.1  .
+  
+  [22] 
+  Z. Hu, L. Chen, X. Wu, Y. Wu, H. Zhang, and H. Huang   (2024) 
+ 
+  Unbiased watermark for large language models .
+ 
+ In  The Twelfth International Conference on Learning Representations (ICLR) ,
+ 
+ Cited by:   §2.1  .
+  
+  [23] 
+  H. Huang, Y. Wu, and Q. Wang   (2024) 
+ 
+  ROBIN: robust and invisible watermarks for diffusion models with adversarial optimization .
+ 
+ In  Advances in Neural Information Processing Systems (NeurIPS) ,
+ 
+ Vol.  37 ,  pp. 3937–3963 .
+ 
+ Cited by:   §2.1  .
+  
+  [24] 
+  A. Jain, Y. Kobayashi, N. Murata, Y. Takida, T. Shibuya, Y. Mitsufuji, N. Cohen, N. Memon, and J. Togelius   (2025) 
+ 
+  Forging and Removing Latent-Noise Diffusion Watermarks Using a Single Image .
+ 
+  arXiv preprint arXiv:2504.20111 .
+ 
+ Cited by:   §1  ,
+  Table 1  ,
+  §6  .
+  
+  [25] 
+  J. Jing, X. Deng, M. Xu, J. Wang, and Z. Guan   (2021) 
+ 
+  HiNet: Deep Image Hiding by Invertible Network .
+ 
+ In  Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) ,
+ 
+  pp. 4733–4742 .
+ 
+ Cited by:   §1  .
+  
+  [26] 
+  C. Kim, K. Min, M. Patel, S. Cheng, and Y. Yang   (2024) 
+ 
+  WOUAF: Weight Modulation for User Attribution and Fingerprinting in Text-to-Image Diffusion Models .
+ 
+ In  Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) ,
+ 
+  pp. 8974–8983 .
+ 
+ Cited by:   §2.1  .
+  
+  [27] 
+  J. Kirchenbauer, J. Geiping, Y. Wen, J. Katz, I. Miers, and T. Goldstein   (2023) 
+ 
+  A watermark for large language models .
+ 
+ In  International conference on machine learning (ICML) ,
+ 
+  pp. 17061–17084 .
+ 
+ Cited by:   §2.1  .
+  
+  [28] 
+  R. Kuditipudi, J. Thickstun, T. Hashimoto, and P. Liang   (2024) 
+ 
+  Robust distortion-free watermarks for language models .
+ 
+  Transactions on Machine Learning Research (TMLR) .
+ 
+ External Links:   ISSN 2835-8856  
+ 
+ Cited by:   §2.1  .
+  
+  [29] 
+  C. Lai, Y. Song, D. Kim, Y. Mitsufuji, and S. Ermon   (2025) 
+ 
+  The Principles of Diffusion Models .
+ 
+  arXiv preprint arXiv:2510.21890 .
+ 
+ Cited by:   §1  .
+  
+  [30] 
+  C. Lee, Y. Chen, C. Lu, and J. Chen   (2025) 
+ 
+  On forging semantic watermarks in diffusion models: a theoretical perspective .
+ 
+ In  NeurIPS 2025 Workshop on Generative and Protective AI for Content Creation ,
+ 
+ Cited by:   §2.1  .
+  
+  [31] 
+  H. Lin, Y. Chen, J. Wang, W. An, M. Wang, F. Tian, Y. Liu, G. Dai, J. Wang, and Q. Wang   (2024) 
+ 
+  Schedule Your Edit: A Simple yet Effective Diffusion Noise Schedule for Image Editing .
+ 
+ In  Advances in Neural Information Processing Systems (NeurIPS) ,
+ 
+  pp. 115712–115756 .
+ 
+ Cited by:   §2.2  .
+  
+  [32] 
+  T. Lin, M. Maire, S. Belongie, J. Hays, P. Perona, D. Ramanan, P. Dollár, and C. L. Zitnick   (2014) 
+ 
+  Microsoft COCO: Common Objects in Context .
+ 
+ In  European Conference on Computer Vision (ECCV) ,
+ 
+  pp. 740–755 .
+ 
+ Cited by:   §6.3  .
+  
+  [33] 
+  B. Liu, C. Wang, T. Cao, K. Jia, and J. Huang   (2024) 
+ 
+  Towards Understanding Cross and Self-Attention in Stable Diffusion for Text-Guided Image Editing .
+ 
+ In  Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) ,
+ 
+  pp. 7817–7826 .
+ 
+ Cited by:   §2.3  .
+  
+  [34] 
+  A. Müller, D. Lukovnikov, J. Thietke, A. Fischer, and E. Quiring   (2025) 
+ 
+  Black-Box Forgery Attacks on Semantic Watermarks for Diffusion Models .
+ 
+ In  Proceedings of the Computer Vision and Pattern Recognition Conference (CVPR) ,
+ 
+  pp. 20937–20946 .
+ 
+ Cited by:   §1  ,
+  §2.1  .
+  
+  [35] 
+  A. C. Popescu and H. Farid   (2005) 
+ 
+  Exposing Digital Forgeries by Detecting Traces of Resampling .
+ 
+  IEEE Transactions on signal processing   53  ( 2 ),  pp. 758–767 .
+ 
+ Cited by:   §6.5  .
+  
+  [36] 
+  R. Rombach, A. Blattmann, D. Lorenz, P. Esser, and B. Ommer   (2022) 
+ 
+  High-Resolution Image Synthesis With Latent Diffusion Models .
+ 
+ In  Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) ,
+ 
+  pp. 10684–10695 .
+ 
+ Cited by:   §1  ,
+  §2.2  .
+  
+  [37] 
+  G. Santana   (2024) 
+ 
+  Stable-diffusion-prompts .
+ 
+   Hugging Face .
+ 
+ Note:   https://huggingface.co/datasets/Gustavosta/Stable-Diffusion-Prompts  
+ 
+ Cited by:   §6.3  .
+  
+  [38] 
+  J. Song, C. Meng, and S. Ermon   (2021) 
+ 
+  Denoising diffusion implicit models .
+ 
+ In  International Conference on Learning Representations (ICLR) ,
+ 
+ Cited by:   §2.2  ,
+  §3.3  .
+  
+  [39] 
+  Y. Song, J. Sohl-Dickstein, D. P. Kingma, A. Kumar, S. Ermon, and B. Poole   (2021) 
+ 
+  Score-Based Generative Modeling through Stochastic Differential Equations .
+ 
+ In  International Conference on Learning Representations (ICLR) ,
+ 
+ Cited by:   §1  ,
+  §2.2  .
+  
+  [40] 
+  M. C. Stamm, M. Wu, and K. R. Liu   (2013) 
+ 
+  Information Forensics: An Overview of the First Decade .
+ 
+  IEEE Access   1 ,  pp. 167–200 .
+ 
+ Cited by:   §6.5  .
+  
+  [41] 
+  Ł. Staniszewski, Ł. Kuciński, and K. Deja   (2024) 
+ 
+  There and Back Again: On the Relation Between Noise and Image Inversions in Diffusion Models .
+ 
+  arXiv preprint arXiv:2410.23530 .
+ 
+ Cited by:   §2.2  .
+  
+  [42] 
+  Y. Wang, Y. Pan, M. Yan, Z. Su, and T. H. Luan   (2023) 
+ 
+  A Survey on ChatGPT: AI-Generated Contents, Challenges, and Solutions .
+ 
+  IEEE Open Journal of the Computer Society   4 ,  pp. 280–302 .
+ 
+ Cited by:   §1  .
+  
+  [43] 
+  Y. Wen, J. Kirchenbauer, J. Geiping, and T. Goldstein   (2023) 
+ 
+  Tree-rings watermarks: invisible fingerprints for diffusion images .
+ 
+ In  Advances in Neural Information Processing Systems (NeurIPS) ,   A. Oh, T. Naumann, A. Globerson, K. Saenko, M. Hardt, and S. Levine (Eds.) ,
+ 
+ Vol.  36 ,  pp. 58047–58063 .
+ 
+ Cited by:   §1  ,
+  §1  ,
+  §2.1  ,
+  Table 1  .
+  
+  [44] 
+  J. Xie, Y. Li, Y. Huang, H. Liu, W. Zhang, Y. Zheng, and M. Z. Shou   (2023) 
+ 
+  BoxDiff: Text-to-Image Synthesis with Training-Free Box-Constrained Diffusion .
+ 
+ In  Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) ,
+ 
+  pp. 7452–7461 .
+ 
+ Cited by:   §1  ,
+  §2.3  .
+  
+  [45] 
+  T. Yang, C. Lan, Y. Lu, and N. Zheng   (2024) 
+ 
+  Diffusion Model with Cross Attention as an Inductive Bias for Disentanglement .
+ 
+ In  Advances in Neural Information Processing Systems (NeurIPS) ,
+ 
+ Vol.  37 ,  pp. 82465–82492 .
+ 
+ Cited by:   §2.3  .
+  
+  [46] 
+  Z. Yang, K. Zeng, K. Chen, H. Fang, W. Zhang, and N. Yu   (2024) 
+ 
+  Gaussian Shading: Provable Performance-Lossless Image Watermarking for Diffusion Models .
+ 
+ In  Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) ,
+ 
+  pp. 12162–12171 .
+ 
+ Cited by:   §1  ,
+  §1  ,
+  §2.1  ,
+  Table 1  .
+  
+  [47] 
+  K. Yoo, W. Ahn, and N. Kwak   (2024) 
+ 
+  Advancing beyond identification: multi-bit watermark for large language models .
+ 
+ In  Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers) ,
+ 
+  pp. 4031–4055 .
+ 
+ Cited by:   §2.1  .
+  
+  [48] 
+  N. Yu, V. Skripniuk, S. Abdelnabi, and M. Fritz   (2021) 
+ 
+  Artificial Fingerprinting for Generative Models: Rooting Deepfake Attribution in Training Data .
+ 
+ In  Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) ,
+ 
+  pp. 14448–14457 .
+ 
+ Cited by:   §1  .
+  
+  [49] 
+  T. Zhang   (2023) 
+ 
+  Mathematical analysis of machine learning algorithms .
+ 
+   Cambridge University Press .
+ 
+ Cited by:   Lemma B.1  .
+  
+  [50] 
+  X. Zhao, K. Zhang, Z. Su, S. Vasan, I. Grishchenko, C. Kruegel, G. Vigna, Y. Wang, and L. Li   (2024) 
+ 
+  Invisible image watermarks are provably removable using generative ai .
+ 
+  Advances in neural information processing systems (NeurIPS)   37 ,  pp. 8643–8672 .
+ 
+ Cited by:   §1  .
+  
+  [51] 
+  P. Zhou, X. Han, V. I. Morariu, and L. S. Davis   (2018) 
+ 
+  Learning Rich Features for Image Manipulation Detection .
+ 
+ In  Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR) ,
+ 
+  pp. 1053–1061 .
+ 
+ Cited by:   §6.5  .
+  
+ 
+ 
+  
+ 
+  Appendix  
+ 
+ 
+  Appendix A  Proof of Theorem   4.3   
+
+ 
+   Theorem A.1     (Restatement of Theorem   4.3  ) .  
+ 
+  Let     𝒥  ⊆  𝒦   \mathcal{J}\subseteq\mathcal{K}    be the set of tampered semantic factors. Assume that Assumptions   4.1   and   4.2   hold. If the set of local threshold      {   τ  k   }    k  ∈  𝒦    \{\tau_{k}\}_{k\in\mathcal{K}}    staisfies      τ  k   ≥    ϵ  k   +   δ  k     \tau_{k}\geq\epsilon_{k}+\delta_{k}    for all     k  ∈   𝒦  ∖  𝒥    k\in\mathcal{K}\setminus\mathcal{J}    and      τ  k   <    Δ  k   −   ϵ  k     \tau_{k}<\Delta_{k}-\epsilon_{k}    for all     k  ∈  J   k\in J   , then the following holds:  
+ 
+  1.  
+ 
+  for every untampered factor      k  ∈   𝒦  ∖  𝒥    k\in\mathcal{K}\setminus\mathcal{J}    , we have       m  k   ≥   1  −   β  k   −   γ  k     m_{k}\geq 1-\beta_{k}-\gamma_{k}    ;  
+  
+  2.  
+ 
+  for every tampered factor      k  ∈  𝒥   k\in\mathcal{J}    , we have       m  k   ≤   1  −    (    ρ  k   −   β  k    )   +     m_{k}\leq 1-(\rho_{k}-\beta_{k})_{+}    ;  
+  
+  3.  
+ 
+  the global match ratio satisfies  
+ 
+
+  
+  
+         ∑   k  ∈   𝒦  ∖  𝒥          |   Ω  k   |    h  ​  w     ​   (   1  −   β  k   −   γ  k    )     ≤   m  g   ≤      ∑   k  ∈   𝒦  ∖  𝒥         |   Ω  k   |    h  ​  w      +     ∑   k  ∈  𝒥         |   Ω  k   |    h  ​  w     ​   (   1  −    (    ρ  k   −   β  k    )   +    )       ,   \displaystyle\sum_{k\in\mathcal{K}\setminus\mathcal{J}}\frac{|\Omega_{k}|}{hw}(1-\beta_{k}-\gamma_{k})\leq m_{g}\leq\sum_{k\in\mathcal{K}\setminus\mathcal{J}}\frac{|\Omega_{k}|}{hw}+\sum_{k\in\mathcal{J}}\frac{|\Omega_{k}|}{hw}\Big(1-(\rho_{k}-\beta_{k})_{+}\Big),    
+    
+ 
+  
+ 
+  where      a  +   =   max  ⁡   {   a  ,  0   }     a_{+}=\max\{a,0\}    for any     a  ∈  ℝ   a\in\mathbb{R}   .  
+ 
+ 
+ 
+ Proof. 
+ 
+  Let     k  ∈   𝒦  ∖  𝒥    k\in\mathcal{K}\setminus\mathcal{J}    be an untampered factor. For any     p  ∈    A  k   ∩   B  k     p\in A_{k}\cap B_{k}   , we can show that  
+ 
+
+  
+  
+       d  ⁡   (  p  )    =    ‖     𝐳  inv   ​   (  p  )    −    𝐳  ^   ​   (  p  )     ‖   2   ≤     ‖     𝐳  inv   ​   (  p  )    −    𝐳  T   ​   (  p  )     ‖   2   +    ‖     𝐳  T   ​   (  p  )    −    𝐳  T   ​   (  p  )     ‖   2    ≤    ϵ  k   +   δ  k    ≤   τ  k    ,   \displaystyle d(p)=\|\mathbf{z}_{\mathrm{inv}}(p)-\widehat{\mathbf{z}}(p)\|_{2}\leq\|\mathbf{z}_{\mathrm{inv}}(p)-\mathbf{z}_{T}(p)\|_{2}+\|\mathbf{z}_{T}(p)-\mathbf{z}_{T}(p)\|_{2}\leq\epsilon_{k}+\delta_{k}\leq\tau_{k},    
+    
+ 
+  where the second step uses the triangle inequality. Hence every point in      A  k   ∩   B  k    A_{k}\cap B_{k}    is counted as a match. Now, by inclusion-exclusion principle, we have  
+ 
+
+  
+  
+      |    A  k   ∩   B  k    |   ≥     |   A  k   |   +   |   B  k   |    −   |   Ω  k   |    ≥     \displaystyle|A_{k}\cap B_{k}|\geq|A_{k}|+|B_{k}|-|\Omega_{k}|\geq    
+        (   1  −   β  k    )   ​   |   Ω  k   |    +    (   1  −   γ  k    )   ​   |   Ω  k   |     −   |   Ω  k   |    \displaystyle~(1-\beta_{k})|\Omega_{k}|+(1-\gamma_{k})|\Omega_{k}|-|\Omega_{k}|    
+    
+  
+  
+    =  \displaystyle=    
+       (   1  −   β  k   −   γ  k    )   ​   |   Ω  k   |    .   \displaystyle~(1-\beta_{k}-\gamma_{k})|\Omega_{k}|.    
+    
+ 
+  Thus  
+ 
+
+  
+  
+      m  k   =    1   |   Ω  k   |       ∑   p  ∈   Ω  k      𝟏   [  d   (  p  )   ≤   τ  d   ]   ≥     |    A  k   ∩   B  k    |    |   Ω  k   |     ≥  1  −   β  k   −   γ  k   .   \displaystyle m_{k}=\frac{1}{|\Omega_{k}|}\sum_{p\in\Omega_{k}}\mathbf{1}[d(p)\leq\tau_{d}]\geq\frac{|A_{k}\cap B_{k}|}{|\Omega_{k}|}\geq 1-\beta_{k}-\gamma_{k}.    
+    
+ 
+  This proves the first part.  
+ 
+ 
+  Let     k  ∈  𝒥   k\in\mathcal{J}    be a tampered factor. For any     p  ∈    A  k   ∩   C  k     p\in A_{k}\cap C_{k}   , we can show that  
+ 
+
+  
+  
+      d  ⁡   (  p  )    =    ‖     𝐳  inv   ​   (  p  )    −    𝐳  ^   ​   (  p  )     ‖   2   ≥     \displaystyle d(p)=\|\mathbf{z}_{\mathrm{inv}}(p)-\widehat{\mathbf{z}}(p)\|_{2}\geq    
+     |    ‖     ‖     𝐳  T   ​   (  p  )    −     𝐳  ^   T   ​   (  p  )     ‖   2   −    𝐳  inv   ​   (  p  )    −    𝐳  T   ​   (  p  )     ‖   2   |   \displaystyle~\left|\|\|\mathbf{z}_{T}(p)-\widehat{\mathbf{z}}_{T}(p)\|_{2}-\mathbf{z}_{\mathrm{inv}}(p)-\mathbf{z}_{T}(p)\|_{2}\right|    
+    
+  
+  
+    ≥  \displaystyle\geq    
+        Δ  k   −   ϵ  k    >   τ  k    ,   \displaystyle~\Delta_{k}-\epsilon_{k}>\tau_{k},    
+    
+ 
+  where the second step uses the reverse triangle inequality. Hence, every point in      A  k   ∩   C  k    A_{k}\cap C_{k}    is a non-match. Again by inclusion-exclusion principle, we have  
+ 
+
+  
+  
+        |    A  k   ∩   C  k    |   ≥     |   A  k   |   +   |   C  k   |    −   |   Ω  k   |    ≥      (   1  −  β   )   ​   |   Ω  k   |    +    ρ  k   ​   |   Ω  k   |     −    |    Ω  k   |     =    (    ρ  k   −   β  k    )   ​   |   Ω  k   |       .   \displaystyle|A_{k}\cap C_{k}|\geq|A_{k}|+|C_{k}|-|\Omega_{k}|\geq(1-\beta)|\Omega_{k}|+\rho_{k}|\Omega_{k}|-|\Omega_{k}|=(\rho_{k}-\beta_{k})|\Omega_{k}|.    
+    
+ 
+  Note that when       ρ  k   −   β  k    <  0   \rho_{k}-\beta_{k}<0   , the lower bound trivially holds, so we have  
+ 
+
+  
+  
+       |    A  k   ∩   C  k    |   ≥     (    ρ  k   −   β  k    )   +   ​   |   Ω  k   |     .   \displaystyle|A_{k}\cap C_{k}|\geq(\rho_{k}-\beta_{k})_{+}|\Omega_{k}|.    
+    
+ 
+  Note that since all points in      A  k   ∩   C  k    A_{k}\cap C_{k}    fail to match, the number of matches in     Ω  k   \Omega_{k}    is at most  
+ 
+
+  
+  
+        |   Ω  k   |   −   |    A  k   ∩   C  k    |    ≤    (   1  −    (    ρ  k   −   β  k    )   +    )   ​   |   Ω  k   |     .   \displaystyle|\Omega_{k}|-|A_{k}\cap C_{k}|\leq\Big(1-(\rho_{k}-\beta_{k})_{+}\Big)|\Omega_{k}|.    
+    
+ 
+  Dividing by     |   Ω  k   |   |\Omega_{k}|    gives  
+ 
+
+  
+  
+       m  k   ≤   1  −    (    ρ  k   −   β  k    )   +     .   \displaystyle m_{k}\leq 1-(\rho_{k}-\beta_{k})_{+}.    
+    
+ 
+  Thus we prove the second part.  
+ 
+ 
+  For the global lower bound, all matches in untampered partitions contribute a nonnegative amount, and by the first part, we have  
+ 
+
+  
+  
+      m  g   =    1   h  ​  w       ∑   k  ∈  𝒦       ∑   p  ∈   Ω  k      𝟏   [  d   (  p  )   ≤   τ  k   ]   ≥    1   h  ​  w       ∑   k  ∈   𝒦  ∖  𝒥       (  1  −   β  k   −   γ  k   )   |   Ω  k   |  .   \displaystyle m_{g}=\frac{1}{hw}\sum_{k\in\mathcal{K}}\sum_{p\in\Omega_{k}}\mathbf{1}[d(p)\leq\tau_{k}]\geq\frac{1}{hw}\sum_{k\in\mathcal{K}\setminus\mathcal{J}}(1-\beta_{k}-\gamma_{k})|\Omega_{k}|.    
+    
+ 
+ 
+ 
+  For the global upper bound, an untampered region can contribute at most all of its locations, while a tampered region contributes at most      (   1  −    (    ρ  k   −   β  k    )   +    )   ​   |   Ω  k   |    (1-(\rho_{k}-\beta_{k})_{+})|\Omega_{k}|    by the second part. Hence  
+ 
+
+  
+  
+       m  g   ≤      1   h  ​  w     ​     ∑   k  ∈   𝒦  ∖  𝒥       |   Ω  k   |     +     1   h  ​  w     ​     ∑   k  ∈  𝒥       (   1  −    (    ρ  k   −   β  k    )   +    )   ​   |   Ω  k   |        .   \displaystyle m_{g}\leq\frac{1}{hw}\sum_{k\in\mathcal{K}\setminus\mathcal{J}}|\Omega_{k}|+\frac{1}{hw}\sum_{k\in\mathcal{J}}\Big(1-(\rho_{k}-\beta_{k})_{+}\Big)|\Omega_{k}|.    
+    
+ 
+  This proves the third part.
+∎  
+ 
+ 
+ 
+ 
+  Appendix B  Proof of Theorem   4.4   
+
+ 
+   Lemma B.1     (Chernoff bounds, Theorem 2.17 in  [ 49 ] ) .  
+ 
+  Let      X  1   ,  …  ,   X  n    X_{1},\ldots,X_{n}    be    n  n    independent random variables taking values in     [  0  ,  1  ]   [0,1]   . Let     μ  =   𝔼   [    1  n   ​    ∑   i  =  1   n    X  i     ]     \mu=\E[\frac{1}{n}\sum_{i=1}^{n}X_{i}]   . Then for all     ϵ  >  0   \epsilon>0   , we have  
+ 
+
+  
+  
+     ℙ   (    1  n      ∑   i  =  1   n     X  i   ≥  μ  +  ϵ  )   ≤  exp   (  −   nD  KL    (  μ  +  ϵ  ∥  μ  )   )   ,   \displaystyle\P\left(\frac{1}{n}\sum_{i=1}^{n}X_{i}\geq\mu+\epsilon\right)\leq\exp\Big(-nD_{\mathrm{KL}}(\mu+\epsilon\|\mu)\Big),    
+    
+  
+  
+     ℙ   (    1  n      ∑   i  =  1   n     X  i   ≤  μ  −  ϵ  )   ≤  exp   (  −   nD  KL    (  μ  −  ϵ  ∥  μ  )   )   .   \displaystyle\P\left(\frac{1}{n}\sum_{i=1}^{n}X_{i}\leq\mu-\epsilon\right)\leq\exp\Big(-nD_{\mathrm{KL}}(\mu-\epsilon\|\mu)\Big).    
+    
+ 
+  where      D  KL    (  a  ∥  b  )   =  a  ln   a  b   +   (  1  −  a  )   ln    1  −  a    1  −  b     D_{\mathrm{KL}}(a\|b)=a\ln\frac{a}{b}+(1-a)\ln\frac{1-a}{1-b}    is the KL divergence.  
+ 
+ 
+ 
+   Theorem B.2     (Restatement of Theorem   4.4  ) .  
+ 
+  Let     x  s   x_{s}    be an unwatermarked image or keyless forgery attempt. We define      I  p   =  𝟏   [  d   (  p  )   ≤   τ  k   ]   .   I_{p}=\mathbf{1}[d(p)\leq\tau_{k}].    Assume that condition on the re-extracted semantics     𝒮  ~   \widetilde{\mathcal{S}}   , the variables      {   I  p   }   p   \{I_{p}\}_{p}    are independent and for all position    p  p   ,      ℙ   (    I  p   =  1   |   𝒮  ~   )    ≤  q   \P(I_{p}=1|\widetilde{\mathcal{S}})\leq q    for some     q  >  0   q>0   . Then  
+ 
+  1.  
+ 
+  If      q  <   τ  g    q<\tau_{g}    , the probability that the image is accepted as “watermark present” (i.e. State I or State II) satisfies  
+ 
+
+  
+  
+     ℙ   (  State  I  or  State  II  ∣   𝒮  ~   )   ≤  exp   (  −   hwD  KL    (   τ  g   ∥  q  )   )   .   \displaystyle\P(\mathrm{State~I~or~State~II}\mid\widetilde{\mathcal{S}})\leq\exp\Big(-hwD_{\mathrm{KL}}(\tau_{g}\|q)\Big).    
+    
+ 
+  
+  2.  
+ 
+  If      q  <   τ  k    q<\tau_{k}     for every      k  ∈  𝒦   k\in\mathcal{K}    , then  
+ 
+
+  
+  
+     ℙ   (  State  I  ∣   𝒮  ~   )   ≤  exp   (  −    ∑   k  ∈  𝒦     |   Ω  k   |   D  KL    (   τ  k   ∥  q  )   )   .   \displaystyle\P(\mathrm{State~I}\mid\widetilde{\mathcal{S}})\leq\exp\left(-\sum_{k\in\mathcal{K}}|\Omega_{k}|D_{\mathrm{KL}}(\tau_{k}\|q)\right).    
+    
+ 
+  
+ 
+ 
+ 
+ 
+ Proof. 
+ 
+  Conditioned on     𝒮  ~   \widetilde{\mathcal{S}}    throughout.
+For the first part, let     S  =    ∑  p    I  p     S=\sum_{p}I_{p}   .
+Then       m  g   =   S   h  ​  w     .   m_{g}=\frac{S}{hw}.   
+By definition, the event that the image is accepted as “watermark present” (i.e.     State  ​  I   \mathrm{State~I}    or     State  ​  II   \mathrm{State~II}   ) is exactly the event  
+ 
+
+  
+  
+      {   m  g   ≥   τ  g   }   =   {  S  ≥   τ  g   h  w  }   .   \displaystyle\{m_{\mathrm{g}}\geq\tau_{g}\}=\{S\geq\tau_{g}hw\}.    
+    
+ 
+  Applying the Chernoff bound (Lemma   B.1  ), we obtain  
+ 
+
+  
+  
+     ℙ   (   m  g   ≥   τ  g   ∣   𝒮  ~   )   ≤  exp   (  −  h  w  D   (   τ  g   ∥  q  )   )   .   \displaystyle\mathbb{P}(m_{g}\geq\tau_{g}\mid\widetilde{\mathcal{S}})\leq\exp\Big(-hwD(\tau_{g}\|q)\Big).    
+    
+ 
+  This proves the first part.  
+ 
+ 
+  For the second part, define for each partition
+      S  k   =    ∑   p  ∈   Ω  k      I  p     .   S_{k}=\sum_{p\in\Omega_{k}}I_{p}.   
+Then       m  k   =    S  k    |   Ω  k   |     .   m_{k}=\frac{S_{k}}{|\Omega_{k}|}.   
+If     State  ​  I   \mathrm{State~I}    occurs, then      m  k   ≥   τ  k    m_{k}\geq\tau_{k}    for every     k  ∈  𝒦   k\in\mathcal{K}   . Therefore,  
+ 
+
+  
+  
+      {  State  I  }   ⊆    ⋂   k  ∈  𝒦      {   S  k   ≥   τ  k   |   Ω  k   |  }   .   \displaystyle\{\mathrm{State~I}\}\subseteq\bigcap_{k\in\mathcal{K}}\{S_{k}\geq\tau_{k}|\Omega_{k}|\}.    
+    
+ 
+  Hence  
+ 
+
+  
+  
+     ℙ   (  State  I  ∣   𝒮  ~   )   ≤  ℙ   (    ⋂   k  ∈  𝒦      {   S  k   ≥   τ  k   |   Ω  k   |  }   |   𝒮  ~   )   .   \displaystyle\mathbb{P}(\mathrm{State~I}\mid\widetilde{\mathcal{S}})\leq\mathbb{P}\left(\bigcap_{k\in\mathcal{K}}\{S_{k}\geq\tau_{k}|\Omega_{k}|\}\,\middle|\,\widetilde{\mathcal{S}}\right).    
+    
+ 
+  Since the partitions      {   Ω  k   }    k  ∈  𝒦    \{\Omega_{k}\}_{k\in\mathcal{K}}    are disjoint and the variables      {   I  p   }   p   \{I_{p}\}_{p}    are conditionally independent given     𝒮  ~   \widetilde{\mathcal{S}}   , the random sums      {   S  k   }    k  ∈  𝒦    \{S_{k}\}_{k\in\mathcal{K}}    are conditionally independent. Thus,  
+ 
+
+  
+  
+     ℙ  ⁡   (   State  ​  I   ∣   𝒮  ~   )    \displaystyle\mathbb{P}(\mathrm{State~I}\mid\widetilde{\mathcal{S}})    
+        ≤     ∏   k  ∈  𝒦      ℙ  ⁡   (    S  k   ≥    τ  k   ​   |   Ω  k   |     ∣   𝒮  ~   )      .   \displaystyle\leq\prod_{k\in\mathcal{K}}\mathbb{P}(S_{k}\geq\tau_{k}|\Omega_{k}|\mid\widetilde{\mathcal{S}}).    
+    
+ 
+  Applying the Chernoff bound (Lemma   B.1  ) again, we have  
+ 
+
+  
+  
+     ℙ   (   S  k   ≥   τ  k   |   Ω  k   |  ∣   𝒮  ~   )   ≤  exp   (  −  |   Ω  k   |  D   (   τ  k   ∥  q  )   )   .   \displaystyle\mathbb{P}(S_{k}\geq\tau_{k}|\Omega_{k}|\mid\widetilde{\mathcal{S}})\leq\exp(-|\Omega_{k}|D(\tau_{k}\|q)).    
+    
+ 
+  Then using the union bound over    k  k   , we have  
+ 
+
+  
+  
+     ℙ   (  State  I  ∣   𝒮  ~   )   ≤  exp   (  −    ∑   k  ∈  𝒦     |   Ω  k   |  D   (   τ  k   ∥  q  )   )   .   \displaystyle\mathbb{P}(\mathrm{State~I}\mid\widetilde{\mathcal{S}})\leq\exp\left(-\sum_{k\in\mathcal{K}}|\Omega_{k}|D(\tau_{k}\|q)\right).    
+    
+ 
+  This proves the second part.
+∎  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+    Experimental support, please
+     view the build logs 
+    for errors. Generated by
+     
+       
+        L
+         A 
+        T
+         E 
+       
+       xml 
+       
+     .
+   
+   
+     Instructions for reporting errors 
+     We are continuing to improve HTML versions of papers, and your feedback helps enhance accessibility and mobile
+      support. To report errors in the HTML that will help us improve conversion and rendering, choose any of the
+      methods listed below: 
+     
+       Click the "Report Issue"  ( 
+             
+           )  button, located in the page header. 
+     
+      Tip:  You can select the relevant text first, to include it in your report. 
+     Our team has already identified  the following issues . We appreciate your time reviewing and reporting rendering errors we
+      may not have found yet. Your efforts will help us improve the HTML versions for all readers, because disability
+      should not be a barrier to accessing research. Thank you for your continued support in championing open access for
+      all. 
+     Have a free development cycle? Help support accessibility at arXiv! Our collaborators at LaTeXML maintain a  list of packages that need conversion , and welcome  developer contributions . 
+   
+  
+   
+     
+       
+        We gratefully acknowledge support from
+        our  major funders ,
+          member institutions   ,    ,
+        and all contributors.
+       
+       
+         About 
+         · 
+         Help 
+         · 
+         Contact 
+         · 
+         Subscribe 
+         · 
+         Copyright 
+         · 
+         Privacy 
+         · 
+         Accessibility 
+         · 
+         Operational Status  (opens in new tab)  
+       
+     
+
+     
+       Major funding support from 
+       
+         
+           
+         
+         
+           
+         
+         
+           
+         
+       
+     
+   
+  
+   
+      
+       
+     
+   
+  
+ 
+

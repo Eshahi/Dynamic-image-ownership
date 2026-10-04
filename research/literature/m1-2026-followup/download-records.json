@@ -1,0 +1,28 @@
+[
+  {
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "path": "slice-v1.html",
+    "sha256": "676b1cac2641ffd0703dcc8124e81bead7df747dac37103612db2b066f9026b6",
+    "type": "official arXiv full-text HTML",
+    "bytes": 297496,
+    "source_url": "https://arxiv.org/html/2603.12749v1",
+    "license_evidence": "HTML page footer license link; artifact archived unmodified",
+    "version": "2603.12749v1",
+    "license": "CC BY 4.0",
+    "execution": "Not executed; no paper code or model weights downloaded",
+    "access_date": "2026-10-03"
+  },
+  {
+    "license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "path": "diffmark-v1.html",
+    "sha256": "122ac0503f563d0dc668f288964e6dddab329609fe17b1e68bc96eb323cb423b",
+    "type": "official arXiv full-text HTML",
+    "bytes": 590057,
+    "source_url": "https://arxiv.org/html/2603.20304v1",
+    "license_evidence": "HTML page footer license link; artifact archived unmodified",
+    "version": "2603.20304v1",
+    "license": "CC BY-NC-ND 4.0",
+    "execution": "Not executed; no paper code or model weights downloaded",
+    "access_date": "2026-10-03"
+  }
+]

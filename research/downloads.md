@@ -38,3 +38,17 @@ Total downloaded source bytes: 2629474 (<100MB); text/table extracts derive from
 - 2026-10-03 `waves-v2`: https://arxiv.org/html/2401.08573v2; local `research\literature\m1-primary-extension\waves-v2.html`; 491206 bytes; SHA256 `a81b1709a9f3b52c17a8832cc278b651dc651faa80af595bb77fc03e9e5d5968`; Author/publisher rights retained; official research reading copy.
 
 - 2026-10-03 `stegastamp-cvpr2020`: https://openaccess.thecvf.com/content_CVPR_2020/papers/Tancik_StegaStamp_Invisible_Hyperlinks_in_Physical_Photographs_CVPR_2020_paper.pdf; local `research\literature\m1-primary-extension\stegastamp-cvpr2020.pdf`; 2393782 bytes; SHA256 `ab57fbc1ae99931590165fca9df88dff996fcc9e80b4621a8983c7bb1f0a22cf`; Author/publisher rights retained; official research reading copy.
+
+- 2026-10-03: PhaseMark arXiv2601.13128v1 HTML; https://arxiv.org/html/2601.13128v1 ; license arXiv perpetual non-exclusive license (research reading copy); 196436 bytes; SHA256 00f0b126339239ad2f69c092fae09df24bcda2acd2f9dbb7601a696e55fb4367; local research/literature/m1-primary-extension/phasemark-v1.html. No code executed.
+
+- 2026-10-03 PhaseMark inspection-only code: https://raw.githubusercontent.com/thomas11809/PhaseMark/dfe42ad0449459e26fe1579957c6d05ccdee9b92/LICENSE; revision dfe42ad0449459e26fe1579957c6d05ccdee9b92; license CC-BY-NC-4.0; 777 bytes; SHA256 f2f715abab48515faa39f2e42e07ed3518da2fdae36838e6e48ea4a20c2678b8; local research\literature\m1-primary-extension\phasemark-code\LICENSE. Not executed.
+
+- 2026-10-03 PhaseMark inspection-only code: https://raw.githubusercontent.com/thomas11809/PhaseMark/dfe42ad0449459e26fe1579957c6d05ccdee9b92/utils.py; revision dfe42ad0449459e26fe1579957c6d05ccdee9b92; license CC-BY-NC-4.0; 29735 bytes; SHA256 de23bef357e3524dde2cead837c0d08d112610ed652374e230c3d0621395178d; local research\literature\m1-primary-extension\phasemark-code\utils.py. Not executed.
+
+- 2026-10-03 PhaseMark inspection-only code: https://raw.githubusercontent.com/thomas11809/PhaseMark/dfe42ad0449459e26fe1579957c6d05ccdee9b92/fast_try.py; revision dfe42ad0449459e26fe1579957c6d05ccdee9b92; license CC-BY-NC-4.0; 12381 bytes; SHA256 8867b19b732f85d919fc2f5f67f5555661157f550faba1bd3049619fa6b767fe; local research\literature\m1-primary-extension\phasemark-code\fast_try.py. Not executed.
+
+- 2026-10-03 PhaseMark inspection-only code: https://raw.githubusercontent.com/thomas11809/PhaseMark/dfe42ad0449459e26fe1579957c6d05ccdee9b92/README.md; revision dfe42ad0449459e26fe1579957c6d05ccdee9b92; license CC-BY-NC-4.0; 21059 bytes; SHA256 3e9aeed30cd0717040270acc49f5a0e897a80355f916ed2878f658ff80b5dcd2; local research\literature\m1-primary-extension\phasemark-code\README.md. Not executed.
+
+- 2026-10-03 primary follow-up: https://arxiv.org/html/2603.12749v1; version 2603.12749v1; license CC BY 4.0; 297496 bytes; SHA256 676b1cac2641ffd0703dcc8124e81bead7df747dac37103612db2b066f9026b6; local research/literature/m1-2026-followup/slice-v1.html. Archived unmodified; no code executed.
+
+- 2026-10-03 primary follow-up: https://arxiv.org/html/2603.20304v1; version 2603.20304v1; license CC BY-NC-ND 4.0; 590057 bytes; SHA256 122ac0503f563d0dc668f288964e6dddab329609fe17b1e68bc96eb323cb423b; local research/literature/m1-2026-followup/diffmark-v1.html. Archived unmodified; no code executed.
