@@ -131,11 +131,32 @@ class AnalysisTests(unittest.TestCase):
             if args[1]=='rev-parse':return '0'*40+'\n'
             return (a.ROOT/rel).read_bytes().replace(b'\r\n',b'\n')
         with patch.object(a.subprocess,'check_output',side_effect=git):
-            self.assertEqual(a.validate_dependencies(run),20)
+            self.assertEqual(a.validate_dependencies(run),len(paths))
             missing=copy.deepcopy(run);del missing['committed_files']['research/m1-terminal-continuous-recovery.md']
             with self.assertRaisesRegex(ValueError,'Dependency set'):a.validate_dependencies(missing)
             changed=copy.deepcopy(run);changed['committed_files']['scripts/m1_blind_noise_core.py']['working_sha256']='0'*64
             with self.assertRaisesRegex(ValueError,'blob/SHA'):a.validate_dependencies(changed)
+    def test_deterministic_prefix_cannot_be_scientific_evidence(self):
+        for value in ({'run_kind':'ac-gradient-prefix-v1'},{'outcome':'probe_completed'}):
+            with self.assertRaisesRegex(ValueError,'not a scientific'):a.verify_execution_variant(value)
+        self.assertIsNone(a.verify_execution_variant({'execution_variant':'inference-model-offload-v1'}))
+        with self.assertRaisesRegex(ValueError,'Missing deterministic'):
+            a.verify_execution_variant(dict(execution_variant='ac-deterministic-execution-v1',run_kind='scientific-pilot'))
+
+    def test_deterministic_receipt_and_environment_rechecked(self):
+        import m1_terminal_repeatability as repeat
+        with tempfile.TemporaryDirectory() as d:
+            path=Path(d)/'receipt.json';path.write_text('{}')
+            comparison={k:{'fixed':True} for k in ('deterministic_execution','environment','device_identity')}
+            receipt=dict(path=str(path),sha256=a.sha(path),comparison=comparison)
+            run=dict(execution_variant=repeat.VERSION,run_kind='scientific-pilot',repeatability_receipt=receipt,
+                     committed_files={},manifest_sha256='m',**comparison)
+            with patch.object(repeat,'require_receipt',return_value=receipt) as recheck:
+                self.assertEqual(a.verify_execution_variant(run),receipt);recheck.assert_called_once()
+                with self.assertRaises(ValueError):a.verify_execution_variant(dict(run,environment={'changed':True}))
+                path.write_text('{"changed":true}')
+                with self.assertRaisesRegex(ValueError,'hash mismatch'):a.verify_execution_variant(run)
+
     def test_recovery_replay_positive_metadata_and_reference_hash(self):
         with tempfile.TemporaryDirectory() as d:
             main=Path(d);base=main/'.thesis-build/dev-runs/reference';base.mkdir(parents=True)

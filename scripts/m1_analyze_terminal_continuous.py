@@ -103,7 +103,30 @@ def gates(rows,integrity):
 def dependency_set(source_code):
     paths=set(DEPENDENCIES)
     if 'research/m1-terminal-continuous-recovery.md' in source_code:paths.add('research/m1-terminal-continuous-recovery.md')
+    if 'scripts/m1_terminal_repeatability.py' in source_code:
+        paths.update(('scripts/m1_terminal_repeatability.py','research/m1-terminal-continuous-replay-diagnosis.md'))
     return paths
+
+def verify_execution_variant(run):
+    if run.get('run_kind') == 'ac-gradient-prefix-v1' or run.get('outcome') == 'probe_completed':
+        raise ValueError('Repeatability prefix is not a scientific pilot')
+    if run.get('execution_variant') != 'ac-deterministic-execution-v1':
+        if 'scripts/m1_terminal_repeatability.py' in run.get('committed_files',{}):
+            raise ValueError('Deterministic execution metadata missing from new worker')
+        return None
+    if run.get('run_kind') != 'scientific-pilot':
+        raise ValueError('Deterministic scientific run kind required')
+    import m1_terminal_repeatability as repeat
+    receipt=run.get('repeatability_receipt')
+    if not isinstance(receipt,dict) or not receipt.get('path'):
+        raise ValueError('Missing deterministic repeatability receipt')
+    if sha(receipt['path'])!=receipt.get('sha256'):
+        raise ValueError('Repeatability receipt hash mismatch')
+    expected=repeat.require_receipt(receipt['path'],run['committed_files'],run['manifest_sha256'])
+    equal(receipt,expected,'deterministic repeatability receipt')
+    for field in ('deterministic_execution','environment','device_identity'):
+        equal(run.get(field),expected['comparison'][field],'probe environment '+field)
+    return expected
 
 def validate_dependencies(run):
     deps=run.get('committed_files',{})
@@ -258,6 +281,7 @@ def analyze(input_dir,output_dir):
         if value:record['inputs'][str(base/name)]=value
     def provenance():
         if run.get('schema')!=runner.VERSION or run.get('data_split')!='development':raise ValueError('Wrong source schema/split')
+        record['verified_execution_variant']=verify_execution_variant(run)
         cfg=runner.configuration();equal(run.get('config'),cfg,'config');equal(read(base/'manifest.json'),cfg,'manifest')
         if run.get('manifest_sha256')!=sha(base/'manifest.json'):raise ValueError('Manifest hash mismatch')
         record['verified_dependency_count']=validate_dependencies(run)

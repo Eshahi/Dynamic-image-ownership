@@ -11,6 +11,7 @@ import hashlib
 import importlib.metadata
 import json
 import math
+import os
 from pathlib import Path
 import random
 import subprocess
@@ -27,6 +28,7 @@ import m1_dual_latent as old_a
 import m1_phase_residual as residual
 import m1_phasemark as util
 import revised_watermark_v5 as codec
+import m1_terminal_repeatability as repeatability
 
 MAIN = util.MAIN
 VERSION = 'm1-terminal-continuous-v1'
@@ -324,18 +326,22 @@ def optimize(embedder,source,u0,oracle,cfg,event,save,check,resume=None):
         surrogate_cycle_scores=[float(v) for v in cycle_scores])
 
 
-def run(manifest_path,output,resume_from=None,replay_reference=None):
+def run(manifest_path,output,resume_from=None,replay_reference=None,repeatability_receipt=None,probe_mode=False):
     import numpy as np
     from PIL import Image
     manifest_path=Path(manifest_path).resolve();output=Path(output).resolve();cfg=configuration()
     if json.loads(manifest_path.read_text())!=cfg:raise ValueError('Exact frozen manifest required')
     if not output.is_relative_to((MAIN/'.thesis-build/dev-runs').resolve()):raise ValueError('Fresh MAIN development output required')
+    if probe_mode and (resume_from or replay_reference or repeatability_receipt):
+        raise ValueError('Prefix probes must start afresh, without recovery or enrollment inputs')
     output.mkdir(parents=True,exist_ok=False);started=time.monotonic();previous_duration=0.
-    rows={r['id']:r for r in planned()}
+    rows={} if probe_mode else {r['id']:r for r in planned()}
     record=dict(schema=VERSION,data_split='development',command=sys.argv,config=cfg,seeds=[0],
                 outcome='started',duration_seconds=0.,case_events=[],conditions=list(rows.values()),
                 optimized_variables=['unscaled terminal VAE latent'],nfe_unet=0,
                 detector_side_information=['suspect RGB8','candidate public OwnerID','pinned VAE/CLIP/hash profile and maps'])
+    record.update(run_kind=repeatability.PROBE_VERSION if probe_mode else 'scientific-pilot',process_id=os.getpid())
+    if probe_mode:record['repeatability_prefix_updates']=repeatability.PREFIX_STEPS
     def persist():util.write(output/'run.json',record)
     def event(value):
         with (output/'journal.jsonl').open('a',encoding='utf-8') as f:f.write(json.dumps(value,allow_nan=False)+'\n')
@@ -353,6 +359,7 @@ def run(manifest_path,output,resume_from=None,replay_reference=None):
     try:
         deps=[Path(__file__),manifest_path,ROOT/'research/m1-terminal-continuous-design.md',
             ROOT/'research/m1-terminal-continuous-recovery.md',
+            ROOT/'scripts/m1_terminal_repeatability.py',ROOT/'research/m1-terminal-continuous-replay-diagnosis.md',
             ROOT/'scripts/m1_blind_noise_core.py',ROOT/'scripts/m1_blind_noise.py',ROOT/'scripts/m1_dual_latent.py',
             ROOT/'scripts/m1_phase_residual.py',ROOT/'scripts/m1_phasemark.py',ROOT/'scripts/m1_latent_reconstruction.py',
             ROOT/'scripts/revised_watermark_v5.py',ROOT/'scripts/revised_watermark_v4.py',ROOT/'scripts/three_threat_models.py',
@@ -361,7 +368,11 @@ def run(manifest_path,output,resume_from=None,replay_reference=None):
             ROOT/'research/m1-reconstruction-dev.json',ROOT/cfg['profile']]
         record.update(commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
             committed_files=util.require_committed(deps),manifest_sha256=util.sha(manifest_path))
+        record['scientific_files']=repeatability.scientific_files(record['committed_files'])
         fingerprint=dict(commit=record['commit'],committed_files=record['committed_files'],manifest_sha256=record['manifest_sha256'])
+        if not probe_mode:
+            if not repeatability_receipt:raise ValueError('Passing independent-process prefix receipt required before deterministic pilot')
+            record['repeatability_receipt']=repeatability.require_receipt(repeatability_receipt,record['committed_files'],record['manifest_sha256'])
         replay=None
         if replay_reference:
             if resume_from:raise ValueError('Fresh replay cannot be combined with resume')
@@ -370,17 +381,20 @@ def run(manifest_path,output,resume_from=None,replay_reference=None):
             replay=json.loads(replay_path.read_text())
             if replay.get('schema')!=VERSION or replay.get('config')!=cfg or replay.get('data_split')!='development':
                 raise ValueError('Replay reference scientific configuration differs')
+            if replay.get('execution_variant')!=repeatability.VERSION:
+                raise ValueError('Old nondeterministic endpoints are descriptive, not deterministic replay targets')
             if [r['source_id'] for r in replay['case_events'] if r['outcome']=='completed']!=[IDS[0]]:
                 raise ValueError('Recovery replay requires completed first source only')
             record['replay_reference']=dict(path=str(replay_path),sha256=util.sha(replay_path),commit=replay['commit'],
                 initialization='fresh original step200 reconstruction, no reference watermark checkpoint loaded for optimization')
-        record['execution_variant']='inference-model-offload-v1'
+        record['execution_variant']=repeatability.VERSION
         prior=None
         if resume_from:
             resume_from=Path(resume_from).resolve()
             if not resume_from.is_relative_to((MAIN/'.thesis-build/dev-runs').resolve()):raise ValueError('Resume source must be MAIN development run')
             prior=json.loads((resume_from/'run.json').read_text())
             if prior.get('schema')!=VERSION or prior.get('data_split')!='development' or any(prior.get(k)!=v for k,v in fingerprint.items()):raise ValueError('Resume requires identical version/commit/receipts')
+            if prior.get('run_kind')!='scientific-pilot' or prior.get('execution_variant')!=repeatability.VERSION:raise ValueError('Cannot resume a probe or earlier execution variant')
             if prior.get('outcome')=='completed':raise ValueError('Completed run is not a resume source')
             previous_duration=prior['duration_seconds']
             record['resume_input']=dict(path=str(resume_from),run_sha256=util.sha(resume_from/'run.json'),duration_seconds=previous_duration)
@@ -394,9 +408,12 @@ def run(manifest_path,output,resume_from=None,replay_reference=None):
         from transformers import CLIPImageProcessor
         from a6_clip_visual import load_visual_encoder
         from m1_latent_reconstruction import quality
+        record['deterministic_execution']=repeatability.configure()
         if not torch.cuda.is_available():raise RuntimeError('CUDA required')
         torch.manual_seed(0);np.random.seed(0);random.seed(0)
         torch.backends.cuda.matmul.allow_tf32=False;torch.backends.cudnn.allow_tf32=False;torch.backends.cudnn.benchmark=False
+        record['device_identity']=dict(name=torch.cuda.get_device_name(0),capability=list(torch.cuda.get_device_capability(0)),
+            cuda_version=torch.version.cuda,cudnn_version=torch.backends.cudnn.version())
         free_bytes,total_bytes=torch.cuda.mem_get_info(0)
         record['gpu_allocation_budget']=gpu_allocation_budget(cfg['gpu_budget_bytes'],int(free_bytes),int(total_bytes),cfg['gpu_reserve_bytes'])
         torch.cuda.set_per_process_memory_fraction(record['gpu_allocation_budget']['allocator_fraction'])
@@ -422,6 +439,10 @@ def run(manifest_path,output,resume_from=None,replay_reference=None):
         record.update(assets=assets,environment={'python':sys.version,**{p:importlib.metadata.version(p) for p in ('torch','numpy','scipy','Pillow','diffusers','lpips')}},
             latent_units='unscaled VAE posterior coordinate for optimization; reader output times.18215',
             lpips_learned_sha256=util.sha(package/'weights/v0.1/alex.pth'),reconstruction_run_sha256=util.sha(RECONSTRUCTION/'run.json'))
+        if not probe_mode:
+            receipt=record['repeatability_receipt']['comparison']
+            if any(record[key]!=receipt[key] for key in ('deterministic_execution','environment','device_identity')):
+                raise ValueError('Validated probe execution environment differs')
         def tensor(rgb,dtype=torch.float32):return torch.from_numpy(rgb.copy()).permute(2,0,1)[None].to('cuda',dtype=dtype)/255
         def array(value):return value.detach().float().cpu().numpy()[0].transpose(1,2,0).astype(np.float64)
         def safety_check(rgb):
@@ -464,7 +485,7 @@ def run(manifest_path,output,resume_from=None,replay_reference=None):
             gc.collect();torch.cuda.empty_cache()
             after=snapshot('after_inference_models_to_'+device)
             ce.setdefault('memory_placements',[]).append(dict(device=device,model_tensor_bytes=sizes,before=before,after=after));persist();check()
-        for case in cfg['cases']:
+        for case in (cfg['cases'][:1] if probe_mode else cfg['cases']):
             check();ident=case['id'];source,_=old_a.source_rgb(case)
             source,receipt=save_png(f'{ident}-source',source)
             ce=dict(source_id=ident,outcome='started',source=receipt,checkpoints=[]);record['case_events'].append(ce);persist()
@@ -472,7 +493,8 @@ def run(manifest_path,output,resume_from=None,replay_reference=None):
             ce.update(source_E=E.tolist(),source_H=H)
             u0,initial=old_a.reconstruction_latent(RECONSTRUCTION,ident,200,receipt['rgb8_sha256'])
             ce['initialization']=initial
-            identity=dict(version=VERSION,**fingerprint,source_id=ident,source_rgb8_sha256=receipt['rgb8_sha256'],initialization=initial)
+            identity=dict(version=VERSION,**fingerprint,source_id=ident,source_rgb8_sha256=receipt['rgb8_sha256'],initialization=initial,
+                execution_variant=record['execution_variant'],run_kind=record['run_kind'])
             resume=None
             if prior:
                 old=[e for e in prior['case_events'] if e['source_id']==ident]
@@ -480,12 +502,29 @@ def run(manifest_path,output,resume_from=None,replay_reference=None):
                     selected=max(old[0]['checkpoints'],key=lambda e:e['step'])
                     resume=checkpoint_load(selected,identity);ce['resume_checkpoint']=selected
             source_tensor=tensor(source);u0=u0.to('cuda');oracle=FixedSourceScores(E,H,core.OWNERS[0],'cuda')
+            probe_latent=[None]
+            if probe_mode:ce.update(probe_gradients=[],probe_trajectory=[])
             def save(step,u,optimizer):
+                if probe_mode:probe_latent[0]=u
                 cr=checkpoint_save(output/f'{ident}-step{step:03d}.pt',u,optimizer,step,identity)
                 ce['checkpoints'].append(cr);event(dict(kind='checkpoint',source_id=ident,**cr));persist();check()
+            def optimization_event(row):
+                event(dict(kind='optimizer',source_id=ident,**row))
+                if probe_mode:
+                    gradient=probe_latent[0].grad.detach().cpu().numpy().copy()
+                    if gradient.dtype!=np.float32 or gradient.shape!=(1,4,64,64) or not np.isfinite(gradient).all() or not np.any(gradient):
+                        raise ValueError('Invalid/zero full prefix gradient')
+                    ce['probe_gradients'].append(dict(step=row['step'],**save_array(f'{ident}-gradient-{row["step"]:03d}',gradient)))
+                    ce['probe_trajectory'].append(row);persist()
             placement('cpu',ident)
-            result=optimize(embedder,source_tensor,u0,oracle,cfg,lambda r:event(dict(kind='optimizer',source_id=ident,**r)),save,check,resume)
+            fit_cfg=dict(cfg,steps=repeatability.PREFIX_STEPS) if probe_mode else cfg
+            result=optimize(embedder,source_tensor,u0,oracle,fit_cfg,optimization_event,save,check,resume)
             placement('cuda',ident)
+            if probe_mode:
+                ce['probe_arrays']={name:save_array(f'{ident}-probe-{name}',array(result[name])) for name in ('reference','decoded','surrogate')}
+                ce['outcome']='probe_completed';persist()
+                probe_latent.clear();del source_tensor,u0,oracle,result;gc.collect();torch.cuda.empty_cache();check()
+                continue
             raw=array(result['residual']);marked,cap=residual.cap(source,raw)
             ce.update(cap=cap,beta_final=result['beta'],residual_rms=result['rho'],
                 final_surrogate_scores=result['surrogate_scores'],final_surrogate_cycle_scores=result['surrogate_cycle_scores'],
@@ -513,7 +552,7 @@ def run(manifest_path,output,resume_from=None,replay_reference=None):
                 ce['execution_replay']=verify_completed_case_replay(ce,list(rows.values()),replay)
                 record['execution_replay']=ce['execution_replay'];persist()
             del source_tensor,u0,oracle,result;gc.collect();torch.cuda.empty_cache();check()
-        record['outcome']='completed'
+        record['outcome']='probe_completed' if probe_mode else 'completed'
         record['peak_allocated_bytes']=torch.cuda.max_memory_allocated()
     except (Exception,KeyboardInterrupt) as error:
         record.update(outcome='interrupted' if isinstance(error,KeyboardInterrupt) else 'failed',error=repr(error),traceback=traceback.format_exc())
@@ -523,10 +562,10 @@ def run(manifest_path,output,resume_from=None,replay_reference=None):
             if row['outcome'] in ('planned','started'):row['outcome']='not_completed_after_stop';event(dict(kind='condition',**row))
         util.write(output/'conditions.json',list(rows.values()))
         record.update(duration_seconds=previous_duration+time.monotonic()-started,attempt_duration_seconds=time.monotonic()-started,
-            gate=pilot_gate(list(rows.values())),
+            gate=None if probe_mode else pilot_gate(list(rows.values())),
             output_hashes={p.name:util.sha(p) for p in output.iterdir() if p.is_file() and p.name!='run.json'})
         persist()
-    return 0 if record['outcome']=='completed' else 1
+    return 0 if record['outcome'] in ('completed','probe_completed') else 1
 
 
 if __name__=='__main__':
@@ -535,8 +574,9 @@ if __name__=='__main__':
     group.add_argument('--write-manifest',type=Path);group.add_argument('--run',action='store_true')
     parser.add_argument('--manifest',type=Path);parser.add_argument('--output-dir',type=Path);parser.add_argument('--resume-from',type=Path)
     parser.add_argument('--replay-reference',type=Path,help='Fresh-run parity against a prior completed first source; never initializes from it')
+    parser.add_argument('--repeatability-receipt',type=Path,help='Passing comparison run.json from two independent deterministic prefix probes')
     args=parser.parse_args()
     if args.write_manifest:
         with args.write_manifest.open('x',encoding='utf-8') as f:json.dump(configuration(),f,indent=2);f.write('\n')
     elif not args.manifest or not args.output_dir:parser.error('--run requires --manifest and --output-dir')
-    else:raise SystemExit(run(args.manifest,args.output_dir,args.resume_from,args.replay_reference))
+    else:raise SystemExit(run(args.manifest,args.output_dir,args.resume_from,args.replay_reference,args.repeatability_receipt))
