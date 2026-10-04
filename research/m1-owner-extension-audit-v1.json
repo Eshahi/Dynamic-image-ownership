@@ -1,0 +1,13 @@
+{
+  "schema": "m1-owner-extension-audit-v1",
+  "descriptor_pairs": 32,
+  "descriptor_seed": 0,
+  "latent_seed": 1,
+  "reference_commit": "fe02a466b5ba33f7a9fd7d5a4df0080098defaf2",
+  "reference_sha256": "df3e7140ee910519a1f57d8ea564d55636671c7404ca574fd40695e8514bccef",
+  "threshold": 4.0,
+  "geometry_tolerance": 1e-12,
+  "run_seconds_cap": 300,
+  "artifact_budget_bytes": 52428800,
+  "data_split": "synthetic-and-retained-development"
+}

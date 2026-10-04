@@ -1,0 +1,21 @@
+{
+  "schema": "m1-source-initialization-audit-config-v1",
+  "data_split": "development",
+  "source_id": 1675,
+  "cohort": "research/m1-reconstruction-dev.json",
+  "design": "research/m1-end-to-end-initialization-design.md",
+  "execution_variant": "ac-deterministic-execution-v1",
+  "seed": 0,
+  "updates": 200,
+  "interruption_step": 100,
+  "checkpoint_every": 10,
+  "gpu_budget_bytes": 10737418240,
+  "gpu_reserve_bytes": 536870912,
+  "ram_budget_bytes": 17179869184,
+  "artifact_budget_bytes": 524288000,
+  "seconds_cap": 1800,
+  "cooperative_seconds_cap": 1750,
+  "comparison": "exact scientific tensor/Adam/RNG/observation equality; no tolerance",
+  "legacy_initialization_allowed": false,
+  "heldout_allowed": false
+}
