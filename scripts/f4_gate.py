@@ -32,12 +32,41 @@ def sha(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+_WORKER = {}
+
+
+def _init_worker(profile_json: str):
+    import torch
+    import three_threat_models as models
+    from a6_clip_visual import load_visual_encoder
+    torch.set_num_threads(1)
+    _WORKER["clip"], _WORKER["transform"] = load_visual_encoder(ASSETS / "clip/ViT-B-32.pt", device="cpu")
+    _WORKER["models"], _WORKER["profile"] = models, json.loads(profile_json)
+
+
+def _read_job(path: str) -> dict:
+    """Blind reading of one saved PNG for every study owner, with the suspect's own CLIP features."""
+    from PIL import Image
+    rgb = np.asarray(Image.open(path).convert("RGB"), np.uint8)
+    vector = _WORKER["models"].clip_feature(_WORKER["clip"], _WORKER["transform"], rgb).reshape(-1).tolist()
+    calls = {}
+    for owner in OWNERS:
+        r = f4.detect_rgb(rgb.tolist(), owner, _WORKER["profile"], vector)
+        calls[owner] = dict(outcome=r["outcome"], semantic_found=r["semantic"]["found"],
+                            semantic_content_match=r["semantic"]["content_match"],
+                            semantic_score=r["semantic"]["score"], semantic_threshold=r["semantic"]["threshold"],
+                            semantic_recomputed_score=r["semantic"]["recomputed_score"],
+                            instance_found=r["instance"]["found"], seconds=r["seconds"])
+    return calls
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--output-dir", type=Path, required=True)
     p.add_argument("--profile", type=Path, default=ROOT / "experiments/c4-v5-two-tier-regeneration-v1/profile.json")
     p.add_argument("--embedding-override", type=str, default="{}", help="JSON merged into profile['embedding']")
     p.add_argument("--robust-override", type=str, default="{}", help="JSON merged into profile['robust']")
+    p.add_argument("--workers", type=int, default=5, help="CPU processes for blind detection")
     a = p.parse_args()
     import torch
     from PIL import Image
@@ -87,24 +116,15 @@ def main():
                           num_images_per_prompt=1, output_type="pil", return_dict=True)
         return np.asarray(models.validate_generated(result), np.uint8)
 
-    def read(rgb):
-        vector = feature(rgb)
-        calls = {}
-        for owner in OWNERS:
-            r = f4.detect_rgb(rgb.tolist(), owner, profile, vector)
-            calls[owner] = dict(outcome=r["outcome"], semantic_found=r["semantic"]["found"],
-                                semantic_content_match=r["semantic"]["content_match"],
-                                semantic_score=r["semantic"]["score"], semantic_threshold=r["semantic"]["threshold"],
-                                semantic_recomputed_score=r["semantic"]["recomputed_score"],
-                                instance_found=r["instance"]["found"], seconds=r["seconds"])
-        return calls
-
     rows = []
     log = (out / "rows.jsonl").open("w", encoding="utf-8")
 
     def emit(row):
         rows.append(row); log.write(json.dumps(row) + "\n"); log.flush()
 
+    # Detection is pure-Python v5 code; it runs in worker processes, one saved PNG per task.
+    import multiprocessing
+    pool = multiprocessing.get_context("spawn").Pool(a.workers, initializer=_init_worker, initargs=(json.dumps(profile),))
     for sid, path in SOURCES.items():
         source = np.asarray(Image.open(path).convert("RGB"), np.uint8)
         tick = time.monotonic()
@@ -115,10 +135,10 @@ def main():
         emit(dict(id=f"embed-{sid}", source_id=sid, outcome="embedded", seconds=time.monotonic() - tick, image=receipt,
                   quality=q, report={k: v for k, v in report.items() if k != "verification"},
                   self_verification=report["verification"]["outcome"]))
-        images = {"C0": source, "C1": marked}
-        for control, rgb in images.items():
-            emit(dict(id=f"clean-{sid}-{control}", axis="clean", source_id=sid, control=control, outcome="completed",
-                      calls=read(rgb)))
+        _, c0_receipt = save(f"clean-{sid}-C0", source)
+        pending = [(dict(id=f"clean-{sid}-C0", axis="clean", source_id=sid, control="C0", outcome="completed", image=c0_receipt)),
+                   (dict(id=f"clean-{sid}-C1", axis="clean", source_id=sid, control="C1", outcome="completed", image=receipt))]
+        for control, rgb in {"C0": source, "C1": marked}.items():
             specs = [("vae_mode", None, None)] + [("diffusion", s, seed) for s in STRENGTHS for seed in SEEDS]
             for dose, strength, seed in specs:
                 rid = f"t3-{sid}-{control}-" + ("vae" if dose == "vae_mode" else f"{strength}-{seed}")
@@ -128,10 +148,14 @@ def main():
                     emit(dict(id=rid, axis="T3", source_id=sid, control=control, dose=dose, strength=strength, seed=seed,
                               outcome="safety_blocked" if "safety" in str(error) else "failed", error=str(error)))
                     continue
-                attacked, receipt = save(rid, attacked)
-                emit(dict(id=rid, axis="T3", source_id=sid, control=control, dose=dose, strength=strength, seed=seed,
-                          outcome="completed", image=receipt, calls=read(attacked)))
+                _, attacked_receipt = save(rid, attacked)
+                pending.append(dict(id=rid, axis="T3", source_id=sid, control=control, dose=dose, strength=strength,
+                                    seed=seed, outcome="completed", image=attacked_receipt))
+        for row, calls in zip(pending, pool.map(_read_job, [r["image"]["path"] for r in pending])):
+            row["calls"] = calls
+            emit(row)
         print(f"source {sid}: {time.monotonic() - started:.0f}s", flush=True)
+    pool.close(); pool.join()
     log.close()
 
     # Summary and pairing with v5 dev-001.
