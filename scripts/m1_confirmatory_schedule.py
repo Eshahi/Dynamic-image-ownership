@@ -75,7 +75,7 @@ def schedule(rows):
 
 
 def prepare(source, destination):
-    # This is the only input file read. Do not follow any paths in its cells.
+    # This is the only data input read. Do not follow any paths in its cells.
     raw = Path(source).read_bytes()
     digest = hashlib.sha256(raw).hexdigest()
     if digest != SPLIT_SHA256:
@@ -83,6 +83,7 @@ def prepare(source, destination):
     result = schedule(list(csv.DictReader(io.StringIO(raw.decode('utf-8-sig')))))
     result['split_metadata'] = dict(path=str(Path(source).resolve()), sha256=digest)
     result['builder_sha256'] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+    result['owner_schedule_code_sha256'] = hashlib.sha256(Path(__file__).with_name('a4_protocol_reference.py').read_bytes()).hexdigest()
     with Path(destination).open('x', encoding='utf-8', newline='\n') as handle:
         json.dump(result, handle, ensure_ascii=False, indent=2, allow_nan=False)
         handle.write('\n')
