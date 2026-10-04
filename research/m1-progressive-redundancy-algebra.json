@@ -1,0 +1,250 @@
+{
+  "schema_version": "m1-progressive-redundancy-algebra-v1",
+  "script_sha256": "c31a06d8025d9ed9ecc11ab2bfff05126704ac18e56491a9ed5b75386a9fd7b6",
+  "input_sha256": "bedb59886b71a432a42d09b8d0e8dcf287c224d468e2b347db275fd49f0f5df0",
+  "input_source_run_sha256": "38241d538c242bd5181f3d2cbc3d750488a97d0f4103445be5d9c73741886530",
+  "rows": [
+    {
+      "id": "seed1000-C-Q5",
+      "seed": 1000,
+      "payload": "1011010001101001",
+      "observed_q5_psnr_db": 39.588197977240334,
+      "pixel_mse_headroom_factor_to_35db": 2.8762047403834856,
+      "c0_projection_squared_costs": {
+        "votes5-margin0.3": 8.6963856898045,
+        "votes6-margin0.3": 17.60641223791153,
+        "votes5-margin0.5": 17.756812918667237
+      },
+      "relative_costs": {
+        "votes5-margin0.3": 1.0,
+        "votes6-margin0.3": 2.024566626403541,
+        "votes5-margin0.5": 2.041861245814457
+      },
+      "frozen_channel_residual_stress": {
+        "votes6-margin0.3": {
+          "word": "1011010001101001",
+          "matches": 16,
+          "wrong_bit_indices": []
+        },
+        "votes5-margin0.5": {
+          "word": "1011010001101001",
+          "matches": 16,
+          "wrong_bit_indices": []
+        }
+      }
+    },
+    {
+      "id": "seed1000-C-Q5-complement",
+      "seed": 1000,
+      "payload": "0100101110010110",
+      "observed_q5_psnr_db": 44.153750045759466,
+      "pixel_mse_headroom_factor_to_35db": 8.229529466056855,
+      "c0_projection_squared_costs": {
+        "votes5-margin0.3": 3.191171263989792,
+        "votes6-margin0.3": 8.926006471288805,
+        "votes5-margin0.5": 8.137686141993447
+      },
+      "relative_costs": {
+        "votes5-margin0.3": 1.0,
+        "votes6-margin0.3": 2.797094149102164,
+        "votes5-margin0.5": 2.550062490791932
+      },
+      "frozen_channel_residual_stress": {
+        "votes6-margin0.3": {
+          "word": "0100101110010110",
+          "matches": 16,
+          "wrong_bit_indices": []
+        },
+        "votes5-margin0.5": {
+          "word": "0100101110010110",
+          "matches": 16,
+          "wrong_bit_indices": []
+        }
+      }
+    },
+    {
+      "id": "seed1001-C-Q5",
+      "seed": 1001,
+      "payload": "1011010001101001",
+      "observed_q5_psnr_db": 40.26689379425284,
+      "pixel_mse_headroom_factor_to_35db": 3.3627097215458592,
+      "c0_projection_squared_costs": {
+        "votes5-margin0.3": 5.1447864803325,
+        "votes6-margin0.3": 15.34741638525557,
+        "votes5-margin0.5": 10.567166433425166
+      },
+      "relative_costs": {
+        "votes5-margin0.3": 1.0,
+        "votes6-margin0.3": 2.983100745565575,
+        "votes5-margin0.5": 2.0539562669551694
+      },
+      "frozen_channel_residual_stress": {
+        "votes6-margin0.3": {
+          "word": "1011010001101001",
+          "matches": 16,
+          "wrong_bit_indices": []
+        },
+        "votes5-margin0.5": {
+          "word": "1011010001101001",
+          "matches": 16,
+          "wrong_bit_indices": []
+        }
+      }
+    },
+    {
+      "id": "seed1001-C-Q5-complement",
+      "seed": 1001,
+      "payload": "0100101110010110",
+      "observed_q5_psnr_db": 37.84634555797791,
+      "pixel_mse_headroom_factor_to_35db": 1.925903648010392,
+      "c0_projection_squared_costs": {
+        "votes5-margin0.3": 9.66373006413612,
+        "votes6-margin0.3": 20.94248604766325,
+        "votes5-margin0.5": 17.526511156714253
+      },
+      "relative_costs": {
+        "votes5-margin0.3": 1.0,
+        "votes6-margin0.3": 2.1671224163622567,
+        "votes5-margin0.5": 1.8136383198200414
+      },
+      "frozen_channel_residual_stress": {
+        "votes6-margin0.3": {
+          "word": "0100101110010110",
+          "matches": 16,
+          "wrong_bit_indices": []
+        },
+        "votes5-margin0.5": {
+          "word": "0100101110010110",
+          "matches": 16,
+          "wrong_bit_indices": []
+        }
+      }
+    },
+    {
+      "id": "seed1002-C-Q5",
+      "seed": 1002,
+      "payload": "1011010001101001",
+      "observed_q5_psnr_db": 41.281133741685,
+      "pixel_mse_headroom_factor_to_35db": 4.247304269119323,
+      "c0_projection_squared_costs": {
+        "votes5-margin0.3": 10.552243369605934,
+        "votes6-margin0.3": 25.468863665291043,
+        "votes5-margin0.5": 18.392858087635926
+      },
+      "relative_costs": {
+        "votes5-margin0.3": 1.0,
+        "votes6-margin0.3": 2.413597068719062,
+        "votes5-margin0.5": 1.743028230434264
+      },
+      "frozen_channel_residual_stress": {
+        "votes6-margin0.3": {
+          "word": "1011010001101001",
+          "matches": 16,
+          "wrong_bit_indices": []
+        },
+        "votes5-margin0.5": {
+          "word": "1011010001101000",
+          "matches": 15,
+          "wrong_bit_indices": [
+            15
+          ]
+        }
+      }
+    },
+    {
+      "id": "seed1002-C-Q5-complement",
+      "seed": 1002,
+      "payload": "0100101110010110",
+      "observed_q5_psnr_db": 43.61311597190864,
+      "pixel_mse_headroom_factor_to_35db": 7.266271101810316,
+      "c0_projection_squared_costs": {
+        "votes5-margin0.3": 5.896502315335991,
+        "votes6-margin0.3": 14.808984509098696,
+        "votes5-margin0.5": 11.49311060804712
+      },
+      "relative_costs": {
+        "votes5-margin0.3": 1.0,
+        "votes6-margin0.3": 2.51148625356808,
+        "votes5-margin0.5": 1.9491403536220313
+      },
+      "frozen_channel_residual_stress": {
+        "votes6-margin0.3": {
+          "word": "0100101110010110",
+          "matches": 16,
+          "wrong_bit_indices": []
+        },
+        "votes5-margin0.5": {
+          "word": "0100101110010100",
+          "matches": 15,
+          "wrong_bit_indices": [
+            14
+          ]
+        }
+      }
+    },
+    {
+      "id": "seed1003-C-Q5",
+      "seed": 1003,
+      "payload": "1011010001101001",
+      "observed_q5_psnr_db": 44.10633729754737,
+      "pixel_mse_headroom_factor_to_35db": 8.140174778228857,
+      "c0_projection_squared_costs": {
+        "votes5-margin0.3": 7.914396709857294,
+        "votes6-margin0.3": 18.20074000850063,
+        "votes5-margin0.5": 15.875645712177146
+      },
+      "relative_costs": {
+        "votes5-margin0.3": 1.0,
+        "votes6-margin0.3": 2.299700239417088,
+        "votes5-margin0.5": 2.005919881726955
+      },
+      "frozen_channel_residual_stress": {
+        "votes6-margin0.3": {
+          "word": "1011011001001001",
+          "matches": 14,
+          "wrong_bit_indices": [
+            6,
+            10
+          ]
+        },
+        "votes5-margin0.5": {
+          "word": "1011010001001001",
+          "matches": 15,
+          "wrong_bit_indices": [
+            10
+          ]
+        }
+      }
+    },
+    {
+      "id": "seed1003-C-Q5-complement",
+      "seed": 1003,
+      "payload": "0100101110010110",
+      "observed_q5_psnr_db": 47.53104770522793,
+      "pixel_mse_headroom_factor_to_35db": 17.910378773512825,
+      "c0_projection_squared_costs": {
+        "votes5-margin0.3": 3.2828543719851586,
+        "votes6-margin0.3": 9.419577215639077,
+        "votes5-margin0.5": 7.654486453679731
+      },
+      "relative_costs": {
+        "votes5-margin0.3": 1.0,
+        "votes6-margin0.3": 2.8693253334728372,
+        "votes5-margin0.5": 2.3316558050825216
+      },
+      "frozen_channel_residual_stress": {
+        "votes6-margin0.3": {
+          "word": "0100101110010110",
+          "matches": 16,
+          "wrong_bit_indices": []
+        },
+        "votes5-margin0.5": {
+          "word": "0100101110010110",
+          "matches": 16,
+          "wrong_bit_indices": []
+        }
+      }
+    }
+  ],
+  "caveat": "Exact algebra only: orthogonal coefficient projection, then optionally adding the old observed terminal-to-extra-VAE coefficient residual unchanged. The VAE is nonlinear and actual changed trajectories/coefficients/channel residuals are unknown. This is not a generated image, quality prediction, actual channel result or additional independent trial."
+}
