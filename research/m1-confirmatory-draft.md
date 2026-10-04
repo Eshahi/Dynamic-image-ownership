@@ -1,0 +1,84 @@
+# Draft narrow M1 confirmatory protocol for method review
+
+Status 2026-10-03: **proposal for the fresh primary-method reviewer; not adopted, not executable, not an approval request or decision**. Owns no change to protected proposal/sourceplan/claim files. Read alongside `m1-confirmatory-interface.md`. No test pixels, test feature values, COCO annotation values or held-out method outcomes were inspected to prepare this draft. Only existing split metadata and development code/config were consulted; the scalar detector thresholds below were computed from the existing formula without images.
+
+## Proposed scope amendment
+
+Evaluate one frozen existing-photograph method on the reserved **MS-COCO test source groups**, with each image canonically resized to 512x512 under the frozen preprocessing rule. The scientific question is whether this implementation preserves quality and separates operational semantic/instance signature states on clean images, regeneration, transplantation and prespecified semantic negatives. It is not a three-domain/native2K result, unseen-model generalization, authenticated ownership, causal attack classifier or proposal-wide validation.
+
+The handoff allows researchers to propose/derive method amendments autonomously, but neither this draft nor a reviewer may accept the source plan, official gates or confirmatory authorization on the user's behalf. The protected A4 acceptance uses another threshold-calibration protocol; this proposed fixed-threshold narrow evaluation is explicitly different, retains that record unchanged, and must be presented as an amendment at the M1 milestone. If rejected, no held-out data are opened under this draft.
+
+Candidate route (pure decoder versus declared hybrid), optimization steps/losses, initialization, model hashes, final-step choice, embedding seed schedule, public OwnerID derivation, detector inputs and permitted state labels must all freeze from development before test access. Keep any source blending/image-domain delivery explicitly labeled. Native Gaussian Shading with inversion is a generated-image comparator; it cannot be silently applied as existing-photo attribution. The v5 comparator may mark these same resized photographs at its frozen quality profile. Any baseline feasibility exception must be reviewed and retained as a limitation.
+
+## Fixed detector decision; no calibration fitting
+
+Propose to retain the exact development v5 decision profile, K=1 claim per query:
+
+- `false_positive_target=1e-6`; recomputed-pattern threshold `4.982033056390042`, decoded-search threshold `8.259326826136963`, computed by `scripts/revised_watermark_v5.py:_threshold` for 1 and 2^32 patterns respectively.
+- The existing comparison is **score >= threshold**; semantic/instance Hamming matching radii both6, mismatch distances both10; preserve code's corrected-distance and unread/recomputed rules. This differs from protected A4's strict `>` cosine-grid protocol. Freeze full code/profile hash and synthetic tie vectors; rounded printed values alone are not the normative implementation.
+- Both component channels must match the claimed OwnerID/content code for clean success. Report each component's found/read/match flags, scores, distances, final operational state and abstentions. Do not rename a transplanted or semantic-only state as proof of a particular causal history.
+
+There is **no fit on reserved calibration or test**, no posthoc threshold lowering, no best seed, and no choosing a detector configuration from confirmatory outcomes. If forthcoming development changes the profile, the complete new numeric thresholds and state rule must replace the above in a new frozen draft **before** scientific approval; these numbers are not promised for an unfinished candidate. The formula's nominal target is not a validated population FPR for public, image-dependent patterns. Confirmatory empirical error bounds remain necessary.
+
+## Metadata-only cohort freeze
+
+Use the pinned `data/splits.csv` from the B3 reference checkout identified in `m1-confirmatory-interface.md` (SHA256 `60ff11ae5a81698446573c5f7fbd9d3067a5a2619abdf29ac2389931de1e1b9f`). Select only `domain=ms-coco`, `study_split=test`, its already frozen primary group representatives, after real acceptance of the source/group/rights contract. Current metadata has600 COCO test images/groups; do not treat this draft as accepting their scientific eligibility.
+
+Rank the eligible representatives by SHA256 of `ASCII("m1-coco512-confirm-v1") || 0x00 || uint32be(len(uid_utf8)) || uid_utf8`, ties by UID bytes. Freeze the first300 ranked groups **without opening their paths**. Use the preexisting representative selection rather than choosing representatives by image quality or method performance. No replacement after decoding, safety, optimizer, detector or annotation failure. If fewer than300 metadata-eligible groups exist, report the shortfall and revise before outcomes rather than borrowing calibration/development IDs.
+
+Within this fixed300, rank by the same construction with distinct tags `m1-coco512-t3-v1`, `m1-coco512-t4-v1`. First30 under T3 tag form the regeneration cohort. Under T4 tag, first30 are donors and next30 recipients; pair donor[i] to recipient[i], i=0..29. Each recipient and donor is in a distinct preexisting group; recipients are unique. Cohort overlap with T3 is allowed and logged, never interpreted as independent extra samples. UIDs and resolved seeds/OwnerIDs are emitted into a metadata-only frozen schedule file before approval.
+
+Use the existing source-UID deterministic synthetic16-owner roster and one uint64 embedding seed per source from A4 as described in `m1-confirmatory-interface.md`; C2 tests the next roster identity. This scheduling seed is public, not a secret. No retry selects better output. Whether actual candidate can consume that seed correctly must be tested on synthetic/development cases before freeze.
+
+## Clean, quality and regeneration units
+
+For all300, retain source canonical RGB8, matched C0 unmarked reconstruction and C1 marked output. Score C0-source, C0-reconstruction, C1 correct owner and C1 wrong owner separately (1200 calls/method). C0 reconstruction follows the same latent initialization/reconstruction operations with the watermark objective disabled; a hybrid baseline requires an equally explicit matched path. Report decoded saved outputs, not optimization surrogates.
+
+Quality against canonical resized source: PSNR, SSIM and LPIPS under pinned parity-tested metric calls; count PSNR>35dB, SSIM>.9 and LPIPS<.1 separately and jointly, with raw failed/valid/attempted inventories. Equality fails these quality targets. Include runtime/VRAM/disk and retained color/EXIF/preprocessing receipts. Human visual quality verdict stays **missing**; no metric substitutes for it.
+
+T3:30 source groups x2 arms(C0/C1), each independently starting at saved untouched output. Include VAE posterior-mode roundtrip and SD1.5 DDIM img2img strengths .05,.1,.2,.4, attack seeds0,1,2,20 total inference steps, CFG1, eta0, empty positive/negative prompts, safety checker retained, fixed512x512 and pinned scheduler settings. Thus13 attack channels,780 outputs/method; C0 correct-owner plus C1 correct/wrong-owner =1170 detector calls/method. Record actual noising timesteps (strength is not a literature-equivalent noise rate), quality against immediate input and canonical source, component states and failure rates. No averaging that hides .4 failure; report each severity/seed and source-cluster descriptive intervals. T3 is descriptive with30 independent sources, not powered population success at1% FPR.
+
+## T4 fixed delivery graph
+
+For each of30 donor-recipient pairs, copy a centered128x128 or256x256 RGB patch from donor C1 into recipient C0-source at the centered matching coordinates. Construct a C0-donor sham with the identical operation for each size. No blending, offset search, saliency selection, recipient outcome lookup or detector feedback (Q=0). This gives120 transplant/sham outputs/method. Evaluate each against donor OwnerID and recipient's own OwnerID, log both identities even if their public roster index coincides; coinciding claims are not an independent wrong-owner contrast.
+
+Report delivery witness (donor channel found/read), donor semantic/instance consistency and final state separately from **false donor full attribution** (`both match`). Quality is against recipient source plus exact patch-area/placement and seams; do not invent retrospective visual-admissibility filtering. Thirty graph pairs are the independent analysis units; the two sizes, sham and two claims are paired repeats. If embedding of donor fails, retain all planned rows as failed/missing; never select a replacement donor or easier recipient. Human plausibility/tampering assessment stays missing, so conclusions are limited to this deterministic digital transplant protocol.
+
+## T5 prespecified post-approval construction
+
+Do not read test annotations, captions, CLIP/pHash values or previews now. The source annotation archive version/hash and deterministic selection algorithm can freeze from acquisition receipts before approval. Execute the following only inside the authorized run, after fixed300 UIDs are committed:
+
+**Preferred bounded design:** define each source's semantic annotation signature as the sorted unique COCO instance category IDs with at least one `iscrowd=0` annotation in that original source. No category relabeling, caption mining or output-dependent filtering. Empty signatures remain missing/undefined semantic candidates. Enumerate unordered pairs from the fixed300 with identical nonempty signatures and distinct frozen group IDs. Compute the frozen source pHash on canonical RGB8 only at this stage; require Hamming distance>=8 as the prospective distinct-instance screen. This is an operational pHash difference screen, not human confirmation of semantic identity or photographic distinctness. Rank qualifying pairs by the length-delimited ordered UID pair hash tagged `m1-coco512-t5-v1`, then greedily take the first30 pairs whose groups have not yet appeared. Stop at30 or exhaustion. The entire candidate enumeration and rejected reasons are journaled; neither threshold uses the detector score. No alternate category rule, lowered pHash cut or broader replacement search after seeing outcomes.
+
+Each selected pair records CLIP cosine, semantic code distance and instance/pHash code distance as descriptive collision observations under frozen representation. Query each unmarked endpoint against the other endpoint's enrolled public OwnerID, and each marked endpoint against that wrong claim; correct-claim matched positives already exist in clean rows. This adds up to120 calls/method, with same-roster collisions separately flagged. Report correlated code collisions and false full matches separately; same-category labels alone do not establish visually identical semantics. Human semantic/instance labels are **missing** unless later supplied through a separately declared blind assessment.
+
+**Alternative for reviewer choice before approval:** preregister the entire unordered fixed300 pair universe(44850 pairs), identical-signature and pHash>=8 eligibility, and analyze every qualifying pair descriptively. This avoids selecting only30 but can be strongly dependent and expensive; pair count is not independent N. Freeze a deterministic resource bound and include all uncomputed eligible pairs as missing rather than sampling favorable pairs or switching designs after detector outcomes. A bounded disjoint30-pair design is recommended for practical M1 packaging.
+
+Meaningful T5 pairs may be fewer than30 or zero. Report planned/annotation-valid/eligible/selected/evaluated counts and all missing reasons. Insufficient meaningful pairs means T5 confirmatory evidence is insufficient, not that the method passes semantic collision. Do not rescue it with detector-directed CLIP nearest-neighbor searching on test or an unapproved annotation rule change.
+
+## Statistical feasibility and accounting
+
+The300 clean group representatives support the one-sided95% zero-error upper bound `1-0.05^(1/300)=0.0099360819444577`, approximately .994%. One false match instead yields about1.571%, so the ≤1% objective is demanding. Apply separately to C0-source/C0-reconstruction/wrong-owner cells; do not pool them or count their paired observations as900 independent negatives. Report exact one-sided bounds and two-sided Wilson intervals with counts. A per-cell bound is not simultaneous coverage across all statements.
+
+Candidate primary clean objective can retain the draft conjunction of per-cell FPR upper95%≤.01 and C1 correct-owner TPR lower95%≥.80, conditional on group independence assumptions and the fully frozen decision rule. Invalid/missing positive outputs count as misses; negative unavailable outputs count adversely for conservative end-to-end error bounds, alongside observed-valid rates. Low empirical errors cannot establish public-key forgery resistance. For30 threat units, zero observed errors gives an upper95% bound about9.50%, far from1%; T3/T4/T5 outcomes remain descriptive with clustered repeats. Failure to meet quality or detection targets is reported, not hidden by conditioning or posthoc cohort reduction.
+
+## Runtime budget: development measurements still required
+
+No numerical wall-time forecast is currently established for the forthcoming frozen candidate. Before approval, fill this worksheet from development-only timing and resource receipts; **pending is not zero**:
+
+| Quantity | Development measurement to freeze |
+| --- | --- |
+| `t_load` | model/CLIP/LPIPS setup per shard, pending |
+| `t_C1`, `t_C0` | last-fixed-step mark and matched reconstruction p95 source times, pending |
+| `t_D`, `t_Q` | blind detector and all quality metrics p95 per output, pending |
+| `t_V`, `t_R(s)` | VAE and each strength's regeneration p95, pending |
+| `t_T4`, `t_A`, `t_pair` | splice, annotation lookup, source pHash/pair work, pending |
+| `bytes_source/output/checkpoint`, peak RAM/VRAM | measured development receipts, pending |
+
+Per method, conservative base estimate is `300*(t_C1+t_C0)+300*t_Q+1200*t_D`. T3 adds `60*t_V+180*sum_s t_R(s)+780*t_Q+1170*t_D`. T4 adds `120*(t_T4+t_Q)+240*t_D`. Bounded T5 adds `300*t_A+300*t_pair+120*t_D`, plus fixed pair-enumeration overhead. Add pinned comparator's separately measured cost, journal/checkpoint overhead and startup per shard; quality counts are lower bounds if all C0/control quality endpoints are also evaluated. Use explicit development p95 receipt provenance and a declared conservative1.25 overhead factor; it is a planning allowance, not measured uncertainty.
+
+Shard by source or disjoint pair, preserving deterministic ordering, with **≤3600 seconds per shard including load/finalization**, a3500-second cooperative stop/checkpoint deadline and a reviewed external process guard. Size each shard from measured worst-case unit estimates; if one source cannot fit, checkpoint optimization within-source before dividing it. Official manifests use distinct run IDs and budgets per shard plus one immutable scientific-core hash. Preserve every failed/incomplete shard, no seed/content substitution, and a reviewed resumption contract rather than hoping runner fresh-directory semantics provide resume automatically. Total hours, storage and GPU ceilings remain pending until this worksheet and synthetic failure rehearsals pass. USD0 local only; no cloud spending is proposed.
+
+## Recommendation for the primary-method reviewer
+
+This scope can produce a **bounded, reviewable confirmatory package** for the narrow COCO512 question without claiming the protected all-domain plan was updated. It satisfies M1's practical *manifest-ready intent* only after the candidate/thresholds/metadata schedule/core hashes and measured budgets are filled, the route and limited-baseline comparison are judged scientifically coherent, an independent M1 review passes, and identical synthetic rehearsals pass. This draft alone does not meet executable-manifest readiness, does not fulfill the original full-domain study, and cannot guarantee enough T5 pairs. Recommend reviewing the scope amendment explicitly, retaining T5 insufficiency as a possible declared outcome and presenting these limits with the milestone package for the user's confirmatory decision. Do not unlock data or record source/gate acceptance during review.

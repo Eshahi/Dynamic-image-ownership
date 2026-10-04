@@ -1,7 +1,6 @@
 """CPU bridge/integrity tests; no photographs, weights, CUDA or scientific run."""
 import copy
 import json
-from pathlib import Path
 import types
 import unittest
 from unittest.mock import patch
@@ -21,7 +20,7 @@ class DualLatentTests(unittest.TestCase):
         cls.features = np.random.default_rng(193).normal(size=512).tolist()
         cls.profile = method.codec.load_profile(method.ROOT / "configs/revised-watermark-v5.example.json")
         cls.profile["semantic_source"] = method.CLIP_SOURCE
-        cls.objective = method.FixedPatternObjective(cls.source, cls.features, "dev-owner-0001", cls.profile,
+        cls.objective = method.FixedPatternObjective(cls.source, cls.features, method.DEFAULT_CONFIG["owner"], cls.profile,
                                                      device="cpu", dtype=torch.float64)
         cls.tensor = torch.from_numpy(cls.source).permute(2, 0, 1)[None].double() / 255
 
@@ -83,12 +82,44 @@ class DualLatentTests(unittest.TestCase):
                 self.assertEqual(result["qualified_state"], "regeneration-consistent")
         self.assertEqual(calls, [3, 9])
 
+    def test_optimizer_updates_only_latent_and_keeps_final_step(self):
+        class FakeVAE(torch.nn.Module):
+            def __init__(self):
+                super().__init__()
+                self.weight = torch.nn.Parameter(torch.tensor(1.0))
+            def decode(self, z, return_dict=False):
+                return (z * self.weight,)
+            def encode(self, image):
+                return types.SimpleNamespace(latent_dist=types.SimpleNamespace(mode=lambda: image))
+        class Objective:
+            def scores(self, image):
+                return image.mean(), image.square().mean()
+        cfg = copy.deepcopy(method.DEFAULT_CONFIG)
+        cfg.update(robust_steps=2, joint_steps=1, cycle_every=1, checkpoint_every=1)
+        model = FakeVAE()
+        embedder = method.DualLatentEmbedder(model, cfg)
+        source = torch.full((1, 3, 4, 4), .7)
+        initial = torch.zeros_like(source)
+        events, checkpoints = [], []
+        output, latent, info = embedder.optimize(source, initial, Objective(), "pure-decoder", events.append,
+            lambda step, z, row: checkpoints.append((step, z.clone())))
+        self.assertEqual(info["steps"], 3)
+        self.assertEqual([e["stage"] for e in events], ["robust", "robust", "joint"])
+        self.assertEqual(info["final_selection"], "last-fixed-step")
+        self.assertEqual([step for step, z in checkpoints], [1, 2, 3])
+        self.assertTrue(torch.equal(latent, checkpoints[-1][1]))
+        self.assertTrue(torch.equal(output, embedder.decode(latent)))
+        self.assertGreater(float(torch.linalg.vector_norm(latent-initial)), 0)
+        self.assertIsNone(model.weight.grad)
+        self.assertEqual(float(model.weight), 1)
+
     def test_manifest_boundary_and_fixed_pilot(self):
         path = method.ROOT / "research/m1-dual-latent-dev.json"
         manifest = json.loads(path.read_text())
         cfg, cases, profile, *_ = method.validate_manifest(manifest)
         self.assertEqual([x["id"] for x in cases], [1675, 4795])
         self.assertEqual(cfg["routes"], ["pure-decoder"])
+        self.assertEqual(cfg["owner"], "qim-pilot-owner-alpha")
         self.assertEqual(profile["semantic_source"], method.CLIP_SOURCE)
         for key, value in (("data_split", "heldout"), ("case_ids", [999999]), ("case_ids", [1675, 1675])):
             wrong = copy.deepcopy(manifest)

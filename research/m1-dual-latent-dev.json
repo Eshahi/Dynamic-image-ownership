@@ -28,9 +28,9 @@
     "size": [512, 512],
     "decoder_checkpoint": true,
     "gpu_budget_bytes": 10737418240,
-    "run_seconds_cap": 7200,
-    "owner": "dev-owner-0001",
-    "wrong_owner": "dev-owner-0002",
+    "run_seconds_cap": 3600,
+    "owner": "qim-pilot-owner-alpha",
+    "wrong_owner": "qim-pilot-owner-beta",
     "instance_binding": "source-phash-before-watermark",
     "surrogate": "v5-pattern-score-source-fixed-slot-weights"
   }

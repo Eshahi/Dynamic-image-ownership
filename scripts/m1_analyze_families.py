@@ -144,22 +144,110 @@ def aggregate(rows,keys):
     return output
 
 
-def analyze_reconstruction(package):
-    run=package["run"];cases=package.get("manifest",{}).get("cases",[])
-    ids=[c["id"] for c in cases] or [c["id"] for c in run.get("cases",[])]
-    rows=[]
-    for ident in ids:
-        matching=[c for c in run.get("cases",[]) if c["id"]==ident]
-        case=matching[-1] if matching else {}
-        for step in CONFIG["reconstruction_steps"]:
-            points=[p for p in case.get("checkpoints",[]) if p.get("step")==step]
-            point=points[0] if len(points)==1 else None
-            status="observed" if point and case.get("outcome")=="completed" else "observed_partial" if point else "ambiguous_duplicate" if len(points)>1 else "missing_or_failed"
-            rows.append({"family":"reconstruction","case":ident,"step":step,"status":status,
-                         "parent_outcome":case.get("outcome","not_attempted"),"error":case.get("error"),
-                         **quality(point or {}),"measurement_seconds":(point or {}).get("seconds")})
-    return {"raw":rows,"summary":aggregate(rows,["step"]),
-            "caveat":"Pure decoder optimization checkpoints; partial results retained. A measured route is not a universal decoder ceiling or watermark result."}
+def qualify_pause(packages, receipt_path):
+    """Verify all receipt-listed artifacts inside relevant runs, without decoding images."""
+    if receipt_path is None:
+        return None
+    receipt_path=receipt_path.resolve()
+    receipt=json.loads(receipt_path.read_text(encoding="utf-8"))
+    provenance={"path":str(receipt_path),"sha256":sha(receipt_path),"validated_files":[]}
+    seen=set()
+    for item in receipt.get("files",[]):
+        path=Path(item["path"]).resolve()
+        if path in seen:raise ValueError("Duplicate pause receipt artifact: "+str(path))
+        seen.add(path)
+        relevant=[p for p in packages if path.is_relative_to(Path(p["directory"]).resolve())]
+        if not relevant:continue
+        if not path.is_file() or path.stat().st_size!=item["bytes"] or sha(path)!=item["sha256"]:
+            raise ValueError("Pause receipt artifact hash/size mismatch: "+str(path))
+        provenance["validated_files"].append(item)
+    for package in packages:
+        directory=Path(package["directory"]).resolve()
+        entries={Path(x["path"]).resolve() for x in provenance["validated_files"] if Path(x["path"]).resolve().is_relative_to(directory)}
+        if entries:
+            if not {directory/"run.json",directory/"images.jsonl"}<=entries:
+                raise ValueError("Pause receipt must pin run.json and images.jsonl: "+str(directory))
+            package["pause_receipt"]=provenance
+            package["pause_qualified"]=package["source_outcome"]=="started"
+    return provenance
+
+
+def analyze_reconstruction(packages, receipt_path=None):
+    """CLI order is chronology; replacement requires pinned manifest recovery metadata."""
+    if isinstance(packages,dict):packages=[packages]
+    for package in packages:
+        package.pop("pause_receipt",None)
+        package.pop("pause_qualified",None)
+    receipt=qualify_pause(packages,receipt_path)
+    selected={};specs={};attempts=[];errors=[];known_directories={}
+    baseline_config=None;cohort_unknown=False
+    for sequence,package in enumerate(packages):
+        directory=Path(package["directory"]).resolve();run=package["run"]
+        manifest=package.get("manifest",{});cases=manifest.get("cases",[])
+        config=manifest.get("config")
+        if not cases:
+            cohort_unknown=True
+            errors.append("Exact planned cohort unavailable: "+str(directory));continue
+        if config is None or config!=run.get("config") or config.get("steps")!=CONFIG["reconstruction_steps"]:
+            raise ValueError("Reconstruction run/manifest config or four checkpoint steps mismatch")
+        if baseline_config is None:baseline_config=config
+        if config!=baseline_config:raise ValueError("Reconstruction attempt configurations differ")
+        if directory in known_directories.values():raise ValueError("Repeated reconstruction directory")
+        if directory.name in known_directories:raise ValueError("Ambiguous reconstruction directory basename")
+        recovery=manifest.get("recovery")
+        previous=None
+        if recovery:
+            previous=known_directories.get(recovery.get("previous_run"))
+            if previous is None:raise ValueError("Recovery previous_run must precede this run in CLI order")
+            if not receipt or recovery.get("receipt_sha256")!=receipt["sha256"]:
+                raise ValueError("Recovery mapping requires matching explicit pause receipt")
+            previous_package=next(p for p in packages[:sequence] if Path(p["directory"]).resolve()==previous)
+            if not previous_package.get("pause_qualified"):
+                raise ValueError("Recovery predecessor is not a receipt-qualified interrupted started run")
+            previous_ids={c["id"] for c in previous_package.get("manifest",{}).get("cases",[])}
+            if any(c["id"] not in previous_ids for c in cases):
+                raise ValueError("Recovery contains a source not planned by its predecessor")
+        known_directories[directory.name]=directory
+        run_sha=next((x["sha256"] for x in package["input_files"] if Path(x["path"]).resolve()==directory/"run.json"),None)
+        if not run_sha:raise ValueError("Reconstruction run.json hash unavailable")
+        planned_ids=[c["id"] for c in cases]
+        if len(set(planned_ids))!=len(planned_ids):raise ValueError("Duplicate reconstruction planned case IDs")
+        if any(c.get("id") not in planned_ids for c in run.get("cases",[])):
+            errors.append("Unplanned actual reconstruction case: "+str(directory))
+        for spec in cases:
+            ident=spec["id"]
+            if ident in specs and spec!=specs[ident]:raise ValueError("Recovery source identity/hash mismatch")
+            specs[ident]=spec
+            matching=[c for c in run.get("cases",[]) if c.get("id")==ident]
+            case=matching[0] if len(matching)==1 else {}
+            cells=[]
+            for step in CONFIG["reconstruction_steps"]:
+                points=[p for p in case.get("checkpoints",[]) if p.get("step")==step]
+                point=points[0] if len(points)==1 else None
+                status="ambiguous_duplicate" if len(matching)>1 or len(points)>1 else "observed" if point and case.get("outcome")=="completed" else "observed_partial" if point else "missing_or_failed"
+                cell={"family":"reconstruction","case":ident,"step":step,"status":status,
+                      "attempt_sequence":sequence,"chosen_run_directory":str(directory),"chosen_run_sha256":run_sha,
+                      "source_sha256":spec.get("sha256"),"source_run_outcome":package["source_outcome"],
+                      "pause_qualified":bool(package.get("pause_qualified")),
+                      "parent_outcome":case.get("outcome","not_attempted"),"error":case.get("error"),
+                      **quality(point or {}),"measurement_seconds":(point or {}).get("seconds")}
+                cells.append(cell);attempts.append(cell.copy())
+            if ident in selected:
+                prior=Path(selected[ident][0]["chosen_run_directory"]).resolve()
+                if previous!=prior:
+                    raise ValueError("Overlapping reconstruction case requires explicit recovery mapping: "+str(ident))
+            selected[ident]=cells
+        errors.extend(package["errors"])
+        if package["source_outcome"]!="completed" and not package.get("pause_qualified"):
+            errors.append("Unqualified noncompleted reconstruction run: "+str(directory))
+    rows=[row for cells in selected.values() for row in cells]
+    for row in attempts:
+        row["selected_final_attempt"]=row["attempt_sequence"]==selected[row["case"]][0]["attempt_sequence"]
+    return {"raw":rows,"summary":aggregate(rows,["step"]),"attempt_inventory":attempts,
+            "pause_receipt":receipt,"errors":errors,"planned_source_n":None if cohort_unknown else len(specs),
+            "known_planned_source_n":len(specs),
+            "incomplete":bool(errors) or not rows or any(r["status"]!="observed" for r in rows),
+            "caveat":"Pure decoder optimization; chronology and declared recovery select whole cases, never favorable scores. Historical partial attempts are retained separately. No universal ceiling or watermark result."}
 
 
 def analyze_gs(package):
@@ -224,7 +312,9 @@ def analyze_progressive(package):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    for name in ("reconstruction","gs","progressive"):parser.add_argument("--"+name+"-dir",type=Path)
+    parser.add_argument("--reconstruction-dir",type=Path,action="append")
+    parser.add_argument("--reconstruction-pause-receipt",type=Path)
+    for name in ("gs","progressive"):parser.add_argument("--"+name+"-dir",type=Path)
     parser.add_argument("--output-dir",type=Path,required=True)
     args=parser.parse_args();started=time.monotonic()
     sources={name:getattr(args,name+"_dir") for name in ("reconstruction","gs","progressive") if getattr(args,name+"_dir") is not None}
@@ -239,6 +329,23 @@ def main():
     try:
         analyses={}
         for name,directory in sources.items():
+            if name=="reconstruction":
+                packages=[load_family(name,p.resolve()) for p in directory]
+                record["families"][name]={"attempts":[{**{k:v for k,v in p.items() if k not in ("journal","run","manifest")},
+                    "source_commit":p["run"].get("commit"),"source_config":p["run"].get("config"),
+                    "source_split":p["run"].get("data_split"),"source_duration_seconds":p["run"].get("duration_seconds"),
+                    "source_errors":{k:p["run"].get(k) for k in ("error","error_type","traceback") if p["run"].get(k)}} for p in packages]}
+                for p in packages:record["seeds"]+=p["run"].get("seeds",[])
+                try:
+                    if any(p.get("excluded") for p in packages):raise ValueError("Unsupported reconstruction split excluded")
+                    result=analyze_reconstruction(packages,args.reconstruction_pause_receipt)
+                    analyses[name]=result
+                    record["families"][name]["pause_receipt"]=result["pause_receipt"]
+                    for suffix,key in (("raw","raw"),("summary","summary"),("attempts","attempt_inventory")):
+                        csv_table(output/(name+"-"+suffix+".csv"),result[key])
+                except Exception as error:
+                    analyses[name]={"raw":[],"summary":[],"incomplete":True,"error":str(error),"traceback":traceback.format_exc()}
+                continue
             package=load_family(name,directory.resolve())
             record["families"][name]={k:v for k,v in package.items() if k not in ("journal","run","manifest")}
             record["families"][name]["source_commit"]=package["run"].get("commit")

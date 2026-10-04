@@ -40,8 +40,8 @@ DEFAULT_CONFIG = {
     "initialization": "posterior-mode", "reconstruction_step": 200,
     "routes": ["pure-decoder"], "precision": "float32", "seed": 0,
     "size": [512, 512], "decoder_checkpoint": True,
-    "gpu_budget_bytes": 10 * 1024**3, "run_seconds_cap": 7200,
-    "owner": "dev-owner-0001", "wrong_owner": "dev-owner-0002",
+    "gpu_budget_bytes": 10 * 1024**3, "run_seconds_cap": 3600,
+    "owner": "qim-pilot-owner-alpha", "wrong_owner": "qim-pilot-owner-beta",
     "instance_binding": "source-phash-before-watermark",
     "surrogate": "v5-pattern-score-source-fixed-slot-weights",
 }
@@ -431,6 +431,8 @@ def run(manifest_path, output, reconstruction_run=None):
     started = time.monotonic()
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     cfg, cases, profile, cohort_path, profile_path = validate_manifest(manifest)
+    if not output.resolve().is_relative_to((MAIN / ".thesis-build/dev-runs").resolve()):
+        raise ValueError("Output must be a new directory under the authoritative dev-runs root")
     if (cfg["initialization"] == "reconstruction-checkpoint") != (reconstruction_run is not None):
         raise ValueError("Reconstruction checkpoint mode requires --reconstruction-run, and conversely")
     deps = [Path(__file__), manifest_path, cohort_path, profile_path,
@@ -438,6 +440,8 @@ def run(manifest_path, output, reconstruction_run=None):
             ROOT / "scripts/m1_latent_reconstruction.py", ROOT / "scripts/dev_v5_regeneration_check.py",
             ROOT / "scripts/three_threat_models.py", ROOT / "research/a6-candidate-model-assets.json",
             ROOT / "scripts/a6_clip_visual.py", ROOT / "scripts/check_a6_lpips_assets.py",
+            ROOT / "scripts/dev_v5_channel_probe.py", ROOT / "scripts/verify_science_assets.py",
+            ROOT / "scripts/three_threat_protocol.py",
             ROOT / "experiments/c4-qim-rgb-development-v1/cohort.json",
             ROOT / "experiments/c4-three-threat-small-v1/development-expansion.json"]
     committed_files = require_committed(deps)
@@ -450,6 +454,11 @@ def run(manifest_path, output, reconstruction_run=None):
               "data_split": "development", "outcome": "started", "duration_seconds": 0,
               "cases": [], "environment": {"python": sys.version},
               "label": "Exploratory terminal-VAE-latent amendment; no initial-noise claim",
+              "output_operators": {
+                  "pure-decoder": "clip((VAE.decode(z)+1)/2,0,1)",
+                  "hybrid-source-bypass": "clip(source+decoded(z)-decoded(z_reference),0,1)",
+              },
+              "optimized_variables": ["unscaled terminal VAE latent z"],
               "source_profile": "oriented RGB8 sRGB, bicubic resize to512; not native-resolution evidence",
               "binding": "source CLIP q and source pHash h before watermark",
               "verification": "CLIP re-extracted from each saved suspect, v5 unchanged detector",
@@ -530,7 +539,7 @@ def run(manifest_path, output, reconstruction_run=None):
             for route in cfg["routes"]:
                 if time.monotonic() - started > cfg["run_seconds_cap"]:
                     raise RuntimeError("Run wall-time cap reached before next shard")
-                route_row = {"route": route, "outcome": "started"}
+                route_row = {"route": route, "outcome": "started", "operator": record["output_operators"][route]}
                 row["routes"].append(route_row)
                 stem = f"{case['id']}-{route}"
                 route_dir = output / stem
@@ -579,14 +588,15 @@ def run(manifest_path, output, reconstruction_run=None):
             del objective, source_tensor, z_ref, ref_image
             torch.cuda.empty_cache()
         record["outcome"] = "completed"
-    except Exception as error:
-        record.update(outcome="failed", error=str(error), traceback=traceback.format_exc())
+    except (Exception, KeyboardInterrupt) as error:
+        status = "interrupted" if isinstance(error, KeyboardInterrupt) else "failed"
+        record.update(outcome=status, error=str(error) or type(error).__name__, traceback=traceback.format_exc())
         if record["cases"] and record["cases"][-1]["outcome"] == "started":
             row = record["cases"][-1]
-            row.update(outcome="failed", error=str(error))
+            row.update(outcome=status, error=record["error"])
             if row["routes"] and row["routes"][-1]["outcome"] == "started":
-                row["routes"][-1].update(outcome="failed", error=str(error))
-        event({"phase": "run_failed", "error": str(error)})
+                row["routes"][-1].update(outcome=status, error=record["error"])
+        event({"phase": "run_" + status, "error": record["error"]})
     finally:
         attempted = {r["id"] for r in record["cases"]}
         for case in cases:
