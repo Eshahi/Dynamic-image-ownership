@@ -143,7 +143,23 @@ def load_family(name,directory):
             copied=directory/filename
             if not copied.is_file() or sha(copied)!=digest:
                 package["errors"].append({"error":"assessor output hash mismatch","path":str(copied)})
-    journal_name={"reconstruction":"images.jsonl","gs":"rows.jsonl","progressive":"journal.jsonl","dual":"journal.jsonl","phasemark":"rows.jsonl","gs_lightweight":"rows.jsonl"}[name]
+    if name=="phase_residual":
+        raw_input=pin(directory/"input-run.json")
+        raw_conditions=pin(directory/"conditions.json")
+        try:
+            if raw_conditions is None or json.loads(raw_conditions)!=run.get("conditions",[]):
+                package["errors"].append({"error":"residual conditions snapshot/run mismatch"})
+        except Exception as error:package["errors"].append({"error":"invalid residual conditions snapshot","detail":str(error)})
+        expected=run.get("config",{}).get("input_run_sha256")
+        if raw_input is None or sha(directory/"input-run.json")!=expected:
+            package["errors"].append({"error":"residual input-run snapshot hash mismatch/missing"})
+        if run.get("input_receipts",{}).get("run_sha256")!=expected:
+            package["errors"].append({"error":"residual input receipt/config mismatch"})
+        for filename in ("manifest.json","conditions.json","rows.jsonl"):
+            path=directory/filename;digest=run.get("output_hashes",{}).get(filename)
+            if run.get("outcome")=="completed" and (not path.is_file() or sha(path)!=digest):
+                package["errors"].append({"error":"residual metadata output receipt mismatch","path":str(path)})
+    journal_name={"reconstruction":"images.jsonl","gs":"rows.jsonl","progressive":"journal.jsonl","dual":"journal.jsonl","phasemark":"rows.jsonl","gs_lightweight":"rows.jsonl","phase_residual":"rows.jsonl"}[name]
     raw_journal=pin(directory/journal_name)
     for number,line in enumerate((raw_journal or "").splitlines(),1):
         try: package["journal"].append(json.loads(line))
@@ -497,6 +513,74 @@ def analyze_phasemark(package):
             "caveat":"Public phase carrier pilot with owner-hypothesis queries. No three-state/content/cryptographic ownership claim. Four queries and repeated arms/cycles do not multiply source N; quality/latency inventory is unique per condition."}
 
 
+def analyze_phase_residual(package):
+    """Fixed residual diagnostic: two source clusters, not 128 independent trials."""
+    run=package["run"];config=package.get("manifest",{})
+    if config.get("schema")!="m1-phasemark-residual-v1" or run.get("schema")!=config["schema"] or config!=run.get("config"):
+        raise ValueError("Exact residual schema/configuration required")
+    ids=config.get("ids",[]);arms=config.get("arms",[]);profiles=config.get("profiles",[]);owners=config.get("owners",[])
+    if len(ids)!=2 or len(set(ids))!=2 or arms!=["APM","IPS"] or profiles!=["full","quality-cap"] or len(owners)!=4 or len(set(owners))!=4 or config.get("threshold")!=82:
+        raise ValueError("Fixed 2-source/2-arm/2-profile/4-owner residual design required")
+    planned=[(i,a,p,c,d,f"{i}-{a}-{p}-{c}-{d}") for i in ids for a in arms for p in profiles for c in ("C0","C1") for d in ("clean","vae_cycle")]
+    actual=run.get("conditions",[]);lookup={r["id"]:r for r in actual}
+    if len(lookup)!=len(actual):raise ValueError("Duplicate residual condition; no attempt selection")
+    if set(lookup)-{p[-1] for p in planned}:raise ValueError("Unplanned residual condition")
+    rows=[];conditions=[];screens=[]
+    for ident,arm,profile,control,dose,key in planned:
+        value=lookup.get(key,{})
+        if value and any(value.get(k)!=v for k,v in (("source_id",ident),("arm",arm),("profile",profile),("control",control),("dose",dose))):raise ValueError("Residual identity mismatch")
+        decisions=value.get("owner_decisions",{})
+        if set(decisions)-set(owners):raise ValueError("Unplanned residual owner")
+        for decision in decisions.values():
+            matches=decision.get("matches")
+            if type(matches) is not int or not 0<=matches<=128 or decision.get("bit_accuracy")!=matches/128 or decision.get("present") is not (matches>=82):
+                raise ValueError("Residual owner decision inconsistent with frozen threshold")
+        complete=value.get("outcome")=="completed" and set(decisions)==set(owners)
+        status="observed" if complete else "observed_partial" if decisions else "missing_or_failed"
+        composition=value.get("composition") or {}
+        weight=composition.get("weight")
+        if weight is not None and (not finite(weight) or not 0<=weight<=1):raise ValueError("Residual lambda outside interval")
+        shared={"family":"phase_residual","case":ident,"id":key,"arm":arm,"profile":profile,"control":control,"dose":dose,
+                "status":status,"parent_outcome":value.get("outcome","not_attempted"),"error":value.get("error"),"traceback":value.get("traceback"),
+                **pilot_provenance(package),**nullable_quality(value.get("quality_vs_source",{})),"quality_reference":"saved resized source RGB8",
+                "same_arm_quality":value.get("quality_vs_same_arm_clean"),"image_receipt":value.get("image"),"source_receipt":value.get("source"),
+                "composition":value.get("composition"),"lambda":weight,"pixel_cap_db":config.get("psnr_cap_db"),
+                "pixel_cap_mse_rgb8":composition.get("budget_mse_rgb8"),"composition_mse_rgb8":composition.get("mse_rgb8"),
+                "composition_sse_rgb8":composition.get("sse_rgb8"),"extract_seconds":value.get("extract_seconds"),
+                "extracted_scores":value.get("extracted",{}).get("scores"),"zero_magnitude_coefficients_per_block":value.get("extracted",{}).get("zero_magnitude_coefficients_per_block"),
+                "human_visual_verdict":None}
+        conditions.append(shared)
+        for owner in owners:
+            decision=decisions.get(owner,{})
+            rows.append({**shared,"status":status if decision else "missing_or_failed","owner_query":owner,"correct_owner_query":owner==owners[0],
+                         "query_observed":bool(decision),"matches":decision.get("matches"),"bit_accuracy":decision.get("bit_accuracy"),"detected":decision.get("present")})
+    trustworthy=not package["errors"] and package["source_outcome"]=="completed"
+    for arm in arms:
+        for profile in profiles:
+            cells=[c for c in conditions if c["arm"]==arm and c["profile"]==profile]
+            queries=[r for r in rows if r["arm"]==arm and r["profile"]==profile]
+            clean=[c for c in cells if c["control"]=="C1" and c["dose"]=="clean"]
+            screen={"arm":arm,"profile":profile,"planned_sources":2,"planned_conditions":8,"planned_queries":32,
+                    "observed_conditions":sum(c["status"]=="observed" for c in cells),"observed_queries":sum(r["query_observed"] for r in queries),
+                    "source_quality_gate":all(c["quality_all_three"] for c in clean) if trustworthy and all(c["status"]=="observed" and c["quality_complete"] for c in clean) else None,
+                    "clean_quality_pass_n":sum(c["status"]=="observed" and c["quality_all_three"] is True for c in clean),"human_visual_verdict":None}
+            for dose in ("clean","vae_cycle"):
+                group=[r for r in queries if r["dose"]==dose]
+                screen[dose+"_carrier_gate"]=all(r["detected"] is (r["control"]=="C1" and r["correct_owner_query"]) for r in group) if trustworthy and all(r["status"]=="observed" for r in group) else None
+                screen[dose+"_C1_correct_present_n"]=sum(r["detected"] is True for r in group if r["control"]=="C1" and r["correct_owner_query"])
+                screen[dose+"_C1_wrong_positive_queries"]=sum(r["detected"] is True for r in group if r["control"]=="C1" and not r["correct_owner_query"])
+                screen[dose+"_C0_positive_queries"]=sum(r["detected"] is True for r in group if r["control"]=="C0")
+            screens.append(screen)
+    summaries=aggregate(rows,["arm","profile","control","dose","owner_query"])
+    for summary in summaries:
+        group=[r for r in rows if all(r[k]==summary[k] for k in ("arm","profile","control","dose","owner_query"))]
+        for metric in ("matches","extract_seconds","lambda"):summary[metric]=distribution([r[metric] for r in group])
+    return {"raw":rows,"condition_inventory":conditions,"summary":summaries,"arm_screen":screens,"planned_source_n":2,"planned_conditions":32,"planned_queries":128,
+            "input_receipts":run.get("input_receipts"),"output_hashes":run.get("output_hashes"),"errors":package["errors"],
+            "incomplete":not trustworthy or any(c["status"]!="observed" or not c["quality_complete"] for c in conditions),
+            "caveat":"Two source clusters with shared C0 across arms/profiles and four correlated owner queries. Source-bypass phase residual, not pure latent or three-state/content binding; no population FPR or human verdict."}
+
+
 def analyze_gs_lightweight(package):
     """Describe fixed B-LW1 pairs without opening or hashing any image."""
     run=package["run"];config=run.get("config",{})
@@ -575,10 +659,10 @@ def main():
     parser.add_argument("--reconstruction-dir",type=Path,action="append")
     parser.add_argument("--reconstruction-pause-receipt",type=Path)
     parser.add_argument("--dual-dir",type=Path,action="append")
-    for name in ("gs","progressive","phasemark","gs_lightweight"):parser.add_argument("--"+name.replace("_","-")+"-dir",type=Path)
+    for name in ("gs","progressive","phasemark","gs_lightweight","phase_residual"):parser.add_argument("--"+name.replace("_","-")+"-dir",type=Path)
     parser.add_argument("--output-dir",type=Path,required=True)
     args=parser.parse_args();started=time.monotonic()
-    sources={name:getattr(args,name+"_dir") for name in ("reconstruction","gs","progressive","dual","phasemark","gs_lightweight") if getattr(args,name+"_dir") is not None}
+    sources={name:getattr(args,name+"_dir") for name in ("reconstruction","gs","progressive","dual","phasemark","gs_lightweight","phase_residual") if getattr(args,name+"_dir") is not None}
     if not sources:parser.error("At least one family directory required")
     output=args.output_dir.resolve()
     if not output.is_relative_to((MAIN/".thesis-build/dev-runs").resolve()):parser.error("Output must be MAIN/.thesis-build/dev-runs")
@@ -630,7 +714,7 @@ def main():
             if package.get("excluded"):
                 analyses[name]={"raw":[],"summary":[],"incomplete":True,"caveat":"Unsupported split excluded"};continue
             try:
-                result={"reconstruction":analyze_reconstruction,"gs":analyze_gs,"progressive":analyze_progressive,"phasemark":analyze_phasemark,"gs_lightweight":analyze_gs_lightweight}[name](package)
+                result={"reconstruction":analyze_reconstruction,"gs":analyze_gs,"progressive":analyze_progressive,"phasemark":analyze_phasemark,"gs_lightweight":analyze_gs_lightweight,"phase_residual":analyze_phase_residual}[name](package)
                 result["incomplete"]=result.get("incomplete",False) or bool(package["errors"]) or package["source_outcome"]!="completed" or any(r["status"] not in ("observed",) for r in result["raw"])
                 analyses[name]=result
                 csv_table(output/(name+"-raw.csv"),result["raw"])

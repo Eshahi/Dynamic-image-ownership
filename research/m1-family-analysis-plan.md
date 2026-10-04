@@ -70,3 +70,41 @@ agreement deltas, duplicate/unplanned/hash/score rejection, pending parent
 outcomes, provenance errors and snapshot corruption. Existing reconstruction,
 native GS, progressive, A and PhaseMark analysis behavior remains unchanged.
 
+
+## Phase residual diagnostic adapter (2026-10-04)
+
+`--phase-residual-dir` accepts the separate `m1-phasemark-residual-v1` schema.
+It never changes the original PhaseMark adapter or its16/64 denominator. The
+new frozen design is two source clusters ×APM/IPS ×full/quality-cap ×C0/C1
+×clean/VAE =32 conditions and128 four-owner queries. Reused C0 and repeated
+owner hypotheses are correlated; the sample size remains two sources.
+
+Outputs are `phase_residual-raw.csv`, `phase_residual-summary.csv`,
+`phase_residual-conditions.csv`, `phase_residual-arm-screen.csv` and the
+corresponding `analysis.json` object. Each arm/profile screen separates clean
+source-quality, clean carrier and VAE carrier gates, and reports C1 correct
+presence, C1 wrong-owner positives and all C0 query positives. Missing/failed
+rows stay in the fixed inventory; gates are null for incomplete parent runs
+or invalid provenance. Quality failure and carrier failure remain distinct.
+Human verdicts remain null, and no three-state or content-binding label is
+introduced.
+
+Rows preserve lambda, the35.2dB cap declaration, recorded cap MSE/SSE,
+composition hash/precision/bisection fields, source and suspect image receipts,
+source/same-arm quality, phase scores, zero-amplitude counts, errors/tracebacks
+and extraction time. Lambda is not selected by detector performance. Metadata
+is pinned by the existing manifest SHA mechanism; the adapter additionally
+checks the copied `input-run.json` against the declared source SHA and receipt,
+compares `conditions.json` with the run's condition objects, and checks retained
+manifest/conditions/journal hashes for completed runs. It does not open PNGs
+or tensors: artifact receipts are retained, not independently pixel-verified.
+The source runner performs those scientific artifact checks.
+
+Duplicate/unplanned conditions, identity mismatches, unexpected owners and
+match/accuracy/presence inconsistencies fail closed. Present is frozen at
+82/128. Seven new synthetic CPU tests cover complete inventories, independent
+quality/carrier screens, missing and failed conditions, pending parents,
+controls at the exact threshold, malformed identities/decisions and changed
+snapshot provenance without opening scientific assets. All33 analyzer fixture
+tests pass (residual7 + prior26). No actual D-residual run was analyzed while
+queued/running; parent may execute after committing code and finalizing inputs.
