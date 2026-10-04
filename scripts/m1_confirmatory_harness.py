@@ -14,6 +14,8 @@ import sys
 import time
 
 ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT/'scripts'))
+from m1_windows_job import OwnedJobProcess
 MAIN=Path("W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5")
 OUTPUTS=["outputs/results.json","outputs/heartbeat.json","checkpoints/journal.json","outputs/harness-run.json"]
 FIELDS={"schema_version","experiment_id","run_id","stage_id","task_id","execution_target","reviewed_script",
@@ -133,7 +135,8 @@ def run(manifest_path,output,recover=False,root=ROOT,rehearsal_root=None):
     if actual_commit!=manifest["git_commit"]:raise ValueError("Manifest commit differs from current checkout")
     allowed=(rehearsal_root or MAIN/".thesis-build/rehearsal").resolve()
     if not output.resolve().is_relative_to(allowed):raise ValueError("Synthetic outputs exclusively under rehearsal root")
-    fingerprint={"manifest_sha256":object_sha(manifest),"script_sha256":file_sha(__file__),"plan_sha256":object_sha(plan),"git_commit":manifest["git_commit"]}
+    fingerprint={"manifest_sha256":object_sha(manifest),"script_sha256":file_sha(__file__),"plan_sha256":object_sha(plan),"git_commit":manifest["git_commit"],
+        "containment_sha256":file_sha(ROOT/'scripts/m1_windows_job.py')}
     output.mkdir(parents=True,exist_ok=True)
     lock=output/"harness.lock"
     try:fd=os.open(lock,os.O_CREAT|os.O_EXCL|os.O_WRONLY)
@@ -175,7 +178,9 @@ def run(manifest_path,output,recover=False,root=ROOT,rehearsal_root=None):
             command=[sys.executable,str(Path(__file__).resolve()),"--synthetic-unit",json.dumps(unit),"--unit-output",str(target)]
             log=output/f"logs/{unit['id']}-attempt{number}.log";log.parent.mkdir(parents=True,exist_ok=True)
             with log.open("x",encoding="utf-8") as handle:
-                process=subprocess.Popen(command,stdout=handle,stderr=subprocess.STDOUT,shell=False)
+                def ownership(value):
+                    entry['containment']=value;atomic(journal_path,journal)
+                process=OwnedJobProcess(command,handle,cwd=root,receipt=ownership)
                 unit_deadline=min(deadline,time.monotonic()+plan["unit_timeout_seconds"])
                 atomic(output/"outputs/heartbeat.json",{"pid":os.getpid(),"child_pid":process.pid,"unit":unit["id"],"elapsed_seconds":time.monotonic()-started,"synthetic":True})
                 while process.poll() is None:
@@ -183,6 +188,7 @@ def run(manifest_path,output,recover=False,root=ROOT,rehearsal_root=None):
                     if time.monotonic()>=unit_deadline:raise TimeoutError("Unit/shard process deadline")
                     time.sleep(.05)
                 if process.returncode:raise RuntimeError("Synthetic worker exit "+str(process.returncode))
+            process.close();entry['containment']=dict(process.ownership)
             entry.update(status="completed",sha256=file_sha(target));atomic(journal_path,journal)
             completed=verify_completed(output,journal,plan["units"]);process=None
         result={"synthetic":True,"candidate_status":"UNRESOLVED","planned_units":len(plan["units"]),"completed_units":len(completed),"scientific_verdict":"NOT_EVIDENCE"}
@@ -197,10 +203,9 @@ def run(manifest_path,output,recover=False,root=ROOT,rehearsal_root=None):
             record.update(outcome=status,error_type=type(exc).__name__,error=str(exc))
         raise
     finally:
-        if process is not None and process.poll() is None:
-            process.terminate()
-            try:process.wait(timeout=2)
-            except subprocess.TimeoutExpired:process.kill();process.wait(timeout=2)
+        if process is not None:
+            process.close()
+            journal['attempts'][-1]['containment']=dict(process.ownership);atomic(journal_path,journal)
         if record is not None:
             record["duration_seconds"]=time.monotonic()-started
             record["journal_sha256"]=file_sha(journal_path);atomic(run_path,record)

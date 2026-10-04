@@ -1,0 +1,21 @@
+{
+  "access_date": "2026-10-04",
+  "records": [
+    {
+      "source_url": "https://arxiv.org/html/2510.13793v1",
+      "version": "arXiv:2510.13793v1, 2025-10-15",
+      "local_path": "research/literature/m1-noiseprints/noiseprints-v1.html",
+      "size_bytes": 314697,
+      "sha256": "6d3b331aab0cb33a8da1907dc4c21a0c22b4f60afae070ecf1bc398dbc862f2a",
+      "license": "CC BY-NC-SA 4.0",
+      "license_evidence": "Original arXiv HTML license link at document header",
+      "artifact_kind": "Unmodified official full-text HTML; no code executed"
+    }
+  ],
+  "latest_version_metadata": {
+    "source_url": "https://arxiv.org/abs/2510.13793",
+    "observed_latest": "v2, 2026-04-14",
+    "full_text_inspected": false,
+    "inspected_version": "v1 only"
+  }
+}
