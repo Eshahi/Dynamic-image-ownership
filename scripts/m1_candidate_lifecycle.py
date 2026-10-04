@@ -152,7 +152,10 @@ def run(manifest_path,output,upstream=None,unit_index=0):
                     else:os.environ[k]=v
             control=case['control'];injected=False;grace_deadline=None
             while process.poll() is None:
-                observed.update(job_snapshot(process)['process_ids'])
+                owned_ids=job_snapshot(process)['process_ids'];observed.update(owned_ids)
+                from m1_candidate_process_identity import accept_registration
+                registration=accept_registration(output,read(scope_path),owned_ids)
+                if registration is not None:event('interpreter_assignment_verified',process_identity=registration)
                 elapsed=time.monotonic()-started;hbpath=output/'outputs/worker-heartbeat.json'
                 heartbeat=read(hbpath) if hbpath.exists() else None
                 if elapsed>=manifest['budget']['max_seconds']:raise TimeoutError('Owned shard hard deadline')

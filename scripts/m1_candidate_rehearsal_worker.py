@@ -46,7 +46,7 @@ def generated_seeds():return [0,1]
 
 
 def dependency_paths():
-    names=['m1_git_input_identity.py','m1_candidate_rehearsal_worker.py','m1_candidate_model_context.py','m1_confirmatory_image_operations.py','m1_confirmatory_t5_pairs.py','m1_candidate_adapter.py','m1_owner_interface.py','a4_protocol_reference.py','m1_canonical_source.py','m1_source_initialization.py',
+    names=['m1_scientific_unit_engine.py','m1_verified_unit_sink.py','m1_candidate_process_identity.py','m1_git_input_identity.py','m1_candidate_rehearsal_worker.py','m1_candidate_model_context.py','m1_confirmatory_image_operations.py','m1_confirmatory_t5_pairs.py','m1_candidate_adapter.py','m1_owner_interface.py','a4_protocol_reference.py','m1_canonical_source.py','m1_source_initialization.py',
       'm1_terminal_continuous.py','m1_terminal_repeatability.py','m1_blind_noise_core.py',
       'm1_blind_noise.py','m1_dual_latent.py','m1_phase_residual.py','m1_phasemark.py',
       'm1_latent_reconstruction.py','revised_watermark_v5.py','revised_watermark_v4.py',
@@ -77,19 +77,25 @@ def validate_launch_scope(manifest,output,*,scope=None,token=None,now=None):
     case=launcher.validate_manifest(manifest)
     token=os.environ.get('M1_REHEARSAL_TOKEN') if token is None else token
     if type(token) is not str or not re.fullmatch('[0-9a-f]{64}',token):raise ValueError('Private owned-launch token required')
-    if scope is None:
+    runtime_scope=scope is None
+    if runtime_scope:
         path=destination(os.environ.get('M1_REHEARSAL_CAPABILITY',''))
         if path!=output/'logs/launch-capability.json':raise ValueError('Capability must belong to exact child output')
         scope=read(path)
     if not isinstance(scope,dict) or set(scope)!=CAP_FIELDS:raise ValueError('Exact private capability schema')
+    binding=None
+    if runtime_scope:
+        from m1_candidate_process_identity import register_interpreter
+        binding=register_interpreter(output,scope,token)
     expected=dict(schema='m1-candidate-rehearsal-launch-v1',manifest_sha256=object_sha(manifest),
         plan_sha256=object_sha(configuration()),worker_sha256=file_sha(__file__),
         scientific_core_sha256=scientific_core_sha256(),output_directory=str(output),
-        child_pid=os.getpid(),parent_pid=os.getppid(),assignment_verified=True,
+        child_pid=binding['root_pid'] if binding else os.getpid(),parent_pid=binding['launcher_pid'] if binding else os.getppid(),assignment_verified=True,
         token_sha256=hashlib.sha256(token.encode()).hexdigest(),scenario=manifest['stage_id'],
         stage=case['stage'],stop_phase=case['stop_phase'],stop_step=case['stop_step'],injection=case['injection'],
         cooperative_stop_path=str(output/'checkpoints/stop-request.json'))
-    if any(type(scope.get(k)) is not type(v) or scope[k]!=v for k,v in expected.items()):raise ValueError('Owned capability binding differs')
+    mismatches=[k for k,v in expected.items() if type(scope.get(k)) is not type(v) or scope[k]!=v]
+    if mismatches:raise ValueError('Owned capability binding differs: '+','.join(mismatches))
     if type(scope['job_id']) is not str or not scope['job_id']:raise ValueError('Job assignment identity missing')
     if type(scope['unit_index']) is not int or scope['unit_index'] not in (0,1) or scope['unit_index']==1 and manifest['stage_id']!='scale':raise ValueError('Unit roster differs')
     current=time.time() if now is None else now
@@ -140,6 +146,7 @@ def run(manifest_path,output):
       candidate_status=cfg['candidate_status'],commit=manifest['git_commit'],command=sys.argv,
       manifest_sha256=object_sha(manifest),config=cfg,scientific_core_sha256=scientific_core_sha256(),
       input_git_identities=input_git_identities,scope_sha256=object_sha(scope),scenario=scope['scenario'],stage=scope['stage'],unit_index=scope['unit_index'],
+      process_identity=read(output/'logs/worker-process-binding.json'),
       outcome='started',seeds=generated_seeds(),human_visual_verdict=None,peak_rss_bytes=0,peak_allocated_bytes=0,conditions=[
         dict(control=a,dose=d,outcome='planned') for a in ('C0','C1') for d in ('clean','vae_cycle')],
       raw_injection_applicable=False,decode_injection_applicable=False,checkpoints=[])
@@ -209,45 +216,48 @@ def run(manifest_path,output):
                 raise ValueError('Recovery execution runtime changed')
             resume=torch.load(scope['upstream']['checkpoint']['path'],map_location='cpu',weights_only=True)
             record['upstream']=scope['upstream']
-        context.place_inference('cpu')
-        def save_phase(value):
+        from m1_scientific_unit_engine import UnitEngine, VERSION as ENGINE_VERSION
+        from m1_verified_unit_sink import VerifiedUnitSink
+        import types
+        def save_phase(value,artifact):
             nonlocal latest
-            p=value['phase'];n=value['step'];inject('save',n)
-            path=output/f'checkpoints/{p}-{n:03d}.pt'
-            with path.open('xb') as f:torch.save(value,f);f.flush();os.fsync(f.fileno())
-            latest=receipt(path);record['checkpoints'].append(dict(phase=p,step=n,**latest));record['latest_checkpoint']=latest
+            p=value['phase'];n=value['step']
+            latest={key:artifact[key] for key in ('path','sha256')}
+            record['checkpoints'].append(dict(phase=p,step=n,**latest));record['latest_checkpoint']=latest
             record['binding']=value['binding']
             pulse(p,n);event('checkpoint',phase=p,step=n,**latest);inject('initializer' if p=='initialization' else 'embedding',n)
-        init_result=adapter.initialize(source,identity,core.OWNERS[0],resume=resume,
-            stop_step=100 if scope['stage']=='prefix' else 200,on_checkpoint=save_phase,check=check)
+        sink=VerifiedUnitSink(output,allowed_root=output,stage_layout='generated-hwc-float64',
+            checkpoint_observer=save_phase,before_checkpoint=lambda value:inject('save',value['step']))
+        proxy=types.SimpleNamespace(adapter=adapter,place_inference=context.place_inference,
+            quality=context.quality,readout=context.readout,synchronize=torch.cuda.synchronize,
+            safety_check=lambda rgb:context.safety_check(rgb,before_safety=lambda:inject('safety')))
+        def engine_event(row):
+            if row.get('kind')!='checkpoint':event('optimizer',**row)
+        unit_engine=UnitEngine(proxy,sink,check=check,event=engine_event,stop_exceptions=(TimeoutError,CooperativeStop))
+        record['unit_engine_version']=ENGINE_VERSION;record['sink_stage_layout']='generated-hwc-float64'
+        init_result=unit_engine.initialize(source,identity,mode='generated',owner=core.OWNERS[0],resume=resume,
+            stop_step=100 if scope['stage']=='prefix' else 200)
         if scope['stage']=='prefix':raise PrefixComplete()
         record['initialization_endpoint_digest']=initializer.digest(init_result)
-        embedded=adapter.embed(source,init_result,on_checkpoint=save_phase,
-            event=lambda row:event('optimizer',**row),check=check)
+        embedded=unit_engine.enroll(source,identity,init_result,mode='generated',owner=core.OWNERS[0])
         if not embedded['completed']:raise RuntimeError('Fixed embedding100 did not complete')
         record['embedding_endpoint_digest']=initializer.digest(embedded['checkpoint'])
-        result=embedded['core_result'];marked=embedded['marked_rgb8'];cap=embedded['cap']
-        context.place_inference('cuda')
-        def array(value):return value.detach().float().cpu().numpy()[0].transpose(1,2,0).astype(np.float64)
-        record['cap']=cap
-        def safety_check(rgb):return context.safety_check(rgb,before_safety=lambda:inject('safety'))
+        marked=embedded['images']['C1']['rgb8'];record['cap']=embedded['cap']
+        record['enrollment_images']={name:{k:v for k,v in value.items() if k!='rgb8'} for name,value in embedded['images'].items()}
+        record['enrollment_quality_vs_source']=embedded['quality_vs_source']
+        record['quality_vs_reconstruction']=embedded['quality_vs_reconstruction']
         def cycle(rgb):return context.vae_cycle(rgb,before_safety=lambda:inject('safety'))
-        q=context.quality
-        record['float_arrays']={}
-        for name in ('reference','decoded','residual','surrogate'):
-            path=output/f'outputs/{name}.npy';np.save(path,array(result[name]),allow_pickle=False);record['float_arrays'][name]=receipt(path)
+        record['float_arrays']=embedded['arrays']
         images={('C0','clean'):source,('C1','clean'):marked,('C0','vae_cycle'):cycle(source),('C1','vae_cycle'):cycle(marked)}
         for row in record['conditions']:
-            pulse('detector');inject('detector');rgb=images[(row['control'],row['dose'])];safety_check(rgb)
-            path=output/f"outputs/{row['control']}-{row['dose']}.png";Image.fromarray(rgb).save(path)
-            with Image.open(path) as im:
-                if not np.array_equal(np.asarray(im),rgb):raise ValueError('PNG byte-value identity')
-            torch.cuda.synchronize();tick=time.monotonic();decisions={owner:adapter.readout(rgb,owner) for owner in core.OWNERS};torch.cuda.synchronize()
-            elapsed=time.monotonic()-tick;e,h,z=public.observations(rgb)
-            zp=output/f"outputs/{row['control']}-{row['dose']}-reader.npy";np.save(zp,z,allow_pickle=False)
-            row.update(outcome='completed',image=receipt(path),rgb8_sha256=hashlib.sha256(rgb.tobytes()).hexdigest(),reader_latent=receipt(zp),
-              suspect_E=e.tolist(),suspect_H=h,owner_decisions=decisions,extract_seconds=elapsed,source_clip_cosine=float(E@e),
-              quality_vs_source=q(source,rgb),quality_vs_same_arm_clean=q(images[(row['control'],'clean')],rgb))
+            pulse('detector');inject('detector');rgb=images[(row['control'],row['dose'])]
+            assessed=unit_engine.assess_image(f"{row['control']}-{row['dose']}",rgb,source_rgb8=source,
+                matched_clean_rgb8=images[(row['control'],'clean')],claims=list(core.OWNERS),mode='generated')
+            e=np.asarray(assessed['suspect_E'],dtype=np.float64)
+            row.update(outcome='completed',image=assessed['image'],rgb8_sha256=assessed['rgb8_sha256'],reader_latent=assessed['reader_arrays']['z'],
+              suspect_E=assessed['suspect_E'],suspect_H=assessed['suspect_H'],owner_decisions={q['owner']:q['decision'] for q in assessed['queries']},
+              extract_seconds=assessed['extract_seconds'],source_clip_cosine=float(E@e),
+              quality_vs_source=assessed['quality_vs_source'],quality_vs_same_arm_clean=assessed['quality_vs_same_arm_clean'])
             persist()
         pulse('finalization');time.sleep(.3);check();inject('finalization')
         record['outcome']='completed';record['peak_allocated_bytes']=torch.cuda.max_memory_allocated()
@@ -339,6 +349,9 @@ def audit_rehearsal_run(directory):
     import m1_candidate_adapter as candidate
     import m1_source_initialization as init
     base=destination(directory);record=read(base/'outputs/worker-run.json')
+    from m1_scientific_unit_engine import VERSION as ENGINE_VERSION
+    if record.get('unit_engine_version')!=ENGINE_VERSION or record.get('sink_stage_layout')!='generated-hwc-float64':
+        raise ValueError('Shared unit engine/explicit compatibility layout required')
     if record.get('schema')!=VERSION or record.get('generated_only') is not True or record.get('config')!=configuration() or record.get('scientific_core_sha256')!=scientific_core_sha256():raise ValueError('Generated core/plan differs')
     if record.get('adapter_version')!=candidate.VERSION or record.get('adapter_configuration')!=candidate.CONFIG:raise ValueError('Adapter configuration differs')
     if record.get('outcome') not in ('prefix_completed','completed'):raise ValueError('Not a completed prefix/full worker')
@@ -402,6 +415,29 @@ def audit_rehearsal_run(directory):
             if set(row['owner_decisions'])!=set(record['config']['owners']):raise ValueError('Fixed owner query inventory')
             for owner in record['config']['owners']:
                 if core.scores(z,row['suspect_E'],row['suspect_H'],owner)!=row['owner_decisions'][owner]:raise ValueError('Independent blind readout differs')
+        import m1_blind_noise as blind
+        import m1_terminal_continuous as component
+        arrays={}
+        if set(record['float_arrays'])!={'reference','decoded','residual','surrogate'}:raise ValueError('Stage array inventory differs')
+        for name,artifact in record['float_arrays'].items():
+            path=destination(artifact['path'])
+            if not path.is_relative_to(base) or file_sha(path)!=artifact['sha256']:raise ValueError('Stage array receipt differs')
+            value=np.load(path,allow_pickle=False)
+            if value.shape!=(512,512,3) or value.dtype!=np.float64 or not np.isfinite(value).all():raise ValueError('Explicit generated HWCfloat64 stage array differs')
+            arrays[name]=value
+        expected_marked,expected_cap=component.residual.cap(source,arrays['residual'])
+        if expected_cap!=record['cap']:raise ValueError('Independent quality cap receipt differs')
+        expected_images={'C0-source':source,'C0-reconstruction':blind.rgb8(arrays['reference']),'C1':expected_marked}
+        if set(record['enrollment_images'])!=set(expected_images):raise ValueError('Separate enrollment controls missing')
+        for name,expected_image in expected_images.items():
+            item=record['enrollment_images'][name];path=destination(item['image']['path'])
+            if not path.is_relative_to(base) or file_sha(path)!=item['image']['sha256']:raise ValueError('Enrollment image receipt differs')
+            with Image.open(path) as image:actual=np.asarray(image).copy()
+            if not np.array_equal(actual,expected_image) or hashlib.sha256(actual.tobytes()).hexdigest()!=item['rgb8_sha256']:raise ValueError('Enrollment saved pixel identity differs')
+            validate_quality(record['enrollment_quality_vs_source'][name])
+        validate_quality(record['quality_vs_reconstruction'])
+        marked_clean=next(row for row in rows if row['control']=='C1' and row['dose']=='clean')
+        if marked_clean['rgb8_sha256']!=record['enrollment_images']['C1']['rgb8_sha256']:raise ValueError('Clean marked control differs from enrollment')
     return record
 
 
