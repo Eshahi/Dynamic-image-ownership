@@ -1,0 +1,50 @@
+{
+  "schema": "m1-terminal-continuous-v1",
+  "data_split": "development",
+  "cases": [
+    {
+      "id": 1675,
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000001675.jpg",
+      "sha256": "6ba641627c08ef424b7dc3e6cee069aa0dd49615a31c54ae0de1ecd1fabd9dea"
+    },
+    {
+      "id": 4795,
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000004795.jpg",
+      "sha256": "6f8994bac6aef0602d4aa4397ecd4b7d579f5b18f66058a2df021352dd22bdc6"
+    }
+  ],
+  "reconstruction_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-1455-latent-reconstruction",
+  "reconstruction_step": 200,
+  "owners": [
+    "qim-pilot-owner-alpha",
+    "qim-pilot-owner-beta",
+    "qim-pilot-owner-gamma",
+    "qim-pilot-owner-delta"
+  ],
+  "threshold": 4.0,
+  "steps": 100,
+  "learning_rate": 0.01,
+  "adam_betas": [
+    0.9,
+    0.999
+  ],
+  "adam_eps": 1e-08,
+  "seed": 0,
+  "checkpoint_every": 10,
+  "semantic_margin": 6.0,
+  "instance_margin": 8.0,
+  "cycle_margin": 6.0,
+  "cycle_every": 2,
+  "quality_weight": 0.01,
+  "psnr_cap_db": 35.2,
+  "bisection_steps": 36,
+  "embedder_precision": "float32",
+  "reader_precision": "float16",
+  "profile": "configs/revised-watermark-v5.example.json",
+  "run_seconds_cap": 1800,
+  "gpu_budget_bytes": 10737418240,
+  "gpu_reserve_bytes": 536870912,
+  "ram_budget_bytes": 17179869184,
+  "artifact_budget_bytes": 524288000,
+  "final_selection": "last-fixed-step; quality-only cap"
+}
