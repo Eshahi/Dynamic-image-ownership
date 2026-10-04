@@ -219,8 +219,17 @@ def run(manifest_path, output):
                         raise RuntimeError("Missing/nonfinite latent gradient")
                     optimizer.step()
                     if (step+1) % 10 == 0:
+                        restart_path = output / f"{case['id']}-restart{step+1:03d}.pt"
+                        torch.save({"z": z.detach().cpu(), "initial": initial.detach().cpu(),
+                                    "optimizer": optimizer.state_dict(), "step": step+1,
+                                    "latent_units": record["latent_units"],
+                                    "source_rgb8_sha256": row["source_rgb8_sha256"],
+                                    "torch_rng": torch.get_rng_state(),
+                                    "cuda_rng": torch.cuda.get_rng_state()}, restart_path)
                         event({"phase": "update", "id": case["id"], "step": step+1,
                                "loss_before_update": float(loss.detach().item()),
+                               "restart_checkpoint": restart_path.name,
+                               "restart_sha256": sha(restart_path),
                                "seconds": time.monotonic()-started})
                     if torch.cuda.memory_allocated() > CONFIG["gpu_budget_bytes"]:
                         raise RuntimeError("GPU allocation budget exceeded")
