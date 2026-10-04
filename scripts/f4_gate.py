@@ -35,13 +35,13 @@ def sha(data: bytes) -> str:
 _WORKER = {}
 
 
-def _init_worker(profile_json: str):
+def _init_worker(profile_json: str, planes=("Cr",)):
     import torch
     import three_threat_models as models
     from a6_clip_visual import load_visual_encoder
     torch.set_num_threads(1)
     _WORKER["clip"], _WORKER["transform"] = load_visual_encoder(ASSETS / "clip/ViT-B-32.pt", device="cpu")
-    _WORKER["models"], _WORKER["profile"] = models, json.loads(profile_json)
+    _WORKER["models"], _WORKER["profile"], _WORKER["planes"] = models, json.loads(profile_json), tuple(planes)
 
 
 def _read_job(path: str) -> dict:
@@ -51,7 +51,7 @@ def _read_job(path: str) -> dict:
     vector = _WORKER["models"].clip_feature(_WORKER["clip"], _WORKER["transform"], rgb).reshape(-1).tolist()
     calls = {}
     for owner in OWNERS:
-        r = f4.detect_rgb(rgb.tolist(), owner, _WORKER["profile"], vector)
+        r = f4.detect_rgb(rgb.tolist(), owner, _WORKER["profile"], vector, planes=_WORKER["planes"])
         calls[owner] = dict(outcome=r["outcome"], semantic_found=r["semantic"]["found"],
                             semantic_content_match=r["semantic"]["content_match"],
                             semantic_score=r["semantic"]["score"], semantic_threshold=r["semantic"]["threshold"],
@@ -67,6 +67,7 @@ def main():
     p.add_argument("--embedding-override", type=str, default="{}", help="JSON merged into profile['embedding']")
     p.add_argument("--robust-override", type=str, default="{}", help="JSON merged into profile['robust']")
     p.add_argument("--workers", type=int, default=5, help="CPU processes for blind detection")
+    p.add_argument("--planes", default="Cr", help="comma-separated robust chroma planes, e.g. Cr or Cr,Cb")
     a = p.parse_args()
     import torch
     from PIL import Image
@@ -85,6 +86,7 @@ def main():
     profile["embedding"].update(json.loads(a.embedding_override))
     profile["robust"].update(json.loads(a.robust_override))
     profile = v5.validate_profile(profile)
+    planes = tuple(a.planes.split(","))
     clip, transform = load_visual_encoder(ASSETS / "clip/ViT-B-32.pt", device="cpu")
     metric = models.load_lpips(ASSETS, Path(importlib.metadata.distribution("lpips").locate_file("lpips")))
     pipe = models.load_regenerator(ASSETS)
@@ -124,11 +126,11 @@ def main():
 
     # Detection is pure-Python v5 code; it runs in worker processes, one saved PNG per task.
     import multiprocessing
-    pool = multiprocessing.get_context("spawn").Pool(a.workers, initializer=_init_worker, initargs=(json.dumps(profile),))
+    pool = multiprocessing.get_context("spawn").Pool(a.workers, initializer=_init_worker, initargs=(json.dumps(profile), planes))
     for sid, path in SOURCES.items():
         source = np.asarray(Image.open(path).convert("RGB"), np.uint8)
         tick = time.monotonic()
-        marked_rows, report = f4.embed_rgb(source.tolist(), OWNERS[0], profile, feature(source))
+        marked_rows, report = f4.embed_rgb(source.tolist(), OWNERS[0], profile, feature(source), planes=planes)
         marked, receipt = save(f"clean-{sid}-C1", np.asarray(marked_rows, np.uint8))
         q = quality(source, marked)
         q["lpips"] = models.lpips_score(metric, source, marked)
@@ -190,7 +192,7 @@ def main():
                               only_f4=sum(f4ok[k] and not v5ok[k] for k in keys), only_v5=sum(v5ok[k] and not f4ok[k] for k in keys))
     embeds = [r for r in rows if r.get("outcome") == "embedded"]
     run = dict(schema="f4-gate-v1", data_split="development", family=f4.FAMILY, revision=f4.REVISION, commit=commit,
-               command=sys.argv, profile=profile, detector_config_id=v5.detector_config_id(profile),
+               command=sys.argv, planes=planes, profile=profile, detector_config_id=v5.detector_config_id(profile),
                owners=OWNERS, strengths=STRENGTHS, seeds=SEEDS, sources=list(SOURCES),
                attack="pinned SD1.5 DDIM img2img 20 steps, empty prompt, CFG 1, eta 0; VAE posterior mode",
                duration_seconds=time.monotonic() - started, outcome="completed",
