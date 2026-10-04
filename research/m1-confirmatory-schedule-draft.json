@@ -1,0 +1,2611 @@
+{
+  "schema_version": "m1-coco512-metadata-schedule-v1",
+  "status": "draft_metadata_only_not_authorized",
+  "source_contract_accepted": false,
+  "scientific_run_authorized": false,
+  "candidate": "UNRESOLVED",
+  "images_or_annotations_opened": false,
+  "n_metadata_candidates": 600,
+  "clean": [
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:292005",
+      "group_id": "a0303be00e48a41c21b26cda99479ec26e77d4147ca3c5a199b6be9b2dc0f483",
+      "owner": "thesis:owner:12",
+      "wrong_owner": "thesis:owner:13",
+      "seed_uint64_decimal": "3608192778607318162",
+      "seed_uint64_hex": "3212e0371204d492"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:365521",
+      "group_id": "8f63987ac1a4fed4a7fe839660fd1f07d325b55f46a388e1cbce6fd203a098f7",
+      "owner": "thesis:owner:05",
+      "wrong_owner": "thesis:owner:06",
+      "seed_uint64_decimal": "8053078858763908697",
+      "seed_uint64_hex": "6fc2488e14d4b659"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:116479",
+      "group_id": "bc213652dca448e4d536cec40d5d5b4d2c3b5382c88361068763e56ac653f4b3",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "17824181934372652521",
+      "seed_uint64_hex": "f75c3708623785e9"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:167128",
+      "group_id": "38ac42813d11fb69ad2334c32f14fa833d849db9c9ad6ac3c62e971381b91ce6",
+      "owner": "thesis:owner:10",
+      "wrong_owner": "thesis:owner:11",
+      "seed_uint64_decimal": "1954552297428928297",
+      "seed_uint64_hex": "1b1ff6f5772cc729"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:108244",
+      "group_id": "2133dddda6951a2a50871ddead40ba5f4b270a5e8b341c089beb056825b72bf4",
+      "owner": "thesis:owner:10",
+      "wrong_owner": "thesis:owner:11",
+      "seed_uint64_decimal": "7323249408587447468",
+      "seed_uint64_hex": "65a168897071bcac"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:128372",
+      "group_id": "c312b3dedaa0b789ea8a5be9767c653854c17148d073cb9e1a4075653345c959",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "3485460729158534731",
+      "seed_uint64_hex": "305ed8110011864b"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:166277",
+      "group_id": "17a1da89d0190a3875bd31ff876fb256a4297677b7cd5508417f59524843abe1",
+      "owner": "thesis:owner:14",
+      "wrong_owner": "thesis:owner:15",
+      "seed_uint64_decimal": "7100809671519798215",
+      "seed_uint64_hex": "628b24c6489883c7"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:218424",
+      "group_id": "f0e613d1969b44fcb2eef30d44d79d45a960517eda5a760ec6e19f185a8f2398",
+      "owner": "thesis:owner:15",
+      "wrong_owner": "thesis:owner:00",
+      "seed_uint64_decimal": "6057242944671476061",
+      "seed_uint64_hex": "540fa65d9362695d"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:10707",
+      "group_id": "a110c18fae7e74f9e9df7a3732bcd9de7c4ebb520944c24a360471c4f700ed43",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "12991161202777321983",
+      "seed_uint64_hex": "b449e048a760f1ff"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:314251",
+      "group_id": "68950239263a2aa25d9e41c1082d47f683637aac07524443e5bf1de98c8d7dd7",
+      "owner": "thesis:owner:10",
+      "wrong_owner": "thesis:owner:11",
+      "seed_uint64_decimal": "16610937549296798393",
+      "seed_uint64_hex": "e685e7b14c088ab9"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:498747",
+      "group_id": "005bfb7ae2f6d3cb13ef0edf5c01e98f9b62dcc164a02c2b32bb18a32ac486cd",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "8977804798420586363",
+      "seed_uint64_hex": "7c9791e5d0a80f7b"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:338219",
+      "group_id": "2b61a7d450a4e3507de6f455dc8ed318c03e7cb36c07cab825eef083f577358f",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "9318033446805158887",
+      "seed_uint64_hex": "81504e0d0207bbe7"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:42102",
+      "group_id": "81e0ab22e10e5d98f5a186ef151ec040dfd00bb45ab1f35831bec9e9b57b06fe",
+      "owner": "thesis:owner:14",
+      "wrong_owner": "thesis:owner:15",
+      "seed_uint64_decimal": "10371708180182897168",
+      "seed_uint64_hex": "8fefb5a361d09210"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:418959",
+      "group_id": "f8ba8a96b8c16f26746a2d7f55084524d0ac0bec6aa61162ba47cab951b3c9b8",
+      "owner": "thesis:owner:09",
+      "wrong_owner": "thesis:owner:10",
+      "seed_uint64_decimal": "14364051829950320314",
+      "seed_uint64_hex": "c7575d090b7d0eba"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:203389",
+      "group_id": "f44c64e983ac2631efffeb7f9f836f18704bca488b2e306fbee168878ca73828",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "6255198897312016451",
+      "seed_uint64_hex": "56ceee4171b2a843"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:32941",
+      "group_id": "64aa3c99f8d5d9cb9db041a5b793f48cb2c31d45f4f0623b84444b8f6308a09b",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "12940271912008697772",
+      "seed_uint64_hex": "b39514be543e47ac"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:366141",
+      "group_id": "b76fd3d92a16bce8a3bed9a42e898bd9311fb12db070de06a26c8655858a7586",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "831760590806786305",
+      "seed_uint64_hex": "0b8b01d9b9352101"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:227686",
+      "group_id": "cea839d238d8329c880330eeef2fb9c311bb1d02bd5fa3d006197bfe32bb193e",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "3243380451749187759",
+      "seed_uint64_hex": "2d02cd5631f4d0af"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:453860",
+      "group_id": "7e0534cf808de155d75d35ad7f882fe39762615c1ad511f548a208a2ce3701d3",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "11341403511293482765",
+      "seed_uint64_hex": "9d64c2677904170d"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:442456",
+      "group_id": "47c7e628e1ff68115a7468077e8d8f20b0e0652d5e1c30a60ec033acce6a09dd",
+      "owner": "thesis:owner:04",
+      "wrong_owner": "thesis:owner:05",
+      "seed_uint64_decimal": "7767582974613212248",
+      "seed_uint64_hex": "6bcbff8f9d314c58"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:231549",
+      "group_id": "6f3b029befe3d7822bd93e89a370ff7019bf0b16ea58f347241957cb6f429126",
+      "owner": "thesis:owner:10",
+      "wrong_owner": "thesis:owner:11",
+      "seed_uint64_decimal": "2676351509500332839",
+      "seed_uint64_hex": "25244f8499d90b27"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:343706",
+      "group_id": "6c13af0db057496ea91bebcc20643d0640cb669ced20d2bf2cb43e3ff634287a",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "16275679094939878982",
+      "seed_uint64_hex": "e1ded3e794248646"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:441543",
+      "group_id": "015cafdeb8e8350e0de751dfe9c4a2300d87eee460000e548646c42b52cc04af",
+      "owner": "thesis:owner:05",
+      "wrong_owner": "thesis:owner:06",
+      "seed_uint64_decimal": "518594389258377908",
+      "seed_uint64_hex": "07326ad972419ab4"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:495146",
+      "group_id": "32ef05aae5d1e183775043e8e3727362ac9ee826737444ca73164e1c6760c1ed",
+      "owner": "thesis:owner:10",
+      "wrong_owner": "thesis:owner:11",
+      "seed_uint64_decimal": "17612961992459688796",
+      "seed_uint64_hex": "f46dcf9d5b041b5c"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:252776",
+      "group_id": "7e71c8eb3b9416fbd905584ed695979174bba291cb49be749404ac9319a4fd8b",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "30550932806235340",
+      "seed_uint64_hex": "006c89e95978f4cc"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:467848",
+      "group_id": "43d3b824ccd5477fbd1478292d7be566fc63528a682beef370e773f58e24f9c1",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "18007789384039299697",
+      "seed_uint64_hex": "f9e8850911b67a71"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:402720",
+      "group_id": "1040861546acdb12e2d1be53b5b1ed994685545e3e3b2cccf1e75f279f303fee",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "10764021896362569374",
+      "seed_uint64_hex": "95617ce26f37ae9e"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:410880",
+      "group_id": "8eb0caa4991586161d07935705e10faa26ec09128099e8595124f46088ad3606",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "3394637947237847132",
+      "seed_uint64_hex": "2f1c2d3a3a2c505c"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:427034",
+      "group_id": "c527d034e8c9ef72a0f01727a02b46e8169aba22cbf0b6461f35c9f2d6525b44",
+      "owner": "thesis:owner:10",
+      "wrong_owner": "thesis:owner:11",
+      "seed_uint64_decimal": "15213236044594871922",
+      "seed_uint64_hex": "d3204594523efe72"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:550322",
+      "group_id": "111afd3764b05271bac5bab8c85c7478b7a4c674fb60c54076426c81b4ba2163",
+      "owner": "thesis:owner:08",
+      "wrong_owner": "thesis:owner:09",
+      "seed_uint64_decimal": "15622929917084691976",
+      "seed_uint64_hex": "d8cfcbfc5aa7ee08"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:389381",
+      "group_id": "16e410ee40fe88a8b84477b20c9e29c074c5987f33082d8d8327f16e69b03236",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "3634366097781919071",
+      "seed_uint64_hex": "326fdcb5d2038d5f"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:338560",
+      "group_id": "7cbfbb45f9b2eb0c09bbbbb2184321142899032b680eaef2442c92c50655cabb",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "852248949447914361",
+      "seed_uint64_hex": "0bd3cbe7740af379"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:66817",
+      "group_id": "d50d3207d33df55898d492e77fe1bd7d16b9dcd45c15575159786131b0e422ae",
+      "owner": "thesis:owner:14",
+      "wrong_owner": "thesis:owner:15",
+      "seed_uint64_decimal": "8142529135562900408",
+      "seed_uint64_hex": "7100131b9a7ec3b8"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:493864",
+      "group_id": "6897c1503a611fd6cfc056aeea0ae8e896a04a609ec19f7f96f37206a8b1d6ad",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "6671942540931475160",
+      "seed_uint64_hex": "5c9780643a09a6d8"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:234807",
+      "group_id": "7229a969de44ad8cc96acd2b790d972c99a5ff833324e2cb91ebfabf5dd5082f",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "17245822937933033872",
+      "seed_uint64_hex": "ef557896fac83190"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:402774",
+      "group_id": "f5266b7ea8d1639b0091bd943d441a9ff38fb13ce64f6f830f22314645b6000e",
+      "owner": "thesis:owner:07",
+      "wrong_owner": "thesis:owner:08",
+      "seed_uint64_decimal": "13994413851218793050",
+      "seed_uint64_hex": "c236254089b3d25a"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:309452",
+      "group_id": "0bbeac194e540b4e785c4277d4e47888db464feb83e9b74beed734da92e06860",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "9956934672781514251",
+      "seed_uint64_hex": "8a2e2354aee9960b"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:82696",
+      "group_id": "4ac3eaea68a8d8e6bfebf3bff16a78adef6ee953df97d25820561828861e3ccd",
+      "owner": "thesis:owner:00",
+      "wrong_owner": "thesis:owner:01",
+      "seed_uint64_decimal": "5084008347128563895",
+      "seed_uint64_hex": "468e06a7cdb808b7"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:192670",
+      "group_id": "7dd95017639789a1a96bfb238e0417a982f1256ff2c702103129f77995ecfdda",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "7086615816920785555",
+      "seed_uint64_hex": "6258b789fb3a6293"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:232348",
+      "group_id": "31ce5ffa5e5fda187cb3e955181f79bd99ba08c5dd54886fbd0ce366a50488d1",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "2764821829630309648",
+      "seed_uint64_hex": "265e9ece2e5c3510"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:342128",
+      "group_id": "02b85ca3ea4e131f5ea6bc5b1fe8889eae186a9a5233c065eeafb3cb8b635775",
+      "owner": "thesis:owner:14",
+      "wrong_owner": "thesis:owner:15",
+      "seed_uint64_decimal": "1017646075222575929",
+      "seed_uint64_hex": "0e1f67b6b4b64b39"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:229753",
+      "group_id": "69ef46fa5be840ada9c17f821481f428e72f230437ceeb446e25556a2069006b",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "16018838411151530863",
+      "seed_uint64_hex": "de4e58a9db11db6f"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:250137",
+      "group_id": "fcf5f7c8b50bc01bf7969df5b06fb0e2256314d246ad1229e2ff47177890b99d",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "11901898129235891928",
+      "seed_uint64_hex": "a52c094a21fdd6d8"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:402346",
+      "group_id": "32f2d58bbc578504d05fad42f224eced436d6fb75c19051526512deecebb75d7",
+      "owner": "thesis:owner:09",
+      "wrong_owner": "thesis:owner:10",
+      "seed_uint64_decimal": "9994830310198096815",
+      "seed_uint64_hex": "8ab4c53655aa33af"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:293044",
+      "group_id": "50168a9e03b4e8160780839d3363aebeeac08b9ded722502ce3b0383c5a078e7",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "7360384802515250883",
+      "seed_uint64_hex": "662556fb1c1aeec3"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:343315",
+      "group_id": "acb47f355bbc7e87be23252aa31f0cf7ef04bc65737a41428b5f2d40f1f1e2ce",
+      "owner": "thesis:owner:12",
+      "wrong_owner": "thesis:owner:13",
+      "seed_uint64_decimal": "16468768657464991853",
+      "seed_uint64_hex": "e48cd1d6b449a06d"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:15746",
+      "group_id": "321f885cd64bf858cdec9cf144184ca50b8b88962db3167f269152c6607ed596",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "8226182500896433098",
+      "seed_uint64_hex": "722945667f7763ca"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:10092",
+      "group_id": "bcebee6c2d9b4fbda9079211e7336e2af86adca050b523824d918856d8b87acb",
+      "owner": "thesis:owner:14",
+      "wrong_owner": "thesis:owner:15",
+      "seed_uint64_decimal": "10734375710521134654",
+      "seed_uint64_hex": "94f829d5e7318e3e"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:489305",
+      "group_id": "fda98e69f17dd1507b894599f97218f298ec89c5163be5f867dca3a595fe32df",
+      "owner": "thesis:owner:15",
+      "wrong_owner": "thesis:owner:00",
+      "seed_uint64_decimal": "2421408588490472626",
+      "seed_uint64_hex": "219a9248350dfcb2"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:414795",
+      "group_id": "3f274e3eb44bea1f95eab309d25726c5e2f02110926a2100a1edaa384ed59e5b",
+      "owner": "thesis:owner:12",
+      "wrong_owner": "thesis:owner:13",
+      "seed_uint64_decimal": "12517039575989914384",
+      "seed_uint64_hex": "adb5752d1e628b10"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:574520",
+      "group_id": "713732edd91e47f29e5dd141c50575a54fe06899e78bfa28476ac8ec142d19f9",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "10870458301218781321",
+      "seed_uint64_hex": "96dba03b15d77889"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:225946",
+      "group_id": "0b85a237fcf317262a17a1871d590618285e550f482e5f06092ef49cecbfd2c8",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "947168134429738108",
+      "seed_uint64_hex": "0d2504666341047c"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:392722",
+      "group_id": "555f6252836373455211d2a0710a574159a1280a73b02189e8f2aa1716435aa9",
+      "owner": "thesis:owner:02",
+      "wrong_owner": "thesis:owner:03",
+      "seed_uint64_decimal": "12815601413230331396",
+      "seed_uint64_hex": "b1da2995da968604"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:456143",
+      "group_id": "126410c10df4ea87367f3279c2c5475c24c8be0d84309f77bf1c02fc7b03abd6",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "17691763887155794700",
+      "seed_uint64_hex": "f585c5853801530c"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:520077",
+      "group_id": "4dd5cc5a0fe3aa24e23916dfe389f79ded37db0217ce266227bf02a74d9e8e59",
+      "owner": "thesis:owner:07",
+      "wrong_owner": "thesis:owner:08",
+      "seed_uint64_decimal": "9586046521900921190",
+      "seed_uint64_hex": "85087a85ca45f166"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:79188",
+      "group_id": "b5b29953408db109476cacb9a51f3734fe7886be37e0247ef5a41fe545c3000f",
+      "owner": "thesis:owner:15",
+      "wrong_owner": "thesis:owner:00",
+      "seed_uint64_decimal": "4245828268713333412",
+      "seed_uint64_hex": "3aec3650a5f852a4"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:181816",
+      "group_id": "3773dfbcad5b0f9ce97ed8a18f68e38de781983cee7353538446d1e5b56d3253",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "3700375706830097089",
+      "seed_uint64_hex": "335a60199517cac1"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:110721",
+      "group_id": "dd86ad47bfe737edf016635b726226975a1ae812da502de9e8f0b07e7cda2c5d",
+      "owner": "thesis:owner:02",
+      "wrong_owner": "thesis:owner:03",
+      "seed_uint64_decimal": "6957401448041579664",
+      "seed_uint64_hex": "608da7c14e4e8490"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:143572",
+      "group_id": "2f1c8248d701f0c8cae6579df34b0a8d1bd3455541b730d8416efa46320d6a0f",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "11398199845227305654",
+      "seed_uint64_hex": "9e2e8a5e75af9ab6"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:568290",
+      "group_id": "2a3c28daf6d7c4e7682115ea613180ded5b6512c69a2fd0356b6b6df8e382710",
+      "owner": "thesis:owner:02",
+      "wrong_owner": "thesis:owner:03",
+      "seed_uint64_decimal": "4596853279634230347",
+      "seed_uint64_hex": "3fcb4db3e1300c4b"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:360137",
+      "group_id": "f5bd138b7d7ea845550daa5168e77e2d9c8eaa081a08b89ec29c18f6673d71f5",
+      "owner": "thesis:owner:10",
+      "wrong_owner": "thesis:owner:11",
+      "seed_uint64_decimal": "17688509966540939701",
+      "seed_uint64_hex": "f57a3618c9a121b5"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:410612",
+      "group_id": "d8d98e1f9231e9614523299779f4fee6879571862326ee2bcc73b49f2c48e686",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "17596887639236498899",
+      "seed_uint64_hex": "f434b413592755d3"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:527215",
+      "group_id": "440e0f79a53dc2b8ee34ec96f7f2a4affc86b391680b2fafb05dea597291fb95",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "2646531265432335814",
+      "seed_uint64_hex": "24ba5e29fb0f35c6"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:259830",
+      "group_id": "8705845411a1aae92e38c705d3c18d7c075a6adce9459cc15e5e7dd91f191534",
+      "owner": "thesis:owner:00",
+      "wrong_owner": "thesis:owner:01",
+      "seed_uint64_decimal": "2557558438910258042",
+      "seed_uint64_hex": "237e45d9838c6b7a"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:370375",
+      "group_id": "c18c38a64a1607f4046f34e07d66880b11b4352044e4cae001c9c22eb70e6f75",
+      "owner": "thesis:owner:09",
+      "wrong_owner": "thesis:owner:10",
+      "seed_uint64_decimal": "7461049750330101188",
+      "seed_uint64_hex": "678af937b3f14dc4"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:263644",
+      "group_id": "d1f54a380394cb214bfe3a3f5f3898daeff73f36f30081f8a7c08543ba8d8c23",
+      "owner": "thesis:owner:09",
+      "wrong_owner": "thesis:owner:10",
+      "seed_uint64_decimal": "1709122881559996179",
+      "seed_uint64_hex": "17b8063498e02713"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:287347",
+      "group_id": "62bf443d0994d9d23ec591942c6723f5661a970036d1620664a5677f3e2e3db8",
+      "owner": "thesis:owner:15",
+      "wrong_owner": "thesis:owner:00",
+      "seed_uint64_decimal": "14406719305530064782",
+      "seed_uint64_hex": "c7eef2e0d8e1bf8e"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:220584",
+      "group_id": "a590b790308ee6a98226e39a5cfaa030041b164a9350056260b327986e606973",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "17283346297704188523",
+      "seed_uint64_hex": "efdac7e2fcb88a6b"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:298396",
+      "group_id": "90c83399d89219dfe2a35fee7dda10b1de6e836a34f32efdf77f1928a91cc237",
+      "owner": "thesis:owner:14",
+      "wrong_owner": "thesis:owner:15",
+      "seed_uint64_decimal": "13075892119791491280",
+      "seed_uint64_hex": "b576e69a998058d0"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:375015",
+      "group_id": "8186a0bca662fe93d18ccbf925e6c3ee3e488f730f073f78292fb2d4646e56e9",
+      "owner": "thesis:owner:00",
+      "wrong_owner": "thesis:owner:01",
+      "seed_uint64_decimal": "11905437657610951123",
+      "seed_uint64_hex": "a5389c78cd7599d3"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:70774",
+      "group_id": "67ffcf5bb641c2446ef93be28010df38adcd315ae1d0b1538d7e9a0fe4f064ee",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "6566364715462060695",
+      "seed_uint64_hex": "5b2069eb2ac66a97"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:91654",
+      "group_id": "eaa2b5ae9a80b7a389c2f7ac9197881b9f3b076d195e11f8b9474310999c4b89",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "1714561646598128964",
+      "seed_uint64_hex": "17cb58bbc2fd8544"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:92053",
+      "group_id": "c845dcfaf4b222d9f0ea3a728475bebcc52a093fdd568d6ba6293a5d388fdff8",
+      "owner": "thesis:owner:12",
+      "wrong_owner": "thesis:owner:13",
+      "seed_uint64_decimal": "4591627875284616741",
+      "seed_uint64_hex": "3fb8bd399f1f0625"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:243626",
+      "group_id": "4c7a99dc3e6c97d441aa7af495f27ab6ee90ba81e290b1fff0a91b554d600a9a",
+      "owner": "thesis:owner:04",
+      "wrong_owner": "thesis:owner:05",
+      "seed_uint64_decimal": "3145958333958596168",
+      "seed_uint64_hex": "2ba8b06fcdc82648"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:230819",
+      "group_id": "4e4cf0354eefccc2987fb789ebbe7a4ab53ae92eb5fb3dbacd3046748ca91534",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "6798366410794139413",
+      "seed_uint64_hex": "5e58a63b3854ff15"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:186938",
+      "group_id": "86b4f6bdf19de23b041aeab8703b54d30b902539f18ef92c2f2220881b143244",
+      "owner": "thesis:owner:09",
+      "wrong_owner": "thesis:owner:10",
+      "seed_uint64_decimal": "5070269630233315315",
+      "seed_uint64_hex": "465d375d818207f3"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:345252",
+      "group_id": "1f33fefbc0cef44b2d3bd6721f6aac56eceeddec1ea12fb42d539919f2bb0de0",
+      "owner": "thesis:owner:09",
+      "wrong_owner": "thesis:owner:10",
+      "seed_uint64_decimal": "14379630629956245583",
+      "seed_uint64_hex": "c78eb5df13de584f"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:43314",
+      "group_id": "2dc562a71cb794cd0995943630f252481bdb887a776e4234763452564e3e6a34",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "12963170870072439904",
+      "seed_uint64_hex": "b3e66f39795bf460"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:161925",
+      "group_id": "1b3eefd6242d97cfae64e2c1d1f86aa3bb729a6e3b64cbfb323869fd1dfe6903",
+      "owner": "thesis:owner:14",
+      "wrong_owner": "thesis:owner:15",
+      "seed_uint64_decimal": "10011909185339209771",
+      "seed_uint64_hex": "8af1725bd39d382b"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:297698",
+      "group_id": "12bc09c49696ce2fe9e7e5c8ba57d0af7092f4c6b968754fdc3538e141eb4a11",
+      "owner": "thesis:owner:04",
+      "wrong_owner": "thesis:owner:05",
+      "seed_uint64_decimal": "1107938709176363271",
+      "seed_uint64_hex": "0f603062c95ca907"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:132116",
+      "group_id": "d88a177046a5ee00932a1396c862bd94b0b3461b6f2fb8466c11441f63cca931",
+      "owner": "thesis:owner:15",
+      "wrong_owner": "thesis:owner:00",
+      "seed_uint64_decimal": "14647526349853381976",
+      "seed_uint64_hex": "cb46779bf92f5558"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:439290",
+      "group_id": "2fce8c3f7a542f4831f8deb826fdeb51e57e2e2fc402df75226cf63c318f09e9",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "6261878122224348808",
+      "seed_uint64_hex": "56e6a8f9adf8ee88"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:370818",
+      "group_id": "d9654e97393c8ba13bd35219771f41dc47163fac35606376cea2f205f321a638",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "6889065009134275024",
+      "seed_uint64_hex": "5f9ae020400589d0"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:233139",
+      "group_id": "f8350b46508674de773d443b1c0ab7fa0b9bfecd1a05e3b0f7aa9350115934e2",
+      "owner": "thesis:owner:08",
+      "wrong_owner": "thesis:owner:09",
+      "seed_uint64_decimal": "10871368623599397328",
+      "seed_uint64_hex": "96dedc2a07f829d0"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:196759",
+      "group_id": "cace60f8259f7d73b8ea32c8f1f52ff4f10c41cb1d4a3c020d2735eff6368bf0",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "9012956057319697480",
+      "seed_uint64_hex": "7d1473c80cbeec48"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:209757",
+      "group_id": "919036e6620a34ed61459eb6fef93bea8c5fd04f691fd7c7eb66e406196ccf95",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "13526800552950023806",
+      "seed_uint64_hex": "bbb8d96f5224c67e"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:356387",
+      "group_id": "61725cb5d28509190f30238806443b68d33714e8e58a2ae484e8b494c1bf2ff6",
+      "owner": "thesis:owner:04",
+      "wrong_owner": "thesis:owner:05",
+      "seed_uint64_decimal": "5065619066829577208",
+      "seed_uint64_hex": "464cb1b3d5d29bf8"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:550084",
+      "group_id": "6069defaf4638e85ab4a4b6fa8b27e697f8ffcf7b93170ba79d7626e1eebd681",
+      "owner": "thesis:owner:15",
+      "wrong_owner": "thesis:owner:00",
+      "seed_uint64_decimal": "3878860358808129610",
+      "seed_uint64_hex": "35d47af1fc1a504a"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:386134",
+      "group_id": "d4b13c6d14baca2431c7fd882eb3e1394b8653a33545975572d693fd47808d09",
+      "owner": "thesis:owner:07",
+      "wrong_owner": "thesis:owner:08",
+      "seed_uint64_decimal": "4738468618249520708",
+      "seed_uint64_hex": "41c26c1a52194644"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:383842",
+      "group_id": "aa7a0ccf2233f09b91d92db32218ae18c326aef8c4cd05acbe0727fae3546342",
+      "owner": "thesis:owner:02",
+      "wrong_owner": "thesis:owner:03",
+      "seed_uint64_decimal": "6785133449286826439",
+      "seed_uint64_hex": "5e29a2ec465cb9c7"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:429109",
+      "group_id": "626ab4581c239e11ea23c027d971d8ec83c1df5c852405aabf51c09f02db48df",
+      "owner": "thesis:owner:00",
+      "wrong_owner": "thesis:owner:01",
+      "seed_uint64_decimal": "2173685675957092970",
+      "seed_uint64_hex": "1e2a7b9b08c7026a"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:2592",
+      "group_id": "62eedd054a41bf9d96f5f824bc4ce0ed6a1b0076997878b608ecba65f1d5dbcc",
+      "owner": "thesis:owner:15",
+      "wrong_owner": "thesis:owner:00",
+      "seed_uint64_decimal": "18001875629396069810",
+      "seed_uint64_hex": "f9d38281c4ea0db2"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:45070",
+      "group_id": "2a25b7cdca705caa2f310ac6eca551010ffcaeae3b63d981812523454172c089",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "16386372668309515986",
+      "seed_uint64_hex": "e368171f83c22ed2"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:97278",
+      "group_id": "0858a97edbca91f6b5a3a69d3dba53317bbbfb0d2ded10781e42e1396220e1d0",
+      "owner": "thesis:owner:00",
+      "wrong_owner": "thesis:owner:01",
+      "seed_uint64_decimal": "15573626233641251982",
+      "seed_uint64_hex": "d820a28c00e4348e"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:78266",
+      "group_id": "09a9ce7ab0f0d89421485c0af4ad78d78329b31c8e0481b9b460a20d0f2037c6",
+      "owner": "thesis:owner:10",
+      "wrong_owner": "thesis:owner:11",
+      "seed_uint64_decimal": "5172028148513841166",
+      "seed_uint64_hex": "47c6bc32d07d200e"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:475732",
+      "group_id": "7a58d679d0147aca1055aec78d8d794b7460e02377a8ee79dbfd34f0679de4bb",
+      "owner": "thesis:owner:15",
+      "wrong_owner": "thesis:owner:00",
+      "seed_uint64_decimal": "15672982217797121359",
+      "seed_uint64_hex": "d9819e49becfb54f"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:183391",
+      "group_id": "dbab533a85bb86e7269429d07426a85c2ee528c97721993a529ebbf21e29365c",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "14659405283704820368",
+      "seed_uint64_hex": "cb70ab6fc9b5d290"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:382734",
+      "group_id": "4d3c909e67e04f4742752861e835cb8b6fb53c01d9121a7a8eb260009be96633",
+      "owner": "thesis:owner:08",
+      "wrong_owner": "thesis:owner:09",
+      "seed_uint64_decimal": "7529132194030663879",
+      "seed_uint64_hex": "687cd9d6e427b8c7"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:435299",
+      "group_id": "02ca6fa934928ec9d31f866601bc73433fef69135d977cf62e8db43339fa826a",
+      "owner": "thesis:owner:12",
+      "wrong_owner": "thesis:owner:13",
+      "seed_uint64_decimal": "18383043508048833123",
+      "seed_uint64_hex": "ff1db0ac4bcd2a63"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:534041",
+      "group_id": "e35882c5a2022053e661923e88a9ddf2931597e6a67287453a3358e541b43c9d",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "8323966321343671789",
+      "seed_uint64_hex": "7384ab445a012ded"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:98261",
+      "group_id": "b33a775c70bff8fcacb6093867d04da238b1c31eb96fb10973cfaace341d141b",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "4817901982460128718",
+      "seed_uint64_hex": "42dca053a32fadce"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:570664",
+      "group_id": "94be060dd2082868d45c4dda2cc8f4fea01fdc83dfd0d96541c79789067c18f3",
+      "owner": "thesis:owner:05",
+      "wrong_owner": "thesis:owner:06",
+      "seed_uint64_decimal": "2843471711502575277",
+      "seed_uint64_hex": "27760a74ccfba6ad"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:349860",
+      "group_id": "20572d9797465e9be2f48b81b88184e3f9d833c6949873e710a790e34facead8",
+      "owner": "thesis:owner:14",
+      "wrong_owner": "thesis:owner:15",
+      "seed_uint64_decimal": "17460939694032326310",
+      "seed_uint64_hex": "f251b823c3508ea6"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:357888",
+      "group_id": "494cd28c4753007d3ad562710499171a951d016088f6e7f2ddc1d3eb5a81c655",
+      "owner": "thesis:owner:12",
+      "wrong_owner": "thesis:owner:13",
+      "seed_uint64_decimal": "1304443487308207080",
+      "seed_uint64_hex": "121a5070c293d3e8"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:148707",
+      "group_id": "b7d57b2354584884b9b2116c6a63e55046ff5aeafdf5eb0441329707bfdde0ac",
+      "owner": "thesis:owner:05",
+      "wrong_owner": "thesis:owner:06",
+      "seed_uint64_decimal": "14996586498016490907",
+      "seed_uint64_hex": "d01e93f6f1b1359b"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:581615",
+      "group_id": "940478483c635b6023fa78673a2df10fbd5e17ebe29aecfd4d062137958c84cb",
+      "owner": "thesis:owner:02",
+      "wrong_owner": "thesis:owner:03",
+      "seed_uint64_decimal": "16511010263570101667",
+      "seed_uint64_hex": "e522e45b0aecb5a3"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:172977",
+      "group_id": "d937f0e596547745e0aa0975d805bdd220a1924296617ec9fea3d5a0439fcdfa",
+      "owner": "thesis:owner:04",
+      "wrong_owner": "thesis:owner:05",
+      "seed_uint64_decimal": "2889257455572925664",
+      "seed_uint64_hex": "2818b4591012bce0"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:177065",
+      "group_id": "88e70d7f423cde7a7c35a66f858291cffcb5ff9bd22fed58648a12172317698a",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "426791192521161716",
+      "seed_uint64_hex": "05ec44540f7d3bf4"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:540928",
+      "group_id": "df216b66c4bbed87cf8f355b1bd69045386ebb5b5cafd70b85ca934efb0ebe63",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "4502284159095870418",
+      "seed_uint64_hex": "3e7b5396acc713d2"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:340451",
+      "group_id": "73610c0b1eabbdb4e992d29d37026e8900ab78905267c2dec3774555fbe29626",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "4909004111029208024",
+      "seed_uint64_hex": "4420493aded403d8"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:190923",
+      "group_id": "2b99525865cc0a7f165d3003d1572244767e0e19128ec7945b0b645eef805604",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "15187208279844930569",
+      "seed_uint64_hex": "d2c3cd771a074409"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:418961",
+      "group_id": "dceb047c66a7c88f0bb2891c0b9077fc024de2085db50eb348d636627b841957",
+      "owner": "thesis:owner:04",
+      "wrong_owner": "thesis:owner:05",
+      "seed_uint64_decimal": "10924860905834367256",
+      "seed_uint64_hex": "979ce71c88cf4918"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:446207",
+      "group_id": "022408acd094461f65efdf7bfe08cdd8146218c37966623bfbb461cd6ad8932b",
+      "owner": "thesis:owner:07",
+      "wrong_owner": "thesis:owner:08",
+      "seed_uint64_decimal": "16420181327274283475",
+      "seed_uint64_hex": "e3e033eb57af91d3"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:490171",
+      "group_id": "0d014e18d3c9a6e7e05eb78d33abf5525b22ab87c6fbbf550b5462b79120a504",
+      "owner": "thesis:owner:04",
+      "wrong_owner": "thesis:owner:05",
+      "seed_uint64_decimal": "14968346146538176171",
+      "seed_uint64_hex": "cfba3f83bb7ebeab"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:520009",
+      "group_id": "a30c560fb001b3a1c2d10d4becd2b075aa1416c0c80d6a8f79016ff7e71064ba",
+      "owner": "thesis:owner:14",
+      "wrong_owner": "thesis:owner:15",
+      "seed_uint64_decimal": "12018461527713564040",
+      "seed_uint64_hex": "a6ca27153a10c588"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:17182",
+      "group_id": "d49fa9e337a3000ce3fd463fda0ec73270675fdc1f92a9e6dfcf86c0e3c190bd",
+      "owner": "thesis:owner:05",
+      "wrong_owner": "thesis:owner:06",
+      "seed_uint64_decimal": "14127289792538555095",
+      "seed_uint64_hex": "c40e37377b4332d7"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:530052",
+      "group_id": "b567edc6728b36baa94cb059c04774028d6ee2c1a37a3e6ef8beb9dcdad7e124",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "6659851209811016637",
+      "seed_uint64_hex": "5c6c8b63d1bdbbbd"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:244411",
+      "group_id": "78e829a2ee72914eb716bc3b33d290d03d2f2a0b029b4f8ea279ca687b7d7ddb",
+      "owner": "thesis:owner:02",
+      "wrong_owner": "thesis:owner:03",
+      "seed_uint64_decimal": "227550262139969878",
+      "seed_uint64_hex": "03286bc1ff666156"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:541055",
+      "group_id": "20bd1f9659becd0502fc5125de1ba26829f5e1522c2dbe534354a4b05835136a",
+      "owner": "thesis:owner:14",
+      "wrong_owner": "thesis:owner:15",
+      "seed_uint64_decimal": "15048616515907381605",
+      "seed_uint64_hex": "d0d76cfd7fbc6965"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:288391",
+      "group_id": "4210e816c717a22e3f604f8ec2836c09ab2bceeef47dcfba3f3ab1b8d63c5b41",
+      "owner": "thesis:owner:02",
+      "wrong_owner": "thesis:owner:03",
+      "seed_uint64_decimal": "564600654659758942",
+      "seed_uint64_hex": "07d5dd4dd4f2ab5e"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:519208",
+      "group_id": "0f229663b267ac65ba02e2f28575e2b01d52b7abe98ce1fd0a5248df57f3979e",
+      "owner": "thesis:owner:02",
+      "wrong_owner": "thesis:owner:03",
+      "seed_uint64_decimal": "6101983667529405677",
+      "seed_uint64_hex": "54ae99d0e05354ed"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:492282",
+      "group_id": "5332e25738113ae77e5e663eeb1a8db66fa1180e9bffed006143953d98e589e7",
+      "owner": "thesis:owner:04",
+      "wrong_owner": "thesis:owner:05",
+      "seed_uint64_decimal": "91000037554329074",
+      "seed_uint64_hex": "01434c0d50f915f2"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:371529",
+      "group_id": "d2e8dc8169049e3f6013c6a336e1a11a9dc9cbbe5d48ecbb21056baedc8fda1f",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "6931836837675571767",
+      "seed_uint64_hex": "6032d4e09e9e9a37"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:513181",
+      "group_id": "fe7ff04188db5bda9f872f5dfe9c77c9522d549eaa886780f65da3b156e5ad88",
+      "owner": "thesis:owner:12",
+      "wrong_owner": "thesis:owner:13",
+      "seed_uint64_decimal": "7760952542759297749",
+      "seed_uint64_hex": "6bb47137e5d522d5"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:361142",
+      "group_id": "78731180e6c440f6ce19851343e3c4874f2d2888ce03e4328240a7c8c0f379e0",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "16794481872614487563",
+      "seed_uint64_hex": "e911fc483bec760b"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:28993",
+      "group_id": "8a6f6371a74d7e051d8252a000660cd067bf1484f9e50e31903276eabd41a653",
+      "owner": "thesis:owner:12",
+      "wrong_owner": "thesis:owner:13",
+      "seed_uint64_decimal": "6295008622544092801",
+      "seed_uint64_hex": "575c5cfd64c2fe81"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:318238",
+      "group_id": "458701e8c25f0ea524b60b23ed2fc640020e364d8724434ab518bfc35e99cb7b",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "7327941892500851979",
+      "seed_uint64_hex": "65b214537d378d0b"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:434297",
+      "group_id": "931d3ed12615ab3914769c6673bb3883e28973a3f1fa1244d02b8dfb8b371ea1",
+      "owner": "thesis:owner:10",
+      "wrong_owner": "thesis:owner:11",
+      "seed_uint64_decimal": "711174829727089949",
+      "seed_uint64_hex": "09de99bd5b15051d"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:157601",
+      "group_id": "bcc36ab64e29aaceb09f4e92f4690eab9845abe32005d71bd2dbc9c579070ec7",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "15205726491513686718",
+      "seed_uint64_hex": "d30597ae3e6b8abe"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:326542",
+      "group_id": "bed44af33bfff9f645c345bca44fa76bb142e30981f2a2672ca8d293e77136bf",
+      "owner": "thesis:owner:12",
+      "wrong_owner": "thesis:owner:13",
+      "seed_uint64_decimal": "13085031789282064464",
+      "seed_uint64_hex": "b5975f15bad9f850"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:290833",
+      "group_id": "d689b0ff2b5a76c50f8e1993d458fd8940fd5cb6cb43e921e73a15c76fb7dab8",
+      "owner": "thesis:owner:12",
+      "wrong_owner": "thesis:owner:13",
+      "seed_uint64_decimal": "1256172183570907036",
+      "seed_uint64_hex": "116ed1f20a787f9c"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:295316",
+      "group_id": "afd2ce2b7042979e6367408f963a7540ab3c8eb34141733516eb09ac46f00123",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "3758401149323859455",
+      "seed_uint64_hex": "342885eeb4de55ff"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:147415",
+      "group_id": "c7e9074a8a24b69e11e35305aab35264459a98f546760f2149a9373ab3f0b73e",
+      "owner": "thesis:owner:00",
+      "wrong_owner": "thesis:owner:01",
+      "seed_uint64_decimal": "3952126207665116412",
+      "seed_uint64_hex": "36d8c5d8bb6414fc"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:322211",
+      "group_id": "42defdf7d7fad375222c6ede5ff5010d48bfadd204f9348f404eb9141e502364",
+      "owner": "thesis:owner:14",
+      "wrong_owner": "thesis:owner:15",
+      "seed_uint64_decimal": "5780233345854684945",
+      "seed_uint64_hex": "5037839a62893f11"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:139872",
+      "group_id": "2ef342973a48b5f1d2b2f56f998b303a17ce3531f76138c2e41b4e6177f9a311",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "11527388190659522290",
+      "seed_uint64_hex": "9ff9827c144b2ef2"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:102805",
+      "group_id": "9c3e7a80fda09a907d2eedf3831afb0c1d9a98f2d5d0ac0ba082401094f644a2",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "758076578848671138",
+      "seed_uint64_hex": "0a853aa1cad185a2"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:548506",
+      "group_id": "4f9d41ba486f837542a7e19bcd4f3187c1ce55f864364394328bf2a0e26959de",
+      "owner": "thesis:owner:14",
+      "wrong_owner": "thesis:owner:15",
+      "seed_uint64_decimal": "14464630612887806163",
+      "seed_uint64_hex": "c8bcb0e7d06b20d3"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:279927",
+      "group_id": "bbdee06770ad8d4284765e5b6747dee57c8040c1789dc22497aa5ec3d4b9c039",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "6028102152189951191",
+      "seed_uint64_hex": "53a81ef81b0cbcd7"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:64084",
+      "group_id": "4e7af08d2c5534145febcfd972a7bb383dd435cac9d6af03661860aa1c6271f3",
+      "owner": "thesis:owner:07",
+      "wrong_owner": "thesis:owner:08",
+      "seed_uint64_decimal": "17769153100828433561",
+      "seed_uint64_hex": "f698b699a668dc99"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:565778",
+      "group_id": "531c89d8a20d9286bf0af0be0d1d5ebe1d2890a685f030f6fe232c4605219386",
+      "owner": "thesis:owner:07",
+      "wrong_owner": "thesis:owner:08",
+      "seed_uint64_decimal": "14590461819368901683",
+      "seed_uint64_hex": "ca7bbbb89c620c33"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:245651",
+      "group_id": "e39ad7d5a7ae275d2663b3292f8b5ea4c82d323c7bfb45036524ebdbb3ac0b24",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "6010397206718557638",
+      "seed_uint64_hex": "5369386a4175adc6"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:581482",
+      "group_id": "d059086e3a3ad2d5aae080d851c47266b90aefdc245fe1d2c7c01205a01c3d79",
+      "owner": "thesis:owner:07",
+      "wrong_owner": "thesis:owner:08",
+      "seed_uint64_decimal": "6165378884521169225",
+      "seed_uint64_hex": "558fd36e0d941149"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:250901",
+      "group_id": "1236bb7796105912d98483614998bc65a5dc6fc0bba8faf36d998bda78123f2c",
+      "owner": "thesis:owner:08",
+      "wrong_owner": "thesis:owner:09",
+      "seed_uint64_decimal": "11032546607263638443",
+      "seed_uint64_hex": "991b7aafb5e3e3ab"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:8762",
+      "group_id": "b68726154efb4c3799831d689d1efd85c5db0b218a19fffc96922bd2c65ae7dd",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "14098961937478197606",
+      "seed_uint64_hex": "c3a9932ec1242166"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:37689",
+      "group_id": "607c30f7acdfb9631dfa29114b787642102dffbfc84680052a708a1365b408cf",
+      "owner": "thesis:owner:00",
+      "wrong_owner": "thesis:owner:01",
+      "seed_uint64_decimal": "7088181923884812916",
+      "seed_uint64_hex": "625e47e7ac7fca74"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:474028",
+      "group_id": "21857ced706a1012d7fc4c2383f301428bc0ecf1f50b3de84ad2ae8b2f27cc2b",
+      "owner": "thesis:owner:15",
+      "wrong_owner": "thesis:owner:00",
+      "seed_uint64_decimal": "899435964315394120",
+      "seed_uint64_hex": "0c7b703e7f3ae048"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:549930",
+      "group_id": "a87b60d708ef4b93bd149bffb5f0644cd0ee310343b4cc61d191c5c65aa31434",
+      "owner": "thesis:owner:10",
+      "wrong_owner": "thesis:owner:11",
+      "seed_uint64_decimal": "632323899704191208",
+      "seed_uint64_hex": "08c6773c90dba8e8"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:68286",
+      "group_id": "80146697458c3acc81ac058063b5c5a9804323d1c720bd3fb7f77a416d11306c",
+      "owner": "thesis:owner:05",
+      "wrong_owner": "thesis:owner:06",
+      "seed_uint64_decimal": "1476277061831628865",
+      "seed_uint64_hex": "147cca2a84881841"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:140203",
+      "group_id": "55cea5825e594d247918cdfeaa1f0ad57ee961956ed0eb6a9afcb096e2ada467",
+      "owner": "thesis:owner:12",
+      "wrong_owner": "thesis:owner:13",
+      "seed_uint64_decimal": "14356038855398905639",
+      "seed_uint64_hex": "c73ae54705c1d727"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:496722",
+      "group_id": "4b47941a34b5310ea6d4630fb1cb7eedf7bca033d440316e06395e0fa508fe93",
+      "owner": "thesis:owner:00",
+      "wrong_owner": "thesis:owner:01",
+      "seed_uint64_decimal": "9459061939956365769",
+      "seed_uint64_hex": "834556b7d78439c9"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:65798",
+      "group_id": "47a4785f693a37aa5f7575fc888cff4b49bd61f16ea835866b304e16da17f926",
+      "owner": "thesis:owner:15",
+      "wrong_owner": "thesis:owner:00",
+      "seed_uint64_decimal": "5313700248025944125",
+      "seed_uint64_hex": "49be0e38ee7dd03d"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:369751",
+      "group_id": "24db1e3a3014a09367656844d4eb71689f641d84409ce539dbb695b746b73690",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "18373901188896265159",
+      "seed_uint64_hex": "fefd35c83e4a13c7"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:37751",
+      "group_id": "1baa114420d3e0368e64efdd388864a4f424fa7c64d21b4fe0d367a2599512c9",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "11179571840853639587",
+      "seed_uint64_hex": "9b25d15b7b0a81a3"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:270908",
+      "group_id": "dd1f8c7270cc489cbbe387d02b25a77da2bc4f55394c30e5f6727522a1d8cd27",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "5524501957703258128",
+      "seed_uint64_hex": "4caaf942adda5010"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:215778",
+      "group_id": "4966e53fea2be04aa9e29e2517429f917e8189a4a205aed246b612c35f4aef32",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "6911576392535475129",
+      "seed_uint64_hex": "5feada1c230d83b9"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:257896",
+      "group_id": "3b21d79ffa9a644b42378baab5f3371f2a345ad617716a1338432d917d16dde0",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "12961445937466513580",
+      "seed_uint64_hex": "b3e04e684e1f18ac"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:138979",
+      "group_id": "093d783cea46e345a7a897cdef73fdedc02ffafa9a7976ec51bde8a3b52f5f65",
+      "owner": "thesis:owner:09",
+      "wrong_owner": "thesis:owner:10",
+      "seed_uint64_decimal": "1282489707707713319",
+      "seed_uint64_hex": "11cc519820034727"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:473406",
+      "group_id": "235af46d0db9dc9a0cb1ee92af52bcb7914906a53e0de44031ec3a7c2dd4a238",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "8849252109593857987",
+      "seed_uint64_hex": "7acedbe88837cfc3"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:416256",
+      "group_id": "cc9140448dc33661bba6524bd7f94852c5f93b5d7b63c8a421e392e13f4ba639",
+      "owner": "thesis:owner:07",
+      "wrong_owner": "thesis:owner:08",
+      "seed_uint64_decimal": "17663995071983281769",
+      "seed_uint64_hex": "f5231dee1bd06669"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:529105",
+      "group_id": "2608c4d73ce3256771ee1dff604f37b258ef96f1743ac8d3ca181d84fd446a67",
+      "owner": "thesis:owner:15",
+      "wrong_owner": "thesis:owner:00",
+      "seed_uint64_decimal": "10480976985048352952",
+      "seed_uint64_hex": "9173e9098cda08b8"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:498286",
+      "group_id": "77a00788631da94b89417a4fd09be67fb22c7d6c62414268737d39cc7ca2d205",
+      "owner": "thesis:owner:08",
+      "wrong_owner": "thesis:owner:09",
+      "seed_uint64_decimal": "3752832115397627298",
+      "seed_uint64_hex": "3414bcecf3f40da2"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:553094",
+      "group_id": "fb161e3c88ff5f22cd0a3afcd166966c40be867e5376d8e4df72d08ca5ead71b",
+      "owner": "thesis:owner:12",
+      "wrong_owner": "thesis:owner:13",
+      "seed_uint64_decimal": "10152077019947347264",
+      "seed_uint64_hex": "8ce36c42fa5e2d40"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:365766",
+      "group_id": "668c699516f74cedab4ea8f1b7072438358ee2450d6f0ad12f102d94bb6e2e6a",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "8130074817827131312",
+      "seed_uint64_hex": "70d3d3f8c9ef4fb0"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:545407",
+      "group_id": "de36c704d741bba41d74e3740ef516a306e8136f41e88c19e1d6bcd780cb97ec",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "12611174328787578990",
+      "seed_uint64_hex": "af03e43c33e8b06e"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:546717",
+      "group_id": "f2b2b9d80093bd1150240421e46c48152304af3aedbc049e7874a1909a72f9dc",
+      "owner": "thesis:owner:08",
+      "wrong_owner": "thesis:owner:09",
+      "seed_uint64_decimal": "5248511162670879498",
+      "seed_uint64_hex": "48d675183aab930a"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:239773",
+      "group_id": "6b1536b7d85f961ae834e7bd341b11d569d620ff7a223b2deba801b2118db633",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "15277096664874766500",
+      "seed_uint64_hex": "d4032679a52a50a4"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:452321",
+      "group_id": "d93a19c3d4d20d367f1a9a2dd439719e1f22bb4ebbf2681ad4219084ca43f5d5",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "10102457829222475115",
+      "seed_uint64_hex": "8c3323dedd2b656b"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:426166",
+      "group_id": "c2282d17e46ec684a271600ffd24a417e21b6d12fd1e5d2bae101db4de79281e",
+      "owner": "thesis:owner:15",
+      "wrong_owner": "thesis:owner:00",
+      "seed_uint64_decimal": "16917334323931771589",
+      "seed_uint64_hex": "eac671ef8c79f2c5"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:57725",
+      "group_id": "352979042df24bb6ea393368060b6f8877838e653c8e45bdc71ba774fc110f8c",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "5855978217077254602",
+      "seed_uint64_hex": "51449d298150a9ca"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:90891",
+      "group_id": "157738555cd091a4be0f1ebc7d71452497b01d3c4ea55ac21b570bda169982cb",
+      "owner": "thesis:owner:10",
+      "wrong_owner": "thesis:owner:11",
+      "seed_uint64_decimal": "9482321309357959221",
+      "seed_uint64_hex": "8397f8fdca65e835"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:13774",
+      "group_id": "1a6ec294dc1be49ef134142d255caa71557545d6b9d380d0719ce29895827326",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "1167864702727083798",
+      "seed_uint64_hex": "103516c26fc3d716"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:447313",
+      "group_id": "14471c6a408126cb39270ffa03a144e30053ca95bb51b28a77186068c4ccb145",
+      "owner": "thesis:owner:00",
+      "wrong_owner": "thesis:owner:01",
+      "seed_uint64_decimal": "8074363479684936523",
+      "seed_uint64_hex": "700de6ce1201f34b"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:500464",
+      "group_id": "4a9f57109cc7af672a2e519ac2e95d9296a9c874f83c85970897e595eda5adf8",
+      "owner": "thesis:owner:07",
+      "wrong_owner": "thesis:owner:08",
+      "seed_uint64_decimal": "11084697065542994873",
+      "seed_uint64_hex": "99d4c1407a814bb9"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:252332",
+      "group_id": "c8f6ad1fc02f180c8306828d99829ebb6986c7a903114fd67b32d37678ef51e6",
+      "owner": "thesis:owner:07",
+      "wrong_owner": "thesis:owner:08",
+      "seed_uint64_decimal": "1590294036686300463",
+      "seed_uint64_hex": "1611dc00291be52f"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:560011",
+      "group_id": "e3a905599905b8c8f73c2f489f32878854628fa2a3c1e49f73df137dc1d60b5e",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "1328290466184870117",
+      "seed_uint64_hex": "126f0924337cb8e5"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:433515",
+      "group_id": "376ff976b83f71759161f0bfd14bd3242499e85928a6b02518c928cf40dc067a",
+      "owner": "thesis:owner:04",
+      "wrong_owner": "thesis:owner:05",
+      "seed_uint64_decimal": "2012273315174279921",
+      "seed_uint64_hex": "1bed07eb2df5eaf1"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:409630",
+      "group_id": "3e73070c0037c884b05c1de16a176e5c9e1f48334b4fa4b9ffd1eccf1e004e2b",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "5372259360973836805",
+      "seed_uint64_hex": "4a8e196ce41cd205"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:128654",
+      "group_id": "65c31e1efc326c9f43abcb4619fc94d282989fe78e1c5472c00e91753e54b131",
+      "owner": "thesis:owner:02",
+      "wrong_owner": "thesis:owner:03",
+      "seed_uint64_decimal": "10042638175547608154",
+      "seed_uint64_hex": "8b5e9e36654acc5a"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:7281",
+      "group_id": "87b9b13a727dc35400ee259155a7d6055230bc73e63bbe0398837c0fa0599d7b",
+      "owner": "thesis:owner:12",
+      "wrong_owner": "thesis:owner:13",
+      "seed_uint64_decimal": "13474019976891700856",
+      "seed_uint64_hex": "bafd55c7d3259678"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:541634",
+      "group_id": "7717b01cb7f0d6ee1952f69bba5235501e822f7acfc1bab784095e8909dc2493",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "17801529414190001423",
+      "seed_uint64_hex": "f70bbcaf87766d0f"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:151480",
+      "group_id": "7cf1326ae979928ae11a523a06be0d7f53b7c4a1ec5ac174e0e01c410194bd6e",
+      "owner": "thesis:owner:15",
+      "wrong_owner": "thesis:owner:00",
+      "seed_uint64_decimal": "18051265093328319714",
+      "seed_uint64_hex": "fa82f9f6723e34e2"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:399205",
+      "group_id": "2ee4f9012870641245930f5e306e36cd8f257bba7016f3f971891687ef2b6c95",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "14674663734263163141",
+      "seed_uint64_hex": "cba6e0eaa7102905"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:481386",
+      "group_id": "3d734a38a9fe63662c1cb5945b17e59adce30b39ad9b9e1cd1a3ff747a60aff4",
+      "owner": "thesis:owner:15",
+      "wrong_owner": "thesis:owner:00",
+      "seed_uint64_decimal": "13824753863358880174",
+      "seed_uint64_hex": "bfdb64645cb719ae"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:563349",
+      "group_id": "368ab12420711d14450be16723fb9776c99c1c2b638326c63024a379e5b6849b",
+      "owner": "thesis:owner:07",
+      "wrong_owner": "thesis:owner:08",
+      "seed_uint64_decimal": "11070695894631843239",
+      "seed_uint64_hex": "99a30342d7e805a7"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:99053",
+      "group_id": "c9ad1e6001dba931b1eead28bcfe6b8bb80610b1c4a0a6a726135e62cb91bf9d",
+      "owner": "thesis:owner:05",
+      "wrong_owner": "thesis:owner:06",
+      "seed_uint64_decimal": "11222675043960660768",
+      "seed_uint64_hex": "9bbef37e00eaa320"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:473121",
+      "group_id": "7b55f8b31c9c4df63dfe95e510414e4626167d5c75f68405d35e6faf1eb0fe94",
+      "owner": "thesis:owner:08",
+      "wrong_owner": "thesis:owner:09",
+      "seed_uint64_decimal": "14079301214857880432",
+      "seed_uint64_hex": "c363b9dc0d546370"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:347254",
+      "group_id": "d7c5829102a3991ba9a443d186f4c5113175a1792e886bb253a62c41b066f0a5",
+      "owner": "thesis:owner:05",
+      "wrong_owner": "thesis:owner:06",
+      "seed_uint64_decimal": "3997123771437495724",
+      "seed_uint64_hex": "3778a2e477cd35ac"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:430871",
+      "group_id": "fb8ed6b294e06dd55e3506274b4da1164c778157267fec8ecf2fc1c8134ae49c",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "16441387867328936292",
+      "seed_uint64_hex": "e42b8b27b68ef964"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:39769",
+      "group_id": "6d69f366ffe066b4cc9378a8b5d9537f126011954d9ef8cf4c62e8ca8a3d68cd",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "2467288378168620423",
+      "seed_uint64_hex": "223d91b52b30b587"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:186282",
+      "group_id": "71ebafdd5e33e873d4e4f00a3bd06410d1b5b8069b8873c02474e49568064e4e",
+      "owner": "thesis:owner:05",
+      "wrong_owner": "thesis:owner:06",
+      "seed_uint64_decimal": "10072825149391953178",
+      "seed_uint64_hex": "8bc9dd1af220dd1a"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:299609",
+      "group_id": "73c828f5bc2b6a87be90d0221d0d3e5f4a87ab85b02e2052a43628b33fb096ea",
+      "owner": "thesis:owner:02",
+      "wrong_owner": "thesis:owner:03",
+      "seed_uint64_decimal": "3665561957414290420",
+      "seed_uint64_hex": "32deb12de5dd43f4"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:120584",
+      "group_id": "ce7bf5500ed3124b193ba824f59d5a04d1118f089c58db7f823bbad23b505338",
+      "owner": "thesis:owner:07",
+      "wrong_owner": "thesis:owner:08",
+      "seed_uint64_decimal": "17719885754025351037",
+      "seed_uint64_hex": "f5e9ae35952f977d"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:206487",
+      "group_id": "d59372f750798c003a9219f4e609d1e55ec1f04dcdf29476082b9d491d389bce",
+      "owner": "thesis:owner:14",
+      "wrong_owner": "thesis:owner:15",
+      "seed_uint64_decimal": "823612652591152476",
+      "seed_uint64_hex": "0b6e0f5806367d5c"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:2473",
+      "group_id": "16239ce4f5aa167a1e3d04d5c0def27784a682d0a9ab0eba2d86bd0fe25b4470",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "7374407218401275689",
+      "seed_uint64_hex": "6657284b39e26f29"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:375493",
+      "group_id": "0ab98a425ea97ca8e881f5bd50acb8cff700f06ef70725d561b8f345963dfd65",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "17341745698164264673",
+      "seed_uint64_hex": "f0aa41d4fc3d4ee1"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:531036",
+      "group_id": "cb3d26a9edf330995513c45ab0bdd5f11fa9f01958b380f60de6bdbba66b0bf9",
+      "owner": "thesis:owner:00",
+      "wrong_owner": "thesis:owner:01",
+      "seed_uint64_decimal": "1788401318779221517",
+      "seed_uint64_hex": "18d1ad8629acf60d"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:481159",
+      "group_id": "f3e0bbacaec6a25cec85624ce5bf755c32c08968f7bf470753feb55f78431124",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "4267711040983201632",
+      "seed_uint64_hex": "3b39f49499d0f760"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:234660",
+      "group_id": "8a75957e9d7674994ea003ac4f85fb561a4ab97b74883ca82d01e76ee5e54501",
+      "owner": "thesis:owner:12",
+      "wrong_owner": "thesis:owner:13",
+      "seed_uint64_decimal": "4505630203117016723",
+      "seed_uint64_hex": "3e8736cc420f9693"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:419312",
+      "group_id": "16d13c68968da245411a6ce7b53eba3c79fdd5e27fd344b7f299990330e86e0c",
+      "owner": "thesis:owner:09",
+      "wrong_owner": "thesis:owner:10",
+      "seed_uint64_decimal": "5618334893668618420",
+      "seed_uint64_hex": "4df855d18e4cd0b4"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:364884",
+      "group_id": "302f2ed328ac34e7d40def56fd4a650ecef1c208d7cc953941a2b24135756183",
+      "owner": "thesis:owner:05",
+      "wrong_owner": "thesis:owner:06",
+      "seed_uint64_decimal": "11197449684980570494",
+      "seed_uint64_hex": "9b6555296f93997e"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:538364",
+      "group_id": "8b7f276c67f8827a01d448ed1e7a5e16c3e26447ebb6da986c4423727daf5e07",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "1984549441015668448",
+      "seed_uint64_hex": "1b8a8933b6f05ee0"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:340272",
+      "group_id": "fc5a6dc94517f4960cb4bf2a88c1fc5a47f7b074171eab0dab882e732207c771",
+      "owner": "thesis:owner:10",
+      "wrong_owner": "thesis:owner:11",
+      "seed_uint64_decimal": "2663067199051574684",
+      "seed_uint64_hex": "24f51d820c76ad9c"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:516173",
+      "group_id": "41631834abaf42f3a7c30e208708b6065c2d4ae53c49173a1d947b22b168e549",
+      "owner": "thesis:owner:04",
+      "wrong_owner": "thesis:owner:05",
+      "seed_uint64_decimal": "10906446404343285735",
+      "seed_uint64_hex": "975b7b384cb7c7e7"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:27620",
+      "group_id": "152da948038696eb3be13f7dc762b13d43892b5dd58bc3837d4717dcdcb2a13a",
+      "owner": "thesis:owner:08",
+      "wrong_owner": "thesis:owner:09",
+      "seed_uint64_decimal": "1981515097477392991",
+      "seed_uint64_hex": "1b7fc17b8e36aa5f"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:340894",
+      "group_id": "339addf484e3b655a0477eacbf370928ec0f4f193f52a2330b32d89734e78878",
+      "owner": "thesis:owner:10",
+      "wrong_owner": "thesis:owner:11",
+      "seed_uint64_decimal": "10282514471275523857",
+      "seed_uint64_hex": "8eb2d46eba30ef11"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:233370",
+      "group_id": "0505a9bb6d753a6cf5bda4139928e29438d6b1561fa28e13b5653ff1ebd20704",
+      "owner": "thesis:owner:04",
+      "wrong_owner": "thesis:owner:05",
+      "seed_uint64_decimal": "6646680123717521790",
+      "seed_uint64_hex": "5c3dc05b5dd5117e"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:377882",
+      "group_id": "c466ad8fae148f448b390ca926d2ef5b46abb78eeaae6b5fb8718768ecd622a9",
+      "owner": "thesis:owner:09",
+      "wrong_owner": "thesis:owner:10",
+      "seed_uint64_decimal": "10405179337713143798",
+      "seed_uint64_hex": "90669f7a88a04ff6"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:94751",
+      "group_id": "22d85d85f6e6f8ecfe7668a3bda23d1f5492a565fe29c35a8d89da93dec25339",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "5183401495873442977",
+      "seed_uint64_hex": "47ef243299c3d4a1"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:448076",
+      "group_id": "bc7b3b4c56bda2ea25439305ff0d94b2d3c8763a4e8997d7895aa81ba26cd9fa",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "9872912486398716822",
+      "seed_uint64_hex": "8903a198f2506b96"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:343149",
+      "group_id": "4df180827c1d4a1691a8054fa8ab9dae0674c9f12f97fb847950580e5ba31d87",
+      "owner": "thesis:owner:15",
+      "wrong_owner": "thesis:owner:00",
+      "seed_uint64_decimal": "9434019506557752",
+      "seed_uint64_hex": "00218430d57e1338"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:249643",
+      "group_id": "8668bd5dde0c78a051ae1216f526733d43b6524db6c7274f20ac0bae1a1d18c3",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "871455602957744535",
+      "seed_uint64_hex": "0c180840f3d1f997"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:380203",
+      "group_id": "0c5bedf82a6faab714d876681260af5de6e9bfb7eda142c980a00c05b8765756",
+      "owner": "thesis:owner:08",
+      "wrong_owner": "thesis:owner:09",
+      "seed_uint64_decimal": "6475615533026477656",
+      "seed_uint64_hex": "59de02049c0b8658"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:23899",
+      "group_id": "721b15b8c4bac891530f2c01aee121cf0728be3a6d5cac903e36a1a0f1966f5a",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "1182337693149516136",
+      "seed_uint64_hex": "106881de1cbb5168"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:465430",
+      "group_id": "20120a068388d00542fbbb4d06caa53af1e617ceff23209ca13b7fecf898b2fc",
+      "owner": "thesis:owner:09",
+      "wrong_owner": "thesis:owner:10",
+      "seed_uint64_decimal": "20538965785037990",
+      "seed_uint64_hex": "0048f8149fabcca6"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:490413",
+      "group_id": "73781a7d5c4bcf4d22545f7d73f326dacaaf95e648074a469d39a40b6b59124f",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "14067639943170942096",
+      "seed_uint64_hex": "c33a4bfea8cce490"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:566758",
+      "group_id": "2db875d6aa474d122cf59adfd2d9f21cac0a9de940dd9f0c0885a13047d93563",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "4089666699507575944",
+      "seed_uint64_hex": "38c16a31f9e4ac88"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:269314",
+      "group_id": "9985559556107faeaa171c492f0d069ac8f0d1782c172080f8a9826d31ea34d9",
+      "owner": "thesis:owner:09",
+      "wrong_owner": "thesis:owner:10",
+      "seed_uint64_decimal": "14874492025434140684",
+      "seed_uint64_hex": "ce6ccfb04e61f00c"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:452084",
+      "group_id": "5c73eaa5e7acab54ffc346b3161b14ea0edad5b4b610e534a4390068000875b5",
+      "owner": "thesis:owner:08",
+      "wrong_owner": "thesis:owner:09",
+      "seed_uint64_decimal": "12711843157969400416",
+      "seed_uint64_hex": "b0698a007f3ef260"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:430377",
+      "group_id": "25b0e10a8ba247fee359ea7109a7833f9a292993a45ec0cc0ec40399c2e6651c",
+      "owner": "thesis:owner:07",
+      "wrong_owner": "thesis:owner:08",
+      "seed_uint64_decimal": "14562428492688386498",
+      "seed_uint64_hex": "ca18238f1db7e9c2"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:456292",
+      "group_id": "a7aa39b872813ef59035b839ade8673de1726140ab76a3bb9be193cbe697b8d1",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "6070188875919825760",
+      "seed_uint64_hex": "543da49f14ba9b60"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:169356",
+      "group_id": "d709489812f5f9ba861de143e5438d4b334d8ed78725c84157d50981fcc916b2",
+      "owner": "thesis:owner:02",
+      "wrong_owner": "thesis:owner:03",
+      "seed_uint64_decimal": "10450363608733752718",
+      "seed_uint64_hex": "91072655703e9d8e"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:188465",
+      "group_id": "43a01f2492ceffeafdcd609a00de3307dd5285ab4a33459ce4a80d8b0465c05c",
+      "owner": "thesis:owner:04",
+      "wrong_owner": "thesis:owner:05",
+      "seed_uint64_decimal": "9402449635535004495",
+      "seed_uint64_hex": "827c36209090a34f"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:377575",
+      "group_id": "2075ac0a38a167c9e225ab1642f102cb54252a32e9e956a8999a88d2927ab867",
+      "owner": "thesis:owner:10",
+      "wrong_owner": "thesis:owner:11",
+      "seed_uint64_decimal": "17186489688997491344",
+      "seed_uint64_hex": "ee82ad50709bf290"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:7991",
+      "group_id": "c5cbc4dbb0d0fd86465f0fd54a31e21ca449d98c873a9f5757b4065ff82d5d34",
+      "owner": "thesis:owner:05",
+      "wrong_owner": "thesis:owner:06",
+      "seed_uint64_decimal": "8981196611867374760",
+      "seed_uint64_hex": "7ca39ebbec4bf4a8"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:392818",
+      "group_id": "a3ac5215e6b325e8a235fc68274b83565d3e943d9289dc20ed785219b01fee82",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "14229905079216529309",
+      "seed_uint64_hex": "c57ac746ba3a5f9d"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:189310",
+      "group_id": "eb9e0825e6760d6d48d037441600289d82ef713aa2d573800eeb3b561878674d",
+      "owner": "thesis:owner:09",
+      "wrong_owner": "thesis:owner:10",
+      "seed_uint64_decimal": "2748808973928888359",
+      "seed_uint64_hex": "2625bb32ae6ff827"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:154213",
+      "group_id": "c189f3b7498e69c7d1de2a11ee923b0b6afe33e2071272755e2353a488f8b3b6",
+      "owner": "thesis:owner:10",
+      "wrong_owner": "thesis:owner:11",
+      "seed_uint64_decimal": "17200207277052077497",
+      "seed_uint64_hex": "eeb369634bc725b9"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:183709",
+      "group_id": "56f22b968dddd9c826957445a23242907dc82ab06cb504d3e6354bf406f5cbc8",
+      "owner": "thesis:owner:02",
+      "wrong_owner": "thesis:owner:03",
+      "seed_uint64_decimal": "14749685313493547715",
+      "seed_uint64_hex": "ccb168a53b943ac3"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:426836",
+      "group_id": "7dfdf401b30abc49b988c623ab30bddd362ca8ad152cdb73e1b229f2b29c6787",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "7422349104529280566",
+      "seed_uint64_hex": "67017b2f6e680e36"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:80153",
+      "group_id": "1533007d19446c19d3849ffa9fac8ab3c73a196cd29862f90376c3392bdd1698",
+      "owner": "thesis:owner:09",
+      "wrong_owner": "thesis:owner:10",
+      "seed_uint64_decimal": "18135816802005390375",
+      "seed_uint64_hex": "fbaf5d4b33179427"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:85157",
+      "group_id": "2be3746b650cec5812caed96a306b0b5a51f6f0f3022fa12bffe91dacbcd40cc",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "9156485394656115530",
+      "seed_uint64_hex": "7f125ef40b87bb4a"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:560312",
+      "group_id": "dbff40a370b52bd34565053539030dcd0e495466886dbd264d782e4beaf13026",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "4384224056616240926",
+      "seed_uint64_hex": "3cd7e48d0655471e"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:78823",
+      "group_id": "d0686fba36c4687708b93f0cac0c990209b141be7c5d276b6a3e3c2d67081bb5",
+      "owner": "thesis:owner:05",
+      "wrong_owner": "thesis:owner:06",
+      "seed_uint64_decimal": "6072366687899927993",
+      "seed_uint64_hex": "544561547230c5b9"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:122217",
+      "group_id": "7964c24b41a3badcaf1c275448b3be8c6a9f6645f93b19190f53b0f11332a396",
+      "owner": "thesis:owner:00",
+      "wrong_owner": "thesis:owner:01",
+      "seed_uint64_decimal": "15980329539215071914",
+      "seed_uint64_hex": "ddc5890c6a989aaa"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:134856",
+      "group_id": "f2924a6e72d5cbdbcfd6b01267a9123acad94b3329bc4d4b5a45177bae0b3b04",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "2949669169741941968",
+      "seed_uint64_hex": "28ef547b5b63ccd0"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:458223",
+      "group_id": "ec22aeed5ecab563d22939fa00b15ec412619a13e40dadf8f43d9b32ba06b3d3",
+      "owner": "thesis:owner:10",
+      "wrong_owner": "thesis:owner:11",
+      "seed_uint64_decimal": "6265551580670714915",
+      "seed_uint64_hex": "56f3b5f75fc3e423"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:419201",
+      "group_id": "b42923538a057056a4d6ca54f71e5a1a0eb8c17bc855b5f73cec7235d5a6cc4c",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "9078652274647276341",
+      "seed_uint64_hex": "7dfdda249da49b35"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:568147",
+      "group_id": "3a69e8620c7dae2fd91192bd40edca74e115224defa0626f84f847140a160254",
+      "owner": "thesis:owner:02",
+      "wrong_owner": "thesis:owner:03",
+      "seed_uint64_decimal": "5434495721222699601",
+      "seed_uint64_hex": "4b6b3510b4dbfa51"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:563603",
+      "group_id": "312a108bc4df6a795cec7cdceb6293bc1a9efac47a51108dc07a1e213ab6302f",
+      "owner": "thesis:owner:00",
+      "wrong_owner": "thesis:owner:01",
+      "seed_uint64_decimal": "1168000271963462301",
+      "seed_uint64_hex": "1035920f1bf11a9d"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:521259",
+      "group_id": "f45628fe06ad002b18c6ea81314acc06afabca8a4146b7212ddd7a0490aba69d",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "7758700570934279768",
+      "seed_uint64_hex": "6bac710fd9287e58"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:508639",
+      "group_id": "5cec5bf0ed6100d35516b561db5080b380dd99dd16c33439d1854d8bf806768d",
+      "owner": "thesis:owner:07",
+      "wrong_owner": "thesis:owner:08",
+      "seed_uint64_decimal": "643088429571131757",
+      "seed_uint64_hex": "08ecb584fbc0496d"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:320632",
+      "group_id": "eca4c89bd338588ebdace8921d9d1291d53765cf9efadbf70f56f0b89a96a22f",
+      "owner": "thesis:owner:15",
+      "wrong_owner": "thesis:owner:00",
+      "seed_uint64_decimal": "11927865770354028153",
+      "seed_uint64_hex": "a5884ab8ba7e2e79"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:229358",
+      "group_id": "06eb829dcec1a16c8a0c93a8801eb25318303c991259ded8a36842ac4f4e3bab",
+      "owner": "thesis:owner:08",
+      "wrong_owner": "thesis:owner:09",
+      "seed_uint64_decimal": "13976180583068598782",
+      "seed_uint64_hex": "c1f55e30fa8401fe"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:39551",
+      "group_id": "d2f3044d9bb4b0772d30fa1b060b2baddb33a6936d0aa01baf5f5f0d0477d241",
+      "owner": "thesis:owner:04",
+      "wrong_owner": "thesis:owner:05",
+      "seed_uint64_decimal": "11596719721710668896",
+      "seed_uint64_hex": "a0efd3251454cc60"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:100510",
+      "group_id": "f1d450796b855eb543a77a7a641b78c76c1c2462b16cc26f76f618393d16ee14",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "14241507743871034597",
+      "seed_uint64_hex": "c5a3ffd69b6864e5"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:579307",
+      "group_id": "0606f2f6736e0783184c91ee5e82e92b4f82a6a365cc39c8c538da0d3ab457ee",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "8597480162247558942",
+      "seed_uint64_hex": "775062a7fa3bc71e"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:555412",
+      "group_id": "47b2bb1422a5b01372c5efd3dda19cd673aed7b1c397985ad7dc07bf241034be",
+      "owner": "thesis:owner:02",
+      "wrong_owner": "thesis:owner:03",
+      "seed_uint64_decimal": "4423142981407004697",
+      "seed_uint64_hex": "3d62291b5586d819"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:447789",
+      "group_id": "6936952732170e300931e788bbd335278883ded972d9bfdfaff15846330fcf59",
+      "owner": "thesis:owner:04",
+      "wrong_owner": "thesis:owner:05",
+      "seed_uint64_decimal": "5837286349552392934",
+      "seed_uint64_hex": "51023501f54e9ae6"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:303893",
+      "group_id": "0f80a4fe5d29f1f7853d4d8e8f72ffc8e6b054e5f0a83e2e2f3f70a6fa20554a",
+      "owner": "thesis:owner:04",
+      "wrong_owner": "thesis:owner:05",
+      "seed_uint64_decimal": "16316141807192976436",
+      "seed_uint64_hex": "e26e9486eaa32c34"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:359219",
+      "group_id": "175d6c9230fcd863e79c6105f5d1dffa31379453b5c871d8cc9a210b239ac664",
+      "owner": "thesis:owner:02",
+      "wrong_owner": "thesis:owner:03",
+      "seed_uint64_decimal": "17101662838131431989",
+      "seed_uint64_hex": "ed554fbe27529a35"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:18491",
+      "group_id": "a3836feada0ec40a994257f076bf62e73dcd25e5dd87a8cde67651b89426c224",
+      "owner": "thesis:owner:07",
+      "wrong_owner": "thesis:owner:08",
+      "seed_uint64_decimal": "11668251877839218460",
+      "seed_uint64_hex": "a1edf5430864271c"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:418062",
+      "group_id": "540f86e134c3c6decf1a0160b9106bd678a7ade76da4709400499c89cc571421",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "18254149414527864965",
+      "seed_uint64_hex": "fd53c42d89d69085"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:51938",
+      "group_id": "5959355a97d7cbafd50b3eb97bb1185efffc1614c2ef8d1ac380c5d1ae10709d",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "5835927476980410412",
+      "seed_uint64_hex": "50fd611ec85be82c"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:435880",
+      "group_id": "eedb2e4300f0a6a27bd191ac104efc7121f6474d256e69d5e79701b79e7b5b7b",
+      "owner": "thesis:owner:04",
+      "wrong_owner": "thesis:owner:05",
+      "seed_uint64_decimal": "16422620002104325279",
+      "seed_uint64_hex": "e3e8dde192a7349f"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:134886",
+      "group_id": "be16c2a7207873c271bdf5377513b30f02a8b7cc7a7b2f5a45fafb7d4242d881",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "9273310112611501319",
+      "seed_uint64_hex": "80b16a6a523f0507"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:124659",
+      "group_id": "1cd5d5faa7da03d508e60fa1389fb249ede7c683c5dfd716425d53c109e26d9e",
+      "owner": "thesis:owner:12",
+      "wrong_owner": "thesis:owner:13",
+      "seed_uint64_decimal": "6024744462185456557",
+      "seed_uint64_hex": "539c312afb10e3ad"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:556158",
+      "group_id": "7d57ef50872ba7c29b9887297c3a6b8ce254754221b85b3e79cc20361bf4fc3d",
+      "owner": "thesis:owner:15",
+      "wrong_owner": "thesis:owner:00",
+      "seed_uint64_decimal": "11537022886256261403",
+      "seed_uint64_hex": "a01bbd3074db391b"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:192607",
+      "group_id": "9b4f966f808a3786ad6709fe2e099a0b2bf97ae21f5f4698ef111f074606b395",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "2805939882853707733",
+      "seed_uint64_hex": "26f0b374fa98afd5"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:129113",
+      "group_id": "6f68b2ef34a63eb84ef7e0987a798f1132d05becbee4f0961e9e00eb7110c4e0",
+      "owner": "thesis:owner:04",
+      "wrong_owner": "thesis:owner:05",
+      "seed_uint64_decimal": "16033551483456512250",
+      "seed_uint64_hex": "de829e1ff35ce0fa"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:278353",
+      "group_id": "dab984851db2d1422089d8e04637d9cae309be6f3fcd9917ec8a829b45504f3a",
+      "owner": "thesis:owner:12",
+      "wrong_owner": "thesis:owner:13",
+      "seed_uint64_decimal": "14475598361866285255",
+      "seed_uint64_hex": "c8e3a803de4430c7"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:421757",
+      "group_id": "90110554a6102d67069cee3bef4b8ea03db9c1f1d434c851bb0dda2ad4d953b8",
+      "owner": "thesis:owner:09",
+      "wrong_owner": "thesis:owner:10",
+      "seed_uint64_decimal": "3057312143848968401",
+      "seed_uint64_hex": "2a6dc1324d9b10d1"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:274708",
+      "group_id": "924dee63c5c60304611d4107abb6aab8a9fc6b2794ec64612ca8bb901d8ecb28",
+      "owner": "thesis:owner:09",
+      "wrong_owner": "thesis:owner:10",
+      "seed_uint64_decimal": "2191006918815085772",
+      "seed_uint64_hex": "1e68052f286574cc"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:229216",
+      "group_id": "ec353481b64239e662f0383d590d74a8390c94ff5618e68f9e547ebcfd0e31fc",
+      "owner": "thesis:owner:07",
+      "wrong_owner": "thesis:owner:08",
+      "seed_uint64_decimal": "16246830402620828084",
+      "seed_uint64_hex": "e178562bfa3b29b4"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:286553",
+      "group_id": "3282e492eda297f9abe594090a0e391dc46eae326a3bc1122e22a0c6f16fe74a",
+      "owner": "thesis:owner:09",
+      "wrong_owner": "thesis:owner:10",
+      "seed_uint64_decimal": "14160024401643057337",
+      "seed_uint64_hex": "c482832b96cc30b9"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:39956",
+      "group_id": "d8fc5d6de9e1a233e9c100b1f31ab84abb3d0892c7be1b3b129a6176dcd17328",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "3201713040098754655",
+      "seed_uint64_hex": "2c6ec50bebd2805f"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:322968",
+      "group_id": "5c68980bc2948e9ca3fa2895ee1f186992157d6d2a70c74ff489cb9d55123c5e",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "10911471688782310345",
+      "seed_uint64_hex": "976d55b08299ebc9"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:315492",
+      "group_id": "ea54252dd5206fd2aa3441bb44ffd827a2baa4a0a6d97ec3755de980b977a13f",
+      "owner": "thesis:owner:14",
+      "wrong_owner": "thesis:owner:15",
+      "seed_uint64_decimal": "17532167882094368388",
+      "seed_uint64_hex": "f34ec5cca2bf5684"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:182805",
+      "group_id": "4eeb61ee16ae478d91f81bfa31b20a0e5abd6a51f678163ff45f148182ec9e75",
+      "owner": "thesis:owner:04",
+      "wrong_owner": "thesis:owner:05",
+      "seed_uint64_decimal": "2409271122127590907",
+      "seed_uint64_hex": "216f73521a0595fb"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:356248",
+      "group_id": "91c2c454acfda51adaa513265e28d16ae2e41aff0851238e51b2fe297a5fe4e1",
+      "owner": "thesis:owner:05",
+      "wrong_owner": "thesis:owner:06",
+      "seed_uint64_decimal": "11835823781269928140",
+      "seed_uint64_hex": "a4414b052ab6f8cc"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:420916",
+      "group_id": "b381c71e5dfbaae3de3517b756d8ce66521a3f47bbca079ce9a52b05d7e61e79",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "17492259588999445583",
+      "seed_uint64_hex": "f2c0fd6b113b7c4f"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:81988",
+      "group_id": "eacf5b967e5f8019ac252d3ec8e71262156d29eb12754242dbd5ef8740790fb1",
+      "owner": "thesis:owner:05",
+      "wrong_owner": "thesis:owner:06",
+      "seed_uint64_decimal": "14285788392866473356",
+      "seed_uint64_hex": "c64150da9d34658c"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:357567",
+      "group_id": "17d6ddea2c5c7f22c3a13a2e8b1942902fa59e77498ceccf0e3a320870b453c0",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "7399398568687662537",
+      "seed_uint64_hex": "66aff1cb662975c9"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:329323",
+      "group_id": "eddcb8a38daa0233518c90068216374c9a52af9bc08333b1950d7bd8ced7472a",
+      "owner": "thesis:owner:15",
+      "wrong_owner": "thesis:owner:00",
+      "seed_uint64_decimal": "10452647421976756742",
+      "seed_uint64_hex": "910f43732553c206"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:537812",
+      "group_id": "607e0e9946c8ce397b547227af5bd8d561c5f7a7bac6603f02d497c21f7629d7",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "6477995584735693591",
+      "seed_uint64_hex": "59e676a994b84b17"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:430286",
+      "group_id": "888fa24723ea55441c28aaed985b78b20e2d73307d22e21df37ed8b6401b2d7a",
+      "owner": "thesis:owner:00",
+      "wrong_owner": "thesis:owner:01",
+      "seed_uint64_decimal": "15541806455492796675",
+      "seed_uint64_hex": "d7af96a093856103"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:147740",
+      "group_id": "e3d73cefb5c4ba7c4e6991d89e11821791d9955d3e899ba591e3939e6be711d7",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "9454207609496761499",
+      "seed_uint64_hex": "833417baf4d9749b"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:129135",
+      "group_id": "be9110cd8414e450b812622dc8740a3714d14339f2f76a047996737947727983",
+      "owner": "thesis:owner:12",
+      "wrong_owner": "thesis:owner:13",
+      "seed_uint64_decimal": "9068397016003916496",
+      "seed_uint64_hex": "7dd96b0a252032d0"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:415748",
+      "group_id": "19f8f6cb232eb89a92a1de3c42a6279d676bdb7935ad49037dbc551f97e0df5c",
+      "owner": "thesis:owner:14",
+      "wrong_owner": "thesis:owner:15",
+      "seed_uint64_decimal": "5415750574874091448",
+      "seed_uint64_hex": "4b289c74377cdfb8"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:872",
+      "group_id": "8934b1b5134b9ae5f9e31a1367b759f65984f8a43048460f1bf93c095322c8f0",
+      "owner": "thesis:owner:12",
+      "wrong_owner": "thesis:owner:13",
+      "seed_uint64_decimal": "5356422165545582882",
+      "seed_uint64_hex": "4a55d5947c5f8122"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:571804",
+      "group_id": "83e8544815886aeb7e3648ac46f4829ad6a8a833a1b2926cc82dfe1b02a20f32",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "13728378006327254082",
+      "seed_uint64_hex": "be84ff0f896bdc42"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:407002",
+      "group_id": "9d27263f8760f1ef51406610cea3a0a9e55340805e2ca3fd0c6c1e5ee6d12a3d",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "5502318069426253771",
+      "seed_uint64_hex": "4c5c2921b15d6fcb"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:23751",
+      "group_id": "1b54f12817cc592fe5ade10e973cd22dfe4101923366c6662b67fb42e233cde1",
+      "owner": "thesis:owner:07",
+      "wrong_owner": "thesis:owner:08",
+      "seed_uint64_decimal": "13415934464525179938",
+      "seed_uint64_hex": "ba2ef95097f19c22"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:338191",
+      "group_id": "b3797f2b5da370aeb28375764de29ae328e627ca960c77017a04740e82ea49e2",
+      "owner": "thesis:owner:05",
+      "wrong_owner": "thesis:owner:06",
+      "seed_uint64_decimal": "11285609898782164677",
+      "seed_uint64_hex": "9c9e8a68c28b06c5"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:424349",
+      "group_id": "9a5ede0b93bfe84f07bb89266cbba62503afaa4b41351e33405e3cd9ed29fe6e",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "1711025832350580402",
+      "seed_uint64_hex": "17bec8eddac5feb2"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:19402",
+      "group_id": "e96d7c2050b511d769b4c5c5b962126200ab48cb20560b1d24ab9952a5aff9a6",
+      "owner": "thesis:owner:07",
+      "wrong_owner": "thesis:owner:08",
+      "seed_uint64_decimal": "7217678517952849105",
+      "seed_uint64_hex": "642a585f058c24d1"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:34205",
+      "group_id": "645fef01de4abde6543d0a07c85fb8585a7e15798919fbb32537ce5800e53968",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "3934396076155931923",
+      "seed_uint64_hex": "3699c862ccf70d13"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:372260",
+      "group_id": "48fecc4a4c5c5b748e3b071d9ee7661d766dfca53fc7349e482955ee07d2c0d0",
+      "owner": "thesis:owner:14",
+      "wrong_owner": "thesis:owner:15",
+      "seed_uint64_decimal": "1420483877431909422",
+      "seed_uint64_hex": "13b6928f7b7f9c2e"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:47571",
+      "group_id": "6bf240eb13368f31c66038c60cde290b5d50626d9de820abd4e0a7d261a7e8e9",
+      "owner": "thesis:owner:00",
+      "wrong_owner": "thesis:owner:01",
+      "seed_uint64_decimal": "3524257703508672847",
+      "seed_uint64_hex": "30e8adb58291814f"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:463690",
+      "group_id": "6f8972962cc04e72bfd89e6012ecfafdfee1aa0ef5286d425bcc51bcbc16cde4",
+      "owner": "thesis:owner:13",
+      "wrong_owner": "thesis:owner:14",
+      "seed_uint64_decimal": "14578233874482503097",
+      "seed_uint64_hex": "ca504a7855189db9"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:532901",
+      "group_id": "ae81785404d300eae9bafe65fd11036ea132a39cd4a818894b1827e49d5c70ee",
+      "owner": "thesis:owner:03",
+      "wrong_owner": "thesis:owner:04",
+      "seed_uint64_decimal": "7340642831108433633",
+      "seed_uint64_hex": "65df33c3333c66e1"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:287667",
+      "group_id": "c63b2a141bfbdb86615a3ff5d889dacb21819687487b78eb30d81efedba19532",
+      "owner": "thesis:owner:10",
+      "wrong_owner": "thesis:owner:11",
+      "seed_uint64_decimal": "1123713652967325907",
+      "seed_uint64_hex": "0f983b9d1a5fc0d3"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:535306",
+      "group_id": "c84fba3a42f35d4da5564da6d23f93453059c14de6c9b6fd3f62e5f137c1e55f",
+      "owner": "thesis:owner:11",
+      "wrong_owner": "thesis:owner:12",
+      "seed_uint64_decimal": "1464965630741819401",
+      "seed_uint64_hex": "14549a7abc85b009"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:507081",
+      "group_id": "23b7af068051f2224ae3fd24827abeab09dcf96e77d728ce4a68f889bc5d5257",
+      "owner": "thesis:owner:15",
+      "wrong_owner": "thesis:owner:00",
+      "seed_uint64_decimal": "6163647559564912047",
+      "seed_uint64_hex": "5589accc8c91e5af"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:166642",
+      "group_id": "e507502cbc42f1bb9ec283548388c7909a4510e23c2398d6873a11f9f05b45a1",
+      "owner": "thesis:owner:07",
+      "wrong_owner": "thesis:owner:08",
+      "seed_uint64_decimal": "4426621063434626565",
+      "seed_uint64_hex": "3d6e846769486605"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:375469",
+      "group_id": "cfbe0153fb8af588f835d3b0e6bb03c6e696e950af723f6ec831a54cf278899a",
+      "owner": "thesis:owner:10",
+      "wrong_owner": "thesis:owner:11",
+      "seed_uint64_decimal": "11137991005299791328",
+      "seed_uint64_hex": "9a9217cec663d5e0"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:176037",
+      "group_id": "c185777b64f9a11f30c7eb1d68a711575443ae4a6da97f0c10ab70711761c5a0",
+      "owner": "thesis:owner:00",
+      "wrong_owner": "thesis:owner:01",
+      "seed_uint64_decimal": "4870880326756955937",
+      "seed_uint64_hex": "4398d7d9a3c97721"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:352618",
+      "group_id": "1ed3d1f4bd52aace7965077cc5fb32ec36dc3c0cbe1cbc7be662c195f7875b84",
+      "owner": "thesis:owner:06",
+      "wrong_owner": "thesis:owner:07",
+      "seed_uint64_decimal": "15045524058427733338",
+      "seed_uint64_hex": "d0cc706aa22db55a"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:354307",
+      "group_id": "cd8e10a4561563b1151aafcef4bfb8be82f4eb6bfd96ad400ad7efa57da0b29e",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02",
+      "seed_uint64_decimal": "7381472575726980050",
+      "seed_uint64_hex": "66704232eb7e8bd2"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:157807",
+      "group_id": "65a13efcead0631dfe615c79d5fdd5854f481dc76f31f34fe3d31e464da32447",
+      "owner": "thesis:owner:08",
+      "wrong_owner": "thesis:owner:09",
+      "seed_uint64_decimal": "5498011762690321611",
+      "seed_uint64_hex": "4c4cdc9186136ccb"
+    },
+    {
+      "source_uid": "ms-coco:coco-2017:val2017:513688",
+      "group_id": "2835f366b53b0ae0f5f1042d13e4a39aa957937b8215eda7b82802b4c788ff5f",
+      "owner": "thesis:owner:07",
+      "wrong_owner": "thesis:owner:08",
+      "seed_uint64_decimal": "4179601336523966984",
+      "seed_uint64_hex": "3a00ed4566424a08"
+    }
+  ],
+  "t3_source_uids": [
+    "ms-coco:coco-2017:val2017:531036",
+    "ms-coco:coco-2017:val2017:507081",
+    "ms-coco:coco-2017:val2017:521259",
+    "ms-coco:coco-2017:val2017:166642",
+    "ms-coco:coco-2017:val2017:270908",
+    "ms-coco:coco-2017:val2017:581482",
+    "ms-coco:coco-2017:val2017:108244",
+    "ms-coco:coco-2017:val2017:10707",
+    "ms-coco:coco-2017:val2017:47571",
+    "ms-coco:coco-2017:val2017:452321",
+    "ms-coco:coco-2017:val2017:92053",
+    "ms-coco:coco-2017:val2017:320632",
+    "ms-coco:coco-2017:val2017:220584",
+    "ms-coco:coco-2017:val2017:116479",
+    "ms-coco:coco-2017:val2017:98261",
+    "ms-coco:coco-2017:val2017:357567",
+    "ms-coco:coco-2017:val2017:343315",
+    "ms-coco:coco-2017:val2017:148707",
+    "ms-coco:coco-2017:val2017:481386",
+    "ms-coco:coco-2017:val2017:274708",
+    "ms-coco:coco-2017:val2017:140203",
+    "ms-coco:coco-2017:val2017:124659",
+    "ms-coco:coco-2017:val2017:249643",
+    "ms-coco:coco-2017:val2017:352618",
+    "ms-coco:coco-2017:val2017:37689",
+    "ms-coco:coco-2017:val2017:90891",
+    "ms-coco:coco-2017:val2017:157601",
+    "ms-coco:coco-2017:val2017:516173",
+    "ms-coco:coco-2017:val2017:434297",
+    "ms-coco:coco-2017:val2017:364884"
+  ],
+  "t4_pairs": [
+    {
+      "pair_index": 0,
+      "donor_uid": "ms-coco:coco-2017:val2017:196759",
+      "recipient_uid": "ms-coco:coco-2017:val2017:138979"
+    },
+    {
+      "pair_index": 1,
+      "donor_uid": "ms-coco:coco-2017:val2017:39769",
+      "recipient_uid": "ms-coco:coco-2017:val2017:442456"
+    },
+    {
+      "pair_index": 2,
+      "donor_uid": "ms-coco:coco-2017:val2017:566758",
+      "recipient_uid": "ms-coco:coco-2017:val2017:342128"
+    },
+    {
+      "pair_index": 3,
+      "donor_uid": "ms-coco:coco-2017:val2017:70774",
+      "recipient_uid": "ms-coco:coco-2017:val2017:250901"
+    },
+    {
+      "pair_index": 4,
+      "donor_uid": "ms-coco:coco-2017:val2017:243626",
+      "recipient_uid": "ms-coco:coco-2017:val2017:252332"
+    },
+    {
+      "pair_index": 5,
+      "donor_uid": "ms-coco:coco-2017:val2017:314251",
+      "recipient_uid": "ms-coco:coco-2017:val2017:90891"
+    },
+    {
+      "pair_index": 6,
+      "donor_uid": "ms-coco:coco-2017:val2017:166642",
+      "recipient_uid": "ms-coco:coco-2017:val2017:418961"
+    },
+    {
+      "pair_index": 7,
+      "donor_uid": "ms-coco:coco-2017:val2017:192607",
+      "recipient_uid": "ms-coco:coco-2017:val2017:581482"
+    },
+    {
+      "pair_index": 8,
+      "donor_uid": "ms-coco:coco-2017:val2017:430377",
+      "recipient_uid": "ms-coco:coco-2017:val2017:357567"
+    },
+    {
+      "pair_index": 9,
+      "donor_uid": "ms-coco:coco-2017:val2017:7991",
+      "recipient_uid": "ms-coco:coco-2017:val2017:10707"
+    },
+    {
+      "pair_index": 10,
+      "donor_uid": "ms-coco:coco-2017:val2017:570664",
+      "recipient_uid": "ms-coco:coco-2017:val2017:80153"
+    },
+    {
+      "pair_index": 11,
+      "donor_uid": "ms-coco:coco-2017:val2017:192670",
+      "recipient_uid": "ms-coco:coco-2017:val2017:407002"
+    },
+    {
+      "pair_index": 12,
+      "donor_uid": "ms-coco:coco-2017:val2017:128654",
+      "recipient_uid": "ms-coco:coco-2017:val2017:290833"
+    },
+    {
+      "pair_index": 13,
+      "donor_uid": "ms-coco:coco-2017:val2017:292005",
+      "recipient_uid": "ms-coco:coco-2017:val2017:147415"
+    },
+    {
+      "pair_index": 14,
+      "donor_uid": "ms-coco:coco-2017:val2017:574520",
+      "recipient_uid": "ms-coco:coco-2017:val2017:356387"
+    },
+    {
+      "pair_index": 15,
+      "donor_uid": "ms-coco:coco-2017:val2017:560011",
+      "recipient_uid": "ms-coco:coco-2017:val2017:340894"
+    },
+    {
+      "pair_index": 16,
+      "donor_uid": "ms-coco:coco-2017:val2017:382734",
+      "recipient_uid": "ms-coco:coco-2017:val2017:359219"
+    },
+    {
+      "pair_index": 17,
+      "donor_uid": "ms-coco:coco-2017:val2017:227686",
+      "recipient_uid": "ms-coco:coco-2017:val2017:447789"
+    },
+    {
+      "pair_index": 18,
+      "donor_uid": "ms-coco:coco-2017:val2017:571804",
+      "recipient_uid": "ms-coco:coco-2017:val2017:568290"
+    },
+    {
+      "pair_index": 19,
+      "donor_uid": "ms-coco:coco-2017:val2017:154213",
+      "recipient_uid": "ms-coco:coco-2017:val2017:122217"
+    },
+    {
+      "pair_index": 20,
+      "donor_uid": "ms-coco:coco-2017:val2017:92053",
+      "recipient_uid": "ms-coco:coco-2017:val2017:17182"
+    },
+    {
+      "pair_index": 21,
+      "donor_uid": "ms-coco:coco-2017:val2017:356248",
+      "recipient_uid": "ms-coco:coco-2017:val2017:565778"
+    },
+    {
+      "pair_index": 22,
+      "donor_uid": "ms-coco:coco-2017:val2017:298396",
+      "recipient_uid": "ms-coco:coco-2017:val2017:203389"
+    },
+    {
+      "pair_index": 23,
+      "donor_uid": "ms-coco:coco-2017:val2017:426836",
+      "recipient_uid": "ms-coco:coco-2017:val2017:492282"
+    },
+    {
+      "pair_index": 24,
+      "donor_uid": "ms-coco:coco-2017:val2017:28993",
+      "recipient_uid": "ms-coco:coco-2017:val2017:143572"
+    },
+    {
+      "pair_index": 25,
+      "donor_uid": "ms-coco:coco-2017:val2017:183391",
+      "recipient_uid": "ms-coco:coco-2017:val2017:508639"
+    },
+    {
+      "pair_index": 26,
+      "donor_uid": "ms-coco:coco-2017:val2017:259830",
+      "recipient_uid": "ms-coco:coco-2017:val2017:309452"
+    },
+    {
+      "pair_index": 27,
+      "donor_uid": "ms-coco:coco-2017:val2017:352618",
+      "recipient_uid": "ms-coco:coco-2017:val2017:229753"
+    },
+    {
+      "pair_index": 28,
+      "donor_uid": "ms-coco:coco-2017:val2017:500464",
+      "recipient_uid": "ms-coco:coco-2017:val2017:402346"
+    },
+    {
+      "pair_index": 29,
+      "donor_uid": "ms-coco:coco-2017:val2017:8762",
+      "recipient_uid": "ms-coco:coco-2017:val2017:189310"
+    }
+  ],
+  "t5": {
+    "status": "post-approval-only",
+    "design": "bounded disjoint30 pairs",
+    "annotation_signature": "identical nonempty noncrowd COCO category sets",
+    "minimum_source_phash_hamming": 8,
+    "maximum_pairs": 30,
+    "selection_tag": "m1-coco512-t5-v1",
+    "no_replacement": true
+  },
+  "caveat": "Metadata groups are operational leakage screens, not certified population independence. This schedule grants no data access or scientific acceptance.",
+  "split_metadata": {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\b3-coco-release-audit\\THESIS_GUIDE_OFFLINE_v5\\data\\splits.csv",
+    "sha256": "60ff11ae5a81698446573c5f7fbd9d3067a5a2619abdf29ac2389931de1e1b9f"
+  },
+  "builder_sha256": "60d8e277424253b281ec6240ee6035e17d3bc57dfe6bf3dcb54578f7455c013c",
+  "owner_schedule_code_sha256": "9b66795b2a80371e80c1c57b19712864bf0df3b0a03b1cf89408c02f48952197"
+}
