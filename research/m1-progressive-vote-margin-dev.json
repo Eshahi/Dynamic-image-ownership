@@ -1,0 +1,84 @@
+{
+  "schema_version": "m1-progressive-vote-margin-v1",
+  "data_split": "synthetic",
+  "cases": [
+    {
+      "seed": 1000,
+      "prompt": "a photograph of a mountain lake at sunrise, detailed landscape"
+    },
+    {
+      "seed": 1001,
+      "prompt": "a photograph of a city street with parked cars and shop fronts"
+    },
+    {
+      "seed": 1002,
+      "prompt": "a close-up photograph of a bowl of fruit on a wooden table"
+    },
+    {
+      "seed": 1003,
+      "prompt": "a photograph of a brown dog running on a beach"
+    }
+  ],
+  "arms": [
+    "C0-replay",
+    "C-L100-replay",
+    "C-EQ5",
+    "C-EQ5-complement",
+    "C-Q5",
+    "C-Q5-complement"
+  ],
+  "alpha": 0.3,
+  "replay_alpha": 0.5,
+  "eta": 100.0,
+  "steps": 50,
+  "guidance_scale": 7.5,
+  "sampler_eta": 0.0,
+  "payload": "1011010001101001",
+  "complement": "0100101110010110",
+  "presence_matches": 14,
+  "source_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0911-progressive-phase",
+  "source_run_sha256": "af46e84ae6f7f75f5ae68f34286432baf0f5173b1398a6df7d2166f38a97e91b",
+  "original_script_sha256": "1ab50ebf7d94883c80af623b1f14f1a7c6412c1ea4b8a83b8e06b80be0e52914",
+  "original_config": {
+    "alphas": [
+      0.1,
+      0.3,
+      0.5
+    ],
+    "etas": [
+      25.0,
+      100.0
+    ],
+    "steps": 50,
+    "start_ratio": 0.5,
+    "guidance_scale": 7.5,
+    "bits": 16,
+    "repetitions": 8,
+    "channel": 0,
+    "band_sum": [
+      16,
+      48
+    ],
+    "carrier_seed": "m1-progressive-public-v1",
+    "payload": "1011010001101001",
+    "threshold": 0.875,
+    "wrong_payload_queries": 64,
+    "wrong_payload_seed": "m1-progressive-wrong-payload-v1",
+    "attack_strengths": [
+      0.1,
+      0.4
+    ],
+    "attack_seed": 0,
+    "gpu_budget_bytes": 10737418240,
+    "guidance_phase": "first-half-after-CFG",
+    "loss": "masked mean square: denominator128",
+    "size": [
+      512,
+      512
+    ]
+  },
+  "run_seconds_cap": 360,
+  "gpu_budget_bytes": 10737418240,
+  "ram_budget_bytes": 17179869184,
+  "artifact_budget_bytes": 419430400
+}
