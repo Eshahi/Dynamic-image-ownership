@@ -108,3 +108,39 @@ controls at the exact threshold, malformed identities/decisions and changed
 snapshot provenance without opening scientific assets. All33 analyzer fixture
 tests pass (residual7 + prior26). No actual D-residual run was analyzed while
 queued/running; parent may execute after committing code and finalizing inputs.
+
+## IPS expansion and combined12-source adapter (2026-10-04)
+
+`--phase-residual-expansion-dir` accepts the separate frozen
+`m1-phasemark-residual-expansion-v1` schema:10sources, IPS/quality-cap,
+40conditions and160owner queries. Raw source receipts must match the manifest
+cases for completed cells. Retained latent/embedding receipts are included.
+Manifest/conditions/journal output hashes and conditions-vs-run identity are
+checked without opening images/tensors. This fresh-source schema does not
+require historical `input-run.json`; the original two-source adapter still
+does. Older family schemas and outputs stay unchanged.
+
+Pass both `--phase-residual-dir <completed0030>` and
+`--phase-residual-expansion-dir <completed-new-run>` to create an additional
+`phase_residual_combined` analysis object and raw/conditions/summary/coverage/
+gates CSVs. The combined operating profile is explicitly IPS/quality-cap only;
+APM/full mechanism controls remain in the original run tables. It fixes
+12source clusters,48logical conditions and192correlated queries. Combined
+source IDs must be disjoint. Owners,82 threshold,35.2dB cap and36-step search
+must agree; copied committed phase-code and model-inventory SHA receipts and
+VAE scale.18215 must also agree. Any overlap, incompatible profile or missing
+identity rejects combination instead of selecting an attempt. Every row keeps
+its source run directory/SHA/outcome and original condition receipt.
+
+The combined view reports independent clean-quality and clean/VAE carrier
+gates, C1correct presence, C1wrong queries and C0 roster positives, plus
+per-source completion coverage. Incomplete parents or missing conditions leave
+gates null; failed/raw rows remain in the planned denominator. It does not
+promote a successful gate into acceptance or population FPR. The source-bypass
+operator and missing CLIP+pHash binding/human verdict remain explicit.
+
+Four added CPU fixture tests cover40/160 and48/192 denominators/profile filter,
+source overlap/profile/model incompatibility, missing expansion cells and raw
+source mismatch, and changed expansion metadata receipts without historical
+latents. All37 analyzer fixtures pass (11residual/expansion +26prior). No actual
+expansion results or mutable run outcomes were read for this implementation.

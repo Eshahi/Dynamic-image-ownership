@@ -159,7 +159,17 @@ def load_family(name,directory):
             path=directory/filename;digest=run.get("output_hashes",{}).get(filename)
             if run.get("outcome")=="completed" and (not path.is_file() or sha(path)!=digest):
                 package["errors"].append({"error":"residual metadata output receipt mismatch","path":str(path)})
-    journal_name={"reconstruction":"images.jsonl","gs":"rows.jsonl","progressive":"journal.jsonl","dual":"journal.jsonl","phasemark":"rows.jsonl","gs_lightweight":"rows.jsonl","phase_residual":"rows.jsonl"}[name]
+    if name=="phase_residual_expansion":
+        raw_conditions=pin(directory/"conditions.json")
+        try:
+            if raw_conditions is None or json.loads(raw_conditions)!=run.get("conditions",[]):
+                package["errors"].append({"error":"expansion conditions snapshot/run mismatch"})
+        except Exception as error:package["errors"].append({"error":"invalid expansion conditions snapshot","detail":str(error)})
+        for filename in ("manifest.json","conditions.json","rows.jsonl"):
+            path=directory/filename;digest=run.get("output_hashes",{}).get(filename)
+            if run.get("outcome")=="completed" and (not path.is_file() or sha(path)!=digest):
+                package["errors"].append({"error":"expansion metadata output receipt mismatch","path":str(path)})
+    journal_name={"reconstruction":"images.jsonl","gs":"rows.jsonl","progressive":"journal.jsonl","dual":"journal.jsonl","phasemark":"rows.jsonl","gs_lightweight":"rows.jsonl","phase_residual":"rows.jsonl","phase_residual_expansion":"rows.jsonl"}[name]
     raw_journal=pin(directory/journal_name)
     for number,line in enumerate((raw_journal or "").splitlines(),1):
         try: package["journal"].append(json.loads(line))
@@ -516,11 +526,15 @@ def analyze_phasemark(package):
 def analyze_phase_residual(package):
     """Fixed residual diagnostic: two source clusters, not 128 independent trials."""
     run=package["run"];config=package.get("manifest",{})
-    if config.get("schema")!="m1-phasemark-residual-v1" or run.get("schema")!=config["schema"] or config!=run.get("config"):
+    schema=config.get("schema");expansion=schema=="m1-phasemark-residual-expansion-v1"
+    if schema not in ("m1-phasemark-residual-v1","m1-phasemark-residual-expansion-v1") or run.get("schema")!=schema or config!=run.get("config"):
         raise ValueError("Exact residual schema/configuration required")
     ids=config.get("ids",[]);arms=config.get("arms",[]);profiles=config.get("profiles",[]);owners=config.get("owners",[])
-    if len(ids)!=2 or len(set(ids))!=2 or arms!=["APM","IPS"] or profiles!=["full","quality-cap"] or len(owners)!=4 or len(set(owners))!=4 or config.get("threshold")!=82:
-        raise ValueError("Fixed 2-source/2-arm/2-profile/4-owner residual design required")
+    source_n=10 if expansion else 2
+    if len(ids)!=source_n or len(set(ids))!=source_n or arms!=(["IPS"] if expansion else ["APM","IPS"]) or profiles!=(["quality-cap"] if expansion else ["full","quality-cap"]) or len(owners)!=4 or len(set(owners))!=4 or config.get("threshold")!=82:
+        raise ValueError("Fixed residual/expansion source-arm-profile-owner design required")
+    cases=config.get("cases",[])
+    if expansion and [c.get("id") for c in cases]!=ids:raise ValueError("Expansion source manifest identities unavailable")
     planned=[(i,a,p,c,d,f"{i}-{a}-{p}-{c}-{d}") for i in ids for a in arms for p in profiles for c in ("C0","C1") for d in ("clean","vae_cycle")]
     actual=run.get("conditions",[]);lookup={r["id"]:r for r in actual}
     if len(lookup)!=len(actual):raise ValueError("Duplicate residual condition; no attempt selection")
@@ -529,6 +543,9 @@ def analyze_phase_residual(package):
     for ident,arm,profile,control,dose,key in planned:
         value=lookup.get(key,{})
         if value and any(value.get(k)!=v for k,v in (("source_id",ident),("arm",arm),("profile",profile),("control",control),("dose",dose))):raise ValueError("Residual identity mismatch")
+        if expansion and value.get("outcome")=="completed":
+            declared=next(c for c in cases if c["id"]==ident)
+            if value.get("source",{}).get("raw_sha256")!=declared.get("sha256"):raise ValueError("Expansion raw source receipt mismatch")
         decisions=value.get("owner_decisions",{})
         if set(decisions)-set(owners):raise ValueError("Unplanned residual owner")
         for decision in decisions.values():
@@ -540,11 +557,11 @@ def analyze_phase_residual(package):
         composition=value.get("composition") or {}
         weight=composition.get("weight")
         if weight is not None and (not finite(weight) or not 0<=weight<=1):raise ValueError("Residual lambda outside interval")
-        shared={"family":"phase_residual","case":ident,"id":key,"arm":arm,"profile":profile,"control":control,"dose":dose,
+        shared={"family":"phase_residual_expansion" if expansion else "phase_residual","case":ident,"id":key,"arm":arm,"profile":profile,"control":control,"dose":dose,
                 "status":status,"parent_outcome":value.get("outcome","not_attempted"),"error":value.get("error"),"traceback":value.get("traceback"),
                 **pilot_provenance(package),**nullable_quality(value.get("quality_vs_source",{})),"quality_reference":"saved resized source RGB8",
                 "same_arm_quality":value.get("quality_vs_same_arm_clean"),"image_receipt":value.get("image"),"source_receipt":value.get("source"),
-                "composition":value.get("composition"),"lambda":weight,"pixel_cap_db":config.get("psnr_cap_db"),
+                "composition":value.get("composition"),"latent_receipts":value.get("latent_receipts"),"embedding":value.get("embedding"),"lambda":weight,"pixel_cap_db":config.get("psnr_cap_db"),
                 "pixel_cap_mse_rgb8":composition.get("budget_mse_rgb8"),"composition_mse_rgb8":composition.get("mse_rgb8"),
                 "composition_sse_rgb8":composition.get("sse_rgb8"),"extract_seconds":value.get("extract_seconds"),
                 "extracted_scores":value.get("extracted",{}).get("scores"),"zero_magnitude_coefficients_per_block":value.get("extracted",{}).get("zero_magnitude_coefficients_per_block"),
@@ -560,7 +577,7 @@ def analyze_phase_residual(package):
             cells=[c for c in conditions if c["arm"]==arm and c["profile"]==profile]
             queries=[r for r in rows if r["arm"]==arm and r["profile"]==profile]
             clean=[c for c in cells if c["control"]=="C1" and c["dose"]=="clean"]
-            screen={"arm":arm,"profile":profile,"planned_sources":2,"planned_conditions":8,"planned_queries":32,
+            screen={"arm":arm,"profile":profile,"planned_sources":source_n,"planned_conditions":len(cells),"planned_queries":len(queries),
                     "observed_conditions":sum(c["status"]=="observed" for c in cells),"observed_queries":sum(r["query_observed"] for r in queries),
                     "source_quality_gate":all(c["quality_all_three"] for c in clean) if trustworthy and all(c["status"]=="observed" and c["quality_complete"] for c in clean) else None,
                     "clean_quality_pass_n":sum(c["status"]=="observed" and c["quality_all_three"] is True for c in clean),"human_visual_verdict":None}
@@ -575,10 +592,47 @@ def analyze_phase_residual(package):
     for summary in summaries:
         group=[r for r in rows if all(r[k]==summary[k] for k in ("arm","profile","control","dose","owner_query"))]
         for metric in ("matches","extract_seconds","lambda"):summary[metric]=distribution([r[metric] for r in group])
-    return {"raw":rows,"condition_inventory":conditions,"summary":summaries,"arm_screen":screens,"planned_source_n":2,"planned_conditions":32,"planned_queries":128,
+    return {"raw":rows,"condition_inventory":conditions,"summary":summaries,"arm_screen":screens,"planned_source_n":source_n,"planned_conditions":len(planned),"planned_queries":len(rows),
+            "model_identity":{"vae_scaling_factor":run.get("vae_scaling_factor"),"phase_code_sha256":run.get("committed_files",{}).get("scripts/m1_phasemark.py",{}).get("working_sha256"),
+                              "asset_inventory_sha256":run.get("committed_files",{}).get("research/a6-candidate-model-assets.json",{}).get("working_sha256")},
             "input_receipts":run.get("input_receipts"),"output_hashes":run.get("output_hashes"),"errors":package["errors"],
             "incomplete":not trustworthy or any(c["status"]!="observed" or not c["quality_complete"] for c in conditions),
-            "caveat":"Two source clusters with shared C0 across arms/profiles and four correlated owner queries. Source-bypass phase residual, not pure latent or three-state/content binding; no population FPR or human verdict."}
+            "caveat":"Declared source clusters with shared C0 across arms/profiles and four correlated owner queries. Source-bypass phase residual, not pure latent or three-state/content binding; no population FPR or human verdict."}
+
+
+def combine_phase_residual(pilot,expansion,pilot_config,expansion_config):
+    """Combine only fixed IPS/quality-cap, retaining source/condition provenance."""
+    for key in ("owners","threshold","psnr_cap_db","bisection_steps"):
+        if pilot_config.get(key)!=expansion_config.get(key):raise ValueError("Incompatible residual operating profile: "+key)
+    if pilot_config.get("schema")!="m1-phasemark-residual-v1" or expansion_config.get("schema")!="m1-phasemark-residual-expansion-v1":
+        raise ValueError("Exact pilot then expansion schemas required")
+    identity=pilot.get("model_identity",{})
+    if identity.get("vae_scaling_factor")!=.18215 or not identity.get("phase_code_sha256") or not identity.get("asset_inventory_sha256") or identity!=expansion.get("model_identity"):
+        raise ValueError("Combined pinned VAE scale/phase-code identity unavailable or changed")
+    ids=pilot_config.get("ids",[])+expansion_config.get("ids",[])
+    if len(ids)!=12 or len(set(ids))!=12:raise ValueError("Combined sources overlap or fixed twelve unavailable")
+    for result in (pilot,expansion):
+        if "raw" not in result or "condition_inventory" not in result:raise ValueError("Missing residual adapter inventory")
+    choose=lambda rows:[r for r in rows if r["arm"]=="IPS" and r["profile"]=="quality-cap"]
+    rows=choose(pilot["raw"])+choose(expansion["raw"])
+    conditions=choose(pilot["condition_inventory"])+choose(expansion["condition_inventory"])
+    if len(rows)!=192 or len(conditions)!=48 or len({r["id"] for r in conditions})!=48:
+        raise ValueError("Combined fixed48 conditions/192queries required")
+    coverage=[{"case":i,"planned_conditions":4,"observed_conditions":sum(c["status"]=="observed" for c in conditions if c["case"]==i),
+               "run_directory":next(c.get("run_directory",c.get("source_directory")) for c in conditions if c["case"]==i)} for i in ids]
+    trustworthy=not pilot.get("errors") and not expansion.get("errors") and not pilot["incomplete"] and not expansion["incomplete"]
+    clean=[c for c in conditions if c["control"]=="C1" and c["dose"]=="clean"]
+    gates=[{"kind":"clean_source_quality","planned_sources":12,"pass_n":sum(c["quality_all_three"] is True and c["status"]=="observed" for c in clean),
+            "gate":all(c["quality_all_three"] for c in clean) if trustworthy and all(c["quality_complete"] for c in clean) else None,"human_visual_verdict":None}]
+    for dose in ("clean","vae_cycle"):
+        group=[r for r in rows if r["dose"]==dose]
+        gates.append({"kind":dose+"_carrier","planned_sources":12,"correct_C1_present_n":sum(r["detected"] is True for r in group if r["control"]=="C1" and r["correct_owner_query"]),
+            "C1_wrong_positive_queries":sum(r["detected"] is True for r in group if r["control"]=="C1" and not r["correct_owner_query"]),
+            "C0_positive_queries":sum(r["detected"] is True for r in group if r["control"]=="C0"),
+            "gate":all(r["detected"] is (r["control"]=="C1" and r["correct_owner_query"]) for r in group) if trustworthy and all(r["status"]=="observed" for r in group) else None})
+    return {"raw":rows,"condition_inventory":conditions,"summary":aggregate(rows,["control","dose","owner_query"]),"coverage":coverage,"gates":gates,
+            "planned_source_n":12,"planned_conditions":48,"planned_queries":192,"incomplete":not trustworthy,
+            "caveat":"Prespecified IPS quality-cap only. Two pilot sources plus ten disjoint expansion sources; no best-arm/attempt selection. Correlated owner queries do not increase source N; no population FPR or three-state method claim."}
 
 
 def analyze_gs_lightweight(package):
@@ -659,10 +713,10 @@ def main():
     parser.add_argument("--reconstruction-dir",type=Path,action="append")
     parser.add_argument("--reconstruction-pause-receipt",type=Path)
     parser.add_argument("--dual-dir",type=Path,action="append")
-    for name in ("gs","progressive","phasemark","gs_lightweight","phase_residual"):parser.add_argument("--"+name.replace("_","-")+"-dir",type=Path)
+    for name in ("gs","progressive","phasemark","gs_lightweight","phase_residual","phase_residual_expansion"):parser.add_argument("--"+name.replace("_","-")+"-dir",type=Path)
     parser.add_argument("--output-dir",type=Path,required=True)
     args=parser.parse_args();started=time.monotonic()
-    sources={name:getattr(args,name+"_dir") for name in ("reconstruction","gs","progressive","dual","phasemark","gs_lightweight","phase_residual") if getattr(args,name+"_dir") is not None}
+    sources={name:getattr(args,name+"_dir") for name in ("reconstruction","gs","progressive","dual","phasemark","gs_lightweight","phase_residual","phase_residual_expansion") if getattr(args,name+"_dir") is not None}
     if not sources:parser.error("At least one family directory required")
     output=args.output_dir.resolve()
     if not output.is_relative_to((MAIN/".thesis-build/dev-runs").resolve()):parser.error("Output must be MAIN/.thesis-build/dev-runs")
@@ -714,7 +768,7 @@ def main():
             if package.get("excluded"):
                 analyses[name]={"raw":[],"summary":[],"incomplete":True,"caveat":"Unsupported split excluded"};continue
             try:
-                result={"reconstruction":analyze_reconstruction,"gs":analyze_gs,"progressive":analyze_progressive,"phasemark":analyze_phasemark,"gs_lightweight":analyze_gs_lightweight,"phase_residual":analyze_phase_residual}[name](package)
+                result={"reconstruction":analyze_reconstruction,"gs":analyze_gs,"progressive":analyze_progressive,"phasemark":analyze_phasemark,"gs_lightweight":analyze_gs_lightweight,"phase_residual":analyze_phase_residual,"phase_residual_expansion":analyze_phase_residual}[name](package)
                 result["incomplete"]=result.get("incomplete",False) or bool(package["errors"]) or package["source_outcome"]!="completed" or any(r["status"] not in ("observed",) for r in result["raw"])
                 analyses[name]=result
                 csv_table(output/(name+"-raw.csv"),result["raw"])
@@ -727,6 +781,15 @@ def main():
                     if key in result:csv_table(output/(name+"-"+key+".csv"),result[key])
             except Exception as error:
                 analyses[name]={"raw":[],"summary":[],"incomplete":True,"error":str(error),"traceback":traceback.format_exc()}
+        if "phase_residual" in analyses and "phase_residual_expansion" in analyses:
+            try:
+                result=combine_phase_residual(analyses["phase_residual"],analyses["phase_residual_expansion"],
+                    record["families"]["phase_residual"].get("source_config",{}),record["families"]["phase_residual_expansion"].get("source_config",{}))
+                analyses["phase_residual_combined"]=result
+                for suffix,key in (("raw","raw"),("conditions","condition_inventory"),("summary","summary"),("coverage","coverage"),("gates","gates")):
+                    csv_table(output/("phase_residual_combined-"+suffix+".csv"),result[key])
+            except Exception as error:
+                analyses["phase_residual_combined"]={"incomplete":True,"error":str(error),"traceback":traceback.format_exc()}
         write(output/"analysis.json",analyses)
         record["outcome"]="incomplete" if any(v["incomplete"] for v in analyses.values()) else "completed_descriptive_analysis"
         record["interpretation"]="Analysis completion is not experiment acceptance; no human assessment or method verdict inferred."

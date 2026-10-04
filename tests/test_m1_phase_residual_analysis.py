@@ -29,7 +29,69 @@ def fixture():
     return dict(run=run,manifest=config,errors=[],source_outcome="completed",directory="fixture",input_files=[])
 
 
+def expansion_fixture():
+    pilot=fixture();p=copy.deepcopy(pilot);config=p['manifest'];config.update(schema='m1-phasemark-residual-expansion-v1',
+        ids=list(range(3,13)),arms=['IPS'],profiles=['quality-cap'],bisection_steps=36)
+    config['cases']=[dict(id=i,sha256='a'*64,path='never-open.jpg') for i in config['ids']]
+    template=next(c for c in p['run']['conditions'] if c['arm']=='IPS' and c['profile']=='quality-cap')
+    conditions=[]
+    for i in config['ids']:
+        for control in ('C0','C1'):
+            for dose in ('clean','vae_cycle'):
+                c=copy.deepcopy(template);c.update(id=f'{i}-IPS-quality-cap-{control}-{dose}',source_id=i,control=control,dose=dose,
+                    source={'raw_sha256':'a'*64},owner_decisions={o:dict(matches=100 if control=='C1' and o=='alpha' else 64,
+                    bit_accuracy=100/128 if control=='C1' and o=='alpha' else .5,present=control=='C1' and o=='alpha') for o in config['owners']})
+                conditions.append(c)
+    p['run'].update(schema=config['schema'],config=config,conditions=conditions)
+    return p
+
+
 class ResidualAnalysisTests(unittest.TestCase):
+    def combined_fixtures(self):
+        pilot=fixture();expansion=expansion_fixture();pilot['manifest']['bisection_steps']=36
+        for p in (pilot,expansion):p['run'].update(vae_scaling_factor=.18215,committed_files={'scripts/m1_phasemark.py':{'working_sha256':'b'*64},'research/a6-candidate-model-assets.json':{'working_sha256':'d'*64}})
+        return pilot,expansion
+
+    def test_expansion_fixed_40_160_and_combined_twelve_no_other_arms(self):
+        pilot,expansion=self.combined_fixtures();a=m.analyze_phase_residual(pilot);b=m.analyze_phase_residual(expansion)
+        self.assertEqual((b['planned_source_n'],len(b['condition_inventory']),len(b['raw'])),(10,40,160))
+        result=m.combine_phase_residual(a,b,pilot['manifest'],expansion['manifest'])
+        self.assertEqual((result['planned_source_n'],len(result['condition_inventory']),len(result['raw'])),(12,48,192))
+        self.assertEqual(len(result['coverage']),12)
+        self.assertTrue(all(g['gate'] for g in result['gates']))
+        self.assertEqual({(r['arm'],r['profile']) for r in result['raw']},{('IPS','quality-cap')})
+
+    def test_combined_overlap_incompatible_profile_and_model_rejected(self):
+        pilot,expansion=self.combined_fixtures();a=m.analyze_phase_residual(pilot);b=m.analyze_phase_residual(expansion)
+        changed=copy.deepcopy(expansion['manifest']);changed['ids'][0]=1
+        with self.assertRaisesRegex(ValueError,'overlap'):m.combine_phase_residual(a,b,pilot['manifest'],changed)
+        changed=copy.deepcopy(expansion['manifest']);changed['threshold']=81
+        with self.assertRaisesRegex(ValueError,'Incompatible'):m.combine_phase_residual(a,b,pilot['manifest'],changed)
+        b['model_identity']['phase_code_sha256']='c'*64
+        with self.assertRaisesRegex(ValueError,'identity'):m.combine_phase_residual(a,b,pilot['manifest'],expansion['manifest'])
+
+    def test_expansion_missing_and_raw_source_receipt_mismatch(self):
+        p=expansion_fixture();p['run']['conditions'].pop()
+        result=m.analyze_phase_residual(p)
+        self.assertTrue(result['incomplete']);self.assertEqual(len(result['raw']),160)
+        p=expansion_fixture();p['run']['conditions'][0]['source']['raw_sha256']='c'*64
+        with self.assertRaisesRegex(ValueError,'source receipt'):m.analyze_phase_residual(p)
+
+    def test_expansion_snapshot_receipts_without_historical_input_run(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);p=expansion_fixture();run=p['run']
+            m.write(root/'manifest.json',p['manifest']);m.write(root/'conditions.json',run['conditions'])
+            (root/'rows.jsonl').write_text('',encoding='utf-8')
+            run.update(command=['fixture','--manifest',str(root/'manifest.json')],data_split='development',manifest_sha256=m.sha(root/'manifest.json'),
+                output_hashes={n:m.sha(root/n) for n in ('manifest.json','conditions.json','rows.jsonl')})
+            m.write(root/'run.json',run)
+            loaded=m.load_family('phase_residual_expansion',root)
+            self.assertEqual(loaded['errors'],[])
+            self.assertFalse(m.analyze_phase_residual(loaded)['incomplete'])
+            (root/'rows.jsonl').write_text('{}\n',encoding='utf-8')
+            loaded=m.load_family('phase_residual_expansion',root)
+            self.assertTrue(loaded['errors'])
+            self.assertIsNone(m.analyze_phase_residual(loaded)['arm_screen'][0]['clean_carrier_gate'])
     def test_complete_denominators_profiles_and_latency_not_query_sample_size(self):
         r=m.analyze_phase_residual(fixture())
         self.assertEqual((r["planned_source_n"],len(r["condition_inventory"]),len(r["raw"])),(2,32,128))
