@@ -124,7 +124,26 @@ def load_family(name,directory):
                 if metadata.get("data_split")!="development":raise ValueError("Development cohort metadata required")
                 package["reserved_cohort"]=metadata
             except Exception as error:package["errors"].append({"error":"reserved cohort metadata unavailable","detail":str(error)})
-    journal_name={"reconstruction":"images.jsonl","gs":"rows.jsonl","progressive":"journal.jsonl","dual":"journal.jsonl","phasemark":"rows.jsonl"}[name]
+    if name=="gs_lightweight":
+        if not {"run.json","artifacts.json","rows.jsonl","rows-receipt.json"}<=set(run.get("source_receipts",{})):
+            package["errors"].append({"error":"incomplete native snapshot receipts"})
+        if run.get("outcome")=="completed" and not {"conditions.json","rows.jsonl"}<=set(run.get("output_hashes",{})):
+            package["errors"].append({"error":"incomplete completed assessor receipts"})
+        raw_conditions=pin(directory/"conditions.json")
+        try:package["conditions"]=json.loads(raw_conditions) if raw_conditions else []
+        except Exception as error:package["errors"].append({"error":"invalid conditions.json","detail":str(error)})
+        for filename,receipt in run.get("source_receipts",{}).items():
+            if Path(filename).name!=filename:raise ValueError("Invalid source receipt filename")
+            copied=directory/("source-"+filename)
+            pinned=pin(copied)
+            if pinned is not None and sha(copied)!=receipt.get("sha256"):
+                package["errors"].append({"error":"source snapshot hash mismatch","path":str(copied)})
+        for filename,digest in run.get("output_hashes",{}).items():
+            if Path(filename).name!=filename:raise ValueError("Invalid output receipt filename")
+            copied=directory/filename
+            if not copied.is_file() or sha(copied)!=digest:
+                package["errors"].append({"error":"assessor output hash mismatch","path":str(copied)})
+    journal_name={"reconstruction":"images.jsonl","gs":"rows.jsonl","progressive":"journal.jsonl","dual":"journal.jsonl","phasemark":"rows.jsonl","gs_lightweight":"rows.jsonl"}[name]
     raw_journal=pin(directory/journal_name)
     for number,line in enumerate((raw_journal or "").splitlines(),1):
         try: package["journal"].append(json.loads(line))
@@ -478,15 +497,88 @@ def analyze_phasemark(package):
             "caveat":"Public phase carrier pilot with owner-hypothesis queries. No three-state/content/cryptographic ownership claim. Four queries and repeated arms/cycles do not multiply source N; quality/latency inventory is unique per condition."}
 
 
+def analyze_gs_lightweight(package):
+    """Describe fixed B-LW1 pairs without opening or hashing any image."""
+    run=package["run"];config=run.get("config",{})
+    if run.get("schema_version")!="m1-gs-terminal-sign-v1" or config.get("presence_matches")!=180:
+        raise ValueError("Frozen B-LW1 version and 180/256 threshold required")
+    if run.get("data_split")!="synthetic":raise ValueError("B-LW1 synthetic split required")
+    channels=[("clean",None,None),("vae",None,None)]+[(f"regen-{s}-seed{seed}",s,seed) for s in (.05,.1,.2,.4) for seed in (0,1,2)]
+    planned=[(f"prompt-{i}",1000+i,arm,channel,strength,seed) for i in range(4) for arm in ("C0","C1") for channel,strength,seed in channels]
+    actual=package.get("conditions",[])
+    index={r["id"]:r for r in actual}
+    if len(index)!=len(actual):raise ValueError("Duplicate B-LW1 condition")
+    ids={f"{case}-{arm}-{channel}" for case,_,arm,channel,_,_ in planned}
+    if set(index)-ids:raise ValueError("Unplanned B-LW1 condition")
+    if run.get("expected_conditions")!=112:raise ValueError("B-LW1 denominator differs")
+    raw=[];paired=[]
+    for case,seed,arm,channel,strength,attack_seed in planned:
+        ident=f"{case}-{arm}-{channel}";value=index.get(ident,{})
+        if value and any(value.get(k)!=v for k,v in (("case",case),("generation_seed",seed),("arm",arm),("channel",channel),("strength",strength),("attack_seed",attack_seed))):
+            raise ValueError("B-LW1 condition identity mismatch")
+        native=value.get("native",{})
+        if native:
+            digest=hashlib.sha256(json.dumps(native,sort_keys=True,separators=(",",":")).encode()).hexdigest()
+            if digest!=value.get("source_row_sha256") or value.get("image_sha256")!=native.get("image_sha256"):
+                raise ValueError("B-LW1 native/LW row or image hash join mismatch")
+            if any(native.get(k)!=v for k,v in (("case",case),("arm",arm),("channel",channel))):raise ValueError("Native pair identity mismatch")
+        shared={"family":"gs_lightweight","id":ident,"case":case,"generation_seed":seed,"arm":arm,"channel":channel,"strength":strength,"attack_seed":attack_seed,
+            "parent_outcome":value.get("outcome","missing_condition"),"error":value.get("error"),"image_sha256":value.get("image_sha256"),"source_row_sha256":value.get("source_row_sha256"),
+            "reference_payload_sha256":value.get("reference_payload_sha256"),"key_identifiers":value.get("key_identifiers"),"nonce":value.get("nonce"),
+            "preprocessing":value.get("preprocessing"),"vae_asset_receipt_id":value.get("vae_asset_receipt_id"),"diagnostics":value.get("diagnostics"),
+            "first_call":value.get("first_call"),"peak_allocated_bytes":value.get("peak_allocated_bytes"),"human_visual_verdict":None}
+        scores={}
+        for decoder in ("native","lightweight"):
+            row=dict(shared,decoder=decoder)
+            for query in ("correct","wrong"):
+                if decoder=="lightweight":
+                    score=value.get(query+"_key",{}) if value.get("outcome")=="completed" else {}
+                    matches=score.get("matches");accuracy=score.get("bit_accuracy");present=score.get("present");exact=score.get("exact_message")
+                    if score and (type(matches) is not int or not 0<=matches<=256 or accuracy!=matches/256 or present!=(matches>=180) or exact!=(matches==256)):
+                        raise ValueError("Inconsistent B-LW1 lightweight decision")
+                    row[query+"_tie_count"]=score.get("tie_count")
+                else:
+                    accuracy=native.get("bit_accuracy" if query=="correct" else "wrong_key_bit_accuracy")
+                    matches=round(accuracy*256) if finite(accuracy) and 0<=accuracy<=1 else None
+                    present=native.get("detected" if query=="correct" else "wrong_key_detected")
+                    exact=native.get("exact_payload") if query=="correct" else matches==256 if matches is not None else None
+                    if matches is not None and (accuracy!=matches/256 or type(present) is not bool or present!=(matches>=180) or type(exact) is not bool or exact!=(matches==256)):
+                        raise ValueError("Inconsistent B-LW1 native decision")
+                observed=type(matches) is int and type(present) is bool and type(exact) is bool
+                row.update({query+"_matches":matches,query+"_bit_accuracy":accuracy,query+"_present":present if observed else None,query+"_exact":exact if observed else None,query+"_observed":observed})
+            row["status"]="observed" if row["correct_observed"] and row["wrong_observed"] else "missing_or_failed"
+            row["detector_seconds"]=native.get("detector_seconds") if decoder=="native" else value.get("diagnostics",{}).get("total_seconds")
+            row["unet_evaluations"]=native.get("detector_unet_evaluations") if decoder=="native" else value.get("diagnostics",{}).get("unet_evaluations")
+            raw.append(row);scores[decoder]=row
+        n=scores["native"];l=scores["lightweight"];complete=n["status"]==l["status"]=="observed"
+        paired.append({**shared,"status":"observed" if complete else "missing_or_failed","native_matches_minus_lightweight":n["correct_matches"]-l["correct_matches"] if complete else None,
+            "presence_cell":("both" if n["correct_present"] and l["correct_present"] else "native-only" if n["correct_present"] else "lightweight-only" if l["correct_present"] else "neither") if complete else None})
+    summary=[]
+    for channel,_,_ in channels:
+        for decoder in ("native","lightweight"):
+            group=[r for r in raw if r["channel"]==channel and r["decoder"]==decoder]
+            c1=[r for r in group if r["arm"]=="C1" and r["status"]=="observed"];c0=[r for r in group if r["arm"]=="C0" and r["status"]=="observed"]
+            pair=[r for r in paired if r["channel"]==channel and r["arm"]=="C1"]
+            summary.append({"channel":channel,"decoder":decoder,"prompt_clusters":4,"planned_per_arm":4,"observed_C1":len(c1),"observed_C0":len(c0),"missing_C1":4-len(c1),"missing_C0":4-len(c0),
+                "C1_present":sum(r["correct_present"] for r in c1),"C1_exact":sum(r["correct_exact"] for r in c1),"C0_positive":sum(r["correct_present"] for r in c0),"C1_wrong_positive":sum(r["wrong_present"] for r in c1),
+                "C0_wrong_positive":sum(r["wrong_present"] for r in c0),"C1_accuracies":[{"case":r["case"],"accuracy":r["correct_bit_accuracy"]} for r in c1],"C1_bit_accuracy":distribution([r["correct_bit_accuracy"] for r in c1]),
+                "paired_C1_missing":sum(r["status"]!="observed" for r in pair),"paired_C1_presence_cells":{cell:sum(r["presence_cell"]==cell for r in pair) for cell in ("both","native-only","lightweight-only","neither")}})
+    gates=[{"channel":r["channel"],"decoder":r["decoder"],"carrier_gate":None if r["missing_C1"] or r["missing_C0"] or package["errors"] or package["source_outcome"]!="completed" else r["C1_present"]==4 and r["C0_positive"]==0 and r["C1_wrong_positive"]==0} for r in summary if r["channel"] in ("clean","vae")]
+    return {"raw":raw,"summary":summary,"paired":paired,"gates":gates,"planned_conditions":112,"prompt_clusters":4,
+        "source_receipts":run.get("source_receipts"),"output_hashes":run.get("output_hashes"),"errors":package["errors"],
+        "incomplete":bool(package["errors"]) or package["source_outcome"]!="completed" or any(r["status"]!="observed" for r in raw),
+        "caveat":"Four synthetic prompt clusters; repeated channels are not independent sources. Paired native/LW matches compare identical saved images. No population FPR, content binding, three-state decision or human verdict."}
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--reconstruction-dir",type=Path,action="append")
     parser.add_argument("--reconstruction-pause-receipt",type=Path)
     parser.add_argument("--dual-dir",type=Path,action="append")
-    for name in ("gs","progressive","phasemark"):parser.add_argument("--"+name+"-dir",type=Path)
+    for name in ("gs","progressive","phasemark","gs_lightweight"):parser.add_argument("--"+name.replace("_","-")+"-dir",type=Path)
     parser.add_argument("--output-dir",type=Path,required=True)
     args=parser.parse_args();started=time.monotonic()
-    sources={name:getattr(args,name+"_dir") for name in ("reconstruction","gs","progressive","dual","phasemark") if getattr(args,name+"_dir") is not None}
+    sources={name:getattr(args,name+"_dir") for name in ("reconstruction","gs","progressive","dual","phasemark","gs_lightweight") if getattr(args,name+"_dir") is not None}
     if not sources:parser.error("At least one family directory required")
     output=args.output_dir.resolve()
     if not output.is_relative_to((MAIN/".thesis-build/dev-runs").resolve()):parser.error("Output must be MAIN/.thesis-build/dev-runs")
@@ -538,7 +630,7 @@ def main():
             if package.get("excluded"):
                 analyses[name]={"raw":[],"summary":[],"incomplete":True,"caveat":"Unsupported split excluded"};continue
             try:
-                result={"reconstruction":analyze_reconstruction,"gs":analyze_gs,"progressive":analyze_progressive,"phasemark":analyze_phasemark}[name](package)
+                result={"reconstruction":analyze_reconstruction,"gs":analyze_gs,"progressive":analyze_progressive,"phasemark":analyze_phasemark,"gs_lightweight":analyze_gs_lightweight}[name](package)
                 result["incomplete"]=result.get("incomplete",False) or bool(package["errors"]) or package["source_outcome"]!="completed" or any(r["status"] not in ("observed",) for r in result["raw"])
                 analyses[name]=result
                 csv_table(output/(name+"-raw.csv"),result["raw"])
@@ -547,6 +639,8 @@ def main():
                 if "attempt_inventory" in result:csv_table(output/(name+"-attempts.csv"),result["attempt_inventory"])
                 if "condition_inventory" in result:csv_table(output/(name+"-conditions.csv"),result["condition_inventory"])
                 if "arm_screen" in result:csv_table(output/(name+"-arm-screen.csv"),result["arm_screen"])
+                for key in ("paired","gates"):
+                    if key in result:csv_table(output/(name+"-"+key+".csv"),result[key])
             except Exception as error:
                 analyses[name]={"raw":[],"summary":[],"incomplete":True,"error":str(error),"traceback":traceback.format_exc()}
         write(output/"analysis.json",analyses)

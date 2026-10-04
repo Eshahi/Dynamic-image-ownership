@@ -33,3 +33,40 @@ D derives its declared inventory from manifest cases/config arms, then C0/C1 × 
 `phasemark-arm-screen.csv` reports planned/observed condition/query counts and descriptive carrier/source-quality gates. The carrier gate requires every planned condition and owner query to be observed: C1 correct-owner present and all other queries absent, including all C0 queries. If the arm is incomplete its gates are null. Source-quality gate is also null if any needed clean C1 quality component is missing. Original recorded arm screens are retained separately; derived screens do not impute them. Human visual verdicts remain missing. Public payload pilot presence/absence is not a three-state content detector, a causal regeneration decision, or cryptographic ownership evidence.
 
 Eight added CPU fixtures verify 2-versus-12 accounting, partial/missing cells, disjoint-run merge and duplicate rejection, the 16×4 inventory, incomplete gates/missing queries, missing quality and manifest-hash mismatch without changing source bytes. Together with eleven existing reconstruction fixtures, nineteen tests passed. No scientific acceptance, threshold fit, official gate or run-output mutation is performed.
+# B-LW1 paired native/lightweight appendix
+
+The read-only analyzer accepts `--gs-lightweight-dir` for frozen
+`m1-gs-terminal-sign-v1` assessor output. This is separate from `--gs-dir`;
+native scores are the unchanged joined source row, not recomputed detector
+outputs. Analysis never opens images or models. `conditions.json` supplies the
+fixed 112-condition inventory; missing cells remain missing. Duplicate,
+unplanned or inconsistent identities/decisions, and native-row/image hash join
+mismatches are rejected. Native scores remain observable when the LW attempt
+failed. The loader hashes the copied source run/artifact/journal/receipt
+snapshots and assessor output receipts; missing or mismatching provenance marks
+analysis incomplete and makes carrier gates null. It does not hash/read image
+files. Retained source errors and both receipt inventories remain in analysis.
+
+Outputs are `gs_lightweight-raw.csv` (224 planned decoder rows),
+`gs_lightweight-summary.csv` (14 channels by two decoders),
+`gs_lightweight-paired.csv` (112 planned image pairs), and
+`gs_lightweight-gates.csv` (clean/VAE by decoder). Raw rows retain correct/wrong
+matches, accuracy, exact-message and presence decisions, image/source-row
+hashes, payload/key/nonce identifiers, preprocessing, VAE asset receipt,
+diagnostic timing and NFE. Native wrong exact-message is arithmetically derived
+from its integer agreement count. Paired rows report native minus LW agreement
+and the four presence cells only when both decoders are observed; incomplete
+pairs remain null. Channel summaries preserve four planned prompt clusters per
+arm, observed/missing counts, every observed C1 accuracy, exact/presence counts,
+correct/wrong C0 counts and C1 wrong-key counts. Carrier gates require completed
+source analysis, all four C1 and four C0 observations, C1 presence 4/4, C0
+positives 0/4 and wrong-key C1 positives 0/4. Gates are descriptive, not human or
+method verdicts. Repeated attack seeds/channels never increase independent N
+beyond four prompts. No population FPR or three-state/content-binding claim is
+created.
+
+CPU fixtures cover complete/missing/failed-LW inventories, native-only pairs,
+agreement deltas, duplicate/unplanned/hash/score rejection, pending parent
+outcomes, provenance errors and snapshot corruption. Existing reconstruction,
+native GS, progressive, A and PhaseMark analysis behavior remains unchanged.
+
