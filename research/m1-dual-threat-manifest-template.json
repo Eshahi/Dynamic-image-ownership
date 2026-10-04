@@ -1,0 +1,20 @@
+{
+  "schema": "template-only-not-executable",
+  "generate_with": "scripts/m1_assess_dual_threats.py --prepare --input-dir EARLIER_ENROLLMENT_RUN --input-dir LATER_DISJOINT_ENROLLMENT_RUN --route pure-decoder --manifest research/m1-dual-threat-pure-pilot.json",
+  "executable_schema": "m1-dual-threat-assessment-v1",
+  "data_split": "development",
+  "route": "EXPLICIT pure-decoder OR hybrid-source-bypass",
+  "owners": ["qim-pilot-owner-alpha", "qim-pilot-owner-beta", "qim-pilot-owner-gamma", "qim-pilot-owner-delta"],
+  "source_ids": [1675, 4795, 6012, 25394, 80932, 109798, 134882, 147498, 177015, 190676, 468505, 499768],
+  "planned_conditions": 489,
+  "planned_detection_calls": 1692,
+  "input_runs": "Ordered absolute enrollment run.json paths, SHA256, commits, statuses and disjoint case IDs; filled by prepare",
+  "profile": "EXACT UNCHANGED enrollment profile object",
+  "dependencies": "EXACT code, cohort, semantic-label and asset-lock hashes filled by prepare",
+  "cases": "ALL TWELVE IDs; available source/C0/C1 path/hash or explicit missing enrollment",
+  "attack_settings": {
+    "strengths": [0.05, 0.1, 0.2, 0.4], "seeds": [0, 1, 2],
+    "steps": 20, "guidance_scale": 1.0, "prompt": "", "eta": 0.0, "vae": "posterior-mode"
+  },
+  "human_visual_verdict": null
+}
