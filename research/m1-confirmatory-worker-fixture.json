@@ -1,0 +1,39 @@
+{
+  "plan": {
+    "schema": "m1-worker-contract-v1",
+    "mode": "synthetic-only",
+    "candidate": "UNRESOLVED",
+    "units": [
+      {
+        "id": "fixture-source",
+        "source_uid": "generated:0",
+        "group_id": "fixture-group-0",
+        "method": "candidate",
+        "axis": "clean",
+        "arm": "C0-source",
+        "owner": "fixture-owner",
+        "seed_uint64_hex": "ffffffffffffffff",
+        "dependencies": []
+      },
+      {
+        "id": "fixture-candidate",
+        "source_uid": "generated:0",
+        "group_id": "fixture-group-0",
+        "method": "candidate",
+        "axis": "clean",
+        "arm": "C1",
+        "owner": "fixture-owner",
+        "seed_uint64_hex": "ffffffffffffffff",
+        "dependencies": [
+          "fixture-source"
+        ]
+      }
+    ]
+  },
+  "fixture": {
+    "width": 16,
+    "height": 12,
+    "fail_phase": null,
+    "delay_seconds": 0
+  }
+}
