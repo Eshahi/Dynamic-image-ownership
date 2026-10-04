@@ -1,0 +1,600 @@
+{
+  "schema": "m1-dual-threat-assessment-v1",
+  "data_split": "development",
+  "route": "hybrid-source-bypass",
+  "owners": [
+    "qim-pilot-owner-alpha",
+    "qim-pilot-owner-beta",
+    "qim-pilot-owner-gamma",
+    "qim-pilot-owner-delta"
+  ],
+  "source_ids": [
+    1675,
+    4795,
+    6012,
+    25394,
+    80932,
+    109798,
+    134882,
+    147498,
+    177015,
+    190676,
+    468505,
+    499768
+  ],
+  "assets": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\a6",
+  "input_runs": [
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-2347-A-hybrid-pilot\\run.json",
+      "sha256": "0e56178cbdf483ac790bef3c2b575ca9e072b3a4ca0f65a93a4a20f93848a677",
+      "commit": "421787d14cfaceaa41c94141f517e1730da0390a",
+      "outcome": "completed",
+      "case_ids": [
+        1675,
+        4795
+      ],
+      "order": 0
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\run.json",
+      "sha256": "8c435eeaf94bae86ab476692f4a2894606fe588f538560e71b2765da1d56da4d",
+      "commit": "dc012fbc6a466f017fb3d837506ed1a0a8b079c6",
+      "outcome": "completed",
+      "case_ids": [
+        6012,
+        25394
+      ],
+      "order": 1
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\run.json",
+      "sha256": "e7fcedbaf644a3a557dd9ba817e272fca183c6a3b886ecf5b3a54ea03bfd0d8c",
+      "commit": "dc012fbc6a466f017fb3d837506ed1a0a8b079c6",
+      "outcome": "completed",
+      "case_ids": [
+        80932,
+        109798,
+        134882,
+        147498
+      ],
+      "order": 2
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\run.json",
+      "sha256": "7a3f110221e68fec463f74e54ac00dff311bee85de6ad27e65efdec3bea77eab",
+      "commit": "ba94b542f76e57ef3270ef55e8057e9227f39202",
+      "outcome": "completed",
+      "case_ids": [
+        177015,
+        190676,
+        468505,
+        499768
+      ],
+      "order": 3
+    }
+  ],
+  "input_commits": [
+    "421787d14cfaceaa41c94141f517e1730da0390a",
+    "dc012fbc6a466f017fb3d837506ed1a0a8b079c6",
+    "dc012fbc6a466f017fb3d837506ed1a0a8b079c6",
+    "ba94b542f76e57ef3270ef55e8057e9227f39202"
+  ],
+  "enrollment_code_files": {
+    "scripts/m1_dual_latent.py": {
+      "working_sha256": "b678c158538be874dedff3f2639f97b1d19675651f046ae1ca6889d05a5ee277",
+      "git_blob_oid": "a0f1cd7b9651e464812f5ea524f2ffb0551d5a52"
+    },
+    "scripts/revised_watermark_v5.py": {
+      "working_sha256": "5a1de505084efc03a3168a5ea97ad529a5fecdffb393f02661b242296e4f3d7b",
+      "git_blob_oid": "b6f9b240aa2ec961cf784d41789eeb559e023b2d"
+    },
+    "scripts/revised_watermark_v4.py": {
+      "working_sha256": "723773c7672ebdaa1a6c460f156d578fc0de13d9d50ec27c4d3e56ba477d1b9b",
+      "git_blob_oid": "4717ecbef36a62038642579631838d7d28a1bf09"
+    },
+    "scripts/m1_latent_reconstruction.py": {
+      "working_sha256": "c46b3e538da672b47c40cff9f53272dc97ad68869c9eaba9a36bdef74b5c2924",
+      "git_blob_oid": "a50bcd11b9c0139aa3355f0f9da9638d3bbc6395"
+    },
+    "scripts/dev_v5_regeneration_check.py": {
+      "working_sha256": "46e267d58e0bf7a918b238a3c95864c6bda3ebaed269f23ffac3e5b2d04cd407",
+      "git_blob_oid": "6537b0077c155cd6eec93e5726ae16bdc2b692cc"
+    },
+    "scripts/three_threat_models.py": {
+      "working_sha256": "448d79927df22d9559efa69af8991863001078059d7b8e3fa1d60b2f9a750881",
+      "git_blob_oid": "770d36aed273b4c5be027f02f578d638a499aab2"
+    },
+    "research/a6-candidate-model-assets.json": {
+      "working_sha256": "b8c2595857853ea5b7835bb71f12a34dde07b78623c5e638f692dc7eb220b27e",
+      "git_blob_oid": "59a1de1d36d1b2284d3b4bef0b2a05b53e6fc88f"
+    },
+    "scripts/a6_clip_visual.py": {
+      "working_sha256": "7cfce69ab21fe983558afe37092cf86e691060ac560e30a52571514ef7665284",
+      "git_blob_oid": "465d6c93ce3398924c3b66275c5831d234493f7d"
+    },
+    "scripts/check_a6_lpips_assets.py": {
+      "working_sha256": "a7f5d44a1e3cb8094ac846ac1bfe28fcbf6e9912d13ad684dfee19eb4a763e3f",
+      "git_blob_oid": "e33260bfdf6956b6d7469afe2d8ba97266f31841"
+    },
+    "scripts/dev_v5_channel_probe.py": {
+      "working_sha256": "86cff558f0c34766e65a17b271b45a24f24ea2c5a34e5ab7def6deb5948aa6fc",
+      "git_blob_oid": "1ddb25a1534e37d52e5bf0830d08569df413e758"
+    },
+    "scripts/verify_science_assets.py": {
+      "working_sha256": "c6d59b897bd21ba3a493fbb217112bb321c85548c1b1a67cd77d782b0b518a50",
+      "git_blob_oid": "cb161db3d35fcde1d6029e25ea549080e07c9531"
+    },
+    "scripts/three_threat_protocol.py": {
+      "working_sha256": "7fad2f0f0eea778f8cd04f02678eed78da8b4be4abdda485de0717f3dc809fb7",
+      "git_blob_oid": "93d010fa06232bffb389a4b0672345d202b3116a"
+    }
+  },
+  "profile": {
+    "schema_version": "revised-watermark-v5",
+    "profile": "two-tier-dual-key-dct",
+    "security": "public-derived",
+    "semantic_source": "external:clip-vit-b32-a6-40d365715913",
+    "minimum_side": 256,
+    "robust_frequencies": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "instance_frequencies": [
+      [
+        0,
+        3
+      ],
+      [
+        3,
+        0
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "code_bits": 32,
+    "segment_chips": 10,
+    "canonical_side": 128,
+    "robust": {
+      "floor": 12.0,
+      "mask_base": 0.4,
+      "mask_cap": 5.0,
+      "mask_weber": 0.35,
+      "weight_exponent": 0.5,
+      "whitening": 2.0
+    },
+    "embedding": {
+      "visibility": 1.0,
+      "block_ratio_cap": 2.0,
+      "min_robust_psnr_db": 35.5,
+      "shape_window": 3,
+      "shape_percentile": 75.0,
+      "design_gain": 0.2,
+      "design_noise": 0.3,
+      "fill_order": 2.0,
+      "colour": "proportional",
+      "colour_offset": 10.0,
+      "instance_psnr_db": 47.0,
+      "instance_noise_std": 8.0,
+      "passes": 3
+    },
+    "decision": {
+      "false_positive_target": 1e-06,
+      "semantic_radius": 6,
+      "semantic_mismatch_distance": 10,
+      "instance_radius": 6,
+      "instance_mismatch_distance": 10
+    }
+  },
+  "labels_sha256": "89dd92ebbd1c0807880178146ae1ff7dd5b1dfb682229f45a7524656b6f7ceae",
+  "cases": [
+    {
+      "id": 1675,
+      "raw_sha256": "6ba641627c08ef424b7dc3e6cee069aa0dd49615a31c54ae0de1ecd1fabd9dea",
+      "status": "available",
+      "images": {
+        "source": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-2347-A-hybrid-pilot\\1675-source.png",
+          "sha256": "4d156f559b5f5b602b39876f1a518225f1bea7c722fd9eb4f8ff9312848ffa5d"
+        },
+        "C0": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-2347-A-hybrid-pilot\\1675-hybrid-source-bypass\\C0-matched.png",
+          "sha256": "4d156f559b5f5b602b39876f1a518225f1bea7c722fd9eb4f8ff9312848ffa5d"
+        },
+        "C1": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-2347-A-hybrid-pilot\\1675-hybrid-source-bypass\\C1-final.png",
+          "sha256": "0222169fa89a38a9c0b8e80ce9e6a06332f982287f94560444cbb38338e4dca2"
+        }
+      },
+      "enrollment_outcome": "completed",
+      "route_outcome": "completed",
+      "input_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-2347-A-hybrid-pilot\\run.json"
+    },
+    {
+      "id": 4795,
+      "raw_sha256": "6f8994bac6aef0602d4aa4397ecd4b7d579f5b18f66058a2df021352dd22bdc6",
+      "status": "available",
+      "images": {
+        "source": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-2347-A-hybrid-pilot\\4795-source.png",
+          "sha256": "fc5983fb90791e2e494834378d1610f3509f0f72ec8a9beb667ba133d8643033"
+        },
+        "C0": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-2347-A-hybrid-pilot\\4795-hybrid-source-bypass\\C0-matched.png",
+          "sha256": "fc5983fb90791e2e494834378d1610f3509f0f72ec8a9beb667ba133d8643033"
+        },
+        "C1": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-2347-A-hybrid-pilot\\4795-hybrid-source-bypass\\C1-final.png",
+          "sha256": "93a1d161c7ffb60c5d07b5397f7d31fe4cb15e461619443c1bfe32082b079c78"
+        }
+      },
+      "enrollment_outcome": "completed",
+      "route_outcome": "completed",
+      "input_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-2347-A-hybrid-pilot\\run.json"
+    },
+    {
+      "id": 6012,
+      "raw_sha256": "7cd0d627b15c09f373aa613d013fb2d8ae6bd20bcce0d98aa31b963e6bcca495",
+      "status": "available",
+      "images": {
+        "source": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\6012-source.png",
+          "sha256": "7dd4d42c163ee2ad82d8305f5085b62a03255b84442d1b6961088b4e6aeb2610"
+        },
+        "C0": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\6012-hybrid-source-bypass\\C0-matched.png",
+          "sha256": "7dd4d42c163ee2ad82d8305f5085b62a03255b84442d1b6961088b4e6aeb2610"
+        },
+        "C1": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\6012-hybrid-source-bypass\\C1-final.png",
+          "sha256": "3ceae11e2673afdafa3738e1bc0456be8f6c45fcbfa1d9b0aed133ce0c785f6e"
+        }
+      },
+      "enrollment_outcome": "completed",
+      "route_outcome": "completed",
+      "input_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\run.json"
+    },
+    {
+      "id": 25394,
+      "raw_sha256": "f13f54a3cbe28140004425b1b010c51bd5be0e4c4da1d4b1e382e3e0b426e316",
+      "status": "available",
+      "images": {
+        "source": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\25394-source.png",
+          "sha256": "aeee569ff9b3ac5d8bfe4676cead804fa9a24bd7e6fcfa1f4fdfce12a230bd26"
+        },
+        "C0": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\25394-hybrid-source-bypass\\C0-matched.png",
+          "sha256": "aeee569ff9b3ac5d8bfe4676cead804fa9a24bd7e6fcfa1f4fdfce12a230bd26"
+        },
+        "C1": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\25394-hybrid-source-bypass\\C1-final.png",
+          "sha256": "4b87c058317b5714074dd7e6d792c08442dff07b432784065b1cef87024f5c7b"
+        }
+      },
+      "enrollment_outcome": "completed",
+      "route_outcome": "completed",
+      "input_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0012-A-hybrid-old2\\run.json"
+    },
+    {
+      "id": 80932,
+      "raw_sha256": "c5bdb620680ad74c2bb788cabbf3374d68285bec3a2023fadf0ffc7eb257ba72",
+      "status": "available",
+      "images": {
+        "source": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\80932-source.png",
+          "sha256": "e1c6ebb01696da2ea171bcacce06898d502c5ac7a7e5cb3516d6494b5e835982"
+        },
+        "C0": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\80932-hybrid-source-bypass\\C0-matched.png",
+          "sha256": "e1c6ebb01696da2ea171bcacce06898d502c5ac7a7e5cb3516d6494b5e835982"
+        },
+        "C1": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\80932-hybrid-source-bypass\\C1-final.png",
+          "sha256": "32cb25ac34ec41c7dda0cdc9fe92ee7084ba527d49cca5b1a85e4bea872dfa59"
+        }
+      },
+      "enrollment_outcome": "completed",
+      "route_outcome": "completed",
+      "input_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\run.json"
+    },
+    {
+      "id": 109798,
+      "raw_sha256": "8fafbfb6d1c320f9efc59291748c0b9a730726db311364c03280b2de39fe656f",
+      "status": "available",
+      "images": {
+        "source": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\109798-source.png",
+          "sha256": "aa7c43c49e8489df4d2c6423178a94a99b4efc609e0dc4d491bbf66358c466a7"
+        },
+        "C0": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\109798-hybrid-source-bypass\\C0-matched.png",
+          "sha256": "aa7c43c49e8489df4d2c6423178a94a99b4efc609e0dc4d491bbf66358c466a7"
+        },
+        "C1": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\109798-hybrid-source-bypass\\C1-final.png",
+          "sha256": "cb4e6b983bf89d5ce7a8403f650e87ef9339c22f738f63738ee38d5b06f0dfb4"
+        }
+      },
+      "enrollment_outcome": "completed",
+      "route_outcome": "completed",
+      "input_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\run.json"
+    },
+    {
+      "id": 134882,
+      "raw_sha256": "d2a42fe606563d125e105246e6cd473f098338364b51f085da8a97d5943876c5",
+      "status": "available",
+      "images": {
+        "source": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\134882-source.png",
+          "sha256": "1dbfdb155741b53ea9e848de0a278d26837344d09099345ab40bd78536a4b86f"
+        },
+        "C0": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\134882-hybrid-source-bypass\\C0-matched.png",
+          "sha256": "1dbfdb155741b53ea9e848de0a278d26837344d09099345ab40bd78536a4b86f"
+        },
+        "C1": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\134882-hybrid-source-bypass\\C1-final.png",
+          "sha256": "a2ff37326a41e0dddac3223efa1b6e50eb85ace59ce34425051004ff0ebb59ed"
+        }
+      },
+      "enrollment_outcome": "completed",
+      "route_outcome": "completed",
+      "input_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\run.json"
+    },
+    {
+      "id": 147498,
+      "raw_sha256": "70c27d6d67cafe8d0d5a91a6913bc26ce1ba68f7cb69cdec60e96894ac1ec5d6",
+      "status": "available",
+      "images": {
+        "source": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\147498-source.png",
+          "sha256": "6aed2cc97734082702e8a176f2cf12f7b62fbaa7d5463f33a23bd64c986c1ad9"
+        },
+        "C0": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\147498-hybrid-source-bypass\\C0-matched.png",
+          "sha256": "6aed2cc97734082702e8a176f2cf12f7b62fbaa7d5463f33a23bd64c986c1ad9"
+        },
+        "C1": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\147498-hybrid-source-bypass\\C1-final.png",
+          "sha256": "20393b13135df2faa012efc8a8e8e8b7f42962fc9ac88f6a03546582b6ffe750"
+        }
+      },
+      "enrollment_outcome": "completed",
+      "route_outcome": "completed",
+      "input_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0025-A-hybrid-recovery4a\\run.json"
+    },
+    {
+      "id": 177015,
+      "raw_sha256": "13bc4db7ed2ac2612fd03cbb25a597712f99cf1e44784d4abde5aca47f6999c7",
+      "status": "available",
+      "images": {
+        "source": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\177015-source.png",
+          "sha256": "07dfb8c49bac6844f5e7d876560860c99f3ba18e48a6c887a0a79e431630ff26"
+        },
+        "C0": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\177015-hybrid-source-bypass\\C0-matched.png",
+          "sha256": "07dfb8c49bac6844f5e7d876560860c99f3ba18e48a6c887a0a79e431630ff26"
+        },
+        "C1": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\177015-hybrid-source-bypass\\C1-final.png",
+          "sha256": "74cb8ab75dc057de52abac448cfe77dc3d094b29777fe54b49b34001322539ee"
+        }
+      },
+      "enrollment_outcome": "completed",
+      "route_outcome": "completed",
+      "input_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\run.json"
+    },
+    {
+      "id": 190676,
+      "raw_sha256": "d2302cb8d9e0d37a4a150d79ffbb4ba9b1adfd2bcfd477b7b64581ba40e00b7b",
+      "status": "available",
+      "images": {
+        "source": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\190676-source.png",
+          "sha256": "a36bd62e1d43c406288a87af0e6a2b668347cbbf379154869e6390a5ab8487bc"
+        },
+        "C0": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\190676-hybrid-source-bypass\\C0-matched.png",
+          "sha256": "a36bd62e1d43c406288a87af0e6a2b668347cbbf379154869e6390a5ab8487bc"
+        },
+        "C1": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\190676-hybrid-source-bypass\\C1-final.png",
+          "sha256": "e8bc4ef2439159b4c69c7ee970e44d01ce74bc91a22ce2cfb40b4bfb9bab01bb"
+        }
+      },
+      "enrollment_outcome": "completed",
+      "route_outcome": "completed",
+      "input_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\run.json"
+    },
+    {
+      "id": 468505,
+      "raw_sha256": "a3327665e199c84b0ad0e69c8e3f3f6df13902eb3b8580a0708c2c6cade370b6",
+      "status": "available",
+      "images": {
+        "source": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\468505-source.png",
+          "sha256": "f7564aca3eadeb9b7fa3eba03bedc144efd46f7005a385211d948ddd5e702a48"
+        },
+        "C0": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\468505-hybrid-source-bypass\\C0-matched.png",
+          "sha256": "f7564aca3eadeb9b7fa3eba03bedc144efd46f7005a385211d948ddd5e702a48"
+        },
+        "C1": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\468505-hybrid-source-bypass\\C1-final.png",
+          "sha256": "9c83c9b997e6411dcdb9022b4e0ce503d47c185ecc7ff60c1b89235c15489902"
+        }
+      },
+      "enrollment_outcome": "completed",
+      "route_outcome": "completed",
+      "input_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\run.json"
+    },
+    {
+      "id": 499768,
+      "raw_sha256": "8570324bcf64969f77f938941778a8fc69ec5a8943f0945511ce4ab09bce5a3a",
+      "status": "available",
+      "images": {
+        "source": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\499768-source.png",
+          "sha256": "832c4476672c530af4b887825cffc4710f6836aa0df95385e52d13314daace16"
+        },
+        "C0": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\499768-hybrid-source-bypass\\C0-matched.png",
+          "sha256": "832c4476672c530af4b887825cffc4710f6836aa0df95385e52d13314daace16"
+        },
+        "C1": {
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\499768-hybrid-source-bypass\\C1-final.png",
+          "sha256": "45fe957b5d211892d5b13533c898cb101e15a43eb12250bd6145640f7a0b728e"
+        }
+      },
+      "enrollment_outcome": "completed",
+      "route_outcome": "completed",
+      "input_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-0040-A-hybrid-recovery4b\\run.json"
+    }
+  ],
+  "scope": "full-development",
+  "dependencies": {
+    "scripts/m1_assess_dual_threats.py": "3896d85552518446ff57068a237819342a246347682bf7d71fb96867a2e6202a",
+    "scripts/m1_dual_latent.py": "b678c158538be874dedff3f2639f97b1d19675651f046ae1ca6889d05a5ee277",
+    "scripts/revised_watermark_v5.py": "5a1de505084efc03a3168a5ea97ad529a5fecdffb393f02661b242296e4f3d7b",
+    "scripts/revised_watermark_v4.py": "723773c7672ebdaa1a6c460f156d578fc0de13d9d50ec27c4d3e56ba477d1b9b",
+    "scripts/three_threat_protocol.py": "7fad2f0f0eea778f8cd04f02678eed78da8b4be4abdda485de0717f3dc809fb7",
+    "scripts/v5_study_protocol.py": "b2e2fedbb5b1cb943ef7481148b260ec11a76e684916b2ada5747692ee72ae65",
+    "scripts/three_threat_models.py": "448d79927df22d9559efa69af8991863001078059d7b8e3fa1d60b2f9a750881",
+    "scripts/a6_clip_visual.py": "7cfce69ab21fe983558afe37092cf86e691060ac560e30a52571514ef7665284",
+    "scripts/m1_latent_reconstruction.py": "c46b3e538da672b47c40cff9f53272dc97ad68869c9eaba9a36bdef74b5c2924",
+    "scripts/check_a6_lpips_assets.py": "a7f5d44a1e3cb8094ac846ac1bfe28fcbf6e9912d13ad684dfee19eb4a763e3f",
+    "scripts/verify_science_assets.py": "c6d59b897bd21ba3a493fbb217112bb321c85548c1b1a67cd77d782b0b518a50",
+    "research/a6-candidate-model-assets.json": "b8c2595857853ea5b7835bb71f12a34dde07b78623c5e638f692dc7eb220b27e",
+    "experiments/c4-qim-rgb-development-v1/cohort.json": "edb680365a57a589f829e7cc48a824d9ad4123155beba45e8e50e73df7d37154",
+    "experiments/c4-three-threat-small-v1/development-expansion.json": "a3506ff65244a94cd62e2bde7dfb8632c2a7ff50f6e62a97e8a76736abb06ddd",
+    "experiments/c4-three-threat-small-v1/semantic-labels.json": "89dd92ebbd1c0807880178146ae1ff7dd5b1dfb682229f45a7524656b6f7ceae"
+  },
+  "attack_settings": {
+    "strengths": [
+      0.05,
+      0.1,
+      0.2,
+      0.4
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "steps": 20,
+    "guidance_scale": 1.0,
+    "prompt": "",
+    "eta": 0.0,
+    "vae": "posterior-mode"
+  },
+  "human_visual_verdict": null
+}
