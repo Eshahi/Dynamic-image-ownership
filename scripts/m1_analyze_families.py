@@ -95,7 +95,10 @@ def load_family(name,directory):
         package["excluded"]=True;return package
     command=run.get("command",[])
     manifest_path=None
-    if "--manifest" in command:
+    if name=="phasemark" and run.get("manifest_path"):
+        manifest_path=Path(run["manifest_path"])
+        if not manifest_path.is_absolute():manifest_path=ROOT/manifest_path
+    elif "--manifest" in command:
         try:
             manifest_path=Path(command[command.index("--manifest")+1])
             if not manifest_path.is_absolute(): manifest_path=ROOT/manifest_path
@@ -110,7 +113,18 @@ def load_family(name,directory):
                     package["errors"].append({"error":"manifest hash mismatch; planned cases unknown"});package["manifest"]={}
             except Exception as error: package["errors"].append({"error":"manifest parse failure","detail":str(error)})
     else: package["errors"].append({"error":"exact manifest path unavailable; no inferred planned cohort"})
-    journal_name={"reconstruction":"images.jsonl","gs":"rows.jsonl","progressive":"journal.jsonl"}[name]
+    if name=="dual" and package.get("manifest",{}).get("cohort_manifest"):
+        cohort=(ROOT/package["manifest"]["cohort_manifest"]).resolve()
+        if cohort!=(ROOT/"research/m1-reconstruction-dev.json").resolve():
+            package["errors"].append({"error":"Unsupported reserved cohort metadata path"})
+        else:
+            raw_cohort=pin(cohort)
+            try:
+                metadata=json.loads(raw_cohort) if raw_cohort else {}
+                if metadata.get("data_split")!="development":raise ValueError("Development cohort metadata required")
+                package["reserved_cohort"]=metadata
+            except Exception as error:package["errors"].append({"error":"reserved cohort metadata unavailable","detail":str(error)})
+    journal_name={"reconstruction":"images.jsonl","gs":"rows.jsonl","progressive":"journal.jsonl","dual":"journal.jsonl","phasemark":"rows.jsonl"}[name]
     raw_journal=pin(directory/journal_name)
     for number,line in enumerate((raw_journal or "").splitlines(),1):
         try: package["journal"].append(json.loads(line))
@@ -310,14 +324,169 @@ def analyze_progressive(package):
             "caveat":"Native extractor includes VAE weights; image DCT is a separate diagnostic. Public16bit carrier lacks content/OwnerID binding. Wrong-payload64 queries share each extracted word and reused hypotheses; counts are correlated descriptive query outcomes, never independent image-level FPR."}
 
 
+def pilot_provenance(package):
+    directory=Path(package["directory"]).resolve()
+    return {"source_directory":str(directory),"source_run_sha256":next((x["sha256"] for x in package["input_files"] if Path(x["path"]).resolve()==directory/"run.json"),None),
+            "source_outcome":package["source_outcome"],"source_error":package["run"].get("error")}
+
+
+def nullable_quality(value):
+    result=quality(value or {})
+    if not result["quality_complete"]:result["quality_all_three"]=None
+    return result
+
+
+def dual_detector(result,prefix):
+    output={}
+    for key in ("watermark_found","present","outcome","proposal_state","qualified_state","extractor_domain","timing_ms"):
+        output[prefix+"_"+key]=result.get(key)
+    for channel in ("semantic","instance"):
+        value=result.get(channel,{})
+        for key in ("found","content_status","content_match","corrected_distance","score"):
+            output[prefix+"_"+channel+"_"+key]=value.get(key)
+        output[prefix+"_"+channel+"_raw"]=value
+    return output
+
+
+def analyze_dual(packages):
+    if isinstance(packages,dict):packages=[packages]
+    rows=[];seen=set();declared=set();reserved={};errors=[];source_rows=[]
+    for package in packages:
+        if package.get("excluded"):raise ValueError("Unsupported dual split excluded")
+        run=package["run"];manifest=package.get("manifest",{});ids=manifest.get("case_ids",[])
+        config=manifest.get("config",{})
+        if not ids or not config.get("routes"):
+            errors.append("Exact dual case/route declaration unavailable: "+package["directory"]);continue
+        if len(set(ids))!=len(ids) or len(set(config["routes"]))!=len(config["routes"]):raise ValueError("Duplicate dual declared case/route")
+        if config!=run.get("config"):raise ValueError("Dual run/manifest configuration mismatch")
+        cohort=package.get("reserved_cohort",{}).get("cases",[])
+        if not cohort:errors.append("Reserved dual coverage metadata unavailable: "+package["directory"])
+        for spec in cohort:
+            ident=spec["id"]
+            if ident in reserved and reserved[ident]!=spec:raise ValueError("Conflicting reserved source metadata")
+            reserved[ident]=spec
+        if cohort and any(i not in reserved for i in ids):raise ValueError("Unreserved dual case declaration")
+        actual=run.get("cases",[])
+        if any(c.get("id") not in ids for c in actual):raise ValueError("Unplanned actual dual case")
+        for ident in ids:
+            declared.add(ident);matches=[c for c in actual if c.get("id")==ident]
+            if len(matches)>1:raise ValueError("Duplicate actual dual source")
+            case=matches[0] if matches else {}
+            routes=case.get("routes",[])
+            if len({r["route"] for r in routes})!=len(routes) or any(r["route"] not in config["routes"] for r in routes):raise ValueError("Duplicate/unplanned actual dual route")
+            for route in config["routes"]:
+                identity=(ident,route)
+                if identity in seen:raise ValueError("Overlapping dual source/route requires explicit rejection; no automatic merge")
+                seen.add(identity)
+                entry=next((r for r in routes if r["route"]==route),{})
+                source_rows.append({"case":ident,"route":route,"case_outcome":case.get("outcome","not_attempted"),"route_outcome":entry.get("outcome","not_attempted"),
+                                    "source_sha256":reserved.get(ident,{}).get("sha256"),"raw_sha256":case.get("raw_sha256"),"initialization":case.get("initialization"),
+                                    "enrollment":case.get("enrollment"),"optimization":entry.get("optimization"),**pilot_provenance(package)})
+                for condition in ("C0_source","C0_matched","C1","C0_VAE_cycle","C1_VAE_cycle"):
+                    value=case.get(condition,{}) if condition=="C0_source" else entry.get(condition,{})
+                    parent=case if condition=="C0_source" else entry
+                    status="observed" if value and parent.get("outcome")=="completed" else "observed_partial" if value else "missing_or_failed"
+                    optimization=entry.get("optimization",{})
+                    rows.append({"family":"dual","case":ident,"route":route,"condition":condition,"status":status,
+                        "parent_outcome":parent.get("outcome","not_attempted"),"error":parent.get("error"),
+                        "source_sha256":reserved.get(ident,{}).get("sha256"),"raw_sha256":case.get("raw_sha256"),"source_rgb8_sha256":case.get("source_rgb8_sha256"),
+                        **pilot_provenance(package),**nullable_quality(value),"quality_reference":"saved resized source RGB8",
+                        "paired_quality":value.get("quality_vs_paired_C0",entry.get("paired_C1_vs_C0_quality") if condition=="C1" else None),
+                        "recorded_quality_admissible":value.get("quality_admissible"),
+                        **dual_detector(value.get("correct_owner",{}),"correct"),**dual_detector(value.get("wrong_owner",{}),"wrong"),
+                        "optimization_seconds":optimization.get("seconds"),"surrogate_semantic":optimization.get("surrogate_semantic"),
+                        "surrogate_instance":optimization.get("surrogate_instance"),"surrogate_cycle_semantic":optimization.get("surrogate_cycle_semantic"),
+                        "optimizer_events":[e for e in package["journal"] if e.get("id")==ident and e.get("route")==route and e.get("phase")=="optimizer_step"],
+                        "image_receipt":{"path":value.get("png_path",case.get("source_png") if condition=="C0_source" else None),"sha256":value.get("png_sha256",case.get("source_png_sha256") if condition=="C0_source" else None)}})
+        errors.extend(package["errors"])
+    coverage=[{"case":i,"source_sha256":reserved[i].get("sha256"),"declared_in_supplied_pilots":i in declared,
+               "completed_routes":sorted({r["route"] for r in source_rows if r["case"]==i and r["route_outcome"]=="completed"}),
+               "status":"pilot_declared" if i in declared else "reserved_not_declared"} for i in sorted(reserved)]
+    summaries=aggregate(rows,["route","condition"])
+    for summary in summaries:
+        cells=[r for r in rows if r["route"]==summary["route"] and r["condition"]==summary["condition"]]
+        for owner in ("correct","wrong"):
+            for suffix in ("watermark_found","present","semantic_found","semantic_content_match","instance_found","instance_content_match"):
+                key=owner+"_"+suffix;measured=[r[key] for r in cells if type(r[key]) is bool]
+                summary[key+"_n"]=len(measured);summary[key+"_positive"]=sum(measured)
+            for suffix in ("proposal_state","qualified_state","semantic_content_status","instance_content_status"):
+                key=owner+"_"+suffix;counts={}
+                for r in cells:
+                    if r[key] is not None:counts[r[key]]=counts.get(r[key],0)+1
+                summary[key+"_counts"]=counts
+            summary[owner+"_detector_total_ms"]=distribution([(r[owner+"_timing_ms"] or {}).get("total") for r in cells])
+    return {"raw":rows,"summary":summaries,"source_route_inventory":source_rows,"coverage":coverage,
+            "declared_pilot_source_n":len(declared),"reserved_source_n":len(reserved) if reserved else None,
+            "declared_pilot_completed_source_n":sum(all(r["route_outcome"]=="completed" for r in source_rows if r["case"]==i) for i in declared),
+            "reserved_not_declared_n":len(set(reserved)-declared) if reserved else None,"errors":errors,
+            "incomplete":bool(errors) or not rows or any(p["source_outcome"]!="completed" for p in packages) or any(r["status"]!="observed" for r in rows),
+            "caveat":"Declared pilot coverage and reserved cohort coverage are separate. Source quality never implies paired-counterfactual quality. States are recorded operational outputs, not causal/cryptographic ownership verdicts. Duplicate source/route attempts are rejected; no best-attempt selection."}
+
+
+def analyze_phasemark(package):
+    run=package["run"];manifest=package.get("manifest",{});config=manifest.get("config",{});cases=manifest.get("cases",[])
+    if not cases or not config.get("arms") or not config.get("owners"):raise ValueError("Exact PhaseMark planned metadata unavailable")
+    if config!=run.get("config"):raise ValueError("PhaseMark run/manifest configuration mismatch")
+    ids=[c["id"] for c in cases];arms=config["arms"];owners=config["owners"]
+    if len(set(ids))!=len(ids) or len(set(arms))!=len(arms) or len(set(owners))!=len(owners):raise ValueError("Duplicate PhaseMark declarations")
+    planned=[(i,a,c,d,f"{i}-{a}-{c}-{d}") for i in ids for a in arms for c in ("C0","C1") for d in ("clean","vae_cycle")]
+    actual=run.get("conditions",[]);identities=[r["id"] for r in actual]
+    if len(set(identities))!=len(identities):raise ValueError("Duplicate PhaseMark condition; no attempt selection")
+    if set(identities)-{p[4] for p in planned}:raise ValueError("Unplanned PhaseMark condition")
+    rows=[];conditions=[];threshold=config.get("presence_matches")
+    for ident,arm,control,dose,key in planned:
+        value=next((r for r in actual if r["id"]==key),{})
+        if value and any(value.get(k)!=v for k,v in (("source_id",ident),("arm",arm),("control",control),("dose",dose))):raise ValueError("PhaseMark condition identity mismatch")
+        decisions=value.get("owner_decisions",{})
+        if set(decisions)-set(owners):raise ValueError("Unplanned PhaseMark owner query")
+        complete=value.get("outcome")=="completed" and all(finite(decisions.get(o,{}).get("matches")) and finite(decisions.get(o,{}).get("bit_accuracy")) for o in owners)
+        status="observed" if complete else "observed_partial" if decisions else "missing_or_failed"
+        shared={"family":"phasemark","case":ident,"id":key,"arm":arm,"control":control,"dose":dose,"status":status,
+                "parent_outcome":value.get("outcome","not_attempted"),"error":value.get("error"),**pilot_provenance(package),
+                "source_sha256":next(c.get("sha256") for c in cases if c["id"]==ident),"image_receipt":value.get("image"),"source_receipt":value.get("source"),
+                **nullable_quality(value.get("quality_vs_source")),"quality_reference":"saved resized source RGB8",
+                "same_arm_quality":value.get("quality_vs_same_arm_clean"),"paired_quality":value.get("paired_C1_vs_C0_quality"),
+                "extract_seconds":value.get("extract_seconds"),"extracted_scores":value.get("extracted",{}).get("scores"),
+                "zero_magnitude_coefficients_per_block":value.get("extracted",{}).get("zero_magnitude_coefficients_per_block"),
+                "embedding":value.get("embedding"),"human_visual_verdict":None}
+        conditions.append(shared)
+        for owner in owners:
+            decision=decisions.get(owner,{})
+            observed=finite(decision.get("matches")) and finite(decision.get("bit_accuracy"))
+            rows.append({**shared,"status":"observed" if complete else "observed_partial" if observed else "missing_or_failed",
+                         "owner_query":owner,"correct_owner_query":owner==owners[0],"matches":decision.get("matches"),"bit_accuracy":decision.get("bit_accuracy"),
+                         "detected":decision["matches"]>=threshold if finite(decision.get("matches")) and finite(threshold) else None,
+                         "pilot_state":decision.get("pilot_state"),"descriptive_threshold_decisions":decision.get("descriptive_threshold_decisions"),
+                         "query_observed":observed})
+    screens=[]
+    for arm in arms:
+        cells=[c for c in conditions if c["arm"]==arm];queries=[r for r in rows if r["arm"]==arm]
+        complete=all(c["status"]=="observed" and c["quality_complete"] for c in cells)
+        carrier=all(r["detected"] is (r["control"]=="C1" and r["correct_owner_query"]) for r in queries) if complete and finite(threshold) else None
+        clean=[c for c in cells if c["control"]=="C1" and c["dose"]=="clean"]
+        qgate=all(c["quality_all_three"] for c in clean) if complete and all(c["quality_complete"] for c in clean) else None
+        screens.append({"arm":arm,"planned_sources":len(ids),"planned_conditions":len(cells),"planned_queries":len(queries),"observed_conditions":sum(c["status"]=="observed" for c in cells),
+                        "observed_queries":sum(r["query_observed"] for r in queries),"complete":complete,"carrier_gate":carrier,"source_quality_gate":qgate,
+                        "recorded_arm_screen":run.get("arm_screen",{}).get(arm),"human_visual_verdict":None})
+    summaries=aggregate(rows,["arm","control","dose","owner_query"])
+    for summary in summaries:
+        cells=[r for r in rows if all(r[k]==summary[k] for k in ("arm","control","dose","owner_query"))]
+        summary["matches"]=distribution([r["matches"] for r in cells]);summary["extract_seconds"]=distribution([r["extract_seconds"] for r in cells])
+    return {"raw":rows,"condition_inventory":conditions,"summary":summaries,"arm_screen":screens,
+            "planned_source_n":len(ids),"planned_conditions":len(planned),"planned_queries":len(rows),"errors":package["errors"],
+            "incomplete":bool(package["errors"]) or package["source_outcome"]!="completed" or not all(c["status"]=="observed" and c["quality_complete"] for c in conditions),
+            "caveat":"Public phase carrier pilot with owner-hypothesis queries. No three-state/content/cryptographic ownership claim. Four queries and repeated arms/cycles do not multiply source N; quality/latency inventory is unique per condition."}
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--reconstruction-dir",type=Path,action="append")
     parser.add_argument("--reconstruction-pause-receipt",type=Path)
-    for name in ("gs","progressive"):parser.add_argument("--"+name+"-dir",type=Path)
+    parser.add_argument("--dual-dir",type=Path,action="append")
+    for name in ("gs","progressive","phasemark"):parser.add_argument("--"+name+"-dir",type=Path)
     parser.add_argument("--output-dir",type=Path,required=True)
     args=parser.parse_args();started=time.monotonic()
-    sources={name:getattr(args,name+"_dir") for name in ("reconstruction","gs","progressive") if getattr(args,name+"_dir") is not None}
+    sources={name:getattr(args,name+"_dir") for name in ("reconstruction","gs","progressive","dual","phasemark") if getattr(args,name+"_dir") is not None}
     if not sources:parser.error("At least one family directory required")
     output=args.output_dir.resolve()
     if not output.is_relative_to((MAIN/".thesis-build/dev-runs").resolve()):parser.error("Output must be MAIN/.thesis-build/dev-runs")
@@ -329,6 +498,18 @@ def main():
     try:
         analyses={}
         for name,directory in sources.items():
+            if name=="dual":
+                packages=[load_family(name,p.resolve()) for p in directory]
+                record["families"][name]={"attempts":[{**{k:v for k,v in p.items() if k not in ("journal","run","manifest","reserved_cohort")},
+                    "source_commit":p["run"].get("commit"),"source_config":p["run"].get("config"),"source_errors":{k:p["run"].get(k) for k in ("error","error_type","traceback") if p["run"].get(k)}} for p in packages]}
+                for p in packages:record["seeds"]+=p["run"].get("seeds",[])
+                try:
+                    result=analyze_dual(packages);analyses[name]=result
+                    for suffix,key in (("raw","raw"),("summary","summary"),("coverage","coverage"),("source-routes","source_route_inventory")):
+                        csv_table(output/(name+"-"+suffix+".csv"),result[key])
+                except Exception as error:
+                    analyses[name]={"raw":[],"summary":[],"incomplete":True,"error":str(error),"traceback":traceback.format_exc()}
+                continue
             if name=="reconstruction":
                 packages=[load_family(name,p.resolve()) for p in directory]
                 record["families"][name]={"attempts":[{**{k:v for k,v in p.items() if k not in ("journal","run","manifest")},
@@ -357,13 +538,15 @@ def main():
             if package.get("excluded"):
                 analyses[name]={"raw":[],"summary":[],"incomplete":True,"caveat":"Unsupported split excluded"};continue
             try:
-                result={"reconstruction":analyze_reconstruction,"gs":analyze_gs,"progressive":analyze_progressive}[name](package)
-                result["incomplete"]=bool(package["errors"]) or package["source_outcome"]!="completed" or any(r["status"] not in ("observed",) for r in result["raw"])
+                result={"reconstruction":analyze_reconstruction,"gs":analyze_gs,"progressive":analyze_progressive,"phasemark":analyze_phasemark}[name](package)
+                result["incomplete"]=result.get("incomplete",False) or bool(package["errors"]) or package["source_outcome"]!="completed" or any(r["status"] not in ("observed",) for r in result["raw"])
                 analyses[name]=result
                 csv_table(output/(name+"-raw.csv"),result["raw"])
                 csv_table(output/(name+"-summary.csv"),result["summary"])
                 if "quality_summary" in result:csv_table(output/(name+"-quality-summary.csv"),result["quality_summary"])
                 if "attempt_inventory" in result:csv_table(output/(name+"-attempts.csv"),result["attempt_inventory"])
+                if "condition_inventory" in result:csv_table(output/(name+"-conditions.csv"),result["condition_inventory"])
+                if "arm_screen" in result:csv_table(output/(name+"-arm-screen.csv"),result["arm_screen"])
             except Exception as error:
                 analyses[name]={"raw":[],"summary":[],"incomplete":True,"error":str(error),"traceback":traceback.format_exc()}
         write(output/"analysis.json",analyses)
