@@ -1,0 +1,16 @@
+# PhaseMark v1 — primary inspection
+
+Sung Ju Lee and Nam Ik Cho, arXiv:2601.13128v1 (2026-01-19). Parent inspected method and experiments, Sections 2–3, Tables 1–3: https://arxiv.org/html/2601.13128v1 . Retained HTML SHA256 `00f0b126339239ad2f69c092fae09df24bcda2acd2f9dbb7601a696e55fb4367`.
+
+Mechanism: VAE posterior-mean encode, take the central **spatial** 44x44 latent crop (`10:54,10:54`), then FFT that crop, modulate phase in 2x2 mid-band blocks, restore Hermitian symmetry, inverse FFT, replace the spatial crop and decode. This is not a central crop of the full-latent FFT. Four variants carry 128 bits across four channels. Extraction uses VAE+FFT, without inversion. No semantic/OwnerID binding is established. The coordinate interpretation is resolved by official `fast_try.py:199`, with detection at line 221.
+
+Evidence: SD2.1-generated1000images/dataset. APM reports verification TPR .996/.997/1.000 for compression-VAE-B/C and diffusion60 attacks at nominal1%FPR. PCQ PSNR34.156; unmarked VAE reconstruction36.4193. Reported detection .050s is hardware/protocol-specific.
+
+Limits: generated-image reconstruction differs from existing-photo preservation; binomial/Bonferroni thresholds need their null assumptions. The compression-VAE-B/C attacks are not the project's SD1.5 VAE roundtrip. No local result or reproduction claim. APM/IPS feasibility and the bounded next experiment are specified in [the design decision](../../m1-phasemark-feasibility.md).
+
+Official-code clarification, inspected 2026-10-03: [revision dfe42ad0449459e26fe1579957c6d05ccdee9b92](https://github.com/thomas11809/PhaseMark/tree/dfe42ad0449459e26fe1579957c6d05ccdee9b92), retained under `phasemark-code/` with [download hashes](phasemark-code/download-records.json). The code notice is CC BY-NC 4.0 with attribution and change disclosure. The exact mask is now available: `get_bit_blocks((22,22),32,2,10,18,1)`; PCQ uses multiples of pi/2 for one bit value and the same constellation shifted pi/4 for the other. Preserve the source's deterministic ordering and Hermitian convention instead of inventing paper details.
+
+Implementation audit: local `utils.py` SHA-256 `de23bef357e3524dde2cead837c0d08d112610ed652374e230c3d0621395178d`; local `fast_try.py` SHA-256 `8867b19b732f85d919fc2f5f67f5555661157f550faba1bd3049619fa6b767fe`. These hashes refer to the exact retained UTF-8 files, not reformatted excerpts.
+
+- **PSNR arithmetic:** `utils.py:505–513` converts images to uint8 arrays and computes their squared difference without casting to float; subtraction/squaring can wrap. `fast_try.py:231` calls this function. Independent float metrics are required for our adaptation. This establishes a defect in the inspected implementation; it does not establish that the published paper tables used the faulty computation.
+- **Threshold boundary:** `utils.py:658–682`, especially lines 673–675, chooses `i` from `P(X>i)` and returns `i/L`. `fast_try.py:243–246` accepts `BA>=i/L`, which includes one extra match count. For L=128 and alpha=.01, the consistent rule is matches >=78 (exact fair-bit tail .0083353671); matches >=77 has tail .0133675864. Correct this explicitly in local adaptation and do not promote the conditional binomial model into measured FPR. Again, the inspected mismatch alone does not determine which rule generated the paper tables.
