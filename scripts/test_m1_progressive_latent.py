@@ -52,8 +52,9 @@ class ManifestBoundary(unittest.TestCase):
     def test_resume_retains_failure_marks_interruption_and_rejects_missing_complete(self):
         with tempfile.TemporaryDirectory() as directory:
             identity={"commit":"fixed"}
-            record={**identity,"rows":[{"id":"failed","outcome":"failed","error":"OOM"},
-                                        {"id":"interrupted","outcome":"started"}]}
+            record={**identity,'config':candidate.CONFIG,'planned_ids':candidate.planned_ids(),"rows":[
+                {"id":"seed1000-C0","seed":1000,"control":"C0","artifact_prefix":"seed1000-C0-attempt1","outcome":"failed","error":"OOM"},
+                {"id":"seed1001-C0","seed":1001,"control":"C0","artifact_prefix":"seed1001-C0-attempt1","outcome":"started"}]}
             resumed=candidate.prepare_resume(record,identity,Path(directory))
             self.assertEqual(resumed["rows"][0]["error"],"OOM")
             self.assertEqual(resumed["rows"][1]["outcome"],"interrupted")

@@ -1,0 +1,21 @@
+{
+  "access_date": "2026-10-04",
+  "records": [
+    {
+      "source_url": "https://arxiv.org/html/2602.09494v1",
+      "version": "arXiv:2602.09494v1, 2026-02-10",
+      "local_path": "research/literature/m1-osi/osi-v1.html",
+      "size_bytes": 513233,
+      "sha256": "61df37a758ec308c4ce1223c99de54548d28e6e893b63a537c13d76b0456efd6",
+      "license": "arXiv.org perpetual non-exclusive license",
+      "license_evidence": "Original arXiv HTML license link at document header",
+      "artifact_kind": "Unmodified official full-text HTML; no code executed"
+    }
+  ],
+  "latest_version_metadata": {
+    "source_url": "https://arxiv.org/abs/2602.09494",
+    "observed_latest": "v1, 2026-02-10",
+    "full_text_inspected": true,
+    "inspected_version": "v1"
+  }
+}

@@ -9,6 +9,7 @@ import argparse
 import hashlib
 import importlib.metadata
 import json
+import math
 from pathlib import Path
 import subprocess
 import sys
@@ -130,13 +131,10 @@ def validate(manifest):
     if manifest.get("data_split") != "synthetic" or manifest.get("config") != CONFIG:
         raise ValueError("Exact synthetic candidate configuration required")
     reference=json.loads((ROOT/"research/m1-gs-synthetic.json").read_text())
-    prompts={c["seed"]:c["prompt"] for c in reference["cases"]}
     cases=manifest.get("cases",[])
-    if not cases or len({x["seed"] for x in cases}) != len(cases):
-        raise ValueError("Explicit distinct synthetic cases required")
-    for c in cases:
-        if type(c["seed"]) is not int or c["seed"] not in range(1000,1004) or c["prompt"] != prompts[c["seed"]]:
-            raise ValueError("Synthetic prompt/seed differs from reservation")
+    expected=[{"seed":c["seed"],"prompt":c["prompt"]} for c in reference["cases"]]
+    if [c['seed'] for c in expected]!=list(range(1000,1004)) or manifest.get('schema_version')!='m1-progressive-synthetic-v1' or cases!=expected or any(type(c['seed']) is not int for c in cases):
+        raise ValueError("Exact ordered four synthetic prompt/seed cases required")
     return cases
 
 
@@ -217,19 +215,93 @@ def artifact_path(output, relative):
     return path
 
 
+def planned_ids():
+    return [f'seed{s}-C0' for s in range(1000,1004)]+[
+        f'seed{s}-a{a}-e{e}' for s in range(1000,1004) for a in CONFIG['alphas'] for e in CONFIG['etas']]
+
+
+def finite_number(value):
+    return not isinstance(value,bool) and isinstance(value,(int,float)) and math.isfinite(value)
+
+
+def validate_quality(value, *, clip=False):
+    if not isinstance(value,dict):raise ValueError('Missing quality object')
+    for name in ('mse_rgb8','ssim_rgb','lpips')+ (('clip_cosine',) if clip else ()):
+        if not finite_number(value.get(name)):raise ValueError('Missing/nonfinite quality '+name)
+    if value['mse_rgb8']<0 or type(value.get('psnr_infinite')) is not bool:raise ValueError('Malformed quality MSE/PSNR flag')
+    if value['mse_rgb8']==0:
+        if value['psnr_infinite'] is not True or value.get('psnr_db','missing') is not None:raise ValueError('Inconsistent infinite PSNR')
+    elif value['psnr_infinite'] or not finite_number(value.get('psnr_db')):raise ValueError('Missing/nonfinite PSNR')
+
+
+def validate_readout(value):
+    if not isinstance(value,dict) or not isinstance(value.get('bits'),str) or len(value['bits'])!=16 or set(value['bits'])-{'0','1'}:
+        raise ValueError('Missing/malformed extracted word')
+    matches=sum(a==b for a,b in zip(value['bits'],CONFIG['payload']));acc=matches/16
+    expected={'bit_accuracy':acc,'bit_errors':16-matches,'wrong_payload_bit_accuracy':1-acc,
+        'wrong_payload_bit_errors':matches,'found_descriptive':acc>=CONFIG['threshold'],
+        'wrong_payload_found_descriptive':1-acc>=CONFIG['threshold']}
+    for key,want in expected.items():
+        got=value.get(key)
+        if type(want) is bool:
+            if type(got) is not bool or got!=want:raise ValueError('Readout decision inconsistent: '+key)
+        elif not finite_number(got) or got!=want or (type(want) is int and type(got) is not int):raise ValueError('Readout score inconsistent: '+key)
+    if not finite_number(value.get('coefficient_sign_accuracy')) or not 0<=value['coefficient_sign_accuracy']<=1:
+        raise ValueError('Missing/nonfinite coefficient sign score')
+    queries=value.get('wrong_payload_queries',{})
+    scores=queries.get('bit_accuracies',[]) if isinstance(queries,dict) else []
+    bits=[int(x) for x in value['bits']];reference=wrong_payload_scores(bits)
+    if not isinstance(scores,list) or len(scores)!=64 or any(not finite_number(x) for x in scores):raise ValueError('Missing/nonfinite wrong query scores')
+    for key in ('queries','bit_accuracies','false_findings','denominator','threshold'):
+        if queries.get(key)!=reference[key]:raise ValueError('Wrong payload query mismatch: '+key)
+    if any(type(queries.get(k)) is not int for k in ('queries','false_findings','denominator')) or not finite_number(queries.get('threshold')):
+        raise ValueError('Malformed wrong payload query types')
+
+
+def validate_condition(value):
+    if not isinstance(value,dict):raise ValueError('Missing condition object')
+    for key in ('native_vae_dct','image_dct_diagnostic'):validate_readout(value.get(key))
+    for key in ('native_vae_dct_seconds','image_dct_diagnostic_seconds','extract_both_seconds'):
+        if not finite_number(value.get(key)) or value[key]<0:raise ValueError('Missing/nonfinite extraction time')
+    validate_quality(value.get('quality_vs_same_arm_clean'),clip=True)
+
+
 def prepare_resume(record, identities, output):
     if any(record.get(k)!=v for k,v in identities.items()):
         raise ValueError("Resume identity mismatch")
     required={"clean","vae","t3-0.1","t3-0.4"}
+    if record.get('config')!=CONFIG or record.get('planned_ids')!=planned_ids():raise ValueError('Resume fixed inventory/config mismatch')
+    completed=set();prefixes=set()
     for row in record["rows"]:
+        if row.get('id') not in record['planned_ids'] or row.get('seed') not in range(1000,1004):raise ValueError('Unplanned resume row')
+        ident=row['id'];seed=row['seed']
+        if row.get('control')=='C0':expected=f'seed{seed}-C0'
+        elif row.get('control')=='C1' and row.get('alpha') in CONFIG['alphas'] and row.get('eta') in CONFIG['etas']:
+            expected=f"seed{seed}-a{row['alpha']}-e{row['eta']}"
+        else:raise ValueError('Resume row control/variant mismatch')
+        prefix=row.get('artifact_prefix','')
+        suffix=prefix.removeprefix(ident+'-attempt')
+        if ident!=expected or not prefix.startswith(ident+'-attempt') or not suffix.isdigit() or int(suffix)<1 or prefix in prefixes:
+            raise ValueError('Resume row identity/attempt conflict')
+        prefixes.add(prefix)
         if row["outcome"]=="completed":
+            if ident in completed:raise ValueError('Duplicate completed resume ID')
+            completed.add(ident)
             if set(row.get("conditions",{}))!=required or len(row.get("artifacts",[]))!=4:
                 raise ValueError("Completed resume row is incomplete")
+            names=[a.get('path') for a in row['artifacts']]
+            if len(set(names))!=4 or set(names)!={prefix+'-'+k+'.png' for k in required}:raise ValueError('Resume artifact condition membership mismatch')
+            for value in row['conditions'].values():validate_condition(value)
+            if row['control']=='C1':validate_quality(row.get('quality_to_matched_C0'))
+            generation=row.get('generation',{})
+            if generation.get('timesteps')!=list(range(981,0,-20)) or generation.get('guided_step_indices')!=(list(range(25)) if row['control']=='C1' else []) or generation.get('safety_flag') is not False or not finite_number(generation.get('scheduler_eta')) or generation['scheduler_eta']!=0. or any(type(x) is not int for x in generation['timesteps']+generation['guided_step_indices']):
+                raise ValueError('Resume generation metadata incomplete/inconsistent')
             for artifact in row["artifacts"]:
                 if sha(artifact_path(output,artifact["path"]))!=artifact["sha256"]:
                     raise ValueError("Resume artifact hash mismatch")
-            if row["control"]=="C0" and sha(artifact_path(output,row["png_path"]))!=row["png_sha256"]:
-                raise ValueError("Resume C0 PNG hash mismatch")
+            if row["control"]=="C0":
+                if row.get('png_path')!=prefix+'.png' or sha(artifact_path(output,row["png_path"]))!=row.get("png_sha256"):
+                    raise ValueError("Resume C0 PNG hash mismatch")
         elif row["outcome"]=="started":
             row.update(outcome="interrupted",error="Previous invocation ended without a terminal row")
     return record
@@ -326,6 +398,7 @@ def run(manifest_path, output):
                 row["conditions"][condition]["quality_vs_same_arm_clean"]={**quality(source,suspect),
                     "lpips":lpips_score(metric,source,suspect),
                     "clip_cosine":float((source_feature*clip_feature(clip_model,clip_transform,suspect)).sum())}
+                validate_condition(row['conditions'][condition])
                 event({"phase":"condition","id":row["id"],"condition":condition,**row["conditions"][condition]})
                 checkpoint_record()
         checkpoint_record()
@@ -377,6 +450,7 @@ def run(manifest_path, output):
                         rgb=np.asarray(Image.open(png).convert("RGB")).copy()
                         row["generation"]=meta
                         row["quality_to_matched_C0"]={**quality(c0,rgb),"lpips":lpips_score(metric,c0,rgb)}
+                        validate_quality(row['quality_to_matched_C0'])
                         persist_scores(row,conditions(rgb))
                         row.update(outcome="completed",peak_allocated_bytes=torch.cuda.max_memory_allocated())
                         checkpoint_record(); torch.cuda.empty_cache()

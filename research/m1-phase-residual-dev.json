@@ -1,0 +1,31 @@
+{
+  "schema": "m1-phasemark-residual-v1",
+  "data_split": "development",
+  "input_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261003-2355-phasemark-pilot",
+  "input_run_sha256": "0fd2f7f8a1cdb34e6a129f753eb1f090e279cd8c1018a774a262a84bb7a123c8",
+  "ids": [
+    1675,
+    4795
+  ],
+  "arms": [
+    "APM",
+    "IPS"
+  ],
+  "profiles": [
+    "full",
+    "quality-cap"
+  ],
+  "owners": [
+    "qim-pilot-owner-alpha",
+    "qim-pilot-owner-beta",
+    "qim-pilot-owner-gamma",
+    "qim-pilot-owner-delta"
+  ],
+  "threshold": 82,
+  "psnr_cap_db": 35.2,
+  "bisection_steps": 36,
+  "run_seconds_cap": 600,
+  "gpu_budget_bytes": 10737418240,
+  "ram_budget_bytes": 17179869184,
+  "artifact_budget_bytes": 262144000
+}
