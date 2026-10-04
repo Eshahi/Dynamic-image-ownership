@@ -6,6 +6,7 @@ experiment. Resumption reads an identical prior attempt into a fresh directory.
 from __future__ import annotations
 
 import argparse
+import gc
 import hashlib
 import importlib.metadata
 import json
@@ -221,6 +222,60 @@ def checkpoint_load(receipt,identity):
     return data
 
 
+def move_inference_models(models,device):
+    """Execution-only placement; retain weights, dtypes and frozen status."""
+    sizes=[]
+    for model in models:
+        if any(p.requires_grad for p in model.parameters()):
+            raise ValueError('Only frozen inference models may be moved')
+        sizes.append(sum(v.numel()*v.element_size() for v in (*model.parameters(),*model.buffers())))
+        model.to(device=device)
+    return sizes
+
+
+def exact_tree_equal(left,right):
+    """Exact scientific tensor/state parity, excluding provenance identity."""
+    import torch
+    if torch.is_tensor(left) or torch.is_tensor(right):
+        return torch.is_tensor(left) and torch.is_tensor(right) and left.dtype==right.dtype and left.shape==right.shape and torch.equal(left,right)
+    if type(left) is not type(right):return False
+    if isinstance(left,dict):return left.keys()==right.keys() and all(exact_tree_equal(left[k],right[k]) for k in left)
+    if isinstance(left,(list,tuple)):return len(left)==len(right) and all(exact_tree_equal(a,b) for a,b in zip(left,right))
+    return left==right
+
+
+def verify_completed_case_replay(current_case,current_rows,reference):
+    """Compare fresh results; never initialize from the reference checkpoint."""
+    import torch
+    old=[r for r in reference['case_events'] if r['source_id']==current_case['source_id'] and r['outcome']=='completed']
+    if len(old)!=1:raise ValueError('Replay requires exactly one completed reference case')
+    old=old[0]
+    if current_case['source']['rgb8_sha256']!=old['source']['rgb8_sha256'] or current_case['initialization']!=old['initialization']:
+        raise ValueError('Replay source/initialization differs')
+    endpoints=[]
+    for case in (old,current_case):
+        receipts=[r for r in case['checkpoints'] if r['step']==100]
+        if len(receipts)!=1 or util.sha(Path(receipts[0]['path']))!=receipts[0]['sha256']:
+            raise ValueError('Replay endpoint receipt invalid')
+        endpoints.append(torch.load(receipts[0]['path'],map_location='cpu',weights_only=True))
+    if any(not exact_tree_equal(endpoints[0][k],endpoints[1][k]) for k in ('u','optimizer','rng','step')):
+        raise ValueError('Fresh endpoint replay differs in latent/Adam/RNG/step')
+    old_rows={r['id']:r for r in reference['conditions'] if r['source_id']==current_case['source_id']}
+    new_rows={r['id']:r for r in current_rows if r['source_id']==current_case['source_id']}
+    if len(old_rows)!=4 or old_rows.keys()!=new_rows.keys():raise ValueError('Replay image inventory differs')
+    for ident,row in new_rows.items():
+        previous=old_rows[ident]
+        if row['outcome']!='completed' or previous['outcome']!='completed':raise ValueError('Replay image incomplete')
+        for field in ('image','terminal_reader_latent','terminal_fp32_latent'):
+            for value in (row[field],previous[field]):
+                if util.sha(Path(value['path']))!=value['sha256']:raise ValueError('Replay artifact hash mismatch')
+            if row[field]['sha256']!=previous[field]['sha256']:raise ValueError('Fresh image/reader-latent replay differs')
+        if not exact_tree_equal(row['owner_decisions'],previous['owner_decisions']):raise ValueError('Replay decisions differ')
+    return dict(source_id=current_case['source_id'],passed=True,images=4,reader_arrays=8,
+                endpoint_fields=['u','optimizer','rng','step'],provenance_identity_compared=False,
+                caveat='Fresh same-source replay, not an independent image or cross-commit resume')
+
+
 def optimize(embedder,source,u0,oracle,cfg,event,save,check,resume=None):
     import torch
     from torch.utils.checkpoint import checkpoint
@@ -269,7 +324,7 @@ def optimize(embedder,source,u0,oracle,cfg,event,save,check,resume=None):
         surrogate_cycle_scores=[float(v) for v in cycle_scores])
 
 
-def run(manifest_path,output,resume_from=None):
+def run(manifest_path,output,resume_from=None,replay_reference=None):
     import numpy as np
     from PIL import Image
     manifest_path=Path(manifest_path).resolve();output=Path(output).resolve();cfg=configuration()
@@ -297,6 +352,7 @@ def run(manifest_path,output,resume_from=None):
     for row in rows.values():retain(row)
     try:
         deps=[Path(__file__),manifest_path,ROOT/'research/m1-terminal-continuous-design.md',
+            ROOT/'research/m1-terminal-continuous-recovery.md',
             ROOT/'scripts/m1_blind_noise_core.py',ROOT/'scripts/m1_blind_noise.py',ROOT/'scripts/m1_dual_latent.py',
             ROOT/'scripts/m1_phase_residual.py',ROOT/'scripts/m1_phasemark.py',ROOT/'scripts/m1_latent_reconstruction.py',
             ROOT/'scripts/revised_watermark_v5.py',ROOT/'scripts/revised_watermark_v4.py',ROOT/'scripts/three_threat_models.py',
@@ -306,6 +362,19 @@ def run(manifest_path,output,resume_from=None):
         record.update(commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
             committed_files=util.require_committed(deps),manifest_sha256=util.sha(manifest_path))
         fingerprint=dict(commit=record['commit'],committed_files=record['committed_files'],manifest_sha256=record['manifest_sha256'])
+        replay=None
+        if replay_reference:
+            if resume_from:raise ValueError('Fresh replay cannot be combined with resume')
+            replay_path=Path(replay_reference).resolve()/'run.json'
+            if not replay_path.is_relative_to((MAIN/'.thesis-build/dev-runs').resolve()):raise ValueError('Replay reference must be MAIN development run')
+            replay=json.loads(replay_path.read_text())
+            if replay.get('schema')!=VERSION or replay.get('config')!=cfg or replay.get('data_split')!='development':
+                raise ValueError('Replay reference scientific configuration differs')
+            if [r['source_id'] for r in replay['case_events'] if r['outcome']=='completed']!=[IDS[0]]:
+                raise ValueError('Recovery replay requires completed first source only')
+            record['replay_reference']=dict(path=str(replay_path),sha256=util.sha(replay_path),commit=replay['commit'],
+                initialization='fresh original step200 reconstruction, no reference watermark checkpoint loaded for optimization')
+        record['execution_variant']='inference-model-offload-v1'
         prior=None
         if resume_from:
             resume_from=Path(resume_from).resolve()
@@ -382,6 +451,19 @@ def run(manifest_path,output,resume_from=None):
             val=quality(a,b);val['lpips']=lpips_score(metric,a,b)
             val['quality_admissible']=(val['psnr_infinite'] or val['psnr_db']>35) and val['ssim_rgb']>.9 and val['lpips']<.1
             return val
+        def placement(device,ident):
+            def snapshot(stage):
+                torch.cuda.synchronize()
+                free,total=torch.cuda.mem_get_info(0)
+                value=dict(kind='gpu_memory',source_id=ident,stage=stage,
+                    allocated_bytes=torch.cuda.memory_allocated(),reserved_bytes=torch.cuda.memory_reserved(),
+                    peak_allocated_bytes=torch.cuda.max_memory_allocated(),free_bytes=int(free),total_bytes=int(total))
+                event(value);return value
+            before=snapshot('before_inference_models_to_'+device)
+            sizes=move_inference_models((reader_vae,safety),device)
+            gc.collect();torch.cuda.empty_cache()
+            after=snapshot('after_inference_models_to_'+device)
+            ce.setdefault('memory_placements',[]).append(dict(device=device,model_tensor_bytes=sizes,before=before,after=after));persist();check()
         for case in cfg['cases']:
             check();ident=case['id'];source,_=old_a.source_rgb(case)
             source,receipt=save_png(f'{ident}-source',source)
@@ -401,7 +483,9 @@ def run(manifest_path,output,resume_from=None):
             def save(step,u,optimizer):
                 cr=checkpoint_save(output/f'{ident}-step{step:03d}.pt',u,optimizer,step,identity)
                 ce['checkpoints'].append(cr);event(dict(kind='checkpoint',source_id=ident,**cr));persist();check()
+            placement('cpu',ident)
             result=optimize(embedder,source_tensor,u0,oracle,cfg,lambda r:event(dict(kind='optimizer',source_id=ident,**r)),save,check,resume)
+            placement('cuda',ident)
             raw=array(result['residual']);marked,cap=residual.cap(source,raw)
             ce.update(cap=cap,beta_final=result['beta'],residual_rms=result['rho'],
                 final_surrogate_scores=result['surrogate_scores'],final_surrogate_cycle_scores=result['surrogate_cycle_scores'],
@@ -425,7 +509,10 @@ def run(manifest_path,output,resume_from=None):
                     quality_vs_source=q(source,rgb),quality_vs_same_arm_clean=q(images[(arm,'clean')],rgb))
                 retain(row)
             ce['outcome']='completed';persist()
-            del source_tensor,u0,oracle,result;torch.cuda.empty_cache();check()
+            if replay and ident==IDS[0]:
+                ce['execution_replay']=verify_completed_case_replay(ce,list(rows.values()),replay)
+                record['execution_replay']=ce['execution_replay'];persist()
+            del source_tensor,u0,oracle,result;gc.collect();torch.cuda.empty_cache();check()
         record['outcome']='completed'
         record['peak_allocated_bytes']=torch.cuda.max_memory_allocated()
     except (Exception,KeyboardInterrupt) as error:
@@ -447,8 +534,9 @@ if __name__=='__main__':
     group=parser.add_mutually_exclusive_group(required=True)
     group.add_argument('--write-manifest',type=Path);group.add_argument('--run',action='store_true')
     parser.add_argument('--manifest',type=Path);parser.add_argument('--output-dir',type=Path);parser.add_argument('--resume-from',type=Path)
+    parser.add_argument('--replay-reference',type=Path,help='Fresh-run parity against a prior completed first source; never initializes from it')
     args=parser.parse_args()
     if args.write_manifest:
         with args.write_manifest.open('x',encoding='utf-8') as f:json.dump(configuration(),f,indent=2);f.write('\n')
     elif not args.manifest or not args.output_dir:parser.error('--run requires --manifest and --output-dir')
-    else:raise SystemExit(run(args.manifest,args.output_dir,args.resume_from))
+    else:raise SystemExit(run(args.manifest,args.output_dir,args.resume_from,args.replay_reference))
