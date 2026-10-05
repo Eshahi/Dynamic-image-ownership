@@ -86,3 +86,34 @@ The inter minimum is 32.7 (one pair; p5 45.6). The binding failures at .4 sit at
 - Promote "long semantic sketch (128-256 bits), decoupled from owner detection, carried with A-P1 coding or syndrome (C-1/C-2) with the suspect as side information" to rank 1 for .4/.5.
 - Expected gain up to the ceiling: about +6 at .4 and +7 at .5.
 - The decisive cheap test, with no GPU, is to read the carrier's soft per-bit values on the existing stress latents and measure the bit error rate L bits would see at 5 or 2.5 chips per bit. That gives the effective information that reaches the detector.
+
+## Second stress family (added 22:40 UTC)
+
+Run `20261005-2104-f5-stress-cfg75-f5r2`: F5 r2 unchanged, regeneration with 50 DDIM steps, CFG 7.5 and the prompt "a photo". Queue job 005. C0 and wrong-owner were 0. Clean PSNR 44.71, LPIPS .0173.
+
+Production C1, with the split of failures at each strength:
+
+| strength | family 1 | family 2 | family 2 failures |
+|---|---:|---:|---|
+| .4 | 49/58 | 38/59 | bind 17, carrier 4 |
+| .5 | 37/58 | 17/59 | bind 22, carrier 20 |
+| .6 | 10/57 | 12/56 | bind 5, carrier 39 |
+
+The same ceiling test at k = 4/132 (output `research/ideas/binding-ceiling-cfg75.json`):
+
+| estimator | .4 | .5 | .6 |
+|---|---:|---:|---:|
+| ideal angle | 53 | 32 | 10 |
+| keyed 32-bit, true q | 41 | 13 | 4 |
+| random 32-bit | 25-44 | 6-21 | 1-4 |
+| random 64-bit | 41-50 | 17-26 | 3-8 |
+| random 128-bit | 39-49 | 19-25 | 3-9 |
+| random 256-bit | 52-53 | 27-33 | 7-11 |
+
+Reading:
+
+- The prompt-guided attack moves CLIP further. Median angle at .4 is 26.8 against 22.4, and at .5 it is 36.5 against 28.1.
+- The ideal ceiling therefore drops, but the 32-bit sketch loses even more.
+- A long sketch would recover about +14 at .4 (38 to about 52) and about +13 at .5 (17 to about 30). That is a larger gain than in family 1.
+- .5 here is also carrier-limited (20 losses), and so is .6.
+- Production .6 (12) exceeds the simulated ideal (10) because production uses its own threshold and the decoded q, so its false-match scale differs.
