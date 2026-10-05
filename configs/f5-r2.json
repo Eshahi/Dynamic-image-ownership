@@ -1,0 +1,64 @@
+{
+  "schema": "f5-r2-frozen-v1",
+  "family": "f5-encoder-amplified-latent",
+  "revision": 2,
+  "base": "513e887",
+  "profile": "experiments/c4-v5-two-tier-regeneration-v1/profile.json",
+  "profile_sha256": "25f9cb188368be04cd8d2b95ea1066872d3ca70908bd554af01ff93a53b40723",
+  "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+  "robust_tier": {
+    "band": [
+      4,
+      32
+    ],
+    "whitening": 1.0,
+    "label": "f5-latent",
+    "latent": 64,
+    "scale": 0.18215,
+    "dct": "orthonormal 2-D per channel, radius 4..32, weight radius/4, 3272 slots -> 320 chips"
+  },
+  "embedding": {
+    "psnr_db": 52.0,
+    "steps": 150,
+    "target_margin": 4.0,
+    "mask_power": 0.0,
+    "refine_rounds": 1,
+    "optimizer": "normalized-gradient PGD via SD1.5 VAE fp32 encoder, L2 ball at PSNR budget, [0,1] box, RGB8 rounding, fragile luminance tier (v5 47 dB) + one short refinement",
+    "semantic_views": 7,
+    "binding": "soft"
+  },
+  "detection": {
+    "binding": "soft",
+    "semantic_views": 7,
+    "band": [
+      4,
+      32
+    ],
+    "whitening": 1.0,
+    "component_thresholds": "v5 Bentkus-Dzindzalieta inclusive: decoded 8.259326826136963, recomputed 4.982033056390042, false_positive_target 1e-6, roster 1",
+    "semantic_radius_bits": 6,
+    "semantic_mismatch_bits": 10,
+    "instance_radius_bits": 6,
+    "instance_mismatch_bits": 10,
+    "side_information": [
+      "public OwnerID",
+      "profile",
+      "pinned CLIP ViT-B-32 (a6)",
+      "pinned SD1.5 VAE encoder fp32"
+    ]
+  },
+  "code": {
+    "entry": "scripts/f5_latent_codec.py",
+    "gate": "scripts/f5_gate.py --psnr 52 --binding soft --semantic-views 7",
+    "stress_gate": "scripts/f5_stress_gate.py (development-only selector .4/.5/.6, 5 seeds)",
+    "commit": "f06e0d8"
+  },
+  "quality_gate": {
+    "psnr_mean_ge": 44.0,
+    "lpips_mean_le": 0.0173,
+    "lpips_max_le": 0.05,
+    "ssim_min_ge": 0.9,
+    "both_match_clean_ge": 12
+  },
+  "notes": "Seven CLIP passes per detection is explicit cost. Gain is pinned SD1.5 encoder; other regenerators or pixel pre-filter before encoding untested (T2 composition). No held-out data used to freeze."
+}

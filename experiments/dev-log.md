@@ -74,3 +74,12 @@
 - 2026-10-04 12:30 UTC: Escalation to existing method_derivation, gpt-6-astra/xhigh: resolve same-public-owner T4/T5 interpretation before confirmatory observations. Decision: preserve fixed pairs/allrows, verify actualowner equality, split strata; same-owner support is not false cross-owner attribution or claimed-instance binding. Parentimplemented analysis11tests +retainedartifact audit11tests, all22PASS3.492s. No threshold, method, schedule or outcome-based selection changed.
 - 2026-10-04 12:44 UTC: Escalated generated full CPU-audit target hash mismatch to gpt-6-astra/xhigh after identity equality isolated target arithmetic. Independent CPU reciprocal multiplication reproduces recorded CUDA target exactly; all32 sealed states validate, no tolerance waiver. Full1219 and prefix1241 retained with original failed audit; helper correction requires fresh core/suite. Development queue resumed for remaining8 fixed sources (16 bounded phases), no concurrent GPU.
 - 2026-10-04 12:45 UTC: Parent retained-scientific artifact audit12 tests PASS5.295s, same-owner analysis11 PASS, exact normalization helper4 PASS. Candidate score/quality/enrollment cap and real v5 codec replay audited; CLIP/VAE/LPIPS/safety remain retained model observations. Full collection and authentic historical lineage remain pending.
+2026-10-05T03:19 H3 mask0.5 52dB stress .4 38/58 vs baseline 49/58 kill
+2026-10-05T04:05 H1 probe matched-filter +1.1dB kill (20 seeds dev)
+2026-10-05T04:10 Stress baseline F5 r2 .4 49/58 .5 37/58 .6 10/57 (12x5, 20 steps CFG1, run 20261005-1200)
+2026-10-05T04:15 H3 mask0.5 52dB .4 38/58 vs 49/58 kill
+2026-10-05T04:30 H4 soft binding: threshold 6->7 0 rescued at .5 selector kill; extra pooling no gain
+2026-10-05T04:35 H1 band 8-28 pilot 13/17 vs 13/18 no gain kill
+2026-10-05T04:40 Plateau f06e0d8: three kills, freeze F5 r2, enter M1b
+2026-10-05T05:00 M1b freeze: configs/f5-r2.json (sha 25f9cb...) + research/f5-r2-spec.md + tests/test_f5_latent_codec.py 7 passed
+2026-10-05T05:10 M1b manifest prepared (synthetic rehearsals only, no held-out), independent review PASS no blocking findings
