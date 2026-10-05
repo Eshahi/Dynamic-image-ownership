@@ -1,0 +1,46 @@
+{
+  "schema": "m1b-f5-manifest-v1",
+  "version": "m1b-f5-runner-v1",
+  "config_path": "configs/f5-r2.json",
+  "profile_path": "experiments/c4-v5-two-tier-regeneration-v1/profile.json",
+  "sources": [
+    {
+      "id": "dev-1675",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-1102-e2e-1675\\1675-C0-clean.png",
+      "owner": "thesis:owner:00",
+      "wrong_owner": "thesis:owner:01"
+    },
+    {
+      "id": "dev-4795",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261004-1122-e2e-4795\\4795-C0-clean.png",
+      "owner": "thesis:owner:01",
+      "wrong_owner": "thesis:owner:02"
+    }
+  ],
+  "t3_strengths": [
+    0.05,
+    0.1,
+    0.2,
+    0.4
+  ],
+  "t3_seeds": [
+    0,
+    1,
+    2
+  ],
+  "t4_pairs": [
+    {
+      "id": "t4-01",
+      "donor": "dev-1675",
+      "recipient": "dev-4795"
+    }
+  ],
+  "t5_pairs": [
+    {
+      "id": "t5-01",
+      "a": "dev-1675",
+      "b": "dev-4795"
+    }
+  ],
+  "note": "DEVELOPMENT ONLY rehearsal \u2014 never held-out"
+}

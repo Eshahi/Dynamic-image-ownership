@@ -1,0 +1,27 @@
+{
+  "schema": "m1b-rehearse-two-v1",
+  "note": "CPU rehearsal passed (manifest validation, sharding, journal/resume, no-seed-substitution). Endpoints + GPU smoke are in science venv.",
+  "manifest_path": "C:\\Users\\Soroush\\.codex\\worktrees\\claude-f5-m1b\\research\\m1b-rehearse-two\\manifest.dev-two.json",
+  "manifest_sha256": "7bc9dc209648362a57b4efa99565aa0eac0380d20d1c1fd11549e7b52e3dbf1f",
+  "sources": [
+    {
+      "id": "dev-1675",
+      "sha256": "4d156f559b5f5b60\u2026"
+    },
+    {
+      "id": "dev-4795",
+      "sha256": "fc5983fb90791e2e\u2026"
+    }
+  ],
+  "sharding": [
+    [
+      "dev-1675"
+    ],
+    [
+      "dev-4795"
+    ]
+  ],
+  "cpu_tests": "20 tests in tests/test_m1b_f5_runner.py (all pass)",
+  "endpoints_gpu_smoke": "PENDING \u2014 run with science venv; queued in research/f5-gpu-queue-requests.md",
+  "held_out_touched": false
+}
