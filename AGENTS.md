@@ -8,7 +8,7 @@ The user has handed this project to you and will return only at milestone review
 
 - **Keep working.** Do not end a turn after one bounded step. Chain design, implementation, experiment, analysis and the next iteration until the current milestone's exit criteria are met or a hard stop below applies. If the thread has an active goal (`/goal`), pursue it across turns. "What should I do next?" is your question to answer, not the user's.
 - **Decide yourself.** Parameter choices, design alternatives, which experiment to run, method amendments, model and agent choices, retries and debugging are yours. Record the decision and its reason in the relevant doc and move on. Do not write approval or authorization JSON files for development work.
-- **Stop for the user only when:** (1) M1b or M2 is complete, or the honest negative exit applies (passing M1a is not a stop; continue to M1b); (2) money would be spent (paid compute, paid API, purchases); (3) an action needs the user's identity or is public: credentials, pushing to a remote, publishing, external communication, institutional or supervisor decisions; (4) you would edit a protected file (below); (5) every reasonable route to the milestone is exhausted, with the evidence; (6) 2026-10-13, report the state as `research/approval-policy.md` requires. Missing evidence, bugs, failed experiments and uncertain parameters are work, not reasons to stop.
+- **Stop for the user only when:** (1) M1b or M2 is complete, or the honest negative exit applies (passing M1a is not a stop; continue to M1b); (2) money would be spent (paid compute, paid API, purchases); (3) an action needs the user's identity or is public: credentials, publishing, external communication, institutional or supervisor decisions; (4) you would edit a protected file (below); (5) every reasonable route to the milestone is exhausted, with the evidence; (6) 2026-10-13, report the state as `research/approval-policy.md` requires. Missing evidence, bugs, failed experiments and uncertain parameters are work, not reasons to stop.
 - **Report** in Persian, briefly, only at those stops. Keep progress visible without stopping: update `STATE.md` at least every few hours of work.
 
 ## Milestones (the user's review points)
@@ -45,6 +45,12 @@ The main thread runs at medium effort to save tokens; you cannot raise your own 
 ## Integrity rules (unchanged, these are academic standards)
 
 - Never edit the proposal (`inputs/`, `پروپوزال 2.docx`), the claim ledger (`research/claims.csv`), the source plan, `THESIS_GUIDE_OFFLINE.html` or retained run outputs under `.thesis-build/*runs*`. Preserve existing user edits.
+- **New development images may be added without asking (user, 2026-10-05):**
+  - free, licensed sources only, recorded in `research/downloads.md` (URL, licence, SHA-256);
+  - chosen by a fixed rule written down before any outcome is seen, never by how the method does on them;
+  - listed as development-reserved in `research/development-sources.md`, so that the confirmatory manifest excludes them;
+  - never taken from images already assigned to validation or test, or to any held-out manifest; check this by IDs and hashes only;
+  - leave the protected source plan unchanged.
 - Development and held-out data stay separate. Never look at, tune on or select thresholds with held-out/test data before the confirmatory run. Keep every failed run and negative result; label exploratory evidence as exploratory.
 - An image-domain mark is a labelled comparator; never report it as the proposal's latent method. Report the side information each detector uses. Never fabricate a human verdict; human visual assessments stay missing until a human provides them.
 - Follow `research/research-contract.md` and `research/scope-guard.md` for what may be claimed, as amended by the handoff section.
@@ -57,7 +63,13 @@ The main thread runs at medium effort to save tokens; you cannot raise your own 
 - **Long runs.** Do not end a turn while a child process runs, and never leave a run as a background child of a finished turn. Make anything over about an hour resumable (journal and shard), monitor it through its log, and keep working on something else while it runs.
 - **Downloads** of free, open-source code, model weights, datasets and papers are allowed (2026-10-03): record source URL, version or revision, license and SHA-256 in `research/downloads.md`, stay under 30 GB in total, and never run an unvetted installer or binary. Paid or gated material needs the user.
 - **Interpreters:** `.thesis-build/venv/Scripts/python.exe` (stdlib, jsonschema) and `.thesis-build/a6-science-venv/Scripts/python.exe` (numpy, scipy, PIL, torch, diffusers, lpips). Inspect the bundled runtime before declaring Python missing.
-- **Git:** commit freely on local branches in worktrees under `C:/Users/Soroush/.codex/worktrees/`; do not push. Update the GitHub issue only at milestones.
+- **Git:** commit freely on local branches in worktrees under `C:/Users/Soroush/.codex/worktrees/`. **Pushing to `origin` is allowed without asking (user, 2026-10-05), as long as it is always clear which agent did it:**
+  - push only your own branches, named after the agent (`claude/...` or `codex/...`), never `main` or another agent's branch;
+  - never force-push or rewrite pushed history;
+  - commit with the agent's name as author and the repository's configured email, e.g. `git -c user.name="Claude Code agent" commit ...` or `git -c user.name="Codex agent" commit ...`, and keep the co-author trailer;
+  - log each push in `experiments/dev-log.md` (time, agent, branch, commit range).
+
+  Update the GitHub issue only at milestones.
 - **Review:** one independent reviewer (fresh agent, `fork_turns: "none"`, different identity from the author) per milestone package, scoped to the diff since the last reviewed commit. No per-step reviewers.
 - **State:** overwrite `thesis-runs/d916749c/STATE.md` (60 lines or fewer) in plain, readable English sentences with normal spacing, so the user can read it. Lead with the current candidate, its M1a numbers and the next experiment. Add one entry of about 600 characters to `continuation.md` per milestone. Read long files by searching or by line range; send long output to a file.
 - **Language:** Persian with the user; English for code, docs, commits and issues. Keep source quotations in their original language.

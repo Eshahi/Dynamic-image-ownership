@@ -98,3 +98,18 @@ In the same session the user chose, from offered options: downloads of free open
 Not granted: paid compute, paid APIs or purchases; pushing, publishing or any external communication; credentials; edits to the proposal, claim ledger, source plan, `THESIS_GUIDE_OFFLINE.html` or retained run outputs; use of held-out data before the confirmatory approval; fabricated human verdicts or Spec Kit transitions; chapter finalization, submission or publication acceptance.
 
 **Amendment, 2026-10-04 (regeneration gate).** After Claude reviewed the first autonomous day (about 274M input tokens; candidate A worse than v5 at img2img .1/.2; the current A-C candidate not yet tested under diffusion; most new code was execution and audit tooling), it proposed (1) running the regeneration test on A-C and (2) requiring a regeneration gate before any confirmatory or execution infrastructure. The user replied in the same Claude Code session: "هر دو رو انجام بده" ("Do both"). `AGENTS.md` now splits M1 into M1a (regeneration gate against v5 on the development identities) and M1b (package), freezes new infrastructure until M1a passes, and limits sub-agent length and development re-audits. Nothing else in this section changes.
+
+**Amendment, 2026-10-05 (push and new development images).** While preparing a prompt for a new autonomous Claude agent, Claude listed pushing and adding development images among the stops that need the user. The user replied in the same Claude Code session: "برای اضافه کردن تصویر جدید و push، نیاز به اجازه من نست. فقط push به گونه ای باشه که معلوم باشه کی انجامش داده" ("Adding new images and pushing do not need my permission. Only, a push must make clear who did it"). Effects, written into `AGENTS.md`:
+- Agents may push to `origin` without asking, under these attribution rules:
+  - only their own agent-named branches (`claude/...`, `codex/...`), never `main` or another agent's branch;
+  - no force-push or history rewrite;
+  - the agent's name as commit author, with the repository's email and the co-author trailer;
+  - one dev-log line per push.
+- Agents may add development images without asking:
+  - free, licensed sources only, recorded in `research/downloads.md`;
+  - selection by a rule fixed before outcomes;
+  - listed as development-reserved in `research/development-sources.md`;
+  - never from validation, test or held-out pools, checked by IDs and hashes only;
+  - the source plan stays unedited.
+
+Still not granted: held-out data before confirmatory approval, paid compute, publication, external communication other than the milestone issue updates, protected-file edits and fabricated human verdicts.
