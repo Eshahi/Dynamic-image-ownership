@@ -40,7 +40,7 @@ from scripts import revised_watermark_v5 as v5  # noqa: E402
 
 base = v5.base
 FAMILY = "f5-encoder-amplified-latent"
-REVISION = 1
+REVISION = 2  # 2: optional soft semantic binding
 LATENT = 64
 SCALE = 0.18215
 BAND = (4, 32)        # DCT index radius on the 64 x 64 latent (about 2-16 cycles/image)
@@ -107,6 +107,54 @@ class Reader:
             return self.encode(self.tensor(np.asarray(rgb8, np.float64) / 255.0)).double().cpu().numpy()
 
 
+BINDINGS = ("hard", "soft")
+_ANGLES = np.linspace(1e-3, math.pi - 1e-3, 2000)
+_PROJECTION_ROWS = {}
+
+
+def semantic_projections(features: Sequence[float], key: bytes, config: bytes) -> np.ndarray:
+    """The continuous values behind q: the keyed Rademacher projections of the unit feature vector.
+
+    Their signs are v4's :func:`_sign_projections`, i.e. the code q itself.
+    """
+    vector = np.asarray(features, np.float64)
+    width = vector.size
+    cache_key = (key, config, width)
+    if cache_key not in _PROJECTION_ROWS:
+        row_bytes = (width + 7) // 8
+        material = base._stream(key, config, base._pack(b"semantic-projection", width.to_bytes(4, "big")), v5.CODE_BITS * row_bytes)
+        bits = np.unpackbits(np.frombuffer(material, np.uint8).reshape(v5.CODE_BITS, row_bytes), axis=1, bitorder="little")[:, :width]
+        _PROJECTION_ROWS[cache_key] = 1.0 - 2.0 * bits
+    return _PROJECTION_ROWS[cache_key] @ (vector / np.linalg.norm(vector))
+
+
+def soft_angle(code: int, projections: np.ndarray, error_rate: float = 0.0) -> float:
+    """Maximum-likelihood angle between the vector a code was made from and the suspect's vector.
+
+    With b the suspect's unit vector and a = cos(t) b + sin(t) n, n independent
+    of the projections, P(bit j of the code agrees with c_j | p_j) =
+    Phi(c_j p_j cot t); a decoding error rate e flips each carried bit with
+    probability e.  Disagreements on bits whose projection is near zero cost
+    little, on bits with a large projection much.
+    """
+    from scipy.stats import norm
+    c = np.array([1.0 if (code >> (v5.CODE_BITS - 1 - j)) & 1 else -1.0 for j in range(v5.CODE_BITS)])
+    t = c * np.asarray(projections, np.float64)
+    phi = norm.cdf(t[None, :] * (np.cos(_ANGLES) / np.sin(_ANGLES))[:, None])
+    likelihood = (1.0 - error_rate) * phi + error_rate * (1.0 - phi)
+    return float(_ANGLES[int(np.argmax(np.log(np.maximum(likelihood, 1e-300)).sum(1)))])
+
+
+def _semantic_status(semantic, features, key, config, limits, checked_flag: bool, binding: str):
+    """Content status of a found semantic key; ``soft`` replaces the Hamming distance by the ML angle in bits."""
+    if binding == "hard" or not semantic["read"] or not checked_flag:
+        return base._content_status(semantic["corrected_distance"], *limits, checked_flag), None
+    theta = soft_angle(int(semantic["decoded_code"], 16), semantic_projections(features, key, config),
+                       float(semantic["decoding_error_rate"] or 0.0))
+    distance = theta * v5.CODE_BITS / math.pi
+    return base._content_status(distance, *limits, True), distance
+
+
 def _semantic_pattern(checked, key, config, owner, semantic_features, luma):
     q = v5._semantic(base._analyse(luma, ())[0], checked, key, config, semantic_features, binding=True)
     table = v5._semantic_table(owner, key, config)
@@ -169,7 +217,7 @@ def robust_pgd(reader: Reader, rgb01: np.ndarray, layout: Layout, ws: Sequence[f
 
 def embed_rgb(rgb, owner_id: str, profile: Mapping[str, object], semantic_features: Sequence[float], reader: Reader,
               psnr_db: float = 46.0, steps: int = 150, target_margin: float = 4.0, mask_power: float = 0.0,
-              band=BAND, whitening=WHITENING, refine_rounds: int = 1):
+              band=BAND, whitening=WHITENING, refine_rounds: int = 1, binding: str = "hard"):
     """Return (RGB8 array, report); the report verifies the saved pixels with :func:`detect_rgb`."""
     checked, key, config = v5._resolve(profile, None)
     owner = v5.canonical_owner(owner_id)
@@ -203,7 +251,7 @@ def embed_rgb(rgb, owner_id: str, profile: Mapping[str, object], semantic_featur
     output = current.astype(np.uint8)
     mse = float(np.mean((output.astype(np.float64) - source) ** 2))
     z = reader.latent(output)
-    result = detect_rgb(output, z, owner_id, checked, semantic_features, band=band, whitening=whitening)
+    result = detect_rgb(output, z, owner_id, checked, semantic_features, band=band, whitening=whitening, binding=binding)
     margins = np.asarray(ws) * np.asarray(layout.projections(z))
     report = dict(family=FAMILY, revision=REVISION, semantic_code=f"{q:08x}", band=list(band), whitening=whitening,
                   psnr_target_db=psnr_db, steps=steps, target_margin=target_margin, mask_power=mask_power,
@@ -215,8 +263,16 @@ def embed_rgb(rgb, owner_id: str, profile: Mapping[str, object], semantic_featur
 
 
 def detect_rgb(rgb, z, owner_id: str, profile: Mapping[str, object], semantic_features: Sequence[float],
-               binding_mode: str = "combined", roster_size: int = 1, band=BAND, whitening=WHITENING) -> dict[str, object]:
-    """v5 :func:`detect` with the robust tier read from the VAE latent ``z`` of the suspect (see :class:`Reader`)."""
+               binding_mode: str = "combined", roster_size: int = 1, band=BAND, whitening=WHITENING,
+               binding: str = "hard") -> dict[str, object]:
+    """v5 :func:`detect` with the robust tier read from the VAE latent ``z`` of the suspect (see :class:`Reader`).
+
+    ``binding="soft"`` compares a read semantic code with the suspect's
+    features by the maximum-likelihood angle (:func:`soft_angle`, expressed in
+    bits) instead of the Hamming distance; radii and decision table unchanged.
+    """
+    if binding not in BINDINGS:
+        raise ValueError("binding must be hard or soft")
     started = time.perf_counter()
     checked, key, config = v5._resolve(profile, None)
     luma = v5.luminance_from_rgb(np.asarray(rgb).tolist())
@@ -238,8 +294,10 @@ def detect_rgb(rgb, z, owner_id: str, profile: Mapping[str, object], semantic_fe
     semantic = v5._channel_result(v5._key_test(robust_chips, v5._semantic_table(owner, key, config), q_now),
                                   target, roster_size, q_now)
     s_found = bool(semantic["found"])
-    s_status = base._content_status(semantic["corrected_distance"], *semantic_limits, check_semantic) if s_found else None
-    carries_other = s_found and base._content_status(semantic["corrected_distance"], *semantic_limits, True) != "match"
+    s_status = soft_distance = None
+    if s_found:
+        s_status, soft_distance = _semantic_status(semantic, semantic_features, key, config, semantic_limits, check_semantic, binding)
+    carries_other = s_found and _semantic_status(semantic, semantic_features, key, config, semantic_limits, True, binding)[0] != "match"
     q_bound = int(semantic["decoded_code"], 16) if carries_other else q_now
     table = v5._instance_table(owner, key, config)
     options = [table[segment][v5._bit(q_bound, segment)] for segment in range(v5.CODE_BITS)]
@@ -247,10 +305,12 @@ def detect_rgb(rgb, z, owner_id: str, profile: Mapping[str, object], semantic_fe
     i_found = bool(instance["found"])
     i_status = (
         max(base._content_status(instance["corrected_distance"], *instance_limits, check_instance),
-            base._content_status(semantic["corrected_distance"], *semantic_limits, check_semantic) if s_found else "unchecked",
+            s_status if s_found else "unchecked",
             key=base._STATUS_RANK.get)
         if i_found else None)
     outcome, state = base._decide(s_found, s_status, i_found, i_status)
+
+    semantic["soft_distance"] = soft_distance
 
     def public(result, status):
         entry = dict(result)
@@ -262,6 +322,6 @@ def detect_rgb(rgb, z, owner_id: str, profile: Mapping[str, object], semantic_fe
             "semantic": public(semantic, s_status), "instance": public(instance, i_status),
             "semantic_code": f"{q_now:08x}", "perceptual_hash": f"{h_now:08x}", "binding_mode": binding_mode,
             "owner_id": owner.decode("utf-8"), "owners_tested": roster_size, "family": FAMILY, "revision": REVISION,
-            "band": list(band), "whitening": whitening, "detector_config_id": config.hex(),
+            "band": list(band), "whitening": whitening, "binding": binding, "detector_config_id": config.hex(),
             "side_information": ["public OwnerID", "profile", "pinned CLIP weights", "pinned SD1.5 VAE encoder"],
             "seconds": time.perf_counter() - started}

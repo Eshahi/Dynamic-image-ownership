@@ -40,6 +40,8 @@ def main():
     gate = json.loads((a.gate_run / "run.json").read_text(encoding="utf-8"))
     profile = v5.validate_profile(gate["profile"])
     band, whitening = tuple(gate["params"]["band"]), gate["params"]["whitening"]
+    binding, views = gate["params"].get("binding", "hard"), gate["params"].get("semantic_views", 1)
+    from f5_gate import semantic_feature
     reader = f5.Reader(ASSETS)
     v5rows = json.loads(V5_RESULTS.read_text(encoding="utf-8"))["rows"]
     pairs = sorted({(r["donor_id"], r["recipient_id"]) for r in v5rows if r.get("axis") == "T4"})
@@ -62,11 +64,12 @@ def main():
         for scale in (0.5, 1.0):
             out = np.asarray(residual_transfer(r0.tolist(), d1.tolist(), d0.tolist(), scale), np.uint8)
             Image.fromarray(out).save(a.output_dir / f"t4-residual-{donor}-{recipient}-{scale}.png")
-            vector = models.clip_feature(clip, transform, out).reshape(-1).tolist()
+            vector = semantic_feature(models, clip, transform, out, views)
             z = reader.latent(out)
             calls = {}
             for mode in ("combined", "none"):
-                r = f5.detect_rgb(out, z, ALPHA, profile, vector, binding_mode=mode, band=band, whitening=whitening)
+                r = f5.detect_rgb(out, z, ALPHA, profile, vector, binding_mode=mode, band=band, whitening=whitening,
+                                  binding=binding)
                 calls[mode] = dict(outcome=r["outcome"], semantic_found=r["semantic"]["found"],
                                    semantic_score=r["semantic"]["score"], instance_found=r["instance"]["found"])
             q = quality(r0, out)
@@ -87,7 +90,7 @@ def main():
             v5_none={o: sum(r["v5_none"] == o for r in sel) for o in sorted({str(r["v5_none"]) for r in sel})})
     commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     run = dict(schema="f5-t4-residual-v1", data_split="development", commit=commit, command=sys.argv,
-               gate_run=str(a.gate_run), band=list(band), whitening=whitening, duration_seconds=time.monotonic() - started,
+               gate_run=str(a.gate_run), band=list(band), whitening=whitening, binding=binding, semantic_views=views, duration_seconds=time.monotonic() - started,
                outcome="completed", summary=summary, rows=rows, human_visual_verdict=None)
     (a.output_dir / "run.json").write_text(json.dumps(run, indent=1), encoding="utf-8")
     print(json.dumps(summary, indent=1))

@@ -32,6 +32,28 @@ def sha(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+def semantic_feature(models, clip, transform, rgb, views: int = 1) -> list[float]:
+    """Unit CLIP vector of the pinned single view, or the re-normalized mean over seven fixed views.
+
+    The seven views are the image, its mirror, its four corner crops and its
+    centre crop at 7/8 of the side (as in `scripts/f5_binding_experiment.py`).
+    """
+    from PIL import Image
+    if views == 1:
+        return models.clip_feature(clip, transform, rgb).reshape(-1).tolist()
+    if views != 7:
+        raise ValueError("views must be 1 or 7")
+    img = Image.fromarray(rgb)
+    w, h = img.size
+    s = int(round(w * 7 / 8))
+    boxes = [(0, 0, s, s), (w - s, 0, w, s), (0, h - s, s, h), (w - s, h - s, w, h),
+             ((w - s) // 2, (h - s) // 2, (w - s) // 2 + s, (h - s) // 2 + s)]
+    images = [img, img.transpose(Image.FLIP_LEFT_RIGHT)] + [img.crop(b) for b in boxes]
+    vectors = [np.asarray(models.clip_feature(clip, transform, np.asarray(v, np.uint8)).reshape(-1), np.float64) for v in images]
+    mean = np.mean(vectors, 0)
+    return (mean / np.linalg.norm(mean)).tolist()
+
+
 _WORKER = {}
 
 
@@ -49,12 +71,13 @@ def _read_job(job) -> dict:
     from PIL import Image
     path, z = job
     z = np.asarray(z, np.float64)
-    band, whitening = tuple(_WORKER["layout"]["band"]), _WORKER["layout"]["whitening"]
+    layout = _WORKER["layout"]
+    band, whitening = tuple(layout["band"]), layout["whitening"]
     rgb = np.asarray(Image.open(path).convert("RGB"), np.uint8)
-    vector = _WORKER["models"].clip_feature(_WORKER["clip"], _WORKER["transform"], rgb).reshape(-1).tolist()
+    vector = semantic_feature(_WORKER["models"], _WORKER["clip"], _WORKER["transform"], rgb, layout["views"])
     calls = {}
     for owner in OWNERS:
-        r = f5.detect_rgb(rgb, z, owner, _WORKER["profile"], vector, band=band, whitening=whitening)
+        r = f5.detect_rgb(rgb, z, owner, _WORKER["profile"], vector, band=band, whitening=whitening, binding=layout["binding"])
         calls[owner] = dict(outcome=r["outcome"], semantic_found=r["semantic"]["found"],
                             semantic_content_match=r["semantic"]["content_match"],
                             semantic_score=r["semantic"]["score"], semantic_threshold=r["semantic"]["threshold"],
@@ -76,6 +99,10 @@ def main():
     p.add_argument("--whitening", type=float, default=f5.WHITENING)
     p.add_argument("--refine-rounds", type=int, default=1)
     p.add_argument("--sources", type=int, nargs="*", default=None)
+    p.add_argument("--binding", choices=f5.BINDINGS, default="hard", help="semantic content check (see f5_latent_codec)")
+    p.add_argument("--semantic-views", type=int, choices=(1, 7), default=1, help="CLIP views averaged into E")
+    p.add_argument("--reread", type=Path, default=None,
+                   help="re-detect the saved images of this earlier f5_gate run instead of embedding and attacking")
     a = p.parse_args()
     import torch
     from PIL import Image
@@ -85,15 +112,22 @@ def main():
 
     out = a.output_dir
     (out / "images").mkdir(parents=True, exist_ok=False)
+    reread = json.loads((a.reread / "run.json").read_text(encoding="utf-8")) if a.reread else None
+    if reread:
+        if a.semantic_views != reread["params"].get("semantic_views", 1):
+            raise SystemExit("a re-read must use the semantic views the marks were bound with")
+        old = reread["params"]
+        a.psnr, a.steps, a.target_margin, a.mask_power = old["psnr_db"], old["steps"], old["target_margin"], old["mask_power"]
+        a.band, a.whitening, a.refine_rounds, a.sources = old["band"], old["whitening"], old["refine_rounds"], reread["sources"]
     commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     dirty = subprocess.check_output(["git", "status", "--porcelain", "--", "scripts/f5_latent_codec.py", "scripts/f5_gate.py"],
                                     cwd=ROOT, text=True).strip()
     if dirty:
         raise SystemExit("commit f5 code before running: " + dirty)
     profile = v5.validate_profile(json.loads(a.profile.read_text(encoding="utf-8")))
-    layout = dict(band=list(a.band), whitening=a.whitening)
+    layout = dict(band=list(a.band), whitening=a.whitening, binding=a.binding, views=a.semantic_views)
     params = dict(psnr_db=a.psnr, steps=a.steps, target_margin=a.target_margin, mask_power=a.mask_power,
-                  band=tuple(a.band), whitening=a.whitening, refine_rounds=a.refine_rounds)
+                  band=tuple(a.band), whitening=a.whitening, refine_rounds=a.refine_rounds, binding=a.binding)
     sources = {k: v for k, v in SOURCES.items() if a.sources is None or k in a.sources}
     clip, transform = load_visual_encoder(ASSETS / "clip/ViT-B-32.pt", device="cpu")
     metric = models.load_lpips(ASSETS, Path(importlib.metadata.distribution("lpips").locate_file("lpips")))
@@ -102,7 +136,7 @@ def main():
     started = time.monotonic()
 
     def feature(rgb):
-        return models.clip_feature(clip, transform, rgb).reshape(-1).tolist()
+        return semantic_feature(models, clip, transform, rgb, a.semantic_views)
 
     def save(name, rgb):
         path = out / "images" / f"{name}.png"
@@ -136,6 +170,20 @@ def main():
     # Detection is pure-Python v5 code; it runs in worker processes, one saved PNG per task.
     import multiprocessing
     pool = multiprocessing.get_context("spawn").Pool(a.workers, initializer=_init_worker, initargs=(json.dumps(profile), json.dumps(layout)))
+    if reread:
+        old_rows = [json.loads(line) for line in (a.reread / "rows.jsonl").open(encoding="utf-8")]
+        pending = []
+        for r in old_rows:
+            if r.get("outcome") == "completed":
+                pending.append({k: v for k, v in r.items() if k != "calls"})
+            else:
+                emit(r)
+        jobs = [(r["image"]["path"], reader.latent(np.asarray(Image.open(r["image"]["path"]).convert("RGB"), np.uint8)).tolist())
+                for r in pending]
+        for row, calls in zip(pending, pool.map(_read_job, jobs)):
+            row["calls"] = calls
+            emit(row)
+        sources = {}
     for sid, path in sources.items():
         source = np.asarray(Image.open(path).convert("RGB"), np.uint8)
         tick = time.monotonic()
@@ -204,10 +252,12 @@ def main():
         paired[str(s)] = dict(identities=len(keys), f5=sum(f5ok[k] for k in keys), v5=sum(v5ok[k] for k in keys),
                               only_f5=sum(f5ok[k] and not v5ok[k] for k in keys), only_v5=sum(v5ok[k] and not f5ok[k] for k in keys))
     embeds = [r for r in rows if r.get("outcome") == "embedded"]
+    params["semantic_views"] = a.semantic_views
     run = dict(schema="f5-gate-v1", data_split="development", family=f5.FAMILY, revision=f5.REVISION, commit=commit,
                command=sys.argv, params={k: list(v) if isinstance(v, tuple) else v for k, v in params.items()},
+               reread_from=str(a.reread) if a.reread else None,
                profile=profile, detector_config_id=v5.detector_config_id(profile),
-               owners=OWNERS, strengths=STRENGTHS, seeds=SEEDS, sources=list(sources),
+               owners=OWNERS, strengths=STRENGTHS, seeds=SEEDS, sources=reread["sources"] if reread else list(sources),
                attack="pinned SD1.5 DDIM img2img 20 steps, empty prompt, CFG 1, eta 0; VAE posterior mode",
                duration_seconds=time.monotonic() - started, outcome="completed",
                quality=dict(psnr_min=min(r["quality"]["psnr_db"] for r in embeds), ssim_min=min(r["quality"]["ssim_rgb"] for r in embeds),
