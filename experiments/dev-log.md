@@ -83,3 +83,4 @@
 2026-10-05T04:40 Plateau f06e0d8: three kills, freeze F5 r2, enter M1b
 2026-10-05T05:00 M1b freeze: configs/f5-r2.json (sha 25f9cb...) + research/f5-r2-spec.md + tests/test_f5_latent_codec.py 7 passed
 2026-10-05T05:10 M1b manifest prepared (synthetic rehearsals only, no held-out), independent review PASS no blocking findings
+- 2026-10-05 21:31 UTC: supervisor (Claude Opus 5.5): Opus 5 gateway quota exhausted at 21:30 UTC (403); all three workers stopped. Pushed claude/f5-m1b, claude/f5-ideas (676f828), claude/f5-gpu. Codec r3 design note committed as WIP; r3 code was a 1-line stub, not committed. H3 equal-T3 queue keeps running on the local GPU.
