@@ -64,7 +64,9 @@ T4 and T5 are not worse than v5.
 
 ## Visual
 
-`20261005-0420-f5-gate-psnr52/compare-source-v5-f5.png`: crops (2x) where F5's change is largest, for 147498 (sky, the worst LPIPS), 1675 and 468505: source, v5, F5, F5 change x20. The change is a fine, grid-like texture with small coloured clusters. Claude's observation, not a human verdict: in the sky crop v5's blotchy grain is more visible than F5's change. Human visual assessment is missing.
+`20261005-0420-f5-gate-psnr52/compare-source-v5-f5.png`: crops (2x) where F5's change is largest, for 147498 (sky, the worst LPIPS), 1675 and 468505: source, v5, F5, F5 change x20. The change is a fine, grid-like texture with small coloured clusters. Claude's observation: in the sky crop v5's blotchy grain is more visible than F5's change.
+
+**Human visual verdict (the user, 2026-10-05, after viewing this comparison):** "کیفیت بصری قبوله" ("the visual quality is acceptable"). It applies to the F5 images of run `20261005-0420-f5-gate-psnr52` (52 dB robust budget); later runs at the same budget change only which key pattern is written.
 
 ## Limits
 
@@ -73,3 +75,40 @@ T4 and T5 are not worse than v5.
 - Detector side information now includes the public SD1.5 VAE encoder, as in A-C's reader; it must be accepted explicitly at M1.
 - LPIPS maximum .051 on one flat sky image; a perceptual mask (`mask_power` in the codec, untested) is the first thing to try if the human visual check objects.
 - Next research target, in scope: the semantic binding under regeneration (q drift at .2 and .4), now the only cause of T3 failures.
+
+## Revision 2: semantic binding (user request, 2026-10-05: "آزمایش پیوند معنایی رو هم انجام بده")
+
+After revision 1 every T3 failure was a binding failure. The code bits are signs of 32 keyed Rademacher projections p_j of the unit CLIP vector, and the detector sees p_j itself, so a disagreement on a bit whose projection is near zero is expected under small drift. Two changes were tested, with v5's own angles (match at most 6 pi/32, mismatch at least 10 pi/32; nothing tuned):
+
+- **Soft binding:** maximum-likelihood angle from P(c_j | p_j, t) = Phi(c_j p_j cot t), mixed with the decoder's error rate, instead of pi * Hamming / 32. On synthetic pairs at t = .45 its spread is .136 rad against .194 for the Hamming estimate.
+- **Seven-view CLIP:** the semantic vector E is the re-normalized mean over the image, its mirror, four corner crops and the centre crop at 7/8 size; this changes the code the mark carries, so it needs re-embedding.
+
+Selection rule, declared before the run (`scripts/f5_binding_experiment.py`): a variant replaces hard binding with one view only if it raises T3 matches at .2 and .4, does not raise semantic matches on different-label donor/recipient pairs, and keeps T5 joint collisions at zero.
+
+Offline screen on the revision-1 images (`20261005-0600-f5-binding-experiment`; carried code taken as exact):
+
+| Rule | T3 match .2 (of 35) | .4 (of 34) | Different-label semantic matches (of 114 ordered pairs) | T5 joint collisions |
+|---|---|---|---|---|
+| hard, 1 view (rev. 1) | 31 | 28 | 2 | 0 |
+| soft, 1 view | 35 | 28 | 0 | 0 |
+| hard, 7 views | 35 | 29 | 6 (fails the rule) | 0 |
+| soft, 7 views | 35 | 31 | 2 | 0 |
+
+Real runs (all CLIP, latent and decision steps as in deployment):
+
+| | Rev. 1 (hard, 1 view) | Soft, 1 view (re-read of the same images, `20261005-0630-f5-reread-soft`) | **Rev. 2: soft, 7 views (re-embedded, `20261005-0640-f5-gate-soft-views7`)** | v5 r3 |
+|---|---|---|---|---|
+| Paired C1 semantic .1 | 29/29 | 29/29 | **29/29** | 27 |
+| .2 | 25/28 | 26/28 | **28/28** | 18 |
+| .4 | 21/28 | 21/28 | **23/28** | 2 |
+| All C1 rows .2 / .4 | 30/35, 25/34 | 33/35, 26/34 | **35/35, 29/34** | |
+| Clean PSNR mean, LPIPS mean (max) | 44.7, .0172 (.051) | same images | 44.7, .0173 (.050) | 37.1, .0176 (.038) |
+| Clean both_match; C0 and wrong-owner detections | 12/12; 0 | 12/12; 0 | 12/12; 0 | 12/12; 0 |
+
+Revision 2 checks (runs `20261005-0700-f5r2-*`):
+
+- T4: combined both_match 0/20 at residual scale .5 and 1 (v5 0/20); semantic key delivered 0/20 and 1/20. Outcomes at .5: neither 18, content_mismatch 1, instance_only 1 (pair 177015 to 25394, where v5 says content_mismatch). `instance_only` is the abstention state "unclassified", not an attribution. It comes from v5's unchanged rule that an instance key found only by its recomputed pattern counts as distance 0. At 1: content_mismatch 16, neither 4.
+- T5: joint near collisions 0/66 under the soft seven-view rule; 4 pairs match semantically, all with perceptual-hash distance at least 11. Donor code against other recipients: 2 different-label semantic matches of 114 (as revision 1).
+- Diagnostic: at .2 all 35 succeed. At .4, 29 of 34 succeed. Of the 5 failures, 2 have content not retained (CLIP cosine below .90), 2 are binding failures on retained content and 1 is the first carrier failure, a retained output. On content-retained outputs: .2 34/34, .4 14/17.
+
+Decision under the declared rule: **revision 2 (soft binding, seven-view CLIP) is adopted.** Cost: seven CLIP passes per detection instead of one. The user's visual verdict was given on revision-1 images at the same 52 dB budget.
