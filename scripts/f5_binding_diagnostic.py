@@ -35,12 +35,12 @@ def main():
 
     clip, transform = load_visual_encoder(ASSETS / "clip/ViT-B-32.pt", device="cpu")
     rows = [json.loads(line) for line in (a.gate_run / "rows.jsonl").open(encoding="utf-8")]
-    images = a.gate_run / "images"
+    paths = {r["id"]: r["image"]["path"] for r in rows if isinstance(r.get("image"), dict)}  # also for re-read runs
     feature = {}
 
     def vec(name):
         if name not in feature:
-            rgb = np.asarray(Image.open(images / f"{name}.png").convert("RGB"), np.uint8)
+            rgb = np.asarray(Image.open(paths[name]).convert("RGB"), np.uint8)
             feature[name] = np.asarray(models.clip_feature(clip, transform, rgb).reshape(-1))
         return feature[name]
 
