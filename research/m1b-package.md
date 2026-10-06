@@ -56,7 +56,16 @@ All on development sources (the first four of the twelve M1a sources), local RTX
 
 ## 6. How the run is started (after approval)
 
-(filled at the final commit)
+The user starts it from their own terminal, in the clean worktree `C:/Users/Soroush/.codex/worktrees/claude-m1b-package` at the final commit, with the science interpreter (the dispatcher runs the worker with its own interpreter):
+
+1. The agent regenerates the manifest at the final commit and gives the user its `manifest_sha256` and `scientific_core_sha256`:
+   `python scripts/m1b_prepare_package.py manifest --plan research/m1b-coco512-test.m1b-plan.json --run-id coco512-confirm-1 --max-seconds 28800 --out "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/m1b-confirm/execution-manifest.json"`
+2. The user saves their approval (the printed template with their name as `actor`) to `C:/Users/Soroush/thesis-approvals/m1b-coco512-approval.json`. The worker refuses a test plan without it; agents never write it.
+3. The user runs:
+   `python C:/Users/Soroush/.codex/skills/thesis-compute-runner/scripts/dispatch_experiment.py dispatch <manifest> --repo . --artifacts "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/m1b-confirm/artifacts" --execute --approval C:/Users/Soroush/thesis-approvals/m1b-coco512-approval.json`
+4. Progress is visible in `outputs/journal.jsonl` of the artifact directory; the dispatcher writes logs only at the end. If the run stops early, the recovery is an infrastructure-only rerun with `resume_from` (section 4, item 4).
+
+The held-out manifest at commit 22e9223 already passes the dispatcher preview (schema, script hash, and the hashes of the plan, configs, profile, asset lock, external index and schedule). Its hashes change at the final commit.
 
 ## 7. Limitations (unchanged from the spec)
 

@@ -21,6 +21,10 @@
    "sha256": "8521b783324b62c9394081f0f7f0d8e5162b6592b9bf3256dddf0d400e28b88a"
   }
  },
+ "schedule": {
+  "path": "research/m1-confirmatory-schedule-draft.json",
+  "sha256": "83c023bc3e0acb2a38142e8ef6e6a27f9216b7dacb5d885ab778b8799469f35d"
+ },
  "t3_uids": [
   "ms-coco:coco-2017:val2017:531036",
   "ms-coco:coco-2017:val2017:507081",
