@@ -1,0 +1,10 @@
+cd /workspace/m1b
+W="W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5"
+echo "assets: $(ls "$W/.thesis-build/assets/a6/" | tr '\n' ' ')"
+echo "images: $(ls "$W/data/raw/val2017/val2017" | wc -l)"
+echo "annotations: $(ls "$W/data/raw/annotations_trainval2017/annotations/")"
+echo "parent journal rows: $(wc -l < "$W/.thesis-build/m1b-confirm/artifacts/M1b-test/coco512-confirm-1/outputs/journal.jsonl")"
+echo "parent approval: $(ls C:/Users/Soroush/thesis-approvals/)"
+echo "runtime: $(ls C:/Users/Soroush/.codex/skills/thesis-compute-runner/scripts/_runtime/thesis_agents | wc -l) files"
+echo "git: $(git log --oneline -1) dirty=$(git status --porcelain | wc -l)"
+echo "tests running: $(pgrep -fc 'python -m unittest')"

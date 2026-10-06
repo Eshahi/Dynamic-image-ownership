@@ -1,0 +1,13 @@
+- [Thesis project layout](thesis-project-layout.md) — repo path, interpreters, binding project rules (Persian with user, English docs, dev runs delegated since 2026-10-03, held-out runs need approval)
+- [Codex cost and harness plan](codex-cost-and-harness-plan.md) — 2026-10-02 audit: why Codex burns tokens, why v4 runs failed, user decisions, what was changed and what remains
+- [Watermark v4 candidate](watermark-v4-candidate.md) — what v4 revision 2 is, why v3 was replaced, known limits, rejected options, the Codex revision-1 run, open decisions
+- [v4 r2 three-threat run](v4r2-three-threat-run.md) — 2026-10-02 Claude-run r2 study: location, delegated approval, results (regeneration fails, projection binding holds)
+- [Watermark v5 two-tier](watermark-v5-two-tier.md) — successor to v4 r2, now revision 3 (baeb218, embedder only): design, paired synthetic results, measured limits, open user decisions
+- [Codex autonomous handoff](codex-autonomous-handoff.md) — 2026-10-03: Codex set to work toward milestones without approvals; config, AGENTS.md, policy changes, /goal kickoff
+- [M1 regeneration gate](m1-regeneration-gate.md) — 2026-10-04: Codex day-1 candidates all fail regeneration vs v5 (A-C 22v25 at .1, 9v17 at .2); M1a gate added, infra frozen
+- [F4 chroma carrier](f4-chroma-carrier.md) — 2026-10-05: chroma-channel family; quality-matched pick fails, post-hoc r5 passes gate with 2.3x v5 LPIPS; T4/T5 equal to v5
+- [Three-threat scope](feedback-three-threat-scope.md) — stay on T3/T4/T5 only; no other attack tests or verdict weight
+- [F5 encoder-amplified latent](f5-encoder-amplified-latent.md) — 2026-10-05: current candidate; rev 2 (soft binding, 7-view CLIP) 29/28/23 vs v5 27/18/2; user accepted visuals; evening: H3 killed, binding loss = 32-bit sketch (ceiling .4 55 .5 44), M1b runner built
+- [Rented vast.ai GPU](rented-gpu-vast.md) — 2026-10-05 user rents ~10 h GPU instead of laptop; dedicated SSH key, dev data only, paired baseline on remote
+- [M1b COCO512 package](m1b-coco512-package.md) — 2026-10-06: Codex smoke verified; Claude's worker/plans/rehearsals on `claude/m1b-package`; 4.3 h local run; sanitized-env torch bug fixed; awaiting user decision
+- [Push and dev images allowed](feedback-push-and-dev-images.md) — no permission needed; since 2026-10-06 commits/pushes appear as the user (own git identity, no Claude co-author)
