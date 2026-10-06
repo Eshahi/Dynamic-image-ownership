@@ -89,3 +89,17 @@ Independent review by Claude, who did not write this code, 2026-10-06. Scope: `8
 2. **Fault injection through the real runtime.** Inject a missing raw file, a wrong annotation hash, and a forced CUDA error or `OSError` mid-run. Expect a fail-stop with a resumable journal, not adverse rows (finding 1).
 3. **Kills and resumes.** Kill the run once by dispatcher timeout (budget set below the cooperative stop) and once in the middle of a unit. After each, resume through a new manifest, `rerun-check`, and a delegated rerun approval stored at its own path.
 4. **Re-analysis.** Run the separated analysis module on a retained full-size journal and confirm it reproduces the in-run endpoints.
+
+
+## Q4 follow-up (2026-10-06, Claude Code, Opus 5.5)
+
+The missing rehearsal tier asked for above has now been run; the results are in `research/m1b-package.md` section 8.
+
+| Item | Status |
+| --- | --- |
+| 1, test-shaped package through `dispatch --execute` | Done at reduced scale: 16 synthetic sources, 926 rows. It exercised JPEG/EXIF/ICC/grayscale/CMYK canonicalization, the `coco-instances` path and the T5 ledger. |
+| 2, faults | Done: an injected CUDA fault through the real runtime; missing raw file, changed bytes and changed annotation covered by `preflight` tests. |
+| 3, kills and resumes | Done: one kill by dispatcher timeout. Both interrupted runs were resumed through new manifests, `rerun-check` and delegated rerun approvals at their own paths. |
+| 4, re-analysis | Done: identical to the in-run endpoints. |
+
+**Still open:** a final check by an identity other than the author (`rerun-check` item 5 and this review's own rule). That reviewer should confirm section 8 and the final manifest hashes before the user approves the held-out run.
