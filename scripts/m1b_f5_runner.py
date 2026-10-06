@@ -1,4 +1,4 @@
-"""Candidate-agnostic confirmatory runner for F5 (and any f5_latent_codec-compatible config).
+"""Development integration runner for F5 (and any f5_latent_codec-compatible config).
 
 Reads a manifest of source IDs and paths. Deterministic sharding,
 journaling/resume, never substitutes seeds. Embeds through
@@ -8,7 +8,8 @@ Writes run.json, receipts and per-cell endpoints via
 scripts/m1_confirmatory_endpoints.py.
 
 Reuse: f5_latent_codec, revised_watermark_v5, m1_confirmatory_endpoints.
-No new broker/launcher/audit layers. Held-out needs user approval.
+No new broker/launcher/audit layers. Held-out execution is not implemented here:
+the frozen patch/comparator/cluster protocol still needs adoption and approval.
 """
 from __future__ import annotations
 
@@ -25,7 +26,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 
-VERSION = "m1b-f5-runner-v2"  # v2: T3 semantic-channel endpoints, checked/assumed split
+VERSION = "m1b-f5-runner-v3"  # v3: GPU adapter fixes, complete inventory and honest failure status
 MANIFEST_SCHEMA = "m1b-f5-manifest-v1"
 RUN_SCHEMA = "m1b-f5-run-v1"
 
@@ -98,6 +99,8 @@ def validate_manifest(manifest: dict[str, Any]) -> dict[str, Any]:
         raise ValueError(f"schema must be {MANIFEST_SCHEMA!r}")
     if manifest.get("version") != VERSION:
         raise ValueError(f"version must be {VERSION!r}")
+    if manifest.get("data_split") != "development":
+        raise ValueError("this recovery runner supports development manifests only; held-out package remains pending")
     cfg_p = manifest.get("config_path")
     if not isinstance(cfg_p, str) or not cfg_p:
         raise ValueError("config_path must be a nonempty string")
@@ -148,6 +151,10 @@ def validate_manifest(manifest: dict[str, Any]) -> dict[str, Any]:
                     raise ValueError(f"{key}[{i}].{fk} invalid: {v!r}")
             if key == "t4_pairs" and (pr.get("donor") is None or pr.get("recipient") is None):
                 raise ValueError(f"t4_pairs[{i}] needs donor and recipient")
+            left, right = ((pr.get("donor"), pr.get("recipient")) if key == "t4_pairs"
+                           else (pr.get("a") or pr.get("donor"), pr.get("b") or pr.get("recipient")))
+            if left not in seen or right not in seen or left == right:
+                raise ValueError(f"{key}[{i}] needs two distinct declared sources")
     for k in ("t3_strengths", "t3_seeds"):
         v = manifest.get(k)
         if v is None:
@@ -220,6 +227,93 @@ def _f5_embed_kwargs(cfg: dict[str, Any]) -> dict[str, Any]:
     )
 
 
+def planned_row_ids(shard, strengths, seeds, t4_pairs, t5_pairs) -> list[str]:
+    """Declare the full inventory before image/model failures can remove rows."""
+    ids = []
+    for entry in shard:
+        sid = entry["id"]
+        ids.append(f"{sid}:embed")
+        for control in ("C0", "C1"):
+            for claim in ("correct", "wrong_owner"):
+                ids.append(f"{sid}:clean:{control}:{claim}")
+            doses = [("vae_mode", None, None)] + [("diffusion", s, sd) for s in strengths for sd in seeds]
+            for dose, strength, seed in doses:
+                claims = ("correct", "wrong_owner") if control == "C1" else ("correct",)
+                ids.extend(f"{sid}:t3:{control}:{dose}:{strength}:{seed}:{claim}" for claim in claims)
+    for pair in t4_pairs:
+        for scale in T4_SCALES:
+            for arm in ("donor_C1", "donor_C0_sham"):
+                ids.extend(f"{pair['id']}:t4:{scale}:{arm}:{role}" for role in ("donor_claim", "recipient_claim"))
+    for pair in t5_pairs:
+        ids.extend(f"{pair['id']}:t5:{endpoint}:{arm}:cross_owner" for endpoint in ("a", "b") for arm in ("C0", "C1"))
+    return ids
+
+
+def summarize_cells(planned: list[str], journal: dict[str, dict[str, Any]], strengths) -> dict[str, Any]:
+    from scripts.m1_confirmatory_endpoints import cell
+
+    cells = {}
+
+    def add(name, ids, kind, rule):
+        if not ids:
+            return
+        observations = {rid: (success_of(journal[rid].get("detection", {}), rule)
+                             if journal.get(rid, {}).get("outcome") == "completed" else None) for rid in ids}
+        value = cell(sorted(ids), observations, event_kind="positive_success" if kind == "positive" else "negative_error")
+        value["event_rule"] = rule
+        if name.startswith(("t3_", "t4_", "t5_")):
+            value["caveat"] = "Development row counts only; repeated seeds/arms are clustered. Row-level intervals are not independent-source confidence bounds or a milestone verdict."
+            value["meets_numerical_target"] = None
+        cells[name] = value
+
+    add("clean_C1_correct_both_match", [k for k in planned if ":clean:C1:correct" in k], "positive", "both_match")
+    for control in ("C0", "C1"):
+        for claim in (("correct", "wrong_owner") if control == "C0" else ("wrong_owner",)):
+            ids = [k for k in planned if f":clean:{control}:{claim}" in k]
+            for rule in ("both_match", "semantic", "any_found"):
+                add(f"clean_{control}_{claim}_{rule}", ids, "negative", rule)
+    doses = [("vae_mode", ":t3:C1:vae_mode:")] + [(f"diffusion_{s}", f":t3:C1:diffusion:{s}:") for s in strengths]
+    for label, pattern in doses:
+        correct = [k for k in planned if pattern in k and k.endswith(":correct")]
+        wrong = [k for k in planned if pattern in k and k.endswith(":wrong_owner")]
+        for rule in ("semantic", "semantic_checked", "semantic_assumed", "both_match"):
+            add(f"t3_C1_{label}_correct_{rule}", correct, "positive", rule)
+        for rule in ("semantic", "any_found"):
+            add(f"t3_C1_{label}_wrong_owner_{rule}", wrong, "negative", rule)
+    negatives = [("t3_C0_correct", [k for k in planned if ":t3:C0:" in k]),
+                 ("t4_donor_claim", [k for k in planned if ":t4:" in k and k.endswith(":donor_claim")]),
+                 ("t5_cross_owner", [k for k in planned if ":t5:" in k])]
+    for name, ids in negatives:
+        for rule in ("semantic", "any_found", "both_match"):
+            add(f"{name}_{rule}", ids, "negative", rule)
+    return cells
+
+
+def inventory_status(planned: list[str], journal: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    missing = [rid for rid in planned if rid not in journal]
+    failures = [rid for rid in planned if rid in journal and journal[rid].get("outcome") != "completed"]
+    return dict(planned_rows=len(planned), missing_rows=len(missing), failed_rows=len(failures),
+                completed_rows=sum(journal.get(rid, {}).get("outcome") == "completed" for rid in planned),
+                outcome="completed" if not missing and not failures else "incomplete")
+
+
+def semantic_feature(models, clip, transform, rgb, views):
+    # Share the exact single/7-view implementation used by the frozen development gate.
+    from scripts.f5_gate import semantic_feature as gate_feature
+    return gate_feature(models, clip, transform, rgb, views)
+
+
+def residual_transfer_rgb(recipient, donor_c1, donor_c0, scale):
+    import numpy as np
+    from three_threat_protocol import residual_transfer
+    return np.asarray(residual_transfer(recipient.tolist(), donor_c1.tolist(), donor_c0.tolist(), scale), dtype=np.uint8)
+
+
+def _image_path(images_dir: Path, row_id: str) -> Path:
+    # Journal IDs retain colons, but filenames must also work on Windows.
+    return images_dir / (row_id.replace(":", "_") + ".png")
+
+
 def _receipt_for_rgb(rgb_array, path: Path) -> dict[str, Any]:
     import numpy as np
 
@@ -249,6 +343,7 @@ def run_manifest(
     seeds = tuple(manifest.get("t3_seeds", list(T3_SEEDS)))
     t4_pairs = manifest.get("t4_pairs", [])
     t5_pairs = manifest.get("t5_pairs", [])
+    planned = planned_row_ids(shard, strengths, seeds, t4_pairs, t5_pairs)
 
     if output_dir.exists() and not resume and _journal_path(output_dir).exists():
         raise FileExistsError(f"journal exists at {_journal_path(output_dir)}; use --resume or a fresh output_dir")
@@ -264,6 +359,15 @@ def run_manifest(
     ).strip()
     if dirty:
         raise SystemExit(f"commit f5 code and runner before running: {dirty}")
+    context = dict(commit=commit, manifest_sha256=_sha_file(manifest_path),
+                   config_sha256=_sha_file(ROOT / manifest["config_path"]),
+                   profile_sha256=_sha_file(profile_path), shard_index=shard_index, shard_count=shard_count)
+    context_path = output_dir / "run-context.json"
+    if context_path.exists() and json.loads(context_path.read_text(encoding="utf-8")) != context:
+        raise ValueError("resume context changed; preserve this run and use a fresh output directory")
+    if journal_done and not context_path.exists():
+        raise ValueError("legacy journal has no resume context; preserve it and use a fresh output directory")
+    _atomic_json(context_path, context)
 
     import numpy as np
     from PIL import Image
@@ -293,30 +397,11 @@ def run_manifest(
         _state.update(dict(clip=clip, transform=transform, lpips=lpips_metric, pipe=pipe, reader=reader))
 
     def _clip_feature(rgb: np.ndarray, views: int) -> list[float]:
-        from PIL import Image as _Im
-
-        if views == 1:
-            return ttm.clip_feature_wrapper(_state["clip"], _state["transform"], rgb)  # type: ignore[attr-defined]
-        img = _Im.fromarray(rgb)
-        w, h = img.size
-        s = int(round(w * 7 / 8))
-        boxes = [
-            (0, 0, s, s),
-            (w - s, 0, w, s),
-            (0, h - s, s, h),
-            (w - s, h - s, w, h),
-            ((w - s) // 2, (h - s) // 2, (w - s) // 2 + s, (h - s) // 2 + s),
-        ]
-        images = [img, img.transpose(_Im.FLIP_LEFT_RIGHT)] + [img.crop(b) for b in boxes]
-        vecs = [
-            np.asarray(ttm.clip_feature_wrapper(_state["clip"], _state["transform"], np.asarray(v, np.uint8)).reshape(-1), np.float64)  # type: ignore[attr-defined]
-            for v in images
-        ]
-        mean = np.mean(vecs, 0)
-        return (mean / np.linalg.norm(mean)).tolist()
+        return semantic_feature(ttm, _state["clip"], _state["transform"], rgb, views)
 
     def _emit(row: dict[str, Any]) -> None:
         append_journal(output_dir, row)
+        journal_done[row["id"]] = row
 
     embed_kwargs = _f5_embed_kwargs(cfg)
     sem_views = int(cfg["embedding"].get("semantic_views", cfg["detection"].get("semantic_views", 7)))
@@ -338,65 +423,64 @@ def run_manifest(
         owner = entry["owner"]
         wrong_owner = entry.get("wrong_owner") or "thesis:owner:99"
 
-        probe_ids = [f"{sid}:clean:C0:correct", f"{sid}:clean:C1:correct"]
-        if resume and all(pid in journal_done for pid in probe_ids):
-            for pid in probe_ids:
-                row = journal_done.get(pid, {})
-                img = row.get("image", {}) if isinstance(row.get("image"), dict) else {}
-                # Fallback: also check embed row
-                if not isinstance(img.get("path"), str):
-                    erow = journal_done.get(f"{sid}:embed", {})
-                    img = erow.get("image", {}) if isinstance(erow.get("image"), dict) else {}
-                if isinstance(img.get("path"), str):
-                    if "C0" in pid:
-                        saved_source[sid] = Path(img["path"])
-                    else:
-                        saved_marked[sid] = Path(img["path"])
-            if sid in saved_source and sid in saved_marked:
-                continue
-
         _ensure_models()
         reader = _state["reader"]
         pipe = _state["pipe"]
 
-        try:
-            source = _load_source_rgb(entry)
-        except Exception as e:
-            _emit(dict(id=f"{sid}:source:load", source_id=sid, axis="source", outcome="failed", error=str(e)))
+        c1_path = images_dir / f"{sid}-C1.png"
+        c0_path = images_dir / f"{sid}-C0.png"
+        embed_row = journal_done.get(f"{sid}:embed") if resume else None
+        if embed_row and embed_row.get("outcome") != "completed":
+            # Failed scientific rows stay adverse. A repaired program uses a new run.
             continue
-
-        tick = time.monotonic()
-        try:
-            feat = _clip_feature(source, sem_views)
-            marked_rgb, report = f5.embed_rgb(source, owner, profile, feat, reader, **embed_kwargs)
-        except Exception as e:
-            _emit(dict(id=f"{sid}:embed", source_id=sid, axis="embed", outcome="failed", error=str(e), seconds=time.monotonic() - tick))
-            continue
-
-        try:
-            c1_path = images_dir / f"{sid}-C1.png"
-            c0_path = images_dir / f"{sid}-C0.png"
-            Image.fromarray(marked_rgb).save(c1_path)
-            Image.fromarray(source).save(c0_path)
-            marked = np.asarray(Image.open(c1_path).convert("RGB"), np.uint8)
+        if embed_row:
+            if not c0_path.exists() or not c1_path.exists():
+                raise ValueError(f"saved source/mark missing for resume: {sid}")
             c0 = np.asarray(Image.open(c0_path).convert("RGB"), np.uint8)
-            saved_marked[sid] = c1_path
-            saved_source[sid] = c0_path
-            _emit(
-                dict(
-                    id=f"{sid}:embed",
-                    source_id=sid,
-                    axis="embed",
-                    outcome="completed",
-                    seconds=time.monotonic() - tick,
-                    image=_receipt_for_rgb(marked, c1_path),
-                    report={k: v for k, v in report.items() if k != "verification"},
-                    self_verification=report.get("verification", {}).get("outcome"),
-                )
-            )
-        except Exception as e:
-            _emit(dict(id=f"{sid}:embed:save", source_id=sid, axis="embed", outcome="failed", error=str(e)))
-            continue
+            marked = np.asarray(Image.open(c1_path).convert("RGB"), np.uint8)
+            if _receipt_for_rgb(marked, c1_path)["sha256"] != embed_row["image"]["sha256"]:
+                raise ValueError(f"saved mark changed for resume: {sid}")
+            if _receipt_for_rgb(c0, c0_path)["sha256"] != embed_row["source_image"]["sha256"]:
+                raise ValueError(f"saved source changed for resume: {sid}")
+            saved_marked[sid], saved_source[sid] = c1_path, c0_path
+        else:
+            if resume and f"{sid}:source:load" in journal_done:
+                continue
+            try:
+                source = _load_source_rgb(entry)
+                if source.shape != (512, 512, 3):
+                    raise ValueError("frozen F5 smoke requires canonical 512x512 RGB")
+            except Exception as e:
+                _emit(dict(id=f"{sid}:source:load", source_id=sid, axis="source", outcome="failed", error=str(e)))
+                continue
+
+            tick = time.monotonic()
+            try:
+                feat = _clip_feature(source, sem_views)
+                marked_rgb, report = f5.embed_rgb(source, owner, profile, feat, reader, **embed_kwargs)
+            except Exception as e:
+                _emit(dict(id=f"{sid}:embed", source_id=sid, axis="embed", outcome="failed", error=str(e), seconds=time.monotonic() - tick))
+                continue
+
+            try:
+                Image.fromarray(marked_rgb).save(c1_path)
+                Image.fromarray(source).save(c0_path)
+                marked = np.asarray(Image.open(c1_path).convert("RGB"), np.uint8)
+                c0 = np.asarray(Image.open(c0_path).convert("RGB"), np.uint8)
+                saved_marked[sid] = c1_path
+                saved_source[sid] = c0_path
+                from m1_latent_reconstruction import quality
+                measured_quality = quality(c0, marked)
+                measured_quality["lpips"] = ttm.lpips_score(_state["lpips"], c0, marked)
+                _emit(dict(id=f"{sid}:embed", source_id=sid, axis="embed", outcome="completed",
+                           seconds=time.monotonic() - tick, image=_receipt_for_rgb(marked, c1_path),
+                           source_image=_receipt_for_rgb(c0, c0_path),
+                           quality=measured_quality,
+                           report={k: v for k, v in report.items() if k != "verification"},
+                           self_verification=report.get("verification", {}).get("outcome")))
+            except Exception as e:
+                _emit(dict(id=f"{sid}:embed", source_id=sid, axis="embed", outcome="failed", stage="save_or_quality", error=str(e)))
+                continue
 
         import torch as _torch
 
@@ -465,7 +549,7 @@ def run_manifest(
                         attacked = _vae_mode(base)
                     else:
                         attacked = _img2img(base, float(spec["strength"]), int(spec["seed"]))
-                    apath = images_dir / f"{rid}.png"
+                    apath = _image_path(images_dir, rid)
                     Image.fromarray(attacked).save(apath)
                     attacked = np.asarray(Image.open(apath).convert("RGB"), np.uint8)
                     z = reader.latent(attacked)
@@ -524,10 +608,6 @@ def run_manifest(
     if t4_pairs:
         _ensure_models()
         reader = _state["reader"]
-        try:
-            from three_threat_protocol import residual_transfer  # type: ignore[import-not-found]
-        except ImportError:
-            residual_transfer = None  # type: ignore[assignment]
 
         for pr in t4_pairs:
             donor = pr["donor"]
@@ -561,11 +641,7 @@ def run_manifest(
                             donor_c0 = np.asarray(Image.open(donor_c0_p).convert("RGB"), np.uint8)
                             recipient_rgb = np.asarray(Image.open(recipient_p).convert("RGB"), np.uint8)
                             if arm == "donor_C1":
-                                residual = donor_c1.astype(np.int16) - donor_c0.astype(np.int16)
-                                if residual_transfer is not None:
-                                    transferred = residual_transfer(recipient_rgb, residual, scale)
-                                else:
-                                    transferred = np.clip(recipient_rgb.astype(np.int16) + (residual * scale).astype(np.int16), 0, 255).astype(np.uint8)
+                                transferred = residual_transfer_rgb(recipient_rgb, donor_c1, donor_c0, scale)
                             else:
                                 transferred = recipient_rgb.copy()
                             donor_owner = next((s["owner"] for s in sources if s["id"] == donor), donor)
@@ -574,7 +650,7 @@ def run_manifest(
                             z = reader.latent(transferred)
                             feat_tr = _clip_feature(transferred, sem_views)
                             det = f5.detect_rgb(transferred, z, claimed, profile, feat_tr, binding=binding, band=embed_kwargs["band"], whitening=embed_kwargs["whitening"])
-                            tpath = images_dir / f"{rid}.png"
+                            tpath = _image_path(images_dir, rid)
                             Image.fromarray(transferred).save(tpath)
                             transferred = np.asarray(Image.open(tpath).convert("RGB"), np.uint8)
                             _emit(
@@ -629,81 +705,8 @@ def run_manifest(
 
     # Endpoints + run.json
     journal = read_journal(output_dir)
-    from scripts.m1_confirmatory_endpoints import cell as endpoint_cell
-
-    cells: dict[str, Any] = {}
-
-    # Helper to collect a cell
-    def _make_cell(ids: list[str], kind: str, rule: str = "both_match") -> dict[str, Any]:
-        planned = sorted(ids)
-        obs: dict[str, bool | None] = {}
-        for k in planned:
-            row = journal.get(k)
-            if row is None or row.get("outcome") != "completed":
-                obs[k] = None
-            else:
-                det = row.get("detection", {})
-                obs[k] = success_of(det, rule)
-        event_kind = "positive_success" if kind == "positive" else "negative_error"
-        out = endpoint_cell(planned, obs, event_kind=event_kind)
-        out["event_rule"] = rule
-        return out
-
-    # Clean cells
-    clean_c1_ids = [k for k in journal if ":clean:C1:correct" in k]
-    clean_wrong_ids = [k for k in journal if ":clean:" in k and ":wrong_owner" in k]
-    if clean_c1_ids:
-        try:
-            cells["clean_C1_correct_both_match"] = _make_cell(clean_c1_ids, "positive")
-        except Exception as e:
-            cells["clean_C1_correct_both_match"] = dict(error=str(e))
-    if clean_wrong_ids:
-        try:
-            cells["clean_wrong_owner_both_match"] = _make_cell(clean_wrong_ids, "negative")
-        except Exception as e:
-            cells["clean_wrong_owner_both_match"] = dict(error=str(e))
-
-    # T3 (descriptive): semantic-channel success per dose, with the checked/assumed split and both_match.
-    def _add(name: str, ids: list[str], kind: str, rule: str) -> None:
-        if ids:
-            try:
-                cells[name] = _make_cell(ids, kind, rule)
-            except Exception as e:
-                cells[name] = dict(error=str(e))
-
-    doses = [("vae_mode", ":t3:C1:vae_mode:")] + [(f"diffusion_{s}", f":t3:C1:diffusion:{s}:") for s in strengths]
-    for label, pattern in doses:
-        correct = [k for k in journal if pattern in k and k.endswith(":correct")]
-        wrong = [k for k in journal if pattern in k and k.endswith(":wrong_owner")]
-        for rule in ("semantic", "semantic_checked", "semantic_assumed", "both_match"):
-            _add(f"t3_C1_{label}_correct_{rule}", correct, "positive", rule)
-        _add(f"t3_C1_{label}_wrong_owner_semantic", wrong, "negative", "semantic")
-        _add(f"t3_C1_{label}_wrong_owner_any_found", wrong, "negative", "any_found")
-    t3_c0_ids = [k for k in journal if ":t3:C0:" in k and k.endswith(":correct")]
-    _add("t3_C0_correct_semantic", t3_c0_ids, "negative", "semantic")
-    _add("t3_C0_correct_any_found", t3_c0_ids, "negative", "any_found")
-    _add("t3_C0_correct_both_match", t3_c0_ids, "negative", "both_match")
-
-    # T4 donor_claim (negative — false attribution)
-    t4_donor_ids = [k for k in journal if ":t4:" in k and ":donor_claim" in k]
-    if t4_donor_ids:
-        try:
-            cells["t4_donor_claim_both_match"] = _make_cell(t4_donor_ids, "negative")
-        except Exception as e:
-            cells["t4_donor_claim_both_match"] = dict(error=str(e))
-
-    # T5 cross (negative)
-    t5_cross_ids = [k for k in journal if ":t5:" in k and ":cross_owner" in k]
-    if t5_cross_ids:
-        try:
-            cells["t5_cross_owner_both_match"] = _make_cell(t5_cross_ids, "negative")
-        except Exception as e:
-            cells["t5_cross_owner_both_match"] = dict(error=str(e))
-
-    # Secondary negative events (descriptive): semantic-channel false match and any channel found.
-    for name, ids in (("clean_wrong_owner", clean_wrong_ids), ("t4_donor_claim", t4_donor_ids), ("t5_cross_owner", t5_cross_ids)):
-        _add(f"{name}_semantic", ids, "negative", "semantic")
-        _add(f"{name}_any_found", ids, "negative", "any_found")
+    cells = summarize_cells(planned, journal, strengths)
+    status = inventory_status(planned, journal)
 
     run = dict(
         schema=RUN_SCHEMA,
@@ -719,6 +722,7 @@ def run_manifest(
         revision=cfg.get("revision"),
         commit=commit,
         dirty=bool(dirty),
+        data_split=manifest["data_split"],
         shard_index=shard_index,
         shard_count=shard_count,
         sources_in_shard=[s["id"] for s in shard],
@@ -727,11 +731,9 @@ def run_manifest(
         t4_pairs=t4_pairs,
         t5_pairs=t5_pairs,
         journal_rows=len(journal),
-        completed_rows=sum(1 for r in journal.values() if r.get("outcome") == "completed"),
-        failed_rows=sum(1 for r in journal.values() if r.get("outcome") in ("failed", "missing_dependency", "safety_blocked")),
+        **status,
         cells=cells,
         duration_seconds=time.monotonic() - started,
-        outcome="completed",
     )
     _atomic_json(output_dir / "run.json", run)
     return output_dir
@@ -748,7 +750,10 @@ def main() -> None:
     p.set_defaults(resume=True)
     a = p.parse_args()
     run_manifest(a.manifest, a.output_dir, a.shard_index, a.shard_count, resume=a.resume)
-    print(json.dumps(dict(out=str(a.output_dir), shard=f"{a.shard_index}/{a.shard_count}", resume=a.resume), indent=2))
+    result = json.loads((a.output_dir / "run.json").read_text(encoding="utf-8"))
+    print(json.dumps(dict(out=str(a.output_dir), shard=f"{a.shard_index}/{a.shard_count}", resume=a.resume, outcome=result["outcome"]), indent=2))
+    if result["outcome"] != "completed":
+        raise SystemExit(2)
 
 
 if __name__ == "__main__":

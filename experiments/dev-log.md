@@ -83,3 +83,4 @@
 2026-10-05T04:40 Plateau f06e0d8: three kills, freeze F5 r2, enter M1b
 2026-10-05T05:00 M1b freeze: configs/f5-r2.json (sha 25f9cb...) + research/f5-r2-spec.md + tests/test_f5_latent_codec.py 7 passed
 2026-10-05T05:10 M1b manifest prepared (synthetic rehearsals only, no held-out), independent review PASS no blocking findings
+2026-10-06T11:42 UTC Codex: takeover from Claude 471b7c5 on codex/f5-m1b-vast-recovery; independently reviewed runner recovery with gpt-6.1-sol medium (one bounded file deliverable); original Vast 54451380 smoke failed 14/14 on nonexistent CLIP adapter. Frozen F5 r2 unchanged; new two-dev smoke planned at 100 rows, timeout 1800s; current user asks to continue existing GPU work, no held-out or new rental.

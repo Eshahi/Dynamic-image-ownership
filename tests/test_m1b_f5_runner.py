@@ -13,7 +13,7 @@ import m1b_f5_runner as r  # noqa: E402
 
 
 def _manifest(sources, **kw):
-    m = dict(schema="m1b-f5-manifest-v1", version=r.VERSION, config_path="configs/f5-r2.json", profile_path="experiments/c4-v5-two-tier-regeneration-v1/profile.json", sources=sources)
+    m = dict(schema="m1b-f5-manifest-v1", version=r.VERSION, data_split="development", config_path="configs/f5-r2.json", profile_path="experiments/c4-v5-two-tier-regeneration-v1/profile.json", sources=sources)
     m.update(kw)
     return m
 
@@ -163,10 +163,6 @@ class TestNeverSubstituteSeeds(unittest.TestCase):
             r.validate_manifest(m)
 
 
-if __name__ == "__main__":
-    unittest.main()
-
-
 class TestSuccessRules(unittest.TestCase):
     def _det(self, outcome, found, match, read, inst=False):
         return {"outcome": outcome, "semantic": {"found": found, "content_match": match, "read": read},
@@ -199,3 +195,43 @@ class TestSuccessRules(unittest.TestCase):
         self.assertFalse(r.success_of(self._det("neither_match", False, False, False), "any_found"))
         with self.assertRaises(ValueError):
             r.success_of({}, "nope")
+
+
+class TestRecoveryInventory(unittest.TestCase):
+    def test_upstream_failures_still_count_every_planned_endpoint(self):
+        planned = r.planned_row_ids([_src(1), _src(2)], [0.1], [0], [], [])
+        journal = {"src-001:embed": {"outcome": "failed"}, "src-002:embed": {"outcome": "failed"}}
+        cells = r.summarize_cells(planned, journal, [0.1])
+        clean = cells["clean_C1_correct_both_match"]
+        self.assertEqual((clean["planned"], clean["missing"], clean["conservative_events"]), (2, 2, 0))
+        negative = cells["clean_C1_wrong_owner_any_found"]
+        self.assertEqual((negative["planned"], negative["missing"], negative["conservative_events"]), (2, 2, 2))
+        self.assertEqual(r.inventory_status(planned, journal)["outcome"], "incomplete")
+
+    def test_full_smoke_inventory_is_100_rows_and_no_clustering_verdict(self):
+        planned = r.planned_row_ids([_src(1), _src(2)], r.T3_STRENGTHS, r.T3_SEEDS,
+                                   [{"id": "p", "donor": "src-001", "recipient": "src-002"}],
+                                   [{"id": "q", "a": "src-001", "b": "src-002"}])
+        self.assertEqual(len(planned), 100)
+        self.assertEqual(len(set(planned)), 100)
+        cells = r.summarize_cells(planned, {}, r.T3_STRENGTHS)
+        self.assertEqual(cells["clean_C0_wrong_owner_any_found"]["planned"], 2)
+        self.assertEqual(cells["clean_C1_wrong_owner_any_found"]["planned"], 2)
+        self.assertIsNone(cells["t3_C1_diffusion_0.1_correct_semantic"]["meets_numerical_target"])
+
+    def test_pair_references_cannot_silently_disappear(self):
+        for pair in ({"id": "q"}, {"id": "q", "a": "src-001", "b": "unknown"},
+                     {"id": "q", "a": "src-001", "b": "src-001"}):
+            with self.assertRaises(ValueError):
+                r.validate_manifest(_manifest([_src(1)], t5_pairs=[pair]))
+
+    def test_zero_rows_is_incomplete(self):
+        self.assertEqual(r.inventory_status(["planned"], {}),
+                         {"planned_rows": 1, "missing_rows": 1, "failed_rows": 0, "completed_rows": 0, "outcome": "incomplete"})
+
+    def test_portable_image_filename_keeps_journal_id_separate(self):
+        self.assertNotIn(":", r._image_path(Path("images"), "src:t3:C1:diffusion:0.1:0:correct").name)
+
+
+if __name__ == "__main__":
+    unittest.main()
