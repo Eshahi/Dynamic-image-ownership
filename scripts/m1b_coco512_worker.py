@@ -885,6 +885,10 @@ def main(argv=None, runtime_factory=Runtime) -> int:
         raise ValueError("output directory belongs to a different plan or code")
     atomic_json(ctx_path, context)
 
+    # The official runner passes a sanitized environment without USERNAME; torch's inductor cache
+    # would then call getpass.getuser() and fail on Windows. Keep its cache inside the run.
+    import os
+    os.environ.setdefault("TORCHINDUCTOR_CACHE_DIR", str(out / "checkpoints" / "torch-inductor-cache"))
     t0 = time.monotonic()
     rt = runtime_factory(plan)
     load_seconds = time.monotonic() - t0
