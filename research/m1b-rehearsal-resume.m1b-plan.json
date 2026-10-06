@@ -1,0 +1,97 @@
+{
+ "schema": "m1b-coco512-plan-v1",
+ "data_split": "development",
+ "label": "Rehearsal: continuation of the stopped rehearsal through resume_from.",
+ "methods": [
+  "f5-r2",
+  "v5-r3"
+ ],
+ "f5_config": {
+  "path": "configs/f5-r2.json",
+  "sha256": "76f607e13fb3442d691813e5ab44d5eda40c6e02027d4f9041ea3fc50f41fe8f"
+ },
+ "profile": {
+  "path": "experiments/c4-v5-two-tier-regeneration-v1/profile.json",
+  "sha256": "25f9cb188368be04cd8d2b95ea1066872d3ca70908bd554af01ff93a53b40723"
+ },
+ "assets_root": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/assets/a6",
+ "sources": {
+  "inline": [
+   {
+    "uid": "development:ms-coco:1675",
+    "group_id": "development-1675",
+    "raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/dev-runs/20261004-1102-e2e-1675/1675-C0-clean.png",
+    "raw_sha256": "4d156f559b5f5b602b39876f1a518225f1bea7c722fd9eb4f8ff9312848ffa5d"
+   },
+   {
+    "uid": "development:ms-coco:4795",
+    "group_id": "development-4795",
+    "raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/dev-runs/20261004-1122-e2e-4795/4795-C0-clean.png",
+    "raw_sha256": "fc5983fb90791e2e494834378d1610f3509f0f72ec8a9beb667ba133d8643033"
+   },
+   {
+    "uid": "development:ms-coco:6012",
+    "group_id": "development-6012",
+    "raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/dev-runs/20261004-1142-e2e-6012/6012-C0-clean.png",
+    "raw_sha256": "7dd4d42c163ee2ad82d8305f5085b62a03255b84442d1b6961088b4e6aeb2610"
+   },
+   {
+    "uid": "development:ms-coco:25394",
+    "group_id": "development-25394",
+    "raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/dev-runs/20261004-1207-e2e-expansion-queue/e2e-25394/25394-C0-clean.png",
+    "raw_sha256": "aeee569ff9b3ac5d8bfe4676cead804fa9a24bd7e6fcfa1f4fdfce12a230bd26"
+   }
+  ]
+ },
+ "t3_uids": [
+  "development:ms-coco:1675",
+  "development:ms-coco:4795"
+ ],
+ "t4_pairs": [
+  {
+   "pair_index": 0,
+   "donor_uid": "development:ms-coco:1675",
+   "recipient_uid": "development:ms-coco:4795"
+  },
+  {
+   "pair_index": 1,
+   "donor_uid": "development:ms-coco:6012",
+   "recipient_uid": "development:ms-coco:25394"
+  }
+ ],
+ "t5": {
+  "selector": "fixture-categories",
+  "max_pairs": 2,
+  "categories": {
+   "development:ms-coco:1675": [
+    1
+   ],
+   "development:ms-coco:4795": [
+    1
+   ],
+   "development:ms-coco:6012": [
+    1
+   ],
+   "development:ms-coco:25394": [
+    1
+   ]
+  }
+ },
+ "strengths": [
+  0.05,
+  0.1,
+  0.2,
+  0.4
+ ],
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "patch_sizes": [
+  128,
+  256
+ ],
+ "max_wall_seconds": 3500,
+ "resume_from": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/rehearsal/m1b-stop"
+}
