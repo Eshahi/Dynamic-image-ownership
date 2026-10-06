@@ -165,3 +165,37 @@ class TestNeverSubstituteSeeds(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestSuccessRules(unittest.TestCase):
+    def _det(self, outcome, found, match, read, inst=False):
+        return {"outcome": outcome, "semantic": {"found": found, "content_match": match, "read": read},
+                "instance": {"found": inst}}
+
+    def test_semantic_only_counts_for_t3_but_not_both_match(self):
+        d = self._det("semantic_only", True, True, True)
+        self.assertTrue(r.success_of(d, "semantic"))
+        self.assertTrue(r.success_of(d, "semantic_checked"))
+        self.assertFalse(r.success_of(d, "semantic_assumed"))
+        self.assertFalse(r.success_of(d, "both_match"))
+
+    def test_recomputed_only_is_assumed(self):
+        d = self._det("semantic_only", True, True, False)
+        self.assertTrue(r.success_of(d, "semantic"))
+        self.assertFalse(r.success_of(d, "semantic_checked"))
+        self.assertTrue(r.success_of(d, "semantic_assumed"))
+
+    def test_checked_plus_assumed_partition_semantic(self):
+        for found in (True, False):
+            for match in (True, False):
+                for read in (True, False):
+                    d = self._det("x", found, match, read)
+                    self.assertEqual(r.success_of(d, "semantic"),
+                                     r.success_of(d, "semantic_checked") or r.success_of(d, "semantic_assumed"))
+                    self.assertFalse(r.success_of(d, "semantic_checked") and r.success_of(d, "semantic_assumed"))
+
+    def test_any_found_and_unknown_rule(self):
+        self.assertTrue(r.success_of(self._det("instance_only", False, False, False, inst=True), "any_found"))
+        self.assertFalse(r.success_of(self._det("neither_match", False, False, False), "any_found"))
+        with self.assertRaises(ValueError):
+            r.success_of({}, "nope")

@@ -17,3 +17,15 @@
 
 ## Next
 - Commit + push claude/f5-m1b; write worker report research/worker-report-m1b-20261005.md; end by 00:30 UTC.
+
+## 2026-10-06 — runner v2 (Claude Code, Opus 5.5 supervisor)
+- User decision: narrow COCO512 (see `m1b-cohort-decision.md`).
+- **Bug fixed:** v1 scored T3 C1 success as final `both_match`. Regeneration is expected to remove the fragile instance tier, so T3 success would have read near 0 even when the semantic channel found the owner with matching content. The development stress gates always scored T3 by the semantic channel, and the confirmatory draft asks for component states to be recorded separately.
+- **v2 T3 cells,** for each dose (VAE round trip, .05/.1/.2/.4):
+  - semantic success, split into **checked** (the mark was read and its code compared) and **assumed** (found only by the recomputed pattern, so the content was not compared);
+  - `both_match`, descriptive;
+  - wrong-owner semantic and any-found negatives.
+- C0 T3 negatives are reported as semantic, any-found and both_match.
+- Secondary semantic and any-found negatives are added for clean wrong-owner, T4 donor claim and T5 cross-owner. The primary clean positive (both_match), the clean wrong-owner negative and the T4/T5 full-attribution cells are unchanged.
+- Why the split matters: on the paired remote stress run (`claude/f5-r3-256` result), 17 of F5 r2's 36 successes at .5 were recomputed-only.
+- `success_of()` is pure and unit-tested: 4 new tests, 24 in total, all passing.

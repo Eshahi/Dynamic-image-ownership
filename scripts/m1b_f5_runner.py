@@ -25,7 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
 
-VERSION = "m1b-f5-runner-v1"
+VERSION = "m1b-f5-runner-v2"  # v2: T3 semantic-channel endpoints, checked/assumed split
 MANIFEST_SCHEMA = "m1b-f5-manifest-v1"
 RUN_SCHEMA = "m1b-f5-run-v1"
 
@@ -33,6 +33,33 @@ T3_STRENGTHS = (0.05, 0.1, 0.2, 0.4)
 T3_SEEDS = (0, 1, 2)
 T4_SCALES = (0.5, 1.0)
 _ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$")
+
+
+RULES = ("both_match", "semantic", "semantic_checked", "semantic_assumed", "any_found")
+
+
+def success_of(det: dict[str, Any], rule: str) -> bool:
+    """Event of one detection under a named rule (pure, unit-tested).
+
+    ``both_match``: final state both_match (clean positives, T4/T5 false full attribution).
+    ``semantic``: the semantic channel found the claimed owner and its content matches, whatever the
+    fragile instance tier says; this is the T3 regeneration endpoint, since img2img is expected to remove
+    the fragile tier.  ``semantic_checked``: the same, with the mark strong enough to be read so its code
+    was compared with the suspect's (``read``).  ``semantic_assumed``: found only by the recomputed
+    pattern, which v5 counts as carrying the recomputed code without a comparison.  ``any_found``: either
+    channel found the claimed owner (strictest negative event).
+    """
+    if rule not in RULES:
+        raise ValueError("unknown rule " + rule)
+    if rule == "both_match":
+        return det.get("outcome") == "both_match"
+    sem = det.get("semantic") or {}
+    if rule == "any_found":
+        return bool(sem.get("found") or (det.get("instance") or {}).get("found"))
+    ok = bool(sem.get("found") and sem.get("content_match"))
+    if rule == "semantic":
+        return ok
+    return ok and (bool(sem.get("read")) if rule == "semantic_checked" else not sem.get("read"))
 
 
 def _sha_bytes(data: bytes) -> str:
@@ -607,7 +634,7 @@ def run_manifest(
     cells: dict[str, Any] = {}
 
     # Helper to collect a cell
-    def _make_cell(ids: list[str], kind: str) -> dict[str, Any]:
+    def _make_cell(ids: list[str], kind: str, rule: str = "both_match") -> dict[str, Any]:
         planned = sorted(ids)
         obs: dict[str, bool | None] = {}
         for k in planned:
@@ -616,9 +643,11 @@ def run_manifest(
                 obs[k] = None
             else:
                 det = row.get("detection", {})
-                obs[k] = bool(det.get("outcome") == "both_match")
+                obs[k] = success_of(det, rule)
         event_kind = "positive_success" if kind == "positive" else "negative_error"
-        return endpoint_cell(planned, obs, event_kind=event_kind)
+        out = endpoint_cell(planned, obs, event_kind=event_kind)
+        out["event_rule"] = rule
+        return out
 
     # Clean cells
     clean_c1_ids = [k for k in journal if ":clean:C1:correct" in k]
@@ -634,21 +663,26 @@ def run_manifest(
         except Exception as e:
             cells["clean_wrong_owner_both_match"] = dict(error=str(e))
 
-    # T3 per strength (C1 correct only)
-    for s in strengths:
-        ids = [k for k in journal if f":t3:C1:diffusion:{s}:" in k and ":correct" in k]
+    # T3 (descriptive): semantic-channel success per dose, with the checked/assumed split and both_match.
+    def _add(name: str, ids: list[str], kind: str, rule: str) -> None:
         if ids:
             try:
-                cells[f"t3_C1_diffusion_{s}_correct"] = _make_cell(ids, "positive")
+                cells[name] = _make_cell(ids, kind, rule)
             except Exception as e:
-                cells[f"t3_C1_diffusion_{s}_correct"] = dict(error=str(e))
-    # T3 C0 negative (should stay negative)
-    t3_c0_ids = [k for k in journal if ":t3:C0:" in k and ":correct" in k]
-    if t3_c0_ids:
-        try:
-            cells["t3_C0_correct_both_match"] = _make_cell(t3_c0_ids, "negative")
-        except Exception as e:
-            cells["t3_C0_correct_both_match"] = dict(error=str(e))
+                cells[name] = dict(error=str(e))
+
+    doses = [("vae_mode", ":t3:C1:vae_mode:")] + [(f"diffusion_{s}", f":t3:C1:diffusion:{s}:") for s in strengths]
+    for label, pattern in doses:
+        correct = [k for k in journal if pattern in k and k.endswith(":correct")]
+        wrong = [k for k in journal if pattern in k and k.endswith(":wrong_owner")]
+        for rule in ("semantic", "semantic_checked", "semantic_assumed", "both_match"):
+            _add(f"t3_C1_{label}_correct_{rule}", correct, "positive", rule)
+        _add(f"t3_C1_{label}_wrong_owner_semantic", wrong, "negative", "semantic")
+        _add(f"t3_C1_{label}_wrong_owner_any_found", wrong, "negative", "any_found")
+    t3_c0_ids = [k for k in journal if ":t3:C0:" in k and k.endswith(":correct")]
+    _add("t3_C0_correct_semantic", t3_c0_ids, "negative", "semantic")
+    _add("t3_C0_correct_any_found", t3_c0_ids, "negative", "any_found")
+    _add("t3_C0_correct_both_match", t3_c0_ids, "negative", "both_match")
 
     # T4 donor_claim (negative — false attribution)
     t4_donor_ids = [k for k in journal if ":t4:" in k and ":donor_claim" in k]
@@ -665,6 +699,11 @@ def run_manifest(
             cells["t5_cross_owner_both_match"] = _make_cell(t5_cross_ids, "negative")
         except Exception as e:
             cells["t5_cross_owner_both_match"] = dict(error=str(e))
+
+    # Secondary negative events (descriptive): semantic-channel false match and any channel found.
+    for name, ids in (("clean_wrong_owner", clean_wrong_ids), ("t4_donor_claim", t4_donor_ids), ("t5_cross_owner", t5_cross_ids)):
+        _add(f"{name}_semantic", ids, "negative", "semantic")
+        _add(f"{name}_any_found", ids, "negative", "any_found")
 
     run = dict(
         schema=RUN_SCHEMA,

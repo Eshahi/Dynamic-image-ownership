@@ -45,3 +45,12 @@ This memo makes **no recommendation**. Adopting the narrow amendment does not am
 
 ---
 References: `research/sample-size.md`, `research/m1-confirmatory-draft.md`, `research/m1-confirmatory-interface.md`, `research/m1-confirmatory-external-index.json`, `research/m1-confirmatory-external-index.md`, `research/m1-confirmatory-planned-inventory.md`, `configs/f5-r2.json`, `research/f5-r2-spec.md`.
+
+## User decision — 2026-10-06
+
+The user chose **narrow COCO512** (300 MS-COCO test group representatives at 512 x 512; T3/T4/T5 slices of 30, descriptive). The choice was made in chat on 2026-10-06, after the r3-256 test (`claude/f5-r3-256`) ended the algorithm search for this stage. `research/sample-size.md` is unchanged; the all-domain plan remains the protected proposal plan and is not run.
+
+Still required before any held-out pixel is opened:
+1. the GPU smoke of `scripts/m1b_f5_runner.py` on two development images;
+2. the exact execution manifest, approved by the user;
+3. the single held-out run, started under that approval.
