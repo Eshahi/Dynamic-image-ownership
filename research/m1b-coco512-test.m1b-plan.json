@@ -228,6 +228,6 @@
   128,
   256
  ],
- "max_wall_seconds": null,
+ "max_wall_seconds": 27000,
  "approval_path": "C:/Users/Soroush/thesis-approvals/m1b-coco512-approval.json"
 }
