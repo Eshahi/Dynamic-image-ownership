@@ -23,7 +23,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-MAIN = Path("W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5")
+MAIN = Path(__import__("os").environ.get("THESIS_MAIN", "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5"))
 ASSETS = MAIN / ".thesis-build/assets/a6"
 DEV = MAIN / ".thesis-build/dev-runs"
 SOURCES = {

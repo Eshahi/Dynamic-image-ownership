@@ -16,6 +16,9 @@ sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT))
 from scripts import f5_latent_codec as f5  # noqa: E402
 from scripts import revised_watermark_v5 as v5  # noqa: E402
+from scripts import f5_r3_codec as r3  # noqa: E402
+
+CODECS = {"r2": f5, "r3-256": r3}
 from f4_transfer_probe import SOURCES, MAIN, ASSETS  # noqa: E402
 
 OWNERS = ("qim-pilot-owner-alpha", "qim-pilot-owner-beta", "qim-pilot-owner-gamma", "qim-pilot-owner-delta")
@@ -59,11 +62,13 @@ def _read_job(job) -> dict:
     vector = semantic_feature(_WORKER["models"], _WORKER["clip"], _WORKER["transform"], rgb, layout["views"])
     calls = {}
     for owner in OWNERS:
-        r = f5.detect_rgb(rgb, z, owner, _WORKER["profile"], vector, band=band, whitening=whitening, binding=layout["binding"])
+        r = CODECS[layout.get("codec", "r2")].detect_rgb(rgb, z, owner, _WORKER["profile"], vector, band=band, whitening=whitening,
+                                                         binding=layout["binding"])
         calls[owner] = dict(outcome=r["outcome"], semantic_found=r["semantic"]["found"],
                             semantic_content_match=r["semantic"]["content_match"],
                             semantic_score=r["semantic"]["score"], semantic_threshold=r["semantic"]["threshold"],
                             semantic_recomputed_score=r["semantic"]["recomputed_score"],
+                            semantic_soft_distance=r["semantic"].get("soft_distance"),
                             instance_found=r["instance"]["found"], seconds=r["seconds"])
     return calls
 
@@ -74,7 +79,8 @@ def main():
     p.add_argument("--workers", type=int, default=5)
     p.add_argument("--psnr", type=float, default=52.0)
     p.add_argument("--steps", type=int, default=150)
-    p.add_argument("--target-margin", type=float, default=4.0)
+    p.add_argument("--target-margin", type=float, default=None, help="default: 4.0 for r2, r3.TARGET_MARGIN for r3-256")
+    p.add_argument("--codec", choices=tuple(CODECS), default="r2")
     p.add_argument("--mask-power", type=float, default=0.0)
     p.add_argument("--band", type=int, nargs=2, default=list(f5.BAND))
     p.add_argument("--whitening", type=float, default=f5.WHITENING)
@@ -101,12 +107,16 @@ def main():
     if reread and a.semantic_views != reread["params"].get("semantic_views", 1):
         raise SystemExit("re-read must use same semantic_views as embed")
     commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
-    dirty = subprocess.check_output(["git", "status", "--porcelain", "--", "scripts/f5_latent_codec.py", "scripts/f5_stress_gate.py"],
+    dirty = subprocess.check_output(["git", "status", "--porcelain", "--", "scripts/f5_latent_codec.py", "scripts/f5_stress_gate.py",
+                                     "scripts/f5_r3_codec.py", "scripts/f4_transfer_probe.py"],
                                     cwd=ROOT, text=True).strip()
     if dirty:
         raise SystemExit("commit f5 code before running: " + dirty)
     profile = v5.validate_profile(json.loads(a.profile.read_text(encoding="utf-8")))
-    layout = dict(band=list(a.band), whitening=a.whitening, binding=a.binding, views=a.semantic_views)
+    codec = CODECS[a.codec]
+    if a.target_margin is None:
+        a.target_margin = r3.TARGET_MARGIN if a.codec == "r3-256" else 4.0
+    layout = dict(band=list(a.band), whitening=a.whitening, binding=a.binding, views=a.semantic_views, codec=a.codec)
     params = dict(psnr_db=a.psnr, steps=a.steps, target_margin=a.target_margin, mask_power=a.mask_power,
                   band=tuple(a.band), whitening=a.whitening, refine_rounds=a.refine_rounds, binding=a.binding)
     sources = {k: v for k, v in SOURCES.items() if a.sources is None or k in a.sources}
@@ -166,7 +176,7 @@ def main():
     for sid, path in sources.items():
         source = np.asarray(Image.open(path).convert("RGB"), np.uint8)
         tick = time.monotonic()
-        marked_rgb, report = f5.embed_rgb(source, OWNERS[0], profile, feature(source), reader, **params)
+        marked_rgb, report = codec.embed_rgb(source, OWNERS[0], profile, feature(source), reader, **params)
         marked, receipt = save(f"clean-{sid}-C1", marked_rgb)
         q = quality(source, marked)
         q["lpips"] = models.lpips_score(metric, source, marked)
@@ -215,7 +225,8 @@ def main():
                 both_match=sum(r["calls"][alpha]["outcome"] == "both_match" for r in sel),
                 wrong_owner_found=sum(c["semantic_found"] or c["instance_found"] for r in sel for o, c in r["calls"].items() if o != alpha))
     embeds = [r for r in rows if r.get("outcome") == "embedded"]
-    run = dict(schema="f5-stress-gate-v1", data_split="development", family=f5.FAMILY, revision=f5.REVISION, commit=commit,
+    run = dict(schema="f5-stress-gate-v1", data_split="development", family=codec.FAMILY, revision=codec.REVISION, codec=a.codec,
+               commit=commit, host=__import__("socket").gethostname(), gpu=torch.cuda.get_device_name(0),
                command=sys.argv, params={k: list(v) if isinstance(v, tuple) else v for k, v in params.items()},
                strengths=list(a.strengths), seeds=list(a.seeds), num_inference_steps=a.num_inference_steps,
                guidance_scale=a.guidance_scale, caption=a.caption, profile=profile, detector_config_id=v5.detector_config_id(profile),
