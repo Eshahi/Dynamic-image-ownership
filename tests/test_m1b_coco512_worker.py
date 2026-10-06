@@ -250,6 +250,45 @@ class RunTests(unittest.TestCase):
                 run(plan(t3_uids=[], t4_pairs=[]), out)
 
 
+class ApprovalTests(unittest.TestCase):
+    """The worker's fail-closed check, with a synthetic fixture (not a real approval)."""
+
+    def setUp(self):
+        try:
+            import jsonschema  # noqa: F401
+        except ImportError:
+            self.skipTest("official runner needs jsonschema in this interpreter")
+
+    def _pair(self, d, **approval_over):
+        from datetime import datetime, timedelta, timezone
+        manifest = dict(schema_version="1.0", experiment_id="fixture", run_id="fixture-run", stage_id="s", task_id="t",
+                        execution_target="local", reviewed_script="scripts/m1b_coco512_worker.py", script_sha256="0" * 64,
+                        git_commit="0" * 40, seeds=[0], datasets=[], inputs=[], outputs=["outputs/run.json"],
+                        metrics=["m"], budget=dict(max_seconds=100, max_usd=0, hourly_usd=0),
+                        resources=dict(vram_mib=0, ram_mib=1, disk_mib=1), cleanup_policy="stop-for-recovery")
+        now = datetime.now(timezone.utc)
+        approval = dict(schema_version="1.0", experiment_id="fixture", run_id="fixture-run", execution_target="local",
+                        manifest_sha256=W.object_digest(manifest), decision="approve",
+                        timestamp=(now - timedelta(minutes=1)).isoformat(), expires_at=(now + timedelta(hours=1)).isoformat(),
+                        max_seconds=100, max_usd=0, actor="synthetic test fixture", source_ref="unit test")
+        approval.update(approval_over)
+        path = Path(d) / "approval.json"
+        path.write_text(json.dumps(approval), encoding="utf-8")
+        return dict(approval_path=str(path)), manifest
+
+    def test_matching_approval_passes(self):
+        with tempfile.TemporaryDirectory() as d:
+            plan_, manifest = self._pair(d)
+            self.assertEqual(W.check_approval(plan_, manifest)["actor"], "synthetic test fixture")
+
+    def test_mismatch_or_reject_fails_closed(self):
+        for over in (dict(manifest_sha256="1" * 64), dict(decision="reject"), dict(run_id="other")):
+            with tempfile.TemporaryDirectory() as d:
+                plan_, manifest = self._pair(d, **over)
+                with self.assertRaises(Exception, msg=str(over)):
+                    W.check_approval(plan_, manifest)
+
+
 class RuleTests(unittest.TestCase):
     def test_event_rules(self):
         det = dict(outcome="semantic_only", semantic=dict(found=True, read=False, content_match=True),

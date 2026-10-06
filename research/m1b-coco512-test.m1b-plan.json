@@ -1,0 +1,233 @@
+{
+ "schema": "m1b-coco512-plan-v1",
+ "data_split": "test",
+ "label": "M1b confirmatory run (narrow COCO512 amendment): F5 r2 candidate and v5 r3 comparator on the frozen 300 MS-COCO test representatives. Runs only with the user's official approval.",
+ "methods": [
+  "f5-r2",
+  "v5-r3"
+ ],
+ "f5_config": {
+  "path": "configs/f5-r2.json",
+  "sha256": "76f607e13fb3442d691813e5ab44d5eda40c6e02027d4f9041ea3fc50f41fe8f"
+ },
+ "profile": {
+  "path": "experiments/c4-v5-two-tier-regeneration-v1/profile.json",
+  "sha256": "25f9cb188368be04cd8d2b95ea1066872d3ca70908bd554af01ff93a53b40723"
+ },
+ "assets_root": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/assets/a6",
+ "sources": {
+  "index": {
+   "path": "research/m1-confirmatory-external-index.json",
+   "sha256": "8521b783324b62c9394081f0f7f0d8e5162b6592b9bf3256dddf0d400e28b88a"
+  }
+ },
+ "t3_uids": [
+  "ms-coco:coco-2017:val2017:531036",
+  "ms-coco:coco-2017:val2017:507081",
+  "ms-coco:coco-2017:val2017:521259",
+  "ms-coco:coco-2017:val2017:166642",
+  "ms-coco:coco-2017:val2017:270908",
+  "ms-coco:coco-2017:val2017:581482",
+  "ms-coco:coco-2017:val2017:108244",
+  "ms-coco:coco-2017:val2017:10707",
+  "ms-coco:coco-2017:val2017:47571",
+  "ms-coco:coco-2017:val2017:452321",
+  "ms-coco:coco-2017:val2017:92053",
+  "ms-coco:coco-2017:val2017:320632",
+  "ms-coco:coco-2017:val2017:220584",
+  "ms-coco:coco-2017:val2017:116479",
+  "ms-coco:coco-2017:val2017:98261",
+  "ms-coco:coco-2017:val2017:357567",
+  "ms-coco:coco-2017:val2017:343315",
+  "ms-coco:coco-2017:val2017:148707",
+  "ms-coco:coco-2017:val2017:481386",
+  "ms-coco:coco-2017:val2017:274708",
+  "ms-coco:coco-2017:val2017:140203",
+  "ms-coco:coco-2017:val2017:124659",
+  "ms-coco:coco-2017:val2017:249643",
+  "ms-coco:coco-2017:val2017:352618",
+  "ms-coco:coco-2017:val2017:37689",
+  "ms-coco:coco-2017:val2017:90891",
+  "ms-coco:coco-2017:val2017:157601",
+  "ms-coco:coco-2017:val2017:516173",
+  "ms-coco:coco-2017:val2017:434297",
+  "ms-coco:coco-2017:val2017:364884"
+ ],
+ "t4_pairs": [
+  {
+   "pair_index": 0,
+   "donor_uid": "ms-coco:coco-2017:val2017:196759",
+   "recipient_uid": "ms-coco:coco-2017:val2017:138979"
+  },
+  {
+   "pair_index": 1,
+   "donor_uid": "ms-coco:coco-2017:val2017:39769",
+   "recipient_uid": "ms-coco:coco-2017:val2017:442456"
+  },
+  {
+   "pair_index": 2,
+   "donor_uid": "ms-coco:coco-2017:val2017:566758",
+   "recipient_uid": "ms-coco:coco-2017:val2017:342128"
+  },
+  {
+   "pair_index": 3,
+   "donor_uid": "ms-coco:coco-2017:val2017:70774",
+   "recipient_uid": "ms-coco:coco-2017:val2017:250901"
+  },
+  {
+   "pair_index": 4,
+   "donor_uid": "ms-coco:coco-2017:val2017:243626",
+   "recipient_uid": "ms-coco:coco-2017:val2017:252332"
+  },
+  {
+   "pair_index": 5,
+   "donor_uid": "ms-coco:coco-2017:val2017:314251",
+   "recipient_uid": "ms-coco:coco-2017:val2017:90891"
+  },
+  {
+   "pair_index": 6,
+   "donor_uid": "ms-coco:coco-2017:val2017:166642",
+   "recipient_uid": "ms-coco:coco-2017:val2017:418961"
+  },
+  {
+   "pair_index": 7,
+   "donor_uid": "ms-coco:coco-2017:val2017:192607",
+   "recipient_uid": "ms-coco:coco-2017:val2017:581482"
+  },
+  {
+   "pair_index": 8,
+   "donor_uid": "ms-coco:coco-2017:val2017:430377",
+   "recipient_uid": "ms-coco:coco-2017:val2017:357567"
+  },
+  {
+   "pair_index": 9,
+   "donor_uid": "ms-coco:coco-2017:val2017:7991",
+   "recipient_uid": "ms-coco:coco-2017:val2017:10707"
+  },
+  {
+   "pair_index": 10,
+   "donor_uid": "ms-coco:coco-2017:val2017:570664",
+   "recipient_uid": "ms-coco:coco-2017:val2017:80153"
+  },
+  {
+   "pair_index": 11,
+   "donor_uid": "ms-coco:coco-2017:val2017:192670",
+   "recipient_uid": "ms-coco:coco-2017:val2017:407002"
+  },
+  {
+   "pair_index": 12,
+   "donor_uid": "ms-coco:coco-2017:val2017:128654",
+   "recipient_uid": "ms-coco:coco-2017:val2017:290833"
+  },
+  {
+   "pair_index": 13,
+   "donor_uid": "ms-coco:coco-2017:val2017:292005",
+   "recipient_uid": "ms-coco:coco-2017:val2017:147415"
+  },
+  {
+   "pair_index": 14,
+   "donor_uid": "ms-coco:coco-2017:val2017:574520",
+   "recipient_uid": "ms-coco:coco-2017:val2017:356387"
+  },
+  {
+   "pair_index": 15,
+   "donor_uid": "ms-coco:coco-2017:val2017:560011",
+   "recipient_uid": "ms-coco:coco-2017:val2017:340894"
+  },
+  {
+   "pair_index": 16,
+   "donor_uid": "ms-coco:coco-2017:val2017:382734",
+   "recipient_uid": "ms-coco:coco-2017:val2017:359219"
+  },
+  {
+   "pair_index": 17,
+   "donor_uid": "ms-coco:coco-2017:val2017:227686",
+   "recipient_uid": "ms-coco:coco-2017:val2017:447789"
+  },
+  {
+   "pair_index": 18,
+   "donor_uid": "ms-coco:coco-2017:val2017:571804",
+   "recipient_uid": "ms-coco:coco-2017:val2017:568290"
+  },
+  {
+   "pair_index": 19,
+   "donor_uid": "ms-coco:coco-2017:val2017:154213",
+   "recipient_uid": "ms-coco:coco-2017:val2017:122217"
+  },
+  {
+   "pair_index": 20,
+   "donor_uid": "ms-coco:coco-2017:val2017:92053",
+   "recipient_uid": "ms-coco:coco-2017:val2017:17182"
+  },
+  {
+   "pair_index": 21,
+   "donor_uid": "ms-coco:coco-2017:val2017:356248",
+   "recipient_uid": "ms-coco:coco-2017:val2017:565778"
+  },
+  {
+   "pair_index": 22,
+   "donor_uid": "ms-coco:coco-2017:val2017:298396",
+   "recipient_uid": "ms-coco:coco-2017:val2017:203389"
+  },
+  {
+   "pair_index": 23,
+   "donor_uid": "ms-coco:coco-2017:val2017:426836",
+   "recipient_uid": "ms-coco:coco-2017:val2017:492282"
+  },
+  {
+   "pair_index": 24,
+   "donor_uid": "ms-coco:coco-2017:val2017:28993",
+   "recipient_uid": "ms-coco:coco-2017:val2017:143572"
+  },
+  {
+   "pair_index": 25,
+   "donor_uid": "ms-coco:coco-2017:val2017:183391",
+   "recipient_uid": "ms-coco:coco-2017:val2017:508639"
+  },
+  {
+   "pair_index": 26,
+   "donor_uid": "ms-coco:coco-2017:val2017:259830",
+   "recipient_uid": "ms-coco:coco-2017:val2017:309452"
+  },
+  {
+   "pair_index": 27,
+   "donor_uid": "ms-coco:coco-2017:val2017:352618",
+   "recipient_uid": "ms-coco:coco-2017:val2017:229753"
+  },
+  {
+   "pair_index": 28,
+   "donor_uid": "ms-coco:coco-2017:val2017:500464",
+   "recipient_uid": "ms-coco:coco-2017:val2017:402346"
+  },
+  {
+   "pair_index": 29,
+   "donor_uid": "ms-coco:coco-2017:val2017:8762",
+   "recipient_uid": "ms-coco:coco-2017:val2017:189310"
+  }
+ ],
+ "t5": {
+  "selector": "coco-instances",
+  "max_pairs": 30,
+  "annotations": {
+   "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/annotations_trainval2017/annotations/instances_val2017.json",
+   "sha256": "e8c7f7908f1d7278341fae127d0da654f102f11bd7b21d8aeefa635b8c810b6f"
+  }
+ },
+ "strengths": [
+  0.05,
+  0.1,
+  0.2,
+  0.4
+ ],
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "patch_sizes": [
+  128,
+  256
+ ],
+ "max_wall_seconds": null,
+ "approval_path": "C:/Users/Soroush/thesis-approvals/m1b-coco512-approval.json"
+}

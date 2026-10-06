@@ -871,6 +871,7 @@ def main(argv=None, runtime_factory=Runtime) -> int:
     if dirty:
         raise SystemExit("commit the worker and frozen code before running:\n" + dirty)
     code = {f: sha_file(ROOT / f) for f in CODE_FILES}
+    commit = _git("rev-parse", "HEAD")
     context = dict(version=VERSION, science_digest=science_digest(plan), code_sha256=code, data_split=plan["data_split"])
     ctx_path = out / "outputs" / "run-context.json"
     if plan.get("resume_from"):
@@ -893,7 +894,7 @@ def main(argv=None, runtime_factory=Runtime) -> int:
     result = analyse(plan, sources, rows, selected)
     run = dict(schema="m1b-coco512-run-v1", version=VERSION, status=status, plan_path=str(plan_path),
                plan_sha256=sha_file(plan_path), science_digest=context["science_digest"], data_split=plan["data_split"],
-               commit=_git("rev-parse", "HEAD"), code_sha256=code, approval=approval,
+               commit=commit, code_sha256=code, approval=approval,
                asset_receipt_sha256=object_digest(getattr(rt, "asset_receipt", None)),
                started_utc=datetime.now(timezone.utc).isoformat(), model_load_seconds=load_seconds,
                wall_seconds=time.monotonic() - t0, torn_journal_lines_dropped=worker.journal.torn_lines,
