@@ -1,0 +1,61 @@
+{
+ "schema": "m1b-coco512-plan-v1",
+ "data_split": "rehearsal",
+ "label": "Rehearsal: continuation of the interrupted kill rehearsal (infrastructure-only rerun 1).",
+ "methods": [
+  "f5-r2",
+  "v5-r3"
+ ],
+ "f5_config": {
+  "path": "configs/f5-r2.json",
+  "sha256": "76f607e13fb3442d691813e5ab44d5eda40c6e02027d4f9041ea3fc50f41fe8f"
+ },
+ "profile": {
+  "path": "experiments/c4-v5-two-tier-regeneration-v1/profile.json",
+  "sha256": "25f9cb188368be04cd8d2b95ea1066872d3ca70908bd554af01ff93a53b40723"
+ },
+ "assets_root": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/assets/a6",
+ "sources": {
+  "index": {
+   "path": "research/rehearsal/m1b-synthetic-small-index.json",
+   "sha256": "cce2f62ded43a985b2723ac4cd6e8addacd5c0e9b5ac63c039e5165588f4d78b"
+  }
+ },
+ "t3_uids": [
+  "rehearsal-synthetic:coco-2017:val2017:900000"
+ ],
+ "t4_pairs": [
+  {
+   "pair_index": 0,
+   "donor_uid": "rehearsal-synthetic:coco-2017:val2017:900000",
+   "recipient_uid": "rehearsal-synthetic:coco-2017:val2017:900003"
+  }
+ ],
+ "t5": {
+  "selector": "coco-instances",
+  "max_pairs": 30,
+  "annotations": {
+   "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/rehearsal/m1b-synthetic/instances_synthetic.json",
+   "sha256": "5211292fab289f2c0574a513157ac6e30cb2bd2aa75a846d37080c46b193d7e6"
+  }
+ },
+ "strengths": [
+  0.05,
+  0.1,
+  0.2,
+  0.4
+ ],
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "patch_sizes": [
+  128,
+  256
+ ],
+ "max_wall_seconds": 3500,
+ "approval_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/rehearsal/approvals/m1b-rehearsal-kill-rerun-1.json",
+ "resume_from": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/rehearsal/m1b-dispatch/M1b-rehearsal/rehearsal-kill-1",
+ "resume_parent_approval_sha256": "f31d6dcbddb31efe70e949fdcb2a9945e7e4bfce2715aa484cea809c9c2e9199"
+}
