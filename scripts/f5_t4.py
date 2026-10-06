@@ -21,7 +21,11 @@ sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT))
 from scripts import f5_latent_codec as f5  # noqa: E402
 from scripts import revised_watermark_v5 as v5  # noqa: E402
-from f4_gate import V5_RESULTS, ASSETS  # noqa: E402
+from scripts import f5_r3_codec as r3  # noqa: E402
+from f4_transfer_probe import MAIN, ASSETS  # noqa: E402
+
+V5_RESULTS = MAIN / ".thesis-build/v5-study-runs/C4-v5-two-tier-development/c4-v5-two-tier-dev-001/outputs/results.json"
+CODECS = {"r2": f5, "r3-256": r3}
 from three_threat_protocol import residual_transfer  # noqa: E402
 
 ALPHA = "qim-pilot-owner-alpha"
@@ -31,6 +35,9 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--gate-run", type=Path, required=True)
     p.add_argument("--output-dir", type=Path, required=True)
+    p.add_argument("--codec", choices=tuple(CODECS), default=None, help="default: the gate run's codec, else r2")
+    p.add_argument("--semantic-views", type=int, choices=(1, 7), default=None, help="default: the gate run's params, else 1")
+    p.add_argument("--pairs-json", type=Path, default=None, help="pairs and v5 outcomes (configs/t4-dev-pairs.json) instead of the v5 results file")
     a = p.parse_args()
     from PIL import Image
     import three_threat_models as models
@@ -40,12 +47,19 @@ def main():
     gate = json.loads((a.gate_run / "run.json").read_text(encoding="utf-8"))
     profile = v5.validate_profile(gate["profile"])
     band, whitening = tuple(gate["params"]["band"]), gate["params"]["whitening"]
-    binding, views = gate["params"].get("binding", "hard"), gate["params"].get("semantic_views", 1)
+    binding, views = gate["params"].get("binding", "hard"), a.semantic_views or gate["params"].get("semantic_views", 1)
+    codec = CODECS[a.codec or gate.get("codec", "r2")]
     from f5_gate import semantic_feature
     reader = f5.Reader(ASSETS)
-    v5rows = json.loads(V5_RESULTS.read_text(encoding="utf-8"))["rows"]
-    pairs = sorted({(r["donor_id"], r["recipient_id"]) for r in v5rows if r.get("axis") == "T4"})
     v5_outcomes = {}
+    if a.pairs_json:
+        spec = json.loads(a.pairs_json.read_text(encoding="utf-8"))
+        pairs = [tuple(x) for x in spec["pairs"]]
+        v5_outcomes = {(int(k.split("|")[0]), int(k.split("|")[1]), float(k.split("|")[2]), k.split("|")[3]): v for k, v in spec["v5_outcomes"].items()}
+        v5rows = []
+    else:
+        v5rows = json.loads(V5_RESULTS.read_text(encoding="utf-8"))["rows"]
+        pairs = sorted({(r["donor_id"], r["recipient_id"]) for r in v5rows if r.get("axis") == "T4"})
     for r in v5rows:
         if r.get("axis") == "T4" and r.get("arm") == "clean_donor_residual":
             for d in r["detections"]:
@@ -68,7 +82,7 @@ def main():
             z = reader.latent(out)
             calls = {}
             for mode in ("combined", "none"):
-                r = f5.detect_rgb(out, z, ALPHA, profile, vector, binding_mode=mode, band=band, whitening=whitening,
+                r = codec.detect_rgb(out, z, ALPHA, profile, vector, binding_mode=mode, band=band, whitening=whitening,
                                   binding=binding)
                 calls[mode] = dict(outcome=r["outcome"], semantic_found=r["semantic"]["found"],
                                    semantic_score=r["semantic"]["score"], instance_found=r["instance"]["found"])
@@ -89,7 +103,7 @@ def main():
             v5_combined={o: sum(r["v5_combined"] == o for r in sel) for o in sorted({str(r["v5_combined"]) for r in sel})},
             v5_none={o: sum(r["v5_none"] == o for r in sel) for o in sorted({str(r["v5_none"]) for r in sel})})
     commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
-    run = dict(schema="f5-t4-residual-v1", data_split="development", commit=commit, command=sys.argv,
+    run = dict(schema="f5-t4-residual-v1", data_split="development", commit=commit, codec=codec.REVISION, command=sys.argv,
                gate_run=str(a.gate_run), band=list(band), whitening=whitening, binding=binding, semantic_views=views, duration_seconds=time.monotonic() - started,
                outcome="completed", summary=summary, rows=rows, human_visual_verdict=None)
     (a.output_dir / "run.json").write_text(json.dumps(run, indent=1), encoding="utf-8")
