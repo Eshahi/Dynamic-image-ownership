@@ -472,3 +472,50 @@ class ApprovalTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class PreflightTests(unittest.TestCase):
+    """Review Q4 item 2: input faults stop the run before any unit (no journal row)."""
+
+    def _setup(self, tmp: Path):
+        raw = tmp / "a.jpg"
+        raw.write_bytes(b"raw-bytes")
+        ann = tmp / "instances.json"
+        ann.write_text("{}", encoding="utf-8")
+        sources = [dict(uid="u0", raw_path=str(raw), raw_size_bytes=raw.stat().st_size,
+                        raw_sha256=hashlib.sha256(b"raw-bytes").hexdigest())]
+        plan = dict(data_split="rehearsal", t5=dict(selector="coco-instances", annotations=dict(
+            path=str(ann), sha256=hashlib.sha256(b"{}").hexdigest())))
+        out = tmp / "out"
+        out.mkdir()
+        return plan, sources, out
+
+    def test_clean_inputs_pass(self):
+        with tempfile.TemporaryDirectory() as d:
+            plan, sources, out = self._setup(Path(d))
+            self.assertEqual(W.preflight(plan, sources, out)["sources_verified"], 1)
+
+    def test_missing_raw_file_stops_before_any_unit(self):
+        with tempfile.TemporaryDirectory() as d:
+            plan, sources, out = self._setup(Path(d))
+            Path(sources[0]["raw_path"]).unlink()
+            with self.assertRaises(SystemExit) as cm:
+                W.preflight(plan, sources, out)
+            self.assertIn("missing u0", str(cm.exception))
+            self.assertFalse((out / "journal.jsonl").exists())
+
+    def test_wrong_annotation_hash_stops_before_any_unit(self):
+        with tempfile.TemporaryDirectory() as d:
+            plan, sources, out = self._setup(Path(d))
+            Path(plan["t5"]["annotations"]["path"]).write_text('{"changed": 1}', encoding="utf-8")
+            with self.assertRaises(SystemExit) as cm:
+                W.preflight(plan, sources, out)
+            self.assertIn("annotation artifact", str(cm.exception))
+
+    def test_changed_raw_bytes_same_size_stops(self):
+        with tempfile.TemporaryDirectory() as d:
+            plan, sources, out = self._setup(Path(d))
+            Path(sources[0]["raw_path"]).write_bytes(b"raw-bytez")
+            with self.assertRaises(SystemExit) as cm:
+                W.preflight(plan, sources, out)
+            self.assertIn("hash u0", str(cm.exception))
