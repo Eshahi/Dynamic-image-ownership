@@ -29,3 +29,12 @@
 - Secondary semantic and any-found negatives are added for clean wrong-owner, T4 donor claim and T5 cross-owner. The primary clean positive (both_match), the clean wrong-owner negative and the T4/T5 full-attribution cells are unchanged.
 - Why the split matters: on the paired remote stress run (`claude/f5-r3-256` result), 17 of F5 r2's 36 successes at .5 were recomputed-only.
 - `success_of()` is pure and unit-tested: 4 new tests, 24 in total, all passing.
+
+## 2026-10-06 — Codex GPU takeover and runner v3
+
+- Isolated branch `codex/f5-m1b-vast-recovery` from `471b7c5`; Claude and MAIN research branches are unchanged. Existing SSH identity works; no new credentials are needed.
+- Retained Claude's original two-source remote failure: 0 completed / 14 failed rows, nonexistent `clip_feature_wrapper`; its v2 top-level `completed` status was misleading.
+- Committed recovery code at `acda5e1`: actual frozen CLIP adapter, correct residual API, planned inventory/adverse missingness, nonzero incomplete exit, saved-source pending-attack resume, context/hash guards, portable filenames and saved-image quality. Development manifests only while confirmatory protocol remains incomplete. 29 CPU tests pass locally and on the existing Vast environment.
+- Fresh bounded 1800-second supervisor run on existing instance `54451380` (RTX PRO 4000) finished in 241.543926 s: all 100 planned rows completed, zero errors/missing; clean correct-owner both-match 2/2 and clean negative any-found 0/6. All 26 marked T3 correct-owner rows have read-and-compared semantic success; these are clustered two-source development results. Exploratory T4 donor any-found is 1/4, full attribution 0/4; T5 any-found 0/4.
+- Copied-output partial resume restores one missing wrong-owner T3 row in 15.746789 s, without re-embedding or changing retained rows; restored RGB matches its original. Original failure and completed smoke remain intact.
+- Full results, provenance and remaining M1b blockers: `research/m1b-vast-recovery.md`. Two-source integration success is not M1b/M2 completion; no held-out execution performed.

@@ -1,0 +1,577 @@
+{
+  "schema": "m1b-vast-development-smoke-result-v1",
+  "development_only": true,
+  "deployment": {
+    "source_commit": "acda5e1de03aeaad4b8305b81fb8156bf0573689",
+    "source_branch": "codex/f5-m1b-vast-recovery",
+    "archive_sha256": "e4124032c68e9ba9ed6b74bbd4ee89eb294d94523b58f251d0a0f880b930a0e1",
+    "kind": "reviewed-code-subset-snapshot",
+    "instance_id": 54451380
+  },
+  "remote_snapshot_commit": "5390166831e2ceb333604f4d67206f67a2c0128c",
+  "instance_id": "54451380",
+  "gpu": "NVIDIA RTX PRO 4000 Blackwell, GPU-182d690e-17aa-1012-bd24-2beb595fc707, 24467 MiB",
+  "evidence_archive_sha256": "d4a691bd20d2df2dd3c7a76a3d49a1b9e9df353ac33bca55f63ad0e853b14964",
+  "evidence_archive_bytes": 85226746,
+  "verified_file_count": 204,
+  "verified_rgb_receipts": 196,
+  "run": {
+    "schema": "m1b-f5-run-v1",
+    "version": "m1b-f5-runner-v3",
+    "manifest_path": "research/m1b-vast-development-smoke.json",
+    "manifest_sha256": "fa9360ec94273aaa8839866ed9cfda4acbbfd77832523a04ed53bfbffecd5d01",
+    "config_path": "/workspace/thesis/codex-m1b-acda5e1/configs/f5-r2.json",
+    "config_sha256": "76f607e13fb3442d691813e5ab44d5eda40c6e02027d4f9041ea3fc50f41fe8f",
+    "profile_path": "/workspace/thesis/codex-m1b-acda5e1/experiments/c4-v5-two-tier-regeneration-v1/profile.json",
+    "profile_sha256": "25f9cb188368be04cd8d2b95ea1066872d3ca70908bd554af01ff93a53b40723",
+    "detector_config_id": "62213653c7bb4ae343771602bf8ae58bc0e2e12386ead513f70b1926d1359559",
+    "family": "f5-encoder-amplified-latent",
+    "revision": 2,
+    "commit": "5390166831e2ceb333604f4d67206f67a2c0128c",
+    "dirty": false,
+    "data_split": "development",
+    "shard_index": 0,
+    "shard_count": 1,
+    "sources_in_shard": [
+      "dev-1675",
+      "dev-4795"
+    ],
+    "t3_strengths": [
+      0.05,
+      0.1,
+      0.2,
+      0.4
+    ],
+    "t3_seeds": [
+      0,
+      1,
+      2
+    ],
+    "t4_pairs": [
+      {
+        "id": "t4-01",
+        "donor": "dev-1675",
+        "recipient": "dev-4795"
+      }
+    ],
+    "t5_pairs": [
+      {
+        "id": "t5-01",
+        "a": "dev-1675",
+        "b": "dev-4795"
+      }
+    ],
+    "journal_rows": 100,
+    "planned_rows": 100,
+    "missing_rows": 0,
+    "failed_rows": 0,
+    "completed_rows": 100,
+    "outcome": "completed",
+    "duration_seconds": 241.5439261479769,
+    "cells_counts_only": {
+      "clean_C1_correct_both_match": {
+        "planned": 2,
+        "valid": 2,
+        "missing": 0,
+        "observed_events": 2,
+        "conservative_events": 2,
+        "event_rule": "both_match"
+      },
+      "clean_C0_correct_both_match": {
+        "planned": 2,
+        "valid": 2,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "both_match"
+      },
+      "clean_C0_correct_semantic": {
+        "planned": 2,
+        "valid": 2,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "semantic"
+      },
+      "clean_C0_correct_any_found": {
+        "planned": 2,
+        "valid": 2,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "any_found"
+      },
+      "clean_C0_wrong_owner_both_match": {
+        "planned": 2,
+        "valid": 2,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "both_match"
+      },
+      "clean_C0_wrong_owner_semantic": {
+        "planned": 2,
+        "valid": 2,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "semantic"
+      },
+      "clean_C0_wrong_owner_any_found": {
+        "planned": 2,
+        "valid": 2,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "any_found"
+      },
+      "clean_C1_wrong_owner_both_match": {
+        "planned": 2,
+        "valid": 2,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "both_match"
+      },
+      "clean_C1_wrong_owner_semantic": {
+        "planned": 2,
+        "valid": 2,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "semantic"
+      },
+      "clean_C1_wrong_owner_any_found": {
+        "planned": 2,
+        "valid": 2,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "any_found"
+      },
+      "t3_C1_vae_mode_correct_semantic": {
+        "planned": 2,
+        "valid": 2,
+        "missing": 0,
+        "observed_events": 2,
+        "conservative_events": 2,
+        "event_rule": "semantic"
+      },
+      "t3_C1_vae_mode_correct_semantic_checked": {
+        "planned": 2,
+        "valid": 2,
+        "missing": 0,
+        "observed_events": 2,
+        "conservative_events": 2,
+        "event_rule": "semantic_checked"
+      },
+      "t3_C1_vae_mode_correct_semantic_assumed": {
+        "planned": 2,
+        "valid": 2,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "semantic_assumed"
+      },
+      "t3_C1_vae_mode_correct_both_match": {
+        "planned": 2,
+        "valid": 2,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "both_match"
+      },
+      "t3_C1_vae_mode_wrong_owner_semantic": {
+        "planned": 2,
+        "valid": 2,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "semantic"
+      },
+      "t3_C1_vae_mode_wrong_owner_any_found": {
+        "planned": 2,
+        "valid": 2,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "any_found"
+      },
+      "t3_C1_diffusion_0.05_correct_semantic": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 6,
+        "conservative_events": 6,
+        "event_rule": "semantic"
+      },
+      "t3_C1_diffusion_0.05_correct_semantic_checked": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 6,
+        "conservative_events": 6,
+        "event_rule": "semantic_checked"
+      },
+      "t3_C1_diffusion_0.05_correct_semantic_assumed": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "semantic_assumed"
+      },
+      "t3_C1_diffusion_0.05_correct_both_match": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "both_match"
+      },
+      "t3_C1_diffusion_0.05_wrong_owner_semantic": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "semantic"
+      },
+      "t3_C1_diffusion_0.05_wrong_owner_any_found": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "any_found"
+      },
+      "t3_C1_diffusion_0.1_correct_semantic": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 6,
+        "conservative_events": 6,
+        "event_rule": "semantic"
+      },
+      "t3_C1_diffusion_0.1_correct_semantic_checked": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 6,
+        "conservative_events": 6,
+        "event_rule": "semantic_checked"
+      },
+      "t3_C1_diffusion_0.1_correct_semantic_assumed": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "semantic_assumed"
+      },
+      "t3_C1_diffusion_0.1_correct_both_match": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "both_match"
+      },
+      "t3_C1_diffusion_0.1_wrong_owner_semantic": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "semantic"
+      },
+      "t3_C1_diffusion_0.1_wrong_owner_any_found": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "any_found"
+      },
+      "t3_C1_diffusion_0.2_correct_semantic": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 6,
+        "conservative_events": 6,
+        "event_rule": "semantic"
+      },
+      "t3_C1_diffusion_0.2_correct_semantic_checked": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 6,
+        "conservative_events": 6,
+        "event_rule": "semantic_checked"
+      },
+      "t3_C1_diffusion_0.2_correct_semantic_assumed": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "semantic_assumed"
+      },
+      "t3_C1_diffusion_0.2_correct_both_match": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "both_match"
+      },
+      "t3_C1_diffusion_0.2_wrong_owner_semantic": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "semantic"
+      },
+      "t3_C1_diffusion_0.2_wrong_owner_any_found": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "any_found"
+      },
+      "t3_C1_diffusion_0.4_correct_semantic": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 6,
+        "conservative_events": 6,
+        "event_rule": "semantic"
+      },
+      "t3_C1_diffusion_0.4_correct_semantic_checked": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 6,
+        "conservative_events": 6,
+        "event_rule": "semantic_checked"
+      },
+      "t3_C1_diffusion_0.4_correct_semantic_assumed": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "semantic_assumed"
+      },
+      "t3_C1_diffusion_0.4_correct_both_match": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "both_match"
+      },
+      "t3_C1_diffusion_0.4_wrong_owner_semantic": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "semantic"
+      },
+      "t3_C1_diffusion_0.4_wrong_owner_any_found": {
+        "planned": 6,
+        "valid": 6,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "any_found"
+      },
+      "t3_C0_correct_semantic": {
+        "planned": 26,
+        "valid": 26,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "semantic"
+      },
+      "t3_C0_correct_any_found": {
+        "planned": 26,
+        "valid": 26,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "any_found"
+      },
+      "t3_C0_correct_both_match": {
+        "planned": 26,
+        "valid": 26,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "both_match"
+      },
+      "t4_donor_claim_semantic": {
+        "planned": 4,
+        "valid": 4,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "semantic"
+      },
+      "t4_donor_claim_any_found": {
+        "planned": 4,
+        "valid": 4,
+        "missing": 0,
+        "observed_events": 1,
+        "conservative_events": 1,
+        "event_rule": "any_found"
+      },
+      "t4_donor_claim_both_match": {
+        "planned": 4,
+        "valid": 4,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "both_match"
+      },
+      "t5_cross_owner_semantic": {
+        "planned": 4,
+        "valid": 4,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "semantic"
+      },
+      "t5_cross_owner_any_found": {
+        "planned": 4,
+        "valid": 4,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "any_found"
+      },
+      "t5_cross_owner_both_match": {
+        "planned": 4,
+        "valid": 4,
+        "missing": 0,
+        "observed_events": 0,
+        "conservative_events": 0,
+        "event_rule": "both_match"
+      }
+    }
+  },
+  "quality": [
+    {
+      "source_id": "dev-1675",
+      "mse_rgb8": 2.154618581136068,
+      "psnr_db": 44.79709960045808,
+      "psnr_infinite": false,
+      "ssim_rgb": 0.9824929623068962,
+      "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+      "lpips": 0.020604392513632774,
+      "self_verification": "both_match",
+      "embed_seconds": 27.7330701360479
+    },
+    {
+      "source_id": "dev-4795",
+      "mse_rgb8": 2.054302215576172,
+      "psnr_db": 45.00416026328054,
+      "psnr_infinite": false,
+      "ssim_rgb": 0.9895115200967215,
+      "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+      "lpips": 0.007950358092784882,
+      "self_verification": "both_match",
+      "embed_seconds": 26.09756961092353
+    }
+  ],
+  "t3_correct_C1": [
+    {
+      "dose": "vae_mode",
+      "strength": null,
+      "rows": 2,
+      "semantic": 2,
+      "semantic_checked": 2,
+      "semantic_assumed": 0,
+      "states": {
+        "semantic_only": 2
+      }
+    },
+    {
+      "dose": "diffusion",
+      "strength": 0.05,
+      "rows": 6,
+      "semantic": 6,
+      "semantic_checked": 6,
+      "semantic_assumed": 0,
+      "states": {
+        "semantic_only": 6
+      }
+    },
+    {
+      "dose": "diffusion",
+      "strength": 0.1,
+      "rows": 6,
+      "semantic": 6,
+      "semantic_checked": 6,
+      "semantic_assumed": 0,
+      "states": {
+        "semantic_only": 6
+      }
+    },
+    {
+      "dose": "diffusion",
+      "strength": 0.2,
+      "rows": 6,
+      "semantic": 6,
+      "semantic_checked": 6,
+      "semantic_assumed": 0,
+      "states": {
+        "semantic_only": 6
+      }
+    },
+    {
+      "dose": "diffusion",
+      "strength": 0.4,
+      "rows": 6,
+      "semantic": 6,
+      "semantic_checked": 6,
+      "semantic_assumed": 0,
+      "states": {
+        "semantic_only": 6
+      }
+    }
+  ],
+  "paired_T3_C1_correct_wrong_RGB_matches": 26,
+  "clean_correct_C1_both_match": 2,
+  "clean_negative_any_found": 0,
+  "clean_negative_queries": 6,
+  "resume_probe": {
+    "kind": "copied-output-technical-resume-rehearsal",
+    "removed_id": "dev-1675:t3:C1:diffusion:0.1:0:wrong_owner",
+    "original_journal_sha256": "4d6ecdfe15c9409adb36880363d2cb77db9ce60b60c8e4c5a950b7828cedd65c",
+    "before_rows": 99,
+    "expected_rows": 100,
+    "no_new_scientific_condition": true,
+    "exit_code": 0,
+    "duration_seconds": 15.746789196971804,
+    "after_rows": 100,
+    "after_unique_ids": 100,
+    "retained_rows_unchanged": true,
+    "original_journal_unchanged": true,
+    "embeddings_unchanged": true,
+    "restored_image_rgb_sha256": "ee1d9da25a2f19c8a3f9ac6b803d9567a36f5b51ba222a1d520b0533bf52cdc2",
+    "restored_image_matches_original": true,
+    "run_outcome": "completed",
+    "passed": true
+  },
+  "milestone_verdict": null,
+  "limitations": [
+    "two development sources, repeated-seed rows are clustered",
+    "exploratory residual T4 differs from confirmatory patch protocol",
+    "v5 comparator, matched reconstruction and full attack quality absent",
+    "no held-out execution or M1b/M2 approval"
+  ]
+}
