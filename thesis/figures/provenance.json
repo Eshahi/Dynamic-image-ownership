@@ -1,0 +1,17 @@
+{
+  "artifacts": [
+    {
+      "path": "figures/m2-t3-survival.png",
+      "sha256": "0c1859e921b9bc7ec40fb76c6d2b1d02703f7748e6f22a553618ec311f4dc9fc"
+    },
+    {
+      "path": "figures/m2-t3-survival.pdf",
+      "sha256": "9d25f1c3b701459426ce02681255b971b0c44fe02f2bae3beaf331eab33bce7a"
+    },
+    {
+      "path": "figures/m2-t3-survival.svg",
+      "sha256": "806b4430f1de1e2c6f9469c04fc822a2467746dd17f3300efc749ea3b5f2d94a"
+    }
+  ],
+  "source_receipt": "../evidence/m2-exhibits-provenance.json"
+}

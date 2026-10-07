@@ -1,0 +1,29 @@
+{
+  "status": "passed for draft presentation; no human or institutional acceptance",
+  "run_id": "coco512-confirm-rerun-1",
+  "checks": [
+    "Table 5.1 counts and displayed lower bounds match frozen endpoints at declared rounding.",
+    "Table 5.2 discordances and p-value rounding match retained paired analysis.",
+    "Table 5.3 T4 counts and denominators match, including the weaker F5 delivery witness.",
+    "Table 5.4 primary clean counts match; manuscript explicitly retains 900 calls in three dependent source cells.",
+    "Table 5.5 counts and rounded quality means/maxima match; both LPIPS failures remain explicit.",
+    "All original report results-section table rows are unchanged; corrections affect interpretation and disclosure.",
+    "37 schema-validated writing claims map to existing proposal IDs; eight unresolved extensions retain TODO:EVIDENCE.",
+    "Selected writing sources and derived exhibit checksums match their provenance receipts; no artifact replay.",
+    "21 local chapter/package links resolve; preserved historical outline is unchanged.",
+    "PNG visually inspected: labels, panels, legend and lower-bound whiskers legible; vector PDF/SVG supplied."
+  ],
+  "claim_count": 37,
+  "unresolved_extensions": 8,
+  "tables": 5,
+  "figure_formats": [
+    "PNG",
+    "PDF",
+    "SVG"
+  ],
+  "figure_pixels": [
+    2288,
+    990
+  ],
+  "limits": "No new inference, external literature performance claims, held-out tuning, scientific replay, or independent per-step review."
+}

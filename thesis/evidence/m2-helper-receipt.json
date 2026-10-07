@@ -1,0 +1,53 @@
+{
+  "status": "draft validation only",
+  "receipts": [
+    {
+      "command": [
+        "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\venv\\Scripts\\python.exe",
+        "C:\\Users\\Soroush\\.codex\\skills\\thesis-writing\\scripts\\write_section.py",
+        "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\m2-writing\\helper-check\\05-results-claims.jsonl",
+        "C:\\Users\\Soroush\\.codex\\worktrees\\m2-review\\THESIS_GUIDE_OFFLINE_v5\\thesis\\evidence\\m2-claim-projection.json",
+        "--chapter",
+        "05-results",
+        "--out",
+        "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\m2-writing\\helper-check\\assembly"
+      ],
+      "exit_code": 0,
+      "result": {
+        "chapter": "05-results",
+        "status": "draft",
+        "unsupported_claims": [
+          "M2-R-009",
+          "M2-R-013"
+        ]
+      },
+      "scope": "scratch conservative assembly; final=False; no acceptance record"
+    },
+    {
+      "command": [
+        "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\venv\\Scripts\\python.exe",
+        "C:\\Users\\Soroush\\.codex\\skills\\thesis-writing\\scripts\\write_section.py",
+        "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\m2-writing\\helper-check\\06-discussion-claims.jsonl",
+        "C:\\Users\\Soroush\\.codex\\worktrees\\m2-review\\THESIS_GUIDE_OFFLINE_v5\\thesis\\evidence\\m2-claim-projection.json",
+        "--chapter",
+        "06-discussion",
+        "--out",
+        "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\m2-writing\\helper-check\\assembly"
+      ],
+      "exit_code": 0,
+      "result": {
+        "chapter": "06-discussion",
+        "status": "draft",
+        "unsupported_claims": [
+          "M2-D-001",
+          "M2-D-003",
+          "M2-D-016",
+          "M2-D-017",
+          "M2-D-018",
+          "M2-D-019"
+        ]
+      },
+      "scope": "scratch conservative assembly; final=False; no acceptance record"
+    }
+  ]
+}

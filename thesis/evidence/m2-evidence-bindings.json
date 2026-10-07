@@ -1,0 +1,58 @@
+{
+  "status": "writing source bindings; retained data unchanged",
+  "author_id": "Codex-agent",
+  "run_id": "coco512-confirm-rerun-1",
+  "scientific_core_sha256": "be2aa5717f47eb66725c8e0de1a10f3e7f258e079531b4e50e0bed5a1284d419",
+  "sources": [
+    {
+      "evidence_id": "EV-ENDPOINTS",
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/m1b-confirm/artifacts/M1b-test/coco512-confirm-rerun-1/metrics/endpoints.json",
+      "sha256": "59d90d0f7d11aff86f11674a3c0c31061663d9212dbcfd9d739a7b724d6d36bd",
+      "locator": "Frozen analysis, analysis_version m1b-coco512-analysis-v1; inventory/methods/paired_t3_source_majority."
+    },
+    {
+      "evidence_id": "EV-VERIFICATION",
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/m2-review/verification.json",
+      "sha256": "2b630b1c703af0fc2e5f7772dc6be69c01e4dfe80de3138f03521c4d4ecf04d9",
+      "locator": "Independent endpoint/input/inventory checks performed for M2 review."
+    },
+    {
+      "evidence_id": "EV-REVIEW",
+      "path": "C:/Users/Soroush/.codex/worktrees/m2-review/THESIS_GUIDE_OFFLINE_v5/research/m2-independent-review.md",
+      "sha256": "817e9a6df4752caa4ae4c7bf7575cc433968427d933265680af33408d7f25237",
+      "locator": "Fresh independent review at e01d63c; reviewed snapshot 2a31ed1; C1-C5 and numerical assessment."
+    },
+    {
+      "evidence_id": "EV-REPORT",
+      "path": "C:/Users/Soroush/.codex/worktrees/m2-review/THESIS_GUIDE_OFFLINE_v5/research/m2-coco512-results.md",
+      "sha256": "b0914dcaad40e91707add48109590c0261ab857539a731a6fd3a4f9a8a54386f",
+      "locator": "Corrected report in this writing revision; original at 2a31ed1."
+    },
+    {
+      "evidence_id": "EV-SPEC",
+      "path": "C:/Users/Soroush/.codex/worktrees/m2-review/THESIS_GUIDE_OFFLINE_v5/research/f5-r2-spec.md",
+      "sha256": "20a796ba0a3f2205e9a32272de300ef4eda6ee566eb9ca9c99e548fbd713223b",
+      "locator": "Frozen F5 specification and development quality limits."
+    },
+    {
+      "evidence_id": "EV-PACKAGE",
+      "path": "C:/Users/Soroush/.codex/worktrees/m2-review/THESIS_GUIDE_OFFLINE_v5/research/m1b-package.md",
+      "sha256": "8614f9c65af07a3ff4d37dc5aa702727bbfab88434c67c34d8991ece125ddfc5",
+      "locator": "Approved experiment definition, event rules, units and limitations."
+    },
+    {
+      "evidence_id": "EV-CLAIM-LEDGER",
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/research/claims.csv",
+      "sha256": "bcadb220a5e40ae39efecd79244db997b71854a902eb5131e480c27b517df7c8",
+      "locator": "Protected original 42-row ledger, read only; operational RQ/HYP/METHOD mappings."
+    }
+  ],
+  "historical_outline": {
+    "commit": "0e184241b27a29f0bb46f17f1ab470792984b8fb",
+    "copied_verbatim": [
+      "outline.md",
+      "format-checklist.md"
+    ]
+  },
+  "approval_boundary": "No acceptance file or protected ledger was written."
+}

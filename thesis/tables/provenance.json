@@ -1,0 +1,45 @@
+{
+  "artifacts": [
+    {
+      "path": "tables/m2-clean.csv",
+      "sha256": "fa14a4ac95421c2c9d22904948cb175100484e99e55810c4c1bb958fb7207481"
+    },
+    {
+      "path": "tables/m2-clean.md",
+      "sha256": "139b8f65ec5e481415652c6399a11cf059d5b1c12e09dfead776081673e9cbaa"
+    },
+    {
+      "path": "tables/m2-quality.csv",
+      "sha256": "d732617c2a8084bd748c9ae27dd70ca7bdffeed5e6ff2ff5488800df9b09cf44"
+    },
+    {
+      "path": "tables/m2-quality.md",
+      "sha256": "f4291ef0bb23c667f150b96dcd071a8437f5bbcf817677fd52473b7dd0c8db2c"
+    },
+    {
+      "path": "tables/m2-t3.csv",
+      "sha256": "4b2d6a56e5b06c55f1dae32b99cc57764540443479cfb1279d58bcb7b5457512"
+    },
+    {
+      "path": "tables/m2-t3.md",
+      "sha256": "6438bc9a97389fb05c5085037beee8a58c6e5a12545ae2619da951a1d67d939a"
+    },
+    {
+      "path": "tables/m2-paired-t3.csv",
+      "sha256": "6f7adfe2b1bd2fcadffc0acb32fbb76612dddf4a1266e6284a905d135983fa95"
+    },
+    {
+      "path": "tables/m2-paired-t3.md",
+      "sha256": "3ee361b4fe944a7d67b7836c2717c61592043644ef99a71a79218be86a9da977"
+    },
+    {
+      "path": "tables/m2-t4-t5.csv",
+      "sha256": "113ea762c1449f7e4ee792aa991f7ca6c0550f75beda2c4eddb9509529054d7f"
+    },
+    {
+      "path": "tables/m2-t4-t5.md",
+      "sha256": "330d9ef29ef278b980632dafc00a942c839e284354b04d600a7c3c5b1c867bd8"
+    }
+  ],
+  "source_receipt": "../evidence/m2-exhibits-provenance.json"
+}

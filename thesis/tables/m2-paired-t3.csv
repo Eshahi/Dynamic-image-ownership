@@ -1,0 +1,9 @@
+Rule,Condition,F5 only,v5 only,Both,Neither,Two-sided exact p
+semantic,ddim-0.05,0,0,30,0,n/a
+semantic,ddim-0.1,1,0,29,0,1.0
+semantic,ddim-0.2,8,0,22,0,0.0078125
+semantic,ddim-0.4,16,0,5,9,3.0517578125e-05
+semantic_checked,ddim-0.05,0,0,30,0,n/a
+semantic_checked,ddim-0.1,6,0,24,0,0.03125
+semantic_checked,ddim-0.2,17,0,10,3,1.52587890625e-05
+semantic_checked,ddim-0.4,14,0,3,13,0.0001220703125

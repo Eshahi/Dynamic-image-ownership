@@ -1,0 +1,480 @@
+{
+  "status": "author writing projection; no human acceptance or lifecycle transition",
+  "independent_review_commit": "e01d63cc9e6801cba902f80b4b825cdc48fb505a",
+  "reviewed_original_report_commit": "2a31ed153c4e95e2382bf3c6e9f66304412aa980",
+  "author_id": "Codex-agent",
+  "chapters": [
+    {
+      "path": "chapters/05-results.md",
+      "sha256": "67cf2fce04b08ea2e5fc33711edb8aed3294c9ae3da15b383a7f3e1c6badb7a2",
+      "claim_count": 18
+    },
+    {
+      "path": "chapters/06-discussion.md",
+      "sha256": "291121e4e90a7f85c193efe3b041108c820c93490dec8463cd99d107491453a0",
+      "claim_count": 19
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "M2-R-001",
+      "classification": "verified",
+      "chapter": "05-results.md",
+      "line": 7,
+      "proposal_ids": [
+        "DATA-01"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-R-002",
+      "classification": "verified",
+      "chapter": "05-results.md",
+      "line": 11,
+      "proposal_ids": [
+        "METHOD-06",
+        "METHOD-08",
+        "RQ-02"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-R-003",
+      "classification": "verified",
+      "chapter": "05-results.md",
+      "line": 15,
+      "proposal_ids": [
+        "METRIC-05",
+        "METRIC-06"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-R-004",
+      "classification": "verified",
+      "chapter": "05-results.md",
+      "line": 23,
+      "proposal_ids": [
+        "RQ-01",
+        "HYP-01",
+        "OBJ-01"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-R-005",
+      "classification": "verified",
+      "chapter": "05-results.md",
+      "line": 31,
+      "proposal_ids": [
+        "RQ-02",
+        "HYP-02",
+        "METRIC-05"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-R-006",
+      "classification": "verified",
+      "chapter": "05-results.md",
+      "line": 51,
+      "proposal_ids": [
+        "RQ-02",
+        "METHOD-09"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-R-007",
+      "classification": "verified",
+      "chapter": "05-results.md",
+      "line": 70,
+      "proposal_ids": [
+        "RQ-02",
+        "METRIC-05"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-R-008",
+      "classification": "verified",
+      "chapter": "05-results.md",
+      "line": 74,
+      "proposal_ids": [
+        "METHOD-09",
+        "RQ-02"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-R-009",
+      "classification": "partial",
+      "chapter": "05-results.md",
+      "line": 78,
+      "proposal_ids": [
+        "RQ-02",
+        "HYP-02",
+        "METHOD-06",
+        "METHOD-08"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-R-010",
+      "classification": "verified",
+      "chapter": "05-results.md",
+      "line": 84,
+      "proposal_ids": [
+        "RQ-03",
+        "HYP-03",
+        "OBJ-03",
+        "METRIC-07",
+        "CLAIM-01"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-R-011",
+      "classification": "verified",
+      "chapter": "05-results.md",
+      "line": 88,
+      "proposal_ids": [
+        "METRIC-07"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-R-012",
+      "classification": "verified",
+      "chapter": "05-results.md",
+      "line": 107,
+      "proposal_ids": [
+        "RQ-04",
+        "HYP-04",
+        "PROB-01"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-R-013",
+      "classification": "partial",
+      "chapter": "05-results.md",
+      "line": 111,
+      "proposal_ids": [
+        "RQ-04",
+        "HYP-04",
+        "OBJ-04",
+        "METRIC-06"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-R-014",
+      "classification": "verified",
+      "chapter": "05-results.md",
+      "line": 117,
+      "proposal_ids": [
+        "PROB-03",
+        "RQ-01"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-R-015",
+      "classification": "verified",
+      "chapter": "05-results.md",
+      "line": 134,
+      "proposal_ids": [
+        "METHOD-09"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-R-016",
+      "classification": "verified",
+      "chapter": "05-results.md",
+      "line": 138,
+      "proposal_ids": [
+        "METHOD-09"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-R-017",
+      "classification": "verified",
+      "chapter": "05-results.md",
+      "line": 157,
+      "proposal_ids": [
+        "METRIC-01",
+        "METRIC-02",
+        "METRIC-03"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-R-018",
+      "classification": "verified",
+      "chapter": "05-results.md",
+      "line": 163,
+      "proposal_ids": [
+        "DATA-01"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-D-001",
+      "classification": "partial",
+      "chapter": "06-discussion.md",
+      "line": 7,
+      "proposal_ids": [
+        "RQ-02",
+        "HYP-02"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-D-002",
+      "classification": "verified",
+      "chapter": "06-discussion.md",
+      "line": 20,
+      "proposal_ids": [
+        "RQ-01",
+        "HYP-01",
+        "RQ-03",
+        "HYP-03"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-D-003",
+      "classification": "partial",
+      "chapter": "06-discussion.md",
+      "line": 24,
+      "proposal_ids": [
+        "RQ-04",
+        "HYP-04",
+        "PROB-03"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-D-004",
+      "classification": "verified",
+      "chapter": "06-discussion.md",
+      "line": 30,
+      "proposal_ids": [
+        "METHOD-09",
+        "RQ-02"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-D-005",
+      "classification": "verified",
+      "chapter": "06-discussion.md",
+      "line": 34,
+      "proposal_ids": [
+        "RQ-02",
+        "METHOD-09"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-D-006",
+      "classification": "verified",
+      "chapter": "06-discussion.md",
+      "line": 38,
+      "proposal_ids": [
+        "METHOD-06",
+        "METHOD-08",
+        "NOVELTY-01"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-D-007",
+      "classification": "verified",
+      "chapter": "06-discussion.md",
+      "line": 44,
+      "proposal_ids": [
+        "METRIC-01",
+        "METRIC-02",
+        "METRIC-03"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-D-008",
+      "classification": "verified",
+      "chapter": "06-discussion.md",
+      "line": 48,
+      "proposal_ids": [
+        "METRIC-03"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-D-009",
+      "classification": "verified",
+      "chapter": "06-discussion.md",
+      "line": 52,
+      "proposal_ids": [
+        "RQ-03",
+        "METRIC-07"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-D-010",
+      "classification": "verified",
+      "chapter": "06-discussion.md",
+      "line": 58,
+      "proposal_ids": [
+        "METRIC-05",
+        "METRIC-06"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-D-011",
+      "classification": "verified",
+      "chapter": "06-discussion.md",
+      "line": 62,
+      "proposal_ids": [
+        "RQ-02",
+        "HYP-02"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-D-012",
+      "classification": "verified",
+      "chapter": "06-discussion.md",
+      "line": 66,
+      "proposal_ids": [
+        "DATA-01",
+        "DATA-02",
+        "DATA-03",
+        "SCOPE-02"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-D-013",
+      "classification": "verified",
+      "chapter": "06-discussion.md",
+      "line": 70,
+      "proposal_ids": [
+        "DATA-01"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-D-014",
+      "classification": "verified",
+      "chapter": "06-discussion.md",
+      "line": 76,
+      "proposal_ids": [
+        "SCOPE-01",
+        "SCOPE-03"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-D-015",
+      "classification": "verified",
+      "chapter": "06-discussion.md",
+      "line": 80,
+      "proposal_ids": [
+        "DATA-01"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-D-016",
+      "classification": "partial",
+      "chapter": "06-discussion.md",
+      "line": 86,
+      "proposal_ids": [
+        "RQ-02",
+        "HYP-02"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-D-017",
+      "classification": "partial",
+      "chapter": "06-discussion.md",
+      "line": 90,
+      "proposal_ids": [
+        "RQ-01",
+        "HYP-01",
+        "RQ-04",
+        "HYP-04",
+        "PROB-03"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-D-018",
+      "classification": "partial",
+      "chapter": "06-discussion.md",
+      "line": 94,
+      "proposal_ids": [
+        "RQ-03",
+        "HYP-03",
+        "METRIC-07"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    },
+    {
+      "claim_id": "M2-D-019",
+      "classification": "partial",
+      "chapter": "06-discussion.md",
+      "line": 100,
+      "proposal_ids": [
+        "GOAL-01",
+        "RQ-01",
+        "RQ-02",
+        "RQ-03",
+        "RQ-04"
+      ],
+      "basis": "Author projection from the referenced independent review and retained sources; not a new independent verdict."
+    }
+  ],
+  "blocking": [
+    {
+      "claim_id": "M2-R-009",
+      "reason": "Explicit unresolved extension; draft only"
+    },
+    {
+      "claim_id": "M2-R-013",
+      "reason": "Explicit unresolved extension; draft only"
+    },
+    {
+      "claim_id": "M2-D-001",
+      "reason": "Explicit unresolved extension; draft only"
+    },
+    {
+      "claim_id": "M2-D-003",
+      "reason": "Explicit unresolved extension; draft only"
+    },
+    {
+      "claim_id": "M2-D-016",
+      "reason": "Explicit unresolved extension; draft only"
+    },
+    {
+      "claim_id": "M2-D-017",
+      "reason": "Explicit unresolved extension; draft only"
+    },
+    {
+      "claim_id": "M2-D-018",
+      "reason": "Explicit unresolved extension; draft only"
+    },
+    {
+      "claim_id": "M2-D-019",
+      "reason": "Explicit unresolved extension; draft only"
+    }
+  ],
+  "rule": "Verified classifications cover bounded numbers, implementation properties or reported absence of evidence. A TODO on an absence statement does not make the missing positive claim supported."
+}
