@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "freqmark",
+  "citation_key": "Guo2024FreqMarkv1",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2410.20824v1",
+  "title": "FreqMark: Invisible Image Watermarking via Frequency Based Optimization in Latent Space",
+  "authors": [
+    "Guo, Yiyang",
+    "Li, Ruizhe",
+    "Hui, Mude",
+    "Guo, Hanzhong",
+    "Zhang, Chen",
+    "Cai, Chuangjian",
+    "Wan, Le",
+    "Wang, Shangfei"
+  ],
+  "year": 2024,
+  "venue": null,
+  "access_date": "2026-10-09",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "research/literature/journal-upgrade-20261009/sources/freqmark-v1.html",
+    "sha256": "00a18323cf1145838bc421c097ec59e6094571dcdd4636e0021383b79020aa99"
+  },
+  "limitations": [
+    "Bit accuracy is not TPR; its 60-step attack and lower fidelity are not matched to F5. Published numbers do not establish performance under our strict quality constraints."
+  ]
+}

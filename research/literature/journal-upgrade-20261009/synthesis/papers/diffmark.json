@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "diffmark",
+  "citation_key": "NguyenLe2026DiffMarkv1",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2603.20304v1",
+  "title": "Transferable Multi-Bit Watermarking Across Frozen Diffusion Models via Latent Consistency Bridges",
+  "authors": [
+    "Nguyen-Le, Hong-Hanh",
+    "Tran, Van-Tuan",
+    "Nguyen, Thuc D.",
+    "Le-Khac, Nhien-An"
+  ],
+  "year": 2026,
+  "venue": null,
+  "access_date": "2026-10-09",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "research/literature/m1-2026-followup/diffmark-v1.html",
+    "sha256": "122ac0503f563d0dc668f288964e6dddab329609fe17b1e68bc96eb323cb423b"
+  },
+  "limitations": [
+    "Preprint; training and generation setting differ, exact Table 2 severity is unclear, and latency is not hardware-normalized against F5."
+  ]
+}

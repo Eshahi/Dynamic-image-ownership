@@ -1,0 +1,105 @@
+{
+  "repository_url": "https://github.com/karpathy/autoresearch",
+  "revision": "228791fb499afffb54b46200aca536f79142f117",
+  "retrieved_utc": "2026-10-09T21:45:08.5446678Z",
+  "acquisition": "GitHub API JSON; source file bytes decoded from base64 contents at exact revision; no execution or installation",
+  "license": {
+    "declared": "MIT",
+    "evidence": "README.md License section at pinned revision",
+    "dedicated_license_file_present": false,
+    "github_api_license": null,
+    "caveat": "No dedicated LICENSE file in pinned root listing; API license metadata is null. MIT is the author declaration, not a separately inspected full license text."
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "source_url": "https://api.github.com/repos/karpathy/autoresearch/contents/README.md?ref=228791fb499afffb54b46200aca536f79142f117",
+      "revision": "228791fb499afffb54b46200aca536f79142f117",
+      "sha256": "3958fd4195ac2f98ed35c4eaa4f3028a335165ee24945e96426c408d25793a41",
+      "bytes": 8039,
+      "inspection": "Inspected"
+    },
+    {
+      "path": "program.md",
+      "source_url": "https://api.github.com/repos/karpathy/autoresearch/contents/program.md?ref=228791fb499afffb54b46200aca536f79142f117",
+      "revision": "228791fb499afffb54b46200aca536f79142f117",
+      "sha256": "86cf987a5c381e46eefe0d0a82765223fd766d8d7acdc2afacfbbce15ecacece",
+      "bytes": 7039,
+      "inspection": "Inspected"
+    },
+    {
+      "path": "prepare.py",
+      "source_url": "https://api.github.com/repos/karpathy/autoresearch/contents/prepare.py?ref=228791fb499afffb54b46200aca536f79142f117",
+      "revision": "228791fb499afffb54b46200aca536f79142f117",
+      "sha256": "4f2ba9cbb8ba8c4a3d35be405a913e2f3be3af9aea103ed52ef7b2a662058150",
+      "bytes": 15043,
+      "inspection": "Inspected"
+    },
+    {
+      "path": "train.py",
+      "source_url": "https://api.github.com/repos/karpathy/autoresearch/contents/train.py?ref=228791fb499afffb54b46200aca536f79142f117",
+      "revision": "228791fb499afffb54b46200aca536f79142f117",
+      "sha256": "2954175f4ac42ad65164aef40910ef953789abcd05a5cc886ac9ba5a00814414",
+      "bytes": 26230,
+      "inspection": "Inspected"
+    },
+    {
+      "path": "pyproject.toml",
+      "source_url": "https://api.github.com/repos/karpathy/autoresearch/contents/pyproject.toml?ref=228791fb499afffb54b46200aca536f79142f117",
+      "revision": "228791fb499afffb54b46200aca536f79142f117",
+      "sha256": "675c150a9e0769f0e39a43eb7d836934266fa348d6e2403521f1ff99f9b9f1af",
+      "bytes": 543,
+      "inspection": "Inspected"
+    },
+    {
+      "path": "uv.lock",
+      "source_url": "https://api.github.com/repos/karpathy/autoresearch/contents/uv.lock?ref=228791fb499afffb54b46200aca536f79142f117",
+      "revision": "228791fb499afffb54b46200aca536f79142f117",
+      "sha256": "03174c5cce6387418c5b6cc9bbe8f71ad0ae1e1d6fedeaecae5cdcf7321da0a3",
+      "bytes": 443159,
+      "inspection": "Relevant torch/kernels/rustbpe and platform markers inspected; retained full lockfile"
+    },
+    {
+      "path": ".python-version",
+      "source_url": "https://api.github.com/repos/karpathy/autoresearch/contents/.python-version?ref=228791fb499afffb54b46200aca536f79142f117",
+      "revision": "228791fb499afffb54b46200aca536f79142f117",
+      "sha256": "7a41a41354ab8049091ef1a00253ca00567f5a1d3f9aef5502c0b4b5ce9ae707",
+      "bytes": 5,
+      "inspection": "Inspected"
+    },
+    {
+      "path": ".gitignore",
+      "source_url": "https://api.github.com/repos/karpathy/autoresearch/contents/.gitignore?ref=228791fb499afffb54b46200aca536f79142f117",
+      "revision": "228791fb499afffb54b46200aca536f79142f117",
+      "sha256": "ab8c4b08f8558e38bf5f190b6276cf106cf82b99c455e775726c1dc9eb0c37a8",
+      "bytes": 279,
+      "inspection": "Inspected"
+    },
+    {
+      "path": "revision.json",
+      "source_url": "https://api.github.com/repos/karpathy/autoresearch/commits/228791fb499afffb54b46200aca536f79142f117",
+      "revision": "228791fb499afffb54b46200aca536f79142f117",
+      "sha256": "2df36777dc6632ce92f65c750e0a0157c1bcfbc18033d5fddebaac4f51eccfa7",
+      "bytes": 6664,
+      "inspection": "Inspected"
+    },
+    {
+      "path": "repository-metadata.json",
+      "source_url": "https://api.github.com/repos/karpathy/autoresearch",
+      "revision": "228791fb499afffb54b46200aca536f79142f117",
+      "sha256": "29f2ef3bf43e59520f1ace900716aa88b9f8512fe04702c02518cdbbfa56d62b",
+      "bytes": 5804,
+      "inspection": "Inspected"
+    },
+    {
+      "path": "root-contents.json",
+      "source_url": "https://api.github.com/repos/karpathy/autoresearch/contents?ref=228791fb499afffb54b46200aca536f79142f117",
+      "revision": "228791fb499afffb54b46200aca536f79142f117",
+      "sha256": "52a32fd867749183835a77af5df3e19fd5c8a8c3398bc76cdfa867e2abfc7090",
+      "bytes": 10617,
+      "inspection": "Inspected"
+    }
+  ],
+  "total_bytes": 523422.0,
+  "activity": "Source inspection only. No package, data, model, binary, or kernel download."
+}

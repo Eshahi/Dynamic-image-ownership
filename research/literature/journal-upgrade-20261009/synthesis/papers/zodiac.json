@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "zodiac",
+  "citation_key": "Zhang2024ZoDiacv2",
+  "doi": "10.48550/arXiv.2401.04247",
+  "canonical_url": "https://arxiv.org/html/2401.04247v2",
+  "title": "Attack-Resilient Image Watermarking Using Stable Diffusion",
+  "authors": [
+    "Zhang, Lijun",
+    "Liu, Xiao",
+    "Martin, Antoni Viros",
+    "Bearfield, Cindy Xiong",
+    "Brun, Yuriy",
+    "Guan, Hui"
+  ],
+  "year": 2024,
+  "venue": null,
+  "access_date": "2026-10-09",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "research/literature/m1-primary-extension/zodiac-v2.html",
+    "sha256": "c2dd9548a3b7e6f5e5ef7d6762dbf45a65346b95be9a4c55f55f2b9df50e3f79"
+  },
+  "limitations": [
+    "Different detector thresholds, distortion and attack settings prevent comparison of those rates with F5 source-majority counts."
+  ]
+}

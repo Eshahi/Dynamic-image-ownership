@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "wam",
+  "citation_key": "Sander2025WatermarkAnythingv2",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2411.07231v2",
+  "title": "Watermark Anything with Localized Messages",
+  "authors": [
+    "Sander, Tom",
+    "Fernandez, Pierre",
+    "Durmus, Alain",
+    "Furon, Teddy",
+    "Douze, Matthijs"
+  ],
+  "year": 2025,
+  "venue": null,
+  "access_date": "2026-10-09",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "research/literature/m1-primary-extension/wam-v2.html",
+    "sha256": "d4941f679685d91b96236c061d4d49c07c7da6592458a6e431dbbdbd8caaf294"
+  },
+  "limitations": [
+    "Localization and bit accuracy are not whole-image forgery rejection, TPR or content-binding efficacy; pretrained assets are not locally reproduced here."
+  ]
+}

@@ -1,0 +1,2 @@
+# Preserve primary-source HTML bytes, including upstream whitespace.
+* -text -whitespace

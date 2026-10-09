@@ -1,0 +1,162 @@
+[
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "99c30f52f1cb7b022668ec7215a604aa6b96f77a",
+    "size": 279,
+    "url": "https://api.github.com/repos/karpathy/autoresearch/contents/.gitignore?ref=228791fb499afffb54b46200aca536f79142f117",
+    "html_url": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/.gitignore",
+    "git_url": "https://api.github.com/repos/karpathy/autoresearch/git/blobs/99c30f52f1cb7b022668ec7215a604aa6b96f77a",
+    "download_url": "https://raw.githubusercontent.com/karpathy/autoresearch/228791fb499afffb54b46200aca536f79142f117/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/karpathy/autoresearch/contents/.gitignore?ref=228791fb499afffb54b46200aca536f79142f117",
+      "git": "https://api.github.com/repos/karpathy/autoresearch/git/blobs/99c30f52f1cb7b022668ec7215a604aa6b96f77a",
+      "html": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/.gitignore"
+    }
+  },
+  {
+    "name": ".python-version",
+    "path": ".python-version",
+    "sha": "c8cfe3959183f8e9a50f83f54cd723f2dc9c252d",
+    "size": 5,
+    "url": "https://api.github.com/repos/karpathy/autoresearch/contents/.python-version?ref=228791fb499afffb54b46200aca536f79142f117",
+    "html_url": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/.python-version",
+    "git_url": "https://api.github.com/repos/karpathy/autoresearch/git/blobs/c8cfe3959183f8e9a50f83f54cd723f2dc9c252d",
+    "download_url": "https://raw.githubusercontent.com/karpathy/autoresearch/228791fb499afffb54b46200aca536f79142f117/.python-version",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/karpathy/autoresearch/contents/.python-version?ref=228791fb499afffb54b46200aca536f79142f117",
+      "git": "https://api.github.com/repos/karpathy/autoresearch/git/blobs/c8cfe3959183f8e9a50f83f54cd723f2dc9c252d",
+      "html": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/.python-version"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "953ea55d5599c45c1be7dad93ec03e47dfa7df9d",
+    "size": 8039,
+    "url": "https://api.github.com/repos/karpathy/autoresearch/contents/README.md?ref=228791fb499afffb54b46200aca536f79142f117",
+    "html_url": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/README.md",
+    "git_url": "https://api.github.com/repos/karpathy/autoresearch/git/blobs/953ea55d5599c45c1be7dad93ec03e47dfa7df9d",
+    "download_url": "https://raw.githubusercontent.com/karpathy/autoresearch/228791fb499afffb54b46200aca536f79142f117/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/karpathy/autoresearch/contents/README.md?ref=228791fb499afffb54b46200aca536f79142f117",
+      "git": "https://api.github.com/repos/karpathy/autoresearch/git/blobs/953ea55d5599c45c1be7dad93ec03e47dfa7df9d",
+      "html": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/README.md"
+    }
+  },
+  {
+    "name": "analysis.ipynb",
+    "path": "analysis.ipynb",
+    "sha": "bef188375e292d8732a61bf1fa756a4614b76308",
+    "size": 8208,
+    "url": "https://api.github.com/repos/karpathy/autoresearch/contents/analysis.ipynb?ref=228791fb499afffb54b46200aca536f79142f117",
+    "html_url": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/analysis.ipynb",
+    "git_url": "https://api.github.com/repos/karpathy/autoresearch/git/blobs/bef188375e292d8732a61bf1fa756a4614b76308",
+    "download_url": "https://raw.githubusercontent.com/karpathy/autoresearch/228791fb499afffb54b46200aca536f79142f117/analysis.ipynb",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/karpathy/autoresearch/contents/analysis.ipynb?ref=228791fb499afffb54b46200aca536f79142f117",
+      "git": "https://api.github.com/repos/karpathy/autoresearch/git/blobs/bef188375e292d8732a61bf1fa756a4614b76308",
+      "html": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/analysis.ipynb"
+    }
+  },
+  {
+    "name": "prepare.py",
+    "path": "prepare.py",
+    "sha": "06bea9165abd3ae94ea82dd733997aec7928f40c",
+    "size": 15043,
+    "url": "https://api.github.com/repos/karpathy/autoresearch/contents/prepare.py?ref=228791fb499afffb54b46200aca536f79142f117",
+    "html_url": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/prepare.py",
+    "git_url": "https://api.github.com/repos/karpathy/autoresearch/git/blobs/06bea9165abd3ae94ea82dd733997aec7928f40c",
+    "download_url": "https://raw.githubusercontent.com/karpathy/autoresearch/228791fb499afffb54b46200aca536f79142f117/prepare.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/karpathy/autoresearch/contents/prepare.py?ref=228791fb499afffb54b46200aca536f79142f117",
+      "git": "https://api.github.com/repos/karpathy/autoresearch/git/blobs/06bea9165abd3ae94ea82dd733997aec7928f40c",
+      "html": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/prepare.py"
+    }
+  },
+  {
+    "name": "program.md",
+    "path": "program.md",
+    "sha": "dea9bcc0174f1502d0ba64000b94b81ba605855b",
+    "size": 7039,
+    "url": "https://api.github.com/repos/karpathy/autoresearch/contents/program.md?ref=228791fb499afffb54b46200aca536f79142f117",
+    "html_url": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/program.md",
+    "git_url": "https://api.github.com/repos/karpathy/autoresearch/git/blobs/dea9bcc0174f1502d0ba64000b94b81ba605855b",
+    "download_url": "https://raw.githubusercontent.com/karpathy/autoresearch/228791fb499afffb54b46200aca536f79142f117/program.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/karpathy/autoresearch/contents/program.md?ref=228791fb499afffb54b46200aca536f79142f117",
+      "git": "https://api.github.com/repos/karpathy/autoresearch/git/blobs/dea9bcc0174f1502d0ba64000b94b81ba605855b",
+      "html": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/program.md"
+    }
+  },
+  {
+    "name": "progress.png",
+    "path": "progress.png",
+    "sha": "999e45c2b8833884870c1d7f084bab7a7bbc9e2c",
+    "size": 252961,
+    "url": "https://api.github.com/repos/karpathy/autoresearch/contents/progress.png?ref=228791fb499afffb54b46200aca536f79142f117",
+    "html_url": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/progress.png",
+    "git_url": "https://api.github.com/repos/karpathy/autoresearch/git/blobs/999e45c2b8833884870c1d7f084bab7a7bbc9e2c",
+    "download_url": "https://raw.githubusercontent.com/karpathy/autoresearch/228791fb499afffb54b46200aca536f79142f117/progress.png",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/karpathy/autoresearch/contents/progress.png?ref=228791fb499afffb54b46200aca536f79142f117",
+      "git": "https://api.github.com/repos/karpathy/autoresearch/git/blobs/999e45c2b8833884870c1d7f084bab7a7bbc9e2c",
+      "html": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/progress.png"
+    }
+  },
+  {
+    "name": "pyproject.toml",
+    "path": "pyproject.toml",
+    "sha": "94ae3298925ddae47821f703faf44d4e3b8381bb",
+    "size": 543,
+    "url": "https://api.github.com/repos/karpathy/autoresearch/contents/pyproject.toml?ref=228791fb499afffb54b46200aca536f79142f117",
+    "html_url": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/pyproject.toml",
+    "git_url": "https://api.github.com/repos/karpathy/autoresearch/git/blobs/94ae3298925ddae47821f703faf44d4e3b8381bb",
+    "download_url": "https://raw.githubusercontent.com/karpathy/autoresearch/228791fb499afffb54b46200aca536f79142f117/pyproject.toml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/karpathy/autoresearch/contents/pyproject.toml?ref=228791fb499afffb54b46200aca536f79142f117",
+      "git": "https://api.github.com/repos/karpathy/autoresearch/git/blobs/94ae3298925ddae47821f703faf44d4e3b8381bb",
+      "html": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/pyproject.toml"
+    }
+  },
+  {
+    "name": "train.py",
+    "path": "train.py",
+    "sha": "2e743974c7f06b54311643b314712303fbb26e65",
+    "size": 26230,
+    "url": "https://api.github.com/repos/karpathy/autoresearch/contents/train.py?ref=228791fb499afffb54b46200aca536f79142f117",
+    "html_url": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/train.py",
+    "git_url": "https://api.github.com/repos/karpathy/autoresearch/git/blobs/2e743974c7f06b54311643b314712303fbb26e65",
+    "download_url": "https://raw.githubusercontent.com/karpathy/autoresearch/228791fb499afffb54b46200aca536f79142f117/train.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/karpathy/autoresearch/contents/train.py?ref=228791fb499afffb54b46200aca536f79142f117",
+      "git": "https://api.github.com/repos/karpathy/autoresearch/git/blobs/2e743974c7f06b54311643b314712303fbb26e65",
+      "html": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/train.py"
+    }
+  },
+  {
+    "name": "uv.lock",
+    "path": "uv.lock",
+    "sha": "c840d62f5285b5ce4b5fe62f135cfe8a47bc9915",
+    "size": 443159,
+    "url": "https://api.github.com/repos/karpathy/autoresearch/contents/uv.lock?ref=228791fb499afffb54b46200aca536f79142f117",
+    "html_url": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/uv.lock",
+    "git_url": "https://api.github.com/repos/karpathy/autoresearch/git/blobs/c840d62f5285b5ce4b5fe62f135cfe8a47bc9915",
+    "download_url": "https://raw.githubusercontent.com/karpathy/autoresearch/228791fb499afffb54b46200aca536f79142f117/uv.lock",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/karpathy/autoresearch/contents/uv.lock?ref=228791fb499afffb54b46200aca536f79142f117",
+      "git": "https://api.github.com/repos/karpathy/autoresearch/git/blobs/c840d62f5285b5ce4b5fe62f135cfe8a47bc9915",
+      "html": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/uv.lock"
+    }
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "freqmark-v1",
+    "url": "https://arxiv.org/html/2410.20824v1",
+    "path": "research/literature/journal-upgrade-20261009/sources/freqmark-v1.html",
+    "bytes": 352531,
+    "sha256": "00a18323cf1145838bc421c097ec59e6094571dcdd4636e0021383b79020aa99",
+    "license": "arXiv perpetual non-exclusive distribution license; reading copy only, not code rights",
+    "access_date": "2026-10-09"
+  },
+  {
+    "id": "latent-watermark-v3",
+    "url": "https://arxiv.org/html/2404.00230v3",
+    "path": "research/literature/journal-upgrade-20261009/sources/latent-watermark-v3.html",
+    "bytes": 549294,
+    "sha256": "a11184071a30fb1c388eace415fe4f57477356efc05453f4fe54667593a6b4db",
+    "license": "arXiv perpetual non-exclusive distribution license; reading copy only, not code rights",
+    "access_date": "2026-10-09"
+  }
+]

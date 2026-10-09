@@ -1,0 +1,547 @@
+{
+  "request_id": "journal-upgrade-20261009",
+  "papers": [
+    {
+      "schema_version": "1.0",
+      "paper_id": "waves",
+      "citation_key": "An2024WAVESv2",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2401.08573v2",
+      "title": "Benchmarking the Robustness of Image Watermarks",
+      "authors": [
+        "An, Bang",
+        "Ding, Mucong",
+        "Rabbani, Tahseen",
+        "Agrawal, Aakriti",
+        "Xu, Yuancheng",
+        "Deng, Chenghao",
+        "Zhu, Sicheng",
+        "Mohamed, Abdirisak",
+        "Wen, Yuxin",
+        "Goldstein, Tom",
+        "Huang, Furong"
+      ],
+      "year": 2024,
+      "venue": null,
+      "access_date": "2026-10-09",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "research/literature/m1-primary-extension/waves-v2.html",
+        "sha256": "a81b1709a9f3b52c17a8832cc278b651dc651faa80af595bb77fc03e9e5d5968"
+      },
+      "limitations": [
+        "Benchmark conventions do not establish universal acceptance thresholds for a thesis; its full attack suite is outside the three-threat scope."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "zodiac",
+      "citation_key": "Zhang2024ZoDiacv2",
+      "doi": "10.48550/arXiv.2401.04247",
+      "canonical_url": "https://arxiv.org/html/2401.04247v2",
+      "title": "Attack-Resilient Image Watermarking Using Stable Diffusion",
+      "authors": [
+        "Zhang, Lijun",
+        "Liu, Xiao",
+        "Martin, Antoni Viros",
+        "Bearfield, Cindy Xiong",
+        "Brun, Yuriy",
+        "Guan, Hui"
+      ],
+      "year": 2024,
+      "venue": null,
+      "access_date": "2026-10-09",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "research/literature/m1-primary-extension/zodiac-v2.html",
+        "sha256": "c2dd9548a3b7e6f5e5ef7d6762dbf45a65346b95be9a4c55f55f2b9df50e3f79"
+      },
+      "limitations": [
+        "Different detector thresholds, distortion and attack settings prevent comparison of those rates with F5 source-majority counts."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "seal",
+      "citation_key": "Arabi2025SEALv4",
+      "doi": "10.48550/arXiv.2503.12172",
+      "canonical_url": "https://arxiv.org/html/2503.12172v4",
+      "title": "SEAL: Semantic Aware Image Watermarking",
+      "authors": [
+        "Kasra Arabi",
+        "R. Teal Witter",
+        "Chinmay Hegde",
+        "Niv Cohen"
+      ],
+      "year": 2025,
+      "venue": null,
+      "access_date": "2026-10-09",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "research/literature/m1-primary-extension/seal-v4.html",
+        "sha256": "953d4ab874fb9bbedfc365052777c291fa405665d6c3692eff69c2a4f5beb750"
+      },
+      "limitations": [
+        "AUC for that semantic edit is neither TPR at a fixed FPR nor the thesis copy-paste endpoint; this is a generation-time method."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "grow",
+      "citation_key": "Luo2026GROW",
+      "doi": null,
+      "canonical_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Luo_GROW_Watermark_Generation_with_Progressive_Guidance_for_Diffusion_Models_CVPR_2026_paper.pdf",
+      "title": "GROW: Watermark Generation with Progressive Guidance for Diffusion Models",
+      "authors": [
+        "Luo, Pengcheng",
+        "Jia, Zexi",
+        "Zhong, Yijia",
+        "Zhang, Jinchao",
+        "Zhou, Jie"
+      ],
+      "year": 2026,
+      "venue": "CVPR 2026",
+      "access_date": "2026-10-09",
+      "source_type": "paper",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "research/literature/m1-primary-extension/grow-cvpr2026.pdf",
+        "sha256": "484969c867bf2b879aa675ca1eec6de4093d10f7225547c301d0ee32bede4fce"
+      },
+      "limitations": [
+        "Generated-image message accuracy and paper-specific hardware are not existing-photo checked detection or a local latency benchmark."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "ctrlregen",
+      "citation_key": "Liu2024CtrlRegenv2",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2410.05470v2",
+      "title": "Image Watermarks are Removable Using Controllable Regeneration from Clean Noise",
+      "authors": [
+        "Liu, Yepeng",
+        "Song, Yiren",
+        "Ci, Hai",
+        "Zhang, Yu",
+        "Wang, Haofan",
+        "Shou, Mike Zheng",
+        "Bu, Yuheng"
+      ],
+      "year": 2024,
+      "venue": null,
+      "access_date": "2026-10-09",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "research/literature/m1-primary-extension/ctrlregen-v2.html",
+        "sha256": "bcf6954245a45313525b56acbb9eccf31a59cf3671cb8db9f24d0562d9f39dfe"
+      },
+      "limitations": [
+        "These attack results are not F5 measurements; learned adapters and substantial distortion require a separate admissibility and resource check."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "wam",
+      "citation_key": "Sander2025WatermarkAnythingv2",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2411.07231v2",
+      "title": "Watermark Anything with Localized Messages",
+      "authors": [
+        "Sander, Tom",
+        "Fernandez, Pierre",
+        "Durmus, Alain",
+        "Furon, Teddy",
+        "Douze, Matthijs"
+      ],
+      "year": 2025,
+      "venue": null,
+      "access_date": "2026-10-09",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "research/literature/m1-primary-extension/wam-v2.html",
+        "sha256": "d4941f679685d91b96236c061d4d49c07c7da6592458a6e431dbbdbd8caaf294"
+      },
+      "limitations": [
+        "Localization and bit accuracy are not whole-image forgery rejection, TPR or content-binding efficacy; pretrained assets are not locally reproduced here."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "diffmark",
+      "citation_key": "NguyenLe2026DiffMarkv1",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2603.20304v1",
+      "title": "Transferable Multi-Bit Watermarking Across Frozen Diffusion Models via Latent Consistency Bridges",
+      "authors": [
+        "Nguyen-Le, Hong-Hanh",
+        "Tran, Van-Tuan",
+        "Nguyen, Thuc D.",
+        "Le-Khac, Nhien-An"
+      ],
+      "year": 2026,
+      "venue": null,
+      "access_date": "2026-10-09",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "research/literature/m1-2026-followup/diffmark-v1.html",
+        "sha256": "122ac0503f563d0dc668f288964e6dddab329609fe17b1e68bc96eb323cb423b"
+      },
+      "limitations": [
+        "Preprint; training and generation setting differ, exact Table 2 severity is unclear, and latency is not hardware-normalized against F5."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "freqmark",
+      "citation_key": "Guo2024FreqMarkv1",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2410.20824v1",
+      "title": "FreqMark: Invisible Image Watermarking via Frequency Based Optimization in Latent Space",
+      "authors": [
+        "Guo, Yiyang",
+        "Li, Ruizhe",
+        "Hui, Mude",
+        "Guo, Hanzhong",
+        "Zhang, Chen",
+        "Cai, Chuangjian",
+        "Wan, Le",
+        "Wang, Shangfei"
+      ],
+      "year": 2024,
+      "venue": null,
+      "access_date": "2026-10-09",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "research/literature/journal-upgrade-20261009/sources/freqmark-v1.html",
+        "sha256": "00a18323cf1145838bc421c097ec59e6094571dcdd4636e0021383b79020aa99"
+      },
+      "limitations": [
+        "Bit accuracy is not TPR; its 60-step attack and lower fidelity are not matched to F5. Published numbers do not establish performance under our strict quality constraints."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "latent-watermark",
+      "citation_key": "Meng2024LatentWatermarkv3",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2404.00230v3",
+      "title": "Latent Watermark: Inject and Detect Watermarks in Latent Diffusion Space",
+      "authors": [
+        "Meng, Zheling",
+        "Peng, Bo",
+        "Dong, Jing"
+      ],
+      "year": 2024,
+      "venue": null,
+      "access_date": "2026-10-09",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "research/literature/journal-upgrade-20261009/sources/latent-watermark-v3.html",
+        "sha256": "a11184071a30fb1c388eace415fe4f57477356efc05453f4fe54667593a6b4db"
+      },
+      "limitations": [
+        "Generation-time evaluation, a different operating point, and learned modules preclude direct comparison with existing-photo F5; no instance-binding proof follows."
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "journal-waves-direct-evidence",
+      "claim": "WAVES evaluates detection at 0.1% FPR and performance across attack-quality tradeoffs; detection and identification are distinct endpoints.",
+      "source_id": "waves",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Sections 3.1.1-3.1.3, 3.2 and 4",
+      "confidence": "high",
+      "limitations": [
+        "Benchmark conventions do not establish universal acceptance thresholds for a thesis; its full attack suite is outside the three-threat scope."
+      ],
+      "assumptions": [
+        "Author-reported measurements, not local reproduction."
+      ]
+    },
+    {
+      "claim_id": "journal-waves-agent-inference",
+      "claim": "Use fixed-FPR and quality-conditioned evaluation, restricted to T3/T4/T5.",
+      "source_id": "waves",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "Sections 3.1.1-3.1.3, 3.2 and 4",
+      "confidence": "medium",
+      "limitations": [
+        "Benchmark conventions do not establish universal acceptance thresholds for a thesis; its full attack suite is outside the three-threat scope."
+      ],
+      "assumptions": [
+        "The prospective study concerns existing photos, matched quality and separately calibrated detection."
+      ]
+    },
+    {
+      "claim_id": "journal-zodiac-direct-evidence",
+      "claim": "ZoDiac optimizes a Fourier ring in an inverted diffusion latent and blends the decoded image with the original; detection uses diffusion inversion. Table 3 reports Zhao23 detection 0.988 at FPR 0.062, or 0.938 at FPR 0.004.",
+      "source_id": "zodiac",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Section 3; Section 4, Tables 1 and 3",
+      "confidence": "high",
+      "limitations": [
+        "Different detector thresholds, distortion and attack settings prevent comparison of those rates with F5 source-majority counts."
+      ],
+      "assumptions": [
+        "Author-reported measurements, not local reproduction."
+      ]
+    },
+    {
+      "claim_id": "journal-zodiac-agent-inference",
+      "claim": "Include as an inversion-based post-hoc baseline, recalibrated on development/calibration data.",
+      "source_id": "zodiac",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "Section 3; Section 4, Tables 1 and 3",
+      "confidence": "medium",
+      "limitations": [
+        "Different detector thresholds, distortion and attack settings prevent comparison of those rates with F5 source-majority counts."
+      ],
+      "assumptions": [
+        "The prospective study concerns existing photos, matched quality and separately calibrated detection."
+      ]
+    },
+    {
+      "claim_id": "journal-seal-direct-evidence",
+      "claim": "SEAL binds initial noise to caption-derived semantic codes using secret-salted projections; detection requires semantic extraction and inversion. Table 1 cat-insertion AUC is 0.551 for the basic method and 0.982 with spatial verification.",
+      "source_id": "seal",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Section 3, Algorithms 1-3; Section 4, Tables 1-2",
+      "confidence": "high",
+      "limitations": [
+        "AUC for that semantic edit is neither TPR at a fixed FPR nor the thesis copy-paste endpoint; this is a generation-time method."
+      ],
+      "assumptions": [
+        "Author-reported measurements, not local reproduction."
+      ]
+    },
+    {
+      "claim_id": "journal-seal-agent-inference",
+      "claim": "Semantic binding is prior art; use as a mechanism reference or in a separately defined generative comparison.",
+      "source_id": "seal",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "Section 3, Algorithms 1-3; Section 4, Tables 1-2",
+      "confidence": "medium",
+      "limitations": [
+        "AUC for that semantic edit is neither TPR at a fixed FPR nor the thesis copy-paste endpoint; this is a generation-time method."
+      ],
+      "assumptions": [
+        "The prospective study concerns existing photos, matched quality and separately calibrated detection."
+      ]
+    },
+    {
+      "claim_id": "journal-grow-direct-evidence",
+      "claim": "GROW guides generation toward a terminal-latent frequency message and extracts through a VAE encoder without inversion. Its 16-bit COCO results report PSNR 27.54, SSIM 0.85, LPIPS 0.05, DiffPure message accuracy 0.95; extraction is 0.24 seconds on T4.",
+      "source_id": "grow",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Sections 3-5.5, Algorithm 1, Tables 1-3",
+      "confidence": "high",
+      "limitations": [
+        "Generated-image message accuracy and paper-specific hardware are not existing-photo checked detection or a local latency benchmark."
+      ],
+      "assumptions": [
+        "Author-reported measurements, not local reproduction."
+      ]
+    },
+    {
+      "claim_id": "journal-grow-agent-inference",
+      "claim": "Inversion-free latent extraction alone is not novel; measure total local detector cost.",
+      "source_id": "grow",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "Sections 3-5.5, Algorithm 1, Tables 1-3",
+      "confidence": "medium",
+      "limitations": [
+        "Generated-image message accuracy and paper-specific hardware are not existing-photo checked detection or a local latency benchmark."
+      ],
+      "assumptions": [
+        "The prospective study concerns existing photos, matched quality and separately calibrated detection."
+      ]
+    },
+    {
+      "claim_id": "journal-ctrlregen-direct-evidence",
+      "claim": "CtrlRegen regenerates from clean noise using DINOv2 semantic and ControlNet spatial guidance. Table 1 Tree-Ring TPR at 1% FPR is 0.12 under CtrlRegen versus 0.87 under Regen; CtrlRegen PSNR is 19.32.",
+      "source_id": "ctrlregen",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Sections 3.2 and 4, Table 1",
+      "confidence": "high",
+      "limitations": [
+        "These attack results are not F5 measurements; learned adapters and substantial distortion require a separate admissibility and resource check."
+      ],
+      "assumptions": [
+        "Author-reported measurements, not local reproduction."
+      ]
+    },
+    {
+      "claim_id": "journal-ctrlregen-agent-inference",
+      "claim": "Test a stronger controlled T3 attack only after the cheap independent-VAE test; do not infer general robustness from DDIM alone.",
+      "source_id": "ctrlregen",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "Sections 3.2 and 4, Table 1",
+      "confidence": "medium",
+      "limitations": [
+        "These attack results are not F5 measurements; learned adapters and substantial distortion require a separate admissibility and resource check."
+      ],
+      "assumptions": [
+        "The prospective study concerns existing photos, matched quality and separately calibrated detection."
+      ]
+    },
+    {
+      "claim_id": "journal-wam-direct-evidence",
+      "claim": "Watermark Anything learns localized watermark presence and message decoding. Table 8 gives PSNR 38.3, SSIM 0.99, LPIPS 0.04 and splicing bit accuracy 95.30%; Table 9 shows regeneration bit accuracy falling from 100% to 49.1% over increasing distortion.",
+      "source_id": "wam",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Sections 3-5; Appendix G.3, Tables 8-9",
+      "confidence": "high",
+      "limitations": [
+        "Localization and bit accuracy are not whole-image forgery rejection, TPR or content-binding efficacy; pretrained assets are not locally reproduced here."
+      ],
+      "assumptions": [
+        "Author-reported measurements, not local reproduction."
+      ]
+    },
+    {
+      "claim_id": "journal-wam-agent-inference",
+      "claim": "Use as a neural post-hoc comparator and a donor-delivery diagnostic, separating its localization goal from authentication.",
+      "source_id": "wam",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "Sections 3-5; Appendix G.3, Tables 8-9",
+      "confidence": "medium",
+      "limitations": [
+        "Localization and bit accuracy are not whole-image forgery rejection, TPR or content-binding efficacy; pretrained assets are not locally reproduced here."
+      ],
+      "assumptions": [
+        "The prospective study concerns existing photos, matched quality and separately calibrated detection."
+      ]
+    },
+    {
+      "claim_id": "journal-diffmark-direct-evidence",
+      "claim": "DiffMark trains latent consistency bridges and a VAE-based 64-bit extractor without diffusion inversion. Table 2 reports TPR at 0.1% FPR of 0.81 for VAE and 1.00 for diffusion regeneration; Section 4.6 reports 16.4 ms extraction on L40S.",
+      "source_id": "diffmark",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Sections 3, 4.1 and 4.6; Table 2; Appendix G.4",
+      "confidence": "high",
+      "limitations": [
+        "Preprint; training and generation setting differ, exact Table 2 severity is unclear, and latency is not hardware-normalized against F5."
+      ],
+      "assumptions": [
+        "Author-reported measurements, not local reproduction."
+      ]
+    },
+    {
+      "claim_id": "journal-diffmark-agent-inference",
+      "claim": "Use as recent context for learned extraction and transfer, not a numeric claim that F5 loses or wins.",
+      "source_id": "diffmark",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "Sections 3, 4.1 and 4.6; Table 2; Appendix G.4",
+      "confidence": "medium",
+      "limitations": [
+        "Preprint; training and generation setting differ, exact Table 2 severity is unclear, and latency is not hardware-normalized against F5."
+      ],
+      "assumptions": [
+        "The prospective study concerns existing photos, matched quality and separately calibrated detection."
+      ]
+    },
+    {
+      "claim_id": "journal-freqmark-direct-evidence",
+      "claim": "FreqMark optimizes latent-frequency perturbations through a frozen VAE and reads bits with fixed pretrained image features. For 48 bits and 400 optimization steps, Table 1 ImageNet reports PSNR 31.27, SSIM 0.857 and diffusion-regeneration bit accuracy 0.969.",
+      "source_id": "freqmark",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Sections 4.1-4.5, 5.1-5.4; Table 1",
+      "confidence": "high",
+      "limitations": [
+        "Bit accuracy is not TPR; its 60-step attack and lower fidelity are not matched to F5. Published numbers do not establish performance under our strict quality constraints."
+      ],
+      "assumptions": [
+        "Author-reported measurements, not local reproduction."
+      ]
+    },
+    {
+      "claim_id": "journal-freqmark-agent-inference",
+      "claim": "Closest prioritized post-hoc latent-frequency comparator; compare quality frontiers and separately calibrated FPR.",
+      "source_id": "freqmark",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "Sections 4.1-4.5, 5.1-5.4; Table 1",
+      "confidence": "medium",
+      "limitations": [
+        "Bit accuracy is not TPR; its 60-step attack and lower fidelity are not matched to F5. Published numbers do not establish performance under our strict quality constraints."
+      ],
+      "assumptions": [
+        "The prospective study concerns existing photos, matched quality and separately calibrated detection."
+      ]
+    },
+    {
+      "claim_id": "journal-latent-watermark-direct-evidence",
+      "claim": "Latent Watermark injects a message into the terminal latent and detects with a VAE encoder and trained decoupler. It trains on 50,000 LAION images. Table 2, 48-bit COCO SD2.1 reconstruction gives 99.09% bit accuracy and 100% TPR at 1% FPR.",
+      "source_id": "latent-watermark",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Sections 3.1-3.3 and 4.1-4.2; Table 2",
+      "confidence": "high",
+      "limitations": [
+        "Generation-time evaluation, a different operating point, and learned modules preclude direct comparison with existing-photo F5; no instance-binding proof follows."
+      ],
+      "assumptions": [
+        "Author-reported measurements, not local reproduction."
+      ]
+    },
+    {
+      "claim_id": "journal-latent-watermark-agent-inference",
+      "claim": "Further prior art against novelty claims based solely on terminal-latent or inversion-free extraction.",
+      "source_id": "latent-watermark",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "Sections 3.1-3.3 and 4.1-4.2; Table 2",
+      "confidence": "medium",
+      "limitations": [
+        "Generation-time evaluation, a different operating point, and learned modules preclude direct comparison with existing-photo F5; no instance-binding proof follows."
+      ],
+      "assumptions": [
+        "The prospective study concerns existing photos, matched quality and separately calibrated detection."
+      ]
+    }
+  ],
+  "assumptions": [
+    "Bounded primary-source refresh, not an exhaustive novelty search; all nine citation keys already exist in research/references.bib.",
+    "Existing M2 outputs are historical evidence; no new image inspection or scientific run was performed."
+  ],
+  "open_questions": [
+    "Can F5 retain checked detection with a genuinely independent VAE at matched image quality?",
+    "Does content verification reject delivered forgeries that a binding-disabled detector accepts?",
+    "Can post-hoc baselines meet the same quality and empirical FPR requirements?",
+    "Does an enrollment-aware endpoint fit the intended claim, or should the paper retain narrower self-consistency semantics?"
+  ]
+}

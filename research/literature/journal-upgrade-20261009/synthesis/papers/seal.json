@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "seal",
+  "citation_key": "Arabi2025SEALv4",
+  "doi": "10.48550/arXiv.2503.12172",
+  "canonical_url": "https://arxiv.org/html/2503.12172v4",
+  "title": "SEAL: Semantic Aware Image Watermarking",
+  "authors": [
+    "Kasra Arabi",
+    "R. Teal Witter",
+    "Chinmay Hegde",
+    "Niv Cohen"
+  ],
+  "year": 2025,
+  "venue": null,
+  "access_date": "2026-10-09",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "research/literature/m1-primary-extension/seal-v4.html",
+    "sha256": "953d4ab874fb9bbedfc365052777c291fa405665d6c3692eff69c2a4f5beb750"
+  },
+  "limitations": [
+    "AUC for that semantic edit is neither TPR at a fixed FPR nor the thesis copy-paste endpoint; this is a generation-time method."
+  ]
+}

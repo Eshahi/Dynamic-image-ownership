@@ -1,0 +1,2 @@
+# Preserve inspected bytes, upstream line endings and recorded SHA-256 values.
+* -text -whitespace

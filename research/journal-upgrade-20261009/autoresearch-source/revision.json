@@ -1,0 +1,106 @@
+{
+  "sha": "228791fb499afffb54b46200aca536f79142f117",
+  "node_id": "C_kwDORgZXs9oAKDIyODc5MWZiNDk5YWZmZmI1NGI0NjIwMGFjYTUzNmY3OTE0MmYxMTc",
+  "commit": {
+    "author": {
+      "name": "Andrej",
+      "email": "andrej.karpathy@gmail.com",
+      "date": "2026-03-26T00:07:37Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-03-26T00:07:37Z"
+    },
+    "message": "Merge pull request #342 from kaizen-38/feat/bug-fix\n\nfix(analysis): define best_bpb before y-axis scaling",
+    "tree": {
+      "sha": "04fa7a1a3ad211e97d894bb42df7698dae5d92ba",
+      "url": "https://api.github.com/repos/karpathy/autoresearch/git/trees/04fa7a1a3ad211e97d894bb42df7698dae5d92ba"
+    },
+    "url": "https://api.github.com/repos/karpathy/autoresearch/git/commits/228791fb499afffb54b46200aca536f79142f117",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJpxHjJCRC1aQ7uu5UhlAAA7wsQAE7c0zF6hezP2sUkKUIO67qO\nqU/ak5DXVpKzzjFek42ZP2dPvJqyl2wfW1Ilv3OrcYIbghaCvaEk6Xm2K4pCW4w9\nzYPxzNhDXjuMtLzo7rN+7xcy8qOhc1ATDE/V9vtyCu1IgP3tnEsNYKSxulKYm4Nt\n+K9PTXkefaspu81aTVTe0M4OWD4ti8Qk6JPwbAMfeIt4+DcgzD+td+YULuj7WbrD\nUEKrxN1v0vvl5dUiLp0P1VAMhVD/DlGygSRVogwvyniiv043DuDs+HbvIH/TopHy\n7+lCFsk119jPzT14Wyo8v5nvnEeDDn9VJb2mnAOm9b+s4mUbhV1Xpl3CaOTX5RKU\ngj1QuxmCL8Z5cZUfx/y/BrC8GlZVMlug78IKQetNxP8ecn1mjpMIXdmQEXBu2LpL\nt6FFL7la3m+e2tBC6pZ8lFBWJlz8FVXDi+3GQVqqVZhiomc10cQ+OXdlqYCZh7ze\nKvxSY2940/gF9wiOEOzxYTioqf0h1+KNwZmcr97T1zPaH8PPTezJ+QE2BcEwi2l1\nencm6RuZDsJWaZ+JCMwsd2p++0PEgNTCjyM9GOz2ICK4ihMWZzjQNw+ETYqyILj+\nsY2nLzaxdEKqgWCthKfdGeqEFa71w+hrxqNEuWLkmoboOTIbsaNg4yP9UOhOXBIs\nAtVyyUTAUZmhEhVQt7U1\n=xX1q\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 04fa7a1a3ad211e97d894bb42df7698dae5d92ba\nparent e6d79c123441a53d91bb8df7adf4db45cf120bf1\nparent f32ab047a298737d459ac9ded1bc2fc399505159\nauthor Andrej <andrej.karpathy@gmail.com> 1774483657 -0700\ncommitter GitHub <noreply@github.com> 1774483657 -0700\n\nMerge pull request #342 from kaizen-38/feat/bug-fix\n\nfix(analysis): define best_bpb before y-axis scaling",
+      "verified_at": "2026-03-26T00:07:37Z"
+    }
+  },
+  "url": "https://api.github.com/repos/karpathy/autoresearch/commits/228791fb499afffb54b46200aca536f79142f117",
+  "html_url": "https://github.com/karpathy/autoresearch/commit/228791fb499afffb54b46200aca536f79142f117",
+  "comments_url": "https://api.github.com/repos/karpathy/autoresearch/commits/228791fb499afffb54b46200aca536f79142f117/comments",
+  "author": {
+    "login": "karpathy",
+    "id": 241138,
+    "node_id": "MDQ6VXNlcjI0MTEzOA==",
+    "avatar_url": "https://avatars.githubusercontent.com/u/241138?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/karpathy",
+    "html_url": "https://github.com/karpathy",
+    "followers_url": "https://api.github.com/users/karpathy/followers",
+    "following_url": "https://api.github.com/users/karpathy/following{/other_user}",
+    "gists_url": "https://api.github.com/users/karpathy/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/karpathy/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/karpathy/subscriptions",
+    "organizations_url": "https://api.github.com/users/karpathy/orgs",
+    "repos_url": "https://api.github.com/users/karpathy/repos",
+    "events_url": "https://api.github.com/users/karpathy/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/karpathy/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "e6d79c123441a53d91bb8df7adf4db45cf120bf1",
+      "url": "https://api.github.com/repos/karpathy/autoresearch/commits/e6d79c123441a53d91bb8df7adf4db45cf120bf1",
+      "html_url": "https://github.com/karpathy/autoresearch/commit/e6d79c123441a53d91bb8df7adf4db45cf120bf1"
+    },
+    {
+      "sha": "f32ab047a298737d459ac9ded1bc2fc399505159",
+      "url": "https://api.github.com/repos/karpathy/autoresearch/commits/f32ab047a298737d459ac9ded1bc2fc399505159",
+      "html_url": "https://github.com/karpathy/autoresearch/commit/f32ab047a298737d459ac9ded1bc2fc399505159"
+    }
+  ],
+  "stats": {
+    "total": 5,
+    "additions": 3,
+    "deletions": 2
+  },
+  "files": [
+    {
+      "sha": "bef188375e292d8732a61bf1fa756a4614b76308",
+      "filename": "analysis.ipynb",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 2,
+      "changes": 5,
+      "blob_url": "https://github.com/karpathy/autoresearch/blob/228791fb499afffb54b46200aca536f79142f117/analysis.ipynb",
+      "raw_url": "https://github.com/karpathy/autoresearch/raw/228791fb499afffb54b46200aca536f79142f117/analysis.ipynb",
+      "contents_url": "https://api.github.com/repos/karpathy/autoresearch/contents/analysis.ipynb?ref=228791fb499afffb54b46200aca536f79142f117",
+      "patch": "@@ -134,8 +134,9 @@\n     \"ax.grid(True, alpha=0.2)\\n\",\n     \"\\n\",\n     \"# Y-axis: from just below best to just above baseline\\n\",\n-    \"margin = (baseline_bpb - best) * 0.15\\n\",\n-    \"ax.set_ylim(best - margin, baseline_bpb + margin)\\n\",\n+    \"best_bpb = kept_bpb.min()\\n\",\n+    \"margin = (baseline_bpb - best_bpb) * 0.15\\n\",\n+    \"ax.set_ylim(best_bpb - margin, baseline_bpb + margin)\\n\",\n     \"\\n\",\n     \"plt.tight_layout()\\n\",\n     \"plt.savefig(\\\"progress.png\\\", dpi=150, bbox_inches=\\\"tight\\\")\\n\","
+    }
+  ]
+}

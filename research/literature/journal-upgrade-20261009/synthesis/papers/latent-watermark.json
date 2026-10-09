@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "latent-watermark",
+  "citation_key": "Meng2024LatentWatermarkv3",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2404.00230v3",
+  "title": "Latent Watermark: Inject and Detect Watermarks in Latent Diffusion Space",
+  "authors": [
+    "Meng, Zheling",
+    "Peng, Bo",
+    "Dong, Jing"
+  ],
+  "year": 2024,
+  "venue": null,
+  "access_date": "2026-10-09",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "research/literature/journal-upgrade-20261009/sources/latent-watermark-v3.html",
+    "sha256": "a11184071a30fb1c388eace415fe4f57477356efc05453f4fe54667593a6b4db"
+  },
+  "limitations": [
+    "Generation-time evaluation, a different operating point, and learned modules preclude direct comparison with existing-photo F5; no instance-binding proof follows."
+  ]
+}

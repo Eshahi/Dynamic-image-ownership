@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "ctrlregen",
+  "citation_key": "Liu2024CtrlRegenv2",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2410.05470v2",
+  "title": "Image Watermarks are Removable Using Controllable Regeneration from Clean Noise",
+  "authors": [
+    "Liu, Yepeng",
+    "Song, Yiren",
+    "Ci, Hai",
+    "Zhang, Yu",
+    "Wang, Haofan",
+    "Shou, Mike Zheng",
+    "Bu, Yuheng"
+  ],
+  "year": 2024,
+  "venue": null,
+  "access_date": "2026-10-09",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "research/literature/m1-primary-extension/ctrlregen-v2.html",
+    "sha256": "bcf6954245a45313525b56acbb9eccf31a59cf3671cb8db9f24d0562d9f39dfe"
+  },
+  "limitations": [
+    "These attack results are not F5 measurements; learned adapters and substantial distortion require a separate admissibility and resource check."
+  ]
+}

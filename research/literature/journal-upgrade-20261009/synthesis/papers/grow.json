@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "grow",
+  "citation_key": "Luo2026GROW",
+  "doi": null,
+  "canonical_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Luo_GROW_Watermark_Generation_with_Progressive_Guidance_for_Diffusion_Models_CVPR_2026_paper.pdf",
+  "title": "GROW: Watermark Generation with Progressive Guidance for Diffusion Models",
+  "authors": [
+    "Luo, Pengcheng",
+    "Jia, Zexi",
+    "Zhong, Yijia",
+    "Zhang, Jinchao",
+    "Zhou, Jie"
+  ],
+  "year": 2026,
+  "venue": "CVPR 2026",
+  "access_date": "2026-10-09",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "research/literature/m1-primary-extension/grow-cvpr2026.pdf",
+    "sha256": "484969c867bf2b879aa675ca1eec6de4093d10f7225547c301d0ee32bede4fce"
+  },
+  "limitations": [
+    "Generated-image message accuracy and paper-specific hardware are not existing-photo checked detection or a local latency benchmark."
+  ]
+}
