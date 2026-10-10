@@ -87,7 +87,9 @@ def main():
             entry['status'] = 'running'
         save()
         sync()
-        tick = time.monotonic()
+        # L includes interpreter-side imports/setup before model loading; no gap
+        # in the prospective all-in estimate is hidden in the +30 allowance.
+        tick = started if name == 'L' else time.monotonic()
         try:
             value = fn(row)
             sync()
