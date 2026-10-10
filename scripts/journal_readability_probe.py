@@ -32,7 +32,7 @@ CONDITIONS = ("clean", "sd15_vae", "sdxl_vae")
 CONFIGS = {"R1": (("clean",), 52.), "R2": (("clean", "sdxl_vae"), 52.),
            "R3": (CONDITIONS, 52.), "R4": (CONDITIONS, 46.)}
 DISCOVERY = MAIN / ".thesis-build/dev-runs/20261010-0903-journal-vae"
-OPTIMIZATION_CAP = 3600.
+OPTIMIZATION_CAP = 10800.
 EVALUATION_CAP = 2700.  # Shared with follow-up work; parent subtracts measured screen cost.
 
 
@@ -87,15 +87,19 @@ def payload(ev, sid):
     result = ev.detect(rgb, "f5", OWNERS[0])
     if not (result["semantic"]["read"] and result["instance"]["read"]):
         raise ValueError(f"Saved fixed payload unreadable for {sid}")
-    q, h = (int(result[tier]["decoded_code"], 16) for tier in ("semantic", "instance"))
+    decoded_q, h = (int(result[tier]["decoded_code"], 16) for tier in ("semantic", "instance"))
     original = [json.loads(line) for line in (F5_RUN / "rows.jsonl").read_text().splitlines()]
     reports = [r["report"] for r in original if r.get("id") == f"embed-{sid}"]
-    if len(reports) != 1 or int(reports[0]["semantic_code"], 16) != q:
-        raise ValueError(f"Original recorded semantic payload disagrees for {sid}")
+    if len(reports) != 1:
+        raise ValueError(f"Original recorded semantic payload missing or ambiguous for {sid}")
+    q = int(reports[0]["semantic_code"], 16)
     if rgb.shape != (512, 512, 3):
         raise ValueError("Fixed protocol requires RGB 512x512")
     return rgb, q, h, dict(q=f"{q:08x}", h=f"{h:08x}", extraction=compact(result),
-                            original_semantic_code=reports[0]["semantic_code"])
+                            original_semantic_code=reports[0]["semantic_code"],
+                            clean_decoded_q=f"{decoded_q:08x}", clean_q_bit_errors=(q ^ decoded_q).bit_count(),
+                            q_target_basis="original recorded intended embedding payload",
+                            h_target_basis="saved clean C1 native-decoded operational target; original embedded h unrecorded")
 
 
 class Objective:
@@ -134,27 +138,39 @@ class Objective:
         total = self.torch.zeros(320, device=x.device).index_add(0, self.chip, c[self.ch, self.u, self.v] * self.coeff)
         return total / self.norms
 
-    def loss(self, x, condition):
+    def loss_details(self, x, condition):
         p = self.projection(x, condition)
         norm = p.norm().clamp_min(1e-8)
         score = (self.w * p).sum() / norm
         sigma = (p.norm() / math.sqrt(320)).clamp_min(1e-8)
         gaps = (p.reshape(32, 10) * self.gaps).sum(1) / sigma
-        return self.torch.relu(9 - score).square() + self.torch.relu(1 - gaps).square().mean()
+        score_hinge, bit_hinges = 9 - score, 1 - gaps
+        loss = self.torch.relu(score_hinge).square() + self.torch.relu(bit_hinges).square().mean()
+        return loss, dict(score_hinge=float(score_hinge.detach().item()),
+            maximum_bit_hinge=float(bit_hinges.detach().max().item()),
+            hinges_inactive=bool((score_hinge <= 0).item() and (bit_hinges <= 0).all().item()),
+            finite_forward=bool(self.torch.isfinite(score).item() and self.torch.isfinite(gaps).all().item()))
+
+    def loss(self, x, condition):
+        return self.loss_details(x, condition)[0]
 
     def gradient(self, x, branches):
         # Deterministic first maximum breaks ties in clean, SD1.5, SDXL order.
         with self.torch.no_grad():
-            values = [float(self.loss(x, b).item()) for b in branches]
-        if not all(math.isfinite(v) for v in values):
+            evaluations = [self.loss_details(x, b) for b in branches]
+            values = [float(loss.item()) for loss, _ in evaluations]
+            details = {b: detail for b, (_, detail) in zip(branches, evaluations)}
+        if not all(math.isfinite(v) for v in values) or not all(d["finite_forward"] for d in details.values()):
             raise ValueError("Nonfinite branch objective")
         worst = int(np.argmax(values))
-        loss = self.loss(x, branches[worst])
+        loss, active_details = self.loss_details(x, branches[worst])
         g, = self.torch.autograd.grad(loss, x)
         if not bool(self.torch.isfinite(g).all()):
             raise ValueError("Nonfinite input gradient")
         return g, dict(branch_losses=dict(zip(branches, values)), active_branch=branches[worst],
-                       active_loss=float(loss.detach().item()), gradient_norm=float(g.norm().item()))
+                       branch_details=details, active_details=active_details,
+                       active_loss=float(loss.detach().item()), gradient_norm=float(g.norm().item()),
+                       gradient_exact_zero=bool((g == 0).all().item()))
 
     def enable_checkpointing(self):
         # Diffusers enables checkpoints inside the encoder/decoder blocks; outer
@@ -177,6 +193,16 @@ def projected_update(candidate, reference, source, additional_budget, total_budg
                 and float((proposed - source).norm()) <= total_budget * (1 + 1e-6)):
             return proposed, True
     return candidate, False
+
+
+def exact_stationary(stats, projected_equal, strictly_feasible):
+    """No tolerances: underflowed positive hinges or projection drift cannot stop."""
+    return bool(projected_equal and strictly_feasible and stats["gradient_exact_zero"] and
+        stats["active_loss"] == 0 and stats["active_details"]["finite_forward"] and
+        stats["active_details"]["hinges_inactive"] and
+        all(value == 0 for value in stats["branch_losses"].values()) and
+        all(d["finite_forward"] and d["hinges_inactive"] and d["score_hinge"] <= 0 and
+            d["maximum_bit_hinge"] <= 0 for d in stats["branch_details"].values()))
 
 
 def restore_fragile(rgb, q, h, profile):
@@ -223,19 +249,26 @@ def refine(ev, other, rgb, source, q, config, remaining, activation_checkpointin
     if float((reference - clean).norm()) > total_budget:
         raise ValueError("Starting C1 infeasible at total 35.1 dB continuous constraint")
     x = reference.detach().clone().requires_grad_(True)
-    history, rejected = [], 0
+    history, rejected, shortcut = [], 0, None
     t.cuda.synchronize()
     tick = time.monotonic()
     t.cuda.reset_peak_memory_stats()
     for step in range(100):
         if time.monotonic() - tick >= remaining:
             return None, dict(status="unrun_budget", completed_steps=step,
+                              physical_steps=len(history), logical_steps=step, skipped_stationary_steps=0,
                               optimization_seconds=time.monotonic() - tick, history=history)
         g, stats = iteration(obj, x, branches)
         with t.no_grad():
             lr = budget * (.2 if step < 50 else .05)
             proposal = x - lr * g / (g.norm() + 1e-12)
             proposed, feasible = projected_update(proposal, reference, clean, budget, total_budget, t)
+            projection_equal = bool(t.equal(proposed, x))
+            strictly_feasible = (feasible and bool(((x >= 0) & (x <= 1)).all().item()) and
+                float((x - reference).norm()) <= budget and float((x - clean).norm()) <= total_budget)
+            stationary = exact_stationary(stats, projection_equal, strictly_feasible)
+            stats.update(projection_exact_fixed_point=projection_equal,
+                         stationary_strict_feasibility=strictly_feasible)
             if feasible:
                 x.copy_(proposed)
             else:
@@ -243,9 +276,16 @@ def refine(ev, other, rgb, source, q, config, remaining, activation_checkpointin
             stats.update(step=step, accepted_update=feasible)
             history.append(stats)
         del g
+        if stationary:
+            shortcut = dict(step=step, branch_losses=stats["branch_losses"],
+                branch_details=stats["branch_details"], projection_exact_fixed_point=projection_equal,
+                strictly_feasible=strictly_feasible)
+            break
     t.cuda.synchronize()
     result = np.rint(x.detach()[0].permute(1, 2, 0).cpu().numpy() * 255).clip(0, 255).astype(np.uint8)
     return result, dict(status="ok", completed_steps=100, optimization_seconds=time.monotonic() - tick,
+        physical_steps=len(history), logical_steps=100, skipped_stationary_steps=100-len(history),
+        stationary_shortcut=shortcut,
         peak_allocated_bytes=t.cuda.max_memory_allocated(), peak_reserved_bytes=t.cuda.max_memory_reserved(),
         checkpointed=obj.checkpointed, memory_errors=obj.memory_errors, rejected_updates=rejected, history=history,
         continuous_additional_rms=float((x.detach() - reference).square().mean().sqrt()),
@@ -342,6 +382,9 @@ def main():
             activation_checkpointing=activation_checkpointing,
             activation_checkpointing_choice=("explicit_cli" if a.activation_checkpointing else
                 "inherited_smoke" if checkpoint_from_smoke else "ordinary_with_oom_retry"),
+            stationary_shortcut="Exact inactive hinges on every branch, exact zero gradient and fixed-point feasible projection only",
+            compute_amendment="research/journal-upgrade-20261009/readability-compute-amendment.md",
+            payload_amendment="research/journal-upgrade-20261009/readability-payload-amendment.md",
             fixed_marks=str(F5_RUN), frozen_discovery=str(DISCOVERY)),
         optimization_seconds=old.get("optimization_seconds", 0.) if old else 0.,
         evaluation_seconds=old.get("evaluation_seconds", 0.) if old else 0., outcome="running")

@@ -1,0 +1,1437 @@
+{
+  "run_dir": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-0948-wam-vae",
+  "commit": "5c93b54bb85b1602c35b75a6818078adc2cb0b78",
+  "outcome": "completed",
+  "source_ids": [
+    1675,
+    4795,
+    6012,
+    25394,
+    80932,
+    109798,
+    134882,
+    147498,
+    177015,
+    190676,
+    468505,
+    499768
+  ],
+  "unique_planned_sources": 12,
+  "planned_image_rows": 144,
+  "retained_image_rows": 144,
+  "missing_keys": [],
+  "extra_keys": [],
+  "failed_rows": 0,
+  "checkpoint_sha256": "90ef232384e023bd63245eb0c131abd69d2afc7b8f17a71ccedceb542bf009e2",
+  "official_revision": "2c08af04d037d5667c02f6ddebbda9ff04581c3e",
+  "duration_seconds": 75.59399999998277,
+  "initialization_seconds": 1.562000000005355,
+  "peak_cuda_allocated_bytes": 2095677440,
+  "groups": {
+    "native_w2/clean/C0": {
+      "planned_sources": 12,
+      "retained_sources": 12,
+      "completed_sources": 12,
+      "failed_sources": [],
+      "missing_sources": [],
+      "exact_message_count": 0,
+      "exact_message_source_ids": [],
+      "empty_mask_source_ids": [
+        1675,
+        4795,
+        6012,
+        25394,
+        80932,
+        109798,
+        134882,
+        147498,
+        177015,
+        190676,
+        468505,
+        499768
+      ],
+      "nonempty_decoded_sources": 0,
+      "decoded_not_exact_sources": [],
+      "wrong_message_exact_count": 0,
+      "bit_accuracy_conditional_nonempty": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "bit_accuracy_all_source_zero_scored": {
+        "n": 12,
+        "mean": 0,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 0
+      },
+      "strict_quality_source_count": 12,
+      "quality_source": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0
+        },
+        "psnr_infinite_count": 12
+      },
+      "quality_attack_input": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0
+        },
+        "psnr_infinite_count": 12
+      },
+      "mask_fraction": {
+        "n": 12,
+        "mean": 0.0,
+        "median": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0
+      },
+      "detect_seconds": {
+        "n": 12,
+        "mean": 0.04441666666631742,
+        "median": 0.015999999988707714,
+        "minimum": 0.015000000013969839,
+        "maximum": 0.34400000001187436
+      },
+      "lpips_attack_input_coverage": {
+        "0.2": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 0,
+          "planned_source_denominator": 12
+        },
+        "0.3": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 0,
+          "planned_source_denominator": 12
+        }
+      }
+    },
+    "native_w2/clean/C1": {
+      "planned_sources": 12,
+      "retained_sources": 12,
+      "completed_sources": 12,
+      "failed_sources": [],
+      "missing_sources": [],
+      "exact_message_count": 12,
+      "exact_message_source_ids": [
+        1675,
+        4795,
+        6012,
+        25394,
+        80932,
+        109798,
+        134882,
+        147498,
+        177015,
+        190676,
+        468505,
+        499768
+      ],
+      "empty_mask_source_ids": [],
+      "nonempty_decoded_sources": 12,
+      "decoded_not_exact_sources": [],
+      "wrong_message_exact_count": 0,
+      "bit_accuracy_conditional_nonempty": {
+        "n": 12,
+        "mean": 1.0,
+        "median": 1.0,
+        "minimum": 1.0,
+        "maximum": 1.0
+      },
+      "bit_accuracy_all_source_zero_scored": {
+        "n": 12,
+        "mean": 1.0,
+        "median": 1.0,
+        "minimum": 1.0,
+        "maximum": 1.0
+      },
+      "strict_quality_source_count": 12,
+      "quality_source": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 38.32206811156187,
+          "median": 38.20346781980912,
+          "minimum": 37.10880223103053,
+          "maximum": 41.289261700145644
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.9771746919181792,
+          "median": 0.9821416484201626,
+          "minimum": 0.9419349831762538,
+          "maximum": 0.9914629942116561
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.02904860582202673,
+          "median": 0.028942041099071503,
+          "minimum": 0.006786138750612736,
+          "maximum": 0.059096865355968475
+        },
+        "psnr_infinite_count": 0
+      },
+      "quality_attack_input": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0
+        },
+        "psnr_infinite_count": 12
+      },
+      "mask_fraction": {
+        "n": 12,
+        "mean": 1.0,
+        "median": 1.0,
+        "minimum": 1.0,
+        "maximum": 1.0
+      },
+      "detect_seconds": {
+        "n": 12,
+        "mean": 0.01283333333170352,
+        "median": 0.015000000013969839,
+        "minimum": 0.0,
+        "maximum": 0.01600000000325963
+      },
+      "lpips_attack_input_coverage": {
+        "0.2": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 12,
+          "planned_source_denominator": 12
+        },
+        "0.3": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 12,
+          "planned_source_denominator": 12
+        }
+      }
+    },
+    "native_w2/sd15_vae/C0": {
+      "planned_sources": 12,
+      "retained_sources": 12,
+      "completed_sources": 12,
+      "failed_sources": [],
+      "missing_sources": [],
+      "exact_message_count": 0,
+      "exact_message_source_ids": [],
+      "empty_mask_source_ids": [
+        1675,
+        4795,
+        6012,
+        25394,
+        80932,
+        109798,
+        134882,
+        147498,
+        177015,
+        190676,
+        468505,
+        499768
+      ],
+      "nonempty_decoded_sources": 0,
+      "decoded_not_exact_sources": [],
+      "wrong_message_exact_count": 0,
+      "bit_accuracy_conditional_nonempty": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "bit_accuracy_all_source_zero_scored": {
+        "n": 12,
+        "mean": 0,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 0
+      },
+      "strict_quality_source_count": 0,
+      "quality_source": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 25.309366238614743,
+          "median": 25.33119480240761,
+          "minimum": 19.681999689858863,
+          "maximum": 27.42389291084027
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.7013066763210504,
+          "median": 0.7353155491632983,
+          "minimum": 0.4966768413826523,
+          "maximum": 0.8181702534007672
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.07004624512046576,
+          "median": 0.06747134774923325,
+          "minimum": 0.04755522310733795,
+          "maximum": 0.12635254859924316
+        },
+        "psnr_infinite_count": 0
+      },
+      "quality_attack_input": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 25.309366238614743,
+          "median": 25.33119480240761,
+          "minimum": 19.681999689858863,
+          "maximum": 27.42389291084027
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.7013066763210504,
+          "median": 0.7353155491632983,
+          "minimum": 0.4966768413826523,
+          "maximum": 0.8181702534007672
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.07004624512046576,
+          "median": 0.06747134774923325,
+          "minimum": 0.04755522310733795,
+          "maximum": 0.12635254859924316
+        },
+        "psnr_infinite_count": 0
+      },
+      "mask_fraction": {
+        "n": 12,
+        "mean": 0.0,
+        "median": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0
+      },
+      "detect_seconds": {
+        "n": 12,
+        "mean": 0.014083333332867673,
+        "median": 0.015000000013969839,
+        "minimum": 0.0,
+        "maximum": 0.01600000000325963
+      },
+      "lpips_attack_input_coverage": {
+        "0.2": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 0,
+          "planned_source_denominator": 12
+        },
+        "0.3": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 0,
+          "planned_source_denominator": 12
+        }
+      }
+    },
+    "native_w2/sd15_vae/C1": {
+      "planned_sources": 12,
+      "retained_sources": 12,
+      "completed_sources": 12,
+      "failed_sources": [],
+      "missing_sources": [],
+      "exact_message_count": 5,
+      "exact_message_source_ids": [
+        1675,
+        4795,
+        80932,
+        109798,
+        468505
+      ],
+      "empty_mask_source_ids": [],
+      "nonempty_decoded_sources": 12,
+      "decoded_not_exact_sources": [
+        6012,
+        25394,
+        134882,
+        147498,
+        177015,
+        190676,
+        499768
+      ],
+      "wrong_message_exact_count": 0,
+      "bit_accuracy_conditional_nonempty": {
+        "n": 12,
+        "mean": 0.9375,
+        "median": 0.96875,
+        "minimum": 0.65625,
+        "maximum": 1.0
+      },
+      "bit_accuracy_all_source_zero_scored": {
+        "n": 12,
+        "mean": 0.9375,
+        "median": 0.96875,
+        "minimum": 0.65625,
+        "maximum": 1.0
+      },
+      "strict_quality_source_count": 0,
+      "quality_source": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 25.105441248194897,
+          "median": 25.19157705660492,
+          "minimum": 19.60369522653538,
+          "maximum": 27.327481014868766
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.685466609070006,
+          "median": 0.7274335140073688,
+          "minimum": 0.4894194293832222,
+          "maximum": 0.7962559912159335
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.08870547140638034,
+          "median": 0.08191001042723656,
+          "minimum": 0.06307525187730789,
+          "maximum": 0.1587747037410736
+        },
+        "psnr_infinite_count": 0
+      },
+      "quality_attack_input": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 25.02948063827843,
+          "median": 25.147459224690856,
+          "minimum": 19.576966853996893,
+          "maximum": 27.27310399646139
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.6825096103084691,
+          "median": 0.7221693046384889,
+          "minimum": 0.4873783809518286,
+          "maximum": 0.7932670582600132
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.08125976069519918,
+          "median": 0.07499631121754646,
+          "minimum": 0.05920775607228279,
+          "maximum": 0.14203684031963348
+        },
+        "psnr_infinite_count": 0
+      },
+      "mask_fraction": {
+        "n": 12,
+        "mean": 0.5239206949869791,
+        "median": 0.5868377685546875,
+        "minimum": 0.011474609375,
+        "maximum": 0.7388458251953125
+      },
+      "detect_seconds": {
+        "n": 12,
+        "mean": 0.013000000006286427,
+        "median": 0.015500000008614734,
+        "minimum": 0.0,
+        "maximum": 0.01600000000325963
+      },
+      "lpips_attack_input_coverage": {
+        "0.2": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 5,
+          "planned_source_denominator": 12
+        },
+        "0.3": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 5,
+          "planned_source_denominator": 12
+        }
+      }
+    },
+    "native_w2/sdxl_vae/C0": {
+      "planned_sources": 12,
+      "retained_sources": 12,
+      "completed_sources": 12,
+      "failed_sources": [],
+      "missing_sources": [],
+      "exact_message_count": 0,
+      "exact_message_source_ids": [],
+      "empty_mask_source_ids": [
+        1675,
+        4795,
+        6012,
+        25394,
+        80932,
+        109798,
+        134882,
+        147498,
+        177015,
+        190676,
+        468505,
+        499768
+      ],
+      "nonempty_decoded_sources": 0,
+      "decoded_not_exact_sources": [],
+      "wrong_message_exact_count": 0,
+      "bit_accuracy_conditional_nonempty": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "bit_accuracy_all_source_zero_scored": {
+        "n": 12,
+        "mean": 0,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 0
+      },
+      "strict_quality_source_count": 0,
+      "quality_source": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 26.743360223751083,
+          "median": 26.56705088475708,
+          "minimum": 20.873102833985588,
+          "maximum": 29.060644962762577
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.7449579394371058,
+          "median": 0.7831544944886556,
+          "minimum": 0.5514488043422686,
+          "maximum": 0.8636127996923604
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.06293191978087027,
+          "median": 0.05717800557613373,
+          "minimum": 0.03765337914228439,
+          "maximum": 0.11510802060365677
+        },
+        "psnr_infinite_count": 0
+      },
+      "quality_attack_input": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 26.743360223751083,
+          "median": 26.56705088475708,
+          "minimum": 20.873102833985588,
+          "maximum": 29.060644962762577
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.7449579394371058,
+          "median": 0.7831544944886556,
+          "minimum": 0.5514488043422686,
+          "maximum": 0.8636127996923604
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.06293191978087027,
+          "median": 0.05717800557613373,
+          "minimum": 0.03765337914228439,
+          "maximum": 0.11510802060365677
+        },
+        "psnr_infinite_count": 0
+      },
+      "mask_fraction": {
+        "n": 12,
+        "mean": 0.0,
+        "median": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0
+      },
+      "detect_seconds": {
+        "n": 12,
+        "mean": 0.016833333330093108,
+        "median": 0.0159999999741558,
+        "minimum": 0.014999999984866008,
+        "maximum": 0.030999999988125637
+      },
+      "lpips_attack_input_coverage": {
+        "0.2": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 0,
+          "planned_source_denominator": 12
+        },
+        "0.3": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 0,
+          "planned_source_denominator": 12
+        }
+      }
+    },
+    "native_w2/sdxl_vae/C1": {
+      "planned_sources": 12,
+      "retained_sources": 12,
+      "completed_sources": 12,
+      "failed_sources": [],
+      "missing_sources": [],
+      "exact_message_count": 7,
+      "exact_message_source_ids": [
+        1675,
+        4795,
+        25394,
+        80932,
+        109798,
+        147498,
+        499768
+      ],
+      "empty_mask_source_ids": [
+        6012
+      ],
+      "nonempty_decoded_sources": 11,
+      "decoded_not_exact_sources": [
+        134882,
+        177015,
+        190676,
+        468505
+      ],
+      "wrong_message_exact_count": 0,
+      "bit_accuracy_conditional_nonempty": {
+        "n": 11,
+        "mean": 0.9744318181818182,
+        "median": 1.0,
+        "minimum": 0.90625,
+        "maximum": 1.0
+      },
+      "bit_accuracy_all_source_zero_scored": {
+        "n": 12,
+        "mean": 0.8932291666666666,
+        "median": 1.0,
+        "minimum": 0,
+        "maximum": 1.0
+      },
+      "strict_quality_source_count": 0,
+      "quality_source": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 26.408172026423856,
+          "median": 26.302507423308118,
+          "minimum": 20.69410993961181,
+          "maximum": 28.677716988316426
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.728071440936345,
+          "median": 0.7757960241874413,
+          "minimum": 0.5376916893750187,
+          "maximum": 0.8335279365718565
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.08548881641278665,
+          "median": 0.07720931246876717,
+          "minimum": 0.054626356810331345,
+          "maximum": 0.14071407914161682
+        },
+        "psnr_infinite_count": 0
+      },
+      "quality_attack_input": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 26.303829574670583,
+          "median": 26.23904936490535,
+          "minimum": 20.64831196001147,
+          "maximum": 28.57167143578447
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.7249567094332641,
+          "median": 0.7692879858870637,
+          "minimum": 0.5340065166398341,
+          "maximum": 0.8242129346204936
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.07600978296250105,
+          "median": 0.06312388926744461,
+          "minimum": 0.05040612071752548,
+          "maximum": 0.13889259099960327
+        },
+        "psnr_infinite_count": 0
+      },
+      "mask_fraction": {
+        "n": 12,
+        "mean": 0.5767033894856771,
+        "median": 0.6693878173828125,
+        "minimum": 0.0,
+        "maximum": 0.86602783203125
+      },
+      "detect_seconds": {
+        "n": 12,
+        "mean": 0.017000000002250697,
+        "median": 0.01600000000325963,
+        "minimum": 0.014999999984866008,
+        "maximum": 0.03200000000651926
+      },
+      "lpips_attack_input_coverage": {
+        "0.2": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 7,
+          "planned_source_denominator": 12
+        },
+        "0.3": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 7,
+          "planned_source_denominator": 12
+        }
+      }
+    },
+    "quality_w0p5/clean/C0": {
+      "planned_sources": 12,
+      "retained_sources": 12,
+      "completed_sources": 12,
+      "failed_sources": [],
+      "missing_sources": [],
+      "exact_message_count": 0,
+      "exact_message_source_ids": [],
+      "empty_mask_source_ids": [
+        1675,
+        4795,
+        6012,
+        25394,
+        80932,
+        109798,
+        134882,
+        147498,
+        177015,
+        190676,
+        468505,
+        499768
+      ],
+      "nonempty_decoded_sources": 0,
+      "decoded_not_exact_sources": [],
+      "wrong_message_exact_count": 0,
+      "bit_accuracy_conditional_nonempty": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "bit_accuracy_all_source_zero_scored": {
+        "n": 12,
+        "mean": 0,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 0
+      },
+      "strict_quality_source_count": 12,
+      "quality_source": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0
+        },
+        "psnr_infinite_count": 12
+      },
+      "quality_attack_input": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0
+        },
+        "psnr_infinite_count": 12
+      },
+      "mask_fraction": {
+        "n": 12,
+        "mean": 0.0,
+        "median": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0
+      },
+      "detect_seconds": {
+        "n": 12,
+        "mean": 0.01283333333170352,
+        "median": 0.014999999999417923,
+        "minimum": 0.0,
+        "maximum": 0.01600000000325963
+      },
+      "lpips_attack_input_coverage": {
+        "0.2": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 0,
+          "planned_source_denominator": 12
+        },
+        "0.3": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 0,
+          "planned_source_denominator": 12
+        }
+      }
+    },
+    "quality_w0p5/clean/C1": {
+      "planned_sources": 12,
+      "retained_sources": 12,
+      "completed_sources": 12,
+      "failed_sources": [],
+      "missing_sources": [],
+      "exact_message_count": 10,
+      "exact_message_source_ids": [
+        1675,
+        4795,
+        6012,
+        25394,
+        109798,
+        134882,
+        147498,
+        177015,
+        190676,
+        499768
+      ],
+      "empty_mask_source_ids": [],
+      "nonempty_decoded_sources": 12,
+      "decoded_not_exact_sources": [
+        80932,
+        468505
+      ],
+      "wrong_message_exact_count": 0,
+      "bit_accuracy_conditional_nonempty": {
+        "n": 12,
+        "mean": 0.9765625,
+        "median": 1.0,
+        "minimum": 0.75,
+        "maximum": 1.0
+      },
+      "bit_accuracy_all_source_zero_scored": {
+        "n": 12,
+        "mean": 0.9765625,
+        "median": 1.0,
+        "minimum": 0.75,
+        "maximum": 1.0
+      },
+      "strict_quality_source_count": 12,
+      "quality_source": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 49.64478711805113,
+          "median": 49.505455319599776,
+          "minimum": 48.48633018881861,
+          "maximum": 52.80686155358441
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.9971542901404208,
+          "median": 0.9982341212747461,
+          "minimum": 0.9890200846681373,
+          "maximum": 0.9992437349483266
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.002144635781102503,
+          "median": 0.0020193412783555686,
+          "minimum": 0.0004900345229543746,
+          "maximum": 0.0058783963322639465
+        },
+        "psnr_infinite_count": 0
+      },
+      "quality_attack_input": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "median": null,
+          "minimum": null,
+          "maximum": null
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 1.0,
+          "median": 1.0,
+          "minimum": 1.0,
+          "maximum": 1.0
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.0,
+          "median": 0.0,
+          "minimum": 0.0,
+          "maximum": 0.0
+        },
+        "psnr_infinite_count": 12
+      },
+      "mask_fraction": {
+        "n": 12,
+        "mean": 0.6904754638671875,
+        "median": 0.7759552001953125,
+        "minimum": 0.0288238525390625,
+        "maximum": 0.997528076171875
+      },
+      "detect_seconds": {
+        "n": 12,
+        "mean": 0.015749999998661224,
+        "median": 0.01600000000325963,
+        "minimum": 0.014999999984866008,
+        "maximum": 0.01600000000325963
+      },
+      "lpips_attack_input_coverage": {
+        "0.2": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 10,
+          "planned_source_denominator": 12
+        },
+        "0.3": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 10,
+          "planned_source_denominator": 12
+        }
+      }
+    },
+    "quality_w0p5/sd15_vae/C0": {
+      "planned_sources": 12,
+      "retained_sources": 12,
+      "completed_sources": 12,
+      "failed_sources": [],
+      "missing_sources": [],
+      "exact_message_count": 0,
+      "exact_message_source_ids": [],
+      "empty_mask_source_ids": [
+        1675,
+        4795,
+        6012,
+        25394,
+        80932,
+        109798,
+        134882,
+        147498,
+        177015,
+        190676,
+        468505,
+        499768
+      ],
+      "nonempty_decoded_sources": 0,
+      "decoded_not_exact_sources": [],
+      "wrong_message_exact_count": 0,
+      "bit_accuracy_conditional_nonempty": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "bit_accuracy_all_source_zero_scored": {
+        "n": 12,
+        "mean": 0,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 0
+      },
+      "strict_quality_source_count": 0,
+      "quality_source": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 25.309366238614743,
+          "median": 25.33119480240761,
+          "minimum": 19.681999689858863,
+          "maximum": 27.42389291084027
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.7013066763210504,
+          "median": 0.7353155491632983,
+          "minimum": 0.4966768413826523,
+          "maximum": 0.8181702534007672
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.07004624512046576,
+          "median": 0.06747134774923325,
+          "minimum": 0.04755522310733795,
+          "maximum": 0.12635254859924316
+        },
+        "psnr_infinite_count": 0
+      },
+      "quality_attack_input": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 25.309366238614743,
+          "median": 25.33119480240761,
+          "minimum": 19.681999689858863,
+          "maximum": 27.42389291084027
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.7013066763210504,
+          "median": 0.7353155491632983,
+          "minimum": 0.4966768413826523,
+          "maximum": 0.8181702534007672
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.07004624512046576,
+          "median": 0.06747134774923325,
+          "minimum": 0.04755522310733795,
+          "maximum": 0.12635254859924316
+        },
+        "psnr_infinite_count": 0
+      },
+      "mask_fraction": {
+        "n": 12,
+        "mean": 0.0,
+        "median": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0
+      },
+      "detect_seconds": {
+        "n": 12,
+        "mean": 0.015499999994062819,
+        "median": 0.015499999994062819,
+        "minimum": 0.014999999984866008,
+        "maximum": 0.01600000000325963
+      },
+      "lpips_attack_input_coverage": {
+        "0.2": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 0,
+          "planned_source_denominator": 12
+        },
+        "0.3": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 0,
+          "planned_source_denominator": 12
+        }
+      }
+    },
+    "quality_w0p5/sd15_vae/C1": {
+      "planned_sources": 12,
+      "retained_sources": 12,
+      "completed_sources": 12,
+      "failed_sources": [],
+      "missing_sources": [],
+      "exact_message_count": 0,
+      "exact_message_source_ids": [],
+      "empty_mask_source_ids": [
+        4795,
+        6012,
+        25394,
+        80932,
+        134882,
+        147498,
+        177015,
+        190676,
+        468505,
+        499768
+      ],
+      "nonempty_decoded_sources": 2,
+      "decoded_not_exact_sources": [
+        1675,
+        109798
+      ],
+      "wrong_message_exact_count": 0,
+      "bit_accuracy_conditional_nonempty": {
+        "n": 2,
+        "mean": 0.828125,
+        "median": 0.828125,
+        "minimum": 0.8125,
+        "maximum": 0.84375
+      },
+      "bit_accuracy_all_source_zero_scored": {
+        "n": 12,
+        "mean": 0.13802083333333334,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 0.84375
+      },
+      "strict_quality_source_count": 0,
+      "quality_source": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 25.30122840074329,
+          "median": 25.33812016955524,
+          "minimum": 19.69237105759816,
+          "maximum": 27.474382220690586
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.6999847556221127,
+          "median": 0.7346137419104206,
+          "minimum": 0.4964560579284767,
+          "maximum": 0.8146839387308636
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.07133975035200517,
+          "median": 0.06837312132120132,
+          "minimum": 0.04722526669502258,
+          "maximum": 0.1272081583738327
+        },
+        "psnr_infinite_count": 0
+      },
+      "quality_attack_input": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 25.29218140594708,
+          "median": 25.330935664175833,
+          "minimum": 19.689684910007095,
+          "maximum": 27.467932879715168
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.6991061670808727,
+          "median": 0.7338809814040583,
+          "minimum": 0.49612107908385344,
+          "maximum": 0.8123270702497555
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.07119403872638941,
+          "median": 0.06874830648303032,
+          "minimum": 0.04802370443940163,
+          "maximum": 0.12612758576869965
+        },
+        "psnr_infinite_count": 0
+      },
+      "mask_fraction": {
+        "n": 12,
+        "mean": 0.022884368896484375,
+        "median": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.161102294921875
+      },
+      "detect_seconds": {
+        "n": 12,
+        "mean": 0.01708333333711683,
+        "median": 0.01600000000325963,
+        "minimum": 0.015000000013969839,
+        "maximum": 0.031000000017229468
+      },
+      "lpips_attack_input_coverage": {
+        "0.2": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 0,
+          "planned_source_denominator": 12
+        },
+        "0.3": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 0,
+          "planned_source_denominator": 12
+        }
+      }
+    },
+    "quality_w0p5/sdxl_vae/C0": {
+      "planned_sources": 12,
+      "retained_sources": 12,
+      "completed_sources": 12,
+      "failed_sources": [],
+      "missing_sources": [],
+      "exact_message_count": 0,
+      "exact_message_source_ids": [],
+      "empty_mask_source_ids": [
+        1675,
+        4795,
+        6012,
+        25394,
+        80932,
+        109798,
+        134882,
+        147498,
+        177015,
+        190676,
+        468505,
+        499768
+      ],
+      "nonempty_decoded_sources": 0,
+      "decoded_not_exact_sources": [],
+      "wrong_message_exact_count": 0,
+      "bit_accuracy_conditional_nonempty": {
+        "n": 0,
+        "mean": null,
+        "median": null,
+        "minimum": null,
+        "maximum": null
+      },
+      "bit_accuracy_all_source_zero_scored": {
+        "n": 12,
+        "mean": 0,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 0
+      },
+      "strict_quality_source_count": 0,
+      "quality_source": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 26.743360223751083,
+          "median": 26.56705088475708,
+          "minimum": 20.873102833985588,
+          "maximum": 29.060644962762577
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.7449579394371058,
+          "median": 0.7831544944886556,
+          "minimum": 0.5514488043422686,
+          "maximum": 0.8636127996923604
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.06293191978087027,
+          "median": 0.05717800557613373,
+          "minimum": 0.03765337914228439,
+          "maximum": 0.11510802060365677
+        },
+        "psnr_infinite_count": 0
+      },
+      "quality_attack_input": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 26.743360223751083,
+          "median": 26.56705088475708,
+          "minimum": 20.873102833985588,
+          "maximum": 29.060644962762577
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.7449579394371058,
+          "median": 0.7831544944886556,
+          "minimum": 0.5514488043422686,
+          "maximum": 0.8636127996923604
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.06293191978087027,
+          "median": 0.05717800557613373,
+          "minimum": 0.03765337914228439,
+          "maximum": 0.11510802060365677
+        },
+        "psnr_infinite_count": 0
+      },
+      "mask_fraction": {
+        "n": 12,
+        "mean": 0.0,
+        "median": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0
+      },
+      "detect_seconds": {
+        "n": 12,
+        "mean": 0.015749999996235903,
+        "median": 0.01600000000325963,
+        "minimum": 0.014999999984866008,
+        "maximum": 0.01600000000325963
+      },
+      "lpips_attack_input_coverage": {
+        "0.2": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 0,
+          "planned_source_denominator": 12
+        },
+        "0.3": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 0,
+          "planned_source_denominator": 12
+        }
+      }
+    },
+    "quality_w0p5/sdxl_vae/C1": {
+      "planned_sources": 12,
+      "retained_sources": 12,
+      "completed_sources": 12,
+      "failed_sources": [],
+      "missing_sources": [],
+      "exact_message_count": 0,
+      "exact_message_source_ids": [],
+      "empty_mask_source_ids": [
+        4795,
+        6012,
+        25394,
+        134882,
+        147498,
+        190676,
+        468505,
+        499768
+      ],
+      "nonempty_decoded_sources": 4,
+      "decoded_not_exact_sources": [
+        1675,
+        80932,
+        109798,
+        177015
+      ],
+      "wrong_message_exact_count": 0,
+      "bit_accuracy_conditional_nonempty": {
+        "n": 4,
+        "mean": 0.84375,
+        "median": 0.84375,
+        "minimum": 0.75,
+        "maximum": 0.9375
+      },
+      "bit_accuracy_all_source_zero_scored": {
+        "n": 12,
+        "mean": 0.28125,
+        "median": 0.0,
+        "minimum": 0,
+        "maximum": 0.9375
+      },
+      "strict_quality_source_count": 0,
+      "quality_source": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 26.721061734981017,
+          "median": 26.543578334843346,
+          "minimum": 20.860748964194986,
+          "maximum": 29.039348000308433
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.7433347200629256,
+          "median": 0.7824940245444423,
+          "minimum": 0.5505538380932586,
+          "maximum": 0.860349288862949
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.064483226587375,
+          "median": 0.057024234905838966,
+          "minimum": 0.03780388832092285,
+          "maximum": 0.1192702129483223
+        },
+        "psnr_infinite_count": 0
+      },
+      "quality_attack_input": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 26.707852401135142,
+          "median": 26.533228363934235,
+          "minimum": 20.856785570358923,
+          "maximum": 29.027896212410948
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.7425549854414635,
+          "median": 0.7817427827676484,
+          "minimum": 0.5501401012624896,
+          "maximum": 0.8569853100547613
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.06440367332349221,
+          "median": 0.0569846723228693,
+          "minimum": 0.038619473576545715,
+          "maximum": 0.1203974038362503
+        },
+        "psnr_infinite_count": 0
+      },
+      "mask_fraction": {
+        "n": 12,
+        "mean": 0.017625172932942707,
+        "median": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.10870361328125
+      },
+      "detect_seconds": {
+        "n": 12,
+        "mean": 0.017000000004676014,
+        "median": 0.01600000000325963,
+        "minimum": 0.015000000013969839,
+        "maximum": 0.030999999988125637
+      },
+      "lpips_attack_input_coverage": {
+        "0.2": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 0,
+          "planned_source_denominator": 12
+        },
+        "0.3": {
+          "qualified_sources": 12,
+          "qualified_exact_sources": 0,
+          "planned_source_denominator": 12
+        }
+      }
+    }
+  },
+  "c0_arm_repeats_recorded_equal": true,
+  "distinct_c0_source_condition_cells": 36,
+  "distinct_c0_sources": 12,
+  "embedding_seconds_distinct_clean_c1": {
+    "native_w2": {
+      "n": 12,
+      "mean": 0.02350000000539391,
+      "median": 0.01600000000325963,
+      "minimum": 0.015000000013969839,
+      "maximum": 0.10999999998603016
+    },
+    "quality_w0p5": {
+      "n": 12,
+      "mean": 0.018416666665871162,
+      "median": 0.01600000000325963,
+      "minimum": 0.014999999984866008,
+      "maximum": 0.03200000000651926
+    }
+  }
+}
