@@ -236,7 +236,8 @@ def run_stage_a_t3(ev, pipe, source_rows, output_dir: Path, budget: callable) ->
     return summary
 
 
-def _stage_c_summary(rows, comparisons, plan, sets, v5, error=None):
+def _stage_c_summary(rows, comparisons, plan, sets, v5, error=None,
+                     method='E1-BCH59-A', stage='C', pass_key='stage_c_pass'):
     """Separate full-grid summary: Stage A's dictionary remains unchanged."""
     candidate = {_identity(r): r for r in rows if r['arm'] == 'candidate_C1'}
     strengths = {}
@@ -245,14 +246,16 @@ def _stage_c_summary(rows, comparisons, plan, sets, v5, error=None):
         counts = {e: sum(bool(candidate.get(k, {}).get('endpoints', {}).get(e)) for k in keys)
                   for e in ('S', 'Q', 'J')}
         retention = {}
-        for method in ('D2', 'frozen_F5'):
-            retention[method] = {}
+        methods = ('D2', 'frozen_F5') + (('E1_A',) if any('E1_A' in comparisons[k] for k in keys) else ())
+        for baseline in methods:
+            retention[baseline] = {}
             for endpoint in ('S', 'Q', 'J'):
-                positive = [k for k in keys if comparisons[k][method].get(endpoint)]
+                baseline_keys = [k for k in keys if baseline in comparisons[k]]
+                positive = [k for k in baseline_keys if comparisons[k][baseline].get(endpoint)]
                 lost = [k for k in positive if not candidate.get(k, {}).get('endpoints', {}).get(endpoint)]
-                gained = [k for k in keys if not comparisons[k][method].get(endpoint)
+                gained = [k for k in baseline_keys if not comparisons[k][baseline].get(endpoint)
                           and candidate.get(k, {}).get('endpoints', {}).get(endpoint)]
-                retention[method][endpoint] = dict(old_positive=len(positive),
+                retention[baseline][endpoint] = dict(old_positive=len(positive),
                     lost=list(map(_text, lost)), gained=list(map(_text, gained)))
         fixed = list(map(tuple, sets[str(strength)]['I']))
         intersection = dict(fixed_identities=len(fixed), identities=list(map(_text, fixed)),
@@ -289,7 +292,7 @@ def _stage_c_summary(rows, comparisons, plan, sets, v5, error=None):
                 error=row.get('error'), unavailable_negative_owner=BETA if row['arm']=='candidate_C1' else ALPHA))
             if row['status'] != 'safety_blocked' or row.get('calls'):
                 operational.append(dict(arm=row['arm'], identity=_text(_identity(row)), reason=row['status']))
-    result = dict(method='E1-BCH59-A', stage='C', sources=sorted({k[0] for k in plan}), strengths=strengths,
+    result = dict(method=method, stage=stage, sources=sorted({k[0] for k in plan}), strengths=strengths,
         planned_image_rows=144, recorded_image_rows=len(rows), planned_full_calls=216,
         observed_full_calls=sum(len(r.get('calls', {})) for r in rows),
         planned_negative_calls=144, observed_negative_calls=len(negatives), negative_calls=negatives,
@@ -297,10 +300,10 @@ def _stage_c_summary(rows, comparisons, plan, sets, v5, error=None):
         raw_59_bit_error_histogram=histogram, raw_59_bit_errors_observed=sum(histogram.values()),
         complete=complete, operational_failures=operational, error=error,
         comparisons=[dict(identity=_text(k), **comparisons[k]) for k in plan],
-        comparison_record=str(D2_ROWS), stage_c_pass=False, m1a_pass=False, candidate_eligible=False,
+        comparison_record=str(D2_ROWS), m1a_pass=False, candidate_eligible=False,
         scope='Exploratory in-sample image-domain selection; blocked planned slots count as failures; '
               'repeated-source negatives, no population FPR, latent-method, T4/T5 or M1a inference')
-    result['stage_c_pass'] = bool(not error and complete and not operational and not result['negative_any_detections']
+    result[pass_key] = bool(not error and complete and not operational and not result['negative_any_detections']
         and all(s['count_pass'] and s['preservation_pass'] and s['fixed_I_pass'] for s in strengths.values()))
     return result
 
@@ -311,10 +314,15 @@ def main():
     import subprocess
     import sys
     started = _PROCESS_STARTED
-    parser = argparse.ArgumentParser(description='E1 Stage C full official matched development T3')
-    parser.add_argument('--stage-b-dir', type=Path, required=True)
+    parser = argparse.ArgumentParser(description='E1 Stage C or E3 Stage B full official matched development T3')
+    prerequisite = parser.add_mutually_exclusive_group(required=True)
+    prerequisite.add_argument('--stage-b-dir', type=Path)
+    prerequisite.add_argument('--e3-stage-a-dir', type=Path)
     parser.add_argument('--output-dir', type=Path, required=True)
     args = parser.parse_args()
+    e3 = args.e3_stage_a_dir is not None
+    method, stage, pass_key = ('E3-BCH59-Q080', 'B', 'stage_b_pass') if e3 else ('E1-BCH59-A', 'C', 'stage_c_pass')
+    label = f'{method} Stage {stage}'
     root = Path(__file__).resolve().parents[1]
     sys.path[:0] = [str(root), str(root/'scripts')]
     cap, gpu_cap = 900., 10*1024**3
@@ -322,9 +330,9 @@ def main():
 
     def budget():
         if time.monotonic()-started >= cap:
-            raise TimeoutError('E1 Stage C 900-second inclusive hard cap exhausted')
+            raise TimeoutError(f'{label} 900-second inclusive hard cap exhausted')
         if torch is not None and torch.cuda.is_initialized() and torch.cuda.max_memory_allocated() > gpu_cap:
-            raise torch.cuda.OutOfMemoryError('E1 Stage C 10-GiB allocated GPU cap exceeded')
+            raise torch.cuda.OutOfMemoryError(f'{label} 10-GiB allocated GPU cap exceeded')
 
     def read_rows(path):
         return [json.loads(line) for line in path.read_text(encoding='utf-8').splitlines() if line.strip()]
@@ -335,12 +343,19 @@ def main():
     budget()
     from journal_bch_probe import ALL_IDS, summarize_b, stage_config, D2_WRITER, validate_stage_a
     from journal_rc_t3_probe import frozen_sets
-    bdir = args.stage_b_dir.resolve()
+    if e3:
+        from journal_bch_quality_select import validate_stage_a as validate_e3_stage_a
+        selected_dir = args.e3_stage_a_dir.resolve()
+        sources_list, selected_run = validate_e3_stage_a(selected_dir)
+        bdir = Path(selected_run['e1_stage_b_dir']).resolve()
+    else:
+        bdir = args.stage_b_dir.resolve()
     brun = json.loads((bdir/'run.json').read_text(encoding='utf-8'))
     bsummary = json.loads((bdir/'summary.json').read_text(encoding='utf-8'))
-    sources_list = read_rows(bdir/'rows.jsonl')
-    bcheck = summarize_b(sources_list, read_rows(D2_WRITER/'rows.jsonl'))
-    if (brun.get('schema') != 'journal-e1-bch-stage-b-v1' or brun.get('outcome') != 'completed'
+    if not e3:
+        sources_list = read_rows(bdir/'rows.jsonl')
+        bcheck = summarize_b(sources_list, read_rows(D2_WRITER/'rows.jsonl'))
+    if not e3 and (brun.get('schema') != 'journal-e1-bch-stage-b-v1' or brun.get('outcome') != 'completed'
         or brun.get('qualification') != 'stage_b_pass' or bsummary != brun.get('summary')
         or bsummary.get('stage_b_pass') is not True or not bcheck['stage_b_evidence_pass']
         or brun.get('config') != stage_config(3300., True) or brun.get('data_split') != 'development'
@@ -348,10 +363,17 @@ def main():
         or brun.get('budget_overrun') is not False or not 0 < brun.get('duration_seconds', float('inf')) <= 3300.
         or not 0 < brun.get('peak_allocated_bytes', float('inf')) <= gpu_cap):
         raise ValueError('Stage C requires complete passing fixed Stage B evidence')
+    if e3 and (brun.get('schema') != 'journal-e1-bch-stage-b-v1' or brun.get('outcome') != 'completed'
+        or brun.get('config') != stage_config(3300., True) or brun.get('data_split') != 'development'
+        or brun.get('usd') != 0 or brun.get('seeds') != [0, 1, 2]
+        or brun.get('budget_overrun') is not False
+        or not 0 < brun.get('duration_seconds', float('inf')) <= 3300.
+        or not 0 < brun.get('peak_allocated_bytes', float('inf')) <= gpu_cap):
+        raise ValueError('E3 requires completed fixed E1 B ancestry, without its quality gate')
     adir = Path(brun['stage_a_provenance']['folder'])
     a_sources, arun = validate_stage_a(adir)
     sources = {int(r['source_id']): r for r in sources_list}
-    for a in a_sources:
+    for a in a_sources if not e3 else ():
         b = sources[a['source_id']]
         if b['payload'] != a['payload'] or b['conditions'] != a['conditions']:
             raise ValueError('Stage B inherited Stage A mark or full calls differ')
@@ -360,6 +382,12 @@ def main():
     panels = {arm: {_identity(r): r for r in retained if r['arm']==arm}
               for arm in ('candidate_C1', 'frozen_C1_enrichment', 'shared_C0')}
     old, v5, sets = frozen_sets()
+    if e3:
+        for strength, fixed_count, v5_count in ((.1, 29, 27), (.2, 28, 18)):
+            fixed = list(map(tuple, sets[str(strength)]['I']))
+            if (len(fixed) != fixed_count or len(set(fixed)) != fixed_count
+                or not set(fixed) <= set(plan) or sum(v5[k] for k in fixed) != v5_count):
+                raise ValueError('E3 requires the frozen 29/28 intersection and v5 27/18 counts')
     for arm in panels:
         selected = [r for r in retained if r['arm']==arm]
         expected_keys = (set(plan) if arm != 'frozen_C1_enrichment' else
@@ -388,14 +416,27 @@ def main():
                 raise ValueError('Operationally missing comparator is not an available baseline')
         if k not in panels['shared_C0'] or panels['shared_C0'][k]['status'] not in ('ok', 'safety_blocked'):
             raise ValueError('Full same-D2 C0 panel must preserve all blocks')
+    if e3 and sum(r['status'] == 'safety_blocked' for r in panels['shared_C0'].values()) != 6:
+        raise ValueError('E3 must retain the six fixed C0 safety-checker blocks')
     inherited = read_rows(adir/'e1-t3-rows.jsonl')
-    inherited_keys = {(r['arm'], _identity(r)) for r in inherited}
+    if e3:
+        a_panel = [r for r in inherited if r['arm'] == 'candidate_C1']
+        if len(a_panel) != len(PLAN) or {_identity(r) for r in a_panel} != set(PLAN):
+            raise ValueError('E3 E1 A retention requires all twelve original C1 identities')
+        for r in a_panel:
+            k = _identity(r)
+            payload = sources[k[0]]['payload']
+            if r['status'] != 'ok' or r['payload'] != payload or set(r.get('calls', {})) != {ALPHA, BETA}:
+                raise ValueError('E3 E1 A retention full calls or original targets differ')
+            comparisons[k]['E1_A'] = _endpoint(r['calls'][ALPHA], payload, coded=True)
+            comparisons[k]['E1_A_image'] = r['image']
+    inherited_keys = set() if e3 else {(r['arm'], _identity(r)) for r in inherited}
     budget()
     out = args.output_dir.resolve()
     out.mkdir(parents=True, exist_ok=False)
     (out/'images').mkdir()
     rows, fatal = [], None
-    record = dict(schema='journal-e1-bch-stage-c-v1', method='E1-BCH59-A', stage='C',
+    record = dict(schema='journal-e3-bch-quality-select-stage-b-v1' if e3 else 'journal-e1-bch-stage-c-v1', method=method, stage=stage,
         commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=root, text=True).strip(),
         command=sys.argv, seeds=list(SEEDS), strengths=list(STRENGTHS), sources=list(ALL_IDS),
         data_split='development', usd=0, stage_b_dir=str(bdir), stage_b_commit=brun['commit'],
@@ -403,9 +444,17 @@ def main():
         comparison_sets=sets, config=dict(cap_seconds=cap, gpu_allocated_cap_bytes=gpu_cap,
             num_inference_steps=20, guidance_scale=1., eta=0., prompt='', negative_prompt='',
             scheduler='DDIM', safety_checker=True, semantic_views=7, binding='soft', roster_size=1),
-        inherited_image_rows=24, new_c1_generations_planned=60, new_c0_calls_planned=60,
-        budget_scope='900 seconds inclusive of imports/startup, validation, new generation/calls and final summaries; inherited A cost excluded',
+        inherited_image_rows=0 if e3 else 24, new_c1_generations_planned=72 if e3 else 60,
+        new_c0_calls_planned=72 if e3 else 60,
+        budget_scope='900 seconds inclusive of imports/startup, validation, new generation/calls and final summaries; cached prerequisite cost excluded',
         outcome='running', qualification='pending', human_admissibility_verdict=None)
+    if e3:
+        record.update(e3_stage_a_dir=str(selected_dir), e3_stage_a_commit=selected_run['commit'],
+            e1_stage_b_dir=str(bdir), e2_stage_a_dir=selected_run['e2_stage_a_dir'],
+            selected_mark_record=str(selected_dir/'rows.jsonl'), inherited_full_calls=0,
+            detector='E1-BCH59-A', quality_rule='retain_if_strict_else_contract_once', factor=.8,
+            e1_a_retention_record=str(adir/'e1-t3-rows.jsonl'))
+        record['config'].update(detector='E1-BCH59-A', quality_rule='retain_if_strict_else_contract_once', factor=.8)
 
     def emit(row):
         rows.append(row)
@@ -415,7 +464,7 @@ def main():
         print(json.dumps({k:row[k] for k in ('arm', 'source_id', 'strength', 'seed', 'status')}), flush=True)
 
     write(out/'run.json', record)
-    for index, row in enumerate(inherited):
+    for index, row in enumerate(inherited if not e3 else ()):
         emit(dict(row, inherited_provenance=dict(stage='A', commit=arun['commit'],
             run_json=str(adir/'run.json'), rows_jsonl=str(adir/'e1-t3-rows.jsonl'), row_index=index,
             reuse='Exact Stage A C1 pixels/full alpha+beta calls and C0 pixels/fresh E1 alpha call; not a replicate')))
@@ -468,7 +517,8 @@ def main():
                         rgb = load(row['image'])
                 else:
                     mark = sources[sid]['conditions']['clean']['image']
-                    row.update(marked_input=mark, target_source_record=str(bdir/'rows.jsonl'), attack=record['config'])
+                    row.update(marked_input=mark,
+                        target_source_record=str((selected_dir if e3 else bdir)/'rows.jsonl'), attack=record['config'])
                     budget()
                     with torch.inference_mode():
                         result = pipe(prompt='', negative_prompt='', image=Image.fromarray(load(mark)),
@@ -477,7 +527,7 @@ def main():
                             num_images_per_prompt=1, output_type='pil', return_dict=True)
                     budget()
                     rgb = np.asarray(ev.models.validate_generated(result), dtype=np.uint8)
-                    path = out/'images'/f'E1-{sid}-{strength}-{seed}.png'
+                    path = out/'images'/f'{"E3" if e3 else "E1"}-{sid}-{strength}-{seed}.png'
                     Image.fromarray(rgb).save(path)
                     row['image'] = str(path)
                     rgb = load(path)
@@ -519,20 +569,21 @@ def main():
                 emit(dict(arm=arm, source_id=key[0], strength=key[1], seed=key[2], status='failed',
                     calls={}, duration_seconds=0., error='Unrun after startup/runtime hard stop; see run.json'))
         peak = torch.cuda.max_memory_allocated() if torch is not None and torch.cuda.is_initialized() else None
-        summary = _stage_c_summary(rows, comparisons, plan, sets, v5, fatal)
+        summary = _stage_c_summary(rows, comparisons, plan, sets, v5, fatal,
+            method=method, stage=stage, pass_key=pass_key)
         record.update(peak_allocated_bytes=peak, summary=summary, duration_seconds=time.monotonic()-started)
         write(out/'summary.json', summary)
         write(out/'run.json', record)
         record.update(duration_seconds=time.monotonic()-started,
             budget_overrun=time.monotonic()-started >= cap, gpu_budget_overrun=peak is None or peak > gpu_cap)
-        summary['stage_c_pass'] = bool(summary['stage_c_pass'] and record['outcome']=='completed'
+        summary[pass_key] = bool(summary[pass_key] and record['outcome']=='completed'
             and not record['budget_overrun'] and not record['gpu_budget_overrun'])
-        record['qualification'] = 'stage_c_pass' if summary['stage_c_pass'] else 'ineligible'
+        record['qualification'] = pass_key if summary[pass_key] else 'ineligible'
         write(out/'summary.json', summary)
         write(out/'run.json', record)
         if time.monotonic()-started >= cap and not record['budget_overrun']:
             record.update(duration_seconds=time.monotonic()-started, budget_overrun=True, qualification='ineligible')
-            summary['stage_c_pass'] = False
+            summary[pass_key] = False
             write(out/'summary.json', summary)
             write(out/'run.json', record)
     return 0 if record['outcome']=='completed' else 1
