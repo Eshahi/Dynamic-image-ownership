@@ -1,0 +1,1191 @@
+{
+  "scope": "exploratory development; sources and disjoint pairs are the units; no hypothesis test",
+  "runs": {
+    "vae": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-0903-journal-vae",
+    "binding": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-0858-journal-binding"
+  },
+  "inventory": {
+    "vae": {
+      "planned": 144,
+      "present": 144,
+      "missing": [],
+      "failed": []
+    },
+    "binding": {
+      "planned": 31,
+      "present": 31,
+      "missing": [],
+      "failed": []
+    }
+  },
+  "vae": {
+    "f5/clean": {
+      "denominator": 12,
+      "completed": 12,
+      "checked": 12,
+      "found": 12,
+      "unread": 0,
+      "read_rejected": 0,
+      "both_match": 12,
+      "c0_any": 0,
+      "c0_completed": 12,
+      "wrong_any": 0,
+      "input_metrics": {
+        "psnr_db": {
+          "n": 0
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 1.0,
+          "median": 1.0,
+          "sd": 0.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.0,
+          "median": 0.0,
+          "sd": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      },
+      "source_metrics": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 44.7100560519823,
+          "median": 44.97943523611539,
+          "sd": 0.7223833513110025,
+          "min": 43.3316076743731,
+          "max": 45.38380356623599
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.9839576971455137,
+          "median": 0.9845984501729295,
+          "sd": 0.004844798423754011,
+          "min": 0.9746113498635791,
+          "max": 0.9900837357344751
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.01732379636572053,
+          "median": 0.015251636039465666,
+          "sd": 0.012429454420050778,
+          "min": 0.003565623424947262,
+          "max": 0.05016022548079491
+        }
+      },
+      "proxy": {
+        "0.2": {
+          "qualified": 12,
+          "checked": 12
+        },
+        "0.3": {
+          "qualified": 12,
+          "checked": 12
+        }
+      },
+      "failures": [],
+      "strict_quality": 12
+    },
+    "f5/sd15_vae": {
+      "denominator": 12,
+      "completed": 12,
+      "checked": 12,
+      "found": 12,
+      "unread": 0,
+      "read_rejected": 0,
+      "both_match": 0,
+      "c0_any": 0,
+      "c0_completed": 12,
+      "wrong_any": 0,
+      "input_metrics": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 25.171905487883322,
+          "median": 25.288647822969203,
+          "sd": 2.0288297312229666,
+          "min": 19.692170290285077,
+          "max": 27.23994495279069
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.6783806644209343,
+          "median": 0.7125249712083367,
+          "sd": 0.10386957413329251,
+          "min": 0.47765781397555834,
+          "max": 0.7904616103323597
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.08915425340334575,
+          "median": 0.08577534928917885,
+          "sd": 0.02086814845684086,
+          "min": 0.06472939997911453,
+          "max": 0.14346005022525787
+        }
+      },
+      "source_metrics": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 25.182596814054676,
+          "median": 25.297210876945375,
+          "sd": 2.0324158805884522,
+          "min": 19.69141908545016,
+          "max": 27.258483201599226
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.6814833100437555,
+          "median": 0.7178997436435078,
+          "sd": 0.10537455683983799,
+          "min": 0.4799505810076449,
+          "max": 0.7935557070028663
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.10312000041206677,
+          "median": 0.09839356690645218,
+          "sd": 0.023333892016827153,
+          "min": 0.06734444200992584,
+          "max": 0.1516357809305191
+        }
+      },
+      "proxy": {
+        "0.2": {
+          "qualified": 12,
+          "checked": 12
+        },
+        "0.3": {
+          "qualified": 12,
+          "checked": 12
+        }
+      },
+      "failures": []
+    },
+    "f5/sdxl_vae": {
+      "denominator": 12,
+      "completed": 12,
+      "checked": 10,
+      "found": 12,
+      "unread": 2,
+      "read_rejected": 0,
+      "both_match": 0,
+      "c0_any": 0,
+      "c0_completed": 12,
+      "wrong_any": 0,
+      "input_metrics": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 26.604883346214596,
+          "median": 26.467605102361617,
+          "sd": 2.21143996384943,
+          "min": 20.85767597492247,
+          "max": 28.894636756964513
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.7265053895918434,
+          "median": 0.7604412490096641,
+          "sd": 0.10146835220658088,
+          "min": 0.5385357061568558,
+          "max": 0.8405198200357579
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.0683049854512016,
+          "median": 0.06116286665201187,
+          "sd": 0.022444839720700577,
+          "min": 0.047916918992996216,
+          "max": 0.12158621847629547
+        }
+      },
+      "source_metrics": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 26.636967166984974,
+          "median": 26.495603208994652,
+          "sd": 2.2237703364057753,
+          "min": 20.86301864454271,
+          "max": 28.94494208245728
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.7319604093136141,
+          "median": 0.7682073486423833,
+          "sd": 0.10280051658115441,
+          "min": 0.5438395537824631,
+          "max": 0.8478896336071245
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.07531749953826268,
+          "median": 0.07579343765974045,
+          "sd": 0.01964473926751079,
+          "min": 0.0543597936630249,
+          "max": 0.12306176126003265
+        }
+      },
+      "proxy": {
+        "0.2": {
+          "qualified": 12,
+          "checked": 10
+        },
+        "0.3": {
+          "qualified": 12,
+          "checked": 10
+        }
+      },
+      "failures": [
+        {
+          "source_id": 4795,
+          "call": {
+            "outcome": "semantic_only",
+            "watermark_found": true,
+            "semantic": {
+              "found": true,
+              "read": false,
+              "content_match": true,
+              "content_status": "match",
+              "decoded_code": "ab4427ac",
+              "score": 6.989572664426927,
+              "threshold": 4.982033056390042,
+              "recomputed_score": 6.989572664426927,
+              "recomputed_threshold": 4.982033056390042,
+              "decoded_score": 7.862776671437678,
+              "decoded_threshold": 8.259326826136963,
+              "code_distance": 0,
+              "corrected_distance": 0.0,
+              "decoding_error_rate": null,
+              "soft_distance": null
+            },
+            "instance": {
+              "found": false,
+              "read": false,
+              "content_match": false,
+              "content_status": null,
+              "decoded_code": "a5f4514b",
+              "score": 0.8427207929562945,
+              "threshold": 4.982033056390042,
+              "recomputed_score": 0.8427207929562945,
+              "recomputed_threshold": 4.982033056390042,
+              "decoded_score": 3.3382048418149854,
+              "decoded_threshold": 8.259326826136963,
+              "code_distance": null,
+              "corrected_distance": null,
+              "decoding_error_rate": null,
+              "soft_distance": null
+            }
+          },
+          "quality": {
+            "mse_rgb8": 148.65580368041992,
+            "psnr_db": 26.40898491678257,
+            "psnr_infinite": false,
+            "ssim_rgb": 0.631986663753263,
+            "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+            "lpips": 0.0937456265091896
+          }
+        },
+        {
+          "source_id": 6012,
+          "call": {
+            "outcome": "semantic_only",
+            "watermark_found": true,
+            "semantic": {
+              "found": true,
+              "read": false,
+              "content_match": true,
+              "content_status": "match",
+              "decoded_code": "a8b6b498",
+              "score": 5.7861632396746465,
+              "threshold": 4.982033056390042,
+              "recomputed_score": 5.7861632396746465,
+              "recomputed_threshold": 4.982033056390042,
+              "decoded_score": 6.7448334084021635,
+              "decoded_threshold": 8.259326826136963,
+              "code_distance": 0,
+              "corrected_distance": 0.0,
+              "decoding_error_rate": null,
+              "soft_distance": null
+            },
+            "instance": {
+              "found": false,
+              "read": false,
+              "content_match": false,
+              "content_status": null,
+              "decoded_code": "4a93c021",
+              "score": -0.3420610193300229,
+              "threshold": 4.982033056390042,
+              "recomputed_score": -0.3420610193300229,
+              "recomputed_threshold": 4.982033056390042,
+              "decoded_score": 4.0944309137445,
+              "decoded_threshold": 8.259326826136963,
+              "code_distance": null,
+              "corrected_distance": null,
+              "decoding_error_rate": null,
+              "soft_distance": null
+            }
+          },
+          "quality": {
+            "mse_rgb8": 159.30598958333334,
+            "psnr_db": 26.10848256164775,
+            "psnr_infinite": false,
+            "ssim_rgb": 0.763253934254798,
+            "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+            "lpips": 0.05538216233253479
+          }
+        }
+      ]
+    },
+    "v5/clean": {
+      "denominator": 12,
+      "completed": 12,
+      "checked": 12,
+      "found": 12,
+      "unread": 0,
+      "read_rejected": 0,
+      "both_match": 12,
+      "c0_any": 0,
+      "c0_completed": 12,
+      "wrong_any": 0,
+      "input_metrics": {
+        "psnr_db": {
+          "n": 0
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 1.0,
+          "median": 1.0,
+          "sd": 0.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.0,
+          "median": 0.0,
+          "sd": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      },
+      "source_metrics": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 37.11696549258739,
+          "median": 36.97994525155426,
+          "sd": 1.6973752829216846,
+          "min": 35.25006237296638,
+          "max": 40.710485177363076
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.9790208950855532,
+          "median": 0.9796562799674448,
+          "sd": 0.0036176860671845337,
+          "min": 0.9719024351216968,
+          "max": 0.9842284378409323
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.01762116343403856,
+          "median": 0.015582737512886524,
+          "sd": 0.007623740750252712,
+          "min": 0.010721411556005478,
+          "max": 0.03832980990409851
+        }
+      },
+      "proxy": {
+        "0.2": {
+          "qualified": 12,
+          "checked": 12
+        },
+        "0.3": {
+          "qualified": 12,
+          "checked": 12
+        }
+      },
+      "failures": [],
+      "strict_quality": 12
+    },
+    "v5/sd15_vae": {
+      "denominator": 12,
+      "completed": 12,
+      "checked": 12,
+      "found": 12,
+      "unread": 0,
+      "read_rejected": 0,
+      "both_match": 0,
+      "c0_any": 0,
+      "c0_completed": 12,
+      "wrong_any": 0,
+      "input_metrics": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 25.104673839068525,
+          "median": 25.13728120036472,
+          "sd": 2.0242828393340817,
+          "min": 19.661639296307168,
+          "max": 27.276310994915875
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.6866334559698014,
+          "median": 0.7224599405206968,
+          "sd": 0.10531499642189177,
+          "min": 0.49085979562194487,
+          "max": 0.7995011321354369
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.07540846212456624,
+          "median": 0.07364661991596222,
+          "sd": 0.02016315848171629,
+          "min": 0.05585428327322006,
+          "max": 0.1280457079410553
+        }
+      },
+      "source_metrics": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 25.095259498146223,
+          "median": 25.14205094581441,
+          "sd": 2.0293269219807937,
+          "min": 19.652642810478063,
+          "max": 27.282317192856695
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.6897829293509656,
+          "median": 0.72476916861628,
+          "sd": 0.10747167021855127,
+          "min": 0.4919739216628572,
+          "max": 0.803824259538926
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.07815153648455937,
+          "median": 0.07319457828998566,
+          "sd": 0.018838132505429445,
+          "min": 0.06191765516996384,
+          "max": 0.13018906116485596
+        }
+      },
+      "proxy": {
+        "0.2": {
+          "qualified": 12,
+          "checked": 12
+        },
+        "0.3": {
+          "qualified": 12,
+          "checked": 12
+        }
+      },
+      "failures": []
+    },
+    "v5/sdxl_vae": {
+      "denominator": 12,
+      "completed": 12,
+      "checked": 12,
+      "found": 12,
+      "unread": 0,
+      "read_rejected": 0,
+      "both_match": 0,
+      "c0_any": 0,
+      "c0_completed": 12,
+      "wrong_any": 0,
+      "input_metrics": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 26.481333757199945,
+          "median": 26.358820077490773,
+          "sd": 2.163465863874486,
+          "min": 20.773837226917074,
+          "max": 28.78670764172602
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.7292622873090532,
+          "median": 0.76613814650518,
+          "sd": 0.10257304806861112,
+          "min": 0.5423905368114778,
+          "max": 0.8447849407417751
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.06871609731266896,
+          "median": 0.061216387897729874,
+          "sd": 0.022328317614413784,
+          "min": 0.04537365958094597,
+          "max": 0.11845944821834564
+        }
+      },
+      "source_metrics": {
+        "psnr_db": {
+          "n": 12,
+          "mean": 26.453465109709743,
+          "median": 26.376998942226518,
+          "sd": 2.171277438337559,
+          "min": 20.760172909778394,
+          "max": 28.78417452093082
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "mean": 0.7320632189977312,
+          "median": 0.7694666710658584,
+          "sd": 0.1042291894392001,
+          "min": 0.5432839262589936,
+          "max": 0.8499381917924884
+        },
+        "lpips": {
+          "n": 12,
+          "mean": 0.06914880219846964,
+          "median": 0.05966461822390556,
+          "sd": 0.02108636359160142,
+          "min": 0.04868127033114433,
+          "max": 0.11963985115289688
+        }
+      },
+      "proxy": {
+        "0.2": {
+          "qualified": 12,
+          "checked": 12
+        },
+        "0.3": {
+          "qualified": 12,
+          "checked": 12
+        }
+      },
+      "failures": []
+    }
+  },
+  "paired": {
+    "clean": {
+      "complete_sources": 12,
+      "both": 12,
+      "f5_only": 0,
+      "v5_only": 0,
+      "neither": 0
+    },
+    "sd15_vae": {
+      "complete_sources": 12,
+      "both": 12,
+      "f5_only": 0,
+      "v5_only": 0,
+      "neither": 0
+    },
+    "sdxl_vae": {
+      "complete_sources": 12,
+      "both": 10,
+      "f5_only": 0,
+      "v5_only": 2,
+      "neither": 0
+    }
+  },
+  "binding": {
+    "donor_positive": {
+      "planned_attempts": 6,
+      "completed": 6,
+      "failed": 0,
+      "semantic_exact": 6,
+      "both_exact": 6,
+      "semantic_found": 6,
+      "both_found": 6,
+      "checked_semantic": 6,
+      "combined_both_match": 6,
+      "false_donor_full": 0,
+      "mode_outputs": {
+        "combined": {
+          "both_match": 6
+        },
+        "semantic_only": {
+          "both_match": 6
+        },
+        "perceptual_only": {
+          "both_match": 6
+        },
+        "none": {
+          "both_match": 6
+        }
+      },
+      "subsets": {
+        "all": {
+          "denominator": 6,
+          "completed": 6,
+          "checked_semantic": 6,
+          "combined_both_match": 6,
+          "semantic_rejection": 0,
+          "instance_own_rejection": 0,
+          "semantic_disabled_read_presence": 6,
+          "both_disabled_read_presence": 6
+        },
+        "strict_semantic_delivered": {
+          "denominator": 6,
+          "completed": 6,
+          "checked_semantic": 6,
+          "combined_both_match": 6,
+          "semantic_rejection": 0,
+          "instance_own_rejection": 0,
+          "semantic_disabled_read_presence": 6,
+          "both_disabled_read_presence": 6
+        },
+        "strict_both_delivered": {
+          "denominator": 6,
+          "completed": 6,
+          "checked_semantic": 6,
+          "combined_both_match": 6,
+          "semantic_rejection": 0,
+          "instance_own_rejection": 0,
+          "semantic_disabled_read_presence": 6,
+          "both_disabled_read_presence": 6
+        }
+      },
+      "proxy": {
+        "0.2": {
+          "qualified": 0,
+          "semantic_exact": 0,
+          "both_exact": 0,
+          "checked_semantic": 0,
+          "combined_both_match": 0
+        },
+        "0.3": {
+          "qualified": 0,
+          "semantic_exact": 0,
+          "both_exact": 0,
+          "checked_semantic": 0,
+          "combined_both_match": 0
+        }
+      },
+      "recipient_metrics": {
+        "psnr_db": {
+          "n": 6,
+          "mean": 7.3182082554330785,
+          "median": 7.076206830829632,
+          "sd": 0.7061688655791519,
+          "min": 6.690623786143942,
+          "max": 8.220682988728932
+        },
+        "ssim_rgb": {
+          "n": 6,
+          "mean": 0.16094503001583685,
+          "median": 0.1348071493110975,
+          "sd": 0.07803363753198489,
+          "min": 0.11216327208060384,
+          "max": 0.31893536218180824
+        },
+        "lpips": {
+          "n": 6,
+          "mean": 0.846237063407898,
+          "median": 0.8490441143512726,
+          "sd": 0.034401559902923415,
+          "min": 0.7987432479858398,
+          "max": 0.8966712951660156
+        }
+      }
+    },
+    "recipient_sham": {
+      "planned_attempts": 6,
+      "completed": 6,
+      "failed": 0,
+      "semantic_exact": 0,
+      "both_exact": 0,
+      "semantic_found": 0,
+      "both_found": 0,
+      "checked_semantic": 0,
+      "combined_both_match": 0,
+      "false_donor_full": 0,
+      "mode_outputs": {
+        "combined": {
+          "neither_match": 6
+        },
+        "semantic_only": {
+          "neither_match": 6
+        },
+        "perceptual_only": {
+          "neither_match": 6
+        },
+        "none": {
+          "neither_match": 6
+        }
+      },
+      "subsets": {
+        "all": {
+          "denominator": 6,
+          "completed": 6,
+          "checked_semantic": 0,
+          "combined_both_match": 0,
+          "semantic_rejection": 0,
+          "instance_own_rejection": 0,
+          "semantic_disabled_read_presence": 0,
+          "both_disabled_read_presence": 0
+        },
+        "strict_semantic_delivered": {
+          "denominator": 0,
+          "completed": 0,
+          "checked_semantic": 0,
+          "combined_both_match": 0,
+          "semantic_rejection": 0,
+          "instance_own_rejection": 0,
+          "semantic_disabled_read_presence": 0,
+          "both_disabled_read_presence": 0
+        },
+        "strict_both_delivered": {
+          "denominator": 0,
+          "completed": 0,
+          "checked_semantic": 0,
+          "combined_both_match": 0,
+          "semantic_rejection": 0,
+          "instance_own_rejection": 0,
+          "semantic_disabled_read_presence": 0,
+          "both_disabled_read_presence": 0
+        }
+      },
+      "proxy": {
+        "0.2": {
+          "qualified": 6,
+          "semantic_exact": 0,
+          "both_exact": 0,
+          "checked_semantic": 0,
+          "combined_both_match": 0
+        },
+        "0.3": {
+          "qualified": 6,
+          "semantic_exact": 0,
+          "both_exact": 0,
+          "checked_semantic": 0,
+          "combined_both_match": 0
+        }
+      },
+      "recipient_metrics": {
+        "psnr_db": {
+          "n": 0
+        },
+        "ssim_rgb": {
+          "n": 6,
+          "mean": 1.0,
+          "median": 1.0,
+          "sd": 0.0,
+          "min": 1.0,
+          "max": 1.0
+        },
+        "lpips": {
+          "n": 6,
+          "mean": 0.0,
+          "median": 0.0,
+          "sd": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      }
+    },
+    "residual_0.5": {
+      "planned_attempts": 6,
+      "completed": 6,
+      "failed": 0,
+      "semantic_exact": 0,
+      "both_exact": 0,
+      "semantic_found": 0,
+      "both_found": 0,
+      "checked_semantic": 0,
+      "combined_both_match": 0,
+      "false_donor_full": 0,
+      "mode_outputs": {
+        "combined": {
+          "neither_match": 6
+        },
+        "semantic_only": {
+          "neither_match": 6
+        },
+        "perceptual_only": {
+          "neither_match": 6
+        },
+        "none": {
+          "neither_match": 6
+        }
+      },
+      "subsets": {
+        "all": {
+          "denominator": 6,
+          "completed": 6,
+          "checked_semantic": 0,
+          "combined_both_match": 0,
+          "semantic_rejection": 0,
+          "instance_own_rejection": 0,
+          "semantic_disabled_read_presence": 0,
+          "both_disabled_read_presence": 0
+        },
+        "strict_semantic_delivered": {
+          "denominator": 0,
+          "completed": 0,
+          "checked_semantic": 0,
+          "combined_both_match": 0,
+          "semantic_rejection": 0,
+          "instance_own_rejection": 0,
+          "semantic_disabled_read_presence": 0,
+          "both_disabled_read_presence": 0
+        },
+        "strict_both_delivered": {
+          "denominator": 0,
+          "completed": 0,
+          "checked_semantic": 0,
+          "combined_both_match": 0,
+          "semantic_rejection": 0,
+          "instance_own_rejection": 0,
+          "semantic_disabled_read_presence": 0,
+          "both_disabled_read_presence": 0
+        }
+      },
+      "proxy": {
+        "0.2": {
+          "qualified": 6,
+          "semantic_exact": 0,
+          "both_exact": 0,
+          "checked_semantic": 0,
+          "combined_both_match": 0
+        },
+        "0.3": {
+          "qualified": 6,
+          "semantic_exact": 0,
+          "both_exact": 0,
+          "checked_semantic": 0,
+          "combined_both_match": 0
+        }
+      },
+      "recipient_metrics": {
+        "psnr_db": {
+          "n": 6,
+          "mean": 50.028661793906615,
+          "median": 50.14121963059465,
+          "sd": 0.36332194894148856,
+          "min": 49.300925814464456,
+          "max": 50.27408926979297
+        },
+        "ssim_rgb": {
+          "n": 6,
+          "mean": 0.9954361424910428,
+          "median": 0.9951778602873989,
+          "sd": 0.0013979783658189177,
+          "min": 0.9933723429384828,
+          "max": 0.9971938031157446
+        },
+        "lpips": {
+          "n": 6,
+          "mean": 0.0027425381704233587,
+          "median": 0.0015942915342748165,
+          "sd": 0.0026931361561396234,
+          "min": 0.0010383892804384232,
+          "max": 0.008029883727431297
+        }
+      }
+    },
+    "residual_1.0": {
+      "planned_attempts": 6,
+      "completed": 6,
+      "failed": 0,
+      "semantic_exact": 0,
+      "both_exact": 0,
+      "semantic_found": 1,
+      "both_found": 1,
+      "checked_semantic": 0,
+      "combined_both_match": 0,
+      "false_donor_full": 0,
+      "mode_outputs": {
+        "combined": {
+          "content_mismatch": 4,
+          "neither_match": 2
+        },
+        "semantic_only": {
+          "content_uncertain": 1,
+          "instance_only": 3,
+          "neither_match": 2
+        },
+        "perceptual_only": {
+          "content_mismatch": 4,
+          "neither_match": 2
+        },
+        "none": {
+          "both_match": 1,
+          "instance_only": 3,
+          "neither_match": 2
+        }
+      },
+      "subsets": {
+        "all": {
+          "denominator": 6,
+          "completed": 6,
+          "checked_semantic": 0,
+          "combined_both_match": 0,
+          "semantic_rejection": 1,
+          "instance_own_rejection": 4,
+          "semantic_disabled_read_presence": 1,
+          "both_disabled_read_presence": 1
+        },
+        "strict_semantic_delivered": {
+          "denominator": 0,
+          "completed": 0,
+          "checked_semantic": 0,
+          "combined_both_match": 0,
+          "semantic_rejection": 0,
+          "instance_own_rejection": 0,
+          "semantic_disabled_read_presence": 0,
+          "both_disabled_read_presence": 0
+        },
+        "strict_both_delivered": {
+          "denominator": 0,
+          "completed": 0,
+          "checked_semantic": 0,
+          "combined_both_match": 0,
+          "semantic_rejection": 0,
+          "instance_own_rejection": 0,
+          "semantic_disabled_read_presence": 0,
+          "both_disabled_read_presence": 0
+        }
+      },
+      "proxy": {
+        "0.2": {
+          "qualified": 6,
+          "semantic_exact": 0,
+          "both_exact": 0,
+          "checked_semantic": 0,
+          "combined_both_match": 0
+        },
+        "0.3": {
+          "qualified": 6,
+          "semantic_exact": 0,
+          "both_exact": 0,
+          "checked_semantic": 0,
+          "combined_both_match": 0
+        }
+      },
+      "recipient_metrics": {
+        "psnr_db": {
+          "n": 6,
+          "mean": 44.9128560731669,
+          "median": 45.05707576782248,
+          "sd": 0.43383475301687596,
+          "min": 44.04738140762787,
+          "max": 45.20071739817696
+        },
+        "ssim_rgb": {
+          "n": 6,
+          "mean": 0.9855207349135071,
+          "median": 0.9845045780268666,
+          "sd": 0.004287447910515685,
+          "min": 0.9792475621482133,
+          "max": 0.9911616782115784
+        },
+        "lpips": {
+          "n": 6,
+          "mean": 0.015311119146645069,
+          "median": 0.009851107839494944,
+          "sd": 0.017034785419923745,
+          "min": 0.004381523933261633,
+          "max": 0.04931171238422394
+        }
+      }
+    },
+    "public_donor_synthesis": {
+      "planned_attempts": 6,
+      "completed": 6,
+      "failed": 0,
+      "semantic_exact": 5,
+      "both_exact": 5,
+      "semantic_found": 6,
+      "both_found": 6,
+      "checked_semantic": 0,
+      "combined_both_match": 0,
+      "false_donor_full": 0,
+      "mode_outputs": {
+        "combined": {
+          "content_mismatch": 6
+        },
+        "semantic_only": {
+          "content_mismatch": 3,
+          "content_uncertain": 3
+        },
+        "perceptual_only": {
+          "content_mismatch": 6
+        },
+        "none": {
+          "both_match": 6
+        }
+      },
+      "subsets": {
+        "all": {
+          "denominator": 6,
+          "completed": 6,
+          "checked_semantic": 0,
+          "combined_both_match": 0,
+          "semantic_rejection": 6,
+          "instance_own_rejection": 6,
+          "semantic_disabled_read_presence": 6,
+          "both_disabled_read_presence": 6
+        },
+        "strict_semantic_delivered": {
+          "denominator": 5,
+          "completed": 5,
+          "checked_semantic": 0,
+          "combined_both_match": 0,
+          "semantic_rejection": 5,
+          "instance_own_rejection": 5,
+          "semantic_disabled_read_presence": 5,
+          "both_disabled_read_presence": 5
+        },
+        "strict_both_delivered": {
+          "denominator": 5,
+          "completed": 5,
+          "checked_semantic": 0,
+          "combined_both_match": 0,
+          "semantic_rejection": 5,
+          "instance_own_rejection": 5,
+          "semantic_disabled_read_presence": 5,
+          "both_disabled_read_presence": 5
+        }
+      },
+      "proxy": {
+        "0.2": {
+          "qualified": 6,
+          "semantic_exact": 5,
+          "both_exact": 5,
+          "checked_semantic": 0,
+          "combined_both_match": 0
+        },
+        "0.3": {
+          "qualified": 6,
+          "semantic_exact": 5,
+          "both_exact": 5,
+          "checked_semantic": 0,
+          "combined_both_match": 0
+        }
+      },
+      "recipient_metrics": {
+        "psnr_db": {
+          "n": 6,
+          "mean": 44.56032992136883,
+          "median": 45.002198140571664,
+          "sd": 0.9526678115751148,
+          "min": 43.11885141458865,
+          "max": 45.374340803491634
+        },
+        "ssim_rgb": {
+          "n": 6,
+          "mean": 0.9822972512390388,
+          "median": 0.981789003118629,
+          "sd": 0.005005798232824075,
+          "min": 0.9759306235821075,
+          "max": 0.9893421778967213
+        },
+        "lpips": {
+          "n": 6,
+          "mean": 0.020349258401741583,
+          "median": 0.015917930752038956,
+          "sd": 0.01520132365767573,
+          "min": 0.008265006355941296,
+          "max": 0.048906952142715454
+        }
+      }
+    },
+    "public_recipient_authorization_demo": {
+      "planned_attempts": 1,
+      "completed": 1,
+      "failed": 0,
+      "semantic_exact": 1,
+      "both_exact": 1,
+      "semantic_found": 1,
+      "both_found": 1,
+      "checked_semantic": 1,
+      "combined_both_match": 1,
+      "false_donor_full": 0,
+      "mode_outputs": {
+        "combined": {
+          "both_match": 1
+        },
+        "semantic_only": {
+          "both_match": 1
+        },
+        "perceptual_only": {
+          "both_match": 1
+        },
+        "none": {
+          "both_match": 1
+        }
+      },
+      "subsets": {
+        "all": {
+          "denominator": 1,
+          "completed": 1,
+          "checked_semantic": 1,
+          "combined_both_match": 1,
+          "semantic_rejection": 0,
+          "instance_own_rejection": 0,
+          "semantic_disabled_read_presence": 1,
+          "both_disabled_read_presence": 1
+        },
+        "strict_semantic_delivered": {
+          "denominator": 1,
+          "completed": 1,
+          "checked_semantic": 1,
+          "combined_both_match": 1,
+          "semantic_rejection": 0,
+          "instance_own_rejection": 0,
+          "semantic_disabled_read_presence": 1,
+          "both_disabled_read_presence": 1
+        },
+        "strict_both_delivered": {
+          "denominator": 1,
+          "completed": 1,
+          "checked_semantic": 1,
+          "combined_both_match": 1,
+          "semantic_rejection": 0,
+          "instance_own_rejection": 0,
+          "semantic_disabled_read_presence": 1,
+          "both_disabled_read_presence": 1
+        }
+      },
+      "proxy": {
+        "0.2": {
+          "qualified": 1,
+          "semantic_exact": 1,
+          "both_exact": 1,
+          "checked_semantic": 1,
+          "combined_both_match": 1
+        },
+        "0.3": {
+          "qualified": 1,
+          "semantic_exact": 1,
+          "both_exact": 1,
+          "checked_semantic": 1,
+          "combined_both_match": 1
+        }
+      },
+      "recipient_metrics": {
+        "psnr_db": {
+          "n": 1,
+          "mean": 44.98378065342685,
+          "median": 44.98378065342685,
+          "sd": null,
+          "min": 44.98378065342685,
+          "max": 44.98378065342685
+        },
+        "ssim_rgb": {
+          "n": 1,
+          "mean": 0.9893904530454782,
+          "median": 0.9893904530454782,
+          "sd": null,
+          "min": 0.9893904530454782,
+          "max": 0.9893904530454782
+        },
+        "lpips": {
+          "n": 1,
+          "mean": 0.008321907371282578,
+          "median": 0.008321907371282578,
+          "sd": null,
+          "min": 0.008321907371282578,
+          "max": 0.008321907371282578
+        }
+      }
+    }
+  }
+}

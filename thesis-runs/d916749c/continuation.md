@@ -1,5 +1,9 @@
 # Current continuation record
 
+## Journal discovery supplement, 2026-10-10
+
+Two fixed USD 0 development probes completed: 144 VAE and 31 binding image rows. F5 SDXL-VAE checked recovery is 10/12 versus v5 12/12, below the 11/12 screen. Five exact donor q/h deliveries are rejected; public recipient synthesis is accepted 1/1. Prioritize readable-code generalization and WAM feasibility before broader diffusion. See research/journal-upgrade-20261009/discovery-report.md and plan.md. Frozen F5/M2 stay unchanged; human M2 acceptance remains pending. No held-out image, protected file or paid action. Authoritative STATE remains in MAIN; older continuation restrictions below are historical.
+
 ## Updated algorithm pilot completed, 2026-09-30
 
 The user's direct request to design and execute an experiment from their updated algorithm resumed this bounded task only. Supplied DCT-QIM v2 files were preserved unchanged. One official CPU experiment c4-qim-rgb-dev-001 executed the independently reviewed clean commit 2e05d926ec9eb889116a60be19fe5345211b512b; canonical manifest 5532fe6fc5f7c88de4535a3d097fdda566e409dee1a8baf483c90c59b3f98b42. All ten reserved development sources and130calls completed. Native engineering joint outcome10/10; intended-owner detection native10/10, noise10/10, resize9/10, JPEG0/10, one-pixel shift0/10. Mean PSNR50.346377dB/SSIM0.996239; LPIPSNOT_RUN, full quality conjunctionNOT_EVALUABLE. Independent retained-output audit found no blocking inconsistency and verified file hashes/counts, without decoding or scientific rerun. See reports/dev/c4-qim-rgb-dev-001/result.md and audits/c4-qim-rgb-review-20260930/review.md.
