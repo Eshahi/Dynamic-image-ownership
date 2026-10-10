@@ -96,4 +96,15 @@ sdxl_vae: mean signed alpha 0.4226, mean signed host projection 0.0077, mean sig
 
 ## R1–R4 screen
 
-Screen not supplied to this analysis. All 48 planned source/configuration identities remain not evaluated here; no survivor or candidate ranking is asserted. Re-run this same script with --screen-run after completion.
+Run `W:\Prrojects\image ownership\THESIS_GUIDE_OFFLINE_v5\.thesis-build\dev-runs\20261010-0951-readability-screen` at `6a25cd5c5d1ac1c19e63fca6ab96f4cbf6a44844`: completed.
+
+| Config | Status counts (12 planned) | Strict quality | Clean eligible | SD1.5 joint | SDXL joint | Negative detections / evaluated | Advancement |
+|---|---|---:|---:|---:|---:|---:|---|
+| R1 | {'ok': 12} | 12/12 | 9/12 | 11/12 | 3/12 | 0 / 72 | killed |
+| R2 | {'ok': 12} | 12/12 | 9/12 | 12/12 | 12/12 | 0 / 72 | killed |
+| R3 | {'ok': 12} | 12/12 | 9/12 | 12/12 | 12/12 | 0 / 72 | killed |
+| R4 | {'ok': 12} | 12/12 | 8/12 | 12/12 | 12/12 | 0 / 72 | killed |
+
+Ranked survivors: []. Rank order is SDXL joint exact count, minimum reconstructed fixed-q score, lower mean clean LPIPS, then R1–R4 order. A VAE-screen survivor still requires matched T3 continuity and T4/T5/delivered-binding follow-up; this report cannot promote a final method.
+
+Measured physical steps: 1228; accounted logical steps: 4800/4800; skipped stationary steps: 3572. Active optimization 2116.6710 s; evaluation 304.4250 s; invocation wall duration 2455.6560 s. Resumed wall durations may exclude earlier invocations; active counters are cumulative. Proxy LPIPS <=.30/<=.20 subsets retain twelve-source denominators in JSON; human admissibility remains missing.

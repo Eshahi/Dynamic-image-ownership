@@ -2,6 +2,8 @@
 
 2026-10-10. Prospective design by Codex design agent. No experiment or new gate verdict is recorded here. Frozen F5 r2, its reader and historical M2 remain unchanged. This is a four-configuration development screen of an **embedding-only refinement**, not a new detector, calibration, latent-generation method, or authorization mechanism.
 
+**Pre-execution corrections:** [payload amendment](readability-payload-amendment.md) supersedes the original-h and already-feasible exact-clean assumptions below: q is the recorded intended code, h is the frozen native-decoded operational target, and original embedded h is unknown. [Compute amendment](readability-compute-amendment.md) supersedes the 60-minute optimization cap with 10,800 seconds and specifies identical-forward checkpointing and exact stationary shortcuts. The historical text below is retained to make those corrections visible. Neither correction changes numerical detector thresholds or the four fixed configurations.
+
 ## Decision and evidence
 
 Use a differentiable reconstruction channel in the per-image embedding objective, targeting the actual fixed-payload correlation and all 32 decoding decisions. Start with the existing F5 mark and retain its exact q and h. Do not increase chip amplitude indiscriminately, replace q with the reconstructed image's code, reduce payload length, change the DCT band, add redundancy, or lower thresholds.
