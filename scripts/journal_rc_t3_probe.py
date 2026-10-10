@@ -24,6 +24,60 @@ SEEDS = (0, 1, 2)
 CAP = 5400.
 SCREEN = MAIN / ".thesis-build/dev-runs/20261010-1035-rc-screen"
 BINDING = MAIN / ".thesis-build/dev-runs/20261010-1040-rc-binding"
+D2_PRIOR = MAIN / ".thesis-build/dev-runs/20261010-1051-rc3-t3"
+D2_CAP = 1800.
+
+
+def d2_prerequisites(screen, binding, prior_path):
+    from journal_native_writer import summarize as writer_summary
+    from journal_binding_probe import pairs, ARMS
+    sr = json.loads((screen / "run.json").read_text(encoding="utf-8"))
+    rows = read_rows(screen / "rows.jsonl")
+    if (len(rows) != 12 or {r.get("source_id") for r in rows} != set(IDS) or
+            any(r.get("status") != "ok" or r.get("config") != "D2" for r in rows)):
+        raise ValueError("D2 requires the exact twelve unique completed writer sources")
+    for row in rows:
+        sid = row["source_id"]
+        if (row.get("source_image") != str(SOURCES[sid]) or
+                Path(row["conditions"]["clean"]["image"]).resolve() !=
+                (screen / "images" / f"D2-{sid}-C1-clean.png").resolve()):
+            raise ValueError("D2 source/clean-image paths differ from fixed writer output")
+    counts = writer_summary(rows)
+    if (sr.get("schema") != "journal-native-writer-v1" or
+            sr.get("config", {}).get("candidate") != "D2" or sr.get("outcome") != "completed" or
+            not 0 <= float(sr["duration_seconds"]) <= 3300 or sr.get("budget_overrun") or
+            not counts["prerequisite_pass"]):
+        raise ValueError("D2 writer must independently pass all clean/VAE prerequisites within 3300 seconds")
+    # These panels establish unchanged decoder compatibility, not new-writer T4 efficacy.
+    cached = read_rows(SCREEN / "rows.jsonl")
+    cr = json.loads((SCREEN / "run.json").read_text(encoding="utf-8"))
+    compatibility = [r for r in cached if r.get("arm") == "frozen_clean_compatibility"]
+    br = json.loads((binding / "run.json").read_text(encoding="utf-8"))
+    binding_rows = read_rows(binding / "rows.jsonl")
+    expected = {(d, r, arm) for d, r in pairs() for arm in ARMS} | {(*pairs()[0], "public_recipient_authorization_demo")}
+    actual = [(r["donor_id"], r["recipient_id"], r["arm"]) for r in binding_rows]
+    if (len(compatibility) != 12 or {r["source_id"] for r in compatibility} != set(IDS) or
+            any(r.get("status") != "ok" or
+                r["calls"]["combined"]["outcome"] != "both_match" for r in compatibility) or
+            len(actual) != 31 or set(actual) != expected or
+            any(r.get("status") != "ok" for r in binding_rows)):
+        raise ValueError("D2 requires unchanged twelve decoder checks and exact 31-row cached binding panel")
+    bc = binding_summary(binding_rows)
+    if (binding.resolve() != BINDING.resolve() or cr.get("method") != "F5-RC1" or
+            cr.get("phase") != "screen" or br.get("method") != "F5-RC1" or
+            br.get("phase") != "cached-binding" or
+            any(r.get("outcome") != "completed" or r.get("budget_overrun") for r in (cr, br)) or
+            float(cr["duration_seconds"])+float(br["duration_seconds"]) > 1800 or not bc["continuity_pass"]):
+        raise ValueError("Unchanged cached decoder/binding prerequisites do not pass")
+    if prior_path is None or prior_path.resolve() != D2_PRIOR.resolve():
+        raise ValueError("D2 requires the fixed completed RC3 T3 run as shared evidence")
+    prior = json.loads((prior_path / "run.json").read_text(encoding="utf-8"))
+    if (prior.get("schema") != "journal-rc-t3-v1" or prior.get("method") != "F5-RC1" or
+            prior.get("config", {}).get("candidate") != "RC3" or prior.get("outcome") != "completed" or
+            prior.get("screen_run") != str(SCREEN) or prior.get("binding_run") != str(binding)):
+        raise ValueError("D2 shared evidence must be completed RC3 with unchanged decoder prerequisites")
+    return rows, counts, dict(cached_binding=bc, frozen_clean_compatibility=screen_summary(cached)["frozen_clean_compatibility"],
+        scope="unchanged decoder cached evidence; not D2 writer T4/T5 qualification"), prior
 
 
 def identity(row):
@@ -212,13 +266,18 @@ def summarize(rows, sets, v5, budget_overrun=False):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--config", required=True, choices=tuple(CONFIGS))
+    parser.add_argument("--config", required=True, choices=(*CONFIGS, "D2"))
     parser.add_argument("--output-dir", required=True, type=Path)
     parser.add_argument("--screen-run", type=Path, default=SCREEN)
     parser.add_argument("--binding-run", type=Path, default=BINDING)
     parser.add_argument("--prior-run", type=Path)
     args=parser.parse_args()
-    cached, qualification, compatibility, prior=prerequisites(args.screen_run,args.binding_run,args.config,args.prior_run)
+    invocation_started=time.monotonic()
+    d2 = args.config == "D2"
+    check = d2_prerequisites if d2 else prerequisites
+    cached, qualification, compatibility, prior = (check(args.screen_run,args.binding_run,args.prior_run) if d2 else
+        check(args.screen_run,args.binding_run,args.config,args.prior_run))
+    cap = D2_CAP if d2 else CAP
     old, v5, sets=frozen_sets()  # Freeze old comparison identities before any candidate call.
     lookup={r["source_id"]:r for r in cached if r.get("config") == args.config}
     shared={}
@@ -243,17 +302,20 @@ def main():
                 raise ValueError("Prior shared target/source metadata differs")
             if expected_status == "ok" and r.get("image") != source["image"]["path"]:
                 raise ValueError("Prior shared suspect path differs")
-    prior_seconds=0. if prior is None else float(prior["shared_duration_seconds"])
-    started=time.monotonic()
+    evidence_prior_seconds=0. if prior is None else float(prior["shared_duration_seconds"])
+    prior_seconds=0. if d2 else evidence_prior_seconds
+    started=invocation_started if d2 else time.monotonic()
     args.output_dir.mkdir(parents=True,exist_ok=False)
     (args.output_dir/"images").mkdir()
     record=dict(schema="journal-rc-t3-v1",method="F5-RC1",routing_revision=1,
         timestamp_utc=datetime.now(timezone.utc).isoformat(),
         commit=subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip(),command=sys.argv,
-        config=dict(candidate=args.config,writer_config=CONFIGS[args.config],owners=list(OWNERS),semantic_views=7,
-            roster_size=1,binding="soft",shared_active_seconds_cap=CAP),seeds=list(SEEDS),strengths=list(STRENGTHS),
+        config=dict(candidate=args.config,writer_config="D2" if d2 else CONFIGS[args.config],owners=list(OWNERS),semantic_views=7,
+            roster_size=1,binding="soft",shared_active_seconds_cap=cap),seeds=list(SEEDS),strengths=list(STRENGTHS),
         data_split="development",usd=0,screen_run=str(args.screen_run),binding_run=str(args.binding_run),
         prior_run=None if args.prior_run is None else str(args.prior_run),prior_active_seconds=prior_seconds,
+        shared_evidence_prior_duration_seconds=evidence_prior_seconds,
+        budget_scope="fresh D2 official T3 and summaries only; inherited RC3 evidence cost excluded" if d2 else "shared RC T3 active time",
         frozen_run=str(F5_RUN),v5_results=str(V5_RESULTS),comparison_sets=sets,
         qualification=qualification,compatibility=compatibility,outcome="running",
         scientific_status="exploratory paired development continuity; not an official lifecycle verdict",
@@ -271,7 +333,7 @@ def main():
             handle.write(json.dumps(row,allow_nan=False)+"\n")
         record["duration_seconds"]=time.monotonic()-started
         record["shared_duration_seconds"]=prior_seconds+record["duration_seconds"]
-        record["summary"]=summarize(rows,sets,v5,record["shared_duration_seconds"]>CAP)
+        record["summary"]=summarize(rows,sets,v5,record["shared_duration_seconds"]>cap)
         write(args.output_dir/"summary.json",record["summary"])
         write(args.output_dir/"run.json",record)
         print(json.dumps({k:row[k] for k in ("arm","source_id","strength","seed","status")}),flush=True)
@@ -287,8 +349,8 @@ def main():
             sid,s,seed=k
             row=dict(arm=arm,source_id=sid,strength=s,seed=seed)
             try:
-                if prior_seconds+time.monotonic()-started >= CAP:
-                    raise RuntimeError("Shared 5400-second T3/T4/T5/synthesis cap exhausted")
+                if prior_seconds+time.monotonic()-started >= cap:
+                    raise RuntimeError(f"{'Fresh D2 official T3' if d2 else 'Shared RC T3/T4/T5/synthesis'} {cap:g}-second cap exhausted")
                 if (arm,k) in shared:
                     row=dict(shared[(arm,k)],shared_origin=str(args.prior_run/"rows.jsonl"),
                         reuse_interpretation="exact same frozen pixels/method/targets; shared evidence, not replicate")
@@ -346,11 +408,22 @@ def main():
     finally:
         record["duration_seconds"]=time.monotonic()-started
         record["shared_duration_seconds"]=prior_seconds+record["duration_seconds"]
-        record["remaining_active_seconds"]=max(0.,CAP-record["shared_duration_seconds"])
-        record["budget_overrun"]=record["shared_duration_seconds"]>CAP
+        record["remaining_active_seconds"]=max(0.,cap-record["shared_duration_seconds"])
+        record["budget_overrun"]=record["shared_duration_seconds"]>cap
         record["summary"]=summarize(rows,sets,v5,record["budget_overrun"])
         write(args.output_dir/"summary.json",record["summary"])
         write(args.output_dir/"run.json",record)
+        if d2:
+            # Include final endpoint summarization/I/O in this study's fresh cap.
+            record["duration_seconds"]=time.monotonic()-started
+            record["shared_duration_seconds"]=record["duration_seconds"]
+            record["remaining_active_seconds"]=max(0.,cap-record["duration_seconds"])
+            record["budget_overrun"]=record["duration_seconds"]>cap
+            record["summary"]["budget_overrun"]=record["budget_overrun"]
+            if record["budget_overrun"]:
+                record["summary"]["measured_t3_continuity_pass"]=False
+            write(args.output_dir/"summary.json",record["summary"])
+            write(args.output_dir/"run.json",record)
 
 
 if __name__ == "__main__":
