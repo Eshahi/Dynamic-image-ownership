@@ -32,25 +32,25 @@
   ],
   "s1_config": {
     "path": "configs/e3-s1.json",
-    "sha256": "ec520f9082a3faf16949e597907144abc09a7fe8e7c8dff6a906dbfdc3287b9c"
+    "sha256": "f5ad6b66c7b2a6c0a337dd5243c86b832b8e0dc134e7926ac5be80b3dcb2cb2a"
   },
   "sdxl_lock": {
     "path": "research/journal-upgrade-20261009/e3-s1-sdxl-lock.json",
-    "sha256": "cff7925182bbf0c688efaf463e7a3100f46a2158635035f5647e9cb694f35b69"
+    "sha256": "c86e20889469b7fe1b99bbae6556855dfcd729697467ecd73889142963403d1d"
   },
   "environment_lock": {
     "path": "research/journal-upgrade-20261009/e3-s1-environment-lock.json",
-    "sha256": "f463c5652678355695fb9be109e5e47cbef8db4a66b24b63dbeb2f66a755659c"
+    "sha256": "807f77bb4e4349fe6c8e34dbbe325f175bcdb0daa28d02b071adab658b4ea3b9"
   },
   "sources": {
     "index": {
       "path": "research/journal-upgrade-20261009/e3-s1-external-index.json",
-      "sha256": "919750e7949ea23e67af33268e8a36aa42c27d0adecb10fbdb4e15bcb9cec061"
+      "sha256": "754e0362791d627dc0af23530993bbee30ecc7d31a8fcb8cb4af439d27415581"
     }
   },
   "schedule": {
     "path": "research/journal-upgrade-20261009/e3-s1-schedule.json",
-    "sha256": "92c3f7140d29761ce8355e52b5036af3e1c11fbe5c8d7f2c1d5fc74a8e2a86f3"
+    "sha256": "fada9a67f066f2dc4bde5931d46911eb11bb10cb6e6bebcaa7abf33192cac9d0"
   },
   "t3_uids": [
     "ms-coco:coco-2017:val2017:248752",

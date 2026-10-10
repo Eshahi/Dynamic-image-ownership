@@ -14,9 +14,9 @@ DOSES = tuple(f'ddim-{s}-{seed}' for s in (.1, .2) for seed in (3, 4, 5))
 CONDITIONS = ('residual-0.5', 'residual-1.0', 'public', 'public-sham')
 FRESH_INDEX = 'research/journal-upgrade-20261009/e3-s1-external-index.json'
 FRESH_SCHEDULE = 'research/journal-upgrade-20261009/e3-s1-schedule.json'
-FRESH_INDEX_SHA256 = '919750e7949ea23e67af33268e8a36aa42c27d0adecb10fbdb4e15bcb9cec061'
-FRESH_SCHEDULE_SHA256 = '92c3f7140d29761ce8355e52b5036af3e1c11fbe5c8d7f2c1d5fc74a8e2a86f3'
-S1_CONFIG_SHA256 = 'ec520f9082a3faf16949e597907144abc09a7fe8e7c8dff6a906dbfdc3287b9c'
+FRESH_INDEX_SHA256 = '754e0362791d627dc0af23530993bbee30ecc7d31a8fcb8cb4af439d27415581'
+FRESH_SCHEDULE_SHA256 = 'fada9a67f066f2dc4bde5931d46911eb11bb10cb6e6bebcaa7abf33192cac9d0'
+S1_CONFIG_SHA256 = 'f5ad6b66c7b2a6c0a337dd5243c86b832b8e0dc134e7926ac5be80b3dcb2cb2a'
 FRESH_INVENTORY = 'research/journal-upgrade-20261009/e3-s1-fresh-cohort.json'
 
 
