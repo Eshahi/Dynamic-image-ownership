@@ -1,0 +1,887 @@
+{
+  "schema": "journal-e3-full-t3-descriptive-v1",
+  "run_dir": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1418-e3-full-t3",
+  "commit": "b87d8245d5641a8b39d72d1d579050762a24512d",
+  "method": "E3-BCH59-Q080",
+  "raw_method": "frozen_F5",
+  "raw_summary_method": "frozen_F5",
+  "outcome": "completed",
+  "qualification": "ineligible",
+  "planned_image_rows": 144,
+  "planned_full_calls": 216,
+  "planned_negative_calls": 144,
+  "recorded_image_rows": 144,
+  "observed_full_calls": 208,
+  "observed_negative_calls": 137,
+  "negative_any_detections": 0,
+  "complete": true,
+  "negative_by_arm": {
+    "shared_C0": {
+      "planned": 72,
+      "observed": 66,
+      "detections": 0,
+      "unavailable": 6,
+      "safety_blocked": 6
+    },
+    "candidate_C1": {
+      "planned": 72,
+      "observed": 71,
+      "detections": 0,
+      "unavailable": 1,
+      "safety_blocked": 1
+    }
+  },
+  "negative_accounted": true,
+  "unavailable_rows": [
+    {
+      "arm": "shared_C0",
+      "identity": "6012|0.1|0",
+      "status": "safety_blocked",
+      "error": "safety_checker_blocked_output"
+    },
+    {
+      "arm": "shared_C0",
+      "identity": "6012|0.1|1",
+      "status": "safety_blocked",
+      "error": "safety_checker_blocked_output"
+    },
+    {
+      "arm": "shared_C0",
+      "identity": "6012|0.1|2",
+      "status": "safety_blocked",
+      "error": "safety_checker_blocked_output"
+    },
+    {
+      "arm": "shared_C0",
+      "identity": "6012|0.2|0",
+      "status": "safety_blocked",
+      "error": "safety_checker_blocked_output"
+    },
+    {
+      "arm": "shared_C0",
+      "identity": "6012|0.2|1",
+      "status": "safety_blocked",
+      "error": "safety_checker_blocked_output"
+    },
+    {
+      "arm": "shared_C0",
+      "identity": "6012|0.2|2",
+      "status": "safety_blocked",
+      "error": "safety_checker_blocked_output"
+    },
+    {
+      "arm": "candidate_C1",
+      "identity": "6012|0.2|0",
+      "status": "safety_blocked",
+      "error": "Traceback (most recent call last):\n  File \"C:\\Users\\Soroush\\.codex\\worktrees\\journal-roadmap\\THESIS_GUIDE_OFFLINE_v5\\scripts\\journal_bch_t3_screen.py\", line 529, in main\n    rgb = np.asarray(ev.models.validate_generated(result), dtype=np.uint8)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\Soroush\\.codex\\worktrees\\journal-roadmap\\THESIS_GUIDE_OFFLINE_v5\\scripts\\three_threat_models.py\", line 87, in validate_generated\n    raise RuntimeError(\"safety_checker_blocked_output\")\nRuntimeError: safety_checker_blocked_output\n"
+    }
+  ],
+  "operational_failures": [],
+  "strengths": {
+    "0.1": {
+      "planned": 36,
+      "observed": 36,
+      "successes": {
+        "S": 36,
+        "Q": 36,
+        "J": 36
+      },
+      "unavailable_candidate_slots": [],
+      "count_pass": true,
+      "preservation_pass": true,
+      "retention": {
+        "D2": {
+          "S": {
+            "old_positive": 36,
+            "lost": [],
+            "gained": []
+          },
+          "Q": {
+            "old_positive": 36,
+            "lost": [],
+            "gained": []
+          },
+          "J": {
+            "old_positive": 36,
+            "lost": [],
+            "gained": []
+          }
+        },
+        "frozen_F5": {
+          "S": {
+            "old_positive": 35,
+            "lost": [],
+            "gained": [
+              "6012|0.1|2"
+            ]
+          },
+          "Q": {
+            "old_positive": 27,
+            "lost": [],
+            "gained": [
+              "4795|0.1|0",
+              "4795|0.1|1",
+              "4795|0.1|2",
+              "6012|0.1|0",
+              "6012|0.1|1",
+              "6012|0.1|2",
+              "134882|0.1|0",
+              "134882|0.1|1",
+              "134882|0.1|2"
+            ]
+          },
+          "J": {
+            "old_positive": 27,
+            "lost": [],
+            "gained": [
+              "4795|0.1|0",
+              "4795|0.1|1",
+              "4795|0.1|2",
+              "6012|0.1|0",
+              "6012|0.1|1",
+              "6012|0.1|2",
+              "134882|0.1|0",
+              "134882|0.1|1",
+              "134882|0.1|2"
+            ]
+          }
+        },
+        "E1_A": {
+          "S": {
+            "old_positive": 6,
+            "lost": [],
+            "gained": []
+          },
+          "Q": {
+            "old_positive": 6,
+            "lost": [],
+            "gained": []
+          },
+          "J": {
+            "old_positive": 6,
+            "lost": [],
+            "gained": []
+          }
+        }
+      },
+      "intersection": {
+        "fixed_identities": 29,
+        "identities": [
+          "6012|0.1|0",
+          "6012|0.1|1",
+          "25394|0.1|0",
+          "25394|0.1|1",
+          "25394|0.1|2",
+          "80932|0.1|0",
+          "80932|0.1|1",
+          "80932|0.1|2",
+          "109798|0.1|0",
+          "109798|0.1|1",
+          "109798|0.1|2",
+          "134882|0.1|0",
+          "134882|0.1|1",
+          "134882|0.1|2",
+          "147498|0.1|0",
+          "147498|0.1|1",
+          "147498|0.1|2",
+          "177015|0.1|0",
+          "177015|0.1|1",
+          "177015|0.1|2",
+          "190676|0.1|0",
+          "190676|0.1|1",
+          "190676|0.1|2",
+          "468505|0.1|0",
+          "468505|0.1|1",
+          "468505|0.1|2",
+          "499768|0.1|0",
+          "499768|0.1|1",
+          "499768|0.1|2"
+        ],
+        "candidate_S": 29,
+        "v5_S": 27,
+        "frozen_F5_S": 29,
+        "baseline_scope": "Frozen scientific-script fixed comparison; v5 27/29 and 18/28"
+      },
+      "fixed_I_pass": true,
+      "source_seed_successes": {
+        "1675": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "4795": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "6012": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "25394": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "80932": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "109798": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "134882": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "147498": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "177015": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "190676": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "468505": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "499768": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        }
+      },
+      "source_majority_descriptive": {
+        "S": 12,
+        "Q": 12,
+        "J": 12
+      },
+      "histograms": {
+        "raw_coded_bit_errors": {
+          "observed": 36,
+          "null": 0,
+          "frequencies": {
+            "0": 36
+          }
+        },
+        "q_bit_errors": {
+          "observed": 36,
+          "null": 0,
+          "frequencies": {
+            "0": 36
+          }
+        }
+      },
+      "algebraic_success": {
+        "observed": 36,
+        "null": 0,
+        "frequencies": {
+          "True": 36
+        }
+      },
+      "algebraic_reasons": {
+        "observed": 36,
+        "null": 0,
+        "frequencies": {
+          "ok": 36
+        }
+      },
+      "scores": {
+        "decoded_score": {
+          "observed": 36,
+          "null_or_invalid": 0,
+          "minimum": 14.868106131437086,
+          "maximum": 17.39072548596224
+        },
+        "recomputed_score": {
+          "observed": 36,
+          "null_or_invalid": 0,
+          "minimum": 3.3174062624233978,
+          "maximum": 9.898866142139722
+        },
+        "score": {
+          "observed": 36,
+          "null_or_invalid": 0,
+          "minimum": 14.868106131437086,
+          "maximum": 17.39072548596224
+        }
+      },
+      "content_failures": [],
+      "failed_joint": []
+    },
+    "0.2": {
+      "planned": 36,
+      "observed": 35,
+      "successes": {
+        "S": 35,
+        "Q": 35,
+        "J": 35
+      },
+      "unavailable_candidate_slots": [
+        {
+          "identity": "6012|0.2|0",
+          "reason": "safety_blocked",
+          "interpretation": "Unsuccessful planned slot; not an observed decoding/content failure"
+        }
+      ],
+      "count_pass": true,
+      "preservation_pass": false,
+      "retention": {
+        "D2": {
+          "S": {
+            "old_positive": 35,
+            "lost": [
+              "6012|0.2|0"
+            ],
+            "gained": [
+              "6012|0.2|2"
+            ]
+          },
+          "Q": {
+            "old_positive": 31,
+            "lost": [],
+            "gained": [
+              "6012|0.2|1",
+              "6012|0.2|2",
+              "134882|0.2|1",
+              "134882|0.2|2"
+            ]
+          },
+          "J": {
+            "old_positive": 31,
+            "lost": [],
+            "gained": [
+              "6012|0.2|1",
+              "6012|0.2|2",
+              "134882|0.2|1",
+              "134882|0.2|2"
+            ]
+          }
+        },
+        "frozen_F5": {
+          "S": {
+            "old_positive": 35,
+            "lost": [
+              "6012|0.2|0"
+            ],
+            "gained": [
+              "6012|0.2|2"
+            ]
+          },
+          "Q": {
+            "old_positive": 20,
+            "lost": [],
+            "gained": [
+              "4795|0.2|0",
+              "4795|0.2|1",
+              "4795|0.2|2",
+              "6012|0.2|1",
+              "6012|0.2|2",
+              "80932|0.2|2",
+              "109798|0.2|1",
+              "134882|0.2|0",
+              "134882|0.2|1",
+              "134882|0.2|2",
+              "177015|0.2|0",
+              "190676|0.2|1",
+              "468505|0.2|0",
+              "468505|0.2|1",
+              "468505|0.2|2"
+            ]
+          },
+          "J": {
+            "old_positive": 20,
+            "lost": [],
+            "gained": [
+              "4795|0.2|0",
+              "4795|0.2|1",
+              "4795|0.2|2",
+              "6012|0.2|1",
+              "6012|0.2|2",
+              "80932|0.2|2",
+              "109798|0.2|1",
+              "134882|0.2|0",
+              "134882|0.2|1",
+              "134882|0.2|2",
+              "177015|0.2|0",
+              "190676|0.2|1",
+              "468505|0.2|0",
+              "468505|0.2|1",
+              "468505|0.2|2"
+            ]
+          }
+        },
+        "E1_A": {
+          "S": {
+            "old_positive": 6,
+            "lost": [],
+            "gained": []
+          },
+          "Q": {
+            "old_positive": 6,
+            "lost": [],
+            "gained": []
+          },
+          "J": {
+            "old_positive": 6,
+            "lost": [],
+            "gained": []
+          }
+        }
+      },
+      "intersection": {
+        "fixed_identities": 28,
+        "identities": [
+          "6012|0.2|1",
+          "25394|0.2|0",
+          "25394|0.2|1",
+          "25394|0.2|2",
+          "80932|0.2|0",
+          "80932|0.2|1",
+          "80932|0.2|2",
+          "109798|0.2|0",
+          "109798|0.2|1",
+          "109798|0.2|2",
+          "134882|0.2|0",
+          "134882|0.2|1",
+          "134882|0.2|2",
+          "147498|0.2|0",
+          "147498|0.2|1",
+          "147498|0.2|2",
+          "177015|0.2|0",
+          "177015|0.2|1",
+          "177015|0.2|2",
+          "190676|0.2|0",
+          "190676|0.2|1",
+          "190676|0.2|2",
+          "468505|0.2|0",
+          "468505|0.2|1",
+          "468505|0.2|2",
+          "499768|0.2|0",
+          "499768|0.2|1",
+          "499768|0.2|2"
+        ],
+        "candidate_S": 28,
+        "v5_S": 18,
+        "frozen_F5_S": 28,
+        "baseline_scope": "Frozen scientific-script fixed comparison; v5 27/29 and 18/28"
+      },
+      "fixed_I_pass": true,
+      "source_seed_successes": {
+        "1675": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "4795": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "6012": {
+          "S": 2,
+          "Q": 2,
+          "J": 2
+        },
+        "25394": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "80932": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "109798": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "134882": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "147498": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "177015": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "190676": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "468505": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        },
+        "499768": {
+          "S": 3,
+          "Q": 3,
+          "J": 3
+        }
+      },
+      "source_majority_descriptive": {
+        "S": 12,
+        "Q": 12,
+        "J": 12
+      },
+      "histograms": {
+        "raw_coded_bit_errors": {
+          "observed": 35,
+          "null": 0,
+          "frequencies": {
+            "0": 35
+          }
+        },
+        "q_bit_errors": {
+          "observed": 35,
+          "null": 0,
+          "frequencies": {
+            "0": 35
+          }
+        }
+      },
+      "algebraic_success": {
+        "observed": 35,
+        "null": 0,
+        "frequencies": {
+          "True": 35
+        }
+      },
+      "algebraic_reasons": {
+        "observed": 35,
+        "null": 0,
+        "frequencies": {
+          "ok": 35
+        }
+      },
+      "scores": {
+        "decoded_score": {
+          "observed": 35,
+          "null_or_invalid": 0,
+          "minimum": 13.607337670290805,
+          "maximum": 17.1504490606036
+        },
+        "recomputed_score": {
+          "observed": 35,
+          "null_or_invalid": 0,
+          "minimum": 3.7806324583688546,
+          "maximum": 10.038264910026237
+        },
+        "score": {
+          "observed": 35,
+          "null_or_invalid": 0,
+          "minimum": 13.607337670290805,
+          "maximum": 17.1504490606036
+        }
+      },
+      "content_failures": [],
+      "failed_joint": []
+    }
+  },
+  "selection": {
+    "run_dir": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1417-e3-quality-composition",
+    "counts": {
+      "planned": 12,
+      "observed": 12,
+      "strict_quality": 12,
+      "clean_q_h_both": 12,
+      "sd15_vae_J": 12,
+      "sdxl_vae_J": 12,
+      "inherited_calls": 108,
+      "negative_calls": 72,
+      "negative_detections": 0
+    },
+    "pass_recomputed": true,
+    "branch_counts": {
+      "retain": 11,
+      "contract_once": 1
+    },
+    "selected_lineage": [
+      {
+        "source_id": 1675,
+        "branch": "retain",
+        "deciding_quality": {
+          "mse_rgb8": 4.598704020182292,
+          "psnr_db": 41.50444902269757,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.966350155749621,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.05042238160967827
+        },
+        "selected_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1345-e1-bch-stage-a\\run.json",
+        "selected_rows": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1345-e1-bch-stage-a\\rows.jsonl",
+        "selected_row_index": 0,
+        "selected_commit": "c02369cf2a1a12e9bde346c4737be96bf5df859b",
+        "selected_image": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1345-e1-bch-stage-a\\images\\E1-1675-C1-clean.png",
+        "inherited_full_calls": 9,
+        "new_full_calls": 0
+      },
+      {
+        "source_id": 4795,
+        "branch": "retain",
+        "deciding_quality": {
+          "mse_rgb8": 4.608982086181641,
+          "psnr_db": 41.49475340720735,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9787408619879453,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.028644323348999023
+        },
+        "selected_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\run.json",
+        "selected_rows": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\rows.jsonl",
+        "selected_row_index": 2,
+        "selected_commit": "4bbc427ed7c4d3b8943285421e754cd35a86e5c7",
+        "selected_image": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\images\\E1-4795-C1-clean.png",
+        "inherited_full_calls": 9,
+        "new_full_calls": 0
+      },
+      {
+        "source_id": 6012,
+        "branch": "retain",
+        "deciding_quality": {
+          "mse_rgb8": 4.714890797932942,
+          "psnr_db": 41.396087224169065,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9794165325347051,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.012333380058407784
+        },
+        "selected_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\run.json",
+        "selected_rows": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\rows.jsonl",
+        "selected_row_index": 3,
+        "selected_commit": "4bbc427ed7c4d3b8943285421e754cd35a86e5c7",
+        "selected_image": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\images\\E1-6012-C1-clean.png",
+        "inherited_full_calls": 9,
+        "new_full_calls": 0
+      },
+      {
+        "source_id": 25394,
+        "branch": "retain",
+        "deciding_quality": {
+          "mse_rgb8": 4.398468017578125,
+          "psnr_db": 41.69778922419433,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9675109071031921,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.03122601844370365
+        },
+        "selected_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\run.json",
+        "selected_rows": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\rows.jsonl",
+        "selected_row_index": 4,
+        "selected_commit": "4bbc427ed7c4d3b8943285421e754cd35a86e5c7",
+        "selected_image": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\images\\E1-25394-C1-clean.png",
+        "inherited_full_calls": 9,
+        "new_full_calls": 0
+      },
+      {
+        "source_id": 80932,
+        "branch": "retain",
+        "deciding_quality": {
+          "mse_rgb8": 4.606586456298828,
+          "psnr_db": 41.49701134464752,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9748421423909391,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.033503249287605286
+        },
+        "selected_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\run.json",
+        "selected_rows": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\rows.jsonl",
+        "selected_row_index": 5,
+        "selected_commit": "4bbc427ed7c4d3b8943285421e754cd35a86e5c7",
+        "selected_image": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\images\\E1-80932-C1-clean.png",
+        "inherited_full_calls": 9,
+        "new_full_calls": 0
+      },
+      {
+        "source_id": 109798,
+        "branch": "retain",
+        "deciding_quality": {
+          "mse_rgb8": 4.6852569580078125,
+          "psnr_db": 41.423469465652126,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.956400544882013,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.06883185356855392
+        },
+        "selected_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\run.json",
+        "selected_rows": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\rows.jsonl",
+        "selected_row_index": 6,
+        "selected_commit": "4bbc427ed7c4d3b8943285421e754cd35a86e5c7",
+        "selected_image": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\images\\E1-109798-C1-clean.png",
+        "inherited_full_calls": 9,
+        "new_full_calls": 0
+      },
+      {
+        "source_id": 134882,
+        "branch": "retain",
+        "deciding_quality": {
+          "mse_rgb8": 4.597471872965495,
+          "psnr_db": 41.505612799351184,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9701974842006269,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.056741826236248016
+        },
+        "selected_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\run.json",
+        "selected_rows": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\rows.jsonl",
+        "selected_row_index": 7,
+        "selected_commit": "4bbc427ed7c4d3b8943285421e754cd35a86e5c7",
+        "selected_image": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\images\\E1-134882-C1-clean.png",
+        "inherited_full_calls": 9,
+        "new_full_calls": 0
+      },
+      {
+        "source_id": 147498,
+        "branch": "contract_once",
+        "deciding_quality": {
+          "mse_rgb8": 4.239432017008464,
+          "psnr_db": 41.857726855021546,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9626128127284513,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.1167193278670311
+        },
+        "selected_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1410-e2-attenuation-screen\\run.json",
+        "selected_rows": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1410-e2-attenuation-screen\\rows.jsonl",
+        "selected_row_index": 0,
+        "selected_commit": "f7fb94ebd0152b29a6612e25689a24c5889cf44b",
+        "selected_image": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1410-e2-attenuation-screen\\images\\E2-147498-C1-clean.png",
+        "inherited_full_calls": 9,
+        "new_full_calls": 0
+      },
+      {
+        "source_id": 177015,
+        "branch": "retain",
+        "deciding_quality": {
+          "mse_rgb8": 4.6776784261067705,
+          "psnr_db": 41.43049998582406,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.97628211413297,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.024371465668082237
+        },
+        "selected_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\run.json",
+        "selected_rows": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\rows.jsonl",
+        "selected_row_index": 9,
+        "selected_commit": "4bbc427ed7c4d3b8943285421e754cd35a86e5c7",
+        "selected_image": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\images\\E1-177015-C1-clean.png",
+        "inherited_full_calls": 9,
+        "new_full_calls": 0
+      },
+      {
+        "source_id": 190676,
+        "branch": "retain",
+        "deciding_quality": {
+          "mse_rgb8": 5.644184112548828,
+          "psnr_db": 40.614791889252416,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9577750707107783,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.053712692111730576
+        },
+        "selected_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\run.json",
+        "selected_rows": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\rows.jsonl",
+        "selected_row_index": 10,
+        "selected_commit": "4bbc427ed7c4d3b8943285421e754cd35a86e5c7",
+        "selected_image": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\images\\E1-190676-C1-clean.png",
+        "inherited_full_calls": 9,
+        "new_full_calls": 0
+      },
+      {
+        "source_id": 468505,
+        "branch": "retain",
+        "deciding_quality": {
+          "mse_rgb8": 5.6078847249348955,
+          "psnr_db": 40.642812831274284,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9587014108556529,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.058759622275829315
+        },
+        "selected_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\run.json",
+        "selected_rows": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\rows.jsonl",
+        "selected_row_index": 11,
+        "selected_commit": "4bbc427ed7c4d3b8943285421e754cd35a86e5c7",
+        "selected_image": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b\\images\\E1-468505-C1-clean.png",
+        "inherited_full_calls": 9,
+        "new_full_calls": 0
+      },
+      {
+        "source_id": 499768,
+        "branch": "retain",
+        "deciding_quality": {
+          "mse_rgb8": 5.761048634847005,
+          "psnr_db": 40.52578819306281,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9767125890056206,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.030635282397270203
+        },
+        "selected_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1345-e1-bch-stage-a\\run.json",
+        "selected_rows": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1345-e1-bch-stage-a\\rows.jsonl",
+        "selected_row_index": 1,
+        "selected_commit": "c02369cf2a1a12e9bde346c4737be96bf5df859b",
+        "selected_image": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1345-e1-bch-stage-a\\images\\E1-499768-C1-clean.png",
+        "inherited_full_calls": 9,
+        "new_full_calls": 0
+      }
+    ],
+    "new_calls": 0,
+    "e1_stage_b_dir": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1351-e1-bch-stage-b",
+    "e2_stage_a_dir": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1410-e2-attenuation-screen"
+  },
+  "timing": {
+    "process_seconds": 142.34400000001187,
+    "parent_inclusive_seconds": 143.1796966,
+    "peak_allocated_bytes": 3814109696,
+    "cap_seconds": 900,
+    "gpu_cap_bytes": 10737418240,
+    "cached_composition_seconds": 0.09299999999348074,
+    "fresh_writer_seconds": null,
+    "ancestry": "Selected cached E1 A/B marks and one E2 contraction; inherited timings are not fresh E3 writer cost"
+  },
+  "cap_pass": true,
+  "stage_b_pass_recomputed": false,
+  "recorded_stage_b_pass": false,
+  "verdict_agrees": true,
+  "recorded_endpoint_mismatches": [],
+  "issues": [],
+  "metadata_issues": [
+    "Scientific CLI comparator loop overwrote method label: frozen_F5"
+  ],
+  "interpretation": "Adaptive exploratory in-sample image-domain BCH selection. All 72 C1 generations are fresh; retained C0 pixels receive fresh calls when available. E1 ancestry optimized these same six seeds. Safety blocks remain unsuccessful planned slots, with unobserved negatives unresolved. Source majority is descriptive across twelve reused sources. No population FPR, generalization, T4/T5 preservation, M1a passage, human admissibility or latent-method claim follows.",
+  "analysis_provenance": {
+    "script": "C:\\Users\\Soroush\\.codex\\worktrees\\journal-roadmap\\THESIS_GUIDE_OFFLINE_v5\\scripts\\journal_bch_full_t3_analysis.py",
+    "commit": "7fec71f535a08b761735bbe0ee9fc897b1d3bb61",
+    "raw_records": [
+      "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1418-e3-full-t3\\run.json",
+      "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1418-e3-full-t3\\rows.jsonl",
+      "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1418-e3-full-t3\\summary.json",
+      "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1418-e3-full-t3\\parent-wall.json"
+    ]
+  }
+}
