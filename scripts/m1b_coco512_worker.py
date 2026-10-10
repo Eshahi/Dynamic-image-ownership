@@ -42,6 +42,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable
 
+# The versioned runtime imports this module. Keep one exception/worker identity
+# when the official runner invokes this file as a script.
+if __name__ == '__main__':
+    sys.modules['m1b_coco512_worker'] = sys.modules[__name__]
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -661,18 +666,30 @@ class Worker:
             if kind == "cuda":
                 raise RuntimeError("CUDA error: injected device fault")
             if kind == "scientific":
+                if self.plan.get("protocol") == "e3-s1-v1":
+                    from m1b_e3_s1_runtime import ScientificFailure
+                    raise ScientificFailure("injected scientific failure")
                 raise ValueError("injected scientific failure")
             body, outcome = fn(), "completed"
         except (Stop, InfrastructureStop):
             raise
         except Exception as e:  # noqa: BLE001 - classified below, never retried
-            if is_infrastructure(e):
+            if self.plan.get("protocol") == "e3-s1-v1":
+                from m1b_e3_s1_runtime import is_scientific_failure
+                scientific = is_scientific_failure(e)
+            else:
+                scientific = not is_infrastructure(e)
+            if not scientific:
                 raise InfrastructureStop(rid, f"{type(e).__name__}: {e}") from e
             body = dict(error=f"{type(e).__name__}: {e}", operation_receipt=getattr(e, "receipt", None))
             outcome = "safety_blocked" if is_safety_block(e) else "failed"
         if outcome == "failed":
             self.consecutive_failures += 1
             if self.consecutive_failures >= MAX_CONSECUTIVE_FAILURES:
+                if self.plan.get("protocol") == "e3-s1-v1":
+                    # Persist the known scientific result before stopping. A resume must
+                    # reuse this row, never reattempt the third failed observation.
+                    self.journal.emit(dict(id=rid, outcome=outcome, seconds=time.perf_counter() - t0, **fields, **body))
                 raise InfrastructureStop(rid, f"{MAX_CONSECUTIVE_FAILURES} consecutive failures; last: {body['error']}")
         elif outcome == "completed":
             self.consecutive_failures = 0

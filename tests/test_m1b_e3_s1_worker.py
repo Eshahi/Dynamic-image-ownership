@@ -30,7 +30,7 @@ class Fake:
     def categories(self,uids,t5): self.order.append('selection'); return {u:(1,) for u in uids}
     def supply(self,r,folder): return dict(status="ok",payload=dict(q="00000001",h="00000002"))
     def embed(self,m,r,u,o,folder,supplier=None):
-        assert 'selection' in self.order
+        if 'source' in self.order: assert 'selection' in self.order
         self.order.append('embed');self.embeds+=1
         return r.copy(),dict(supplier=dict(status='ok'),payload=dict(q='00000001',h='00000002'),admitted=False,admission=dict(accepted=False))
     def clip_vector(self,r,views): return [1.,0.]
@@ -72,7 +72,7 @@ class Tests(unittest.TestCase):
             a=W.Worker(p,self.sources(p),Path(td),Interrupted(),clock=lambda:clock[0])
             self.assertEqual(a.run()[0],'checkpointed')
             self.assertFalse(any(r.get('stage')=='embed' for r in a.journal.rows.values()))
-            orphan=list(a.images.glob('construction-*'));self.assertEqual(len(orphan),1)
+            orphan=list(a.images.glob('c-*'));self.assertEqual(len(orphan),1)
             clock[0]=0.;b=W.Worker(p,a.sources,Path(td),Fake(),clock=lambda:clock[0])
             self.assertEqual(b.run()[0],'finished');self.assertTrue(orphan[0].is_dir())
     def test_non_test_guard_fresh_uid_group_and_digest(self):
@@ -180,5 +180,46 @@ class ScientificAdapterTests(unittest.TestCase):
         for kind in ('TypeError','NameError','ImportError','KeyError','CUDA error'):
             with self.assertRaises(Exception) as cm:rt._execution_error(dict(error=kind+': bad'))
             self.assertTrue(W.is_infrastructure(cm.exception))
+
+class ExplicitScientificFailureTests(unittest.TestCase):
+    def test_third_failure_is_persisted_and_never_retried(self):
+        p=fixture();calls=[]
+        with tempfile.TemporaryDirectory() as td:
+            w=W.Worker(p,W.load_sources(p),Path(td),Fake())
+            def fail(i): calls.append(i);raise S.ScientificFailure('known failed observation')
+            for i in range(2):w._unit('known:'+str(i),lambda i=i:fail(i))
+            with self.assertRaises(W.InfrastructureStop):w._unit('known:2',lambda:fail(2))
+            self.assertEqual(len(w.journal.rows),3);self.assertEqual(w.journal.get('known:2')['outcome'],'failed')
+            resumed=W.Worker(p,w.sources,Path(td),Fake())
+            resumed._unit('known:2',lambda:fail(2))
+            self.assertEqual(calls,[0,1,2])
+    def test_unexpected_value_assertion_and_wrapped_defects_get_no_row(self):
+        p=fixture()
+        with tempfile.TemporaryDirectory() as td:
+            w=W.Worker(p,W.load_sources(p),Path(td),Fake())
+            for i,error in enumerate((ValueError('unexpected'),AssertionError('defect'),RuntimeError('software defect'))):
+                def fail(error=error):raise error
+                with self.assertRaises(W.InfrastructureStop):w._unit('defect:'+str(i),fail)
+                self.assertNotIn('defect:'+str(i),w.journal.rows)
+    def test_supplier_exact_unreadable_and_admission_are_retained_but_defects_refused(self):
+        rt=object.__new__(S.Runtime)
+        rt._execution_error(dict(status='supplier_failed',error='Traceback (most recent call last):\nValueError: Fresh F5 bootstrap native channels unreadable'))
+        rt._execution_error(dict(status='admission_failed',admitted=False))
+        for error in ('AssertionError: failed assertion','ValueError: arbitrary defect','ValueError: Fresh F5 bootstrap native channels unreadable extra'):
+            with self.assertRaises(OSError):rt._execution_error(dict(status='construction_failed',error=error))
+        with self.assertRaises(OSError):rt._execution_error(dict(status='supplier_failed'))
+    def test_supply_classifies_before_return_and_commit(self):
+        rt=object.__new__(S.Runtime);rt.ev=None;rt.budget=lambda:None
+        rt.supplier=lambda *args:dict(status='supplier_failed',error='AssertionError: defect')
+        with tempfile.TemporaryDirectory() as td:
+            with self.assertRaises(OSError):rt.supply(None,Path(td))
+            rt.supplier=lambda *args:dict(status='supplier_failed',error='ValueError: Fresh F5 bootstrap native channels unreadable')
+            self.assertEqual(rt.supply(None,Path(td))['status'],'supplier_failed')
+
+    def test_safety_stays_observed_and_no_generic_substring_allowlist(self):
+        self.assertTrue(S.is_scientific_failure(RuntimeError('safety_checker_blocked_output')))
+        self.assertFalse(S.is_scientific_failure(AssertionError('safety_checker_blocked_output')))
+        self.assertFalse(S.is_scientific_failure(ValueError('safety_checker_blocked_output')))
+        self.assertFalse(S.is_scientific_failure(RuntimeError('software defect mentions safety_checker_blocked_output')))
 
 if __name__=='__main__':unittest.main()

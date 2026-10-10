@@ -90,7 +90,20 @@ class Runtime:
 
     def canonical(self, source):
         from m1b_canonical_source import canonicalize
-        return canonicalize(Path(source['raw_path']).read_bytes(),source['raw_sha256'])
+        from PIL import UnidentifiedImageError
+        raw=Path(source['raw_path']).read_bytes()  # storage errors remain infrastructure
+        try:
+            return canonicalize(raw,source['raw_sha256'])
+        except UnidentifiedImageError as error:
+            raise ScientificFailure('source_decode_unidentified') from error
+        except ValueError as error:
+            if str(error).startswith('Unsupported source mode '):
+                raise ScientificFailure(str(error)) from error
+            raise
+        except OSError as error:
+            if str(error).startswith('image file is truncated') or str(error)=='broken data stream when reading image file':
+                raise ScientificFailure('source_decode_corrupt: '+str(error)) from error
+            raise
     def phash(self,rgb):
         return int(self.v5.perceptual_hash(self.v5.luminance_from_rgb(rgb.tolist()),profile=self.profile))
     def categories(self,uids,t5):
@@ -102,7 +115,9 @@ class Runtime:
         return dict(peak_vram_allocated_mib=self.torch.cuda.max_memory_allocated()/2**20,
                     environment=self.environment)
     def supply(self,rgb,folder):
-        return self.supplier(rgb,self.ev,folder/'supplier',self.budget)
+        report=self.supplier(rgb,self.ev,folder/'supplier',self.budget)
+        self._execution_error(report)  # refuse software faults before supplier unit commits
+        return report
     def embed(self,method,rgb,uid,owner,folder,supplier=None):
         from journal_readability_probe import load
         if owner != OWNERS[0]: raise ValueError('S1 literal alpha required')
@@ -126,12 +141,30 @@ class Runtime:
             payload=dict(q=native['semantic_code'],h=native['perceptual_hash'],h_target_basis='native intermediate intended h'),
             admitted=bool(native['verified']),admission=dict(accepted=bool(native['verified'])))
     def _execution_error(self,report):
-        import m1b_coco512_worker as W
-        error = report.get('error','')
-        if error and any(x in error.lower() for x in W.INFRA_MARKERS):
-            raise RuntimeError(error)
-        if error and any(k+':' in error for k in ('OSError','FileNotFoundError','PermissionError','MemoryError','ImportError','NameError','AttributeError','TypeError','KeyError','IndexError')):
-            raise OSError(error)
+        """Frozen writer catches Exception; restore a conservative typed boundary.
+
+        The supplier has exactly one known expected exception: unreadable native
+        channels. Admission failure is returned normally without an exception.
+        Every other caught exception is an infrastructure/software interruption,
+        except the exact safety-block terminal, which is an adverse observation.
+        """
+        error=report.get('error')
+        status=report.get('status')
+        if not error:
+            if status in ('supplier_failed','construction_failed'):
+                raise OSError('Missing caught-exception details: '+str(status))
+            return
+        terminal=str(error).strip().splitlines()[-1]
+        if status=='supplier_failed' and terminal in (
+                'ValueError: Fresh F5 bootstrap native channels unreadable',
+                'Fresh F5 bootstrap native channels unreadable'):
+            return
+        if status in ('supplier_failed','construction_failed') and terminal in (
+                'RuntimeError: safety_checker_blocked_output',
+                'OperationFailure: safety_checker_blocked_output',
+                'm1_confirmatory_image_operations.OperationFailure: safety_checker_blocked_output'):
+            return
+        raise OSError('Unexpected frozen scientific exception: '+str(error))
     def detect(self,method,rgb,claim,mode='combined',roster=1):
         self.budget()
         features = self.ev.features(rgb,7 if method=='e3-s1' else 1)
@@ -243,7 +276,7 @@ def run(worker):
             if c0 is None: w._missing(supplier_id,'canonical source unavailable',stage='supplier',uid=uid,method='e3-s1')
             else:
                 def supply(c0=c0,uid=uid):
-                    folder=w.images/('supplier-'+W.file_tag(uid)+'-'+uuid.uuid4().hex);folder.mkdir(exist_ok=False)
+                    folder=w.images/('s-'+W.sha_bytes(uid.encode('utf-8'))[:12]+'-'+uuid.uuid4().hex[:12]);folder.mkdir(exist_ok=False)
                     report=w.rt.supply(c0,folder)
                     if hasattr(w.rt,'_execution_error'): w.rt._execution_error(report)
                     return dict(supplier=report,payload=report.get('payload'),supplier_success=report.get('status')=='ok')
@@ -254,7 +287,7 @@ def run(worker):
                 if c0 is None: w._missing(eid,'canonical source unavailable',stage='embed',uid=uid,method=m)
                 else:
                     def embed(m=m,uid=uid,c0=c0,supplier=supplier):
-                        folder=w.images/('construction-'+W.file_tag(uid)+'-'+m+'-'+uuid.uuid4().hex)
+                        folder=w.images/('c-'+W.sha_bytes(uid.encode('utf-8'))[:12]+'-'+uuid.uuid4().hex[:12])
                         folder.mkdir(exist_ok=False)
                         if m=='e3-s1' and (supplier or {}).get('status')!='ok':
                             rgb,report=None,dict(supplier=supplier,admitted=False,admission=dict(accepted=False),payload=None)
@@ -438,3 +471,22 @@ def s1_regeneration(image,strength,seed,*,pipeline,generator_factory,inference_c
     except Exception as error:
         raise ops.OperationFailure(str(error),receipt) from error
     finally: hook.remove()
+
+
+class ScientificFailure(Exception):
+    """An explicit known adverse scientific/data observation, never a code defect."""
+
+
+def is_scientific_failure(error):
+    """S1 allowlist. Untyped AssertionError/ValueError never become outcomes."""
+    if isinstance(error,ScientificFailure): return True
+    # A wrapped OperationFailure can carry this exact safety message. A merely
+    # similar message or an exception whose cause is a software bug is refused.
+    terminal=str(error).strip()
+    if terminal!='safety_checker_blocked_output': return False
+    chain=error
+    for _ in range(8):
+        if chain is None: break
+        if not isinstance(chain,RuntimeError) or str(chain).strip()!='safety_checker_blocked_output': return False
+        chain=chain.__cause__ or chain.__context__
+    return True
