@@ -1129,7 +1129,9 @@ def main(argv=None, runtime_factory=Runtime) -> int:
     if status == "finished":
         try:
             result = analyse(plan, sources, rows, selected)
-            run.update(t5_selection=None if selected is None else dict(pairs=selected), **result)
+            if not s1:
+                run['t5_selection'] = None if selected is None else dict(pairs=selected)
+            run.update(result)
             atomic_json(out / "metrics" / "endpoints.json", finite(result))
         except Exception as e:  # analysis is re-runnable on the retained journal
             run["analysis_error"] = f"{type(e).__name__}: {e}"
