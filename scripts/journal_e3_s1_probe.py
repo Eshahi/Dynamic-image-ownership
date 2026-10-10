@@ -26,6 +26,17 @@ def rows_at(path):
     return [json.loads(x) for x in path.read_text(encoding='utf-8').splitlines() if x.strip()]
 
 
+def official_kwargs(strength, seed, image, generator_factory):
+    # The older global wrapper whitelist omits .1. This is the same explicit
+    # .1/.2 adaptation already used by journal_bch_t3_screen; safety stays on.
+    if strength not in (.1, .2) or type(seed) is not int or seed not in (0, 1, 2):
+        raise ValueError('E3-S1 fixed T3 identity required')
+    return dict(prompt='', negative_prompt='', image=image, strength=strength,
+        num_inference_steps=20, eta=0., guidance_scale=1.,
+        generator=generator_factory(device='cuda').manual_seed(seed),
+        num_images_per_prompt=1, output_type='pil', return_dict=True)
+
+
 def arm_pass(arm):
     if arm.get('writer', {}).get('admitted') is not True or set(arm.get('conditions', {})) != set(CONDITIONS):
         return False
@@ -73,6 +84,7 @@ def summarize(rows, t3_rows, historical):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--output-dir',type=Path,required=True)
+    p.add_argument('--complete-t3-from',type=Path)
     args=p.parse_args(); out=args.output_dir.resolve(); out.mkdir(parents=True,exist_ok=False)
     selected={r['source_id']:r for r in rows_at(COMPOSITION/'rows.jsonl')}
     historical={(r['source_id'],r['strength'],r['seed']):r for r in rows_at(T3/'rows.jsonl')
@@ -80,6 +92,19 @@ def main():
     if len(historical)!=12 or any(s not in selected for s in IDS):
         raise ValueError('Frozen two-source development ancestry missing')
     rows,t3_rows,c0_rows=[],[],[]
+    prior_seconds=0.
+    if args.complete_t3_from:
+        prior=args.complete_t3_from.resolve(); prior_run=read(prior/'run.json'); prior_wall=read(prior/'parent-wall.json')
+        prior_t3=rows_at(prior/'t3-rows.jsonl')
+        rows,c0_rows=rows_at(prior/'rows.jsonl'),rows_at(prior/'c0-rows.jsonl')
+        if (prior_run.get('schema')!='journal-e3-s1-stage-a-v1' or prior_run.get('outcome')!='failed'
+            or 'unlisted regeneration strength' not in prior_run.get('error','')
+            or any(r.get('image') or r.get('calls') for r in prior_t3)
+            or not summarize(rows,[],historical)['clean_vae_screen_pass']):
+            raise ValueError('Completion requires intact screen and the pre-generation whitelist failure only')
+        prior_seconds=float(prior_wall['parent_inclusive_seconds'])
+        if not 0<prior_seconds<CAP or not prior_wall['within_cap']:
+            raise ValueError('Prior process exhausted the combined original cap')
     record=dict(schema='journal-e3-s1-stage-a-v1',method='E3-S1+E3-BCH59-Q080',
         commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
         command=sys.argv,data_split='development',usd=0,seeds=[0,1,2],sources=list(IDS),outcome='running',
@@ -89,19 +114,23 @@ def main():
             method_contract='research/journal-upgrade-20261009/e3-freeze-design.md',
             protocol='research/journal-upgrade-20261009/e3-s1-stage-a.md'),
         historical_targets={str(s):selected[s]['payload'] for s in IDS},ancestry=dict(composition=str(COMPOSITION),t3=str(T3)))
+    if args.complete_t3_from:
+        record.update(completion_of=str(prior),prior_parent_inclusive_seconds=prior_seconds,
+            prior_error=prior_run['error'],reuse='All completed supplier/writer/clean/VAE calls inherited once; no prior T3 generation')
     ev=None
     def budget():
         rss,peak=working_set(); record['peak_ram_bytes']=max(peak,record.get('peak_ram_bytes',0))
         gpu=int(ev.torch.cuda.max_memory_allocated()) if ev else 0
         record['peak_allocated_bytes']=max(gpu,record.get('peak_allocated_bytes',0))
-        if time.monotonic()-STARTED>=CAP or gpu>GPU_CAP or max(rss,peak)>RAM_CAP:
+        if prior_seconds+time.monotonic()-STARTED>=CAP or gpu>GPU_CAP or max(rss,peak)>RAM_CAP:
             raise RuntimeError('Frozen E3-S1 inclusive resource cap exceeded')
     def save():
         for name,data in (('rows',rows),('t3-rows',t3_rows),('c0-rows',c0_rows)):
             (out/(name+'.jsonl')).write_text(''.join(json.dumps(r,allow_nan=False)+'\n' for r in data),encoding='utf-8')
         record['duration_seconds']=time.monotonic()-STARTED
+        record['combined_prior_parent_and_child_seconds']=prior_seconds+record['duration_seconds']
         record['summary']=summarize(rows,t3_rows,historical)
-        record['budget_overrun']=record['duration_seconds']>CAP
+        record['budget_overrun']=record['combined_prior_parent_and_child_seconds']>CAP
         record['stage_a_pass']=bool(record['outcome']=='completed' and not record['budget_overrun'] and
             record['summary']['scientific_stage_a_pass'])
         write(out/'run.json',record); write(out/'summary.json',record['summary'])
@@ -122,8 +151,8 @@ def main():
         if diffusers.__version__!='0.35.1': raise ValueError('Pinned diffusers required')
         torch.cuda.set_per_process_memory_fraction(GPU_CAP/torch.cuda.get_device_properties(0).total_memory)
         ev=Evaluator(); channel=DifferentiableDDIM(models.load_regenerator(ASSETS))
-        other=AutoencoderKL.from_pretrained(SDXL,local_files_only=True,use_safetensors=True,
-            torch_dtype=torch.float32).eval().requires_grad_(False).to('cuda')
+        other=(None if args.complete_t3_from else AutoencoderKL.from_pretrained(SDXL,local_files_only=True,use_safetensors=True,
+            torch_dtype=torch.float32).eval().requires_grad_(False).to('cuda'))
         record['config'].update(profile=ev.profile,sdxl_revision=SDXL_REV)
         record['environment']=dict(torch=torch.__version__,diffusers=diffusers.__version__,gpu=torch.cuda.get_device_name(0),
             threads=torch.get_num_threads(),matmul_tf32=torch.backends.cuda.matmul.allow_tf32,cudnn_tf32=torch.backends.cudnn.allow_tf32)
@@ -132,7 +161,7 @@ def main():
             budget(); features,latent=ev.features(rgb,7),ev.reader.latent(rgb)
             result={o:detect_rgb(rgb,latent,o,ev.profile,features,binding='soft',binding_mode='combined',roster_size=1) for o in owners}
             budget(); return result
-        for sid in IDS:
+        for sid in (() if args.complete_t3_from else IDS):
             budget(); source=load(SOURCES[sid]); target=selected[sid]['payload']
             row=dict(source_id=sid,source_image=str(SOURCES[sid]),historical_payload=target,arms={})
             rows.append(row); folder=out/str(sid); folder.mkdir(); save()
@@ -182,13 +211,14 @@ def main():
         if summarize(rows,t3_rows,historical)['clean_vae_screen_pass']:
             for row in rows:
                 arm=row['arms']['S1']; marked=load(arm['writer']['final_image']); folder=out/str(row['source_id'])
+                folder.mkdir(exist_ok=True)
                 for strength in (.1,.2):
                     for seed in (0,1,2):
                         budget(); r=dict(source_id=row['source_id'],strength=strength,seed=seed,status='running',payload=arm['payload'])
                         t3_rows.append(r); save()
                         try:
                             with torch.inference_mode():
-                                output=channel.pipe(**models.regeneration_kwargs(strength,seed,Image.fromarray(marked),torch.Generator))
+                                output=channel.pipe(**official_kwargs(strength,seed,Image.fromarray(marked),torch.Generator))
                             steps,_=channel.pipe.get_timesteps(20,strength,channel.pipe._execution_device)
                             r['timesteps']=steps.cpu().tolist()
                             if len(r['timesteps'])!=int(20*strength): raise ValueError('Official effective timesteps differ')
@@ -202,6 +232,8 @@ def main():
                             if str(exc)!='safety_checker_blocked_output':
                                 r.update(status='failed',error=traceback.format_exc()); raise
                             r.update(status='safety_blocked',image=None,calls={},endpoints={})
+                        except Exception:
+                            r.update(status='failed',error=traceback.format_exc()); raise
                         budget(); save(); print(json.dumps({k:r[k] for k in ('source_id','strength','seed','status')}),flush=True)
         budget(); record['outcome']='completed'
     except Exception:
