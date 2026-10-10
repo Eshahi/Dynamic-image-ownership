@@ -127,6 +127,15 @@ def main():
         record["environment"]["gpu"] = ev.torch.cuda.get_device_name(0)
         other = AutoencoderKL.from_pretrained(SDXL, use_safetensors=True, local_files_only=True,
                                               torch_dtype=ev.torch.float32).eval().requires_grad_(False).to("cuda")
+        delta = ev.reader.vae.encoder.conv_in.weight - other.encoder.conv_in.weight
+        record["encoder_checkpoint_check"] = {"tensor": "encoder.conv_in.weight",
+            "different_elements": int(ev.torch.count_nonzero(delta).item()),
+            "elements": delta.numel(), "mse": float(delta.square().mean().item()),
+            "meaning": "nonidentical encoder weights; not evidence of unrelated training data or ancestry"}
+        if not record["encoder_checkpoint_check"]["different_elements"]:
+            raise ValueError("Independent checkpoint control has identical first encoder weights")
+        del delta
+        write(args.output_dir / "run.json", record)
         for sid in sorted(SOURCES):
             source = np.asarray(Image.open(SOURCES[sid]).convert("RGB"), np.uint8)
             for method in ("f5", "v5"):
