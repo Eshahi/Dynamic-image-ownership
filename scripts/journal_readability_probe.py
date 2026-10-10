@@ -19,7 +19,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT), str(ROOT / "scripts")]
-from journal_vae_probe import Evaluator, compact, F5_RUN, SDXL, SDXL_REV, SOURCES, write
+from journal_vae_probe import Evaluator, compact as compact_base, F5_RUN, SDXL, SDXL_REV, SOURCES, write
 from journal_binding_probe import delivery
 from f4_transfer_probe import MAIN
 from f5_gate import OWNERS
@@ -34,6 +34,16 @@ CONFIGS = {"R1": (("clean",), 52.), "R2": (("clean", "sdxl_vae"), 52.),
 DISCOVERY = MAIN / ".thesis-build/dev-runs/20261010-0903-journal-vae"
 OPTIMIZATION_CAP = 10800.
 EVALUATION_CAP = 2700.  # Shared with follow-up work; parent subtracts measured screen cost.
+
+
+def compact(result):
+    if result["binding_mode"] != "combined":
+        raise ValueError("This diagnostic wrapper records the native combined rule only")
+    other_content = result["semantic"]["found"] and result["semantic"]["content_status"] != "match"
+    return dict(compact_base(result), semantic_code=result["semantic_code"],
+        perceptual_hash=result["perceptual_hash"],
+        native_q_bound=result["semantic"]["decoded_code"] if other_content else result["semantic_code"],
+        native_q_bound_rule="decoded_q_on_found_content_mismatch_else_suspect_q")
 
 
 def load(path):
@@ -93,12 +103,23 @@ def payload(ev, sid):
     if len(reports) != 1:
         raise ValueError(f"Original recorded semantic payload missing or ambiguous for {sid}")
     q = int(reports[0]["semantic_code"], 16)
+    frozen_rows = [json.loads(line) for line in (DISCOVERY / "rows.jsonl").read_text().splitlines()]
+    frozen = [r for r in frozen_rows if r["source_id"] == sid and r["method"] == "f5"
+              and r["control"] == "C1" and r["condition"] == "clean"]
+    if len(frozen) != 1:
+        raise ValueError(f"Frozen operational payload missing or ambiguous for {sid}")
+    frozen_call = frozen[0]["calls"][OWNERS[0]]
+    if (not all(frozen_call[tier]["read"] for tier in ("semantic", "instance")) or
+            any(result[tier]["decoded_code"] != frozen_call[tier]["decoded_code"]
+                for tier in ("semantic", "instance"))):
+        raise ValueError(f"Fresh clean extraction differs from frozen operational payload for {sid}")
     if rgb.shape != (512, 512, 3):
         raise ValueError("Fixed protocol requires RGB 512x512")
     return rgb, q, h, dict(q=f"{q:08x}", h=f"{h:08x}", extraction=compact(result),
                             original_semantic_code=reports[0]["semantic_code"],
                             clean_decoded_q=f"{decoded_q:08x}", clean_q_bit_errors=(q ^ decoded_q).bit_count(),
                             q_target_basis="original recorded intended embedding payload",
+                            original_h_known=False, frozen_extraction_confirmed=True,
                             h_target_basis="saved clean C1 native-decoded operational target; original embedded h unrecorded")
 
 
