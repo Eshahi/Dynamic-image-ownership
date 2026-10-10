@@ -1,9 +1,10 @@
 """Conditional E1 two-source official T3 falsifier; no model loads or runner."""
 from __future__ import annotations
 
+import time
+_PROCESS_STARTED = time.monotonic()
 import json
 from pathlib import Path
-import time
 import traceback
 
 MAIN = Path("W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5")
@@ -233,3 +234,309 @@ def run_stage_a_t3(ev, pipe, source_rows, output_dir: Path, budget: callable) ->
         summary.update(error=traceback.format_exc(), stage_a_t3_pass=False, **{"pass": False})
         (output_dir / "e1-t3-summary.json").write_text(json.dumps(summary, indent=2, allow_nan=False) + "\n", encoding="utf-8")
     return summary
+
+
+def _stage_c_summary(rows, comparisons, plan, sets, v5, error=None):
+    """Separate full-grid summary: Stage A's dictionary remains unchanged."""
+    candidate = {_identity(r): r for r in rows if r['arm'] == 'candidate_C1'}
+    strengths = {}
+    for strength, minimum in ((.1, 36), (.2, 31)):
+        keys = [k for k in plan if k[1] == strength]
+        counts = {e: sum(bool(candidate.get(k, {}).get('endpoints', {}).get(e)) for k in keys)
+                  for e in ('S', 'Q', 'J')}
+        retention = {}
+        for method in ('D2', 'frozen_F5'):
+            retention[method] = {}
+            for endpoint in ('S', 'Q', 'J'):
+                positive = [k for k in keys if comparisons[k][method].get(endpoint)]
+                lost = [k for k in positive if not candidate.get(k, {}).get('endpoints', {}).get(endpoint)]
+                gained = [k for k in keys if not comparisons[k][method].get(endpoint)
+                          and candidate.get(k, {}).get('endpoints', {}).get(endpoint)]
+                retention[method][endpoint] = dict(old_positive=len(positive),
+                    lost=list(map(_text, lost)), gained=list(map(_text, gained)))
+        fixed = list(map(tuple, sets[str(strength)]['I']))
+        intersection = dict(fixed_identities=len(fixed), identities=list(map(_text, fixed)),
+            candidate_S=sum(bool(candidate.get(k, {}).get('endpoints', {}).get('S')) for k in fixed),
+            v5_S=sum(v5[k] for k in fixed), frozen_F5_S=len(fixed))
+        strengths[str(strength)] = dict(planned=36, successes=counts, retention=retention,
+            count_pass=counts['Q'] >= minimum and counts['J'] >= minimum,
+            preservation_pass=not any(retention[m][e]['lost'] for m in retention for e in ('S', 'Q', 'J')),
+            intersection=intersection,
+            fixed_I_pass=intersection['candidate_S'] == len(fixed) and intersection['candidate_S'] > intersection['v5_S'])
+    expected = {(arm, k) for arm in ('candidate_C1', 'shared_C0') for k in plan}
+    actual = [(r['arm'], _identity(r)) for r in rows]
+    complete = len(actual) == 144 and set(actual) == expected
+    operational = []
+    negatives = []
+    unavailable = []
+    histogram = {}
+    for row in rows:
+        owners = (ALPHA, BETA) if row['arm'] == 'candidate_C1' else (ALPHA,)
+        if row['status'] == 'ok':
+            if set(row.get('calls', {})) != set(owners):
+                operational.append(dict(arm=row['arm'], identity=_text(_identity(row)), reason='missing full calls'))
+            owner = BETA if row['arm'] == 'candidate_C1' else ALPHA
+            if owner in row.get('calls', {}):
+                call = row['calls'][owner]
+                negatives.append(dict(arm=row['arm'], identity=_text(_identity(row)), owner=owner,
+                    any_detection=bool(call['semantic']['found'] or call['instance']['found'])))
+            if row['arm'] == 'candidate_C1':
+                errors = row['endpoints']['raw_coded_bit_errors']
+                label = str(errors)
+                histogram[label] = histogram.get(label, 0) + 1
+        else:
+            unavailable.append(dict(arm=row['arm'], identity=_text(_identity(row)), status=row['status'],
+                error=row.get('error'), unavailable_negative_owner=BETA if row['arm']=='candidate_C1' else ALPHA))
+            if row['status'] != 'safety_blocked' or row.get('calls'):
+                operational.append(dict(arm=row['arm'], identity=_text(_identity(row)), reason=row['status']))
+    result = dict(method='E1-BCH59-A', stage='C', sources=sorted({k[0] for k in plan}), strengths=strengths,
+        planned_image_rows=144, recorded_image_rows=len(rows), planned_full_calls=216,
+        observed_full_calls=sum(len(r.get('calls', {})) for r in rows),
+        planned_negative_calls=144, observed_negative_calls=len(negatives), negative_calls=negatives,
+        negative_any_detections=sum(n['any_detection'] for n in negatives), unavailable_rows=unavailable,
+        raw_59_bit_error_histogram=histogram, raw_59_bit_errors_observed=sum(histogram.values()),
+        complete=complete, operational_failures=operational, error=error,
+        comparisons=[dict(identity=_text(k), **comparisons[k]) for k in plan],
+        comparison_record=str(D2_ROWS), stage_c_pass=False, m1a_pass=False, candidate_eligible=False,
+        scope='Exploratory in-sample image-domain selection; blocked planned slots count as failures; '
+              'repeated-source negatives, no population FPR, latent-method, T4/T5 or M1a inference')
+    result['stage_c_pass'] = bool(not error and complete and not operational and not result['negative_any_detections']
+        and all(s['count_pass'] and s['preservation_pass'] and s['fixed_I_pass'] for s in strengths.values()))
+    return result
+
+
+def main():
+    # Clock starts before any scientific imports/model startup in this CLI.
+    import argparse
+    import subprocess
+    import sys
+    started = _PROCESS_STARTED
+    parser = argparse.ArgumentParser(description='E1 Stage C full official matched development T3')
+    parser.add_argument('--stage-b-dir', type=Path, required=True)
+    parser.add_argument('--output-dir', type=Path, required=True)
+    args = parser.parse_args()
+    root = Path(__file__).resolve().parents[1]
+    sys.path[:0] = [str(root), str(root/'scripts')]
+    cap, gpu_cap = 900., 10*1024**3
+    torch = None
+
+    def budget():
+        if time.monotonic()-started >= cap:
+            raise TimeoutError('E1 Stage C 900-second inclusive hard cap exhausted')
+        if torch is not None and torch.cuda.is_initialized() and torch.cuda.max_memory_allocated() > gpu_cap:
+            raise torch.cuda.OutOfMemoryError('E1 Stage C 10-GiB allocated GPU cap exceeded')
+
+    def read_rows(path):
+        return [json.loads(line) for line in path.read_text(encoding='utf-8').splitlines() if line.strip()]
+
+    def write(path, value):
+        path.write_text(json.dumps(value, indent=2, allow_nan=False)+'\n', encoding='utf-8')
+
+    budget()
+    from journal_bch_probe import ALL_IDS, summarize_b, stage_config, D2_WRITER, validate_stage_a
+    from journal_rc_t3_probe import frozen_sets
+    bdir = args.stage_b_dir.resolve()
+    brun = json.loads((bdir/'run.json').read_text(encoding='utf-8'))
+    bsummary = json.loads((bdir/'summary.json').read_text(encoding='utf-8'))
+    sources_list = read_rows(bdir/'rows.jsonl')
+    bcheck = summarize_b(sources_list, read_rows(D2_WRITER/'rows.jsonl'))
+    if (brun.get('schema') != 'journal-e1-bch-stage-b-v1' or brun.get('outcome') != 'completed'
+        or brun.get('qualification') != 'stage_b_pass' or bsummary != brun.get('summary')
+        or bsummary.get('stage_b_pass') is not True or not bcheck['stage_b_evidence_pass']
+        or brun.get('config') != stage_config(3300., True) or brun.get('data_split') != 'development'
+        or brun.get('usd') != 0 or brun.get('seeds') != [0, 1, 2]
+        or brun.get('budget_overrun') is not False or not 0 < brun.get('duration_seconds', float('inf')) <= 3300.
+        or not 0 < brun.get('peak_allocated_bytes', float('inf')) <= gpu_cap):
+        raise ValueError('Stage C requires complete passing fixed Stage B evidence')
+    adir = Path(brun['stage_a_provenance']['folder'])
+    a_sources, arun = validate_stage_a(adir)
+    sources = {int(r['source_id']): r for r in sources_list}
+    for a in a_sources:
+        b = sources[a['source_id']]
+        if b['payload'] != a['payload'] or b['conditions'] != a['conditions']:
+            raise ValueError('Stage B inherited Stage A mark or full calls differ')
+    plan = tuple((sid, s, seed) for sid in ALL_IDS for s in STRENGTHS for seed in SEEDS)
+    retained = read_rows(D2_ROWS)
+    panels = {arm: {_identity(r): r for r in retained if r['arm']==arm}
+              for arm in ('candidate_C1', 'frozen_C1_enrichment', 'shared_C0')}
+    old, v5, sets = frozen_sets()
+    for arm in panels:
+        selected = [r for r in retained if r['arm']==arm]
+        expected_keys = (set(plan) if arm != 'frozen_C1_enrichment' else
+            {k for k in plan if old['C1'][k]['outcome']=='completed'})
+        if len(selected) != len(expected_keys) or set(panels[arm]) != expected_keys:
+            raise ValueError('Duplicate or incomplete retained Stage C comparator panel')
+    comparisons = {}
+    for k in plan:
+        comparisons[k] = {}
+        for method, arm, field in (('D2', 'candidate_C1', 'calls'),
+                                   ('frozen_F5', 'frozen_C1_enrichment', 'native_calls')):
+            r = panels[arm].get(k)
+            if r is None:
+                if method != 'frozen_F5' or old['C1'][k]['outcome'] != 'safety_blocked':
+                    raise ValueError('Missing frozen full comparison call')
+                comparisons[k][method] = dict(S=False, Q=False, J=False, unavailable='safety_blocked')
+            elif r['status'] == 'ok':
+                payload = sources[k[0]]['payload']
+                if r['payload']['q'] != payload['q'] or r['payload']['h'] != payload['h']:
+                    raise ValueError('Stage C original comparison payload differs')
+                comparisons[k][method] = _endpoint(r[field][ALPHA], payload)
+                comparisons[k][method+'_image'] = r['image']
+            elif r['status'] == 'safety_blocked':
+                comparisons[k][method] = dict(S=False, Q=False, J=False, unavailable='safety_blocked')
+            else:
+                raise ValueError('Operationally missing comparator is not an available baseline')
+        if k not in panels['shared_C0'] or panels['shared_C0'][k]['status'] not in ('ok', 'safety_blocked'):
+            raise ValueError('Full same-D2 C0 panel must preserve all blocks')
+    inherited = read_rows(adir/'e1-t3-rows.jsonl')
+    inherited_keys = {(r['arm'], _identity(r)) for r in inherited}
+    budget()
+    out = args.output_dir.resolve()
+    out.mkdir(parents=True, exist_ok=False)
+    (out/'images').mkdir()
+    rows, fatal = [], None
+    record = dict(schema='journal-e1-bch-stage-c-v1', method='E1-BCH59-A', stage='C',
+        commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=root, text=True).strip(),
+        command=sys.argv, seeds=list(SEEDS), strengths=list(STRENGTHS), sources=list(ALL_IDS),
+        data_split='development', usd=0, stage_b_dir=str(bdir), stage_b_commit=brun['commit'],
+        stage_a_dir=str(adir), stage_a_commit=arun['commit'], comparison_record=str(D2_ROWS),
+        comparison_sets=sets, config=dict(cap_seconds=cap, gpu_allocated_cap_bytes=gpu_cap,
+            num_inference_steps=20, guidance_scale=1., eta=0., prompt='', negative_prompt='',
+            scheduler='DDIM', safety_checker=True, semantic_views=7, binding='soft', roster_size=1),
+        inherited_image_rows=24, new_c1_generations_planned=60, new_c0_calls_planned=60,
+        budget_scope='900 seconds inclusive of imports/startup, validation, new generation/calls and final summaries; inherited A cost excluded',
+        outcome='running', qualification='pending', human_admissibility_verdict=None)
+
+    def emit(row):
+        rows.append(row)
+        with (out/'rows.jsonl').open('a', encoding='utf-8') as handle:
+            handle.write(json.dumps(row, allow_nan=False)+'\n')
+            handle.flush()
+        print(json.dumps({k:row[k] for k in ('arm', 'source_id', 'strength', 'seed', 'status')}), flush=True)
+
+    write(out/'run.json', record)
+    for index, row in enumerate(inherited):
+        emit(dict(row, inherited_provenance=dict(stage='A', commit=arun['commit'],
+            run_json=str(adir/'run.json'), rows_jsonl=str(adir/'e1-t3-rows.jsonl'), row_index=index,
+            reuse='Exact Stage A C1 pixels/full alpha+beta calls and C0 pixels/fresh E1 alpha call; not a replicate')))
+    fresh_plan = [(arm, k) for arm in ('shared_C0', 'candidate_C1') for k in plan
+                  if (arm, k) not in inherited_keys]
+    try:
+        import torch as torch_module
+        torch = torch_module
+        budget()
+        torch.cuda.set_per_process_memory_fraction(gpu_cap/torch.cuda.get_device_properties(0).total_memory)
+        torch.cuda.reset_peak_memory_stats()
+        from PIL import Image
+        import numpy as np
+        import diffusers
+        from journal_vae_probe import Evaluator
+        from f4_transfer_probe import ASSETS, SOURCES
+        from scripts.journal_bch_readout import detect_rgb
+        if diffusers.__version__ != '0.35.1':
+            raise ValueError('Pinned diffusers 0.35.1 required')
+        ev = Evaluator()
+        budget()
+        pipe = ev.models.load_regenerator(ASSETS)
+        if pipe.safety_checker is None or pipe.feature_extractor is None:
+            raise RuntimeError('Mandatory official safety checker/components missing')
+        budget()
+        record['startup_seconds'] = time.monotonic()-started
+        record['environment'] = dict(torch=torch.__version__, diffusers=diffusers.__version__,
+            gpu=torch.cuda.get_device_name(0))
+
+        def load(path):
+            with Image.open(path) as image:
+                if image.mode != 'RGB' or image.size != (512, 512):
+                    raise ValueError('Saved RGB8 512x512 suspect required')
+                return np.asarray(image, dtype=np.uint8).copy()
+
+        for arm, key in fresh_plan:
+            budget()
+            sid, strength, seed = key
+            tick = time.monotonic()
+            row = dict(arm=arm, source_id=sid, strength=strength, seed=seed, calls={})
+            try:
+                if arm == 'shared_C0':
+                    prior = panels[arm][key]
+                    row.update(retained_source_record=str(D2_ROWS), retained_status=prior['status'],
+                        retained_source_path=prior.get('image'), reuse='Exact same D2 C0 pixels; fresh E1 alpha call')
+                    if prior['status'] == 'safety_blocked':
+                        row.update(status='safety_blocked', error=prior.get('error', 'Retained checker block; no replacement'))
+                    else:
+                        row['image'] = prior['image']
+                        rgb = load(row['image'])
+                else:
+                    mark = sources[sid]['conditions']['clean']['image']
+                    row.update(marked_input=mark, target_source_record=str(bdir/'rows.jsonl'), attack=record['config'])
+                    budget()
+                    with torch.inference_mode():
+                        result = pipe(prompt='', negative_prompt='', image=Image.fromarray(load(mark)),
+                            strength=strength, num_inference_steps=20, eta=0., guidance_scale=1.,
+                            generator=torch.Generator(device='cuda').manual_seed(seed),
+                            num_images_per_prompt=1, output_type='pil', return_dict=True)
+                    budget()
+                    rgb = np.asarray(ev.models.validate_generated(result), dtype=np.uint8)
+                    path = out/'images'/f'E1-{sid}-{strength}-{seed}.png'
+                    Image.fromarray(rgb).save(path)
+                    row['image'] = str(path)
+                    rgb = load(path)
+                    row.update(quality_input=ev.metrics(load(mark), rgb), quality_source=ev.metrics(load(SOURCES[sid]), rgb),
+                        quality_interpretation='Descriptive attack distortion; no filtering or extra quality gate',
+                        human_admissibility_verdict=None)
+                if 'status' not in row:
+                    budget()
+                    features, latent = ev.features(rgb, 7), ev.reader.latent(rgb)
+                    for owner in ((ALPHA,) if arm=='shared_C0' else (ALPHA, BETA)):
+                        budget()
+                        row['calls'][owner] = detect_rgb(rgb, latent, owner, ev.profile, features,
+                            binding='soft', roster_size=1)
+                    budget()
+                    if arm == 'candidate_C1':
+                        row['payload'] = sources[sid]['payload']
+                        row['endpoints'] = _endpoint(row['calls'][ALPHA], row['payload'], coded=True)
+                    row['status'] = 'ok'
+            except (TimeoutError, torch.cuda.OutOfMemoryError):
+                row.update(status='failed', error=traceback.format_exc())
+                row['duration_seconds'] = time.monotonic()-tick
+                emit(row)
+                raise
+            except Exception as exc:
+                row.update(status='safety_blocked' if 'safety_checker_blocked_output' in str(exc) else 'failed',
+                    error=traceback.format_exc())
+                torch.cuda.empty_cache()
+            row['duration_seconds'] = time.monotonic()-tick
+            emit(row)
+            budget()
+        record['outcome'] = 'completed'
+    except Exception:
+        fatal = traceback.format_exc()
+        record.update(outcome='failed', error=fatal)
+    finally:
+        seen = {(r['arm'], _identity(r)) for r in rows}
+        for arm, key in fresh_plan:
+            if (arm, key) not in seen:
+                emit(dict(arm=arm, source_id=key[0], strength=key[1], seed=key[2], status='failed',
+                    calls={}, duration_seconds=0., error='Unrun after startup/runtime hard stop; see run.json'))
+        peak = torch.cuda.max_memory_allocated() if torch is not None and torch.cuda.is_initialized() else None
+        summary = _stage_c_summary(rows, comparisons, plan, sets, v5, fatal)
+        record.update(peak_allocated_bytes=peak, summary=summary, duration_seconds=time.monotonic()-started)
+        write(out/'summary.json', summary)
+        write(out/'run.json', record)
+        record.update(duration_seconds=time.monotonic()-started,
+            budget_overrun=time.monotonic()-started >= cap, gpu_budget_overrun=peak is None or peak > gpu_cap)
+        summary['stage_c_pass'] = bool(summary['stage_c_pass'] and record['outcome']=='completed'
+            and not record['budget_overrun'] and not record['gpu_budget_overrun'])
+        record['qualification'] = 'stage_c_pass' if summary['stage_c_pass'] else 'ineligible'
+        write(out/'summary.json', summary)
+        write(out/'run.json', record)
+        if time.monotonic()-started >= cap and not record['budget_overrun']:
+            record.update(duration_seconds=time.monotonic()-started, budget_overrun=True, qualification='ineligible')
+            summary['stage_c_pass'] = False
+            write(out/'summary.json', summary)
+            write(out/'run.json', record)
+    return 0 if record['outcome']=='completed' else 1
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())
