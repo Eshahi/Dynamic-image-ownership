@@ -1,0 +1,393 @@
+{
+  "candidate": "E3-S1",
+  "data_split": "development",
+  "usd": 0,
+  "analysis_commit": "5508f9b16a14df31ce08be252467bb8ebec85ba8",
+  "raw_paths": {
+    "B": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1522-e3-s1-stage-b"
+  },
+  "raw_commits": {
+    "B": "0b71a3c9a69052791034a21ba3947d56178252e2"
+  },
+  "B": {
+    "pass_recomputed": true,
+    "summary": {
+      "planned_sources": 12,
+      "observed_sources": 12,
+      "all_source_cells_complete": true,
+      "strict_clean_quality": 12,
+      "clean_exact_q_h_both_match": 12,
+      "clean_wrong_owner_calls": 36,
+      "clean_wrong_owner_any": 0,
+      "vae_beta_calls": 24,
+      "vae_beta_any": 0,
+      "c0_clean_calls": 48,
+      "c0_clean_any": 0,
+      "c0_vae_alpha_calls": 24,
+      "c0_vae_alpha_any": 0,
+      "supplier_ok": 12,
+      "writer_ok": 12,
+      "vae": {
+        "sd15_vae": {
+          "S": 12,
+          "Q": 12,
+          "J": 12
+        },
+        "sdxl_vae": {
+          "S": 12,
+          "Q": 12,
+          "J": 12
+        }
+      },
+      "screen_pass": true,
+      "issues": [],
+      "m1a_pass": false,
+      "t3_evaluated": false,
+      "scope": "Fixed development construction/VAE screen only; Stage A costs separate; T3/T4/T5 pending."
+    },
+    "sources": [
+      {
+        "source_id": 1675,
+        "status": "ok",
+        "payload": {
+          "q": "2aa4173c",
+          "h": "8ba0e08b"
+        },
+        "quality": {
+          "mse_rgb8": 4.595643361409505,
+          "psnr_db": 41.50734042370722,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9663073656683067,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.049603573977947235
+        },
+        "branch": "retain",
+        "supplier_seconds": 37.40600000001723,
+        "writer_seconds": 54.59399999998277,
+        "construction_seconds": 92.0,
+        "provenance": {
+          "source": "canonical development original",
+          "retry": false,
+          "kind": "fresh_S1_then_E3_once",
+          "new_writer_executions": 1
+        }
+      },
+      {
+        "source_id": 4795,
+        "status": "ok",
+        "payload": {
+          "q": "aa440fb8",
+          "h": "ea8ed24f"
+        },
+        "quality": {
+          "mse_rgb8": 4.6251271565755205,
+          "psnr_db": 41.47956683762597,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9786361372232327,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.029459437355399132
+        },
+        "branch": "retain",
+        "supplier_seconds": 51.469000000011874,
+        "writer_seconds": 127.85999999998603,
+        "construction_seconds": 179.3289999999979,
+        "provenance": {
+          "source": "canonical development original",
+          "retry": false,
+          "kind": "fresh_S1_then_E3_once",
+          "new_writer_executions": 1
+        }
+      },
+      {
+        "source_id": 6012,
+        "status": "ok",
+        "payload": {
+          "q": "ba84b4b8",
+          "h": "a003e39f"
+        },
+        "quality": {
+          "mse_rgb8": 4.825650533040364,
+          "psnr_db": 41.29524493164101,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9790026309534242,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.012649762444198132
+        },
+        "branch": "retain",
+        "supplier_seconds": 51.453000000008615,
+        "writer_seconds": 90.65599999998813,
+        "construction_seconds": 142.10899999999674,
+        "provenance": {
+          "source": "canonical development original",
+          "retry": false,
+          "stage_a_rows": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1513-e3-s1-t3-completion\\rows.jsonl",
+          "stage_a_arm": "S1",
+          "kind": "reused_supplier_writer_and_C1_calls_once",
+          "stage_a_arm_reuse": "same source and exact q/h in this run; historical writer and evaluation calls reused once",
+          "new_writer_executions": 0
+        }
+      },
+      {
+        "source_id": 25394,
+        "status": "ok",
+        "payload": {
+          "q": "cbc5a678",
+          "h": "86cb5f8a"
+        },
+        "quality": {
+          "mse_rgb8": 4.416996002197266,
+          "psnr_db": 41.67953354687277,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9673414040460583,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.031302064657211304
+        },
+        "branch": "retain",
+        "supplier_seconds": 51.60899999999674,
+        "writer_seconds": 54.953999999997905,
+        "construction_seconds": 106.56299999999464,
+        "provenance": {
+          "source": "canonical development original",
+          "retry": false,
+          "kind": "fresh_S1_then_E3_once",
+          "new_writer_executions": 1
+        }
+      },
+      {
+        "source_id": 80932,
+        "status": "ok",
+        "payload": {
+          "q": "2aeda634",
+          "h": "e1f646ea"
+        },
+        "quality": {
+          "mse_rgb8": 4.626402537027995,
+          "psnr_db": 41.478369434137704,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9747698419923432,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.03284256532788277
+        },
+        "branch": "retain",
+        "supplier_seconds": 51.719000000011874,
+        "writer_seconds": 67.01600000000326,
+        "construction_seconds": 118.73500000001513,
+        "provenance": {
+          "source": "canonical development original",
+          "retry": false,
+          "kind": "fresh_S1_then_E3_once",
+          "new_writer_executions": 1
+        }
+      },
+      {
+        "source_id": 109798,
+        "status": "ok",
+        "payload": {
+          "q": "f1c4b464",
+          "h": "a40af130"
+        },
+        "quality": {
+          "mse_rgb8": 4.679693857828776,
+          "psnr_db": 41.4286291809389,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9564576558961456,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.07046414166688919
+        },
+        "branch": "retain",
+        "supplier_seconds": 52.030999999988126,
+        "writer_seconds": 54.969000000011874,
+        "construction_seconds": 107.0,
+        "provenance": {
+          "source": "canonical development original",
+          "retry": false,
+          "kind": "fresh_S1_then_E3_once",
+          "new_writer_executions": 1
+        }
+      },
+      {
+        "source_id": 134882,
+        "status": "ok",
+        "payload": {
+          "q": "b2c0b53c",
+          "h": "a4f15337"
+        },
+        "quality": {
+          "mse_rgb8": 4.79812749226888,
+          "psnr_db": 41.32008577333381,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9690015625383886,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.062075238674879074
+        },
+        "branch": "retain",
+        "supplier_seconds": 52.062999999994645,
+        "writer_seconds": 91.20300000000861,
+        "construction_seconds": 143.26600000000326,
+        "provenance": {
+          "source": "canonical development original",
+          "retry": false,
+          "kind": "fresh_S1_then_E3_once",
+          "new_writer_executions": 1
+        }
+      },
+      {
+        "source_id": 147498,
+        "status": "ok",
+        "payload": {
+          "q": "dbc49634",
+          "h": "fc782e31"
+        },
+        "quality": {
+          "mse_rgb8": 2.9442227681477866,
+          "psnr_db": 43.441096940213484,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9731373752949297,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.07625770568847656
+        },
+        "branch": "contract_0.8",
+        "supplier_seconds": 51.828000000008615,
+        "writer_seconds": 51.75,
+        "construction_seconds": 103.57800000000861,
+        "provenance": {
+          "source": "canonical development original",
+          "retry": false,
+          "stage_a_rows": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1513-e3-s1-t3-completion\\rows.jsonl",
+          "stage_a_arm": "S1",
+          "kind": "reused_supplier_writer_and_C1_calls_once",
+          "stage_a_arm_reuse": "same source and exact q/h in this run; historical writer and evaluation calls reused once",
+          "new_writer_executions": 0
+        }
+      },
+      {
+        "source_id": 177015,
+        "status": "ok",
+        "payload": {
+          "q": "aa4d2938",
+          "h": "e636460e"
+        },
+        "quality": {
+          "mse_rgb8": 4.650753021240234,
+          "psnr_db": 41.455570840011006,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9762709137559836,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.02426879107952118
+        },
+        "branch": "retain",
+        "supplier_seconds": 51.812000000005355,
+        "writer_seconds": 55.15600000001723,
+        "construction_seconds": 106.96800000002258,
+        "provenance": {
+          "source": "canonical development original",
+          "retry": false,
+          "kind": "fresh_S1_then_E3_once",
+          "new_writer_executions": 1
+        }
+      },
+      {
+        "source_id": 190676,
+        "status": "ok",
+        "payload": {
+          "q": "32c6a524",
+          "h": "c09047e1"
+        },
+        "quality": {
+          "mse_rgb8": 5.7270151774088545,
+          "psnr_db": 40.551520268105996,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9569976111076238,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.05632384121417999
+        },
+        "branch": "retain",
+        "supplier_seconds": 52.046000000002095,
+        "writer_seconds": 120.07800000000861,
+        "construction_seconds": 172.1240000000107,
+        "provenance": {
+          "source": "canonical development original",
+          "retry": false,
+          "kind": "fresh_S1_then_E3_once",
+          "new_writer_executions": 1
+        }
+      },
+      {
+        "source_id": 468505,
+        "status": "ok",
+        "payload": {
+          "q": "0beda430",
+          "h": "f5671a81"
+        },
+        "quality": {
+          "mse_rgb8": 5.319257100423177,
+          "psnr_db": 40.872293788953996,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9599484909784719,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.0549025759100914
+        },
+        "branch": "retain",
+        "supplier_seconds": 51.937999999994645,
+        "writer_seconds": 96.01500000001397,
+        "construction_seconds": 147.95300000000861,
+        "provenance": {
+          "source": "canonical development original",
+          "retry": false,
+          "kind": "fresh_S1_then_E3_once",
+          "new_writer_executions": 1
+        }
+      },
+      {
+        "source_id": 499768,
+        "status": "ok",
+        "payload": {
+          "q": "bad2bc3c",
+          "h": "252e7b39"
+        },
+        "quality": {
+          "mse_rgb8": 5.980467478434245,
+          "psnr_db": 40.363452278210914,
+          "psnr_infinite": false,
+          "ssim_rgb": 0.9761063056244439,
+          "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+          "lpips": 0.03137652948498726
+        },
+        "branch": "retain",
+        "supplier_seconds": 52.530999999988126,
+        "writer_seconds": 109.76600000000326,
+        "construction_seconds": 162.29699999999139,
+        "provenance": {
+          "source": "canonical development original",
+          "retry": false,
+          "kind": "fresh_S1_then_E3_once",
+          "new_writer_executions": 1
+        }
+      }
+    ],
+    "strict_quality_extrema": {
+      "min_psnr": 40.363452278210914,
+      "min_ssim": 0.9564576558961456,
+      "max_lpips": 0.07625770568847656
+    },
+    "per_source_construction_seconds": {
+      "mean": 131.82683333333748,
+      "median": 130.42200000000594,
+      "minimum": 92.0,
+      "maximum": 179.3289999999979,
+      "scope": "Supplier plus writer only; shared loading and evaluation included in parent wall separately."
+    }
+  },
+  "C": null,
+  "D_immediate": null,
+  "D_projection": null,
+  "measured_m1a_pass": false,
+  "official_lifecycle_verdict": null,
+  "human_verdict": null,
+  "parent_wall_seconds": {
+    "A": 295.7593498,
+    "B": 1390.8769023
+  },
+  "total_parent_wall_seconds": 1686.6362521,
+  "limitations": "Twelve adaptively reused development sources; alpha-only construction; seen SD1.5 DDIM strengths/seeds and seen SDXL VAE. Safety-blocked rows remain unavailable. Reused calls are not independent replication. No population FPR, unseen-model generalization, incremental combined-binding benefit, cryptographic authorization or reference-specific same-owner attribution is established. Historical strict E3-B remains failed. This measured assessment does not advance official lifecycle gates."
+}
