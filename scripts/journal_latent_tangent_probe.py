@@ -255,6 +255,7 @@ def main():
         torch.cuda.set_per_process_memory_fraction(min(1., VRAM / torch.cuda.get_device_properties(0).total_memory))
         torch.cuda.reset_peak_memory_stats()
         models.block_network()
+        models.REGEN_SETTINGS = {**models.REGEN_SETTINGS, "strengths": [.1, .2]}
         guard(torch)
         ev = Evaluator()
         ev.lpips.to("cpu")
