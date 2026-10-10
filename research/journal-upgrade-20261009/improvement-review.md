@@ -1,0 +1,38 @@
+# Independent review of the bounded improvement round
+
+2026-10-10. Fresh Codex review agent, independent of experiment and analysis authors. Scope: additions since the discovery review at `8708228`, through code commit `d024368`, plus pending final reports and roadmap updates, including WAM, R1-R4, F5-RC1 cached probes, the completed RC2/RC3 T3 panels, scientific adapters and analysis scripts. Historical M2 and the already reviewed literature/planning package are context, not newly audited experiments. This file is the reviewer's only authored deliverable.
+
+## Verdict
+
+**Accept the bounded exploratory evidence; no improved candidate passes the declared advancement conditions.** No blocking reporting or implementation defect was identified in the inspected completed measurements. R1-R4 fail their exact clean screen; RC2 and RC3 repair the cached clean/VAE endpoints but both fail matched T3 continuity. These findings support closing this six-configuration round without replacing frozen F5 r2. They do not establish a new method pass, journal competitiveness, an official lifecycle transition, or the project's three-family honest-negative exit.
+
+## Scientific conditions that prevent advancement
+
+| Experiment | Supported observation | Advancement consequence |
+|---|---|---|
+| WAM SA-1B MIT | 144/144 rows; native exact-message clean/SD1.5-VAE/SDXL-VAE 12/5/7 of 12; attenuated 10/0/0; both clean quality panels 12/12 | Useful native external baseline only; no matched-FPR or endpoint superiority comparison |
+| R1-R4 | 48/48 refinements; strict clean quality 12 each; exact clean q/h eligibility 9/9/9/8 | All four fail, despite R2/R3/R4 joint exact q 12/12 after both VAEs |
+| RC2/RC3 cached | Exact clean q/h 12/12, both VAE joint-q counts 12/12, strict clean quality 12/12, zero detections in 72 negative calls each | Preliminary eligibility only |
+| Cached binding | All five exact donor deliveries retained and rejected; no new acceptance among 24 previously rejected non-demo rows | Small compatibility result; no isolated combined-predicate advantage |
+| RC2 T3 | At .1/.2: S 36/33 and Q=J 32/21 over 36 planned; fixed-I S 29/29 and 26/28 | Fails fixed-I semantic continuity at .2 and loses two frozen Q/J-positive identities at each strength |
+| RC3 T3 | At .1/.2: S 36/34 and Q=J 31/19 over 36 planned; fixed-I S 29/29 and 27/28 | Fails fixed-I semantic continuity at .2; loses one frozen Q/J identity at .1 and two at .2 |
+
+The identity-level rule in `threat-endpoint-mapping.md:61` is implemented in `scripts/journal_rc_t3_analysis.py:215`: gains cannot compensate for lost frozen Q/J successes. RC2 loses source 468505 seeds 0/1 at .1; RC3 loses source 468505 seed 1. Both lose 80932 seed 0 and 109798 seed 2 at .2. The RC3 fixed-I semantic loss at .2 is the completed source 190676 seed 1, rather than a missing safety-blocked decision. No downstream candidate T4/T5 or new synthesis result should be inferred from the earlier cached panel.
+
+## Warnings and interpretation limits
+
+1. **The repair changes the detector.** `scripts/journal_read_conditioning.py:51` chooses decoded semantic q when `semantic.read` is true, otherwise suspect-recomputed q, and performs one instance extraction. Evaluator q/h targets do not enter this route. This is a source-blind F5-RC1 version, not a correction that can silently replace historical F5. The frozen intended q is known; h is the saved-clean operational decoded target, not verified original embedded h. Decoder-only exact-pair compatibility is 6/12 even though full acceptance remains 12/12.
+2. **Null calibration remains missing.** Frozen numerical thresholds are unchanged, but a changed conditioning rule is not covered by inherited bound fields. RC2 observes 0/474 and RC3 0/477 negative calls out of 504 planned. Six retained C0 blocks leave 24 unavailable slots in each; candidate blocks explain the remaining unavailable wrong-owner calls. Calls share images, owners and transformations, and RC3 explicitly shares 142 frozen/C0 records with RC2. None of these counts supplies independent sample size, a population FPR certificate or an independent replication.
+3. **WAM endpoint and checkpoint differences matter.** The adapter uses the pinned official SA-1B MIT checkpoint and upstream semihard decoding, including raw selected-pixel bit-logit mean >.5 and sigmoid mask >.5. It does not reproduce the paper's COCO-checkpoint experiment. Exact 32-bit recovery, F5 checked semantic acceptance and full attribution are different endpoints. Native WAM mean clean PSNR 38.32 dB and F5 quality do not constitute a matched-distortion comparison. Empty masks are exposed and zero-scored in the all-source diagnostic.
+4. **Binding and T5 are limited by the verification interface.** The accepted public recipient construction remains an authorization counterexample. Five donor deliveries rejected by both semantic and own-h predicates cannot isolate the benefit of their conjunction. The inherited all-alpha/source-blind panel cannot identify distinct-owner or enrolled-instance false attribution; 66 geometric pairs are not 66 such negative trials. This is explicitly preserved as unevaluated, rather than passed.
+5. **Adaptive development remains adaptive.** SDXL is a seen optimization channel. Cached pixels, two selected continuations and twelve reused sources cannot establish new-model or new-image generalization. Human admissibility remains missing; LPIPS .20/.30 subsets are numerical sensitivity analyses. The six candidates are not three substantially different failed families. A DDIM-aware next objective is a prospective hypothesis, not an experimentally validated rescue.
+
+## Verification performed
+
+Read the authoritative MAIN state once, inspected the scoped diff and scientific decision/protocol/report chain, and inspected the target initialization, stationary shortcut, WAM adapter, read-conditioned decoder, T3 generation settings and endpoint reductions. Each inspected completed run has committed-code provenance and a retained `run.json`. Failed input assertions and original rejected configurations remain disclosed.
+
+Using the bundled stdlib interpreter, independently invoked the analysis functions on completed retained JSON only. WAM counts reproduce; R1-R4 configuration summaries reproduce; both cached RC screen/binding structures reproduce; RC2 and RC3 inventory, endpoints, negatives, threshold checks, coverage and reuse reductions agree with their saved statistics. Both T3 runs contain 214 unique planned records, with no operational failures or missing records; safety-blocked records remain distinct from completed detections. No image inference, GPU rerun, artifact rehash, floating-point replay, held-out access or retained-output mutation was performed. RC3 was inspected only after termination.
+
+The reductions can be repeated by adding `scripts` to Python's import path and calling `journal_wam_analysis.analyze`, `journal_readability_analysis.screen`, `journal_read_conditioning_analysis.screen_analysis` / `binding_analysis`, and `journal_rc_t3_analysis.analyze` on the named completed run records. These are aggregate consistency checks, not independent new scientific replicates.
+
+Final `plan.md` and `improvement-summary.md` were inspected after both runs terminated. They agree with the measured counts and failed advancement decisions, retain historical F5/M2, distinguish the future DDIM-aware hypothesis from executed work, and leave matched-FPR comparisons, identifiable T5 evidence and fresh confirmation unfinished. The declared attack ranges and statistical targets remain prospective design choices, not journal acceptance criteria. No blocking correction is required for this bounded package.
