@@ -69,7 +69,7 @@ class Runtime:
         if diffusers.__version__ != '0.35.1': raise ValueError('Pinned diffusers required')
         models.block_network()
         self.asset_receipt, _ = models.verify_assets(ASSETS, base / W.ASSET_LOCK)
-        torch.cuda.set_per_process_memory_fraction(10 * 1024**3 / torch.cuda.get_device_properties(0).total_memory)
+        torch.cuda.set_per_process_memory_fraction(9 * 1024**3 / torch.cuda.get_device_properties(0).total_memory)
         self.ev = Evaluator()
         self.pipe = models.load_regenerator(ASSETS)
         self.channel = DifferentiableDDIM(self.pipe)
@@ -182,7 +182,7 @@ def run(worker):
         try:
             w.check_budget()
             resources = getattr(w.rt,'resources',lambda:{})()
-            if resources.get('peak_vram_allocated_mib',0)>10*1024:
+            if resources.get('peak_vram_allocated_mib',0)>9*1024:
                 raise W.InfrastructureStop('budget','GPU memory ceiling')
         except (W.Stop,W.InfrastructureStop) as e: raise _BudgetInterrupt(e)
     w.rt.budget = budget

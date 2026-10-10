@@ -61,7 +61,7 @@ def build_manifest(plan_path: str, run_id: str, max_seconds: int) -> tuple[dict,
                  "T3 semantic per dose and seed (source majority)", "T4 false donor full attribution",
                  "T5 false full match", "PSNR/SSIM/LPIPS"],
         budget=dict(max_seconds=int(max_seconds), max_usd=0, hourly_usd=0),
-        resources=dict(vram_mib=10240, ram_mib=16384, disk_mib=12288) if s1 else dict(vram_mib=9000, ram_mib=16000, disk_mib=4000),
+        resources=dict(vram_mib=9216, ram_mib=16384, disk_mib=12288) if s1 else dict(vram_mib=9000, ram_mib=16000, disk_mib=4000),
         cleanup_policy="stop-for-recovery")
     if s1:
         if test and max_seconds != 28800:
