@@ -20,6 +20,35 @@ SEEDS = (0, 1, 2)
 ARMS = ('frozen_C1_enrichment', 'shared_C0', 'candidate_C1')
 
 
+def descriptive_d2(record):
+    descriptive = record.get('scientific_status') == 'descriptive_D2_ineligible'
+    if descriptive and (record['config']['candidate'] != 'D2' or
+            record.get('candidate_eligible') is not False or
+            record.get('writer_prerequisite_pass') is not False or
+            record.get('gpu_allocated_cap_bytes') != 10 * 1024**3 or
+            record.get('planned_candidate_calls') != 72 or
+            record.get('planned_shared_rows') != 142):
+        raise ValueError('Unexpected descriptive D2 metadata')
+    return descriptive
+
+
+def q_word(call, target):
+    """Hamming errors exist only for a native readable 32-bit word."""
+    semantic = call['semantic']
+    if not semantic['read']:
+        return dict(status='unreadable', bit_errors=None)
+    code = semantic.get('decoded_code')
+    if code is None:
+        return dict(status='missing_word', bit_errors=None)
+    try:
+        decoded, intended = int(code, 16), int(target, 16)
+        if not (0 <= decoded < 2**32 and 0 <= intended < 2**32):
+            raise ValueError('q is not a 32-bit word')
+    except (TypeError, ValueError):
+        return dict(status='invalid_word', bit_errors=None)
+    return dict(status='readable', bit_errors=(decoded ^ intended).bit_count())
+
+
 def load(path):
     return json.loads(Path(path).read_text(encoding='utf-8'))
 
@@ -100,6 +129,7 @@ def inventory(data, expected):
 
 def budget(record, run_path):
     if record['config']['candidate'] == 'D2':
+        descriptive = descriptive_d2(record)
         duration = float(record['duration_seconds'])
         if (record['outcome'] == 'running' or record.get('prior_active_seconds') != 0 or
                 abs(float(record['shared_duration_seconds'])-duration) > 1e-6):
@@ -107,14 +137,19 @@ def budget(record, run_path):
         writer = load(Path(record['screen_run'])/'run.json')
         utility = load(Path(writer['utility_run'])/'run.json')
         writer_seconds, utility_seconds = float(writer['duration_seconds']), float(utility['duration_seconds'])
-        return dict(cap_seconds=1800, measured_seconds=duration, within_cap=duration <= 1800,
+        cap = 900 if descriptive else 1800
+        peak = record.get('gpu_peak_allocated_bytes')
+        return dict(cap_seconds=cap, measured_seconds=duration, within_cap=duration <= cap,
+            gpu_peak_allocated_bytes=peak, gpu_cap_bytes=10*1024**3 if descriptive else None,
+            gpu_within_cap=peak is not None and 0 <= peak <= 10*1024**3 if descriptive else None,
             chain=[dict(path=str(run_path), candidate='D2', duration_seconds=duration)],
             cached_stage_seconds=writer_seconds, cached_stage_cap_seconds=3300,
             cached_stage_within_cap=writer_seconds <= 3300 and utility_seconds <= 300,
             utility_seconds=utility_seconds, utility_cap_seconds=300,
             total_d2_seconds=utility_seconds+writer_seconds+duration,
             shared_evidence_prior_duration_seconds=record['shared_evidence_prior_duration_seconds'],
-            accounting='Fresh D2 T3; writer and utility caps separate; inherited RC evidence is reused, not re-executed')
+            accounting=('Descriptive D2 900 seconds inclusive of imports, prerequisite validation, fresh attacks and final summaries; inherited evidence cost excluded'
+                        if descriptive else 'Fresh D2 T3; writer and utility caps separate; inherited RC evidence is reused, not re-executed'))
     seen, chain = set(), []
     current, path = record, run_path
     while True:
@@ -178,6 +213,7 @@ def analyze(path):
             or record['config']['candidate'] not in ('RC2', 'RC3', 'D2')
             or record['config']['owners'] != list(OWNERS) or record['seeds'] != list(SEEDS)):
         raise ValueError('Unexpected scientific provenance')
+    descriptive = descriptive_d2(record)
     data = rows(path/'rows.jsonl')
     old, v5, sets = retained(record)
     expected = {('frozen_C1_enrichment', k) for x in sets.values() for k in x['F']}
@@ -239,6 +275,20 @@ def analyze(path):
                        in_F=k in f, in_I=k in i, v5_S=v5.get(k),
                        frozen_native=frozen.get(k, {}).get('native'), frozen_RC=frozen.get(k, {}).get('rc'),
                        candidate_RC=candidate.get(k, {}).get('rc'), candidate_native=candidate.get(k, {}).get('native')) for k in p]
+        word_diagnostics = {}
+        for arm, field in (('candidate_RC', 'calls'), ('candidate_native', 'native_calls'), ('frozen_native', 'native_calls')):
+            row_arm = 'frozen_C1_enrichment' if arm == 'frozen_native' else 'candidate_C1'
+            words = []
+            for k in p:
+                row = lookup[row_arm].get(k, {})
+                call = row.get(field, {}).get(ALPHA)
+                word = (q_word(call, row['payload']['q']) if call is not None and row.get('payload')
+                        else dict(status='unavailable', bit_errors=None))
+                words.append(dict(identity=label(k), **word))
+            word_diagnostics[arm] = dict(planned=36,
+                statuses=dict(Counter(w['status'] for w in words)),
+                readable_bit_error_histogram={str(n): sum(w['status'] == 'readable' and w['bit_errors'] == n for w in words) for n in range(33)},
+                identities=words, signed_bit_margins='not exposed by the retained full-call API; not inferred')
         isuccess = sum(k in candidate and candidate[k]['rc']['S'] for k in i)
         historical = isuccess == len(i) and isuccess > sum(v5[k] for k in i)
         exact = len(baseline) == len(f) and not any(retention[e]['lost'] for e in ('Q','J'))
@@ -260,6 +310,8 @@ def analyze(path):
             I=dict(planned=len(i), candidate_S=isuccess, frozen_S=len(i), v5_S=sum(v5[k] for k in i),
                    failed_or_absent=[label(k) for k in i if k not in candidate]),
             retention=retention, paired_identities=paired, source_majority=majorities,
+            q_word_diagnostics=word_diagnostics,
+            source_seed_outcomes={str(sid): {str(seed): candidate.get((sid,s,seed), {}).get('rc') for seed in SEEDS} for sid in IDS},
             historical_semantic_continuity_pass=historical, exact_q_continuity_pass=exact,
             quality=quality(group, [lookup['candidate_C1'][k] for k in good], candidate))
     negative = {}
@@ -294,6 +346,12 @@ def analyze(path):
               and costs['cached_stage_within_cap'] and threshold_pass and blocks_match
               and candidate_operational_complete and available_negative_complete and n['any_detections'] == 0
               and all(x['historical_semantic_continuity_pass'] and x['exact_q_continuity_pass'] for x in strengths.values()))
+    descriptive_complete = (descriptive and record['outcome'] == 'completed' and full_inventory
+        and not call_errors and not discrepancies and costs['within_cap'] and costs['gpu_within_cap']
+        and threshold_pass and blocks_match and candidate_operational_complete and available_negative_complete)
+    diagnostic_positive = (descriptive_complete and strengths['0.2']['candidate_RC']['J'] > 20
+        and all(x['exact_q_continuity_pass'] and x['historical_semantic_continuity_pass'] for x in strengths.values())
+        and n['any_detections'] == 0)
     return dict(schema='journal-rc-t3-analysis-v1',method='F5-RC1',candidate=record['config']['candidate'],
                 input=dict(path=str(path.resolve()),commit=record['commit'],command=record['command'],outcome=record['outcome'],
                            frozen_run=record['frozen_run'],v5_results=record['v5_results']),
@@ -304,7 +362,17 @@ def analyze(path):
                 coverage=dict(available_negative_panel_complete=available_negative_complete,
                               retained_C0_statuses_match=blocks_match,candidate_operational_complete=candidate_operational_complete,
                               planned_negative_panel_exhaustive=n['observed']==504,retained_C0_blocked_call_slots=24),
-                measured_t3_continuity_pass=passed,
+                measured_t3_continuity_pass=passed if not descriptive else False,
+                descriptive_measured_t3_continuity_pass=passed if descriptive else None,
+                scientific_status=record.get('scientific_status', 'exploratory_candidate_T3'),
+                candidate_eligible=False if descriptive else record.get('candidate_eligible'),
+                M1a_pass=False, writer_prerequisite_pass=False if descriptive else record.get('writer_prerequisite_pass'),
+                descriptive_diagnostic=dict(applicable=descriptive, complete_within_budget=descriptive_complete,
+                    signal_worth_preserving=diagnostic_positive,
+                    verdict=('diffusion-aware signal worth preserving, SDXL prerequisite still failed' if diagnostic_positive
+                        else 'no demonstrated strict diffusion-continuity improvement for this fixed D2 construction') if descriptive else None,
+                    SDXL_joint_retained='10/12; prerequisite failed' if descriptive else None,
+                    scope='In-sample attacks optimized by D2; no T4/T5 expansion or new candidate' if descriptive else None),
                 reuse=dict(prior_run=record.get('prior_run'),shared_rows=sum('shared_origin' in r for r in data),
                            interpretation='Reused frozen enrichment and C0 are shared evidence, not independent replicates'),
                 endpoint_definitions=dict(A='semantic.found OR instance.found',S='semantic.found AND content_match',
@@ -329,6 +397,12 @@ def report(data):
              '## Fixed denominators and endpoints','',
              '| Strength | Completed / 36 | S | R | C | Q | J | U | H | D | Full F | Fixed I candidate / frozen / v5 | S continuity | Q/J continuity |',
              '|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|---|---|']
+    if data['descriptive_diagnostic']['applicable']:
+        d = data['descriptive_diagnostic']
+        lines[2] = (f"D2 descriptive characterization; candidate eligibility: **False**; M1a pass: **False**. "
+                    f"Diagnostic: **{d['verdict']}**. Complete within inclusive time/GPU budget: {d['complete_within_budget']}.")
+        lines.insert(4, 'The retained SDXL joint screen is 10/12 and failed its prerequisite. D2 remains ineligible regardless of these results. The attack identities were used in optimization: evidence is in-sample. No T4/T5 expansion, new candidate or lifecycle transition follows.')
+        lines.insert(5, f"GPU allocation peak {data['budget']['gpu_peak_allocated_bytes']} bytes / {data['budget']['gpu_cap_bytes']} bytes; within cap: {data['budget']['gpu_within_cap']}. Cached screen costs are retained separately and cannot restore eligibility.")
     for s,x in data['strengths'].items():
         count=' | '.join(str(x['candidate_RC'][e]) for e in ('S','R','C','Q','J','U','H','D','F'))
         i=x['I']
@@ -343,6 +417,15 @@ def report(data):
             gained = ', '.join(r['gained']).replace('|', '\\|') or 'none'
             lines.append(f"| {s} / {e} | {r['frozen_positive']}/35 | {r['retained']} | {lost} | {gained} |")
     lines += ['', 'Full P/F and paired native/new counts, every endpoint, and 72 per-identity arrays are in the statistics JSON. Gains elsewhere never erase a lost frozen-positive identity. H/D/full acceptance are descriptive, with no invented fragile-h diffusion gate.','',
+              '## Native readable q-word errors','',
+              'Hamming error histograms use only native readable 32-bit words against original q. Unreadable, missing, invalid and unavailable words have null errors, never zero errors. Signed bit margins are not exposed by the retained full-call API and are not invented.', '',
+              '| Strength / decoder | Readable error count: number of words | Word statuses |',
+              '|---|---|---|']
+    for s,x in data['strengths'].items():
+        for arm, words in x['q_word_diagnostics'].items():
+            histogram = '; '.join(f'{n}: {count}' for n,count in words['readable_bit_error_histogram'].items() if count) or 'none'
+            lines.append(f"| {s} / {arm} | {histogram} | {words['statuses']} |")
+    lines += ['', 'Per-identity Hamming errors and all source-level three-seed endpoints are in the statistics JSON.', '',
               '## Source-majority and quality','',
               'Source-majority means at least two successful seeds out of three, over the fixed twelve sources. Blocked/missing/failed seeds count as no success. These are descriptive development counts, not independent seed or sample inference.']
     for s,x in data['strengths'].items():
