@@ -1,0 +1,21 @@
+# E3-A1 original-endpoint evidence matrix
+
+Updated 2026-10-10 by Codex agent. Development evidence only. This table implements the explicit post-outcome decision in [e3-gate-decision.md](e3-gate-decision.md); it neither changes the failed strict E3-B result nor advances an official lifecycle gate.
+
+| Obligation | Available evidence | Current status and limit |
+|---|---|---|
+| All twelve strict clean quality: PSNR >35, SSIM >.9, LPIPS <.1 | E3 cached composition e5332c1, 12/12 | Measured on selected inherited marks; eleven retained and one contracted. Adaptive development selection. |
+| Clean full acceptance on at least eleven | Exact intended q/operational h and full acceptance, 12/12 | Stronger measured clean endpoint passes on the same inherited marks. Operational h is not claimed to be the historical original h. |
+| Matched SD1.5 T3 S greater than v5 at .1 and .2 | Fresh b87d824: S/Q/J 36/36 and 35/36; fixed historical I gives S 29/29 versus 27/29, and 28/28 versus 18/28 | Measured original comparison succeeds on fixed I. All 36 planned identities remain in full-panel denominators. These six seeds were seen during writing. |
+| Strict E3-B per-identity S/Q/J preservation | One previously positive S identity, 6012 at .2 seed 0, is safety-blocked | **Failed and closed.** A gained identity does not erase it. This was an additional engineering condition, not the original user M1a definition. |
+| Zero unmarked/wrong-owner detection | T3 0/137 observed negative calls; seven planned negative slots unavailable. Cached clean/VAE 0/72 | Zero observed errors with explicitly incomplete T3 availability; no calibrated population FPR claim. Supplement completes the four-owner clean controls. |
+| T4 residual transfer continuity | Forty fixed donor/recipient/scale conditions | Pending E3-A1 immediate supplement. Compare false full attribution and delivery separately. Zero delivery cannot establish binding efficacy. |
+| T4 public-access transfer and sham continuity | Twenty projections and twenty unmarked shams in original v5 inventory | Pending frozen native-carrier attack definition and measurement. Applying the unrelated v5 carrier blindly is not a fair attack. |
+| T5 geometry continuity | Sixty-six historical unordered pairs, with fixed labels | Pending single-view historical and seven-view native geometry. These are code distances, not false attribution trials. |
+| Same-topic public donor transfer | Seven fixed same-topic pairs in the original inventory | Pending native-carrier transfer supplement; preserve access and donor targets. |
+| Genuine cross-owner T5 behavior | New cyclic-owner assignment fixed before construction | Pending owner-generic construction protocol, all-positive admission, 36 unique wrong-owner calls per method and pair-linked strata. Do not relabel existing alpha marks. |
+| Same-owner reference-specific instance identification | Detector inputs are suspect pixels and claimed public owner, without a claimed reference instance | Not identifiable through this interface. No pair multiplicity, geometry result or owner separation measurement can certify it. |
+
+The immediate supplement has a 900-second inclusive cap. The remaining native-transfer and cyclic-owner panels have ceilings of 1,800 and 4,200 seconds, respectively, subject to a concrete frozen method protocol and plausible cost. Every scientific run remains USD 0 on local hardware. A failed cheap threat condition closes this amendment before its expensive stages.
+
+M1a remains incomplete. A later decision must preserve any unidentifiable literal instance requirement rather than silently replace it with owner separation. No M1b package, confirmatory manifest or execution infrastructure is started. All evidence here concerns an image-domain comparator with a VAE encoder and CLIP at detection; it is not the proposal's latent embedding plus lightweight DCT detector.
