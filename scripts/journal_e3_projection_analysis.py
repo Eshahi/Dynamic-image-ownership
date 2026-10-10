@@ -99,7 +99,7 @@ def analyze(folder):
     planned = run.get('planned_identities', []); counts = Counter(r['id'] for r in rows)
     good = [r for r in rows if r.get('status')=='ok']
     done = {r['id'] for r in good}
-    stats = dict(strict_e3_b='FAILED_FINAL', m1a_pass=False,
+    stats = dict(method=run.get('candidate_kind','E3'), strict_e3_b='FAILED_FINAL', m1a_pass=False,
         qualification='exploratory_E3_PP1_post_hoc_supplement_only',
         inventory=dict(expected_rows=94, planned_rows=len(planned), recorded_rows=len(rows),
             completed_rows=len(done), missing_identities=sorted(set(planned)-done),
@@ -107,7 +107,7 @@ def analyze(folder):
             duplicate_identities=sorted(k for k,v in counts.items() if v>1),
             duplicate_planned_identities=sorted(k for k,v in Counter(planned).items() if v>1),
             extra_identities=sorted(set(counts)-set(planned))), strata={}, issues=[])
-    stage = read(Path(run['e3_stage_a_dir'])/'run.json')
+    stage = read(Path(run['s1_stage_b_dir'] if run.get('candidate_kind')=='E3-S1' else run['e3_stage_a_dir'])/'run.json')
     radius = stage.get('config',{}).get('profile',{}).get('decision',{}).get('instance_radius')
     provenance = Counter(); coverage = Counter(); endpoint_disagreements=[]; bound_inventory={}
     for r in rows:
@@ -133,7 +133,7 @@ def analyze(folder):
         if set(r.get('endpoints',{}))!=set(r['calls']):
             stats['issues'].append(f"Incomplete saved endpoint set: {r['id']}")
     stats['call_inventory']=dict(expected_calls=376, actual_calls=sum(provenance.values()),
-        expected_reused_calls=188, reused_calls=provenance['reused_full_call'],
+        expected_reused_calls=268 if run.get('candidate_kind')=='E3-S1' else 188, reused_calls=provenance['reused_full_call'],
         new_calls=provenance['new_call'], provenance_counts=dict(provenance),
         coverage_by_method_mode={f'{m}/{b}':v for (m,b),v in coverage.items()})
     stats['bound_inventory']=bound_inventory
@@ -172,6 +172,7 @@ def analyze(folder):
         cell['new_E3_false_F_vs_v5']=sorted(positive['E3']-positive['v5'])
         cell['lost_E3_false_F_vs_v5']=sorted(positive['v5']-positive['E3'])
         cell['continuity_pass']=all(cell[m]['available']==n for m in METHODS) and not cell['new_E3_false_F_vs_v5'] and cell['E3']['false_F']<=cell['v5']['false_F']
+        if sham: cell['continuity_pass'] &= cell['E3']['endpoint_counts']['A']==0
         stats['strata'][stratum]=cell
     unknown_strata={r.get('stratum') for r in good}-set(STRATA)
     if unknown_strata: stats['issues'].append(f'Unexpected successful strata: {unknown_strata}')
@@ -186,7 +187,8 @@ def analyze(folder):
     inv=stats['inventory']; ci=stats['call_inventory']
     stats['projection_continuity_pass']=bool(run['outcome']=='completed' and len(planned)==94 and done==set(planned)
         and not any(inv[k] for k in ('failed_rows','duplicate_identities','duplicate_planned_identities','extra_identities'))
-        and ci['actual_calls']==376 and ci['reused_calls']==ci['new_calls']==188 and not provenance['missing']
+        and ci['actual_calls']==376 and (ci['reused_calls'],ci['new_calls']) ==
+            ((268,108) if run.get('candidate_kind')=='E3-S1' else (188,188)) and not provenance['missing']
         and caps_ok and not endpoint_disagreements and not stats['issues'] and all(c['continuity_pass'] for c in stats['strata'].values()))
     saved=read(folder/'summary.json')
     shared={k:stats[k] for k in ('strict_e3_b','m1a_pass','strata','projection_continuity_pass')}
@@ -213,7 +215,7 @@ def main():
     args=p.parse_args(); stats=analyze(args.run_dir.resolve())
     args.output_dir.mkdir(parents=True,exist_ok=True)
     (args.output_dir/'stats.json').write_text(json.dumps(stats,indent=2,allow_nan=False)+'\n',encoding='utf-8')
-    lines=['# E3-PP1 public projection analysis','',f"Resource-inclusive continuity: {stats['projection_continuity_pass']}. Strict E3-B: FAILED_FINAL. M1a: incomplete.",'',
+    lines=[f"# {stats['method']} public projection analysis",'',f"Resource-inclusive continuity: {stats['projection_continuity_pass']}. Strict E3-B: FAILED_FINAL. M1a: incomplete.",'',
         f"Rows {stats['inventory']['completed_rows']}/94; calls {stats['call_inventory']['actual_calls']}/376; reused {stats['call_inventory']['reused_calls']}; new {stats['call_inventory']['new_calls']}.",'',
         '| Stratum | Method | Available/planned | F | Q | H | D | A | Semantic/fragile/both presence | Q/D conditional rejection |',
         '|---|---|---:|---:|---:|---:|---:|---:|---|---|']

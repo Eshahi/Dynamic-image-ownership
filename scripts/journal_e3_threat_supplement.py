@@ -1,7 +1,7 @@
-"""Bounded E3-A1 residual-transfer and component-geometry development supplement.
+"""E3 supplied-payload or fresh-supplier residual and geometry development panel.
 
-This adapter does not execute the assessors' complete contracts. Strict E3-B
-remains failed; the projection and genuine cross-owner panels remain missing.
+This panel alone is not an M1a verdict or the assessors' complete contract.
+Historical strict E3-B remains failed; same-owner reference attribution is unresolved.
 """
 from __future__ import annotations
 
@@ -9,6 +9,7 @@ import time
 STARTED = time.monotonic()  # Inclusive of scientific imports and model startup.
 import argparse
 import ctypes
+import copy
 import json
 from pathlib import Path
 import subprocess
@@ -27,6 +28,8 @@ IDS = (1675, 4795, 6012, 25394, 80932, 109798, 134882, 147498,
 ALPHA = 'qim-pilot-owner-alpha'
 OWNERS = tuple('qim-pilot-owner-'+o for o in ('alpha', 'beta', 'gamma', 'delta'))
 METHODS = ('E3', 'F5', 'v5')
+RETAINED_IMMEDIATE = MAIN / '.thesis-build/dev-runs/20261010-1433-e3-threat-supplement'
+RETAINED_PROJECTION = MAIN / '.thesis-build/dev-runs/20261010-1443-e3-public-projection'
 
 
 def read(path):
@@ -35,6 +38,47 @@ def read(path):
 
 def write(path, value):
     Path(path).write_text(json.dumps(value, indent=2, allow_nan=False)+'\n', encoding='utf-8')
+
+
+def candidate_arguments(parser):
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument('--e3-stage-a-dir', type=Path)
+    group.add_argument('--s1-stage-b-dir', type=Path)
+
+
+def load_candidate(args):
+    if args.s1_stage_b_dir is None:
+        from journal_bch_quality_select import validate_stage_a
+        return validate_stage_a(args.e3_stage_a_dir)
+    from journal_e3_s1_full_writer import validate_stage_b
+    rows, run = validate_stage_b(args.s1_stage_b_dir)
+    rows = copy.deepcopy(rows)
+    for row in rows:
+        row['payload'] = dict(q=row['payload']['q'], h=row['payload']['h'],
+            q_target_basis='fresh source F5 bootstrap intended q; frozen before E3 writing',
+            h_target_basis='fresh source F5 bootstrap native decoded h; frozen before E3 writing',
+            original_h_known=False)
+    return rows, run
+
+
+def retained_rows(folder, pass_key):
+    run = read(folder / 'run.json')
+    if run.get('outcome') != 'completed' or not run.get('summary', {}).get(pass_key):
+        raise ValueError('Completed passing retained control supplement required')
+    rows = [json.loads(line) for line in (folder / 'rows.jsonl').read_text(encoding='utf-8').splitlines() if line.strip()]
+    if any(r.get('status') != 'ok' for r in rows) or len({r['id'] for r in rows}) != len(rows):
+        raise ValueError('Retained control rows unavailable or duplicated')
+    return {r['id']:r for r in rows}
+
+
+def reuse_row(row, folder):
+    result = copy.deepcopy(row)
+    reference = dict(record=str(folder / 'rows.jsonl'), identity=row['id'])
+    result['observation_provenance'] = dict(kind='reused_unchanged_observation', **reference)
+    result['inherited_call_provenance'] = result.get('call_provenance', {})
+    result['call_provenance'] = {key:dict(kind='reused_full_call', **reference)
+        for key in result.get('call_provenance', {})}
+    return result
 
 
 def full(call):
@@ -148,7 +192,7 @@ def summary(rows, planned):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--e3-stage-a-dir', type=Path, required=True)
+    candidate_arguments(p)
     p.add_argument('--output-dir', type=Path, required=True)
     args = p.parse_args()
     out = args.output_dir.resolve(); out.mkdir(parents=True, exist_ok=False)
@@ -161,7 +205,13 @@ def main():
             attack='three_threat_protocol.residual_transfer unchanged', scales=[.5,1.],
             detector_feedback_queries=0, thresholds='unchanged', strict_e3_b='FAILED_FINAL'),
         data_split='development', sources=list(IDS), seeds=[], usd=0,
-        e3_stage_a_dir=str(args.e3_stage_a_dir.resolve()), outcome='running')
+        candidate_kind='E3-S1' if args.s1_stage_b_dir else 'E3-supplied-payload',
+        outcome='running')
+    candidate_dir = (args.s1_stage_b_dir or args.e3_stage_a_dir).resolve()
+    candidate_key = 's1_stage_b_dir' if args.s1_stage_b_dir else 'e3_stage_a_dir'
+    record[candidate_key] = str(candidate_dir)
+    if args.s1_stage_b_dir:
+        record['schema'] = 'journal-e3-s1-immediate-threat-supplement-v1'
     write(out/'run.json', record)
 
     def check():
@@ -186,12 +236,13 @@ def main():
         check()
         import numpy as np
         from PIL import Image
-        from journal_bch_quality_select import validate_stage_a
         from journal_vae_probe import Evaluator
         from f4_gate import V5_RESULTS
         from three_threat_protocol import residual_transfer
         from scripts import journal_bch_readout as rc, f5_latent_codec as f5, revised_watermark_v5 as v5
-        e3rows, e3run = validate_stage_a(args.e3_stage_a_dir)
+        e3rows, e3run = load_candidate(args)
+        retained = retained_rows(RETAINED_IMMEDIATE, 'immediate_continuity_pass') if args.s1_stage_b_dir else {}
+        if retained and len(retained)!=258: raise ValueError('Retained immediate inventory differs')
         e3 = {r['source_id']:r for r in e3rows}
         old = read(V5_RESULTS)['rows']
         old4 = [r for r in old if r.get('axis')=='T4' and r.get('arm')=='clean_donor_residual']
@@ -220,9 +271,14 @@ def main():
         planned += ['geometry/'+r['id'] for r in old5]
         if len(set(planned))!=258:
             raise ValueError('Unexpected supplement identities')
+        if args.s1_stage_b_dir and set(retained)!=set(planned):
+            raise ValueError('Retained immediate identities differ from frozen inventory')
         record['planned_identities'] = planned
-        record['ancestry'] = dict(E3=str(args.e3_stage_a_dir/'run.json'), F5=str(F5_DIR/'run.json'),
+        record['ancestry'] = dict(E3=str(candidate_dir/'run.json'), F5=str(F5_DIR/'run.json'),
             F5_T4=str(F5_T4/'run.json'), F5_T5=str(F5_T5), v5=str(V5_RESULTS))
+        if args.s1_stage_b_dir:
+            record['ancestry'].update(S1_stage_b=str(candidate_dir/'run.json'),
+                S1_stage_a=e3run['ancestry']['stage_a'], retained_immediate=str(RETAINED_IMMEDIATE/'run.json'))
         write(out/'run.json', record)
         import torch
         torch.cuda.set_per_process_memory_fraction(GPU_CAP/torch.cuda.get_device_properties(0).total_memory)
@@ -258,7 +314,9 @@ def main():
         # shams below link these rows, avoiding artificial replication counts.
         for method in METHODS:
             for sid in IDS:
-                if method in ('E3','F5'):
+                if args.s1_stage_b_dir and method=='F5':
+                    targets[method][sid] = dict(retained[f'clean/F5/{sid}/C1']['payload'])
+                elif method in ('E3','F5'):
                     targets[method][sid] = dict(e3[sid]['payload'])
                 else:
                     report = original_clean[sid,'C1']['source_feature_embedding_report']
@@ -266,6 +324,18 @@ def main():
                         q_target_basis='original recorded intended embedding payload',h_target_basis='original recorded intended embedding payload')
                 for control in ('C0','C1'):
                     rid = f'clean/{method}/{sid}/{control}'; active = dict(id=rid,axis='clean',method=method,source_id=sid,control=control,status='running')
+                    if args.s1_stage_b_dir and (method!='E3' or control=='C0'):
+                        active = reuse_row(retained[rid], RETAINED_IMMEDIATE)
+                        if method=='E3':
+                            c0 = e3[sid]['c0_clean_all_owners']
+                            if c0['image']!=active['image'] or c0['calls']!=active['calls']:
+                                raise ValueError('Stage B unchanged clean C0 differs from retained observation')
+                        rgb = load(active['image'])
+                        pixels[method,sid,control] = rgb; paths[method,sid,control] = active['image']
+                        if control=='C0' and method!='E3' and not np.array_equal(rgb,pixels['E3',sid,'C0']):
+                            raise ValueError('Methods do not share canonical C0 pixels')
+                        clean_ids[method,sid,control] = rid
+                        append(active); active=None; continue
                     if method=='E3':
                         path = Path(e3[sid]['conditions']['clean']['image' if control=='C1' else 'c0_image'])
                     elif method=='F5':
@@ -289,7 +359,10 @@ def main():
                             if len(options)==1: inherited=options[0]
                         if full(inherited):
                             calls[owner] = inherited
-                            provenance[owner] = dict(kind='reused_full_call',record=str(args.e3_stage_a_dir/'rows.jsonl') if method=='E3' else str(V5_RESULTS),identity=rid)
+                            provenance[owner] = dict(kind='reused_full_call',record=str(candidate_dir/'rows.jsonl') if method=='E3' else str(V5_RESULTS),identity=rid)
+                            if args.s1_stage_b_dir and method=='E3':
+                                provenance[owner].update(source_id=sid,condition='clean',owner=owner)
+                                provenance[owner].pop('identity',None)
                         else:
                             calls[owner] = detect(rgb,method,owner,features,latent,'combined',4 if method=='v5' else 1)
                             provenance[owner] = dict(kind='retained_pixel_enrichment' if method=='F5' else 'new_missing_call',image=str(path))
@@ -313,6 +386,11 @@ def main():
                     rid = f'T4/{method}/{donor}/{recipient}/{scale}'
                     attack_id = f'{donor}|{recipient}|{scale}'
                     active = dict(id=rid,attack_id=attack_id,axis='T4',method=method,donor_id=donor,recipient_id=recipient,scale=scale,status='running')
+                    if args.s1_stage_b_dir and method!='E3':
+                        active = reuse_row(retained[rid], RETAINED_IMMEDIATE)
+                        if active['payload']!=targets[method][donor]:
+                            raise ValueError('Retained comparator target differs')
+                        append(active); active=None; continue
                     calls, provenance = {}, {}
                     active.update(calls=calls,call_provenance=provenance)
                     r0 = pixels[method,recipient,'C0']
@@ -351,8 +429,12 @@ def main():
         for oldrow in old5:
             active=dict(id='geometry/'+oldrow['id'],pair_id=oldrow['id'],axis='T5_geometry',
                 left=oldrow['left'],right=oldrow['right'],semantic_label=oldrow['semantic_label'],status='running')
-            distances={}
-            for control in ('C0','C1'):
+            distances=copy.deepcopy(retained[active['id']]['distances']) if args.s1_stage_b_dir else {}
+            if args.s1_stage_b_dir:
+                active['distance_provenance'] = dict(reused=dict(record=str(RETAINED_IMMEDIATE/'rows.jsonl'),
+                    identity=active['id'], keys=[k for k in distances if k not in ('E3_single_C1','E3_seven_C1')]),
+                    new=dict(stage_b=str(candidate_dir/'rows.jsonl'), keys=['E3_single_C1','E3_seven_C1']))
+            for control in (('C1',) if args.s1_stage_b_dir else ('C0','C1')):
                 for views,name in ((1,'single'),(7,'seven')):
                     a,b=(codes['E3',sid,control,views] for sid in (oldrow['left'],oldrow['right']))
                     distances['E3_'+name+'_'+control] = dict(semantic=(int(a[0],16)^int(b[0],16)).bit_count(),instance=(int(a[1],16)^int(b[1],16)).bit_count())

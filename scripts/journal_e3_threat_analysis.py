@@ -45,7 +45,7 @@ def analyze(folder):
     planned = run.get('planned_identities', [])
     counts = Counter(r['id'] for r in rows)
     done = {r['id'] for r in rows if r.get('status') == 'ok'}
-    stats = dict(method='E3', strict_e3_b='FAILED_FINAL', m1a_pass=False,
+    stats = dict(method=run.get('candidate_kind', 'E3'), strict_e3_b='FAILED_FINAL', m1a_pass=False,
         qualification='post_hoc_development_immediate_supplement_only',
         inventory=dict(planned_rows=len(planned), expected_rows=258, recorded_rows=len(rows),
             completed_rows=len(done), missing_identities=sorted(set(planned)-done),
@@ -195,7 +195,7 @@ def main():
     args = p.parse_args(); stats = analyze(args.run_dir.resolve())
     args.output_dir.mkdir(parents=True,exist_ok=True)
     (args.output_dir/'stats.json').write_text(json.dumps(stats,indent=2,allow_nan=False)+'\n',encoding='utf-8')
-    lines = ['# E3-A1 immediate supplement analysis','',f"Strict E3-B: FAILED_FINAL. M1a: false. Immediate continuity: {stats['immediate_continuity_pass']}.",'',
+    lines = [f"# {stats['method']} immediate supplement analysis",'',f"Strict E3-B: FAILED_FINAL. M1a: false. Immediate continuity: {stats['immediate_continuity_pass']}.",'',
         f"Rows: {stats['inventory']['completed_rows']}/258. Actual recorded calls: {stats['call_inventory']['actual_calls']}/600; inherited: {stats['call_inventory']['reused_calls']}; new: {stats['new_calls']}.",'']
     for m,c in stats['clean'].items(): lines.append(f"Clean {m}: F {c['genuine_positive']}/12, exact q/h/F {c['clean_exact_q_h_both']}/12; wrong-owner any {c['wrong_owner_any']}/36; C0 any {c['c0_any']}/48.")
     for scale,cell in stats['T4'].items():

@@ -13,7 +13,8 @@ import traceback
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT), str(ROOT/'scripts')]
-from journal_e3_threat_supplement import read, write, working_set, full, ALPHA, IDS
+from journal_e3_threat_supplement import (read, write, working_set, full, ALPHA, IDS,
+    candidate_arguments, load_candidate, retained_rows, reuse_row, RETAINED_PROJECTION)
 
 CAP, GPU_CAP, RAM_CAP = 1800., 10*1024**3, 16*1024**3
 MODES = ('combined', 'semantic_only', 'perceptual_only', 'none')
@@ -132,6 +133,8 @@ def summarize(rows, planned):
                 exploratory_proxy_subsets={str(limit):dict(available=sum(r['recipient_quality']['lpips']<=limit for r in panel),false_F=sum(r['endpoints']['combined']['F'] for r in panel if r['recipient_quality']['lpips']<=limit)) for limit in (.2,.3)})
         cell['new_E3_false_F_vs_v5'] = sorted(positives['E3']-positives['v5'])
         cell['continuity_pass'] = all(cell[m]['available']==n for m in METHODS) and not cell['new_E3_false_F_vs_v5'] and cell['E3']['false_F']<=cell['v5']['false_F']
+        if stratum=='T4_sham':
+            cell['continuity_pass'] &= cell['E3']['endpoint_counts']['A']==0
         result['strata'][stratum] = cell
     result['projection_continuity_pass'] = done==set(planned) and all(c['continuity_pass'] for c in result['strata'].values())
     return result
@@ -139,7 +142,7 @@ def summarize(rows, planned):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--e3-stage-a-dir',type=Path,required=True)
+    candidate_arguments(parser)
     parser.add_argument('--immediate-dir',type=Path,required=True)
     parser.add_argument('--output-dir',type=Path,required=True)
     args = parser.parse_args()
@@ -147,11 +150,18 @@ def main():
     rows,planned,ev,active = [],[],None,None
     record = dict(schema='journal-e3-pp1-v1',commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
         command=sys.argv,data_split='development',sources=list(IDS),seeds=[],usd=0,outcome='running',
-        e3_stage_a_dir=str(args.e3_stage_a_dir.resolve()),immediate_dir=str(args.immediate_dir.resolve()),
+        candidate_kind='E3-S1' if args.s1_stage_b_dir else 'E3-supplied-payload',
+        immediate_dir=str(args.immediate_dir.resolve()),
         config=dict(cap_seconds=CAP,gpu_cap_bytes=GPU_CAP,ram_cap_bytes=RAM_CAP,steps=40,psnr_db=35.2,
             step_fractions=[.2,.05],fragile_passes=3,precision='float32',continuous_clamped_rgb=True,
             quantization_STE=False,roster=1,owner=ALPHA,E3_decoder='E1-BCH59-A',E3_views=7,E3_binding='soft',
             thresholds='unchanged',planned_gradient_evaluations=1880,detector_feedback_queries=0))
+    candidate_dir = (args.s1_stage_b_dir or args.e3_stage_a_dir).resolve()
+    candidate_key = 's1_stage_b_dir' if args.s1_stage_b_dir else 'e3_stage_a_dir'
+    record[candidate_key] = str(candidate_dir)
+    if args.s1_stage_b_dir:
+        record['schema'] = 'journal-e3-s1-pp1-v1'
+        record['config'].update(new_gradient_evaluations=1080, reused_gradient_evaluations=800)
     write(out/'run.json',record)
 
     def check():
@@ -171,19 +181,21 @@ def main():
         check()
         import numpy as np
         from PIL import Image
-        from journal_bch_quality_select import validate_stage_a
         from journal_vae_probe import Evaluator
         from f4_gate import V5_RESULTS
         import f5_latent_codec as f5
         import revised_watermark_v5 as v5
         import journal_bch_readout as rc
         from v5_study_protocol import inventory
-        e3rows,e3run = validate_stage_a(args.e3_stage_a_dir)
+        e3rows,e3run = load_candidate(args)
+        retained = retained_rows(RETAINED_PROJECTION, 'projection_continuity_pass') if args.s1_stage_b_dir else {}
+        if retained and len(retained)!=94: raise ValueError('Retained projection inventory differs')
         e3 = {r['source_id']:r for r in e3rows}
         immediate = read(args.immediate_dir/'run.json')
         if immediate.get('outcome')!='completed' or not immediate['summary']['immediate_continuity_pass']:
             raise ValueError('Passing completed immediate supplement required')
-        if Path(immediate['e3_stage_a_dir']).resolve()!=args.e3_stage_a_dir.resolve():
+        if (Path(immediate.get(candidate_key, '')).resolve()!=candidate_dir or
+            (args.s1_stage_b_dir and immediate.get('candidate_kind')!='E3-S1')):
             raise ValueError('Immediate supplement uses a different E3 initializer')
         controls = {r['id']:r for r in (json.loads(s) for s in (args.immediate_dir/'rows.jsonl').read_text(encoding='utf-8').splitlines() if s.strip()) if r.get('axis')=='clean'}
         old = read(V5_RESULTS)['rows']
@@ -192,7 +204,12 @@ def main():
         historical = {r['id']:r for r in old}
         if len(slots)!=47 or len({r['id'] for r in slots})!=47: raise ValueError('47 fixed identities required')
         planned = [m+'/'+r['id'] for m in METHODS for r in slots]
-        record.update(planned_identities=planned,ancestry=dict(v5=str(V5_RESULTS),E3=str(args.e3_stage_a_dir/'rows.jsonl'),immediate=str(args.immediate_dir/'rows.jsonl')))
+        if args.s1_stage_b_dir and set(retained)!=set(planned):
+            raise ValueError('Retained projection identities differ from frozen inventory')
+        record.update(planned_identities=planned,ancestry=dict(v5=str(V5_RESULTS),E3=str(candidate_dir/'rows.jsonl'),immediate=str(args.immediate_dir/'rows.jsonl')))
+        if args.s1_stage_b_dir:
+            record['ancestry'].update(S1_stage_b=str(candidate_dir/'run.json'),
+                S1_stage_a=e3run['ancestry']['stage_a'], retained_projection=str(RETAINED_PROJECTION/'run.json'))
         record['evaluator_targets'] = {str(sid):dict(q=e3[sid]['payload']['q'],h=e3[sid]['payload']['h'],q_target_basis=e3[sid]['payload']['q_target_basis'],h_target_basis=e3[sid]['payload']['h_target_basis']) for sid in IDS}
         write(out/'run.json',record)
         import torch
@@ -229,6 +246,15 @@ def main():
                 active = dict(id=method+'/'+slot['id'],attack_id=slot['id'],method=method,stratum=stratum,
                     axis=slot['axis'],arm=slot['arm'],donor_id=donor,recipient_id=recipient,status='running')
                 check()
+                if args.s1_stage_b_dir and (method=='v5' or stratum=='T4_sham'):
+                    active = reuse_row(retained[active['id']], RETAINED_PROJECTION)
+                    if stratum=='T4_sham':
+                        for sid, key in ((donor,'donor_control_ref'),(recipient,'recipient_C0_ref')):
+                            current = controls[f'clean/{method}/{sid}/C0']
+                            if current.get('observation_provenance', {}).get('kind')!='reused_unchanged_observation':
+                                raise ValueError('Sham reuse requires unchanged C0 observations')
+                            active[key] = dict(record=str(args.immediate_dir/'rows.jsonl'), identity=current['id'])
+                    append(active); active=None; continue
                 donor_row = controls[f'clean/{method}/{donor}/{dc}']
                 recipient_row = controls[f'clean/{method}/{recipient}/C0']
                 target = None
