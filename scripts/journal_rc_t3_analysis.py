@@ -99,6 +99,22 @@ def inventory(data, expected):
 
 
 def budget(record, run_path):
+    if record['config']['candidate'] == 'D2':
+        duration = float(record['duration_seconds'])
+        if (record['outcome'] == 'running' or record.get('prior_active_seconds') != 0 or
+                abs(float(record['shared_duration_seconds'])-duration) > 1e-6):
+            raise ValueError('D2 must record only its fresh terminated T3 execution cost')
+        writer = load(Path(record['screen_run'])/'run.json')
+        utility = load(Path(writer['utility_run'])/'run.json')
+        writer_seconds, utility_seconds = float(writer['duration_seconds']), float(utility['duration_seconds'])
+        return dict(cap_seconds=1800, measured_seconds=duration, within_cap=duration <= 1800,
+            chain=[dict(path=str(run_path), candidate='D2', duration_seconds=duration)],
+            cached_stage_seconds=writer_seconds, cached_stage_cap_seconds=3300,
+            cached_stage_within_cap=writer_seconds <= 3300 and utility_seconds <= 300,
+            utility_seconds=utility_seconds, utility_cap_seconds=300,
+            total_d2_seconds=utility_seconds+writer_seconds+duration,
+            shared_evidence_prior_duration_seconds=record['shared_evidence_prior_duration_seconds'],
+            accounting='Fresh D2 T3; writer and utility caps separate; inherited RC evidence is reused, not re-executed')
     seen, chain = set(), []
     current, path = record, run_path
     while True:
@@ -159,7 +175,7 @@ def analyze(path):
         raise ValueError('T3 probe is running; partial outputs cannot be analyzed as final')
     if (record.get('schema') != 'journal-rc-t3-v1' or record.get('method') != 'F5-RC1'
             or record.get('data_split') != 'development' or record.get('usd') != 0
-            or record['config']['candidate'] not in ('RC2', 'RC3')
+            or record['config']['candidate'] not in ('RC2', 'RC3', 'D2')
             or record['config']['owners'] != list(OWNERS) or record['seeds'] != list(SEEDS)):
         raise ValueError('Unexpected scientific provenance')
     data = rows(path/'rows.jsonl')
@@ -290,7 +306,7 @@ def analyze(path):
                               planned_negative_panel_exhaustive=n['observed']==504,retained_C0_blocked_call_slots=24),
                 measured_t3_continuity_pass=passed,
                 reuse=dict(prior_run=record.get('prior_run'),shared_rows=sum('shared_origin' in r for r in data),
-                           interpretation='Frozen enrichment and C0 reused by RC3 from RC2 are shared evidence, not independent replicates'),
+                           interpretation='Reused frozen enrichment and C0 are shared evidence, not independent replicates'),
                 endpoint_definitions=dict(A='semantic.found OR instance.found',S='semantic.found AND content_match',
                     R='semantic.read',C='semantic.read AND content_match',Q='semantic.read AND exact original q',
                     J='Q AND content_match',U='S AND NOT read',H='instance.read AND exact operational h',D='Q AND H',F='both_match'),
@@ -307,7 +323,7 @@ def report(data):
              '## Inventory and time','',
              f"Run: {data['input']['path']}; commit `{data['input']['commit']}`; outcome {data['input']['outcome']}.",
              f"Rows {data['inventory']['recorded']}/214; unique {data['inventory']['unique']}; missing {len(data['inventory']['missing'])}; duplicates {len(data['inventory']['duplicates'])}; extras {len(data['inventory']['extra'])}; failed {len(data['inventory']['failed'])}; blocked {len(data['inventory']['safety_blocked'])}. Actual source IDs: {data['inventory']['actual_source_ids']}.",
-             f"Shared stage {data['budget']['measured_seconds']:.3f}/5400 s (preceding runs counted once); separate cached stage {data['budget']['cached_stage_seconds']:.3f}/1800 s. T4/T5/synthesis time is not yet included.",
+             f"T3 stage {data['budget']['measured_seconds']:.3f}/{data['budget']['cap_seconds']} s; prerequisite stage {data['budget']['cached_stage_seconds']:.3f}/{data['budget']['cached_stage_cap_seconds']} s. {data['budget']['accounting']}. T4/T5 are not established by this assessment.",
              f"Reused prior run: {data['reuse']['prior_run']}; explicitly shared rows: {data['reuse']['shared_rows']}. Controls are shared evidence, not independent n.",
              f"Unchanged threshold check: {data['thresholds']['unchanged']}; frozen S discrepancies: {data['frozen_S_discrepancies']}; call-field errors: {data['call_errors']}.",'',
              '## Fixed denominators and endpoints','',
