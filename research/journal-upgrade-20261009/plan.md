@@ -6,6 +6,8 @@ Prepared 2026-10-09 by Codex agent. Evidence base: corrected M2 package at `7f22
 
 ## Decision
 
+**Next fixed study: [L1](representation-method-decision.md).** Test decoder-tangent writing directed at the native image-DCT carrier on 1675 and 468505, with four fixed fractions and a pixel-direction control. The 600-second screen requires strict source quality, actual intended-q recovery through both VAEs, then all twelve selected-image DDIM identities and observed negative controls. It tests a source-bypass latent-to-image-DCT bridge, not pure initial-noise embedding or full dual-tier ownership. Historical A–C/IPS residual work is acknowledged; no new-family label or M1 passage follows from this screen.
+
 **D3 closure, 2026-10-10:** the final guarded native-gradient utility test found eligible improvements on both fixed sources, but its immutable full-writer estimate is 4352.734 seconds versus the 3300-second cap. [Results](guarded-utility-results.md). No D3 writer or T3 run is permitted. Close this local refinement route and make the next experiment a representation/detector hypothesis test; it cannot be another weights/steps retry or counted as three independent design failures.
 
 F5 r2 is a credible starting point for a paper, but the evidence does not yet support a competitive broad robustness/authentication claim. Its strongest result is high-fidelity marking of existing photographs with improved semantic survival over the retained v5 system on the historical SD1.5 grid. Its main weaknesses are limited regeneration generalization, small-sample binding evidence without component benefit, public payload construction, and absence of a matched external baseline. Address those before scaling experiments or polishing a claim of novelty.
