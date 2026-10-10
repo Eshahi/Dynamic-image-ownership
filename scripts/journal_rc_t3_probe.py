@@ -1,13 +1,15 @@
 """Fixed F5-RC1 T3 development measurement; reused controls are not replicates."""
 from __future__ import annotations
 
+import time
+IMPORT_STARTED = time.monotonic()
+
 import argparse
 from datetime import datetime, timezone
 import json
 from pathlib import Path
 import subprocess
 import sys
-import time
 import traceback
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,9 +28,13 @@ SCREEN = MAIN / ".thesis-build/dev-runs/20261010-1035-rc-screen"
 BINDING = MAIN / ".thesis-build/dev-runs/20261010-1040-rc-binding"
 D2_PRIOR = MAIN / ".thesis-build/dev-runs/20261010-1051-rc3-t3"
 D2_CAP = 1800.
+D2_DESCRIPTIVE_CAP = 900.
+D2_WRITER = MAIN / ".thesis-build/dev-runs/20261010-1212-native-writer"
+D2_WRITER_COMMIT = "569f4835dd5a1ddd4282a078ea46d82f583ecc84"
+GPU_CAP_BYTES = 10 * 1024**3
 
 
-def d2_prerequisites(screen, binding, prior_path):
+def d2_prerequisites(screen, binding, prior_path, descriptive=False):
     from journal_native_writer import summarize as writer_summary
     from journal_binding_probe import pairs, ARMS
     sr = json.loads((screen / "run.json").read_text(encoding="utf-8"))
@@ -46,8 +52,17 @@ def d2_prerequisites(screen, binding, prior_path):
     if (sr.get("schema") != "journal-native-writer-v1" or
             sr.get("config", {}).get("candidate") != "D2" or sr.get("outcome") != "completed" or
             not 0 <= float(sr["duration_seconds"]) <= 3300 or sr.get("budget_overrun") or
-            not counts["prerequisite_pass"]):
+            (not descriptive and not counts["prerequisite_pass"])):
         raise ValueError("D2 writer must independently pass all clean/VAE prerequisites within 3300 seconds")
+    if descriptive:
+        if (screen.resolve() != D2_WRITER.resolve() or sr.get("commit") != D2_WRITER_COMMIT or
+                sr.get("data_split") != "development" or sr.get("usd") != 0 or
+                sr.get("sources") != list(IDS) or sr.get("seeds") != list(SEEDS) or
+                counts["prerequisite_pass"] or counts["strict_clean_quality"] != 12 or
+                counts["clean_exact_q_h_both_match"] != 12 or counts["final_feasible"] != 12 or
+                counts["joint_fixed_q"] != dict(clean=12, sd15_vae=12, sdxl_vae=10) or
+                counts["c0_any"] != 0 or counts["wrong_owner_any"] != 0):
+            raise ValueError("Descriptive D2 requires the frozen 569f483 writer and retained failed SDXL prerequisite")
     # These panels establish unchanged decoder compatibility, not new-writer T4 efficacy.
     cached = read_rows(SCREEN / "rows.jsonl")
     cr = json.loads((SCREEN / "run.json").read_text(encoding="utf-8"))
@@ -97,7 +112,14 @@ def endpoint(call, payload):
         R=bool(s["read"]), C=bool(s["read"] and s["content_match"]),
         Q=q_exact, J=bool(q_exact and s["content_match"]),
         U=bool(success and not s["read"]), H=h_exact, D=q_exact and h_exact,
-        F=call["outcome"] == "both_match")
+        F=call["outcome"] == "both_match",
+        q_bit_errors=None if not s["read"] or s.get("decoded_code") is None else
+            (int(s["decoded_code"], 16) ^ int(payload["q"], 16)).bit_count(),
+        h_bit_errors=None if not h["read"] or h.get("decoded_code") is None else
+            (int(h["decoded_code"], 16) ^ int(payload["h"], 16)).bit_count(),
+        signed_bit_margins={tier: {key: value for key, value in call[tier].items()
+            if key in ("signed_bit_margins", "bit_margins", "bit_scores")}
+            for tier in ("semantic", "instance")})
 
 
 def paired_calls(ev, rgb):
@@ -264,20 +286,47 @@ def summarize(rows, sets, v5, budget_overrun=False):
     return result
 
 
+def descriptive_summary(summary, outcome, gpu_peak):
+    """Fixed interpretation only; failed writer eligibility is never restored."""
+    summary["descriptive_measured_t3_continuity_pass"] = summary["measured_t3_continuity_pass"]
+    summary["measured_t3_continuity_pass"] = False
+    summary.update(scientific_status="descriptive_D2_ineligible",
+        writer_prerequisite_pass=False, candidate_eligible=False,
+        m1a_status="not evaluable; failed SDXL prerequisite and unmeasured T4/T5",
+        gpu_budget_overrun=gpu_peak is not None and gpu_peak > GPU_CAP_BYTES)
+    complete = (outcome == "completed" and not summary["budget_overrun"] and
+        gpu_peak is not None and not summary["gpu_budget_overrun"] and
+        summary["candidate_grid_recorded_without_operational_failures"] and
+        summary["negative_panel_available_complete"] and not summary["frozen_S_discrepancies"] and
+        all(x["frozen_enriched"] == x["frozen_completed"] for x in summary["strengths"].values()))
+    signal = (complete and summary["strengths"]["0.2"]["successes"]["J"] > 20 and
+        all(not x["retention"][e]["lost"] for x in summary["strengths"].values() for e in ("Q", "J")) and
+        all(summary["strengths"][str(s)]["intersection"]["candidate_S"] == n
+            for s, n in ((.1, 29), (.2, 28))) and
+        all(n["any_detections"] == 0 for n in summary["negatives"].values()))
+    summary["diagnostic_interpretation"] = ("incomplete_with_errors" if not complete else
+        "signal_worth_preserving" if signal else "no_strict_continuity_improvement")
+    summary["interpretation_scope"] = "In-sample descriptive diffusion endpoint; SDXL prerequisite still failed; no candidate promotion"
+    return summary
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", required=True, choices=(*CONFIGS, "D2"))
+    parser.add_argument("--descriptive-d2", action="store_true")
     parser.add_argument("--output-dir", required=True, type=Path)
     parser.add_argument("--screen-run", type=Path, default=SCREEN)
     parser.add_argument("--binding-run", type=Path, default=BINDING)
     parser.add_argument("--prior-run", type=Path)
     args=parser.parse_args()
-    invocation_started=time.monotonic()
+    if args.descriptive_d2 and args.config != "D2":
+        parser.error("--descriptive-d2 requires --config D2")
+    invocation_started=IMPORT_STARTED if args.descriptive_d2 else time.monotonic()
     d2 = args.config == "D2"
     check = d2_prerequisites if d2 else prerequisites
-    cached, qualification, compatibility, prior = (check(args.screen_run,args.binding_run,args.prior_run) if d2 else
+    cached, qualification, compatibility, prior = (check(args.screen_run,args.binding_run,args.prior_run,descriptive=args.descriptive_d2) if d2 else
         check(args.screen_run,args.binding_run,args.config,args.prior_run))
-    cap = D2_CAP if d2 else CAP
+    cap = D2_DESCRIPTIVE_CAP if args.descriptive_d2 else D2_CAP if d2 else CAP
     old, v5, sets=frozen_sets()  # Freeze old comparison identities before any candidate call.
     lookup={r["source_id"]:r for r in cached if r.get("config") == args.config}
     shared={}
@@ -321,11 +370,20 @@ def main():
         scientific_status="exploratory paired development continuity; not an official lifecycle verdict",
         fpr_status="legacy bounds unvalidated for routed system",human_visual_verdict=None,
         attack="pinned SD1.5 DDIM img2img; 20 steps; empty prompts; CFG 1; eta 0; retained RGB conversion and safety checks")
+    if args.descriptive_d2:
+        record.update(scientific_status="descriptive_D2_ineligible", writer_prerequisite_pass=False,
+            candidate_eligible=False, writer_commit=D2_WRITER_COMMIT,
+            budget_scope="900 seconds inclusive of imports, prerequisite validation, fresh attacks and final summaries; inherited evidence cost excluded",
+            gpu_allocated_cap_bytes=GPU_CAP_BYTES, planned_candidate_calls=72, planned_shared_rows=142)
     rows=[]
     write(args.output_dir/"run.json",record)
     plan=[("frozen_C1_enrichment",k) for k,r in old["C1"].items() if r["outcome"] == "completed"]
     plan += [("shared_C0",k) for k in old["C0"]]
     plan += [("candidate_C1",(sid,s,seed)) for sid in IDS for s in STRENGTHS for seed in SEEDS]
+
+    def current_summary():
+        summary = summarize(rows,sets,v5,record["shared_duration_seconds"]>cap)
+        return descriptive_summary(summary, record["outcome"], record.get("gpu_peak_allocated_bytes")) if args.descriptive_d2 else summary
 
     def emit(row):
         rows.append(row)
@@ -333,7 +391,7 @@ def main():
             handle.write(json.dumps(row,allow_nan=False)+"\n")
         record["duration_seconds"]=time.monotonic()-started
         record["shared_duration_seconds"]=prior_seconds+record["duration_seconds"]
-        record["summary"]=summarize(rows,sets,v5,record["shared_duration_seconds"]>cap)
+        record["summary"]=current_summary()
         write(args.output_dir/"summary.json",record["summary"])
         write(args.output_dir/"run.json",record)
         print(json.dumps({k:row[k] for k in ("arm","source_id","strength","seed","status")}),flush=True)
@@ -342,6 +400,10 @@ def main():
     try:
         from PIL import Image
         import numpy as np
+        if args.descriptive_d2:
+            import torch
+            torch.cuda.set_per_process_memory_fraction(min(1., GPU_CAP_BYTES / torch.cuda.get_device_properties(0).total_memory))
+            torch.cuda.reset_peak_memory_stats()
         ev=Evaluator()
         record["profile"]=ev.profile
         for arm,k in plan:
@@ -349,6 +411,8 @@ def main():
             sid,s,seed=k
             row=dict(arm=arm,source_id=sid,strength=s,seed=seed)
             try:
+                if args.descriptive_d2 and ev.torch.cuda.max_memory_allocated() > GPU_CAP_BYTES:
+                    raise RuntimeError("Descriptive D2 10-GiB peak allocated GPU cap exceeded")
                 if prior_seconds+time.monotonic()-started >= cap:
                     raise RuntimeError(f"{'Fresh D2 official T3' if d2 else 'Shared RC T3/T4/T5/synthesis'} {cap:g}-second cap exhausted")
                 if (arm,k) in shared:
@@ -389,6 +453,8 @@ def main():
                         if arm == "frozen_C1_enrichment":
                             c=source["calls"][OWNERS[0]]
                             row["old_S"]=bool(c["semantic_found"] and c["semantic_content_match"])
+                    if args.descriptive_d2 and ev.torch.cuda.max_memory_allocated() > GPU_CAP_BYTES:
+                        raise RuntimeError("Descriptive D2 10-GiB peak allocated GPU cap exceeded")
                     new,native=paired_calls(ev,rgb)
                     row.update(calls=new,native_calls=native,status="ok")
                     if arm != "shared_C0":
@@ -410,7 +476,9 @@ def main():
         record["shared_duration_seconds"]=prior_seconds+record["duration_seconds"]
         record["remaining_active_seconds"]=max(0.,cap-record["shared_duration_seconds"])
         record["budget_overrun"]=record["shared_duration_seconds"]>cap
-        record["summary"]=summarize(rows,sets,v5,record["budget_overrun"])
+        if ev is not None:
+            record["gpu_peak_allocated_bytes"]=ev.torch.cuda.max_memory_allocated()
+        record["summary"]=current_summary()
         write(args.output_dir/"summary.json",record["summary"])
         write(args.output_dir/"run.json",record)
         if d2:
@@ -422,6 +490,8 @@ def main():
             record["summary"]["budget_overrun"]=record["budget_overrun"]
             if record["budget_overrun"]:
                 record["summary"]["measured_t3_continuity_pass"]=False
+            if args.descriptive_d2:
+                record["summary"]=current_summary()
             write(args.output_dir/"summary.json",record["summary"])
             write(args.output_dir/"run.json",record)
 
