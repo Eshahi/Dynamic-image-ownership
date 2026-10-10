@@ -95,3 +95,4 @@
 
 2026-10-10T08:40 UTC Codex escalation: fresh journal_probe_design, gpt-6-astra high, one file decision for independent-VAE and exact donor-delivery probes; result research/journal-upgrade-20261009/probe-design-decision.md. Frozen thresholds, development sources only.
 2026-10-10T08:53 UTC Codex delegation: fresh binding_probe_impl, gpt-6.1-sol medium, bounded physical donor-payload probe implementation; parent reviews and runs locally. No held-out access or authorization record.
+2026-10-10 UTC Codex delegation: fresh baseline_feasibility, gpt-6.1-sol medium, bounded official-source feasibility assessment for FreqMark, Watermark Anything and ZoDiac; no execution or weights.
