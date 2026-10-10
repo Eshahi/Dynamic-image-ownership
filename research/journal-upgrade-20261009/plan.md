@@ -6,6 +6,8 @@ Prepared 2026-10-09 by Codex agent. Evidence base: corrected M2 package at `7f22
 
 ## Decision
 
+**D3 closure, 2026-10-10:** the final guarded native-gradient utility test found eligible improvements on both fixed sources, but its immutable full-writer estimate is 4352.734 seconds versus the 3300-second cap. [Results](guarded-utility-results.md). No D3 writer or T3 run is permitted. Close this local refinement route and make the next experiment a representation/detector hypothesis test; it cannot be another weights/steps retry or counted as three independent design failures. The later next-step wording about payload preservation is superseded by this measured closure.
+
 F5 r2 is a credible starting point for a paper, but the evidence does not yet support a competitive broad robustness/authentication claim. Its strongest result is high-fidelity marking of existing photographs with improved semantic survival over the retained v5 system on the historical SD1.5 grid. Its main weaknesses are limited regeneration generalization, small-sample binding evidence without component benefit, public payload construction, and absence of a matched external baseline. Address those before scaling experiments or polishing a claim of novelty.
 
 The proposed paper question is: **At a fixed false-positive rate and strict photographic fidelity, can VAE-guided marking improve checked semantic survival across regeneration models, while content verification demonstrably rejects delivered forgeries?** If binding fails, narrow the paper to robustness and the measured authentication limitation. If independent-model survival fails, report the family-specific effect and its ceiling. A rigorous negative or narrower paper remains a valid outcome.

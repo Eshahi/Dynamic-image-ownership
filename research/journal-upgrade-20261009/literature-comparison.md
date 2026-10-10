@@ -20,6 +20,8 @@ Further literature already retained in the project includes initial-noise method
 
 ## Local evidence added on October 10
 
+A newer search also inspected RAIN v1 (September 2026), a learned one-step Gaussian-Shading extractor. Its reported speed excludes VAE encoding and uses two GPUs; its tables do not measure our matched regeneration/binding threats. It is relevant prior art for a separately labelled neural comparator, not validation of image-DCT extraction. [Primary-source card and precise limits](../literature/journal-upgrade-20261009/rain-v1-card.md).
+
 The author-reported table above remains a literature comparison. We subsequently reproduced the official WAM SA-1B MIT checkpoint, retaining its native w=2 and predeclared w=.5 settings. This checkpoint differs from the paper's COCO checkpoint. Both arms satisfy the strict clean quality limits on 12/12 sources; native mean clean PSNR is 38.322 dB, SSIM .9772, LPIPS .0290. Native exact clean message recovery is 12/12 and attenuated recovery 10/12. [Clean/VAE reproduction](wam-results.md).
 
 | Same twelve development sources, DDIM identity grid | WAM native exact message | WAM w=.5 exact message | Frozen F5 exact semantic q |
