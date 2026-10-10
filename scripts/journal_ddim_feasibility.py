@@ -26,17 +26,22 @@ BRANCHES = ('clean', 'sd15_vae', 'sdxl_vae') + tuple(
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-dir', type=Path, required=True)
+    parser.add_argument('--prior-run', type=Path, action='append', default=[])
     args = parser.parse_args()
     out = args.output_dir
     out.mkdir(parents=True, exist_ok=False)
     started, rows = time.monotonic(), []
+    prior = [json.loads(p.read_text(encoding='utf-8')) for p in args.prior_run]
+    spent = sum(float(r['duration_seconds']) for r in prior)
+    if any(r['outcome'] == 'running' for r in prior) or spent >= CAP:
+        raise ValueError('Prior smoke records must be final and leave budget')
     record = dict(schema='journal-ddim-feasibility-v2', commit=subprocess.check_output(
         ['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(), command=sys.argv,
         config=dict(candidate='D1', start='fixed RC3 final RGB8', branches=list(BRANCHES),
             strengths=[.1, .2], smoke_seeds=[0], num_inference_steps=20,
             guidance_scale=1., eta=0., budget_seconds=CAP, optimization_cap_seconds=8100,
             checkpointing='nonreentrant full channel and fp32 reader',
-            native_precision='float16 DDIM, float32 reader/SDXL', backward_loss_scale=1/1024,
+            native_precision='float16 DDIM, float32 reader/SDXL', backward_loss_scale=1.,
             diagnostic_precision='float32 promoted native weights; no RGB8 rounding',
             diagnostic_scalar='fixed mean(w * projections), prospectively all cases',
             derivative_eps=[.003, .001], derivative_direction='negative unit RGB RMS gradient',
@@ -44,12 +49,13 @@ def main():
             operator_source=1675, utility_source=468505,
             added_psnr_db=52., total_continuous_psnr_db=35.1,
             scope='diagnostic only; smoke trials never enter D1', human_admissibility='missing'),
-        seeds=[0, 1, 2], sources=[1675, 468505], data_split='development', usd=0, outcome='running')
+        seeds=[0, 1, 2], sources=[1675, 468505], data_split='development', usd=0, outcome='running',
+        prior_runs=[str(p) for p in args.prior_run], prior_seconds=spent)
     write(out / 'run.json', record)
     torch = None
 
     def budget():
-        if time.monotonic() - started >= CAP:
+        if time.monotonic() - started + spent >= CAP:
             raise TimeoutError('900-second aggregate smoke cap exhausted')
 
     def save():
@@ -161,8 +167,8 @@ def main():
                     p = obj.projection(channel.forward(x, (.1, .2)[k//3], k%3).image, 'clean')
                 scalar = (obj.w*p).mean()
                 row['gradient_scalar'] = 'fixed linear diagnostic; inactive hinges'
-            g, = torch.autograd.grad(scalar/1024, x)
-            g = g.detach()*1024
+            g, = torch.autograd.grad(scalar, x)
+            g = g.detach()
             finite(g)
             row.update(gradient_norm=float(g.norm()), gradient_rms=float(g.square().mean().sqrt()),
                        gradient_exact_zero=bool((g == 0).all()))
@@ -305,7 +311,8 @@ def main():
         record.update(outcome='smoke_infeasible', qualification='smoke_infeasible', error=traceback.format_exc())
         raise
     finally:
-        record.update(duration_seconds=time.monotonic()-started, rows=len(rows))
+        record.update(duration_seconds=time.monotonic()-started, rows=len(rows),
+                      aggregate_smoke_seconds=time.monotonic()-started+spent)
         save()
 
 
