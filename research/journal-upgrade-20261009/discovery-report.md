@@ -1,5 +1,7 @@
 # Journal discovery results and revised development decision
 
+**Snapshot scope:** this report records the initial two discovery probes and their independent review. Later WAM reproduction and readable-payload development are tracked in [the current plan](plan.md), [WAM results](wam-results.md), [readability results](readability-results.md), and the [separate decoder decision](read-conditioning-decision.md). Statements below about work not yet run refer to this initial snapshot.
+
 2026-10-10, Codex agent. Two prospective development probes completed locally for USD 0. This is an exploratory supplement to the already completed M2 scientific package. It does not revise frozen F5 r2, historical M1/M2 gates, or the pending human M2 verdict. No held-out image was read and no protected claim/source/proposal file was edited.
 
 ## Decision
