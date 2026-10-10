@@ -210,11 +210,13 @@ def iteration(obj, x, branches):
         return obj.gradient(x, branches)
 
 
-def refine(ev, other, rgb, source, q, config, remaining):
+def refine(ev, other, rgb, source, q, config, remaining, activation_checkpointing=False):
     branches, db = CONFIGS[config]
     t = ev.torch
     layout, w, gaps = patterns(ev.profile, q)
     obj = Objective(ev, other, layout, w, gaps)
+    if activation_checkpointing and not obj.checkpointed:
+        obj.enable_checkpointing()
     reference, clean = (ev.reader.tensor(a / 255.) for a in (rgb, source))
     budget = math.sqrt(rgb.size) * 10 ** (-db / 20)
     total_budget = math.sqrt(rgb.size) * 10 ** (-35.1 / 20)
@@ -310,11 +312,16 @@ def main():
     p.add_argument("--output-dir", required=True, type=Path)
     p.add_argument("--resume-by-existing-completed-file", action="store_true")
     p.add_argument("--smoke-result", type=Path, help="Optional smoke run.json for prospective timing estimate")
+    p.add_argument("--activation-checkpointing", action="store_true",
+                   help="Enable identical-forward fp32 VAE activation checkpoints before the first gradient")
     a = p.parse_args()
     if a.resume_by_existing_completed_file and a.phase != "screen":
         p.error("Resume-by-completed-source is only available for the screen phase")
     if tuple(sorted(SOURCES)) != IDS:
         raise ValueError("Frozen development identities have changed")
+    smoke_input = json.loads(a.smoke_result.read_text()) if a.smoke_result else None
+    checkpoint_from_smoke = bool(a.phase == "screen" and smoke_input and smoke_input["smoke"]["checkpointed"])
+    activation_checkpointing = a.activation_checkpointing or checkpoint_from_smoke
     out = a.output_dir
     out.mkdir(parents=True, exist_ok=a.resume_by_existing_completed_file)
     (out / "images").mkdir(exist_ok=a.resume_by_existing_completed_file)
@@ -332,6 +339,9 @@ def main():
             sd15_assets="sd15-fp16/vae", sdxl_revision=SDXL_REV,
             optimization_cap_seconds=OPTIMIZATION_CAP, human_admissibility="missing",
             evaluation_and_followup_cap_seconds=EVALUATION_CAP,
+            activation_checkpointing=activation_checkpointing,
+            activation_checkpointing_choice=("explicit_cli" if a.activation_checkpointing else
+                "inherited_smoke" if checkpoint_from_smoke else "ordinary_with_oom_retry"),
             fixed_marks=str(F5_RUN), frozen_discovery=str(DISCOVERY)),
         optimization_seconds=old.get("optimization_seconds", 0.) if old else 0.,
         evaluation_seconds=old.get("evaluation_seconds", 0.) if old else 0., outcome="running")
@@ -383,6 +393,8 @@ def main():
                 sid = IDS[0]
                 rgb, q, _, fixed = payload(ev, sid)
                 obj = Objective(ev, other, *patterns(ev.profile, q))
+                if activation_checkpointing:
+                    obj.enable_checkpointing()
                 x = ev.reader.tensor(rgb / 255.).requires_grad_(True)
                 ev.torch.cuda.reset_peak_memory_stats()
                 ev.torch.cuda.synchronize()
@@ -428,7 +440,7 @@ def main():
             else:
                 from PIL import Image
                 if a.smoke_result:
-                    smoke = json.loads(a.smoke_result.read_text())["smoke"]
+                    smoke = smoke_input["smoke"]
                     record["timing_projection"] = dict(source=str(a.smoke_result),
                         full_screen_seconds=smoke["seconds_per_iteration"] * 4800,
                         exceeds_optimization_cap=smoke["seconds_per_iteration"] * 4800 > OPTIMIZATION_CAP)
@@ -449,7 +461,8 @@ def main():
                                 rgb, q, h, row["payload"] = payload(ev, sid)
                                 source = load(SOURCES[sid])
                                 tick = time.monotonic()
-                                refined, stats = refine(ev, other, rgb, source, q, config, remaining)
+                                refined, stats = refine(ev, other, rgb, source, q, config, remaining,
+                                                        activation_checkpointing)
                                 record["optimization_seconds"] += stats["optimization_seconds"]
                                 tick = None
                                 row["refinement"] = stats
