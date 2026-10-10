@@ -1,0 +1,591 @@
+{
+  "run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1212-native-writer",
+  "code_commit": "569f4835dd5a1ddd4282a078ea46d82f583ecc84",
+  "duration_seconds": 947.7649999999849,
+  "outcome": "completed",
+  "budget_overrun": false,
+  "inventory_ok": true,
+  "summary": {
+    "planned_sources": 12,
+    "completed": 12,
+    "strict_quality": 12,
+    "clean_exact_qh_both": 12,
+    "feasible": 12,
+    "joint_fixed_q": {
+      "clean": 12,
+      "sd15_vae": 12,
+      "sdxl_vae": 10
+    },
+    "c0_observed": 36,
+    "c0_any": 0,
+    "wrong_owner_observed": 36,
+    "wrong_owner_any": 0,
+    "prerequisite_pass": false
+  },
+  "quality": {
+    "psnr_db": {
+      "mean": 43.908725087106454,
+      "minimum": 42.73165663805078,
+      "maximum": 45.14110659419781
+    },
+    "ssim_rgb": {
+      "mean": 0.9805568327792724,
+      "minimum": 0.9696631162747388,
+      "maximum": 0.9861915734174632
+    },
+    "lpips": {
+      "mean": 0.022358529424915712,
+      "minimum": 0.0068094804883003235,
+      "maximum": 0.056260693818330765
+    }
+  },
+  "sources": [
+    {
+      "source_id": 1675,
+      "status": "ok",
+      "accepted_updates": 1,
+      "start_max_loss": 0.0036598597653210163,
+      "final_max_loss": 0.002352730603888631,
+      "update_status": "schedule_completed",
+      "quality": {
+        "mse_rgb8": 2.2598597208658853,
+        "psnr_db": 44.58998879395152,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9812530563884756,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.023634158074855804
+      },
+      "conditions": {
+        "clean": {
+          "q_exact": true,
+          "h_exact": true,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sd15_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sdxl_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        }
+      }
+    },
+    {
+      "source_id": 4795,
+      "status": "ok",
+      "accepted_updates": 9,
+      "start_max_loss": 0.11309020966291428,
+      "final_max_loss": 0.0010111103765666485,
+      "update_status": "schedule_completed",
+      "quality": {
+        "mse_rgb8": 2.5374069213867188,
+        "psnr_db": 44.08690240693258,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9861915734174632,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.01146306749433279
+      },
+      "conditions": {
+        "clean": {
+          "q_exact": true,
+          "h_exact": true,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sd15_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sdxl_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        }
+      }
+    },
+    {
+      "source_id": 6012,
+      "status": "ok",
+      "accepted_updates": 11,
+      "start_max_loss": 3.154572010040283,
+      "final_max_loss": 0.2234879732131958,
+      "update_status": "schedule_completed",
+      "quality": {
+        "mse_rgb8": 3.240454355875651,
+        "psnr_db": 43.02474452385003,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9837266394255565,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.0068094804883003235
+      },
+      "conditions": {
+        "clean": {
+          "q_exact": true,
+          "h_exact": true,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sd15_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sdxl_vae": {
+          "q_exact": false,
+          "h_exact": false,
+          "joint_fixed_q": false,
+          "q_bit_errors": 1,
+          "read": true,
+          "found": true,
+          "content_match": true
+        }
+      }
+    },
+    {
+      "source_id": 25394,
+      "status": "ok",
+      "accepted_updates": 0,
+      "start_max_loss": 0.0,
+      "final_max_loss": 0.0,
+      "update_status": "exact_inactive",
+      "quality": {
+        "mse_rgb8": 1.9905344645182292,
+        "psnr_db": 45.14110659419781,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9835210779530675,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.011750509962439537
+      },
+      "conditions": {
+        "clean": {
+          "q_exact": true,
+          "h_exact": true,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sd15_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sdxl_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        }
+      }
+    },
+    {
+      "source_id": 80932,
+      "status": "ok",
+      "accepted_updates": 4,
+      "start_max_loss": 0.1020018681883812,
+      "final_max_loss": 0.001213002484291792,
+      "update_status": "schedule_completed",
+      "quality": {
+        "mse_rgb8": 2.513047536214193,
+        "psnr_db": 44.128796571856974,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9850410659916126,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.01406014896929264
+      },
+      "conditions": {
+        "clean": {
+          "q_exact": true,
+          "h_exact": true,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sd15_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sdxl_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        }
+      }
+    },
+    {
+      "source_id": 109798,
+      "status": "ok",
+      "accepted_updates": 8,
+      "start_max_loss": 0.11109467595815659,
+      "final_max_loss": 0.0,
+      "update_status": "exact_inactive",
+      "quality": {
+        "mse_rgb8": 2.348374684651693,
+        "psnr_db": 44.42312970807377,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9750559796249598,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.02833729423582554
+      },
+      "conditions": {
+        "clean": {
+          "q_exact": true,
+          "h_exact": true,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sd15_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sdxl_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        }
+      }
+    },
+    {
+      "source_id": 134882,
+      "status": "ok",
+      "accepted_updates": 6,
+      "start_max_loss": 0.5179473757743835,
+      "final_max_loss": 0.1773478388786316,
+      "update_status": "schedule_completed",
+      "quality": {
+        "mse_rgb8": 2.5062255859375,
+        "psnr_db": 44.140602015048565,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9804348966645688,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.02939465269446373
+      },
+      "conditions": {
+        "clean": {
+          "q_exact": true,
+          "h_exact": true,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sd15_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sdxl_vae": {
+          "q_exact": false,
+          "h_exact": false,
+          "joint_fixed_q": false,
+          "q_bit_errors": 1,
+          "read": true,
+          "found": true,
+          "content_match": true
+        }
+      }
+    },
+    {
+      "source_id": 147498,
+      "status": "ok",
+      "accepted_updates": 0,
+      "start_max_loss": 0.0,
+      "final_max_loss": 0.0,
+      "update_status": "exact_inactive",
+      "quality": {
+        "mse_rgb8": 2.0410232543945312,
+        "psnr_db": 45.03232407990305,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9778826553386042,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.056260693818330765
+      },
+      "conditions": {
+        "clean": {
+          "q_exact": true,
+          "h_exact": true,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sd15_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sdxl_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        }
+      }
+    },
+    {
+      "source_id": 177015,
+      "status": "ok",
+      "accepted_updates": 4,
+      "start_max_loss": 0.06688778847455978,
+      "final_max_loss": 0.0,
+      "update_status": "exact_inactive",
+      "quality": {
+        "mse_rgb8": 2.832312266031901,
+        "psnr_db": 43.60939227691147,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9856645269906275,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.009976503439247608
+      },
+      "conditions": {
+        "clean": {
+          "q_exact": true,
+          "h_exact": true,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sd15_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sdxl_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        }
+      }
+    },
+    {
+      "source_id": 190676,
+      "status": "ok",
+      "accepted_updates": 2,
+      "start_max_loss": 0.1599067747592926,
+      "final_max_loss": 0.03192558512091637,
+      "update_status": "schedule_completed",
+      "quality": {
+        "mse_rgb8": 3.4666875203450522,
+        "psnr_db": 42.73165663805078,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9696631162747388,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.03178969770669937
+      },
+      "conditions": {
+        "clean": {
+          "q_exact": true,
+          "h_exact": true,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sd15_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sdxl_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        }
+      }
+    },
+    {
+      "source_id": 468505,
+      "status": "ok",
+      "accepted_updates": 4,
+      "start_max_loss": 0.352982759475708,
+      "final_max_loss": 0.031354986131191254,
+      "update_status": "schedule_completed",
+      "quality": {
+        "mse_rgb8": 3.4078394571940103,
+        "psnr_db": 42.80601233839281,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9724086703573094,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.03453972190618515
+      },
+      "conditions": {
+        "clean": {
+          "q_exact": true,
+          "h_exact": true,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sd15_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sdxl_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        }
+      }
+    },
+    {
+      "source_id": 499768,
+      "status": "ok",
+      "accepted_updates": 1,
+      "start_max_loss": 0.012322246097028255,
+      "final_max_loss": 2.108099033648614e-05,
+      "update_status": "schedule_completed",
+      "quality": {
+        "mse_rgb8": 3.119434356689453,
+        "psnr_db": 43.19004509810809,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9858387349242848,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.010286424309015274
+      },
+      "conditions": {
+        "clean": {
+          "q_exact": true,
+          "h_exact": true,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sd15_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        },
+        "sdxl_vae": {
+          "q_exact": true,
+          "h_exact": false,
+          "joint_fixed_q": true,
+          "q_bit_errors": 0,
+          "read": true,
+          "found": true,
+          "content_match": true
+        }
+      }
+    }
+  ],
+  "provenance": "Recomputed from retained full detector calls and logged loss/feasibility measurements; no floating-point or image replay.",
+  "limitations": [
+    "Development only; same transformations optimized and evaluated.",
+    "Operational h is frozen clean-decoded, not known original embedded h.",
+    "Shared C0 pixels and twelve sources do not establish population FPR.",
+    "No official full-pipeline T3 outcome is inferred from internal loss branches."
+  ]
+}
