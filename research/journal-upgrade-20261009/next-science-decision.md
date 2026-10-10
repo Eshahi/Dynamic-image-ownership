@@ -1,0 +1,47 @@
+# Next scientific step: measure the missing D2 diffusion endpoint
+
+2026-10-10. Prospective decision by Codex method-design agent, gpt-6-astra/high. Development evidence only; no execution, candidate acceptance, or lifecycle transition.
+
+## Decision
+
+Run **one descriptive matched T3 characterization of the twelve already saved D2 images**, without changing any pixel, writer, detector, threshold, seed, owner, or payload target. This is the cheapest experiment that distinguishes ineffective diffusion-aware writing from a useful diffusion signal excluded by the separate SDXL-VAE prerequisite. It is an evidence-gathering addendum, not activation of D2's untriggered acceptance grid. D2 remains ineligible regardless of its result. D3 and the RC3/native-gradient writer route remain closed.
+
+Do not build another writer now. L1's latent arm recovers exact q on 0/8 clean cells and qualifies on neither source; the fixed construction is closed. The separate repair of twelve setup-failed pixel/C0 .1 cells completes L1's record but cannot rescue L. Its already measured pixel-control .2 result is 1/6 exact recoveries. Those controls do not justify increasing L1 fractions or optimizing its direction.
+
+At the largest L fraction, source 1675 has intended/decoded scores 4.012/5.701, minimum bit gap -7.53, PSNR 36.329 and LPIPS .0186; source 468505 has 5.856/7.364, gap -6.666, PSNR 35.963 and LPIPS .0245. Both decoded scores are below 8.259, with wrong bits already on clean images close to the quality boundary. This is weak delivery/readout alignment, not merely content-check rejection. The pixel direction has much stronger intended scores 12.688/14.099 and exact q, but 468505's largest fraction fails LPIPS (.1286), requiring the predeclared .75 selection. L1 supplies no evidence that its latent restriction buys a useful carrier at this quality budget.
+
+## Why this experiment, and what it can establish
+
+D2 has clean exact q/h, strict quality and SD1.5-VAE joint recovery on 12/12; SDXL joint recovery is 10/12 because two sources each lose one bit. Its prospective >=11 SDXL prerequisite therefore failed. No actual official T3 result exists. A different model's deterministic VAE is not the SD1.5 stochastic diffusion channel, and exact-word errors are not synonymous with semantic detection failures. Treating that screen as observed T3 failure would leave the principal proposed mechanism unmeasured.
+
+RC2/RC3 show why this distinction matters: both have exact VAE recovery on 12/12, but .2 diffusion joint exact-q recovery is 21/36 and 19/36, and they lose frozen-positive identities. Conversely, D2's maximum nine-branch loss decreases, but that scalar permits one bit or one branch to regress while another improves. Native post-safety T3 calls are needed to see whether its optimized loss predicts the declared endpoint at all.
+
+The code carries 32 semantic bits across 320 chips, nominally ten chips per bit. There is no outer error-correcting code in this construction. As an illustrative independent-bit model only, a 1% bit error probability gives exact-word probability .99^32 = .725; it is not an estimate of this dependent channel. Aggregate score, average bit loss, and exact-word recovery are therefore distinct measurements. This diagnostic reports each rather than assuming capacity from a small mean loss. Recompute no q target from an attacked image to make a wrong decoded word appear exact.
+
+The reader still observes the suspect image and public OwnerID through the frozen native VAE/CLIP/DCT route, with no source image, intended q, optimizer state, or clean residual supplied to detection. Intended q is available only to evaluation. Source-blind content consistency remains the claim; public payload construction still prevents cryptographic authorization claims.
+
+## Frozen experiment
+
+- Data: all twelve D2 development sources, IDs 1675, 4795, 6012, 25394, 80932, 109798, 134882, 147498, 177015, 190676, 468505, 499768. Use the final retained RGB8 marks from MAIN `.thesis-build/dev-runs/20261010-1212-native-writer`, writer commit `569f483`. No subset selection, new image, held-out access, re-embedding, fragile restoration, or best-iteration selection.
+- Attack: the existing official SD1.5 DDIM img2img path, 20 steps, CFG 1, empty prompts, eta 0, strengths .1 and .2, seeds 0–2. Exactly 72 planned C1 identities. Keep the official safety checker and validation; blocked outputs remain unsuccessful planned slots, with separate block counts. These are the same development transformations/seeds optimized by D2, so positive results are in-sample mechanism evidence.
+- Detector: the exact D2/RC1 native configuration and public tables; searched threshold 8.259326826136963, recomputation threshold 4.982033056390042, frozen content rule and negative-owner roster. No forced-q calls in the primary endpoints, alternate owner search, or adaptive threshold changes. Existing source-quality and VAE calls are retained evidence, not rerun.
+- Controls: reuse the existing matched C0 outputs/calls only where attack settings, source identity and detector configuration match this protocol. Retain all inherited blocked or missing C0 slots. Generate only genuinely absent matched C0 identities; do not regenerate blocked controls. Run the inherited wrong-owner calls on every available D2 attacked image. Record reuse as correlated evidence, not new independent negatives.
+- Comparators: existing frozen F5 and v5 dev-001 records only. Preserve the historical fixed intersections I (.1: 29, .2: 28), frozen Q-positive and J-positive identity sets, and planned 36-per-strength denominators. No favorable new intersection. Do not replace absent comparator identities with new attacks.
+- Execution: one ordinary development run after implementation is committed; existing attack and analysis functions, run.json and a dev-log entry. **900 seconds inclusive**, USD 0, existing local models, <=10 GiB allocated GPU memory. No new runner, rehearsal, audit infrastructure, model download or budget extension. Timeout/OOM leaves a descriptive incomplete record; there is no fallback subset or scientific retry.
+
+## Endpoints and fixed interpretation
+
+Report per strength: S = semantic found and content_match; Q = native read and exact original q; J = S and Q. Give S/Q/J counts over all 36 planned identities, fixed-I S counts, exact lists of lost and gained frozen Q/J identities, source-level three-seed outcomes, all 32 signed bit margins where already available, decoded-word Hamming errors, negative any-channel detections, blocks/missing calls and duration. Missing/unreadable words are not zero-error words. Compare J with frozen F5's .1 27/36 and .2 20/36; compare fixed-I S with F5 29/29 and 28/28 and v5 27/29 and 18/28. Use the existing terminal assessor's endpoint definitions wherever applicable; this diagnostic cannot emit an M1a pass.
+
+The one diagnostic branch is fixed before outcomes:
+
+1. If .2 J is **greater than 20/36**, every previously positive Q and J identity at both strengths is retained, fixed-I S remains 29/29 and 28/28, and observed C0/wrong-owner detections are zero, record **diffusion-aware signal worth preserving, SDXL prerequisite still failed**. This supports a subsequent separately derived change to channel coding/readout that addresses the measured bit/branch failure. It does not permit another step/weight/guard schedule, renewed D2 eligibility, a D3 writer, or downstream T4/T5 for D2.
+2. Otherwise record **no demonstrated strict diffusion-continuity improvement for this fixed D2 construction**. Close this missing endpoint without another native-gradient writer or diagnostic seed grid. Keep any measured partial gains in the table. A future method must change the representation or observation model, with its own capacity argument and cheapest falsifier; loss reduction alone is no longer a reason to pursue this route.
+
+Neither outcome promotes a candidate. In particular, passing the older semantic-only subset would be descriptive, not a complete original M1a verdict: T4/T5 are unmeasured for D2, and the journal contract also remains failed. No T4/T5 expansion, calibration, confirmatory manifest, held-out run or publication claim follows from this characterization.
+
+## Closure and limits
+
+An overall honest-negative exit is not justified by counting R1–R4, RC2/RC3, D1–D3 and L1 as separate families. They are related refinements or terminal/image-domain constructions. Historical B closes a finite photo-preserving initial-noise branch while retaining positive generated-image results; C closes a finite progressive public-carrier branch on generated images. Neither receipt establishes universal failure on the twelve-photo M1a grid. Historical F5 already passed the original development semantic gate. The journal repair round may finish with a bounded negative result, but it cannot be relabelled as three new independent M1a family failures.
+
+Sources inspected for this decision: `improvement-summary.md`, `native-writer-results.md`, `native-writer-execution-decision.md`, `guarded-utility-results.md`, `post-d2-method-decision.md`, `representation-method-decision.md`, `plan.md`, and the historical family-B/C bounded receipts. L1 counts above are the current parent-supplied completed analysis; its .1 operational repair is explicitly pending. No external literature assertion or new literature-backed method is introduced by this measurement decision.

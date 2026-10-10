@@ -1,0 +1,630 @@
+{
+  "source_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1309-latent-tangent",
+  "commit": "019031ada4d2a869dc02e559c061354be6297776",
+  "original_outcome": "completed_with_failures",
+  "original_status_counts": {
+    "ok": 72,
+    "failed": 12,
+    "not_selected": 12
+  },
+  "original_seconds": 107.43799999999464,
+  "completion_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1321-l1-t3-completion",
+  "completion_seconds": 22.969000000011874,
+  "total_seconds": 130.40700000000652,
+  "completed_status_counts": {
+    "ok": 84,
+    "not_selected": 12
+  },
+  "selected": {
+    "1675/L": null,
+    "1675/P": 1.0,
+    "468505/L": null,
+    "468505/P": 0.75
+  },
+  "screen": [
+    {
+      "source_id": 1675,
+      "arm": "L",
+      "fraction": 0.25,
+      "strict_quality": true,
+      "quality": {
+        "mse_rgb8": 1.0505485534667969,
+        "psnr_db": 47.91664231764759,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9975061645384731,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.001237820484675467
+      },
+      "exact_checked": {
+        "clean": false,
+        "sd15_vae": false,
+        "sdxl_vae": false
+      },
+      "bit_errors": {
+        "clean": 12,
+        "sd15_vae": 13,
+        "sdxl_vae": 14
+      },
+      "decoded_score": {
+        "clean": 3.605390106294982,
+        "sd15_vae": 3.0921882852821643,
+        "sdxl_vae": 3.706425164230977
+      },
+      "fixed_q_score": {
+        "clean": 1.1273772232369417,
+        "sd15_vae": 1.2040487621258182,
+        "sdxl_vae": 0.25766791647719633
+      }
+    },
+    {
+      "source_id": 1675,
+      "arm": "L",
+      "fraction": 0.5,
+      "strict_quality": true,
+      "quality": {
+        "mse_rgb8": 3.9702784220377603,
+        "psnr_db": 42.14259397451197,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.992104549840213,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.004890886135399342
+      },
+      "exact_checked": {
+        "clean": false,
+        "sd15_vae": false,
+        "sdxl_vae": false
+      },
+      "bit_errors": {
+        "clean": 10,
+        "sd15_vae": 11,
+        "sdxl_vae": 13
+      },
+      "decoded_score": {
+        "clean": 4.808138805962134,
+        "sd15_vae": 4.275008643332301,
+        "sdxl_vae": 4.223579244238397
+      },
+      "fixed_q_score": {
+        "clean": 2.8012435536734097,
+        "sd15_vae": 2.5622923480982127,
+        "sdxl_vae": 1.4807827130116755
+      }
+    },
+    {
+      "source_id": 1675,
+      "arm": "L",
+      "fraction": 0.75,
+      "strict_quality": true,
+      "quality": {
+        "mse_rgb8": 8.672894795735678,
+        "psnr_db": 38.7491628254038,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9849860683806009,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.010778544470667839
+      },
+      "exact_checked": {
+        "clean": false,
+        "sd15_vae": false,
+        "sdxl_vae": false
+      },
+      "bit_errors": {
+        "clean": 10,
+        "sd15_vae": 8,
+        "sdxl_vae": 12
+      },
+      "decoded_score": {
+        "clean": 5.412208110755427,
+        "sd15_vae": 5.047743012483435,
+        "sdxl_vae": 4.864828606903156
+      },
+      "fixed_q_score": {
+        "clean": 3.6826788436588767,
+        "sd15_vae": 3.416083470328894,
+        "sdxl_vae": 2.323383667251
+      }
+    },
+    {
+      "source_id": 1675,
+      "arm": "L",
+      "fraction": 1.0,
+      "strict_quality": true,
+      "quality": {
+        "mse_rgb8": 15.14077885945638,
+        "psnr_db": 36.32932144510737,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.976557165178674,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.018641185015439987
+      },
+      "exact_checked": {
+        "clean": false,
+        "sd15_vae": false,
+        "sdxl_vae": false
+      },
+      "bit_errors": {
+        "clean": 9,
+        "sd15_vae": 7,
+        "sdxl_vae": 11
+      },
+      "decoded_score": {
+        "clean": 5.7013272136716635,
+        "sd15_vae": 5.348059172504389,
+        "sdxl_vae": 4.472310674767419
+      },
+      "fixed_q_score": {
+        "clean": 4.012145410101812,
+        "sd15_vae": 3.843983875415581,
+        "sdxl_vae": 2.5878307536453216
+      }
+    },
+    {
+      "source_id": 1675,
+      "arm": "P",
+      "fraction": 0.25,
+      "strict_quality": true,
+      "quality": {
+        "mse_rgb8": 1.0219993591308594,
+        "psnr_db": 48.03629737403873,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9920673102550659,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.016428226605057716
+      },
+      "exact_checked": {
+        "clean": false,
+        "sd15_vae": false,
+        "sdxl_vae": false
+      },
+      "bit_errors": {
+        "clean": 2,
+        "sd15_vae": 2,
+        "sdxl_vae": 2
+      },
+      "decoded_score": {
+        "clean": 9.823934560435612,
+        "sd15_vae": 9.067102822033783,
+        "sdxl_vae": 8.456698254375327
+      },
+      "fixed_q_score": {
+        "clean": 9.593952318169242,
+        "sd15_vae": 8.925911623043794,
+        "sdxl_vae": 8.105047540630933
+      }
+    },
+    {
+      "source_id": 1675,
+      "arm": "P",
+      "fraction": 0.5,
+      "strict_quality": true,
+      "quality": {
+        "mse_rgb8": 3.798919677734375,
+        "psnr_db": 42.334202496994784,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9778788963691912,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.045485928654670715
+      },
+      "exact_checked": {
+        "clean": false,
+        "sd15_vae": true,
+        "sdxl_vae": false
+      },
+      "bit_errors": {
+        "clean": 1,
+        "sd15_vae": 0,
+        "sdxl_vae": 2
+      },
+      "decoded_score": {
+        "clean": 11.252888739751182,
+        "sd15_vae": 10.520407522945918,
+        "sdxl_vae": 9.40460143938529
+      },
+      "fixed_q_score": {
+        "clean": 11.241267844170231,
+        "sd15_vae": 10.520407522945918,
+        "sdxl_vae": 9.362792642519437
+      }
+    },
+    {
+      "source_id": 1675,
+      "arm": "P",
+      "fraction": 0.75,
+      "strict_quality": true,
+      "quality": {
+        "mse_rgb8": 7.807217915852864,
+        "psnr_db": 39.2058405926272,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9641483922684492,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.06825374811887741
+      },
+      "exact_checked": {
+        "clean": true,
+        "sd15_vae": true,
+        "sdxl_vae": false
+      },
+      "bit_errors": {
+        "clean": 0,
+        "sd15_vae": 0,
+        "sdxl_vae": 1
+      },
+      "decoded_score": {
+        "clean": 12.123243816162574,
+        "sd15_vae": 11.705102027158455,
+        "sdxl_vae": 10.746970371868382
+      },
+      "fixed_q_score": {
+        "clean": 12.123243816162573,
+        "sd15_vae": 11.70510202715846,
+        "sdxl_vae": 10.742324325227417
+      }
+    },
+    {
+      "source_id": 1675,
+      "arm": "P",
+      "fraction": 1.0,
+      "strict_quality": true,
+      "quality": {
+        "mse_rgb8": 12.97268295288086,
+        "psnr_db": 37.00050556631697,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9513612674904653,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.0877125933766365
+      },
+      "exact_checked": {
+        "clean": true,
+        "sd15_vae": true,
+        "sdxl_vae": true
+      },
+      "bit_errors": {
+        "clean": 0,
+        "sd15_vae": 0,
+        "sdxl_vae": 0
+      },
+      "decoded_score": {
+        "clean": 12.688341296626382,
+        "sd15_vae": 12.284169552716776,
+        "sdxl_vae": 11.67889355108954
+      },
+      "fixed_q_score": {
+        "clean": 12.688341296626382,
+        "sd15_vae": 12.284169552716772,
+        "sdxl_vae": 11.67889355108954
+      }
+    },
+    {
+      "source_id": 468505,
+      "arm": "L",
+      "fraction": 0.25,
+      "strict_quality": true,
+      "quality": {
+        "mse_rgb8": 1.0723470052083333,
+        "psnr_db": 47.827450176181316,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9978755387290723,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.0017013412434607744
+      },
+      "exact_checked": {
+        "clean": false,
+        "sd15_vae": false,
+        "sdxl_vae": false
+      },
+      "bit_errors": {
+        "clean": 12,
+        "sd15_vae": 11,
+        "sdxl_vae": 17
+      },
+      "decoded_score": {
+        "clean": 5.287937662567611,
+        "sd15_vae": 4.584700980299553,
+        "sdxl_vae": 4.088530346812109
+      },
+      "fixed_q_score": {
+        "clean": 2.7736501503558166,
+        "sd15_vae": 3.1505580744782007,
+        "sdxl_vae": 1.011083539685363
+      }
+    },
+    {
+      "source_id": 468505,
+      "arm": "L",
+      "fraction": 0.5,
+      "strict_quality": true,
+      "quality": {
+        "mse_rgb8": 4.140117645263672,
+        "psnr_db": 41.96067678693169,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9933603270341421,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.0067930505611002445
+      },
+      "exact_checked": {
+        "clean": false,
+        "sd15_vae": false,
+        "sdxl_vae": false
+      },
+      "bit_errors": {
+        "clean": 11,
+        "sd15_vae": 10,
+        "sdxl_vae": 12
+      },
+      "decoded_score": {
+        "clean": 6.255729684644046,
+        "sd15_vae": 5.682082347576299,
+        "sdxl_vae": 4.9098364297458374
+      },
+      "fixed_q_score": {
+        "clean": 4.335974791989926,
+        "sd15_vae": 4.877200804294218,
+        "sdxl_vae": 2.594936809933072
+      }
+    },
+    {
+      "source_id": 468505,
+      "arm": "L",
+      "fraction": 0.75,
+      "strict_quality": true,
+      "quality": {
+        "mse_rgb8": 9.247021993001303,
+        "psnr_db": 38.470784703173415,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.986980998183588,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.014786151237785816
+      },
+      "exact_checked": {
+        "clean": false,
+        "sd15_vae": false,
+        "sdxl_vae": false
+      },
+      "bit_errors": {
+        "clean": 10,
+        "sd15_vae": 10,
+        "sdxl_vae": 11
+      },
+      "decoded_score": {
+        "clean": 6.978864114956273,
+        "sd15_vae": 6.705913701213192,
+        "sdxl_vae": 6.0647005975745385
+      },
+      "fixed_q_score": {
+        "clean": 5.341740227523524,
+        "sd15_vae": 6.029646680234682,
+        "sdxl_vae": 3.653770376749839
+      }
+    },
+    {
+      "source_id": 468505,
+      "arm": "L",
+      "fraction": 1.0,
+      "strict_quality": true,
+      "quality": {
+        "mse_rgb8": 16.474811553955078,
+        "psnr_db": 35.962599052222274,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9791926180185953,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.02451331540942192
+      },
+      "exact_checked": {
+        "clean": false,
+        "sd15_vae": false,
+        "sdxl_vae": false
+      },
+      "bit_errors": {
+        "clean": 10,
+        "sd15_vae": 7,
+        "sdxl_vae": 9
+      },
+      "decoded_score": {
+        "clean": 7.364282145236524,
+        "sd15_vae": 7.364848983663552,
+        "sdxl_vae": 6.72376234129896
+      },
+      "fixed_q_score": {
+        "clean": 5.856189981263022,
+        "sd15_vae": 6.562052640293841,
+        "sdxl_vae": 4.582710231465695
+      }
+    },
+    {
+      "source_id": 468505,
+      "arm": "P",
+      "fraction": 0.25,
+      "strict_quality": true,
+      "quality": {
+        "mse_rgb8": 1.0282185872395833,
+        "psnr_db": 48.00994910468755,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9920738330307429,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.01571003906428814
+      },
+      "exact_checked": {
+        "clean": false,
+        "sd15_vae": true,
+        "sdxl_vae": true
+      },
+      "bit_errors": {
+        "clean": 1,
+        "sd15_vae": 0,
+        "sdxl_vae": 0
+      },
+      "decoded_score": {
+        "clean": 12.933585542077846,
+        "sd15_vae": 12.390201005469432,
+        "sdxl_vae": 12.984470966856932
+      },
+      "fixed_q_score": {
+        "clean": 12.9061013436312,
+        "sd15_vae": 12.390201005469432,
+        "sdxl_vae": 12.984470966856929
+      }
+    },
+    {
+      "source_id": 468505,
+      "arm": "P",
+      "fraction": 0.5,
+      "strict_quality": true,
+      "quality": {
+        "mse_rgb8": 4.031655629475911,
+        "psnr_db": 42.07596931826657,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9755726283748384,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.056711502373218536
+      },
+      "exact_checked": {
+        "clean": true,
+        "sd15_vae": false,
+        "sdxl_vae": false
+      },
+      "bit_errors": {
+        "clean": 0,
+        "sd15_vae": 1,
+        "sdxl_vae": 1
+      },
+      "decoded_score": {
+        "clean": 13.459104131111657,
+        "sd15_vae": 13.009059465988432,
+        "sdxl_vae": 13.408104289958906
+      },
+      "fixed_q_score": {
+        "clean": 13.459104131111655,
+        "sd15_vae": 13.001067695806634,
+        "sdxl_vae": 13.407568868844557
+      }
+    },
+    {
+      "source_id": 468505,
+      "arm": "P",
+      "fraction": 0.75,
+      "strict_quality": true,
+      "quality": {
+        "mse_rgb8": 8.854742685953775,
+        "psnr_db": 38.65904415521837,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9575038959812471,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.09590008854866028
+      },
+      "exact_checked": {
+        "clean": true,
+        "sd15_vae": true,
+        "sdxl_vae": true
+      },
+      "bit_errors": {
+        "clean": 0,
+        "sd15_vae": 0,
+        "sdxl_vae": 0
+      },
+      "decoded_score": {
+        "clean": 13.844348152050896,
+        "sd15_vae": 13.38034907532061,
+        "sdxl_vae": 13.637680213459467
+      },
+      "fixed_q_score": {
+        "clean": 13.8443481520509,
+        "sd15_vae": 13.38034907532061,
+        "sdxl_vae": 13.637680213459468
+      }
+    },
+    {
+      "source_id": 468505,
+      "arm": "P",
+      "fraction": 1.0,
+      "strict_quality": false,
+      "quality": {
+        "mse_rgb8": 15.276173909505209,
+        "psnr_db": 36.29065766972565,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9401323118468756,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.12864232063293457
+      },
+      "exact_checked": {
+        "clean": true,
+        "sd15_vae": true,
+        "sdxl_vae": true
+      },
+      "bit_errors": {
+        "clean": 0,
+        "sd15_vae": 0,
+        "sdxl_vae": 0
+      },
+      "decoded_score": {
+        "clean": 14.098983646782532,
+        "sd15_vae": 13.601456616619213,
+        "sdxl_vae": 13.811653751471965
+      },
+      "fixed_q_score": {
+        "clean": 14.098983646782527,
+        "sd15_vae": 13.601456616619213,
+        "sdxl_vae": 13.811653751471965
+      }
+    }
+  ],
+  "t3": [
+    {
+      "arm": "L",
+      "strength": 0.1,
+      "planned": 6,
+      "completed": 0,
+      "status_counts": {
+        "not_selected": 6
+      },
+      "exact_checked": 0,
+      "semantic_found_content": 0
+    },
+    {
+      "arm": "L",
+      "strength": 0.2,
+      "planned": 6,
+      "completed": 0,
+      "status_counts": {
+        "not_selected": 6
+      },
+      "exact_checked": 0,
+      "semantic_found_content": 0
+    },
+    {
+      "arm": "P",
+      "strength": 0.1,
+      "planned": 6,
+      "completed": 6,
+      "status_counts": {
+        "ok": 6
+      },
+      "exact_checked": 4,
+      "semantic_found_content": 6
+    },
+    {
+      "arm": "P",
+      "strength": 0.2,
+      "planned": 6,
+      "completed": 6,
+      "status_counts": {
+        "ok": 6
+      },
+      "exact_checked": 1,
+      "semantic_found_content": 6
+    }
+  ],
+  "negatives": {
+    "c0_calls": 18,
+    "c0_any": 0,
+    "wrong_owner_calls": 60,
+    "wrong_owner_any": 0
+  },
+  "primary_success": false,
+  "conclusion": "Fixed L1 construction fails clean exact-q screen; L T3 not triggered.",
+  "limits": [
+    "Two adaptively selected development sources.",
+    "No h was embedded.",
+    "Observed dependent negatives do not establish population FPR.",
+    "Technical completion preserves the original failed record."
+  ]
+}
