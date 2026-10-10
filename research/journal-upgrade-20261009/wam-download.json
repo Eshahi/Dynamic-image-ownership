@@ -1,0 +1,22 @@
+{
+  "revision": "2c08af04d037d5667c02f6ddebbda9ff04581c3e",
+  "license": "MIT: pinned official README/LICENSE; SA-1B checkpoint, not COCO",
+  "files": [
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\journal-wam-2c08af04\\source.zip",
+      "url": "https://codeload.github.com/facebookresearch/watermark-anything/zip/2c08af04d037d5667c02f6ddebbda9ff04581c3e",
+      "bytes": 10876097,
+      "sha256": "7baaa18c6774d1397207b262cd077f588150e846fada9c7c7b5ce7d0239ef0b6",
+      "etag": "W/\"4022b2419fb7c9b1818306f5562e6513c97df859d390b21f6c4c2a671eac1846\"",
+      "version": null
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\journal-wam-2c08af04\\wam_mit.pth",
+      "url": "https://dl.fbaipublicfiles.com/watermark_anything/wam_mit.pth",
+      "bytes": 377825938,
+      "sha256": "90ef232384e023bd63245eb0c131abd69d2afc7b8f17a71ccedceb542bf009e2",
+      "etag": "\"21901875c2b6512905882e7e898e9547-46\"",
+      "version": "kvG9h.qUx.o9MYR1nK0RYcfKzDR0.fxf"
+    }
+  ]
+}
