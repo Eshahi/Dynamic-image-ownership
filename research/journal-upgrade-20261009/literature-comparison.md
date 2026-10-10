@@ -17,3 +17,16 @@ Inspected 2026-10-09. Numbers are author-reported, not local reproductions. They
 The existing M2 result is competitive **against v5 in its measured setting**, especially at .2/.4, and has promising photographic fidelity. It is currently unranked against external methods. The minimum useful next comparison uses the same source images, fixed seeds/attacks, separate calibration at the same nominal FPR, matched distortion, explicit payload and detector side information, and source-level paired uncertainty. Show original method settings alongside the common constrained operating point.
 
 Further literature already retained in the project includes initial-noise methods and forgery studies. They remain relevant background, but this focused comparison does not reproduce them or certify an exhaustive novelty search. Recheck the literature before submission; a preprint's existence and reported metrics do not establish peer-reviewed validity.
+
+## Local evidence added on October 10
+
+The author-reported table above remains a literature comparison. We subsequently reproduced the official WAM SA-1B MIT checkpoint, retaining its native w=2 and predeclared w=.5 settings. This checkpoint differs from the paper's COCO checkpoint. Both arms satisfy the strict clean quality limits on 12/12 sources; native mean clean PSNR is 38.322 dB, SSIM .9772, LPIPS .0290. Native exact clean message recovery is 12/12 and attenuated recovery 10/12. [Clean/VAE reproduction](wam-results.md).
+
+| Same twelve development sources, DDIM identity grid | WAM native exact message | WAM w=.5 exact message | Frozen F5 exact semantic q |
+|---|---:|---:|---:|
+| SD1.5 strength .1, three seeds | 3/36 | 0/36 | 27/36 |
+| SD1.5 strength .2, three seeds | 0/36 | 0/36 | 20/36 |
+
+These are complete planned-denominator counts: unavailable outputs remain unsuccessful attempts. All 216 WAM records are retained, including 15 safety blocks; no operational failures or missing identities occurred. WAM's nonempty-mask bit accuracies are .8844 and .7776 for the native arm, with 30 and 26 readable outputs respectively. Thus high average bit recovery can coexist with poor exact-message recovery; neither metric is a substitute for the other. [Matched T3 results and paired availability](wam-t3/wam-t3-results.md).
+
+This supports a narrow observed payload-recovery advantage for frozen F5 on this development grid. It does not rank whole systems: WAM messages, F5 content-derived q/h, false-positive operating points and authentication predicates differ; no calibrated WAM image-presence rule was fitted. Twelve reused sources are not an independent journal confirmation, and native WAM mask-positive C0 outputs are not automatically ownership false positives. Human admissibility is unmeasured. FreqMark/ZoDiac feasibility gaps and matched-FPR comparison remain open; D2's separate VAE prerequisite failure is preserved in [its results](native-writer-results.md).
