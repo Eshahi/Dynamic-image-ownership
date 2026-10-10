@@ -397,21 +397,21 @@ def main():
     comparisons = {}
     for k in plan:
         comparisons[k] = {}
-        for method, arm, field in (('D2', 'candidate_C1', 'calls'),
+        for baseline_method, arm, field in (('D2', 'candidate_C1', 'calls'),
                                    ('frozen_F5', 'frozen_C1_enrichment', 'native_calls')):
             r = panels[arm].get(k)
             if r is None:
-                if method != 'frozen_F5' or old['C1'][k]['outcome'] != 'safety_blocked':
+                if baseline_method != 'frozen_F5' or old['C1'][k]['outcome'] != 'safety_blocked':
                     raise ValueError('Missing frozen full comparison call')
-                comparisons[k][method] = dict(S=False, Q=False, J=False, unavailable='safety_blocked')
+                comparisons[k][baseline_method] = dict(S=False, Q=False, J=False, unavailable='safety_blocked')
             elif r['status'] == 'ok':
                 payload = sources[k[0]]['payload']
                 if r['payload']['q'] != payload['q'] or r['payload']['h'] != payload['h']:
                     raise ValueError('Stage C original comparison payload differs')
-                comparisons[k][method] = _endpoint(r[field][ALPHA], payload)
-                comparisons[k][method+'_image'] = r['image']
+                comparisons[k][baseline_method] = _endpoint(r[field][ALPHA], payload)
+                comparisons[k][baseline_method+'_image'] = r['image']
             elif r['status'] == 'safety_blocked':
-                comparisons[k][method] = dict(S=False, Q=False, J=False, unavailable='safety_blocked')
+                comparisons[k][baseline_method] = dict(S=False, Q=False, J=False, unavailable='safety_blocked')
             else:
                 raise ValueError('Operationally missing comparator is not an available baseline')
         if k not in panels['shared_C0'] or panels['shared_C0'][k]['status'] not in ('ok', 'safety_blocked'):
