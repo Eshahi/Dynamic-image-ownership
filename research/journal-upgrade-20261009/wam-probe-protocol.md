@@ -1,0 +1,42 @@
+# Official WAM SA-1B MIT inference probe
+
+Fixed 2026-10-10 before outcomes. Development only, USD 0. `scripts/journal_wam_probe.py` uses twelve already reserved canonical 512 RGB8 sources from `f4_transfer_probe.SOURCES`; smoke uses the first sorted ID (1675), full uses all twelve. No held-out image, frozen F5 edit, model training, threshold search, or confirmatory infrastructure. Parent commits before execution and owns downloads, dependency installation, and development-log entries.
+
+## Source and dependency vet
+
+Official revision `2c08af04d037d5667c02f6ddebbda9ff04581c3e`. Source [archive](https://codeload.github.com/facebookresearch/watermark-anything/zip/2c08af04d037d5667c02f6ddebbda9ff04581c3e), SHA-256 `7baaa18c6774d1397207b262cd077f588150e846fada9c7c7b5ce7d0239ef0b6`, 10,876,097 bytes (parent receipt). Extract with the archive top directory removed into MAIN `.thesis-build/assets/journal-wam-2c08af04/source`. [SA-1B checkpoint](https://dl.fbaipublicfiles.com/watermark_anything/wam_mit.pth); checkpoint SHA/size must be supplied by parent's completed download receipt, not invented here. Both are MIT per pinned [README](https://github.com/facebookresearch/watermark-anything/blob/2c08af04d037d5667c02f6ddebbda9ff04581c3e/README.md) and [LICENSE](https://github.com/facebookresearch/watermark-anything/blob/2c08af04d037d5667c02f6ddebbda9ff04581c3e/LICENSE). This is an official SA-1B model, **not the paper's separately licensed COCO checkpoint**.
+
+Read official `models/wam.py`, embedder/extractor builders, VAE/ViT/pixel decoder/message modules, JND, normalization, augmenter import closure, and `data/metrics.py` in memory. Read the pinned params JSON and configs. Static archive inspection found no import-time shell execution, eval, network, or checkpoint load in the inference closure. Imported `utils/__init__.py` defines an unused `get_sha` helper with git subprocess calls; the adapter does not call it. The training `utils/optim.py` loader is not imported. This is a source vet, not a guarantee against all possible malicious behavior. No third-party code or GPU executed during adapter preparation.
+
+Existing science runtime supplies torch/torchvision/PIL/numpy/scipy/diffusers/lpips. Additional minimal closure: OmegaConf 2.3.0, einops 0.8.0, opencv-python 4.10.0.84; OmegaConf additionally requires PyYAML and antlr4-python3-runtime 4.9.3. Install only into isolated MAIN `.thesis-build/journal-wam-deps`, preserving the Blackwell science stack; parent records wheel URLs/versions/hashes/licences. `cv2` is import-required by `augmentation/masks.py` even though augmentation is unused. No timm, sklearn, pycocotools, notebook plotting, training dataset, or SAM checkpoint needed for this inference path. Never install the whole upstream requirements over the working environment.
+
+The adapter loads the flat tensor state dictionary with explicit `torch.load(..., weights_only=True, map_location='cpu')`, validates tensor values and calls `load_state_dict(strict=True)`. Unsupported checkpoint structure is a blocker; never enable unsafe pickle. Config paths resolve against the supplied repository directory. The original WAM builders, Wam embed/detect, JND and transforms remain unchanged. Training-only augmenter constructor is replaced with `torch.nn.Identity`; official embed/detect never call it. Strict loading exposes any unexpected augmenter state. JND construction must succeed (the notebook's broad silent attenuation fallback is deliberately removed). No official source copy is edited or redistributed by this adapter.
+
+## Fixed configurations and observables
+
+Two independent named arms: `native_w2` with released scaling_i=1/scaling_w=2 and JND; `quality_w0p5` with scaling_w=.5 and the same model/JND. The second arm attenuates residual amplitude to a predeclared quarter of native scaling; it is a quality adaptation, not a promise that quality will pass. Preserve both arms including failures; do not choose alpha per image or present the best arm after outcomes as native. FP32, batch one, eval and inference mode. Whole-image embedding via official `embed`, no oracle detection mask.
+
+Payload is the first 32 SHA-256 bits of UTF-8 `journal-wam-dev-v1:<source_id>`, MSB first; independent of image pixels. Wrong message is its bitwise complement. The public schedule is experimental, not a secret owner key or cryptographic authorization. Detector uses the checkpoint and candidate message, no source image, CLIP, inversion, certificate or F5 content binding.
+
+Native mask is sigmoid(first logit channel)>0.5. Decode calls upstream `msg_predict_inference` unchanged with default **semihard**: select mask-positive pixels, average raw per-bit logits and compare the resulting means with **0.5**, as the actual implementation does. An empty mask yields an explicitly absent decoded message, not a fabricated all-zero payload. Log mask mean/fraction/count, mask-nonempty diagnostic, bit accuracy, exact message match, and wrong-message accuracy/exact match. The README does not provide a calibrated image-level presence/FPR threshold. Nonempty mask is a diagnostic only; never claim it as a controlled image-level presence detector. Native 32-bit exact identity recovery is distinct from F5 binding and attribution.
+
+## Delivery, quality and VAE conditions
+
+Each embedding is clipped and rounded once to RGB8 PNG, then re-opened. Clean and attacks always consume that delivered image. Each attack is also saved and re-opened before scoring. Save every input/attacked PNG; rows preserve every failed attempt with traceback. Conditions are clean, SD1.5 VAE and independent SDXL VAE, matching `journal_vae_probe.py`: fp32 posterior mode, direct unscaled latent decode, canonical 512, clipping and round-to-nearest. SD1.5 loads existing `sd15-fp16/vae` with fp16 **file variant** into fp32; SDXL uses existing `journal-sdxl-vae-6f5909a7`. No diffusion denoiser, strength, sampler or stochastic seed is used. No claim of regeneration robustness follows from this screen.
+
+Quality uses the same `m1_latent_reconstruction.quality` PSNR/SSIM and `three_threat_models.load_lpips/lpips_score` pretrained AlexNet LPIPS as the project. Record against canonical source and delivered marking input separately. Strict marking quality is PSNR>35 (infinite for identical RGB8), SSIM>.9, LPIPS<.1; after-VAE strict source quality is diagnostic, not a new attack-admissibility rule. Human admissibility remains missing.
+
+Full grid: 12 sources x 2 arms x C0/C1 x 3 conditions = 144 image rows. C0 source/arm repeats are identical controls and **not independent observations**. Decode once per image and assess the expected/wrong messages from the same decoded bits. Report all-source planned/completed denominators and failures, exact-message counts, average bit accuracy (empty masks treated as zero in aggregate), empty-mask counts, strict-quality counts and negative diagnostics. Twelve sources do not establish an empirical FPR bound or baseline superiority. This task does not yet implement full diffusion, T4 or T5.
+
+## Execution
+
+Using MAIN `.thesis-build/a6-science-venv/Scripts/python.exe` from the committed worktree:
+
+```text
+python scripts/journal_wam_probe.py --scope smoke --conditions clean --output-dir <new MAIN dev-runs timestamp-wam-smoke>
+python scripts/journal_wam_probe.py --scope full --conditions all --output-dir <new MAIN dev-runs timestamp-wam-vae>
+```
+
+Defaults point at the parent-coordinated asset/dependency paths; override `--repo-dir`, `--checkpoint`, `--deps-dir` explicitly if needed. `--device cpu` is an explicit execution amendment and is recorded in the command. Run.json includes commit, command, source IDs, checkpoint hash, configuration, initialization time, environment, duration, outcome and peak CUDA allocation. Each row includes synchronized embed/detect timing (embed repeated per condition shares one execution), but VAE/quality time is only within total duration. No latency-comparison claim without a separately controlled timing study. Missing checkpoint/dependency, unsafe structure, strict state mismatch or GPU OOM is a feasibility result, with run.json failure retained; remedy runtime compatibility before scientific interpretation.
+
+Validation during preparation: Python syntax compilation passes; no model execution or numerical outcome yet. Parent should first perform the one-source clean smoke; if it fails, fix only preprocessing/port errors and retain the failed run before full grid.
