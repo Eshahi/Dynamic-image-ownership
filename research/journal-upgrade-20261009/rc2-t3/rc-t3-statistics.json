@@ -1,0 +1,5047 @@
+{
+  "schema": "journal-rc-t3-analysis-v1",
+  "method": "F5-RC1",
+  "candidate": "RC2",
+  "input": {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1041-rc2-t3",
+    "commit": "d28d7a14f3e0c97c73d1387c7001611f9fade29d",
+    "command": [
+      "scripts/journal_rc_t3_probe.py",
+      "--config",
+      "RC2",
+      "--output-dir",
+      "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/dev-runs/20261010-1041-rc2-t3"
+    ],
+    "outcome": "completed",
+    "frozen_run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261005-0640-f5-gate-soft-views7",
+    "v5_results": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\v5-study-runs\\C4-v5-two-tier-development\\c4-v5-two-tier-dev-001\\outputs\\results.json"
+  },
+  "inventory": {
+    "planned": 214,
+    "recorded": 214,
+    "unique": 214,
+    "duplicates": [],
+    "missing": [],
+    "extra": [],
+    "statuses": {
+      "ok": 206,
+      "safety_blocked": 8
+    },
+    "failed": [],
+    "safety_blocked": [
+      {
+        "arm": "shared_C0",
+        "identity": "6012|0.1|0"
+      },
+      {
+        "arm": "shared_C0",
+        "identity": "6012|0.1|1"
+      },
+      {
+        "arm": "shared_C0",
+        "identity": "6012|0.1|2"
+      },
+      {
+        "arm": "shared_C0",
+        "identity": "6012|0.2|0"
+      },
+      {
+        "arm": "shared_C0",
+        "identity": "6012|0.2|1"
+      },
+      {
+        "arm": "shared_C0",
+        "identity": "6012|0.2|2"
+      },
+      {
+        "arm": "candidate_C1",
+        "identity": "6012|0.2|2"
+      },
+      {
+        "arm": "candidate_C1",
+        "identity": "468505|0.2|0"
+      }
+    ],
+    "actual_source_ids": [
+      1675,
+      4795,
+      6012,
+      25394,
+      80932,
+      109798,
+      134882,
+      147498,
+      177015,
+      190676,
+      468505,
+      499768
+    ],
+    "expected_source_ids": [
+      1675,
+      4795,
+      6012,
+      25394,
+      80932,
+      109798,
+      134882,
+      147498,
+      177015,
+      190676,
+      468505,
+      499768
+    ]
+  },
+  "call_errors": [],
+  "frozen_S_discrepancies": [],
+  "thresholds": {
+    "observed": [
+      [
+        8.259326826136963,
+        4.982033056390042
+      ]
+    ],
+    "unchanged": true,
+    "status": "frozen exploratory values; routed system population FPR uncalibrated"
+  },
+  "budget": {
+    "cap_seconds": 5400,
+    "measured_seconds": 498.2970000000205,
+    "within_cap": true,
+    "chain": [
+      {
+        "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261010-1041-rc2-t3",
+        "candidate": "RC2",
+        "duration_seconds": 498.2970000000205
+      }
+    ],
+    "cached_stage_seconds": 246.09399999998277,
+    "cached_stage_cap_seconds": 1800,
+    "cached_stage_within_cap": true,
+    "accounting": "Each preceding T3 run counted once; cached stage separate; later T4/T5/synthesis not yet included"
+  },
+  "strengths": {
+    "0.1": {
+      "planned": 36,
+      "completed": 36,
+      "statuses": {
+        "ok": 36
+      },
+      "missing": 0,
+      "candidate_RC": {
+        "A": 36,
+        "S": 36,
+        "R": 36,
+        "C": 36,
+        "Q": 32,
+        "J": 32,
+        "U": 0,
+        "H": 0,
+        "D": 0,
+        "F": 0
+      },
+      "candidate_native": {
+        "A": 36,
+        "S": 36,
+        "R": 36,
+        "C": 36,
+        "Q": 32,
+        "J": 32,
+        "U": 0,
+        "H": 0,
+        "D": 0,
+        "F": 0
+      },
+      "frozen_native": {
+        "A": 35,
+        "S": 35,
+        "R": 35,
+        "C": 35,
+        "Q": 27,
+        "J": 27,
+        "U": 0,
+        "H": 0,
+        "D": 0,
+        "F": 0
+      },
+      "frozen_RC": {
+        "A": 35,
+        "S": 35,
+        "R": 35,
+        "C": 35,
+        "Q": 27,
+        "J": 27,
+        "U": 0,
+        "H": 0,
+        "D": 0,
+        "F": 0
+      },
+      "frozen_completed_planned": 35,
+      "frozen_enriched_completed": 35,
+      "candidate_on_F": {
+        "A": 35,
+        "S": 35,
+        "R": 35,
+        "C": 35,
+        "Q": 31,
+        "J": 31,
+        "U": 0,
+        "H": 0,
+        "D": 0,
+        "F": 0
+      },
+      "v5_on_P": {
+        "successes": 27,
+        "completed": 29,
+        "planned": 36
+      },
+      "v5_on_F": {
+        "successes": 27,
+        "completed": 29,
+        "planned": 35
+      },
+      "I": {
+        "planned": 29,
+        "candidate_S": 29,
+        "frozen_S": 29,
+        "v5_S": 27,
+        "failed_or_absent": []
+      },
+      "retention": {
+        "A": {
+          "frozen_positive": 35,
+          "retained": 35,
+          "lost": [],
+          "gained": []
+        },
+        "S": {
+          "frozen_positive": 35,
+          "retained": 35,
+          "lost": [],
+          "gained": []
+        },
+        "R": {
+          "frozen_positive": 35,
+          "retained": 35,
+          "lost": [],
+          "gained": []
+        },
+        "C": {
+          "frozen_positive": 35,
+          "retained": 35,
+          "lost": [],
+          "gained": []
+        },
+        "Q": {
+          "frozen_positive": 27,
+          "retained": 25,
+          "lost": [
+            "468505|0.1|0",
+            "468505|0.1|1"
+          ],
+          "gained": [
+            "4795|0.1|0",
+            "4795|0.1|1",
+            "4795|0.1|2",
+            "134882|0.1|0",
+            "134882|0.1|1",
+            "134882|0.1|2"
+          ]
+        },
+        "J": {
+          "frozen_positive": 27,
+          "retained": 25,
+          "lost": [
+            "468505|0.1|0",
+            "468505|0.1|1"
+          ],
+          "gained": [
+            "4795|0.1|0",
+            "4795|0.1|1",
+            "4795|0.1|2",
+            "134882|0.1|0",
+            "134882|0.1|1",
+            "134882|0.1|2"
+          ]
+        },
+        "U": {
+          "frozen_positive": 0,
+          "retained": 0,
+          "lost": [],
+          "gained": []
+        },
+        "H": {
+          "frozen_positive": 0,
+          "retained": 0,
+          "lost": [],
+          "gained": []
+        },
+        "D": {
+          "frozen_positive": 0,
+          "retained": 0,
+          "lost": [],
+          "gained": []
+        },
+        "F": {
+          "frozen_positive": 0,
+          "retained": 0,
+          "lost": [],
+          "gained": []
+        }
+      },
+      "paired_identities": [
+        {
+          "identity": "1675|0.1|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": false,
+          "v5_S": null,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "1675|0.1|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": false,
+          "v5_S": null,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "1675|0.1|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": false,
+          "v5_S": null,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "4795|0.1|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": false,
+          "v5_S": null,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "4795|0.1|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": false,
+          "v5_S": null,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "4795|0.1|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": false,
+          "v5_S": null,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "6012|0.1|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "6012|0.1|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "6012|0.1|2",
+          "candidate_status": "ok",
+          "in_F": false,
+          "in_I": false,
+          "v5_S": null,
+          "frozen_native": null,
+          "frozen_RC": null,
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "25394|0.1|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "25394|0.1|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "25394|0.1|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": false,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "80932|0.1|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "80932|0.1|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "80932|0.1|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "109798|0.1|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "109798|0.1|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "109798|0.1|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": false,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "134882|0.1|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "134882|0.1|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "134882|0.1|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "147498|0.1|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "147498|0.1|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "147498|0.1|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "177015|0.1|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "177015|0.1|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "177015|0.1|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "190676|0.1|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "190676|0.1|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "190676|0.1|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "468505|0.1|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "468505|0.1|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "468505|0.1|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "499768|0.1|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "499768|0.1|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "499768|0.1|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        }
+      ],
+      "source_majority": {
+        "candidate_RC": {
+          "S": {
+            "successes": 12,
+            "planned_sources": 12
+          },
+          "C": {
+            "successes": 12,
+            "planned_sources": 12
+          },
+          "J": {
+            "successes": 10,
+            "planned_sources": 12
+          }
+        },
+        "candidate_native": {
+          "S": {
+            "successes": 12,
+            "planned_sources": 12
+          },
+          "C": {
+            "successes": 12,
+            "planned_sources": 12
+          },
+          "J": {
+            "successes": 10,
+            "planned_sources": 12
+          }
+        },
+        "frozen_native": {
+          "S": {
+            "successes": 12,
+            "planned_sources": 12
+          },
+          "C": {
+            "successes": 12,
+            "planned_sources": 12
+          },
+          "J": {
+            "successes": 9,
+            "planned_sources": 12
+          }
+        }
+      },
+      "historical_semantic_continuity_pass": true,
+      "exact_q_continuity_pass": false,
+      "quality": {
+        "planned": 36,
+        "completed": 36,
+        "missing_or_failed_or_blocked": 0,
+        "human_admissibility": "missing; no human verdict inferred",
+        "distortion": {
+          "quality_input": {
+            "psnr_db": {
+              "n": 36,
+              "minimum": 18.914041583807546,
+              "mean": 23.72580826465796,
+              "maximum": 25.90771206083773
+            },
+            "ssim_rgb": {
+              "n": 36,
+              "minimum": 0.42056750380039787,
+              "mean": 0.6321643947932789,
+              "maximum": 0.7467304942881013
+            },
+            "lpips": {
+              "n": 36,
+              "minimum": 0.0908084511756897,
+              "mean": 0.12486797819534938,
+              "maximum": 0.20241090655326843
+            }
+          },
+          "quality_source": {
+            "psnr_db": {
+              "n": 36,
+              "minimum": 18.915167434088467,
+              "mean": 23.740866725679812,
+              "maximum": 25.933422941186343
+            },
+            "ssim_rgb": {
+              "n": 36,
+              "minimum": 0.42466491958786834,
+              "mean": 0.6384775892577371,
+              "maximum": 0.7534019660393673
+            },
+            "lpips": {
+              "n": 36,
+              "minimum": 0.09468474984169006,
+              "mean": 0.13650114834308624,
+              "maximum": 0.20742495357990265
+            }
+          }
+        },
+        "subsets": {
+          "quality_input_lpips_le_0.2": {
+            "planned": 36,
+            "qualified": 34,
+            "excluded_completed": 2,
+            "unavailable": 0,
+            "successes": {
+              "A": 34,
+              "S": 34,
+              "R": 34,
+              "C": 34,
+              "Q": 30,
+              "J": 30,
+              "U": 0,
+              "H": 0,
+              "D": 0,
+              "F": 0
+            },
+            "identities": [
+              "1675|0.1|0",
+              "1675|0.1|1",
+              "1675|0.1|2",
+              "4795|0.1|0",
+              "4795|0.1|1",
+              "4795|0.1|2",
+              "6012|0.1|0",
+              "6012|0.1|1",
+              "6012|0.1|2",
+              "25394|0.1|0",
+              "25394|0.1|1",
+              "25394|0.1|2",
+              "80932|0.1|0",
+              "80932|0.1|1",
+              "80932|0.1|2",
+              "109798|0.1|0",
+              "109798|0.1|1",
+              "109798|0.1|2",
+              "134882|0.1|0",
+              "134882|0.1|1",
+              "134882|0.1|2",
+              "147498|0.1|0",
+              "147498|0.1|1",
+              "147498|0.1|2",
+              "177015|0.1|0",
+              "177015|0.1|1",
+              "177015|0.1|2",
+              "190676|0.1|0",
+              "190676|0.1|1",
+              "190676|0.1|2",
+              "468505|0.1|0",
+              "468505|0.1|1",
+              "468505|0.1|2",
+              "499768|0.1|2"
+            ],
+            "interpretation": "descriptive proxy subset; all failures retained in planned denominator; not a quality gate"
+          },
+          "quality_input_lpips_le_0.3": {
+            "planned": 36,
+            "qualified": 36,
+            "excluded_completed": 0,
+            "unavailable": 0,
+            "successes": {
+              "A": 36,
+              "S": 36,
+              "R": 36,
+              "C": 36,
+              "Q": 32,
+              "J": 32,
+              "U": 0,
+              "H": 0,
+              "D": 0,
+              "F": 0
+            },
+            "identities": [
+              "1675|0.1|0",
+              "1675|0.1|1",
+              "1675|0.1|2",
+              "4795|0.1|0",
+              "4795|0.1|1",
+              "4795|0.1|2",
+              "6012|0.1|0",
+              "6012|0.1|1",
+              "6012|0.1|2",
+              "25394|0.1|0",
+              "25394|0.1|1",
+              "25394|0.1|2",
+              "80932|0.1|0",
+              "80932|0.1|1",
+              "80932|0.1|2",
+              "109798|0.1|0",
+              "109798|0.1|1",
+              "109798|0.1|2",
+              "134882|0.1|0",
+              "134882|0.1|1",
+              "134882|0.1|2",
+              "147498|0.1|0",
+              "147498|0.1|1",
+              "147498|0.1|2",
+              "177015|0.1|0",
+              "177015|0.1|1",
+              "177015|0.1|2",
+              "190676|0.1|0",
+              "190676|0.1|1",
+              "190676|0.1|2",
+              "468505|0.1|0",
+              "468505|0.1|1",
+              "468505|0.1|2",
+              "499768|0.1|0",
+              "499768|0.1|1",
+              "499768|0.1|2"
+            ],
+            "interpretation": "descriptive proxy subset; all failures retained in planned denominator; not a quality gate"
+          },
+          "quality_source_lpips_le_0.2": {
+            "planned": 36,
+            "qualified": 34,
+            "excluded_completed": 2,
+            "unavailable": 0,
+            "successes": {
+              "A": 34,
+              "S": 34,
+              "R": 34,
+              "C": 34,
+              "Q": 30,
+              "J": 30,
+              "U": 0,
+              "H": 0,
+              "D": 0,
+              "F": 0
+            },
+            "identities": [
+              "1675|0.1|0",
+              "1675|0.1|1",
+              "1675|0.1|2",
+              "4795|0.1|0",
+              "4795|0.1|1",
+              "4795|0.1|2",
+              "6012|0.1|0",
+              "6012|0.1|1",
+              "6012|0.1|2",
+              "25394|0.1|0",
+              "25394|0.1|1",
+              "25394|0.1|2",
+              "80932|0.1|0",
+              "80932|0.1|1",
+              "80932|0.1|2",
+              "109798|0.1|0",
+              "109798|0.1|1",
+              "109798|0.1|2",
+              "134882|0.1|0",
+              "134882|0.1|1",
+              "134882|0.1|2",
+              "147498|0.1|0",
+              "147498|0.1|1",
+              "147498|0.1|2",
+              "177015|0.1|0",
+              "177015|0.1|1",
+              "177015|0.1|2",
+              "190676|0.1|0",
+              "190676|0.1|1",
+              "190676|0.1|2",
+              "468505|0.1|0",
+              "468505|0.1|1",
+              "468505|0.1|2",
+              "499768|0.1|2"
+            ],
+            "interpretation": "descriptive proxy subset; all failures retained in planned denominator; not a quality gate"
+          },
+          "quality_source_lpips_le_0.3": {
+            "planned": 36,
+            "qualified": 36,
+            "excluded_completed": 0,
+            "unavailable": 0,
+            "successes": {
+              "A": 36,
+              "S": 36,
+              "R": 36,
+              "C": 36,
+              "Q": 32,
+              "J": 32,
+              "U": 0,
+              "H": 0,
+              "D": 0,
+              "F": 0
+            },
+            "identities": [
+              "1675|0.1|0",
+              "1675|0.1|1",
+              "1675|0.1|2",
+              "4795|0.1|0",
+              "4795|0.1|1",
+              "4795|0.1|2",
+              "6012|0.1|0",
+              "6012|0.1|1",
+              "6012|0.1|2",
+              "25394|0.1|0",
+              "25394|0.1|1",
+              "25394|0.1|2",
+              "80932|0.1|0",
+              "80932|0.1|1",
+              "80932|0.1|2",
+              "109798|0.1|0",
+              "109798|0.1|1",
+              "109798|0.1|2",
+              "134882|0.1|0",
+              "134882|0.1|1",
+              "134882|0.1|2",
+              "147498|0.1|0",
+              "147498|0.1|1",
+              "147498|0.1|2",
+              "177015|0.1|0",
+              "177015|0.1|1",
+              "177015|0.1|2",
+              "190676|0.1|0",
+              "190676|0.1|1",
+              "190676|0.1|2",
+              "468505|0.1|0",
+              "468505|0.1|1",
+              "468505|0.1|2",
+              "499768|0.1|0",
+              "499768|0.1|1",
+              "499768|0.1|2"
+            ],
+            "interpretation": "descriptive proxy subset; all failures retained in planned denominator; not a quality gate"
+          }
+        }
+      }
+    },
+    "0.2": {
+      "planned": 36,
+      "completed": 34,
+      "statuses": {
+        "ok": 34,
+        "safety_blocked": 2
+      },
+      "missing": 0,
+      "candidate_RC": {
+        "A": 34,
+        "S": 33,
+        "R": 33,
+        "C": 32,
+        "Q": 21,
+        "J": 21,
+        "U": 1,
+        "H": 0,
+        "D": 0,
+        "F": 0
+      },
+      "candidate_native": {
+        "A": 34,
+        "S": 33,
+        "R": 33,
+        "C": 32,
+        "Q": 21,
+        "J": 21,
+        "U": 1,
+        "H": 0,
+        "D": 0,
+        "F": 0
+      },
+      "frozen_native": {
+        "A": 35,
+        "S": 35,
+        "R": 35,
+        "C": 35,
+        "Q": 20,
+        "J": 20,
+        "U": 0,
+        "H": 0,
+        "D": 0,
+        "F": 0
+      },
+      "frozen_RC": {
+        "A": 35,
+        "S": 35,
+        "R": 35,
+        "C": 35,
+        "Q": 20,
+        "J": 20,
+        "U": 0,
+        "H": 0,
+        "D": 0,
+        "F": 0
+      },
+      "frozen_completed_planned": 35,
+      "frozen_enriched_completed": 35,
+      "candidate_on_F": {
+        "A": 34,
+        "S": 33,
+        "R": 33,
+        "C": 32,
+        "Q": 21,
+        "J": 21,
+        "U": 1,
+        "H": 0,
+        "D": 0,
+        "F": 0
+      },
+      "v5_on_P": {
+        "successes": 18,
+        "completed": 28,
+        "planned": 36
+      },
+      "v5_on_F": {
+        "successes": 18,
+        "completed": 28,
+        "planned": 35
+      },
+      "I": {
+        "planned": 28,
+        "candidate_S": 26,
+        "frozen_S": 28,
+        "v5_S": 18,
+        "failed_or_absent": [
+          "468505|0.2|0"
+        ]
+      },
+      "retention": {
+        "A": {
+          "frozen_positive": 35,
+          "retained": 34,
+          "lost": [
+            "468505|0.2|0"
+          ],
+          "gained": []
+        },
+        "S": {
+          "frozen_positive": 35,
+          "retained": 33,
+          "lost": [
+            "6012|0.2|1",
+            "468505|0.2|0"
+          ],
+          "gained": []
+        },
+        "R": {
+          "frozen_positive": 35,
+          "retained": 33,
+          "lost": [
+            "6012|0.2|0",
+            "468505|0.2|0"
+          ],
+          "gained": []
+        },
+        "C": {
+          "frozen_positive": 35,
+          "retained": 32,
+          "lost": [
+            "6012|0.2|0",
+            "6012|0.2|1",
+            "468505|0.2|0"
+          ],
+          "gained": []
+        },
+        "Q": {
+          "frozen_positive": 20,
+          "retained": 18,
+          "lost": [
+            "80932|0.2|0",
+            "109798|0.2|2"
+          ],
+          "gained": [
+            "4795|0.2|0",
+            "4795|0.2|1",
+            "190676|0.2|1"
+          ]
+        },
+        "J": {
+          "frozen_positive": 20,
+          "retained": 18,
+          "lost": [
+            "80932|0.2|0",
+            "109798|0.2|2"
+          ],
+          "gained": [
+            "4795|0.2|0",
+            "4795|0.2|1",
+            "190676|0.2|1"
+          ]
+        },
+        "U": {
+          "frozen_positive": 0,
+          "retained": 0,
+          "lost": [],
+          "gained": [
+            "6012|0.2|0"
+          ]
+        },
+        "H": {
+          "frozen_positive": 0,
+          "retained": 0,
+          "lost": [],
+          "gained": []
+        },
+        "D": {
+          "frozen_positive": 0,
+          "retained": 0,
+          "lost": [],
+          "gained": []
+        },
+        "F": {
+          "frozen_positive": 0,
+          "retained": 0,
+          "lost": [],
+          "gained": []
+        }
+      },
+      "paired_identities": [
+        {
+          "identity": "1675|0.2|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": false,
+          "v5_S": null,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "1675|0.2|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": false,
+          "v5_S": null,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "1675|0.2|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": false,
+          "v5_S": null,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "4795|0.2|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": false,
+          "v5_S": null,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "4795|0.2|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": false,
+          "v5_S": null,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "4795|0.2|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": false,
+          "v5_S": null,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "6012|0.2|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": false,
+          "v5_S": null,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": false,
+            "C": false,
+            "Q": false,
+            "J": false,
+            "U": true,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": false,
+            "C": false,
+            "Q": false,
+            "J": false,
+            "U": true,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "6012|0.2|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": false,
+            "R": true,
+            "C": false,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": false,
+            "R": true,
+            "C": false,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "6012|0.2|2",
+          "candidate_status": "safety_blocked",
+          "in_F": false,
+          "in_I": false,
+          "v5_S": null,
+          "frozen_native": null,
+          "frozen_RC": null,
+          "candidate_RC": null,
+          "candidate_native": null
+        },
+        {
+          "identity": "25394|0.2|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": false,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "25394|0.2|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": false,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "25394|0.2|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": false,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "80932|0.2|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "80932|0.2|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "80932|0.2|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "109798|0.2|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": false,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "109798|0.2|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": false,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "109798|0.2|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "134882|0.2|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": false,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "134882|0.2|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "134882|0.2|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": false,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "147498|0.2|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "147498|0.2|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "147498|0.2|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": false,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "177015|0.2|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "177015|0.2|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "177015|0.2|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": false,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "190676|0.2|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "190676|0.2|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "190676|0.2|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "468505|0.2|0",
+          "candidate_status": "safety_blocked",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": null,
+          "candidate_native": null
+        },
+        {
+          "identity": "468505|0.2|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "468505|0.2|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": false,
+            "J": false,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "499768|0.2|0",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": false,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "499768|0.2|1",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        },
+        {
+          "identity": "499768|0.2|2",
+          "candidate_status": "ok",
+          "in_F": true,
+          "in_I": true,
+          "v5_S": true,
+          "frozen_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "frozen_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_RC": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          },
+          "candidate_native": {
+            "A": true,
+            "S": true,
+            "R": true,
+            "C": true,
+            "Q": true,
+            "J": true,
+            "U": false,
+            "H": false,
+            "D": false,
+            "F": false
+          }
+        }
+      ],
+      "source_majority": {
+        "candidate_RC": {
+          "S": {
+            "successes": 11,
+            "planned_sources": 12
+          },
+          "C": {
+            "successes": 11,
+            "planned_sources": 12
+          },
+          "J": {
+            "successes": 7,
+            "planned_sources": 12
+          }
+        },
+        "candidate_native": {
+          "S": {
+            "successes": 11,
+            "planned_sources": 12
+          },
+          "C": {
+            "successes": 11,
+            "planned_sources": 12
+          },
+          "J": {
+            "successes": 7,
+            "planned_sources": 12
+          }
+        },
+        "frozen_native": {
+          "S": {
+            "successes": 12,
+            "planned_sources": 12
+          },
+          "C": {
+            "successes": 12,
+            "planned_sources": 12
+          },
+          "J": {
+            "successes": 8,
+            "planned_sources": 12
+          }
+        }
+      },
+      "historical_semantic_continuity_pass": false,
+      "exact_q_continuity_pass": false,
+      "quality": {
+        "planned": 36,
+        "completed": 34,
+        "missing_or_failed_or_blocked": 2,
+        "human_admissibility": "missing; no human verdict inferred",
+        "distortion": {
+          "quality_input": {
+            "psnr_db": {
+              "n": 34,
+              "minimum": 18.04369131726397,
+              "mean": 22.27646675929454,
+              "maximum": 24.728544483903555
+            },
+            "ssim_rgb": {
+              "n": 34,
+              "minimum": 0.3649722404294847,
+              "mean": 0.5825002293506164,
+              "maximum": 0.7133904000321099
+            },
+            "lpips": {
+              "n": 34,
+              "minimum": 0.12613162398338318,
+              "mean": 0.17921211395193548,
+              "maximum": 0.27463749051094055
+            }
+          },
+          "quality_source": {
+            "psnr_db": {
+              "n": 34,
+              "minimum": 18.04486791600807,
+              "mean": 22.287830598817088,
+              "maximum": 24.749581810648593
+            },
+            "ssim_rgb": {
+              "n": 34,
+              "minimum": 0.36997003866319456,
+              "mean": 0.5896862551100093,
+              "maximum": 0.7282650608307266
+            },
+            "lpips": {
+              "n": 34,
+              "minimum": 0.12898439168930054,
+              "mean": 0.18768033955027075,
+              "maximum": 0.2787054777145386
+            }
+          }
+        },
+        "subsets": {
+          "quality_input_lpips_le_0.2": {
+            "planned": 36,
+            "qualified": 27,
+            "excluded_completed": 7,
+            "unavailable": 2,
+            "successes": {
+              "A": 27,
+              "S": 26,
+              "R": 26,
+              "C": 25,
+              "Q": 17,
+              "J": 17,
+              "U": 1,
+              "H": 0,
+              "D": 0,
+              "F": 0
+            },
+            "identities": [
+              "1675|0.2|0",
+              "1675|0.2|1",
+              "1675|0.2|2",
+              "4795|0.2|0",
+              "4795|0.2|1",
+              "6012|0.2|0",
+              "6012|0.2|1",
+              "25394|0.2|0",
+              "25394|0.2|1",
+              "25394|0.2|2",
+              "109798|0.2|0",
+              "109798|0.2|1",
+              "109798|0.2|2",
+              "134882|0.2|0",
+              "134882|0.2|1",
+              "134882|0.2|2",
+              "147498|0.2|0",
+              "147498|0.2|1",
+              "147498|0.2|2",
+              "177015|0.2|0",
+              "177015|0.2|1",
+              "177015|0.2|2",
+              "190676|0.2|0",
+              "190676|0.2|1",
+              "190676|0.2|2",
+              "468505|0.2|1",
+              "468505|0.2|2"
+            ],
+            "interpretation": "descriptive proxy subset; all failures retained in planned denominator; not a quality gate"
+          },
+          "quality_input_lpips_le_0.3": {
+            "planned": 36,
+            "qualified": 34,
+            "excluded_completed": 0,
+            "unavailable": 2,
+            "successes": {
+              "A": 34,
+              "S": 33,
+              "R": 33,
+              "C": 32,
+              "Q": 21,
+              "J": 21,
+              "U": 1,
+              "H": 0,
+              "D": 0,
+              "F": 0
+            },
+            "identities": [
+              "1675|0.2|0",
+              "1675|0.2|1",
+              "1675|0.2|2",
+              "4795|0.2|0",
+              "4795|0.2|1",
+              "4795|0.2|2",
+              "6012|0.2|0",
+              "6012|0.2|1",
+              "25394|0.2|0",
+              "25394|0.2|1",
+              "25394|0.2|2",
+              "80932|0.2|0",
+              "80932|0.2|1",
+              "80932|0.2|2",
+              "109798|0.2|0",
+              "109798|0.2|1",
+              "109798|0.2|2",
+              "134882|0.2|0",
+              "134882|0.2|1",
+              "134882|0.2|2",
+              "147498|0.2|0",
+              "147498|0.2|1",
+              "147498|0.2|2",
+              "177015|0.2|0",
+              "177015|0.2|1",
+              "177015|0.2|2",
+              "190676|0.2|0",
+              "190676|0.2|1",
+              "190676|0.2|2",
+              "468505|0.2|1",
+              "468505|0.2|2",
+              "499768|0.2|0",
+              "499768|0.2|1",
+              "499768|0.2|2"
+            ],
+            "interpretation": "descriptive proxy subset; all failures retained in planned denominator; not a quality gate"
+          },
+          "quality_source_lpips_le_0.2": {
+            "planned": 36,
+            "qualified": 25,
+            "excluded_completed": 9,
+            "unavailable": 2,
+            "successes": {
+              "A": 25,
+              "S": 24,
+              "R": 24,
+              "C": 23,
+              "Q": 15,
+              "J": 15,
+              "U": 1,
+              "H": 0,
+              "D": 0,
+              "F": 0
+            },
+            "identities": [
+              "1675|0.2|0",
+              "1675|0.2|1",
+              "1675|0.2|2",
+              "4795|0.2|1",
+              "6012|0.2|0",
+              "6012|0.2|1",
+              "25394|0.2|0",
+              "25394|0.2|1",
+              "25394|0.2|2",
+              "109798|0.2|0",
+              "109798|0.2|1",
+              "109798|0.2|2",
+              "134882|0.2|0",
+              "134882|0.2|1",
+              "134882|0.2|2",
+              "147498|0.2|0",
+              "147498|0.2|1",
+              "147498|0.2|2",
+              "177015|0.2|0",
+              "177015|0.2|1",
+              "177015|0.2|2",
+              "190676|0.2|0",
+              "190676|0.2|1",
+              "468505|0.2|1",
+              "468505|0.2|2"
+            ],
+            "interpretation": "descriptive proxy subset; all failures retained in planned denominator; not a quality gate"
+          },
+          "quality_source_lpips_le_0.3": {
+            "planned": 36,
+            "qualified": 34,
+            "excluded_completed": 0,
+            "unavailable": 2,
+            "successes": {
+              "A": 34,
+              "S": 33,
+              "R": 33,
+              "C": 32,
+              "Q": 21,
+              "J": 21,
+              "U": 1,
+              "H": 0,
+              "D": 0,
+              "F": 0
+            },
+            "identities": [
+              "1675|0.2|0",
+              "1675|0.2|1",
+              "1675|0.2|2",
+              "4795|0.2|0",
+              "4795|0.2|1",
+              "4795|0.2|2",
+              "6012|0.2|0",
+              "6012|0.2|1",
+              "25394|0.2|0",
+              "25394|0.2|1",
+              "25394|0.2|2",
+              "80932|0.2|0",
+              "80932|0.2|1",
+              "80932|0.2|2",
+              "109798|0.2|0",
+              "109798|0.2|1",
+              "109798|0.2|2",
+              "134882|0.2|0",
+              "134882|0.2|1",
+              "134882|0.2|2",
+              "147498|0.2|0",
+              "147498|0.2|1",
+              "147498|0.2|2",
+              "177015|0.2|0",
+              "177015|0.2|1",
+              "177015|0.2|2",
+              "190676|0.2|0",
+              "190676|0.2|1",
+              "190676|0.2|2",
+              "468505|0.2|1",
+              "468505|0.2|2",
+              "499768|0.2|0",
+              "499768|0.2|1",
+              "499768|0.2|2"
+            ],
+            "interpretation": "descriptive proxy subset; all failures retained in planned denominator; not a quality gate"
+          }
+        }
+      }
+    }
+  },
+  "negatives": {
+    "rc": {
+      "cells": {
+        "shared_C0": {
+          "planned": 288,
+          "observed": 264,
+          "unavailable": 24,
+          "any_detections": 0,
+          "detected_identities": []
+        },
+        "candidate_C1": {
+          "planned": 216,
+          "observed": 210,
+          "unavailable": 6,
+          "any_detections": 0,
+          "detected_identities": []
+        }
+      },
+      "planned": 504,
+      "observed": 474,
+      "any_detections": 0
+    },
+    "native": {
+      "cells": {
+        "shared_C0": {
+          "planned": 288,
+          "observed": 264,
+          "unavailable": 24,
+          "any_detections": 0,
+          "detected_identities": []
+        },
+        "candidate_C1": {
+          "planned": 216,
+          "observed": 210,
+          "unavailable": 6,
+          "any_detections": 0,
+          "detected_identities": []
+        }
+      },
+      "planned": 504,
+      "observed": 474,
+      "any_detections": 0
+    }
+  },
+  "coverage": {
+    "available_negative_panel_complete": true,
+    "retained_C0_statuses_match": true,
+    "candidate_operational_complete": true,
+    "planned_negative_panel_exhaustive": false,
+    "retained_C0_blocked_call_slots": 24
+  },
+  "measured_t3_continuity_pass": false,
+  "reuse": {
+    "prior_run": null,
+    "shared_rows": 0,
+    "interpretation": "Frozen enrichment and C0 reused by RC3 from RC2 are shared evidence, not independent replicates"
+  },
+  "endpoint_definitions": {
+    "A": "semantic.found OR instance.found",
+    "S": "semantic.found AND content_match",
+    "R": "semantic.read",
+    "C": "semantic.read AND content_match",
+    "Q": "semantic.read AND exact original q",
+    "J": "Q AND content_match",
+    "U": "S AND NOT read",
+    "H": "instance.read AND exact operational h",
+    "D": "Q AND H",
+    "F": "both_match"
+  },
+  "status": {
+    "evidence": "exploratory reused development sources; seeds and decoder rules not independent samples",
+    "T4": "not yet run for candidate",
+    "T5": "not yet run; inherited all-alpha attribution endpoint not identifiable",
+    "new_six_pair_payload_origin": "not yet run",
+    "human_admissibility": "missing",
+    "full_amendment": "not granted by this T3 analysis",
+    "historical_M1_M2": "unchanged"
+  }
+}

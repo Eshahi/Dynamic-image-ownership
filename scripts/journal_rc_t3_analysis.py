@@ -323,7 +323,9 @@ def report(data):
     for s,x in data['strengths'].items():
         for e in ('S','R','C','Q','J'):
             r=x['retention'][e]
-            lines.append(f"| {s} / {e} | {r['frozen_positive']}/35 | {r['retained']} | {', '.join(r['lost']) or 'none'} | {', '.join(r['gained']) or 'none'} |")
+            lost = ', '.join(r['lost']).replace('|', '\\|') or 'none'
+            gained = ', '.join(r['gained']).replace('|', '\\|') or 'none'
+            lines.append(f"| {s} / {e} | {r['frozen_positive']}/35 | {r['retained']} | {lost} | {gained} |")
     lines += ['', 'Full P/F and paired native/new counts, every endpoint, and 72 per-identity arrays are in the statistics JSON. Gains elsewhere never erase a lost frozen-positive identity. H/D/full acceptance are descriptive, with no invented fragile-h diffusion gate.','',
               '## Source-majority and quality','',
               'Source-majority means at least two successful seeds out of three, over the fixed twelve sources. Blocked/missing/failed seeds count as no success. These are descriptive development counts, not independent seed or sample inference.']
