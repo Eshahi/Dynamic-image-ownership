@@ -1,0 +1,29 @@
+{
+  "schema_version": "e3-s1-environment-lock-v1",
+  "python": "3.12.14",
+  "platform": "win32",
+  "packages": {
+    "numpy": "2.5.2",
+    "scipy": "1.16.2",
+    "Pillow": "12.3.0",
+    "torch": "2.12.1+cu130",
+    "torchvision": "0.27.1+cu130",
+    "diffusers": "0.35.1",
+    "transformers": "4.57.6",
+    "safetensors": "0.6.2",
+    "lpips": "0.1.4",
+    "huggingface_hub": "0.36.0",
+    "ftfy": "6.3.1",
+    "regex": "2026.9.10",
+    "tokenizers": "0.22.1",
+    "accelerate": "1.10.1"
+  },
+  "interpreter": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/a6-science-venv/Scripts/python.exe",
+  "network": "offline scientific runtime",
+  "model_loading": "local files only",
+  "precision": {
+    "reader": "float32",
+    "sdxl": "float32",
+    "ddim": "float16"
+  }
+}

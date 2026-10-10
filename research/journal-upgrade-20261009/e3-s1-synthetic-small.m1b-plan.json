@@ -1,0 +1,81 @@
+{
+  "schema": "m1b-coco512-plan-v1",
+  "f5_config": {
+    "path": "configs/f5-r2.json",
+    "sha256": "76f607e13fb3442d691813e5ab44d5eda40c6e02027d4f9041ea3fc50f41fe8f"
+  },
+  "profile": {
+    "path": "experiments/c4-v5-two-tier-regeneration-v1/profile.json",
+    "sha256": "25f9cb188368be04cd8d2b95ea1066872d3ca70908bd554af01ff93a53b40723"
+  },
+  "assets_root": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/assets/a6",
+  "t5": {
+    "selector": "coco-instances",
+    "max_pairs": 30,
+    "annotations": {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/rehearsal/e3-s1-synthetic/instances_synthetic.json",
+      "sha256": "5211292fab289f2c0574a513157ac6e30cb2bd2aa75a846d37080c46b193d7e6"
+    }
+  },
+  "protocol": "e3-s1-v1",
+  "data_split": "rehearsal",
+  "label": "S1 small synthetic rehearsal; no study sources",
+  "methods": [
+    "e3-s1",
+    "v5-r3"
+  ],
+  "owners": [
+    "qim-pilot-owner-alpha",
+    "qim-pilot-owner-beta",
+    "qim-pilot-owner-gamma",
+    "qim-pilot-owner-delta"
+  ],
+  "s1_config": {
+    "path": "configs/e3-s1.json",
+    "sha256": "ec520f9082a3faf16949e597907144abc09a7fe8e7c8dff6a906dbfdc3287b9c"
+  },
+  "sdxl_lock": {
+    "path": "research/journal-upgrade-20261009/e3-s1-sdxl-lock.json",
+    "sha256": "cff7925182bbf0c688efaf463e7a3100f46a2158635035f5647e9cb694f35b69"
+  },
+  "environment_lock": {
+    "path": "research/journal-upgrade-20261009/e3-s1-environment-lock.json",
+    "sha256": "f463c5652678355695fb9be109e5e47cbef8db4a66b24b63dbeb2f66a755659c"
+  },
+  "sources": {
+    "index": {
+      "path": "research/journal-upgrade-20261009/e3-s1-synthetic-small-index.json",
+      "sha256": "0d68367e80c431826f6e696afd019bc3cf1f5e7bc6ec5613f0280e0d6f8d6bd2"
+    }
+  },
+  "t3_uids": [
+    "rehearsal-e3-s1-synthetic:coco-2017:val2017:900001",
+    "rehearsal-e3-s1-synthetic:coco-2017:val2017:900002",
+    "rehearsal-e3-s1-synthetic:coco-2017:val2017:900003",
+    "rehearsal-e3-s1-synthetic:coco-2017:val2017:900000"
+  ],
+  "t4_pairs": [
+    {
+      "pair_index": 0,
+      "donor_uid": "rehearsal-e3-s1-synthetic:coco-2017:val2017:900003",
+      "recipient_uid": "rehearsal-e3-s1-synthetic:coco-2017:val2017:900000"
+    },
+    {
+      "pair_index": 1,
+      "donor_uid": "rehearsal-e3-s1-synthetic:coco-2017:val2017:900002",
+      "recipient_uid": "rehearsal-e3-s1-synthetic:coco-2017:val2017:900001"
+    }
+  ],
+  "strengths": [
+    0.1,
+    0.2
+  ],
+  "seeds": [
+    3,
+    4,
+    5
+  ],
+  "patch_sizes": [],
+  "max_wall_seconds": 27000,
+  "approval_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/rehearsal/approvals/e3-s1-small.json"
+}

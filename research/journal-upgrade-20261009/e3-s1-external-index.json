@@ -1,0 +1,3010 @@
+{
+  "schema_version": "e3-s1-external-index-v1",
+  "status": "metadata only; held-out access requires human approval",
+  "cohort": {
+    "path": "research/journal-upgrade-20261009/e3-s1-fresh-cohort.json",
+    "sha256": "f7d1021f92120b3ac3b8d31c3d9df017a6e724f2a32210345c3e5420ca2dba75"
+  },
+  "entries": [
+    {
+      "schedule_index": 0,
+      "source_uid": "ms-coco:coco-2017:val2017:248752",
+      "group_id": "dae3b316070a1773f36ab9f92c70ff34b378cfa25d5948a52447fdddddb0df8e",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000248752.jpg",
+      "raw_sha256": "7ec3f6159f065246157e207b50eba8fbda7bf5036d470bc3f5091f553ac9eac5",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 1,
+      "source_uid": "ms-coco:coco-2017:val2017:182417",
+      "group_id": "772ea8a39c640e68baaa09975725d0c782fb72f6c3d51eda337d48e91b6a3876",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000182417.jpg",
+      "raw_sha256": "688c4a3bf75a7dd19a9401d7f105f9675d50b2b1bc01a1355320878500e4d1fd",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 2,
+      "source_uid": "ms-coco:coco-2017:val2017:248810",
+      "group_id": "c39807cdf982ec5ab5a0ca82e220f94440645da67442909588d63f7c769a2f54",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000248810.jpg",
+      "raw_sha256": "45f0c3ff2c7a8ff6ea3b6ae2f697e1e1254a729675d2d1c38439e36aae8c7f1b",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 3,
+      "source_uid": "ms-coco:coco-2017:val2017:203639",
+      "group_id": "4e2ca00df779bd3dfb91ab92b4fa27723150fd40253b45c3d38dc366f76dcac0",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000203639.jpg",
+      "raw_sha256": "6bfc106bf02f49054b9514ac8c084a4ca93f44458725f6b5ca700c6cea73d4b0",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 4,
+      "source_uid": "ms-coco:coco-2017:val2017:446522",
+      "group_id": "cdde033a437feed7f2a1a57e325681bfdd615fd81dadd699506e59297624150a",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000446522.jpg",
+      "raw_sha256": "5be429c41a46270ced8ea13212b6f02302e00158d9a1040ea336ec5630237ed3",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 5,
+      "source_uid": "ms-coco:coco-2017:val2017:554291",
+      "group_id": "e0d379d236448d07a023e671780d807f92f01616d7e735849750311fac7ecd46",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000554291.jpg",
+      "raw_sha256": "87cfe902780e460e352a5de8b0ced6a8372dc7317aba136279edf3ff4e0527dc",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 6,
+      "source_uid": "ms-coco:coco-2017:val2017:127135",
+      "group_id": "6e18f69d03a37aac7407e2973b51a244729f8775a7020429e07ca52f7d922614",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000127135.jpg",
+      "raw_sha256": "3c881462d63d35fe918f352de7cdbf361b3a5e2a7412b0466e13f8ff9fc445d0",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 7,
+      "source_uid": "ms-coco:coco-2017:val2017:452122",
+      "group_id": "0989a7ff1a47fc912bf1174785af3148c4f8d439d2c24af7e6446b2870f24d3c",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000452122.jpg",
+      "raw_sha256": "28641b8180746005ada298f382067afdc96e88ee7ed83353b1ccdedd24bf1b03",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 8,
+      "source_uid": "ms-coco:coco-2017:val2017:7574",
+      "group_id": "cafbad51a9fa9f81225c30ed7d119f6d816afa8a2d0fd273277164b6801b11f2",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000007574.jpg",
+      "raw_sha256": "4f26c847c2f49574978e96733efaec720dd1d1ba95a8220d0de012b7317eed47",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 9,
+      "source_uid": "ms-coco:coco-2017:val2017:500663",
+      "group_id": "666d6370d61200ffd1a2f06a385dd47fcd0ef9202759792e928f49518bf26d09",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000500663.jpg",
+      "raw_sha256": "409a0b4438f67db00f69697f9b1728eb75fc511031e6fa176b029410aa9c537d",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 10,
+      "source_uid": "ms-coco:coco-2017:val2017:89556",
+      "group_id": "7166c6ea0a1601d865e7b7a0ae2f0347bb413babbaa2d141f6f1cb7da0c09c5b",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000089556.jpg",
+      "raw_sha256": "b78eb0eb1250b86210658687ff5063428e0cbff2858d4e07d8dee107ae1964f8",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 11,
+      "source_uid": "ms-coco:coco-2017:val2017:154000",
+      "group_id": "96010d3c23c74a061d5599444c52812b98e5ed10771ec31e95366b0a1c184717",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000154000.jpg",
+      "raw_sha256": "4224e841b58048d5568088cd5e7a67b6882a4f8fd3dda928ac7ea97a864bfe76",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 12,
+      "source_uid": "ms-coco:coco-2017:val2017:135670",
+      "group_id": "2ea279c9368d9eab2c395d698bee124c5a06747f752f4de6af45236d1377a3a8",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000135670.jpg",
+      "raw_sha256": "8f3eea478483e5b94935fe4e20da629a3631b28895899bccb5acc0fba5286060",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 13,
+      "source_uid": "ms-coco:coco-2017:val2017:291791",
+      "group_id": "bb5b4a26041441d9b1e807dbbac7b0f14a0f808a8c4a1f870dec0b50c3ae5999",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000291791.jpg",
+      "raw_sha256": "b6d82fb6e1594d9c22bb2c045e2ea3611158cdaf11a3ab41ec8874198c206f8e",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 14,
+      "source_uid": "ms-coco:coco-2017:val2017:322944",
+      "group_id": "7e3641e83e6f4c233768e87501468e8ebd621e8783d92df753948385d06eb02b",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000322944.jpg",
+      "raw_sha256": "e6d515c49bbe04c1d53601fd618bd4bf2b20b58ddfc8f6d80a6559f6536c59d1",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 15,
+      "source_uid": "ms-coco:coco-2017:val2017:483667",
+      "group_id": "ca79e32201ef2ee0f152c16af051fbce908e93f896f655c4035286d090732e08",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000483667.jpg",
+      "raw_sha256": "b616500911130fcd278f76b0ec968778c9ac790489d852f972c14f5ac1b0ba0c",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 16,
+      "source_uid": "ms-coco:coco-2017:val2017:61584",
+      "group_id": "8056aa21f127c854d07440978150d08c34ac8da27e14237910898375d98042fb",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000061584.jpg",
+      "raw_sha256": "e86bc3f63f6196bf2bad02d494af460ea8ae183cc6893af23d3c9888b5c4adbe",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 17,
+      "source_uid": "ms-coco:coco-2017:val2017:347930",
+      "group_id": "f17f50d109fd5bd98936406f478cbdcf663ade9f799da54e8bdb4f8beceb09ce",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000347930.jpg",
+      "raw_sha256": "fff3dce10857486d2b36df904bc01807096373513a4a0508d84dda293fa979fe",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 18,
+      "source_uid": "ms-coco:coco-2017:val2017:287545",
+      "group_id": "270c57bf38274af823bf0b0e51fa57096e8dbf62eddef847d771f135b78d5622",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000287545.jpg",
+      "raw_sha256": "401a2acc9f34c0a7c34eb51b29285de817f2db3bc799e26aad942f11998c2e36",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 19,
+      "source_uid": "ms-coco:coco-2017:val2017:338986",
+      "group_id": "10a5e7bd022bbc835ddce391dfa0aef77c7de9f2c9ab029b7fc0571f60283519",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000338986.jpg",
+      "raw_sha256": "62fee3f216c3cb2af25eac42d4b1b48acf30652ea1e8dd154aa4dcca480b852f",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 20,
+      "source_uid": "ms-coco:coco-2017:val2017:122046",
+      "group_id": "398da1437dda12e231bbe774b0b285a604dd57ff0571c89945deb54e149c5f52",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000122046.jpg",
+      "raw_sha256": "4bd45688ba9e814bcb787e71c389f971aa4b99ad2ff621361054d880ce4a7947",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 21,
+      "source_uid": "ms-coco:coco-2017:val2017:460229",
+      "group_id": "534f0db21e1ee550e6c2ab5fdfd96645b0ed713887e766ecb6d34731f1dcbbb9",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000460229.jpg",
+      "raw_sha256": "af84abd8715c5acb599da83f03174ca57bd0974ce00b6aa581c45bf7f92b6c8c",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 22,
+      "source_uid": "ms-coco:coco-2017:val2017:297147",
+      "group_id": "e441d3fc9d8b3137da3c0cbcf0acca7d51a2aee8b23a9135e8d6fdb87a4fb272",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000297147.jpg",
+      "raw_sha256": "f92aec9e439cc02e54f0ddb7bf7acac4a77675f19bbe476033bfa72f7e5dd689",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 23,
+      "source_uid": "ms-coco:coco-2017:val2017:127270",
+      "group_id": "9b7a885b0941976e3d689949dcbd34bed67afe43e83ab0c1f33d50eee375a8be",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000127270.jpg",
+      "raw_sha256": "37348eec08d518e1e6837e90ea3e0879bba5cc73647b1179c4ce9659f19fe0df",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 24,
+      "source_uid": "ms-coco:coco-2017:val2017:576566",
+      "group_id": "442166c06e23a23b28e7ac758b84462bbf2e2ca63daf3a338f0c1039ce02ba0a",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000576566.jpg",
+      "raw_sha256": "494fbef25a7b5c33413c5adb736c263778e501708a6904644ed40d259edcc9ec",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 25,
+      "source_uid": "ms-coco:coco-2017:val2017:1000",
+      "group_id": "83e1987d262fbe9f5dd4bc3b6fa1a013794e077ca273ff9bd301c1ac56470bbc",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000001000.jpg",
+      "raw_sha256": "24bb77a31928404e45a0454b06f6a0bd54a8db103590c9d7917288a1e0269f05",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 26,
+      "source_uid": "ms-coco:coco-2017:val2017:49259",
+      "group_id": "a8114cd27ca78573a961ee778220778b497459167e93cc7f39b994b72c2f4110",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000049259.jpg",
+      "raw_sha256": "75deea304839610c4f1d2312046b8c7d01ba6f350512a507d95abf2c7859ba7f",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 27,
+      "source_uid": "ms-coco:coco-2017:val2017:389933",
+      "group_id": "f1955b4204e3a22491891bd3d66848478907ee6b1bdf1c5d0fb0b250f82e6210",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000389933.jpg",
+      "raw_sha256": "27ccfbb2aec33b2e4ff4e03168119ddcbd3aadb021516bb7316d1c9468cca30e",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 28,
+      "source_uid": "ms-coco:coco-2017:val2017:283268",
+      "group_id": "20057cd006cb62334e9d6650efae8e087f3a42dbbaecbb3229a613841e2b25a2",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000283268.jpg",
+      "raw_sha256": "3c768b369099245029d32363adfdb3f7c9f7ad4790d1d691a2d69ce494062a1e",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 29,
+      "source_uid": "ms-coco:coco-2017:val2017:410712",
+      "group_id": "d9e125a03445a92d2ef588c748beb4b661ae55f79be9e37881118efa091d53fb",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000410712.jpg",
+      "raw_sha256": "4fa3aab23ce3814a1da7f65ce615000413900e0f915daaf420c3af64a6bf6e93",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 30,
+      "source_uid": "ms-coco:coco-2017:val2017:507015",
+      "group_id": "728945b3106ca1387f78972dbc04799d8ad8291522e11d42b079ba17af51f862",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000507015.jpg",
+      "raw_sha256": "3e1e27b0ffcd3d5673c69ba4914fa68ab44c23716e2435111ea5298648e68a70",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 31,
+      "source_uid": "ms-coco:coco-2017:val2017:404484",
+      "group_id": "5fe02fc53072ce5653cdd21c7f330795fdc5e06afa2ce06ecb7f87d271b48131",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000404484.jpg",
+      "raw_sha256": "3e1fd76af6b82f92fb57bcc74b4e84064574ef59148b7c09f00642e5a9138c81",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 32,
+      "source_uid": "ms-coco:coco-2017:val2017:109916",
+      "group_id": "8765b3444e77c10a6154992baa3760c9e362870cc76aa8298bcbcc9e420e1d8d",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000109916.jpg",
+      "raw_sha256": "b8409b5137f8653727eed92c375318c1c947cc2bb0cf75cc972d2293aacd9323",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 33,
+      "source_uid": "ms-coco:coco-2017:val2017:552902",
+      "group_id": "fec1e0163b4366c728be3a0dfcdf4305cfa5eebe98bbf2499a6ded7ba94de38b",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000552902.jpg",
+      "raw_sha256": "ecae0002c2e7c82e63a47c377d92d05a9d340dbe283e2c4a0fdfe21627e77885",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 34,
+      "source_uid": "ms-coco:coco-2017:val2017:226111",
+      "group_id": "8f86f8a8c67c90d210e76ecec0cad06748b3aebb7b8bf7bbe23db7d3435f9633",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000226111.jpg",
+      "raw_sha256": "c57ab832bf70043e1c08b82ef43b2d65e09ad09bc1437658d3c0a15cc0f99ac6",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 35,
+      "source_uid": "ms-coco:coco-2017:val2017:58636",
+      "group_id": "15234d17244fcf777254d941ea04ce0c756b4b66a517ce4b4dcabaaf5ebb8c17",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000058636.jpg",
+      "raw_sha256": "9c62cafaa78da7f5c47881c90188f91375b6658042e30714e59979d1a1a3bb04",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 36,
+      "source_uid": "ms-coco:coco-2017:val2017:87742",
+      "group_id": "b562af179c363fde0b2b2d8847457511dcc5eedd18a1d646b78ec61f50f10714",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000087742.jpg",
+      "raw_sha256": "2227dd6fdd0716149809fd17730e3a01f6c79e182bc6c0da6be900a17e6b25a8",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 37,
+      "source_uid": "ms-coco:coco-2017:val2017:251119",
+      "group_id": "fb145c93cc5e23aa1aeb26e60f2a1bff66b50edd314f954d2a3af800f100d242",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000251119.jpg",
+      "raw_sha256": "4ef387ddce797cc01d2aa2cdadcf5f5887491343ac2a5fa9ecab59bbde6cc56e",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 38,
+      "source_uid": "ms-coco:coco-2017:val2017:393014",
+      "group_id": "41efc8d9c106495d64d2153f47c2a97c1e4dfa6ee087ece40514fa488f8da3e0",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000393014.jpg",
+      "raw_sha256": "932a936d59f5a2f422cd96b70a0b4bad76e7e9eaa234b446e952874a0368e8ff",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 39,
+      "source_uid": "ms-coco:coco-2017:val2017:523957",
+      "group_id": "1b2c45c1f85fdc8d9ea086b255ef0383067cf337e4cc35ab6ed9390f4c8a1b5a",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000523957.jpg",
+      "raw_sha256": "163a959d2c41cab3366c5d6f8cd24a63fe981d91c3e018244e42947cb10a2450",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 40,
+      "source_uid": "ms-coco:coco-2017:val2017:469246",
+      "group_id": "22650604089d333b287df92eafdc56c0df65dfb520df0c0837a6052ad0eea920",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000469246.jpg",
+      "raw_sha256": "190712991c7919cbb779a82e7cc8cedec24fd8115cd953a471ed9dd853fcdaec",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 41,
+      "source_uid": "ms-coco:coco-2017:val2017:210299",
+      "group_id": "b7dcf6b231e189154f76360f8169c68257265222f9ec1cb13f2f511d4bd21a36",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000210299.jpg",
+      "raw_sha256": "dbdcbb432c918d11747928a3eb0d80498b9cc52087b5fe515e17b3cffb7e8240",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 42,
+      "source_uid": "ms-coco:coco-2017:val2017:529762",
+      "group_id": "d8af56a1f055a79c9de1c528fd0b93e7a7044fbbda8fb58c939cdf345765b84f",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000529762.jpg",
+      "raw_sha256": "b70d80f5e359e5e16c6976d94627e7a9392abf7a78ab495f10311def1e39f8dc",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 43,
+      "source_uid": "ms-coco:coco-2017:val2017:402992",
+      "group_id": "16e64ccba51b8e175647b5aa53a84f8d902dfa038830b82280b1f8099f70e804",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000402992.jpg",
+      "raw_sha256": "b9cc1890060b933404595e43d5f8001fa2e3bfb4da2903f363d384c6a92c1bba",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 44,
+      "source_uid": "ms-coco:coco-2017:val2017:398652",
+      "group_id": "f333c13cdbfb8d0f5d0b525bec18cfac02d2c16012539dedb9f9b76c309feeee",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000398652.jpg",
+      "raw_sha256": "b21401825547b765234f45a3a0fabbac15866ae403f48a2ccf67457dad92b0d0",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 45,
+      "source_uid": "ms-coco:coco-2017:val2017:58655",
+      "group_id": "499a92337be22265f6557d8de4f72e2e65bdfb048562e771554121092dce1c1f",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000058655.jpg",
+      "raw_sha256": "9784ea090eeba09ca328705b68552f091e4f2dc950119d0bdb1fdbe0d5032e31",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 46,
+      "source_uid": "ms-coco:coco-2017:val2017:308193",
+      "group_id": "c4f86caaa8164064fa05eb06db539c6fc73f2620e8ab14f581b65461b665deb1",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000308193.jpg",
+      "raw_sha256": "f51c25a8261a2405f11c1cc13d415ea6983740909a589c6670fa8dc473aeaa58",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 47,
+      "source_uid": "ms-coco:coco-2017:val2017:182441",
+      "group_id": "2ca1b7914c57c3b2f10eca2ddb6e81d4f933e1c4c62eb5ac450a6574ab21c76c",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000182441.jpg",
+      "raw_sha256": "8d34f24d1ed01ac22e5849346b72e4dbe5563799d08100f49bf5045f2c84e693",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 48,
+      "source_uid": "ms-coco:coco-2017:val2017:369771",
+      "group_id": "03955df487ef26a0cfaca19f45ca927a38a68391ba1ab38936f4f25c9555c2e5",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000369771.jpg",
+      "raw_sha256": "8ed9962ca66e9a4d548d512729653ca38de8cba46bed1a37be61b65736d90ce0",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 49,
+      "source_uid": "ms-coco:coco-2017:val2017:352491",
+      "group_id": "aec2e987a89e769cd79ddc71fbe64c41c7917a3d37fc258c1f47d2d60ba41fb7",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000352491.jpg",
+      "raw_sha256": "35ec472ae0a3525fec079ef5c8877bfffec8f48c2366b3ee1737626e2ca65791",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 50,
+      "source_uid": "ms-coco:coco-2017:val2017:462371",
+      "group_id": "fc9be57353552ac2fc924ac104e862cf1a8626965892d7bb1a000eeeebb3fc7c",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000462371.jpg",
+      "raw_sha256": "027938e6e266da5bab7d7c7f7da109aa15c251bf1a85b8bd845467435a8be3c9",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 51,
+      "source_uid": "ms-coco:coco-2017:val2017:117719",
+      "group_id": "968a2ae07f94bea1cce0a19a0e7fc3f1a624e9c05d3b5510a469f58a0fb61f11",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000117719.jpg",
+      "raw_sha256": "347879f8b17e27bbe503a00f8fe6963c0519f35e4d3db5ecdad92de924024744",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 52,
+      "source_uid": "ms-coco:coco-2017:val2017:132622",
+      "group_id": "eeba2e22bebbbc056b8bf5c6d8320506fb1a7d3aa6a989f4642cb5417cba55bf",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000132622.jpg",
+      "raw_sha256": "839511d6f6e7688d319b01d6977fc2cc642cb91e8fae4a2e0562c1322d894bf2",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 53,
+      "source_uid": "ms-coco:coco-2017:val2017:505451",
+      "group_id": "5cde0a5d0890718058dc51f578c3762268f3930d4d8c9626a85ca4cceb81cc82",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000505451.jpg",
+      "raw_sha256": "38f6627deffc2d616ea766c788981292183be693917c8f78d757232fc0f691f7",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 54,
+      "source_uid": "ms-coco:coco-2017:val2017:191580",
+      "group_id": "00f2a3601b4c0cc8fdd00b14a9020968359a4c5accf3985ff2bce65361ec9a8e",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000191580.jpg",
+      "raw_sha256": "0662cd9ecb3847debfd8279b97548e38cf0a2d4ddce1dd682ffa49f9886327ae",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 55,
+      "source_uid": "ms-coco:coco-2017:val2017:343937",
+      "group_id": "1cff9c69e40c24b73418b3edcea3eb0b9466f6a13dc90149f3071a440c0e634c",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000343937.jpg",
+      "raw_sha256": "8695e43af989afc4b1b590c0174d944cd454752fdccf9ba648adb45d4922d20b",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 56,
+      "source_uid": "ms-coco:coco-2017:val2017:46378",
+      "group_id": "edf6669a9dee1f59741e591534d82c61c2e4727a106856df8f992094add50beb",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000046378.jpg",
+      "raw_sha256": "927a104a4eb1ba7960946cf89ed6cc199bd7c840674787b8e77b74a7dd60aafe",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 57,
+      "source_uid": "ms-coco:coco-2017:val2017:249129",
+      "group_id": "b6032129ef9359b7fb0644916c9ec6ccbb609627ba14efa12b2dbd089ef4a390",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000249129.jpg",
+      "raw_sha256": "ee3e96944723de59d8741e68c65e0395fec5841a03286563bf005f43a131a786",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 58,
+      "source_uid": "ms-coco:coco-2017:val2017:104612",
+      "group_id": "2ae524b95f8736f325e78526711089a9a2d91eed38cd6cb626ee5c368a88b426",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000104612.jpg",
+      "raw_sha256": "997ac00cd26aff6a92717247dfb7ce7d5150a7281e61b7db8267833ea251c77d",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 59,
+      "source_uid": "ms-coco:coco-2017:val2017:241319",
+      "group_id": "2432b35255904fcc0484dd516bf5cc21b1a42d7ab7a1fa5a4b2f580bad87e500",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000241319.jpg",
+      "raw_sha256": "86e9949e3dbaa94b1543f585375f1d8ef1b05aa8411fca298bc4c13e53d29c1d",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 60,
+      "source_uid": "ms-coco:coco-2017:val2017:577932",
+      "group_id": "1966ec9fb9c790218918cf2112d8790c15fedd1c73139ea6e6cec3d6dceb8206",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000577932.jpg",
+      "raw_sha256": "593d4d8a69f21f4821e0bdd1d9f90e77084b31fb951090b549915a986b0633fe",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 61,
+      "source_uid": "ms-coco:coco-2017:val2017:12062",
+      "group_id": "ad975eaee59f83a3b1b6411205e7a283cc5ed957cffbf556ac2047425676c03b",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000012062.jpg",
+      "raw_sha256": "319d58f0fa008d076b766671a5b607f94614f6005f773adced54a57567aa28fb",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 62,
+      "source_uid": "ms-coco:coco-2017:val2017:247806",
+      "group_id": "16a0cdd1d57e47ac1dcea2b63e17d5bea1a2bb411f6119f5205ae4b5b4c820a4",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000247806.jpg",
+      "raw_sha256": "4901f946746993bfc0f119e30a5a8c9c9e8f2cda0ffd9c4ab1ece0d4cb3f2fc7",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 63,
+      "source_uid": "ms-coco:coco-2017:val2017:290293",
+      "group_id": "d5f829f0c999b6e560085786ff5e032e621c5a9340f5048d12d2d9fcbab04e4f",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000290293.jpg",
+      "raw_sha256": "bac0d8e356c851c90d9e2bbc4026bee20fb1af87f57c4b2db535232945ae367e",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 64,
+      "source_uid": "ms-coco:coco-2017:val2017:88265",
+      "group_id": "2f9cf19f041114ed7397c16d30bbbd091de0f63c73416ef0adcdc1b46f058629",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000088265.jpg",
+      "raw_sha256": "91f854ea66dbbc6fc3dd1cfe4410157be13194bc8e083dc79032aef5af2c81cc",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 65,
+      "source_uid": "ms-coco:coco-2017:val2017:565563",
+      "group_id": "ef5ace7cdf2dd96a3288eada1110e8b1d298664b38675271cd50d25e21af3a32",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000565563.jpg",
+      "raw_sha256": "1e6f1e3b345e1a35be647b982ed722cfbcc84683ea463967a7b977b25d177b37",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 66,
+      "source_uid": "ms-coco:coco-2017:val2017:553776",
+      "group_id": "e9cf9c8fc752b223721590d7b72a2c90fa314b2a0bc0097d1630cd1ddd5d909d",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000553776.jpg",
+      "raw_sha256": "1fbee9e526cabd1e7a4a9ca979f1cad50ba1a35d09d8d3ee23c67856628ec2b3",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 67,
+      "source_uid": "ms-coco:coco-2017:val2017:353518",
+      "group_id": "aaf6e5114cfb6de6865d5317a2ec03475bcfa31c1d4a1cdc83b28aa5b98c8eb8",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000353518.jpg",
+      "raw_sha256": "21061522030b6c364311f8ce410c13e5c37e1b62d33ff240c7417edb9754d423",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 68,
+      "source_uid": "ms-coco:coco-2017:val2017:372466",
+      "group_id": "87defd8e8dbf87792a435201c319880b9257b8b01469b61c1b99d4ed4f87e7de",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000372466.jpg",
+      "raw_sha256": "39c3879d689f32ccb2e25ebd42ecda121dc18e6255ca890411830bf0e59658e1",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 69,
+      "source_uid": "ms-coco:coco-2017:val2017:400803",
+      "group_id": "498898bdd36be0dd4f3c098d7b63aca1736fbaaaf12bcb7cc30a40abe224ac85",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000400803.jpg",
+      "raw_sha256": "30ab2224ea490cdf0d603b6d901e87d964d6fb253657a91949832af2ddc8b585",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 70,
+      "source_uid": "ms-coco:coco-2017:val2017:225405",
+      "group_id": "411a2b50d919ad1f64f55c64995bf8150ca629f907667b936bc5cc859fae2f4c",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000225405.jpg",
+      "raw_sha256": "5a4ca5fc4209d4708e893acbcff19276f51408cf2fd781875f8671c2d734918f",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 71,
+      "source_uid": "ms-coco:coco-2017:val2017:229849",
+      "group_id": "34082c8b521c0f9ed39d667d5927aacc2d823223e22f93a2af25ab215f22ac69",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000229849.jpg",
+      "raw_sha256": "3841b7c43e7eed3b0e214312f6ef90bf5d4918fc7a3d921f09a85c44a5f9174c",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 72,
+      "source_uid": "ms-coco:coco-2017:val2017:182021",
+      "group_id": "a9916ee9f9fa834ce8fb10dfca9fe1b1a5054e2a83fefdbe01248f82811bb14d",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000182021.jpg",
+      "raw_sha256": "f0ede0ab2c80add01911d7ce81d4462c9693fd311ee933529fe13316fe78d365",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 73,
+      "source_uid": "ms-coco:coco-2017:val2017:84752",
+      "group_id": "78393b059bdab0d2fc6220a65d70285d296c121a64389dce0e5f697daabf5e8e",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000084752.jpg",
+      "raw_sha256": "94f8f85c762d5fd6f766dc85bebb0daaabdc1dfffe2c0d8b8b4f1e72b54dcc43",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 74,
+      "source_uid": "ms-coco:coco-2017:val2017:559348",
+      "group_id": "7ebff378a9d38f3f63fad33f8996ba84f5ef76e185970476dac4d0ea1534df98",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000559348.jpg",
+      "raw_sha256": "a73654c0617b1c814453ecb7db42adb053b50b521775fe67e54de7fe839062a4",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 75,
+      "source_uid": "ms-coco:coco-2017:val2017:463037",
+      "group_id": "fc408c7e1af6f91813d14048c2c7422804cd1be757e7a443928d3aed2d130bb7",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000463037.jpg",
+      "raw_sha256": "7223596aa1f6d0e1cf2c2634a23671809975105dd03e59390474946b4f1eb914",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 76,
+      "source_uid": "ms-coco:coco-2017:val2017:201025",
+      "group_id": "3c9a8573d1e1424e57eea1fcb67cd05a6d6af374ad6159a2b9a248770a1af24e",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000201025.jpg",
+      "raw_sha256": "3623bedc5d32b203901417f5c061310e04c22ef66fad3a810df13f665744d125",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 77,
+      "source_uid": "ms-coco:coco-2017:val2017:190140",
+      "group_id": "7ae08c5b8a49903357ffd8727f79e47ea1be8735ddc3976e3db8fc76d4e229cb",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000190140.jpg",
+      "raw_sha256": "abade429d12b97abe8d8e437d38fa2beda1058343ddbc46fa5bdd80000aa6c32",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 78,
+      "source_uid": "ms-coco:coco-2017:val2017:484404",
+      "group_id": "3f56216bcb0ad2634d66a4b39fc5c8cbaa2b6170815cd9d4da1119772edcb53d",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000484404.jpg",
+      "raw_sha256": "c61e17a3b972aaa3f9525eeaf181538f544263b1f44e840f05eb892eee2e898e",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 79,
+      "source_uid": "ms-coco:coco-2017:val2017:365385",
+      "group_id": "5e54628a93b7c1757962ebf8fcd0efe27febf61b04064400b58128061be72b3c",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000365385.jpg",
+      "raw_sha256": "1d7b7413da56ab2982ea90bd6fb0875bb90c06042e4c678a0bee7a8160c344af",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 80,
+      "source_uid": "ms-coco:coco-2017:val2017:475678",
+      "group_id": "d9a5bb0aca1710e7cae8d5769ac8a3f144b8bf4a84d0d7651ff62df8765e0ddc",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000475678.jpg",
+      "raw_sha256": "90536452d9eab598526aca535f1e7894e1668b05ea51c32738b37d2c260f3753",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 81,
+      "source_uid": "ms-coco:coco-2017:val2017:529568",
+      "group_id": "b06c18cd3e950cc8067ce1f1b3ba9ca60b4e269777423362fa65b41c1fb85957",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000529568.jpg",
+      "raw_sha256": "2c97efcc385141e55c77afcf239cf59639637e9155cacf5ac870c87d2a6de42e",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 82,
+      "source_uid": "ms-coco:coco-2017:val2017:885",
+      "group_id": "1497763ec4dfac2188061a72440f0a0debdd5e83ff97858397c1e3b1d6bbae33",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000000885.jpg",
+      "raw_sha256": "1c67b783f78b18ddb5dd20aaba4d4aacaf98e5277051688a96da096afa9cdf1f",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 83,
+      "source_uid": "ms-coco:coco-2017:val2017:40036",
+      "group_id": "4a6b5b4b54994c94945f8dcdde25afd58086744ee0ccd5045b355661ec5a5a6a",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000040036.jpg",
+      "raw_sha256": "4668e4529c5e8a2e60df6fe4fb3882c089ce93e59ea8c8a5cd86856b6d6b66dc",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 84,
+      "source_uid": "ms-coco:coco-2017:val2017:348488",
+      "group_id": "55b247f8a9cdbe73481e44f559d1afd94ebeb085ba5c095dd8ba48a925e4f095",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000348488.jpg",
+      "raw_sha256": "11d01eec53a9abc31331ac2a73d484e6024e781bcad839f1afc60670462ff1c0",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 85,
+      "source_uid": "ms-coco:coco-2017:val2017:566436",
+      "group_id": "7fe1821b4532975062f0fffb831242518c77bc9f0d0b4558478999792eb3ee1f",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000566436.jpg",
+      "raw_sha256": "e81b086e5d51141374b81752c31e48355fab5f432983a3f70d3a69f46866c93d",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 86,
+      "source_uid": "ms-coco:coco-2017:val2017:56288",
+      "group_id": "50dbee1f3b038cefad7640c29edca4e0383b749b15c31c71e1886f69f581869b",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000056288.jpg",
+      "raw_sha256": "6f98dd8e6b6c0d301919aa847ddfc0b9356914219349ea67942b1afbebbd68f9",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 87,
+      "source_uid": "ms-coco:coco-2017:val2017:458054",
+      "group_id": "050e8b6e76420d7f5015335ef2a1a8efb329009c41d385fef1cbb4a4c8b73326",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000458054.jpg",
+      "raw_sha256": "b05c1e0c2219ac20707c4a47014f03d7fe149d8d3d25ff504837da48896c6bf7",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 88,
+      "source_uid": "ms-coco:coco-2017:val2017:184324",
+      "group_id": "d92d93a5dabf3a4767ee1a25ff247e8325db2faa6d275efbd36139b6c858bca1",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000184324.jpg",
+      "raw_sha256": "5bfec85c40197744fc7fa8262a0a0e14ad1a6fc0e11cee4b7b0c5df97a146107",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 89,
+      "source_uid": "ms-coco:coco-2017:val2017:341921",
+      "group_id": "1baa86ab44a375610f43545b125428479539d5599f3fce5228c4e38f31a594e8",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000341921.jpg",
+      "raw_sha256": "40ec6e7a9b261979db6c8294b0cd9c0228541ed6647d3aaf129a6e6915bfe267",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 90,
+      "source_uid": "ms-coco:coco-2017:val2017:447522",
+      "group_id": "5a5696466ac0c3fe7912380a7c7d7aa8c7ac4b9b89d1c4053f59e2f62cf29756",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000447522.jpg",
+      "raw_sha256": "a2fd5c746e964d161f95b260799ebe7a723b319e22072b32fce8d47029f1a977",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 91,
+      "source_uid": "ms-coco:coco-2017:val2017:465718",
+      "group_id": "dac3840bebca876f953388f806fffe310e2f865a1cefe9c7c2369c289165c408",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000465718.jpg",
+      "raw_sha256": "23e5ecf15fc6651e6ec95dbc096565ad3e0acaa6434b9bca8d7c6e832c1041b9",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 92,
+      "source_uid": "ms-coco:coco-2017:val2017:129054",
+      "group_id": "703017cd12efff2be69c005ab5a5ad117b20e4b2f7916cde7bd6681a827f1814",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000129054.jpg",
+      "raw_sha256": "b499404f1b12c09135740acf268306f73ecc23c4f0259c5b03ae5c06e45a2d3d",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 93,
+      "source_uid": "ms-coco:coco-2017:val2017:459757",
+      "group_id": "568758e217e7a6cdb625684c33f4cb1a4590e3d55863ce913b26c272de97d87d",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000459757.jpg",
+      "raw_sha256": "b26a575b8df57ee9cfd0e9109d81108549a2c0eccf04e9ff57583848024e322c",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 94,
+      "source_uid": "ms-coco:coco-2017:val2017:479912",
+      "group_id": "015a0b05f2eb10e88f57ddfd50e8e34455c75d1431b7d757352f31cc0d6ec7aa",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000479912.jpg",
+      "raw_sha256": "8a7876a0b0369040842be51c1fcab027deaeec0183add371d752760232cd2300",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 95,
+      "source_uid": "ms-coco:coco-2017:val2017:98392",
+      "group_id": "fe9d7f436b0dbfab43cf2db2742935263c2d89a0705f1185621d227cd8d4a9a7",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000098392.jpg",
+      "raw_sha256": "c976adf7599725c1bab7fbae692611501e7a33fb5e182c3e301f985205340ecf",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 96,
+      "source_uid": "ms-coco:coco-2017:val2017:54931",
+      "group_id": "922883606ebd2df91f758e930977103cb937ca1bc480faf7817e3b35213ab2b8",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000054931.jpg",
+      "raw_sha256": "a49694d5dc982701f33a1d449a3ff7ebf953d1947ca141352097fb2528b10d1b",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 97,
+      "source_uid": "ms-coco:coco-2017:val2017:581206",
+      "group_id": "e5a0c32bf355b64526e89fab4051d7f390d83755296c2c9f8d47753b7ecf617b",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000581206.jpg",
+      "raw_sha256": "5c1be150d00f4434be36ed5c42d0dd7b510666410dd2b3eb02449efb7fc3e47d",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 98,
+      "source_uid": "ms-coco:coco-2017:val2017:476119",
+      "group_id": "a06fda086a259c1753806b500d14a6fa53708641638a357293cae9424a762348",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000476119.jpg",
+      "raw_sha256": "b1e77b03b318546e0725250efdfb28a1ce24414750ae8e8c3b5097c5ffddf415",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 99,
+      "source_uid": "ms-coco:coco-2017:val2017:363666",
+      "group_id": "f2a5fd4b6e1d938063628efd4988cf0d086fbad64d6ac6503d59952fad546aba",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000363666.jpg",
+      "raw_sha256": "a9fddd22efc52bc382cfb88adc507134ce80d1ba09bff7d24debbaa1b26e6d78",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 100,
+      "source_uid": "ms-coco:coco-2017:val2017:84170",
+      "group_id": "4c7ef83b5649130ddf05a7d893c524625070aab40f32ba4881f48b8ae467b8d1",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000084170.jpg",
+      "raw_sha256": "74de1d85ded730e719dbf35407dc4160976d9da86f2b310f8df6bb388586afa3",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 101,
+      "source_uid": "ms-coco:coco-2017:val2017:232538",
+      "group_id": "31930ff30ef7acbeb5af38dd9656aa4a5a8aacbaa319f5379bcf9114d2a57f7e",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000232538.jpg",
+      "raw_sha256": "13a15467e62e8162eaaa1aa5d44696b1379a5a34d65eaeaa843a1b438e312a09",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 102,
+      "source_uid": "ms-coco:coco-2017:val2017:181859",
+      "group_id": "2dc97f635650beb2389487e4ea0220a1fe32ba44e17786567ed77a9cc3b97a32",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000181859.jpg",
+      "raw_sha256": "913f529537acad5fb8344559344c26fce9aaeebec5ff446aa9871b828aa37a75",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 103,
+      "source_uid": "ms-coco:coco-2017:val2017:572620",
+      "group_id": "0c86bf085cb2fb10c610171e6926931b561375f23add18490d3311aba461c315",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000572620.jpg",
+      "raw_sha256": "e2cf936c71429fe653a8885bb7868f3c28317b78ed5cfbe9142272db21852e04",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 104,
+      "source_uid": "ms-coco:coco-2017:val2017:170099",
+      "group_id": "64e8780fc161c059700c16e7d3a102b832d3d271db0dcd618570bfa54f413306",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000170099.jpg",
+      "raw_sha256": "f2a5b87c4a5249e6b7c27fac24fb1e2994ebe22fe2a2f205f33893965c64b2b9",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 105,
+      "source_uid": "ms-coco:coco-2017:val2017:528980",
+      "group_id": "8df40cf1e894dd83cba79dbc1b7a703fe54775853b73814649b5530582e48bef",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000528980.jpg",
+      "raw_sha256": "980e7576d00d09f07ead713cc8e8ad8791025e5779fbde9f4c663733a9f9f5a2",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 106,
+      "source_uid": "ms-coco:coco-2017:val2017:283520",
+      "group_id": "f7f0e78db389bd4820bccdb5fee3565eeeb51fdc998fe1d9fa06541502753000",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000283520.jpg",
+      "raw_sha256": "631a6472e729f091315113046e821686b1cace4b7d63f6d4d097b481af546665",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 107,
+      "source_uid": "ms-coco:coco-2017:val2017:230362",
+      "group_id": "8aaed16df3bab5112be0f9093825a6625387b63e88b210a5b9262b7c30ba11f2",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000230362.jpg",
+      "raw_sha256": "906ec1c6b8076043900ac88333c6ceed1c6900fe06d4e50e32fc83c2c50c8c49",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 108,
+      "source_uid": "ms-coco:coco-2017:val2017:242287",
+      "group_id": "c7d01531a7df1ad784ccd90d3d2eb5d5a2049f9b14336814df8c84d55a2820f8",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000242287.jpg",
+      "raw_sha256": "28926e1727c30c84dc8be5537cd607817dd39f44c40a03c822779135755d2d23",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 109,
+      "source_uid": "ms-coco:coco-2017:val2017:479953",
+      "group_id": "e28e598ca7dd7505563d4e2c6a570067328e9d9e6e87ebac9e302ae583af1708",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000479953.jpg",
+      "raw_sha256": "2b098be3cd25cbc1d3d0f38189b26d2b7f956cbeb0023b9fef7dfd23208779c9",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 110,
+      "source_uid": "ms-coco:coco-2017:val2017:423123",
+      "group_id": "24b51150f48929ab453dcbab3eb4bcc687e84cbe056bc241eba85d11c9098c2c",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000423123.jpg",
+      "raw_sha256": "dabaea39eeb74df84ce54dbd486adb1c0d782dc01cca67fa2fa06ed34feb90d8",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 111,
+      "source_uid": "ms-coco:coco-2017:val2017:527695",
+      "group_id": "811e21f5c260ee317fe5898a854959599bfcb2ce9c23af475a865eb9498d6737",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000527695.jpg",
+      "raw_sha256": "c3e455cd18621ea344f3f54f089ba29e7b31c8fdc16c768156eb17c23961f0e3",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 112,
+      "source_uid": "ms-coco:coco-2017:val2017:246963",
+      "group_id": "ee10d98ee86c02aa51327fd1bcc8e11700e4104dc97255d75875d681ca0d0724",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000246963.jpg",
+      "raw_sha256": "3474d845a59fc538e5847ebc975c0a03585df38aeb3592f704163ec2e3f1256d",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 113,
+      "source_uid": "ms-coco:coco-2017:val2017:397639",
+      "group_id": "d7670602fe285e5263a73c9f256412eb10c846ca44c548c3ca6510bfe2fc3fd9",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000397639.jpg",
+      "raw_sha256": "e2751406ae7a706ce0a33a477f12909db46228dd32d63e9314b26bb21a6e90c1",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 114,
+      "source_uid": "ms-coco:coco-2017:val2017:440336",
+      "group_id": "ae420be46befa1c14f44163eb2ac092179663ef776d12e6d3730f2a434f28e1c",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000440336.jpg",
+      "raw_sha256": "e5c2df473a26427ae57950acec86d1e4d3a49cdf1a18d427cd1a354465408f00",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 115,
+      "source_uid": "ms-coco:coco-2017:val2017:546829",
+      "group_id": "f0d1fa8680534ec2a35fe0f38d5f08d0e28ecda6b0b3a6dea8363700b24e0c34",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000546829.jpg",
+      "raw_sha256": "777a4b64d474ba0dc0b2f7094dae7b894aa50a5f701e7fda781b45094d27c28f",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 116,
+      "source_uid": "ms-coco:coco-2017:val2017:557172",
+      "group_id": "96425d24d2b356003e1dfea524a0987921a171a7976647eb485003579a8f0daf",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000557172.jpg",
+      "raw_sha256": "71201f7f2e82854eaa174837e88217c4b3c6a3b01c54e23671ea31b4dbdad508",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 117,
+      "source_uid": "ms-coco:coco-2017:val2017:371677",
+      "group_id": "179f2277fd9b159c8fae2aebec70efe1a8fef2f5a6fab0a260760b71e158bdd6",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000371677.jpg",
+      "raw_sha256": "8db67d13aac1ef8f1a6c24fa7a542c794c4155343f0b9f8a9527dc4ffa9a405a",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 118,
+      "source_uid": "ms-coco:coco-2017:val2017:222299",
+      "group_id": "1767cd0600cd7035b6e46b7c83e4840a0c2e541c95155097f8c81a0f367721e8",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000222299.jpg",
+      "raw_sha256": "f172cb97c2176c8954ca652d32d1fb8a505556c99c97dd6c39dcca32d24360c2",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 119,
+      "source_uid": "ms-coco:coco-2017:val2017:22479",
+      "group_id": "789dcc470eec487a2b40b6d9a36da6e9ebe72e1e9948fb125255c06e32dbd370",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000022479.jpg",
+      "raw_sha256": "9f09af60f0a4f214a8b34ff6badbd25111cd8438c39097197a629255408cdb75",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 120,
+      "source_uid": "ms-coco:coco-2017:val2017:228144",
+      "group_id": "4d151dafca72d8fee6bff059ff833b4ea696f3f313911273bff16c673174ca58",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000228144.jpg",
+      "raw_sha256": "478ca24cca4904cb881c8f39444273ba3105782e726d8527d36d741cf564c4c5",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 121,
+      "source_uid": "ms-coco:coco-2017:val2017:362682",
+      "group_id": "71df20109e5d6e257a5ac35233785650353e65615e08469e057474648ecc2ac0",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000362682.jpg",
+      "raw_sha256": "840ceaeff4c9d12ebbf3820ef38426091e6a28782ec6cceea9f265cf8cfb2651",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 122,
+      "source_uid": "ms-coco:coco-2017:val2017:191013",
+      "group_id": "ec30f85aeb9a0916993b7bf4faff2d4b090d38622acd6486a894facb5a2316e8",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000191013.jpg",
+      "raw_sha256": "c630ba727a128d2e4d42c4498bd9b7e50d7564c23905925865186bbb529c37b3",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 123,
+      "source_uid": "ms-coco:coco-2017:val2017:351530",
+      "group_id": "2a3c536e70ca648ab8dfaa3d4a32f814d0115856e757486a8f1f4c51919b085a",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000351530.jpg",
+      "raw_sha256": "c0dd4c7912f49996c6db70407078f13642da6239661294dc27bf190b2e1669f7",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 124,
+      "source_uid": "ms-coco:coco-2017:val2017:25181",
+      "group_id": "e5a64d78a682e5be028a23fa4264f3200e7e9dc0d49543b0ccffd1f398d72a00",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000025181.jpg",
+      "raw_sha256": "91928323bb24e153995d938c8048039885285fa7d7a947a4ec5edd07f3b15e19",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 125,
+      "source_uid": "ms-coco:coco-2017:val2017:458790",
+      "group_id": "c29be8c03ced7226857628a4d9b55f72b1f1b37dbe5dd2862a8d22764d8f020e",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000458790.jpg",
+      "raw_sha256": "e47e459ae6eeb0faecae6a0a5b0b13040d225be5c48066cfa2b46aa156a4f67f",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 126,
+      "source_uid": "ms-coco:coco-2017:val2017:459662",
+      "group_id": "fb18a2eba4c1bd6fbf5a09cc95e3c467cf6d3d032bfe37bd1d23115b4177cb1b",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000459662.jpg",
+      "raw_sha256": "bcaf9e032d0f6f70f57fdf2d9d9ea922c82a9bc72881b69b981475cf06f976c1",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 127,
+      "source_uid": "ms-coco:coco-2017:val2017:54164",
+      "group_id": "c1c84322dd5dca0b778ed3970045cfe7a8f61215aa738ee2dc8e1088f7b38e96",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000054164.jpg",
+      "raw_sha256": "32ce2bb44c2650a805d6282b852f1d5c312cec7df0f8296835bf71005acbe29f",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 128,
+      "source_uid": "ms-coco:coco-2017:val2017:38210",
+      "group_id": "276e68fbefe942224101c956336c1f0f0e415168ba5212c9a7943854d6e6b70c",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000038210.jpg",
+      "raw_sha256": "0317a0094f357ea07c293ee9c32e58a87e5e0a5438c6d9c09250266df1249a00",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 129,
+      "source_uid": "ms-coco:coco-2017:val2017:129322",
+      "group_id": "ae1f1860d7980de643c788b74bad08d17ae5a105ca1a199494b4742faf9c408b",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000129322.jpg",
+      "raw_sha256": "1d416547f359c5353d7747b6fee3c08ba40ff1fa23c99d2c2352b31e579aa0ea",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 130,
+      "source_uid": "ms-coco:coco-2017:val2017:100624",
+      "group_id": "aea92869dbcd7c8628e62cee19550b2721bd06133742549d03cb6d4c6189b101",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000100624.jpg",
+      "raw_sha256": "853ddfac5c8827aa25601a84670c8b162830421f9759ef0e21f9be980aa1ae98",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 131,
+      "source_uid": "ms-coco:coco-2017:val2017:332455",
+      "group_id": "3eafb3e323a3a38807eb91131f45042c1d3d68c976c16858a2fbac08177ba962",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000332455.jpg",
+      "raw_sha256": "a83496e1ed411b1b8580fcfd128dcc6e4d35b945116fdbc0b4f43acb0c5e0dd7",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 132,
+      "source_uid": "ms-coco:coco-2017:val2017:49759",
+      "group_id": "36810b091fee3be5ebc9afaf1623f17ed1ccf6e7f9d1ef41aa9a8d31adbe2c8d",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000049759.jpg",
+      "raw_sha256": "b2e2e3a373ca6925746ce645689b6d38a730ce3f6f29b6d2fd67d18b2ba0600a",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 133,
+      "source_uid": "ms-coco:coco-2017:val2017:423519",
+      "group_id": "b8b109d1ed34a1c99243f08efcac52a7e2abbad864910f97ed8df0ca34245a7d",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000423519.jpg",
+      "raw_sha256": "a6a6d1615bf3fcab74358eb32672f579939c11d1513ad291a89669462c8b43a8",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 134,
+      "source_uid": "ms-coco:coco-2017:val2017:284725",
+      "group_id": "323b76fd2b2b477a5779b35acdd831d0ea2facb3090829861607d9e252e100b4",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000284725.jpg",
+      "raw_sha256": "10ab8075df3cd9e3344d12fbb764a3c977e809bd06726649b686dd68abcbdf07",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 135,
+      "source_uid": "ms-coco:coco-2017:val2017:232088",
+      "group_id": "78273d89133912a32eb61595e24c799eb81129dac004932af23c5cef70f90ec6",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000232088.jpg",
+      "raw_sha256": "63400110213661d864e373199072bed07218f942294463c7b613754d9252bb8a",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 136,
+      "source_uid": "ms-coco:coco-2017:val2017:262440",
+      "group_id": "3c22c50742845ed89c9324e1ff5959d7efddd81b4ef93d8d986ec48e509a6b55",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000262440.jpg",
+      "raw_sha256": "538c92ac8477d23ca6ada37abbe0bed84afdd5a3bd7af40b13d88a709309625e",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 137,
+      "source_uid": "ms-coco:coco-2017:val2017:189820",
+      "group_id": "9fdf0ff4c72b8fa36b79b7eac869c330ce99a20b38ad87b6c617ef9b4fc7f0eb",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000189820.jpg",
+      "raw_sha256": "194f0aca3fbaed6f998e1f87d90ee64f8590bf29d39fdc4c250b79015731faab",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 138,
+      "source_uid": "ms-coco:coco-2017:val2017:207844",
+      "group_id": "29fc86712ee5d096d42f6e3fc6902df185fd7476448bbd581f6d085b45a0fa07",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000207844.jpg",
+      "raw_sha256": "2bed1ff1a283312893ad8c2918b04e6c80a3fdfaacd873124e9479469c53edb8",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 139,
+      "source_uid": "ms-coco:coco-2017:val2017:179174",
+      "group_id": "dbcf36d6f0b73acfcd6f0cc0bb3167119b8f4eb3a00afaaa0cdd85359a1df1a2",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000179174.jpg",
+      "raw_sha256": "db596b78008223a6d9d85f972d4ebd2afd74537eff9de803e93c4cf63de8de07",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 140,
+      "source_uid": "ms-coco:coco-2017:val2017:217425",
+      "group_id": "6fd322f3cdf1efd04c986bacde26ad2f17dd9cf9d55777d90cebc1ba12d480ca",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000217425.jpg",
+      "raw_sha256": "2521d82ddda6653e95352a475fa23efb0f0962058387864c83264c8afb07a64b",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 141,
+      "source_uid": "ms-coco:coco-2017:val2017:562059",
+      "group_id": "61d061ce27e2451c6b015046d8f7af6a102c09c89b13b88a8d255c2e891c2662",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000562059.jpg",
+      "raw_sha256": "0d26126da0200cbfb7b59f925b427e5b60d9c9341d4be2b510bd67e61fa153ef",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 142,
+      "source_uid": "ms-coco:coco-2017:val2017:578967",
+      "group_id": "4f26bdfc48a5af2d465bafd156ec41c998955d4f1712dc638b8108270b899786",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000578967.jpg",
+      "raw_sha256": "56291fed6a9c4db8eeb5709dc565dfa91f05bc2adf9fae54cbce3ed8037596ff",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 143,
+      "source_uid": "ms-coco:coco-2017:val2017:210273",
+      "group_id": "bed74b525ed254df8daf08328d647ba93965ba958e1b8ad053c1183086af2856",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000210273.jpg",
+      "raw_sha256": "3ec23de63592c1eef86740fd46fed2cb66170fca02b695d37e6ae379dcee4355",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 144,
+      "source_uid": "ms-coco:coco-2017:val2017:270474",
+      "group_id": "ce5ba6ea2172ce3fd599db957a00ab9c20cd6ac799b98deedeb161dd01c9f4dc",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000270474.jpg",
+      "raw_sha256": "27f34f6b32b96a5b236821c8c80afbc4fa170bd42aa43950af5c9e7a62b4b45b",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 145,
+      "source_uid": "ms-coco:coco-2017:val2017:422706",
+      "group_id": "065dc077662237f2961c086fd728ddfe0c6932b02c635ed6611ee16595f5b06b",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000422706.jpg",
+      "raw_sha256": "a5731f891fc02d36c1bfbbc369b3a99f0622458be29f762ee87684c990266bcc",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 146,
+      "source_uid": "ms-coco:coco-2017:val2017:118367",
+      "group_id": "04ce371ed98ebcc7b1d62b0e5f0915e43b44c01ff0038786c438e6edee9b2314",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000118367.jpg",
+      "raw_sha256": "621f0f63b933fb42f12fde004b25efb0f83b097c970d46aba99570564adf2cb1",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 147,
+      "source_uid": "ms-coco:coco-2017:val2017:560371",
+      "group_id": "399b2056c9ac6d9691466b782a9315bea38ff3daa092a17103b35007d934995f",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000560371.jpg",
+      "raw_sha256": "17cd49dc9cde113485375a9cc0da039c752d9ad767c93634de31cb00a97bbb45",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 148,
+      "source_uid": "ms-coco:coco-2017:val2017:200421",
+      "group_id": "a8cf562180730cf2f74063c5d92292402ab0e1f5db13cb232c1f4a084bbcfebc",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000200421.jpg",
+      "raw_sha256": "5fbb7144ab7e492ed1a39dad1daa82c25ea3bc2f17bbd285693feba439dc4161",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 149,
+      "source_uid": "ms-coco:coco-2017:val2017:11149",
+      "group_id": "9d921a0eb6d973c1c1cc34e3cc867f5b24d08cc4aa37aaa6e81a8d2d9792ee2c",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000011149.jpg",
+      "raw_sha256": "5973b8f1d5a30de98b1dcb715f1c94928a676fff8e45283515d0474e51ac0abc",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 150,
+      "source_uid": "ms-coco:coco-2017:val2017:411817",
+      "group_id": "bbf661e89e0cf462d106d6d342c99231be65dd531219b92575042c476d7b9369",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000411817.jpg",
+      "raw_sha256": "586beec9cea94bff35cc953ae63f759cfe3a354073565ab8cb6e7467cc93584e",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 151,
+      "source_uid": "ms-coco:coco-2017:val2017:578500",
+      "group_id": "6d2175cadf411f082fb9e8862ba5c34b628d044e7916950adcff52af52942ed2",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000578500.jpg",
+      "raw_sha256": "7b0c55d345757ae8431fde2b2900ba6d49f27bbf50e19033564555ce5588fd75",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 152,
+      "source_uid": "ms-coco:coco-2017:val2017:21903",
+      "group_id": "ea6532763dd5553f9ea3b406576d4d8a491e71a068dbb48fcbb603058bfd4d68",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000021903.jpg",
+      "raw_sha256": "3fa9ccedfc3ac829c07e14b0e7ef4211b5963f7700dc6e30dde3054f704efa09",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 153,
+      "source_uid": "ms-coco:coco-2017:val2017:540502",
+      "group_id": "a54e966e0cd5d1c0e04361157ece16cf0ae213720209e554ef18ee262985064d",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000540502.jpg",
+      "raw_sha256": "7ef4ffab3b5669c369836d31d5e6443b59ce41a3506fbc2de448ca573d95775c",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 154,
+      "source_uid": "ms-coco:coco-2017:val2017:91779",
+      "group_id": "3d300937d221809d708eaba585ed9f43da6e393eeb4172cfcf72705d16493a43",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000091779.jpg",
+      "raw_sha256": "f7d5ff2738bf552baa40f2598d9a60e8a4c6235b5f4611c0f40d82a1857cbb2d",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 155,
+      "source_uid": "ms-coco:coco-2017:val2017:85772",
+      "group_id": "39a38dc19106c268da5a5afa8821e29e88925a9dd34c4548582612270c642e1c",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000085772.jpg",
+      "raw_sha256": "c21e2a798c8463fa01aace0312ddfb55bd6898565c8c3f6c22e87ea0d803128d",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 156,
+      "source_uid": "ms-coco:coco-2017:val2017:485237",
+      "group_id": "c3492da709265f832d1b35f96f71c883ee00b2298855a34f48e875b686ebf3ca",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000485237.jpg",
+      "raw_sha256": "981ddf60fe010dd308d1f813febf81cca921b38fc0c7eb0b568e0b30b15406cb",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 157,
+      "source_uid": "ms-coco:coco-2017:val2017:240250",
+      "group_id": "a4083c3cdb92ec87b37f91495a88cbb74e3614accec5458656656d95a2913fd6",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000240250.jpg",
+      "raw_sha256": "fb37c81f0e4a91f28ac009ce2ca5316e9070486afa76888548637e141d74b40a",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 158,
+      "source_uid": "ms-coco:coco-2017:val2017:321214",
+      "group_id": "9799f999e4a27993418c97710ac5c5f6b42828f0b52bb15e33b6bdc24500a825",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000321214.jpg",
+      "raw_sha256": "5b4d5e12a578b4407a3724c83a8950c5f00b36763bdefdc535363818d057ae9e",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 159,
+      "source_uid": "ms-coco:coco-2017:val2017:451084",
+      "group_id": "dfdd6eff993987f3ac86d3489a2b4f6ccd64dfd454a8a9a34fc7867b50fd79bf",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000451084.jpg",
+      "raw_sha256": "5529744604da165247e60fa2d2cbeb8fe0ef52c2b5493a882bd747421dcef483",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 160,
+      "source_uid": "ms-coco:coco-2017:val2017:525286",
+      "group_id": "d2e8a0c35bcaa78a339e83ec870f7a1babfe1f99d966dca2e0f01627fb79eb92",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000525286.jpg",
+      "raw_sha256": "fc59935b296e9b8417ae6900069dfabed05be86b35fd3a0dc137320023fb4f06",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 161,
+      "source_uid": "ms-coco:coco-2017:val2017:78170",
+      "group_id": "93f54564fd93f9acc514bcf729ce4f55415f594daf549afc03478d5a25970a9e",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000078170.jpg",
+      "raw_sha256": "e9ccccb034030771eafc383d2872bce55e7ff395313b610ffc1215eeb72912a3",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 162,
+      "source_uid": "ms-coco:coco-2017:val2017:266892",
+      "group_id": "6b35ac15b9ad4a601cf42cff48bf9c83a27b65efe1ef6810b133b3f3ecdbe625",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000266892.jpg",
+      "raw_sha256": "052c7783ba2888db3b77716bdc25fc94fb30781fb6184835e66a11c827fd3122",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 163,
+      "source_uid": "ms-coco:coco-2017:val2017:402519",
+      "group_id": "5337aa47b29ec9d29dc1f880408004b865ddc5d0c21f166f20edd48a012fbb74",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000402519.jpg",
+      "raw_sha256": "67a26f7ec2001238cb1819aff95422ba7b57c6973cef05f60faab97d7c308e2e",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 164,
+      "source_uid": "ms-coco:coco-2017:val2017:261982",
+      "group_id": "0dba7efa78fe8b919b4765f227ac82dd7ad6a66bc8666142c9def0212a56153c",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000261982.jpg",
+      "raw_sha256": "a89dbf1e93c72e44335247a7f31a93e274c8d065e0b78210068f99feb216299a",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 165,
+      "source_uid": "ms-coco:coco-2017:val2017:91406",
+      "group_id": "7404d149f1f7c6687fdc543d9c8c330a4fcc1d9f0c3ebcad663f590f2ce0797a",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000091406.jpg",
+      "raw_sha256": "a6019381432c4b2517a5d1fecb8c9b2bf59a50c431d69fd3078ff82fe26ca1e9",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 166,
+      "source_uid": "ms-coco:coco-2017:val2017:544444",
+      "group_id": "016a28e72c302660ea5abc20166854191f2a9afec9f96d71d14e078b60b7c5ca",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000544444.jpg",
+      "raw_sha256": "e208eb88ca5bb9a93ee044f18e775949281ec207153e1acf5f9a5abba705eaf8",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 167,
+      "source_uid": "ms-coco:coco-2017:val2017:540414",
+      "group_id": "0488ee050b55b297dd1679b358043e9c042cd5d4c98a030b7c74452930d75b32",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000540414.jpg",
+      "raw_sha256": "fcde3d391e5ff8ca3df743484effef4c13e1cf5f3aa548af815b777a23adc365",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 168,
+      "source_uid": "ms-coco:coco-2017:val2017:283412",
+      "group_id": "da2c34146f56eb3afc40538a67ca1ec992d7a99c8340ca6a0291b4f90ca1afbb",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000283412.jpg",
+      "raw_sha256": "ecff06907a7898f62175cdebf1108b752e085d9b53a4806869c6b4df508d6602",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 169,
+      "source_uid": "ms-coco:coco-2017:val2017:350405",
+      "group_id": "837b3aa1e4d2babad0af05567b5c8248b79ca496590c919270c98ab81a4b92a8",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000350405.jpg",
+      "raw_sha256": "ea113f2a601d32d5032df428be396854d97bc3f0b35520280ba860a9d29d9c05",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 170,
+      "source_uid": "ms-coco:coco-2017:val2017:255965",
+      "group_id": "dd7b21eb0c63bd50a59caabab1695364f67c81a3cf640d9e11fbb9938c2fdab9",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000255965.jpg",
+      "raw_sha256": "c0b097a4efe69c75afd2e8e9552c0c112b17dfded7c8dfa314876790fc1ee8e8",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 171,
+      "source_uid": "ms-coco:coco-2017:val2017:542856",
+      "group_id": "be3433cc6a42c97ffdca88380f36dd3fce761cb0779e9160cefd4f37f754cf26",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000542856.jpg",
+      "raw_sha256": "9bd2d9be44355c59e3599f1f5ddcfc06bf8209a0f24b655538e891ae6a4b3fcf",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 172,
+      "source_uid": "ms-coco:coco-2017:val2017:527427",
+      "group_id": "a521db637822e6f4791d7cbb0e54748af6df2daccfa4d1e7730266361a9defc4",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000527427.jpg",
+      "raw_sha256": "c5e3f3f5bbd1990de2cae0d0a81e50a09db5963eb79c609b925959eb84a183ab",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 173,
+      "source_uid": "ms-coco:coco-2017:val2017:81061",
+      "group_id": "67216550438e36db7bc7de8fc02835436d890f875667e50b06d38801ffdf89ce",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000081061.jpg",
+      "raw_sha256": "d609877d71bb235a132923cb287d90f3d0d0cf3299f01dc4b6b8b660240e1544",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 174,
+      "source_uid": "ms-coco:coco-2017:val2017:13659",
+      "group_id": "3c9903752990d740ae2f06f81ee0db901e65dc4b1525355574d1785a9a4acf2a",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000013659.jpg",
+      "raw_sha256": "b357d19dee467587a8788ac4e5b45677f4fde1b62726c690795e188ae75d822b",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 175,
+      "source_uid": "ms-coco:coco-2017:val2017:329827",
+      "group_id": "e55dadf1a9a0e3d46d932b045a7e73dc0334573661b2044d3184b6718f884c35",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000329827.jpg",
+      "raw_sha256": "9e254ebe190922f85615e3e34cfbe9af76191372b28d640113ab62d46e206d7e",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 176,
+      "source_uid": "ms-coco:coco-2017:val2017:395633",
+      "group_id": "31d375c508cb4d9656e6288d1398309994f567d5ee0c72256afc7063658584f3",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000395633.jpg",
+      "raw_sha256": "2c500ed0e2bffd930e7001607cf46b31bb15b2b6bee3727ea638217e3247a6f4",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 177,
+      "source_uid": "ms-coco:coco-2017:val2017:571857",
+      "group_id": "a5d1d7d7f7632b6e305366942b0ba8dda421f10cffec6e8c50225c5ecd1a22c9",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000571857.jpg",
+      "raw_sha256": "d8771d52ba37b5ebfff1a5dee278d11dfed9c4b3e67a19c89e21fc8000a148c0",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 178,
+      "source_uid": "ms-coco:coco-2017:val2017:504074",
+      "group_id": "2df9bdd3e97110f685c6c82ac7f2ab08c0864d375e24d73ca5f459a5550d9776",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000504074.jpg",
+      "raw_sha256": "20b41a4613f4764272f97bd4522ffeefd52cd0e9a7cb604578e2644a7dce4c83",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 179,
+      "source_uid": "ms-coco:coco-2017:val2017:356432",
+      "group_id": "1b28f7da61afd7d30f7bbbf9e7a1e9d9bbe374766ef59470b9b712f211680d45",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000356432.jpg",
+      "raw_sha256": "61bcd9574a1f84e1a2be178071179a5355e660672e3325fbd6e6b89c66090729",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 180,
+      "source_uid": "ms-coco:coco-2017:val2017:490470",
+      "group_id": "23767af963795af31ef4de30cc5994bf347c3c42c9ee8b4cedb05b4bccda5622",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000490470.jpg",
+      "raw_sha256": "4758d360e1052ba142928682e3e5b63a258aacd551a3dfeb0684ec1cf36fb722",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 181,
+      "source_uid": "ms-coco:coco-2017:val2017:417249",
+      "group_id": "f29408834a1c72e1d09f36aef320fed765b589f2c670f010ba6b05b51c700e63",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000417249.jpg",
+      "raw_sha256": "a0788f6d609cf3a4e194b317b810b1e806fe95436588355cc76073d783a4f7d2",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 182,
+      "source_uid": "ms-coco:coco-2017:val2017:273617",
+      "group_id": "72ea53ba8ea1ec5525822dd7daae28da05792d6e295f8b3d560760d23d5b05cf",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000273617.jpg",
+      "raw_sha256": "18aa7679ef4aa6919c278e7028a381f9a8b6824f77a79c2ffef32da2deaa8795",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 183,
+      "source_uid": "ms-coco:coco-2017:val2017:246454",
+      "group_id": "8c5246308fcddd55e4d614b85688ef75938419e8e4493da9cec6b3be38948bb4",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000246454.jpg",
+      "raw_sha256": "b3f955e290bd58ccd622aad1a75465f74b1c382eb3c8641901b4d49213dbf5ec",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 184,
+      "source_uid": "ms-coco:coco-2017:val2017:378116",
+      "group_id": "1367dfe694f971072b38123910b10a5bfe7db86eff9f771b192f16b2287d8c9c",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000378116.jpg",
+      "raw_sha256": "1a3b7ce5613ce6c417d12d141b7d8c5a98cccf4b592c279bb783318e29847a11",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 185,
+      "source_uid": "ms-coco:coco-2017:val2017:313130",
+      "group_id": "2ffb7a48d22edc953e320a707bc82429eee0176f7326bb78ea2b546cf793029c",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000313130.jpg",
+      "raw_sha256": "3572b83c43004ac3616ffc05705971f62da2a35c4031efaae6ffe52d9bafa109",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 186,
+      "source_uid": "ms-coco:coco-2017:val2017:35682",
+      "group_id": "857e43c9898b446c0a50ad9bd3859be9ba2bc45ea9a0e4b164643606a66bdc5c",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000035682.jpg",
+      "raw_sha256": "1844cfa76d23a9768578f2c27306ecbad99326d2d374b070af9c56d50058c155",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 187,
+      "source_uid": "ms-coco:coco-2017:val2017:167902",
+      "group_id": "d3e36ee3542e4a25a0cd876a65bbd132a866a25cac7e583922ae74c163169e1d",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000167902.jpg",
+      "raw_sha256": "59b7bbc9fc78d7673eae4407a75dadc7eb1e98a2d54900651ac08b4523bf062b",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 188,
+      "source_uid": "ms-coco:coco-2017:val2017:425227",
+      "group_id": "0db1516c88b826df68baec75ac24f1d39d4c8aee65b547c3e1f0b50ad439d8f5",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000425227.jpg",
+      "raw_sha256": "332c20d5b88df3494bc276ab964a6a0fd097d64cb23bc2a02c6c5d2170b4319b",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 189,
+      "source_uid": "ms-coco:coco-2017:val2017:332318",
+      "group_id": "cf9aa3dbb001e9e92a48ab21dc095eb7ba2c03c0f557aaaa6563d88bd5ef3b1c",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000332318.jpg",
+      "raw_sha256": "8fbcd5c30eac0658d04867d13cdaf1edfd366d73cad2aae79bc40df3923dfb07",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 190,
+      "source_uid": "ms-coco:coco-2017:val2017:60899",
+      "group_id": "84e2b0eeb2d10587ade84ec4ef488ff6af61c3b9f15c6e99accb6bf92990c6fb",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000060899.jpg",
+      "raw_sha256": "57c62f60ea71b9d40d33fa94635153fc02b1eec74b167324e874ee2ffb12ecab",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 191,
+      "source_uid": "ms-coco:coco-2017:val2017:329080",
+      "group_id": "651725c36c10c09787bf0668d890e9d676c937118a7c41082657ffef32cf76e3",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000329080.jpg",
+      "raw_sha256": "52eabab8da99db60a5f3e356ba6a1b7a418ede74e873aeb180586925590e27e6",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 192,
+      "source_uid": "ms-coco:coco-2017:val2017:564091",
+      "group_id": "60d876c081998af8a046d7de1debc39722aae374c5a2ee8b1b366c93a4fcaa24",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000564091.jpg",
+      "raw_sha256": "4c4e7f97fbf0f9695f38cd52dc58c7a6f8abb227a0b59695894e254c4852a373",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 193,
+      "source_uid": "ms-coco:coco-2017:val2017:554595",
+      "group_id": "e3f87a7226b8ed2d378ce6dd6b47600a83b82e8e086ac19a055cfa972dc98a8d",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000554595.jpg",
+      "raw_sha256": "f87552f48714dda9163196051781716d6ae1e26824f214237f604f9f829f9fa5",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 194,
+      "source_uid": "ms-coco:coco-2017:val2017:384136",
+      "group_id": "eb7511fbd4a900add5c16949c4f6bdfd35b11a591560effbcab28d082e5dace7",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000384136.jpg",
+      "raw_sha256": "2ffa119b7a8679c6053cdf290ca1e4f061f4334cc73cbb6a8a0fbd698fce280e",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 195,
+      "source_uid": "ms-coco:coco-2017:val2017:326128",
+      "group_id": "a5a5ff9d2e9e5cdf6da881447ea9855a8b663d752a709d9d70da4181b8ed6563",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000326128.jpg",
+      "raw_sha256": "16fc08c185eeec30bf11d3c0944157279885f938838159e13773e4cfde879618",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 196,
+      "source_uid": "ms-coco:coco-2017:val2017:237071",
+      "group_id": "cc2dccc244afdad0a887bde62b622a7adee67f7f6d3abd66081735487c1c0a85",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000237071.jpg",
+      "raw_sha256": "c977609c2c685eef309ff9140d94fc4ae47dd66a8d8624f6af6a63fb5a5a166c",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 197,
+      "source_uid": "ms-coco:coco-2017:val2017:276707",
+      "group_id": "055bb865be0440b3d2c88039c035e8306ff7e5be31d2b56125a28b61b92f29af",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000276707.jpg",
+      "raw_sha256": "a0fbb94936bfae18df49e94a413aea803e666caa401bdd7ce96275714b20d191",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 198,
+      "source_uid": "ms-coco:coco-2017:val2017:561366",
+      "group_id": "1a4bebc51a175d3008c6c0f9bf2adabb03485f1e4ea7f793711c27f4e0d4abab",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000561366.jpg",
+      "raw_sha256": "33ac2fba03d5242761676658dce8d0b0a68ea508bfdf17258e643221834f445a",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 199,
+      "source_uid": "ms-coco:coco-2017:val2017:78959",
+      "group_id": "a0b28c8c6068c098add6b21770119db4d653abcfe075dcce1eb12f1dc6e7b161",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000078959.jpg",
+      "raw_sha256": "e42bf26adeaac411f4714a1caa9a1c6488c2016cc6c4333f4ae1a5ab43f0b2cb",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 200,
+      "source_uid": "ms-coco:coco-2017:val2017:345469",
+      "group_id": "cd8202d3bc33445343210482634946ae456aed7d2d5619d30b7586f853badad6",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000345469.jpg",
+      "raw_sha256": "d75629108a0e46d3b1826862b5bae9a1b75ccc4c635411ec12167390c6f83f72",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 201,
+      "source_uid": "ms-coco:coco-2017:val2017:121506",
+      "group_id": "59de098d3f6374950831bbc0febb3d1446193b1543fc2d2405af03939e765d2d",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000121506.jpg",
+      "raw_sha256": "c343589eeba3701c2e6bc2b7f7f6c65eaaf9b2d998fd0402b90d82bdc69a0325",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 202,
+      "source_uid": "ms-coco:coco-2017:val2017:514914",
+      "group_id": "26ae2517a4ce375dfce7120d1e949534608a6b39867fb7a28bf47abb65fd3987",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000514914.jpg",
+      "raw_sha256": "1e0fee35a7278e372e85d64fedeb90806cc99b951e251571d2052ded3cd757fa",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 203,
+      "source_uid": "ms-coco:coco-2017:val2017:471756",
+      "group_id": "ec8da4606be3e51cd9ed52715cf4ff6bcfbb312b6be11dbf9ff1c27f88c4d4c3",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000471756.jpg",
+      "raw_sha256": "78702571dc1cac8e21bd51b1403e5ab6fcfd779b9baa6a3a891bae8655a7e2e4",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 204,
+      "source_uid": "ms-coco:coco-2017:val2017:355677",
+      "group_id": "8b5adeac12b1e91af8e2a7ae52fd8be79379244272e0d153d0c8cbb8fdbef1c5",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000355677.jpg",
+      "raw_sha256": "cfed285fe730e7db7923cd9324607af6474df4ac71fae66b9cec5e0b7002293f",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 205,
+      "source_uid": "ms-coco:coco-2017:val2017:127476",
+      "group_id": "9d6f220d77e278dbc9b5877f751bfe857e4fe68e2f67fd51a821620b83b8ae34",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000127476.jpg",
+      "raw_sha256": "b64ac6e5ed43a914164f2d4a1d913028177365de13cf85bb9ed85915efac4d46",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 206,
+      "source_uid": "ms-coco:coco-2017:val2017:175438",
+      "group_id": "154df64580fe7278a03b4658d6b13b5b5d5fabed4da76c261825a96417502340",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000175438.jpg",
+      "raw_sha256": "caebcf4ace0859fe109f89e8d9ec8a474a48ef303a6d20325c562403a0b8a648",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 207,
+      "source_uid": "ms-coco:coco-2017:val2017:74733",
+      "group_id": "efcd4cf9e9af2913521c734970169ab21d8ee37624ec54ab9c8ebf36f4e43e0d",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000074733.jpg",
+      "raw_sha256": "d99c93fb6d22a5d51bbb6e09ca5f10c11bdcf90a711abf6cc83188df52cc456a",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 208,
+      "source_uid": "ms-coco:coco-2017:val2017:127182",
+      "group_id": "10d3356a3903ce5f6e60cf2b939e4be063e135b68c82409a34f4513a76244048",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000127182.jpg",
+      "raw_sha256": "dc53ed113bdc89db5801f47c5834d824d6182bcbef16724189feb1b9223b45fd",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 209,
+      "source_uid": "ms-coco:coco-2017:val2017:498919",
+      "group_id": "5002c435c481f76a31b89f00508985f1351ad9e9da7e3015729275707efab3ff",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000498919.jpg",
+      "raw_sha256": "207e1007cad81d6fdb5e4061c0a652c351b217c23570dbe0bac920929841d537",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 210,
+      "source_uid": "ms-coco:coco-2017:val2017:132329",
+      "group_id": "59e1c28eced1f6ca2a2c1bd09627202b1423a190ed8273f0e528a6a91a65cfa0",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000132329.jpg",
+      "raw_sha256": "78a2bdb448e5729fe89f9a4c768bdf6164ccb992e52aa7469d3c4c82a8707e49",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 211,
+      "source_uid": "ms-coco:coco-2017:val2017:296634",
+      "group_id": "ccaf75054672b86c95572bb1133d45dd631b86d2633433d8e8e20811bcb552a9",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000296634.jpg",
+      "raw_sha256": "d655d317be6a4c34514b7c4e9412e25b98c7af7c05df40c2ce47ff2025b4caf4",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 212,
+      "source_uid": "ms-coco:coco-2017:val2017:500716",
+      "group_id": "e71862a952cadc8b03f3fa9e3ee4b58c75802f7bcb8b5a3b7b14c4f3202cb74f",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000500716.jpg",
+      "raw_sha256": "5de886d554c98caf734cebc624182a16862623c3fc704877dec958116f213eaa",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 213,
+      "source_uid": "ms-coco:coco-2017:val2017:261061",
+      "group_id": "f0e3b46827b53e71435c93c7c2d6f6900757e1a59b482c4207f4edb0167e089c",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000261061.jpg",
+      "raw_sha256": "886f87e9e2cea4ea6855ae03b8707b99ef321dc3ad409f7ff9a712b94c569cd9",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 214,
+      "source_uid": "ms-coco:coco-2017:val2017:210230",
+      "group_id": "277e8067c853fcc39c9550d96dda5878e4fdca1a10dcfa2d6298ee6ccc40b276",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000210230.jpg",
+      "raw_sha256": "33e35d38f41dd9c94ee87616903b722a0148860613ea02572ce7e481542e8935",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 215,
+      "source_uid": "ms-coco:coco-2017:val2017:356424",
+      "group_id": "8660477a8be63dcfe46bad4f84eaf1f38fa7bb09c1aa00f51c6e90afca46fd89",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000356424.jpg",
+      "raw_sha256": "c669af906be21b4c9113b05a7a9dc489d4f893b25641ffafad19ef6327275740",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 216,
+      "source_uid": "ms-coco:coco-2017:val2017:189775",
+      "group_id": "3d5a95dd1210a4ee4398ec5eb2973ed4664b78a7818ac719a6aaaf150ef804ed",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000189775.jpg",
+      "raw_sha256": "931ab2db3edab06d9790a9a9b947550b005aa7dc42759e4188c6b5fa810d701b",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 217,
+      "source_uid": "ms-coco:coco-2017:val2017:168974",
+      "group_id": "6a883d0506ac2f56cba4e110bafda5519b62044c9b70c6ad6b472c912db679d7",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000168974.jpg",
+      "raw_sha256": "e994ae206640b01c19f9eb73c9f9231e73057fb09292bb152de9a884bd1837a7",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 218,
+      "source_uid": "ms-coco:coco-2017:val2017:357742",
+      "group_id": "910b5173f7ea88ddea8cc24c9addd4c0d473af5fc1c28e6132686f7115cce4d9",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000357742.jpg",
+      "raw_sha256": "592f3b383bde4be94eb70469301905d2ffbaf5bab77e59a08ed6d11c3d25a7ce",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 219,
+      "source_uid": "ms-coco:coco-2017:val2017:570782",
+      "group_id": "eda61b9ee7e6c7e1fb4688e06720a12e34454b900c22b778dfc910a0c57a5b14",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000570782.jpg",
+      "raw_sha256": "534ff00fcd447bda33da7c3ae3074e44df00d2e5fdf5401fbde33f8367bde5ec",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 220,
+      "source_uid": "ms-coco:coco-2017:val2017:23666",
+      "group_id": "ec8a6c3f07d37faacd0791c8f7c58ca3e39497718ae56ffe18b2f01aa67c6329",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000023666.jpg",
+      "raw_sha256": "c6e0dcc40c55570c04bb709097e3d0c6c6ada2ef55ca2a2601c67545581897d4",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 221,
+      "source_uid": "ms-coco:coco-2017:val2017:100274",
+      "group_id": "805d7535d10e4d68ac00729633e97340692eb24542672d09b76c0b029bbbd959",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000100274.jpg",
+      "raw_sha256": "18a930e65771a5c2954229da0b448d2ab74b03a3e6179cae61c212d52f5ff3cd",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 222,
+      "source_uid": "ms-coco:coco-2017:val2017:574702",
+      "group_id": "e77d160546dc6091ed01867973aaa5c1f9804963f8a6ce2b112950ba6b66a7b5",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000574702.jpg",
+      "raw_sha256": "43404f8739d1929d5d4e7dc52c28fa0c0730848e82e706783ea46c861947b412",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 223,
+      "source_uid": "ms-coco:coco-2017:val2017:248284",
+      "group_id": "fb4790304cec3f387b2fcc936617d2ecf70c58153b5e52dd074a8405f15de596",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000248284.jpg",
+      "raw_sha256": "9f3308ac7ee40f7e983b1f36adb8a65244063a1cebcd609407951d5457bd260a",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 224,
+      "source_uid": "ms-coco:coco-2017:val2017:127494",
+      "group_id": "f57c7a535f11356663c62c6babeabc62042632ee44f7361c25be3b7e998b851e",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000127494.jpg",
+      "raw_sha256": "65d47087b3c665d64aad0120658b00ac08dc9875597a5f8d801da4f70933f7fd",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 225,
+      "source_uid": "ms-coco:coco-2017:val2017:460841",
+      "group_id": "e61279c84fb244409d04207c628db181715121891e366a889b8ab4ec614c4d3b",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000460841.jpg",
+      "raw_sha256": "9bbf60c0ed50dde4a0b84c75b198496f321df872e28a7b999b3d43d777a988d1",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 226,
+      "source_uid": "ms-coco:coco-2017:val2017:192871",
+      "group_id": "d85dd9ffb571b331cbf310d15c59a00f5cd87dc7e5572e05d6dc6535dcbfe65b",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000192871.jpg",
+      "raw_sha256": "3b01c2d37f4e03a559a45270a5b06b290823bf71bc713c615a01300e899375a7",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 227,
+      "source_uid": "ms-coco:coco-2017:val2017:331075",
+      "group_id": "7420ffb8b0acb418b283d575b00173c42ea4d1925b8266b1ea16833c15711bef",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000331075.jpg",
+      "raw_sha256": "f9a0c8e0050fa38bb4fd0a7d3007e0ff5def7cea1c67a9a70ae80c6256d9a549",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 228,
+      "source_uid": "ms-coco:coco-2017:val2017:179112",
+      "group_id": "85433d5d0a6b974343a1413cebb85e2b06cd3bd61d2809e3c20a18d924774fc7",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000179112.jpg",
+      "raw_sha256": "f749948102ab195f018f2c01086423081c49425c0e52c4b81ef8e371fbc097a7",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 229,
+      "source_uid": "ms-coco:coco-2017:val2017:335328",
+      "group_id": "7c3edad6251d77d9e1f7f106baaaecad0c411b2943542aec8a49884a7356edc5",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000335328.jpg",
+      "raw_sha256": "73544f620a071e28b175a2a514082fd59ea166632681bab743bdb836633b4a0d",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 230,
+      "source_uid": "ms-coco:coco-2017:val2017:2153",
+      "group_id": "66f651cd8645c1a695cc3a89fc3f514f9df9aca0f3ab22ef2b25d64ec330c013",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000002153.jpg",
+      "raw_sha256": "8795ff243cf20405bd442631d5d1cb7e60665dd459c8d57f5764333808dd49fd",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 231,
+      "source_uid": "ms-coco:coco-2017:val2017:180560",
+      "group_id": "da6737f308ba8a448c062bb86e150ca6da05753b85151404990e964c7ee3bfdc",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000180560.jpg",
+      "raw_sha256": "b485d64a3c769704ecabd162d63788b07069c3fe3b2bd4658857658d58bc2fc7",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 232,
+      "source_uid": "ms-coco:coco-2017:val2017:133778",
+      "group_id": "6e90ab9c1d58de0fb69b42b4378802711e42102caf5f721e1550d9298e3af485",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000133778.jpg",
+      "raw_sha256": "cdb93a269a84fd38fbe1081efe715586bd4d693bfa11d7f8c9a38ead4996d093",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 233,
+      "source_uid": "ms-coco:coco-2017:val2017:166509",
+      "group_id": "ffb5570dfceea8f9ebec7d6376dc1d0bd791aced5da6d5679f47884284ff8e7b",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000166509.jpg",
+      "raw_sha256": "60b59467a07a35abe0b2bed2d6083e0021468419986bd1b84b80ebc437dfb425",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 234,
+      "source_uid": "ms-coco:coco-2017:val2017:293300",
+      "group_id": "e7a93ab88344478183f66b12e3c51dacdb08c96e186a0682e6870464e5e76aca",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000293300.jpg",
+      "raw_sha256": "a578bd244b016d1dd4603ab7c2d5a8e9d3da423941449f6e43591547de2f8364",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 235,
+      "source_uid": "ms-coco:coco-2017:val2017:110211",
+      "group_id": "1958c4be419a50e13d8807f90bd9189ac3ef2963d62d58627c8dbdb3194a3218",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000110211.jpg",
+      "raw_sha256": "f4eb2c0b04838083a34991f54480b50b9eea95b5a111c7cdfccb2c6a1874ea8d",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 236,
+      "source_uid": "ms-coco:coco-2017:val2017:261888",
+      "group_id": "18f6c6eba7c8c9b70c6e9657c85541c59fddc51ece967951fdade5d189f258ac",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000261888.jpg",
+      "raw_sha256": "02df0f1cd1c0997aacb71636e96f06a033cb2c1adee465744802e7cd691ac4de",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 237,
+      "source_uid": "ms-coco:coco-2017:val2017:147729",
+      "group_id": "9f592e06745d7171b7669ce8f9c3e14983dd68802dd67124113f24505fe087a7",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000147729.jpg",
+      "raw_sha256": "782dad235c2987b86e846f5578ba997f4388b37d57ebd35e85a1e5e87424c1b4",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 238,
+      "source_uid": "ms-coco:coco-2017:val2017:173008",
+      "group_id": "c30ced1bb221ef5f21a1f55bc7230355186deb8bae9594fc19905042ecc03b14",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000173008.jpg",
+      "raw_sha256": "57e4391ce5b3b06e3b778342e9c4272a9a4a93e9fbb8ab8270f4d0c4dfd3e5c5",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 239,
+      "source_uid": "ms-coco:coco-2017:val2017:439593",
+      "group_id": "6af4b5882fc4e4faed79b0de9c86e16aa6584971edd2159010adb2721fd45dab",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000439593.jpg",
+      "raw_sha256": "e104e95526e6ac6f41f1d83019b7d6319d5b017e780244ba5cd9e93001737087",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 240,
+      "source_uid": "ms-coco:coco-2017:val2017:343076",
+      "group_id": "5ddfc7fd29d4bc04a37e9b4a29916b9577b1704311048a05bc442e3690e9bcc6",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000343076.jpg",
+      "raw_sha256": "b3b75e4a3ad7dd8b211680c4bcf1288f7d3bea2aa360358752b3d1640015e8b0",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 241,
+      "source_uid": "ms-coco:coco-2017:val2017:226130",
+      "group_id": "3b22b38376aeea8309d928dca95e0979ebd21d817939b0a3ee8e721cccaa7db1",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000226130.jpg",
+      "raw_sha256": "0898367f588d095dbe4c6246870d6a0766080582cffeac2afdc2ab527111c898",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 242,
+      "source_uid": "ms-coco:coco-2017:val2017:306139",
+      "group_id": "c6480b213d3c5970cf11301b88ed822a8439c12f04d38b4ba980aa4d59317490",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000306139.jpg",
+      "raw_sha256": "42a07a3348e24d370e2b1191eb52126de536b726051ff03a508b79c4d4e90308",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 243,
+      "source_uid": "ms-coco:coco-2017:val2017:520531",
+      "group_id": "396d6027985e6acc627256eb8458d1132a56d4ed3c3d7ee92dce1193c6189ea8",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000520531.jpg",
+      "raw_sha256": "2ba4713ac86fef08a8b150861b289f27fa4263d4522cd3fa74bc94aa6fd0af51",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 244,
+      "source_uid": "ms-coco:coco-2017:val2017:53994",
+      "group_id": "d7779a8020964d8a348c2023ed144ecc1a414932debd8256c8bd6f1522000632",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000053994.jpg",
+      "raw_sha256": "0f1eb7ded7f9443a89430ccdf4375f58ec10185f76afef4f4ff23f15c856780e",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 245,
+      "source_uid": "ms-coco:coco-2017:val2017:62554",
+      "group_id": "0920e7049dfeecb07f4761c799ee088dec533850af347b534ba1586e817338e7",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000062554.jpg",
+      "raw_sha256": "2b9444ef969f3b95e53ba3e78ddd329c41c03fbc3c8e7e07034cdd6cb8bc9f41",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 246,
+      "source_uid": "ms-coco:coco-2017:val2017:537270",
+      "group_id": "391ecdf35e2bc2c1af8a003adc55d3b1039d08decc401126dabfd187e53b07f0",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000537270.jpg",
+      "raw_sha256": "82072a4304dd9f8cd22887e60c0b1b910d75175a74ba504e5de82e370f94d0ca",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 247,
+      "source_uid": "ms-coco:coco-2017:val2017:415536",
+      "group_id": "0abd9070139776c697982bdd4b9124f12bcc6f58f17a370330bd0f847141ad8a",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000415536.jpg",
+      "raw_sha256": "a02be69d9dbaf2ebb1e21950d1a0c54238ea6b479b8200c46fd3330de5863236",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 248,
+      "source_uid": "ms-coco:coco-2017:val2017:552883",
+      "group_id": "42f13cd548cc7d73717e64a668f2594b2eaf40f40829dd9b8042bac122065aaa",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000552883.jpg",
+      "raw_sha256": "1d494b0de43a2b45254e8407278abbea78fcde4130adee937d57d78d4ae79d49",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 249,
+      "source_uid": "ms-coco:coco-2017:val2017:185950",
+      "group_id": "180b5ee5c5edd319c8ba0ca30f2107fa4fe2c24a271f40d33183f7fa72b6cddd",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000185950.jpg",
+      "raw_sha256": "9c03849eb61b435871cc8a6df9c9aa0607a5c836449d656492260fa6d3ca7b17",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 250,
+      "source_uid": "ms-coco:coco-2017:val2017:101022",
+      "group_id": "b1f308c98128047f08abd99f05909c6e31c6ce3d8a70e27ac4017640cc7ba02e",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000101022.jpg",
+      "raw_sha256": "0962336a1c3f6e1598c88577eeffc50a20b2c00ef14cf70dccc70b9d0d511528",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 251,
+      "source_uid": "ms-coco:coco-2017:val2017:186632",
+      "group_id": "2c0285ebef9c313cabdf57fb1c6ff204f17df9be201cea71d3c1393e8b54db58",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000186632.jpg",
+      "raw_sha256": "a9e150a34b0f76252c2049857ed88f94368ae45ebbff65e3bfccb3a2b49ae82c",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 252,
+      "source_uid": "ms-coco:coco-2017:val2017:2149",
+      "group_id": "9434f7d0538cb9bee809c4a407009a6d04a619290961ece11825a761022143a9",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000002149.jpg",
+      "raw_sha256": "3ef0da375244c3fdbb45bcfe5689e8e46fb616c00250f9dce6aa34d301801ac5",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 253,
+      "source_uid": "ms-coco:coco-2017:val2017:579635",
+      "group_id": "1454bc869c036e0880f140f65d2da1d8af4cff15ae966c7d2c953b0fa817884a",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000579635.jpg",
+      "raw_sha256": "38980dbaeaf8b255b1d771ed80d66cc3ce0ad6540a10139000c791bd790f3862",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 254,
+      "source_uid": "ms-coco:coco-2017:val2017:290843",
+      "group_id": "99ce9d0fe1608d2d0da80ca2b7c7c8b151bb3d672cc3ffbfeb0296ff5ea66a5a",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000290843.jpg",
+      "raw_sha256": "6994d38a2582525f0c33f0cb28ee7e149ffcc950fa4c02cbd9ad9a3261955cc9",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 255,
+      "source_uid": "ms-coco:coco-2017:val2017:544565",
+      "group_id": "ff7f4fbced4ac32b6c48f9ea33c5fc21f6c1a97fb1efa2f704378b885654d595",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000544565.jpg",
+      "raw_sha256": "2ac6b4e9e1b53277db20fab701366dbfa6271d5f0749fade0c3b8cf115d085bf",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 256,
+      "source_uid": "ms-coco:coco-2017:val2017:206218",
+      "group_id": "fa372072ad84f247fc7e7dc0d89a78f547db4b25f9519c2a037636cc9635318d",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000206218.jpg",
+      "raw_sha256": "74426999cd1b58aac06353d2afac10c9e6a8c3bbfeb05abfd3386801c47c035d",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 257,
+      "source_uid": "ms-coco:coco-2017:val2017:3553",
+      "group_id": "9868d80479c0d349ce06842e5683bbde50b208977ebc8ca27ab3323500f34d92",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000003553.jpg",
+      "raw_sha256": "4286197d2b6fc18809a37a4ef3035109509fcf52782fb83894835faaa5743bea",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 258,
+      "source_uid": "ms-coco:coco-2017:val2017:397354",
+      "group_id": "df24a30dc1f4fa14e96d60accedce84fab04849e7b8c1bada872ace90107c7b0",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000397354.jpg",
+      "raw_sha256": "067fb73c369a8433d1f9d97c2c36f51f487cf3a6d37c1f2fe0368a39f3dc38db",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 259,
+      "source_uid": "ms-coco:coco-2017:val2017:572517",
+      "group_id": "792ecd40cb75e1bfe480ba916dd8b242f44183d1f9daddf1c2421db18f7bd659",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000572517.jpg",
+      "raw_sha256": "91f4d327a8f83c8df2013b0962baf76794a4bbfefe939a7fc2bad545785d0d35",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 260,
+      "source_uid": "ms-coco:coco-2017:val2017:328238",
+      "group_id": "81cab6bf551963db44867bba185e5a732cc30a45def8c1ebf106682c1d9222d1",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000328238.jpg",
+      "raw_sha256": "a6502322af5f875dc187ecc7c8dd23920ccd61b1acc32bfd8388247c2e79a30d",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 261,
+      "source_uid": "ms-coco:coco-2017:val2017:285894",
+      "group_id": "2b574fa87ed02b0275e6ea67af4614aed418b4d995e71aad30ac2da98a6c3fb7",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000285894.jpg",
+      "raw_sha256": "752f64ad2588e94c759a84a008b81cc55915cb45132ae9dc2e011dc64eb44c8d",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 262,
+      "source_uid": "ms-coco:coco-2017:val2017:160012",
+      "group_id": "38d4d6dfcabc982a82ad7e52b3871121652e903ba5cec5868a13680cda2fc3dc",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000160012.jpg",
+      "raw_sha256": "b660ce7ce72dcfa459181967524c53f9360318652c0014790da9fa096ccf1ae2",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 263,
+      "source_uid": "ms-coco:coco-2017:val2017:107851",
+      "group_id": "873029c372f389190f57df6348444f57a36cfdcf6649789132fa8049592ec104",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000107851.jpg",
+      "raw_sha256": "8590e024e6f4b2c84c04596877dadc7bb996f8b46a1d14252f4ff156ab6f6541",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 264,
+      "source_uid": "ms-coco:coco-2017:val2017:140658",
+      "group_id": "d0ac417b41a0e13663a66e7d4cccf8e6880251dd7eda9e1212e7ef89cc9128a6",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000140658.jpg",
+      "raw_sha256": "9e3d19463de795f192bc766c34422ea1c21c0cc864b0748c82600d21490d27b3",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 265,
+      "source_uid": "ms-coco:coco-2017:val2017:217400",
+      "group_id": "89d2929ead934ad06c96c3300d7963fbc8ad317423ff59760faf7435a1dffa8c",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000217400.jpg",
+      "raw_sha256": "0bf52c9409ae0eeb5cd056d2cd8a48217073f9be09137b76e39a8c6f2411229d",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 266,
+      "source_uid": "ms-coco:coco-2017:val2017:171382",
+      "group_id": "88de413f5f16201cfef0f60219a48e5be716aa757dd59ee7b24738277f665779",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000171382.jpg",
+      "raw_sha256": "f96faf8870853b0f11e2746eb86cb0dbc7e34c1b4903e3d912aa857002ef9bf3",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 267,
+      "source_uid": "ms-coco:coco-2017:val2017:249550",
+      "group_id": "f0c0c38d1db8c29a571d47597663e312808ef7f4d7dd7b46438cd8906cf1d83c",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000249550.jpg",
+      "raw_sha256": "6a90e01daf6db959c532186281e4f75775ed72f0b5e511bbd69b7bee9b5e7784",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 268,
+      "source_uid": "ms-coco:coco-2017:val2017:256916",
+      "group_id": "cf7e8ba7dcfcdc2f4742c27d576fe2b0980a8e18dbe748ce5148908fd879ec4b",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000256916.jpg",
+      "raw_sha256": "2593cdd6dd4d062527ff870041d7f9465a659c63a69edd865d03fd03af4a62cc",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 269,
+      "source_uid": "ms-coco:coco-2017:val2017:463618",
+      "group_id": "300ee51423cc8962ebd92bda2c95e7df4744abd08cb300e066e358447610dd1d",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000463618.jpg",
+      "raw_sha256": "3eb86005bb553fc3da100c0b383dda98d20c00c1d1bcf426eda6a68dbf7b1576",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 270,
+      "source_uid": "ms-coco:coco-2017:val2017:399764",
+      "group_id": "7dfc85a91e2a421e60cfb9dfec2d22f057ad1f0922e56b914e807a422126388c",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000399764.jpg",
+      "raw_sha256": "4718432b741cb83a5b7720e96d22a9e58d3f7d7b274d033c153ad30b50b4f8ad",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 271,
+      "source_uid": "ms-coco:coco-2017:val2017:222735",
+      "group_id": "bd1a00ae8b4bb714971218cada1f16640b8b7112861463be2054692b4b2ad735",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000222735.jpg",
+      "raw_sha256": "818d0d0aa38c5f14ab15e3bae79a729c4dec8a41c7c383efd61cd82d146eb496",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 272,
+      "source_uid": "ms-coco:coco-2017:val2017:188592",
+      "group_id": "ab32383b5a845014e53c75c0f78336c51e72a0abcf28524eabe5781619da3102",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000188592.jpg",
+      "raw_sha256": "d91e1e7121a0f877856108f6244212ef0b34cfcbea0b6563f22a0f618eeafc27",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 273,
+      "source_uid": "ms-coco:coco-2017:val2017:117425",
+      "group_id": "9cea914d7e1128b8d76e12f91fa205aea3b2762ff023217b89882aa0b76dab51",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000117425.jpg",
+      "raw_sha256": "3ce22b1b2e55db6f118b1b057ddb7563970d09bce66b4b95d1f896df88605b6c",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 274,
+      "source_uid": "ms-coco:coco-2017:val2017:446703",
+      "group_id": "d863055cdca46d9fe158dd778f7bcc722dac4660baf321b1e7bc4840116ed1eb",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000446703.jpg",
+      "raw_sha256": "c00090abe4c7f1e57231ac98f09d480ee59fa1d7b5acb4d114834775377df084",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 275,
+      "source_uid": "ms-coco:coco-2017:val2017:330790",
+      "group_id": "99e3201de1e1674068eea7ea274f44cf60b44a7f5394cd54b843797e7b01dd48",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000330790.jpg",
+      "raw_sha256": "08687a9320a720f9656f3a91e299c2e5bb5d7b45949eb92851f9ddfd0fdfd55c",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 276,
+      "source_uid": "ms-coco:coco-2017:val2017:407518",
+      "group_id": "c0fb1e1c5ba69d05ac2fbcb6f4c2fa80e05f7253561a7c762d3f724756f2ec56",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000407518.jpg",
+      "raw_sha256": "e040b3d434af83c78dab765ebcca1719430fd1194f8d938b2f0294393a5d9f59",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 277,
+      "source_uid": "ms-coco:coco-2017:val2017:126216",
+      "group_id": "29cce432b7ac2a03dc896579f1f92bb659c70bec33362fd8da11048eb1ada855",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000126216.jpg",
+      "raw_sha256": "a47e503b79bcb9ba5ace1b0d35148108cb6566fdd5b78dfea4d5901cc176656e",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 278,
+      "source_uid": "ms-coco:coco-2017:val2017:556000",
+      "group_id": "cf96a2af26333f5714a7fa273e724040ee066782030383b8f3b9acbedc6eb854",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000556000.jpg",
+      "raw_sha256": "346e603474857f6750d0f946eb80a76b104d600195c40cadca91b9f36f9ad84d",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 279,
+      "source_uid": "ms-coco:coco-2017:val2017:335427",
+      "group_id": "712284220bf6478ae7f2fada70c514f68422679d46dd4289a1885eb91f86a173",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000335427.jpg",
+      "raw_sha256": "ea30c8058f6f658dc75d14c252eb0ddaba2b2a796164756585d208b9669cb2fa",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 280,
+      "source_uid": "ms-coco:coco-2017:val2017:94944",
+      "group_id": "a6d1c520cd674689b23b6f61a81ac3c03c44bce1b8d865fe63c94ad11407cb8e",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000094944.jpg",
+      "raw_sha256": "a3fdb98ece1ececeadca3a00c1dc4ef0cb609bb2efd164d58907fbe65a0fb3cf",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 281,
+      "source_uid": "ms-coco:coco-2017:val2017:88432",
+      "group_id": "fcd3f7d0072da7452bedefde838cc5cad168869788519a69839f39b402b029da",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000088432.jpg",
+      "raw_sha256": "8e0a6e5eb383a0550ee70fca079826a0e9c4468c4b17e8a60c4372043780253c",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 282,
+      "source_uid": "ms-coco:coco-2017:val2017:311518",
+      "group_id": "2abb9603ee36de9e784be31452de7db0ec731949c5b151e461dd9bb5dc03fad7",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000311518.jpg",
+      "raw_sha256": "4278aef9f1583ee3509b245f7eff537b23f345094260fc5b269b8068e2e543b8",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 283,
+      "source_uid": "ms-coco:coco-2017:val2017:526728",
+      "group_id": "708959918b165e5fb100aa7ff4b8c1ec6ddb896b4e2bda0b1c22640ddfd1f771",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000526728.jpg",
+      "raw_sha256": "2df4f4dd6ddae2b41cbe4847ca020f23024d1f6d221fe1556402ea356623f9f2",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 284,
+      "source_uid": "ms-coco:coco-2017:val2017:1268",
+      "group_id": "0012bc4d3a798a48543c1260f804068d0a856b3241bdd4329a3e70eedc477792",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000001268.jpg",
+      "raw_sha256": "8e85a2e71ee512fe748a3a3be9bb40b8591e8c501c0f3896efcb5be5999ec236",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 285,
+      "source_uid": "ms-coco:coco-2017:val2017:211825",
+      "group_id": "e4dd2feb5ccdc06dd29c425ef48bdef2f23e8616aed3aa42eec71bbb6b8f2ad8",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000211825.jpg",
+      "raw_sha256": "9d33bcc07c852c2ed2c87f8873aa101474b21777adac7f4ce0a5590e0af8adba",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 286,
+      "source_uid": "ms-coco:coco-2017:val2017:203864",
+      "group_id": "5a3da3f87b41ae2f2c9d0ec176f6efd24f53055d9f133f96868c035f717e50d3",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000203864.jpg",
+      "raw_sha256": "a78628c598807687921f4a4b5642ccb45d92aa43d17ce8fe7e61cca735a01e54",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 287,
+      "source_uid": "ms-coco:coco-2017:val2017:13348",
+      "group_id": "751271b5bc1b684ca39644105e46ae601063a42d80ebd1950e73b2b4f0d78a61",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000013348.jpg",
+      "raw_sha256": "8371f759628048bd294db70d9fbacb6d4f2558a12c25337fa04fea6418c9922a",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 288,
+      "source_uid": "ms-coco:coco-2017:val2017:441286",
+      "group_id": "26fb1acc94e1701934b77af1d5771615a2db8b66a2c3edef47729e930d15b4e7",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000441286.jpg",
+      "raw_sha256": "4f9e88d3513f55ee2e1eafc69834d894287fd3bdb49abb8bfa15e17ec8c5a5bd",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 289,
+      "source_uid": "ms-coco:coco-2017:val2017:22705",
+      "group_id": "67f1dbc89e66a83ffa00515e7fe8efdcd0009e76ccba4d71f637907d7d2d5a40",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000022705.jpg",
+      "raw_sha256": "01627a2e4b79593b0debcffcdcf9b6c795d0d9e71aa2a3e9e22a9db05a70bc85",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 290,
+      "source_uid": "ms-coco:coco-2017:val2017:511599",
+      "group_id": "8380e7342bd084cd28c38099dd8b3b3230c344947558d1af868e64bd3b11eecc",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000511599.jpg",
+      "raw_sha256": "f2de24fb69d55624946a215c565eeb8b5b83dc1e88f127c2d84270f764de8903",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 291,
+      "source_uid": "ms-coco:coco-2017:val2017:356505",
+      "group_id": "b78584e772685085462486aada98a2f9b35ade977969aee725102fee0da6e720",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000356505.jpg",
+      "raw_sha256": "2551b5ea629e74fe93644bbc16f80dc0d908e71485e4a0f1cf9e4d4df872c492",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 292,
+      "source_uid": "ms-coco:coco-2017:val2017:539883",
+      "group_id": "58e04a01d547a4e8b9d9ffb31e81796a18c7c4fe12aa5020c4afefdde1c1bd48",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000539883.jpg",
+      "raw_sha256": "46e9b79b4028ca35bff2af9afbdcf7e2305dd67988357746af4f485d4e35fa8c",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 293,
+      "source_uid": "ms-coco:coco-2017:val2017:352684",
+      "group_id": "d17590e6ceba9c2a62b79617b7b1edbcc96afad7933816960466bed37c56e707",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000352684.jpg",
+      "raw_sha256": "da8028056a1503782c966bfb4643cd9ec67a926be49f45016b5f968fbc5579e9",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 294,
+      "source_uid": "ms-coco:coco-2017:val2017:472623",
+      "group_id": "e3387dd36b1970c241fad761309128acc9c70d944f8e0a8574284f8830fe115e",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000472623.jpg",
+      "raw_sha256": "3b1a4b3e7a06e2f67ff42f2821f089e5038d53d9a06de390a23f65652af85d6d",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 295,
+      "source_uid": "ms-coco:coco-2017:val2017:12280",
+      "group_id": "a56ac108f3d8abaaf14fad1e3afba97993b7091655427238f85ec3ff044a160a",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000012280.jpg",
+      "raw_sha256": "158ef0b15ff392039468263fa18735f81b39de9e8a7753e1e1aba7037262da56",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 296,
+      "source_uid": "ms-coco:coco-2017:val2017:511321",
+      "group_id": "91f568a0ebb52dfe9704be6b967f481f6c8229eacb1dd99f718b2d094f589a60",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000511321.jpg",
+      "raw_sha256": "1f11a7961b4d3175280aee99a8ec93107cc13c4ba798c16ecd1c8411a64a64eb",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 297,
+      "source_uid": "ms-coco:coco-2017:val2017:270705",
+      "group_id": "855264675feb6c24583149fce5ff0950ce830787c40cd66362ceecc0edc1e809",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000270705.jpg",
+      "raw_sha256": "25d07d472c7ad54b5806f912ed770a8a86cf8164d450164af4a1b5975df38038",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 298,
+      "source_uid": "ms-coco:coco-2017:val2017:411953",
+      "group_id": "5b41cb6cdb9c1cb9747b4cef91129fa31607668cc9009b9cab79e252b69ce800",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000411953.jpg",
+      "raw_sha256": "8b2a835c070f5f495c040a9a3a885b04f749fa127bd46f187a0c51c614607119",
+      "raw_path_exists": true
+    },
+    {
+      "schedule_index": 299,
+      "source_uid": "ms-coco:coco-2017:val2017:312720",
+      "group_id": "e0d253776b78c16c6f0ee6b804eac25b3eb3884d4a3becaa31a6e1852c18c2b0",
+      "owner": "qim-pilot-owner-alpha",
+      "wrong_owner": "qim-pilot-owner-beta",
+      "external_raw_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw/val2017/val2017/000000312720.jpg",
+      "raw_sha256": "a27984379decc0a04906123c61b1570e4ca2468bd1bc11dae697fb751dd1b987",
+      "raw_path_exists": true
+    }
+  ]
+}

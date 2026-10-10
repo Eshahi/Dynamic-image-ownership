@@ -67,17 +67,25 @@ def encode(i: int, img) -> bytes:
     return buf.getvalue()
 
 
-def make_data(n: int, small: int) -> None:
+def make_data(n: int, small: int, protocol: str | None = None) -> None:
     from m1_confirmatory_schedule import rank
+    global OUT
+    s1 = protocol == "e3-s1-v1"
+    if s1:
+        OUT = OUT.parent / "e3-s1-synthetic"
+        if n != 16 or small != 4:
+            raise ValueError("S1 rehearsal freezes full16/small4 sources")
     (OUT / "raw").mkdir(parents=True, exist_ok=True)
     entries, images, annotations = [], [], []
     for i in range(n):
         image_id = 900000 + i
-        uid = f"rehearsal-synthetic:coco-2017:val2017:{image_id}"
+        uid = f"{'rehearsal-e3-s1-synthetic' if s1 else 'rehearsal-synthetic'}:coco-2017:val2017:{image_id}"
         raw = encode(i, image(i))
         path = OUT / "raw" / f"{image_id:012d}.jpg"
         path.write_bytes(raw)
         owner, wrong = W.owner_pair(uid)
+        if s1:
+            owner, wrong = "qim-pilot-owner-alpha", "qim-pilot-owner-beta"
         entries.append(dict(schedule_index=i, source_uid=uid, group_id=f"rehearsal-group-{i:03d}", owner=owner,
                             wrong_owner=wrong, external_raw_path=str(path).replace("\\", "/"),
                             raw_sha256=hashlib.sha256(raw).hexdigest(), raw_size_bytes=len(raw)))
@@ -93,12 +101,27 @@ def make_data(n: int, small: int) -> None:
     for name, subset in (("full", entries), ("small", entries[:small])):
         index = dict(schema_version="m1b-rehearsal-index-v1", status="synthetic rehearsal data, not a study cohort",
                      entries=subset)
-        (ROOT / f"research/rehearsal/m1b-synthetic-{name}-index.json").write_bytes((json.dumps(index, indent=1) + "\n").encode())
+        index_path = f"research/journal-upgrade-20261009/e3-s1-synthetic-{name}-index.json" if s1 else f"research/rehearsal/m1b-synthetic-{name}-index.json"
+        (ROOT / index_path).write_bytes((json.dumps(index, indent=1) + "\n").encode())
         uids = [e["source_uid"] for e in subset]
         k = max(1, len(uids) // 3)
         t3 = sorted(uids, key=lambda u: rank("m1-coco512-t3-v1", u))[:k]
         t4 = sorted(uids, key=lambda u: rank("m1-coco512-t4-v1", u))[:2 * k]
-        print(name, len(uids), "sources; T3", len(t3), "; T4 pairs", len(t4) // 2,
+        if s1:
+            ordered = sorted(subset, key=lambda e: (rank("e3-s1-confirm-v1", e["source_uid"]), e["source_uid"]))
+            for j, e in enumerate(ordered):
+                e["schedule_index"] = j
+            index["entries"] = ordered
+            (ROOT / index_path).write_text(json.dumps(index, indent=2)+"\n", encoding="utf-8")
+            plan = json.loads((ROOT / "research/journal-upgrade-20261009/e3-s1-test.m1b-plan.json").read_text())
+            plan.update(data_split="rehearsal", label=f"S1 {name} synthetic rehearsal; no study sources", sources={"index":{"path":index_path,"sha256":W.sha_file(ROOT/index_path)}}, max_wall_seconds=27000, approval_path=str(OUT.parent / "approvals" / f"e3-s1-{name}.json").replace("\\", "/"))
+            plan["t3_uids"] = [e["source_uid"] for e in ordered]
+            ranked = sorted(plan["t3_uids"], key=lambda u:(rank("e3-s1-t4-v1",u),u))[:60]
+            plan["t4_pairs"] = [dict(pair_index=j//2, donor_uid=ranked[j], recipient_uid=ranked[j+1]) for j in range(0,len(ranked)-1,2)]
+            plan.pop("schedule", None)
+            plan["t5"]["annotations"] = dict(path=str(OUT / "instances_synthetic.json").replace("\\", "/"), sha256=hashlib.sha256(ann).hexdigest())
+            (ROOT/f"research/journal-upgrade-20261009/e3-s1-synthetic-{name}.m1b-plan.json").write_text(json.dumps(plan,indent=2)+"\n",encoding="utf-8")
+        print(name, len(uids), "sources; T3", len(plan["t3_uids"]) if s1 else len(t3), "; T4 pairs", len(plan["t4_pairs"]) if s1 else len(t4) // 2,
               "; annotation sha", hashlib.sha256(ann).hexdigest())
 
 
@@ -116,7 +139,7 @@ def approve(manifest_path: str, out: str) -> None:
                     timestamp=(now - timedelta(minutes=1)).isoformat().replace("+00:00", "Z"),
                     expires_at=(now + timedelta(days=1)).isoformat().replace("+00:00", "Z"),
                     max_seconds=m["budget"]["max_seconds"], max_usd=0,
-                    actor="delegated:Claude Code agent (rehearsal tier, synthetic data only) under user standing decision 2026-10-02",
+                    actor="delegated:Codex agent (rehearsal tier, synthetic data only) under user standing decision",
                     source_ref="research/approval-policy.md rehearsal tier; no study image")
     Path(out).parent.mkdir(parents=True, exist_ok=True)
     Path(out).write_text(json.dumps(approval, indent=1) + "\n", encoding="utf-8")
@@ -129,11 +152,12 @@ def main() -> None:
     d = sub.add_parser("data")
     d.add_argument("--n", type=int, default=16)
     d.add_argument("--small", type=int, default=4)
+    d.add_argument("--protocol", choices=["e3-s1-v1"])
     p = sub.add_parser("approve")
     p.add_argument("--manifest", required=True)
     p.add_argument("--out", required=True)
     a = ap.parse_args()
-    make_data(a.n, a.small) if a.cmd == "data" else approve(a.manifest, a.out)
+    make_data(a.n, a.small, a.protocol) if a.cmd == "data" else approve(a.manifest, a.out)
 
 
 if __name__ == "__main__":

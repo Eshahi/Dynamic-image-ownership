@@ -94,6 +94,9 @@ def quality_summary(qs: list[dict | None], planned: int) -> dict:
 
 
 def analyse(plan: dict, sources: list[dict], rows: dict[str, dict], selected: list[dict] | None) -> dict:
+    if plan.get("protocol") == "e3-s1-v1":
+        from m1b_e3_s1_analysis import analyse as analyse_s1
+        return analyse_s1(plan, sources, rows, selected)
     from m1_confirmatory_endpoints import cell
 
     planned = W.planned_ids(plan, sources, selected)
@@ -236,6 +239,8 @@ def analyse(plan: dict, sources: list[dict], rows: dict[str, dict], selected: li
 def reanalyse(run_dir: Path) -> dict:
     run = json.loads((run_dir / "outputs" / "run.json").read_text(encoding="utf-8"))
     plan = json.loads(Path(run["plan_path"]).read_text(encoding="utf-8"))
+    if plan.get("protocol") == "e3-s1-v1" and run.get("status") != "finished":
+        raise ValueError("S1 efficacy is analysed only after the fixed run finishes")
     plan, sources = W.validate_plan(plan)
     rows = W.Journal(run_dir).rows
     sel = rows.get("t5:selection")

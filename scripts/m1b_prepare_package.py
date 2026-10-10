@@ -43,12 +43,13 @@ def build_manifest(plan_path: str, run_id: str, max_seconds: int) -> tuple[dict,
     inputs = sorted({plan_path, *core["data_sha256"]})
     split = plan["data_split"]
     test = split == "test"
+    s1 = plan.get("protocol") == "e3-s1-v1"
     manifest = dict(
-        schema_version="1.0", experiment_id=f"M1b-coco512-{split}", run_id=run_id,
-        stage_id=f"M1b-{split}", task_id="coco512-f5r2-v5r3", execution_target="local",
+        schema_version="1.0", experiment_id=f"M1b-{'e3-s1' if s1 else 'coco512'}-{split}", run_id=run_id,
+        stage_id=f"M1b-{split}", task_id="coco512-e3s1-v5r3" if s1 else "coco512-f5r2-v5r3", execution_target="local",
         reviewed_script=W.ENTRY, script_sha256=sha(ROOT / W.ENTRY), git_commit=git("rev-parse", "HEAD"),
-        seeds=list(W.SEEDS),
-        datasets=[dict(id="ms-coco", version="coco-2017 val2017 (study_split=test, frozen 300 representatives)",
+        seeds=list(plan["seeds"]),
+        datasets=[dict(id="ms-coco", version="coco-2017 val2017 (study_split=test, fresh 300 representatives)" if s1 else "coco-2017 val2017 (study_split=test, frozen 300 representatives)",
                        license="images: per-image Flickr licences, rights pending, local research only; annotations CC-BY-4.0",
                        split="test")] if test else
                  [dict(id=f"{split}-sources", version=plan.get("label", split)[:120], license="synthetic or development reservation",
@@ -60,8 +61,12 @@ def build_manifest(plan_path: str, run_id: str, max_seconds: int) -> tuple[dict,
                  "T3 semantic per dose and seed (source majority)", "T4 false donor full attribution",
                  "T5 false full match", "PSNR/SSIM/LPIPS"],
         budget=dict(max_seconds=int(max_seconds), max_usd=0, hourly_usd=0),
-        resources=dict(vram_mib=9000, ram_mib=16000, disk_mib=4000),
+        resources=dict(vram_mib=10240, ram_mib=16384, disk_mib=12288) if s1 else dict(vram_mib=9000, ram_mib=16000, disk_mib=4000),
         cleanup_policy="stop-for-recovery")
+    if s1:
+        if test and max_seconds != 28800:
+            raise ValueError("S1 manifest attempt budget must be 28800 seconds")
+        manifest["metrics"] = ["paired source-majority S superiority at .1/.2", "mark admission and strict quality", "exact Q/H and full acceptance", "clean/T3 negative calls", "T4/T5 delivered transfer, same-call predicates and native modes"]
     return manifest, core
 
 
@@ -99,8 +104,19 @@ def cmd_rerun_check(a) -> None:
     approval = json.loads(Path(a.approval).read_text(encoding="utf-8"))
     new = json.loads(Path(a.new).read_text(encoding="utf-8"))
     prev = Path(a.previous_run)
-    plan_of = lambda m, commit: json.loads(subprocess.check_output(
-        ["git", "show", f"{commit}:{next(i['path'] for i in m['inputs'] if i['path'].endswith('.m1b-plan.json'))}"], cwd=ROOT))
+    def plan_of(m, commit):
+        hit = next(i for i in m["inputs"] if i["path"].endswith(".m1b-plan.json"))
+        try:
+            raw = subprocess.check_output(["git", "show", f"{commit}:{hit['path']}"], cwd=ROOT,
+                                          stderr=subprocess.DEVNULL)
+        except subprocess.CalledProcessError:
+            path = W.resolve(hit["path"])
+            if not W.under(path, ROOT / ".thesis-build/rehearsal/plans"):
+                raise ValueError("untracked continuation plans must stay under contained rehearsal/plans")
+            raw = path.read_bytes()
+        if hashlib.sha256(raw).hexdigest() != hit["sha256"]:
+            raise ValueError("continuation plan differs from manifest-bound input")
+        return json.loads(raw)
     p_old, p_new = plan_of(approved, approved["git_commit"]), plan_of(new, new["git_commit"])
     c_old, c_new = core_at(approved["git_commit"], p_old), core_at(new["git_commit"], p_new)
     prev_core = json.loads((prev / "outputs/run-context.json").read_text(encoding="utf-8"))["core_sha256"]

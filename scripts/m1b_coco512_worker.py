@@ -56,7 +56,7 @@ PATCH_SIZES = (128, 256)
 DOSES = ("vae",) + tuple(f"ddim-{s}-{sd}" for s in STRENGTHS for sd in SEEDS)
 ENTRY = "scripts/m1b_coco512_worker.py"
 SCIENCE_FIELDS = ("schema", "data_split", "methods", "f5_config", "profile", "sources", "t3_uids", "t4_pairs",
-                  "t5", "strengths", "seeds", "patch_sizes", "assets_root", "schedule")
+                  "t5", "strengths", "seeds", "patch_sizes", "assets_root", "schedule", "protocol", "owners", "s1_config", "environment_lock", "sdxl_lock")
 OPERATIONAL_FIELDS = ("label", "max_wall_seconds", "resume_from", "resume_parent_approval_sha256", "approval_path",
                       "fault_injection")
 ASSET_LOCK = "research/a6-candidate-model-assets.json"
@@ -72,6 +72,8 @@ OFFICIAL_RUNTIME = "C:/Users/Soroush/.codex/skills/thesis-compute-runner/scripts
 OFFICIAL_COMPUTE_SHA256 = "4b98e5429d57bda48dbe7b239602b1c7ef60c7cbb19058e17136b29a09437d30"
 MAX_RESUME_DEPTH = 2
 MAX_CONSECUTIVE_FAILURES = 3
+S1_RESOURCE_LIMITS = dict(aggregate_seconds=86400, attempt_seconds=28800,
+                          ram_bytes=16 * 2**30, output_bytes=12 * 2**30, free_bytes=20 * 2**30)
 INFRA_MARKERS = ("cuda", "cudnn", "cublas", "out of memory", "device-side", "nvml", "driver", "no space left")
 
 
@@ -178,6 +180,8 @@ def code_closure(entry: str = ENTRY, read: Callable[[str], str | None] | None = 
 
 def data_files(plan: dict) -> list[str]:
     files = [ASSET_LOCK, plan["f5_config"]["path"], plan["profile"]["path"]]
+    if plan.get("protocol") == "e3-s1-v1":
+        files += [plan[k]["path"] for k in ("s1_config", "environment_lock", "sdxl_lock")]
     if "index" in plan["sources"]:
         files.append(plan["sources"]["index"]["path"])
     if plan.get("schedule"):
@@ -187,7 +191,7 @@ def data_files(plan: dict) -> list[str]:
 
 def science_digest(plan: dict) -> str:
     """Hash of the scientific fields of a plan (operational fields excluded)."""
-    return object_digest({k: plan.get(k) for k in SCIENCE_FIELDS})
+    return object_digest({k: plan.get(k) for k in SCIENCE_FIELDS if plan.get("protocol") == "e3-s1-v1" or k not in ("protocol", "owners", "s1_config", "environment_lock", "sdxl_lock")})
 
 
 def scientific_core(plan: dict, read_bytes: Callable[[str], bytes | None] | None = None) -> dict:
@@ -227,7 +231,7 @@ def load_sources(plan: dict, base: Path = ROOT) -> list[dict]:
         index = json.loads(path.read_text(encoding="utf-8"))
         rows = [dict(uid=e["source_uid"], group_id=e["group_id"], raw_path=e["external_raw_path"],
                      raw_sha256=e["raw_sha256"], raw_size_bytes=e.get("raw_size_bytes"),
-                     owner=e["owner"], wrong_owner=e["wrong_owner"])
+                     owner=e.get("owner"), wrong_owner=e.get("wrong_owner"))
                 for e in sorted(index["entries"], key=lambda e: e["schedule_index"])]
     else:
         rows = [dict(r) for r in spec["inline"]]
@@ -236,8 +240,8 @@ def load_sources(plan: dict, base: Path = ROOT) -> list[dict]:
         if r["uid"] in seen:
             raise ValueError("duplicate source uid " + r["uid"])
         seen.add(r["uid"])
-        owner, wrong = owner_pair(r["uid"])
-        if r.get("owner", owner) != owner or r.get("wrong_owner", wrong) != wrong:
+        owner, wrong = (("qim-pilot-owner-alpha", "qim-pilot-owner-beta") if plan.get("protocol") == "e3-s1-v1" else owner_pair(r["uid"]))
+        if (r.get("owner") or owner) != owner or (r.get("wrong_owner") or wrong) != wrong:
             raise ValueError("owner schedule mismatch for " + r["uid"])
         r["owner"], r["wrong_owner"] = owner, wrong
         if not isinstance(r.get("raw_sha256"), str) or len(r["raw_sha256"]) != 64:
@@ -247,11 +251,21 @@ def load_sources(plan: dict, base: Path = ROOT) -> list[dict]:
 
 def held_out_identities(base: Path = ROOT) -> dict[str, set]:
     entries = json.loads((base / HELD_OUT_INDEX).read_text(encoding="utf-8"))["entries"]
-    return dict(uids={e["source_uid"] for e in entries}, groups={e["group_id"] for e in entries},
+    from m1b_e3_s1_runtime import FRESH_INVENTORY, FRESH_INDEX
+    for rel in (FRESH_INVENTORY, FRESH_INDEX):
+        p = base / rel
+        if p.is_file():
+            entries += json.loads(p.read_text(encoding="utf-8-sig")).get("entries", [])
+    return dict(uids={e.get("source_uid", e.get("uid")) for e in entries}, groups={e["group_id"] for e in entries},
                 raw={e["raw_sha256"] for e in entries})
 
 
 def validate_plan(plan: dict, base: Path = ROOT) -> tuple[dict, list[dict]]:
+    if isinstance(plan, dict) and plan.get("protocol") == "e3-s1-v1":
+        from m1b_e3_s1_runtime import validate_plan as validate_s1
+        return validate_s1(plan, base)
+    if isinstance(plan, dict) and plan.get("protocol") is not None:
+        raise ValueError("unknown versioned protocol")
     if not isinstance(plan, dict) or plan.get("schema") != PLAN_SCHEMA:
         raise ValueError("plan schema must be " + PLAN_SCHEMA)
     split = plan.get("data_split")
@@ -371,6 +385,9 @@ def t5_ids(selected: list[dict]) -> list[str]:
 
 
 def planned_ids(plan: dict, sources: list[dict], t5_selected: list[dict] | None) -> list[str]:
+    if plan.get("protocol") == "e3-s1-v1":
+        from m1b_e3_s1_runtime import planned_ids as s1_ids
+        return s1_ids(plan, sources, t5_selected)
     ids = []
     for s in sources:
         ids += source_ids(s["uid"])
@@ -605,6 +622,12 @@ class Worker:
         self.deadline = None if plan.get("max_wall_seconds") is None else self.started + plan["max_wall_seconds"]
         self.consecutive_failures = 0
         self.faults = {f["unit"]: f["kind"] for f in plan.get("fault_injection") or []}
+        self.resource_check = lambda: None
+
+    def check_budget(self):
+        if self.deadline is not None and self.clock() >= self.deadline:
+            raise Stop()
+        self.resource_check()
 
     # -- io
     def _save(self, name: str, rgb) -> dict:
@@ -629,8 +652,7 @@ class Worker:
         """Run one unit unless journaled. Scientific failures become adverse rows; infrastructure stops."""
         if rid in self.journal:
             return self.journal.get(rid)
-        if self.deadline is not None and self.clock() >= self.deadline:
-            raise Stop()
+        self.check_budget()
         t0 = time.perf_counter()
         try:
             kind = self.faults.get(rid)
@@ -662,7 +684,7 @@ class Worker:
 
     def _image_of(self, rid: str):
         row = self.journal.get(rid)
-        if not row or row.get("outcome") != "completed":
+        if not row or row.get("outcome") != "completed" or not row.get("image"):
             return None
         return self._load(row["image"])
 
@@ -823,6 +845,9 @@ class Worker:
         return selected
 
     def run(self) -> tuple[str, list[dict] | None, str | None]:
+        if self.plan.get("protocol") == "e3-s1-v1":
+            from m1b_e3_s1_runtime import run as run_s1
+            return run_s1(self)
         try:
             self.run_sources()
             self.run_t3()
@@ -890,7 +915,7 @@ def preflight(plan: dict, sources: list[dict], out: Path) -> dict:
         if not a.is_file() or sha_file(a) != plan["t5"]["annotations"]["sha256"]:
             bad.append("annotation artifact")
     free = shutil.disk_usage(out).free
-    need = 4 * 2**30 if plan["data_split"] == "test" else 2**30
+    need = (20 if plan.get("protocol") == "e3-s1-v1" else 4) * 2**30 if plan["data_split"] == "test" else 2**30
     if free < need:
         bad.append(f"free disk {free / 2**30:.1f} GiB < {need / 2**30:.0f} GiB")
     if bad:
@@ -935,7 +960,73 @@ def adopt_parent(plan: dict, out: Path, core: dict) -> dict | None:
     return record
 
 
+def s1_parent_attempts(plan: dict) -> list[dict]:
+    """Use closed official attempt times, including interrupted work and model/preflight time."""
+    attempts, seen = [], set()
+    parent = resolve(plan['resume_from']) if plan.get('resume_from') else None
+    while parent is not None:
+        key = str(parent.resolve()).lower()
+        if key in seen or len(attempts) >= MAX_RESUME_DEPTH:
+            raise ValueError('invalid or excessive S1 attempt lineage')
+        seen.add(key)
+        m = json.loads((parent / 'manifest.json').read_text(encoding='utf-8'))
+        if not m.get('ended_at') or m.get('status') == 'running':
+            raise ValueError('S1 parent attempt is not closed')
+        start = datetime.fromisoformat(m['started_at'].replace('Z', '+00:00'))
+        end = datetime.fromisoformat(m['ended_at'].replace('Z', '+00:00'))
+        seconds = (end - start).total_seconds()
+        if seconds < 0:
+            raise ValueError('invalid S1 parent elapsed time')
+        # Official timestamps have second precision; round conservatively by one second.
+        attempts.append(dict(path=str(parent), elapsed_seconds=seconds + 1))
+        lineage = json.loads((parent / 'outputs/lineage.json').read_text(encoding='utf-8'))
+        parent = Path(lineage['parent']) if lineage.get('parent') else None
+    return attempts
+
+
+def peak_process_ram_bytes() -> int:
+    if sys.platform == 'win32':
+        import ctypes
+        from ctypes import wintypes
+        class Counters(ctypes.Structure):
+            _fields_ = [('cb', wintypes.DWORD), ('PageFaultCount', wintypes.DWORD)] + [
+                (k, ctypes.c_size_t) for k in ('PeakWorkingSetSize', 'WorkingSetSize', 'QuotaPeakPagedPoolUsage',
+                'QuotaPagedPoolUsage', 'QuotaPeakNonPagedPoolUsage', 'QuotaNonPagedPoolUsage',
+                'PagefileUsage', 'PeakPagefileUsage')]
+        c = Counters(); c.cb = ctypes.sizeof(c)
+        get_handle = ctypes.windll.kernel32.GetCurrentProcess
+        get_handle.restype = wintypes.HANDLE
+        f = ctypes.windll.psapi.GetProcessMemoryInfo
+        f.argtypes = [wintypes.HANDLE, ctypes.POINTER(Counters), wintypes.DWORD]
+        if not f(get_handle(), ctypes.byref(c), c.cb):
+            raise OSError('GetProcessMemoryInfo failed')
+        return int(c.PeakWorkingSetSize)
+    import resource
+    value = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    return int(value if sys.platform == 'darwin' else value * 1024)
+
+
+def s1_resource_check(out: Path, attempts: list[dict]) -> Callable[[], None]:
+    """Existing worker checkpoints enforce bounded resident memory and retained output storage."""
+    last_scan = [float('-inf')]
+    def check():
+        if peak_process_ram_bytes() > S1_RESOURCE_LIMITS['ram_bytes']:
+            raise InfrastructureStop('budget', 'S1 process peak RAM exceeds 16 GiB')
+        now = time.monotonic()
+        if now - last_scan[0] < 5:
+            return
+        last_scan[0] = now
+        total = sum(f.stat().st_size for root in [out, *[Path(a['path']) for a in attempts]]
+                    for f in (root / 'outputs').rglob('*') if f.is_file())
+        if total > S1_RESOURCE_LIMITS['output_bytes']:
+            raise InfrastructureStop('budget', 'S1 retained attempt outputs exceed 12 GiB')
+        if shutil.disk_usage(out).free < S1_RESOURCE_LIMITS['free_bytes']:
+            raise InfrastructureStop('budget', 'S1 free disk falls below 20 GiB')
+    return check
+
+
 def main(argv=None, runtime_factory=Runtime) -> int:
+    process_started = time.monotonic()
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--manifest", type=Path, required=True)
     ap.add_argument("--output-dir", type=Path, required=True)
@@ -944,7 +1035,7 @@ def main(argv=None, runtime_factory=Runtime) -> int:
     manifest = json.loads(a.manifest.read_text(encoding="utf-8"))
     plan_path, plan = find_plan(manifest)
     plan, sources = validate_plan(plan)
-    for key in ("f5_config", "profile"):
+    for key in (("f5_config", "profile", "s1_config", "environment_lock", "sdxl_lock") if plan.get("protocol") == "e3-s1-v1" else ("f5_config", "profile")):
         if sha_file(resolve(plan[key]["path"])) != plan[key]["sha256"]:
             raise ValueError(key + " hash mismatch")
     out = a.output_dir
@@ -953,6 +1044,23 @@ def main(argv=None, runtime_factory=Runtime) -> int:
     if plan["data_split"] in ("test", "rehearsal"):
         bind_manifest(manifest)
         approval = check_approval(plan, manifest)
+    s1 = plan.get('protocol') == 'e3-s1-v1'
+    attempts, preceding_seconds, dispatch_offset = [], 0.0, 0.0
+    if s1:
+        if not 60 <= plan.get('max_wall_seconds', 0) <= 27000:
+            raise ValueError('S1 cooperative attempt ceiling must be 60..27000 seconds')
+        if manifest['budget']['max_seconds'] > S1_RESOURCE_LIMITS['attempt_seconds']:
+            raise ValueError('S1 official attempt ceiling exceeds 28800 seconds')
+        attempts = s1_parent_attempts(plan)
+        preceding_seconds = sum(a['elapsed_seconds'] for a in attempts)
+        official = out / 'manifest.json'
+        if official.exists():
+            dispatch = json.loads(official.read_text(encoding='utf-8'))
+            dispatch_start = datetime.fromisoformat(dispatch['started_at'].replace('Z', '+00:00'))
+            dispatch_offset = max(0.0, (datetime.fromisoformat(started_utc) - dispatch_start).total_seconds()) + 1
+        remaining = S1_RESOURCE_LIMITS['aggregate_seconds'] - preceding_seconds - dispatch_offset
+        if remaining <= 0:
+            raise SystemExit('S1 aggregate 24-hour ceiling exhausted')
     core = scientific_core(plan)
     dirty = _git("status", "--porcelain", "--", *core["code_sha256"], *core["data_sha256"])
     if dirty:
@@ -970,12 +1078,21 @@ def main(argv=None, runtime_factory=Runtime) -> int:
     # would then call getpass.getuser() and fail on Windows. Keep its cache inside the run.
     os.environ.setdefault("TORCHINDUCTOR_CACHE_DIR", str(out / "checkpoints" / "torch-inductor-cache"))
     t0 = time.monotonic()
+    if plan.get("protocol") == "e3-s1-v1" and runtime_factory is Runtime:
+        from m1b_e3_s1_runtime import Runtime as S1Runtime
+        runtime_factory = S1Runtime
     rt = runtime_factory(plan)
     load_seconds = time.monotonic() - t0
     worker = Worker(plan, sources, out, rt)
+    if s1:
+        # Includes manifest checks, source preflight, model loading and abandoned attempts.
+        worker.deadline = process_started + min(plan['max_wall_seconds'] - dispatch_offset, remaining)
+        worker.resource_check = s1_resource_check(out, attempts)
     status, selected, error = worker.run()
     rows = worker.journal.rows
     from m1b_coco512_analysis import analyse, inventory
+    if plan.get("protocol") == "e3-s1-v1":
+        from m1b_e3_s1_analysis import analyse
     inv = inventory(planned_ids(plan, sources, selected), rows)
     resources = getattr(rt, "resources", None)
     run = dict(schema="m1b-coco512-run-v2", version=VERSION, status=status, infrastructure_error=error,
@@ -986,6 +1103,12 @@ def main(argv=None, runtime_factory=Runtime) -> int:
                output_bytes=sum(f.stat().st_size for f in (out / "outputs").rglob("*") if f.is_file()),
                started_utc=started_utc, ended_utc=datetime.now(timezone.utc).isoformat(), model_load_seconds=load_seconds,
                wall_seconds=time.monotonic() - t0, torn_journal_lines_dropped=worker.journal.torn_lines, inventory=inv)
+    if s1:
+        run['budget_accounting'] = dict(limits=S1_RESOURCE_LIMITS, prior_attempts=attempts,
+            prior_seconds=preceding_seconds, dispatch_before_worker_seconds=dispatch_offset,
+            attempt_seconds_including_preflight=time.monotonic()-process_started+dispatch_offset,
+            aggregate_seconds=preceding_seconds+time.monotonic()-process_started+dispatch_offset,
+            peak_process_ram_bytes=peak_process_ram_bytes())
     if status == "finished":
         try:
             result = analyse(plan, sources, rows, selected)

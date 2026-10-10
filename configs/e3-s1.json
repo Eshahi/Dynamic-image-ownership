@@ -1,0 +1,143 @@
+{
+  "schema": "e3-s1-frozen-v1",
+  "owner": "qim-pilot-owner-alpha",
+  "source_contract": "m1b-canonical-rgb512-v2 512x512 RGB8",
+  "supplier": {
+    "callable": "journal_e3_writer.supply_f5",
+    "psnr_db": 52.0,
+    "steps": 150,
+    "target_margin": 4.0,
+    "mask_power": 0.0,
+    "band": [
+      4,
+      32
+    ],
+    "whitening": 1.0,
+    "refine_rounds": 1,
+    "binding": "soft",
+    "semantic_views": 7,
+    "q_target": "bootstrap intended semantic word",
+    "h_target": "saved bootstrap native-decoded operational instance word",
+    "quality_filter": false
+  },
+  "writer": {
+    "callable": "journal_e3_writer.embed",
+    "source": "canonical C0; never bootstrap pixels",
+    "initializer": {
+      "first_psnr_db": 46.0,
+      "first_steps": 150,
+      "second_psnr_db": 52.0,
+      "second_steps": 50,
+      "target_margin": 4.0,
+      "mask_power": 0.0,
+      "fragile_restore_after_each": true
+    },
+    "refinement": {
+      "branches": [
+        "clean",
+        "sd15_vae",
+        "sdxl_vae",
+        "ddim_0.1_seed0",
+        "ddim_0.1_seed1",
+        "ddim_0.1_seed2",
+        "ddim_0.2_seed0",
+        "ddim_0.2_seed1",
+        "ddim_0.2_seed2"
+      ],
+      "logical_steps": 20,
+      "phase_boundary": 10,
+      "fractions_B": [
+        [
+          0.1,
+          0.5,
+          1.0
+        ],
+        [
+          0.025,
+          0.125,
+          0.25
+        ]
+      ],
+      "added_psnr_db": 52.0,
+      "total_psnr_db": 35.1,
+      "score_target": 9.0,
+      "bit_gap_target": 1.0,
+      "projection_iterations": 100,
+      "projection_relative_tolerance": 1e-06,
+      "decrease_margin_absolute": 1e-06,
+      "decrease_margin_relative": 0.0001,
+      "exact_shortcuts": true
+    },
+    "contraction": 0.8,
+    "post_contraction_repair": false
+  },
+  "detector": {
+    "callable": "journal_bch_readout.detect_rgb",
+    "binding": "soft",
+    "semantic_views": 7,
+    "roster_size": 1,
+    "payload_bits": 32,
+    "coded_bits": 59,
+    "correction_radius": 5,
+    "carrier_chips": 320,
+    "band": [
+      4,
+      32
+    ],
+    "whitening": 1.0,
+    "read_threshold": "sqrt(2*log(2*roster*2**32/alpha))",
+    "recomputed_threshold": "sqrt(2*log(2*roster/alpha))",
+    "instance_route": "RC1 decoded q if read else suspect-recomputed q",
+    "threshold_profile": {
+      "path": "experiments/c4-v5-two-tier-regeneration-v1/profile.json",
+      "sha256": "25f9cb188368be04cd8d2b95ea1066872d3ca70908bd554af01ff93a53b40723"
+    }
+  },
+  "quality": {
+    "psnr_gt": 35.0,
+    "ssim_gt": 0.9,
+    "lpips_lt": 0.1
+  },
+  "t3": {
+    "model": "pinned SD1.5",
+    "scheduler": "DDIM",
+    "num_inference_steps": 20,
+    "strengths": [
+      0.1,
+      0.2
+    ],
+    "seeds": [
+      3,
+      4,
+      5
+    ],
+    "prompt": "",
+    "negative_prompt": "",
+    "guidance_scale": 1.0,
+    "eta": 0.0,
+    "safety_checker": true
+  },
+  "t4": {
+    "residual_scales": [
+      0.5,
+      1.0
+    ],
+    "public_projection_steps": 40,
+    "public_psnr_db": 35.2,
+    "fragile_replacement_passes": 3,
+    "modes": [
+      "combined",
+      "semantic_only",
+      "perceptual_only",
+      "none"
+    ]
+  },
+  "v5": {
+    "recipe": "native r3 unchanged",
+    "owner": "qim-pilot-owner-alpha",
+    "source_views": 1,
+    "clean_t3_roster_size": 4,
+    "transfer_roster_size": 1,
+    "strict": false
+  }
+}
