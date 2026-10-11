@@ -1,0 +1,25 @@
+{
+  "schema_version": "e3-s1-sdxl-lock-v1",
+  "model_id": "stabilityai/sdxl-vae",
+  "revision": "6f5909a7e596173e25d4e97b07fd19cdf9611c76",
+  "license": "MIT",
+  "root": "/workspace/thesis-assets/journal-sdxl-vae-6f5909a7",
+  "dtype": "float32",
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "53a552bcc5cb660bd17d53e463690cd8f4d0205671603536fffbce8719d21f77",
+      "size_bytes": 3172
+    },
+    {
+      "path": "config.json",
+      "sha256": "1ab8e39aeac945453e4c4bd1dd4d0953c566cb9eb9291f87cd316e75c61073cf",
+      "size_bytes": 607
+    },
+    {
+      "path": "diffusion_pytorch_model.safetensors",
+      "sha256": "1598f3d24932bcfe6634e8b618ea1e30ab1d57f5aad13a6d2de446d2199f2341",
+      "size_bytes": 334643268
+    }
+  ]
+}
