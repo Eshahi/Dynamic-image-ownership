@@ -23,8 +23,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
-MAIN = Path("W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5")
-ASSETS = MAIN / ".thesis-build/assets/a6"
+from thesis_deployment_paths import MAIN, ASSETS
 DEV = MAIN / ".thesis-build/dev-runs"
 SOURCES = {
     1675: DEV / "20261004-1102-e2e-1675/1675-C0-clean.png",

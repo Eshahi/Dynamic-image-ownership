@@ -72,8 +72,7 @@ HELD_OUT_INDEX_SHA256 = "8521b783324b62c9394081f0f7f0d8e5162b6592b9bf3256dddf0d4
 HELD_OUT_SCHEDULE = "research/m1-confirmatory-schedule-draft.json"
 HELD_OUT_SCHEDULE_SHA256 = "83c023bc3e0acb2a38142e8ef6e6a27f9216b7dacb5d885ab778b8799469f35d"
 HELD_OUT_ANNOTATION_SHA256 = "e8c7f7908f1d7278341fae127d0da654f102f11bd7b21d8aeefa635b8c810b6f"
-HELD_OUT_RAW_ROOT = "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/data/raw"
-OFFICIAL_RUNTIME = "C:/Users/Soroush/.codex/skills/thesis-compute-runner/scripts/_runtime"
+from thesis_deployment_paths import HELD_OUT_RAW_ROOT, HELD_OUT_RAW_ROOTS, OFFICIAL_RUNTIME
 OFFICIAL_COMPUTE_SHA256 = "4b98e5429d57bda48dbe7b239602b1c7ef60c7cbb19058e17136b29a09437d30"
 MAX_RESUME_DEPTH = 2
 MAX_CONSECUTIVE_FAILURES = 3
@@ -150,6 +149,10 @@ def under(path: str | Path, root: str | Path) -> bool:
     a = os.path.normcase(os.path.abspath(str(path)))
     b = os.path.normcase(os.path.abspath(str(root)))
     return a == b or a.startswith(b.rstrip("\\/") + os.sep)
+
+
+def under_held_out_root(path: str | Path) -> bool:
+    return any(under(path, root) for root in HELD_OUT_RAW_ROOTS)
 
 
 # ---------------------------------------------------------------- scientific core
@@ -341,10 +344,10 @@ def validate_plan(plan: dict, base: Path = ROOT) -> tuple[dict, list[dict]]:
             raise ValueError(f"a {split} plan may not use the held-out index")
         for s in sources:
             if s["uid"] in held["uids"] or s["group_id"] in held["groups"] or s["raw_sha256"] in held["raw"] \
-                    or under(s["raw_path"], HELD_OUT_RAW_ROOT):
+                    or under_held_out_root(s["raw_path"]):
                 raise ValueError(f"a {split} plan may not touch held-out source {s['uid']}")
         if t5["selector"] == "coco-instances" and (t5["annotations"]["sha256"] == HELD_OUT_ANNOTATION_SHA256
-                                                   or under(resolve(t5["annotations"]["path"], base), HELD_OUT_RAW_ROOT)):
+                                                   or under_held_out_root(resolve(t5["annotations"]["path"], base))):
             raise ValueError(f"a {split} plan may not read the held-out annotations")
     return plan, sources
 

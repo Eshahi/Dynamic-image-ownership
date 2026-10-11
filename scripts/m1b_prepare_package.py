@@ -15,6 +15,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import subprocess
 import sys
 from datetime import datetime, timedelta, timezone
@@ -34,7 +35,14 @@ def git(*args) -> str:
     return subprocess.check_output(["git", *args], cwd=ROOT, text=True).strip()
 
 
-def build_manifest(plan_path: str, run_id: str, max_seconds: int) -> tuple[dict, dict]:
+def build_manifest(plan_path: str, run_id: str, max_seconds: int, *, hourly_usd: float = 0,
+                   max_usd: float = 0) -> tuple[dict, dict]:
+    if any(not math.isfinite(x) or x < 0 for x in (hourly_usd, max_usd)):
+        raise ValueError("paid budget must be finite and nonnegative")
+    if bool(hourly_usd) != bool(max_usd):
+        raise ValueError("paid budget requires both hourly_usd and max_usd")
+    if hourly_usd * max_seconds / 3600 > max_usd:
+        raise ValueError("attempt ceiling exceeds paid budget")
     plan = json.loads((ROOT / plan_path).read_text(encoding="utf-8"))
     W.validate_plan(plan)
     if git("status", "--porcelain"):
@@ -60,7 +68,7 @@ def build_manifest(plan_path: str, run_id: str, max_seconds: int) -> tuple[dict,
         metrics=["clean C1 both_match", "clean C0/wrong-owner any_found (primary) and both_match",
                  "T3 semantic per dose and seed (source majority)", "T4 false donor full attribution",
                  "T5 false full match", "PSNR/SSIM/LPIPS"],
-        budget=dict(max_seconds=int(max_seconds), max_usd=0, hourly_usd=0),
+        budget=dict(max_seconds=int(max_seconds), max_usd=max_usd, hourly_usd=hourly_usd),
         resources=dict(vram_mib=9216, ram_mib=16384, disk_mib=12288) if s1 else dict(vram_mib=9000, ram_mib=16000, disk_mib=4000),
         cleanup_policy="stop-for-recovery")
     if s1:
@@ -71,7 +79,8 @@ def build_manifest(plan_path: str, run_id: str, max_seconds: int) -> tuple[dict,
 
 
 def cmd_manifest(a) -> None:
-    m, core = build_manifest(a.plan, a.run_id, a.max_seconds)
+    m, core = build_manifest(a.plan, a.run_id, a.max_seconds,
+                           hourly_usd=a.hourly_usd, max_usd=a.max_usd)
     out = Path(a.out)
     if W.under(out, ROOT):
         raise SystemExit("write the execution manifest outside the repository (keeps the checkout clean)")
@@ -82,7 +91,7 @@ def cmd_manifest(a) -> None:
                     manifest_sha256=W.object_digest(m), decision="approve",
                     timestamp=now.isoformat().replace("+00:00", "Z"),
                     expires_at=(now + timedelta(days=7)).isoformat().replace("+00:00", "Z"),
-                    max_seconds=m["budget"]["max_seconds"], max_usd=0, actor="<your name>",
+                    max_seconds=m["budget"]["max_seconds"], max_usd=m["budget"]["max_usd"], actor="<your name>",
                     source_ref=(f"approve manifest {W.object_digest(m)[:16]}, scientific core {core['core_sha256'][:16]}, "
                                 "and up to 2 continuations that reuse the journal of this run if it is interrupted"))
     print(json.dumps(dict(manifest=str(out), manifest_sha256=W.object_digest(m), scientific_core_sha256=core["core_sha256"],
@@ -151,6 +160,8 @@ def main() -> None:
     m.add_argument("--plan", required=True)
     m.add_argument("--run-id", required=True)
     m.add_argument("--max-seconds", type=int, required=True)
+    m.add_argument("--hourly-usd", type=float, default=0)
+    m.add_argument("--max-usd", type=float, default=0)
     m.add_argument("--out", required=True)
     r = sub.add_parser("rerun-check")
     r.add_argument("--approved", required=True)

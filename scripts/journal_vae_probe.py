@@ -21,7 +21,7 @@ from f4_transfer_probe import MAIN, ASSETS, SOURCES
 from m1_latent_reconstruction import quality
 
 F5_RUN = MAIN / ".thesis-build/dev-runs/20261005-0640-f5-gate-soft-views7"
-SDXL = MAIN / ".thesis-build/assets/journal-sdxl-vae-6f5909a7"
+from thesis_deployment_paths import SDXL
 SDXL_REV = "6f5909a7e596173e25d4e97b07fd19cdf9611c76"
 
 

@@ -4,6 +4,7 @@ import json
 import math
 import time
 import uuid
+import sys
 from pathlib import Path
 
 PROTOCOL = 'e3-s1-v1'
@@ -15,6 +16,8 @@ CONDITIONS = ('residual-0.5', 'residual-1.0', 'public', 'public-sham')
 FRESH_INDEX = 'research/journal-upgrade-20261009/e3-s1-external-index.json'
 FRESH_SCHEDULE = 'research/journal-upgrade-20261009/e3-s1-schedule.json'
 FRESH_INDEX_SHA256 = '754e0362791d627dc0af23530993bbee30ecc7d31a8fcb8cb4af439d27415581'
+LINUX_FRESH_INDEX = 'research/journal-upgrade-20261009/e3-s1-linux-external-index.json'
+LINUX_FRESH_INDEX_SHA256 = '091bad0fae4092ed8332ca64e44873cafcabd88ebfa8636957d5104be7a80a0f'
 FRESH_SCHEDULE_SHA256 = 'fada9a67f066f2dc4bde5931d46911eb11bb10cb6e6bebcaa7abf33192cac9d0'
 S1_CONFIG_SHA256 = 'f5ad6b66c7b2a6c0a337dd5243c86b832b8e0dc134e7926ac5be80b3dcb2cb2a'
 FRESH_INVENTORY = 'research/journal-upgrade-20261009/e3-s1-fresh-cohort.json'
@@ -382,7 +385,8 @@ def validate_plan(plan,base):
         if set(f)!={'unit','kind'} or f['kind'] not in ('oserror','cuda','scientific'): raise ValueError('invalid fault injection')
     if plan['data_split']=='test':
         index=W._ref(plan['sources'].get('index'),'sources.index'); sched=W._ref(plan.get('schedule'),'schedule')
-        if index['path']!=FRESH_INDEX or index['sha256']!=FRESH_INDEX_SHA256 or sched['path']!=FRESH_SCHEDULE or sched['sha256']!=FRESH_SCHEDULE_SHA256: raise ValueError('S1 fresh frozen metadata contract required')
+        index_path,index_hash = (LINUX_FRESH_INDEX,LINUX_FRESH_INDEX_SHA256) if sys.platform=='linux' else (FRESH_INDEX,FRESH_INDEX_SHA256)
+        if index['path']!=index_path or index['sha256']!=index_hash or sched['path']!=FRESH_SCHEDULE or sched['sha256']!=FRESH_SCHEDULE_SHA256: raise ValueError('S1 fresh frozen metadata contract required')
         if W.sha_file(W.resolve(sched['path'],base))!=sched['sha256']: raise ValueError('S1 schedule hash mismatch')
         schedule=json.loads(W.resolve(sched['path'],base).read_text(encoding='utf-8-sig'))
         if schedule.get('t3_source_uids')!=uids or schedule.get('t4_pairs')!=pairs or [c['source_uid'] for c in schedule.get('clean',[])]!=uids: raise ValueError('S1 schedule differs')
@@ -390,8 +394,8 @@ def validate_plan(plan,base):
     else:
         held=W.held_out_identities(base)
         for s in sources:
-            if s['uid'] in held['uids'] or s['group_id'] in held['groups'] or s['raw_sha256'] in held['raw'] or W.under(s['raw_path'],W.HELD_OUT_RAW_ROOT): raise ValueError('non-test source intersects held-out metadata')
-        if t5['selector']=='coco-instances' and (t5['annotations']['sha256']==W.HELD_OUT_ANNOTATION_SHA256 or W.under(W.resolve(t5['annotations']['path'],base),W.HELD_OUT_RAW_ROOT)): raise ValueError('non-test held-out annotation refused')
+            if s['uid'] in held['uids'] or s['group_id'] in held['groups'] or s['raw_sha256'] in held['raw'] or W.under_held_out_root(s['raw_path']): raise ValueError('non-test source intersects held-out metadata')
+        if t5['selector']=='coco-instances' and (t5['annotations']['sha256']==W.HELD_OUT_ANNOTATION_SHA256 or W.under_held_out_root(W.resolve(t5['annotations']['path'],base))): raise ValueError('non-test held-out annotation refused')
     return plan,sources
 
 
@@ -412,6 +416,8 @@ def verify_runtime_locks(plan,base):
     lock=json.loads(refs['sdxl_lock'].read_text())
     if lock['revision']!='6f5909a7e596173e25d4e97b07fd19cdf9611c76' or lock['dtype']!='float32': raise ValueError('SDXL lock differs')
     root=Path(lock['root'])
+    from thesis_deployment_paths import SDXL
+    if root.resolve()!=SDXL.resolve(): raise ValueError('Pinned SDXL root differs')
     for f in lock['files']:
         p=root/f['path']
         if not W.under(p,root) or p.stat().st_size!=f['size_bytes'] or W.sha_file(p)!=f['sha256']: raise ValueError('SDXL asset differs: '+f['path'])
