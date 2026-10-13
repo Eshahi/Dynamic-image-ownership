@@ -117,13 +117,16 @@ def main():
             initial_path = Path(writer['start_image'])
             state_path = Path(writer['final_state_image'])
             final_path = Path(row['conditions']['clean']['image'])
-            if final_path.resolve() != Path(writer['final_image']).resolve():
-                raise ValueError('Selected clean image differs from writer final path')
             initial, state, final = rgb(initial_path), rgb(state_path), rgb(final_path)
+            writer_final_path = Path(writer['final_image'])
+            alias = final_path.resolve() != writer_final_path.resolve()
+            if alias and not np.array_equal(rgb(writer_final_path), final):
+                raise ValueError('Selected clean pixels differ from writer final pixels')
             equal = bool(np.array_equal(initial, final))
             record['rows'].append(dict(source_id=row['source_id'],
                 source_image=row['source_image'], initializer=str(initial_path),
                 state=str(state_path), inherited_provenance=row['provenance'],
+                writer_final_path=str(writer_final_path), inherited_path_alias=alias,
                 final=str(final_path), payload=row['payload'], identical_pixels=equal,
                 initializer_to_state=difference(initial, state),
                 state_to_final=difference(state, final),
