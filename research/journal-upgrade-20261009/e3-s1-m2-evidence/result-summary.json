@@ -1,0 +1,1189 @@
+{
+  "primary": {
+    "0.1": {
+      "n": 300,
+      "e3_only": 136,
+      "v5_only": 6,
+      "both": 145,
+      "neither": 13,
+      "risk_difference": 0.43333333333333335,
+      "exact_mcnemar_one_sided_p": 1.9184595192280364e-33,
+      "e3_success": 281,
+      "v5_success": 151,
+      "e3_interval": {
+        "two_sided_95": [
+          0.9028618033928799,
+          0.961441980171624
+        ],
+        "upper_one_sided_95": 0.9581335160024349,
+        "model": "hypothetical exchangeable units"
+      },
+      "v5_interval": {
+        "two_sided_95": [
+          0.4452990678384876,
+          0.5613011324720791
+        ],
+        "upper_one_sided_95": 0.5522988355498843,
+        "model": "hypothetical exchangeable units"
+      },
+      "approximate_paired_source_bootstrap_95": [
+        0.37333333333333335,
+        0.49333333333333335
+      ],
+      "bootstrap": {
+        "resamples": 100000,
+        "generator": "PCG64",
+        "seed": 61010,
+        "unit": "complete source cluster",
+        "interval": "approximate percentile"
+      },
+      "holm_individual_p": 1.9184595192280364e-33
+    },
+    "0.2": {
+      "n": 300,
+      "e3_only": 156,
+      "v5_only": 7,
+      "both": 122,
+      "neither": 15,
+      "risk_difference": 0.49666666666666665,
+      "exact_mcnemar_one_sided_p": 4.763791393087333e-38,
+      "e3_success": 278,
+      "v5_success": 129,
+      "e3_interval": {
+        "two_sided_95": [
+          0.8910755354831041,
+          0.9534743356152149
+        ],
+        "upper_one_sided_95": 0.9498351951425622,
+        "model": "hypothetical exchangeable units"
+      },
+      "v5_interval": {
+        "two_sided_95": [
+          0.3732484429791692,
+          0.4881478511009218
+        ],
+        "upper_one_sided_95": 0.47904548112133033,
+        "model": "hypothetical exchangeable units"
+      },
+      "approximate_paired_source_bootstrap_95": [
+        0.43333333333333335,
+        0.5566666666666666
+      ],
+      "bootstrap": {
+        "resamples": 100000,
+        "generator": "PCG64",
+        "seed": 61010,
+        "unit": "complete source cluster",
+        "interval": "approximate percentile"
+      },
+      "holm_individual_p": 9.527582786174666e-38
+    }
+  },
+  "conjunction_superiority": true,
+  "clean": {
+    "e3-s1": {
+      "N": 300,
+      "counts": {
+        "supplier_success": 300,
+        "returned_final_pixels": 300,
+        "admitted": 294,
+        "strict_quality": 294,
+        "Q": 300,
+        "H": 300,
+        "F": 300,
+        "primary_clean_admission": 294,
+        "joint_Q_H": 300,
+        "joint_Q_H_F": 300,
+        "joint_admitted_strict_quality": 294,
+        "joint_strict_quality_Q_H_F": 294,
+        "psnr_gt35": 300,
+        "ssim_gt0_9": 300,
+        "lpips_lt0_1": 294
+      },
+      "supplier_applicable": true,
+      "metrics": {
+        "psnr_db": {
+          "observed": 300,
+          "infinite": 0,
+          "absent": 0,
+          "minimum": 39.868743935552196,
+          "maximum": 43.578137214626544,
+          "median": 41.41826725658461
+        },
+        "ssim_rgb": {
+          "observed": 300,
+          "infinite": 0,
+          "absent": 0,
+          "minimum": 0.9292608759306116,
+          "maximum": 0.99323708776585,
+          "median": 0.9694969996155227
+        },
+        "lpips": {
+          "observed": 300,
+          "infinite": 0,
+          "absent": 0,
+          "minimum": 0.007624386809766293,
+          "maximum": 0.1844407320022583,
+          "median": 0.04765162244439125
+        }
+      },
+      "strict_quality_all_sources": false
+    },
+    "v5-r3": {
+      "N": 300,
+      "counts": {
+        "supplier_success": null,
+        "returned_final_pixels": 300,
+        "admitted": 300,
+        "strict_quality": 298,
+        "Q": 296,
+        "H": 162,
+        "F": 299,
+        "primary_clean_admission": 159,
+        "joint_Q_H": 160,
+        "joint_Q_H_F": 159,
+        "joint_admitted_strict_quality": 298,
+        "joint_strict_quality_Q_H_F": 159,
+        "psnr_gt35": 300,
+        "ssim_gt0_9": 300,
+        "lpips_lt0_1": 298
+      },
+      "supplier_applicable": false,
+      "metrics": {
+        "psnr_db": {
+          "observed": 300,
+          "infinite": 0,
+          "absent": 0,
+          "minimum": 35.18851222723563,
+          "maximum": 43.864511070592386,
+          "median": 36.92259672598743
+        },
+        "ssim_rgb": {
+          "observed": 300,
+          "infinite": 0,
+          "absent": 0,
+          "minimum": 0.9620288481809156,
+          "maximum": 0.9911129930682961,
+          "median": 0.9787389045186405
+        },
+        "lpips": {
+          "observed": 300,
+          "infinite": 0,
+          "absent": 0,
+          "minimum": 0.006652345880866051,
+          "maximum": 0.10278479754924774,
+          "median": 0.01831603515893221
+        }
+      },
+      "strict_quality_all_sources": false
+    }
+  },
+  "negatives": {
+    "e3-s1": {
+      "clean_source_any": {
+        "planned": 300,
+        "observed": 300,
+        "positives": 0,
+        "unresolved": 0,
+        "planned_rate_bounds": [
+          0.0,
+          0.0
+        ],
+        "independent_units": 300,
+        "observed_event_interval": {
+          "two_sided_95": [
+            0.0,
+            0.012220974694293552
+          ],
+          "upper_one_sided_95": 0.009936081944457708,
+          "model": "hypothetical exchangeable units"
+        },
+        "conservative_upper_one_sided_95": 0.009936081944457708,
+        "completely_evaluated_sources": 300,
+        "sources_with_unavailable_calls": 0
+      },
+      "t3_source_any": {
+        "planned": 300,
+        "observed": 290,
+        "positives": 0,
+        "unresolved": 10,
+        "planned_rate_bounds": [
+          0.0,
+          0.03333333333333333
+        ],
+        "independent_units": 300,
+        "observed_event_interval": {
+          "two_sided_95": [
+            0.0,
+            0.01263971324131238
+          ],
+          "upper_one_sided_95": 0.010276938938107289,
+          "model": "hypothetical exchangeable units"
+        },
+        "conservative_upper_one_sided_95": 0.05588474051455856,
+        "completely_evaluated_sources": 290,
+        "sources_with_unavailable_calls": 10
+      }
+    },
+    "v5-r3": {
+      "clean_source_any": {
+        "planned": 300,
+        "observed": 300,
+        "positives": 0,
+        "unresolved": 0,
+        "planned_rate_bounds": [
+          0.0,
+          0.0
+        ],
+        "independent_units": 300,
+        "observed_event_interval": {
+          "two_sided_95": [
+            0.0,
+            0.012220974694293552
+          ],
+          "upper_one_sided_95": 0.009936081944457708,
+          "model": "hypothetical exchangeable units"
+        },
+        "conservative_upper_one_sided_95": 0.009936081944457708,
+        "completely_evaluated_sources": 300,
+        "sources_with_unavailable_calls": 0
+      },
+      "t3_source_any": {
+        "planned": 300,
+        "observed": 297,
+        "positives": 0,
+        "unresolved": 3,
+        "planned_rate_bounds": [
+          0.0,
+          0.01
+        ],
+        "independent_units": 300,
+        "observed_event_interval": {
+          "two_sided_95": [
+            0.0,
+            0.012343653868456123
+          ],
+          "upper_one_sided_95": 0.01003594109779244,
+          "model": "hypothetical exchangeable units"
+        },
+        "conservative_upper_one_sided_95": 0.025641393082609616,
+        "completely_evaluated_sources": 297,
+        "sources_with_unavailable_calls": 3
+      }
+    }
+  },
+  "secondary": {
+    "0.1": {
+      "S": {
+        "n": 300,
+        "e3_success": 287,
+        "v5_success": 283
+      },
+      "C": {
+        "n": 300,
+        "e3_success": 287,
+        "v5_success": 243
+      },
+      "Q": {
+        "n": 300,
+        "e3_success": 294,
+        "v5_success": 81
+      },
+      "J": {
+        "n": 300,
+        "e3_success": 287,
+        "v5_success": 80
+      },
+      "H": {
+        "n": 300,
+        "e3_success": 0,
+        "v5_success": 0
+      },
+      "D": {
+        "n": 300,
+        "e3_success": 0,
+        "v5_success": 0
+      },
+      "F": {
+        "n": 300,
+        "e3_success": 0,
+        "v5_success": 0
+      }
+    },
+    "0.2": {
+      "S": {
+        "n": 300,
+        "e3_success": 284,
+        "v5_success": 232
+      },
+      "C": {
+        "n": 300,
+        "e3_success": 284,
+        "v5_success": 112
+      },
+      "Q": {
+        "n": 300,
+        "e3_success": 297,
+        "v5_success": 17
+      },
+      "J": {
+        "n": 300,
+        "e3_success": 284,
+        "v5_success": 17
+      },
+      "H": {
+        "n": 300,
+        "e3_success": 0,
+        "v5_success": 0
+      },
+      "D": {
+        "n": 300,
+        "e3_success": 0,
+        "v5_success": 0
+      },
+      "F": {
+        "n": 300,
+        "e3_success": 0,
+        "v5_success": 0
+      }
+    }
+  },
+  "transfers": {
+    "t4": {
+      "residual-0.5": {
+        "e3-s1": {
+          "events": {
+            "A": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 6,
+              "unresolved": 0
+            },
+            "F": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 0,
+              "unresolved": 0
+            },
+            "Q": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 2,
+              "unresolved": 0
+            },
+            "H": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 0,
+              "unresolved": 0
+            },
+            "D": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 0,
+              "unresolved": 0
+            }
+          },
+          "conditional": {
+            "n": 0,
+            "observed_F": 0,
+            "F": 0,
+            "rejection": 0,
+            "F_rate": null,
+            "F_bounds": null
+          },
+          "same_call_acceptance": {
+            "combined": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "semantic_only": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          },
+          "same_call_discordance": {
+            "semantic_only": {
+              "discordant": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "discordant": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          }
+        },
+        "v5-r3": {
+          "events": {
+            "A": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 24,
+              "unresolved": 0
+            },
+            "F": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 0,
+              "unresolved": 0
+            },
+            "Q": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 13,
+              "unresolved": 0
+            },
+            "H": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 3,
+              "unresolved": 0
+            },
+            "D": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 2,
+              "unresolved": 0
+            }
+          },
+          "conditional": {
+            "n": 2,
+            "observed_F": 2,
+            "F": 0,
+            "rejection": 2,
+            "F_rate": 0.0,
+            "F_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "same_call_acceptance": {
+            "combined": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "semantic_only": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          },
+          "same_call_discordance": {
+            "semantic_only": {
+              "discordant": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "discordant": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          }
+        }
+      },
+      "residual-1.0": {
+        "e3-s1": {
+          "events": {
+            "A": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 14,
+              "unresolved": 0
+            },
+            "F": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 0,
+              "unresolved": 0
+            },
+            "Q": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 6,
+              "unresolved": 0
+            },
+            "H": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 2,
+              "unresolved": 0
+            },
+            "D": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 2,
+              "unresolved": 0
+            }
+          },
+          "conditional": {
+            "n": 2,
+            "observed_F": 2,
+            "F": 0,
+            "rejection": 2,
+            "F_rate": 0.0,
+            "F_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "same_call_acceptance": {
+            "combined": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "semantic_only": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          },
+          "same_call_discordance": {
+            "semantic_only": {
+              "discordant": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "discordant": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          }
+        },
+        "v5-r3": {
+          "events": {
+            "A": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 29,
+              "unresolved": 0
+            },
+            "F": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 0,
+              "unresolved": 0
+            },
+            "Q": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 17,
+              "unresolved": 0
+            },
+            "H": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 7,
+              "unresolved": 0
+            },
+            "D": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 5,
+              "unresolved": 0
+            }
+          },
+          "conditional": {
+            "n": 5,
+            "observed_F": 5,
+            "F": 0,
+            "rejection": 5,
+            "F_rate": 0.0,
+            "F_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "same_call_acceptance": {
+            "combined": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "semantic_only": {
+              "accepted": 1,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          },
+          "same_call_discordance": {
+            "semantic_only": {
+              "discordant": 1,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "discordant": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          }
+        }
+      },
+      "public": {
+        "e3-s1": {
+          "events": {
+            "A": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 30,
+              "unresolved": 0
+            },
+            "F": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 0,
+              "unresolved": 0
+            },
+            "Q": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 30,
+              "unresolved": 0
+            },
+            "H": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 30,
+              "unresolved": 0
+            },
+            "D": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 30,
+              "unresolved": 0
+            }
+          },
+          "conditional": {
+            "n": 30,
+            "observed_F": 30,
+            "F": 0,
+            "rejection": 30,
+            "F_rate": 0.0,
+            "F_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "same_call_acceptance": {
+            "combined": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "semantic_only": {
+              "accepted": 1,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          },
+          "same_call_discordance": {
+            "semantic_only": {
+              "discordant": 1,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "discordant": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          }
+        },
+        "v5-r3": {
+          "events": {
+            "A": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 30,
+              "unresolved": 0
+            },
+            "F": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 0,
+              "unresolved": 0
+            },
+            "Q": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 27,
+              "unresolved": 0
+            },
+            "H": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 23,
+              "unresolved": 0
+            },
+            "D": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 22,
+              "unresolved": 0
+            }
+          },
+          "conditional": {
+            "n": 22,
+            "observed_F": 22,
+            "F": 0,
+            "rejection": 22,
+            "F_rate": 0.0,
+            "F_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "same_call_acceptance": {
+            "combined": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "semantic_only": {
+              "accepted": 3,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          },
+          "same_call_discordance": {
+            "semantic_only": {
+              "discordant": 3,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "discordant": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          }
+        }
+      },
+      "public-sham": {
+        "e3-s1": {
+          "events": {
+            "A": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 0,
+              "unresolved": 0
+            },
+            "F": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 0,
+              "unresolved": 0
+            },
+            "Q": null,
+            "H": null,
+            "D": null
+          },
+          "conditional": null,
+          "same_call_acceptance": {
+            "combined": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "semantic_only": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          },
+          "same_call_discordance": {
+            "semantic_only": {
+              "discordant": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "discordant": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          }
+        },
+        "v5-r3": {
+          "events": {
+            "A": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 0,
+              "unresolved": 0
+            },
+            "F": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 0,
+              "unresolved": 0
+            },
+            "Q": null,
+            "H": null,
+            "D": null
+          },
+          "conditional": null,
+          "same_call_acceptance": {
+            "combined": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "semantic_only": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          },
+          "same_call_discordance": {
+            "semantic_only": {
+              "discordant": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "discordant": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          }
+        }
+      }
+    },
+    "t5": {
+      "public": {
+        "e3-s1": {
+          "events": {
+            "A": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 30,
+              "unresolved": 0
+            },
+            "F": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 0,
+              "unresolved": 0
+            },
+            "Q": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 30,
+              "unresolved": 0
+            },
+            "H": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 30,
+              "unresolved": 0
+            },
+            "D": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 30,
+              "unresolved": 0
+            }
+          },
+          "conditional": {
+            "n": 30,
+            "observed_F": 30,
+            "F": 0,
+            "rejection": 30,
+            "F_rate": 0.0,
+            "F_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "same_call_acceptance": {
+            "combined": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "semantic_only": {
+              "accepted": 9,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          },
+          "same_call_discordance": {
+            "semantic_only": {
+              "discordant": 9,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "discordant": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          }
+        },
+        "v5-r3": {
+          "events": {
+            "A": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 30,
+              "unresolved": 0
+            },
+            "F": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 0,
+              "unresolved": 0
+            },
+            "Q": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 29,
+              "unresolved": 0
+            },
+            "H": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 22,
+              "unresolved": 0
+            },
+            "D": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 21,
+              "unresolved": 0
+            }
+          },
+          "conditional": {
+            "n": 21,
+            "observed_F": 21,
+            "F": 0,
+            "rejection": 21,
+            "F_rate": 0.0,
+            "F_bounds": [
+              0.0,
+              0.0
+            ]
+          },
+          "same_call_acceptance": {
+            "combined": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "semantic_only": {
+              "accepted": 9,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "accepted": 1,
+              "known": 30,
+              "unknown": 0
+            }
+          },
+          "same_call_discordance": {
+            "semantic_only": {
+              "discordant": 9,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "discordant": 1,
+              "known": 30,
+              "unknown": 0
+            }
+          }
+        }
+      },
+      "public-sham": {
+        "e3-s1": {
+          "events": {
+            "A": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 0,
+              "unresolved": 0
+            },
+            "F": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 0,
+              "unresolved": 0
+            },
+            "Q": null,
+            "H": null,
+            "D": null
+          },
+          "conditional": null,
+          "same_call_acceptance": {
+            "combined": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "semantic_only": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          },
+          "same_call_discordance": {
+            "semantic_only": {
+              "discordant": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "discordant": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          }
+        },
+        "v5-r3": {
+          "events": {
+            "A": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 0,
+              "unresolved": 0
+            },
+            "F": {
+              "planned": 30,
+              "observed": 30,
+              "positives": 0,
+              "unresolved": 0
+            },
+            "Q": null,
+            "H": null,
+            "D": null
+          },
+          "conditional": null,
+          "same_call_acceptance": {
+            "combined": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "semantic_only": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "accepted": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          },
+          "same_call_discordance": {
+            "semantic_only": {
+              "discordant": 0,
+              "known": 30,
+              "unknown": 0
+            },
+            "perceptual_only": {
+              "discordant": 0,
+              "known": 30,
+              "unknown": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "budget_accounting": {
+    "limits": {
+      "aggregate_seconds": 86400,
+      "attempt_seconds": 28800,
+      "ram_bytes": 17179869184,
+      "output_bytes": 12884901888,
+      "free_bytes": 21474836480
+    },
+    "prior_attempts": [
+      {
+        "path": "/workspace/thesis/artifacts/M1b-test/e3-s1-vast-confirmatory-r2",
+        "elapsed_seconds": 6864.735036
+      },
+      {
+        "path": "/workspace/thesis/artifacts/M1b-test/e3-s1-vast-confirmatory-r1",
+        "elapsed_seconds": 27001.9128
+      }
+    ],
+    "prior_seconds": 33866.647836,
+    "dispatch_before_worker_seconds": 1.060987,
+    "attempt_seconds_including_preflight": 15452.184756494,
+    "aggregate_seconds": 49318.83259274499,
+    "peak_process_ram_bytes": 4357017600
+  },
+  "resources": {
+    "peak_vram_allocated_mib": 6683.9638671875,
+    "environment": {
+      "torch": "2.12.1+cu130",
+      "diffusers": "0.35.1",
+      "sdxl_revision": "6f5909a7e596173e25d4e97b07fd19cdf9611c76",
+      "threads": 4,
+      "matmul_tf32": false,
+      "cudnn_tf32": true
+    }
+  }
+}

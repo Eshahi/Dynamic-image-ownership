@@ -1,0 +1,80 @@
+{
+  "schema": "e3-s1-m2-report-package-v1",
+  "created_utc": "2026-10-13T12:07:22.876032+00:00",
+  "status": "execution_collection_analysis_and_independent_review_complete",
+  "human_m2_acceptance": "pending",
+  "official_lifecycle_gate": "not_advanced_by_this_package",
+  "scientific_commit": "ae06b2979b64b445a2279b0b2a17dd76fcf103cc",
+  "report_branch": "codex/journal-upgrade-plan",
+  "report_base_commit": "cb550673e1740705c932203f03c5ae8e78e21a98",
+  "scientific_core": "b55d19edd2ce5be256a1026f6286e5ed34fb5df0cd26e456942c5e0f6cebc9c5",
+  "execution_manifest_canonical_sha256": "8a0af683abf183bdcc42c5481a2c9d3d53e62ec58e6ca9acfeacb5fb1e5e81da",
+  "evidence_bundle": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/analysis/e3-s1-local-r3-20261013",
+  "original_run_wsl": "/workspace/thesis/artifacts/M1b-test/e3-s1-local-confirmatory-r3",
+  "raw_artifacts": [
+    {
+      "path": "outputs/run.json",
+      "sha256": "8cca22f74f7a234eac3be1847b30dc6c90bb79e5b263045f550f1e4e6895c869"
+    },
+    {
+      "path": "outputs/journal.jsonl",
+      "sha256": "454674f2f7d81c8c7da7697437bf8ae7acbb1df31aa65de159cb1547f0980255"
+    },
+    {
+      "path": "outputs/run-context.json",
+      "sha256": "2c93194b6307863f4439dbbef40d4ad156c382fabf252d3df7994c8225cfdce9"
+    },
+    {
+      "path": "outputs/lineage.json",
+      "sha256": "9d4500fc875745ce7b215dfee0ddca03debdcec4ad7e079ab24fa4903c7c2b7b"
+    },
+    {
+      "path": "metrics/endpoints.json",
+      "sha256": "95f228c4d56f4c1089a44462a51eca3dfe5e8a010ff466ac72972af45eead80b"
+    }
+  ],
+  "collection_verification_sha256": "8ace71bb2201ec141fa22f7342e61bd3bba610e5c01fb2b2b8ecccb4818b0dd6",
+  "review": {
+    "agent": "/root/e3_s1_m2_review",
+    "model": "gpt-6-astra",
+    "effort": "high",
+    "verdict": "PASS",
+    "blocking_findings": 0,
+    "qualified_claims_verified": 9,
+    "sha256": "2d812eef4f91c622a760f65b1f4cf943d80434b9c284facdd778f8739870cedb"
+  },
+  "files": [
+    {
+      "path": "e3-s1-m2-results.md",
+      "bytes": 13201,
+      "sha256": "f4af97b56df708eaa477e2b111bdcff92869dac3ac3d2e1de293bbcf5f2fe7a7"
+    },
+    {
+      "path": "e3-s1-m2-independent-review.md",
+      "bytes": 12857,
+      "sha256": "2d812eef4f91c622a760f65b1f4cf943d80434b9c284facdd778f8739870cedb"
+    },
+    {
+      "path": "e3-s1-m2-evidence/claim-inventory.json",
+      "bytes": 2620,
+      "sha256": "96341f39acdfbd53b89f437c6e9bcb1490aa022541816da01e28f99052812e36"
+    },
+    {
+      "path": "e3-s1-m2-evidence/quality-failures.json",
+      "bytes": 3174,
+      "sha256": "96b3401d6afa777a960318a682b160432313b5740e168e94a34726dab80d0707"
+    },
+    {
+      "path": "e3-s1-m2-evidence/result-summary.json",
+      "bytes": 29474,
+      "sha256": "f48ed7603d9121f2d3a6707abf36233dc126944cd63902d5a6233cdea4c69272"
+    },
+    {
+      "path": "e3-s1-m2-evidence/verification.json",
+      "bytes": 14752,
+      "sha256": "8ace71bb2201ec141fa22f7342e61bd3bba610e5c01fb2b2b8ecccb4818b0dd6"
+    }
+  ],
+  "post_review_changes": "Only report review-status/reference text was added after review; numerical and scientific text is unchanged.",
+  "scope": "No new scientific execution, endpoint amendment, protected claim-ledger edit, human verdict or publication. Retained raw outputs remain unchanged."
+}

@@ -1,0 +1,73 @@
+[
+  {
+    "id": "M2-01",
+    "claim": "All 42,031 planned records are present and the unchanged scientific core and recovered parent journal are preserved.",
+    "evidence": [
+      "verification.json",
+      "run-r3/manifest.json",
+      "run-r3/outputs/lineage.json"
+    ]
+  },
+  {
+    "id": "M2-02",
+    "claim": "The predeclared clean-admission-gated semantic composite favors E3-S1 at both strengths; it is not a pure regeneration-survival estimate because clean eligibility and h targets differ.",
+    "evidence": [
+      "run-r3/metrics/endpoints.json#/primary",
+      "run-r3/metrics/endpoints.json#/methods",
+      "frozen-design.md"
+    ]
+  },
+  {
+    "id": "M2-03",
+    "claim": "Descriptive raw source-majority S counts are 287 versus 283 and 284 versus 232; exact Q counts are 294 versus 81 and 297 versus 17. No new secondary significance claim is made.",
+    "evidence": [
+      "run-r3/metrics/endpoints.json#/secondary_source_majority"
+    ]
+  },
+  {
+    "id": "M2-04",
+    "claim": "E3 strict clean quality is 294/300 and v5 is 298/300, so all-source strict quality is false for both.",
+    "evidence": [
+      "quality-failures.json",
+      "run-r3/metrics/endpoints.json#/methods"
+    ]
+  },
+  {
+    "id": "M2-05",
+    "claim": "Both methods have zero source-majority H, D and F after regeneration at both strengths; regeneration-robust full ownership is not established.",
+    "evidence": [
+      "run-r3/metrics/endpoints.json#/secondary_source_majority"
+    ]
+  },
+  {
+    "id": "M2-06",
+    "claim": "No observed A occurs in clean/T3 negative calls, but T3 source families are unresolved for 10 E3 and 3 v5 sources; no population 0.1% FPR claim follows.",
+    "evidence": [
+      "run-r3/metrics/endpoints.json#/methods",
+      "frozen-design.md"
+    ]
+  },
+  {
+    "id": "M2-07",
+    "claim": "E3 public T4 and T5 each deliver D on all 30 pairs and reject all by combined F; this is prescribed-challenge evidence, not a 1% population-security bound.",
+    "evidence": [
+      "run-r3/metrics/endpoints.json#/transfers",
+      "frozen-design.md"
+    ]
+  },
+  {
+    "id": "M2-08",
+    "claim": "E3 combined and perceptual-only same-call acceptance are both zero; combined-over-perceptual binding superiority is not established.",
+    "evidence": [
+      "run-r3/metrics/endpoints.json#/transfers"
+    ]
+  },
+  {
+    "id": "M2-09",
+    "claim": "Human admissibility, latent insertion, arbitrary-owner security, unseen-model robustness and general journal readiness are not established.",
+    "evidence": [
+      "frozen-design.md",
+      "run-r3/metrics/endpoints.json#/interpretation"
+    ]
+  }
+]

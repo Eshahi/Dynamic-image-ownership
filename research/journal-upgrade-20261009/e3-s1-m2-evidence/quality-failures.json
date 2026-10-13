@@ -1,0 +1,102 @@
+{
+  "e3-s1": [
+    {
+      "uid": "ms-coco:coco-2017:val2017:248752",
+      "quality": {
+        "mse_rgb8": 3.0227890014648438,
+        "psnr_db": 43.32672527516634,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9724317758868192,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.10992275178432465
+      },
+      "admitted": false
+    },
+    {
+      "uid": "ms-coco:coco-2017:val2017:452122",
+      "quality": {
+        "mse_rgb8": 2.8609402974446616,
+        "psnr_db": 43.56571565894132,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9668444079387982,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.1844407320022583
+      },
+      "admitted": false
+    },
+    {
+      "uid": "ms-coco:coco-2017:val2017:343937",
+      "quality": {
+        "mse_rgb8": 2.911693572998047,
+        "psnr_db": 43.48934693028581,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9678701724686024,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.11695244163274765
+      },
+      "admitted": false
+    },
+    {
+      "uid": "ms-coco:coco-2017:val2017:182021",
+      "quality": {
+        "mse_rgb8": 2.8729273478190103,
+        "psnr_db": 43.5475571741695,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.968734835126584,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.14453811943531036
+      },
+      "admitted": false
+    },
+    {
+      "uid": "ms-coco:coco-2017:val2017:365385",
+      "quality": {
+        "mse_rgb8": 2.968639373779297,
+        "psnr_db": 43.40522917562928,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9693808562109424,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.12701617181301117
+      },
+      "admitted": false
+    },
+    {
+      "uid": "ms-coco:coco-2017:val2017:425227",
+      "quality": {
+        "mse_rgb8": 2.8979199727376304,
+        "psnr_db": 43.50993972789461,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9719911200589663,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.1470063477754593
+      },
+      "admitted": false
+    }
+  ],
+  "v5-r3": [
+    {
+      "uid": "ms-coco:coco-2017:val2017:452122",
+      "quality": {
+        "mse_rgb8": 2.9540926615397134,
+        "psnr_db": 43.42656247087569,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9747377305067133,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.10171595960855484
+      },
+      "admitted": true
+    },
+    {
+      "uid": "ms-coco:coco-2017:val2017:365385",
+      "quality": {
+        "mse_rgb8": 3.6203651428222656,
+        "psnr_db": 42.543279860486834,
+        "psnr_infinite": false,
+        "ssim_rgb": 0.9752299373108837,
+        "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+        "lpips": 0.10278479754924774
+      },
+      "admitted": true
+    }
+  ]
+}
