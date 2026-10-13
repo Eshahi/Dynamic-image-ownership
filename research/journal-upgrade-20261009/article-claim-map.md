@@ -27,6 +27,7 @@ This map uses the already inspected primary-paper cards in [the literature compa
 | Watermark Anything | Learned post-hoc payload embedding, localization and pasted-mark recovery. | Compare calibrated presence or genuinely matched exact-message tasks; content-derived q is not arbitrary message capacity. Current local SA-1B checkpoint differs from the paper's COCO checkpoint. Pasted-mark recovery is not itself an ownership failure. |
 | ZoDiac | Post-hoc diffusion-noise watermark, quality blending and inversion-based detection. | Compare feasible quality/presence operating points and full inversion/extraction cost; do not invent equivalent semantic-payload or binding functions. |
 | SEAL and generation-time latent methods | Semantic binding and latent/noise-domain embedding already exist. | Existing-photo scientific setting, exact detector access and causal mechanism must distinguish this work; relabelling image-domain optimization as latent embedding cannot. |
+| [APT, August 2026](../literature/apt-20261013/synthesis/findings.md) | Feature-alignment survival is additional prior art. | Different localization endpoint; the chip-versus-symbol causal contrast remains to be demonstrated. |
 
 ## Honest paper boundaries and progression
 

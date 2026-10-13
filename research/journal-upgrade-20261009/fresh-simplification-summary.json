@@ -1,0 +1,625 @@
+{
+  "run_json": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261013-1636-fresh-e3-simplification\\run.json",
+  "code_commit": "546ac1fbf644e3d1ab3f454c9eb8ae736dbd072a",
+  "duration_seconds": 3777.5469999999623,
+  "outcome": "completed",
+  "stage_A": {
+    "pass_screen": false,
+    "resolved": true,
+    "complete_cost": true,
+    "negatives_resolved_zero": true,
+    "lean_only_loss": false,
+    "decision": "reject-fixed-lean",
+    "attack_permission": "Requires parent review and complete Stage B implementation"
+  },
+  "summary": {
+    "denominator": 24,
+    "statuses": {
+      "ok": 24
+    },
+    "clean": {
+      "full": {
+        "denominator": 24,
+        "observed": 24,
+        "strict_quality": 24,
+        "eligible": 24,
+        "exact": {
+          "Q": 24,
+          "H": 24,
+          "F": 24
+        }
+      },
+      "lean": {
+        "denominator": 24,
+        "observed": 24,
+        "strict_quality": 24,
+        "eligible": 24,
+        "exact": {
+          "Q": 24,
+          "H": 24,
+          "F": 24
+        }
+      }
+    },
+    "clean_negatives": {
+      "C0:qim-pilot-owner-alpha": {
+        "planned": 24,
+        "observed": 24,
+        "A": 0,
+        "unavailable": 0
+      },
+      "C0:qim-pilot-owner-beta": {
+        "planned": 24,
+        "observed": 24,
+        "A": 0,
+        "unavailable": 0
+      },
+      "full:qim-pilot-owner-beta": {
+        "planned": 24,
+        "observed": 24,
+        "A": 0,
+        "unavailable": 0
+      },
+      "lean:qim-pilot-owner-beta": {
+        "planned": 24,
+        "observed": 24,
+        "A": 0,
+        "unavailable": 0
+      }
+    },
+    "timing": {
+      "observed": 24,
+      "ratios": [
+        0.9894226158581613,
+        0.5994618303457164,
+        0.3419498261623827,
+        0.9632893072023764,
+        0.6500261160783827,
+        0.5228951255541229,
+        0.5596190637255315,
+        0.9634375113829754,
+        0.9643006111601503,
+        0.9637583648522152,
+        0.9619314167709991,
+        0.9636246213739544,
+        0.9908185046747712,
+        0.5551462915817859,
+        0.6506128627337746,
+        0.9627536627531774,
+        0.9637738925631479,
+        0.7079985123985777,
+        0.963720947169647,
+        0.9645303104617283,
+        0.7022852431981613,
+        0.48786036315480974,
+        0.5984296415044247,
+        0.7094154544238526
+      ],
+      "median_paired_ratio": 0.8356734355974258,
+      "ratio_of_medians": 0.8143053645113248
+    },
+    "attacks": {
+      "planned": 648,
+      "recorded": 0,
+      "statuses": {}
+    },
+    "interpretation": "Exploratory fixed-denominator fresh development. Missing positives are unsuccessful; missing negatives unresolved. No population FPR claim."
+  },
+  "cost_statistics": {
+    "full_supplier_writer_seconds": {
+      "median": 130.13299999994342,
+      "mean": 148.11579166665857,
+      "sum": 3554.778999999806
+    },
+    "lean_stage_sum_estimate_seconds": {
+      "median": 105.96799999990617,
+      "mean": 106.01291666664959,
+      "sum": 2544.30999999959
+    },
+    "supplier_seconds": {
+      "median": 53.375000000029104,
+      "mean": 53.38745833333329,
+      "sum": 1281.298999999999
+    },
+    "construction_seconds": {
+      "median": 51.304999999993015,
+      "mean": 51.33195833333351,
+      "sum": 1231.9670000000042
+    },
+    "full_refinement_seconds": {
+      "median": 23.828000000008615,
+      "mean": 42.08079166666236,
+      "sum": 1009.9389999998966
+    }
+  },
+  "quality_extrema": {
+    "full": {
+      "minimum_psnr_db": 39.695204887195494,
+      "minimum_ssim_rgb": 0.9559315180726757,
+      "maximum_lpips": 0.09266644716262817
+    },
+    "lean": {
+      "minimum_psnr_db": 39.95587808245209,
+      "minimum_ssim_rgb": 0.9567682822413214,
+      "maximum_lpips": 0.09266644716262817
+    }
+  },
+  "warmup_excluded_from_N": 1675,
+  "refinement_updated_sources": [
+    72,
+    73,
+    127,
+    165,
+    309,
+    529,
+    544,
+    629,
+    693,
+    715,
+    723,
+    790
+  ],
+  "lean_contracted_sources": [
+    30,
+    508
+  ],
+  "source_rows": [
+    {
+      "source_id": 30,
+      "lean_branch": "contract_0.8",
+      "accepted_updates": 0,
+      "full_quality_branch": "contract_0.8",
+      "timing": {
+        "supplier_seconds": 52.92200000002049,
+        "full_writer_seconds": 53.43699999997625,
+        "construction_seconds": 51.03100000001723,
+        "full_refinement_seconds": 1.0469999999622814,
+        "full_quality_qualification_seconds": 1.3589999999967404,
+        "lean_selector_qualification_measured_seconds": 1.2810000000172295,
+        "full_bookkeeping_remainder_seconds": 0.0,
+        "lean_stage_sum_estimate_seconds": 105.23400000005495,
+        "full_supplier_writer_seconds": 106.35899999999674,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 72,
+      "lean_branch": "retain",
+      "accepted_updates": 4,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.10899999999674,
+        "full_writer_seconds": 122.67200000002049,
+        "construction_seconds": 51.11000000004424,
+        "full_refinement_seconds": 70.29699999996228,
+        "full_quality_qualification_seconds": 1.2650000000139698,
+        "lean_selector_qualification_measured_seconds": 1.154999999969732,
+        "full_bookkeeping_remainder_seconds": 0.0,
+        "lean_stage_sum_estimate_seconds": 105.37400000001071,
+        "full_supplier_writer_seconds": 175.78100000001723,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 73,
+      "lean_branch": "retain",
+      "accepted_updates": 14,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.20299999997951,
+        "full_writer_seconds": 256.28100000001723,
+        "construction_seconds": 51.21799999999348,
+        "full_refinement_seconds": 203.76600000000326,
+        "full_quality_qualification_seconds": 1.297000000020489,
+        "lean_selector_qualification_measured_seconds": 1.407000000064727,
+        "full_bookkeeping_remainder_seconds": 0.0,
+        "lean_stage_sum_estimate_seconds": 105.82800000003772,
+        "full_supplier_writer_seconds": 309.48399999999674,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 89,
+      "lean_branch": "retain",
+      "accepted_updates": 0,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.14000000001397,
+        "full_writer_seconds": 56.71899999998277,
+        "construction_seconds": 51.32799999997951,
+        "full_refinement_seconds": 4.01600000000326,
+        "full_quality_qualification_seconds": 1.375,
+        "lean_selector_qualification_measured_seconds": 1.357999999949243,
+        "full_bookkeeping_remainder_seconds": 0.0,
+        "lean_stage_sum_estimate_seconds": 105.82599999994272,
+        "full_supplier_writer_seconds": 109.85899999999674,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 127,
+      "lean_branch": "retain",
+      "accepted_updates": 4,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.39100000000326,
+        "full_writer_seconds": 109.34399999998277,
+        "construction_seconds": 51.18799999996554,
+        "full_refinement_seconds": 56.84299999999348,
+        "full_quality_qualification_seconds": 1.3130000000237487,
+        "lean_selector_qualification_measured_seconds": 1.2030000000377186,
+        "full_bookkeeping_remainder_seconds": 0.0,
+        "lean_stage_sum_estimate_seconds": 105.78200000000652,
+        "full_supplier_writer_seconds": 162.73499999998603,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 165,
+      "lean_branch": "retain",
+      "accepted_updates": 5,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.36000000004424,
+        "full_writer_seconds": 149.06300000002375,
+        "construction_seconds": 51.26600000000326,
+        "full_refinement_seconds": 96.53100000001723,
+        "full_quality_qualification_seconds": 1.25,
+        "lean_selector_qualification_measured_seconds": 1.2040000000270084,
+        "full_bookkeeping_remainder_seconds": 0.01600000000325963,
+        "lean_stage_sum_estimate_seconds": 105.84600000007777,
+        "full_supplier_writer_seconds": 202.423000000068,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 309,
+      "lean_branch": "retain",
+      "accepted_updates": 4,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.25,
+        "full_writer_seconds": 135.96799999999348,
+        "construction_seconds": 51.28100000001723,
+        "full_refinement_seconds": 83.34399999998277,
+        "full_quality_qualification_seconds": 1.3280000000377186,
+        "lean_selector_qualification_measured_seconds": 1.3440000000409782,
+        "full_bookkeeping_remainder_seconds": 0.014999999955762178,
+        "lean_stage_sum_estimate_seconds": 105.89000000001397,
+        "full_supplier_writer_seconds": 189.21799999999348,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 370,
+      "lean_branch": "retain",
+      "accepted_updates": 0,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.39000000001397,
+        "full_writer_seconds": 56.42200000002049,
+        "construction_seconds": 51.14100000000326,
+        "full_refinement_seconds": 4.0,
+        "full_quality_qualification_seconds": 1.2810000000172295,
+        "lean_selector_qualification_measured_seconds": 1.2660000000032596,
+        "full_bookkeeping_remainder_seconds": 0.0,
+        "lean_stage_sum_estimate_seconds": 105.79700000002049,
+        "full_supplier_writer_seconds": 109.81200000003446,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 436,
+      "lean_branch": "retain",
+      "accepted_updates": 0,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.48499999998603,
+        "full_writer_seconds": 56.79699999996228,
+        "construction_seconds": 51.53099999995902,
+        "full_refinement_seconds": 4.0,
+        "full_quality_qualification_seconds": 1.25,
+        "lean_selector_qualification_measured_seconds": 1.312999999965541,
+        "full_bookkeeping_remainder_seconds": 0.01600000000325963,
+        "lean_stage_sum_estimate_seconds": 106.34499999991385,
+        "full_supplier_writer_seconds": 110.28199999994831,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 450,
+      "lean_branch": "retain",
+      "accepted_updates": 0,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.17199999996228,
+        "full_writer_seconds": 56.81199999997625,
+        "construction_seconds": 51.48399999999674,
+        "full_refinement_seconds": 4.061999999976251,
+        "full_quality_qualification_seconds": 1.2350000000442378,
+        "lean_selector_qualification_measured_seconds": 1.3109999999287538,
+        "full_bookkeeping_remainder_seconds": 0.030999999959021807,
+        "lean_stage_sum_estimate_seconds": 105.9979999998468,
+        "full_supplier_writer_seconds": 109.98399999993853,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 459,
+      "lean_branch": "retain",
+      "accepted_updates": 0,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.82799999997951,
+        "full_writer_seconds": 56.57799999997951,
+        "construction_seconds": 51.17200000002049,
+        "full_refinement_seconds": 3.952999999979511,
+        "full_quality_qualification_seconds": 1.452999999979511,
+        "lean_selector_qualification_measured_seconds": 1.202999999979511,
+        "full_bookkeeping_remainder_seconds": 0.0,
+        "lean_stage_sum_estimate_seconds": 106.20299999997951,
+        "full_supplier_writer_seconds": 110.40599999995902,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 471,
+      "lean_branch": "retain",
+      "accepted_updates": 0,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.5,
+        "full_writer_seconds": 56.43699999997625,
+        "construction_seconds": 51.125,
+        "full_refinement_seconds": 3.9369999999762513,
+        "full_quality_qualification_seconds": 1.375,
+        "lean_selector_qualification_measured_seconds": 1.312999999965541,
+        "full_bookkeeping_remainder_seconds": 0.0,
+        "lean_stage_sum_estimate_seconds": 105.93799999996554,
+        "full_supplier_writer_seconds": 109.93699999997625,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 508,
+      "lean_branch": "contract_0.8",
+      "accepted_updates": 0,
+      "full_quality_branch": "contract_0.8",
+      "timing": {
+        "supplier_seconds": 53.43800000002375,
+        "full_writer_seconds": 53.84299999999348,
+        "construction_seconds": 51.57800000003772,
+        "full_refinement_seconds": 1.077999999979511,
+        "full_quality_qualification_seconds": 1.1869999999762513,
+        "lean_selector_qualification_measured_seconds": 1.279999999969732,
+        "full_bookkeeping_remainder_seconds": 0.0,
+        "lean_stage_sum_estimate_seconds": 106.2960000000312,
+        "full_supplier_writer_seconds": 107.28100000001723,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 529,
+      "lean_branch": "retain",
+      "accepted_updates": 4,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.79700000002049,
+        "full_writer_seconds": 137.875,
+        "construction_seconds": 51.34400000004098,
+        "full_refinement_seconds": 85.20299999997951,
+        "full_quality_qualification_seconds": 1.327999999979511,
+        "lean_selector_qualification_measured_seconds": 1.2650000000139698,
+        "full_bookkeeping_remainder_seconds": 0.0,
+        "lean_stage_sum_estimate_seconds": 106.40600000007544,
+        "full_supplier_writer_seconds": 191.6720000000205,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 544,
+      "lean_branch": "retain",
+      "accepted_updates": 2,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.14100000000326,
+        "full_writer_seconds": 109.375,
+        "construction_seconds": 51.28200000000652,
+        "full_refinement_seconds": 56.75,
+        "full_quality_qualification_seconds": 1.3429999999934807,
+        "lean_selector_qualification_measured_seconds": 1.312000000034459,
+        "full_bookkeeping_remainder_seconds": 0.0,
+        "lean_stage_sum_estimate_seconds": 105.73500000004424,
+        "full_supplier_writer_seconds": 162.51600000000326,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 599,
+      "lean_branch": "retain",
+      "accepted_updates": 0,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.17199999996228,
+        "full_writer_seconds": 56.71799999999348,
+        "construction_seconds": 51.43699999997625,
+        "full_refinement_seconds": 3.9380000000237487,
+        "full_quality_qualification_seconds": 1.3429999999934807,
+        "lean_selector_qualification_measured_seconds": 1.187999999965541,
+        "full_bookkeeping_remainder_seconds": 0.0,
+        "lean_stage_sum_estimate_seconds": 105.79699999990407,
+        "full_supplier_writer_seconds": 109.88999999995576,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 626,
+      "lean_branch": "retain",
+      "accepted_updates": 0,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.34399999998277,
+        "full_writer_seconds": 57.04599999997299,
+        "construction_seconds": 51.73399999999674,
+        "full_refinement_seconds": 4.01600000000326,
+        "full_quality_qualification_seconds": 1.2959999999729916,
+        "lean_selector_qualification_measured_seconds": 1.3130000000237487,
+        "full_bookkeeping_remainder_seconds": 0.0,
+        "lean_stage_sum_estimate_seconds": 106.39100000000326,
+        "full_supplier_writer_seconds": 110.38999999995576,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 629,
+      "lean_branch": "retain",
+      "accepted_updates": 1,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.90600000001723,
+        "full_writer_seconds": 96.67199999996228,
+        "construction_seconds": 51.40599999995902,
+        "full_refinement_seconds": 43.93800000002375,
+        "full_quality_qualification_seconds": 1.327999999979511,
+        "lean_selector_qualification_measured_seconds": 1.2969999999622814,
+        "full_bookkeeping_remainder_seconds": 0.0,
+        "lean_stage_sum_estimate_seconds": 106.60899999993853,
+        "full_supplier_writer_seconds": 150.5779999999795,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 636,
+      "lean_branch": "retain",
+      "accepted_updates": 0,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.25,
+        "full_writer_seconds": 56.59299999999348,
+        "construction_seconds": 51.32800000003772,
+        "full_refinement_seconds": 4.0,
+        "full_quality_qualification_seconds": 1.25,
+        "lean_selector_qualification_measured_seconds": 1.2649999999557622,
+        "full_bookkeeping_remainder_seconds": 0.014999999955762178,
+        "lean_stage_sum_estimate_seconds": 105.85799999994924,
+        "full_supplier_writer_seconds": 109.84299999999348,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 673,
+      "lean_branch": "retain",
+      "accepted_updates": 0,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.39100000000326,
+        "full_writer_seconds": 56.70300000003772,
+        "construction_seconds": 51.53100000001723,
+        "full_refinement_seconds": 3.85999999998603,
+        "full_quality_qualification_seconds": 1.312000000034459,
+        "lean_selector_qualification_measured_seconds": 1.2669999999925494,
+        "full_bookkeeping_remainder_seconds": 0.0,
+        "lean_stage_sum_estimate_seconds": 106.18900000001304,
+        "full_supplier_writer_seconds": 110.09400000004098,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 693,
+      "lean_branch": "retain",
+      "accepted_updates": 1,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.84399999998277,
+        "full_writer_seconds": 97.78099999995902,
+        "construction_seconds": 51.26499999995576,
+        "full_refinement_seconds": 45.20400000002701,
+        "full_quality_qualification_seconds": 1.2959999999729916,
+        "lean_selector_qualification_measured_seconds": 1.3589999999385327,
+        "full_bookkeeping_remainder_seconds": 0.01600000000325963,
+        "lean_stage_sum_estimate_seconds": 106.48399999988033,
+        "full_supplier_writer_seconds": 151.6249999999418,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 715,
+      "lean_branch": "retain",
+      "accepted_updates": 6,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.64000000001397,
+        "full_writer_seconds": 163.95300000003772,
+        "construction_seconds": 51.14000000001397,
+        "full_refinement_seconds": 111.45299999997951,
+        "full_quality_qualification_seconds": 1.3600000000442378,
+        "lean_selector_qualification_measured_seconds": 1.3749999999417923,
+        "full_bookkeeping_remainder_seconds": 0.0,
+        "lean_stage_sum_estimate_seconds": 106.15499999996973,
+        "full_supplier_writer_seconds": 217.5930000000517,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 723,
+      "lean_branch": "retain",
+      "accepted_updates": 3,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.18800000002375,
+        "full_writer_seconds": 123.96899999998277,
+        "construction_seconds": 51.51600000000326,
+        "full_refinement_seconds": 71.10899999999674,
+        "full_quality_qualification_seconds": 1.3439999999827705,
+        "lean_selector_qualification_measured_seconds": 1.3119999999762513,
+        "full_bookkeeping_remainder_seconds": 0.0,
+        "lean_stage_sum_estimate_seconds": 106.01600000000326,
+        "full_supplier_writer_seconds": 177.15700000000652,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    },
+    {
+      "source_id": 790,
+      "lean_branch": "retain",
+      "accepted_updates": 1,
+      "full_quality_branch": "retain",
+      "timing": {
+        "supplier_seconds": 53.43799999996554,
+        "full_writer_seconds": 96.42199999996228,
+        "construction_seconds": 51.53099999995902,
+        "full_refinement_seconds": 43.59400000004098,
+        "full_quality_qualification_seconds": 1.2969999999622814,
+        "lean_selector_qualification_measured_seconds": 1.3439999999827705,
+        "full_bookkeeping_remainder_seconds": 0.0,
+        "lean_stage_sum_estimate_seconds": 106.31299999990733,
+        "full_supplier_writer_seconds": 149.85999999992782,
+        "basis": "Shared supplier and full initializer computation. Lean standalone time is a stage-sum estimate, not independently measured.",
+        "overhead_policy": "Full writer residual bookkeeping is charged conservatively to lean. Beta calls and duplicate full qualification are evaluation-only."
+      }
+    }
+  ],
+  "qualification": "Exploratory fresh development; lean time is shared-computation stage-sum estimate; no Stage B, FPR or superiority claim."
+}

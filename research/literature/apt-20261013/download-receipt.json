@@ -1,0 +1,11 @@
+{
+  "url": "https://arxiv.org/html/2608.30656v1",
+  "version": "arXiv:2608.30656v1, 2026-08-31",
+  "access_date": "2026-10-13",
+  "license": "CC BY-NC-ND 4.0",
+  "artifact": "research/literature/apt-20261013/source/apt-v1.html",
+  "sha256": "a90a8c7c571d713fec754bf6a8436ab43d83dc621f612443b3de1116ea88d51a",
+  "transport": "PowerShell Invoke-WebRequest HTTPS; default TLS certificate validation; no bypass",
+  "status": "Downloaded; pending parent incorporation into research/downloads.md",
+  "duplicate_check": "No existing arXiv ID, normalized title, paper ID or citation-key match found in worktree or MAIN research before creation. DOI unknown."
+}

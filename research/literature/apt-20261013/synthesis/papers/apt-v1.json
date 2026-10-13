@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "apt-v1",
+  "citation_key": "Ha2026APTv1",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/abs/2608.30656v1",
+  "title": "APT: Anchor-aligned Perturbations for Tamper Localization in Fully Regenerated Images",
+  "authors": [
+    "Suhyeon Ha",
+    "Woo Jae Kim",
+    "Joonsung Jeon",
+    "Sooel Son",
+    "Sung-eui Yoon"
+  ],
+  "year": 2026,
+  "venue": null,
+  "access_date": "2026-10-13",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "research/literature/apt-20261013/source/apt-v1.html",
+    "sha256": "a90a8c7c571d713fec754bf6a8436ab43d83dc621f612443b3de1116ea88d51a"
+  },
+  "limitations": [
+    "Inspected sections 3-5 and Appendices A-D; no reproduction."
+  ]
+}
