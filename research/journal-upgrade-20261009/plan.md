@@ -6,7 +6,11 @@ Updated 2026-10-10 after the supplied-payload E3 assessment and E3-S1 Stage A. E
 
 ## Current decision
 
-**E3-S1 now passes the full end-to-end comparative M1a development assessment.** See the [complete assessment](e3-s1-m1a-assessment.md) and [recorded-call analysis](e3-s1-m1a/analysis.json): strict quality and exact q/h/full12/12; both VAE checked q12/12; T3 S/Q/J36/36 and35/36, fixed semantic29/29 and28/28 versus v527/29 and18/28; zero observed negative detections and no T4/T5 regression. One C1 and six C0 T3 safety blocks remain unavailable. Continue directly to M1b freeze, tests, one independent review, a metadata-only fresh confirmatory inventory and synthetic existing-runner rehearsals. No held-out execution is approved and no official or human verdict is recorded.
+**M2 execution and independent evidence review are complete; the user authorized local development on 2026-10-13 with “Plan and do it.”** The [reviewed M2 report](e3-s1-m2-results.md) preserves all 300 sources, quality failures and unavailable calls. Its primary composite favors E3, but unequal clean eligibility prevents interpreting the full difference as regeneration improvement. Raw checked-semantic recovery is strong; the added value of refinement and combined binding still needs isolation. Human M2 acceptance is not inferred.
+
+The immediate experiment is the [post-M2 refinement protocol](post-m2-fair-comparison-protocol.md): census the retained initializer, pre-selector state and selected final on all twelve development sources. Exact equality kills the hypothesis of a deployed refinement contribution without GPU work. Otherwise evaluate fixed paired artifacts at strengths .1/.2 and new seeds 6–8, with the same targets, reader and thresholds. This is adaptive development evidence, not a new held-out result. Local USD 0; 45-minute inclusive execution cap; no new download or cloud execution.
+
+Subsequent priorities are conditional on that outcome: isolate coding/initializer mechanisms or equal-distortion refinement benefit; then test delivered binding-component disagreements, calibrated external baselines and blinded human admissibility. A fresh-development design must precede new construction, and a future confirmatory study requires a separate milestone decision. The ranges below remain proposed future studies and do not authorize a broad attack sweep now.
 
 The earlier supplied-payload E3 operator passes the original comparative M1a under the explicit safety-availability convention: strict clean quality/exact q/h/full 12/12, T3 semantic/exact-q 36/36 at .1 and 35/36 at .2, with one unavailable C1 image; fixed matched semantic counts 29/29 and 28/28 versus v5 27/29 and 18/28. Negative T3 calls are 0/477 observed of 504 planned; 27 calls from seven blocked images are unavailable. T4/T5 show no additional measured false full acceptance. The [complete assessment](e3-m1a-assessment.md) is specific to that supplied-payload operator. S1 must qualify its own newly constructed pixels. Strict extra E3-B remains failed, and historical M2 is unchanged.
 
@@ -14,7 +18,7 @@ The current method is an image-domain comparator with VAE/CLIP extraction. It do
 
 The initial request is answered by the ranges, evidence targets and revised sequence below, the [primary-source comparison](literature-comparison.md), and the [autoresearch assessment](autoresearch-assessment.md). Q1 placement cannot be inferred from a development gate or a single published percentage. [Archived development history](plan-development-history-20261010.md) preserves failed rounds and earlier decisions without making their old next steps current.
 
-## What the present numbers establish
+## Historical F5 findings (not the current E3 M2 study)
 
 Counts below come from the [corrected M2 report](../m2-coco512-results.md) and [independent review](../m2-independent-review.md). T3 units are 30 sources, each summarized by success on at least two of three seeds; 90 seed rows are not 90 independent sources.
 
