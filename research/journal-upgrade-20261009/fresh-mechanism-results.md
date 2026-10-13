@@ -6,7 +6,7 @@ Run: MAIN `.thesis-build/dev-runs/20261013-1741-fresh-symbol-objective/run.json`
 
 ## Prerequisites and outcomes
 
-Both C (chipwise) and S (length-weighted symbol-mean) pass strict clean quality, exact q/h and full clean acceptance on 6/6 images after energy matching. Maximum relative saved-RGB energy discrepancy is .000102344 (about .01024%); maximum pairwise LPIPS and SSIM differences are .002712 and .000236. All are within the unchanged tolerances. Both methods have VAE J6/6 for SD1.5 and6/6 for SDXL. There are no adverse C-negative/S-positive VAE identities.
+Both C (chipwise) and S (length-weighted symbol-mean) pass strict clean quality, exact q/h and full clean acceptance on 6/6 images after energy matching. Maximum relative saved-RGB energy discrepancy is .000102344 (about .01024%); maximum pairwise LPIPS and SSIM differences are .002712 and .000236. All are within the unchanged tolerances. Both methods have VAE J of 6/6 for SD1.5 and 6/6 for SDXL. There are no adverse C-negative/S-positive VAE identities.
 
 | Endpoint | C at .2 | S at .2 | C at .4 | S at .4 |
 |---|---:|---:|---:|---:|
@@ -18,12 +18,14 @@ Both C (chipwise) and S (length-weighted symbol-mean) pass strict clean quality,
 
 The paired majority-J difference is exactly zero at both strengths, with no missing-outcome interval. It fails the required two-source advantage at .4. Both arms lose J on the same identities: source72/strength.4/seed9 and source165/strength.4/seed10. These have exact decoded q but fail the existing content-agreement predicate. They are not payload-erasure failures. Human assessment is absent, so they cannot be labelled false rejections of semantically equivalent images.
 
-Every planned negative call is available with zero observed A: each clean/SD1.5-VAE/SDXL-VAE negative family has0/6, and each T3 family has0/36. Four families are C0 alpha, C0 beta, C beta and S beta. These are correlated calls on six selected source groups, not216 independent negative trials or a calibrated FPR result.
+Every planned negative call is available with zero observed A: each clean/SD1.5-VAE/SDXL-VAE negative family has 0/6, and each T3 family has 0/36. Four families are C0 alpha, C0 beta, C beta and S beta. These are correlated calls on six selected source groups, not 216 independent negative trials or a calibrated FPR result.
 
 ## Mechanism interpretation
 
-Clean within-symbol H is lower for C on6/6 pairs, meeting that necessary shaping prediction. However, median raw coded errors at .4 is0 for both arms, and checked recovery ties. Across the36 T3 identities per arm, raw coded-error histograms are C:{0:27,1:8,2:1}, S:{0:28,1:6,2:1,3:1}. Nonzero codeword errors are visible even though the decoder returns exact q on every attack. Do not transfer the old easy-panel no-rescue finding into a universal BCH-redundancy claim; raw systematic-message versus codeword correction are different diagnostics.
+Clean within-symbol H is lower for C on 6/6 pairs, meeting that necessary shaping prediction. However, median raw coded errors at .4 is 0 for both arms, and checked recovery ties. Across the 36 T3 identities per arm, raw coded-error histograms are C: {0:27, 1:8, 2:1}, S: {0:28, 1:6, 2:1, 3:1}. Nonzero codeword errors are visible even though the decoder returns exact q on every attack. Do not transfer the old easy-panel no-rescue finding into a universal BCH-redundancy claim; raw systematic-message versus codeword correction are different diagnostics.
 
 The [geometry note](chip-symbol-geometry-note.md) explains why lowering within-symbol variation can raise a normalized score without changing symbol signs. Here neither the primary recovery separation nor lower stress median occurs. The scientific prediction fails despite a functioning intervention and adequate clean distortion control. An easy-channel ceiling remains a limitation; it does not justify a post hoc strength sweep to make H1 win. The .4 panel is exploratory with metric-only admissibility proxies, not a validated realistic-attack or unseen-model claim.
 
 Retain full E3 as the existing method. No new candidate, binding result, proposal alignment, external superiority or journal readiness follows. Complete the already bounded closest-baseline feasibility check, then reassess the one remaining mechanism-hypothesis allowance against prior art and these results. Any H2 needs a distinct question and prospective protocol; the existing H1 thresholds and outcomes stay unchanged.
+
+Later decision: the [viability assessment](h2-article-viability-decision.md) leaves H2 unused and closes this mechanism round. The [baseline attempt](freqmark-reconstruction-results.md) was resource-limited before any optimization update. These outcomes do not alter the H1 result.

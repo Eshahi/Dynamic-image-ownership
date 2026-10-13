@@ -1,0 +1,102 @@
+{
+  "source_run": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/dev-runs/20261013-1758-freqmark-reconstruction-platform-fix/run.json",
+  "source_commit": "878a7369855b1c2fce50ca956882582b08e0422f",
+  "interpretation": "Independent Eq10 reconstruction under fixed local resource cap; no native equivalence, completed image, quality score or superiority result",
+  "outcome": "allocation_failed",
+  "duration_seconds": 580.2337481975555,
+  "acquisition_seconds": 480.9219999999623,
+  "loading_seconds": 0.7810000000172295,
+  "original_started_epoch": 1791914284.41303,
+  "deadline_epoch": 1791916084.41303,
+  "error": "CUDA out of memory. Tried to allocate 256.00 MiB. GPU 0 has a total capacity of 11.94 GiB of which 1.68 GiB is free. 9.00 GiB allowed; Of the allocated memory 8.62 GiB is allocated by PyTorch, and 235.53 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+  "source_status": [
+    {
+      "source_id": 30,
+      "status": "incomplete",
+      "updates_completed": 0,
+      "final_output_available": false
+    },
+    {
+      "source_id": 72,
+      "status": "not_started",
+      "updates_completed": 0,
+      "final_output_available": false
+    }
+  ],
+  "zero_update_diagnostics_source30": {
+    "unmarked_target_matches": 31,
+    "unmarked_complement_matches": 17,
+    "zero_vae_matches": 29,
+    "zero_vae_quality": {
+      "mse_rgb8": 79.74143981933594,
+      "psnr_db": 29.113962878065557,
+      "psnr_infinite": false,
+      "ssim_rgb": 0.890569928926493,
+      "ssim_definition": "Gaussian sigma1.5 population covariance, 11x11 valid RGB mean",
+      "lpips": 0.03646237775683403,
+      "strict_quality": false
+    },
+    "interpretation": "Unoptimized source/zero-VAE diagnostics, never final FreqMark scores"
+  },
+  "last_sampled_peak_gpu_allocated_bytes": 8119089152,
+  "peak_rss_bytes": 1667874816,
+  "memory_note": "Last cooperative sample predates allocation failure; error includes later 8.62 GiB PyTorch allocated and 235.53 MiB reserved-unallocated under 9 GiB allocator allowance",
+  "asset_receipts": [
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\freqmark-reconstruction-20261013\\dino\\model.safetensors",
+      "url": "https://huggingface.co/facebook/dinov2-small/resolve/ed25f3a31f01632728cabb09d1542f84ab7b0056/model.safetensors",
+      "revision": "ed25f3a31f01632728cabb09d1542f84ab7b0056",
+      "license": "Apache-2.0",
+      "bytes": 88249960,
+      "sha256": "ae1e99fcefd534ed978cdeb8326f08030c96e28b7a81ffcbc98a857c84d14be1"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\freqmark-reconstruction-20261013\\dino\\config.json",
+      "url": "https://huggingface.co/facebook/dinov2-small/resolve/ed25f3a31f01632728cabb09d1542f84ab7b0056/config.json",
+      "revision": "ed25f3a31f01632728cabb09d1542f84ab7b0056",
+      "license": "Apache-2.0",
+      "bytes": 547,
+      "sha256": "1809f83e3bdb1609a501a610ad4a742f4fd8ae44d72ca4aa0df52d1f2ac8628d"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\freqmark-reconstruction-20261013\\dino\\preprocessor_config.json",
+      "url": "https://huggingface.co/facebook/dinov2-small/resolve/ed25f3a31f01632728cabb09d1542f84ab7b0056/preprocessor_config.json",
+      "revision": "ed25f3a31f01632728cabb09d1542f84ab7b0056",
+      "license": "Apache-2.0",
+      "bytes": 436,
+      "sha256": "14e780d86fa1861f8751f868d7f45425b5feb55c38ca26f152ca5097ab30f828"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\freqmark-reconstruction-20261013\\dino\\README.md",
+      "url": "https://huggingface.co/facebook/dinov2-small/resolve/ed25f3a31f01632728cabb09d1542f84ab7b0056/README.md",
+      "revision": "ed25f3a31f01632728cabb09d1542f84ab7b0056",
+      "license": "Apache-2.0",
+      "bytes": 3033,
+      "sha256": "4c20dca454a8e5c670e8de5c7e6040f512aeca5438516f7623eedc4e3b00599c"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\freqmark-reconstruction-20261013\\sd2\\vae\\diffusion_pytorch_model.safetensors",
+      "url": "https://huggingface.co/sd2-community/stable-diffusion-2-1-base/resolve/4e63672c03103b6c636b8fb4119ba982469b2955/vae/diffusion_pytorch_model.safetensors",
+      "revision": "4e63672c03103b6c636b8fb4119ba982469b2955",
+      "license": "CreativeML Open RAIL++-M",
+      "bytes": 334643276,
+      "sha256": "a1d993488569e928462932c8c38a0760b874d166399b14414135bd9c42df5815"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\freqmark-reconstruction-20261013\\sd2\\vae\\config.json",
+      "url": "https://huggingface.co/sd2-community/stable-diffusion-2-1-base/resolve/4e63672c03103b6c636b8fb4119ba982469b2955/vae/config.json",
+      "revision": "4e63672c03103b6c636b8fb4119ba982469b2955",
+      "license": "CreativeML Open RAIL++-M",
+      "bytes": 553,
+      "sha256": "424117cb534ce03497c41305ed868980123917b2b6abba4bbaa615e968772903"
+    },
+    {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\freqmark-reconstruction-20261013\\sd2\\README.md",
+      "url": "https://huggingface.co/sd2-community/stable-diffusion-2-1-base/resolve/4e63672c03103b6c636b8fb4119ba982469b2955/README.md",
+      "revision": "4e63672c03103b6c636b8fb4119ba982469b2955",
+      "license": "CreativeML Open RAIL++-M",
+      "bytes": 12473,
+      "sha256": "28d20df20b26b5bd476370e4bf51832442db701b21a9fa90a62cc4a272d18581"
+    }
+  ]
+}

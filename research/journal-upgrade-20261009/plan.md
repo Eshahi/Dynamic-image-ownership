@@ -4,15 +4,23 @@ Updated 2026-10-13 by Codex agent, following the user's clarification that the d
 
 ## Direction and central question
 
-Develop a **mechanism-led semantic watermarking article**: establish which part of the construction preserves a content-conditioned semantic payload through regeneration, whether that effect transfers to another model and image domain, and what quality and computation it costs. Keep exact-instance verification as a separately evaluated fragile tier.
+Develop a **conditional empirical article on semantic-payload recovery versus ownership acceptance**. The fresh simplification and H1 screens below do not support the proposed mechanism-led methods headline. Retain full E3 and close this mechanism-search round with H2 unused. Determine whether a fair external comparison and independent transfer reveal a consequential, reproducible distinction or tradeoff. Keep exact-instance verification as a separately evaluated fragile tier.
 
-The primary contribution must be an experimentally isolated mechanism or a useful robustness–quality–cost improvement beyond the closest prior art. Initialization and content-compatible carrier construction are the leading explanatory hypothesis, not an established explanation. Merely combining two signatures, adding BCH, removing an optimizer or beating native v5 is not sufficient novelty.
+The primary contribution must be an experimentally isolated mechanism, a useful robustness–quality–cost improvement beyond the closest prior art, or a new and consequential failure explanation that transfers across relevant methods. None is yet established. Merely combining two signatures, naming separate endpoints, adding BCH, removing an optimizer or beating native v5 is not sufficient novelty.
 
 The immediate milestone is an **article viability decision**, followed by a frozen method and fair benchmark. Q1 is a submission target, not a guaranteed outcome. Official IEEE SPS [reviewer guidance](https://signalprocessingsociety.org/publications-resources/guidelines-reviewers) emphasizes novelty and appropriateness, including a complete manuscript within the journal's scope; no single performance percentage establishes those properties.
 
 The current method writes image-domain pixels and extracts through VAE/CLIP features. It does not fulfill the original proposal's latent insertion or lightweight DCT-only extraction. Keep a paper based on the measured method separate from those unresolved thesis obligations. If the thesis direction must change, prepare a scope-alignment note for supervisor review; do not edit the protected proposal, source plan or claim ledger.
 
-The [fresh strategic decision memo](article-contribution-decision.md) records the competing narratives, rationale and abandonment gates. Its mechanism-led route is adopted here.
+The initial [strategic decision memo](article-contribution-decision.md) records the earlier mechanism-led route. The completed screens now support the [updated article-viability decision](h2-article-viability-decision.md). This is an allocation decision, not exhaustion of every design family or rejection of M1a/M2.
+
+## Current decision and next work
+
+The fresh 24-source simplification screen passes clean quality and admission in both arms, but its estimated median cost saving is **18.57%, below the fixed 25% target**. The 28.43% mean saving is descriptive only. Retain full E3; Stage B attacks are skipped. The controlled six-source H1 screen lowers within-symbol variation but yields identical exact-Q and checked-J outcomes: Q 18/18 at both .2/.4 and J 18/18 and 16/18 in both arms. No new mechanism is established. Reports: [Stage A](fresh-simplification-results.md) and [H1](fresh-mechanism-results.md).
+
+The [endpoint-interpretation atlas](endpoint-interpretation-atlas.md) is complete using reviewed evidence, with no new held-out analysis or tuning. It makes the paper argument and missing evidence explicit. The [two-source FreqMark equation reconstruction](freqmark-reconstruction-results.md) stopped after 580.234 inclusive seconds at its fixed memory allowance before any update or final output: feasibility is unresolved, with no native-FreqMark failure or comparative score. [Blinded-rating materials](human-admissibility-draft.md) are drafted; no ratings were collected. The fresh [independent review](article-viability-independent-review.md) passed with no material blockers for faithful reporting and the bounded research decision. This completes the current article-viability milestone, not publication readiness or human M2 acceptance.
+
+After that review, the ordered next steps are: resolve enough closest-baseline fidelity for a fair bounded comparison; prepare blinded admissibility materials and valid-positive binding controls; freeze a small independent domain/model screen; and proceed to calibration and fresh confirmation only if a meaningful external tradeoff or transferable failure explanation appears. A large grid, further severity search or a manuscript claiming a novel mechanism is not the next action. Human judgments and supervisor scope alignment remain actual human dependencies; local drafting and protocol preparation do not need routine approval.
 
 ## Evidence we can use, and gaps we must close
 
@@ -26,7 +34,8 @@ The [fresh strategic decision memo](article-contribution-decision.md) records th
 | Full instance acceptance after regeneration | Zero source-majority successes for both methods | Do not claim regeneration-robust full ownership |
 | Public T4/T5 transfers | Both donor payloads arrive on 30/30 pairs per panel; combined and perceptual-only checks both reject all | Observed rejection, but no demonstrated added combined-binding value |
 | Negative calls | Zero observed events; limited sample and unresolved T3 families | No demonstrated population 0.1% FPR or general owner-security guarantee |
-| Refinement ablation | Initializer and final J both 12/12 at .1/.2 on adaptive development sources; prospective refinement-improvement screen fails | Test simplification on fresh data; this is not proof of universal refinement/BCH redundancy |
+| Refinement and fresh simplification | Adaptive refinement screen fails; fresh 24-source clean preservation passes but estimated median saving is 18.57%, below 25% | Retain full E3 and skip Stage B; no attack-equivalence or universal refinement/BCH-redundancy claim |
+| Fixed H1 objective contrast | Six-source matched intervention changes clean geometry but exact Q and checked J tie, including .4 | H1 not supported; H2 left unused rather than selected to manufacture separation |
 | Missing article evidence | Mechanism isolation, matched external comparisons, independent transfer, calibrated errors, human admissibility and complete timing | These determine the next work, not further confirmation of the same easy setting |
 
 Exact endpoints and qualifications are in the [M2 report](e3-s1-m2-results.md), its [independent review](e3-s1-m2-independent-review.md), and the [post-M2 ablation](post-m2-refinement-results.md). Historical F5 results remain in the [earlier report](../m2-coco512-results.md); they are not E3 confirmation. Human M2 acceptance is not inferred.
@@ -44,9 +53,9 @@ Exact endpoints and qualifications are in the [M2 report](e3-s1-m2-results.md), 
 
 Start the method description, related work and evidence table during phases 1–3. Keep result claims and the abstract provisional until confirmation. The scientific result, not manuscript polish, determines the route.
 
-## The next concrete research block
+## Completed discovery design and its limits
 
-Reserve approximately 24 fresh development sources under a written metadata-only rule, excluding every validation/test/held-out ID and hash. Use licensed sources and record development reservation. This is a screen, not a publication sample. The original twelve adaptive sources and completed 300-source confirmation remain historical evidence.
+The following design was executed or conditionally skipped as specified in its frozen protocols. The 24 development sources were reserved under a metadata-only rule, excluding validation/test/held-out IDs and hashes, with licensed sources recorded. They are now consulted development data. The original twelve adaptive sources and completed 300-source confirmation remain historical evidence. The status above supersedes future-tense instructions in this design record; do not restart it.
 
 1. **Simplification.** Compare full E3 with its identical initializer plus a fixed quality selector, sharing supplier targets, reader, payload capacity, seeds and attacks. Keep native v5 as a separate end-to-end comparator. Measure supplier-through-final-image time, clean quality, exact checked recovery, C0/wrong-owner calls and T4/T5 regressions.
 2. **Prospective screen.** Pin VAE-only and SD1.5 strengths .1/.2, three development seeds, before execution. A proposed practical screen is at most one fewer majority-J source at each strength, no additional strict-quality failures or observed negative/T4/T5 failures, and at least 25% lower median total construction time. This selects a candidate; 24 sources cannot establish statistical noninferiority or rare-error security. New strict-quality failures prevent an all-image claim.
@@ -133,10 +142,10 @@ Shortlist two or three journals after the contribution is clear. Forensic/securi
 
 Use the laptop and pinned assets for decisive screens. No GPU rental is needed for planning. Forecast later compute from a measured end-to-end batch, actual source/attack counts and overhead, not the reused-mark ablation or an unmeasured blanket hour estimate. Human assessment, licensing and mechanism discovery may determine the schedule more than GPU time. Paid compute requires its own concrete decision.
 
-The immediate deliverable is the contribution map and bounded fresh-development protocol, followed by an article-viability decision. This update launches no new experiment. Routine local development remains covered by the handoff, while future held-out approval and protected/public actions retain their boundaries.
+The immediate deliverable is the completed discovery/viability package and its independent review. The mechanism round is closed; routine local preparation remains covered by the handoff, while future held-out approval and protected/public actions retain their boundaries.
 
 ## Autoresearch and completion record
 
 Borrow the small hypothesis–commit–measure–log cycle described in the [pinned autoresearch assessment](autoresearch-assessment.md), with a frozen evaluator, separate quality/FPR constraints and failed results retained. Keep final evaluation outside adaptive search. Do not install its language-model training stack or build another orchestrator.
 
-Completed: initial literature and attack-range discovery, WAM exploratory reproduction, E3 M1a/M1b, approved E3 M2 execution and independent evidence review, and the post-M2 refinement ablation. Pending: article-level mechanism/novelty, fair external comparisons, broader validity/calibration, human assessment, any future frozen article confirmation, manuscript and venue decision. The October 13 status report was delivered. Obsolete statements that M1b was underway or E3 confirmation was unrun have been removed; history remains in Git and the [development history](plan-development-history-20261010.md).
+Completed: initial literature and attack-range discovery, WAM exploratory reproduction, E3 M1a/M1b, approved E3 M2 and independent evidence review, refinement ablation, fresh Stage A, H1, the resource-limited reconstruction attempt, endpoint atlas, draft rating materials, strategic article-viability decision and independent package review (PASS). The mechanism-led headline is unsupported; an empirical route is conditional. Pending: fair external comparisons, broader validity/calibration, human assessment, any future frozen article confirmation, manuscript and venue decision. The October 13 status report was delivered; history remains in Git and the [development history](plan-development-history-20261010.md).
