@@ -252,3 +252,7 @@
 - 2026-10-13: Escalation no_human_next_decision, gpt-6-astra/high: user removed human ratings from the critical path and requested autonomous strongest judgment. Select one decisive executable local scientific study, considering native baseline fidelity and a narrowly justified correction for the unsupported deterministic operation; preserve all prior failures and human evidence as missing.
 
 - 2026-10-13: Delegation freqmark_allowlist_implementation, gpt-6.1-sol/medium: implement Astra's separately frozen native-CUDA antialiased-resize warning amendment and replicated numerical gates; no recipe/tolerance changes, science execution owned by root.
+
+- 2026-10-13T23:01:22.164836+00:00 Codex agent: FM-R48-Eq10-SD2community-serial-AAwarn; commit 4213674169c5d305115a50ddf90da81dc6c1e95f; run `W:\Prrojects\image ownership\THESIS_GUIDE_OFFLINE_v5\.thesis-build\dev-runs\20261013-150109-freqmark-serial-aawarn\run.json`; inclusive 12.744 s; outcome numeric_gate_failed; development, USD 0, no attacks or native-equivalence claim.
+
+- 2026-10-13: Escalation binding_positive_design, gpt-6-astra/high: the separately frozen AA-warning reconstruction stopped on unallowlisted attention nondeterminism before any model comparison or photograph update; close this baseline implementation route and design the committed next allocation, valid-positive binding/component controls without human ratings.
