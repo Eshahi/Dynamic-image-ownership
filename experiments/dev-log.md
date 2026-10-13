@@ -256,3 +256,5 @@
 - 2026-10-13T23:01:22.164836+00:00 Codex agent: FM-R48-Eq10-SD2community-serial-AAwarn; commit 4213674169c5d305115a50ddf90da81dc6c1e95f; run `W:\Prrojects\image ownership\THESIS_GUIDE_OFFLINE_v5\.thesis-build\dev-runs\20261013-150109-freqmark-serial-aawarn\run.json`; inclusive 12.744 s; outcome numeric_gate_failed; development, USD 0, no attacks or native-equivalence claim.
 
 - 2026-10-13: Escalation binding_positive_design, gpt-6-astra/high: the separately frozen AA-warning reconstruction stopped on unallowlisted attention nondeterminism before any model comparison or photograph update; close this baseline implementation route and design the committed next allocation, valid-positive binding/component controls without human ratings.
+
+- 2026-10-13: Delegation binding_positive_implementation, gpt-6.1-sol/medium: implement the frozen E3-RC1 six-pair actual-image crossed q/h reissue study, sharing only pre-instance 150-step stages; root commits and executes, all 24 final cells retained.
