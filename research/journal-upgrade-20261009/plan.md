@@ -1,108 +1,142 @@
-# Journal development plan
+# Roadmap to a journal article
 
-Prepared 2026-10-09 by Codex agent. Evidence base: corrected M2 package at `7f222fe3db7235e3508eac991031222dbd066626`, primary-source refresh, and a fresh methodological design review. This is a prospective research roadmap, not an execution manifest, preregistration, official lifecycle transition, or revised M2 verdict. Numerical targets below are proposed engineering decisions, not journal acceptance rules. Scope remains T3 regeneration, T4 copy-paste, and T5 semantic collision.
+Updated 2026-10-13 by Codex agent, following the user's clarification that the deliverable is the complete Q1-targeted article strategy. This replaces obsolete next steps in the October 9 plan. It is a research roadmap, not an execution manifest, preregistration, human milestone verdict or authorization for paid compute or a new held-out run. Numerical gates below are research decisions, not journal acceptance rules.
 
-Updated 2026-10-10 after the supplied-payload E3 assessment and E3-S1 Stage A. Earlier failed candidates and intermediate findings are preserved in the [development history](plan-development-history-20261010.md).
+## Direction and central question
 
-## Current decision
+Develop a **mechanism-led semantic watermarking article**: establish which part of the construction preserves a content-conditioned semantic payload through regeneration, whether that effect transfers to another model and image domain, and what quality and computation it costs. Keep exact-instance verification as a separately evaluated fragile tier.
 
-**M2 execution and independent evidence review are complete; the user authorized local development on 2026-10-13 with “Plan and do it.”** The [reviewed M2 report](e3-s1-m2-results.md) preserves all 300 sources, quality failures and unavailable calls. Its primary composite favors E3, but unequal clean eligibility prevents interpreting the full difference as regeneration improvement. Raw checked-semantic recovery is strong; the added value of refinement and combined binding still needs isolation. Human M2 acceptance is not inferred.
+The primary contribution must be an experimentally isolated mechanism or a useful robustness–quality–cost improvement beyond the closest prior art. Initialization and content-compatible carrier construction are the leading explanatory hypothesis, not an established explanation. Merely combining two signatures, adding BCH, removing an optimizer or beating native v5 is not sufficient novelty.
 
-The [post-M2 refinement ablation](post-m2-refinement-results.md) is complete: same targets/reader, twelve development sources and new seeds 6–8. Both initializer and final achieve majority checked-semantic J 12/12 at .1 and .2; refinement fails its predefined two-source improvement screen. The only seed-level gain (.2: 34/36 to 35/36) and the clean-quality change (11/12 to 12/12) occur on a contraction-only source. Actual minimax changes do not change J on any scheduled identity. The separate post hoc decoder diagnostic finds no raw-message rescue in this panel. This is a ceiling on adaptive development evidence, not an M2 retraction or proof that those components never help.
+The immediate milestone is an **article viability decision**, followed by a frozen method and fair benchmark. Q1 is a submission target, not a guaranteed outcome. Official IEEE SPS [reviewer guidance](https://signalprocessingsociety.org/publications-resources/guidelines-reviewers) emphasizes novelty and appropriateness, including a complete manuscript within the journal's scope; no single performance percentage establishes those properties.
 
-**Next priority: test a simpler construction on fresh development sources, then isolate the initializer mechanism.** Compare full E3 with the same initializer plus fixed quality selector before retaining an expensive refinement as a claimed contribution. Separate code/carrier, optimization objective and supplier in subsequent equal-capacity/quality controls. Do not change the frozen M2 method or broaden attacks on this panel to seek a winning setting. Follow with delivered binding-component disagreement, calibrated external baselines and blinded human admissibility. New source reservation and prospective design precede construction; future held-out confirmation requires its own milestone decision. The broad ranges below remain proposed future studies.
+The current method writes image-domain pixels and extracts through VAE/CLIP features. It does not fulfill the original proposal's latent insertion or lightweight DCT-only extraction. Keep a paper based on the measured method separate from those unresolved thesis obligations. If the thesis direction must change, prepare a scope-alignment note for supervisor review; do not edit the protected proposal, source plan or claim ledger.
 
-The earlier supplied-payload E3 operator passes the original comparative M1a under the explicit safety-availability convention: strict clean quality/exact q/h/full 12/12, T3 semantic/exact-q 36/36 at .1 and 35/36 at .2, with one unavailable C1 image; fixed matched semantic counts 29/29 and 28/28 versus v5 27/29 and 18/28. Negative T3 calls are 0/477 observed of 504 planned; 27 calls from seven blocked images are unavailable. T4/T5 show no additional measured false full acceptance. The [complete assessment](e3-m1a-assessment.md) is specific to that supplied-payload operator. S1 must qualify its own newly constructed pixels. Strict extra E3-B remains failed, and historical M2 is unchanged.
+The [fresh strategic decision memo](article-contribution-decision.md) records the competing narratives, rationale and abandonment gates. Its mechanism-led route is adopted here.
 
-The current method is an image-domain comparator with VAE/CLIP extraction. It does not establish the proposal's latent method, lightweight extraction, cryptographic authorization, or reference-specific same-owner attribution. Public donor transfers deliver exact q/h in 20/20 cases but none pass combined acceptance; perceptual-only also rejects all, so an incremental advantage of combining signatures remains unproved. These scope limits travel with any package.
+## Evidence we can use, and gaps we must close
 
-The initial request is answered by the ranges, evidence targets and revised sequence below, the [primary-source comparison](literature-comparison.md), and the [autoresearch assessment](autoresearch-assessment.md). Q1 placement cannot be inferred from a development gate or a single published percentage. [Archived development history](plan-development-history-20261010.md) preserves failed rounds and earlier decisions without making their old next steps current.
-
-## Historical F5 findings (not the current E3 M2 study)
-
-Counts below come from the [corrected M2 report](../m2-coco512-results.md) and [independent review](../m2-independent-review.md). T3 units are 30 sources, each summarized by success on at least two of three seeds; 90 seed rows are not 90 independent sources.
-
-| Endpoint | F5 r2 | v5 | Interpretation |
-|---|---:|---:|---|
-| Clean full `both_match` | 299/300 | 300/300 | Strong clean recovery, with one F5 failure |
-| All three strict quality limits | 298/300 | 300/300 | F5 does not meet an all-image quality claim |
-| T3 semantic, strength .2 | 30/30 | 22/30 | Strong internal comparison |
-| T3 **checked** semantic, .2 | 27/30 | 10/30 | 90%; one-sided 95% lower bound 76.14% |
-| T3 semantic, .4 | 21/30 | 5/30 | Survival falls as regeneration increases |
-| T3 **checked** semantic, .4 | 17/30 | 3/30 | 56.67%; lower bound 40.16% |
-| T4 false donor full attribution | 0/29 | 0/29 | F5 donor delivery only 4/30; no isolated binding benefit |
-| T5 false match, different owner | 0/27 | 0/27 | Limited precision and no component ablation |
-
-F5 mean PSNR is about 44.49 dB; mean/max LPIPS are .02176/.10420. The embedding mean is about 22.4 seconds versus 2.3 seconds for v5. This is not a measured detector-speed comparison. F5 uses a VAE encoder, seven CLIP views and latent DCT; omitting diffusion inversion does not make their costs disappear. Full `both_match` is absent after T3, consistent with the fragile tier. Semantic survival must not be described as full-instance authentication.
-
-Each method has three negative cells of 300 calls, all zero, sharing sources. The individual upper 95% bound is .994% per cell; the calls do not establish a 0.1% or 1e-6 population bound. T4/T5 zero-event upper bounds are 9.81%/10.50%, assuming independent pair units. See [recomputed planning statistics](planning-statistics.json) and its [arithmetic script](recompute-planning-statistics.py). These are uncertainty calculations from reviewed counts, not new runs.
-
-## Literature changes the comparison and novelty claim
-
-The [comparison matrix](literature-comparison.md) separates task, metric, operating point and side information. Nine inspected primary sources have [versioned cards and evidence](../literature/journal-upgrade-20261009/synthesis/findings.md). The root bibliography already contains their keys; no duplicate entries are added. This is a focused refresh, not an exhaustive novelty determination.
-
-Comparators are **FreqMark**, **Watermark Anything**, and **ZoDiac**, alongside v5 and matched internal ablations. They offer post-hoc latent-frequency, neural/localized, and inversion-based reference points. The October 10 [feasibility inspection](baseline-feasibility.md) prioritizes WAM's explicitly named SA-1B MIT checkpoint for implementation; it differs from the paper's COCO checkpoint. Calibrate methods separately and compare under the same quality budget, attack identities and sample units. Show their native quality-performance curves too; a baseline unable to satisfy our strict quality limit is infeasible there, not secretly retuned on test data or assigned an invented detection score.
-
-Do not rank F5's source-majority detection against published bit accuracy, AUC, or a different FPR. For example, ZoDiac's Table 3 reports detection .988 at FPR .062 and .938 at FPR .004. Neither is a matched competitor to a detector calibrated at .001. [ZoDiac v2](https://arxiv.org/html/2401.04247v2#S4).
-
-Latent-frequency marking and inversion-free extraction have precedents in FreqMark, Latent Watermark and GROW. Semantic binding has precedents including SEAL. The contribution must therefore be an experimentally isolated improvement or a well-characterized limitation, not merely the use of latent features, two signatures, or no inversion. Generative methods belong in a separate optional arm; they cannot replace the existing-photo benchmark. [FreqMark](https://arxiv.org/html/2410.20824v1), [Latent Watermark](https://arxiv.org/html/2404.00230v3), [GROW](https://openaccess.thecvf.com/content/CVPR2026/html/Luo_GROW_Watermark_Generation_with_Progressive_Guidance_for_Diffusion_Models_CVPR_2026_paper.html), [SEAL](https://arxiv.org/html/2503.12172v4).
-
-## Thresholds and attack ranges for the next study
-
-Separate detector calibration, attack intensity, admissibility and acceptance. A strength of .4 is an img2img parameter, not a 40% successful attack. The following values are prospective proposals, chosen before the next results; preserve all historical M2 settings.
-
-| Item | Proposed primary setting | Secondary/sensitivity |
+| Topic | Current evidence | Implication |
 |---|---|---|
-| Detector operating point | Nominal FPR .001 (0.1%), threshold selected using calibration negatives only | .01 and .0001, clearly separated; rare-event uncertainty reported |
-| Clean marked quality | PSNR >35 dB, SSIM >.9, LPIPS <.1 on every evaluated image | Continuous distributions, worst cases and failure counts |
-| T3 regeneration | VAE-only; strengths .05/.1/.2/.3/.4/.5/.6; seeds 0-2 | SD1.5 continuity, another backbone sharing a VAE, and independently trained VAE/backbone; controlled regeneration after the cheap tests |
-| T3 admissibility | LPIPS <=.30 versus marked input **and** blinded human majority preserving entities, actions and scene identity | LPIPS <=.20; report PSNR/SSIM and independent semantic similarity continuously |
-| T4 transfer | Patch area 1/64, 1/16, 1/4; alpha .25/.5/1; two fixed positions; K=18 | No-transfer sham and separately labelled residual-transfer diagnostic |
-| T4 admissibility | LPIPS <=.20 versus recipient and blinded majority preserving recipient identity | .30 sensitivity; report actual donor delivery before binding |
-| T5 collision | One independently selected semantic-nearest distinct instance, K=1 | K=10/100 search budgets, dissimilar controls, same/different owner |
-| Attacker access | One claimed owner R=1, no detector feedback Q=0; fixed candidate budget K | R=10/100 roster and feedback-enabled attacks require separate endpoints/calibration |
+| Completed E3-S1 confirmation | 300 COCO source groups; SD1.5 DDIM20, strengths .1/.2, three seeds; inventory and independent evidence review complete | Preserve this frozen study; do not rerun or tune its sources |
+| Exact checked-semantic recovery J | E3 287/300 at .1 and 284/300 at .2; native v5 80/300 and 17/300 | Promising in this channel, but not matched-FPR external superiority |
+| Raw semantic detection S | E3 287/284 versus v5 283/232 at .1/.2 | Exact payload recovery, detection and content agreement are different endpoints |
+| Primary composite | E3 281 versus 151 at .1; 278 versus 129 at .2 | Eligibility differs, 294 versus 159, with different native h targets; the full difference is not isolated regeneration gain |
+| Strict clean quality | E3 294/300; v5 298/300 | Six E3 LPIPS failures stay in the denominator; no all-image quality claim |
+| Full instance acceptance after regeneration | Zero source-majority successes for both methods | Do not claim regeneration-robust full ownership |
+| Public T4/T5 transfers | Both donor payloads arrive on 30/30 pairs per panel; combined and perceptual-only checks both reject all | Observed rejection, but no demonstrated added combined-binding value |
+| Negative calls | Zero observed events; limited sample and unresolved T3 families | No demonstrated population 0.1% FPR or general owner-security guarantee |
+| Refinement ablation | Initializer and final J both 12/12 at .1/.2 on adaptive development sources; prospective refinement-improvement screen fails | Test simplification on fresh data; this is not proof of universal refinement/BCH redundancy |
+| Missing article evidence | Mechanism isolation, matched external comparisons, independent transfer, calibrated errors, human admissibility and complete timing | These determine the next work, not further confirmation of the same easy setting |
 
-Use three raters with blinded order for human admissibility. No missing human response counts as a pass. Human judgments remain pending until actually collected. The LPIPS caps are explicit engineering choices, not validated perceptual truths; report coverage and sensitivity rather than treating them as universal semantic thresholds. Do not use the detector's own CLIP to determine semantic eligibility. Equal strength across pipelines is not equal severity: pin checkpoints, effective timesteps, sampler, guidance, prompt policy and resolution, and compare performance versus achieved distortion. The fixed-FPR and quality-performance approach follows [WAVES v2](https://arxiv.org/html/2401.08573v2#S3), restricted here to the three thesis threats.
+Exact endpoints and qualifications are in the [M2 report](e3-s1-m2-results.md), its [independent review](e3-s1-m2-independent-review.md), and the [post-M2 ablation](post-m2-refinement-results.md). Historical F5 results remain in the [earlier report](../m2-coco512-results.md); they are not E3 confirmation. Human M2 acceptance is not inferred.
 
-For every attack report admissibility coverage, joint admissible attack success over **all** attempts, and success conditional on admissibility. T3 success means loss of the declared checked-semantic endpoint; T4 success means false donor attribution; T5 success requires the precisely defined false-instance or false-owner claim. Also report all-source survival and paired comparisons on the common admissible subset. Retain all failed seeds, rejected outputs and denominators.
+## Ordered work packages
 
-Report random-seed average and per-source any-attempt attack success separately. With K=3 seeds a source-majority endpoint is not a best-of-three defense. Across seven strengths K=21 per model for an any-attempt summary. For T4/T5, binomial units are independent disjoint donor/recipient or target/candidate clusters, with success defined as any allowed attempt. Reusing one target across many donors does not increase the independent sample size. Full details are in the [threshold design review](threshold-design-review.md).
+| Phase | Action and deliverable | Exit decision |
+|---|---|---|
+| 1. Contribution and scope | One-page claim/novelty map: closest prior art, detector inputs, payload meaning, attacker access, thesis/article distinction | A falsifiable difference worth testing; otherwise select a substantive redesign or a mechanism/limitations question |
+| 2. Smallest effective method | Fresh paired simplification screen, then targeted carrier/supplier/coding/objective ablations | Identify a reproducible useful effect and explanation; no large benchmark while attribution is unresolved |
+| 3. External competitiveness | Small FreqMark feasibility comparison first, then calibrated FreqMark, WAM and ZoDiac in their appropriate roles | A meaningful benefit or tradeoff beyond native v5 under fair constraints |
+| 4. Generalization and attack validity | Two domains, an unconsulted model panel, assigned owners/messages, T3/T4/T5 curves, binding positive controls, blinded human assessment | The claim survives beyond the adaptive panel; unsupported scope is narrowed before confirmation |
+| 5. Freeze and confirm | Lock method, calibration, endpoints, sampling, attack budgets and sample sizes; independent review; fresh held-out execution through existing runner | The frozen claim is supported with uncertainty and complete failure accounting, or honestly rejected |
+| 6. Manuscript and venue | Focused manuscript, reproducibility package, scientific review, verified journal fit/ranking/cost | Submission-ready evidence and a defensible contribution; final authorship and submission remain human decisions |
 
-## Scientific targets and sample-size decisions
+Start the method description, related work and evidence table during phases 1–3. Keep result claims and the abstract provisional until confirmation. The scientific result, not manuscript polish, determines the route.
 
-| Claim | Proposed future evidence requirement |
-|---|---|
-| Reliable clean marking | Strict quality on every observed image; clean full-match lower one-sided 95% bound >=.95 |
-| Low false-positive detection | Each declared primary negative cell has simultaneous one-sided upper bound <=.001 |
-| Cross-model regeneration improvement | Checked source-majority point estimates >=90% at .2 and >=70% at .4; >=10 percentage-point improvement over the matched pixel ablation, with adjusted paired lower difference bound >0 |
-| Effective content binding | At least 100 independent **delivered** pairs; >=10-point false-acceptance reduction versus disabled binding on identical signals, with adjusted lower difference bound >0 |
-| Low T4/T5 attack success | Simultaneous upper bound <=1% for each of three prespecified attack cells at fixed K |
+## The next concrete research block
 
-The T3 90%/70% targets are point-estimate milestones, not claims that the population rate exceeds them with 95% confidence. The 100-pair binding experiment tests a mechanism; it does not certify a rare error rate. No gate compensates for another through a weighted score.
+Reserve approximately 24 fresh development sources under a written metadata-only rule, excluding every validation/test/held-out ID and hash. Use licensed sources and record development reservation. This is a screen, not a publication sample. The original twelve adaptive sources and completed 300-source confirmation remain historical evidence.
 
-For zero events in n independent units, an individual upper 95% bound is `1 - .05^(1/n)`. A below-1% bound needs 299 zero-error units for one cell, or 408 per cell for three simultaneous Bonferroni-adjusted cells. A below-.1% bound needs 2,995 or 4,093 respectively. Plan 10,000 calibration negatives and 5,000 fresh confirmation groups per target population, applying all three negative conditions. Zero/5,000 suffices for the three-cell .1% bound; any errors require the actual exact bound. Calibration at nominal .001 does not guarantee that confidence bound: choose a conservative development operating point, then report the confirmation result without retuning.
+1. **Simplification.** Compare full E3 with its identical initializer plus a fixed quality selector, sharing supplier targets, reader, payload capacity, seeds and attacks. Keep native v5 as a separate end-to-end comparator. Measure supplier-through-final-image time, clean quality, exact checked recovery, C0/wrong-owner calls and T4/T5 regressions.
+2. **Prospective screen.** Pin VAE-only and SD1.5 strengths .1/.2, three development seeds, before execution. A proposed practical screen is at most one fewer majority-J source at each strength, no additional strict-quality failures or observed negative/T4/T5 failures, and at least 25% lower median total construction time. This selects a candidate; 24 sources cannot establish statistical noninferiority or rare-error security. New strict-quality failures prevent an all-image claim.
+3. **Mechanism isolation.** Compare carrier, target supplier and objective in sequential paired contrasts, holding effective payload, access, reader information and quality constraints fixed. Coding controls must account for code rate, energy and occupied carrier dimensions. Same-signal raw-versus-decoded bits are only a diagnostic.
+4. **Resolve saturation.** Include a prospectively fixed harder T3 panel, initially .4 as a development severity, only as specified before outcomes. Separate message errors from semantic mismatch and assess admissibility. A tie on an easy channel is not proof of equivalence; do not search attack settings after seeing which method wins.
+5. **Theory tied to evidence.** Derive detector/null assumptions, decision margins and effective payload/owner capacity. Measure whether the proposed signal property predicts survival across images and channels. Content-dependent bits need not be independent or uniformly random; theoretical FPR calculations must state and test those assumptions.
+6. **Binding value.** First verify legitimate positive acceptance. Then compare no binding, semantic-only, perceptual-only and combined decisions on the same delivered donor signals. Fix pair selection and total attempts; retain failed deliveries. If the individual checks already reject every case, the combined benefit remains unproved.
 
-Plan at least 300 independent positive sources per declared domain for future confirmation, with paired power analysis from development effects before freezing the final count. Expand the multiplicity family or narrow the claims if adding domains/endpoints. Use exact paired tests/source-cluster intervals and Holm adjustment for a small prespecified family of primary comparisons. Secondary grids remain descriptive. Sample-size arithmetic is not a substitute for power analysis, diverse source sampling or independence.
+Each sub-study gets a short prospective protocol and finite local resource cap before running. Permit at most two clearly distinct mechanism hypotheses in this discovery round, then issue a **keep / simplify / redesign / pivot** memo. This is a prospective article resource decision, not a change to historical milestone gates. The current 9m17s ablation reused marks; it is not a timing estimate for fresh construction.
 
-## Revised sequence of work
+## Fair external comparisons
 
-These are ordered work packages, not promised calendar dates. Current original M1a qualification and stronger prospective article targets are distinct; passing the former does not silently pass the latter.
+The existing [literature matrix](literature-comparison.md) and [inspected paper cards](../literature/journal-upgrade-20261009/synthesis/findings.md) provide the starting point. Refresh directly relevant primary methods and code before asserting novelty; published percentages alone cannot rank our result.
 
-1. **Preserve the completed E3-S1 science.** B on all twelve development sources, C on the fixed SD1.5 .1/.2 seed identities, and D on residual/public transfer and collision geometry have passed. Reuse only unchanged controls with explicit references. Preserve failed construction, unavailable safety outputs, complete denominators and resource cost including payload supply. Use the frozen [full development protocol](e3-s1-full-development.md). If it fails, diagnose the measured failure before declaring a different method or budget; no silent retries or historic payload fallback.
-2. **Package only after qualification.** Freeze supplier/writer/reader and all configuration, scientific scope, thresholds, data rule and primary comparisons. Use existing tests, existing runner rehearsals and one fresh independent review. Prepare an unexposed held-out inventory by IDs/hashes only. The [metadata-only availability memo](fresh-cohort-availability.md) identifies a conditional 300-image COCO remainder, not a validated rare-event cohort. The user reviews the concrete M1b package once before held-out execution. No new runner is needed.
-3. **Perform approved confirmation and claims audit.** Count all admissions, failures, negatives and planned attacks; report raw and admissibility-filtered endpoints, paired source-level uncertainty and runtime. Do not tune on this result. The original M2 sources stay historical for E3-S1. Distinguish the alpha-only owner claim from cross-owner generalization; human verdicts stay missing until actually provided.
-4. **Close the article-specific gaps.** Independently reserved development sources and an untouched model/seed panel are needed because current sources, both VAE models and the six DDIM channels have informed design. Match carrier/component ablations on payload, extraction and achieved distortion. Freeze total attempts before pursuing at least 100 delivered pairs; retain unsuccessful deliveries and report any shortfall. Define an enrollment-aware instance test only through a separate method decision. The all-alpha 66-pair geometry panel cannot become a false-owner or false-instance trial by renaming it.
-5. **Establish external competitiveness at a common operating point.** The pinned WAM SA-1B MIT [matched T3 baseline](wam-t3/wam-t3-results.md) gives native exact message recovery 3/36 and 0/36 at .1/.2 versus historical F5 27/36 and 20/36. It is descriptive, with different payloads and no matched-FPR presence rule. Reproduce free pinned FreqMark/ZoDiac assets where feasible; otherwise disclose reproduction limits. Compare native and strict-quality frontiers, calibrated FPR, T3 quality-performance curves, relevant T4/T5 endpoints, total embedding/extraction time and memory. No state-of-the-art ranking from unmatched paper percentages.
-6. **Write the bounded article.** Center the paper on a demonstrated mechanism or measured limit supported by independent data, complete ablations and failure accounting. Keep the noisy payload, public-access authorization limitation and non-identifiable reference claim explicit. Align unprotected chapters with measured scope; proposal, claim ledger and source plan remain unchanged. Venue/category/year verification and submission are later human decisions, not consequences of these numerical targets.
+| Comparator | Role | Required qualification |
+|---|---|---|
+| v5 and matched internal ablations | Historical comparison and causal isolation | Native v5 results stay distinct from controls with equal targets, payload and reader |
+| [FreqMark](https://arxiv.org/html/2410.20824v1) | Closest post-hoc latent-frequency/feature-based reference | Match achievable quality and capacity where supported; disclose native settings |
+| [Watermark Anything](https://arxiv.org/html/2411.07231v2) | Neural-decoder and localized watermark reference | Pin the checkpoint; our available SA-1B MIT model differs from the paper's COCO checkpoint |
+| [ZoDiac](https://arxiv.org/html/2401.04247v2) | Inversion-based reference | Compare calibrated presence/key detection and complete inversion cost; do not invent equivalent semantic payload/binding capabilities |
 
-The initial finite readability round is closed, with failures preserved in [the improvement summary](improvement-summary.md); subsequent coded-carrier and E3 decisions are in the archived history and linked run reports. New rounds require a falsifiable hypothesis and finite configuration/resource budget before results. No scalar objective trades away quality, negative detection or T4/T5 constraints. SDXL is now a seen development transformation, and repeated seeds are clustered within a source. The standing 2026-10-13 state report remains due.
+Compare detection at independently calibrated false-positive operating points. Compare exact message recovery only where capacities and decision tasks truly match. Show native quality-performance curves and a common strict-quality budget. If a baseline is infeasible at that budget, report this alongside its native curve; do not assign an invented score or hide its stronger operating point.
 
-## What to borrow from autoresearch
+Match images, preprocessing, resolution, attacks and side information. Give baselines a documented development tuning budget. Measure total embedding including the supplier, extraction including VAE/CLIP or inversion, memory, loading policy, batch size, hardware and failure costs. The removed refinement timer alone cannot establish a net speedup.
 
-The inspected [official repository](https://github.com/karpathy/autoresearch/tree/228791fb499afffb54b46200aca536f79142f117) is an agent-guided GPT-pretraining experiment, not a watermark research package. Borrow its short hypothesis/commit/measure/log cycle and frozen evaluator. Replace scalar improvement with hard quality/FPR constraints and a Pareto comparison; retain failed results; keep calibration and fresh confirmation outside the search loop. Its five-minute training counter excludes other runtime, and repeated validation queries remain adaptive development.
+The [existing WAM run](wam-t3/wam-t3-results.md) is exploratory and lacks matched FPR; it is not a superiority result. Neural-decoder and inversion baselines satisfy separate original thesis obligations. Generation-time methods inform novelty but cannot replace the existing-image benchmark.
 
-Do not install its language-model stack or add a new orchestration layer. The existing development command, assessors, `run.json` and dev log are sufficient. The [full code assessment](autoresearch-assessment.md) records the pinned revision, source archive, Windows limitations and license declaration caveat. No repository code was executed.
+## Attack thresholds, ranges and valid outcomes
 
-## Completion record
+Separate detector thresholds, attack intensity, acceptable image change and scientific success. Strength .4 is an img2img parameter, not a 40% attack success rate. Values below are prospective research choices; historical M2 remains unchanged.
 
-Discovery, source inspection, attack-range design, the autoresearch review, WAM descriptive reproduction and the supplied-payload E3 comparative assessment are complete. The S1 two-source supplier/callable screen is complete, with its technical failure and narrow unexecuted-stage completion retained. Full S1 qualification is complete and passes its bounded development assessment; M1b is underway. New confirmation, matched-FPR external ranking and article acceptance remain unfinished. All evidence is exploratory unless its own report explicitly identifies the historical approved confirmatory study. No human or official lifecycle verdict is fabricated.
+| Quantity | Proposed plan | Interpretation |
+|---|---|---|
+| Detector threshold | Feasibility at nominal FPR 1%; target 0.1% if calibration-tail resolution and cost support it | Select on separate negative calibration data. Report actual test FPR and uncertainty; nominal calibration is not certification |
+| Clean quality | PSNR >35 dB, SSIM >.9, LPIPS <.1 | Preserve all failures/abstentions in total coverage; a selective writer cannot claim success on every input |
+| T3 regeneration | VAE-only; small .1/.2/.4 screen; broader .05/.1/.2/.3/.4/.5/.6 curve with three fixed seeds | Freeze a small primary channel family before final evaluation; broader cells remain descriptive |
+| T3 admissibility | Proposed LPIPS <=.30 versus marked input plus blinded preservation of entities, actions and scene; .20 sensitivity | A planning proxy, not a validated universal semantic threshold |
+| T4 copy-paste | Patch fractions 1/64, 1/16, 1/4; alpha .25/.5/1; two positions, K=18 | Count all attempts, actual donor delivery and conditional binding; keep shams/residual diagnostics separate |
+| T4 admissibility | Proposed LPIPS <=.20 versus recipient plus blinded preservation of recipient identity; .30 sensitivity | Report coverage; destructive recipient changes do not silently qualify as valid attacks |
+| T5 collision | Fixed semantic-nearest distinct-instance rule, K=1 primary; K=10/100 sensitivity | Disclose owner and enrollment/reference information; no same-owner instance claim without identifiability |
+| Access/owners | Claimed-owner R=1, no detector feedback Q=0 primary; independently assigned owner/message panel | More trials or queries change calibration and threat scope; public owner information is not cryptographic authorization |
+
+Use real photographs and an independently specified existing-generated-image domain. Keep development, calibration and final evaluation disjoint. Account for source/near-duplicate and known baseline-training overlap. Owner/messages must not be selected for favorable outcomes; content-conditioned payload bits are not necessarily arbitrary user-controlled capacity.
+
+Test model transfer first on a small development screen. Reserve a genuinely unconsulted regeneration model/channel for a frozen transfer test. SD1.5 and previously consulted SDXL transformations are already seen; do not rename them unseen. Equal numeric strength across pipelines is not equal severity: pin checkpoints, timesteps, sampler, prompt policy, guidance and resolution; compare achieved distortion. Conditioned regeneration is an optional later T3 stress test, not a reason to expand into T1/T2.
+
+Use three blinded human raters, fixed sampling, instructions, agreement measurement and a disagreement policy. Missing judgments remain missing; if only a subset is rated, claims apply to that subset. The detector's own CLIP is not independent evidence of semantic preservation.
+
+Following [WAVES](https://arxiv.org/html/2401.08573v2), plot performance against image quality across attack severity, restricted here to T3/T4/T5. Report all-attempt outcomes, admissibility coverage, joint admissible attack success and conditional success. Random-seed average, source-majority and best-of-K attack success answer different questions. Seeds, strengths, owner queries and overlapping pairs are clustered, not independent extra samples.
+
+## Sample sizes and final confirmation
+
+Replace the earlier blanket plan for 10,000 calibration images and 5,000 confirmation groups per population with sample sizes justified by the claim, effect, precision, primary-comparison count and measured costs. Do not replace adequate evidence with a small zero-event panel.
+
+For zero events among n genuinely independent, fully observed units, the individual one-sided 95% binomial upper bound is 1 - .05^(1/n). Under that model:
+
+- 299 zero-event units are needed for an individual upper bound below 1%.
+- 2,995 are needed for an individual upper bound below 0.1%.
+- For three simultaneous Bonferroni-adjusted cells, these become 408 and 4,093 units per cell.
+
+These are model-based planning calculations, not population guarantees from a selected corpus or cryptographic bounds. Calibration data cannot double as the independent error test. Observed errors, missing outcomes or additional primary populations change the calculation. We can report a nominal 0.1% operating point with uncertainty without claiming its confidence upper bound is below 0.1%.
+
+Choose positive-source counts by paired power/precision analysis after development; 300 per domain is a budget scenario, not a journal rule. Use a small primary family with prespecified multiplicity treatment and source-cluster paired intervals/tests. Practical effect size matters as well as significance. A useful lower-cost tradeoff need not win every endpoint, but equivalence/noninferiority requires a justified margin and adequate precision.
+
+Avoid a full Cartesian product of all methods, domains, models, strengths and owner budgets. Clean negatives do not require every costly attack; attack-conditioned negatives remain necessary for the corresponding attack claims. Cheap clean tests cannot substitute for missing attacked negatives.
+
+Freeze all science and thresholds before fresh held-out execution, use existing tests/runner and one independent package review, then obtain the concrete held-out milestone decision. Preserve failures, safety blocks and denominators without repair or replacement. No new launcher, audit engine or dashboard is needed.
+
+## Continue, pivot or stop
+
+Proceed with a methods article only if a distinct contribution survives causal controls, a meaningful external comparison and independent transfer. The advantage may concern robustness, quality, capacity or cost, with its tradeoffs reported.
+
+If gains disappear under matched quality/payload/FPR, that superiority claim fails. If only v5 loses, external competitiveness remains unresolved. If binding remains redundant, remove its novelty claim. If the effect only survives the tuned model, narrow the claim or redesign rather than assert general regeneration robustness.
+
+A mechanism/limitations paper is a legitimate contingency only if it provides a new, reproducible explanation or consequential failure across relevant methods. Repeating already known regeneration weaknesses, or documenting one local failed variant, is insufficient. Honest negative evidence is valuable thesis work but not automatically Q1-ready. After the bounded mechanism round, reassess novelty before spending on a large study.
+
+## Writing, venue and compute
+
+The manuscript needs a precise threat model, one principal contribution, necessary derivation, a reproducible method, calibrated baselines, performance–quality curves, causal ablations, T4/T5 delivery and acceptance analysis, full costs, failures and limitations. Put detailed grids and execution inventories in supplementary material.
+
+Prepare five main evidence items: a method/observable-information diagram; calibration/quality/coverage table; regeneration performance–distortion curves with uncertainty; ablation and full-time table; and binding/failure-case figure. Human results enter only after collection.
+
+Shortlist two or three journals after the contribution is clear. Forensic/security venues require credible security semantics; signal/image-processing venues may better fit a quality/recovery/cost mechanism. Verify the institution's ranking database (for example JCR versus SJR), edition and category, current scope, author rules, fees and reproducibility policy. No specific journal is certified Q1 by this roadmap. Authorship, supervisor decisions and submission remain with the user.
+
+Use the laptop and pinned assets for decisive screens. No GPU rental is needed for planning. Forecast later compute from a measured end-to-end batch, actual source/attack counts and overhead, not the reused-mark ablation or an unmeasured blanket hour estimate. Human assessment, licensing and mechanism discovery may determine the schedule more than GPU time. Paid compute requires its own concrete decision.
+
+The immediate deliverable is the contribution map and bounded fresh-development protocol, followed by an article-viability decision. This update launches no new experiment. Routine local development remains covered by the handoff, while future held-out approval and protected/public actions retain their boundaries.
+
+## Autoresearch and completion record
+
+Borrow the small hypothesis–commit–measure–log cycle described in the [pinned autoresearch assessment](autoresearch-assessment.md), with a frozen evaluator, separate quality/FPR constraints and failed results retained. Keep final evaluation outside adaptive search. Do not install its language-model training stack or build another orchestrator.
+
+Completed: initial literature and attack-range discovery, WAM exploratory reproduction, E3 M1a/M1b, approved E3 M2 execution and independent evidence review, and the post-M2 refinement ablation. Pending: article-level mechanism/novelty, fair external comparisons, broader validity/calibration, human assessment, any future frozen article confirmation, manuscript and venue decision. The October 13 status report was delivered. Obsolete statements that M1b was underway or E3 confirmation was unrun have been removed; history remains in Git and the [development history](plan-development-history-20261010.md).
