@@ -1,0 +1,2256 @@
+{
+  "schema": "post-m2-refinement-analysis-v1",
+  "exploratory": true,
+  "independent_unit": "source; three seeds are repeated measurements",
+  "source_count": 12,
+  "inventory": {
+    "planned": 252,
+    "observed": 252,
+    "statuses": {
+      "ok": 248,
+      "safety_blocked": 4
+    },
+    "reused_rows": 28
+  },
+  "run_outcome": "completed",
+  "clean": {
+    "I": {
+      "strict_quality": 11,
+      "exact_Q_H_F": 12,
+      "jointly_eligible": 11,
+      "quality": {
+        "psnr_db": {
+          "n": 12,
+          "min": 40.62884699918543,
+          "median": 41.46946930291664,
+          "max": 41.85171685049728,
+          "mean": 41.33672530190897
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "min": 0.9564576558961456,
+          "median": 0.9688121999177315,
+          "max": 0.9795246552472003,
+          "mean": 0.9690057025139428
+        },
+        "lpips": {
+          "n": 12,
+          "min": 0.012513268738985062,
+          "median": 0.04121587239205837,
+          "max": 0.11849033832550049,
+          "mean": 0.04682396429901322
+        }
+      }
+    },
+    "E": {
+      "strict_quality": 12,
+      "exact_Q_H_F": 12,
+      "jointly_eligible": 12,
+      "quality": {
+        "psnr_db": {
+          "n": 12,
+          "min": 40.363452278210914,
+          "median": 41.44210001047495,
+          "max": 43.441096940213484,
+          "mean": 41.4060586869794
+        },
+        "ssim_rgb": {
+          "n": 12,
+          "min": 0.9564576558961456,
+          "median": 0.9710694689166592,
+          "max": 0.9790026309534242,
+          "mean": 0.9694981079232794
+        },
+        "lpips": {
+          "n": 12,
+          "min": 0.012649762444198132,
+          "median": 0.0412230659276247,
+          "max": 0.07625770568847656,
+          "mean": 0.0442938522901386
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "0.1": {
+      "endpoints": {
+        "J": {
+          "I_majority_lower": 12,
+          "I_majority_upper": 12,
+          "E_majority_lower": 12,
+          "E_majority_upper": 12,
+          "difference_lower": 0,
+          "difference_upper": 0,
+          "complete_pairs": {
+            "both": 12
+          },
+          "I_seed_successes": 36,
+          "E_seed_successes": 36,
+          "I_unavailable_seeds": 0,
+          "E_unavailable_seeds": 0
+        },
+        "Q": {
+          "I_majority_lower": 12,
+          "I_majority_upper": 12,
+          "E_majority_lower": 12,
+          "E_majority_upper": 12,
+          "difference_lower": 0,
+          "difference_upper": 0,
+          "complete_pairs": {
+            "both": 12
+          },
+          "I_seed_successes": 36,
+          "E_seed_successes": 36,
+          "I_unavailable_seeds": 0,
+          "E_unavailable_seeds": 0
+        },
+        "S": {
+          "I_majority_lower": 12,
+          "I_majority_upper": 12,
+          "E_majority_lower": 12,
+          "E_majority_upper": 12,
+          "difference_lower": 0,
+          "difference_upper": 0,
+          "complete_pairs": {
+            "both": 12
+          },
+          "I_seed_successes": 36,
+          "E_seed_successes": 36,
+          "I_unavailable_seeds": 0,
+          "E_unavailable_seeds": 0
+        },
+        "H": {
+          "I_majority_lower": 0,
+          "I_majority_upper": 0,
+          "E_majority_lower": 0,
+          "E_majority_upper": 0,
+          "difference_lower": 0,
+          "difference_upper": 0,
+          "complete_pairs": {
+            "neither": 12
+          },
+          "I_seed_successes": 0,
+          "E_seed_successes": 0,
+          "I_unavailable_seeds": 0,
+          "E_unavailable_seeds": 0
+        },
+        "F": {
+          "I_majority_lower": 0,
+          "I_majority_upper": 0,
+          "E_majority_lower": 0,
+          "E_majority_upper": 0,
+          "difference_lower": 0,
+          "difference_upper": 0,
+          "complete_pairs": {
+            "neither": 12
+          },
+          "I_seed_successes": 0,
+          "E_seed_successes": 0,
+          "I_unavailable_seeds": 0,
+          "E_unavailable_seeds": 0
+        }
+      },
+      "per_seed": {
+        "6": {
+          "I": {
+            "available": 12,
+            "J": 12
+          },
+          "E": {
+            "available": 12,
+            "J": 12
+          }
+        },
+        "7": {
+          "I": {
+            "available": 12,
+            "J": 12
+          },
+          "E": {
+            "available": 12,
+            "J": 12
+          }
+        },
+        "8": {
+          "I": {
+            "available": 12,
+            "J": 12
+          },
+          "E": {
+            "available": 12,
+            "J": 12
+          }
+        }
+      },
+      "sources": [
+        {
+          "source_id": 1675,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 4795,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 6012,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 25394,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 80932,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 109798,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 134882,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 147498,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 177015,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 190676,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 468505,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 499768,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        }
+      ],
+      "quality": {
+        "I": {
+          "quality_source": {
+            "psnr_db": {
+              "n": 36,
+              "min": 18.94832402383343,
+              "median": 23.959068316491816,
+              "max": 25.410724899023197,
+              "mean": 23.447631001458774
+            },
+            "ssim_rgb": {
+              "n": 36,
+              "min": 0.40964359981937815,
+              "median": 0.6441995121938402,
+              "max": 0.716187476584525,
+              "mean": 0.6112688637073828
+            },
+            "lpips": {
+              "n": 36,
+              "min": 0.11676998436450958,
+              "median": 0.2143656611442566,
+              "max": 0.32245850563049316,
+              "mean": 0.21506546727485126
+            }
+          },
+          "quality_marked": {
+            "psnr_db": {
+              "n": 36,
+              "min": 18.959825051239527,
+              "median": 23.98435127580237,
+              "max": 25.445856819508062,
+              "mean": 23.467834917880914
+            },
+            "ssim_rgb": {
+              "n": 36,
+              "min": 0.4084932192182119,
+              "median": 0.6411642554449932,
+              "max": 0.7175445104799423,
+              "mean": 0.6116102730275137
+            },
+            "lpips": {
+              "n": 36,
+              "min": 0.10362178087234497,
+              "median": 0.16165229678153992,
+              "max": 0.22386020421981812,
+              "mean": 0.16937016819914183
+            }
+          },
+          "lpips_proxy_coverage": {
+            "0.2": {
+              "eligible": 30,
+              "assessed": 36,
+              "planned": 36
+            },
+            "0.3": {
+              "eligible": 36,
+              "assessed": 36,
+              "planned": 36
+            }
+          },
+          "raw_coded_errors": {
+            "n": 36,
+            "min": 0.0,
+            "median": 0.0,
+            "max": 0.0,
+            "mean": 0.0
+          }
+        },
+        "E": {
+          "quality_source": {
+            "psnr_db": {
+              "n": 36,
+              "min": 18.944269950111558,
+              "median": 23.97352718810786,
+              "max": 25.684702369384127,
+              "mean": 23.469985211529508
+            },
+            "ssim_rgb": {
+              "n": 36,
+              "min": 0.4084925275467317,
+              "median": 0.6440433695277173,
+              "max": 0.7275048742302944,
+              "mean": 0.6130901946275157
+            },
+            "lpips": {
+              "n": 36,
+              "min": 0.11635132133960724,
+              "median": 0.2137753888964653,
+              "max": 0.2581337094306946,
+              "mean": 0.20872981515195635
+            }
+          },
+          "quality_marked": {
+            "psnr_db": {
+              "n": 36,
+              "min": 18.954269879597323,
+              "median": 23.995789124922993,
+              "max": 25.709379677803405,
+              "mean": 23.488282156434146
+            },
+            "ssim_rgb": {
+              "n": 36,
+              "min": 0.40690402214743226,
+              "median": 0.6402024615161335,
+              "max": 0.7240275963790251,
+              "mean": 0.6130613587695479
+            },
+            "lpips": {
+              "n": 36,
+              "min": 0.10311386734247208,
+              "median": 0.1612200066447258,
+              "max": 0.2242790162563324,
+              "mean": 0.1656017346928517
+            }
+          },
+          "lpips_proxy_coverage": {
+            "0.2": {
+              "eligible": 33,
+              "assessed": 36,
+              "planned": 36
+            },
+            "0.3": {
+              "eligible": 36,
+              "assessed": 36,
+              "planned": 36
+            }
+          },
+          "raw_coded_errors": {
+            "n": 36,
+            "min": 0.0,
+            "median": 0.0,
+            "max": 0.0,
+            "mean": 0.0
+          }
+        },
+        "C0": {
+          "quality_source": {
+            "psnr_db": {
+              "n": 34,
+              "min": 19.105858596260102,
+              "median": 24.694690423559365,
+              "max": 26.071810785145523,
+              "mean": 23.9398103853044
+            },
+            "ssim_rgb": {
+              "n": 34,
+              "min": 0.443352068716664,
+              "median": 0.7109324633027256,
+              "max": 0.7775269103751891,
+              "mean": 0.6606807741408967
+            },
+            "lpips": {
+              "n": 34,
+              "min": 0.06871466338634491,
+              "median": 0.1018838882446289,
+              "max": 0.18041440844535828,
+              "mean": 0.10933003749917536
+            }
+          },
+          "quality_marked": {
+            "psnr_db": {
+              "n": 34,
+              "min": 19.105858596260102,
+              "median": 24.694690423559365,
+              "max": 26.071810785145523,
+              "mean": 23.9398103853044
+            },
+            "ssim_rgb": {
+              "n": 34,
+              "min": 0.443352068716664,
+              "median": 0.7109324633027256,
+              "max": 0.7775269103751891,
+              "mean": 0.6606807741408967
+            },
+            "lpips": {
+              "n": 34,
+              "min": 0.06871466338634491,
+              "median": 0.1018838882446289,
+              "max": 0.18041440844535828,
+              "mean": 0.10933003749917536
+            }
+          },
+          "lpips_proxy_coverage": {
+            "0.2": {
+              "eligible": 34,
+              "assessed": 34,
+              "planned": 36
+            },
+            "0.3": {
+              "eligible": 34,
+              "assessed": 34,
+              "planned": 36
+            }
+          },
+          "raw_coded_errors": {
+            "n": 0,
+            "min": null,
+            "median": null,
+            "max": null,
+            "mean": null
+          }
+        }
+      },
+      "common_clean_diagnostic": {
+        "n": 11,
+        "I_J_majority": 11,
+        "E_J_majority": 11
+      },
+      "joint_clean_eligible_J": {
+        "I": 11,
+        "E": 12
+      }
+    },
+    "0.2": {
+      "endpoints": {
+        "J": {
+          "I_majority_lower": 12,
+          "I_majority_upper": 12,
+          "E_majority_lower": 12,
+          "E_majority_upper": 12,
+          "difference_lower": 0,
+          "difference_upper": 0,
+          "complete_pairs": {
+            "both": 12
+          },
+          "I_seed_successes": 34,
+          "E_seed_successes": 35,
+          "I_unavailable_seeds": 0,
+          "E_unavailable_seeds": 0
+        },
+        "Q": {
+          "I_majority_lower": 12,
+          "I_majority_upper": 12,
+          "E_majority_lower": 12,
+          "E_majority_upper": 12,
+          "difference_lower": 0,
+          "difference_upper": 0,
+          "complete_pairs": {
+            "both": 12
+          },
+          "I_seed_successes": 36,
+          "E_seed_successes": 36,
+          "I_unavailable_seeds": 0,
+          "E_unavailable_seeds": 0
+        },
+        "S": {
+          "I_majority_lower": 12,
+          "I_majority_upper": 12,
+          "E_majority_lower": 12,
+          "E_majority_upper": 12,
+          "difference_lower": 0,
+          "difference_upper": 0,
+          "complete_pairs": {
+            "both": 12
+          },
+          "I_seed_successes": 34,
+          "E_seed_successes": 35,
+          "I_unavailable_seeds": 0,
+          "E_unavailable_seeds": 0
+        },
+        "H": {
+          "I_majority_lower": 0,
+          "I_majority_upper": 0,
+          "E_majority_lower": 0,
+          "E_majority_upper": 0,
+          "difference_lower": 0,
+          "difference_upper": 0,
+          "complete_pairs": {
+            "neither": 12
+          },
+          "I_seed_successes": 0,
+          "E_seed_successes": 0,
+          "I_unavailable_seeds": 0,
+          "E_unavailable_seeds": 0
+        },
+        "F": {
+          "I_majority_lower": 0,
+          "I_majority_upper": 0,
+          "E_majority_lower": 0,
+          "E_majority_upper": 0,
+          "difference_lower": 0,
+          "difference_upper": 0,
+          "complete_pairs": {
+            "neither": 12
+          },
+          "I_seed_successes": 0,
+          "E_seed_successes": 0,
+          "I_unavailable_seeds": 0,
+          "E_unavailable_seeds": 0
+        }
+      },
+      "per_seed": {
+        "6": {
+          "I": {
+            "available": 12,
+            "J": 11
+          },
+          "E": {
+            "available": 12,
+            "J": 12
+          }
+        },
+        "7": {
+          "I": {
+            "available": 12,
+            "J": 11
+          },
+          "E": {
+            "available": 12,
+            "J": 11
+          }
+        },
+        "8": {
+          "I": {
+            "available": 12,
+            "J": 12
+          },
+          "E": {
+            "available": 12,
+            "J": 12
+          }
+        }
+      },
+      "sources": [
+        {
+          "source_id": 1675,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 4795,
+          "I": {
+            "successes": 2,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 2,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 6012,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 25394,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 80932,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 109798,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 134882,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 147498,
+          "I": {
+            "successes": 2,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 177015,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 190676,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 468505,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        },
+        {
+          "source_id": 499768,
+          "I": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          },
+          "E": {
+            "successes": 3,
+            "missing": 0,
+            "lower": 1,
+            "upper": 1
+          }
+        }
+      ],
+      "quality": {
+        "I": {
+          "quality_source": {
+            "psnr_db": {
+              "n": 36,
+              "min": 18.154175990939187,
+              "median": 22.442003851872848,
+              "max": 24.270562222333176,
+              "mean": 21.932006885727773
+            },
+            "ssim_rgb": {
+              "n": 36,
+              "min": 0.35973703232125176,
+              "median": 0.5863206678555315,
+              "max": 0.6709875326784882,
+              "mean": 0.5617493295041306
+            },
+            "lpips": {
+              "n": 36,
+              "min": 0.1533551663160324,
+              "median": 0.26747679710388184,
+              "max": 0.37858885526657104,
+              "mean": 0.2716347198519442
+            }
+          },
+          "quality_marked": {
+            "psnr_db": {
+              "n": 36,
+              "min": 18.161538240758656,
+              "median": 22.451465804703922,
+              "max": 24.287560011815078,
+              "mean": 21.940613252126912
+            },
+            "ssim_rgb": {
+              "n": 36,
+              "min": 0.35701532284412246,
+              "median": 0.583110932701242,
+              "max": 0.6634817792916149,
+              "mean": 0.5588079370070441
+            },
+            "lpips": {
+              "n": 36,
+              "min": 0.1417963206768036,
+              "median": 0.22156033664941788,
+              "max": 0.29650405049324036,
+              "mean": 0.23280679724282688
+            }
+          },
+          "lpips_proxy_coverage": {
+            "0.2": {
+              "eligible": 3,
+              "assessed": 36,
+              "planned": 36
+            },
+            "0.3": {
+              "eligible": 36,
+              "assessed": 36,
+              "planned": 36
+            }
+          },
+          "raw_coded_errors": {
+            "n": 36,
+            "min": 0.0,
+            "median": 0.0,
+            "max": 1.0,
+            "mean": 0.027777777777777776
+          }
+        },
+        "E": {
+          "quality_source": {
+            "psnr_db": {
+              "n": 36,
+              "min": 18.160470597044934,
+              "median": 22.44157092212668,
+              "max": 24.52273373378738,
+              "mean": 21.95189745764081
+            },
+            "ssim_rgb": {
+              "n": 36,
+              "min": 0.3593412368178545,
+              "median": 0.5861104252150129,
+              "max": 0.6961093150494281,
+              "mean": 0.5638497124924435
+            },
+            "lpips": {
+              "n": 36,
+              "min": 0.15219856798648834,
+              "median": 0.2646016925573349,
+              "max": 0.32271766662597656,
+              "mean": 0.26525641770826447
+            }
+          },
+          "quality_marked": {
+            "psnr_db": {
+              "n": 36,
+              "min": 18.16605939941353,
+              "median": 22.450837055246737,
+              "max": 24.535177943798672,
+              "mean": 21.95940629442228
+            },
+            "ssim_rgb": {
+              "n": 36,
+              "min": 0.3560316959791326,
+              "median": 0.5826148833594579,
+              "max": 0.6894398009576121,
+              "mean": 0.5606441871283075
+            },
+            "lpips": {
+              "n": 36,
+              "min": 0.14088144898414612,
+              "median": 0.2206260785460472,
+              "max": 0.29564282298088074,
+              "mean": 0.22886742361717755
+            }
+          },
+          "lpips_proxy_coverage": {
+            "0.2": {
+              "eligible": 3,
+              "assessed": 36,
+              "planned": 36
+            },
+            "0.3": {
+              "eligible": 36,
+              "assessed": 36,
+              "planned": 36
+            }
+          },
+          "raw_coded_errors": {
+            "n": 36,
+            "min": 0.0,
+            "median": 0.0,
+            "max": 1.0,
+            "mean": 0.027777777777777776
+          }
+        },
+        "C0": {
+          "quality_source": {
+            "psnr_db": {
+              "n": 34,
+              "min": 18.363185365886082,
+              "median": 23.2900461554956,
+              "max": 24.881858676645795,
+              "mean": 22.449760761333298
+            },
+            "ssim_rgb": {
+              "n": 34,
+              "min": 0.39142326286307905,
+              "median": 0.6666260101742323,
+              "max": 0.7527428091708018,
+              "mean": 0.616406108201104
+            },
+            "lpips": {
+              "n": 34,
+              "min": 0.09605419635772705,
+              "median": 0.14977391064167023,
+              "max": 0.24822653830051422,
+              "mean": 0.15753149547997644
+            }
+          },
+          "quality_marked": {
+            "psnr_db": {
+              "n": 34,
+              "min": 18.363185365886082,
+              "median": 23.2900461554956,
+              "max": 24.881858676645795,
+              "mean": 22.449760761333298
+            },
+            "ssim_rgb": {
+              "n": 34,
+              "min": 0.39142326286307905,
+              "median": 0.6666260101742323,
+              "max": 0.7527428091708018,
+              "mean": 0.616406108201104
+            },
+            "lpips": {
+              "n": 34,
+              "min": 0.09605419635772705,
+              "median": 0.14977391064167023,
+              "max": 0.24822653830051422,
+              "mean": 0.15753149547997644
+            }
+          },
+          "lpips_proxy_coverage": {
+            "0.2": {
+              "eligible": 31,
+              "assessed": 34,
+              "planned": 36
+            },
+            "0.3": {
+              "eligible": 34,
+              "assessed": 34,
+              "planned": 36
+            }
+          },
+          "raw_coded_errors": {
+            "n": 0,
+            "min": null,
+            "median": null,
+            "max": null,
+            "mean": null
+          }
+        }
+      },
+      "common_clean_diagnostic": {
+        "n": 11,
+        "I_J_majority": 11,
+        "E_J_majority": 11
+      },
+      "joint_clean_eligible_J": {
+        "I": 11,
+        "E": 12
+      }
+    }
+  },
+  "negatives": {
+    "clean/C0/qim-pilot-owner-alpha": {
+      "source_events": 0,
+      "unresolved_sources": 0,
+      "fixed_cohort_rate_bracket": [
+        0.0,
+        0.0
+      ],
+      "observed_calls": 12,
+      "unavailable_calls": 0,
+      "sources": [
+        {
+          "source_id": 1675,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 4795,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 6012,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 25394,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 80932,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 109798,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 134882,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 147498,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 177015,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 190676,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 468505,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 499768,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        }
+      ]
+    },
+    "clean/C0/qim-pilot-owner-beta": {
+      "source_events": 0,
+      "unresolved_sources": 0,
+      "fixed_cohort_rate_bracket": [
+        0.0,
+        0.0
+      ],
+      "observed_calls": 12,
+      "unavailable_calls": 0,
+      "sources": [
+        {
+          "source_id": 1675,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 4795,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 6012,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 25394,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 80932,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 109798,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 134882,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 147498,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 177015,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 190676,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 468505,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 499768,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        }
+      ]
+    },
+    "clean/I/qim-pilot-owner-beta": {
+      "source_events": 0,
+      "unresolved_sources": 0,
+      "fixed_cohort_rate_bracket": [
+        0.0,
+        0.0
+      ],
+      "observed_calls": 12,
+      "unavailable_calls": 0,
+      "sources": [
+        {
+          "source_id": 1675,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 4795,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 6012,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 25394,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 80932,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 109798,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 134882,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 147498,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 177015,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 190676,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 468505,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 499768,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        }
+      ]
+    },
+    "clean/E/qim-pilot-owner-beta": {
+      "source_events": 0,
+      "unresolved_sources": 0,
+      "fixed_cohort_rate_bracket": [
+        0.0,
+        0.0
+      ],
+      "observed_calls": 12,
+      "unavailable_calls": 0,
+      "sources": [
+        {
+          "source_id": 1675,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 4795,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 6012,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 25394,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 80932,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 109798,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 134882,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 147498,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 177015,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 190676,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 468505,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 499768,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 1,
+          "unavailable_calls": 0
+        }
+      ]
+    },
+    ".1/C0/qim-pilot-owner-alpha": {
+      "source_events": 0,
+      "unresolved_sources": 1,
+      "fixed_cohort_rate_bracket": [
+        0.0,
+        0.08333333333333333
+      ],
+      "observed_calls": 34,
+      "unavailable_calls": 2,
+      "sources": [
+        {
+          "source_id": 1675,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 4795,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 6012,
+          "event": false,
+          "unresolved": true,
+          "observed_calls": 1,
+          "unavailable_calls": 2
+        },
+        {
+          "source_id": 25394,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 80932,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 109798,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 134882,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 147498,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 177015,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 190676,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 468505,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 499768,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        }
+      ]
+    },
+    ".1/C0/qim-pilot-owner-beta": {
+      "source_events": 0,
+      "unresolved_sources": 1,
+      "fixed_cohort_rate_bracket": [
+        0.0,
+        0.08333333333333333
+      ],
+      "observed_calls": 34,
+      "unavailable_calls": 2,
+      "sources": [
+        {
+          "source_id": 1675,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 4795,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 6012,
+          "event": false,
+          "unresolved": true,
+          "observed_calls": 1,
+          "unavailable_calls": 2
+        },
+        {
+          "source_id": 25394,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 80932,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 109798,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 134882,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 147498,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 177015,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 190676,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 468505,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 499768,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        }
+      ]
+    },
+    ".1/I/qim-pilot-owner-beta": {
+      "source_events": 0,
+      "unresolved_sources": 0,
+      "fixed_cohort_rate_bracket": [
+        0.0,
+        0.0
+      ],
+      "observed_calls": 36,
+      "unavailable_calls": 0,
+      "sources": [
+        {
+          "source_id": 1675,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 4795,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 6012,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 25394,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 80932,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 109798,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 134882,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 147498,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 177015,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 190676,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 468505,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 499768,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        }
+      ]
+    },
+    ".1/E/qim-pilot-owner-beta": {
+      "source_events": 0,
+      "unresolved_sources": 0,
+      "fixed_cohort_rate_bracket": [
+        0.0,
+        0.0
+      ],
+      "observed_calls": 36,
+      "unavailable_calls": 0,
+      "sources": [
+        {
+          "source_id": 1675,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 4795,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 6012,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 25394,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 80932,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 109798,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 134882,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 147498,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 177015,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 190676,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 468505,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 499768,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        }
+      ]
+    },
+    ".2/C0/qim-pilot-owner-alpha": {
+      "source_events": 0,
+      "unresolved_sources": 1,
+      "fixed_cohort_rate_bracket": [
+        0.0,
+        0.08333333333333333
+      ],
+      "observed_calls": 34,
+      "unavailable_calls": 2,
+      "sources": [
+        {
+          "source_id": 1675,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 4795,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 6012,
+          "event": false,
+          "unresolved": true,
+          "observed_calls": 1,
+          "unavailable_calls": 2
+        },
+        {
+          "source_id": 25394,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 80932,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 109798,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 134882,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 147498,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 177015,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 190676,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 468505,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 499768,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        }
+      ]
+    },
+    ".2/C0/qim-pilot-owner-beta": {
+      "source_events": 0,
+      "unresolved_sources": 1,
+      "fixed_cohort_rate_bracket": [
+        0.0,
+        0.08333333333333333
+      ],
+      "observed_calls": 34,
+      "unavailable_calls": 2,
+      "sources": [
+        {
+          "source_id": 1675,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 4795,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 6012,
+          "event": false,
+          "unresolved": true,
+          "observed_calls": 1,
+          "unavailable_calls": 2
+        },
+        {
+          "source_id": 25394,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 80932,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 109798,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 134882,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 147498,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 177015,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 190676,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 468505,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 499768,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        }
+      ]
+    },
+    ".2/I/qim-pilot-owner-beta": {
+      "source_events": 0,
+      "unresolved_sources": 0,
+      "fixed_cohort_rate_bracket": [
+        0.0,
+        0.0
+      ],
+      "observed_calls": 36,
+      "unavailable_calls": 0,
+      "sources": [
+        {
+          "source_id": 1675,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 4795,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 6012,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 25394,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 80932,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 109798,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 134882,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 147498,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 177015,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 190676,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 468505,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 499768,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        }
+      ]
+    },
+    ".2/E/qim-pilot-owner-beta": {
+      "source_events": 0,
+      "unresolved_sources": 0,
+      "fixed_cohort_rate_bracket": [
+        0.0,
+        0.0
+      ],
+      "observed_calls": 36,
+      "unavailable_calls": 0,
+      "sources": [
+        {
+          "source_id": 1675,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 4795,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 6012,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 25394,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 80932,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 109798,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 134882,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 147498,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 177015,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 190676,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 468505,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        },
+        {
+          "source_id": 499768,
+          "event": false,
+          "unresolved": false,
+          "observed_calls": 3,
+          "unavailable_calls": 0
+        }
+      ]
+    }
+  },
+  "decision": {
+    "criteria": {
+      "complete_run": true,
+      "E_clean_quality_and_QHF_all": true,
+      "no_observed_negative_event": true,
+      "J_point_majority_gain_at_least_two_at_02": false,
+      "J_point_majority_nondecreasing_at_01": true,
+      "J_net_seed_positive_at_02": true,
+      "J_net_seed_nondecreasing_at_01": true,
+      "J_majority_gain_survives_adverse_missingness_at_02": false
+    },
+    "useful_screen": false,
+    "outcome": "no_decisive_added_value",
+    "human_admissibility": "unassessed",
+    "population_claim": false
+  }
+}

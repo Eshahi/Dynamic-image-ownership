@@ -1,0 +1,489 @@
+{
+  "post_hoc": true,
+  "writer": "fixed BCH-encoded I/E artifacts",
+  "inference_performed": false,
+  "systematic_convention": "high 32 bits of raw 59-bit word: raw >> 27",
+  "limitation": "Raw systematic equality is a diagnostic, not an implemented calibrated uncoded detector. Correction contribution is conditional on this writer/code/channel; no equal-rate coding gain or E3-v5 attribution.",
+  "summary": {
+    "I/None": {
+      "planned": 12,
+      "available": 12,
+      "unavailable": 0,
+      "counts": {
+        "raw_systematic_exact": 12,
+        "decoded_exact": 12,
+        "read_exact": 12,
+        "checked_J": 12,
+        "algorithm_rescued": 0,
+        "algorithm_harmed": 0,
+        "threshold_qualified_rescue": 0,
+        "raw_exact_but_no_qualified_read": 0
+      },
+      "source_clusters_with_event": {
+        "raw_systematic_exact": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "decoded_exact": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "read_exact": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "checked_J": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "algorithm_rescued": [],
+        "algorithm_harmed": [],
+        "threshold_qualified_rescue": [],
+        "raw_exact_but_no_qualified_read": []
+      },
+      "paired_decode_categories": {
+        "both_exact": 12
+      }
+    },
+    "I/0.1": {
+      "planned": 36,
+      "available": 36,
+      "unavailable": 0,
+      "counts": {
+        "raw_systematic_exact": 36,
+        "decoded_exact": 36,
+        "read_exact": 36,
+        "checked_J": 36,
+        "algorithm_rescued": 0,
+        "algorithm_harmed": 0,
+        "threshold_qualified_rescue": 0,
+        "raw_exact_but_no_qualified_read": 0
+      },
+      "source_clusters_with_event": {
+        "raw_systematic_exact": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "decoded_exact": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "read_exact": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "checked_J": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "algorithm_rescued": [],
+        "algorithm_harmed": [],
+        "threshold_qualified_rescue": [],
+        "raw_exact_but_no_qualified_read": []
+      },
+      "paired_decode_categories": {
+        "both_exact": 36
+      }
+    },
+    "I/0.2": {
+      "planned": 36,
+      "available": 36,
+      "unavailable": 0,
+      "counts": {
+        "raw_systematic_exact": 36,
+        "decoded_exact": 36,
+        "read_exact": 36,
+        "checked_J": 34,
+        "algorithm_rescued": 0,
+        "algorithm_harmed": 0,
+        "threshold_qualified_rescue": 0,
+        "raw_exact_but_no_qualified_read": 0
+      },
+      "source_clusters_with_event": {
+        "raw_systematic_exact": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "decoded_exact": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "read_exact": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "checked_J": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "algorithm_rescued": [],
+        "algorithm_harmed": [],
+        "threshold_qualified_rescue": [],
+        "raw_exact_but_no_qualified_read": []
+      },
+      "paired_decode_categories": {
+        "both_exact": 36
+      }
+    },
+    "E/None": {
+      "planned": 12,
+      "available": 12,
+      "unavailable": 0,
+      "counts": {
+        "raw_systematic_exact": 12,
+        "decoded_exact": 12,
+        "read_exact": 12,
+        "checked_J": 12,
+        "algorithm_rescued": 0,
+        "algorithm_harmed": 0,
+        "threshold_qualified_rescue": 0,
+        "raw_exact_but_no_qualified_read": 0
+      },
+      "source_clusters_with_event": {
+        "raw_systematic_exact": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "decoded_exact": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "read_exact": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "checked_J": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "algorithm_rescued": [],
+        "algorithm_harmed": [],
+        "threshold_qualified_rescue": [],
+        "raw_exact_but_no_qualified_read": []
+      },
+      "paired_decode_categories": {
+        "both_exact": 12
+      }
+    },
+    "E/0.1": {
+      "planned": 36,
+      "available": 36,
+      "unavailable": 0,
+      "counts": {
+        "raw_systematic_exact": 36,
+        "decoded_exact": 36,
+        "read_exact": 36,
+        "checked_J": 36,
+        "algorithm_rescued": 0,
+        "algorithm_harmed": 0,
+        "threshold_qualified_rescue": 0,
+        "raw_exact_but_no_qualified_read": 0
+      },
+      "source_clusters_with_event": {
+        "raw_systematic_exact": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "decoded_exact": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "read_exact": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "checked_J": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "algorithm_rescued": [],
+        "algorithm_harmed": [],
+        "threshold_qualified_rescue": [],
+        "raw_exact_but_no_qualified_read": []
+      },
+      "paired_decode_categories": {
+        "both_exact": 36
+      }
+    },
+    "E/0.2": {
+      "planned": 36,
+      "available": 36,
+      "unavailable": 0,
+      "counts": {
+        "raw_systematic_exact": 36,
+        "decoded_exact": 36,
+        "read_exact": 36,
+        "checked_J": 35,
+        "algorithm_rescued": 0,
+        "algorithm_harmed": 0,
+        "threshold_qualified_rescue": 0,
+        "raw_exact_but_no_qualified_read": 0
+      },
+      "source_clusters_with_event": {
+        "raw_systematic_exact": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "decoded_exact": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "read_exact": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "checked_J": [
+          1675,
+          4795,
+          6012,
+          25394,
+          80932,
+          109798,
+          134882,
+          147498,
+          177015,
+          190676,
+          468505,
+          499768
+        ],
+        "algorithm_rescued": [],
+        "algorithm_harmed": [],
+        "threshold_qualified_rescue": [],
+        "raw_exact_but_no_qualified_read": []
+      },
+      "paired_decode_categories": {
+        "both_exact": 36
+      }
+    }
+  }
+}
