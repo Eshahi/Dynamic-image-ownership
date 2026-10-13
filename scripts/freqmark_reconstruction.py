@@ -26,6 +26,7 @@ sys.path[:0] = [str(ROOT), str(ROOT / 'scripts')]
 PROTOCOL = ROOT / 'research/journal-upgrade-20261009/freqmark-reconstruction-protocol.md'
 AMENDMENT = ROOT / 'research/journal-upgrade-20261009/freqmark-memory-amendment.md'
 SERIAL_HELPER = ROOT / 'scripts/freqmark_serial_gradient.py'
+AA_PROTOCOL = ROOT / 'research/journal-upgrade-20261009/no-human-next-study.md'
 CAP = 1800
 GPU_CAP, RSS_CAP, FREE_RAM = 9*1024**3, 10*1024**3, 3*1024**3
 ASSETS = (
@@ -158,10 +159,11 @@ def main():
     p.add_argument('--allowance-attestation', required=True, help='Dated project-wide ledger check and arithmetic')
     p.add_argument('--desktop-pids', type=int, nargs='*', default=[], help='Observed Windows desktop-only PID snapshot, recorded in command')
     p.add_argument('--resource-start-epoch', type=float, help='Preserve earlier failed infrastructure preflight start; never extend budget')
-    p.add_argument('--execution-schedule', choices=('joint', 'serial-validated'), default='joint')
+    p.add_argument('--execution-schedule', choices=('joint', 'serial-validated', 'serial-aawarn'), default='joint')
     args = p.parse_args()
     started = time.time()
-    serial = args.execution_schedule == 'serial-validated'
+    aawarn = args.execution_schedule == 'serial-aawarn'
+    serial = args.execution_schedule in ('serial-validated', 'serial-aawarn')
     if serial:
         os.environ['CUBLAS_WORKSPACE_CONFIG'] = ':4096:8'
         os.environ['HF_HUB_OFFLINE'] = '1'
@@ -189,6 +191,10 @@ def main():
             amendment_sha256=sha(AMENDMENT), helper_sha256=sha(SERIAL_HELPER))
         identity['config'] = dict(CONFIG, name=CONFIG['name']+'-serial',
                                  execution_schedule=args.execution_schedule)
+    if aawarn:
+        identity.update(prospective_protocol_sha256=sha(AA_PROTOCOL))
+        identity['config'] = dict(CONFIG, name=CONFIG['name']+'-serial-AAwarn',
+            execution_schedule=args.execution_schedule, backward_policy='strict except allowlisted AA backward warning')
     if path.exists():
         if serial:
             raise ValueError('Serial amendment is a new single attempt; no resume or relaunch')
@@ -208,7 +214,7 @@ def main():
                        any(s.get('raw_overlap') is not False for s in cohort['sources'])):
             raise ValueError('Serial mode requires retained zero-overlap development selection receipt')
         byid = {s['source_id']: s for s in cohort['sources']}
-        sources = [dict(input=byid[s], status='not_started') for s in (30, 72)]
+        sources = [dict(input=byid[s], status='not_started', **({'updates_completed': 0} if aawarn else {})) for s in (30, 72)]
         record = dict(schema='freqmark-reconstruction-v1', identity=identity,
             command=sys.argv, started_epoch=started, started_at_utc=datetime.now(timezone.utc).isoformat(),
             deadline_epoch=started+CAP, duration_seconds=0., outcome='running',
@@ -241,6 +247,12 @@ def main():
             except BaseException as e:
                 emergency = dict(outcome=getattr(e, 'outcome', 'resource_monitor_failed'),
                     error=str(e), duration_seconds=time.time()-started)
+                if aawarn:
+                    emergency.update(sources=[dict(source_id=s['input']['source_id'],
+                        status='incomplete' if s['status']=='running' else s['status'],
+                        updates_completed=s.get('updates_completed',0),
+                        optimizer_step_started=s.get('optimizer_step_started')) for s in record['sources']],
+                        useful_feasibility_success=False, strict_budget_readiness=False)
                 with (out/'emergency-stop.json').open('x', encoding='utf-8') as f:
                     json.dump(emergency, f)
                 os._exit(3)
@@ -250,6 +262,8 @@ def main():
     try:
         check()
         tracked_paths = (Path(__file__), PROTOCOL, AMENDMENT, SERIAL_HELPER) if serial else (Path(__file__), PROTOCOL)
+        if aawarn:
+            tracked_paths += (AA_PROTOCOL,)
         for tracked in tracked_paths:
             relative = tracked.relative_to(ROOT).as_posix()
             committed = subprocess.check_output(['git', 'show', f'HEAD:{relative}'], cwd=ROOT)
@@ -313,6 +327,30 @@ def main():
         if free < GPU_CAP:
             raise Stop('prerequisite_failed', 'Less than 9 GiB free GPU')
         torch.cuda.set_per_process_memory_fraction(GPU_CAP/total)
+        if aawarn:
+            record['environment'] = {package: importlib.metadata.version(package)
+                for package in ('numpy','torch','diffusers','transformers','Pillow','lpips')}
+            record['environment'].update(python=sys.version, gpu=torch.cuda.get_device_name(),
+                threads=torch.get_num_threads())
+            from freqmark_serial_gradient import BackwardWarningPolicy, interpolation_jitter
+            record['backward_warnings'] = []
+            backward_policy = BackwardWarningPolicy(torch, Stop, record['backward_warnings'], save)
+            try:
+                record['interpolation_validation'] = interpolation_jitter(torch, np, out,
+                    write, check, Stop, backward_policy)
+                record['interpolation_validation']['fixture_sha256'] = sha(out/'interpolation-fixture.npz')
+                write(out/'interpolation-validation.json', record['interpolation_validation'])
+            except BaseException as e:
+                probe_path = out/'interpolation-validation.json'
+                partial = read(probe_path) if probe_path.exists() else dict(passed=False)
+                partial.update(passed=False, error=str(e), error_type=type(e).__name__,
+                    warnings=record['backward_warnings'].copy())
+                write(probe_path, partial)
+                record['interpolation_validation'] = partial
+                save()
+                raise
+            save()
+            torch.cuda.empty_cache()
         loading = time.monotonic(); check()
         vae = AutoencoderKL.from_pretrained(assets/'sd2', subfolder='vae', local_files_only=True,
             use_safetensors=True, torch_dtype=torch.float32).eval().requires_grad_(False).to('cuda')
@@ -370,14 +408,18 @@ def main():
             return torch.floor(x.detach().clamp(0,1)*255+.5).byte().squeeze(0).permute(1,2,0).cpu().numpy()
 
         if serial:
-            from freqmark_serial_gradient import backward_step, numerical_gate
+            from freqmark_serial_gradient import backward_step, numerical_gate, replicated_numerical_gate
             def encode_fixture(x):
                 z = vae.encode(x*2-1).latent_dist.mode().detach()
                 finite(z)
                 return z
             try:
-                record['numerical_validation'] = numerical_gate(torch, np, fixture, decode,
-                    features, metric, finite, encode_fixture, out, write, check, Stop)
+                if aawarn:
+                    record['numerical_validation'] = replicated_numerical_gate(torch, np, fixture,
+                        decode, features, metric, finite, encode_fixture, out, write, check, Stop, backward_policy)
+                else:
+                    record['numerical_validation'] = numerical_gate(torch, np, fixture, decode,
+                        features, metric, finite, encode_fixture, out, write, check, Stop)
             except BaseException as e:
                 validation_path = out/'numerical-validation.json'
                 partial = read(validation_path) if validation_path.exists() else dict(comparisons=[], passed=False)
@@ -411,11 +453,38 @@ def main():
                 bits = signs(source)
                 s['unmarked'] = dict(bits=bits, target_matches=sum(a==b for a,b in zip(bits,target)),
                     complement_matches=sum(a!=b for a,b in zip(bits,target)), interpretation='Descriptive only; no FPR')
+                if aawarn:
+                    s['unmarked']['assessment'] = assess(source, reference, reference, target)
                 z = vae.encode(source*2-1).latent_dist.mode().detach(); finite(z)
                 frequency = torch.fft.fft2(z, dim=(-2,-1), norm='backward')
                 clean = decode(z)
                 s['zero_perturbation'] = assess(clean, reference, rgb8(clean), target)
                 s['diagnostics'].append(dict(step=0, bits=signs(clean)))
+                if aawarn:
+                    # Step-zero losses use a private clone of the first noise state.
+                    # The optimization generator still draws latent then pixel at step 1.
+                    diagnostic_rng = torch.Generator(device='cuda')
+                    diagnostic_rng.set_state(rng.get_state())
+                    diagnostic_latent = torch.fft.ifft2(frequency,dim=(-2,-1),norm='backward').real
+                    diagnostic_clean = decode(diagnostic_latent)
+                    diagnostic_ln = torch.randn(z.shape,generator=diagnostic_rng,device='cuda',dtype=torch.float32)*.25
+                    diagnostic_pn = torch.randn(source.shape,generator=diagnostic_rng,device='cuda',dtype=torch.float32)*.06
+                    diagnostic_hinges = [torch.relu(1-message*features(x)).mean() for x in (
+                        diagnostic_clean,decode(diagnostic_latent+diagnostic_ln),
+                        (diagnostic_clean+diagnostic_pn).clamp(0,1))]
+                    diagnostic_psnr = -10*torch.log10((diagnostic_clean-source).square().mean().clamp_min(1e-12))
+                    diagnostic_lpips = metric(diagnostic_clean*2-1,source*2-1).mean()
+                    diagnostic_loss = sum(diagnostic_hinges)-.05*diagnostic_psnr+.25*diagnostic_lpips
+                    finite(*diagnostic_hinges,diagnostic_psnr,diagnostic_lpips,diagnostic_loss)
+                    s['diagnostics'][-1].update(bits=signs(diagnostic_clean),
+                        loss=diagnostic_loss.item(),hinges=[v.item() for v in diagnostic_hinges],
+                        psnr=diagnostic_psnr.item(),lpips=diagnostic_lpips.item(),
+                        gradient_norm=None,parameter_changed=False,
+                        noise_diagnostic='Private clone of step-1 RNG; no optimization draw consumed')
+                    s['zero_perturbation']['complement_matches'] = 48-s['zero_perturbation']['hamming_matches']
+                    del diagnostic_rng,diagnostic_latent,diagnostic_clean,diagnostic_ln,diagnostic_pn
+                    del diagnostic_hinges,diagnostic_psnr,diagnostic_lpips,diagnostic_loss
+                    save()
             a = torch.zeros_like(z, requires_grad=True); b = torch.zeros_like(z, requires_grad=True)
             optimizer = torch.optim.Adam([a,b], lr=2., betas=(.9,.999), eps=1e-8, weight_decay=0)
             embedding = time.monotonic(); step_times = []
@@ -424,8 +493,11 @@ def main():
                 if serial:
                     latent_noise = torch.randn(z.shape, generator=rng, device='cuda', dtype=torch.float32)*.25
                     pixel_noise = torch.randn(source.shape, generator=rng, device='cuda', dtype=torch.float32)*.06
+                    if aawarn:
+                        backward_policy.context = f'source-{sid}-step-{step}'
                     scalars = backward_step(a, b, frequency, source, message,
-                        (latent_noise, pixel_noise), decode, features, metric, finite, args.execution_schedule)
+                        (latent_noise, pixel_noise), decode, features, metric, finite, args.execution_schedule,
+                        backward_policy if aawarn else None)
                 else:
                     latent = torch.fft.ifft2(frequency+torch.complex(a,b), dim=(-2,-1), norm='backward').real
                     clean = decode(latent)
@@ -447,12 +519,22 @@ def main():
                 if gradient == 0:
                     raise Stop('numeric_failed', 'Zero total optimization gradient')
                 before_a, before_b = a.detach().clone(), b.detach().clone()
-                optimizer.step(); finite(a,b)
+                if aawarn:
+                    check()
+                    s['optimizer_step_started'] = step
+                    save()
+                optimizer.step()
+                if aawarn:
+                    s['updates_completed'] = step
+                    s.pop('optimizer_step_started',None)
+                finite(a,b)
                 changed = not (torch.equal(a,before_a) and torch.equal(b,before_b))
-                if step == 1 and not changed:
+                if (step == 1 or aawarn) and not changed:
                     raise Stop('numeric_failed', 'First Adam update did not change parameters')
                 torch.cuda.synchronize(); latency = time.monotonic()-tick; step_times.append(latency)
                 s['updates_completed'] = step
+                if aawarn:
+                    save()
                 check()
                 if step in (1,10,100,400):
                     with torch.no_grad():
@@ -482,6 +564,10 @@ def main():
                 assessment = time.monotonic(); s['final_png'] = assess(tensor(rgb), reference, rgb, target)
                 s['assessment_seconds'] = time.monotonic()-assessment
                 s['quantization_sign_flips'] = sum(a!=b for a,b in zip(s['final_tensor_bits'],s['final_png']['bits']))
+                if aawarn:
+                    s['final_tensor_hamming_matches'] = sum(a==b for a,b in zip(s['final_tensor_bits'],target))
+                    s['final_tensor_complement_matches'] = 48-s['final_tensor_hamming_matches']
+                    s['final_png']['complement_matches'] = 48-s['final_png']['hamming_matches']
                 s['output'] = dict(path=str(png), sha256=sha(png))
             s.update(status='completed', total_source_seconds=time.monotonic()-begin)
             check(); record['outcome'] = 'boundary_paused'; save()
@@ -493,6 +579,8 @@ def main():
         useful = complete and all(s['final_png']['exact'] for s in record['sources'])
         strict = useful and all(s['final_png']['quality']['strict_quality'] for s in record['sources'])
         record.update(outcome='completed', useful_feasibility_success=useful, strict_budget_readiness=strict)
+        if aawarn:
+            record['exact_recovery_count'] = sum(s['final_png']['exact'] for s in record['sources'])
         check()
     except BaseException as e:
         record.update(outcome=getattr(e, 'outcome', 'prerequisite_failed'), error=str(e), traceback=traceback.format_exc())
@@ -501,6 +589,12 @@ def main():
         for s in record['sources']:
             if s['status'] == 'running':
                 s.update(status='incomplete', error=str(e))
+                if aawarn:
+                    s['total_source_seconds'] = time.monotonic()-begin
+        if aawarn:
+            record.update(useful_feasibility_success=False, strict_budget_readiness=False,
+                exact_recovery_count=sum(s.get('final_png',{}).get('exact',False) for s in record['sources']),
+                fixed_source_denominator=2)
     finally:
         save(); done.set()
         with args.dev_log.open('a', encoding='utf-8') as log:
