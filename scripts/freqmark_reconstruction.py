@@ -24,6 +24,8 @@ import urllib.request
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT), str(ROOT / 'scripts')]
 PROTOCOL = ROOT / 'research/journal-upgrade-20261009/freqmark-reconstruction-protocol.md'
+AMENDMENT = ROOT / 'research/journal-upgrade-20261009/freqmark-memory-amendment.md'
+SERIAL_HELPER = ROOT / 'scripts/freqmark_serial_gradient.py'
 CAP = 1800
 GPU_CAP, RSS_CAP, FREE_RAM = 9*1024**3, 10*1024**3, 3*1024**3
 ASSETS = (
@@ -94,11 +96,11 @@ def processor_check(c):
             raise Stop('prerequisite_failed', f'Pinned processor disagreement: {key}')
 
 
-def acquire(asset_dir, downloads, check, remaining, record):
+def acquire(asset_dir, downloads, check, remaining, record, cached_only=False):
     # Operator supplies the project-wide remaining allowance with a dated ledger
     # attestation; counting only this directory would miss earlier downloads.
     required = sum(s or 1024*1024 for _, _, _, _, files in ASSETS for _, s, _ in files)
-    if remaining < required or shutil.disk_usage(asset_dir).free < 2*required:
+    if not cached_only and (remaining < required or shutil.disk_usage(asset_dir).free < 2*required):
         raise Stop('prerequisite_failed', 'Insufficient documented download allowance/disk')
     for repo, revision, folder, license_label, files in ASSETS:
         for filename, size, expected in files:
@@ -107,6 +109,8 @@ def acquire(asset_dir, downloads, check, remaining, record):
             path.parent.mkdir(parents=True, exist_ok=True)
             url = f'https://huggingface.co/{repo}/resolve/{revision}/{filename}'
             if not path.exists():
+                if cached_only:
+                    raise Stop('prerequisite_failed', f'Serial attempt requires cached asset: {path}')
                 partial = path.with_suffix(path.suffix + '.partial')
                 if partial.exists():
                     raise Stop('prerequisite_failed', f'Retained interrupted acquisition: {partial}')
@@ -130,6 +134,8 @@ def acquire(asset_dir, downloads, check, remaining, record):
             record['assets'].append(receipt)
             marker = f'FreqMark {revision} {filename} SHA-256 `{actual}`'
             if marker not in downloads.read_text(encoding='utf-8-sig'):
+                if cached_only:
+                    raise Stop('prerequisite_failed', f'Cached asset differs from acquisition ledger: {filename}')
                 with downloads.open('a', encoding='utf-8') as f:
                     f.write(f'\n- {marker}; {url}; {receipt["bytes"]} bytes; {license_label}; local `{path}`. Actual bytes verified; pinned card retained.\n')
     processor_check(read(asset_dir/'dino/preprocessor_config.json'))
@@ -152,8 +158,16 @@ def main():
     p.add_argument('--allowance-attestation', required=True, help='Dated project-wide ledger check and arithmetic')
     p.add_argument('--desktop-pids', type=int, nargs='*', default=[], help='Observed Windows desktop-only PID snapshot, recorded in command')
     p.add_argument('--resource-start-epoch', type=float, help='Preserve earlier failed infrastructure preflight start; never extend budget')
+    p.add_argument('--execution-schedule', choices=('joint', 'serial-validated'), default='joint')
     args = p.parse_args()
     started = time.time()
+    serial = args.execution_schedule == 'serial-validated'
+    if serial:
+        os.environ['CUBLAS_WORKSPACE_CONFIG'] = ':4096:8'
+        os.environ['HF_HUB_OFFLINE'] = '1'
+        os.environ['TRANSFORMERS_OFFLINE'] = '1'
+        if args.resource_start_epoch is not None:
+            p.error('Serial amendment requires one fresh inclusive execution; no earlier start/resume')
     if args.resource_start_epoch is not None:
         if not 0 <= started-args.resource_start_epoch < CAP:
             p.error('Earlier inclusive start must be within the original resource cap')
@@ -170,7 +184,14 @@ def main():
     identity = dict(commit=commit, script_sha256=sha(__file__), protocol_sha256=sha(PROTOCOL),
                     sources_receipt_sha256=sha(args.sources), config=CONFIG,
                     assets_dir=str(assets), lpips_assets=str(lpassets))
+    if serial:
+        identity.update(execution_schedule=args.execution_schedule,
+            amendment_sha256=sha(AMENDMENT), helper_sha256=sha(SERIAL_HELPER))
+        identity['config'] = dict(CONFIG, name=CONFIG['name']+'-serial',
+                                 execution_schedule=args.execution_schedule)
     if path.exists():
+        if serial:
+            raise ValueError('Serial amendment is a new single attempt; no resume or relaunch')
         record = read(path)
         if record['identity'] != identity:
             raise ValueError('Resume identity changed')
@@ -183,6 +204,9 @@ def main():
         cohort = read(args.sources)
         if cohort['data_split'] != 'development-reserved':
             raise ValueError('Reserved development receipt required')
+        if serial and (cohort.get('raw_overlap_count') != 0 or
+                       any(s.get('raw_overlap') is not False for s in cohort['sources'])):
+            raise ValueError('Serial mode requires retained zero-overlap development selection receipt')
         byid = {s['source_id']: s for s in cohort['sources']}
         sources = [dict(input=byid[s], status='not_started') for s in (30, 72)]
         record = dict(schema='freqmark-reconstruction-v1', identity=identity,
@@ -225,7 +249,8 @@ def main():
     threading.Thread(target=watchdog, daemon=True).start()
     try:
         check()
-        for tracked in (Path(__file__), PROTOCOL):
+        tracked_paths = (Path(__file__), PROTOCOL, AMENDMENT, SERIAL_HELPER) if serial else (Path(__file__), PROTOCOL)
+        for tracked in tracked_paths:
             relative = tracked.relative_to(ROOT).as_posix()
             committed = subprocess.check_output(['git', 'show', f'HEAD:{relative}'], cwd=ROOT)
             # Git's Windows CRLF checkout conversion does not change executable source semantics.
@@ -241,7 +266,7 @@ def main():
         if (out/'emergency-stop.json').exists():
             raise Stop('budget_inconclusive', 'Retained prior emergency stop prohibits continuation')
         acquisition = time.monotonic()
-        acquire(assets, args.downloads_ledger, check, args.remaining_download_bytes, record)
+        acquire(assets, args.downloads_ledger, check, args.remaining_download_bytes, record, cached_only=serial)
         record['acquisition_seconds'] = time.monotonic()-acquisition; save()
         import numpy as np
         import torch as torch_module
@@ -254,6 +279,31 @@ def main():
         from three_threat_models import load_lpips
         from m1_latent_reconstruction import quality
         torch.set_num_threads(4)
+        if serial:
+            torch.use_deterministic_algorithms(True, warn_only=False)
+            torch.backends.cuda.matmul.allow_tf32 = False
+            torch.backends.cudnn.allow_tf32 = False
+            torch.backends.cudnn.benchmark = False
+            torch.backends.cudnn.deterministic = True
+            torch.set_float32_matmul_precision('highest')
+            record['execution_flags'] = dict(dtype='float32',
+                deterministic_algorithms=torch.are_deterministic_algorithms_enabled(),
+                deterministic_warn_only=torch.is_deterministic_algorithms_warn_only_enabled(),
+                matmul_allow_tf32=torch.backends.cuda.matmul.allow_tf32,
+                cudnn_allow_tf32=torch.backends.cudnn.allow_tf32,
+                cudnn_benchmark=torch.backends.cudnn.benchmark,
+                cudnn_deterministic=torch.backends.cudnn.deterministic,
+                float32_matmul_precision=torch.get_float32_matmul_precision(),
+                cublas_workspace_config=os.environ['CUBLAS_WORKSPACE_CONFIG'],
+                hf_hub_offline=os.environ['HF_HUB_OFFLINE'],
+                transformers_offline=os.environ['TRANSFORMERS_OFFLINE'])
+            fixture = np.random.Generator(np.random.PCG64(2026101301)).uniform(.1, .9, (128,128,3)).astype(np.float32)
+            np.save(out/'numerical-fixture.npy', fixture)
+            record['numerical_fixture'] = dict(path=str(out/'numerical-fixture.npy'),
+                sha256=sha(out/'numerical-fixture.npy'), seed=2026101301,
+                noise_seed=2026101302, rgb_shape=[128,128,3], dtype='float32', distribution='uniform [.1,.9]')
+            record['numerical_fixture']['target_signs'] = [1 if k % 2 == 0 else -1 for k in range(48)]
+            save()  # Frozen RGB artifact and flags exist before model setup/calls.
         if not torch.cuda.is_available():
             raise Stop('prerequisite_failed', 'CUDA GPU required; no CPU scientific fallback')
         processes = other_gpu_processes(args.desktop_pids)
@@ -319,6 +369,28 @@ def main():
         def rgb8(x):
             return torch.floor(x.detach().clamp(0,1)*255+.5).byte().squeeze(0).permute(1,2,0).cpu().numpy()
 
+        if serial:
+            from freqmark_serial_gradient import backward_step, numerical_gate
+            def encode_fixture(x):
+                z = vae.encode(x*2-1).latent_dist.mode().detach()
+                finite(z)
+                return z
+            try:
+                record['numerical_validation'] = numerical_gate(torch, np, fixture, decode,
+                    features, metric, finite, encode_fixture, out, write, check, Stop)
+            except BaseException as e:
+                validation_path = out/'numerical-validation.json'
+                partial = read(validation_path) if validation_path.exists() else dict(comparisons=[], passed=False)
+                partial.update(passed=False, error=str(e), error_type=type(e).__name__)
+                write(validation_path, partial)
+                record['numerical_validation'] = partial
+                save()
+                if isinstance(e, torch.cuda.OutOfMemoryError) or (isinstance(e, Stop) and e.outcome in ('resource_limit', 'budget_inconclusive')):
+                    raise
+                raise Stop('numeric_gate_failed', f'Numerical validation incomplete or failed: {e}') from e
+            save()
+            torch.cuda.empty_cache()
+
         for index, s in enumerate(record['sources']):
             if s['status'] == 'completed':
                 continue
@@ -349,18 +421,26 @@ def main():
             embedding = time.monotonic(); step_times = []
             for step in range(1,401):
                 check(); tick = time.monotonic(); optimizer.zero_grad(set_to_none=True)
-                latent = torch.fft.ifft2(frequency+torch.complex(a,b), dim=(-2,-1), norm='backward').real
-                clean = decode(latent)
-                latent_noise = torch.randn(latent.shape, generator=rng, device='cuda', dtype=torch.float32)*.25
-                noisy = decode(latent+latent_noise)
-                pixel_noise = torch.randn(clean.shape, generator=rng, device='cuda', dtype=torch.float32)*.06
-                pixel = (clean+pixel_noise).clamp(0,1)
-                hinges = [torch.relu(1-message*features(x)).mean() for x in (clean,noisy,pixel)]
-                psnr = -10*torch.log10((clean-source).square().mean().clamp_min(1e-12))
-                perceptual = metric(clean*2-1, source*2-1).mean()
-                loss = sum(hinges)-.05*psnr+.25*perceptual
-                finite(*hinges, psnr, perceptual, loss)
-                loss.backward(); finite(a.grad,b.grad)
+                if serial:
+                    latent_noise = torch.randn(z.shape, generator=rng, device='cuda', dtype=torch.float32)*.25
+                    pixel_noise = torch.randn(source.shape, generator=rng, device='cuda', dtype=torch.float32)*.06
+                    scalars = backward_step(a, b, frequency, source, message,
+                        (latent_noise, pixel_noise), decode, features, metric, finite, args.execution_schedule)
+                else:
+                    latent = torch.fft.ifft2(frequency+torch.complex(a,b), dim=(-2,-1), norm='backward').real
+                    clean = decode(latent)
+                    latent_noise = torch.randn(latent.shape, generator=rng, device='cuda', dtype=torch.float32)*.25
+                    noisy = decode(latent+latent_noise)
+                    pixel_noise = torch.randn(clean.shape, generator=rng, device='cuda', dtype=torch.float32)*.06
+                    pixel = (clean+pixel_noise).clamp(0,1)
+                    hinges = [torch.relu(1-message*features(x)).mean() for x in (clean,noisy,pixel)]
+                    psnr = -10*torch.log10((clean-source).square().mean().clamp_min(1e-12))
+                    perceptual = metric(clean*2-1, source*2-1).mean()
+                    loss = sum(hinges)-.05*psnr+.25*perceptual
+                    finite(*hinges, psnr, perceptual, loss)
+                    loss.backward(); finite(a.grad,b.grad)
+                    scalars = dict(loss=loss.item(), clean_hinge=hinges[0].item(),
+                        latent_hinge=hinges[1].item(), pixel_hinge=hinges[2].item(), psnr=psnr.item(), lpips=perceptual.item())
                 gradient_tensor = torch.sqrt(a.grad.square().sum()+b.grad.square().sum())
                 finite(gradient_tensor)
                 gradient = float(gradient_tensor.item())
@@ -377,8 +457,8 @@ def main():
                 if step in (1,10,100,400):
                     with torch.no_grad():
                         observed = decode(torch.fft.ifft2(frequency+torch.complex(a,b), dim=(-2,-1), norm='backward').real)
-                        diagnostic = dict(step=step, bits=signs(observed), loss=float(loss),
-                            hinges=[float(v) for v in hinges], psnr=float(psnr), lpips=float(perceptual),
+                        diagnostic = dict(step=step, bits=signs(observed), loss=scalars['loss'],
+                            hinges=[scalars[k] for k in ('clean_hinge','latent_hinge','pixel_hinge')], psnr=scalars['psnr'], lpips=scalars['lpips'],
                             gradient_norm=gradient, parameter_changed=changed, latency_seconds=latency,
                             peak_gpu_bytes=int(torch.cuda.max_memory_allocated()))
                     s['diagnostics'].append(diagnostic); save()
@@ -405,7 +485,9 @@ def main():
                 s['output'] = dict(path=str(png), sha256=sha(png))
             s.update(status='completed', total_source_seconds=time.monotonic()-begin)
             check(); record['outcome'] = 'boundary_paused'; save()
-            del a,b,optimizer,clean,noisy,pixel,latent,loss,hinges,psnr,perceptual,final,observed
+            del a,b,optimizer,clean,final,observed,latent_noise,pixel_noise
+            if not serial:
+                del noisy,pixel,latent,loss,hinges,psnr,perceptual
             torch.cuda.empty_cache()
         complete = all(s['status']=='completed' for s in record['sources'])
         useful = complete and all(s['final_png']['exact'] for s in record['sources'])
@@ -422,7 +504,7 @@ def main():
     finally:
         save(); done.set()
         with args.dev_log.open('a', encoding='utf-8') as log:
-            log.write(f'\n- {datetime.now(timezone.utc).isoformat()} Codex agent: {CONFIG["name"]}; commit {commit}; run `{path}`; inclusive {record["duration_seconds"]:.3f} s; outcome {record["outcome"]}; development, USD 0, no attacks or native-equivalence claim.\n')
+            log.write(f'\n- {datetime.now(timezone.utc).isoformat()} Codex agent: {identity["config"]["name"]}; commit {commit}; run `{path}`; inclusive {record["duration_seconds"]:.3f} s; outcome {record["outcome"]}; development, USD 0, no attacks or native-equivalence claim.\n')
     print(json.dumps(dict(outcome=record['outcome'], run_json=str(path))))
     return 0 if record['outcome']=='completed' else 3
 

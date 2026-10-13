@@ -22,6 +22,8 @@ The [endpoint-interpretation atlas](endpoint-interpretation-atlas.md) is complet
 
 After that review, the ordered next steps are: resolve enough closest-baseline fidelity for a fair bounded comparison; prepare blinded admissibility materials and valid-positive binding controls; freeze a small independent domain/model screen; and proceed to calibration and fresh confirmation only if a meaningful external tradeoff or transferable failure explanation appears. A large grid, further severity search or a manuscript claiming a novel mechanism is not the next action. Human judgments and supervisor scope alignment remain actual human dependencies; local drafting and protocol preparation do not need routine approval.
 
+The next local step is now fixed by the [serial-backprop amendment](freqmark-memory-amendment.md): one new, resource-inclusive 1,800-second FreqMark reconstruction attempt, using cached assets and the same two development sources. It changes gradient scheduling only, requires four actual-model numerical equivalence checks before real-source optimization, and preserves the earlier terminal failure. Any numerical or resource failure closes this amendment without a second launch or tolerance change. This does not spend H2, establish native reproduction, or authorize a large comparison.
+
 ## Evidence we can use, and gaps we must close
 
 | Topic | Current evidence | Implication |
