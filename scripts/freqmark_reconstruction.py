@@ -77,11 +77,12 @@ def inside(path, root):
     return path
 
 
-def other_gpu_processes():
+def other_gpu_processes(desktop_pids=()):
     output = subprocess.check_output(['nvidia-smi', '--query-compute-apps=pid',
                                      '--format=csv,noheader,nounits'], text=True)
     return [line.strip() for line in output.splitlines()
-            if line.strip() and line.strip() != str(os.getpid())]
+            if line.strip() and line.strip() != str(os.getpid())
+            and int(line.strip()) not in desktop_pids]
 
 
 def processor_check(c):
@@ -149,8 +150,14 @@ def main():
     p.add_argument('--dev-log', type=Path, required=True)
     p.add_argument('--remaining-download-bytes', type=int, required=True)
     p.add_argument('--allowance-attestation', required=True, help='Dated project-wide ledger check and arithmetic')
+    p.add_argument('--desktop-pids', type=int, nargs='*', default=[], help='Observed Windows desktop-only PID snapshot, recorded in command')
+    p.add_argument('--resource-start-epoch', type=float, help='Preserve earlier failed infrastructure preflight start; never extend budget')
     args = p.parse_args()
     started = time.time()
+    if args.resource_start_epoch is not None:
+        if not 0 <= started-args.resource_start_epoch < CAP:
+            p.error('Earlier inclusive start must be within the original resource cap')
+        started = args.resource_start_epoch
     build = args.main.resolve()/'.thesis-build'
     out, assets = inside(args.output_dir, build), inside(args.assets_dir, build)
     lpassets = inside(args.lpips_assets, build)
@@ -224,7 +231,7 @@ def main():
             # Git's Windows CRLF checkout conversion does not change executable source semantics.
             if committed.replace(b'\r\n', b'\n') != tracked.read_bytes().replace(b'\r\n', b'\n'):
                 raise Stop('prerequisite_failed', 'Implementation/protocol must be committed before execution')
-        processes = other_gpu_processes()
+        processes = other_gpu_processes(args.desktop_pids)
         if processes:
             raise Stop('prerequisite_failed', 'Other GPU compute process present before acquisition; defer')
         for s in record['sources']:
@@ -249,7 +256,7 @@ def main():
         torch.set_num_threads(4)
         if not torch.cuda.is_available():
             raise Stop('prerequisite_failed', 'CUDA GPU required; no CPU scientific fallback')
-        processes = other_gpu_processes()
+        processes = other_gpu_processes(args.desktop_pids)
         if processes:
             raise Stop('prerequisite_failed', 'Other GPU compute process present; defer')
         free, total = torch.cuda.mem_get_info()
