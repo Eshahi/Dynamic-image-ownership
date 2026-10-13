@@ -1,0 +1,7 @@
+# Development-reserved sources
+
+2026-10-13: Before any new image outcome, reserve COCO train2017 IDs 30, 72, 73, 89, 127, 165, 309, 370, 436, 450, 459, 471, 508, 529, 544, 599, 626, 629, 636, 673, 693, 715, 723, 790 for article-development experiments. Never include these IDs, their raw hashes or canonical derivatives in future validation/test or confirmation. Existing historical split reservations continue to apply independently.
+
+Selection was fixed using ascending eligible metadata IDs with original per-image CC BY 2.0 labels, native dimensions at least 256, official image URL and Flickr attribution hook. All prior admitted/held-out inventories were excluded by identity. No images, captions, semantic categories or outcomes informed selection. See [selection rule](journal-upgrade-20261009/fresh-development-selection.md) and [metadata](journal-upgrade-20261009/fresh-development-selection.json).
+
+Acquisition checks each raw SHA-256 against 7,178 recorded exclusions before decoding. Canonicalization is the existing `m1b-canonical-rgb512-v2`: EXIF transpose, ICC conversion when present, RGB conversion, then Pillow BICUBIC 512x512. [Input receipts](journal-upgrade-20261009/fresh-development-inputs.json) contain separate raw/file/pixel hashes, URLs, original licence labels and attribution hooks. No creator/title verification beyond retained COCO metadata is claimed. Any overlap or acquisition failure is retained and resolved using the prospective rule before inference.
