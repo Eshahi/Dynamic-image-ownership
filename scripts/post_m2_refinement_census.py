@@ -75,9 +75,9 @@ def main():
         raise ValueError('Fixed twelve-source inventory differs')
     heldout_ids = set()
     for entry in read(INDEX)['entries']:
-        match = re.search(r'(\d+)$', entry['group_id'])
+        match = re.fullmatch(r'ms-coco:coco-2017:val2017:(\d+)', entry['source_uid'])
         if not match:
-            raise ValueError('Unrecognized held-out group identifier')
+            raise ValueError('Unrecognized held-out COCO source UID')
         heldout_ids.add(int(match.group(1)))
     if set(IDS) & heldout_ids:
         raise ValueError('Development and completed held-out IDs overlap')
