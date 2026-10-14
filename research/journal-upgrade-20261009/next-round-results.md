@@ -38,4 +38,27 @@ Protocol and implementation were committed at `380a6e8`. Receipt MAIN `.thesis-b
 
 Continuous geometry supplies an important limit on interpretation. At .2, actual normalized fine-feature cosine is .5406--.7913 (mean .6614); the six sibling cosines are .0155--.0521. The detail floor is inactive for these pairs. Coarse positive cosine is .9656--.9965, but siblings are even closer at .9957--.9996. Thus coarse-only cannot distinguish them, while fine features still contain distinguishing information. BI1's fixed 32-bit Rademacher compression does not exploit that separation adequately on this panel. This does not prove a compression-only cause, because representation and finite threshold interact. It also does not prove that all instance information has been erased by regeneration.
 
-The scalar-rebalancing protocol is closed. A separately justified representation/capacity hypothesis is being designed before any new feature outcomes, with all increased payload and threshold assumptions disclosed. Historical E3 and M2 remain unchanged.
+The scalar-rebalancing protocol is closed. Historical E3 and M2 remain unchanged.
+
+## Fine-only 128-bit Gaussian sketch: stability improves, a real-source collision remains
+
+The [fixed FG128 protocol](descriptor-capacity-amendment.md) and implementation were committed at `f7c9c97` before execution. Receipt: MAIN `.thesis-build/dev-runs/20261014-fine-gaussian-fg128/run.json`. All inputs and native legacy-h checks resolve in 20.922 seconds. Native fine features alone, with an explicit weak-detail abstention, are projected onto 128 deterministic Gaussian hyperplanes. The match radius is 44 and mismatch begins at 51. The ideal independent-uniform-bit ball mass at 128/44 is .000257892 versus .000267526 at old 32/6. This is not matched natural-image FPR: relative tolerance increases from .1875 to .34375, payload grows fourfold, projection distribution and representation also change. These interventions are not causally isolated.
+
+All 24 clean pairs match. Both VAE oracle counts are 6/6. T3 .2 oracle dual-content succeeds on **17/18** with all six source majorities; .4 is 9/18 with three majorities. The sole .2 miss is source 73, seed 9, distance 45. All 24 q-nearest pairs are nonmatches and have distance at least 51. The six texture-sibling distances are 54,57,50,49,53,53: none matches and none is a new acceptance. Uncertain distances 49/50 are not claimed as confident mismatches.
+
+The mandatory real-impostor gate nevertheless **fails**. The canonical panel has 2/552 ordered matches, both directions of the single pair 30/544 at distance 44; the canonical-to-marked panel has 0/552, minimum distance 46. Legacy h rejects this pair at distance 13. Its uncompressed fine-feature cosine is .01019995, giving hypothetical Gaussian expected distance 63.5844, but the one fixed finite sketch yields 44. This observation is a descriptor collision, not a measured full-system false acceptance; the two directions are not independent events. Neither the finite-panel result nor the ideal random-hyperplane formula calibrates population FPR.
+
+No radius was lowered after seeing the collision, no alternate projection seed or larger sketch was tried, and no GPU carrier was built. The prospectively conditional four-block BCH/960-projection carrier therefore has no measured quality, capacity or attack result. Gaussian stream SHA-256 is `9642d00d9141a185b1e78dc0cb3a21de19628f4136de7a3b133eb2b3dc22b8fd`; exact construction and hypothetical-null checks are stored in the receipt.
+
+## Round comparison and permitted conclusion
+
+These are perfect-transport descriptor screens on consulted development pixels, not four deployable watermark systems. Positive and specificity criteria form one conjunction; a high positive count does not compensate for a failed guard.
+
+| Screen | SD1.5 VAE oracle | T3 .2 oracle | Source majority .2 | New sibling matches | Real-impostor matches, canonical / marked | Decision |
+|---|---:|---:|---:|---:|---:|---|
+| Unchanged operational h | 3/6 | 6/18 | 1/6 | Not newly measured | Not newly measured | Reject transport-only repair |
+| CD1 coarse-only, 32 bits | 6/6 | 18/18 | 6/6 | 4/6 | 0/552 / 0/552 | Reject lost texture discrimination |
+| BI1 equal-energy, 32 bits | 5/6 | 10/18 | 3/6 | 2/6 | 0/552 / 0/552 | Reject stability and specificity |
+| FG128 fine-only Gaussian | 6/6 | 17/18 | 6/6 | 0/6 | 2/552 / 0/552 | Reject real-source collision |
+
+The round identifies two separate obstacles: transporting h would not cure the old descriptor's instability, while tested stable replacements either discard distinguishing texture or retain finite-sketch collisions. The FG128 positive result establishes a promising but incomplete finite compression-capacity observation. It does not prove that regeneration destroys all instance information, that 128 bits are inherently inadequate, that all possible methods fail, or that any new candidate meets M1a. E3 remains the retained method, with its original strengths and limitations. Independent review will check these conclusions and determine whether another scientifically distinct experiment is justified; no threshold or seed rescue is allocated.
