@@ -23,3 +23,11 @@ The [prospective design](next-round-mechanism-design.md) and analysis were commi
 At .2 only one of six source groups has a majority ceiling success; at .4 two do. The frozen advance gate fails on SD1.5 VAE, .2 count and .2 majority. Therefore E3-DV1 with the unchanged descriptor is rejected before GPU implementation. This ceiling applies to the saved pixels, not every possible future optimized image. Detail-heavy descriptor drift and destroyed transport are separate problems. Any replacement descriptor needs a fresh fixed stability-and-discrimination test; widening the old radius would not resolve the scientific question.
 
 Primary-source updates are in [the three new paper cards](../literature/dual-carrier-20261014/primary-cards.json). Dual spectral watermarking is prior art; two carriers alone are not a novelty claim. Current E3 remains retained.
+
+## Coarse-only descriptor: stable but insufficiently discriminative
+
+The E3-CD1 protocol and script were committed at `3183332` before execution. All 54 cached identities, 24 canonical/full-clean pairs, two complete 552 ordered real-impostor panels and six fixed synthetic sibling controls resolve. Receipt: MAIN `.thesis-build/dev-runs/20261014-stable-instance-cd1/run.json`. Canonical targets and radius 6 remain fixed.
+
+Canonical-to-clean matches are 24/24. SD1.5 and SDXL VAE oracle dual-content checks are 6/6 each; T3 .2 is 18/18 with 6/6 majority, and .4 is 16/18 with 6/6 majority (all 18 h checks match, two native q checks fail). Each real-impostor panel has zero matches for both old and new descriptors. The 24 q-nearest pairs have zero new matches, 23 distances at least 10.
+
+The mandatory synthetic specificity guard **fails**: four pairs rejected by legacy h become matches under h_CD. The improved regeneration numbers cannot overrule this. No robust dual carrier was implemented for CD1. Coarse appearance supplies stability but loses the texture distinctions required by this instance-repair claim. A subsequent fixed amendment must retain that distinction, not silently rename it.

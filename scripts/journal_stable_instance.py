@@ -54,7 +54,8 @@ def compare(a,b):
                 legacy_match=old<=6, cosine=dot)
 
 
-def main():
+def main(descriptor_fn=descriptor, compare_fn=compare, descriptor_config=None):
+    descriptor, compare = descriptor_fn, compare_fn
     tick = time.monotonic()
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--stage-a',type=Path,required=True)
@@ -72,6 +73,7 @@ def main():
         data_split='consulted development and synthetic', usd=0, seeds=[9,10,11],
         input_receipts=[str(a.stage_a),str(a.h1)], outcome='running', images={},clean=[],
         positives=[],impostors={},q_nearest=[],siblings=[],advance_gate=False)
+    result['config'].update(descriptor_config or {})
     def save():
         result['duration_seconds']=time.monotonic()-tick
         (a.output_dir/'run.json').write_text(json.dumps(result,indent=2,allow_nan=False)+'\n')
