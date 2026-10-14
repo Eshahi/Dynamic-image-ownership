@@ -185,6 +185,15 @@ def main():
                                    margin=min(orbit[m]) - max(orbit_neg[m]), auc=auc(orbit[m], orbit_neg[m]),
                                    accept_at_zero_fp=sum(v > max(orbit_neg[m]) for v in orbit[m]))
                            for m in orbit}
+        # X1b: is the positive similarity carried by content or by the shared mark residual?
+        # Unmarked canonical vs its own unmarked regeneration (C0), and canonical vs marked regeneration.
+        ctrl = {}
+        for s in (0.2, 0.4):
+            c0 = [cos(canonical[i][n], path_d(H1 / f"{i}-T3-{s}-{k}-C0.png")[n]) for i in H1_IDS for k in SEEDS]
+            c1 = [cos(canonical[i][n], path_d(H1 / f"{i}-T3-{s}-{k}-C.png")[n]) for i in H1_IDS for k in SEEDS]
+            ctrl[f"T3_{s}"] = dict(unmarked_regen_vs_canonical_min=min(c0), unmarked_regen_vs_canonical_median=float(np.median(c0)),
+                                   marked_regen_vs_canonical_min=min(c1), marked_regen_vs_canonical_median=float(np.median(c1)))
+        result["x1"][n]["content_control"] = ctrl
     result["duration_seconds"] = time.monotonic() - tick
     result["outcome"] = "completed"
     (a.output_dir / "run.json").write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
@@ -196,6 +205,7 @@ def main():
         for k, v in x["positives"].items():
             print(f"   pos {k:22s} n={v['n']:2d} min={v['min']:.3f} med={v['median']:.3f} AUC={v['auc_vs_all_negatives']:.3f} "
                   f"accept@0FP={v['accept_at_zero_fp']}/{v['n']} srcmaj={v['source_majority_at_zero_fp']}/{v['sources']}")
+        print("   X1b content control:", {k: {kk: round(vv, 3) for kk, vv in v.items()} for k, v in x["content_control"].items()})
         print("   X2 orbit:", {m: {kk: round(vv, 3) if isinstance(vv, float) else vv for kk, vv in r.items()} for m, r in result["x2"][n].items()})
         print("   X3 scale:", {kk: (round(vv, 6) if isinstance(vv, float) else vv) for kk, vv in result["x3"][n].items()})
     print(f"\nduration {result['duration_seconds']:.1f} s")
