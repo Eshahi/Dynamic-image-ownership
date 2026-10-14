@@ -15,6 +15,8 @@ def main():
     clean, attack = [json.loads((d/'run.json').read_text()) for d in (a.clean, a.t3)]
     if clean['outcome'] != 'completed' or attack['outcome'] != 'completed':
         raise ValueError('Terminal complete receipts required; do not report a running subset')
+    if clean.get('summary', {}).get('eligibility_pass') is not True:
+        raise ValueError('This conditional-comparison report requires clean eligibility PASS')
     ids = [s['source_id'] for s in clean['sources']]
     expected = {(sid, method, family, strength, seed) for sid in ids
         for method, family in [('E3','q'),('WAM','q'),('E3','C0'),('WAM','C0')]
@@ -116,7 +118,7 @@ def main():
         'USD 0 rental/API; electricity unmetered. No downloads, paid computation, held-out inspection or protected edits. '
         'E3 marks were reused from the retained construction run; fresh WAM embedding time versus cached E3 access is not a fair construction-speed comparison.', '',
         'Reproduce this report from receipts with `scripts/analyze_e3_wam_common.py --clean <clean-dir> --t3 <t3-dir> --output <report.md>`. '
-        'The four interface regression tests are `tests/test_e3_wam_common.py`. Independent review is recorded separately.', '']
+        'The interface and report-guard regression tests are `tests/test_e3_wam_common.py`. Independent review is recorded separately.', '']
     a.output.write_text('\n'.join(text), encoding='utf-8')
     print(str(a.output))
 

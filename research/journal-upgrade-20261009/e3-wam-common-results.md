@@ -91,4 +91,4 @@ The fixed comparison is complete, including unfavorable results. Do not tune amp
 
 Peak process RAM: clean 2.810 GiB, T3 3.172 GiB. Peak CUDA allocations: 1.328 / 3.903 GiB. USD 0 rental/API; electricity unmetered. No downloads, paid computation, held-out inspection or protected edits. E3 marks were reused from the retained construction run; fresh WAM embedding time versus cached E3 access is not a fair construction-speed comparison.
 
-Reproduce this report from receipts with `scripts/analyze_e3_wam_common.py --clean <clean-dir> --t3 <t3-dir> --output <report.md>`. The four interface regression tests are `tests/test_e3_wam_common.py`. Independent review is recorded separately.
+Reproduce this report from receipts with `scripts/analyze_e3_wam_common.py --clean <clean-dir> --t3 <t3-dir> --output <report.md>`. The interface and report-guard regression tests are `tests/test_e3_wam_common.py`. Independent review is recorded separately.

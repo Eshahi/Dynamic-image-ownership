@@ -1,7 +1,10 @@
 """Interface regressions: no target-assisted decode or fabricated empty-mask word."""
 import inspect
+import json
 import sys
+import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -10,6 +13,19 @@ import e3_wam_common as common
 
 
 class CommonInterfaceTests(unittest.TestCase):
+    def test_analysis_rejects_failed_clean_eligibility(self):
+        import analyze_e3_wam_common as analysis
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            clean, attack = root/'clean', root/'attack'
+            clean.mkdir(); attack.mkdir()
+            (clean/'run.json').write_text(json.dumps(dict(outcome='completed', summary=dict(eligibility_pass=False))))
+            (attack/'run.json').write_text(json.dumps(dict(outcome='completed')))
+            with patch.object(sys, 'argv', ['analysis', '--clean', str(clean), '--t3', str(attack), '--output', str(root/'result.md')]):
+                with self.assertRaisesRegex(ValueError, 'requires clean eligibility PASS'):
+                    analysis.main()
+            self.assertFalse((root/'result.md').exists())
+
     def test_message_order_and_leading_zero(self):
         self.assertEqual(common.hex_bits('80000001'), [1]+[0]*30+[1])
         for q in common.TARGETS + ('00000000', 'ffffffff', '80000001'):
