@@ -14,6 +14,7 @@ OWNER = 'qim-pilot-owner-alpha'
 
 def main():
     tick = time.monotonic()
+    started_at = datetime.now(timezone.utc).isoformat()
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--receipt', type=Path, required=True)
     p.add_argument('--output-dir', type=Path, required=True)
@@ -64,7 +65,7 @@ def main():
     duration = time.monotonic()-tick
     result = dict(commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
         command=sys.argv, config=dict(ids=IDS, primary_arm='C', radius=6, max_seconds=600),
-        seeds=[9,10,11], started_at_utc=datetime.now(timezone.utc).isoformat(),
+        seeds=[9,10,11], started_at_utc=started_at,
         data_split='consulted development', usd=0, input_receipt=str(a.receipt),
         outcome='completed', duration_seconds=duration, oracle_advance_gate=bool(gate and duration<=600),
         interpretation='Perfect target-h transport diagnostic on fixed saved suspects, not an executable detector or candidate success.',

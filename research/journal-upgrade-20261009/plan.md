@@ -2,7 +2,7 @@
 
 Updated 2026-10-14 by Codex agent after the user explicitly reopened autonomous method research. It is a research roadmap, not an execution manifest, human milestone verdict or authorization for paid compute or a new held-out run. Numerical gates below are research decisions, not journal acceptance rules.
 
-## Current reopened mechanism round
+## Completed reopened mechanism round
 
 The October 13 closures below are historical allocation decisions. The user has authorized a new local round to diagnose implementation and improve the method. Preserve E3/M2 as retained evidence. The new question is whether instance-content discrimination and regeneration stability can coexist before spending effort on a robust second carrier. The [current results](next-round-results.md) record all failed leads, with committed prospective protocols and no held-out tuning.
 
@@ -10,7 +10,9 @@ The October 13 closures below are historical allocation decisions. The user has 
 2. Test one coarse-only descriptor with real impostors and mandatory same-layout texture controls. Completed: regeneration improves to 18/18 but four previously rejected siblings become matches. Reject this descriptor; do not rename the endpoint to conceal the lost specificity.
 3. Test one equal-energy structure/detail amendment with the original hyperplanes and the same full gate. Completed: 10/18 regeneration oracle successes, three source majorities and two new sibling acceptances; reject. Fine-feature geometry still distinguishes positives from siblings, motivating a separately frozen capacity experiment.
 4. Test the [FG128 fine-only Gaussian sketch](descriptor-capacity-amendment.md), disclosing its fourfold payload and changed tolerance. Completed: 17/18 regeneration oracle successes, six source majorities, zero new sibling matches, but one unrelated canonical pair matches in both directions. The full conjunction fails. Do not build the conditional carrier or retry seed, radius or bit length.
-5. Use the terminal conjunction, implementation checks and an independent review to decide the next allocation. A positive local screen would still need the original development M1a/T4/T5 gates, a fair external comparison and fresh approval before confirmation. These failed local screens do not establish universal impossibility or erase E3's retained semantic result.
+5. Independent review is complete: [PASS for evidence fidelity](descriptor-round-independent-review.md), no material blockers, all scientific conjunctions failed. Close these fixed descriptor/dual-carrier protocols. No conditional GPU stage or numerical rescue is allocated. This is a bounded research allocation, not universal impossibility or three independent failed design families. Retain E3 and its qualified semantic result.
+
+The next article milestone is a defensible contribution decision: the measured separation of writer accumulation, payload transport, descriptor stability and discrimination is now documented, but external advantage and generality remain missing. Further method computation requires a distinct mechanism supported by new evidence or a consequential transferable comparison with a faithful usable implementation and common endpoint. Current data do not justify another fixed-sketch adjustment or a Q1 methods headline. Original M1a/T4/T5 and a separately approved fresh confirmation would still be required for any future successful replacement.
 
 ## Direction and central question
 

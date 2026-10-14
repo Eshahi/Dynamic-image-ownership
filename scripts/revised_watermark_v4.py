@@ -443,9 +443,10 @@ def _resample(grid: Sequence[Sequence[float]], size: int) -> list[list[float]]:
 def _sign_projections(vector: Sequence[float], key: bytes, config: bytes, label: bytes) -> int:
     """CODE_BITS signs of keyed Rademacher projections (random-hyperplane hashing).
 
-    Two vectors at angle ``theta`` disagree in each bit with probability
-    ``theta / pi``, so nearby content gives nearby codes and there is no
-    avalanche.  The hyperplanes are derived from the profile key: public in the
+    These signs provide an angular-similarity heuristic without a hash
+    avalanche. The exact ``theta / pi`` disagreement identity applies to
+    isotropic Gaussian/Haar hyperplanes, not generally to these Rademacher
+    rows. The hyperplanes are derived from the profile key: public in the
     public-derived profile, unknown to an attacker in the keyed one.
     """
     width = len(vector)
