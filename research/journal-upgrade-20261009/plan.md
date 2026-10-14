@@ -2,6 +2,12 @@
 
 Updated 2026-10-14 by Codex agent after the user explicitly reopened autonomous method research. It is a research roadmap, not an execution manifest, human milestone verdict or authorization for paid compute or a new held-out run. Numerical gates below are research decisions, not journal acceptance rules.
 
+## Current completed common-task comparison
+
+The user's continuation instruction activated the faithful-comparator route. The [fixed E3/WAM protocol](e3-wam-common-task-protocol.md) and [results](e3-wam-common-results.md) establish a common blind 32-bit recovery task on six previously consulted development sources. Both primary methods and both WAM message-control arms pass clean exact recovery and strict quality on 6/6. All 108 prescribed DDIM image attempts and 144 reads complete. At strengths .1/.2, E3 Q is 18/18 and 18/18; native WAM Q is 3/18 and 0/18. E3 J is 18/18 each but H/F are zero. Negative message matches are zero; this is not calibrated presence/FPR evidence.
+
+This is a useful native-setting external observation, with important limits: E3 was optimized against this SD1.5 channel, source-derived messages are structured, coding and side information differ, and neither marking nor attacked-image distortion is matched. WAM uses the official SA-1B MIT model, not the paper's COCO checkpoint. Retain every result and stop this fixed grid without an amplitude/threshold search. The next consequential design must test independent regeneration transfer and robustness at prospectively controlled quality/error operating points before a larger article confirmation. The protocol gives a separate 600-source calibration/evaluation feasibility plan; it is not launched or treated as approved held-out execution. Independent review of this package is pending.
+
 ## Completed reopened mechanism round
 
 The October 13 closures below are historical allocation decisions. The user has authorized a new local round to diagnose implementation and improve the method. Preserve E3/M2 as retained evidence. The new question is whether instance-content discrimination and regeneration stability can coexist before spending effort on a robust second carrier. The [current results](next-round-results.md) record all failed leads, with committed prospective protocols and no held-out tuning.
@@ -169,7 +175,7 @@ Shortlist two or three journals after the contribution is clear. Forensic/securi
 
 Use the laptop and pinned assets for decisive screens. No GPU rental is needed for planning. Forecast later compute from a measured end-to-end batch, actual source/attack counts and overhead, not the reused-mark ablation or an unmeasured blanket hour estimate. Baseline fidelity, licensing and finding a consequential result may determine the schedule more than GPU time. Paid compute requires its own concrete decision.
 
-The immediate deliverable is the completed technical-controls and scientific-scope package with its independent review. This experiment round is closed with H2 unused. The retained work supports a bounded case study; a distinct journal contribution is unresolved. Future held-out approval and protected/public actions retain their boundaries.
+The immediate deliverable is the common-message external-comparison package and its independent review. The earlier technical-controls and descriptor rounds remain closed with H2 unused. A distinct journal contribution remains unresolved despite the new native-setting recovery difference. Future held-out approval and protected/public actions retain their boundaries.
 
 ## Autoresearch and completion record
 
