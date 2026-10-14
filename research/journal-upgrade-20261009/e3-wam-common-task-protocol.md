@@ -1,0 +1,96 @@
+# E3-S1 versus official WAM: common blind payload task
+
+Frozen design, 2026-10-14; outcomes below are future. This is an exploratory development contract, not a confirmatory protocol or a new method. It applies the scientific-contract part of the thesis-experiment-design skill; the user's autonomous local-development rules replace its heavyweight execution helpers. No human-rating prerequisite, new training, paid service, new asset acquisition, held-out access or protected-file edit is required.
+
+## Decision and falsifier
+
+The immediate question is whether both installed implementations can deliver and blindly recover **the same assigned 32-bit message at strict clean quality**. Use retained full E3-S1 images and give their frozen source-derived q to WAM's native arbitrary-message embedder. This is a valid common *payload recovery* task. It does not make E3 an arbitrary-message method, or make WAM a semantic-binding/ownership system.
+
+Run the six-source clean eligibility test first. Its conjunction is specified below. A failure ends this comparison stage before any regeneration grid; preserve every failure and identify whether delivery, quality, target leakage, implementation parity or resources failed. Do not attenuate, increase amplitude, change thresholds, replace a source/message, or select a successful subset to rescue eligibility. A programming error can receive one documented correction and complete rerun under a new development receipt; scientific failures cannot. Passing establishes local comparability only, not external advantage.
+
+No new method-design escalation is needed to implement the frozen clean screen and its conditional T3 extension. A matched-FPR benchmark, new message distribution for E3, quality adaptation, or larger external study needs a separate design frozen before those outcomes.
+
+## Fixed inputs and access
+
+MAIN means `W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5`. Input receipt is MAIN `.thesis-build/dev-runs/20261013-1636-fresh-e3-simplification/run.json`. Select the first six numerically ascending IDs from its already reserved 24-source roster. This rule does not select by this experiment's outcomes; the cohort and E3 clean outcomes have already been consulted, so it is not fresh evaluation data. Source identity, licensed acquisition and development reservation remain those of the receipt and `research/development-sources.md` / `research/downloads.md`; no source-plan amendment.
+
+| ID | Evaluator's assigned q, hex |
+|---:|---|
+| 30 | bac09534 |
+| 72 | 0ec0942e |
+| 73 | bdd49438 |
+| 89 | 99c4b43c |
+| 127 | efd08760 |
+| 165 | 9a5ca71c |
+
+Use each receipt's `canonical_path`, `payload.q`, and `full_image`. In particular, `full_image` is `<run>/<ID>/full/images/E3-final.png`; do not substitute H1 chipwise/symbol-average marks or lean images. Check the six IDs/targets and existence, RGB mode, 512x512 dimensions, and canonical hashes against the existing source record. Record hashes of the selected delivered inputs once for identity, without re-auditing historical floating-point arithmetic. No E3 rewriting, q recomputation for the target, or selection among historical E3 marks.
+
+E3 uses public owner `qim-pilot-owner-alpha`, frozen profile, pinned SD1.5 VAE and CLIP, and unchanged `journal_bch_readout.detect_rgb` with soft/combined binding and roster_size=1. Read features/latent using the existing Evaluator convention (`features(rgb, 7)`, `reader.latent(rgb)`). Its q path has BCH(59,32), 320 carrier projections and the existing read threshold. Retain all native diagnostics, including S/J/H/F, but only readable exact Q enters the common endpoint. Full E3 construction also spends capacity and distortion on h; do not describe this as an equal total-capacity comparison or isolate BCH's causal contribution.
+
+WAM uses official revision `2c08af04d037d5667c02f6ddebbda9ff04581c3e`, installed SA-1B MIT checkpoint SHA-256 `90ef232384e023bd63245eb0c131abd69d2afc7b8f17a71ccedceb542bf009e2`, FP32, batch one, eval/inference mode, native JND, scaling_i=1 and **scaling_w=2 only**. This is not the paper's COCO checkpoint. Reuse the vetted builders/transforms in `journal_wam_probe.Adapter`. No new dependency or model download is necessary. Feed the 32 q bits MSB first, exactly `[(int(q,16) >> b) & 1 for b in range(31,-1,-1)]`; recover the corresponding 8-digit hex in the evaluator.
+
+WAM accepts arbitrary 32-bit messages, but the primary distribution here is E3's structured source-derived code. Equal messages remove one prior mismatch; they do not make messages uniformly random, independent of content, or representative of WAM's training distribution. Show per-bit occupancy, pairwise Hamming distances and collisions for these six assigned messages before scoring. Do not whiten, rebalance or replace them. Their entropy cannot be inferred as 32 bits from their length. This experiment cannot claim arbitrary-message superiority or a 2^-32 natural-image false-match probability.
+
+## Target-free interface and native parity
+
+The shared interface is `read(suspect_rgb, fixed_public_configuration) -> {readable, decoded_bits, native_diagnostics}`. Original pixels, source ID, expected q, other targets, and target-dependent masks are absent from this function. Source/path/target bookkeeping belongs to the caller/evaluator only. A readout can return no message. E3 may use semantic features of the suspect because that is its native access; it must not replace a failed read with the suspect's recomputed semantic q in the common endpoint.
+
+- E3 `readable = call.semantic.read`. `decoded_bits` comes from `semantic.decoded_code` only when readable. A successful BCH candidate below the read threshold is unavailable for the common endpoint. Native `found`, `candidate`, recomputed q and S remain separate diagnostics; in particular, `candidate='recomputed'` with `read=true` is not itself a failure, because that label can occur when the actually decoded word equals the suspect code. Use the explicit `read` field.
+- WAM uses native predicted mask `sigmoid(preds[:, :1]) > .5`; call upstream `msg_predict_inference(preds[:,1:], mask)` unchanged, default semihard. The official implementation averages raw bit logits over selected pixels and compares means with **.5**, not zero. An empty mask returns unreadable/null and is never scored as an all-zero message. A nonempty mask permits a message; it is not calibrated image-level presence.
+
+Split the existing WAM adapter's inference from its target-dependent scoring: currently `detect(rgb,bits)` uses `bits` only after decoding. The new target-free wrapper must reproduce the official routine on each of the 24 planned WAM detector inputs below, using the same prediction tensor for the parity comparison. Assert identical mask count, availability and decoded bits. Check two alternate evaluator targets against one fixed decoded result to verify that only equality/accuracy changes. A synthetic empty-mask unit check must produce null without invoking a NaN-to-bits fallback. Check MSB/hex round trips with the table above and 00000000/ffffffff/80000001. These are interface checks, not scientific image rows.
+
+E3 calls the existing reader without changing it. On its six retained clean C1 images, compare fresh Q/read/decoded q and strict-quality classifications with the retained clean record; a disagreement is a stop for one bounded diagnosis, not a permission to choose the more favorable value. Inspect the call boundary to confirm no target enters. No bit-exact replay of construction is required.
+
+## Clean screen inventory and controls
+
+Canonical RGB8 PNG is the input to WAM. Save each new mark after one clip/round-to-nearest RGB8 conversion and reopen it before decoding/quality. Retained E3 PNGs and C0 canonicals are already delivered pixels; do not re-encode through a VAE or resize. No augmentation or diffusion occurs in this screen. Fix Python/NumPy/Torch seed=0 for execution reproducibility; this is not an attack replicate.
+
+| Image family | Images | Reader calls | Purpose |
+|---|---:|---:|---|
+| Retained E3 full C1(q) | 6 retained | 6 E3 | Primary common task |
+| WAM native C1(q) | 6 new | 6 WAM | Primary common task |
+| Shared canonical C0 | 6 retained | 6 E3 + 6 WAM | Unmarked diagnostics |
+| WAM native C1(complement(q)) | 6 new | 6 WAM | Assigned-message responsiveness |
+| WAM native C1(hash(ID)) | 6 new | 6 WAM | Content-independent message control |
+| **Total** | **30 image-family records; 18 new images** | **36 primary calls** | Parity checks reuse tensors |
+
+The hash control is the existing `journal_wam_probe.message(ID)` schedule: SHA-256 of UTF-8 `journal-wam-dev-v1:<ID>`, first four bytes, MSB first. Check accidental equality with q/complement and report it without replacement. These WAM-only control arms are not E3 comparators and do not enter a pooled recovery score. Their role is to expose a broken target path or unusually distribution-specific delivery. All three WAM arms use identical settings and one embedding each.
+
+For each primary C1(q) and each C0 reader result, the evaluator compares the one decoded word with (a) own q, (b) complement(q), and (c) the next source's q in the ascending six-ID cycle, with 165 wrapping to 30. All six q values are distinct. On the two WAM control arms compare against their assigned control word and original q, retaining collisions explicitly. These comparisons require no additional decoder calls. Complement and cross-source message equality are not wrong-owner authentication; WAM has no corresponding owner-key API. Native E3 beta-owner controls may be cited separately from retained evidence, never pooled with common wrong-message counts.
+
+For both primary methods compute strict marking quality against the same canonical source using the project's PSNR/SSIM and AlexNet LPIPS functions: PSNR>35 dB (infinite allowed), SSIM>.9, LPIPS<.1, all strict inequalities. Compute the same quality for each WAM control arm. Report each metric and all six rows, not only pass counts. Missing human quality/admissibility remains missing, not a prerequisite or fabricated verdict.
+
+**Eligibility passes iff** all 36 calls and 30 image records are accounted for; interface/parity checks pass; both primary methods have strict quality and readable exact assigned q on 6/6; both WAM control arms have strict quality and readable exact assigned control word on 6/6; own-q/complement/cyclic-q matches on C0 are zero for each reader; and complement/cyclic-q matches on primary C1(q) are zero. A collision in the documented control schedule is reported separately and not mislabeled a spurious recovery. All other combinations are a failed or operationally incomplete eligibility screen. Complete the remaining clean rows after a scientific failure when resources permit, to diagnose scope; do not start attacks.
+
+Primary endpoint is readable exact assigned-message recovery, Q=readable AND decoded==assigned. Secondary outcomes: strict quality, Q-and-quality, readable fraction, Hamming errors conditional on readability, and a separately labeled all-planned zero-filled bit-accuracy stress score. Null/failed/missing calls contribute no Q success. Do not call zero filling measured BER. E3 S/J/H/F, WAM masks, negative matches and control arms stay separate. Source is the unit; clean N=6 is descriptive, with no significance or population-FPR claim.
+
+## Local budget, accounting and stopping
+
+One committed scientific driver and this contract suffice; use a fresh MAIN `.thesis-build/dev-runs/<timestamp>-e3-wam-common-clean/` with `run.json`, image/reader rows and summary. Record actual commit, command, protocol identity, selected input paths/hashes, q schedule, checkpoint/config, seed, environment, duration, model-load time, synchronized embed/read times, peak RAM/CUDA allocation, outcomes and exceptions. Commit code before execution. No manifest broker, launcher, authority verifier, rehearsal, lifecycle transition or approval JSON.
+
+Cap the clean invocation at **900 s all-in**, 9 GiB CUDA allocation, 10 GiB process RSS and at least 3 GiB available system RAM; require at least 9 GiB free GPU before loading. Check before each model load/image operation. Load E3 and WAM sequentially if needed, releasing the first model before loading the second. Use CPU LPIPS as in existing WAM probes if that is needed for the cap; record its placement consistently. No precision changes or cap extension. USD 0 rental/API, electricity unmetered; estimated new image output below 100 MB, allow 1 GiB disk. Retained E3 writing cost is historical and must be disclosed; fresh WAM embedding time versus cached E3 access is never an embedding-speed comparison.
+
+A started indivisible operation may cross a checked time/resource limit; retain its result and record overrun, then stop subsequent work. Pending rows become budget_unattempted/resource_unattempted, never silent omissions. Fatal setup error leaves all planned rows accounted for. No resampling or threshold fitting. Preserve failed receipts. No process remains running after the executing turn ends.
+
+## Conditional next experiment: limited T3 recovery comparison
+
+Only a complete clean eligibility PASS enables this already specified extension, in a separate committed invocation/receipt capped at **900 s all-in** under the same memory/disk rules. Carry forward the exact delivered primary E3 and WAM q marks and shared canonical C0; do not carry the two WAM control-message arms into attacks.
+
+Use pinned SD1.5, existing `three_threat_models.load_regenerator` DDIM20, strengths **.1/.2**, seeds **9/10/11**, empty prompts, guidance_scale=1, eta=0, fresh generator per identity, native safety checks and batch one. No new attack/model. Generate all **6 sources x 3 image families x 2 strengths x 3 seeds = 108 attack image attempts**, with **144 decoder attempts**: 72 C1 calls plus 36 shared C0 images read by both methods. Use round-robin image-family order per source/strength/seed so a deadline does not systematically favor one reader. Save/reopen RGB8 attacks; blocked outputs are retained under existing policy but never decoded. No replacement seeds or favorable availability filtering. Do not reuse H1 attacks merely because source/strength/seed labels match: their delivered C1 pixels may differ.
+
+Report both methods at each strength on planned18 C1 attempts, with complete availability categories, Q successes, source majority Q (at least two of three planned seeds), paired per-source recovery differences and all C0/wrong-message diagnostics. The source remains N=6, not N=18 independent images. Provide descriptive source-level paired differences without a superiority hypothesis test. Attack distortion is measured against canonical and delivered marking input, without excluding images by quality. Keep clean failures in any eventual larger study's denominator; this screen itself must pass all six before extension. E3 S/J/H/F remain secondary and cannot substitute for Q. A completed grid, including a tie or loss, ends this bounded comparison; it does not trigger an amplitude search.
+
+## What a fairer external benchmark still needs
+
+These settings share a message task, canonical images, attack identities and a clean quality ceiling. They do **not** have matched image-level FPR or matched distortion. WAM's native decoder supplies no released calibrated global presence rule, while E3 has a different native read gate. It would be misleading to equate WAM mask-nonempty with E3 A or to drop E3's gate for a favorable common score. Retain native recovery outcomes now and defer detection rankings.
+
+A later supplementary presence study can add a clearly labeled wrapper to both methods while retaining native tables. A concrete feasible design starts with **600 newly reserved development source groups**, fixed by ascending eligible source ID after ID/hash exclusion of all prior development and every held-out assignment: first 300 negative-calibration, next 300 negative-evaluation. No images from the current 24 can serve as independent calibration/evaluation. Preserve acquisition licences/receipts and freeze assignments before decoding. Source groups, including all transformations, never cross partitions. A score chosen before that study could be E3 decoded_score with BCH failure mapped to -infinity, and WAM mean mask probability over the whole image with empty masks mapped to -infinity. Neither score sees the assigned message. A supplemental call requires native readability AND score>threshold; these are new calibrated wrappers, not claims about released native operating points.
+
+Freeze one threshold per wrapper using calibration only (for example, the lowest threshold admitting at most 3/300 clean negative source groups, ties handled conservatively); do not retune on evaluation. Apply both to the independent 300 negatives and separately marked positives, report exact binomial uncertainty and native results alongside wrappers. Calibration at nominal 1% does not certify evaluation FPR or make two realized FPRs identical. Even zero false alarms in 300 independent negatives has a one-sided 95% upper bound about .994%; a .1% upper bound would require at least 2,995 independent zero-event negatives, with stronger assumptions for adaptive/attacked data. Repeated messages/seeds are not independent negative sources. Regenerated negatives require their own frozen condition-specific validation, not borrowing the clean bound.
+
+Do not acquire/run this future study now. Its go/no-go feasibility calculation uses measured full supply-plus-write time: 300 E3 positives at roughly 130 s each is about 10.8 h before attacks, not a quick extension. Require a separately frozen resumable source-sharded plan, estimated complete local cost within 12 h for construction and 30 GiB total download ceiling, and a <=1,800 s negative-only pilot budget before allocating the large study. If measurement predicts a cap violation, redesign before outcomes, not by favorable truncation. A genuinely confirmatory held-out study still requires the user's milestone decision.
+
+For distortion/cost comparison, show every native operating point first. Equal threshold admission alone is not matched distortion. A future frontier may predeclare WAM w in {.5,1,2} and the single frozen E3-S1 point, reporting every point's source PSNR/SSIM/LPIPS distribution, recovery, and supply-plus-write/read costs on identical hardware. Do not select per-image amplitudes or call a post-hoc winning point native. Selecting a common distortion point requires separate calibration sources, a predeclared aggregate distortion rule and frozen settings applied to evaluation; failures remain in the denominator. With only one retained E3 point, there is no measured E3 frontier and no basis to claim uniform Pareto dominance.
+
+This contract therefore supports a specific, falsifiable local payload-recovery comparison. It does not establish cryptographic ownership, false-positive security, full-content acceptance after T3, external-method superiority at controlled FPR, arbitrary-message capacity, new-backbone transfer, or journal readiness. Prior WAM source-ID-message runs remain historical evidence and are not silently relabeled as this common-q experiment.
