@@ -1,0 +1,15 @@
+{
+  "citation_key": "PlanVershynin2013Tessellations",
+  "title": "Dimension reduction by random hyperplane tessellations",
+  "authors": ["Yaniv Plan", "Roman Vershynin"],
+  "primary_url": "https://arxiv.org/pdf/1111.4452v2",
+  "inspected_url": "https://arxiv.org/pdf/1111.4452",
+  "version_seen": "v2, 26 September 2013",
+  "inspected_sections": ["Definition 1.1", "Theorem 1.2", "Remark 1.3", "Theorem 1.5", "Corollary 1.7"],
+  "claim": "Independent rotationally invariant hyperplanes give expected normalized Hamming distance equal to normalized spherical distance. Gaussian sign measurements can preserve distances uniformly when enough measurements are used.",
+  "mechanism": "Map a unit feature vector x to sign(Ax), with independent standard Gaussian entries in A.",
+  "numbers": "Theorem 1.5 uses m >= C delta^-6 w(K)^2 with probability at least 1 - 2 exp(-c delta^2 m). The finite-set discussion also explains a pairwise concentration and union-bound route.",
+  "threat_model": "Mathematical embedding of fixed sets under random measurements; no image-watermark attack experiment.",
+  "limits": "The unspecified constants and unmeasured mean width do not certify 128 bits for this project. A fixed pseudorandom public matrix, adaptively chosen images and correlated natural-image descriptors require separate empirical checks. The result does not justify the native Rademacher angular identity or a natural-image false-positive rate.",
+  "project_use": "Prior art and theoretical motivation for a fixed larger Gaussian sketch; no novelty or security claim. Inspecting this paper does not select a projection seed or threshold from outcomes."
+}

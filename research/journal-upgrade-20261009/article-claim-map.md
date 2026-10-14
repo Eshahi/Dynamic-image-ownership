@@ -1,6 +1,8 @@
 # Article claim and contribution map
 
-Updated after the fixed screens, 2026-10-13. This is a working article argument, not the protected claim ledger, proposal amendment or a human M2 decision. Route: a conditional empirical study of semantic-payload recovery versus ownership acceptance. The mechanism-led headline is unsupported; H2 remains unused. Q1 is a venue target; scientific novelty and article viability remain unproved.
+Updated 2026-10-14 after the user reopened local method research. This is a working article argument, not the protected claim ledger, proposal amendment or a human M2 decision. Route: test a specific instance-repair mechanism while retaining the conditional empirical study of semantic-payload recovery versus ownership acceptance. A mechanism-led headline remains unsupported; H2 remains unused. Q1 is a venue target; scientific novelty and article viability remain unproved.
+
+The [new development evidence](next-round-results.md) separates three possible causes: accumulated writer distortion, lost payload transport and unstable content descriptors. Perfect old-h transport would still pass only 6/18 cached .2 cases. A coarse descriptor passes 18/18 but newly accepts four legacy-rejected texture siblings. These are exploratory local diagnostics, not a deployable improvement, population error estimate or general impossibility theorem. A fixed balanced descriptor is being tested before any second-carrier construction. October 13 closures below remain historical and do not prohibit this explicitly authorized round.
 
 ## Evidence, claims and decisive next tests
 

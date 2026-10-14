@@ -1,10 +1,19 @@
 # Roadmap to a journal article
 
-Updated 2026-10-13 by Codex agent, following the user's clarification that the deliverable is the complete Q1-targeted article strategy. This replaces obsolete next steps in the October 9 plan. It is a research roadmap, not an execution manifest, preregistration, human milestone verdict or authorization for paid compute or a new held-out run. Numerical gates below are research decisions, not journal acceptance rules.
+Updated 2026-10-14 by Codex agent after the user explicitly reopened autonomous method research. It is a research roadmap, not an execution manifest, human milestone verdict or authorization for paid compute or a new held-out run. Numerical gates below are research decisions, not journal acceptance rules.
+
+## Current reopened mechanism round
+
+The October 13 closures below are historical allocation decisions. The user has authorized a new local round to diagnose implementation and improve the method. Preserve E3/M2 as retained evidence. The new question is whether instance-content discrimination and regeneration stability can coexist before spending effort on a robust second carrier. The [current results](next-round-results.md) record all failed leads, with committed prospective protocols and no held-out tuning.
+
+1. Diagnose retained reissue residuals and the unchanged descriptor's perfect-transport ceiling. Completed: residual accumulation is observed; unchanged h matches only 6/18 .2 regeneration suspects even with perfect payload delivery. Reject transport-only repair on this screen.
+2. Test one coarse-only descriptor with real impostors and mandatory same-layout texture controls. Completed: regeneration improves to 18/18 but four previously rejected siblings become matches. Reject this descriptor; do not rename the endpoint to conceal the lost specificity.
+3. Test one equal-energy structure/detail amendment with the original hyperplanes and the same full gate. Its [fixed protocol](balanced-instance-amendment.md) permits no weight/seed search. Only a complete pass permits the already specified dual-carrier GPU feasibility study.
+4. Use the terminal conjunction, implementation checks and an independent review to decide the next allocation. A positive local screen still needs the original development M1a/T4/T5 gates, a fair external comparison and fresh approval before confirmation. A failed scalar blend does not establish universal impossibility or erase E3's retained semantic result.
 
 ## Direction and central question
 
-Develop a **conditional empirical article on semantic-payload recovery versus ownership acceptance**. The fresh simplification and H1 screens below do not support the proposed mechanism-led methods headline. Retain full E3 and close this mechanism-search round with H2 unused. Determine whether a fair external comparison and independent transfer reveal a consequential, reproducible distinction or tradeoff. Keep exact-instance verification as a separately evaluated fragile tier.
+Retain a **conditional empirical article on semantic-payload recovery versus ownership acceptance** as the supported fallback while testing the new instance-repair hypothesis above. The October 13 simplification and H1 screens do not support a mechanism-led methods headline. H2 remains unused. Determine whether a genuinely improved method, fair external comparison or independent transfer reveals a consequential, reproducible distinction or tradeoff. Keep exact-instance verification as a separately evaluated fragile tier unless new evidence supports a stronger claim.
 
 The primary contribution must be an experimentally isolated mechanism, a useful robustness–quality–cost improvement beyond the closest prior art, or a new and consequential failure explanation that transfers across relevant methods. None is yet established. Merely combining two signatures, naming separate endpoints, adding BCH, removing an optimizer or beating native v5 is not sufficient novelty.
 

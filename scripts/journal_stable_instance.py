@@ -50,7 +50,7 @@ def compare(a,b):
     d = distance(a['h'],b['h'])
     old = distance(a['legacy_h'],b['legacy_h'])
     dot = sum(x*y for x,y in zip(a['vector'],b['vector'])) if a['vector'] and b['vector'] else None
-    return dict(distance=d, match=d is not None and d<=6, legacy_distance=old,
+    return dict(distance=d, match=d is not None and d<=6, mismatch=d is not None and d>=10, legacy_distance=old,
                 legacy_match=old<=6, cosine=dot)
 
 
@@ -134,7 +134,7 @@ def main(descriptor_fn=descriptor, compare_fn=compare, descriptor_config=None):
         summary['impostor_matches']={k:sum(r['match'] for r in rows) for k,rows in result['impostors'].items()}
         summary['legacy_impostor_matches']={k:sum(r['legacy_match'] for r in rows) for k,rows in result['impostors'].items()}
         summary['nearest_match']=sum(r['match'] for r in result['q_nearest'])
-        summary['nearest_mismatch']=sum(r['distance'] is not None and r['distance']>=10 for r in result['q_nearest'])
+        summary['nearest_mismatch']=sum(r['mismatch'] for r in result['q_nearest'])
         summary['sibling_new_acceptances']=sum(r['match'] and not r['legacy_match'] for r in result['siblings'])
         all_resolved=all(r['h'] is not None for r in result['images'].values()) and all(r['h'] is not None for s in result['siblings'] for r in s['descriptors'])
         gates=dict(complete=all_resolved,clean=summary['clean24']==24 and summary['clean']['O_DJ']==6,
