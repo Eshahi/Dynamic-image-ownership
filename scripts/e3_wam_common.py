@@ -159,6 +159,18 @@ def main():
         sources=[], rows=rows, images=[dict(source_id=sid, family=family, method=method, status='not_started')
             for sid in IDS for family, method in [('q','E3'),('C0','shared'),('q','WAM'),('complement','WAM'),('hash','WAM')]]
             if args.phase == 'clean' else [], usd=0)
+    if args.phase == 't3':
+        for sid in IDS:
+            for strength in (.1, .2):
+                for seed in (9, 10, 11):
+                    families = [('E3','q'), ('WAM','q'), ('shared','C0')]
+                    rotation = (seed-9) % 3
+                    for method, family in families[rotation:] + families[:rotation]:
+                        record['images'].append(dict(source_id=sid, method=method, family=family,
+                            strength=strength, seed=seed, status='not_started'))
+        record['config']['attack'] = dict(model='pinned SD1.5', dtype='float16', scheduler='DDIM', steps=20,
+            strengths=[.1,.2], seeds=[9,10,11], prompt='', negative_prompt='', guidance_scale=1., eta=0.,
+            safety_checker=True, fresh_cuda_generator_each_identity=True, batch=1)
     torch = None
 
     def save():
@@ -172,12 +184,21 @@ def main():
         allocated = int(torch.cuda.max_memory_allocated()) if torch is not None and torch.cuda.is_initialized() else 0
         record['peak_ram_bytes'] = max(record.get('peak_ram_bytes', 0), rss, peak)
         record['peak_gpu_bytes'] = max(record.get('peak_gpu_bytes', 0), allocated)
-        if time.monotonic()-started >= 900 or rss > RAM_CAP or allocated > GPU_CAP or available < 3*1024**3:
+        disk = sum(p.stat().st_size for p in out.rglob('*') if p.is_file())
+        record['output_bytes'] = disk
+        if time.monotonic()-started >= 900 or max(rss,peak) > RAM_CAP or allocated > GPU_CAP or available < 3*1024**3 or disk > 1024**3:
             raise RuntimeError('Inclusive time/resource cap reached; remaining rows retained')
 
     save()
     try:
         budget()
+        if args.phase == 't3':
+            if args.clean_run is None: raise ValueError('Completed clean PASS receipt required')
+            clean = json.loads((args.clean_run/'run.json').read_text())
+            if clean['phase'] != 'clean' or clean['outcome'] != 'completed' or not clean['summary']['eligibility_pass'] or clean['protocol_sha256'] != sha(PROTOCOL):
+                raise ValueError('Clean eligibility is absent, incomplete or protocol changed')
+            record['clean_run'] = str(args.clean_run.resolve())
+            record['clean_commit'] = clean['commit']
         sys.path[:0] = [str(MAIN/'.thesis-build/journal-wam-deps'), str(ASSET/'source')]
         import numpy as np
         import torch
@@ -276,7 +297,56 @@ def main():
                         if row['source_id'] == sid and row['family'] == family and (row['method'] == method or method == 'shared'):
                             score(row, source, rgb, canonical, path)
         else:
-            raise NotImplementedError('Conditional T3 invocation must be committed after clean PASS')
+            from f4_transfer_probe import ASSETS
+            budget(); tick = time.monotonic(); pipe = models.load_regenerator(ASSETS); budget()
+            record['regenerator_load_seconds'] = time.monotonic()-tick
+            record['config']['scheduler_effective'] = dict(pipe.scheduler.config)
+            source_map = {s['source_id']: s for s in sources}
+            for entry in record['images']:
+                budget()
+                sid, method, family, strength, seed = (entry[k] for k in ('source_id','method','family','strength','seed'))
+                source = source_map[sid]
+                input_entry = next(i for i in clean['images'] if (i['source_id'],i['method'],i['family']) == (sid,method,family))
+                if input_entry['status'] != 'ok' or sha(input_entry['image']) != input_entry['sha256']:
+                    raise ValueError('Delivered clean input identity differs')
+                canonical, marking_input = load(source['canonical_path']), load(input_entry['image'])
+                matching = [r for r in rows if r['source_id'] == sid and r['family'] == family and
+                    r['strength'] == strength and r['seed'] == seed and (method == 'shared' or r['method'] == method)]
+                entry.update(status='running', input_image=input_entry['image'], input_sha256=input_entry['sha256'])
+                tick = time.monotonic(); save()
+                try:
+                    with torch.inference_mode():
+                        result = pipe(prompt='', negative_prompt='', image=Image.fromarray(marking_input),
+                            strength=strength, num_inference_steps=20, eta=0., guidance_scale=1.,
+                            generator=torch.Generator(device='cuda').manual_seed(seed),
+                            num_images_per_prompt=1, output_type='pil', return_dict=True)
+                    torch.cuda.synchronize()
+                    entry['attack_seconds'] = time.monotonic()-tick
+                    entry['safety_flags'] = list(result.nsfw_content_detected) if result.nsfw_content_detected is not None else None
+                    path = out/'images'/f'{sid}-{method}-{family}-s{strength}-seed{seed}.png'
+                    if len(result.images) == 1:
+                        result.images[0].save(path); entry['image'] = str(path)
+                    timesteps, _ = pipe.get_timesteps(20, strength, pipe._execution_device)
+                    entry['timesteps'] = timesteps.cpu().tolist()
+                    if len(entry['timesteps']) != int(20*strength): raise ValueError('Unexpected effective DDIM step count')
+                    models.validate_generated(result)
+                    rgb = load(path); entry.update(status='ok', sha256=sha(path)); save()
+                except Exception as error:
+                    if str(error) == 'safety_checker_blocked_output' and entry.get('safety_flags') == [True]:
+                        entry['status'] = 'safety_blocked'
+                        for row in matching: row.update(status='safety_blocked', attack_image=entry.get('image'))
+                        save(); budget(); continue
+                    entry.update(status='failed', error=traceback.format_exc())
+                    for row in matching: row.update(status='failed_attack', error=entry['error'])
+                    save(); raise
+                for row in matching:
+                    try:
+                        row['status'] = 'running'
+                        score(row, source, rgb, canonical, path, marking_input)
+                    except Exception:
+                        if row['status'] != 'ok': row.update(status='failed', error=traceback.format_exc())
+                        save(); raise
+                budget()
         record['outcome'] = 'completed'; save()
     except Exception:
         record['outcome'] = 'failed'; record['error'] = traceback.format_exc()
