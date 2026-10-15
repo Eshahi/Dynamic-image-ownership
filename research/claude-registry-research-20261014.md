@@ -2,9 +2,13 @@
 
 The user asked for a separate, independent check of whether the registry-based verification direction (`thesis-runs/d916749c/NEXT-GOAL-20261014.md`) can be improved, and for new ideas. This memo is exploratory development evidence. There was no held-out data, no generation and no GPU use; it is not a milestone result.
 
+**Update, same day: supervisor decision on point 1 and idea 1.** The user relayed it verbatim: "for the number 1, I have discussed it with my professor and he says it is in the scope of product not the proposal."
+- Dynamic ownership (signed records, ownership transfer) is therefore out of thesis scope. Points 1 and 6.1 below are kept only as a record of the reasoning.
+- Brief changes 1-4 at the end of this memo were folded into `thesis-runs/d916749c/NEXT-GOAL-20261014.md`. Change 5 was dropped.
+
 ## Summary
 
-1. **The proposal's "dynamic ownership" is the strongest argument for the registry.** The title and problem statement promise ownership transfer (`inputs/proposal-text.md` lines 77, 171 and 177). It is recorded as unresolved scope conflict U-01 (`research/scope.md`), and nothing built so far implements it.
+1. **(Out of thesis scope, see the update above.) The proposal's "dynamic ownership" is the strongest argument for the registry.** The title and problem statement promise ownership transfer (`inputs/proposal-text.md` lines 77, 171 and 177). It is recorded as unresolved scope conflict U-01 (`research/scope.md`), and nothing built so far implements it.
    - A registry of owner-signed, append-only records makes transfer a new signed event: the pixels never change and nothing is re-marked.
    - This is a scope decision for the user and supervisor. `research/scope-guard.md` line 17 still excludes registry and ledger infrastructure.
 2. **The theoretical ground is already published.**
@@ -74,7 +78,7 @@ The user asked for a separate, independent check of whether the registry-based v
 
 ## Ideas, ranked by value and cost
 
-### 1. Signed append-only records, which make "dynamic ownership" real (design work and a small implementation; needs a scope decision)
+### 1. Signed append-only records, which make "dynamic ownership" real (OUT OF THESIS SCOPE: the supervisor ruled it product scope)
 
 **Record:**
 - r = (record ID, owner public key, D1 descriptor quantized to 8 bits (Fairoze et al. report little loss from 8-bit quantization), q, time, previous-record hash);
@@ -137,4 +141,4 @@ This is the natural place for "training" in a neural-watermarking thesis:
 2. Add a fingerprint-only arm and the squatting scenario to step 2a/2b (idea 3).
 3. Add real near-duplicate negatives to 2b: burst photos or a public near-duplicate set with a recorded licence, chosen by a fixed rule.
 4. Clarify that the user's step-2 decision overrides `research/scope-guard.md` line 17 for the verification registry only; ownership transfer stays U-01.
-5. Add a step 3, conditional on the scope decision: signed append-only records and a transfer demo (idea 1).
+5. ~~Add a step 3, conditional on the scope decision: signed append-only records and a transfer demo (idea 1).~~ Dropped: the supervisor ruled dynamic ownership product scope.
