@@ -293,3 +293,5 @@
 2026-10-14 | milestone | Fresh e3_wam_independent_review (gpt-6-astra/high) PASS for 0a17664..b8a1a37 plus 934dc16 reporting guard; no material blockers. All five tests pass; numerical report reproduces. Retain native same-q recovery result with no controlled-FPR/distortion or Q1 claim. Failed-eligibility report reuse guard fixed without touching science receipts. Fixed comparison complete; next design must address independent transfer and quality/error operating points. All science processes and agents exited.
 
 - 2026-10-16 Codex delegated mechanical sensitivity reproduction and transfer driver implementation to short-lived gpt-6.1-sol/medium agents; fixed design unchanged; no per-run reviewer.
+
+- 2026-10-16 Codex agent: post-hoc M2 H-free sensitivity, development analysis of retained endpoints, commit da4de38, USD 0, tool wall 0.2497761 s; run MAIN .thesis-build/dev-runs/20261016-m2-sensitivity (command-correction.json preserves correction of parent receipt transcription). Prior b8cea71 attempt rejected unavailable-call rows before da4de38 fixed the declared counting convention. H-free S 281/278 and 278/229; reviewed M2 outputs unchanged.
