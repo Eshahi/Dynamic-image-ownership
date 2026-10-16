@@ -105,12 +105,26 @@ def main():
             raise ValueError('Exclusion roots must exist and exclude the new output directory')
     hashes, png_count = set(sources['raw_sha256_exclusions']), 0
     inventory = []
-    for root in a.canonical_exclusion_root:
-        paths = sorted(root.resolve().rglob('*.png'))
+    previous = read(out/'acquisition-config.json') if (out/'acquisition-config.json').exists() else None
+    # A running development job can add PNGs under these roots. Resume the
+    # frozen pre-acquisition inventory, checking its bytes, rather than silently
+    # changing the exclusion evidence or rejecting a compatible interruption.
+    recorded = previous['canonical_exclusion_inventory'] if previous else None
+    recorded_hashes = {row['path']: row['sha256'] for row in recorded} if recorded else {}
+    roots = [root.resolve() for root in a.canonical_exclusion_root]
+    if recorded and any(not any(Path(row['path']).is_relative_to(root) for root in roots) for row in recorded):
+        raise ValueError('Resume roots do not cover the original exclusion inventory')
+    for root in roots:
+        paths = ([Path(row['path']) for row in recorded if Path(row['path']).is_relative_to(root)]
+                 if recorded is not None else sorted(root.rglob('*.png')))
         if not paths:
             raise ValueError(f'Canonical exclusion root has noPNG: {root}')
         for path in paths:
             value = sha(path.read_bytes())
+            if recorded is not None:
+                expected = recorded_hashes[str(path)]
+                if value != expected:
+                    raise ValueError(f'Original exclusion bytes changed: {path}')
             hashes.add(value)
             inventory.append(dict(path=str(path), sha256=value))
             png_count += 1
