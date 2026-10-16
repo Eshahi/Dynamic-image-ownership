@@ -18,6 +18,23 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT), str(ROOT / 'scripts')]
 from registry_step1_transfer import ALPHA, BETA, MAIN, METHODS, SD21, journal, read, write
 
+OBSERVED = 'observed'
+ABSTAIN = 'verified_native_weak_detail_abstention'
+UNKNOWN = 'execution_or_descriptor_unknown'
+
+
+def reference_availability(records, descriptor):
+    """Planned records are retained even when their descriptor cannot be searched."""
+    from collections import Counter
+    counts = dict(planned=len(records),by_owner={})
+    for label,owner in (('alpha',ALPHA),('beta',BETA)):
+        subset = [r for r in records if r['owner'] == owner]
+        reasons = Counter(r.get('descriptor_availability',{}).get(descriptor,{}).get('reason',UNKNOWN) for r in subset)
+        counts['by_owner'][label] = dict(planned=len(subset),observed=reasons[OBSERVED],abstaining=reasons[ABSTAIN],
+            unknown=sum(n for reason,n in reasons.items() if reason not in (OBSERVED,ABSTAIN)),searchable=reasons[OBSERVED])
+    counts.update({key:sum(v[key] for v in counts['by_owner'].values()) for key in ('observed','abstaining','unknown','searchable')})
+    return counts
+
 
 def classify(records, similarities, threshold, calls, radius):
     """Keep all threshold matches, deterministic best and enrollment-order effects."""
@@ -60,14 +77,24 @@ def scenario_summary(rows,source_count=24):
         for strength in (.2,.4):
             for kind in ('exact_copy','further_regeneration'):
                 selected = [r for r in rows.values() if r.get('phase') == 'evaluate' and r.get('model') == model and r.get('strength') == strength and r.get('kind') == kind]
-                descriptors = sorted({d for r in selected for d in r.get('verification',{})})
+                descriptors = sorted({d for r in selected for d in r.get('verification',{})}) or ['D1','D2','D3']
                 summary[f'{model}/{strength}/{kind}'] = dict(planned_sources=source_count, observed_sources=sum(r.get('status') == 'ok' for r in selected),
-                    by_descriptor={d:dict(pointer_attribution=dict(Counter(r['verification'][d]['pointer_registry']['attribution'] for r in selected if r.get('status') == 'ok')),
+                    by_descriptor={d:dict(pointer_attribution=dict(Counter(r['verification'][d]['pointer_registry']['attribution'] for r in selected if r.get('status') == 'ok' and d in r.get('verification',{}))),
                         pointer_original_record=sum(r['verification'][d]['pointer_registry']['best_record'] == f'alpha:{r["source_id"]}' for r in selected if r.get('status') == 'ok'),
                         fingerprint_original_record=sum(r['verification'][d]['fingerprint_only']['best_record'] == f'alpha:{r["source_id"]}' for r in selected if r.get('status') == 'ok'),
                         fingerprint_multiple_matches=sum(r['verification'][d]['fingerprint_only']['match_count'] > 1 for r in selected if r.get('status') == 'ok'),
                         fingerprint_both_owners=sum(len(r['verification'][d]['fingerprint_only']['owners']) > 1 for r in selected if r.get('status') == 'ok'),
-                        fingerprint_order_can_favor_alpha=sum(r['verification'][d]['fingerprint_only']['enrollment_order_alone_can_favor_original_owner'] for r in selected if r.get('status') == 'ok')) for d in descriptors})
+                        fingerprint_order_can_favor_alpha=sum(r['verification'][d]['fingerprint_only']['enrollment_order_alone_can_favor_original_owner'] for r in selected if r.get('status') == 'ok'),
+                        query_observed=sum(r.get('descriptor_availability',{}).get(d,{}).get('reason') == OBSERVED for r in selected),
+                        query_abstaining=sum(r.get('descriptor_availability',{}).get(d,{}).get('reason') == ABSTAIN for r in selected),
+                        query_unknown=source_count-sum(r.get('descriptor_availability',{}).get(d,{}).get('reason') in (OBSERVED,ABSTAIN) for r in selected),
+                        reference_availability=next((r['verification'][d].get('reference_availability') for r in selected if d in r.get('verification',{})),None),
+                        original_owner_unique_with_searchable_own_beta_record=sum(
+                            r['verification'][d]['pointer_registry']['attribution'] == 'original_owner_unique' and
+                            r['verification'][d].get('competing_beta_record_availability') == OBSERVED for r in selected if r.get('status') == 'ok'),
+                        original_owner_unique_with_unsearchable_own_beta_record=sum(
+                            r['verification'][d]['pointer_registry']['attribution'] == 'original_owner_unique' and
+                            r['verification'][d].get('competing_beta_record_availability') != OBSERVED for r in selected if r.get('status') == 'ok')) for d in descriptors})
     return summary
 
 
@@ -82,6 +109,9 @@ class ScenarioAdapter:
         self.cache = DescriptorCache(out,ev,ev.profile,
             MAIN/'.thesis-build/assets/freqmark-reconstruction-20261013/dino',budget)
         self.out = out
+        self.budget = budget
+        self.availability_metadata = {}
+        self.vectors = {}
     def thresholds(self, method):
         if self.screen['config']['chosen_method'] != method:
             raise ValueError('Scenario method differs from screen')
@@ -97,9 +127,56 @@ class ScenarioAdapter:
     def vector(self, descriptor_ref, descriptor):
         if descriptor_ref is None:
             return None
-        with self.np.load(descriptor_ref['cache'],allow_pickle=False) as data:
-            vector = data[descriptor]
-        return vector if vector.size else None
+        key = (descriptor_ref['cache'],descriptor)
+        if key not in self.vectors:
+            with self.np.load(descriptor_ref['cache'],allow_pickle=False) as data:
+                vector = data[descriptor]
+            self.vectors[key] = vector if vector.size and self.np.isfinite(vector).all() else None
+        return self.vectors[key]
+
+    def availability(self, path, descriptor_ref, descriptor):
+        """None is not evidence of native abstention: verify the unchanged floor."""
+        identity = str(Path(path).resolve()) if path else '<missing-path>'
+        key = (identity,descriptor)
+        if key in self.availability_metadata:
+            return self.availability_metadata[key]
+        meta = dict(path=identity,descriptor=descriptor,reason=UNKNOWN)
+        self.availability_metadata[key] = meta
+        try:
+            if not path or not Path(path).is_file() or descriptor_ref is None:
+                meta['error'] = 'missing_image_or_descriptor_reference'
+                return meta
+            stat = Path(path).stat()
+            meta.update(image_size=stat.st_size,image_mtime_ns=stat.st_mtime_ns)
+            vector = self.vector(descriptor_ref,descriptor)
+            if vector is not None:
+                meta['reason'] = OBSERVED
+            elif descriptor == 'D1':
+                # Only D1 has the fixed native detail-floor abstention rule.
+                # Corrupt/nonfinite caches must not be relabeled as weak detail.
+                with self.np.load(descriptor_ref['cache'],allow_pickle=False) as data:
+                    empty = data[descriptor].size == 0
+                if empty:
+                    self.budget()
+                    from PIL import Image
+                    from scripts import journal_fine_gaussian_instance as fine
+                    from scripts import revised_watermark_v5 as v5
+                    from registry_step2_fresh_analysis import native_weak_detail
+                    with Image.open(path) as image:
+                        rgb = self.np.asarray(image.convert('RGB'),self.np.uint8)
+                    native = fine.descriptor(v5.luminance_from_rgb(rgb.tolist()),self.cache.key,self.cache.config)
+                    meta.update(fine_raw_norm=native.get('fine_raw_norm'),fine_floor=native.get('fine_floor'),
+                        native_available=native.get('available'),native_vector_is_none=native.get('vector') is None,
+                        verification='exact existing fine.descriptor; unchanged native floor')
+                    if native_weak_detail(native):
+                        meta['reason'] = ABSTAIN
+        except TimeoutError:
+            raise
+        except Exception:
+            meta['error'] = traceback.format_exc()
+        finally:
+            write(self.out/'descriptor-availability.json',list(self.availability_metadata.values()))
+        return meta
 
 
 def main():
@@ -136,7 +213,8 @@ def main():
                   calibration_dir=str(args.calibration_dir.resolve()) if args.calibration_dir else None,
                   parent_spent_seconds=args.parent_spent_seconds, max_seconds=args.max_seconds,
                   added_side_information='trusted enrolled reference descriptors, owner and record lookup',
-                  arbitrary_owner_security=False)
+                  arbitrary_owner_security=False,
+                  descriptor_availability_amendment='verified-native-D1-weak-detail-abstention; planned records retained; unknowns remain unknown')
     commit = subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
     record = read(out/'run.json') if (out/'run.json').exists() else dict(schema='registry-regenerate-enroll-v1',commit=commit,
         command=sys.argv,config=config,data_split='development',usd=0,duration_seconds=0.,outcome='running',invocations=[])
@@ -202,7 +280,9 @@ def main():
             features,latent = ev.features(rgb,7),ev.reader.latent(rgb)
             calls = {o:(e3_detect(rgb,latent,o,ev.profile,features,binding='soft',roster_size=1) if args.chosen_method == 'e3-s1'
                         else ev.detect(rgb,'f5',o,features,latent)) for o in (ALPHA,BETA)}
-            return dict(calls=calls,descriptors=adapter.extract(path))
+            descriptors = adapter.extract(path)
+            return dict(calls=calls,descriptors=descriptors,
+                descriptor_availability={d:adapter.availability(path,descriptors,d) for d in thresholds})
         for model in ('sd15','sd21'):
             pipe = None
             for strength in (.2,.4):
@@ -229,7 +309,8 @@ def main():
                             emit(row)
                         enrolled = rows[key]
                         registry.append(dict(record_id=f'{"alpha" if owner == ALPHA else "beta"}:{sid}',owner=owner,q=enrolled['q'],h=enrolled['h'],
-                            source_id=sid,enrollment_index=len(registry),descriptors=enrolled['descriptors']))
+                            source_id=sid,enrollment_index=len(registry),descriptors=enrolled['descriptors'],
+                            descriptor_availability={d:adapter.availability(enrolled.get('image'),enrolled['descriptors'],d) for d in thresholds}))
                         if owner == BETA:
                             copies[sid] = enrolled
                 write(out/f'registry-{model}-{strength}.json',registry)
@@ -251,6 +332,7 @@ def main():
                             if kind == 'exact_copy':
                                 image = copies[sid]['image']
                                 observation = {k:copies[sid][k] for k in ('calls','descriptors')}
+                                observation['descriptor_availability'] = {d:adapter.availability(image,observation['descriptors'],d) for d in thresholds}
                             else:
                                 if pipe is None:
                                     if model == 'sd15':
@@ -277,11 +359,18 @@ def main():
                             row.update(image=image,**observation,registry_size=2*len(ids),
                                        registry_available_records=sum(r['descriptors'] is not None for r in registry),verification={})
                             for descriptor,threshold in thresholds.items():
-                                vector = adapter.vector(observation['descriptors'],descriptor)
-                                reference_vectors = [adapter.vector(r['descriptors'],descriptor) for r in registry]
+                                query_reason = observation['descriptor_availability'][descriptor]['reason']
+                                vector = adapter.vector(observation['descriptors'],descriptor) if query_reason == OBSERVED else None
+                                reference_vectors = [adapter.vector(r['descriptors'],descriptor)
+                                    if r['descriptor_availability'][descriptor]['reason'] == OBSERVED else None for r in registry]
                                 similarities = [float(np.dot(vector,v)) if vector is not None and v is not None else None for v in reference_vectors]
                                 row['verification'][descriptor] = classify(registry,similarities,threshold,observation['calls'],radius)
                                 row['verification'][descriptor]['unavailable_scores'] = sum(v is None for v in similarities)
+                                row['verification'][descriptor]['query_availability'] = query_reason
+                                row['verification'][descriptor]['reference_availability'] = reference_availability(registry,descriptor)
+                                row['verification'][descriptor]['competing_beta_record_availability'] = next(
+                                    r['descriptor_availability'][descriptor]['reason'] for r in registry if r['owner'] == BETA and r['source_id'] == sid)
+                                row['verification'][descriptor]['attribution_scope'] = 'No match is no attribution. An unsearchable competing beta record cannot establish a pointer advantage.'
                             row['status'] = 'ok'
                         except Exception as exc:
                             if str(exc) == 'safety_checker_blocked_output':

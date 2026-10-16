@@ -162,7 +162,88 @@ def scenario_section(directory, heading='Regenerate-and-enroll scenario'):
     return lines
 
 
-def step2(screen_dir, scenario_dir=None, fresh_analysis_dir=None, fresh_scenario_dir=None):
+def fresh_construction_section(directory):
+    """Summarize existing fresh rows only; thresholds and detectors are untouched."""
+    if directory is None or not (directory/'run.json').exists():
+        return ['## Fresh construction and native-control availability', '',
+                'Missing: fresh construction run directory was not supplied or its run artifact is absent.', '']
+    run = read(directory/'run.json')
+    config = run.get('config',{})
+    method = config.get('chosen_method')
+    sources = run.get('sources',config.get('sources',[]))
+    rows = {r['id']:r for r in latest_rows(directory/'rows.jsonl')}
+    alpha,beta = 'qim-pilot-owner-alpha','qim-pilot-owner-beta'
+    quality_rows, control_rows = [], []
+    for split in ('calibration','evaluation'):
+        ids = [s['source_id'] for s in sources if s.get('registry_split',s.get('split')) == split]
+        if not ids:
+            continue
+        clean = [rows.get(f'clean:{sid}:{method}:C1',{}) for sid in ids]
+        ok = [r for r in clean if r.get('status') == 'ok']
+        qualities = [r.get('quality',{}) for r in ok]
+        def numbers(field):
+            return [q[field] for q in qualities if isinstance(q.get(field),(int,float)) and not isinstance(q.get(field),bool)]
+        psnr,ssim,lpips = numbers('psnr_db'),numbers('ssim_rgb'),numbers('lpips')
+        times = [r['embedding_seconds'] for r in ok if isinstance(r.get('embedding_seconds'),(int,float))
+                 and not isinstance(r.get('embedding_seconds'),bool)]
+        statuses = dict(Counter(r.get('status','missing') for r in clean))
+        quality_rows.append([split,method,fraction(len(ok),len(ids)),
+            fraction(sum(r.get('strict_quality') is True for r in ok),len(ids)),
+            sum(not isinstance(r.get('strict_quality'),bool) for r in clean),
+            min(psnr) if psnr else None,sum(q.get('psnr_infinite') is True for q in qualities),
+            min(ssim) if ssim else None,median(lpips) if lpips else None,max(lpips) if lpips else None,
+            fraction(len(times),len(ids)),median(times) if times else None,max(times) if times else None,
+            sum(times) if times else None,statuses])
+        conditions = [('clean',None)] + [(model,strength) for model in ('sd15','sd21')
+                     for strength in config.get('strengths',[.1,.2,.4])]
+        for model,strength in conditions:
+            seeds = [None] if model == 'clean' else config.get('seeds',[12,13,14])
+            for panel,owner,arm in (('C0 native A',alpha,'C0'),('C1 wrong-owner native A',beta,method)):
+                selected, cluster_values = [], []
+                for sid in ids:
+                    values = []
+                    for seed in seeds:
+                        identity = (f'clean:{sid}:{method}:{"C0" if arm == "C0" else "C1"}' if model == 'clean'
+                                    else f'{model}:{sid}:{strength}:{seed}:{arm}')
+                        row = rows.get(identity,{})
+                        selected.append(row)
+                        readout = row if model == 'clean' else row.get('readouts',{}).get(method,{})
+                        endpoint = readout.get('endpoints',{}).get(owner,{}).get('A')
+                        call = readout.get('calls',{}).get(owner)
+                        values.append(endpoint if row.get('status') == 'ok' and call and isinstance(endpoint,bool) else None)
+                    cluster_values.append(values)
+                values = [v for cluster in cluster_values for v in cluster]
+                complete = sum(all(v is not None for v in cluster) for cluster in cluster_values)
+                adverse = sum(any(v is True for v in cluster) for cluster in cluster_values)
+                unresolved_clusters = sum(not any(v is True for v in cluster) and any(v is None for v in cluster)
+                                          for cluster in cluster_values)
+                control_rows.append([split,model,strength,panel,fraction(sum(v is not None for v in values),len(values)),
+                    sum(v is True for v in values),sum(v is None for v in values),fraction(adverse,len(ids)),
+                    complete,unresolved_clusters,dict(Counter(r.get('status','missing') for r in selected))])
+    return ['## Fresh construction and native-control availability', '',
+        f'Fresh construction status: **{fmt(run.get("outcome"))}**; method: **{fmt(method)}**. '
+        f'Phase status: `{fmt(run.get("phase_status"))}`. These summaries use the latest complete journal event per identity, '
+        'including failed or unavailable identities in the planned denominators.', '',
+        table(['Split','Method','Clean observed/planned','Strict quality/planned','Strict quality unknown','Minimum finite PSNR dB',
+               'Infinite PSNR count','Minimum SSIM','Median LPIPS','Maximum LPIPS','Embedding time known/planned',
+               'Median embedding s','Maximum embedding s','Sum known embedding s','Clean latest status'],quality_rows),
+        'Strict quality uses the recorded PSNR >35 dB, SSIM >.9 and LPIPS <.1 predicate. '
+        'Reported extrema and embedding-time summaries use available measurements only; missing constructions are not quality successes. '
+        'Clean quality is not matched to another method in this fresh chosen-method-only run. '
+        'For F5, embedding_seconds is the recorded native bootstrap time; for E3 it includes the recorded supplier and writer durations. '
+        'Model loading and detector/quality assessment time are included in run duration, not silently attributed to embedding.', '',
+        table(['Split','Condition','Strength','Control','Known/planned calls','Observed A accepts','Unknown calls',
+               'Sources with observed A','Complete sources','Unresolved source clusters','Latest row status'],control_rows),
+        'These are native detector A controls (either watermark tier found), separate from registry acceptance. '
+        'A recorded call and Boolean A endpoint are both required for call availability. Safety-blocked, failed, not-yet-run '
+        'and otherwise absent calls stay unknown. An unresolved source cluster has no observed A acceptance and at least one unknown call. '
+        'No unavailable negative call is counted as an observed rejection. These inventories are not population false-positive estimates.', '',
+        f'Fresh construction evidence: {link(directory/"run.json")}, {link(directory/"rows.jsonl")}. '
+        f'Commit `{fmt(run.get("commit"))}`; duration {fmt(run.get("duration_seconds"))} seconds; '
+        f'accounted step-2 duration {fmt(run.get("step2_accounted_seconds"))} seconds. Human visual admissibility remains missing.', '']
+
+
+def step2(screen_dir, scenario_dir=None, fresh_analysis_dir=None, fresh_scenario_dir=None, fresh_dir=None):
     run = read(screen_dir/'run.json')
     config = run['config']
     lines = ['# Registry verification development results', '',
@@ -245,6 +326,11 @@ def step2(screen_dir, scenario_dir=None, fresh_analysis_dir=None, fresh_scenario
         f'Commit `{fmt(run.get("commit"))}`; screen duration {fmt(run.get("duration_seconds"))} seconds; '
         f'accounted step-2 duration {fmt(run.get("step2_accounted_seconds"))} seconds.', '']
     lines += scenario_section(scenario_dir)
+    if fresh_dir is None and fresh_analysis_dir is not None and (fresh_analysis_dir/'run.json').exists():
+        inferred = read(fresh_analysis_dir/'run.json').get('config',{}).get('fresh_dir')
+        fresh_dir = Path(inferred) if inferred else None
+    if fresh_dir is not None or fresh_analysis_dir is not None:
+        lines += fresh_construction_section(fresh_dir)
     if fresh_analysis_dir is not None:
         freshpath = fresh_analysis_dir/'run.json'
         if not freshpath.exists():
@@ -254,6 +340,18 @@ def step2(screen_dir, scenario_dir=None, fresh_analysis_dir=None, fresh_scenario
             lines += ['## Fresh calibration and evaluation', '',f'Fresh analysis status: **{fmt(fresh.get("outcome"))}**. '
                 'Thresholds are fitted only on the 20 calibration sources and licensed near-duplicate calibration pairs, then frozen. '
                 'Evaluation uses the disjoint 40-source development split; it remains development evidence.', '']
+            amendment = fresh.get('config',{}).get('availability_amendment')
+            lines += [f'Availability amendment: `{fmt(amendment)}`. '
+                'The original calibration failure is preserved: 415.907 seconds at commit `cf5de20`, before any threshold was frozen. '
+                'The amended run uses post-hoc calibration, pre-evaluation semantics; it is not an unchanged preregistered analysis. '
+                'Only D1 vectors independently verified to abstain below the existing native detail floor are deterministic rejections. '
+                'D1 remains the fixed primary descriptor, with no D2 rescue and no feature, floor, threshold-selection or source-selection change. '
+                'Expected safety-blocked negative comparisons remain unresolved under the original convention; they are not observed cosine scores or observed rejections. '
+                'Genuine execution, image, call or descriptor errors remain unknown.', '',
+                'Calibration `development_pass` is diagnostic only; there is no 18/20 calibration gate. '
+                'The evaluation gate remains at least 36/40 source majorities at .2 on both models with zero observed false accepts. '
+                'Verified abstentions fail positive slots in the full planned denominator; negative abstentions are deterministic rejects. '
+                'Finite cosine coverage, verified abstentions and unknowns are reported separately below.', '']
             for split in ('calibration','evaluation'):
                 content = fresh.get(split)
                 if content is None:
@@ -263,14 +361,18 @@ def step2(screen_dir, scenario_dir=None, fresh_analysis_dir=None, fresh_scenario
                 for d,s in content.get('descriptors',{}).items():
                     for cell,c in s.get('cells',{}).items():
                         freshrows.append([d,cell,s.get('tau'),fraction(c.get('observed'),c.get('planned_seeds')),
+                            c.get('own_cosine_observed'),c.get('own_verified_native_weak_detail_abstentions'),
                             fraction(c.get('seed_F_R'),c.get('planned_seeds')),fraction(c.get('source_majority_F_R'),c.get('source_denominator')),
                             fraction(c.get('seed_fingerprint_correct'),c.get('planned_seeds')),c.get('old_F_seed'),c.get('old_F_source_majority'),
                             c.get('safety_blocked'),c.get('execution_unknown'),s.get('development_pass')])
                     for family,n in s.get('negative_families',{}).items():
                         negrows.append([d,family,fraction(n.get('observed'),n.get('planned')),n.get('registry_false_accepts'),n.get('fingerprint_false_accepts'),
+                            n.get('verified_native_weak_detail_abstentions'),n.get('unknown'),
                             n.get('registry_source_clustered'),n.get('fingerprint_source_clustered')])
-                lines += [f'### {split.capitalize()}', '',table(['Descriptor','Cell','Frozen tau','Observed','Seed F_R','Majority F_R','Fingerprint correct','Old F seeds','Old F majority','Blocked','Unknown','Development pass'],freshrows),
-                    table(['Descriptor','Negative family','Observed','Registry false accepts','Fingerprint false accepts','Registry cluster bounds','Fingerprint cluster bounds'],negrows)]
+                lines += [f'### {split.capitalize()}', '',table(['Descriptor','Cell','Frozen tau','Available images','Own cosine finite','Own native abstentions','Seed F_R','Majority F_R','Fingerprint correct','Old F seeds','Old F majority','Blocked','Unknown','Diagnostic pass (cal) / development pass (eval)'],freshrows),
+                    table(['Descriptor','Negative family','Observed cosine/planned','Registry false accepts','Fingerprint false accepts','Native abstentions','Unknown','Registry cluster bounds','Fingerprint cluster bounds'],negrows)]
+                if split == 'calibration':
+                    lines += ['The diagnostic calibration flag does not authorize, stop or select the method; the 18/20 value used internally by that diagnostic is not a protocol gate.', '']
             lines += ['Fresh numeric evidence: '+link(freshpath)+', '+link(fresh_analysis_dir/'calibration-thresholds.json')+'.', '']
     if fresh_scenario_dir is not None:
         lines += scenario_section(fresh_scenario_dir,'Fresh regenerate-and-enroll scenario')
@@ -292,9 +394,10 @@ def main():
     two.add_argument('--scenario-dir',type=Path)
     two.add_argument('--fresh-analysis-dir',type=Path)
     two.add_argument('--fresh-scenario-dir',type=Path)
+    two.add_argument('--fresh-dir',type=Path,help='Optional fresh construction directory; otherwise inferred from fresh analysis config')
     two.add_argument('--output',type=Path,required=True)
     args = parser.parse_args()
-    content = step1(args.run_dir) if args.step == 'step1' else step2(args.screen_dir,args.scenario_dir,args.fresh_analysis_dir,args.fresh_scenario_dir)
+    content = step1(args.run_dir) if args.step == 'step1' else step2(args.screen_dir,args.scenario_dir,args.fresh_analysis_dir,args.fresh_scenario_dir,args.fresh_dir)
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(content,encoding='utf-8')
     print(args.output)

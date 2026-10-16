@@ -170,3 +170,121 @@ Public sd2-community/stable-diffusion-2-1-base, revision 4e63672c03103b6c636b8fb
 | feature_extractor/preprocessor_config.json | 342 | `2a1da83b5e1032aaeef397552ddb408dca0d8cd1dc58f61bf6abf38d6f33a0a2` | https://huggingface.co/sd2-community/stable-diffusion-2-1-base/resolve/4e63672c03103b6c636b8fb4119ba982469b2955/feature_extractor/preprocessor_config.json |
 
 SD2.1 initial pipeline loading exposed the additional declared feature-extractor config dependency. Downloaded unchanged from the same revision; it does not enable a safety checker. No images were generated during the failed loading attempt.
+
+## 2026-10-16 registry fresh development acquisition: COCO60
+
+Conditional on the fixed D1 screen pass for F5 r2. These60 metadata-selected COCO train2017 images were reserved before download in development-sources.md; first20 calibration, last40 evaluation. CC BY2.0 (https://creativecommons.org/licenses/by/2.0/); individual Flickr attribution hooks and exact original URLs are retained in sources.json. HTTPS S3 host serves the same fixed official COCO object path. No paid/gated access or new software. Raw hashes checked against15463 prior metadata hashes before decode; canonical PNG byte exclusions checked before use. The supplemental300 M2 canonical rgb8 hashes were checked postcanonicalization and before feature extraction (zero collisions), using journal metadata only. No heldout image decoded. Receipts at MAIN .thesis-build/assets/registry-fresh-20261016/sources.json and coco60-supplemental-check.json retain canonical hashes and provenance.
+
+| File | Bytes | Raw SHA256 | Exact acquisition URL |
+|---|---:|---|---|
+| 000000000853.jpg | 230037 | `879c32236e2a0c223734e7adab7ab9ba7ec6ddf539cfb8f0bf1eaa0aeccb8bfd` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000000853.jpg |
+| 000000000902.jpg | 97220 | `05daaa54ea2cd260f164b000b3eff3932e10661885e90ee494e437b7cab41d02` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000000902.jpg |
+| 000000000908.jpg | 186542 | `30ba15441472f20626c5105a3b915f754886438f5e9acf9ee08b94c9479afb1d` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000000908.jpg |
+| 000000000913.jpg | 265273 | `a8baa2daa186c5b4598a2aa020ba8dae55fc24bb3a8888847515b4c0fd136e15` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000000913.jpg |
+| 000000000960.jpg | 148377 | `acfc5dd16255a06fdcfcc90044829be09019d04eefd4f18c791aaadafbc4993e` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000000960.jpg |
+| 000000001180.jpg | 119366 | `7a7b28515405f7001776ef1d982d0eb01ce9819789167b79ac416ef44d5c64dd` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001180.jpg |
+| 000000001295.jpg | 92255 | `891a4d71cf0ea74b83363b13721f132cbd70f1863f28bf1d95fc0afa0e1f4693` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001295.jpg |
+| 000000001323.jpg | 127016 | `6e701333d54b8cac952b6c2ffabc130dc399dd80f0ce9ab1ab4cd372910e0b58` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001323.jpg |
+| 000000001330.jpg | 139062 | `e5115704156f2e2395059838a8bf634ee2ca286bf8cc1f62513b91b002a2ce2c` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001330.jpg |
+| 000000001332.jpg | 174625 | `1681175935a7c3fdb55d9f1c313d18ce60d6e6746573e43a365e42045b22628f` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001332.jpg |
+| 000000001355.jpg | 169729 | `f7bba30ad3ad5a72350de0ced03997ff9cc5f638141f441f4034aca628fd8dba` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001355.jpg |
+| 000000001359.jpg | 189200 | `3a2f72aa91d113e2f537f887d74a81373aed0d5bb859b2ee0a7a7a547f57283c` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001359.jpg |
+| 000000001397.jpg | 188034 | `b721f55a01f09d03739008cc251979b6cbd9c8ab9869fabc4eed7556fdceaf4f` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001397.jpg |
+| 000000001398.jpg | 168184 | `558c5550a5aea5bfc7c39a82054bef02fad82480a1ef745cbf0d38067047a550` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001398.jpg |
+| 000000001404.jpg | 180003 | `9baa9b9dcbb3b8b27e0eba5144f1dc15b1ac7dfc40192d5570d5a9e4fc79ca92` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001404.jpg |
+| 000000001408.jpg | 77191 | `52d16d1d4bcf95808d934ab46b1488117f97d746a0d178faf725a098f1b21439` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001408.jpg |
+| 000000001464.jpg | 70820 | `c947ab3710587eeb76eceb5ea16dc854fc5b2c708db04b06d12216d7704fcd5f` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001464.jpg |
+| 000000001507.jpg | 169501 | `5f265d3d50420888fbf11b4234a293f43d65ec28c38d8910c5e133f6b94cac34` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001507.jpg |
+| 000000001522.jpg | 112710 | `0e5416685f2a4b321ed711a2b266f13ff0c3ab60be1a01d80eecad7f0dd7696d` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001522.jpg |
+| 000000001536.jpg | 240156 | `45e810b017ecd869df7648e07871826bbe951eb757c902b045539d560acc5581` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001536.jpg |
+| 000000001548.jpg | 173325 | `e3f994f04ca4f7320163d3cfde9d8331cd263c33b07854075f287a19ae6ccd48` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001548.jpg |
+| 000000001596.jpg | 90340 | `3b97b7e73a5adbabdc27612b22e13dc4fc72bdb70e215d3588fee79f2c94b7bf` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001596.jpg |
+| 000000001637.jpg | 126639 | `228c75a407dc322675c3a595e704ba6127ed785f22cb36d122f62f4aca70c077` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001637.jpg |
+| 000000001639.jpg | 146627 | `68032804873512680ae893430114ae4d8aa04b7fac02c84322f72d747b7ca79b` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001639.jpg |
+| 000000001647.jpg | 71842 | `be0b65bd5463e64d124c5e883aece290be33b3c70bc57d96de4fa5f0f90b51e0` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001647.jpg |
+| 000000001655.jpg | 54854 | `6eb85eddfc64129b74c55ba0d913f8214b8fa2e8908de97621cf10598c1a8741` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001655.jpg |
+| 000000001670.jpg | 116890 | `86919550790489e61ab7850ac2654bebaecdd5062376ec5a645e608476bfba1e` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001670.jpg |
+| 000000001682.jpg | 146054 | `85635bbae492ac689d73813579845a9d4272e4465132a268d8bcae1c17e07264` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001682.jpg |
+| 000000001712.jpg | 233729 | `1336f6ee2be094fa16ef7c206b595890b2327fae9fa98b416414c86900144901` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001712.jpg |
+| 000000001720.jpg | 239931 | `5d288e0c0294bfe693d627355db7861ae3a963a5e0eff4fa23168d68401fe6b8` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001720.jpg |
+| 000000001737.jpg | 233540 | `50ff940a68b88aa265f7517b41129064ae6ddc9b3c8c6f3e5cb568ec7884fe0d` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001737.jpg |
+| 000000001774.jpg | 157077 | `40f002639bdc0d4bc6d270906487af4cec644bb336e62f4ab57aa1753ffe335a` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001774.jpg |
+| 000000001777.jpg | 258708 | `423886833dd717ef2d1ac82f82f29d9d8307eeddefb75e663ebbb6ed343db2f0` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001777.jpg |
+| 000000001779.jpg | 106434 | `c24f97c0af70db8a37f672a8cee44efb1c09cfd3d21197f933760ec809d7ccc8` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001779.jpg |
+| 000000001785.jpg | 283821 | `1461ccee4e2bcb2c9bd7416ad5dfa75b2444ae21d01610a7d0de29d586c3bbf0` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001785.jpg |
+| 000000001786.jpg | 138086 | `3099ca8fc13fd64600eab3a10654ee05fb8d89ea4239f87529ef3f1a31e1d299` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001786.jpg |
+| 000000001790.jpg | 78650 | `8a7022ead995cfe87de49a93aaafbfdb0970aac916240320dccd89b9299699be` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001790.jpg |
+| 000000001822.jpg | 118160 | `d4d10e93ee66499a7bac6def5cb1f1cafd9fb6536f5593a1b2a7fcb7f11306f3` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001822.jpg |
+| 000000001841.jpg | 97161 | `8e1fc2d12a8944f0fc0f8ad2e727abc8b27cd9ca2432027053f3e591858004ce` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001841.jpg |
+| 000000001852.jpg | 64459 | `425174ff2210755f20c196061379a7bcfddef7fec5aa3a1c015e2c0bcea38db6` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001852.jpg |
+| 000000001902.jpg | 174869 | `467f4c5ec3e322081e37d478d2bb3c37b9bd2aef277b17d46b49e44b7abb3556` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001902.jpg |
+| 000000001903.jpg | 87487 | `47da6ec3daa07dbc371c427881ee25cae770288ca6b7be275a89f5d91e8f0a85` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001903.jpg |
+| 000000001924.jpg | 151639 | `032dd475c1286cbeccb3db3fe7d883615f0c74afc02c418c09329aad3d832305` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001924.jpg |
+| 000000001942.jpg | 154275 | `8a0e148b6cc9b1c84727fa14201749b41e9e27773aa1e4ad52a15936001c097c` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001942.jpg |
+| 000000001958.jpg | 197092 | `d80b1011f5e102616fe57941dc4ba9100f60f55841e905bb36d1b5bb18b8aef2` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001958.jpg |
+| 000000001966.jpg | 152991 | `70c3dc4d2abcc1e68c3bea3bea44177b9f19b47cca790aee410949d46bca74c7` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000001966.jpg |
+| 000000002055.jpg | 89917 | `9692e1ab2010db4b912b53a2332d5ccf2f72728167e57dff025e9d4c2dd43a8c` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002055.jpg |
+| 000000002066.jpg | 146582 | `7311ec1d973fafe1b1de9c3272018942546fd868676eb4088cd1018abf29a372` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002066.jpg |
+| 000000002083.jpg | 198240 | `e50e6f6fd8fbf537627bac629bd2746ac572c2b03ba3c9c7d1a195c2a4a023ac` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002083.jpg |
+| 000000002093.jpg | 150430 | `4033306d9760ac9e26c4035fabe01d9f74c352e4bdc832f785582ff567d61be1` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002093.jpg |
+| 000000002148.jpg | 114884 | `1df95e23ccfff860560c7777df439781d29e827b335e847e09e1b54c28a2ef3c` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002148.jpg |
+| 000000002179.jpg | 166125 | `7a93127f13cdda4d020f5319223a51c032e1ac575b89d7c3cebc6c8e32b0b445` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002179.jpg |
+| 000000002232.jpg | 276035 | `3862b706aa1a550eac674fbf0dcdf39f3236c209456386911219c744390d46cb` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002232.jpg |
+| 000000002255.jpg | 219762 | `b64b8f95fb97f5707e4aa574eccf5c11ebc19ea5783d8dafd3529c7806c63dcc` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002255.jpg |
+| 000000002258.jpg | 160364 | `c7159543bf345750d832c6e56fae922c17185a1a05694f7decfe3ce87a0f401c` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002258.jpg |
+| 000000002270.jpg | 101782 | `92ffe39f2f500ad1ad717913c91743ddab315d92bda40b82ef54868ffc64e034` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002270.jpg |
+| 000000002283.jpg | 203650 | `643193628c1dde747492a68dc8877ee771888f25670534f04fb869e827f4f52f` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002283.jpg |
+| 000000002296.jpg | 259117 | `c345aa442eade05e9718dddfc57aafcb226657d2bf01a2594c291c83108f6423` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002296.jpg |
+| 000000002315.jpg | 173648 | `6884671ef41321f20341a11f4f129ea01e74ed70c7a49639cc283a1528c14ca1` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002315.jpg |
+| 000000002337.jpg | 97796 | `f612544582339f43837c684ed27ddd0bf7d52b3987f3e5456daaf8fdbccceb53` | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002337.jpg |
+
+## 2026-10-16 registry real near-duplicate original footage40
+
+Forty fixed original Tears of Steel live-action linear_hd EXR frames,20pairs separated72frames at24fps (3seconds); first7pairs calibration, last13 evaluation. Selected by metadata before outcomes; all raw/canonical derivatives development-reserved. CC BY3.0 (https://creativecommons.org/licenses/by/3.0/); required attribution `(CC) Blender Foundation | mango.blender.org`. Original primary licence: https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/README.txt; receipt research/journal-upgrade-20261009/registry-near-duplicate-source-license.txt. Original-footage announcement: https://mango.blender.org/category/filming/. Licence excludes logos/trademarks; actor privacy/portrait rights retained. One production with repeated scenes/actors limits independence.
+
+Raw exclusions passed before decode. Existing ffmpeg9.0.1 nativeEXR decoder; fixed cliplinear[0,1], standard sRGB companding, quantize8bit then PillowBICUBIC512stretch. No new dependency. Supplemental300M2 canonical rgb8 checks passed postcanonical/pre-feature; no heldout pixels decoded. All100fresh canonicalPNG hashes checked; zero collisions. Detailed receipts: MAIN .thesis-build/assets/registry-fresh-20261016/near-duplicates.json and release-check.json. New unique raw bytes301,904,303; retained raw+partials327,000,703, below2GB.
+
+Network failures retained in acquisition.jsonl/network-curl.jsonl. Bounded3-worker curl used unchanged URLs and cached official54.39.18.101, with certificate/hostname verification and ssl-revoke-best-effort for unavailable revocation service. Redundant initial batch terminated before continuation. Final fullGET completed before proposed Range retry; no Range needed. Initial helper failed on connectivity after445.063s; resumed cf5de20 helper prepared all100 in20.609s (excluding frozen-inventory rehash), then rejected existing COCO sources.json CRLF versus expected LF. Existing file was preserved and proven semantically identical; pairs assembled from exact frozen metadata/latest prepared receipts. No scientific extraction in acquisition.
+
+| Frame | Bytes | Raw SHA256 | Exact acquisition URL |
+|---|---:|---|---|
+| 01_1a_00000.exr | 6474907 | `18c4f20066773cce298f919258a274467f2079a1d1ca109bebd0b1d508952b0a` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/01_1a/linear_hd/01_1a_00000.exr |
+| 01_1a_00072.exr | 6481940 | `b2ae1feb64134d35e6b042ad4bfc92b16b29625db2e183847caf5debf878c688` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/01_1a/linear_hd/01_1a_00072.exr |
+| 01_2a_00000.exr | 6706589 | `69b2dce5de4ba229b7b566c79a4d949f3b884f4534ed0d74d2dea3c7c6da9b37` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/01_2a/linear_hd/01_2a_00000.exr |
+| 01_2a_00072.exr | 6711659 | `781087bc27f271a0da15038de83241a1998b21e6fa8579ea80c78efaf6e4f2c9` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/01_2a/linear_hd/01_2a_00072.exr |
+| 02_3a_00000.exr | 7451838 | `ce559dcc8851c4684d9b6fd2142521bdb72af890ca9cf9e7d6e0b8096e3aed9d` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/02_3a/linear_hd/02_3a_00000.exr |
+| 02_3a_00072.exr | 7348964 | `6d267c9d7154f98aaf5690ff4d60c7a9dce34512ba9ee9ad0fe4bf386313fa6b` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/02_3a/linear_hd/02_3a_00072.exr |
+| 02_3b_00000.exr | 6730872 | `8a7b306de6418384a465c123ec70e1494ac1483c1b89a1ac69d384e6c9ff40fd` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/02_3b/linear_hd/02_3b_00000.exr |
+| 02_3b_00072.exr | 6765267 | `7fdd4e55bfaaadc86ae62ce64d606d169e88f588e1aefad14e0077098c0e5302` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/02_3b/linear_hd/02_3b_00072.exr |
+| 02_3c_00000.exr | 7632038 | `e24e8f6ffce07eafa5ffc88a36e5aaf04cda9b548e7d2f0ff90534dece04d5a7` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/02_3c/linear_hd/02_3c_00000.exr |
+| 02_3c_00072.exr | 7614207 | `a92b61f375376e283122e5b457e0afdb0b7b16e3be965ecfa886698019dfb9d7` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/02_3c/linear_hd/02_3c_00072.exr |
+| 02_3d_00000.exr | 7014633 | `32378073d193cc3a0c17e45e6a9054e682d07366aef2ed03b40179259bee7453` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/02_3d/linear_hd/02_3d_00000.exr |
+| 02_3d_00072.exr | 7012539 | `7febba22f2ac85f795d9f68eac850d2618d7291618ae64565c9273d63866ba32` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/02_3d/linear_hd/02_3d_00072.exr |
+| 02_4a_00000.exr | 6777806 | `ca0a77d87c2630ed9cd866b64320d33d73f14e5fd283de90a16e30476e789ae3` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/02_4a/linear_hd/02_4a_00000.exr |
+| 02_4a_00072.exr | 6901514 | `1df0e7f9ea0698f0bb0145ed2e48dd498046fd9a2f2dce377731b2a83392038b` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/02_4a/linear_hd/02_4a_00072.exr |
+| 03_2d_00501.exr | 7435816 | `fc3f93143dc5f4d0629b6ea4e75bae63bc613d2ce4140bfbb15cd7b6bdf338fa` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/03_2d/linear_hd/03_2d_00501.exr |
+| 03_2d_00573.exr | 7467638 | `0cc2ec3985e7f163ea2bf9ce95ef3f34c1e7ae4874c2a6501808eb4395f8e697` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/03_2d/linear_hd/03_2d_00573.exr |
+| 03_2j_00000.exr | 7071760 | `508d25712cde6219a1ed78fbc4cbebf825c71849cbe2baa57b8265833c4ab315` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/03_2j/linear_hd/03_2j_00000.exr |
+| 03_2j_00072.exr | 7023191 | `e1916fe8b263128dcd80ce3d944e82c8f3ec9fe463e9074647e2b6ffe8738391` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/03_2j/linear_hd/03_2j_00072.exr |
+| 03_4a_00000.exr | 7214952 | `f683d1ceab7488c022f157b35a867b847e64b90593bbdfd7056431487ae3a964` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/03_4a/linear_hd/03_4a_00000.exr |
+| 03_4a_00072.exr | 7213401 | `692b79d572569383622e1b51986af1c764dae9aceb065c9ad057cd672432b2fa` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/03_4a/linear_hd/03_4a_00072.exr |
+| 04_1a_00000.exr | 6960970 | `93b8478e2f436c56d8737f6921c789d5457ac4d20a8bb977becf51917ab45a3e` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_1a/linear_hd/04_1a_00000.exr |
+| 04_1a_00072.exr | 6954604 | `d9f8417d2c06c5db3590d44f93d9263bc016a63738713f40184ee6535f8d9854` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_1a/linear_hd/04_1a_00072.exr |
+| 04_1b_00000.exr | 6707553 | `f0c8be3acdcea2965a9d1a29a59a0f1b80af14e68719627488974687b3d74606` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_1b/linear_hd/04_1b_00000.exr |
+| 04_1b_00072.exr | 6679301 | `7ca77fc0c27799fdacc3e1a344ab4fd80f278d3aea1e249801631633cd86fc70` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_1b/linear_hd/04_1b_00072.exr |
+| 04_2a_00000.exr | 7753045 | `2db2296be02ca7968698d885ef6abcce685c82f6e3cfe5a81278a0e1c998a354` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_2a/linear_hd/04_2a_00000.exr |
+| 04_2a_00072.exr | 7678118 | `b36d01b476f63d6afaf53f3c17973ec90a13b5133c97cbd65e5697b736ac952b` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_2a/linear_hd/04_2a_00072.exr |
+| 04_2b_00000.exr | 8229447 | `febf56b4027c76b945cef06463b91b901ec50c43d30ff4add9f7745075768b35` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_2b/linear_hd/04_2b_00000.exr |
+| 04_2b_00072.exr | 8233921 | `676167cb1a4ccc1776216cb0ea6a0c1ea46c8b6784b41f0e0d013d29d522a612` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_2b/linear_hd/04_2b_00072.exr |
+| 04_2c_00000.exr | 7648020 | `75ac6468283d6aec0b0ed78904dea5c63fca389e2321e20b2ac8f106aaeebc53` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_2c/linear_hd/04_2c_00000.exr |
+| 04_2c_00072.exr | 7547237 | `0f8b656c98f23f1b191beec5ff8065cf6a60671eb4b0169c67cae0fe001e4849` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_2c/linear_hd/04_2c_00072.exr |
+| 04_2d_00000.exr | 7379461 | `7c6d56abbcb28ed43fd79112b51fe7b4828f67b4a16f9a26100f6155463479a0` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_2d/linear_hd/04_2d_00000.exr |
+| 04_2d_00072.exr | 7300262 | `7f5dbe7e1c1e835b09325bab34b94dbfcc9207d133ef4fb7bb28c69cb64d1085` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_2d/linear_hd/04_2d_00072.exr |
+| 04_2e_00000.exr | 7342064 | `5c71991a5a687892aad73a6e081f15a948878838163519be834eb3753fc3b7a9` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_2e/linear_hd/04_2e_00000.exr |
+| 04_2e_00072.exr | 7540060 | `fa46996186971200cfbf4da2a4d28d5da8367418fbafc8f7575ac27a662cc633` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_2e/linear_hd/04_2e_00072.exr |
+| 04_3a_00000.exr | 7948279 | `5a065051d1cd498b8511cc1f8ff0ec173c5dc08c050f217a644dc44de130e9ac` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3a/linear_hd/04_3a_00000.exr |
+| 04_3a_00072.exr | 7925217 | `12883840ba41f29b25bd863f1cd2f0e1b76e5603175e0eb358ff096495c00823` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3a/linear_hd/04_3a_00072.exr |
+| 04_3b_00000.exr | 8532953 | `d1c9b93f9fb20d02bb316eb8ef6dba2de657acab552c852aa45cf8886c812feb` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3b/linear_hd/04_3b_00000.exr |
+| 04_3b_00072.exr | 8509299 | `90b4b2b8f7d14699602de5fc3db511850d3c4e2ee52f3d87524541c2beda26a3` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3b/linear_hd/04_3b_00072.exr |
+| 04_3d_00000.exr | 7338064 | `946ade96da9cde3e6c45242e08075820b62efe1e5a1f988d481c220bcca767e2` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3d/linear_hd/04_3d_00000.exr |
+| 04_3d_00072.exr | 7286584 | `b707910bbfd81280308faf592d09207593ed216d116e46b30c2ea54f48a4ec7c` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3d/linear_hd/04_3d_00072.exr |
