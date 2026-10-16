@@ -117,7 +117,7 @@ def step1(run_dir):
         f'SD2.1 VAE comparison: `{fmt(run.get("sd21_vae_comparison"))}`.', '',
         f'Regenerator configuration and safety-checker presence: `{fmt(run.get("regenerators"))}`. '
         'SD1.5 retains its frozen safety checker; SD2.1 has none. Missing or blocked outputs are not silently rerun without safety checks.', '',
-        f'SDXL feasibility decision: {fmt(run.get("sdxl_feasibility",run.get("config",{}).get("sdxl_feasibility")))}. '
+        'SDXL full generation was omitted prospectively in unseen-regenerator-protocol.md because safe fit was not established on the shared 12 GB desktop GPU. This is a conservative feasibility decision, not a measured out-of-memory result. The SDXL VAE control remains in step 2. '
         'No absent SDXL arm is represented as a measured result.', '',
         '## Limits and numeric evidence', '', fmt(summary.get('exact_H_note')), '',
         'The detector uses the claimed owner, public profile and pinned VAE/CLIP models, without an enrolled reference image in this step. '

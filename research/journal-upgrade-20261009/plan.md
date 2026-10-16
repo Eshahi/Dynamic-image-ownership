@@ -1,5 +1,7 @@
 # Roadmap to a journal article
 
+October 16 active direction: step 1 is complete and selects F5 r2 under the fixed SD2.1 .2 C rule (E3 24/24, F5 24/24, difference zero). See [transfer results](unseen-regenerator-results.md) and the [post-hoc M2 sensitivity](e3-s1-m2-sensitivity.md). Step 2 tests the authorized registry design, which adds enrolled descriptors to detector side information. The 24-source screen must pass before fresh calibration/evaluation; no held-out confirmation is authorized. The older sections below preserve the development history.
+
 Updated 2026-10-14 by Codex agent after the user explicitly reopened autonomous method research. It is a research roadmap, not an execution manifest, human milestone verdict or authorization for paid compute or a new held-out run. Numerical gates below are research decisions, not journal acceptance rules.
 
 ## Current completed common-task comparison
