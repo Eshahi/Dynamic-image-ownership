@@ -11,6 +11,30 @@ The user has handed this project to you and will return only at milestone review
 - **Stop for the user only when:** (1) M1b or M2 is complete, or the honest negative exit applies (passing M1a is not a stop; continue to M1b); (2) money would be spent (paid compute, paid API, purchases); (3) an action needs the user's identity or is public: credentials, publishing, external communication, institutional or supervisor decisions; (4) you would edit a protected file (below); (5) every reasonable route to the milestone is exhausted, with the evidence; (6) 2026-10-13, report the state as `research/approval-policy.md` requires. Missing evidence, bugs, failed experiments and uncertain parameters are work, not reasons to stop.
 - **Report** in Persian, briefly, only at those stops. Keep progress visible without stopping: update `STATE.md` at least every few hours of work.
 
+## Current direction (user decision, 2026-10-14)
+
+The user reviewed the October 11-14 work with Claude and directed, verbatim: "Yes, write the Codex brief for steps 1 and 2 (lock in the result, then the registry-based verification test)." The full brief is `thesis-runs/d916749c/NEXT-GOAL-20261014.md`. It overrides the Milestones section below where they conflict.
+
+- **Step 1, lock in the result:**
+  - write a post-hoc M2 sensitivity addendum without the clean exact-H gate;
+  - run one development test of E3-S1, F5 r2 and v5 r3 against regenerators the E3 writer never saw (SD2.1-base, optionally SDXL);
+  - choose the thesis method, E3 or F5, by the rule fixed in the brief.
+- **Step 2, registry-based verification:**
+  - the mark acts as an owner-and-record pointer;
+  - an enrolled record holds the published image's continuous descriptors;
+  - verification compares the suspect with that record.
+
+  The user authorized this method change for development work. It adds detector side information (the registry), which every report must state. This overrides `research/scope-guard.md` line 17 for the verification registry only. Ownership transfer, ledgers and rights management are out of thesis scope: the supervisor ruled them product scope, as relayed by the user on 2026-10-14. The brief's amendment adds D1 as primary descriptor, a fingerprint-only arm, a regenerate-and-enroll scenario and real near-duplicate negatives.
+- **Closed lines of work:**
+  - no further reference-free instance-descriptor variants (coarse, balanced, sketch or similar);
+  - no E3 writer, objective, refinement, coding or quality-selector micro-variants;
+  - no FreqMark retries or new external baselines.
+- **Process:**
+  - one protocol file and one results file per step, not per run;
+  - compare variants inside one run, with the selection rule fixed in advance;
+  - one independent review at the end of step 2, none per round.
+- **Stop for the user** when step 2 completes or its kill rule fires, besides the hard stops below. A held-out confirmatory run of the registry design needs the user's approval at that stop.
+
 ## Milestones (the user's review points)
 
 M1 has two stages, in this order. Science first; packaging only after the science works.
