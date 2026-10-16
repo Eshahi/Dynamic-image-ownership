@@ -113,3 +113,8 @@ Not granted: paid compute, paid APIs or purchases; pushing, publishing or any ex
   - the source plan stays unedited.
 
 Still not granted: held-out data before confirmatory approval, paid compute, publication, external communication other than the milestone issue updates, protected-file edits and fabricated human verdicts.
+
+
+## Registry development authorization, 2026-10-14 (executed 2026-10-16)
+
+User direction, written by Claude: "Yes, write the Codex brief for steps 1 and 2 (lock in the result, then the registry-based verification test)." The user explicitly instructed this Codex run to complete both steps without intermediate approval. NEXT-GOAL-20261014.md fixes the selection and kill rules. Registry enrollment descriptors, lookup and verification are authorized development side information. Ownership transfer, ledgers and rights management remain out of scope. No new held-out execution is authorized.

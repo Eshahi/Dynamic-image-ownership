@@ -131,7 +131,7 @@ These boundaries prevent silent scope growth; they do not amend the approved pro
 
 | ID | Unresolved item | Why it matters | Required downstream owner |
 | --- | --- | --- | --- |
-| U-01 | Dynamic ownership and transfer protocol | The title and problem statement promise dynamic ownership, while the core method does not specify transfer. | Human scope decision before method freeze |
+| U-01 | Dynamic ownership and transfer protocol | Resolved 2026-10-14 by supervisor decision relayed by user: ownership transfer, ledger and rights management are product scope, outside the thesis implementation. Original proposal/title remain unchanged. | Verification registry only authorized as development side information; not a transfer protocol. |
 | U-02 | Existing-image route versus generation route | Real-image evaluation is required, but the embedding description relies on diffusion initial noise or latent processing. | I/O and architecture specification |
 | U-03 | Claim type | Watermark presence, owner attribution, instance binding, semantic binding, and regeneration provenance are distinct claims. | Research contract and threat model |
 | U-04 | CLIP contract | Model, checkpoint, layer, preprocessing, normalization, and dimension are absent. | Architecture specification |

@@ -291,3 +291,5 @@
 2026-10-14 | escalation | Fresh independent review requested on gpt-6-astra/high for the common-task protocol, code, clean/T3 receipts and article interpretation since 0a17664. One separate file deliverable; author and design agent do not review their own work.
 
 2026-10-14 | milestone | Fresh e3_wam_independent_review (gpt-6-astra/high) PASS for 0a17664..b8a1a37 plus 934dc16 reporting guard; no material blockers. All five tests pass; numerical report reproduces. Retain native same-q recovery result with no controlled-FPR/distortion or Q1 claim. Failed-eligibility report reuse guard fixed without touching science receipts. Fixed comparison complete; next design must address independent transfer and quality/error operating points. All science processes and agents exited.
+
+- 2026-10-16 Codex delegated mechanical sensitivity reproduction and transfer driver implementation to short-lived gpt-6.1-sol/medium agents; fixed design unchanged; no per-run reviewer.

@@ -61,7 +61,7 @@ The [blinded human development panel](human-development-panel-protocol.md) is pr
 | Completed E3-S1 confirmation | 300 COCO source groups; SD1.5 DDIM20, strengths .1/.2, three seeds; inventory and independent evidence review complete | Preserve this frozen study; do not rerun or tune its sources |
 | Exact checked-semantic recovery J | E3 287/300 at .1 and 284/300 at .2; native v5 80/300 and 17/300 | Promising in this channel, but not matched-FPR external superiority |
 | Raw semantic detection S | E3 287/284 versus v5 283/232 at .1/.2 | Exact payload recovery, detection and content agreement are different endpoints |
-| Primary composite | E3 281 versus 151 at .1; 278 versus 129 at .2 | Eligibility differs, 294 versus 159, with different native h targets; the full difference is not isolated regeneration gain |
+| Primary composite and post-hoc H-free sensitivity | Original: E3 281 versus 151 at .1 (+43.33 pp); 278 versus 129 at .2 (+49.67 pp). Removing clean exact H only: 281 versus 278 (+1.00 pp) and 278 versus 229 (+16.33 pp). | Different native h targets drive much of the primary gap. H-free paired one-sided p is .364 at .1 and 1.15e-8 at .2; no established .1 survival advantage or equivalence claim. See [post-hoc addendum](e3-s1-m2-sensitivity.md). |
 | Strict clean quality | E3 294/300; v5 298/300 | Six E3 LPIPS failures stay in the denominator; no all-image quality claim |
 | Full instance acceptance after regeneration | Zero source-majority successes for both methods | Do not claim regeneration-robust full ownership |
 | Public T4/T5 transfers | Both donor payloads arrive on 30/30 pairs per panel; combined and perceptual-only checks both reject all | Observed rejection, but no demonstrated added combined-binding value |

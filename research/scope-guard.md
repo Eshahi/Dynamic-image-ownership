@@ -14,7 +14,7 @@ Issue #4, source task `method-6`. Applies to README, architecture specifications
 
 ## forbidden_automatic_changes
 
-- Do not add ownership transfer, registry/ledger infrastructure, a marketplace or a rights-management service to the required implementation. Narrative ownership language is not authorization for product expansion.
+- Do not add ownership transfer, ledger infrastructure, a marketplace or rights management. The 2026-10-14 user amendment authorizes only a development verification registry: enrolled owner/record/payload/continuous descriptors, lookup and suspect comparison. Registry access is additional detector side information and must be disclosed.
 - Do not replace latent/noise embedding with an image-space watermark and report the replacement as the approved latent method. Image-space watermarking may be a labeled baseline.
 - Do not add inversion or a neural watermark decoder to the proposed detection path and still claim it implements the lightweight image-DCT hypothesis. Such methods can be separately labeled comparators.
 - Do not give the core detector original images, enrollment features, oracle keys or prompts without declaring a changed knowledge profile. Diagnostic/oracle results cannot stand in for the proposal-faithful route.
