@@ -42,7 +42,7 @@ def paired(a, b):
 
 
 def analyse(data):
-    clean, calls, clean_summary = {}, {}, {}
+    clean, calls, clean_summary, availability = {}, {}, {}, {}
     if data["analysis_version"] != "e3-s1-analysis-v1":
         raise ValueError("unexpected frozen analysis version")
     for method in METHODS:
@@ -63,6 +63,7 @@ def analyse(data):
             exact_H_failed=sum(not row["H"] for row in rows),
             H_is_only_primary_gate_failure=sum(not row["H"] and all(row[k] for k in GATES["without_clean_exact_H"]) for row in rows))
         calls[method] = {}
+        availability[method] = {}
         for strength in STRENGTHS:
             by_source = defaultdict(dict)
             raw = source["t3"][strength]["raw_read_results"]
@@ -70,12 +71,17 @@ def analyse(data):
                 uid, seed = row["uid"], row["seed"]
                 if uid not in clean[method] or seed not in SEEDS or seed in by_source[uid]:
                     raise ValueError("unexpected or duplicate source-seed")
-                if row.get("available") is not True or any(type(row.get(k)) is not bool for k in ("S", "J")):
-                    raise ValueError("unavailable or missing endpoint: do not silently exclude")
+                if type(row.get("available")) is not bool:
+                    raise ValueError("missing availability status")
+                if row["available"] and any(type(row.get(k)) is not bool for k in ("S", "J")):
+                    raise ValueError("available call lacks boolean endpoints")
                 by_source[uid][seed] = row
             if len(raw) != 900 or by_source.keys() != clean[method].keys() or any(set(v) != SEEDS for v in by_source.values()):
                 raise ValueError("incomplete fixed three-seed grid")
             calls[method][strength] = by_source
+            availability[method][strength] = dict(
+                planned_calls=len(raw), unavailable_calls=sum(not row["available"] for row in raw),
+                sources_with_unavailable_calls=sum(any(not row["available"] for row in group.values()) for group in by_source.values()))
     comparisons = {}
     for strength in STRENGTHS:
         comparisons[strength] = {}
@@ -85,7 +91,7 @@ def analyse(data):
             for method in METHODS:
                 states[method] = {
                     uid: all(row[k] for k in gates) and
-                    sum(call[rule] for call in calls[method][strength][uid].values()) >= 2
+                    sum(call.get(rule) is True for call in calls[method][strength][uid].values()) >= 2
                     for uid, row in clean[method].items()}
             result = paired(states[METHODS[0]], states[METHODS[1]])
             if name == "reported_primary":
@@ -98,7 +104,8 @@ def analyse(data):
     return dict(label="post-hoc sensitivity; fixed 300-source retained cohort",
                 seed_rule="at least 2 of seeds 3, 4, 5; source is paired unit",
                 predicates="frozen e3-s1-analysis-v1 saved S/J; no detector rerun",
-                clean=clean_summary, comparisons=comparisons)
+                missing_rule="frozen planned-denominator rule: unavailable calls are not successes; never excluded",
+                availability=availability, clean=clean_summary, comparisons=comparisons)
 
 
 def main():
