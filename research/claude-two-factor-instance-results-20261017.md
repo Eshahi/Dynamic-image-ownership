@@ -56,6 +56,23 @@ A strength-.2 regeneration moves an image as far as re-filming a nearly still sc
 
 This is the stability-against-specificity trade-off the descriptor round met at 32 bits. It persists with unlimited registry capacity, so it is a property of the problem definition, not of D1, B1 or compression.
 
+## Why the two-factor rule misses at .2 (post-hoc diagnostic; informs the next protocol only)
+
+Run: MAIN `.thesis-build/dev-runs/20261017-1106-claude-two-factor-diagnostic/run.json`. Failing evaluation sources and their causes under the frozen thresholds:
+
+| Cell | Failing sources | Cause |
+|---|---|---|
+| .2, both regenerators | 1637, 1655, 1670 | D1 abstains on every seed (native weak-detail floor; plain images). They also fail at .1, so this is descriptor availability, not regeneration loss. |
+| .2, both regenerators | 1737, 2315 | B1 just below 0.98 on every seed |
+| .2, SD1.5 | none | 2 pointer-loss seeds, below source-majority level |
+| .4 | most | B1 < 0.98 (56-57 of 120 seeds), pointer loss (16-18) and the same three abstentions |
+
+**Implications for a next, freshly validated round:**
+- a declared fallback for D1-abstaining images, for example B1 plus D2, would address 3 of the 5 misses at .2;
+- the 0.98 layout threshold is too tight for .4.
+
+Both changes are hypotheses formed on consulted data and need new images to test.
+
 ## Consequences
 
 1. **Report it as a measured limit.** "Instance identity after regeneration is bounded by natural recapture similarity." Show the curve of regeneration strength against the closest rejectable near-duplicate distance.
