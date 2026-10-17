@@ -71,6 +71,7 @@ def main():
         result['calibration_provenance'] = dict(source=str(old_calibration), copy=str(copied_calibration),
             sha256=hashlib.sha256(copied_calibration.read_bytes()).hexdigest(),
             identical_to_step2b=copied_calibration.read_bytes()==old_calibration.read_bytes(), recalibrated=False)
+    result['availability_metadata'] = str(ANALYSIS/'availability-metadata-evaluation.json')
     result['run_records'] = [str(p) for p in (FRESH/'run.json',ANALYSIS/'run.json')]
     result['disk_cleanup_plan'] = str(MAIN/'.thesis-build/disk-hygiene/round3-plan-20261017.json')
     result['status'] = 'complete' if all(p['status']=='complete' for p in phases.values()) and not missing_vectors and not missing_images and unknown==0 else 'partial'
