@@ -32,8 +32,9 @@ def latest(pattern):
 
 
 class Cohort:
-    def __init__(self, fresh, canon, sids, near, t4, sib_seeds):
+    def __init__(self, fresh, canon, sids, near, t4, sib_seeds, seeds=SEEDS):
         self.fresh, self.canon, self.sids, self.near, self.t4, self.sib_seeds = Path(fresh), Path(canon), sids, near, t4, sib_seeds
+        self.seeds = tuple(seeds)
 
     def record(self, sid):
         return latest(self.fresh / str(sid) / "supplier-attempt*" / "F5-bootstrap.png")
@@ -42,7 +43,7 @@ class Cohort:
         out = [("clean", None, None, "C0", str(self.canon / f"coco-{sid}-rgb512.png")), ("clean", None, None, "C1", self.record(sid))]
         for m in MODELS:
             for s in STRENGTHS:
-                for seed in SEEDS:
+                for seed in self.seeds:
                     for arm, tag in (("C1", "f5-r2"), ("C0", "C0")):
                         out.append((m, s, seed, arm, latest(self.fresh / f"{m}-{sid}-{s}-{seed}-{tag}-attempt*.png")))
         return out
@@ -190,6 +191,9 @@ def main():
     ap.add_argument("--pointer-scores", type=Path)
     ap.add_argument("--sources", type=int, nargs="*")
     ap.add_argument("--near", nargs="*")
+    # Defaults reproduce round 3 exactly; the approved held-out plan passes --seeds 15 16 17 --sibling-seeds 21..32.
+    ap.add_argument("--seeds", type=int, nargs=3, default=list(SEEDS))
+    ap.add_argument("--sibling-seeds", type=int, nargs="+", default=None)
     a = ap.parse_args()
     a.output_dir.mkdir(parents=True, exist_ok=False)
     tick = time.monotonic()
@@ -231,7 +235,9 @@ def main():
     else:
         fr = json.loads(a.frozen.read_text())
         t1, t2, tF = fr["tau1_d1"], fr["tau2_b1"], fr["tauF_b1_fallback"]
-        C = Cohort(a.fresh_dir, a.canonical_dir, a.sources, a.near, t4_list(a.t4_glob), range(7, 13))
+        C = Cohort(a.fresh_dir, a.canonical_dir, a.sources, a.near, t4_list(a.t4_glob),
+                   a.sibling_seeds if a.sibling_seeds is not None else range(7, 13), seeds=a.seeds)
+        res.update(regeneration_seeds=list(a.seeds), sibling_seeds=list(C.sib_seeds))
         F = tf.Features(a.index)
         pos, neg, near_rows = build(F, C)
         near_cls = classify(near_rows, fr["psnr_cutoff_primary"])
