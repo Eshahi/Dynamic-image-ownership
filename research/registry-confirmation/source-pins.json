@@ -1,0 +1,9 @@
+{
+  "source_commit": "47bb19ca20e91d50b6c05d1174c17c233eba63f9",
+  "files": {
+    "scripts/claude_round3_two_factor.py": "1fd1e4c72519c42887b19ab130bcc0f3d4776176cf835fcd7eca39f9e5716ee0",
+    "scripts/claude_two_factor_instance.py": "109b0148cf108ef1adb1e5e83a8266a746b2a97ea8673a3a801ea0fcf0c9551b",
+    "research/claude-round3-frozen-20261017.json": "e5c3a33838c9e08e8337840e108665b132a62cda7c0d548d9322d4e6c2ebbe30",
+    "research/claude-registry-confirmation-plan-20261017.md": "b58786e58711147b60260d95ecdc9eba1c1e2fc6346e659e9af111f6ad70b28c"
+  }
+}
