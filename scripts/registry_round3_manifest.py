@@ -1,6 +1,7 @@
 ﻿"""Round3 data manifest: count saved native rows without making scientific choices."""
 from pathlib import Path
 import json
+import hashlib
 from collections import Counter
 from registry_step1_transfer import MAIN, read, write, journal
 ROOT=Path(__file__).resolve().parents[1]
@@ -34,6 +35,45 @@ def main():
     if (ANALYSIS/'availability-metadata-evaluation.json').exists():
         avail=read(ANALYSIS/'availability-metadata-evaluation.json')['paths']
         result['descriptor_availability']={d:dict(Counter(r['reason'] for r in avail if r['descriptor']==d)) for d in ('D1','D2','D3')}
+    acquisition_summary = ASSETS/'round3-acquisition-summary.json'
+    acq = read(acquisition_summary) if acquisition_summary.exists() else {}
+    phases['acquisition'].update(expected_sources=40, expected_pairs=60,
+        missing_sources=40-phases['acquisition']['sources'], missing_pairs=60-phases['acquisition']['pairs'],
+        failed=0 if phases['acquisition']['status']=='complete' else None, safety_blocked=0,
+        retained_incident_count=len(acq.get('retained_failures',[])), retained_incidents=acq.get('retained_failures',[]))
+    result['acquisition_summary'] = str(acquisition_summary)
+    result['known_development_footage_overlaps'] = acq.get('known_development_canonical_overlaps',[])
+    expected_paths = {r['image'] for r in rows.values() if r.get('status')=='ok' and r.get('image')}
+    for r in calls.values():
+        if r.get('status')=='ok':
+            expected_paths.update(r[k] for k in ('image','left_path','right_path') if r.get(k))
+    expected_paths = {str(Path(p).resolve()) for p in expected_paths}
+    indexed = {}
+    for p in paths: indexed.update(read(p))
+    missing_vectors = sorted(p for p in expected_paths if p not in indexed or not Path(indexed[p]['cache']).is_file())
+    missing_images = sorted(p for p in expected_paths if not Path(p).is_file())
+    availability = result.get('descriptor_availability',{})
+    unknown = sum(v.get('execution_or_descriptor_unknown',0) for v in availability.values())
+    phases['descriptors'].update(expected_available_image_paths=len(expected_paths), indexed_image_paths=len(indexed),
+        missing=len(missing_vectors), missing_paths=missing_vectors, failed=unknown, safety_blocked_excluded=phases['sd15']['safety_blocked']+phases['sd21']['safety_blocked'],
+        missing_image_paths=missing_images)
+    expected_scores = {k for k in rows if k.startswith(('clean:','sd15:','sd21:'))}
+    scored = read(score)['positives_and_C0'] if score.exists() else []
+    scored_ids = {r['id'] for r in scored}
+    score_counts = dict(Counter(r['status'] for r in scored))
+    phases['pointer_scores'] = dict(status='complete' if len(scored)==1520 and scored_ids==expected_scores else 'partial',
+        expected=1520, rows=len(scored), counts=score_counts, missing=1520-len(scored_ids),
+        failed=sum(score_counts.get(k,0) for k in ('error','scientific_failure','input_unavailable','missing')),
+        safety_blocked=score_counts.get('safety_blocked',0))
+    old_calibration = MAIN/'.thesis-build/dev-runs/20261016-registry-step2-fresh-analysis-r2/calibration-thresholds.json'
+    copied_calibration = ANALYSIS/'calibration-thresholds.json'
+    if copied_calibration.exists():
+        result['calibration_provenance'] = dict(source=str(old_calibration), copy=str(copied_calibration),
+            sha256=hashlib.sha256(copied_calibration.read_bytes()).hexdigest(),
+            identical_to_step2b=copied_calibration.read_bytes()==old_calibration.read_bytes(), recalibrated=False)
+    result['run_records'] = [str(p) for p in (FRESH/'run.json',ANALYSIS/'run.json')]
+    result['disk_cleanup_plan'] = str(MAIN/'.thesis-build/disk-hygiene/round3-plan-20261017.json')
+    result['status'] = 'complete' if all(p['status']=='complete' for p in phases.values()) and not missing_vectors and not missing_images and unknown==0 else 'partial'
     MANIFEST.parent.mkdir(parents=True,exist_ok=True); write(MANIFEST,result)
     print(json.dumps(result,indent=2))
 if __name__=='__main__': main()
