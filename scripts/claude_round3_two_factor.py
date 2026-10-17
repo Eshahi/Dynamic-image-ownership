@@ -136,7 +136,17 @@ def fit(pos, neg, near_cls):
         key = (s2, s4, t2)
         if best is None or key > best[0]:
             best = (key, t1, t2, tF)
-    return best
+    # Calibration amendment (before any round-3 evaluation image existed): the fallback has no D1 check,
+    # so give it the largest margin that keeps the maximal strength-.2 calibration acceptance.
+    (key, t1, t2, tF) = best
+    for cand in sorted(x for x in grid if x > tF):
+        ok = lambda r, c=cand: rule(r, t1, t2, c)
+        if sum(majority(cell_rows(pos, m, 0.2), ok)[0] for m in MODELS) == key[0] and not any(ok(r) for r in negs):
+            tF = cand
+        else:
+            break
+    s4 = sum(majority(cell_rows(pos, m, 0.4), lambda r: rule(r, t1, t2, tF))[0] for m in MODELS)
+    return ((key[0], s4, t2), t1, t2, tF)
 
 
 def report(pos, neg, near_cls, rules, pointer):
