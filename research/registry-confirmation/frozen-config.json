@@ -1,0 +1,108 @@
+{
+  "schema": "registry-confirmation-frozen-v1",
+  "status": "partial package; not executable",
+  "protocol": "registry-two-factor-v1",
+  "method": {
+    "name": "F5 r2",
+    "retained_run": "20261005-0640-f5-gate-soft-views7",
+    "path": "configs/f5-r2.json",
+    "sha256": "76f607e13fb3442d691813e5ab44d5eda40c6e02027d4f9041ea3fc50f41fe8f"
+  },
+  "pointer": {
+    "owner_found": true,
+    "code_read": true,
+    "q_radius": 6
+  },
+  "record": [
+    "owner",
+    "record_id",
+    "q",
+    "D1",
+    "B1"
+  ],
+  "accept": {
+    "tau1": 0.0594367,
+    "tau2": 0.9,
+    "tauF": 0.99
+  },
+  "look_alike": {
+    "different_if_grey_psnr_below_db": 18.126065828471827,
+    "applies_to": [
+      "real",
+      "synthetic"
+    ]
+  },
+  "regenerators": {
+    "models": [
+      "SD1.5",
+      "SD2.1-base"
+    ],
+    "sd21_revision": "4e63672c",
+    "scheduler": "DDIM",
+    "steps": 20,
+    "strengths": [
+      0.1,
+      0.2,
+      0.4
+    ],
+    "seeds": [
+      15,
+      16,
+      17
+    ],
+    "prompt": "",
+    "guidance_scale": 1,
+    "safety_checker": "SD1.5"
+  },
+  "t4": {
+    "scales": [
+      0.5,
+      1.0
+    ],
+    "pairing": "cyclic donor-to-recipient in fixed hash order"
+  },
+  "attribution": {
+    "copy_strengths": [
+      0.2,
+      0.4
+    ],
+    "models": [
+      "SD1.5",
+      "SD2.1-base"
+    ],
+    "second_owner": true,
+    "queries": [
+      "copy",
+      "further regeneration"
+    ]
+  },
+  "synthetic_seeds": [
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32
+  ],
+  "endpoints": {
+    "E1": {
+      "n": 300,
+      "minimum_majority": 266,
+      "models": [
+        "SD1.5",
+        "SD2.1-base"
+      ],
+      "strength": 0.2,
+      "confidence": "one-sided 95% Clopper-Pearson lower bound >= .85"
+    },
+    "E2": "zero false accepts on different negatives; source-clustered upper bounds",
+    "E3": "zero wrong-owner attributions"
+  },
+  "side_information": "Trusted enrolled continuous descriptors and owner/record lookup; not legal ownership or cryptographic authorization"
+}
