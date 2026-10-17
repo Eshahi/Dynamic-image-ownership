@@ -68,6 +68,7 @@ def exr_rgb(raw_path, ffmpeg):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--round3', action='store_true', help='40 evaluation sources, 60 prescribed pairs; remove EXRs after hashed canonical receipt')
     p.add_argument('--screen-dir', type=Path, required=True)
     p.add_argument('--chosen-method', choices=('e3-s1', 'f5-r2'), required=True)
     p.add_argument('--sources', type=Path, default=DOCS/'registry-fresh-development-selection.json')
@@ -87,14 +88,14 @@ def main():
         descriptor not in ('D1', 'D2') or screen.get('descriptors', {}).get(descriptor, {}).get('decision') != 'pass'):
         raise ValueError('Acquire only after a complete chosen-method registry screen pass')
     sources, near = read(a.sources), read(a.near_duplicates)
-    if len(sources['selected']) != 60 or len(near['selected']) != 20:
+    if len(sources['selected']) != (40 if a.round3 else 60) or len(near['selected']) != (60 if a.round3 else 20):
         raise ValueError('Frozen60 sources and20 pairs required')
     ids = [r['source_id'] for r in sources['selected']]
     if ids != sorted(set(ids)) or min(ids) <= 790:
         raise ValueError('Source ID ordering differs from frozen rule')
-    if [r['split'] for r in sources['selected']] != ['calibration']*20+['evaluation']*40:
+    if [r['split'] for r in sources['selected']] != (['evaluation']*40 if a.round3 else ['calibration']*20+['evaluation']*40):
         raise ValueError('Source split differs')
-    if [r['split'] for r in near['selected']] != ['calibration']*7+['evaluation']*13:
+    if [r['split'] for r in near['selected']] != (['evaluation']*60 if a.round3 else ['calibration']*7+['evaluation']*13):
         raise ValueError('Pair split differs')
     if not a.ffmpeg:
         raise ValueError('Existing ffmpeg nativeEXR decoder required; do not install automatically')
@@ -147,8 +148,33 @@ def main():
         with log.open('a', encoding='utf-8') as f:
             f.write(json.dumps(row, allow_nan=False)+'\n')
 
+    prepared = {}
+    urls = {}
+    if a.round3 and log.exists():
+        for line in log.read_text(encoding='utf-8').splitlines():
+            event = json.loads(line)
+            if event.get('kind') == 'prepared':
+                prepared[event['label']] = event['receipt']
+                urls[event['receipt']['url']] = event['receipt']
+
     def acquire(row, label, is_exr=False):
         nonlocal consumed
+        if a.round3 and label in prepared:
+            receipt = prepared[label]
+            if receipt['url'] != row['url'] or sha(Path(receipt['canonical_path']).read_bytes()) != receipt['canonical_png_sha256']:
+                raise ValueError('Resume receipt mismatch')
+            return receipt
+        if a.round3 and is_exr and row['url'] in urls:
+            prior = urls[row['url']]
+            dest = out/'canonical'/f'{label}-rgb512.png'
+            if not dest.exists():
+                shutil.copyfile(prior['canonical_path'], dest)
+            receipt = dict(prior, **row)
+            receipt['canonical_path'] = str(dest)
+            receipt['shared_source_frame'] = prior['canonical_path']
+            emit(dict(kind='prepared', label=label, receipt=receipt))
+            prepared[label] = receipt
+            return receipt
         raw_path = out/'raw'/f'{label}-{row["filename"]}'
         if not raw_path.exists():
             for attempt in range(3):
@@ -201,6 +227,11 @@ def main():
             rgb8_sha256=pixel_hash, canonicalization=canonicalization,
             raw_overlap=False, canonical_overlap=False, data_split='development-reserved', development_reserved=True)
         emit(dict(kind='prepared', label=label, receipt=receipt))
+        if a.round3:
+            prepared[label] = receipt
+            urls[row['url']] = receipt
+            if is_exr:
+                raw_path.unlink()
         print(f'prepared {label}: {len(raw)}bytes', flush=True)
         return receipt
 

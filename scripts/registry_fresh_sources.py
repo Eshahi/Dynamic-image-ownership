@@ -1,5 +1,6 @@
 """Metadata-only conditional Step 2b reservation; no network/image decoding."""
 from pathlib import Path
+import argparse
 import csv
 import hashlib
 import json
@@ -14,6 +15,9 @@ def digest(path):
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--round3', action='store_true')
+    args = parser.parse_args()
     prior_path = DOCS / 'fresh-development-selection.json'
     prior = json.loads(prior_path.read_text(encoding='utf-8'))
     ids, flickr, hashes = set(), set(), set(prior['raw_sha256_exclusions'])
@@ -44,6 +48,8 @@ def main():
 
     paths = [Path(x['path']) for x in prior['exclusion_inventories']]
     paths += [DOCS / 'fresh-development-inputs.json', prior_path]
+    if args.round3:
+        paths += [DOCS/'registry-fresh-development-selection.json', Path('W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/assets/registry-fresh-20261016/sources.json')]
     for path in paths:
         if path.suffix == '.csv':
             with path.open(encoding='utf-8-sig', newline='') as f:
@@ -59,12 +65,14 @@ def main():
     text = raw.decode('utf-8')
     start = re.search(r'"images"\s*:\s*', text).end()
     images, _ = json.JSONDecoder().raw_decode(text, start)
+    lower_bound = max(r['source_id'] for r in json.loads((DOCS/'registry-fresh-development-selection.json').read_text())['selected']) if args.round3 else 790
+    count = 40 if args.round3 else 60
     selected = []
     for image in sorted(images, key=lambda x: x['id']):
         source_id = image['id']
         hook = image.get('flickr_url', '')
         photo = re.search(r'/([0-9]+)_[^/]+\.', hook)
-        if source_id <= 790 or source_id in ids or image.get('license') != 4:
+        if source_id <= lower_bound or source_id in ids or image.get('license') != 4:
             continue
         if min(image['width'], image['height']) < 256 or not photo or photo.group(1) in flickr:
             continue
@@ -78,12 +86,12 @@ def main():
             flickr_attribution_hook=hook, flickr_photo_id=photo.group(1),
             width=image['width'], height=image['height'], raw_sha256=None,
             size_bytes=None, development_reserved=True,
-            split='calibration' if len(selected) < 20 else 'evaluation',
+            split='evaluation' if args.round3 else ('calibration' if len(selected) < 20 else 'evaluation'),
             data_split='development-reserved', canonical_path=None))
         flickr.add(photo.group(1))
-        if len(selected) == 60:
+        if len(selected) == count:
             break
-    if len(selected) != 60:
+    if len(selected) != count:
         raise ValueError('fewer than sixty eligible metadata identities')
     output = dict(schema='registry-fresh-development-selection-metadata-v1', prepared_date='2026-10-16',
         status='conditional Step2b metadata-only; no source downloads or scientific access',
@@ -96,7 +104,9 @@ def main():
         pending_before_decode='Compare acquired raw SHA256 with every recorded exclusion before decode. Retain exact duplicates as excluded and advance to the next eligible ascending ID by the same rule. No outcome-based replacements.',
         selected=selected, images_downloaded=0, image_bodies_opened=0,
         metadata_fields_parsed='images only; captions/categories/outcomes not parsed')
-    target = DOCS / 'registry-fresh-development-selection.json'
+    if args.round3:
+        output.update(prepared_date='2026-10-17', status='round3 metadata-only', selection_rule=f'Next {count} eligible ascending train2017 IDs strictly >{lower_bound}; unchanged original rule; all evaluation.')
+    target = DOCS / ('round3-development-selection.json' if args.round3 else 'registry-fresh-development-selection.json')
     if target.exists() and json.loads(target.read_text())['status'] != output['status']:
         raise ValueError('refuse to overwrite an acquired/scientifically consulted inventory')
     with target.open('w', encoding='utf-8') as f:

@@ -22,6 +22,7 @@ from registry_step1_transfer import ALPHA,BETA,SD21,STRENGTHS,SEEDS,journal,read
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--round3-evaluation-only', action='store_true', help='Authorized fixed 40-source round3 data cohort; no calibration')
     p.add_argument('--phase',choices=('embed','sd15','sd21'),required=True)
     p.add_argument('--sources',type=Path,required=True)
     p.add_argument('--screen-dir',type=Path,required=True)
@@ -43,10 +44,11 @@ def main():
     manifest = read(a.sources)
     sources = manifest if isinstance(manifest,list) else manifest.get('sources',manifest.get('selected'))
     sources = copy.deepcopy(sources)
-    if len(sources) != 60 or len({s['source_id'] for s in sources}) != 60:
+    expected_count = 40 if a.round3_evaluation_only else 60
+    if len(sources) != expected_count or len({s['source_id'] for s in sources}) != expected_count:
         raise ValueError('Exactly sixty distinct development sources required')
     for i,s in enumerate(sources):
-        expected = 'calibration' if i < 20 else 'evaluation'
+        expected = 'evaluation' if a.round3_evaluation_only else ('calibration' if i < 20 else 'evaluation')
         supplied_split = s.get('registry_split',s.get('split'))
         if supplied_split is not None and supplied_split != expected:
             raise ValueError('First20 calibration,last40 evaluation order differs')
@@ -62,7 +64,7 @@ def main():
     config = dict(sources_path=str(a.sources.resolve()),sources=sources,screen_dir=str(a.screen_dir.resolve()),
         screen_commit=screen['commit'],chosen_method=a.chosen_method,selected_descriptor=selected,
         strengths=list(STRENGTHS),seeds=list(SEEDS),steps=20,prompt='',negative_prompt='',guidance_scale=1.,eta=0.,
-        sd21_assets=str(a.sd21_assets.resolve()),split='first20 calibration,last40 evaluation',
+        sd21_assets=str(a.sd21_assets.resolve()),split='round3 all40 evaluation' if a.round3_evaluation_only else 'first20 calibration,last40 evaluation',
         side_information='trusted enrolled reference descriptors, owner and registry record lookup',
         quality_matched=False,human_admissibility='missing',cap_seconds=a.max_seconds)
     if (out/'run.json').exists():

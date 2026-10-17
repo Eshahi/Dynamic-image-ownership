@@ -45,6 +45,7 @@ def score_availability(left,right):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--round3-evaluation-only', action='store_true')
     p.add_argument('--phase',choices=('calibrate','evaluate'),required=True)
     p.add_argument('--fresh-dir',type=Path,required=True)
     p.add_argument('--near-duplicates',type=Path,required=True,help='Acquired receipt with pairs/selected rows, split,left_path,right_path')
@@ -63,11 +64,14 @@ def main():
     if chosen not in ('D1','D2'):
         raise ValueError('Use the descriptor already selected by step2a')
     cohort = fresh['sources']
-    if len(cohort) != 60 or sum(s['registry_split'] == 'calibration' for s in cohort) != 20 or sum(s['registry_split'] == 'evaluation' for s in cohort) != 40:
+    if a.round3_evaluation_only and a.phase != 'evaluate':
+        raise ValueError('Round3 cannot calibrate')
+    expected_calibration = 0 if a.round3_evaluation_only else 20
+    if len(cohort) != expected_calibration + 40 or sum(s['registry_split'] == 'calibration' for s in cohort) != expected_calibration or sum(s['registry_split'] == 'evaluation' for s in cohort) != 40:
         raise ValueError('Frozen20/40 split required')
     near = read(a.near_duplicates)
     pairs = near if isinstance(near,list) else near.get('pairs',near.get('selected'))
-    if len(pairs) < 20 or sum(p['split'] == 'calibration' for p in pairs) < 7 or sum(p['split'] == 'evaluation' for p in pairs) < 13:
+    if (a.round3_evaluation_only and (len(pairs) != 60 or any(p['split'] != 'evaluation' for p in pairs))) or (not a.round3_evaluation_only and (len(pairs) < 20 or sum(p['split'] == 'calibration' for p in pairs) < 7 or sum(p['split'] == 'evaluation' for p in pairs) < 13)):
         raise ValueError('At least7 calibration and13 evaluation real near-duplicate pairs required')
     split = 'calibration' if a.phase == 'calibrate' else 'evaluation'
     sources = sorted((s for s in cohort if s['registry_split'] == split),key=lambda s:s['source_id'])
