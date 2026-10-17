@@ -103,7 +103,8 @@ def build(F, C):
             near.append(dict(family="look_alike", cluster=f"near:{nid}", id=nid, missing=True))
     for seed in C.sib_seeds:
         ims = [Image.fromarray(np.clip(np.asarray(tf.scene(seed, 512, 512, 12.0, d)), 0, 255).astype(np.uint8)).convert("RGB") for d in (11, 12)]
-        neg.append(dict(family="synthetic_sibling", cluster=f"sib:{seed}", **score(F, f"sib{seed}-12", f"sib{seed}-11", ims[1], ims[0])))
+        neg.append(dict(family="synthetic_sibling", cluster=f"sib:{seed}", psnr=psnr(ims[1], ims[0]),
+                        **score(F, f"sib{seed}-12", f"sib{seed}-11", ims[1], ims[0])))
     return pos, neg, near
 
 
@@ -256,6 +257,25 @@ def main():
         fa = sum(v["accepts"] for k, v in r3["negatives"].items() if k != "look_alike_ambiguous")
         key = "F_R_source_majority" if pointer is not None else "source_majority"
         passed = all(r3["cells"][f"{m}/0.2"][key] >= int(np.ceil(0.9 * len(a.sources))) for m in MODELS) and fa == 0
+        # Approved held-out plan view (user decision 2026-10-17): the distance definition applies to synthetic
+        # look-alikes too; ambiguous pairs (real or synthetic) are reported, never scored. E1 uses the one-sided
+        # 95% Clopper-Pearson lower bound >= .85 at strength .2 on each regenerator; E2 needs zero false accepts
+        # on non-ambiguous negatives. E3 (attribution scenario) is computed by the enrollment analysis.
+        from scipy.stats import beta as _beta
+        cut = fr["psnr_cutoff_primary"]
+        neg_plan = [dict(r, family=("synthetic_different" if r["psnr"] < cut else "synthetic_ambiguous"))
+                    if r["family"] == "synthetic_sibling" else r for r in neg]
+        plan = report(pos, neg_plan, near_cls, {"round3": rules["round3"]}, pointer)["round3"]
+        n = len(a.sources)
+        e1 = {}
+        for m in MODELS:
+            k = plan["cells"][f"{m}/0.2"][key]
+            lb = float(_beta.ppf(0.05, k, n - k + 1)) if k > 0 else 0.0
+            e1[m] = dict(successes=k, n=n, clopper_pearson_lower_95=lb, pass_=lb >= 0.85)
+        e2 = {f: v["accepts"] for f, v in plan["negatives"].items() if not f.endswith("_ambiguous")}
+        res.update(plan_view=dict(negatives=plan["negatives"], E1=e1, E2_false_accepts_by_family=e2,
+                                  E2_total=sum(e2.values()), E1_E2_pass=all(v["pass_"] for v in e1.values()) and sum(e2.values()) == 0,
+                                  synthetic_psnr={r["cluster"]: r["psnr"] for r in neg if r["family"] == "synthetic_sibling"}))
         res.update(frozen=fr, evaluation_sources=a.sources, evaluation_look_alikes=a.near, pointer_rows=None if pointer is None else len(pointer),
                    summary=summ, secondary_definition=report(pos, neg, near_sec, {"round3": rules["round3"]}, pointer),
                    look_alike_psnr={r["id"]: r.get("psnr") for r in near_cls},
