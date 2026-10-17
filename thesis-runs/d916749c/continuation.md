@@ -119,3 +119,8 @@ Saved-pixel diagnosis separates reissue accumulation, transport and content drif
 
 ## 2026-10-14: native common-message comparison
 E3 and official WAM now share evaluator-only exact q recovery on six fixed consulted development sources. Clean eligibility passes all 36 calls; both primary methods and two WAM control-message arms pass strict quality/exact 6/6. All 108 T3 images and 144 reads complete in 151.406 s. E3 Q/J is 18/18 at .1/.2; WAM Q is 3/18 and 0/18; E3 H/F remain zero. All tested negative matches are zero. Fresh Astra/high review PASS, no blockers; five tests pass. Unequal distortion, coding and optimized SD1.5 limit the claim. Next: independent transfer and controlled quality/error design. All children exited; no paid or held-out work.
+
+
+## 2026-10-17 ? Steps 1 and 2 complete
+
+F5 r2 wins the fixed selection rule: E3 and F5 tie at 24/24 on SD2.1 .2. H-free M2 retains the .2 gain; a .1 advantage is not established. Fresh D1 fails: 30/40 and 32/40 majority F_R at .2, below 36/40, with frozen tau .586548254817741. Near-pair fingerprint accepts are 4/13; registry 0/13 uses unmarked pairs without pointer candidates. Competing-enrollment .2 exact/further attribution is 28/20 and 32/22 of 40. Independent review finds no blockers to this bounded negative report; warnings are clarified. Step 2 charges 9601.484 seconds. No held-out run; stop for the user's research-direction decision.

@@ -11,7 +11,7 @@
 | sd21/0.2 | 96/120 | 32/40 | 96/120 | 32/40 |
 | sd21/0.4 | 23/120 | 8/40 | 26/120 | 9/40 |
 
-At .2, the deficits to the fixed 36/40 criterion are 6 sources for SD1.5 and 4 for SD2.1. Real near-duplicate fingerprint false accepts: 4/13; pointer-plus-registry false accepts: 0/13. This panel has 11 finite cosines, 2 verified native abstentions and 0 unknown comparisons. These observed controls do not establish a population false-positive rate.
+At .2, the deficits to the fixed 36/40 criterion are 6 sources for SD1.5 and 4 for SD2.1. Real near-duplicate fingerprint false accepts: 4/13; pointer-plus-registry false accepts: 0/13. This panel has 11 finite cosines, 2 verified native abstentions and 0 unknown comparisons. All 13 near-pair evaluation rows have pointer_candidate=false: these are original unmarked frames in a 1:1 descriptor panel, not a fully enrolled marked 1:N near-duplicate database. Zero registry accepts therefore does not establish instance discrimination conditional on a valid pointer. These observed controls do not establish a population false-positive rate.
 
 Screen status: **screen_pass_hypothesis**. Chosen step-1 method: **f5-r2**. Descriptor selected by the fixed D1-then-D2 rule: **D1**. Advance to fresh calibration/evaluation: **yes**.
 
@@ -269,7 +269,7 @@ A planned registry slot can lack a searchable descriptor. Unique alpha attributi
 | evaluate | input_unavailable | 6 |
 | evaluate | ok | 186 |
 
-Available descriptor-bearing records per observed query: minimum 46, maximum 48; planned N is not silently substituted for availability.
+Available descriptor containers per observed query: minimum 46, maximum 48; planned N is not silently substituted for availability. Container availability is not D1 searchability; use the per-descriptor searchable counts above.
 
 ## Fresh construction and native-control availability
 
@@ -518,7 +518,7 @@ A planned registry slot can lack a searchable descriptor. Unique alpha attributi
 | evaluate | input_unavailable | 4 |
 | evaluate | ok | 316 |
 
-Available descriptor-bearing records per observed query: minimum 78, maximum 80; planned N is not silently substituted for availability.
+Available descriptor containers per observed query: minimum 78, maximum 80; planned N is not silently substituted for availability. Container availability is not D1 searchability; use the per-descriptor searchable counts above.
 
 ## Execution accounting and interruptions
 

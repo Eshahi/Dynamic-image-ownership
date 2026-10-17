@@ -116,6 +116,7 @@ def step1(run_dir):
     row_counts = Counter((r.get('phase'),r.get('arm',r.get('method')),r.get('status')) for r in latest_rows(run_dir/'rows.jsonl'))
     lines += [table(['Phase','Arm or method','Latest status','Rows'],[(p,m,s,n) for (p,m,s),n in sorted(row_counts.items(),key=lambda x:str(x[0]))]),
         f'SD2.1 VAE comparison: `{fmt(run.get("sd21_vae_comparison"))}`.', '',
+        'Protocol deviation: the promised encoder-only tensor comparison was not recorded. Encoder sharing remains unresolved; unequal full VAE states do not establish unequal encoders or independent encoding ancestry.', '',
         f'Regenerator configuration and safety-checker presence: `{fmt(run.get("regenerators"))}`. '
         'SD1.5 retains its frozen safety checker; SD2.1 has none. Missing or blocked outputs are not silently rerun without safety checks.', '',
         'SDXL full generation was omitted prospectively in unseen-regenerator-protocol.md because safe fit was not established on the shared 12 GB desktop GPU. This is a conservative feasibility decision, not a measured out-of-memory result. The SDXL VAE control remains in step 2. '
@@ -176,8 +177,8 @@ def scenario_section(directory, heading='Regenerate-and-enroll scenario'):
     statuses = Counter((r.get('phase'),r.get('status')) for r in observations)
     available = [r['registry_available_records'] for r in observations if 'registry_available_records' in r]
     lines += [table(['Phase','Status','Rows'],[(phase,status,n) for (phase,status),n in sorted(statuses.items(),key=lambda x:str(x[0]))]),
-        f'Available descriptor-bearing records per observed query: minimum {fmt(min(available) if available else None)}, '
-        f'maximum {fmt(max(available) if available else None)}; planned N is not silently substituted for availability.', '']
+        f'Available descriptor containers per observed query: minimum {fmt(min(available) if available else None)}, '
+        f'maximum {fmt(max(available) if available else None)}; planned N is not silently substituted for availability. Container availability is not D1 searchability; use the per-descriptor searchable counts above.', '']
     return lines
 
 
@@ -329,7 +330,7 @@ def fresh_primary_evaluation_lead(fresh):
         f'{fraction(near.get("registry_false_accepts"),near.get("planned"))}. '
         f'This panel has {fmt(near.get("observed"))} finite cosines, '
         f'{fmt(near.get("verified_native_weak_detail_abstentions"))} verified native abstentions and '
-        f'{fmt(near.get("unknown"))} unknown comparisons. These observed controls do not establish a population false-positive rate.', '']
+        f'{fmt(near.get("unknown"))} unknown comparisons. All 13 near-pair evaluation rows have pointer_candidate=false: these are original unmarked frames in a 1:1 descriptor panel, not a fully enrolled marked 1:N near-duplicate database. Zero registry accepts therefore does not establish instance discrimination conditional on a valid pointer. These observed controls do not establish a population false-positive rate.', '']
     return lines
 
 
