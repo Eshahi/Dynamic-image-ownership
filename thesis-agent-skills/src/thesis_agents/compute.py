@@ -192,6 +192,44 @@ def process_alive(pid):
         raise ContractError("Cannot establish that the prior child is inactive") from None
 
 
+def process_start_token(pid):
+    """OS birth identity; PID alone is unsafe after process recycling or reboot."""
+    if not isinstance(pid, int) or pid <= 0:
+        raise ContractError("Invalid persisted child process identity")
+    if os.name == "nt":
+        import ctypes
+        from ctypes import wintypes
+        kernel = ctypes.WinDLL("kernel32", use_last_error=True)
+        kernel.OpenProcess.argtypes = (wintypes.DWORD, wintypes.BOOL, wintypes.DWORD)
+        kernel.OpenProcess.restype = wintypes.HANDLE
+        kernel.GetProcessTimes.argtypes = (wintypes.HANDLE,) + (ctypes.POINTER(wintypes.FILETIME),) * 4
+        kernel.GetProcessTimes.restype = wintypes.BOOL
+        kernel.CloseHandle.argtypes = (wintypes.HANDLE,)
+        handle = kernel.OpenProcess(0x1000, False, pid)
+        if not handle:
+            if ctypes.get_last_error() == 87:
+                return None
+            raise ContractError("Cannot query child process birth identity")
+        try:
+            creation, exit_time, kernel_time, user_time = (wintypes.FILETIME() for _ in range(4))
+            if not kernel.GetProcessTimes(handle, *(ctypes.byref(x) for x in (creation, exit_time, kernel_time, user_time))):
+                raise ContractError("Cannot query child process birth identity")
+            return "win32:" + str((creation.dwHighDateTime << 32) | creation.dwLowDateTime)
+        finally:
+            kernel.CloseHandle(handle)
+    try:
+        # Field 22 follows the parenthesized command, which can contain spaces.
+        fields = Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()
+        boot = Path("/proc/sys/kernel/random/boot_id").read_text().strip()
+        return "linux:" + boot + ":" + fields[19]
+    except FileNotFoundError:
+        if not process_alive(pid):
+            return None
+        raise ContractError("Cannot query child process birth identity") from None
+    except (OSError, IndexError):
+        raise ContractError("Cannot query child process birth identity") from None
+
+
 def local_artifact_directory(path, manifest, resume):
     """Hold an OS lock across execution; preserve every preceding attempt."""
     out = Path(path)
@@ -223,12 +261,20 @@ def local_artifact_directory(path, manifest, resume):
                 raise ContractError("Prior child launch state is uncertain; resume refused")
             child = state.get("child_pid")
             if child is not None and process_alive(child):
-                raise ContractError("Prior child process is still active; resume refused")
+                prior_token = state.get("child_start_token")
+                current_token = process_start_token(child)
+                if not prior_token or not current_token:
+                    raise ContractError("Prior child birth identity is uncertain; resume refused")
+                if prior_token == current_token:
+                    raise ContractError("Prior child process is still active; resume refused")
+                # Same PID with a different birth token is an unrelated process.
             attempts = out / "attempts"
             attempts.mkdir(exist_ok=True)
             number = 1
             while (attempts / f"attempt-{number:03d}").exists():
                 number += 1
+            if any(d.get("split") in ("test", "heldout", "held-out") for d in manifest.get("datasets", [])) and number > 2:
+                raise ContractError("Held-out resume limit of two attempts reached")
             archive = fresh_dir(attempts / f"attempt-{number:03d}")
             for name in ("manifest.json", "dispatcher-state.json", "logs/process.log", "summary.md"):
                 src = out / name
@@ -298,7 +344,7 @@ def dispatch(m,repo,artifact_root,execute=False,approval=None,target=None,provid
             proc = None
             try:
                 proc=subprocess.Popen(command,cwd=repo,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,encoding="utf-8",errors="replace",env=safe_env())
-                write(out/"dispatcher-state.json", {"dispatcher_pid": os.getpid(), "child_pid": proc.pid, "status": "running"}, True)
+                write(out/"dispatcher-state.json", {"dispatcher_pid": os.getpid(), "child_pid": proc.pid, "child_start_token": process_start_token(proc.pid), "status": "running"}, True)
                 stdout, stderr = proc.communicate(timeout=m["budget"]["max_seconds"])
             except BaseException:
                 if proc is not None:

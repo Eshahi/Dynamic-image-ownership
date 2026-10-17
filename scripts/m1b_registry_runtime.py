@@ -65,7 +65,7 @@ def scientific_core(plan, read_bytes=None):
     import m1b_coco512_worker as W
     rb=read_bytes or (lambda p:resolve(p).read_bytes())
     code=W.code_closure(read=lambda p: rb(p).decode() if resolve(p).is_file() else None)
-    code += ["thesis-agent-skills/src/thesis_agents/compute.py", "thesis-agent-skills/skills/thesis-compute-runner/scripts/_runtime/thesis_agents/compute.py"]
+    code += ["scripts/m1b_registry_scorer.py", "thesis-agent-skills/src/thesis_agents/compute.py", "thesis-agent-skills/skills/thesis-compute-runner/scripts/_runtime/thesis_agents/compute.py"]
     core=dict(protocol=PROTOCOL, science_digest=W.object_digest({k:v for k,v in plan.items() if k not in ("max_wall_seconds","approval_path","fault_injection","label")}),code_sha256={p:W.sha_bytes(rb(p)) for p in sorted(set(code))},data_sha256={p:W.sha_bytes(rb(p)) for p in data_files(plan)})
     core["core_sha256"]=W.object_digest(core)
     return core
@@ -188,17 +188,22 @@ def run(manifest,plan,out,runtime_factory=Runtime):
         return dict(image=str(p.resolve()),**fields)
     save()
     try:
-        budget();rt=runtime_factory(plan);rt.budget=budget
+        budget()
+        # Approval-gated footage preflight must precede Runtime's network block.
+        from m1b_registry_footage import prepare_near
+        near=prepare_near(plan,out,budget,heldout_authorized=plan['data_split']=='test')
+        rt=runtime_factory(plan);rt.budget=budget
         for s in sources:
             sid=s['source_id']
             def canon(s=s,sid=sid):
-                from m1b_canonical_source import registry_canonical
-                rgb,receipt=registry_canonical(s,plan['data_split'],plan['data_split']=='test')
+                from m1b_canonical_source import registry_canonical, CanonicalScientificFailure
+                try:
+                    rgb,receipt=registry_canonical(s,plan['data_split'],plan['data_split']=='test')
+                except CanonicalScientificFailure as error:
+                    raise ScientificFailure(str(error)) from error
                 return store(rgb,f'canon:{sid}',canonicalization=receipt)
             unit(f'canon:{sid}',canon,source_id=sid)
-        # Development pairs are admitted by exact metadata equality; test acquisition is approval-gated here.
-        from m1b_registry_footage import prepare_near
-        near=prepare_near(plan,out,budget,heldout_authorized=plan['data_split']=='test')
+        # Preflight-selected pairs are now journaled after source canonicalization.
         for pair in near:
             for side in (0,1):
                 unit(f"near:{pair['pair_id']}:{side}",lambda pair=pair,side=side:dict(image=pair['left_path' if side==0 else 'right_path']),pair_id=pair['pair_id'])

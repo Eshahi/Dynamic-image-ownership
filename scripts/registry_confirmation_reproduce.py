@@ -31,7 +31,7 @@ def main():
     for p in m["descriptor_indexes"]:
         if Path(p).resolve().parent != expected["analysis_dir"].resolve():
             raise ValueError("Unexpected descriptor path")
-    cmd = [sys.executable, str(ROOT / "scripts/claude_round3_two_factor.py"), "--mode", "evaluate",
+    cmd = [sys.executable, str(ROOT / "scripts/m1b_registry_scorer.py"), "--mode", "evaluate",
            "--frozen", str(ROOT / "research/claude-round3-frozen-20261017.json"),
            "--output-dir", str(a.output_dir), "--fresh-dir", m["fresh_dir"],
            "--canonical-dir", m["canonical_dir"], "--pointer-scores", m["pointer_scores"],
@@ -49,6 +49,8 @@ def main():
         assert s["negatives"][family]["accepts"] == 0
     assert s["negatives"]["synthetic_sibling"]["accepted_clusters"] == ["sib:11", "sib:12"]
     assert r["plan_view"]["E1_E2_pass"] is True
+    assert r["plan_view"]["negatives"]["synthetic_ambiguous"]["accepted_clusters"] == ["sib:11", "sib:12"]
+    assert r["plan_view"]["E2_total"] == 0
     (a.output_dir / "reproduction-checks.json").write_text(json.dumps({"status": "passed", "scope": "round3 development only", "synthetic_ambiguity": "plan_view classifies accepted synthetic pairs as ambiguous"}, indent=2) + "\n")
 
 if __name__ == "__main__": main()

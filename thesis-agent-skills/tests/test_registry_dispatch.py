@@ -259,5 +259,70 @@ def validate_plan(plan, repo):
                          (BUNDLE / "skills/thesis-compute-runner/scripts/_runtime/thesis_agents/compute.py").read_bytes())
 
 
+
+class ProcessIdentityTests(unittest.TestCase):
+    def setUp(self):
+        from thesis_agents.common import object_digest
+        self.temp = tempfile.TemporaryDirectory(prefix="process-identity-")
+        self.addCleanup(self.temp.cleanup)
+        self.out = Path(self.temp.name)
+        self.manifest = dict(run_id="synthetic", datasets=[dict(split="development")])
+        self.digest = object_digest
+        self.reset()
+
+    def reset(self, **state):
+        (self.out / "execution-manifest.json").write_text(json.dumps(self.manifest))
+        (self.out / "manifest.json").write_text(json.dumps(dict(run_id="synthetic", status="failed", execution_manifest_sha256=self.digest(self.manifest))))
+        (self.out / "dispatcher-state.json").write_text(json.dumps(dict(status="exited", child_pid=None, **state)))
+
+    def reopen(self):
+        _, lock = local_artifact_directory(self.out, self.manifest, True)
+        lock.close()
+
+    def test_os_birth_token_is_stable_for_current_process(self):
+        import os
+        from thesis_agents.compute import process_start_token
+        token = process_start_token(os.getpid())
+        self.assertTrue(token)
+        self.assertEqual(token, process_start_token(os.getpid()))
+
+    def test_matching_live_birth_identity_refuses_resume(self):
+        (self.out / "dispatcher-state.json").write_text(json.dumps(dict(status="running", child_pid=123, child_start_token="birth-a")))
+        with patch("thesis_agents.compute.process_alive", return_value=True), patch("thesis_agents.compute.process_start_token", return_value="birth-a"):
+            with self.assertRaisesRegex(ContractError, "still active"):
+                self.reopen()
+
+    def test_recycled_pid_birth_identity_allows_resume(self):
+        (self.out / "dispatcher-state.json").write_text(json.dumps(dict(status="running", child_pid=123, child_start_token="before-reboot")))
+        with patch("thesis_agents.compute.process_alive", return_value=True), patch("thesis_agents.compute.process_start_token", return_value="after-reboot"):
+            self.reopen()
+        self.assertTrue((self.out / "attempts/attempt-001").is_dir())
+
+    def test_unknown_legacy_live_identity_is_conservative(self):
+        (self.out / "dispatcher-state.json").write_text(json.dumps(dict(status="running", child_pid=123)))
+        with patch("thesis_agents.compute.process_alive", return_value=True), patch("thesis_agents.compute.process_start_token", return_value="known-now"):
+            with self.assertRaisesRegex(ContractError, "identity is uncertain"):
+                self.reopen()
+
+    def test_absent_prior_pid_allows_resume_without_birth_query(self):
+        (self.out / "dispatcher-state.json").write_text(json.dumps(dict(status="running", child_pid=123)))
+        with patch("thesis_agents.compute.process_alive", return_value=False), patch("thesis_agents.compute.process_start_token", side_effect=AssertionError("dead PID queried")):
+            self.reopen()
+
+    def test_test_resumes_capped_at_two(self):
+        self.manifest["datasets"] = [dict(split="test")]
+        self.reset()
+        self.reopen()
+        self.reopen()
+        with self.assertRaisesRegex(ContractError, "limit of two"):
+            self.reopen()
+        self.assertFalse((self.out / "attempts/attempt-003").exists())
+
+    def test_development_resumes_uncapped(self):
+        for _ in range(4):
+            self.reopen()
+        self.assertTrue((self.out / "attempts/attempt-004").exists())
+
+
 if __name__ == "__main__":
     unittest.main()

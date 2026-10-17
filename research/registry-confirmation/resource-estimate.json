@@ -1,0 +1,60 @@
+{
+  "basis": "development only; phase-linear plus conservative quadratic scorer extrapolation",
+  "run": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\registry-package\\artifacts\\M1b-development\\registry-rehearsal-02",
+  "source_n": 8,
+  "phases": {
+    "canon": {
+      "units": 8,
+      "seconds": 0.2969999999999118
+    },
+    "near": {
+      "units": 12,
+      "seconds": 0.0
+    },
+    "embed": {
+      "units": 8,
+      "seconds": 312.328
+    },
+    "enroll": {
+      "units": 8,
+      "seconds": 0.047000000000025466
+    },
+    "t3": {
+      "units": 288,
+      "seconds": 112.98300000000086
+    },
+    "scenario": {
+      "units": 32,
+      "seconds": 13.875999999999294
+    },
+    "t4": {
+      "units": 16,
+      "seconds": 13.359000000000151
+    },
+    "native": {
+      "units": 728,
+      "seconds": 548.1250000000011
+    },
+    "descriptor": {
+      "units": 364,
+      "seconds": 70.68499999999949
+    }
+  },
+  "measured_compute_seconds": 1170.031,
+  "full_linear_seconds": 40188.75000000003,
+  "full_scoring_seconds": 4112.112500000006,
+  "full_estimate_hours": 12.305795138888898,
+  "planning_hours_with_25pct_margin": 15.382243923611123,
+  "exceeds_16_hours": false,
+  "unique_rehearsal_bytes": 178363731,
+  "full_disk_gib": 10.786601679981686,
+  "registry_descriptor_mib": 21.235084533691406,
+  "free_disk_gib": 174.89141464233398,
+  "limitations": [
+    "Eight development sources may not represent DIV2K costs.",
+    "Scorer extrapolation scales fixed overhead and is deliberately conservative.",
+    "Reboot downtime and an interrupted unfinished unit add elapsed time.",
+    "Acronis automatic reboot at 07:04 on 2026-10-17 reported by user.",
+    "Model weights are referenced in place; no copied weights in estimate."
+  ]
+}

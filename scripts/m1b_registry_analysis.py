@@ -154,12 +154,13 @@ def analyze(out, plan, sources):
     negative_unknown = sum(s['missing'] for s in negatives.values())
     result = dict(schema='m1b-registry-endpoints-v1', scorer_attempt=str(attempt),
                   side_information='Trusted registry of owner/record/q and continuous D1+B1 descriptors; native owner-key calls.',
+                  plan_view_E1_E2_pass=view['E1_E2_pass'],
                   E1=view['E1'], E2=dict(families=negatives, false_accepts=view['E2_total'], missing_rows=missing,
                                       unknown_pairs=negative_unknown, pass_=view['E2_total'] == 0 and not missing and not negative_unknown),
                   E3=e3, unknown_primary_seeds=scorer_unknown,
                   quality=[dict(source_id=sid, quality=rows.get(f'embed:{sid}', {}).get('quality')) for sid in ids],
                   supplemental=scored['summary'])
-    result['pass_'] = all(v['pass_'] for v in result['E1'].values()) and result['E2']['pass_'] and e3['pass_'] and not scorer_unknown
+    result['pass_'] = view['E1_E2_pass'] and result['E2']['pass_'] and e3['pass_'] and not scorer_unknown
     (out / 'metrics').mkdir(exist_ok=True)
     (out / 'metrics/endpoints.json').write_text(json.dumps(result, indent=2) + '\n')
     return result

@@ -75,7 +75,7 @@ def evaluate(out, plan, sources):
         frozen = frozen.get('path')
     if not frozen:
         raise ValueError('plan must pin frozen threshold file')
-    command = [sys.executable, str(ROOT / 'scripts/claude_round3_two_factor.py'), '--mode', 'evaluate',
+    command = [sys.executable, str(ROOT / 'scripts/m1b_registry_scorer.py'), '--mode', 'evaluate',
                '--frozen', str(frozen), '--output-dir', str(attempt / 'scoring'),
                '--fresh-dir', str(fresh), '--canonical-dir', str(canon), '--index', str(attempt / 'descriptor-index.json'),
                '--pointer-scores', str(attempt / 'pointer-scores.json'), '--t4-glob', str(fresh / 'T4-*.png'),

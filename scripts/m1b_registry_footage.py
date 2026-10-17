@@ -39,6 +39,9 @@ def prepare_near(plan,out,budget,heldout_authorized=False):
                             budget();chunk=response.read(1024*1024)
                             if not chunk:break
                             state['downloaded_bytes']+=len(chunk)
+                            # Persist bytes received before writing: interrupted attempts
+                            # remain charged against the cumulative acquisition cap.
+                            atomic_json(history,state)
                             if state['downloaded_bytes']>3*2**30:raise RuntimeError('Frozen3GiB incremental acquisition cap reached')
                             h.write(chunk)
                     part.replace(raw)
@@ -50,6 +53,9 @@ def prepare_near(plan,out,budget,heldout_authorized=False):
             record=dict(shot=name,frames=frames,excluded_duplicate=duplicate)
             state['shots'][name]=record;atomic_json(history,state)
         if record['excluded_duplicate']:continue
+        for frame in record['frames']:
+            if not Path(frame['canonical_path']).is_file():
+                raise FileNotFoundError('Receipted canonical frame missing: '+frame['canonical_path'])
         # Within-shot shared reference frame is expected; cross-shot duplication is excluded.
         used.update(f['rgb8_sha256'] for f in record['frames'])
         for j,offset in enumerate((72,144,288),1):

@@ -426,13 +426,13 @@ class Journal:
         self.rows: dict[str, dict] = {}
         self.torn_lines = 0
         if self.path.exists():
-            lines = self.path.read_text(encoding="utf-8").splitlines()
+            lines = self.path.read_bytes().splitlines()
             for i, line in enumerate(lines):
                 if not line.strip():
                     continue
                 try:
                     row = json.loads(line)
-                except json.JSONDecodeError:
+                except (json.JSONDecodeError, UnicodeDecodeError):
                     if i != len(lines) - 1:
                         raise ValueError("journal corrupted before its last line")
                     self.torn_lines += 1  # an interrupted final append; that unit runs again
@@ -442,7 +442,7 @@ class Journal:
                 self.rows[row["id"]] = row
             if self.torn_lines:
                 good = [ln for ln in lines[:-1] if ln.strip()]
-                fsync_write(self.path, "".join(ln + "\n" for ln in good).encode("utf-8"))
+                fsync_write(self.path, b"".join(ln + b"\n" for ln in good))
 
     def __contains__(self, rid: str) -> bool:
         return rid in self.rows

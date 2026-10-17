@@ -17,6 +17,10 @@ VERSION = "m1b-canonical-rgb512-v2"
 CONVERTIBLE = ("L", "P", "CMYK", "YCbCr")
 
 
+class CanonicalScientificFailure(ValueError):
+    """Verified source bytes cannot be decoded under the frozen image policy."""
+
+
 def canonicalize(raw: bytes, expected_sha256: str):
     if type(raw) is not bytes or not raw:
         raise ValueError("Nonempty immutable source bytes required")
@@ -62,4 +66,17 @@ def registry_canonical(source, data_split, heldout_authorized=False):
     if data_split == "test" and not heldout_authorized:
         raise PermissionError("Held-out pixels refused before approval")
     from pathlib import Path
-    return canonicalize(Path(source["raw_path"]).read_bytes(), source["raw_sha256"])
+    raw = Path(source["raw_path"]).read_bytes()
+    # Missing files and identity mismatches remain infrastructure/integrity errors.
+    if hashlib.sha256(raw).hexdigest() != source["raw_sha256"]:
+        raise ValueError("Source hash mismatch before decoding")
+    from PIL import ImageCms
+    try:
+        return canonicalize(raw, source["raw_sha256"])
+    except (ValueError, ImageCms.PyCMSError) as error:
+        raise CanonicalScientificFailure(str(error)) from error
+    except OSError as error:
+        # Pillow decoder failures have no OS errno; filesystem/resource errors do.
+        if error.errno is not None:
+            raise
+        raise CanonicalScientificFailure(str(error)) from error
