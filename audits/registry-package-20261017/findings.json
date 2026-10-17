@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "reviewer": "Astra independent reviewer",
+  "author": "Codex agent",
+  "approval": "not-granted",
+  "status": "provisional; final artifacts pending",
+  "reviewed_base": "5874385",
+  "reviewed_head": "358be77",
+  "blocking": [
+    {
+      "severity": "blocking",
+      "code": "pending-recovery",
+      "message": "Known canonical decode / missing canonical scorer path / multibyte torn-journal recovery gaps must be resolved; fixes are being authored separately."
+    },
+    {
+      "severity": "blocking",
+      "code": "pending-final-artifacts",
+      "message": "Full eight-source/six-pair dispatcher rehearsal, final exact manifest/core and measured runtime/disk package not yet supplied."
+    }
+  ],
+  "non_blocking": [
+    {
+      "severity": "non-blocking",
+      "code": "stale-status",
+      "message": "package-status.md still describes the pre-clarification handoff; replace it with final package status."
+    },
+    {
+      "severity": "non-blocking",
+      "code": "scope",
+      "message": "The trusted registry and native owner-key calls are added detector side information. Metadata exclusion cannot establish undocumented external exposure; held-out preflight remains future work."
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "PKG-01",
+      "classification": "verified",
+      "support": [
+        "git object comparison: 558239d",
+        "research/registry-confirmation/source-pins.json"
+      ],
+      "contradictions": [],
+      "unresolved": []
+    },
+    {
+      "claim_id": "PKG-02",
+      "classification": "verified",
+      "support": [
+        "scripts/m1b_registry_adapter.py",
+        "scripts/m1b_registry_analysis.py",
+        "approved plan and clarification"
+      ],
+      "contradictions": [],
+      "unresolved": []
+    },
+    {
+      "claim_id": "PKG-03",
+      "classification": "verified",
+      "support": [
+        "scripts/m1b_registry_runtime.py: approval before Runtime and pixel access",
+        "m1b_coco512_worker.check_approval",
+        "compute.development_rehearsal_check"
+      ],
+      "contradictions": [],
+      "unresolved": []
+    },
+    {
+      "claim_id": "PKG-04",
+      "classification": "partially supported",
+      "support": [
+        "metadata source indexes and exposure inventory",
+        "runtime fixed shot replacement rule"
+      ],
+      "contradictions": [],
+      "unresolved": [
+        "Future approved preflight must establish new-frame hashes and duplicate exclusion; no held-out pixels inspected."
+      ]
+    },
+    {
+      "claim_id": "PKG-05",
+      "classification": "partially supported",
+      "support": [
+        "durable unit journal; exact-manifest dispatcher resume; scientific failures retained"
+      ],
+      "contradictions": [],
+      "unresolved": [
+        "Recovery fixes and completed full-pipeline rehearsal pending."
+      ]
+    },
+    {
+      "claim_id": "PKG-06",
+      "classification": "unverifiable",
+      "support": [],
+      "contradictions": [],
+      "unresolved": [
+        "Final manifest/core, measured runtime and disk estimates pending."
+      ]
+    }
+  ],
+  "expected_runs": [
+    "registry-rehearsal-02",
+    "20261017-registry-confirmation-reproduction-558239d"
+  ],
+  "failed_runs": [],
+  "missing_runs": []
+}

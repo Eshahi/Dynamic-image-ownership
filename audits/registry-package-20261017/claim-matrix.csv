@@ -1,0 +1,7 @@
+claim_id,classification,support,contradictions,unresolved
+PKG-01,verified,"[""git object comparison: 558239d"", ""research/registry-confirmation/source-pins.json""]",[],[]
+PKG-02,verified,"[""scripts/m1b_registry_adapter.py"", ""scripts/m1b_registry_analysis.py"", ""approved plan and clarification""]",[],[]
+PKG-03,verified,"[""scripts/m1b_registry_runtime.py: approval before Runtime and pixel access"", ""m1b_coco512_worker.check_approval"", ""compute.development_rehearsal_check""]",[],[]
+PKG-04,partially supported,"[""metadata source indexes and exposure inventory"", ""runtime fixed shot replacement rule""]",[],"[""Future approved preflight must establish new-frame hashes and duplicate exclusion; no held-out pixels inspected.""]"
+PKG-05,partially supported,"[""durable unit journal; exact-manifest dispatcher resume; scientific failures retained""]",[],"[""Recovery fixes and completed full-pipeline rehearsal pending.""]"
+PKG-06,unverifiable,[],[],"[""Final manifest/core, measured runtime and disk estimates pending.""]"
