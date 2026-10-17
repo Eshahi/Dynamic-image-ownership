@@ -4,6 +4,8 @@ Claude, 2026-10-17, at the user's request: "Prepare the held-out confirmation pl
 
 This is a plan only. No held-out image has been touched, and nothing runs until the user approves this plan and later the exact run manifest.
 
+**Plan approved by the user on 2026-10-17, verbatim:** "I approve the held-out confirmation plan as written (DIV2K test, endpoints E1-E3, local run). Have Codex build the package and rehearsals; I will approve the exact manifest before the run. My professor has confirmed the definition (or I will tell you if not)." The DiffusionDB arm is not included.
+
 ## 1. What the run would confirm
 
 > A regenerated copy of a registered image is matched to its correct owner record, using the F5 watermark as a pointer into the owner's registry, on at least 85% of new photographs (95% lower confidence bound). The regenerations are SD1.5 or SD2.1 image-to-image at strength .2. Unrelated images, copy-paste transfers and look-alikes that differ from the original more than the attack does are never accepted.
