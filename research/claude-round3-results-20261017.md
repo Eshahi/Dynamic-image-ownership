@@ -40,7 +40,13 @@ At .4 the descriptor alone accepts 37/40 on each regenerator. The remaining loss
 - **Secondary (median, 23.6 dB) definition:** 55 different look-alikes with 3 accepts (18.8, 20.4 and 22.6 dB), plus the 2 siblings. It fails.
 - **Cross-check against Codex:** its own D1-only scoring of the same data matches at .2 (30 and 33 source majorities; seed counts 91 against 91 and 98 against 99). At .4 Claude's seed counts are 1-3 higher, because Claude's F_R omits Codex's correct-record ranking. That ranking cannot change the round-3 rule, which accepts no wrong-source pair.
 
-## Decision for the user and supervisor
+## User decision after the result (2026-10-17)
+
+The user decided, verbatim: "Apply the distance definition to the synthetic look-alikes too (they are ambiguous), so round 3 passes. Prepare the held-out confirmation plan for my approval, and I will confirm the definition with my professor."
+
+**Status:** round 3 is a development pass under the uniformly applied distance definition. That reclassification was made **after** the round-3 outcome was known. The held-out confirmation is therefore the first test in which the definition is fully pre-registered, and the thesis must say so.
+
+## Decision for the user and supervisor (as originally posed)
 
 1. **Do the synthetic texture siblings fall under the "different image" definition?**
    - **If yes, by distance:** they are ambiguous, round 3 passes, and the next step is a held-out confirmation with this rule and definition pre-registered. That needs the user's approval.
