@@ -124,3 +124,7 @@ E3 and official WAM now share evaluator-only exact q recovery on six fixed consu
 ## 2026-10-17 ? Steps 1 and 2 complete
 
 F5 r2 wins the fixed selection rule: E3 and F5 tie at 24/24 on SD2.1 .2. H-free M2 retains the .2 gain; a .1 advantage is not established. Fresh D1 fails: 30/40 and 32/40 majority F_R at .2, below 36/40, with frozen tau .586548254817741. Near-pair fingerprint accepts are 4/13; registry 0/13 uses unmarked pairs without pointer candidates. Competing-enrollment .2 exact/further attribution is 28/20 and 32/22 of 40. Independent review finds no blockers to this bounded negative report; warnings are clarified. Step 2 charges 9601.484 seconds. No held-out run; stop for the user's research-direction decision.
+
+## 2026-10-17: Registry confirmation package preview
+
+The clarified558239d scorer and layout-only adapter are frozen. DIV2K300 and60 footage pairs are reserved from metadata; held-out pixels remain unopened. Real8-source development rehearsal completed1170s and1464 units after stop/resume, retaining one safety rejection;21 checkpoint rows stayed unchanged. Final142 tests pass; wrapper reproduction and endpoint replay agree. Estimate12.3h,15.4h with margin,10.8GiB (20GiB reserved). Acronis reboot risk is recorded and process birth identity protects resume. One independent package review closes this package. Stop at exact-manifest preview: user approval is required; no approval file or confirmation was created.

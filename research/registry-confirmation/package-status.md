@@ -1,6 +1,6 @@
-﻿# Registry confirmation package, 2026-10-17
+# Registry confirmation package, 2026-10-17
 
-The package is built; final independent review and preview validation are being closed. No held-out pixel has been opened, no confirmatory run started, and no approval file written. The exact manifest must be approved by the user before execution.
+The package is built and all tests and rehearsals are complete; independent review and preview validation are recorded below. No held-out pixel has been opened, no confirmatory run started, and no approval file written. The exact manifest must be approved by the user before execution.
 
 ## Frozen science and metadata
 
@@ -16,17 +16,17 @@ All 300 admitted DIV2K test groups and 20 new Tears of Steel shots (60 pairs) ar
 - Rehearsal scientific results: E1 8/8 each, CP lower .688 (not a pass); E2 zero accepts but seven unknown wrong-source pairs from the safety rejection; E3 passes. Operational completion is not a confirmation claim. No outcome was used to change thresholds or cohorts.
 - Synthetic fault tests exercise the actual worker run loop with a mock Runtime, infrastructure interruption, torn append, exactly-once completed work and retained scientific failure. Footage tests use synthetic fixtures only. Final dispatcher tests exercise PID reuse, real Windows process birth identity, lock exclusion and a two-continuation held-out cap.
 
-Final verification logs are under MAIN `.thesis-build/agent-logs/registry-final-*.log`. Final scoring-only replay is retained under MAIN `.thesis-build/dev-runs/20261017-registry-final-analysis-replay`; final wrapper reproduction is `20261017-registry-final-reproduction`. These do not repeat the GPU pipeline or change its retained outputs.
+Final verification:102 M1b tests,12 recovery/footage tests and28 dispatcher tests all pass. Final wrapper reproduction passes, and serialized scientific endpoints match the rehearsal exactly. Final verification logs are under MAIN `.thesis-build/agent-logs/registry-final-*.log`. Final scoring-only replay is retained under MAIN `.thesis-build/dev-runs/20261017-registry-final-analysis-replay`; final wrapper reproduction is `20261017-registry-final-reproduction`. These do not repeat the GPU pipeline or change its retained outputs.
 
 ## Resources and recovery
 
-Measured phase costs imply12.31 hours for300 sources, including a conservative quadratic scorer extrapolation from40 development sources. A25% margin gives15.38 hours, below the16-hour warning threshold. Estimated incremental disk is10.79GiB, including acquisition allowance and margin; the manifest reserves20GiB. Measured free disk was174.9GiB. Registry descriptors alone project21.24MiB. Model weights stay referenced in place. See resource-estimate.json and rehearsal-environment.json.
+Measured phase costs imply12.31 hours for300 sources, including a conservative quadratic scorer extrapolation from40 development sources. A25% margin gives15.38 hours, below the16-hour warning threshold. Held-out footage network/acquisition latency is unmeasured and must fit this allowance; eight-source scaling cannot guarantee new-domain timing. Estimated incremental disk is10.79GiB, including acquisition allowance and margin; the manifest reserves20GiB. Measured free disk was174.9GiB. Registry descriptors alone project21.24MiB. Model weights stay referenced in place. See resource-estimate.json and rehearsal-environment.json.
 
 The user reports Acronis automatically restarted the laptop at07:04 and the prior session was killed at07:37 on October17. Estimates exclude reboot downtime and an unfinished unit's repeated work. The dispatcher stores process birth identity, preserves attempt receipts, and resumes completed journal units. An uncertain launch window still fails closed; no system reboot settings were changed. The exact held-out manifest permits at most two continuations while approval remains valid.
 
 ## Review and preview
 
-One fresh Astra/high reviewer inspects the whole diff since5874385. The review lives in independent-review.md and audits/registry-package-20261017; the earlier contract consultation is separate. No human acceptance or lifecycle gate is fabricated.
+One fresh Astra/high reviewer completed the whole diff review since5874385: READY for exact-manifest human review, with no blocking package findings. The review lives in independent-review.md and audits/registry-package-20261017; the earlier contract consultation is separate. No human acceptance or lifecycle gate is fabricated.
 
 Final manifest path: MAIN `.thesis-build/registry-package/registry-confirmation-manifest.json`. The matching `manifest-preview.json` reports canonical approval SHA-256 and scientific-core hash plus an unfilled approval template. The raw-file SHA-256 is reported separately in `manifest-validation.json`; approval uses the canonical digest. No runnable approval file is created.
 

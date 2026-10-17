@@ -3,103 +3,112 @@
   "reviewer": "Astra independent reviewer",
   "author": "Codex agent",
   "approval": "not-granted",
-  "status": "provisional; final artifacts pending",
+  "status": "ready for exact-manifest human review",
   "reviewed_base": "5874385",
-  "reviewed_head": "358be77",
-  "blocking": [
-    {
-      "severity": "blocking",
-      "code": "pending-recovery",
-      "message": "Known canonical decode / missing canonical scorer path / multibyte torn-journal recovery gaps must be resolved; fixes are being authored separately."
-    },
-    {
-      "severity": "blocking",
-      "code": "pending-final-artifacts",
-      "message": "Full eight-source/six-pair dispatcher rehearsal, final exact manifest/core and measured runtime/disk package not yet supplied."
-    }
-  ],
+  "reviewed_head": "ba312ef7063732d78151cba90738d8afdea9a94c",
+  "candidate_manifest_sha256": "a5e4c71474b4ebb37a8fdc5d213a70a8c53ebf4e07983f894289308cecd46f70",
+  "scientific_core_sha256": "3ced354af2bd2a1eef05846a2243b2ca95dcbce5d85418fdff489be44f9a2370",
+  "blocking": [],
   "non_blocking": [
     {
       "severity": "non-blocking",
-      "code": "stale-status",
-      "message": "package-status.md still describes the pre-clarification handoff; replace it with final package status."
+      "code": "documentation-rebind",
+      "message": "After final audit documentation commit, regenerate exact manifest and verify unchanged scientific core; present the final canonical digest to the user."
+    },
+    {
+      "severity": "non-blocking",
+      "code": "runtime-extrapolation",
+      "message": "12.31h point/15.38h planning estimate does not guarantee elapsed time; held-out network acquisition latency and domain costs are unmeasured, and reboot downtime is excluded."
+    },
+    {
+      "severity": "non-blocking",
+      "code": "finite-preflight-reserve",
+      "message": "Only three fixed footage replacement shots remain; exhaustion must stop approved preflight."
     },
     {
       "severity": "non-blocking",
       "code": "scope",
-      "message": "The trusted registry and native owner-key calls are added detector side information. Metadata exclusion cannot establish undocumented external exposure; held-out preflight remains future work."
+      "message": "Registry side information and metadata-only exposure limitations apply; held-out pixel identity and duplicate exclusion remain future approved preflight obligations."
     }
   ],
   "claims": [
     {
       "claim_id": "PKG-01",
+      "claim": "Frozen scorer identity and permitted adapter scope",
       "classification": "verified",
       "support": [
-        "git object comparison: 558239d",
-        "research/registry-confirmation/source-pins.json"
+        "git comparison to 558239d; source pins; adapter and missing-path wrapper"
       ],
       "contradictions": [],
       "unresolved": []
     },
     {
       "claim_id": "PKG-02",
+      "claim": "Endpoint implementation matches frozen development contract",
       "classification": "verified",
       "support": [
-        "scripts/m1b_registry_adapter.py",
-        "scripts/m1b_registry_analysis.py",
-        "approved plan and clarification"
+        "plan and clarification; E1/E2/E3 code; final reproduction; JSON replay equality"
       ],
       "contradictions": [],
       "unresolved": []
     },
     {
       "claim_id": "PKG-03",
+      "claim": "Held-out access remains approval-gated",
       "classification": "verified",
       "support": [
-        "scripts/m1b_registry_runtime.py: approval before Runtime and pixel access",
-        "m1b_coco512_worker.check_approval",
-        "compute.development_rehearsal_check"
+        "runtime ordering; canonical and footage boundaries; dispatcher guards; absent approval file"
       ],
       "contradictions": [],
       "unresolved": []
     },
     {
       "claim_id": "PKG-04",
-      "classification": "partially supported",
+      "claim": "Cohort reservation and recorded exposure evidence are metadata-only",
+      "classification": "verified",
       "support": [
-        "metadata source indexes and exposure inventory",
-        "runtime fixed shot replacement rule"
+        "300 groups; 20 shots; three fixed replacements; exposure inventory; pixel verification deferred"
       ],
       "contradictions": [],
-      "unresolved": [
-        "Future approved preflight must establish new-frame hashes and duplicate exclusion; no held-out pixels inspected."
-      ]
+      "unresolved": []
     },
     {
       "claim_id": "PKG-05",
-      "classification": "partially supported",
+      "claim": "Development operational rehearsal and bounded recovery are supported",
+      "classification": "verified",
       "support": [
-        "durable unit journal; exact-manifest dispatcher resume; scientific failures retained"
+        "1,464 units; unchanged 21-row prefix; retained scientific failure; 102+12+28 tests"
       ],
       "contradictions": [],
-      "unresolved": [
-        "Recovery fixes and completed full-pipeline rehearsal pending."
-      ]
+      "unresolved": []
     },
     {
       "claim_id": "PKG-06",
-      "classification": "unverifiable",
-      "support": [],
+      "claim": "Candidate manifest is exact and resource arithmetic is reproducible",
+      "classification": "verified",
+      "support": [
+        "81 input hashes verified; complete core closure; 12.31h/15.38h; 10.79GiB versus20GiB"
+      ],
       "contradictions": [],
-      "unresolved": [
-        "Final manifest/core, measured runtime and disk estimates pending."
-      ]
+      "unresolved": []
     }
   ],
   "expected_runs": [
+    "registry-rehearsal-01",
     "registry-rehearsal-02",
-    "20261017-registry-confirmation-reproduction-558239d"
+    "20261017-registry-final-reproduction",
+    "20261017-registry-final-analysis-replay"
   ],
-  "failed_runs": [],
-  "missing_runs": []
+  "failed_runs": [
+    "registry-rehearsal-01"
+  ],
+  "missing_runs": [],
+  "resolved_findings": [
+    "verified decode failure classification",
+    "missing canonical scorer input normalization",
+    "torn UTF-8 journal tail",
+    "network preflight before model network block",
+    "held-out continuation cap",
+    "process birth identity"
+  ]
 }

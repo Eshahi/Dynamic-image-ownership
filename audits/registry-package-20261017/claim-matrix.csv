@@ -1,7 +1,7 @@
-claim_id,classification,support,contradictions,unresolved
-PKG-01,verified,"[""git object comparison: 558239d"", ""research/registry-confirmation/source-pins.json""]",[],[]
-PKG-02,verified,"[""scripts/m1b_registry_adapter.py"", ""scripts/m1b_registry_analysis.py"", ""approved plan and clarification""]",[],[]
-PKG-03,verified,"[""scripts/m1b_registry_runtime.py: approval before Runtime and pixel access"", ""m1b_coco512_worker.check_approval"", ""compute.development_rehearsal_check""]",[],[]
-PKG-04,partially supported,"[""metadata source indexes and exposure inventory"", ""runtime fixed shot replacement rule""]",[],"[""Future approved preflight must establish new-frame hashes and duplicate exclusion; no held-out pixels inspected.""]"
-PKG-05,partially supported,"[""durable unit journal; exact-manifest dispatcher resume; scientific failures retained""]",[],"[""Recovery fixes and completed full-pipeline rehearsal pending.""]"
-PKG-06,unverifiable,[],[],"[""Final manifest/core, measured runtime and disk estimates pending.""]"
+claim_id,claim,classification,support,contradictions,unresolved
+PKG-01,Frozen scorer identity and permitted adapter scope,verified,"[""git comparison to 558239d; source pins; adapter and missing-path wrapper""]",[],[]
+PKG-02,Endpoint implementation matches frozen development contract,verified,"[""plan and clarification; E1/E2/E3 code; final reproduction; JSON replay equality""]",[],[]
+PKG-03,Held-out access remains approval-gated,verified,"[""runtime ordering; canonical and footage boundaries; dispatcher guards; absent approval file""]",[],[]
+PKG-04,Cohort reservation and recorded exposure evidence are metadata-only,verified,"[""300 groups; 20 shots; three fixed replacements; exposure inventory; pixel verification deferred""]",[],[]
+PKG-05,Development operational rehearsal and bounded recovery are supported,verified,"[""1,464 units; unchanged 21-row prefix; retained scientific failure; 102+12+28 tests""]",[],[]
+PKG-06,Candidate manifest is exact and resource arithmetic is reproducible,verified,"[""81 input hashes verified; complete core closure; 12.31h/15.38h; 10.79GiB versus20GiB""]",[],[]

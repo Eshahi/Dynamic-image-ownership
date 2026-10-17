@@ -1,4 +1,7 @@
 # Unresolved items
 
-- Known canonical decode / missing canonical scorer path / multibyte torn-journal recovery gaps must be resolved; fixes are being authored separately.
-- Full eight-source/six-pair dispatcher rehearsal, final exact manifest/core and measured runtime/disk package not yet supplied.
+No blocking package findings remain.
+
+Final delivery must rebind the manifest after the audit documentation commit and verify the same scientific core. The user then decides whether to approve that exact final digest. Held-out preflight and confirmation are not authorized by this audit.
+
+Non-blocking limitations: extrapolated runtime and acquisition latency, reboot downtime/uncertain launch refusal, three-shot replacement reserve, trusted registry side information and unrecorded exposure limits.
