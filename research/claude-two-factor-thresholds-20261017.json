@@ -1,0 +1,38 @@
+{
+  "tau1_d1": 0.0594367,
+  "tau2_b1": 0.98,
+  "calibration_score_02": 36,
+  "calibration_score_04": 14,
+  "calibration_sources": [
+    853,
+    902,
+    908,
+    913,
+    960,
+    1180,
+    1295,
+    1323,
+    1330,
+    1332,
+    1355,
+    1359,
+    1397,
+    1398,
+    1404,
+    1408,
+    1464,
+    1507,
+    1522,
+    1536
+  ],
+  "calibration_near_duplicates": [
+    "tos-01_1a",
+    "tos-01_2a",
+    "tos-02_3a",
+    "tos-02_3b",
+    "tos-02_3c",
+    "tos-02_3d",
+    "tos-02_4a"
+  ],
+  "rule": "D1>=tau1 and B1>=tau2"
+}
