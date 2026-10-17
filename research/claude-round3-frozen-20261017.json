@@ -1,12 +1,12 @@
 {
   "tau1_d1": 0.0594367,
   "tau2_b1": 0.9,
-  "tauF_b1_fallback": 0.9,
+  "tauF_b1_fallback": 0.99,
   "psnr_cutoff_primary": 18.126065828471827,
   "psnr_cutoff_secondary_median": 23.608241023005988,
   "psnr_04_p5": 16.53509328653409,
   "calibration_score_02": 120,
-  "calibration_score_04": 119,
+  "calibration_score_04": 113,
   "calibration_sources": [
     853,
     902,
