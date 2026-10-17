@@ -48,6 +48,7 @@ def main():
         assert s["negatives"][family]["n"] == n
         assert s["negatives"][family]["accepts"] == 0
     assert s["negatives"]["synthetic_sibling"]["accepted_clusters"] == ["sib:11", "sib:12"]
-    (a.output_dir / "reproduction-checks.json").write_text(json.dumps({"status": "passed", "scope": "round3 development only", "synthetic_ambiguity": "CLI does not classify synthetic PSNR; not asserted"}, indent=2) + "\n")
+    assert r["plan_view"]["E1_E2_pass"] is True
+    (a.output_dir / "reproduction-checks.json").write_text(json.dumps({"status": "passed", "scope": "round3 development only", "synthetic_ambiguity": "plan_view classifies accepted synthetic pairs as ambiguous"}, indent=2) + "\n")
 
 if __name__ == "__main__": main()

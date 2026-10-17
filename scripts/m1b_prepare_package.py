@@ -40,7 +40,8 @@ def build_manifest(plan_path: str, run_id: str, max_seconds: int) -> tuple[dict,
     if git("status", "--porcelain"):
         raise SystemExit("clean checkout required")
     core = W.scientific_core(plan)
-    inputs = sorted({plan_path, *core["data_sha256"]})
+    registry = plan.get("protocol") == "registry-two-factor-v1"
+    inputs = sorted({plan_path, *core["data_sha256"], *(core["code_sha256"] if registry else [])})
     split = plan["data_split"]
     test = split == "test"
     s1 = plan.get("protocol") == "e3-s1-v1"
@@ -67,6 +68,11 @@ def build_manifest(plan_path: str, run_id: str, max_seconds: int) -> tuple[dict,
         if test and max_seconds != 28800:
             raise ValueError("S1 manifest attempt budget must be 28800 seconds")
         manifest["metrics"] = ["paired source-majority S superiority at .1/.2", "mark admission and strict quality", "exact Q/H and full acceptance", "clean/T3 negative calls", "T4/T5 delivered transfer, same-call predicates and native modes"]
+    if registry:
+        manifest.update(experiment_id=f"M1b-registry-{split}",task_id="registry-two-factor-v1",
+            datasets=[dict(id="DIV2K" if test else "round3-development",version="frozen registry source index",license="restricted academic research; no redistribution",split=split)],
+            metrics=["E1 source-majority .2 CP lower >= .85 each regenerator", "E2 different-negative zero accepts and source clusters", "E3 wrong-owner attribution", "secondary strengths, descriptor/fingerprint arms, quality, costs"],
+            resources=dict(vram_mib=9000,ram_mib=16384,disk_mib=20480))
     return manifest, core
 
 

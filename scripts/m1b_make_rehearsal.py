@@ -147,6 +147,12 @@ def approve(manifest_path: str, out: str) -> None:
 
 
 def main() -> None:
+    if len(sys.argv)>1 and sys.argv[1]=="registry":
+        from m1b_registry_runtime import validate_plan
+        plan=json.loads((ROOT/"research/registry-confirmation/development.m1b-plan.json").read_text())
+        _,sources=validate_plan(plan)
+        print(json.dumps(dict(sources=len(sources),near_pairs=len(plan["near"]),data_split="development",approval_written=False)))
+        return
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
     d = sub.add_parser("data")

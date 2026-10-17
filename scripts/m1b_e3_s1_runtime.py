@@ -490,3 +490,38 @@ def is_scientific_failure(error):
         if not isinstance(chain,RuntimeError) or str(chain).strip()!='safety_checker_blocked_output': return False
         chain=chain.__cause__ or chain.__context__
     return True
+
+
+def registry_regeneration(rgb, strength, seed, model, pipeline, torch):
+    """Versioned registry operator, same DDIM20 invocation as retained development."""
+    import numpy as np
+    from PIL import Image
+    from m1b_registry_runtime import ScientificFailure
+    import three_threat_models as models
+    if strength not in (.1,.2,.4) or seed not in (15,16,17) or model not in ('sd15','sd21'):
+        raise ValueError('Frozen registry regeneration values required')
+    if model == 'sd15' and pipeline.safety_checker is None:
+        raise ValueError('SD1.5 safety checker required')
+    if pipeline.scheduler.__class__.__name__ != 'DDIMScheduler':
+        raise ValueError('DDIM scheduler required')
+    receipt=dict(protocol='registry-two-factor-v1',model=model,strength=strength,seed=seed,
+        prompt='',guidance_scale=1.,eta=0.,steps=20,scheduler=dict(pipeline.scheduler.config),actual_timesteps=[])
+    def hook(module,args,kwargs,output):
+        t=args[1] if len(args)>1 else kwargs['timestep']
+        receipt['actual_timesteps'].append(float(t.detach().cpu()) if hasattr(t,'detach') else float(t))
+    handle=pipeline.unet.register_forward_hook(hook,with_kwargs=True)
+    try:
+        with torch.inference_mode():
+            result=pipeline(prompt='',negative_prompt='',image=Image.fromarray(rgb),strength=strength,
+                num_inference_steps=20,eta=0.,guidance_scale=1.,generator=torch.Generator(device='cuda').manual_seed(seed),
+                num_images_per_prompt=1,output_type='pil',return_dict=True)
+        torch.cuda.synchronize()
+        receipt['safety_flags']=result.nsfw_content_detected
+        if model=='sd15':
+            try:models.validate_generated(result)
+            except Exception as e:
+                if str(e)=='safety_checker_blocked_output':raise ScientificFailure(str(e)) from e
+                raise
+        if len(receipt['actual_timesteps'])!=int(20*strength):raise ValueError('DDIM execution count differs')
+        return np.asarray(result.images[0].convert('RGB'),dtype=np.uint8),receipt
+    finally:handle.remove()

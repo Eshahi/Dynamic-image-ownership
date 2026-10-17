@@ -1,0 +1,1460 @@
+{
+  "schema": "registry-development-frame-digest-exposure-v1",
+  "input_pins": [
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/assets/registry-fresh-20261016/near-duplicates.json",
+      "sha256": "a55b37e28d7519180af3208430f3a8fcedfc4e956a3bb2c3a4649abaeeff4a1e"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/assets/registry-round3-20261017/near-duplicates.json",
+      "sha256": "8c6856a08f96a07d0f4bc9a60629ec4b29502726da0f37704492bc0ad3374aef"
+    }
+  ],
+  "record_count": 160,
+  "unique_urls": 120,
+  "unique_rgb8_sha256": 118,
+  "frames": [
+    {
+      "shot": "01_1a",
+      "pair_id": "tos-01_1a",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/01_1a/linear_hd/01_1a_00000.exr",
+      "raw_sha256": "18c4f20066773cce298f919258a274467f2079a1d1ca109bebd0b1d508952b0a",
+      "canonical_png_sha256": "ab560cd3d069bd81b5f1dd42d5ada71f1cbe51b999756b1e1e0ad40f6bb61349",
+      "rgb8_sha256": "c62a48bf6de6d5249f5a34e739ae6e721ea3c2b83d03d5656ed330f62a05b1f5",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-01_1a-0-rgb512.png"
+    },
+    {
+      "shot": "01_1a",
+      "pair_id": "tos-01_1a",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/01_1a/linear_hd/01_1a_00072.exr",
+      "raw_sha256": "b2ae1feb64134d35e6b042ad4bfc92b16b29625db2e183847caf5debf878c688",
+      "canonical_png_sha256": "828cdac232a65c1906c27d42de6bc525cf9403ddab07db53c41b6e2818ceeaae",
+      "rgb8_sha256": "cce5292fb62d3f5b45949e4b71179d585fcf4d161b320ee6087da3b43b20200b",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-01_1a-1-rgb512.png"
+    },
+    {
+      "shot": "01_2a",
+      "pair_id": "tos-01_2a",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/01_2a/linear_hd/01_2a_00000.exr",
+      "raw_sha256": "69b2dce5de4ba229b7b566c79a4d949f3b884f4534ed0d74d2dea3c7c6da9b37",
+      "canonical_png_sha256": "9bd063ad9425f14ce2b401de66dccbb76acdcb96b5868bb7a99cb3234ed698c8",
+      "rgb8_sha256": "3f585026e62662ece13a19e561048e5dacf7bb54881b945f0ca5d8524733a9ab",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-01_2a-0-rgb512.png"
+    },
+    {
+      "shot": "01_2a",
+      "pair_id": "tos-01_2a",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/01_2a/linear_hd/01_2a_00072.exr",
+      "raw_sha256": "781087bc27f271a0da15038de83241a1998b21e6fa8579ea80c78efaf6e4f2c9",
+      "canonical_png_sha256": "6a03568d26b3c2a41c8a6be881c23846a1276fbe65514e123cb70b356f05ff49",
+      "rgb8_sha256": "b4a9c3dc020cb8ed3177447f722b50a886eb52c0adc69d9bba87383b7d54a841",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-01_2a-1-rgb512.png"
+    },
+    {
+      "shot": "02_3a",
+      "pair_id": "tos-02_3a",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/02_3a/linear_hd/02_3a_00000.exr",
+      "raw_sha256": "ce559dcc8851c4684d9b6fd2142521bdb72af890ca9cf9e7d6e0b8096e3aed9d",
+      "canonical_png_sha256": "257f6ec1da9cca02ce1d4f03f08cd6c84c52bcbff8354aa793ee77a6a4ae8561",
+      "rgb8_sha256": "5728ef720bac56a7e9222c26fec4aa1524cc7514e1bae9024f6271194c24c381",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-02_3a-0-rgb512.png"
+    },
+    {
+      "shot": "02_3a",
+      "pair_id": "tos-02_3a",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/02_3a/linear_hd/02_3a_00072.exr",
+      "raw_sha256": "6d267c9d7154f98aaf5690ff4d60c7a9dce34512ba9ee9ad0fe4bf386313fa6b",
+      "canonical_png_sha256": "4adde6833d4dcbb86c369acc2efed1e37cb90f03fbf08ef2f7942dae58f88aa2",
+      "rgb8_sha256": "83794ae2873f5ea752e7123d203ac10c3f9f7af118212b25da0fa05b7cb50a05",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-02_3a-1-rgb512.png"
+    },
+    {
+      "shot": "02_3b",
+      "pair_id": "tos-02_3b",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/02_3b/linear_hd/02_3b_00000.exr",
+      "raw_sha256": "8a7b306de6418384a465c123ec70e1494ac1483c1b89a1ac69d384e6c9ff40fd",
+      "canonical_png_sha256": "bc65d5ffc39f8f771897d2e1ce3e59b3e36de68ca2de5a8c779158cd59cfa5d8",
+      "rgb8_sha256": "113beac4822c2f02c1914386a4b2449923537c88e5b38424b394345074af7527",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-02_3b-0-rgb512.png"
+    },
+    {
+      "shot": "02_3b",
+      "pair_id": "tos-02_3b",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/02_3b/linear_hd/02_3b_00072.exr",
+      "raw_sha256": "7fdd4e55bfaaadc86ae62ce64d606d169e88f588e1aefad14e0077098c0e5302",
+      "canonical_png_sha256": "68b0daef4768aac4cbf60a0a99617941e3f3e8dffab9ae450fa97b4153aa6ccd",
+      "rgb8_sha256": "b352916028635a9c26f5d7d6be04d15bf5f9b977d1afaab1ed58b0cb2dd447ae",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-02_3b-1-rgb512.png"
+    },
+    {
+      "shot": "02_3c",
+      "pair_id": "tos-02_3c",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/02_3c/linear_hd/02_3c_00000.exr",
+      "raw_sha256": "e24e8f6ffce07eafa5ffc88a36e5aaf04cda9b548e7d2f0ff90534dece04d5a7",
+      "canonical_png_sha256": "623138690a7cc34452dfb90367731b732c78ce32ee39f5f6060b7b583c6a483e",
+      "rgb8_sha256": "4658e42936a5eb0352490af217ed71214702c9d132eeb81521f1e56ec750a68c",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-02_3c-0-rgb512.png"
+    },
+    {
+      "shot": "02_3c",
+      "pair_id": "tos-02_3c",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/02_3c/linear_hd/02_3c_00072.exr",
+      "raw_sha256": "a92b61f375376e283122e5b457e0afdb0b7b16e3be965ecfa886698019dfb9d7",
+      "canonical_png_sha256": "eb583d6f469c9c940c76adb19e9de9d10794751dc6f0f6aba75e6ca63cd29f98",
+      "rgb8_sha256": "36dc7c22b75b426db3e54a3e42e260f665f91435bd43ea886e41712b508ef4c0",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-02_3c-1-rgb512.png"
+    },
+    {
+      "shot": "02_3d",
+      "pair_id": "tos-02_3d",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/02_3d/linear_hd/02_3d_00000.exr",
+      "raw_sha256": "32378073d193cc3a0c17e45e6a9054e682d07366aef2ed03b40179259bee7453",
+      "canonical_png_sha256": "4d57545d95a87886908b37a64054d09241743afccf7f228b23b24c4ea618b376",
+      "rgb8_sha256": "93c4b5aa49b61140118a54c665157b35d1cfc3ad43ebedc7656550aad63cab95",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-02_3d-0-rgb512.png"
+    },
+    {
+      "shot": "02_3d",
+      "pair_id": "tos-02_3d",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/02_3d/linear_hd/02_3d_00072.exr",
+      "raw_sha256": "7febba22f2ac85f795d9f68eac850d2618d7291618ae64565c9273d63866ba32",
+      "canonical_png_sha256": "cf2c1c8b14a5224f042f650b4df175a80702a0386bc431eabe16e4ed758c503b",
+      "rgb8_sha256": "dd2b84a798cb61e18a25856fd8b4b2f1ee3389953f40fcfc0fbea317f360d7de",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-02_3d-1-rgb512.png"
+    },
+    {
+      "shot": "02_4a",
+      "pair_id": "tos-02_4a",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/02_4a/linear_hd/02_4a_00000.exr",
+      "raw_sha256": "ca0a77d87c2630ed9cd866b64320d33d73f14e5fd283de90a16e30476e789ae3",
+      "canonical_png_sha256": "2a2f46b8da59d6812eb6204152c67af60cf4496dcd09bcdf5c8b10f24f6c906b",
+      "rgb8_sha256": "001000181dd6e9ea126a260af8db17acedde19bf28bc015af7baee57b754f5fb",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-02_4a-0-rgb512.png"
+    },
+    {
+      "shot": "02_4a",
+      "pair_id": "tos-02_4a",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/02_4a/linear_hd/02_4a_00072.exr",
+      "raw_sha256": "1df0e7f9ea0698f0bb0145ed2e48dd498046fd9a2f2dce377731b2a83392038b",
+      "canonical_png_sha256": "97caa1e92a993380004652e7f05b93044230d2cfe5c39c0f988c6c818056eb42",
+      "rgb8_sha256": "5f468d65690d33869a40126033171d51b3c50b02db1bcc4cf799fbc2e704707b",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-02_4a-1-rgb512.png"
+    },
+    {
+      "shot": "03_2d",
+      "pair_id": "tos-03_2d",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/03_2d/linear_hd/03_2d_00501.exr",
+      "raw_sha256": "fc3f93143dc5f4d0629b6ea4e75bae63bc613d2ce4140bfbb15cd7b6bdf338fa",
+      "canonical_png_sha256": "616dbb7c93426c7d416e191bcc19c6503298773dfd458e8ae8cb8a439471df3e",
+      "rgb8_sha256": "1fea0fe60f56edbdd0e2634e38137afc2d962dd0dac0f4b742568dfa3d4f02bd",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-03_2d-0-rgb512.png"
+    },
+    {
+      "shot": "03_2d",
+      "pair_id": "tos-03_2d",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/03_2d/linear_hd/03_2d_00573.exr",
+      "raw_sha256": "0cc2ec3985e7f163ea2bf9ce95ef3f34c1e7ae4874c2a6501808eb4395f8e697",
+      "canonical_png_sha256": "7521303710d6949261db1f4eecfcd6f55082f41c1df610490fe87a0752a2f318",
+      "rgb8_sha256": "ad912b42ff5d66c0f96b1f41926af7cddfc7af130801fca8955e810642657a0a",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-03_2d-1-rgb512.png"
+    },
+    {
+      "shot": "03_2j",
+      "pair_id": "tos-03_2j",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/03_2j/linear_hd/03_2j_00000.exr",
+      "raw_sha256": "508d25712cde6219a1ed78fbc4cbebf825c71849cbe2baa57b8265833c4ab315",
+      "canonical_png_sha256": "bafc828a24e1d68f36557527c0f4912915c1038ae59edc0f279edf3b96445344",
+      "rgb8_sha256": "7921ee4cba68b83953bcdb1211442fc8e7228e9e7051ff9bdb2ad6f73f6c463e",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-03_2j-0-rgb512.png"
+    },
+    {
+      "shot": "03_2j",
+      "pair_id": "tos-03_2j",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/03_2j/linear_hd/03_2j_00072.exr",
+      "raw_sha256": "e1916fe8b263128dcd80ce3d944e82c8f3ec9fe463e9074647e2b6ffe8738391",
+      "canonical_png_sha256": "2bed75233559862626c43f4bd3c045fc25f54428998a410dcf1f064c9478a679",
+      "rgb8_sha256": "bdc08da95a3e0c2be52f135e69c14f924422f1d1f14e24326974f0220c734ed6",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-03_2j-1-rgb512.png"
+    },
+    {
+      "shot": "03_4a",
+      "pair_id": "tos-03_4a",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/03_4a/linear_hd/03_4a_00000.exr",
+      "raw_sha256": "f683d1ceab7488c022f157b35a867b847e64b90593bbdfd7056431487ae3a964",
+      "canonical_png_sha256": "2b9c954f6d78240bc7489b139b19b850a3b113fc5dfeb5e3cfa2395169ad554e",
+      "rgb8_sha256": "5d1b6c349be32386f291cc14c896a07b069d772087182699397708f02359ab93",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-03_4a-0-rgb512.png"
+    },
+    {
+      "shot": "03_4a",
+      "pair_id": "tos-03_4a",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/03_4a/linear_hd/03_4a_00072.exr",
+      "raw_sha256": "692b79d572569383622e1b51986af1c764dae9aceb065c9ad057cd672432b2fa",
+      "canonical_png_sha256": "2bb4f5d619eaaf9fafebef2b4fb0e8a7e1b0eddf166c91467fac7eee04cf4f0c",
+      "rgb8_sha256": "a4db5a619b149c2da828a6978152296cb08d5fbb03e56292217d026ba77bedcd",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-03_4a-1-rgb512.png"
+    },
+    {
+      "shot": "04_1a",
+      "pair_id": "tos-04_1a",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_1a/linear_hd/04_1a_00000.exr",
+      "raw_sha256": "93b8478e2f436c56d8737f6921c789d5457ac4d20a8bb977becf51917ab45a3e",
+      "canonical_png_sha256": "fc04ac0b1382e93bd38dd7f3af81e06fe38536655181a51faac6c01da3a86b9c",
+      "rgb8_sha256": "58878fc92723e3153d967d65067188dceb35bf74cc46109dcc7bb85414d43f3e",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-04_1a-0-rgb512.png"
+    },
+    {
+      "shot": "04_1a",
+      "pair_id": "tos-04_1a",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_1a/linear_hd/04_1a_00072.exr",
+      "raw_sha256": "d9f8417d2c06c5db3590d44f93d9263bc016a63738713f40184ee6535f8d9854",
+      "canonical_png_sha256": "7d45201a257289685b4fc0824dcc6f0d92a147b387343bda939e57d043a4124b",
+      "rgb8_sha256": "ab02f74c09a0d80bfd48d5f0ed66ba73092969ba70826904333df3b23383df13",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-04_1a-1-rgb512.png"
+    },
+    {
+      "shot": "04_1b",
+      "pair_id": "tos-04_1b",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_1b/linear_hd/04_1b_00000.exr",
+      "raw_sha256": "f0c8be3acdcea2965a9d1a29a59a0f1b80af14e68719627488974687b3d74606",
+      "canonical_png_sha256": "8b0beb8ea87cfd2c61d15e2231598d83095316bccd3e789a86e2cafb13cdd036",
+      "rgb8_sha256": "eeb7ab37900e4119b77a886469153e7e91d6ad875edc65bebb55ed71bf3638e0",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-04_1b-0-rgb512.png"
+    },
+    {
+      "shot": "04_1b",
+      "pair_id": "tos-04_1b",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_1b/linear_hd/04_1b_00072.exr",
+      "raw_sha256": "7ca77fc0c27799fdacc3e1a344ab4fd80f278d3aea1e249801631633cd86fc70",
+      "canonical_png_sha256": "c5c2f71c2fd03a7cd331c513e74fe595dc19d98fa939566677cff38a856c7272",
+      "rgb8_sha256": "5ad49a2dbca35f8941a2eb2ed7f6b9aa0957383e8478b0b3e4e6e4cbfbb73f6b",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-04_1b-1-rgb512.png"
+    },
+    {
+      "shot": "04_2a",
+      "pair_id": "tos-04_2a",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_2a/linear_hd/04_2a_00000.exr",
+      "raw_sha256": "2db2296be02ca7968698d885ef6abcce685c82f6e3cfe5a81278a0e1c998a354",
+      "canonical_png_sha256": "4b79a89c08ac7c0ab5a1b51735766bbddf62615a20bc14707831f87dfbb571aa",
+      "rgb8_sha256": "2dcf187add469b08b2739ed61b534332ca29aa4792f17d7b01af5642cf46a61a",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-04_2a-0-rgb512.png"
+    },
+    {
+      "shot": "04_2a",
+      "pair_id": "tos-04_2a",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_2a/linear_hd/04_2a_00072.exr",
+      "raw_sha256": "b36d01b476f63d6afaf53f3c17973ec90a13b5133c97cbd65e5697b736ac952b",
+      "canonical_png_sha256": "5b6e8d7516d4870d43a1b52b8bcd45516e695162145bc2552334276464cf8796",
+      "rgb8_sha256": "9c5bfa4231cffdb5d300397e0fcb246c735f47ef67c35e6b0ac8d421b1729308",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-04_2a-1-rgb512.png"
+    },
+    {
+      "shot": "04_2b",
+      "pair_id": "tos-04_2b",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_2b/linear_hd/04_2b_00000.exr",
+      "raw_sha256": "febf56b4027c76b945cef06463b91b901ec50c43d30ff4add9f7745075768b35",
+      "canonical_png_sha256": "642ed18511a96d264b532e654d8c26e931497fca70ef3951c321f0fe7f38893a",
+      "rgb8_sha256": "310853e48e57ff9b140219bed6ba27e57f1a6c9872c50099da49bf1e6d5b01c9",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-04_2b-0-rgb512.png"
+    },
+    {
+      "shot": "04_2b",
+      "pair_id": "tos-04_2b",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_2b/linear_hd/04_2b_00072.exr",
+      "raw_sha256": "676167cb1a4ccc1776216cb0ea6a0c1ea46c8b6784b41f0e0d013d29d522a612",
+      "canonical_png_sha256": "2c378e80d6db505bc04eda68130690f8b564a10bc212d5c95ba700031c059798",
+      "rgb8_sha256": "58faaae853af0243c51e573603e55e1d4d99756db88839e423fa4050bda14615",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-04_2b-1-rgb512.png"
+    },
+    {
+      "shot": "04_2c",
+      "pair_id": "tos-04_2c",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_2c/linear_hd/04_2c_00000.exr",
+      "raw_sha256": "75ac6468283d6aec0b0ed78904dea5c63fca389e2321e20b2ac8f106aaeebc53",
+      "canonical_png_sha256": "b7e424761027bfd715b4ebef5fa3c399b104003345e2afcc229474b076b9f0be",
+      "rgb8_sha256": "a3eb346a2a292b5fd25de2c9f9dfaeb02bfd01487b8e558062ad339c5541ee1f",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-04_2c-0-rgb512.png"
+    },
+    {
+      "shot": "04_2c",
+      "pair_id": "tos-04_2c",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_2c/linear_hd/04_2c_00072.exr",
+      "raw_sha256": "0f8b656c98f23f1b191beec5ff8065cf6a60671eb4b0169c67cae0fe001e4849",
+      "canonical_png_sha256": "cf7efdb3a930cce8325f707037e03449b0f6b15d911d2998654f7439d71631b7",
+      "rgb8_sha256": "11be4f79061bdef8ee4f924d7d426a1e66683bcd52bfe96cb9941bb220d86dc2",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-04_2c-1-rgb512.png"
+    },
+    {
+      "shot": "04_2d",
+      "pair_id": "tos-04_2d",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_2d/linear_hd/04_2d_00000.exr",
+      "raw_sha256": "7c6d56abbcb28ed43fd79112b51fe7b4828f67b4a16f9a26100f6155463479a0",
+      "canonical_png_sha256": "3137d2cf55c70d1b63bc27c18098f065f661c556a28e5e9db0d3d2dfa1c9b357",
+      "rgb8_sha256": "e0afd29d342fdeff470d2c0bbea83ef7af0d5a4ed63502cdd1ab34dff6a3fa33",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-04_2d-0-rgb512.png"
+    },
+    {
+      "shot": "04_2d",
+      "pair_id": "tos-04_2d",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_2d/linear_hd/04_2d_00072.exr",
+      "raw_sha256": "7f5dbe7e1c1e835b09325bab34b94dbfcc9207d133ef4fb7bb28c69cb64d1085",
+      "canonical_png_sha256": "eea3aaff7715eee2cfce93e4d88f354c54a97acf5857ab335b2b51c8680d15f3",
+      "rgb8_sha256": "e5d8407d39f22cdb0af11a5b97507c1a28a2a907c70dceb640599731f466bb68",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-04_2d-1-rgb512.png"
+    },
+    {
+      "shot": "04_2e",
+      "pair_id": "tos-04_2e",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_2e/linear_hd/04_2e_00000.exr",
+      "raw_sha256": "5c71991a5a687892aad73a6e081f15a948878838163519be834eb3753fc3b7a9",
+      "canonical_png_sha256": "711a54813969b4240d822a9ae0a8c9b3c2044d0f66fcb17f76c9126d4a3637e0",
+      "rgb8_sha256": "381a0c811fa2b91696be942925394068e9dbb60dda12a4b3939f00283eaf47dc",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-04_2e-0-rgb512.png"
+    },
+    {
+      "shot": "04_2e",
+      "pair_id": "tos-04_2e",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_2e/linear_hd/04_2e_00072.exr",
+      "raw_sha256": "fa46996186971200cfbf4da2a4d28d5da8367418fbafc8f7575ac27a662cc633",
+      "canonical_png_sha256": "bc2cd0f17804c0ce0b7ba0d17b069708d512c90de2601b5076a8f662a2f4d1fb",
+      "rgb8_sha256": "15f809471aec75d2dbcba36cec49e0627eed0575a3cf04e894d3d74bf7854468",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-04_2e-1-rgb512.png"
+    },
+    {
+      "shot": "04_3a",
+      "pair_id": "tos-04_3a",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3a/linear_hd/04_3a_00000.exr",
+      "raw_sha256": "5a065051d1cd498b8511cc1f8ff0ec173c5dc08c050f217a644dc44de130e9ac",
+      "canonical_png_sha256": "5611dd7b37578aec0e3685ee4b30aecd98e5aacc768780402aee563dab903139",
+      "rgb8_sha256": "1c12e1900357e6b2122fd002fd47052a0eb131008975cad9e19484b646dc651c",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-04_3a-0-rgb512.png"
+    },
+    {
+      "shot": "04_3a",
+      "pair_id": "tos-04_3a",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3a/linear_hd/04_3a_00072.exr",
+      "raw_sha256": "12883840ba41f29b25bd863f1cd2f0e1b76e5603175e0eb358ff096495c00823",
+      "canonical_png_sha256": "20b4f6d93455442f08357dc9990316f6ff4ce2b62e1845dd41bd866f9344cae7",
+      "rgb8_sha256": "079cef05e9d41357c9b85b8d5b678d6a985104f7a5b35a01ca8f267e8853d3d5",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-04_3a-1-rgb512.png"
+    },
+    {
+      "shot": "04_3b",
+      "pair_id": "tos-04_3b",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3b/linear_hd/04_3b_00000.exr",
+      "raw_sha256": "d1c9b93f9fb20d02bb316eb8ef6dba2de657acab552c852aa45cf8886c812feb",
+      "canonical_png_sha256": "34bcadab543283e1255b240bf3055c24714ac7ef51309a45b37f1d5bc5bd1629",
+      "rgb8_sha256": "4615e312c67a9bef52f31afe4ec9d506db3f5e332c95c4909f320deb5c2b6549",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-04_3b-0-rgb512.png"
+    },
+    {
+      "shot": "04_3b",
+      "pair_id": "tos-04_3b",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3b/linear_hd/04_3b_00072.exr",
+      "raw_sha256": "90b4b2b8f7d14699602de5fc3db511850d3c4e2ee52f3d87524541c2beda26a3",
+      "canonical_png_sha256": "0abe2cd02a775c2de570915b9c3d1bfea35f68cb01c9c49e7aafbbc5d65d1942",
+      "rgb8_sha256": "dd863be0b22026d9bb82f4d9333b0b846248c86914faaaf9112d9330db07d69f",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-04_3b-1-rgb512.png"
+    },
+    {
+      "shot": "04_3d",
+      "pair_id": "tos-04_3d",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3d/linear_hd/04_3d_00000.exr",
+      "raw_sha256": "946ade96da9cde3e6c45242e08075820b62efe1e5a1f988d481c220bcca767e2",
+      "canonical_png_sha256": "7924586aa68c4353892803874e497e05199b6b4db438c0f07558bc7e156b4d48",
+      "rgb8_sha256": "a6a07a3bb96dfd0d230c73728c83d50a7b45b7dbfd514b9fbf7c044a19d7e489",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-04_3d-0-rgb512.png"
+    },
+    {
+      "shot": "04_3d",
+      "pair_id": "tos-04_3d",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3d/linear_hd/04_3d_00072.exr",
+      "raw_sha256": "b707910bbfd81280308faf592d09207593ed216d116e46b30c2ea54f48a4ec7c",
+      "canonical_png_sha256": "52c8a99aba82d8659b59873c0164009a2309048c1490e182a108542f05127851",
+      "rgb8_sha256": "c64a0bffbba2f1388e4cb6f4697ce911f7cd443889033e15df4282d5a49e73b1",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\canonical\\tos-04_3d-1-rgb512.png"
+    },
+    {
+      "shot": "04_3e",
+      "pair_id": "tos-04_3e-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3e/linear_hd/04_3e_00000.exr",
+      "raw_sha256": "d5f708643d9342682dca1905d088d9813c073f1266923c48688767e0ad9d8a7f",
+      "canonical_png_sha256": "8664bcb72653176ef342d9ba6fe167c581d4982b698f30eb56234544a44ee409",
+      "rgb8_sha256": "a4b9d17ca42d7e5c503b9c580f59e7a3d8624987a158242aa14d5a8dab4dd535",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_3e-o072-0-rgb512.png"
+    },
+    {
+      "shot": "04_3e",
+      "pair_id": "tos-04_3e-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3e/linear_hd/04_3e_00072.exr",
+      "raw_sha256": "a7216b68fdaf7d787f84c0ccfcf7b87467e92974223e618482ac655592830a75",
+      "canonical_png_sha256": "1cb2e26401d58f12964cea73e2c27750e4f769514d29847ce0e4ee368ce285e0",
+      "rgb8_sha256": "d8af6b1d9f3f52e4fcb365c09b3f65136c4fd7fe429cfa0fe7340f6f0336e703",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_3e-o072-1-rgb512.png"
+    },
+    {
+      "shot": "04_3e",
+      "pair_id": "tos-04_3e-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3e/linear_hd/04_3e_00000.exr",
+      "raw_sha256": "d5f708643d9342682dca1905d088d9813c073f1266923c48688767e0ad9d8a7f",
+      "canonical_png_sha256": "8664bcb72653176ef342d9ba6fe167c581d4982b698f30eb56234544a44ee409",
+      "rgb8_sha256": "a4b9d17ca42d7e5c503b9c580f59e7a3d8624987a158242aa14d5a8dab4dd535",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_3e-o144-0-rgb512.png"
+    },
+    {
+      "shot": "04_3e",
+      "pair_id": "tos-04_3e-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3e/linear_hd/04_3e_00144.exr",
+      "raw_sha256": "7e22f8e167d74baf17dd3708578f9ac425b59dabdf6f6109c8f16729233caa8b",
+      "canonical_png_sha256": "9ec9d1bf9514dc952d6a7bf392b04087c0dc3894eadee0bd102fe624ed3410ee",
+      "rgb8_sha256": "d293aa9f8da09b34c71e841f0ce65ba9089a736f7abfb073c545e1351e2366b7",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_3e-o144-1-rgb512.png"
+    },
+    {
+      "shot": "04_3e",
+      "pair_id": "tos-04_3e-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3e/linear_hd/04_3e_00000.exr",
+      "raw_sha256": "d5f708643d9342682dca1905d088d9813c073f1266923c48688767e0ad9d8a7f",
+      "canonical_png_sha256": "8664bcb72653176ef342d9ba6fe167c581d4982b698f30eb56234544a44ee409",
+      "rgb8_sha256": "a4b9d17ca42d7e5c503b9c580f59e7a3d8624987a158242aa14d5a8dab4dd535",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_3e-o288-0-rgb512.png"
+    },
+    {
+      "shot": "04_3e",
+      "pair_id": "tos-04_3e-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3e/linear_hd/04_3e_00288.exr",
+      "raw_sha256": "da106f3fb105e4263a7176506684b5840d91f9108317a833a004f0a4dd7e22f0",
+      "canonical_png_sha256": "04c60ca63caeaca1f3bff90257fb90868774dee58e5b6f0903c1d6f893021f8f",
+      "rgb8_sha256": "f54a578b5f52bcbe1dc10864dbd15a8420d369cdcb53b35c572169064dfdc2e4",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_3e-o288-1-rgb512.png"
+    },
+    {
+      "shot": "04_4a",
+      "pair_id": "tos-04_4a-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4a/linear_hd/04_4a_00000.exr",
+      "raw_sha256": "75bcc9ff53de082ad55bc62e99374b014e7f2b8e633d94a564346694c1ccf96f",
+      "canonical_png_sha256": "847e707fc4fa31cf703f1dd6427e18039a992aaaf6fd25885d32da8d8a8503be",
+      "rgb8_sha256": "f63dd3488f3bfcf6de516157cd647dc6ada0ed7309fe2a4f6569cec04b730c93",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4a-o072-0-rgb512.png"
+    },
+    {
+      "shot": "04_4a",
+      "pair_id": "tos-04_4a-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4a/linear_hd/04_4a_00072.exr",
+      "raw_sha256": "dc9ff7508bceecb408af0581a78028c4d9d0f0d7733aa5d8822335de035925f3",
+      "canonical_png_sha256": "c2f8e0e60aa34a79a5fc974188485fd3a4c81330537b93dc52dd93486b12e6f7",
+      "rgb8_sha256": "05423025d8dbf3a2ecad52ed7669703f78f2fb340b407250012a1f270d2455c9",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4a-o072-1-rgb512.png"
+    },
+    {
+      "shot": "04_4a",
+      "pair_id": "tos-04_4a-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4a/linear_hd/04_4a_00000.exr",
+      "raw_sha256": "75bcc9ff53de082ad55bc62e99374b014e7f2b8e633d94a564346694c1ccf96f",
+      "canonical_png_sha256": "847e707fc4fa31cf703f1dd6427e18039a992aaaf6fd25885d32da8d8a8503be",
+      "rgb8_sha256": "f63dd3488f3bfcf6de516157cd647dc6ada0ed7309fe2a4f6569cec04b730c93",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4a-o144-0-rgb512.png"
+    },
+    {
+      "shot": "04_4a",
+      "pair_id": "tos-04_4a-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4a/linear_hd/04_4a_00144.exr",
+      "raw_sha256": "82ba1b813512d874be43bfefec47191b2ece41c4d6fe8f749583c40609703da8",
+      "canonical_png_sha256": "67c20ee612d4236d56237226ce68e95fe51a016507214a8eaafbb95b7707bd48",
+      "rgb8_sha256": "3c42bc01b9853f9d0bd6e6ffdbac828ce4ad54b517843a178693637ce5c4b113",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4a-o144-1-rgb512.png"
+    },
+    {
+      "shot": "04_4a",
+      "pair_id": "tos-04_4a-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4a/linear_hd/04_4a_00000.exr",
+      "raw_sha256": "75bcc9ff53de082ad55bc62e99374b014e7f2b8e633d94a564346694c1ccf96f",
+      "canonical_png_sha256": "847e707fc4fa31cf703f1dd6427e18039a992aaaf6fd25885d32da8d8a8503be",
+      "rgb8_sha256": "f63dd3488f3bfcf6de516157cd647dc6ada0ed7309fe2a4f6569cec04b730c93",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4a-o288-0-rgb512.png"
+    },
+    {
+      "shot": "04_4a",
+      "pair_id": "tos-04_4a-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4a/linear_hd/04_4a_00288.exr",
+      "raw_sha256": "c6590108e870855040cf0396cfa733fcf417a7f5654cfd34476e9d0d9092e99e",
+      "canonical_png_sha256": "db784dc56785b1fd47a622ce9e3f8748c2290da4992c6b6fa4b3c021e3458d5d",
+      "rgb8_sha256": "43daf80441bdfe7b89d866b56f5a0975fde4d8d8508d6258f08f547a11b7d898",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4a-o288-1-rgb512.png"
+    },
+    {
+      "shot": "04_4b",
+      "pair_id": "tos-04_4b-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4b/linear_hd/04_4b_00000.exr",
+      "raw_sha256": "8b1d870555465cd35581814d49f9c78ba97388505a4427d45f68c9f6ab868127",
+      "canonical_png_sha256": "fe4ebc7a486e5fccfafe932c4498da1c5dc74767573c3339d04a974e3de6ee46",
+      "rgb8_sha256": "76db7e36fff5196e6ea1d66c5fcfdf0423151208d72ffb153943c4881f3660ed",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4b-o072-0-rgb512.png"
+    },
+    {
+      "shot": "04_4b",
+      "pair_id": "tos-04_4b-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4b/linear_hd/04_4b_00072.exr",
+      "raw_sha256": "7a0f96de719ac81977eff6e6b8c9db04064963502e55e0c48980c70169917fc7",
+      "canonical_png_sha256": "b7a1fa835697ddba4b500e719551c07f23cc47a2c541b63120fa167f48f702c3",
+      "rgb8_sha256": "7d8c13f8cd1c99f75e3ab87d070ab7b7079faae8c69218b2c9550e8a41cedafd",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4b-o072-1-rgb512.png"
+    },
+    {
+      "shot": "04_4b",
+      "pair_id": "tos-04_4b-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4b/linear_hd/04_4b_00000.exr",
+      "raw_sha256": "8b1d870555465cd35581814d49f9c78ba97388505a4427d45f68c9f6ab868127",
+      "canonical_png_sha256": "fe4ebc7a486e5fccfafe932c4498da1c5dc74767573c3339d04a974e3de6ee46",
+      "rgb8_sha256": "76db7e36fff5196e6ea1d66c5fcfdf0423151208d72ffb153943c4881f3660ed",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4b-o144-0-rgb512.png"
+    },
+    {
+      "shot": "04_4b",
+      "pair_id": "tos-04_4b-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4b/linear_hd/04_4b_00144.exr",
+      "raw_sha256": "c8d74b8e4f03f46102169aa4a3496493f03c328883350cd3270c22def2366083",
+      "canonical_png_sha256": "f877f547c8180bb5006e2f90fe92c742a4f39d69ed0ea058b1779d5e212feb89",
+      "rgb8_sha256": "51ebae43e0223e4eac7e98dee329527689fa7fd424d6c3c8c5fd5bcb35da78b2",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4b-o144-1-rgb512.png"
+    },
+    {
+      "shot": "04_4b",
+      "pair_id": "tos-04_4b-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4b/linear_hd/04_4b_00000.exr",
+      "raw_sha256": "8b1d870555465cd35581814d49f9c78ba97388505a4427d45f68c9f6ab868127",
+      "canonical_png_sha256": "fe4ebc7a486e5fccfafe932c4498da1c5dc74767573c3339d04a974e3de6ee46",
+      "rgb8_sha256": "76db7e36fff5196e6ea1d66c5fcfdf0423151208d72ffb153943c4881f3660ed",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4b-o288-0-rgb512.png"
+    },
+    {
+      "shot": "04_4b",
+      "pair_id": "tos-04_4b-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4b/linear_hd/04_4b_00288.exr",
+      "raw_sha256": "0312322d893d971cbde2c9a054a14062b36c36fc2b74bcecb39d71804ee5b9ec",
+      "canonical_png_sha256": "50c2721201b4ea8bd822b2d7b2efbb588622fb2d84850622b4c0dec513bcdc8b",
+      "rgb8_sha256": "cf3edf115eddfd9a6e5e1cfa707b7fe866271ddd403f94d95f7ee82cdd0da195",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4b-o288-1-rgb512.png"
+    },
+    {
+      "shot": "04_4c",
+      "pair_id": "tos-04_4c-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4c/linear_hd/04_4c_00000.exr",
+      "raw_sha256": "061a1d123cda3e277d528eac64f0d19c0fce72453cf4446efdd57722e56ad59b",
+      "canonical_png_sha256": "3b0194ea90478072d57bce571c78d8e0a261e18538a71d8255edb055bdd6cb62",
+      "rgb8_sha256": "2720f474503df421c103a9a81eccd2b6969659fc3787601cf7024f34245be8a2",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4c-o072-0-rgb512.png"
+    },
+    {
+      "shot": "04_4c",
+      "pair_id": "tos-04_4c-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4c/linear_hd/04_4c_00072.exr",
+      "raw_sha256": "921315c466d616637a34a4e0d73ef7b0bcf8dd6a7a36fa9bcb1a46adb2a7d242",
+      "canonical_png_sha256": "fc7d4938195d5bc109f80bf664634f04ccac26220b3de4d2a73733bf590a9345",
+      "rgb8_sha256": "5b9a5418ea0baa3ac40f03ca6f0ffcd2de20c489cac077d96337752475fae7ff",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4c-o072-1-rgb512.png"
+    },
+    {
+      "shot": "04_4c",
+      "pair_id": "tos-04_4c-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4c/linear_hd/04_4c_00000.exr",
+      "raw_sha256": "061a1d123cda3e277d528eac64f0d19c0fce72453cf4446efdd57722e56ad59b",
+      "canonical_png_sha256": "3b0194ea90478072d57bce571c78d8e0a261e18538a71d8255edb055bdd6cb62",
+      "rgb8_sha256": "2720f474503df421c103a9a81eccd2b6969659fc3787601cf7024f34245be8a2",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4c-o144-0-rgb512.png"
+    },
+    {
+      "shot": "04_4c",
+      "pair_id": "tos-04_4c-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4c/linear_hd/04_4c_00144.exr",
+      "raw_sha256": "b3892ef570a9a0b61f6beaf6328bd8c3ea1820d33c0d6a7c9d2008c628f49b6f",
+      "canonical_png_sha256": "5c0559762138a4729bdc22fc1e8405cdabf92dc5bcdc6503b5899de7ed6e89fb",
+      "rgb8_sha256": "e232bc0db6e73ce875d1f6b5422a00771cc5ed4010304a6dfa056bb8217adb2a",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4c-o144-1-rgb512.png"
+    },
+    {
+      "shot": "04_4c",
+      "pair_id": "tos-04_4c-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4c/linear_hd/04_4c_00000.exr",
+      "raw_sha256": "061a1d123cda3e277d528eac64f0d19c0fce72453cf4446efdd57722e56ad59b",
+      "canonical_png_sha256": "3b0194ea90478072d57bce571c78d8e0a261e18538a71d8255edb055bdd6cb62",
+      "rgb8_sha256": "2720f474503df421c103a9a81eccd2b6969659fc3787601cf7024f34245be8a2",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4c-o288-0-rgb512.png"
+    },
+    {
+      "shot": "04_4c",
+      "pair_id": "tos-04_4c-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4c/linear_hd/04_4c_00288.exr",
+      "raw_sha256": "740bf3c90981934b74b534d40666567affca1861845b981f4917e8ef5000e52f",
+      "canonical_png_sha256": "5ed6aea78cdcddf10fa9416dc68fae25b51c65ea2eac662e886a30f1918a62b2",
+      "rgb8_sha256": "bde887fa36e1e426605de3ff988c1ffd31b865259e4c73a509a4b731609413a1",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4c-o288-1-rgb512.png"
+    },
+    {
+      "shot": "04_4e",
+      "pair_id": "tos-04_4e-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4e/linear_hd/04_4e_00000.exr",
+      "raw_sha256": "70e73963f2f4f867a77d9f3b4957427f660e8665cb17f1fdeae2ed043c3e654b",
+      "canonical_png_sha256": "242305ed8ef66af4a3f48af6a5f60527b07a7f36cda46a5280bd2f3be9387f4b",
+      "rgb8_sha256": "8ef396d7e0b15ce6dc6969a3ea74950d11238b65c68e9399b96926b3b2e16a0d",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4e-o072-0-rgb512.png"
+    },
+    {
+      "shot": "04_4e",
+      "pair_id": "tos-04_4e-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4e/linear_hd/04_4e_00072.exr",
+      "raw_sha256": "2d5c086f6181c44182c587317ab76e58259d7d39d63f280fd69ce92af8f83d58",
+      "canonical_png_sha256": "5d6de809fd950b5ea4cb8d99442e1a67ee1127ccbb469f28af37423132be714f",
+      "rgb8_sha256": "fe9b5a3acd85a2e7fd9e6472862113649511f5d144c672e56054650d8cf57eeb",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4e-o072-1-rgb512.png"
+    },
+    {
+      "shot": "04_4e",
+      "pair_id": "tos-04_4e-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4e/linear_hd/04_4e_00000.exr",
+      "raw_sha256": "70e73963f2f4f867a77d9f3b4957427f660e8665cb17f1fdeae2ed043c3e654b",
+      "canonical_png_sha256": "242305ed8ef66af4a3f48af6a5f60527b07a7f36cda46a5280bd2f3be9387f4b",
+      "rgb8_sha256": "8ef396d7e0b15ce6dc6969a3ea74950d11238b65c68e9399b96926b3b2e16a0d",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4e-o144-0-rgb512.png"
+    },
+    {
+      "shot": "04_4e",
+      "pair_id": "tos-04_4e-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4e/linear_hd/04_4e_00144.exr",
+      "raw_sha256": "defaf2ac120e1471cc0bfb71f3cb4ba135e05f63240de9e04fef4401d3131bb2",
+      "canonical_png_sha256": "89f94c2137224bb29f7955e72cc119680f328b532cfba0f33b9219cc50941bc1",
+      "rgb8_sha256": "307963ef04f7ef4dde5404dace0789193be68e9fe33ad37ff2da947d68786f61",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4e-o144-1-rgb512.png"
+    },
+    {
+      "shot": "04_4e",
+      "pair_id": "tos-04_4e-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4e/linear_hd/04_4e_00000.exr",
+      "raw_sha256": "70e73963f2f4f867a77d9f3b4957427f660e8665cb17f1fdeae2ed043c3e654b",
+      "canonical_png_sha256": "242305ed8ef66af4a3f48af6a5f60527b07a7f36cda46a5280bd2f3be9387f4b",
+      "rgb8_sha256": "8ef396d7e0b15ce6dc6969a3ea74950d11238b65c68e9399b96926b3b2e16a0d",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4e-o288-0-rgb512.png"
+    },
+    {
+      "shot": "04_4e",
+      "pair_id": "tos-04_4e-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4e/linear_hd/04_4e_00288.exr",
+      "raw_sha256": "6533ca0c20de43d87dd17e182399fa6ce991dd458de85a356f923425a67486d1",
+      "canonical_png_sha256": "f28ce35123bad3f7580323972b7076b5b6af89e4203f484a44cbcb3c778306f8",
+      "rgb8_sha256": "6098e8f755aac8b5d0050cd7d0b693040960eeec189e14096c5743cd47b857fb",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4e-o288-1-rgb512.png"
+    },
+    {
+      "shot": "04_4g",
+      "pair_id": "tos-04_4g-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4g/linear_hd/04_4g_00000.exr",
+      "raw_sha256": "f6133f2e0100d902f9134c53589156d16e52cb0cea5baba4b6110fd0efce3493",
+      "canonical_png_sha256": "1f61a9596ca36678d9991b1e5e939eea119aaa36118afdec13fc52d5cea1644b",
+      "rgb8_sha256": "2e3891b49a1dd5e9858e04943da82e7a58956a6c656f705d03da230b526dc146",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4g-o072-0-rgb512.png"
+    },
+    {
+      "shot": "04_4g",
+      "pair_id": "tos-04_4g-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4g/linear_hd/04_4g_00072.exr",
+      "raw_sha256": "a8bcff7f6c158a33f8d0b4be001c3f17be520d025a92429a62e02c7c2be14168",
+      "canonical_png_sha256": "71122cce77cd117d39f2a4acb41a4750172862865a96ba6eaa02d8e71200f01b",
+      "rgb8_sha256": "255281343eab3b9f5e5aa9f0ffdf51b49122c5faf8977f0580c7d29965338070",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4g-o072-1-rgb512.png"
+    },
+    {
+      "shot": "04_4g",
+      "pair_id": "tos-04_4g-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4g/linear_hd/04_4g_00000.exr",
+      "raw_sha256": "f6133f2e0100d902f9134c53589156d16e52cb0cea5baba4b6110fd0efce3493",
+      "canonical_png_sha256": "1f61a9596ca36678d9991b1e5e939eea119aaa36118afdec13fc52d5cea1644b",
+      "rgb8_sha256": "2e3891b49a1dd5e9858e04943da82e7a58956a6c656f705d03da230b526dc146",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4g-o144-0-rgb512.png"
+    },
+    {
+      "shot": "04_4g",
+      "pair_id": "tos-04_4g-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4g/linear_hd/04_4g_00144.exr",
+      "raw_sha256": "b17b49afcb60488d309155ede565605ea4bc2210f673f42ed1a2c0ac8d845c62",
+      "canonical_png_sha256": "78b0d0ad3433cc3cf0cfc8dcee54b01bb116fa836ff1739a634b4bae58a27043",
+      "rgb8_sha256": "3b0ffcaf851cd94c0f87005ed50cccd606cc974a187435c94001af3629f0aef3",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4g-o144-1-rgb512.png"
+    },
+    {
+      "shot": "04_4g",
+      "pair_id": "tos-04_4g-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4g/linear_hd/04_4g_00000.exr",
+      "raw_sha256": "f6133f2e0100d902f9134c53589156d16e52cb0cea5baba4b6110fd0efce3493",
+      "canonical_png_sha256": "1f61a9596ca36678d9991b1e5e939eea119aaa36118afdec13fc52d5cea1644b",
+      "rgb8_sha256": "2e3891b49a1dd5e9858e04943da82e7a58956a6c656f705d03da230b526dc146",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4g-o288-0-rgb512.png"
+    },
+    {
+      "shot": "04_4g",
+      "pair_id": "tos-04_4g-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4g/linear_hd/04_4g_00288.exr",
+      "raw_sha256": "95c6d064484e5dda22d4c7bcb7d1a1df0ac81e11ea292a2774dffe278990c491",
+      "canonical_png_sha256": "4dc636ccd3adcb564972ac40e2df8d212bf02a4fdcc44148752acbe84fe67476",
+      "rgb8_sha256": "570d85834959f87c7a018ab9bfed0874918a9f9339bd4c86c9c5f3de6b23a151",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4g-o288-1-rgb512.png"
+    },
+    {
+      "shot": "04_4h",
+      "pair_id": "tos-04_4h-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4h/linear_hd/04_4h_00000.exr",
+      "raw_sha256": "b2826013f31dedc77084c4f98fcbc3e1b110828177ea68558df862b5ac733852",
+      "canonical_png_sha256": "31836d85097dcf1d7059a6b4f8c46a89e20cffd73f2d3dff6419576bb7be83d5",
+      "rgb8_sha256": "f541d062afd239fdfd4340a0167fea17f1de0d9d61b84407f88d4e05b2f600f5",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4h-o072-0-rgb512.png"
+    },
+    {
+      "shot": "04_4h",
+      "pair_id": "tos-04_4h-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4h/linear_hd/04_4h_00072.exr",
+      "raw_sha256": "2d5b847eeaa13782bdc7c996c55b24f53fb669b0eb201fa0955c12d91e9e62fb",
+      "canonical_png_sha256": "e2152ab35546bfee2cce8f0d02d715ca8bf3208dc1696c0b22bc4fb24f13fa76",
+      "rgb8_sha256": "51cefc5639f47a607a831cca60a6cfa095204cc9071f03c3820d2dddeaede670",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4h-o072-1-rgb512.png"
+    },
+    {
+      "shot": "04_4h",
+      "pair_id": "tos-04_4h-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4h/linear_hd/04_4h_00000.exr",
+      "raw_sha256": "b2826013f31dedc77084c4f98fcbc3e1b110828177ea68558df862b5ac733852",
+      "canonical_png_sha256": "31836d85097dcf1d7059a6b4f8c46a89e20cffd73f2d3dff6419576bb7be83d5",
+      "rgb8_sha256": "f541d062afd239fdfd4340a0167fea17f1de0d9d61b84407f88d4e05b2f600f5",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4h-o144-0-rgb512.png"
+    },
+    {
+      "shot": "04_4h",
+      "pair_id": "tos-04_4h-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4h/linear_hd/04_4h_00144.exr",
+      "raw_sha256": "cc49c36944a7fafa361b5295e4656e9a9ecb6591bfc2808a4eb59b171b6394c9",
+      "canonical_png_sha256": "b67a6ff8cd9a46d731ba667d83e3f69534612dcf8b0414206cf096637a7c8571",
+      "rgb8_sha256": "a57424b5ba0d562181587ffcff82e173987942492913a0d059b5619b4019bb23",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4h-o144-1-rgb512.png"
+    },
+    {
+      "shot": "04_4h",
+      "pair_id": "tos-04_4h-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4h/linear_hd/04_4h_00000.exr",
+      "raw_sha256": "b2826013f31dedc77084c4f98fcbc3e1b110828177ea68558df862b5ac733852",
+      "canonical_png_sha256": "31836d85097dcf1d7059a6b4f8c46a89e20cffd73f2d3dff6419576bb7be83d5",
+      "rgb8_sha256": "f541d062afd239fdfd4340a0167fea17f1de0d9d61b84407f88d4e05b2f600f5",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4h-o288-0-rgb512.png"
+    },
+    {
+      "shot": "04_4h",
+      "pair_id": "tos-04_4h-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4h/linear_hd/04_4h_00288.exr",
+      "raw_sha256": "f761f2b83bcbb9a24131363e0c505a7226753c26cd9da059dace0c20ada1f6ba",
+      "canonical_png_sha256": "ff88977a768a073c920aad622bec90ac1dcae57adbc0f0e565836e158f12549c",
+      "rgb8_sha256": "d7914ecb7de3894dd77a5516807bb3c5bfaa17f4c8ba2d552d82e1c524e55242",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4h-o288-1-rgb512.png"
+    },
+    {
+      "shot": "04_4j",
+      "pair_id": "tos-04_4j-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4j/linear_hd/04_4j_00000.exr",
+      "raw_sha256": "c05ffe40e063398f239c488f3bdb60a80629891d3b67225b71589b5547736c0e",
+      "canonical_png_sha256": "eeaff17db644296cee4426728ea45878c75c66275569011c3a84bbb07bc190ab",
+      "rgb8_sha256": "cbdbcea0692708ef1cf1771052651f34632a7c8bfbfe772c8b1555b2d0ca5ec4",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4j-o072-0-rgb512.png"
+    },
+    {
+      "shot": "04_4j",
+      "pair_id": "tos-04_4j-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4j/linear_hd/04_4j_00072.exr",
+      "raw_sha256": "d30f8e86a8381fd6f37ab7b306cf8d9aebec120ad722f6742ed5d025c3bc8681",
+      "canonical_png_sha256": "5780bd68475d6a38c7d44fd8300645d1be9f00f4d1b551e0699d116b98583d05",
+      "rgb8_sha256": "cccf23a6ddc71caecc07cd781d766e1a99ccebd61bf1435d0352ddef3eff1d7c",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4j-o072-1-rgb512.png"
+    },
+    {
+      "shot": "04_4j",
+      "pair_id": "tos-04_4j-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4j/linear_hd/04_4j_00000.exr",
+      "raw_sha256": "c05ffe40e063398f239c488f3bdb60a80629891d3b67225b71589b5547736c0e",
+      "canonical_png_sha256": "eeaff17db644296cee4426728ea45878c75c66275569011c3a84bbb07bc190ab",
+      "rgb8_sha256": "cbdbcea0692708ef1cf1771052651f34632a7c8bfbfe772c8b1555b2d0ca5ec4",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4j-o144-0-rgb512.png"
+    },
+    {
+      "shot": "04_4j",
+      "pair_id": "tos-04_4j-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4j/linear_hd/04_4j_00144.exr",
+      "raw_sha256": "8223373a4d363f31a77adc01922c966f10b12af50ff2e701db031f148e00c269",
+      "canonical_png_sha256": "bcd1288f216637f2a0a4898d1eaab06940564d48caad8ec78456abbc20182d3b",
+      "rgb8_sha256": "74628d5aca0793297c23f4e30cc0ff1afb0d358a6da32677c07caa5bb6d48d3e",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4j-o144-1-rgb512.png"
+    },
+    {
+      "shot": "04_4j",
+      "pair_id": "tos-04_4j-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4j/linear_hd/04_4j_00000.exr",
+      "raw_sha256": "c05ffe40e063398f239c488f3bdb60a80629891d3b67225b71589b5547736c0e",
+      "canonical_png_sha256": "eeaff17db644296cee4426728ea45878c75c66275569011c3a84bbb07bc190ab",
+      "rgb8_sha256": "cbdbcea0692708ef1cf1771052651f34632a7c8bfbfe772c8b1555b2d0ca5ec4",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4j-o288-0-rgb512.png"
+    },
+    {
+      "shot": "04_4j",
+      "pair_id": "tos-04_4j-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4j/linear_hd/04_4j_00288.exr",
+      "raw_sha256": "bfb17645f4b2c24e824821f29f8947d763b151c967ae0887222803dca0a8be16",
+      "canonical_png_sha256": "8236926f179b116a43ebfc4fe4a5dc892cb5dfda2a006feb626fb3473a77008f",
+      "rgb8_sha256": "3a6310445c0d47f1e9d8209646233d86d7c626e426fd00c0557234bef07fc8c3",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4j-o288-1-rgb512.png"
+    },
+    {
+      "shot": "04_4k",
+      "pair_id": "tos-04_4k-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4k/linear_hd/04_4k_00000.exr",
+      "raw_sha256": "4c8d101f49fbcb126f19deef06e18dab952a95fa24b49e9df73cc6b8ce61bc0c",
+      "canonical_png_sha256": "a42e85cb3085af0d52a9301a11fca467afb1e0e02ae07ba322788e12a6daa2ba",
+      "rgb8_sha256": "aa56d324f873f608e942fd7a5bf416f073ad4bca06aeaf64dcf2041ca738357a",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4k-o072-0-rgb512.png"
+    },
+    {
+      "shot": "04_4k",
+      "pair_id": "tos-04_4k-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4k/linear_hd/04_4k_00072.exr",
+      "raw_sha256": "ba861533a7b4d9bac0bd499362924d3f6d2025272d9786d623c1a1dae97de4c7",
+      "canonical_png_sha256": "6e12b96e1b42a935fc2b4a05339216ab8fea71497acb884337eeff97e80b4d86",
+      "rgb8_sha256": "1dd1e796480cb901a80cf264b6727be2d85854717816c3b07bd8b2af59dba943",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4k-o072-1-rgb512.png"
+    },
+    {
+      "shot": "04_4k",
+      "pair_id": "tos-04_4k-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4k/linear_hd/04_4k_00000.exr",
+      "raw_sha256": "4c8d101f49fbcb126f19deef06e18dab952a95fa24b49e9df73cc6b8ce61bc0c",
+      "canonical_png_sha256": "a42e85cb3085af0d52a9301a11fca467afb1e0e02ae07ba322788e12a6daa2ba",
+      "rgb8_sha256": "aa56d324f873f608e942fd7a5bf416f073ad4bca06aeaf64dcf2041ca738357a",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4k-o144-0-rgb512.png"
+    },
+    {
+      "shot": "04_4k",
+      "pair_id": "tos-04_4k-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4k/linear_hd/04_4k_00144.exr",
+      "raw_sha256": "dd470305c4338e93ac3c791a7ba25dc8fc6d77aa8980b0ab75c476b94ca63f7a",
+      "canonical_png_sha256": "2d94a5f6245cdec81a9102a8afc79ade897a57cb1c5ea4f3404a71a1aa9fcc7f",
+      "rgb8_sha256": "bcd8b97e99b6182f4e2e06e8e58e0a8523ba108ef029f86913d0791500d8eea0",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4k-o144-1-rgb512.png"
+    },
+    {
+      "shot": "04_4k",
+      "pair_id": "tos-04_4k-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4k/linear_hd/04_4k_00000.exr",
+      "raw_sha256": "4c8d101f49fbcb126f19deef06e18dab952a95fa24b49e9df73cc6b8ce61bc0c",
+      "canonical_png_sha256": "a42e85cb3085af0d52a9301a11fca467afb1e0e02ae07ba322788e12a6daa2ba",
+      "rgb8_sha256": "aa56d324f873f608e942fd7a5bf416f073ad4bca06aeaf64dcf2041ca738357a",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4k-o288-0-rgb512.png"
+    },
+    {
+      "shot": "04_4k",
+      "pair_id": "tos-04_4k-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_4k/linear_hd/04_4k_00288.exr",
+      "raw_sha256": "cad1c10430154b0f090454cddbcb73a0e425383ae543f8bfdaf82c0948732a61",
+      "canonical_png_sha256": "95eb0b2a69c1ca139d5881882ce7220545cb0119c8a912c70e0e95f43f9e23f0",
+      "rgb8_sha256": "369c2f36149a6d9aefbd4a315a810201ae5f8a61b8e2a2cc1817d000ba60e341",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_4k-o288-1-rgb512.png"
+    },
+    {
+      "shot": "04_5a",
+      "pair_id": "tos-04_5a-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5a/linear_hd/04_5a_00000.exr",
+      "raw_sha256": "74bf98ecb579a6de75638c03395495ae621bc6ac6abcf7529ebd105c76875498",
+      "canonical_png_sha256": "94e7636d81b3189a5170c76c0876d5eff09c97532f885086ccc8376ae9c77f81",
+      "rgb8_sha256": "b46c13eae874a0893c72a4a65a075387c6067043a4d3039ddd4b704d693527ed",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5a-o072-0-rgb512.png"
+    },
+    {
+      "shot": "04_5a",
+      "pair_id": "tos-04_5a-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5a/linear_hd/04_5a_00072.exr",
+      "raw_sha256": "fc216bc25056e8e7c4d6341d5cdb4d28e555fccc736008beb3243c331a8193d6",
+      "canonical_png_sha256": "7bc6e21fe3e0a3214c425fc1759aabecc04e9dd74adf391cf133c1c82e322838",
+      "rgb8_sha256": "60231cb8ea294875d84a8433aaa6a8d80aee840683b716dd31613f8c3d5b76cc",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5a-o072-1-rgb512.png"
+    },
+    {
+      "shot": "04_5a",
+      "pair_id": "tos-04_5a-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5a/linear_hd/04_5a_00000.exr",
+      "raw_sha256": "74bf98ecb579a6de75638c03395495ae621bc6ac6abcf7529ebd105c76875498",
+      "canonical_png_sha256": "94e7636d81b3189a5170c76c0876d5eff09c97532f885086ccc8376ae9c77f81",
+      "rgb8_sha256": "b46c13eae874a0893c72a4a65a075387c6067043a4d3039ddd4b704d693527ed",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5a-o144-0-rgb512.png"
+    },
+    {
+      "shot": "04_5a",
+      "pair_id": "tos-04_5a-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5a/linear_hd/04_5a_00144.exr",
+      "raw_sha256": "ee020eb94fc7cb3ea4e0d09b5ebc2505133408132d099c01b7002d15095094dd",
+      "canonical_png_sha256": "0cac940d6a76e5c83a69d1848539dea0ac51fe9a8ccf9b3187a677bd24bcc5f3",
+      "rgb8_sha256": "3203dba3b0079eaaeb1439c4c631269866147dc9d86b2fea66b781af3d42a1fc",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5a-o144-1-rgb512.png"
+    },
+    {
+      "shot": "04_5a",
+      "pair_id": "tos-04_5a-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5a/linear_hd/04_5a_00000.exr",
+      "raw_sha256": "74bf98ecb579a6de75638c03395495ae621bc6ac6abcf7529ebd105c76875498",
+      "canonical_png_sha256": "94e7636d81b3189a5170c76c0876d5eff09c97532f885086ccc8376ae9c77f81",
+      "rgb8_sha256": "b46c13eae874a0893c72a4a65a075387c6067043a4d3039ddd4b704d693527ed",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5a-o288-0-rgb512.png"
+    },
+    {
+      "shot": "04_5a",
+      "pair_id": "tos-04_5a-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5a/linear_hd/04_5a_00288.exr",
+      "raw_sha256": "de16290e0c9e524972b8bde49bc66a5de64fbe4bf188ea4690c30716d463e6a2",
+      "canonical_png_sha256": "77adaefb586b693c29bd85b7db94ff8c444463c3f114fe74b898a03afb0d561f",
+      "rgb8_sha256": "ba9fc123abf2cf4e7a23fe657eb4fe77f9420d265a0fe0018931159137246d1e",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5a-o288-1-rgb512.png"
+    },
+    {
+      "shot": "04_5b",
+      "pair_id": "tos-04_5b-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5b/linear_hd/04_5b_00000.exr",
+      "raw_sha256": "32378073d193cc3a0c17e45e6a9054e682d07366aef2ed03b40179259bee7453",
+      "canonical_png_sha256": "4d57545d95a87886908b37a64054d09241743afccf7f228b23b24c4ea618b376",
+      "rgb8_sha256": "93c4b5aa49b61140118a54c665157b35d1cfc3ad43ebedc7656550aad63cab95",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5b-o072-0-rgb512.png"
+    },
+    {
+      "shot": "04_5b",
+      "pair_id": "tos-04_5b-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5b/linear_hd/04_5b_00072.exr",
+      "raw_sha256": "7febba22f2ac85f795d9f68eac850d2618d7291618ae64565c9273d63866ba32",
+      "canonical_png_sha256": "cf2c1c8b14a5224f042f650b4df175a80702a0386bc431eabe16e4ed758c503b",
+      "rgb8_sha256": "dd2b84a798cb61e18a25856fd8b4b2f1ee3389953f40fcfc0fbea317f360d7de",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5b-o072-1-rgb512.png"
+    },
+    {
+      "shot": "04_5b",
+      "pair_id": "tos-04_5b-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5b/linear_hd/04_5b_00000.exr",
+      "raw_sha256": "32378073d193cc3a0c17e45e6a9054e682d07366aef2ed03b40179259bee7453",
+      "canonical_png_sha256": "4d57545d95a87886908b37a64054d09241743afccf7f228b23b24c4ea618b376",
+      "rgb8_sha256": "93c4b5aa49b61140118a54c665157b35d1cfc3ad43ebedc7656550aad63cab95",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5b-o144-0-rgb512.png"
+    },
+    {
+      "shot": "04_5b",
+      "pair_id": "tos-04_5b-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5b/linear_hd/04_5b_00144.exr",
+      "raw_sha256": "f02702f0ff58f4b94e45c8bee68bef00308677dd01c9b2a2305870da9e856e44",
+      "canonical_png_sha256": "b033acd23b7872abfabc8b7cd4af682b5551770cdcd52ba359d5d3c5da01277b",
+      "rgb8_sha256": "91036c37a9449ae75d50846334cc5ccf5e1f2894b6284009ed48949640711e37",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5b-o144-1-rgb512.png"
+    },
+    {
+      "shot": "04_5b",
+      "pair_id": "tos-04_5b-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5b/linear_hd/04_5b_00000.exr",
+      "raw_sha256": "32378073d193cc3a0c17e45e6a9054e682d07366aef2ed03b40179259bee7453",
+      "canonical_png_sha256": "4d57545d95a87886908b37a64054d09241743afccf7f228b23b24c4ea618b376",
+      "rgb8_sha256": "93c4b5aa49b61140118a54c665157b35d1cfc3ad43ebedc7656550aad63cab95",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5b-o288-0-rgb512.png"
+    },
+    {
+      "shot": "04_5b",
+      "pair_id": "tos-04_5b-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5b/linear_hd/04_5b_00288.exr",
+      "raw_sha256": "16ea1bc7b41509a856b282325bea804edbf448724400c7cc1b0b6d1a17288bb6",
+      "canonical_png_sha256": "32f6723759fc8e6c814aca0f06a6a3563cdb4d577466b71ea37ff53b237a09a7",
+      "rgb8_sha256": "bb24eee942e2ea722980a25329515130eba3f18c32b3c86cd04088a5250b8553",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5b-o288-1-rgb512.png"
+    },
+    {
+      "shot": "04_5c",
+      "pair_id": "tos-04_5c-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5c/linear_hd/04_5c_00000.exr",
+      "raw_sha256": "99d8b15b3f4fb8ebba45f1306a75d71b93a538dc43b8e643326d0d22f19b9ade",
+      "canonical_png_sha256": "62b8cd4c6e41d4081dc02fd3e3192393b449d01a2dd779e4e667141fbd11ace1",
+      "rgb8_sha256": "842f4cf135f2d59ce1b1b275f06a027a39bf16c3c83979aa39ad8c89770b3f45",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5c-o072-0-rgb512.png"
+    },
+    {
+      "shot": "04_5c",
+      "pair_id": "tos-04_5c-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5c/linear_hd/04_5c_00072.exr",
+      "raw_sha256": "fca2a8cf3ba64d852bbfb4e35bcefc4cec82d7a1fda9d9d2ab197f897b60d2ae",
+      "canonical_png_sha256": "e9a7403bb464cb2415bcd2b909026b5222625a1ff80c77675f3c631cfccf93ee",
+      "rgb8_sha256": "45dc951a757d765a1badb15ea1c472c4baca896cb5a4ec91094c717701bb4d35",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5c-o072-1-rgb512.png"
+    },
+    {
+      "shot": "04_5c",
+      "pair_id": "tos-04_5c-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5c/linear_hd/04_5c_00000.exr",
+      "raw_sha256": "99d8b15b3f4fb8ebba45f1306a75d71b93a538dc43b8e643326d0d22f19b9ade",
+      "canonical_png_sha256": "62b8cd4c6e41d4081dc02fd3e3192393b449d01a2dd779e4e667141fbd11ace1",
+      "rgb8_sha256": "842f4cf135f2d59ce1b1b275f06a027a39bf16c3c83979aa39ad8c89770b3f45",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5c-o144-0-rgb512.png"
+    },
+    {
+      "shot": "04_5c",
+      "pair_id": "tos-04_5c-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5c/linear_hd/04_5c_00144.exr",
+      "raw_sha256": "bfe4a491ac88c39fe98a5eeff6122f4a673c619abc0ce16d2d94e633f0ef8b0a",
+      "canonical_png_sha256": "9e566c5ca90e38de83d85b64edd6e556092fcaf072ec4dd8b04a7721779fb949",
+      "rgb8_sha256": "22dae4266794c96d987e12e3e36c7b881ccaf04de4cd634f16013cae494284c9",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5c-o144-1-rgb512.png"
+    },
+    {
+      "shot": "04_5c",
+      "pair_id": "tos-04_5c-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5c/linear_hd/04_5c_00000.exr",
+      "raw_sha256": "99d8b15b3f4fb8ebba45f1306a75d71b93a538dc43b8e643326d0d22f19b9ade",
+      "canonical_png_sha256": "62b8cd4c6e41d4081dc02fd3e3192393b449d01a2dd779e4e667141fbd11ace1",
+      "rgb8_sha256": "842f4cf135f2d59ce1b1b275f06a027a39bf16c3c83979aa39ad8c89770b3f45",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5c-o288-0-rgb512.png"
+    },
+    {
+      "shot": "04_5c",
+      "pair_id": "tos-04_5c-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5c/linear_hd/04_5c_00288.exr",
+      "raw_sha256": "c02fb282d9ab426d3d544bcb35980909ceeeb1ad3ccd25d78988fcd0003440a3",
+      "canonical_png_sha256": "146eb8c8e3581271b60f9329df1f91e1f7fe03cd8532d7093c5af75ce452dd43",
+      "rgb8_sha256": "d94f71e9f1e2ccd88fd1161f577c91df09dc10d2635a0d0554a00520230815a9",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5c-o288-1-rgb512.png"
+    },
+    {
+      "shot": "04_5e",
+      "pair_id": "tos-04_5e-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5e/linear_hd/04_5e_00000.exr",
+      "raw_sha256": "e013cc65846a650fe2f4d423cdd3b6ca4d0623061dbb53ea016ecc2882dc49d3",
+      "canonical_png_sha256": "3768b6f7f4e42d6dc1b3cef8cf84e9a0fd07bc1ff9a239e7440ab40cc6fb2e73",
+      "rgb8_sha256": "71eb243eee051b36ca76db331cb3ac399776171242581f73adcafb6e65771ac0",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5e-o072-0-rgb512.png"
+    },
+    {
+      "shot": "04_5e",
+      "pair_id": "tos-04_5e-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5e/linear_hd/04_5e_00072.exr",
+      "raw_sha256": "b8380cd1c9dedeed59d63a262c9c125082c760bb566fccfe36f2328c0b9d4adc",
+      "canonical_png_sha256": "968590d2e87d2a694013bd727b7abe3b89d1628e49dd540c754167415da4a81e",
+      "rgb8_sha256": "c6969ff783ada0748e7c716e4768d43fdec17b0fee5719e02e5832f7f90be134",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5e-o072-1-rgb512.png"
+    },
+    {
+      "shot": "04_5e",
+      "pair_id": "tos-04_5e-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5e/linear_hd/04_5e_00000.exr",
+      "raw_sha256": "e013cc65846a650fe2f4d423cdd3b6ca4d0623061dbb53ea016ecc2882dc49d3",
+      "canonical_png_sha256": "3768b6f7f4e42d6dc1b3cef8cf84e9a0fd07bc1ff9a239e7440ab40cc6fb2e73",
+      "rgb8_sha256": "71eb243eee051b36ca76db331cb3ac399776171242581f73adcafb6e65771ac0",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5e-o144-0-rgb512.png"
+    },
+    {
+      "shot": "04_5e",
+      "pair_id": "tos-04_5e-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5e/linear_hd/04_5e_00144.exr",
+      "raw_sha256": "015aa76b46b13333e011d5147f18e88839eeffc8cf0b7e42423c5398f6611a3b",
+      "canonical_png_sha256": "31bdb4809e1e9158e90394f8a963a35ee33d9d4fdc3ff8765dd4229823506665",
+      "rgb8_sha256": "b3c94d3ef74c886bb3d40917f637c91b9c1c12b1af5dbe88e1d2dd5a5aed52fc",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5e-o144-1-rgb512.png"
+    },
+    {
+      "shot": "04_5e",
+      "pair_id": "tos-04_5e-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5e/linear_hd/04_5e_00000.exr",
+      "raw_sha256": "e013cc65846a650fe2f4d423cdd3b6ca4d0623061dbb53ea016ecc2882dc49d3",
+      "canonical_png_sha256": "3768b6f7f4e42d6dc1b3cef8cf84e9a0fd07bc1ff9a239e7440ab40cc6fb2e73",
+      "rgb8_sha256": "71eb243eee051b36ca76db331cb3ac399776171242581f73adcafb6e65771ac0",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5e-o288-0-rgb512.png"
+    },
+    {
+      "shot": "04_5e",
+      "pair_id": "tos-04_5e-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5e/linear_hd/04_5e_00288.exr",
+      "raw_sha256": "c21180bb427fd5ed9f406cb6526bc8087c53156eb6ecf054ead429d1b0fa8297",
+      "canonical_png_sha256": "e4235360f7e8ec9df2ee1b9da4966abf4e17580a94b15c633fec8e1960b7c644",
+      "rgb8_sha256": "4285c9fe65790fb2709faa92e1bde197a94ad894ba713b359887324e561ec6b0",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5e-o288-1-rgb512.png"
+    },
+    {
+      "shot": "04_5f",
+      "pair_id": "tos-04_5f-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5f/linear_hd/04_5f_00000.exr",
+      "raw_sha256": "47c961521f0f293dc123cd39eb2efbe42d33cb830135d93710d218c7054eed7a",
+      "canonical_png_sha256": "11a28099e47ad6afbed0d21270dc1e8f606cd344a7d8e9d90be4c62ac43af9da",
+      "rgb8_sha256": "179dbb29de56a6a2ffccec8dadd630f47f3833c17583eb0381f4017bb4b6faf4",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5f-o072-0-rgb512.png"
+    },
+    {
+      "shot": "04_5f",
+      "pair_id": "tos-04_5f-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5f/linear_hd/04_5f_00072.exr",
+      "raw_sha256": "7d087bf7996c2cfea203e6fde8358f5b2af14992bf667b0d6876a997ecd6cc53",
+      "canonical_png_sha256": "4e60e1ab561097f745753b952e608b61b359936a6abb8b8098a08cad7fc7deb3",
+      "rgb8_sha256": "186983bca9729115a976216926552e5eece719c9bc92f4de1ad485f4b2eeea1f",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5f-o072-1-rgb512.png"
+    },
+    {
+      "shot": "04_5f",
+      "pair_id": "tos-04_5f-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5f/linear_hd/04_5f_00000.exr",
+      "raw_sha256": "47c961521f0f293dc123cd39eb2efbe42d33cb830135d93710d218c7054eed7a",
+      "canonical_png_sha256": "11a28099e47ad6afbed0d21270dc1e8f606cd344a7d8e9d90be4c62ac43af9da",
+      "rgb8_sha256": "179dbb29de56a6a2ffccec8dadd630f47f3833c17583eb0381f4017bb4b6faf4",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5f-o144-0-rgb512.png"
+    },
+    {
+      "shot": "04_5f",
+      "pair_id": "tos-04_5f-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5f/linear_hd/04_5f_00144.exr",
+      "raw_sha256": "5a0c9c949a79a496aff770abab0fa634782995f742f6ab8e823d25100c734ff5",
+      "canonical_png_sha256": "5db7bdc128e226ab97633b695f8d8b2376292e3e81f433cfcb8ea7a7076d9b35",
+      "rgb8_sha256": "ce57bdbc72d5bcf7e29ce4208e3199011e95fb52e17fb12de5ddd3d453d0651b",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5f-o144-1-rgb512.png"
+    },
+    {
+      "shot": "04_5f",
+      "pair_id": "tos-04_5f-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5f/linear_hd/04_5f_00000.exr",
+      "raw_sha256": "47c961521f0f293dc123cd39eb2efbe42d33cb830135d93710d218c7054eed7a",
+      "canonical_png_sha256": "11a28099e47ad6afbed0d21270dc1e8f606cd344a7d8e9d90be4c62ac43af9da",
+      "rgb8_sha256": "179dbb29de56a6a2ffccec8dadd630f47f3833c17583eb0381f4017bb4b6faf4",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5f-o288-0-rgb512.png"
+    },
+    {
+      "shot": "04_5f",
+      "pair_id": "tos-04_5f-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5f/linear_hd/04_5f_00288.exr",
+      "raw_sha256": "52e71f1441fd9b8eed9dcacf494d95ede267673960df2a5705cb6a2a689267bf",
+      "canonical_png_sha256": "a2d6f5463883c9586ea32c6ef513caad45178ee6303d539d2f6de60d6b365195",
+      "rgb8_sha256": "13f439a1e9b49e0c78ebca8b8dc33723e2d465dc4b7f5aaa8601164d3e636bf2",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5f-o288-1-rgb512.png"
+    },
+    {
+      "shot": "04_5g",
+      "pair_id": "tos-04_5g-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5g/linear_hd/04_5g_00000.exr",
+      "raw_sha256": "8310b51279f52fd5127df1b1d5c7057705137113ac1d9cba8fbe661c6e4191da",
+      "canonical_png_sha256": "6d3ac069191bd52dd5ef3089e013283ef92438b5ce47ed1f4645e1af5e1b0d08",
+      "rgb8_sha256": "ed28369318f635f09f77e7cc6d5aea2073c376d34d589f2d3f8b5c627402133d",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5g-o072-0-rgb512.png"
+    },
+    {
+      "shot": "04_5g",
+      "pair_id": "tos-04_5g-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5g/linear_hd/04_5g_00072.exr",
+      "raw_sha256": "683d0528979bec636d2c7fd28d57181bd953cbcda2aeca2b7b57f424edf11747",
+      "canonical_png_sha256": "efb3af35cfa6adde014c2909a6d2b42f5c128b5bf5046ba1ad6ea7eb1410024c",
+      "rgb8_sha256": "d86abd056421ec045ddf1ea5b31aa7ee7325419dd266d4988352b76dbaf50fed",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5g-o072-1-rgb512.png"
+    },
+    {
+      "shot": "04_5g",
+      "pair_id": "tos-04_5g-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5g/linear_hd/04_5g_00000.exr",
+      "raw_sha256": "8310b51279f52fd5127df1b1d5c7057705137113ac1d9cba8fbe661c6e4191da",
+      "canonical_png_sha256": "6d3ac069191bd52dd5ef3089e013283ef92438b5ce47ed1f4645e1af5e1b0d08",
+      "rgb8_sha256": "ed28369318f635f09f77e7cc6d5aea2073c376d34d589f2d3f8b5c627402133d",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5g-o144-0-rgb512.png"
+    },
+    {
+      "shot": "04_5g",
+      "pair_id": "tos-04_5g-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5g/linear_hd/04_5g_00144.exr",
+      "raw_sha256": "031fe2b50ed3c264bbb27661901b495e179ee643ff4b52dc8608d1ebea1203df",
+      "canonical_png_sha256": "f0c3914e1c1a957b8a0ab1edb67fd2d5d73733a974e48e0ae05fce5f07e0f5c5",
+      "rgb8_sha256": "86fdfa1f3f3c36f72f36abf0b8e58512f935e2589af6d203a20e78c19b1e2279",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5g-o144-1-rgb512.png"
+    },
+    {
+      "shot": "04_5g",
+      "pair_id": "tos-04_5g-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5g/linear_hd/04_5g_00000.exr",
+      "raw_sha256": "8310b51279f52fd5127df1b1d5c7057705137113ac1d9cba8fbe661c6e4191da",
+      "canonical_png_sha256": "6d3ac069191bd52dd5ef3089e013283ef92438b5ce47ed1f4645e1af5e1b0d08",
+      "rgb8_sha256": "ed28369318f635f09f77e7cc6d5aea2073c376d34d589f2d3f8b5c627402133d",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5g-o288-0-rgb512.png"
+    },
+    {
+      "shot": "04_5g",
+      "pair_id": "tos-04_5g-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5g/linear_hd/04_5g_00288.exr",
+      "raw_sha256": "5cf901d72313cf46e4f4cdca8e467b4bf56a3b38e5bf000c8d6ab6179905b92c",
+      "canonical_png_sha256": "ae129abfb2720d73072d73fdf72d3cb883f8a04d56f6171e806af6dd1620e8d0",
+      "rgb8_sha256": "bdf6cf71c92c44169edf36a1ce1ae442359d86362075663255e825f910c60d27",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5g-o288-1-rgb512.png"
+    },
+    {
+      "shot": "04_5h",
+      "pair_id": "tos-04_5h-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5h/linear_hd/04_5h_00000.exr",
+      "raw_sha256": "e4e6add42106024760e9835b344e063e6fecbef26627069edb222c3d50e6a221",
+      "canonical_png_sha256": "e0a5ba7d0000f9773803f9c97a318d66a2340c602763a8611d6a15e67914c874",
+      "rgb8_sha256": "de66e450e94f4c9bc5004cb1edc1fb148cd69c3d8f0d64bd1d73d81c9835ed2c",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5h-o072-0-rgb512.png"
+    },
+    {
+      "shot": "04_5h",
+      "pair_id": "tos-04_5h-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5h/linear_hd/04_5h_00072.exr",
+      "raw_sha256": "ef3de2c4da0f6ff3662f0cb7da90dc5c81e62187117732dd5723d961a90fa83f",
+      "canonical_png_sha256": "fe67bf09d22000fd0ccee1f97f366e46b750d481737d80985bbd667223208c4d",
+      "rgb8_sha256": "6e7b15daaf1a654982c241215d0ec0978632e14ef2ce889d5cec1d19ff5c5195",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5h-o072-1-rgb512.png"
+    },
+    {
+      "shot": "04_5h",
+      "pair_id": "tos-04_5h-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5h/linear_hd/04_5h_00000.exr",
+      "raw_sha256": "e4e6add42106024760e9835b344e063e6fecbef26627069edb222c3d50e6a221",
+      "canonical_png_sha256": "e0a5ba7d0000f9773803f9c97a318d66a2340c602763a8611d6a15e67914c874",
+      "rgb8_sha256": "de66e450e94f4c9bc5004cb1edc1fb148cd69c3d8f0d64bd1d73d81c9835ed2c",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5h-o144-0-rgb512.png"
+    },
+    {
+      "shot": "04_5h",
+      "pair_id": "tos-04_5h-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5h/linear_hd/04_5h_00144.exr",
+      "raw_sha256": "cb3a648688e8ab705d784ecd37e66a0e2fdcfb933c0e26ff37994a1edec63559",
+      "canonical_png_sha256": "b9e9f7e5928b905d632fe21d9958f1059f6f2afb4c785bdab7d932e7e31fddc1",
+      "rgb8_sha256": "41283fcfc3761c909fcf9ac622acde3c29e83345baea5b604ec9dc8b1c1c7812",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5h-o144-1-rgb512.png"
+    },
+    {
+      "shot": "04_5h",
+      "pair_id": "tos-04_5h-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5h/linear_hd/04_5h_00000.exr",
+      "raw_sha256": "e4e6add42106024760e9835b344e063e6fecbef26627069edb222c3d50e6a221",
+      "canonical_png_sha256": "e0a5ba7d0000f9773803f9c97a318d66a2340c602763a8611d6a15e67914c874",
+      "rgb8_sha256": "de66e450e94f4c9bc5004cb1edc1fb148cd69c3d8f0d64bd1d73d81c9835ed2c",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5h-o288-0-rgb512.png"
+    },
+    {
+      "shot": "04_5h",
+      "pair_id": "tos-04_5h-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5h/linear_hd/04_5h_00288.exr",
+      "raw_sha256": "5fe153780d915d2ebb34580e21f66af45f56bfa8aba2e9ac0a784eddb0e6f3af",
+      "canonical_png_sha256": "ce303fe7e88182ef6de0b5f61ee58168a8977be147780c8d930e9f4dc056056d",
+      "rgb8_sha256": "25cabaed02b61e99839e1441fe1863875c050d2de3f75a3284ec9fe67969319e",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5h-o288-1-rgb512.png"
+    },
+    {
+      "shot": "04_5i",
+      "pair_id": "tos-04_5i-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5i/linear_hd/04_5i_00000.exr",
+      "raw_sha256": "e128bea3eed79b7382e2f19073bbce6f56836a1f2797cd6cface1e05a7cb09d0",
+      "canonical_png_sha256": "5c6e8ab2687f2df936eeee8f4896874d0487bf4522a3d3c8978f58e6d8d982b0",
+      "rgb8_sha256": "7878a4f72e459502c2145816f65866a1dbdde53ccecaece7431484c3ed4e7dda",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5i-o072-0-rgb512.png"
+    },
+    {
+      "shot": "04_5i",
+      "pair_id": "tos-04_5i-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5i/linear_hd/04_5i_00072.exr",
+      "raw_sha256": "23231484756e72dfef7833c4dd43b68f068276af68ce6047a8de8acd70a67dd9",
+      "canonical_png_sha256": "aab9b2995aa155646ffee7f225f77ea151f18206e6b98320763bf79072eda203",
+      "rgb8_sha256": "cb443958f084d74d5f19e7bda3ccdc37336d4f3eae814eb92a8022cd075df828",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5i-o072-1-rgb512.png"
+    },
+    {
+      "shot": "04_5i",
+      "pair_id": "tos-04_5i-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5i/linear_hd/04_5i_00000.exr",
+      "raw_sha256": "e128bea3eed79b7382e2f19073bbce6f56836a1f2797cd6cface1e05a7cb09d0",
+      "canonical_png_sha256": "5c6e8ab2687f2df936eeee8f4896874d0487bf4522a3d3c8978f58e6d8d982b0",
+      "rgb8_sha256": "7878a4f72e459502c2145816f65866a1dbdde53ccecaece7431484c3ed4e7dda",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5i-o144-0-rgb512.png"
+    },
+    {
+      "shot": "04_5i",
+      "pair_id": "tos-04_5i-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5i/linear_hd/04_5i_00144.exr",
+      "raw_sha256": "992bdc47df959ba5bafa72f5a8b298641d3ab74578abda1e0f09c01558a3c6a5",
+      "canonical_png_sha256": "7bfcdca177d18ec7983b5d7d3c6558881db6cf89523aa8d2411127ce47cb20fd",
+      "rgb8_sha256": "4da5d7b2d45a52595357840e1c4c272079581bed92c581816590790cf6661bf4",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5i-o144-1-rgb512.png"
+    },
+    {
+      "shot": "04_5i",
+      "pair_id": "tos-04_5i-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5i/linear_hd/04_5i_00000.exr",
+      "raw_sha256": "e128bea3eed79b7382e2f19073bbce6f56836a1f2797cd6cface1e05a7cb09d0",
+      "canonical_png_sha256": "5c6e8ab2687f2df936eeee8f4896874d0487bf4522a3d3c8978f58e6d8d982b0",
+      "rgb8_sha256": "7878a4f72e459502c2145816f65866a1dbdde53ccecaece7431484c3ed4e7dda",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5i-o288-0-rgb512.png"
+    },
+    {
+      "shot": "04_5i",
+      "pair_id": "tos-04_5i-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5i/linear_hd/04_5i_00288.exr",
+      "raw_sha256": "b3c33b9c8aa2bd29655e65587c67dbc33d7799574f510eb7167f8333ccf52ffa",
+      "canonical_png_sha256": "f4fa5799eeee5d4ca47a8785e66f3abc38107264ded33fcf2e1c899700832da6",
+      "rgb8_sha256": "c852bdbc13e4962a50fca9d011bcddfb57997af3e764249be3d6df2952e79aaf",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5i-o288-1-rgb512.png"
+    },
+    {
+      "shot": "04_5k",
+      "pair_id": "tos-04_5k-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5k/linear_hd/04_5k_00000.exr",
+      "raw_sha256": "40be361160b77d8db50661f87da9b38ee6000724a332ce6a196a161bd5c13f64",
+      "canonical_png_sha256": "937240abea78eefab9a1ed73007f72d3d2fb74efa462a11e902360b158dd8ea5",
+      "rgb8_sha256": "5d00631776f5196c2b6cbee7d7e37facd9aa113015b763b570f77fd5190be26f",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5k-o072-0-rgb512.png"
+    },
+    {
+      "shot": "04_5k",
+      "pair_id": "tos-04_5k-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5k/linear_hd/04_5k_00072.exr",
+      "raw_sha256": "cf02ddac2b8e543507e1d373135f663b2206c5df5b9778fe7528c719a91615d7",
+      "canonical_png_sha256": "738e783ceed6202122009b32a966b2e113153b86e3c493418740118900934726",
+      "rgb8_sha256": "13123e5757f49c8cd1f000466674b5ad81feb95ea6e8e728e138f62322c18c9c",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5k-o072-1-rgb512.png"
+    },
+    {
+      "shot": "04_5k",
+      "pair_id": "tos-04_5k-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5k/linear_hd/04_5k_00000.exr",
+      "raw_sha256": "40be361160b77d8db50661f87da9b38ee6000724a332ce6a196a161bd5c13f64",
+      "canonical_png_sha256": "937240abea78eefab9a1ed73007f72d3d2fb74efa462a11e902360b158dd8ea5",
+      "rgb8_sha256": "5d00631776f5196c2b6cbee7d7e37facd9aa113015b763b570f77fd5190be26f",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5k-o144-0-rgb512.png"
+    },
+    {
+      "shot": "04_5k",
+      "pair_id": "tos-04_5k-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5k/linear_hd/04_5k_00144.exr",
+      "raw_sha256": "30af1dd297b858f1de80996129d5ad8c074a1855cd9540fc107bab53d135cff7",
+      "canonical_png_sha256": "84c5dd1f015d74578f9e1aaf9d4bd81f94819677f175a7d66c1658f01b312d1c",
+      "rgb8_sha256": "f90f78810548d2db2991850293da76331ad8dcba99fdbb40a0dcea06a1aa9ee3",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5k-o144-1-rgb512.png"
+    },
+    {
+      "shot": "04_5k",
+      "pair_id": "tos-04_5k-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5k/linear_hd/04_5k_00000.exr",
+      "raw_sha256": "40be361160b77d8db50661f87da9b38ee6000724a332ce6a196a161bd5c13f64",
+      "canonical_png_sha256": "937240abea78eefab9a1ed73007f72d3d2fb74efa462a11e902360b158dd8ea5",
+      "rgb8_sha256": "5d00631776f5196c2b6cbee7d7e37facd9aa113015b763b570f77fd5190be26f",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5k-o288-0-rgb512.png"
+    },
+    {
+      "shot": "04_5k",
+      "pair_id": "tos-04_5k-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5k/linear_hd/04_5k_00288.exr",
+      "raw_sha256": "a26e3e8afbf3d9617977d462d707a206962796b6171d8c4f652fe26f8dc9deba",
+      "canonical_png_sha256": "8229f321a6adec4942ee59300d22c57ac651e0d4db8c30c755e02c3c8eb82d60",
+      "rgb8_sha256": "896330e444e3451bbbc969ea4649feddb428d9c401bb724aa631b3f3a771dfaa",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5k-o288-1-rgb512.png"
+    },
+    {
+      "shot": "04_5l",
+      "pair_id": "tos-04_5l-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5l/linear_hd/04_5l_00000.exr",
+      "raw_sha256": "8ec1721218730871a3f9f7223211bab29acea5bcfdfeacc489da1f624c3ee452",
+      "canonical_png_sha256": "de1728e9a2eae067a53e91981f264cab385ba8678fcb5fe65601c2cfe1faaea5",
+      "rgb8_sha256": "c2062d19d6c5f3da07b701713b76aed15d8cd15a4bbb509399abfddbcef3ca4d",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5l-o072-0-rgb512.png"
+    },
+    {
+      "shot": "04_5l",
+      "pair_id": "tos-04_5l-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5l/linear_hd/04_5l_00072.exr",
+      "raw_sha256": "fdaf59238614c1cf2fa90efe33c53498f3ffbc80369453553df1426414a1caec",
+      "canonical_png_sha256": "f8b9dfa42599f010448a846ac608d010e4311d715299972e3aa44c2d38146da1",
+      "rgb8_sha256": "dda8da240424653ab8fe34649b773ce7f4bb376473f7417987b698080d391121",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5l-o072-1-rgb512.png"
+    },
+    {
+      "shot": "04_5l",
+      "pair_id": "tos-04_5l-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5l/linear_hd/04_5l_00000.exr",
+      "raw_sha256": "8ec1721218730871a3f9f7223211bab29acea5bcfdfeacc489da1f624c3ee452",
+      "canonical_png_sha256": "de1728e9a2eae067a53e91981f264cab385ba8678fcb5fe65601c2cfe1faaea5",
+      "rgb8_sha256": "c2062d19d6c5f3da07b701713b76aed15d8cd15a4bbb509399abfddbcef3ca4d",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5l-o144-0-rgb512.png"
+    },
+    {
+      "shot": "04_5l",
+      "pair_id": "tos-04_5l-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5l/linear_hd/04_5l_00144.exr",
+      "raw_sha256": "3fe5eae7e5a0f3c5066879e677a3eea54ca275d5b268c7dfb890c0f53852451d",
+      "canonical_png_sha256": "07b3581bc34170f2de33510f8d201c82ba254f7bd59a2a290f95484d711bd288",
+      "rgb8_sha256": "a45e9f2d479b576e75ec4e94cbfe0bde90f077bcdb7943a9eeeeeb9a0f27dc0f",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5l-o144-1-rgb512.png"
+    },
+    {
+      "shot": "04_5l",
+      "pair_id": "tos-04_5l-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5l/linear_hd/04_5l_00000.exr",
+      "raw_sha256": "8ec1721218730871a3f9f7223211bab29acea5bcfdfeacc489da1f624c3ee452",
+      "canonical_png_sha256": "de1728e9a2eae067a53e91981f264cab385ba8678fcb5fe65601c2cfe1faaea5",
+      "rgb8_sha256": "c2062d19d6c5f3da07b701713b76aed15d8cd15a4bbb509399abfddbcef3ca4d",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5l-o288-0-rgb512.png"
+    },
+    {
+      "shot": "04_5l",
+      "pair_id": "tos-04_5l-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5l/linear_hd/04_5l_00288.exr",
+      "raw_sha256": "0e2336ae26490926dd278707b2a7343720e838053acab01b2eee9d465b352895",
+      "canonical_png_sha256": "504917e38e739a1b6d3bb747788a320eaf4a240893d264b90dfeed99afec610f",
+      "rgb8_sha256": "4b333d52b58b85aa0b4cd4ab43f7e5b1fb38daa9fa4863240539bce0613e6e5e",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5l-o288-1-rgb512.png"
+    },
+    {
+      "shot": "04_5n",
+      "pair_id": "tos-04_5n-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5n/linear_hd/04_5n_00000.exr",
+      "raw_sha256": "5bda9b3be231e3b1af7a6fd4e57b70e12a5c75ef930506e138806d41eb9fa62d",
+      "canonical_png_sha256": "f63b5728e59b5bba307df57b84df78ac3c58edcb3df74c0e88a2f858c72cb68d",
+      "rgb8_sha256": "8b7bfa94ad064cf93cd44852040335388872ad568125846f721ba1e3ce33c2a0",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5n-o072-0-rgb512.png"
+    },
+    {
+      "shot": "04_5n",
+      "pair_id": "tos-04_5n-o072",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5n/linear_hd/04_5n_00072.exr",
+      "raw_sha256": "6de87ce0c7f6a90bae1e9cccfe37a8889ad8ab2d46012fa90e7c8c98d26dc908",
+      "canonical_png_sha256": "8ef3519a019993e1f71ff8fe351cf3199cbd1c14d4ba83a4fc38007426cec099",
+      "rgb8_sha256": "a8fdd82314fc9e45ee991073dd9c60e178ee06383995e40869a97d8313a3955f",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5n-o072-1-rgb512.png"
+    },
+    {
+      "shot": "04_5n",
+      "pair_id": "tos-04_5n-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5n/linear_hd/04_5n_00000.exr",
+      "raw_sha256": "5bda9b3be231e3b1af7a6fd4e57b70e12a5c75ef930506e138806d41eb9fa62d",
+      "canonical_png_sha256": "f63b5728e59b5bba307df57b84df78ac3c58edcb3df74c0e88a2f858c72cb68d",
+      "rgb8_sha256": "8b7bfa94ad064cf93cd44852040335388872ad568125846f721ba1e3ce33c2a0",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5n-o144-0-rgb512.png"
+    },
+    {
+      "shot": "04_5n",
+      "pair_id": "tos-04_5n-o144",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5n/linear_hd/04_5n_00144.exr",
+      "raw_sha256": "166aef567ba2e3778bfc965fa4a7b0230fb127dcfc2af765e5221cf3abe3190c",
+      "canonical_png_sha256": "c73a4605fe57241ffa4a8ca919cd1048cf3c9624d97f1ba1b11d6cea105c3bba",
+      "rgb8_sha256": "1d570e19d207fd90c4da26d7e63a9b2e7b15412dddc6dd6b602fdb3f903528dc",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5n-o144-1-rgb512.png"
+    },
+    {
+      "shot": "04_5n",
+      "pair_id": "tos-04_5n-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5n/linear_hd/04_5n_00000.exr",
+      "raw_sha256": "5bda9b3be231e3b1af7a6fd4e57b70e12a5c75ef930506e138806d41eb9fa62d",
+      "canonical_png_sha256": "f63b5728e59b5bba307df57b84df78ac3c58edcb3df74c0e88a2f858c72cb68d",
+      "rgb8_sha256": "8b7bfa94ad064cf93cd44852040335388872ad568125846f721ba1e3ce33c2a0",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5n-o288-0-rgb512.png"
+    },
+    {
+      "shot": "04_5n",
+      "pair_id": "tos-04_5n-o288",
+      "url": "https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_5n/linear_hd/04_5n_00288.exr",
+      "raw_sha256": "dae2bc7aa62f18a404b6b4e20bcd4159a70c7ee6031bd97d9f098713caa46d8b",
+      "canonical_png_sha256": "b5215b1e27ce4bea16aea1556910849b56a82d657ebcc49de534bcbf8dfcddfe",
+      "rgb8_sha256": "1e0dea8f218ec542ea34a31329b2a0e92bf276ba1d4ab6fde43a2e738607d364",
+      "canonical_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\canonical\\tos-04_5n-o288-1-rgb512.png"
+    }
+  ],
+  "scope": "All acquired Tears of Steel development frame receipts found under MAIN .thesis-build/assets/*/near-duplicates.json; no frame bytes read.",
+  "preflight": "Compare all selected new frames against this complete recorded footage digest set after the user approves the exact manifest. Retain the prior receipt inventories as inputs."
+}

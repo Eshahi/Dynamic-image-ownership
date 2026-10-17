@@ -1,6 +1,6 @@
 {
   "schema": "registry-confirmation-frozen-v1",
-  "status": "partial package; not executable",
+  "status": "frozen package configuration",
   "protocol": "registry-two-factor-v1",
   "method": {
     "name": "F5 r2",
@@ -74,7 +74,9 @@
     "queries": [
       "copy",
       "further regeneration"
-    ]
+    ],
+    "copy_seed": 15,
+    "further_seed": 16
   },
   "synthetic_seeds": [
     21,

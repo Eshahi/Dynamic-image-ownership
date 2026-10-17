@@ -53,3 +53,13 @@ def canonicalize(raw: bytes, expected_sha256: str):
                    mode_conversion=converted, resize="Pillow BICUBIC 512x512",
                    rgb8_sha256=hashlib.sha256(rgb.tobytes()).hexdigest())
     return rgb, receipt
+
+
+def registry_canonical(source, data_split, heldout_authorized=False):
+    """Registry boundary: refuse held-out bytes before an exact approved worker gate."""
+    if data_split not in ("test", "development"):
+        raise ValueError("Unknown registry source split")
+    if data_split == "test" and not heldout_authorized:
+        raise PermissionError("Held-out pixels refused before approval")
+    from pathlib import Path
+    return canonicalize(Path(source["raw_path"]).read_bytes(), source["raw_sha256"])

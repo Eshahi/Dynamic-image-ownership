@@ -1,0 +1,11 @@
+# Registry confirmation implementation notes
+
+The clarification on 2026-10-17 resolves the path-only blocker. Scorer source is 558239d, byte-identical. The cohort adapter contains layout and parameter routing only. Primary reporting uses the frozen plan_view and independently computed E3, with incomplete observations preventing a success claim.
+
+Fixed implementation decisions: alpha enrollment uses intended F5 q, beta enrollment uses the native beta recomputed semantic_code, consistent with the prior regenerate-and-enroll scenario. Seed15 produces each competing copy; seed16 produces its further regeneration. T4 ordering is ascending SHA256 of UTF8 source UID, ties by UID; every source donates to its cyclic successor at .5 and1.0. Real look-alike confidence bounds cluster all offsets from a shot together. No adaptation to observed outcomes is allowed.
+
+Rehearsal selection is the first eight recorded round3 development sources and first six recorded look-alike pairs, fixed before new outcomes. It uses the same seeds15/16/17 and synthetic21-32 as the held-out package. Scientific failures are terminal journal rows; infrastructure exceptions leave the current unit uncommitted and resumable. Whole-plan and core hashes bind resumes. Completed units are never retried. Model weights remain referenced in place.
+
+The user reports that Acronis True Image automatically restarted this laptop at07:04 on2026-10-17, and the previous Codex package session was interrupted by a computer restart at07:37. These are infrastructure incidents, not scientific outcomes. A10-12hour estimate is wall compute only and cannot promise uninterrupted elapsed time. Exact-manifest resume must survive reboot, preserve completed rows and historical attempts, and restart only an interrupted infrastructure unit. No service or reboot configuration is changed by this package.
+
+The metadata listing offers only three eligible replacement shots after the20 reserved shots. Approved preflight replaces duplicate shots in that fixed order and stops if the reserve is exhausted. It does not silently reduce the planned60-pair denominator or inspect further shots by outcomes. Frame download and decoding remain inside the future approved run.

@@ -184,6 +184,9 @@ def code_closure(entry: str = ENTRY, read: Callable[[str], str | None] | None = 
 
 
 def data_files(plan: dict) -> list[str]:
+    if plan.get("protocol") == "registry-two-factor-v1":
+        from m1b_registry_runtime import data_files as registry_data
+        return registry_data(plan)
     files = [ASSET_LOCK, plan["f5_config"]["path"], plan["profile"]["path"]]
     if plan.get("protocol") == "e3-s1-v1":
         files += [plan[k]["path"] for k in ("s1_config", "environment_lock", "sdxl_lock")]
@@ -201,6 +204,9 @@ def science_digest(plan: dict) -> str:
 
 def scientific_core(plan: dict, read_bytes: Callable[[str], bytes | None] | None = None) -> dict:
     """Science digest + hashes of the whole import closure and the data files the run reads."""
+    if plan.get("protocol") == "registry-two-factor-v1":
+        from m1b_registry_runtime import scientific_core as registry_core
+        return registry_core(plan, read_bytes)
     def default(p):
         f = ROOT / p
         return f.read_bytes() if f.is_file() else None
@@ -266,6 +272,9 @@ def held_out_identities(base: Path = ROOT) -> dict[str, set]:
 
 
 def validate_plan(plan: dict, base: Path = ROOT) -> tuple[dict, list[dict]]:
+    if isinstance(plan, dict) and plan.get("protocol") == "registry-two-factor-v1":
+        from m1b_registry_runtime import validate_plan as registry_validate
+        return registry_validate(plan, base)
     if isinstance(plan, dict) and plan.get("protocol") == "e3-s1-v1":
         from m1b_e3_s1_runtime import validate_plan as validate_s1
         return validate_s1(plan, base)
@@ -1051,6 +1060,9 @@ def main(argv=None, runtime_factory=Runtime) -> int:
     started_utc = datetime.now(timezone.utc).isoformat()
     manifest = json.loads(a.manifest.read_text(encoding="utf-8"))
     plan_path, plan = find_plan(manifest)
+    if plan.get("protocol") == "registry-two-factor-v1":
+        from m1b_registry_runtime import run as registry_run
+        return registry_run(manifest, plan, a.output_dir)
     plan, sources = validate_plan(plan)
     for key in (("f5_config", "profile", "s1_config", "environment_lock", "sdxl_lock") if plan.get("protocol") == "e3-s1-v1" else ("f5_config", "profile")):
         if sha_file(resolve(plan[key]["path"])) != plan[key]["sha256"]:

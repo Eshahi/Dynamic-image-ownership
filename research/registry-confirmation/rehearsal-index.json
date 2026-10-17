@@ -1,0 +1,68 @@
+{
+  "entries": [
+    {
+      "source_id": 2347,
+      "uid": "ms-coco:coco-2017:train2017:2347",
+      "group_id": "ms-coco:coco-2017:train2017:2347",
+      "raw_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\raw\\coco-2347-000000002347.jpg",
+      "raw_sha256": "f53fcd6b58dc5ee082e98962af461a3ddd317e4858a3d667301c460e0e12092d",
+      "data_split": "development"
+    },
+    {
+      "source_id": 2374,
+      "uid": "ms-coco:coco-2017:train2017:2374",
+      "group_id": "ms-coco:coco-2017:train2017:2374",
+      "raw_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\raw\\coco-2374-000000002374.jpg",
+      "raw_sha256": "37e930068263b9c67cc0fd85a88b5f54e9d0f40f0d84fe600182598a512ab881",
+      "data_split": "development"
+    },
+    {
+      "source_id": 2411,
+      "uid": "ms-coco:coco-2017:train2017:2411",
+      "group_id": "ms-coco:coco-2017:train2017:2411",
+      "raw_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\raw\\coco-2411-000000002411.jpg",
+      "raw_sha256": "41b402d36fbc42261521b258a434ebd7ff154bc6cfaf710c5ac6ba6f83648b46",
+      "data_split": "development"
+    },
+    {
+      "source_id": 2459,
+      "uid": "ms-coco:coco-2017:train2017:2459",
+      "group_id": "ms-coco:coco-2017:train2017:2459",
+      "raw_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\raw\\coco-2459-000000002459.jpg",
+      "raw_sha256": "1c33661094ade8d30ad1c4ebbbbd12ef6f01dbd0c6836246ce0c0dbed8f93586",
+      "data_split": "development"
+    },
+    {
+      "source_id": 2471,
+      "uid": "ms-coco:coco-2017:train2017:2471",
+      "group_id": "ms-coco:coco-2017:train2017:2471",
+      "raw_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\raw\\coco-2471-000000002471.jpg",
+      "raw_sha256": "203739015694c1c36050e897b00dc33967c65882917eadf2c08d1bde55e5e111",
+      "data_split": "development"
+    },
+    {
+      "source_id": 2496,
+      "uid": "ms-coco:coco-2017:train2017:2496",
+      "group_id": "ms-coco:coco-2017:train2017:2496",
+      "raw_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\raw\\coco-2496-000000002496.jpg",
+      "raw_sha256": "174ced561669394e835674973a221202f6bd033d52f8e30d14d9d88cf292c8f9",
+      "data_split": "development"
+    },
+    {
+      "source_id": 2531,
+      "uid": "ms-coco:coco-2017:train2017:2531",
+      "group_id": "ms-coco:coco-2017:train2017:2531",
+      "raw_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\raw\\coco-2531-000000002531.jpg",
+      "raw_sha256": "b7f4dd953e4146cf0a2032c4c6097e69469ce4b56a3bc05ac8c70b6efb525980",
+      "data_split": "development"
+    },
+    {
+      "source_id": 2563,
+      "uid": "ms-coco:coco-2017:train2017:2563",
+      "group_id": "ms-coco:coco-2017:train2017:2563",
+      "raw_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-round3-20261017\\raw\\coco-2563-000000002563.jpg",
+      "raw_sha256": "5921cd47e72098a51a6b32bd93181909ba0e911da47dc6684dd98d77751bf506",
+      "data_split": "development"
+    }
+  ]
+}
