@@ -288,3 +288,50 @@ Network failures retained in acquisition.jsonl/network-curl.jsonl. Bounded3-work
 | 04_3b_00072.exr | 8509299 | `90b4b2b8f7d14699602de5fc3db511850d3c4e2ee52f3d87524541c2beda26a3` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3b/linear_hd/04_3b_00072.exr |
 | 04_3d_00000.exr | 7338064 | `946ade96da9cde3e6c45242e08075820b62efe1e5a1f988d481c220bcca767e2` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3d/linear_hd/04_3d_00000.exr |
 | 04_3d_00072.exr | 7286584 | `b707910bbfd81280308faf592d09207593ed216d116e46b30c2ea54f48a4ec7c` | https://media.xiph.org/tearsofsteel/tearsofsteel-footage-exr/04_3d/linear_hd/04_3d_00072.exr |
+
+## Round3 development data, 2026-10-17
+
+Free COCO train2017 per-image CC BY2.0; original Flickr attribution hooks remain in sources-ready.json. Fixed metadata selection, raw and canonical hash exclusion before scientific use. No model downloads or copied weights.
+
+| Source | URL | Licence | Raw SHA256 | Bytes |
+|---|---|---|---|---|
+| 2347 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002347.jpg | CC BY 2.0 | f53fcd6b58dc5ee082e98962af461a3ddd317e4858a3d667301c460e0e12092d | 168435 |
+| 2374 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002374.jpg | CC BY 2.0 | 37e930068263b9c67cc0fd85a88b5f54e9d0f40f0d84fe600182598a512ab881 | 217628 |
+| 2411 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002411.jpg | CC BY 2.0 | 41b402d36fbc42261521b258a434ebd7ff154bc6cfaf710c5ac6ba6f83648b46 | 196002 |
+| 2459 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002459.jpg | CC BY 2.0 | 1c33661094ade8d30ad1c4ebbbbd12ef6f01dbd0c6836246ce0c0dbed8f93586 | 123645 |
+| 2471 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002471.jpg | CC BY 2.0 | 203739015694c1c36050e897b00dc33967c65882917eadf2c08d1bde55e5e111 | 209739 |
+| 2496 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002496.jpg | CC BY 2.0 | 174ced561669394e835674973a221202f6bd033d52f8e30d14d9d88cf292c8f9 | 99130 |
+| 2531 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002531.jpg | CC BY 2.0 | b7f4dd953e4146cf0a2032c4c6097e69469ce4b56a3bc05ac8c70b6efb525980 | 154072 |
+| 2563 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002563.jpg | CC BY 2.0 | 5921cd47e72098a51a6b32bd93181909ba0e911da47dc6684dd98d77751bf506 | 86010 |
+| 2619 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002619.jpg | CC BY 2.0 | e7c92a2df90284f1ed9815b26eb110ec7f946daff200439d2d3c9f4863421f54 | 257048 |
+| 2640 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002640.jpg | CC BY 2.0 | dae8e183c37e302ee144986b1b6a00e48bcb6523d074f09b74f8a92e2ac1bc05 | 176749 |
+| 2684 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002684.jpg | CC BY 2.0 | 0ff8d2d1da46c8cb61f2a570e3f0e5131553df2312e8437a5f013dfd4621d132 | 185702 |
+| 2703 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002703.jpg | CC BY 2.0 | 6bdc5f178a07f85603373c8a4515afe0118e9375e09c36927346eebc5bb55e24 | 214910 |
+| 2759 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002759.jpg | CC BY 2.0 | 7371e2375e2e2f540150dc6b463308bfb06fcd7e57f261847b2940b4e5a67368 | 158498 |
+| 2822 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002822.jpg | CC BY 2.0 | a2c2b242dbdf50dba5ef8869e45eb05e46f2523c8656a87b44d64ac165370eed | 97628 |
+| 2823 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002823.jpg | CC BY 2.0 | ee6848e5484c61253178f0087f037aab1aa1afcc3835dd1bf6c23ef42754295d | 204967 |
+| 2881 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002881.jpg | CC BY 2.0 | 2dc848611b191c982eb735fa59ca30dd3bca907f74bbe9bdf2d51500d0a6e1ec | 198320 |
+| 2894 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002894.jpg | CC BY 2.0 | e3486076a98bd1db32ed07f22c543ea260eb76610ce2eedcc6828c95ce548a20 | 192765 |
+| 2963 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002963.jpg | CC BY 2.0 | bbbb59e20b3a2cdee13d85af96e9818c011b9c9e235736bd5ff53347043290a1 | 107627 |
+| 2989 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000002989.jpg | CC BY 2.0 | 7ca8e96c30de8244fc73821a0417d76027b099c439fbbf21c7277d7ada1ff716 | 73461 |
+| 3035 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000003035.jpg | CC BY 2.0 | 50cb57b88eac572688d6d873ee3f2fd5bdde2908f354438e2e7a2207d5d183cb | 152442 |
+| 3067 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000003067.jpg | CC BY 2.0 | 6696917b3e8ba513c18c5b9b9fe58d3a9c1d2ee6194de29d2c62eb1a53736cb4 | 104783 |
+| 3217 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000003217.jpg | CC BY 2.0 | 800502f01e4b6961b38c01fc67a5076ca50e0da7fcdfade1e50c392504ae5a0f | 272863 |
+| 3264 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000003264.jpg | CC BY 2.0 | 5b3f56d7667d685bef02450f3148669c6499c04c98b8d9ad6d4e768ae6ab9f21 | 61021 |
+| 3272 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000003272.jpg | CC BY 2.0 | e85baeee5ae93b493316096818dc5af3f69c9077ea3f3cd755e5b0366a9176c8 | 164840 |
+| 3321 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000003321.jpg | CC BY 2.0 | c20ac10f4c519980f70e7b304bf22b4464f5ff3be26f716102c18c072bc21e40 | 234074 |
+| 3348 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000003348.jpg | CC BY 2.0 | 53fd826f79a808e58a1817fe3a872a9a787bd2bd08bb9d44dc67836651990a41 | 186910 |
+| 3412 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000003412.jpg | CC BY 2.0 | f8eff51460f49427979cde14fad030c61eea71b40fdc283167a4e8ebc4c2a8db | 147803 |
+| 3442 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000003442.jpg | CC BY 2.0 | 77b796f8c184a6e78c00ff52c283455ee74deb096ba43807b074485d1cede541 | 198962 |
+| 3457 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000003457.jpg | CC BY 2.0 | 6c696be1352468d094695629bf5ce9dba4f3f5bb5323f6474a61ff85fbee4fb0 | 316848 |
+| 3671 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000003671.jpg | CC BY 2.0 | 1aaccaee41750b3d025d49098cd8d014e6ae24fd713834d41a2cbb525011ea57 | 202756 |
+| 3742 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000003742.jpg | CC BY 2.0 | 22e06671bdb2403bfc0deca1de4f532b80016912f68313ca35b74ec8db4ac897 | 161194 |
+| 3764 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000003764.jpg | CC BY 2.0 | bd15196842dbbb5a729162cfb77c00d5afb6e5859072e0316c5a6e7cdaea6fc8 | 170902 |
+| 3793 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000003793.jpg | CC BY 2.0 | ad0e5bc49e01c85b1f357b948f77a1a122c7258c8a25b89c4638c9cc9f43be39 | 202253 |
+| 3804 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000003804.jpg | CC BY 2.0 | 1b78a9f347e29d33e9af6ff88ecf06e99a73000e5544f99ccc08751947f9b15c | 231902 |
+| 3827 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000003827.jpg | CC BY 2.0 | 5d3a067067e60d158395545eaa4c3ea5be7a7ba572e595fdccf432262f2c1274 | 190361 |
+| 3866 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000003866.jpg | CC BY 2.0 | f31ddaf0a4022ecc4f262de601c6058737843259731a957dd2e47c0f20a0ee52 | 238117 |
+| 3915 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000003915.jpg | CC BY 2.0 | 68795e34ab0c46ff65099f8bbeb31998e070a3d52a14d7551328eac63bffa1a9 | 198844 |
+| 3935 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000003935.jpg | CC BY 2.0 | fd27f3c2fec34bf4dd96102692c9785d16a8284143710d80ac507da69ec377d2 | 164744 |
+| 3947 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000003947.jpg | CC BY 2.0 | 096461209e09392c3aa5535f568113ef08ba42700951fd1f5464f0f4ea89e14a | 158343 |
+| 4020 | https://s3.amazonaws.com/images.cocodataset.org/train2017/000000004020.jpg | CC BY 2.0 | c6764725f097f18519c99c0fefe19f4b7464a19b975acac3b229ecaa9acc20e1 | 252628 |
