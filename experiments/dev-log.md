@@ -322,3 +322,5 @@
 - 2026-10-17: Codex registry-confirmation-reproduction on committed 7656870, CPU/local USD 0, 56.375 s: both models .2 F_R 39/40, .4 30/40, zero descriptor accepts on 59280 unrelated/80 T4/40 different real pairs; synthetic 11/12 accepted. Retained legacy CLI development_pass=false. Package incomplete on path-only versus approved cohort seed incompatibility; see registry-confirmation/package-status.md. No held-out access or approval file.
 
 - 2026-10-17: Resumed registry package after user-reported laptop restart; preserved uncommitted implementation passes11 registry tests. New scorer558239d and cohort adapter authorized by clarification. Record Acronis07:04 restart as long-run risk; no held-out access.
+
+- 2026-10-17: Registry rehearsal01(ad1db7f) cooperatively stopped after20 units,55.125s. Integration exposed incorrect Journal constructor root (nested journal path); retained failed attempt, fixed constructor before new rehearsal. No held-out pixels. Dispatcher21 focused tests pass.

@@ -152,7 +152,7 @@ def run(manifest,plan,out,runtime_factory=Runtime):
     W.atomic_json(ctx,core)
     W.atomic_json(out/"outputs/lineage.json",dict(mode="same-manifest journal resume",core_sha256=core["core_sha256"]))
     os.environ.setdefault("TORCHINDUCTOR_CACHE_DIR",str(out/"checkpoints/torch-inductor-cache"))
-    journal=W.Journal(out/'outputs/journal.jsonl')
+    journal=W.Journal(out)
     start=time.monotonic(); prior=read(out/'outputs/run.json').get('duration_seconds',0) if (out/'outputs/run.json').exists() else 0
     state=dict(protocol=PROTOCOL,data_split=plan['data_split'],commit=manifest['git_commit'],outcome='running',duration_seconds=prior,usd=0)
     def save():
@@ -266,3 +266,4 @@ def run(manifest,plan,out,runtime_factory=Runtime):
         if rt is not None:rt.close()
         save()
     return 0 if state['outcome']=='completed' else 2
+

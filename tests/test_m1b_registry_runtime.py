@@ -11,6 +11,13 @@ import m1b_canonical_source as C
 
 class RegistryGuards(unittest.TestCase):
     def plan(self):return json.loads((ROOT/'research/registry-confirmation/development.m1b-plan.json').read_text())
+    def test_journal_uses_artifact_root(self):
+        import tempfile
+        import m1b_coco512_worker as W
+        with tempfile.TemporaryDirectory() as d:
+            out=Path(d);journal=W.Journal(out);journal.emit(dict(id="test",outcome="completed"))
+            self.assertTrue((out/"outputs/journal.jsonl").is_file())
+            self.assertEqual(len(W.Journal(out).rows),1)
     def test_fixed_values_and_index(self):
         p=self.plan();self.assertEqual(len(R.validate_plan(p)[1]),8)
         for field,value in [('seeds',[12,13,14]),('strengths',[.2]),('scenario_seeds',[12,13]),('sibling_seeds',[21])]:
