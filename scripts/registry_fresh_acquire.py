@@ -169,7 +169,7 @@ def main():
             dest = out/'canonical'/f'{label}-rgb512.png'
             if not dest.exists():
                 shutil.copyfile(prior['canonical_path'], dest)
-            receipt = dict(prior, **row)
+            receipt = dict(row, **prior)
             receipt['canonical_path'] = str(dest)
             receipt['shared_source_frame'] = prior['canonical_path']
             emit(dict(kind='prepared', label=label, receipt=receipt))
