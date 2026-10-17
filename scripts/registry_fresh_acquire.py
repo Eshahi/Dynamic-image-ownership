@@ -157,6 +157,20 @@ def main():
                 prepared[event['label']] = event['receipt']
                 urls[event['receipt']['url']] = event['receipt']
 
+    # Round3 prescribes shot IDs and frame offsets, not a pixel-uniqueness filter.
+    # Preserve prescribed footage duplicates against known development footage only.
+    prior_near = Path('W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/assets/registry-fresh-20261016/near-duplicates.json')
+    known_footage = {}
+    if a.round3:
+        for pair in read(prior_near)['pairs']:
+            for frame in pair['frames']:
+                for key in ('raw_sha256','canonical_png_sha256','rgb8_sha256'):
+                    known_footage[frame[key]] = frame['canonical_path']
+        for receipt in prepared.values():
+            if receipt.get('license') == 'CC BY 3.0':
+                for key in ('raw_sha256','canonical_png_sha256','rgb8_sha256'):
+                    known_footage[receipt[key]] = receipt['canonical_path']
+
     def acquire(row, label, is_exr=False):
         nonlocal consumed
         if a.round3 and label in prepared:
@@ -212,7 +226,9 @@ def main():
         Image.fromarray(rgb).save(buf, format='PNG')
         png = buf.getvalue()
         png_hash, pixel_hash = sha(png), sha(rgb.tobytes())
-        if png_hash in hashes or pixel_hash in hashes:
+        collisions = [h for h in (png_hash,pixel_hash) if h in hashes]
+        known_development_overlap = bool(collisions and a.round3 and is_exr and all(h in known_footage for h in collisions))
+        if collisions and not known_development_overlap:
             raise ValueError(f'CanonicalPNG/pixelSHA overlap before reservation: {label}; no automatic substitution')
         path = out/'canonical'/f'{label}-rgb512.png'
         if path.exists():
@@ -225,12 +241,14 @@ def main():
         receipt = dict(row, raw_path=str(raw_path), raw_sha256=raw_hash, size_bytes=len(raw),
             canonical_path=str(path), sha256=png_hash, canonical_png_sha256=png_hash,
             rgb8_sha256=pixel_hash, canonicalization=canonicalization,
-            raw_overlap=False, canonical_overlap=False, data_split='development-reserved', development_reserved=True)
+            raw_overlap=False, canonical_overlap=bool(collisions), known_development_footage_overlap=[known_footage[h] for h in collisions] if known_development_overlap else [], data_split='development-reserved', development_reserved=True)
         emit(dict(kind='prepared', label=label, receipt=receipt))
         if a.round3:
             prepared[label] = receipt
             urls[row['url']] = receipt
             if is_exr:
+                for h in (raw_hash,png_hash,pixel_hash):
+                    known_footage[h] = str(path)
                 raw_path.unlink()
         print(f'prepared {label}: {len(raw)}bytes', flush=True)
         return receipt
