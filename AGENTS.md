@@ -2,6 +2,27 @@
 
 This file is already in your context; never re-read it. At the start of a thread, or right after a context compaction, read `thesis-runs/d916749c/STATE.md` once; the copy in the main checkout `W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5` is the only authoritative one, also when you work in a worktree.
 
+## Current mode: research-only Q1 dossier session (user decision, 2026-10-18)
+
+The user asked, verbatim: "for the next recommended hours(at least 7), I want to setup the codex to gather and also research for enhancing and move forward to make the thesis a Q1 nominee ( without any experiment)." Claude set up this session on branch `codex/q1-research-20261018`. The brief is `research/q1-dossier-20261018/BRIEF.md`.
+
+For this session, the brief overrides every section below that asks you to design, implement or run experiments: Operating mode, Current direction, Milestones, "Iterate fast", "Cheapest decisive test first", and Execution and provenance.
+
+- **No experiments of any kind:**
+  - no image generation, marking, regeneration, attack, detection, descriptor extraction, training, calibration or scoring;
+  - no GPU, and no `.thesis-build/a6-science-venv` or other interpreter with torch, diffusers, numpy or PIL;
+  - no dev runs, rehearsals, manifests or approvals;
+  - no downloads of images, datasets, model weights or code, and no package installs.
+- **Allowed:**
+  - reading files anywhere;
+  - web search and reading papers;
+  - stdlib Python (`.thesis-build/venv`) to count existing result files and compute bounds from existing counts;
+  - writing inside `research/q1-dossier-20261018/`;
+  - committing and pushing this branch.
+- **Guard.** A supervisor hides CUDA and kills child processes that use the science interpreter or run Python for more than 15 minutes. Do not work around it; write any computation you think is needed into the dossier as a proposal for later.
+- **Keep working until the session deadline** in `research/q1-dossier-20261018/PROGRESS.md`. Nobody answers questions during the run: record user and supervisor decisions in the dossier and continue.
+- The integrity rules below still apply in full.
+
 ## Operating mode: autonomous handoff (user decision, 2026-10-03)
 
 The user has handed this project to you and will return only at milestone reviews (recorded in `research/approval-policy.md`, section "Autonomous handoff, 2026-10-03"). That section overrides any older clause in the approval policy, `research/stop-rules.md`, `research/scope-guard.md`, the continuation history or a skill file that would make you pause, ask or wait.
