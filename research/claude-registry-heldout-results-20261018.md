@@ -82,3 +82,14 @@ Without the watermark, fingerprint matching cannot tell owner from attacker (alm
 
 - **Claims audit and one independent review.** These are planned on Codex with its strongest model, after the laptop restart. Codex is currently unable to start because of the 60-second launch delay.
 - **The user's decision on next steps.**
+
+## User decision (2026-10-18)
+
+The user chose to report the result as it stands ("Treat it"). Claude asked them to choose between "report as is" and "fix, then retest"; their reply is read as the first, Claude's recommendation.
+
+**What the thesis states:**
+- E1 and E3 are confirmed on held-out data.
+- E2 fails on close real look-alikes (3/45 pairs, 2/16 shots, 16.9-17.7 dB). This is a stated limitation of the D1+B1 record check.
+- No thresholds or definitions are changed on this data.
+
+**Next M2 step:** one independent review and claims audit by Codex (strongest model), once Codex runs again.
