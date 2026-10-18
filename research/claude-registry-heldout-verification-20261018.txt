@@ -1,0 +1,93 @@
+frozen {'t1': 0.0594367, 't2': 0.9, 'tF': 0.99, 'cut': 18.126065828471827}
+journal rows 53580 outcomes {'completed': 53053, 'scientific_failure': 53, 'input_unavailable': 474}
+sources 300
+E1 sd15: 277/300 CP95 lower 0.8931 pass=True | frozen 277 | misses [29, 38, 63, 181, 392, 442, 463, 510, 604, 623, 628, 636, 640, 802, 804, 821, 838, 862, 867, 875, 891, 892, 897]
+E1 sd21: 280/300 CP95 lower 0.9046 pass=True | frozen 280 | misses [29, 38, 63, 392, 463, 510, 604, 628, 636, 640, 802, 804, 820, 821, 867, 875, 889, 891, 892, 897]
+
+look-alike pairs 60
+  tos-07_2d-o288         psnr=6.823 d1=None b1=0.0228 DIFFERENT 
+  tos-07_2d-o072         psnr=7.239 d1=0.0124 b1=0.4007 DIFFERENT 
+  tos-07_2d-o144         psnr=8.73 d1=None b1=0.7133 DIFFERENT 
+  tos-07_3b-o144         psnr=9.448 d1=-0.0257 b1=0.0684 DIFFERENT 
+  tos-07_3b-o072         psnr=9.923 d1=0.026 b1=0.001 DIFFERENT 
+  tos-07_3b-o288         psnr=11.064 d1=None b1=0.2162 DIFFERENT 
+  tos-07_1c-o288         psnr=11.666 d1=0.0325 b1=0.4783 DIFFERENT 
+  tos-07_1f-o144         psnr=12.554 d1=0.0279 b1=0.1963 DIFFERENT 
+  tos-07_1f-o288         psnr=12.756 d1=-0.0002 b1=0.2364 DIFFERENT 
+  tos-05_4a-o144         psnr=13.384 d1=0.015 b1=0.3632 DIFFERENT 
+  tos-05_1a-o288         psnr=13.398 d1=0.0182 b1=0.1456 DIFFERENT 
+  tos-05_1c-o144         psnr=13.48 d1=0.0247 b1=0.5861 DIFFERENT 
+  tos-05_1c-o288         psnr=13.515 d1=-0.0115 b1=0.5794 DIFFERENT 
+  tos-05_1a-o144         psnr=13.603 d1=0.0051 b1=0.3027 DIFFERENT 
+  tos-07_1f-o072         psnr=13.932 d1=-0.0149 b1=0.1822 DIFFERENT 
+  tos-05_4a-o288         psnr=13.934 d1=-0.0117 b1=0.4239 DIFFERENT 
+  tos-05_1a-o072         psnr=14.328 d1=0.0289 b1=0.5256 DIFFERENT 
+  tos-07_3a-o288         psnr=14.4 d1=0.0362 b1=0.5147 DIFFERENT 
+  tos-05_1c-o072         psnr=14.493 d1=0.0591 b1=0.641 DIFFERENT 
+  tos-05_4f-o288         psnr=14.667 d1=-0.0095 b1=0.2338 DIFFERENT 
+  tos-05_1b-o144         psnr=14.702 d1=-0.0256 b1=0.3498 DIFFERENT 
+  tos-05_4h-o288         psnr=15.011 d1=-0.0212 b1=0.8842 DIFFERENT 
+  tos-07_3a-o144         psnr=15.13 d1=-0.0194 b1=0.6327 DIFFERENT 
+  tos-05_4a-o072         psnr=15.277 d1=-0.1341 b1=0.6261 DIFFERENT 
+  tos-05_1b-o072         psnr=15.291 d1=0.03 b1=0.4288 DIFFERENT 
+  tos-07_1b-o288         psnr=15.398 d1=None b1=0.4571 DIFFERENT 
+  tos-05_1b-o288         psnr=15.533 d1=0.0679 b1=0.5006 DIFFERENT 
+  tos-07_3f-o144         psnr=16.25 d1=None b1=0.3156 DIFFERENT 
+  tos-05_3j-o144         psnr=16.517 d1=0.0078 b1=0.7615 DIFFERENT 
+  tos-05_3j-o288         psnr=16.712 d1=0.1181 b1=0.7658 DIFFERENT 
+  tos-07_3a-o072         psnr=16.755 d1=0.0655 b1=0.8042 DIFFERENT 
+  tos-05_3c-o288         psnr=16.847 d1=0.0708 b1=0.5419 DIFFERENT 
+  tos-07_1c-o144         psnr=16.892 d1=0.0694 b1=0.9021 DIFFERENT ACCEPT
+  tos-07_3f-o288         psnr=17.19 d1=None b1=0.4846 DIFFERENT 
+  tos-05_4h-o072         psnr=17.238 d1=0.2083 b1=0.9549 DIFFERENT ACCEPT
+  tos-05_3j-o072         psnr=17.337 d1=0.0203 b1=0.8214 DIFFERENT 
+  tos-07_3c-o288         psnr=17.423 d1=None b1=0.4753 DIFFERENT 
+  tos-07_1c-o072         psnr=17.628 d1=-0.1107 b1=0.9361 DIFFERENT 
+  tos-05_4h-o144         psnr=17.675 d1=0.352 b1=0.9582 DIFFERENT ACCEPT
+  tos-07_1b-o144         psnr=17.743 d1=None b1=0.5768 DIFFERENT 
+  tos-07_3c-o072         psnr=17.802 d1=None b1=0.689 DIFFERENT 
+  tos-05_4f-o072         psnr=17.831 d1=-0.0445 b1=0.6669 DIFFERENT 
+  tos-07_3f-o072         psnr=17.895 d1=None b1=0.6287 DIFFERENT 
+  tos-07_3c-o144         psnr=17.988 d1=None b1=0.401 DIFFERENT 
+  tos-05_4f-o144         psnr=18.069 d1=-0.0798 b1=0.6936 DIFFERENT 
+  tos-05_2a-o288         psnr=18.139 d1=0.0424 b1=0.5489 ambiguous 
+  tos-05_3d-o288         psnr=18.379 d1=-0.126 b1=0.5705 ambiguous 
+  tos-05_3c-o144         psnr=18.621 d1=0.1122 b1=0.7146 ambiguous 
+  tos-08_3a-o072         psnr=19.584 d1=None b1=0.4946 ambiguous 
+  tos-05_2a-o144         psnr=19.686 d1=-0.1008 b1=0.7038 ambiguous 
+  tos-05_3b-o288         psnr=19.861 d1=0.0556 b1=0.9432 ambiguous 
+  tos-05_2a-o072         psnr=19.881 d1=-0.1153 b1=0.7388 ambiguous 
+  tos-08_3a-o288         psnr=20.091 d1=None b1=0.6058 ambiguous 
+  tos-05_3b-o072         psnr=20.645 d1=0.1519 b1=0.9584 ambiguous ACCEPT
+  tos-05_3c-o072         psnr=20.735 d1=0.1962 b1=0.8455 ambiguous 
+  tos-07_1b-o072         psnr=21.284 d1=None b1=0.8971 ambiguous 
+  tos-05_3d-o144         psnr=21.678 d1=-0.1809 b1=0.8473 ambiguous 
+  tos-05_3d-o072         psnr=22.345 d1=0.3768 b1=0.8441 ambiguous 
+  tos-05_3b-o144         psnr=22.947 d1=0.4125 b1=0.9773 ambiguous ACCEPT
+  tos-08_3a-o144         psnr=23.226 d1=None b1=0.8827 ambiguous 
+different n=45 accepts=3; ambiguous n=15 accepts=2
+frozen look_alike_psnr agree: True
+
+E3 row example: {"source_id": 2, "cell": "sd15/0.2/exact_copy", "unknown": true, "arms": {"pointer_registry": {"candidate_count": 9, "match_count": 1, "owners": ["qim-pilot-owner-alpha"], "matched_records": ["alpha:2"], "best_record": "alpha:2", "attribution": "original_owner_unique", "wrong_owner_present": false, "enrollment_order_alone_can_favor_original_owner": false}, "fingerprint_only": {"candidate_count": 600, "match_count": 2, "owners": ["qim-pilot-owner-alpha", "qim-pilot-owner-beta"], "matched_records": ["alpha:2", "beta:2"], "best_record": "beta:2", "attribution": "ambiguous_owners", "wrong_owner_present": true, "enrollment_order_alone_can_favor_original_owner": true}, "d1_only": {"candidate_count": 600, "match_count": 1, "owners": ["qim-pilot-owner-beta"], "matched_records": ["beta:2"], "best_record": "beta:2", "attribution": "wrong_owner", "wrong_owner_present": true, "enrollment_order_alone
+E3 sd15/0.2/exact_copy: evaluable 294/300 wrong-owner 0 | pointer arm {'original_owner_unique': 280, 'no_attribution': 14} | fingerprint-only {'ambiguous_owners': 293, 'wrong_owner': 1}
+E3 sd15/0.2/further_regeneration: evaluable 294/300 wrong-owner 0 | pointer arm {'original_owner_unique': 242, 'no_attribution': 52} | fingerprint-only {'ambiguous_owners': 285, 'wrong_owner': 8, 'no_attribution': 1}
+E3 sd15/0.4/exact_copy: evaluable 294/300 wrong-owner 0 | pointer arm {'original_owner_unique': 201, 'no_attribution': 93} | fingerprint-only {'ambiguous_owners': 266, 'wrong_owner': 28}
+E3 sd15/0.4/further_regeneration: evaluable 293/300 wrong-owner 0 | pointer arm {'original_owner_unique': 81, 'no_attribution': 212} | fingerprint-only {'ambiguous_owners': 188, 'wrong_owner': 75, 'no_attribution': 30}
+E3 sd21/0.2/exact_copy: evaluable 297/300 wrong-owner 0 | pointer arm {'original_owner_unique': 282, 'no_attribution': 15} | fingerprint-only {'ambiguous_owners': 296, 'wrong_owner': 1}
+E3 sd21/0.2/further_regeneration: evaluable 297/300 wrong-owner 0 | pointer arm {'original_owner_unique': 249, 'no_attribution': 48} | fingerprint-only {'ambiguous_owners': 289, 'wrong_owner': 7, 'no_attribution': 1}
+E3 sd21/0.4/exact_copy: evaluable 297/300 wrong-owner 0 | pointer arm {'original_owner_unique': 199, 'no_attribution': 98} | fingerprint-only {'ambiguous_owners': 266, 'wrong_owner': 31}
+E3 sd21/0.4/further_regeneration: evaluable 297/300 wrong-owner 0 | pointer arm {'original_owner_unique': 81, 'no_attribution': 216} | fingerprint-only {'ambiguous_owners': 190, 'wrong_owner': 75, 'no_attribution': 32}
+   not evaluable sd15/0.2/exact_copy: 3 x query missing; attacker record missing
+   not evaluable sd15/0.2/exact_copy: 3 x query missing; owner record missing (F5 could not mark); attacker record missing
+   not evaluable sd15/0.2/further_regeneration: 3 x query missing; attacker record missing
+   not evaluable sd15/0.2/further_regeneration: 3 x query missing; owner record missing (F5 could not mark); attacker record missing
+   not evaluable sd15/0.4/exact_copy: 3 x query missing; attacker record missing
+   not evaluable sd15/0.4/exact_copy: 3 x query missing; owner record missing (F5 could not mark); attacker record missing
+   not evaluable sd15/0.4/further_regeneration: 1 x query missing
+   not evaluable sd15/0.4/further_regeneration: 3 x query missing; attacker record missing
+   not evaluable sd15/0.4/further_regeneration: 3 x query missing; owner record missing (F5 could not mark); attacker record missing
+   not evaluable sd21/0.2/exact_copy: 3 x query missing; owner record missing (F5 could not mark); attacker record missing
+   not evaluable sd21/0.2/further_regeneration: 3 x query missing; owner record missing (F5 could not mark); attacker record missing
+   not evaluable sd21/0.4/exact_copy: 3 x query missing; owner record missing (F5 could not mark); attacker record missing
+   not evaluable sd21/0.4/further_regeneration: 3 x query missing; owner record missing (F5 could not mark); attacker record missing
+E3 wrong-owner total among evaluable: 0
