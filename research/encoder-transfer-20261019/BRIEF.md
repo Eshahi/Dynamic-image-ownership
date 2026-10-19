@@ -16,9 +16,51 @@ You (Codex) design the details, run the study on a rented vast.ai server, analyz
 
 **Prior development observation (not evidence for this test).** In the D2 discovery work, F5 kept checked semantic detection on 10/12 sources after an SDXL VAE-only round trip (`research/journal-upgrade-20261009/discovery-report.md`). Full SDXL regeneration was never run, because the laptop GPU did not have the memory (`unseen-regenerator-protocol.md`). That is why this test runs on a rented server.
 
+## 1a. Stage 1: design research before freezing (no server, no outcomes)
+
+The user asked, on 2026-10-19, for more research with Codex so that the results are more precise. Do it now, before the protocol is frozen; research after outcomes would make the design post-hoc.
+
+**Time box:** about 2 hours of research. Write the result in `research/encoder-transfer-20261019/design-research.md`, with V2 sources (method and evaluation sections actually read), as in the Q1 dossier rules. Reuse the dossier's cards (`research/q1-dossier-20261018/02-literature/`) and do not redo them. No experiments in this stage: no GPU work, and no regeneration or detection on any real mark.
+
+**Questions to answer:**
+1. **Standard regeneration attacks.** How do W-Bench (VINE), WAVES, Zhao et al. (arXiv 2306.01953), CtrlRegen and other recent benchmarks define regeneration attacks: models, strengths or noise steps, prompts or captions, resolution and samplers? Which settings would a Q1 reviewer expect? Align R1 (and R2) with the most-cited standard. Within the budget, you may add one standard-conforming variant (for example a caption-prompted one) as a secondary channel.
+2. **Faithful baselines.**
+   - VINE: which variant (VINE-R or VINE-B), at what resolution and message length, and with which official decoding and detection or threshold protocol?
+   - WAM: what is its official detection rule?
+   - Each baseline must run as its authors evaluate it, and you must report that native operating point next to our common presence threshold.
+3. **Independent encoders.**
+   - Check that SDXL's VAE was trained separately from the SD1.x VAE, from primary sources. The SDXL paper's section 2.4 is already in the dossier's Q-VAE note.
+   - Check whether FLUX.1-schnell is ungated, its license, and its img2img step semantics.
+   - If FLUX cannot be used, pick the best ungated, permissively licensed secondary model whose autoencoder is independent of both SD1.x and SDXL (for example a 16-channel VAE or a MoVQ/DC-AE family model), and justify the choice.
+4. **SDXL and FLUX img2img technicalities.** Cover the fp32 VAE upcast, the 1024-pixel policy, scheduler and strength semantics, and the safety checkers. Confirm that the pipeline settings in section 2 do what they claim.
+5. **Sample size.** With stdlib, compute the operating characteristics of the decision rule: the probability of each label when F5's true source-majority rate is .5, .6, .7, .8 or .9. If they are poor at n = 60 and the budget allows, choose n between 60 and 120 from the same source rule.
+6. **Fair comparison.** How does the literature compare robustness at matched image quality (for example WAVES performance-quality curves)? Fix the matched-distortion analysis you will report.
+
+**What the research may change before freezing:**
+- channel settings and one added literature-standard variant;
+- the secondary model;
+- baseline configuration;
+- n, within 60 to 120;
+- analysis details.
+
+**What it may not change:**
+- the question;
+- R1 SDXL at strength .2 as the primary cell;
+- the proportional decision thresholds: TRANSFERS needs at least .75n, FAILS is below .5n, and the baseline margin is .05n, rounded up.
+
+Record every change and its source in `design-research.md`.
+
+**Stage 1 deliverables and stop:**
+- `design-research.md`;
+- the frozen `protocol.md` and `frozen-config.json`;
+- the code with passing unit tests;
+- a short budget projection.
+
+Commit and push all of it, then **stop and report to the user in Persian.** Claude reviews the frozen protocol before any money is spent. The user then rents the server and sends its SSH line, and that message starts stage 2 (sections 5 and 6).
+
 ## 2. Fixed design
 
-Freeze all of this in `research/encoder-transfer-20261019/protocol.md`, plus a machine-readable `frozen-config.json`. Commit and push both before any regeneration exists. Implementation details not fixed here are yours to fix in the protocol, before outputs.
+Freeze all of this, as amended by stage 1 within its limits, in `research/encoder-transfer-20261019/protocol.md`, plus a machine-readable `frozen-config.json`. Commit and push both before any regeneration exists. Implementation details not fixed here are yours to fix in the protocol, before outputs.
 
 ### Sources
 n = 60 development sources:
@@ -66,17 +108,17 @@ Strengths are .1, .2 and .4, with seeds 12, 13 and 14 (the step-1 values). The s
 
 ## 3. Pre-registered decision rule
 
-The primary cell is F5, R1 SDXL, strength .2, source-majority C, n = 60.
+The primary cell is F5, R1 SDXL, strength .2, source-majority C, with n sources (60 unless stage 1 sets it between 60 and 120). The thresholds below scale with n; the numbers in brackets are for n = 60. Let m = ceil(.05n) be the baseline margin [3].
 
 | Outcome | Condition |
 |---|---|
-| TRANSFERS | F5 >= 45/60, and zero C0 and wrong-owner false detections by F5 on R1 outputs |
-| FAILS | F5 < 30/60 |
+| TRANSFERS | F5 >= ceil(.75n) [45], and zero C0 and wrong-owner false detections by F5 on R1 outputs |
+| FAILS | F5 < .5n [30] |
 | PARTIAL | anything else |
 
 **External context, part of the outcome label.** Let B be the best external baseline count at R1 .2 (presence, source majority).
-- If TRANSFERS and F5 >= B - 3: write **ROUTE A**, a method article is viable.
-- If TRANSFERS and B > F5 + 3: write **ROUTE B**. F5 transfers but is not the most robust, so any method claim must rest on a quality, capacity or cost tradeoff at matched distortion.
+- If TRANSFERS and F5 >= B - m: write **ROUTE A**, a method article is viable.
+- If TRANSFERS and B > F5 + m: write **ROUTE B**. F5 transfers but is not the most robust, so any method claim must rest on a quality, capacity or cost tradeoff at matched distortion.
 - If FAILS: write **ROUTE C**, the bounded empirical article.
 - If PARTIAL: write **ROUTE UNDECIDED** and stop for the user.
 
@@ -96,7 +138,7 @@ The primary cell is F5, R1 SDXL, strength .2, source-majority C, n = 60.
 
 ## 5. Server
 
-**The user rents the server.** They create the instance on vast.ai with the public key `~/.ssh/vast_ed25519.pub` and give you the SSH connect line in the goal message. You connect only with `~/.ssh/vast_ed25519`. You never handle their vast.ai account, payment or API key.
+**The user rents the server after the stage-1 stop.** They create the instance on vast.ai with the public key `~/.ssh/vast_ed25519.pub` and send you its SSH connect line in the message that starts stage 2. You connect only with `~/.ssh/vast_ed25519`. You never handle their vast.ai account, payment or API key.
 
 **Budget:** at most 15 instance-hours, or USD 15 at the instance's hourly price, whichever comes first, for setup plus run.
 - After the smoke test, project the full run time.
@@ -150,8 +192,10 @@ Then:
 
 ## 8. Time
 
-Plan for about one working day:
+Plan for about one working day plus a checkpoint:
+- stage 1 design research: about 2 h;
 - protocol and code: 2-4 h;
+- then the stage-1 stop and Claude's protocol check, before the server is rented;
 - server setup and smoke test: 1-2 h;
 - run: 4-10 h, depending on the GPU;
 - analysis and review: 2 h.
@@ -160,7 +204,9 @@ Use the run time for analysis code and the results skeleton.
 
 ## 9. Stop point and final message
 
-Stop when the results and review exist and the decision label is written, or when a hard stop applies. If the run is still in progress and the turn must end, leave the server running the journaled job, write the state to `PROGRESS.md`, and continue in the next turn.
+There are two stops:
+- **Stage 1:** stop when the frozen protocol, design research, code and budget projection are pushed. Report in Persian (at most 10 lines): what the research changed, the final n, channels and baselines, and the projected hours and cost.
+- **Stage 2:** stop when the results and review exist and the decision label is written, or when a hard stop applies. If the run is still in progress and the turn must end, leave the server running the journaled job, write the state to `PROGRESS.md`, and continue in the next turn.
 
 Your final message to the user is in Persian, at most 12 lines:
 - the decision label;

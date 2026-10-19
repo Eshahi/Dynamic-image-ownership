@@ -9,7 +9,10 @@ The user reviewed the research-only Q1 dossier with Claude on 2026-10-19. They s
 - **One experiment only.** It is a development study of F5 r2 under regenerators whose autoencoders were trained independently of SD1.5: SDXL, and FLUX.1-schnell if available. The comparators are v5 r3 and the external baselines the brief names. It runs on a vast.ai server the user rents. The decision rule is fixed in the brief before any output exists.
 - **Development data only.** Never move held-out or test pools to the server, and never touch them anywhere.
 - **Paid compute.** The user rents and pays for the server; do not exceed the brief's budget. Stop the instance when the results are home. Never destroy it: destroying is the user's action.
-- **Stop for the user** when the decision rule has been applied and the results and one independent review are written. No held-out run follows without a new user decision.
+- **Stop for the user twice:**
+  - after stage 1 (design research, frozen protocol and code pushed; no server yet);
+  - when the decision rule has been applied and the results and one independent review are written.
+  - No held-out run follows without a new user decision.
 - The integrity rules below apply in full.
 
 ## Operating mode: autonomous handoff (user decision, 2026-10-03)
