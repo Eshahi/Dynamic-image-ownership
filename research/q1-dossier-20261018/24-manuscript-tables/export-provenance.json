@@ -1,0 +1,64 @@
+{
+  "kind": "documentary table export provenance; not a run or execution manifest",
+  "created_at": "2026-10-19T04:54:57.3918542-08:00",
+  "input_dossier_commit": "5701fa765e060b9b1c34c44474ef904ac4d3d782",
+  "source_J": {
+    "path": "../01b-heldout-registry-recount.json",
+    "sha256": "a42dca484743a9ec3ba4e6f5c83e2c8eeec778b70e7e729fa7193759bfe46c18"
+  },
+  "source_O": {
+    "path": "../01d-e3-owner-gate-counts.json",
+    "sha256": "580e24d5033390a06996f175fc9c6a9338da107a711454a6f7ee750410115a17"
+  },
+  "files": [
+    {
+      "file": "e1-recovery.csv",
+      "rows": 2,
+      "sha256": "0b0276f310d87983abbc13608ccd456bc545af3754b0d00e55bce9e39e962e12"
+    },
+    {
+      "file": "e2-accepted-pairs.csv",
+      "rows": 3,
+      "sha256": "b868f48c8affe8bb1f27c328ab40a944fcd1a3668a4f5839ac2fb4fedb92e83f"
+    },
+    {
+      "file": "e2-specificity.csv",
+      "rows": 5,
+      "sha256": "7f086fb93cc226749f9ee2c8a0f17bf2f0197ee4a01a3d978c616aaf9787e401"
+    },
+    {
+      "file": "e3-attribution.csv",
+      "rows": 16,
+      "sha256": "971f898bd8816088120619a17baf61ba2d3bcd417cc7943d649863f70e0c0c74"
+    },
+    {
+      "file": "e3-owner-gate.csv",
+      "rows": 8,
+      "sha256": "2acccaeafd0a8c1b00021a4033761eaf0df23cd551394193e7f50b4982e86e70"
+    },
+    {
+      "file": "quality-and-runtime-accounting.csv",
+      "rows": 9,
+      "sha256": "bac2a8ec2a7a84f1564f760c242c1871caa14d668966e5e01fa27c039e79f61d"
+    },
+    {
+      "file": "quality-summary.csv",
+      "rows": 3,
+      "sha256": "73e304bb6c544aab38b6e506a8497023b69bdae59bdb43b23e3c1bc7d6f81f59"
+    }
+  ],
+  "transforms": "PowerShell text/JSON selection; explicit documented omitted-zero categories only within complete E3 dictionaries; subtraction for unavailable counts; no new metric scoring or bound calculation",
+  "checks": [
+    "E2 observed/planned/missing against corrected expected values",
+    "E3 partitions sum to evaluable source count",
+    "E3 any beta equals beta-only plus ambiguity",
+    "O completed calls agree with J evaluable sources"
+  ],
+  "limitations": [
+    "E1/E2 accept numerators retain saved-aggregate verification status",
+    "bounds are copied from earlier count calculations, not newly calculated",
+    "no raw descriptor or image validation",
+    "all E3 banks incomplete",
+    "not a public release or an independent scientific review"
+  ]
+}

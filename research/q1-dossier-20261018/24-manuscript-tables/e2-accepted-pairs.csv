@@ -1,0 +1,4 @@
+"pair_id","saved_gray_psnr_db","frozen_different_cutoff_db","evidence_id","source","field_prefix","scope"
+"near:tos-05_4h-o072","17.237954130335552","18.126065828471827","EV-55;EV-56;EV-71","J","E2.lookalike_recount.accepted_pairs_psnr","accepted pairs only; descriptor-only; not the full eligible distribution or human identity labels"
+"near:tos-05_4h-o144","17.675129470439067","18.126065828471827","EV-55;EV-56;EV-71","J","E2.lookalike_recount.accepted_pairs_psnr","accepted pairs only; descriptor-only; not the full eligible distribution or human identity labels"
+"near:tos-07_1c-o144","16.892173448600087","18.126065828471827","EV-55;EV-56;EV-71","J","E2.lookalike_recount.accepted_pairs_psnr","accepted pairs only; descriptor-only; not the full eligible distribution or human identity labels"

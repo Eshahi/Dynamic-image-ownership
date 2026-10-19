@@ -89,4 +89,6 @@ Unresolved cost fields: rental invoice amount and billing interval, retained dis
 
 ## 6. Next documentary actions
 
+Later R8 update: [24-manuscript-tables](../24-manuscript-tables/README.md) now supplies seven CSV exports from J/O corrected counts, with exact field mapping and local input/output provenance. The 64-row inventory remains a timestamped path/rights snapshot. Its R57 production gap is partially addressed by these table inputs; a reusable standalone producer, figures and any public release remain pending. No science replay or new scoring occurred.
+
 Resolve author/affiliation/institution and release-license decisions; prepare the table-only input mapping and producer as a separately scoped future artifact task; confirm pinned source snapshots and metadata redactions; retain source/model license notices and precise image attribution joins. These tasks do not repair the scientific gaps: complete banks, matched component controls and diverse fresh negatives remain proposed work. The present output is **README.md plus inventory.csv only**.

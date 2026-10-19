@@ -1,0 +1,4 @@
+"metric","available_marks","planned_sources","minimum","median","maximum","evidence_id","source","field_prefix","scope"
+"psnr_db","297","300","41.85505601687245","44.33330433440016","45.46112917528713","EV-74","J","quality.summaries.psnr_db","descriptive; not a registry endpoint; no human ratings"
+"ssim_rgb","297","300","0.9291666718902827","0.9850535049124748","0.9978520457012614","EV-74","J","quality.summaries.ssim_rgb","descriptive; not a registry endpoint; no human ratings"
+"lpips","297","300","0.0008468837477266788","0.018214695155620575","0.14980997145175934","EV-74","J","quality.summaries.lpips","descriptive; not a registry endpoint; no human ratings"
