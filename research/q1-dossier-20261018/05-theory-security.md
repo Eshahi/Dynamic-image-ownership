@@ -44,6 +44,8 @@ For a fixed available bank `R`, define accepted records and owners as
 
 Fingerprint-only uses the identical descriptor rule and records, but omits `P_r`. This is a within-system ablation of candidate gating, not an externally matched fingerprint baseline.
 
+**WP9 identifiability correction:** the saved beta native calls have neither `found` nor `read` in every completed E3 query (EV-77). Therefore no beta candidate reaches q matching or descriptor acceptance in those observations. This explains the measured zero-beta result at the owner gate; it does not prove that q and F provide additional rejection, or that they are unnecessary for alpha record correctness. The count is post-hoc analysis of retained Booleans, not a new ablation. A future comparison must separate owner, q and descriptor stages and distinguish record-level from owner-level correctness.
+
 ## 2. Identity and channel definitions
 
 For the real/synthetic look-alike endpoint, the frozen operational negative predicate is

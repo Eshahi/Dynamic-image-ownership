@@ -122,6 +122,7 @@ The complete confirmation fails. The frozen automated verdict and the pre-result
 | EV-74 | Registry available-mark PSNR min/median/max 41.8551/44.3333/45.4611 dB; SSIM .929167/.985054/.997852; LPIPS .000846884/.0182147/.149810 | 297 available marks; continuous descriptive summaries, no human visual verdict | H-D/A; REG-J embed quality, reviewer recount; M2-C |
 | EV-75 | Fingerprint E3 **any attacker accepted**, including ambiguity, per EV-59–66 order: 294/294, 293/294, 294/294, 263/293, 297/297, 296/297, 297/297, 265/297 | Source per cell; this is the frozen wrong-owner-present predicate. Distinguish unique wrong owner (1–75) from ambiguous multiple owners | H/H-D under approved reading; REG-E E3 rows; M2-C |
 | EV-76 | Ambiguous synthetic registry panel: 4 accepts among 12 pairs | Reported only under frozen distance definition; not an E2 different-image panel | H-D; saved scorer summary; M2-S |
+| EV-77 | In all eight E3 cells, beta native `semantic.found` and `read` are both false for every completed call: 0/294, 0/294, 0/294, 0/293, 0/297, 0/297, 0/297, 0/297 in EV-59–66 order | Source within cell; repeated sources, unavailable calls excluded. The owner gate already implies no beta candidates; this does not isolate q or descriptor contributions and is not a newly evaluated owner-only arm | Post-hoc count of saved Boolean outputs, WP9 author desk check; REG-J; [specification](01d-e3-owner-gate-audit.md) and [JSON](01d-e3-owner-gate-counts.json); stdlib only, no rescoring |
 
 ## Missingness and interpretation rules
 

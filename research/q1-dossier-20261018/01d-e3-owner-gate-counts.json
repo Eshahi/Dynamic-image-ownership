@@ -1,0 +1,142 @@
+{
+  "status": "post-hoc retained-output count; no experiment or rescoring",
+  "source": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\registry-package\\artifacts\\M1b-test\\registry-div2k300-confirm-01\\outputs\\journal.jsonl",
+  "date": "2026-10-18",
+  "unit": "source within E3 cell; cells repeat sources",
+  "deduplication": "journal keyed by id, last retained row as in analysis source",
+  "cells": [
+    {
+      "cell": "sd15/0.2/exact_copy",
+      "planned": 300,
+      "rows": 300,
+      "completed": 294,
+      "missing_semantic": 0,
+      "found": 0,
+      "read": 0,
+      "found_and_read": 0,
+      "unavailable_source_ids": [
+        38,
+        181,
+        442,
+        463,
+        821,
+        838
+      ]
+    },
+    {
+      "cell": "sd15/0.2/further_regeneration",
+      "planned": 300,
+      "rows": 300,
+      "completed": 294,
+      "missing_semantic": 0,
+      "found": 0,
+      "read": 0,
+      "found_and_read": 0,
+      "unavailable_source_ids": [
+        38,
+        181,
+        442,
+        463,
+        821,
+        838
+      ]
+    },
+    {
+      "cell": "sd15/0.4/exact_copy",
+      "planned": 300,
+      "rows": 300,
+      "completed": 294,
+      "missing_semantic": 0,
+      "found": 0,
+      "read": 0,
+      "found_and_read": 0,
+      "unavailable_source_ids": [
+        38,
+        115,
+        181,
+        463,
+        604,
+        821
+      ]
+    },
+    {
+      "cell": "sd15/0.4/further_regeneration",
+      "planned": 300,
+      "rows": 300,
+      "completed": 293,
+      "missing_semantic": 0,
+      "found": 0,
+      "read": 0,
+      "found_and_read": 0,
+      "unavailable_source_ids": [
+        38,
+        115,
+        181,
+        463,
+        604,
+        821,
+        857
+      ]
+    },
+    {
+      "cell": "sd21/0.2/exact_copy",
+      "planned": 300,
+      "rows": 300,
+      "completed": 297,
+      "missing_semantic": 0,
+      "found": 0,
+      "read": 0,
+      "found_and_read": 0,
+      "unavailable_source_ids": [
+        38,
+        463,
+        821
+      ]
+    },
+    {
+      "cell": "sd21/0.2/further_regeneration",
+      "planned": 300,
+      "rows": 300,
+      "completed": 297,
+      "missing_semantic": 0,
+      "found": 0,
+      "read": 0,
+      "found_and_read": 0,
+      "unavailable_source_ids": [
+        38,
+        463,
+        821
+      ]
+    },
+    {
+      "cell": "sd21/0.4/exact_copy",
+      "planned": 300,
+      "rows": 300,
+      "completed": 297,
+      "missing_semantic": 0,
+      "found": 0,
+      "read": 0,
+      "found_and_read": 0,
+      "unavailable_source_ids": [
+        38,
+        463,
+        821
+      ]
+    },
+    {
+      "cell": "sd21/0.4/further_regeneration",
+      "planned": 300,
+      "rows": 300,
+      "completed": 297,
+      "missing_semantic": 0,
+      "found": 0,
+      "read": 0,
+      "found_and_read": 0,
+      "unavailable_source_ids": [
+        38,
+        463,
+        821
+      ]
+    }
+  ]
+}

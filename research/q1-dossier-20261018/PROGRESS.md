@@ -41,7 +41,7 @@ These nominal times follow the BRIEF's shares of 600 minutes; start earlier when
 
 ## Work status
 
-WP0-WP4 delivered; WP2 and WP4 retain explicit access/verification gaps. WP5 drafted and checked. WP6-WP10 and extension E1-E6 pending.
+WP0-WP8 delivered and pushed; WP2 and WP4 retain explicit access/verification gaps. WP9 independent review is active. WP10 and extension E1-E6 remain pending.
 
 ## Log
 
@@ -80,3 +80,7 @@ WP0-WP4 delivered; WP2 and WP4 retain explicit access/verification gaps. WP5 dra
 - WP7 resolved checkpoint — a283ba2, pushed successfully (426c860..a283ba2).
 - 2026-10-18T23:42:42.9980642-08:00 — WP8 clock check and start. Read protected proposal extraction and twelve claim rows as text only. Map the article to original obligations; registry authorization does not silently approve a thesis-title/objective amendment.
 - 2026-10-18T23:44:38.0820248-08:00 — WP8 completed: all twelve OBJ/RQ/HYP rows mapped to source locators, actual evidence and remaining obligations; four original research questions preserved verbatim. Registry amendment does not fulfill latent insertion, lightweight DCT extraction or CLIP+pHash hypotheses. Protected files untouched. Commit subject: Map article evidence to original thesis obligations.
+- WP8 resolved checkpoint — be6bed8, pushed successfully (a283ba2..be6bed8).
+- 2026-10-18T23:45:04.6727404-08:00 — WP9 clock check and start. Spawned fresh q1_hostile_review, gpt-6-astra/xhigh, one independent review of the dossier through be6bed8, scoped since WP1 checkpoint 869d02b. Own 10-independent-review.md only, 30-minute/approximately 30-tool-turn cap. Reason: independent editorial, evidential and claim audit; all experiment prohibitions preserved. Parent checks documentary access gaps without changing the review snapshot.
+- 2026-10-18 23:57−08:00 — WP9 author desk check of saved native Booleans adds EV-77: beta found/read are false in every completed E3 query, with 293–297 calls per cell. This explains zero beta candidates before q/content checks and weakens component-attribution novelty. No new scoring, images or experiments. Revised F1 requires component controls and a native-versus-adapted DREW contract; manuscript claims are narrowed. Added older agency JCR corroboration without upgrading direct-provider verification.
+- 2026-10-19 00:00−08:00 — WP9 complete. Independent verdict: accept dossier with material documentary corrections; manuscript not submission-ready. Findings 1–3 addressed in claims, component/comparison contract and falsifiable outcome map; findings 4–6 remain explicit access/institutional/thesis gates. Review preserved, author response added. Commit subject: Address independent review and isolate owner-gate evidence.

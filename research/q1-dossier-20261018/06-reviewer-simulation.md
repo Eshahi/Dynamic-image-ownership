@@ -51,6 +51,8 @@ Severity is relative to the claim: **fatal** means the stated headline cannot su
 
 ## Cross-reviewer decision
 
+WP9 adds a further major objection to SEC/IMG: passive beta never embeds its mark, and saved native calls already reject beta in every completed cell (EV-77). Thus the whole-pointer ablation does not isolate q or descriptor binding. Response route A/W now: publish this retained-output fact and narrow the contribution; E later: F1's owner-only, owner+q, owner+descriptor and full controls, with owner-versus-record endpoints. DREW additionally requires the native-versus-adapted enrollment/decision contract in revised F1. These planning corrections do not authorize trials.
+
 The present dossier supports **not ready for Q1 submission on writing changes alone**. W/A/S can remove false claims, expose the actual endpoints and produce a credible manuscript skeleton. They cannot create matched external evidence, diverse hard negatives, an independent-encoder result or active attack security. For the chosen empirical framing, the minimum scientific increment is F1+F2; F3 is strongly recommended for TIFS and necessary for any broader encoder-transfer claim. F4 becomes compulsory if the headline extends beyond passive enrollment. F6 is conditional on pursuing a stronger method rather than reporting an honest limitation.
 
 No simulated objection requires changing the protected proposal, claim ledger, frozen outputs or thresholds. A negative result can be publishable, but this simulation does not certify that this particular case already supplies a sufficiently general or novel Q1 contribution.
