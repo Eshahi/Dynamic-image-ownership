@@ -1,0 +1,834 @@
+{
+  "schema": "q1-registry-retained-results-recount-v1",
+  "reviewer": "Codex independent reviewer, not Claude author",
+  "created_utc": "2026-10-19T02:10:32.802130+00:00",
+  "run_root": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\registry-package\\artifacts\\M1b-test\\registry-div2k300-confirm-01",
+  "scorer_json": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\registry-package\\artifacts\\M1b-test\\registry-div2k300-confirm-01\\metrics\\frozen-scorer-1792330103671103400\\scoring\\run.json",
+  "interpreter": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/venv/Scripts/python.exe",
+  "scope": "stdlib JSON/JSONL counts and binomial bounds only; no pixels, descriptor arrays, detector, scoring, experiment or model executed",
+  "verdict": "ACCEPT WITH CORRECTIONS",
+  "frozen_verdict": {
+    "pass_": false,
+    "plan_view_E1_E2_pass": false
+  },
+  "frozen_E3_pass": false,
+  "frozen_E3_unknown_rows": 2400,
+  "manifest": {
+    "git_commit": "c58a9ca8c48b8afd78a05bbab341bd062596f6e2",
+    "git_dirty": false,
+    "status": "completed",
+    "exit_status": 0,
+    "approval_reference": "c7868dfbb1b5df79d21720d027c6dfde002933b9b8c010fe4a385a77adfee4f9",
+    "seeds": [
+      15,
+      16,
+      17
+    ],
+    "execution_manifest_sha256": "a8ef7edc7b10873c34a11c289719976b48323adda487c712367061e38540e574"
+  },
+  "artifact_hash_checks": {
+    "outputs/run.json": {
+      "manifest_sha256": "53875eef3b280af0fb9c1030e45c79ccb29de85e56eedd1a8adb45ea7f2bfed7",
+      "actual_sha256": "53875eef3b280af0fb9c1030e45c79ccb29de85e56eedd1a8adb45ea7f2bfed7",
+      "matches": true
+    },
+    "outputs/journal.jsonl": {
+      "manifest_sha256": "5505fdb2d9367bd1a3f34f074bbe2dd5a72da74921b726b52cee4c2a1f2255ee",
+      "actual_sha256": "5505fdb2d9367bd1a3f34f074bbe2dd5a72da74921b726b52cee4c2a1f2255ee",
+      "matches": true
+    },
+    "outputs/run-context.json": {
+      "manifest_sha256": "c229795fa47103e2ba83bf888ce37862088a49680cbca570b7f4be2640d577fc",
+      "actual_sha256": "c229795fa47103e2ba83bf888ce37862088a49680cbca570b7f4be2640d577fc",
+      "matches": true
+    },
+    "outputs/lineage.json": {
+      "manifest_sha256": "e75d3aa11b39e9909637036d5222b9e4d1cc674dbaf2e0c14614e7e58f3f630a",
+      "actual_sha256": "e75d3aa11b39e9909637036d5222b9e4d1cc674dbaf2e0c14614e7e58f3f630a",
+      "matches": true
+    },
+    "metrics/endpoints.json": {
+      "manifest_sha256": "868aba592994eb1815bc05bf9c9061087c25868add907692206457b5f1250f41",
+      "actual_sha256": "868aba592994eb1815bc05bf9c9061087c25868add907692206457b5f1250f41",
+      "matches": true
+    },
+    "execution-manifest.json": {
+      "manifest_sha256": "a8ef7edc7b10873c34a11c289719976b48323adda487c712367061e38540e574",
+      "matches": true,
+      "byte_sha256": "fc3abf478c281f6095ad5385ce45e352191d5380f50f4016a0622b8f2d65b702",
+      "canonical_json_sha256": "a8ef7edc7b10873c34a11c289719976b48323adda487c712367061e38540e574",
+      "comparison": "Semantic canonical JSON hash matches; byte hash differs by serialization, not content."
+    }
+  },
+  "journal": {
+    "raw_rows": 53580,
+    "unique_ids": 53580,
+    "outcomes": {
+      "completed": 53053,
+      "scientific_failure": 53,
+      "input_unavailable": 474
+    },
+    "failure_counts": {
+      "embed": 3,
+      "t3": 49,
+      "scenario": 1
+    }
+  },
+  "E1": {
+    "sd15": {
+      "saved_endpoint": {
+        "successes": 277,
+        "n": 300,
+        "clopper_pearson_lower_95": 0.8931304928857333,
+        "pass_": true
+      },
+      "saved_scorer_F_R_source_majority": 277,
+      "CP_lower_95_recomputed": 0.8931304928857333,
+      "CP_lower_975_bonferroni_two_models": 0.8871818846395176,
+      "unavailable_C1_seed_counts_from_journal": {
+        "input_unavailable": 9,
+        "scientific_failure": 10
+      },
+      "verification_level": "Aggregate cross-check only; joint D1+B1 and pointer per-seed decisions not saved as JSON, so successes were not independently recomputed from descriptors."
+    },
+    "sd21": {
+      "saved_endpoint": {
+        "successes": 280,
+        "n": 300,
+        "clopper_pearson_lower_95": 0.9045980236535491,
+        "pass_": true
+      },
+      "saved_scorer_F_R_source_majority": 280,
+      "CP_lower_95_recomputed": 0.9045980236535491,
+      "CP_lower_975_bonferroni_two_models": 0.8989143547885918,
+      "unavailable_C1_seed_counts_from_journal": {
+        "input_unavailable": 9
+      },
+      "verification_level": "Aggregate cross-check only; joint D1+B1 and pointer per-seed decisions not saved as JSON, so successes were not independently recomputed from descriptors."
+    }
+  },
+  "E2": {
+    "frozen": {
+      "families": {
+        "wrong_source": {
+          "n": 3408600,
+          "missing": 65519,
+          "d1_abstain": 93654,
+          "accepts": 0,
+          "accepted_clusters": [],
+          "cluster_n": 300,
+          "accepted_cluster_n": 0,
+          "cluster_upper_95": 0.009936081944457708
+        },
+        "T4": {
+          "n": 594,
+          "missing": 0,
+          "d1_abstain": 12,
+          "accepts": 0,
+          "accepted_clusters": [],
+          "cluster_n": 300,
+          "accepted_cluster_n": 0,
+          "cluster_upper_95": 0.009936081944457708
+        },
+        "synthetic_ambiguous": {
+          "n": 12,
+          "missing": 0,
+          "d1_abstain": 0,
+          "accepts": 4,
+          "accepted_clusters": [
+            "sib:22",
+            "sib:24",
+            "sib:26",
+            "sib:30"
+          ],
+          "cluster_n": 12,
+          "accepted_cluster_n": 4,
+          "cluster_upper_95": 0.6091376982290366
+        },
+        "look_alike_different": {
+          "n": 45,
+          "missing": 0,
+          "d1_abstain": 11,
+          "accepts": 3,
+          "accepted_clusters": [
+            "near:tos-05_4h-o072",
+            "near:tos-05_4h-o144",
+            "near:tos-07_1c-o144"
+          ],
+          "cluster_n": 16,
+          "accepted_cluster_n": 2,
+          "cluster_upper_95": 0.34382519922958943
+        },
+        "look_alike_ambiguous": {
+          "n": 15,
+          "missing": 0,
+          "d1_abstain": 4,
+          "accepts": 2,
+          "accepted_clusters": [
+            "near:tos-05_3b-o072",
+            "near:tos-05_3b-o144"
+          ],
+          "cluster_n": 6,
+          "accepted_cluster_n": 1,
+          "cluster_upper_95": 0.5818034092520259
+        }
+      },
+      "false_accepts": 3,
+      "missing_rows": [
+        "t4:38:0.5",
+        "t4:38:1.0",
+        "t4:463:0.5",
+        "t4:463:1.0",
+        "t4:821:0.5",
+        "t4:821:1.0"
+      ],
+      "unknown_pairs": 65519,
+      "pass_": false
+    },
+    "wrong_source_recount": {
+      "planned_pairs": 3408600,
+      "observed_pairs": 3343081,
+      "unknown_pairs": 65519,
+      "missing_by_cause": {
+        "record_missing": 33825,
+        "query_missing": 31433,
+        "query_and_record_missing": 261
+      },
+      "sources_with_any_observed_pair": 300,
+      "sources_with_any_unknown_pair": 300,
+      "fully_observed_sources": 0,
+      "conditional_observed_cluster_CP_upper_95": 0.00993608194445772
+    },
+    "T4_recount": {
+      "planned": 600,
+      "observed": 594,
+      "observed_donor_clusters": 297,
+      "CP_upper_95_observed_297_donors": 0.010035941097792489,
+      "missing_source_ids": [
+        38,
+        463,
+        821
+      ]
+    },
+    "lookalike_recount": {
+      "different_pair_count": 45,
+      "different_shots": 16,
+      "accepted_pair_count_from_saved_ids": 3,
+      "accepted_shots": 2,
+      "accepted_pairs_psnr": {
+        "near:tos-05_4h-o072": 17.237954130335552,
+        "near:tos-05_4h-o144": 17.675129470439067,
+        "near:tos-07_1c-o144": 16.892173448600087
+      },
+      "CP_upper_95_shots": 0.34382519922958943,
+      "CP_upper_95_pairs_descriptive_only": 0.16338838109952253,
+      "ambiguous_pair_count": 15,
+      "frozen_cutoff": 18.126065828471827
+    }
+  },
+  "E3": {
+    "sd15/0.2/exact_copy": {
+      "planned_sources": 300,
+      "evaluable_sources": 294,
+      "excluded": [
+        {
+          "source_id": 38,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 181,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 442,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 463,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 821,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 838,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "attacker_record_unavailable"
+          ]
+        }
+      ],
+      "arms": {
+        "pointer_registry": {
+          "attributions": {
+            "original_owner_unique": 280,
+            "no_attribution": 14
+          },
+          "wrong_owner_present_including_ambiguity": 0
+        },
+        "fingerprint_only": {
+          "attributions": {
+            "ambiguous_owners": 293,
+            "wrong_owner": 1
+          },
+          "wrong_owner_present_including_ambiguity": 294
+        },
+        "d1_only": {
+          "attributions": {
+            "wrong_owner": 64,
+            "ambiguous_owners": 225,
+            "no_attribution": 5
+          },
+          "wrong_owner_present_including_ambiguity": 289
+        }
+      },
+      "pointer_zero_error_CP_upper_95_per_cell": 0.010137827810691391,
+      "pointer_zero_error_CP_upper_bonferroni_eight_cells": 0.0171143527520492,
+      "unknown_records_in_frozen_cell": 9
+    },
+    "sd15/0.2/further_regeneration": {
+      "planned_sources": 300,
+      "evaluable_sources": 294,
+      "excluded": [
+        {
+          "source_id": 38,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 181,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 442,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 463,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 821,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 838,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "attacker_record_unavailable"
+          ]
+        }
+      ],
+      "arms": {
+        "pointer_registry": {
+          "attributions": {
+            "original_owner_unique": 242,
+            "no_attribution": 52
+          },
+          "wrong_owner_present_including_ambiguity": 0
+        },
+        "fingerprint_only": {
+          "attributions": {
+            "ambiguous_owners": 285,
+            "wrong_owner": 8,
+            "no_attribution": 1
+          },
+          "wrong_owner_present_including_ambiguity": 293
+        },
+        "d1_only": {
+          "attributions": {
+            "wrong_owner": 176,
+            "ambiguous_owners": 98,
+            "no_attribution": 20
+          },
+          "wrong_owner_present_including_ambiguity": 274
+        }
+      },
+      "pointer_zero_error_CP_upper_95_per_cell": 0.010137827810691391,
+      "pointer_zero_error_CP_upper_bonferroni_eight_cells": 0.0171143527520492,
+      "unknown_records_in_frozen_cell": 9
+    },
+    "sd15/0.4/exact_copy": {
+      "planned_sources": 300,
+      "evaluable_sources": 294,
+      "excluded": [
+        {
+          "source_id": 38,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 115,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 181,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 463,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 604,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 821,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        }
+      ],
+      "arms": {
+        "pointer_registry": {
+          "attributions": {
+            "original_owner_unique": 201,
+            "no_attribution": 93
+          },
+          "wrong_owner_present_including_ambiguity": 0
+        },
+        "fingerprint_only": {
+          "attributions": {
+            "ambiguous_owners": 266,
+            "wrong_owner": 28
+          },
+          "wrong_owner_present_including_ambiguity": 294
+        },
+        "d1_only": {
+          "attributions": {
+            "wrong_owner": 256,
+            "ambiguous_owners": 32,
+            "no_attribution": 6
+          },
+          "wrong_owner_present_including_ambiguity": 288
+        }
+      },
+      "pointer_zero_error_CP_upper_95_per_cell": 0.010137827810691391,
+      "pointer_zero_error_CP_upper_bonferroni_eight_cells": 0.0171143527520492,
+      "unknown_records_in_frozen_cell": 9
+    },
+    "sd15/0.4/further_regeneration": {
+      "planned_sources": 300,
+      "evaluable_sources": 293,
+      "excluded": [
+        {
+          "source_id": 38,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 115,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 181,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 463,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 604,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 821,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 857,
+          "causes": [
+            "query_or_native_calls_unavailable"
+          ]
+        }
+      ],
+      "arms": {
+        "pointer_registry": {
+          "attributions": {
+            "original_owner_unique": 81,
+            "no_attribution": 212
+          },
+          "wrong_owner_present_including_ambiguity": 0
+        },
+        "fingerprint_only": {
+          "attributions": {
+            "ambiguous_owners": 188,
+            "wrong_owner": 75,
+            "no_attribution": 30
+          },
+          "wrong_owner_present_including_ambiguity": 263
+        },
+        "d1_only": {
+          "attributions": {
+            "no_attribution": 257,
+            "wrong_owner": 28,
+            "ambiguous_owners": 8
+          },
+          "wrong_owner_present_including_ambiguity": 36
+        }
+      },
+      "pointer_zero_error_CP_upper_95_per_cell": 0.010172251326438397,
+      "pointer_zero_error_CP_upper_bonferroni_eight_cells": 0.01717225909920217,
+      "unknown_records_in_frozen_cell": 9
+    },
+    "sd21/0.2/exact_copy": {
+      "planned_sources": 300,
+      "evaluable_sources": 297,
+      "excluded": [
+        {
+          "source_id": 38,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 463,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 821,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        }
+      ],
+      "arms": {
+        "pointer_registry": {
+          "attributions": {
+            "original_owner_unique": 282,
+            "no_attribution": 15
+          },
+          "wrong_owner_present_including_ambiguity": 0
+        },
+        "fingerprint_only": {
+          "attributions": {
+            "ambiguous_owners": 296,
+            "wrong_owner": 1
+          },
+          "wrong_owner_present_including_ambiguity": 297
+        },
+        "d1_only": {
+          "attributions": {
+            "wrong_owner": 46,
+            "ambiguous_owners": 246,
+            "no_attribution": 5
+          },
+          "wrong_owner_present_including_ambiguity": 292
+        }
+      },
+      "pointer_zero_error_CP_upper_95_per_cell": 0.010035941097792489,
+      "pointer_zero_error_CP_upper_bonferroni_eight_cells": 0.016942953369500247,
+      "unknown_records_in_frozen_cell": 6
+    },
+    "sd21/0.2/further_regeneration": {
+      "planned_sources": 300,
+      "evaluable_sources": 297,
+      "excluded": [
+        {
+          "source_id": 38,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 463,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 821,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        }
+      ],
+      "arms": {
+        "pointer_registry": {
+          "attributions": {
+            "original_owner_unique": 249,
+            "no_attribution": 48
+          },
+          "wrong_owner_present_including_ambiguity": 0
+        },
+        "fingerprint_only": {
+          "attributions": {
+            "ambiguous_owners": 289,
+            "wrong_owner": 7,
+            "no_attribution": 1
+          },
+          "wrong_owner_present_including_ambiguity": 296
+        },
+        "d1_only": {
+          "attributions": {
+            "wrong_owner": 178,
+            "ambiguous_owners": 112,
+            "no_attribution": 7
+          },
+          "wrong_owner_present_including_ambiguity": 290
+        }
+      },
+      "pointer_zero_error_CP_upper_95_per_cell": 0.010035941097792489,
+      "pointer_zero_error_CP_upper_bonferroni_eight_cells": 0.016942953369500247,
+      "unknown_records_in_frozen_cell": 6
+    },
+    "sd21/0.4/exact_copy": {
+      "planned_sources": 300,
+      "evaluable_sources": 297,
+      "excluded": [
+        {
+          "source_id": 38,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 463,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 821,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        }
+      ],
+      "arms": {
+        "pointer_registry": {
+          "attributions": {
+            "original_owner_unique": 199,
+            "no_attribution": 98
+          },
+          "wrong_owner_present_including_ambiguity": 0
+        },
+        "fingerprint_only": {
+          "attributions": {
+            "ambiguous_owners": 266,
+            "wrong_owner": 31
+          },
+          "wrong_owner_present_including_ambiguity": 297
+        },
+        "d1_only": {
+          "attributions": {
+            "wrong_owner": 257,
+            "ambiguous_owners": 33,
+            "no_attribution": 7
+          },
+          "wrong_owner_present_including_ambiguity": 290
+        }
+      },
+      "pointer_zero_error_CP_upper_95_per_cell": 0.010035941097792489,
+      "pointer_zero_error_CP_upper_bonferroni_eight_cells": 0.016942953369500247,
+      "unknown_records_in_frozen_cell": 6
+    },
+    "sd21/0.4/further_regeneration": {
+      "planned_sources": 300,
+      "evaluable_sources": 297,
+      "excluded": [
+        {
+          "source_id": 38,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 463,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        },
+        {
+          "source_id": 821,
+          "causes": [
+            "query_or_native_calls_unavailable",
+            "owner_record_unavailable",
+            "attacker_record_unavailable"
+          ]
+        }
+      ],
+      "arms": {
+        "pointer_registry": {
+          "attributions": {
+            "original_owner_unique": 81,
+            "no_attribution": 216
+          },
+          "wrong_owner_present_including_ambiguity": 0
+        },
+        "fingerprint_only": {
+          "attributions": {
+            "ambiguous_owners": 190,
+            "wrong_owner": 75,
+            "no_attribution": 32
+          },
+          "wrong_owner_present_including_ambiguity": 265
+        },
+        "d1_only": {
+          "attributions": {
+            "no_attribution": 255,
+            "wrong_owner": 32,
+            "ambiguous_owners": 10
+          },
+          "wrong_owner_present_including_ambiguity": 42
+        }
+      },
+      "pointer_zero_error_CP_upper_95_per_cell": 0.010035941097792489,
+      "pointer_zero_error_CP_upper_bonferroni_eight_cells": 0.016942953369500247,
+      "unknown_records_in_frozen_cell": 6
+    }
+  },
+  "quality": {
+    "available": 297,
+    "planned": 300,
+    "summaries": {
+      "psnr_db": {
+        "min": 41.85505601687245,
+        "median": 44.33330433440016,
+        "max": 45.46112917528713
+      },
+      "ssim_rgb": {
+        "min": 0.9291666718902827,
+        "median": 0.9850535049124748,
+        "max": 0.9978520457012614
+      },
+      "lpips": {
+        "min": 0.0008468837477266788,
+        "median": 0.018214695155620575,
+        "max": 0.14980997145175934
+      }
+    },
+    "strict_old_quality_gate_count": 291,
+    "lpips_ge_point1_source_ids": [
+      227,
+      364,
+      666,
+      814,
+      843,
+      868
+    ],
+    "status": "descriptive; not a registry endpoint"
+  },
+  "cost": {
+    "saved_run": {
+      "protocol": "registry-two-factor-v1",
+      "data_split": "test",
+      "commit": "c58a9ca8c48b8afd78a05bbab341bd062596f6e2",
+      "outcome": "completed",
+      "duration_seconds": 43401.126,
+      "usd": 0,
+      "completed_units": 53580
+    },
+    "run_duration_hours": 12.055868333333333,
+    "journal_sum_unit_duration_seconds": 40498.77899999985,
+    "journal_embed_duration_seconds": 11445.265999999998,
+    "journal_native_duration_seconds": 20591.064999999628
+  },
+  "procedure": {
+    "E1": "Compare E1 successes/n to frozen scorer summary.round3.cells[model/0.2].F_R_source_majority; independently invert binomial tail for one-sided CP bounds. No row-level joint accept flags retained, so not a raw success recount.",
+    "E2": "Reconstruct 38 query units per source (canon, embed, 36 T3) against all 299 other embed records; count outcome==completed on both sides. Count accepted_cluster IDs and saved look_alike_psnr below cutoff. Accept/reject decisions are saved aggregates, not independently rescored.",
+    "E3": "For each saved E3.rows cell/source require completed query and descriptor with cache metadata, completed native alpha/beta calls, own completed embed and descriptor plus payload.q, and own beta seed15 C1 copy and descriptor plus completed native beta semantic_code. Count saved arms attribution and wrong_owner_present on evaluable rows. No cache contents opened.",
+    "bounds": "One-sided exact binomial inversion; n<=300 uses Python math.comb binomial CDF and 70 bisections. Zero failures uses 1-alpha**(1/n). Cluster and complete-case interpretations are conditional, not guarantees for missing records."
+  },
+  "frozen_parameter_document_matches_scorer_json": true
+}

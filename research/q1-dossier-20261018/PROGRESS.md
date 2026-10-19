@@ -41,9 +41,14 @@ These nominal times follow the BRIEF's shares of 600 minutes; start earlier when
 
 ## Work status
 
-WP0 in progress. WP1-WP10 and extension E1-E6 pending.
+WP0 complete and pushed. WP1 complete, checkpoint in progress. WP2 inventory prepared; cluster research next. WP3-WP10 and extension E1-E6 pending.
 
 ## Log
 
 - 2026-10-18 18:04:04−08:00 — Session start and WP0 clock check. First command establishes the deadline; active goal confirmed. MAIN STATE and BRIEF read once. Clean branch and configured origin verified.
 - WP0 checkpoint — Prepared orientation, schedule, scope and decisions; commit subject: `Start research-only Q1 dossier and ten-hour clock`. Push status will be recorded at the next checkpoint.
+- WP0 resolved checkpoint — `f4285e8`, pushed successfully to `origin/codex/q1-research-20261018` with upstream configured.
+- 2026-10-18 18:06:10−08:00 — WP1 clock check and start. Read approved registry plan, pre-result missingness amendment, result note and earlier reviewed reports.
+- WP1 escalation — Spawned `registry_m2_review`, gpt-6-astra/high, fresh context: independent outcome/document review of Claude's registry confirmation, maximum about 28 minutes; output 01b plus JSON recount, no shared-state edits or commits. Reason: pending independent M2 audit and expensive denominator/claim errors. Session-only log overrides prohibited edits to experiments/dev-log.md.
+- WP1 finding — Registry reviewer found 65,519 missing unrelated comparisons included in the reported planned 3,408,600. Observed scored comparisons are 3,343,081; dossier will preserve missingness and correct the unqualified denominator. No retained source file changed.
+- 2026-10-18 18:13:32−08:00 — WP1 finished. Independent verdict ACCEPT WITH CORRECTIONS for reporting a negative overall confirmation. Four reporting corrections incorporated in the ledger: observed negative denominator, complete-case E3 qualification, fingerprint ambiguity under any-attacker error, and proper cluster/missingness denominators. E1/E2 accept numerators remain cross-checked saved aggregates, not new rescoring; E3 and availability counts recounted. Existing F5 quality/timings also aggregated with stdlib only. Commit subject: `Audit retained thesis evidence and correct registry denominators`.
