@@ -1,6 +1,6 @@
 # Current state
 
-Updated by Codex agent, 2026-10-19, after the research-only dossier continuation.
+Updated by Codex agent, 2026-10-19T04:18:58.3542444-08:00, after the post-deadline research-only follow-up.
 The copy of this text in MAIN thesis-runs/d916749c/STATE.md is authoritative.
 
 ## Current method and result
@@ -37,10 +37,12 @@ Primary framing is an empirical study of recovery versus registered-image attrib
 Conditional target: TIFS; backups TMM and TOMM. IEEE confirms TIFS Q1 for JCR2024; newest category eligibility remains unresolved.
 FINAL-REPORT remains PARTIAL for WP2 fulltext and WP4 policy/ranking gaps; all extension deliverables exist.
 Writing alone cannot make the current evidence Q1-ready.
+All nine manuscript sections and abstract are assembled in 21-manuscript-working-draft.md; no new result.
+Folders 19/20 provide a 64-entry release inventory and prospective data policies/schema; no assets acquired.
 Next proposed research: identify owner/q/content contributions with compatible controls, then diverse fresh hard negatives and complete banks.
 Independent-encoder and active-attack studies are needed only for their corresponding broader claims; none ran here.
 New external baseline work remains closed until explicitly reopened by the user.
-Continuation reconciled 2026-10-19T02:51:25.2008401-08:00; no new experiment was performed.
+The user requested further continuation at 04:05-08:00 after the deadline; the original clock was not reset.
 Five access refreshes remain V1; Beyond Generation is refreshed to v2; current journal guides remain incomplete.
 One failed out-of-purpose stdlib HTTP fetch is disclosed in FINAL-REPORT; no science interpreter or experiment was used.
 

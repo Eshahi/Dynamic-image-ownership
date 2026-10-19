@@ -4,6 +4,8 @@ WP7, 18 October 2026. Author: Codex agent. **Working draft, not a submission-rea
 
 ## Title options
 
+Post-deadline authoring update, 19 October 2026: [21-manuscript-working-draft.md](21-manuscript-working-draft.md) assembles the supported abstract and all nine sections. [18](18-draft-results-and-discussion.md) supplies the protocol/results/discussion continuation; [19](19-release-inventory/README.md) and [20](20-fresh-data-plan/README.md) deliver the release inventory and prospective metadata plan. These documentary additions do not remove the scientific or institutional submission gates.
+
 1. **From Watermark Recovery to Registered-Image Attribution: An Empirical Study Under Diffusion Regeneration** — preferred, makes the distinction the research question.
 2. **Pointer-Assisted Attribution Under Passive Competing Enrollment: Recovery, Ambiguity, and Abstention** — narrower fallback; passive access appears in the title.
 3. **When Regeneration Robustness Is Insufficient for Image Attribution: Evidence from a Frozen Registry Study** — negative-result emphasis; retain “a” to avoid claiming a universal impossibility.

@@ -1,0 +1,43 @@
+{
+  "checked_at": "2026-10-19T04:19:46.0484752-08:00",
+  "kind": "Author documentary integration check; no scientific experiment or independent review",
+  "manuscript": "21-manuscript-working-draft.md",
+  "numbered_sections": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9"
+  ],
+  "words_including_editorial": 6671,
+  "distinct_citations": 35,
+  "citations_all_V2": true,
+  "body_matches_section_files": true,
+  "checked_link_files": [
+    "08-manuscript-blueprint.md",
+    "18-draft-results-and-discussion.md",
+    "19-release-inventory/README.md",
+    "20-fresh-data-plan/README.md",
+    "21-manuscript-working-draft.md",
+    "FINAL-REPORT.md"
+  ],
+  "existing_local_links": 70,
+  "missing_local_links": [],
+  "inventory_entries": 64,
+  "inventory_local_available": 59,
+  "inventory_absent_exact_path": 4,
+  "inventory_future_artifact": 1,
+  "prospective_source_policies": 4,
+  "metadata_schema_fields": 55,
+  "selected_new_assets": 0,
+  "main_state_lines": 58,
+  "main_state_matches_snapshot": true,
+  "expected_extensions_only": true,
+  "scientific_readiness": "not Q1-submission-ready",
+  "residual_documentary_status": "PARTIAL: WP2 fulltexts; WP4 current policy/ranking/institution gaps",
+  "no_new_scientific_result": true
+}

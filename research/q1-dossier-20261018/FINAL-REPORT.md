@@ -1,11 +1,11 @@
 STATUS: PARTIAL — WP2 fulltext verification gaps; WP4 current policy/ranking verification gaps.
-All core packages WP0–WP10 and extension E1–E6 have deliverables. The research session ends under the user's extension-complete condition; PARTIAL describes unresolved source/policy verification, not unfinished extension work.
+All core packages WP0–WP10, extensions E1–E6 and the requested documentary continuations have deliverables. The original deadline has passed and the extension tier is complete. PARTIAL describes unresolved source/policy verification, not unfinished package work. A complete nine-section working manuscript is now assembled; scientific submission readiness remains negative.
 
 # Research-only Q1 dossier report
 
 ## 1. Session and delivery
 
-Start: **2026-10-18T18:04:04.3769833-08:00**. Exact ten-hour deadline: **2026-10-19T04:04:04.3769833-08:00** (12:04:04.3769833Z). The initial WP0–WP10/E1–E6 delivery ended at 01:04:59-08:00 and was pushed as `bea4656`. At the user's request, documentary work resumed at 02:28:49-08:00. Final continuation reconciliation: **2026-10-19T02:51:25.2008401-08:00**, approximately **8.79 elapsed hours** from the first clock reading, including the gap between deliveries; this is not a claim of that many uninterrupted active hours. Final commit/push verification follows. The original deadline is unchanged. The user's extension-complete end condition is met; inaccessible sources are still disclosed as PARTIAL, not represented as completed verification. Timestamps preserve the first host-clock offset rather than silently relabelling it as the configured America/Los_Angeles time zone.
+Start: **2026-10-18T18:04:04.3769833-08:00**. Exact ten-hour deadline: **2026-10-19T04:04:04.3769833-08:00** (12:04:04.3769833Z). The initial WP0–WP10/E1–E6 delivery ended at 01:04:59-08:00 and was pushed as `bea4656`. At the user's request, documentary work resumed at 02:28:49-08:00 and reconciled at 02:51:25-08:00 (`b7218ca`). The user's further request to continue began a **post-deadline research-only follow-up at 2026-10-19T04:05:57.7965667-08:00**. It completed the remaining manuscript prose, release inventory and prospective fresh-data plan, then assembled the full working draft. It did not reset the original clock or authorize experiments. Exact package/final clock readings and push receipts are recorded in [PROGRESS](PROGRESS.md); elapsed wall time includes gaps between deliveries and is not uninterrupted active work. Both the extension-complete and elapsed-deadline conditions are now met. Timestamps preserve the first host-clock offset rather than silently relabelling it as the configured America/Los_Angeles time zone.
 
 Lead: Codex agent, GPT-6 family; exact host model identifier was not exposed. Bounded literature/design assistants used the BRIEF-authorized Astra/high and Sol/high or medium settings; WP9 was a fresh Astra/xhigh independent reviewer. Their work and model choices are logged in [PROGRESS](PROGRESS.md). No scientific experiment, pixel inspection, GPU use, package installation, data/model/code download, paid compute, submission or external communication occurred. Permitted stdlib counted retained JSON results and calculated bounds; one post-hoc saved-Boolean count explains E3's owner gate. A continuation assistant also made one out-of-purpose stdlib HTTP fetch attempt; it failed with HTTP 403 before parsing/saving and is disclosed in section 9. No experiment occurred, but Python-purpose compliance was not perfect.
 
@@ -30,7 +30,11 @@ Lead: Codex agent, GPT-6 family; exact host model identifier was not exposed. Bo
 | E6 submission-material drafts | `0c500e0` |
 | Initial final report / MAIN state refresh | `bea4656` |
 | Continued sources, versions and journal access audit | `49d3fee` |
-| Continuation final reconciliation / MAIN state refresh | Commit containing this revised report; exact hash/push outcome in closing chat. |
+| Continuation final reconciliation / MAIN state refresh | `b7218ca` |
+| R3 complete protocol/results/discussion/conclusion prose | `dbf2f9e` |
+| R4 reproducibility and prospective release inventory | `ee80774` |
+| R5 prospective fresh-data metadata/separation plan | `9848720` |
+| R6 complete manuscript assembly / final state | Commit containing this revised report; exact hash/push outcome in closing chat. |
 
 All listed resolved commits were pushed to `origin/codex/q1-research-20261018`; no other branch was pushed. The authorized MAIN STATE update is saved in the main checkout and mirrored as [MAIN-STATE-snapshot.md](MAIN-STATE-snapshot.md) in this branch. MAIN's branch is not committed or pushed by this session. The snapshot preserves the exact state text in the session's own commit history.
 
@@ -79,9 +83,9 @@ Effort is approximate researcher time; items already implemented must propagate 
 | 5 | Resolve bibliographic versions and obtain lawful full texts for remaining novelty threats. | 2–5 h plus access; 02 and extension bibliography audit. Access gaps remain. |
 | 6 | Confirm university ranking system/edition/category and current journal guide/fees. | 1 h plus institution response; 04. No institutional answer assumed. |
 | 7 | Reconcile article scope with original objectives and seek an explicit later amendment if desired. | 1–2 h plus supervisor decision; 09. Mapping complete, decisions open. |
-| 8 | Revise the completed section drafts, rebuttal bank, figure specifications and submission drafts only after the missing scientific evidence and author decisions exist. | 4–8 h later integration; 08 and 11–16. All requested research-only drafts now delivered. |
-| 9 | Prepare a rights-aware reproducibility/release inventory and honest cost table. | 1–2 h; 08/11, future artifact appendix. No public archive is claimed complete. |
-| 10 | Turn candidate fresh-data sources into a prospective license/group/overlap plan before any acquisition or outcomes. | 1–2 h metadata design plus later curation; 07. No cohort downloaded or certified fresh here. |
+| 8 | Revise the assembled manuscript, rebuttal bank, figure specifications and submission drafts after missing scientific evidence and author decisions exist. | All nine sections and the 205-word abstract now assembled in 21; about 6,671 words including editorial notes. Later typesetting/consolidation remains production work, not evidence. |
+| 9 | Prepare a rights-aware reproducibility/release inventory and honest cost table. | **Delivered:** 19, 64 scoped entries and EV-keyed historical costs. Table-only producer, source rights and public archive remain pending; aggregate-only reconstruction limits are explicit. |
+| 10 | Turn candidate fresh-data sources into a prospective license/group/overlap plan before any acquisition or outcomes. | **Delivered:** 20, four source-policy rows and 55 schema fields, zero asset rows. Grouping, unknown-provenance quarantine, ID/hash limits and future allocation/label rules are specified. No cohort certified fresh or sample size justified as adequate. |
 
 ## 6. Future experiments — ranked proposals, NOT RUN
 
@@ -122,6 +126,8 @@ The continuation strengthens TIFS ranking evidence: the IEEE January 2026 title 
 
 Documentary checks found 25 required artifacts, unique 98 matrix/99 bibliography keys, existing card paths, and V2 status for all 30/35 distinct citations in the two manuscript drafts. Structured files and selected current links pass the checks recorded in [integration-check.json](17-completion/integration-check.json). These are author structural checks, not an independent scientific audit. All continuation agents are finished.
 
+The post-deadline follow-up adds Sections 5–9, a complete working manuscript, the local release inventory and the prospective data plan. It uses existing outcomes only, with EV-78–80 added for protocol settings/cohort/availability-amendment facts rather than new results. The current [integration check](22-documentary-integration-check.json) covers the assembly and supporting documents. UVG's official license hyperlink now resolves to BY-NC 3.0; actual sequence/use scope remains unresolved. No current journal-policy field or inaccessible paper was silently upgraded. The two follow-up agents performed authoring and source checks, not another independent milestone review. No Python or experiment was used in this follow-up.
+
 ## 10. File index
 
 - [PROGRESS.md](PROGRESS.md): deadline, decisions, clock checks, spawns and commit/push history.
@@ -143,3 +149,8 @@ Documentary checks found 25 required artifacts, unique 98 matrix/99 bibliography
 - [16-submission-materials.md](16-submission-materials.md): conditional cover letter, highlights and graphical-abstract text brief; no submission.
 
 - [17-completion/README.md](17-completion/README.md): resumed source-access audit, current-version refresh, ranking/policy evidence, residual dependencies and procedural disclosure.
+- [18-draft-results-and-discussion.md](18-draft-results-and-discussion.md): complete protocol, results, discussion, reproducibility and conclusion prose with EV provenance.
+- [19-release-inventory/README.md](19-release-inventory/README.md), [inventory.csv](19-release-inventory/inventory.csv): 64 local artifact/path entries, table-reconstruction limits, rights and historical cost boundaries.
+- [20-fresh-data-plan/README.md](20-fresh-data-plan/README.md), [metadata schema](20-fresh-data-plan/metadata-schema.csv): prospective source policies, creator grouping, overlap/separation and labeling rules; no assets.
+- [21-manuscript-working-draft.md](21-manuscript-working-draft.md): assembled abstract and Sections 1–9, complete prose but not submission-ready evidence.
+- [22-documentary-integration-check.json](22-documentary-integration-check.json): final author checks of section assembly, citations, links, supporting CSVs and state synchronization.
