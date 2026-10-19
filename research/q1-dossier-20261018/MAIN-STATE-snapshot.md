@@ -1,6 +1,6 @@
 # Current state
 
-Updated by Codex agent, 2026-10-19, research-only Q1 dossier checkpoint.
+Updated by Codex agent, 2026-10-19, completed research-only Q1 dossier session.
 The copy of this text in MAIN thesis-runs/d916749c/STATE.md is authoritative.
 
 ## Current method and result
@@ -29,16 +29,18 @@ Workspace: C:/Users/Soroush/.codex/worktrees/codex-q1-research.
 Branch: codex/q1-research-20261018; only this branch is committed and pushed by Codex.
 Dossier: research/q1-dossier-20261018/FINAL-REPORT.md in that workspace.
 Session start: 2026-10-18T18:04:04.3769833-08:00; deadline: 2026-10-19T04:04:04.3769833-08:00.
-WP0–WP10 core outputs are delivered; extension E1–E6 is continuing at this checkpoint.
+WP0–WP10 and extensions E1–E6 are delivered; the extension-complete stop condition is met.
 WP1 independent M2 verdict: accept with corrections for reporting a negative overall confirmation.
-WP9 independent dossier verdict: accept with documentary corrections; manuscript not submission-ready.
-The dossier has 79 V2 sources, including 77 papers and two standards/guidance; consequential access gaps remain.
+WP9 independent core-dossier verdict: accept with documentary corrections; manuscript not submission-ready.
+The dossier has 90 V2 sources, including 88 papers and two standards/guidance, and 99 audited bibliography entries.
 Primary framing is an empirical study of recovery versus registered-image attribution, with a narrower case-study fallback.
 Conditional journal target: TIFS; backups TMM and TOMM. Ranking eligibility and some current policies remain unresolved.
+FINAL-REPORT remains PARTIAL for WP2 fulltext and WP4 policy/ranking gaps; all extension deliverables exist.
 Writing alone cannot make the current evidence Q1-ready.
 Next proposed research: identify owner/q/content contributions with compatible controls, then diverse fresh hard negatives and complete banks.
 Independent-encoder and active-attack studies are needed only for their corresponding broader claims; none ran here.
 New external baseline work remains closed until explicitly reopened by the user.
+Research session ended 2026-10-19T01:04:59.7693169-08:00; no new experiment was performed.
 
 ## Preserved scope and obligations
 

@@ -1,11 +1,11 @@
-STATUS: PARTIAL
-Unmet verification requirements: WP2 consequential inaccessible full texts; WP4 current category/guide/policy fields and institutional ranking rule. Core WP0–WP10 delivered. Extension E1–E6 pending at this checkpoint; the session remains active.
+STATUS: PARTIAL — WP2 fulltext verification gaps; WP4 current policy/ranking verification gaps.
+All core packages WP0–WP10 and extension E1–E6 have deliverables. The research session ends under the user's extension-complete condition; PARTIAL describes unresolved source/policy verification, not unfinished extension work.
 
 # Research-only Q1 dossier report
 
 ## 1. Session and delivery
 
-Start: **2026-10-18T18:04:04.3769833-08:00**. Exact ten-hour deadline: **2026-10-19T04:04:04.3769833-08:00**. This initial report is a WP10 checkpoint at approximately **2026-10-19 00:02−08:00**, not the session end. The extension tier continues and this report will be refreshed. Mandatory wrap-up starts by 03:24−08:00.
+Start: **2026-10-18T18:04:04.3769833-08:00**. Exact ten-hour deadline: **2026-10-19T04:04:04.3769833-08:00**. End of research and final reconciliation: **2026-10-19T01:04:59.7693169-08:00**, approximately **7.02 hours** after the first clock reading; final commit/push verification follows. The user explicitly allows completion when the extension tier is finished, so the unused allocation does not imply unperformed experiment work. The exact deadline remains unchanged.
 
 Lead: Codex agent, GPT-6 family; exact host model identifier was not exposed. Bounded literature/design assistants used the BRIEF-authorized Astra/high and Sol/high or medium settings; WP9 was a fresh Astra/xhigh independent reviewer. Their work and model choices are logged in [PROGRESS](PROGRESS.md). No scientific experiment, pixel inspection, GPU use, package installation, data/model/code download, paid compute, submission or external communication occurred. Permitted stdlib counted retained JSON results and calculated bounds; one post-hoc saved-Boolean count explains E3's owner gate.
 
@@ -21,13 +21,20 @@ Lead: Codex agent, GPT-6 family; exact host model identifier was not exposed. Bo
 | WP7 manuscript blueprint | `a283ba2` |
 | WP8 thesis alignment | `be6bed8` |
 | WP9 independent review and corrections | `4a92bcb` |
-| WP10 report and MAIN state snapshot | This report's checkpoint; resolved hash recorded in PROGRESS after commit. |
+| WP10 report and MAIN state snapshot | `b1689f2` |
+| E1 full section drafts | `2aff414` |
+| E2 bibliography audit | `7d0f562` |
+| E3 fifteen-response rebuttal bank | `9a5966f` |
+| E4 forward-citation sweep | `c55ef6c` |
+| E5 five figure specifications | `ba9e296` |
+| E6 submission-material drafts | `0c500e0` |
+| Final report / MAIN state refresh | Commit containing this final report; its exact hash and push outcome are reported in the closing chat. |
 
 All listed resolved commits were pushed to `origin/codex/q1-research-20261018`; no other branch was pushed. The authorized MAIN STATE update is saved in the main checkout and mirrored as [MAIN-STATE-snapshot.md](MAIN-STATE-snapshot.md) in this branch. MAIN's branch is not committed or pushed by this session. The snapshot preserves the exact state text in the session's own commit history.
 
 ## 2. Bottom line
 
-**The current evidence is not Q1-submission-ready, and writing alone cannot make it so.** The strongest route is a bounded empirical article about the distinction between watermark recovery and registered-image attribution, with a narrower negative case-study fallback. **IEEE TIFS** is the conditional primary destination, with **IEEE TMM** and **ACM TOMM** as backups, subject to scientific improvement and institution-accepted ranking verification. The minimum research directions are a component-identifying, task-compatible comparison and fresh diverse hard negatives with complete-bank accounting (F1/F2); independent-encoder evidence is needed for broader transfer claims and active attacks for broader security claims. The independent review accepts the dossier with documentary corrections, not the manuscript for submission.
+**The current evidence is not Q1-submission-ready, and writing alone cannot make it so.** The strongest route is a bounded empirical article about the distinction between watermark recovery and registered-image attribution, with a narrower negative case-study fallback. **IEEE TIFS** is the conditional primary destination, with **IEEE TMM** and **ACM TOMM** as backups, subject to scientific improvement and institution-accepted ranking verification. The minimum research directions are a component-identifying, task-compatible comparison and fresh diverse hard negatives with complete-bank accounting (F1/F2); independent-encoder evidence is needed for broader transfer claims and active attacks for broader security claims. The independent review accepts the core dossier with documentary corrections, not the manuscript for submission; extensions received parent integration checks, not a second independent milestone review.
 
 ## 3. What the retained evidence supports
 
@@ -49,13 +56,13 @@ Do not claim a successful overall confirmation, universal robustness, cryptograp
 
 | Candidate contribution | Closest inspected prior art and verdict |
 |---|---|
-| Watermark pointer plus stored content check | **High novelty risk / architecture priority rejected.** DREW v2, final TrustMark §4.5, SynthID-Image §7 and Roy–Chang already establish relevant hybrid/registered-content ideas. |
+| Watermark pointer plus stored content check | **High novelty risk / architecture priority rejected.** DREW v2, final TrustMark §4.5, SynthID-Image §7 and Roy–Chang already establish relevant hybrid/registered-content ideas; E4 adds NRGMark's UUID-to-manifest repository and distinguishes Signpost's technology registry. |
 | Passive competing-enrollment result | **High risk as a standalone contribution.** Classical ownership ambiguity and hybrid provenance precede it. EV-77 shows owner-presence gating already explains zero beta acceptance; q/content benefit needs separate evidence. |
 | Recovery versus specificity/abstention boundary | **Conditional empirical opportunity.** WAVES, the October 2026 soft-binding benchmark and Rel-Zero already study related recovery/identification/near-copy issues. The current one-system, one-film case needs a precise external comparison and fresh population. |
 | Encoder-directed RGB carrier | **High method-novelty risk.** FreqMark, VINE, RoSteALS, SimuFreeMark and other VAE-aware work constrain the claim. Retained gains do not causally isolate amplification or establish independent-encoder transfer. |
 | Missingness and cluster-aware reporting | Necessary credibility, **not a new estimator or enough Q1 novelty alone**. |
 
-The literature matrix has **87 entries: 79 V2 works (77 papers and two standards/guidance), eight V1 leads** at the core checkpoint. V2 identifies the inspected version, not independent reproduction. Consequential inaccessible TIP/ConZWNet/Rad-Mark papers prevent an exhaustive novelty clearance. See [positioning](03-novelty-positioning.md), [synthesis](02-literature/synthesis.md) and [unverified leads](02-literature/unverified-leads.md).
+The final literature matrix has **98 works: 90 V2 (88 research papers and two standards/guidance), eight V1**. The master bibliography has **99 entries**, including the retained predecessor TrustMark version. E2 audited its original 88 entries; E4 separately audited eleven additions, for 94 direct index identity checks and five explicit official-source/index-access exceptions. The E4 sweep confirms 15 work-level primary citation edges, with version and V1 limitations; incomplete indexes prevent a citation-absence inference. V2 identifies inspection depth and version, not independent reproduction. Consequential inaccessible TIP/ConZWNet/Rad-Mark papers and new publisher/version gaps prevent exhaustive novelty clearance. See [positioning](03-novelty-positioning.md), [synthesis](02-literature/synthesis.md) and [unverified leads](02-literature/unverified-leads.md).
 
 ## 5. Ten next actions, ranked — desk work first
 
@@ -70,7 +77,7 @@ Effort is approximate researcher time; items already implemented must propagate 
 | 5 | Resolve bibliographic versions and obtain lawful full texts for remaining novelty threats. | 2–5 h plus access; 02 and extension bibliography audit. Access gaps remain. |
 | 6 | Confirm university ranking system/edition/category and current journal guide/fees. | 1 h plus institution response; 04. No institutional answer assumed. |
 | 7 | Reconcile article scope with original objectives and seek an explicit later amendment if desired. | 1–2 h plus supervisor decision; 09. Mapping complete, decisions open. |
-| 8 | Complete manuscript drafts and reviewer-response material without inventing missing evidence. | 4–8 h; 08 and extensions 11–16. |
+| 8 | Revise the completed section drafts, rebuttal bank, figure specifications and submission drafts only after the missing scientific evidence and author decisions exist. | 4–8 h later integration; 08 and 11–16. All requested research-only drafts now delivered. |
 | 9 | Prepare a rights-aware reproducibility/release inventory and honest cost table. | 1–2 h; 08/11, future artifact appendix. No public archive is claimed complete. |
 | 10 | Turn candidate fresh-data sources into a prospective license/group/overlap plan before any acquisition or outcomes. | 1–2 h metadata design plus later curation; 07. No cohort downloaded or certified fresh here. |
 
@@ -101,11 +108,11 @@ Prices use the retrieved Runpod RTX4090 list rate of USD .89/h, as sourced in [0
 
 ## 8. Principal risks and possible fatal objections
 
-Broad architecture novelty is pre-empted. The closest late work is the October 2026 soft-binding study, and inaccessible recent zero-watermarking/VAE-removal work may further narrow novelty. EV-77 makes a claimed joint-binding E3 advantage untenable without component evidence. DREW's native marked enrollment, top-1 decision and fallback cannot be silently changed to match our passive set-valued rule. Current E2 is one-film descriptor-only evidence; incomplete E3 banks, shared source clusters, missing human ratings and shared encoder ancestry restrict generality. A failure of our own verifier is not automatically the kind of externally relevant negative result encouraged by TIFS. These concerns may leave a solid thesis case study but no Q1-level contribution.
+Broad architecture novelty is pre-empted. The October 2026 soft-binding study is especially close; E4 also finds manifest routing, signal-consistency and active-removal antecedents. Inaccessible recent zero-watermarking/VAE-removal work may further narrow novelty. New removal papers do not test F5 and their heterogeneous endpoints cannot be substituted for a matched attribution comparison. EV-77 makes a claimed joint-binding E3 advantage untenable without component evidence. DREW's native marked enrollment, top-1 decision and fallback cannot be silently changed to match our passive set-valued rule. Current E2 is one-film descriptor-only evidence; incomplete E3 banks, shared source clusters, missing human ratings and shared encoder ancestry restrict generality. A failure of our own verifier is not automatically the kind of externally relevant negative result encouraged by TIFS. These concerns may leave a solid thesis case study but no Q1-level contribution.
 
 ## 9. What was not done and why
 
-No experiments of any kind were run, by the user's binding instruction. No fresh data, features, models, baselines, plots, approvals or runnable manifests were produced. Required recent papers that could not be legitimately accessed remain V1 despite bounded retries; metadata and other papers' citations do not substitute for their methods/evaluation. Several current journal fields and the institution's ranking policy remain unverified. The manuscript is a draft; public artifact release, author approvals, human visual judgments and supervisor decisions remain undone. The extension tier is pending at this core checkpoint and will be recorded here when finished or trimmed at the deadline.
+No experiments of any kind were run, by the user's binding instruction. No fresh data, features, models, baselines, plots, approvals or runnable manifests were produced. Required recent papers that could not be legitimately accessed remain V1 despite bounded retries; metadata and other papers' citations do not substitute for their methods/evaluation. Several current journal fields and the institution's ranking policy remain unverified. The manuscript is a draft; public artifact release, author approvals, human visual judgments and supervisor decisions remain undone. All six extension packages are complete. Figure and graphical-abstract outputs are text specifications only. The cached primary papers occupy approximately 56.6 MB, below the 3 GB cap, and are not committed; the dossier contains only Markdown, CSV, BibTeX and JSON. Completion of the scheduled research process does not resolve inaccessible evidence or make the manuscript ready.
 
 ## 10. File index
 
@@ -120,3 +127,9 @@ No experiments of any kind were run, by the user's binding instruction. No fresh
 - [08-manuscript-blueprint.md](08-manuscript-blueprint.md), [09-thesis-alignment.md](09-thesis-alignment.md): draft text/figures and all twelve original obligations.
 - [10-independent-review.md](10-independent-review.md), [10a-review-response.md](10a-review-response.md): independent verdict and author correction disposition.
 - [MAIN-STATE-snapshot.md](MAIN-STATE-snapshot.md): authorized MAIN state text preserved on this branch.
+- [11-draft-sections.md](11-draft-sections.md): full Introduction, Related Work, Threat Model and Method prose, with the E4 prior-art update.
+- [12-bibliography-audit.md](12-bibliography-audit.md): metadata identity/version audit and later-addition coverage.
+- [13-rebuttal-bank.md](13-rebuttal-bank.md): fifteen likely objections with evidence-linked responses and unresolved work.
+- [14-forward-citation-sweep.md](14-forward-citation-sweep.md): five-target citation search, source cards, edge register, new identity audit and quarantine/access limits.
+- [15-figure-specifications.md](15-figure-specifications.md): five exact source/field/layout/caption specifications; no plots.
+- [16-submission-materials.md](16-submission-materials.md): conditional cover letter, highlights and graphical-abstract text brief; no submission.

@@ -1,6 +1,6 @@
 # Session deadline: 2026-10-19T04:04:04.3769833-08:00
 
-Start: 2026-10-18T18:04:04.3769833-08:00, from the first command, `Get-Date -Format o`. Duration: exactly ten hours. Deadline in UTC: 2026-10-19T12:04:04.3769833Z. Desktop mode: no supervisor is assumed. Begin mandatory wrap-up before 2026-10-19T03:24:04.3769833-08:00; do not start a new package after that threshold.
+Start: 2026-10-18T18:04:04.3769833-08:00, from the first command, `Get-Date -Format o`. Allocated duration: exactly ten hours; early completion is allowed only after the full extension tier. Deadline in UTC: 2026-10-19T12:04:04.3769833Z. Desktop mode: no supervisor is assumed. Begin mandatory wrap-up before 2026-10-19T03:24:04.3769833-08:00; do not start a new package after that threshold.
 
 Lead: Codex agent, GPT-6 family (the exact host model identifier is not exposed to this agent). Workspace: `C:/Users/Soroush/.codex/worktrees/codex-q1-research`; branch: `codex/q1-research-20261018`; initial HEAD: `b1d9b974e93122ed09fe813b52a5a95bfdb521f3`. The existing thread goal is active; no duplicate goal was created.
 
@@ -41,7 +41,7 @@ These nominal times follow the BRIEF's shares of 600 minutes; start earlier when
 
 ## Work status
 
-WP0-WP10 core outputs delivered; WP2 and WP4 retain explicit access/verification gaps. WP9 review corrections incorporated. Extension E1-E2 delivered; E3-E6 continuing; session remains active.
+WP0–WP10 and E1–E6 are delivered. WP2 and WP4 retain explicit source/policy verification gaps, so FINAL-REPORT remains STATUS: PARTIAL. WP9 core review corrections and all extension integration checks are incorporated. The extension-complete condition permits ending the session after final commit/push verification.
 
 ## Log
 
@@ -104,3 +104,8 @@ WP0-WP10 core outputs delivered; WP2 and WP4 retain explicit access/verification
 - E5 clock record — 2026-10-19T00:57:20.1816751-08:00. E5 completed 01:00−08:00: five exact figure specifications with absolute source roots, JSON fields, expected counts, plotting/layout choices, captions and production checks. No plots or image assets generated. Reviewed current J/O schemas and preserved E1 aggregate-only provenance, E3 component confounding, missing banks and E2 clustered units. Commit subject: Specify five evidence-grounded manuscript figures.
 - E5 resolved checkpoint — ba9e296, pushed successfully (c55ef6c..ba9e296). E6 begins at the accompanying clock check: cover-letter draft, highlights and graphical-abstract description for the conditional TIFS framing. No submission or graphical asset will be produced.
 - E6 clock record — 2026-10-19T01:00:56.3393678-08:00. E6 complete at 01:03−08:00: conditional TIFS cover letter, four concise highlights and exact graphical-abstract text/layout description, with evidence map and administrative/scientific TODOs. No letter sent, author declaration fabricated, image produced or experiment run. The full extension tier E1–E6 is delivered; final reconciliation and MAIN STATE refresh follow before ending. Commit subject: Draft conditional submission materials and graphical brief.
+
+- E6 resolved checkpoint — 0c500e0, pushed successfully (ba9e296..0c500e0).
+- 2026-10-19T01:04:59.7693169-08:00 — Final reconciliation: all core and extension outputs delivered; FINAL-REPORT refreshed, manuscript remains not ready, WP2/WP4 access/policy gaps explicitly retained. End condition is completion of E1–E6, not expiry of the ten-hour allocation. MAIN STATE refresh is the only authorized write outside dossier/cache. Final commit by Codex agent will be pushed to origin/codex/q1-research-20261018 from 0c500e0; exact receipt is verified in closing tool output/chat because a commit cannot contain its own hash.
+
+- Final checks — all 22 required top-level artifacts/source indexes are present; FINAL-REPORT local links resolve; all newly cited draft keys are V2; master matrix/bibliography have no duplicate keys or missing card paths. MAIN STATE and its snapshot match and remain below 60 lines. Only dossier MD/CSV/BIB/JSON and the authorized cache/MAIN STATE were written; all research agents finished.
