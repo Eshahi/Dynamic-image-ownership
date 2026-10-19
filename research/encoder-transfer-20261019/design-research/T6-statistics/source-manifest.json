@@ -1,0 +1,46 @@
+[
+  {
+    "id": "ahmed2010.pdf",
+    "url": "https://jds-online.org/journal/JDS/article/912/file/pdf",
+    "final_url": "https://jds-online.org/journal/JDS/article/912/file/pdf",
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6\\ahmed2010.pdf",
+    "bytes": 91985,
+    "sha256": "e448540a33a642dd6b7fcc1790b596dbbe2abc953a9ce6e9b76dc8388ff0b503",
+    "retrieved_utc": "2026-10-19T21:54:48.250829+00:00",
+    "inspection": "Sections 2 and 4, PDF pp.2-7; beta-binomial and simulation limits",
+    "status": "cached"
+  },
+  {
+    "id": "cameron2015.pdf",
+    "url": "https://faculty.econ.ucdavis.edu/faculty/cameron/research/Cameron_Miller_JHR_2015_February.pdf",
+    "final_url": "https://faculty.econ.ucdavis.edu/faculty/cameron/research/Cameron_Miller_JHR_2015_February.pdf",
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6\\cameron2015.pdf",
+    "bytes": 513747,
+    "sha256": "a2d6ef5622b5597ef2c18dd53d700c6b2ffbadaa4c202af0e21ddc0520072214",
+    "retrieved_utc": "2026-10-19T21:54:53.442159+00:00",
+    "inspection": "Existing V2 card reused; introduction and Section II refreshed",
+    "status": "cached"
+  },
+  {
+    "id": "nist-exact.html",
+    "url": "https://www.itl.nist.gov/div898/software/dataplot/refman2/auxillar/exacbino.htm",
+    "final_url": "https://www.itl.nist.gov/div898/software/dataplot/refman2/auxillar/exacbino.htm",
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6\\nist-exact.html",
+    "bytes": 18232,
+    "sha256": "7362ceb47d3d9251dc84f276fc7d6e8ebe5bfa4b4fbfdf41958450da84006c8f",
+    "retrieved_utc": "2026-10-19T21:54:55.754911+00:00",
+    "inspection": "Description: exact lower/upper tail inversion and examples",
+    "status": "cached"
+  },
+  {
+    "id": "r-padjust.html",
+    "url": "https://stat.ethz.ch/R-manual/R-devel/library/stats/html/p.adjust.html",
+    "final_url": "https://stat.ethz.ch/R-manual/R-devel/library/stats/html/p.adjust.html",
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6\\r-padjust.html",
+    "bytes": 11257,
+    "sha256": "6f94e1865b7ffdea6a8018cf6a84b6891798ecc568cea661e97ebaae533059b6",
+    "retrieved_utc": "2026-10-19T21:54:56.943818+00:00",
+    "inspection": "Details, arbitrary-dependence Holm control, examples",
+    "status": "cached"
+  }
+]

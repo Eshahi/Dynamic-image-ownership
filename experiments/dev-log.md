@@ -344,3 +344,5 @@
 - 2026-10-19 Codex pushes confirmed: T1 f7b515b..9ae163d; T2 9ae163d..4042fd6. T4 mechanism research completed. Escalation T7 fair reporting and T8 validity: fresh gpt-6-astra high. T4 push range 4042fd6..this commit, outcome follows.
 
 - 2026-10-19 Codex T4 push confirmed. T5 pipeline audit completed: exact SDXL and SD15 pins, full-fp32 decode correction, schedule/RNG semantics. T5 push previous T4 commit..this commit, outcome follows.
+
+- 2026-10-19 Codex pushes confirmed: T4 4042fd6..9a310aa; T5 9a310aa..ce83e29. T6 files recovered after agent usage limit, pure-stdlib planning checks rerun successfully. No scientific outcomes. T6 push ce83e29..this commit, confirmation follows. T7/T8 agents also stopped at the account usage limit; independent review remains required.
