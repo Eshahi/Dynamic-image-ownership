@@ -1,0 +1,17 @@
+{
+  "access_date": "2026-10-19",
+  "cache_root": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/",
+  "identity_sources": {
+    "Sadasivan2025IConMark": "https://arxiv.org/abs/2507.13407v1",
+    "Petrov2025Coexistence": "https://arxiv.org/abs/2501.17356v1",
+    "Agarwal2026NRGMark": ["https://collomosse.com/pubs/Agarwal-WACV-2026.pdf", "https://doi.org/10.1109/WACV61042.2026.00751"],
+    "Agarwal2026Signpost": "https://arxiv.org/abs/2608.10091v1",
+    "Ni2025BreakingWatermarks": "https://arxiv.org/abs/2510.05978v1"
+  },
+  "status": {
+    "matrix_additions": ["Sadasivan2025IConMark", "Petrov2025Coexistence", "Agarwal2026NRGMark", "Agarwal2026Signpost"],
+    "quarantined": ["Ni2025BreakingWatermarks"],
+    "v2_definition": "Primary methods and evaluation inspected; does not certify correctness or replication",
+    "validation": "Manual bibliography, CSV structure, primary locators and cached artifact hashes; no experiment or science interpreter"
+  }
+}

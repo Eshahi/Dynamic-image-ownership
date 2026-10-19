@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "notice": "No API key, so this request shares one free daily budget ($0.10) with everyone on your network's IP address. Get a free key with its own $1/day at https://openalex.org/settings/api and add api_key=YOUR_KEY to your requests. An AI agent can get one for its user in one call: POST https://api.openalex.org/api-keys with {\"email\": \"<your user's email>\"}; we email them a link, and the key works once they click it. Docs for agents: https://help.openalex.org/llms.txt",
+    "count": 1,
+    "db_response_time_ms": 20,
+    "page": 1,
+    "per_page": 25,
+    "groups_count": null,
+    "x_query": {
+      "oql": "get works where DOI is https://doi.org/10.48550/arXiv.2603.17531",
+      "x_new_oql": "get works where DOI is https://doi.org/10.48550/arXiv.2603.17531",
+      "oqo": {
+        "get_rows": "works",
+        "filter_rows": [
+          {
+            "column_id": "doi",
+            "value": "https://doi.org/10.48550/arXiv.2603.17531"
+          }
+        ]
+      },
+      "url": "/works?filter=doi:https:%2F%2Fdoi.org%2F10.48550%2FarXiv.2603.17531"
+    },
+    "cost_usd": 0.0001
+  },
+  "results": [
+    {
+      "id": "https://openalex.org/W7139065171",
+      "title": "Rel-Zero: Harnessing Patch-Pair Invariance for Robust Zero-Watermarking Against AI Editing",
+      "cited_by_count": 0
+    }
+  ],
+  "group_by": []
+}

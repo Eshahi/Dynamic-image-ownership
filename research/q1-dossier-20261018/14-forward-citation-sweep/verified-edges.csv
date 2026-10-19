@@ -1,0 +1,16 @@
+from_key,to_key,citing_version,primary_locator,edge_evidence,citing_science_status,primary_url
+Sadasivan2025IConMark,saberi2024drew,arXiv v1,Reference 19,Full primary reference,V2,https://arxiv.org/html/2507.13407v1
+Agarwal2026NRGMark,Bui2025TrustMark,Author WACV paper,Reference 15 on PDF page 9,Full primary reference,V2,https://collomosse.com/pubs/Agarwal-WACV-2026.pdf
+Agarwal2026Signpost,Bui2025TrustMark,arXiv v1,Reference 7,Full primary reference,V2,https://arxiv.org/html/2608.10091v1
+Nemecek2026IntegrityClash,Bui2025TrustMark,arXiv v2,Reference 5,Full primary reference,V2,https://arxiv.org/html/2603.02378v2
+kazempourradi2026softbindings,Bui2025TrustMark,arXiv v1,Reference 4,Full primary reference,V2 existing,https://arxiv.org/html/2610.04151v1
+Bulychev2026WAW,Bui2025TrustMark,arXiv v1,Reference 4,Full primary reference,V2,https://arxiv.org/html/2605.16796v1
+xu2026luminark,gowal2025synthidimage,arXiv v1,Gowal et al. References entry,Full primary reference,V2,https://arxiv.org/html/2601.01085v1
+ao2026awpd,gowal2025synthidimage,arXiv v3,Reference 10,Full primary reference,V2,https://arxiv.org/html/2603.06723v3
+cao2026marknull,gowal2025synthidimage,arXiv v1,Reference 7,Full primary reference,V2,https://arxiv.org/html/2608.10166v1
+salamon2026beyondgeneration,gowal2025synthidimage,arXiv v1,Gowal entry in References,Full primary reference,V2 focused reading,https://arxiv.org/html/2610.21760v1
+Soucek2025PixelSeal,gowal2025synthidimage,arXiv v1,Gowal entry in References,Full primary reference,V2 existing,https://arxiv.org/html/2512.16874v1
+jarvers2026multimodale,gowal2025synthidimage,Publisher article,Gowal entry in References,Full primary reference,V1,https://link.springer.com/article/10.1365/s40702-026-01314-8
+Nemecek2026IntegrityClash,gowal2025synthidimage,arXiv v2,Reference 20,Full primary reference,V2,https://arxiv.org/html/2603.02378v2
+Shamshad2026RAVEN,gowal2025synthidimage,arXiv v1,Reference 16,Full primary reference,V2,https://arxiv.org/html/2601.08832v1
+zeng2026patchcoding,chen2026relzero,Publisher preview,References 48 Chen et al. entry,Truncated primary reference preview,V1,https://www.sciencedirect.com/science/article/pii/S1077314226003115

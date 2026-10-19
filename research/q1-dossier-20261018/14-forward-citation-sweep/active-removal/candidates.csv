@@ -1,0 +1,13 @@
+source_key,inspected_version,target,target_version,edge_status,primary_locator,role,verification,notes
+Bulychev2026WAW,2605.16796v1,DREW,2406.02836,not_found,full references searched,none,V2,Not an exhaustive future citation claim
+Bulychev2026WAW,2605.16796v1,TrustMark,ICCV2025_final,confirmed_exact,reference 4 and Table 5,similarity_annotation,V2,Not an evaluated victim
+Bulychev2026WAW,2605.16796v1,TrustMark,2311.18297,not_found,full references searched,none,V2,Final-version citation exists separately
+Bulychev2026WAW,2605.16796v1,SynthID,2510.09263,not_found,full references searched,none,V2,No target edge found
+Bulychev2026WAW,2605.16796v1,RelZero,2603.17531,not_found,full references searched,none,V2,No target edge found
+Bulychev2026WAW,2605.16796v1,soft_bindings,2610.04151,not_found,full references searched,none,V2,Inspected source predates target
+Shamshad2026RAVEN,2601.08832v1,DREW,2406.02836,not_found,full references searched,none,V2,No target edge found
+Shamshad2026RAVEN,2601.08832v1,TrustMark,ICCV2025_final,work_family_only,reference 5,older_preprint,V2,Do not count as exact final-version edge
+Shamshad2026RAVEN,2601.08832v1,TrustMark,2311.18297,confirmed_exact,reference 5 and Table 2 and section 5.1,evaluated_victim,V2,Implementation revision not independently audited
+Shamshad2026RAVEN,2601.08832v1,SynthID,2510.09263,confirmed_exact,reference 16 and section 1,introductory_context,V2,Not an evaluated victim
+Shamshad2026RAVEN,2601.08832v1,RelZero,2603.17531,not_found,full references searched,none,V2,Inspected source predates target
+Shamshad2026RAVEN,2601.08832v1,soft_bindings,2610.04151,not_found,full references searched,none,V2,Inspected source predates target

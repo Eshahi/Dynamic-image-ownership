@@ -1,0 +1,63 @@
+{
+  "scope": "E4 SynthID-Image and Rel-Zero forward-citation sweep",
+  "accessed": "2026-10-19",
+  "artifacts": [
+    {
+      "version": "2601.01085v1",
+      "source_url": "https://arxiv.org/html/2601.01085v1",
+      "local_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\E4-synthid-relzero\\2601.01085v1.html",
+      "sha256": "22DA3A13323F0EB74236FFE520905DCB9C1534E0606DFD7D581A82A348E8F097",
+      "bytes": 449473,
+      "accessed": "2026-10-19",
+      "media": "text/html",
+      "image_assets_fetched": false,
+      "role": "inspected fulltext"
+    },
+    {
+      "version": "2603.06723v2",
+      "source_url": "https://arxiv.org/html/2603.06723v2",
+      "local_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\E4-synthid-relzero\\2603.06723v2.html",
+      "sha256": "206DEA74225DBD79FFB854DED6A5A1D1123403EE960E3C7B7FC6C188B99C7204",
+      "bytes": 261831,
+      "accessed": "2026-10-19",
+      "media": "text/html",
+      "image_assets_fetched": false,
+      "role": "earlier reading; card governed by v3"
+    },
+    {
+      "version": "2603.06723v3",
+      "source_url": "https://arxiv.org/html/2603.06723v3",
+      "local_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\E4-synthid-relzero\\2603.06723v3.html",
+      "sha256": "02C677279B59067776683B976DBC2C1F1334D3CE192DD31FC85DD9F0AD5C3E1C",
+      "bytes": 280768,
+      "accessed": "2026-10-19",
+      "media": "text/html",
+      "image_assets_fetched": false,
+      "role": "inspected fulltext"
+    },
+    {
+      "version": "2608.10166v1",
+      "source_url": "https://arxiv.org/html/2608.10166v1",
+      "local_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\E4-synthid-relzero\\2608.10166v1.html",
+      "sha256": "EBDD2E155D850BE708AC7C85A9459F20B41E7E45AD7CA5C1E6C8C428DCB989E0",
+      "bytes": 617717,
+      "accessed": "2026-10-19",
+      "media": "text/html",
+      "image_assets_fetched": false,
+      "role": "inspected fulltext"
+    },
+    {
+      "version": "2610.21760v1",
+      "source_url": "https://arxiv.org/html/2610.21760v1",
+      "local_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\E4-synthid-relzero\\2610.21760v1.html",
+      "sha256": "FFA93868F2FFAB24B17F61502D21005BC8360E53C20DE7BC4790278205012EC5",
+      "bytes": 358465,
+      "accessed": "2026-10-19",
+      "media": "text/html",
+      "image_assets_fetched": false,
+      "role": "inspected fulltext"
+    }
+  ],
+  "license_note": "Primary arXiv scholarly text; source license links available on abs pages; no redistribution beyond local research cache",
+  "v1_sources_note": "Publisher previews read via web; no fulltext downloaded or full-method/evaluation verification claimed"
+}

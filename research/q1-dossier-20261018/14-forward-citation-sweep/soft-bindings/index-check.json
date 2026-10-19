@@ -1,0 +1,20 @@
+{
+  "retrieved": "2026-10-19T00:42:04.6972946-08:00",
+  "url": "https://api.openalex.org/works/https://doi.org/10.48550/arXiv.2610.04151",
+  "id": "https://openalex.org/W7220650979",
+  "title": "Watermarks and Fingerprints as Soft Bindings for Content Provenance: An Open-Licence Benchmark for Images, Audio and Video",
+  "publication_date": "2026-10-02",
+  "cited_by_count": 0,
+  "referenced_works_count": 0,
+  "updated_date": "2026-10-11T09:32:39.932853",
+  "forward_cites": {
+    "url": "https://api.openalex.org/works?filter=cites:W7220650979,from_publication_date:2025-01-01,to_publication_date:2026-10-19&per-page=100",
+    "count": 0,
+    "results": []
+  },
+  "semantic_scholar": {
+    "url": "https://api.semanticscholar.org/graph/v1/paper/ARXIV:2610.04151?fields=title,year,citationCount,citations.title,citations.year,citations.externalIds",
+    "status": 429,
+    "meaning": "retrieval unavailable, not zero citations"
+  }
+}

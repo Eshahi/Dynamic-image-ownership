@@ -1,0 +1,101 @@
+{
+  "title": [
+    "NRGMark: Localized Watermarking for Energy Transparency in Images"
+  ],
+  "author": [
+    {
+      "given": "Shruti",
+      "family": "Agarwal",
+      "sequence": "first",
+      "affiliation": [
+        {
+          "name": "Adobe Research"
+        }
+      ],
+      "role": [
+        {
+          "role": "author",
+          "vocabulary": "crossref"
+        }
+      ]
+    },
+    {
+      "given": "Élie",
+      "family": "Michel",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Adobe Research"
+        }
+      ],
+      "role": [
+        {
+          "role": "author",
+          "vocabulary": "crossref"
+        }
+      ]
+    },
+    {
+      "given": "Vishal",
+      "family": "Asnani",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Adobe Research"
+        }
+      ],
+      "role": [
+        {
+          "role": "author",
+          "vocabulary": "crossref"
+        }
+      ]
+    },
+    {
+      "given": "Tania",
+      "family": "Mathern",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Adobe Research"
+        }
+      ],
+      "role": [
+        {
+          "role": "author",
+          "vocabulary": "crossref"
+        }
+      ]
+    },
+    {
+      "given": "John",
+      "family": "Collomosse",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Adobe Research"
+        }
+      ],
+      "role": [
+        {
+          "role": "author",
+          "vocabulary": "crossref"
+        }
+      ]
+    }
+  ],
+  "published": {
+    "date-parts": [
+      [
+        2026,
+        3,
+        6
+      ]
+    ]
+  },
+  "container-title": [
+    "2026 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)"
+  ],
+  "DOI": "10.1109/wacv61042.2026.00751",
+  "page": "7779-7788"
+}
