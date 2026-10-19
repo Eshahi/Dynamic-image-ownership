@@ -1,0 +1,95 @@
+{
+  "access_date": "2026-10-19",
+  "scope": "Manually transcribed bibliographic fields from opened metadata/landing pages; no final-fulltext equivalence asserted.",
+  "records": [
+    {
+      "key": "adobeTrustmarkC2PA",
+      "url": "https://github.com/adobe/trustmark/blob/main/c2pa/README.md",
+      "title": "Using TrustMark with C2PA",
+      "repository_owner": "adobe",
+      "printed_byline": null,
+      "publication_date": null,
+      "commit": null,
+      "note": "No printed byline/date in the opened page; corporate attribution in corrected.bib is explicitly based on repository ownership."
+    },
+    {
+      "key": "feng2024aqualora",
+      "url": "https://proceedings.mlr.press/v235/feng24k.html",
+      "title": "AquaLoRA: Toward White-box Protection for Customized Stable Diffusion Models via Watermark LoRA",
+      "authors": ["Weitao Feng", "Wenbo Zhou", "Jiyan He", "Jie Zhang", "Tianyi Wei", "Guanlin Li", "Tianwei Zhang", "Weiming Zhang", "Nenghai Yu"],
+      "venue": "Proceedings of the 41st International Conference on Machine Learning",
+      "series": "Proceedings of Machine Learning Research",
+      "volume": "235",
+      "pages": "13423-13444",
+      "year": 2024,
+      "doi_in_publisher_citation": null
+    },
+    {
+      "key": "arabi2025wind",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/999fcab97007ebef0cda9949550b4a9e-Abstract-Conference.html",
+      "title": "Hidden in the Noise: Two-Stage Robust Watermarking for Images",
+      "authors": ["Kasra Arabi", "Benjamin Feuer", "R. Teal Witter", "Chinmay Hegde", "Niv Cohen"],
+      "venue": "International Conference on Learning Representations 2025 (ICLR 2025)",
+      "year": 2025,
+      "doi_on_page": null
+    },
+    {
+      "key": "kociszewski2026serum",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/7444ca5ef9b57c70fb2b91b90e9583a0-Abstract-Conference.html",
+      "title": "SERUM: Simple, Efficient, Robust, and Unifying Marking for Diffusion-based Image Generation",
+      "authors": ["Jan Kociszewski", "Hubert Jastrzębski", "Tymoteusz Stępkowski", "Filip Manijak", "Krzysztof Rojek", "Franziska Boenisch", "Adam Dziedzic"],
+      "venue": "International Conference on Learning Representations 2026 (ICLR 2026)",
+      "year": 2026,
+      "doi_on_page": null
+    },
+    {
+      "key": "Zhou2026MetaSeal",
+      "url": "https://mlanthology.org/tmlr/2026/zhou2026tmlr-metaseal/",
+      "primary_link_attempted": "https://openreview.net/forum?id=8i3ErmCfdJ",
+      "primary_indexed_header_url": "https://openreview.net/pdf?id=8i3ErmCfdJ",
+      "title": "MetaSeal: Defending Against Image Attribution Forgery Through Content-Dependent Cryptographic Watermarks",
+      "authors": ["Tong Zhou", "Ruyi Ding", "Gaowen Liu", "Charles Fleming", "Ramana Rao Kompella", "Yunsi Fei", "Xiaolin Xu", "Shaolei Ren"],
+      "venue": "Transactions on Machine Learning Research",
+      "year": 2026,
+      "indexed_primary_pdf_header": "Published in Transactions on Machine Learning Research (02/2026)",
+      "note": "Anthology landing page opened; primary forum was browser-challenged. Primary PDF header was visible in search metadata; final fulltext was not inspected or saved."
+    },
+    {
+      "key": "brown2001binomial",
+      "url": "https://www.jstor.org/stable/i326159",
+      "publisher": "Institute of Mathematical Statistics",
+      "title": "Interval Estimation for a Binomial Proportion",
+      "authors": ["Lawrence D. Brown", "T. Tony Cai", "Anirban DasGupta"],
+      "venue": "Statistical Science",
+      "volume": "16",
+      "issue": "2",
+      "year": 2001,
+      "main_article_pages": "101-117",
+      "next_item": "[Interval Estimation for a Binomial Proportion]: Comment, 117-120",
+      "note": "Crossref DOI wrapper is 101-133; issue contents corroborate original article-only 101-117 range."
+    },
+    {
+      "key": "gunn2024prcimage",
+      "url": "https://dblp.dagstuhl.de/rec/conf/iclr/GunnZS25.html",
+      "title": "An Undetectable Watermark for Generative Image Models",
+      "authors": ["Sam Gunn", "Xuandong Zhao", "Dawn Song"],
+      "venue": "ICLR 2025",
+      "year": 2025,
+      "doi_in_record": null,
+      "metadata_version": "2025-05-15"
+    },
+    {
+      "key": "ci2024ringid",
+      "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/4104_ECCV_2024_paper.php",
+      "html_title": "Rethinking Tree-Ring Watermarking for Enhanced Multi-Key Identification",
+      "authors": ["Hai Ci", "Pei Yang", "Yiren Song", "Mike Zheng Shou"],
+      "note": "ECVA HTML omits RingID prefix; arXiv and Crossref final chapter metadata include it. Crossref online date 2024-10-31; print date 2025."
+    }
+  ],
+  "arxiv_doi_fallback_checks": [
+    {"key": "fernandez2023stable", "url": "https://arxiv.org/abs/2303.15435", "doi_printed": "10.48550/arXiv.2303.15435"},
+    {"key": "kim2024wouaf", "url": "https://arxiv.org/abs/2306.04744", "doi_printed": "10.48550/arXiv.2306.04744"},
+    {"key": "kociszewski2026serum", "url": "https://arxiv.org/abs/2603.13396", "doi_printed": "10.48550/arXiv.2603.13396"},
+    {"key": "zhang2024dualdefense", "url": "https://arxiv.org/abs/2310.16540", "doi_printed": "10.48550/arXiv.2310.16540"}
+  ]
+}

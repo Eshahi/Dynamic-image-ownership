@@ -1,0 +1,348 @@
+[
+  {
+    "source": "https://export.arxiv.org/api/query?id_list=2503.12172v4,2503.22330v3,2510.20468,2503.11404v1,2603.17531v2,2202.10261v2,2304.07193v2,2503.11195v1,2111.06628v5,2001.05027v4,2409.19952v2,2406.00918v2,2603.13070v1,2610.04151v1,2406.02836v2,2502.04901v2,2510.09263v1&max_results=50",
+    "record_url": "https://arxiv.org/abs/2603.13070v1",
+    "access_date": "2026-10-19",
+    "title": "Mitigating Memorization in Text-to-Image Diffusion via Region-Aware Prompt Augmentation and Multimodal Copy Detection",
+    "authors": [
+      "Yunzhuo Chen",
+      "Jordan Vice",
+      "Naveed Akhtar",
+      "Nur Al Hasan Haldar",
+      "Ajmal Mian"
+    ],
+    "published": "2026-03-13T15:16:27Z",
+    "updated": "2026-03-13T15:16:27Z",
+    "doi": null,
+    "journal_ref": null,
+    "comment": null
+  },
+  {
+    "source": "https://export.arxiv.org/api/query?id_list=2503.12172v4,2503.22330v3,2510.20468,2503.11404v1,2603.17531v2,2202.10261v2,2304.07193v2,2503.11195v1,2111.06628v5,2001.05027v4,2409.19952v2,2406.00918v2,2603.13070v1,2610.04151v1,2406.02836v2,2502.04901v2,2510.09263v1&max_results=50",
+    "record_url": "https://arxiv.org/abs/2503.22330v3",
+    "access_date": "2026-10-19",
+    "title": "WMCopier: Forging Invisible Image Watermarks on Arbitrary Images",
+    "authors": [
+      "Ziping Dong",
+      "Chao Shuai",
+      "Zhongjie Ba",
+      "Peng Cheng",
+      "Zhan Qin",
+      "Qinglong Wang",
+      "Kui Ren"
+    ],
+    "published": "2025-03-28T11:11:19Z",
+    "updated": "2025-10-24T09:32:10Z",
+    "doi": null,
+    "journal_ref": null,
+    "comment": "Accepted by NeurIPS 2025"
+  },
+  {
+    "source": "https://export.arxiv.org/api/query?id_list=2503.12172v4,2503.22330v3,2510.20468,2503.11404v1,2603.17531v2,2202.10261v2,2304.07193v2,2503.11195v1,2111.06628v5,2001.05027v4,2409.19952v2,2406.00918v2,2603.13070v1,2610.04151v1,2406.02836v2,2502.04901v2,2510.09263v1&max_results=50",
+    "record_url": "https://arxiv.org/abs/2409.19952v2",
+    "access_date": "2026-10-19",
+    "title": "Image Copy Detection for Diffusion Models",
+    "authors": [
+      "Wenhao Wang",
+      "Yifan Sun",
+      "Zhentao Tan",
+      "Yi Yang"
+    ],
+    "published": "2024-09-30T05:14:07Z",
+    "updated": "2024-10-02T15:26:06Z",
+    "doi": null,
+    "journal_ref": null,
+    "comment": "Accepted by NeurIPS 2024"
+  },
+  {
+    "source": "https://export.arxiv.org/api/query?id_list=2503.12172v4,2503.22330v3,2510.20468,2503.11404v1,2603.17531v2,2202.10261v2,2304.07193v2,2503.11195v1,2111.06628v5,2001.05027v4,2409.19952v2,2406.00918v2,2603.13070v1,2610.04151v1,2406.02836v2,2502.04901v2,2510.09263v1&max_results=50",
+    "record_url": "https://arxiv.org/abs/2503.11195v1",
+    "access_date": "2026-10-19",
+    "title": "Provenance Detection for AI-Generated Images: Combining Perceptual Hashing, Homomorphic Encryption, and AI Detection Models",
+    "authors": [
+      "Shree Singhi",
+      "Aayan Yadav",
+      "Aayush Gupta",
+      "Shariar Ebrahimi",
+      "Parisa Hassanizadeh"
+    ],
+    "published": "2025-03-14T08:42:18Z",
+    "updated": "2025-03-14T08:42:18Z",
+    "doi": null,
+    "journal_ref": null,
+    "comment": null
+  },
+  {
+    "source": "https://export.arxiv.org/api/query?id_list=2503.12172v4,2503.22330v3,2510.20468,2503.11404v1,2603.17531v2,2202.10261v2,2304.07193v2,2503.11195v1,2111.06628v5,2001.05027v4,2409.19952v2,2406.00918v2,2603.13070v1,2610.04151v1,2406.02836v2,2502.04901v2,2510.09263v1&max_results=50",
+    "record_url": "https://arxiv.org/abs/2202.10261v2",
+    "access_date": "2026-10-19",
+    "title": "A Self-Supervised Descriptor for Image Copy Detection",
+    "authors": [
+      "Ed Pizzi",
+      "Sreya Dutta Roy",
+      "Sugosh Nagavara Ravindra",
+      "Priya Goyal",
+      "Matthijs Douze"
+    ],
+    "published": "2022-02-21T14:25:32Z",
+    "updated": "2022-03-25T18:15:44Z",
+    "doi": null,
+    "journal_ref": null,
+    "comment": null
+  },
+  {
+    "source": "https://export.arxiv.org/api/query?id_list=2503.12172v4,2503.22330v3,2510.20468,2503.11404v1,2603.17531v2,2202.10261v2,2304.07193v2,2503.11195v1,2111.06628v5,2001.05027v4,2409.19952v2,2406.00918v2,2603.13070v1,2610.04151v1,2406.02836v2,2502.04901v2,2510.09263v1&max_results=50",
+    "record_url": "https://arxiv.org/abs/2406.02836v2",
+    "access_date": "2026-10-19",
+    "title": "DREW : Towards Robust Data Provenance by Leveraging Error-Controlled Watermarking",
+    "authors": [
+      "Mehrdad Saberi",
+      "Vinu Sankar Sadasivan",
+      "Arman Zarei",
+      "Hessam Mahdavifar",
+      "Soheil Feizi"
+    ],
+    "published": "2024-06-05T01:19:44Z",
+    "updated": "2024-06-20T15:25:05Z",
+    "doi": null,
+    "journal_ref": null,
+    "comment": null
+  },
+  {
+    "source": "https://export.arxiv.org/api/query?id_list=2503.12172v4,2503.22330v3,2510.20468,2503.11404v1,2603.17531v2,2202.10261v2,2304.07193v2,2503.11195v1,2111.06628v5,2001.05027v4,2409.19952v2,2406.00918v2,2603.13070v1,2610.04151v1,2406.02836v2,2502.04901v2,2510.09263v1&max_results=50",
+    "record_url": "https://arxiv.org/abs/2603.17531v2",
+    "access_date": "2026-10-19",
+    "title": "Rel-Zero: Harnessing Patch-Pair Invariance for Robust Zero-Watermarking Against AI Editing",
+    "authors": [
+      "Pengzhen Chen",
+      "Yanwei Liu",
+      "Xiaoyan Gu",
+      "Xiaojun Chen",
+      "Wu Liu",
+      "Weiping Wang"
+    ],
+    "published": "2026-03-18T09:40:00Z",
+    "updated": "2026-06-15T09:39:12Z",
+    "doi": null,
+    "journal_ref": null,
+    "comment": "accepted to CVPR 2026"
+  },
+  {
+    "source": "https://export.arxiv.org/api/query?id_list=2503.12172v4,2503.22330v3,2510.20468,2503.11404v1,2603.17531v2,2202.10261v2,2304.07193v2,2503.11195v1,2111.06628v5,2001.05027v4,2409.19952v2,2406.00918v2,2603.13070v1,2610.04151v1,2406.02836v2,2502.04901v2,2510.09263v1&max_results=50",
+    "record_url": "https://arxiv.org/abs/2503.11404v1",
+    "access_date": "2026-10-19",
+    "title": "Towards A Correct Usage of Cryptography in Semantic Watermarks for Diffusion Models",
+    "authors": [
+      "Jonas Thietke",
+      "Andreas Müller",
+      "Denis Lukovnikov",
+      "Asja Fischer",
+      "Erwin Quiring"
+    ],
+    "published": "2025-03-14T13:45:46Z",
+    "updated": "2025-03-14T13:45:46Z",
+    "doi": null,
+    "journal_ref": null,
+    "comment": "8 pages, 3 figures, WMark@ICLR"
+  },
+  {
+    "source": "https://export.arxiv.org/api/query?id_list=2503.12172v4,2503.22330v3,2510.20468,2503.11404v1,2603.17531v2,2202.10261v2,2304.07193v2,2503.11195v1,2111.06628v5,2001.05027v4,2409.19952v2,2406.00918v2,2603.13070v1,2610.04151v1,2406.02836v2,2502.04901v2,2510.09263v1&max_results=50",
+    "record_url": "https://arxiv.org/abs/2304.07193v2",
+    "access_date": "2026-10-19",
+    "title": "DINOv2: Learning Robust Visual Features without Supervision",
+    "authors": [
+      "Maxime Oquab",
+      "Timothée Darcet",
+      "Théo Moutakanni",
+      "Huy Vo",
+      "Marc Szafraniec",
+      "Vasil Khalidov",
+      "Pierre Fernandez",
+      "Daniel Haziza",
+      "Francisco Massa",
+      "Alaaeldin El-Nouby",
+      "Mahmoud Assran",
+      "Nicolas Ballas",
+      "Wojciech Galuba",
+      "Russell Howes",
+      "Po-Yao Huang",
+      "Shang-Wen Li",
+      "Ishan Misra",
+      "Michael Rabbat",
+      "Vasu Sharma",
+      "Gabriel Synnaeve",
+      "Hu Xu",
+      "Hervé Jegou",
+      "Julien Mairal",
+      "Patrick Labatut",
+      "Armand Joulin",
+      "Piotr Bojanowski"
+    ],
+    "published": "2023-04-14T15:12:19Z",
+    "updated": "2024-02-02T10:24:09Z",
+    "doi": null,
+    "journal_ref": null,
+    "comment": null
+  },
+  {
+    "source": "https://export.arxiv.org/api/query?id_list=2503.12172v4,2503.22330v3,2510.20468,2503.11404v1,2603.17531v2,2202.10261v2,2304.07193v2,2503.11195v1,2111.06628v5,2001.05027v4,2409.19952v2,2406.00918v2,2603.13070v1,2610.04151v1,2406.02836v2,2502.04901v2,2510.09263v1&max_results=50",
+    "record_url": "https://arxiv.org/abs/2502.04901v2",
+    "access_date": "2026-10-19",
+    "title": "On the Difficulty of Constructing a Robust and Publicly-Detectable Watermark",
+    "authors": [
+      "Jaiden Fairoze",
+      "Guillermo Ortiz-Jimenez",
+      "Mel Vecerik",
+      "Somesh Jha",
+      "Sven Gowal"
+    ],
+    "published": "2025-02-07T13:11:28Z",
+    "updated": "2025-04-26T09:43:17Z",
+    "doi": null,
+    "journal_ref": null,
+    "comment": null
+  },
+  {
+    "source": "https://export.arxiv.org/api/query?id_list=2503.12172v4,2503.22330v3,2510.20468,2503.11404v1,2603.17531v2,2202.10261v2,2304.07193v2,2503.11195v1,2111.06628v5,2001.05027v4,2409.19952v2,2406.00918v2,2603.13070v1,2610.04151v1,2406.02836v2,2502.04901v2,2510.09263v1&max_results=50",
+    "record_url": "https://arxiv.org/abs/2510.20468v1",
+    "access_date": "2026-10-19",
+    "title": "Transferable Black-Box One-Shot Forging of Watermarks via Image Preference Models",
+    "authors": [
+      "Tomáš Souček",
+      "Sylvestre-Alvise Rebuffi",
+      "Pierre Fernandez",
+      "Nikola Jovanović",
+      "Hady Elsahar",
+      "Valeriu Lacatusu",
+      "Tuan Tran",
+      "Alexandre Mourachko"
+    ],
+    "published": "2025-10-23T12:06:35Z",
+    "updated": "2025-10-23T12:06:35Z",
+    "doi": null,
+    "journal_ref": null,
+    "comment": "NeurIPS 2025"
+  },
+  {
+    "source": "https://export.arxiv.org/api/query?id_list=2503.12172v4,2503.22330v3,2510.20468,2503.11404v1,2603.17531v2,2202.10261v2,2304.07193v2,2503.11195v1,2111.06628v5,2001.05027v4,2409.19952v2,2406.00918v2,2603.13070v1,2610.04151v1,2406.02836v2,2502.04901v2,2510.09263v1&max_results=50",
+    "record_url": "https://arxiv.org/abs/2610.04151v1",
+    "access_date": "2026-10-19",
+    "title": "Watermarks and Fingerprints as Soft Bindings for Content Provenance: An Open-Licence Benchmark for Images, Audio and Video",
+    "authors": [
+      "Seyedmahdi Kazempourradi",
+      "Ramtin Mojtahedi",
+      "Behrang Mohseni"
+    ],
+    "published": "2026-10-02T23:52:30Z",
+    "updated": "2026-10-02T23:52:30Z",
+    "doi": null,
+    "journal_ref": null,
+    "comment": "59 pages. Code, recorded results and manuscript source: https://github.com/Original-Pictures/soft-bindings-benchmark (v1.0)"
+  },
+  {
+    "source": "https://export.arxiv.org/api/query?id_list=2503.12172v4,2503.22330v3,2510.20468,2503.11404v1,2603.17531v2,2202.10261v2,2304.07193v2,2503.11195v1,2111.06628v5,2001.05027v4,2409.19952v2,2406.00918v2,2603.13070v1,2610.04151v1,2406.02836v2,2502.04901v2,2510.09263v1&max_results=50",
+    "record_url": "https://arxiv.org/abs/2001.05027v4",
+    "access_date": "2026-10-19",
+    "title": "Unifying Deep Local and Global Features for Image Search",
+    "authors": [
+      "Bingyi Cao",
+      "Andre Araujo",
+      "Jack Sim"
+    ],
+    "published": "2020-01-14T19:59:51Z",
+    "updated": "2020-09-15T18:21:56Z",
+    "doi": null,
+    "journal_ref": null,
+    "comment": "ECCV'20 paper"
+  },
+  {
+    "source": "https://export.arxiv.org/api/query?id_list=2503.12172v4,2503.22330v3,2510.20468,2503.11404v1,2603.17531v2,2202.10261v2,2304.07193v2,2503.11195v1,2111.06628v5,2001.05027v4,2409.19952v2,2406.00918v2,2603.13070v1,2610.04151v1,2406.02836v2,2502.04901v2,2510.09263v1&max_results=50",
+    "record_url": "https://arxiv.org/abs/2111.06628v5",
+    "access_date": "2026-10-19",
+    "title": "Learning to Break Deep Perceptual Hashing: The Use Case NeuralHash",
+    "authors": [
+      "Lukas Struppek",
+      "Dominik Hintersdorf",
+      "Daniel Neider",
+      "Kristian Kersting"
+    ],
+    "published": "2021-11-12T09:49:27Z",
+    "updated": "2024-07-16T06:48:41Z",
+    "doi": "10.1145/3531146.3533073",
+    "journal_ref": null,
+    "comment": "Accepted by ACM FAccT 2022 as Oral"
+  },
+  {
+    "source": "https://export.arxiv.org/api/query?id_list=2503.12172v4,2503.22330v3,2510.20468,2503.11404v1,2603.17531v2,2202.10261v2,2304.07193v2,2503.11195v1,2111.06628v5,2001.05027v4,2409.19952v2,2406.00918v2,2603.13070v1,2610.04151v1,2406.02836v2,2502.04901v2,2510.09263v1&max_results=50",
+    "record_url": "https://arxiv.org/abs/2510.09263v1",
+    "access_date": "2026-10-19",
+    "title": "SynthID-Image: Image watermarking at internet scale",
+    "authors": [
+      "Sven Gowal",
+      "Rudy Bunel",
+      "Florian Stimberg",
+      "David Stutz",
+      "Guillermo Ortiz-Jimenez",
+      "Christina Kouridi",
+      "Mel Vecerik",
+      "Jamie Hayes",
+      "Sylvestre-Alvise Rebuffi",
+      "Paul Bernard",
+      "Chris Gamble",
+      "Miklós Z. Horváth",
+      "Fabian Kaczmarczyck",
+      "Alex Kaskasoli",
+      "Aleksandar Petrov",
+      "Ilia Shumailov",
+      "Meghana Thotakuri",
+      "Olivia Wiles",
+      "Jessica Yung",
+      "Zahra Ahmed",
+      "Victor Martin",
+      "Simon Rosen",
+      "Christopher Savčak",
+      "Armin Senoner",
+      "Nidhi Vyas",
+      "Pushmeet Kohli"
+    ],
+    "published": "2025-10-10T11:03:31Z",
+    "updated": "2025-10-10T11:03:31Z",
+    "doi": null,
+    "journal_ref": null,
+    "comment": null
+  },
+  {
+    "source": "https://export.arxiv.org/api/query?id_list=2503.12172v4,2503.22330v3,2510.20468,2503.11404v1,2603.17531v2,2202.10261v2,2304.07193v2,2503.11195v1,2111.06628v5,2001.05027v4,2409.19952v2,2406.00918v2,2603.13070v1,2610.04151v1,2406.02836v2,2502.04901v2,2510.09263v1&max_results=50",
+    "record_url": "https://arxiv.org/abs/2503.12172v4",
+    "access_date": "2026-10-19",
+    "title": "SEAL: Semantic Aware Image Watermarking",
+    "authors": [
+      "Kasra Arabi",
+      "R. Teal Witter",
+      "Chinmay Hegde",
+      "Niv Cohen"
+    ],
+    "published": "2025-03-15T15:29:05Z",
+    "updated": "2026-05-18T19:26:33Z",
+    "doi": null,
+    "journal_ref": null,
+    "comment": null
+  },
+  {
+    "source": "https://export.arxiv.org/api/query?id_list=2503.12172v4,2503.22330v3,2510.20468,2503.11404v1,2603.17531v2,2202.10261v2,2304.07193v2,2503.11195v1,2111.06628v5,2001.05027v4,2409.19952v2,2406.00918v2,2603.13070v1,2610.04151v1,2406.02836v2,2502.04901v2,2510.09263v1&max_results=50",
+    "record_url": "https://arxiv.org/abs/2406.00918v2",
+    "access_date": "2026-10-19",
+    "title": "Robustness of Practical Perceptual Hashing Algorithms to Hash-Evasion and Hash-Inversion Attacks",
+    "authors": [
+      "Jordan Madden",
+      "Moxanki Bhavsar",
+      "Lhamo Dorje",
+      "Xiaohua Li"
+    ],
+    "published": "2024-06-03T01:04:50Z",
+    "updated": "2024-12-05T16:19:37Z",
+    "doi": null,
+    "journal_ref": null,
+    "comment": "Published in the Third Workshop on New Frontiers in Adversarial Machine Learning at NeurIPS 2024"
+  }
+]

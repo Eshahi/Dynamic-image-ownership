@@ -1,0 +1,28 @@
+{
+  "source_url": "https://api.crossref.org/works?query.title=Using%20TrustMark%20with%20C2PA&rows=3",
+  "access_date": "2026-10-19",
+  "total_results": 5290496,
+  "hits": [
+    {
+      "title": [
+        "Trustmark Corp."
+      ],
+      "doi": "10.1002/div.2056",
+      "score": 23.028873
+    },
+    {
+      "title": [
+        "Trustmark Corp."
+      ],
+      "doi": "10.1002/div.4095",
+      "score": 23.025702
+    },
+    {
+      "title": [
+        "Trustmark Corp."
+      ],
+      "doi": "10.1002/div.7202",
+      "score": 23.02523
+    }
+  ]
+}

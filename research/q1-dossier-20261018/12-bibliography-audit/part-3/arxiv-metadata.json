@@ -1,0 +1,379 @@
+[
+  {
+    "source_url": "https://export.arxiv.org/api/query?id_list=2305.20030,2404.04956,2410.07369,2404.14055,2411.03862,2412.04653,2303.15435,2306.04744,2603.13396,2311.04378,2310.16540,2509.10766,2609.14856,2609.25972,2405.11135,cs/0602007,2204.01960,2404.05607,2608.06211&max_results=100",
+    "access_date": "2026-10-19",
+    "id": "http://arxiv.org/abs/2310.16540v1",
+    "title": "Dual Defense: Adversarial, Traceable, and Invisible Robust Watermarking against Face Swapping",
+    "authors": [
+      "Yunming Zhang",
+      "Dengpan Ye",
+      "Caiyun Xie",
+      "Long Tang",
+      "Chuanxi Chen",
+      "Ziyi Liu",
+      "Jiacheng Deng"
+    ],
+    "published": "2023-10-25T10:39:51Z",
+    "updated": "2023-10-25T10:39:51Z",
+    "doi": [],
+    "journal_ref": [],
+    "comment": []
+  },
+  {
+    "source_url": "https://export.arxiv.org/api/query?id_list=2305.20030,2404.04956,2410.07369,2404.14055,2411.03862,2412.04653,2303.15435,2306.04744,2603.13396,2311.04378,2310.16540,2509.10766,2609.14856,2609.25972,2405.11135,cs/0602007,2204.01960,2404.05607,2608.06211&max_results=100",
+    "access_date": "2026-10-19",
+    "id": "http://arxiv.org/abs/2303.15435v2",
+    "title": "The Stable Signature: Rooting Watermarks in Latent Diffusion Models",
+    "authors": [
+      "Pierre Fernandez",
+      "Guillaume Couairon",
+      "Hervé Jégou",
+      "Matthijs Douze",
+      "Teddy Furon"
+    ],
+    "published": "2023-03-27T17:57:33Z",
+    "updated": "2023-07-26T07:19:58Z",
+    "doi": [],
+    "journal_ref": [],
+    "comment": [
+      "Published at ICCV 2023. Code at https://github.com/facebookresearch/stable_signature - webpage at https://pierrefdz.github.io/publications/stablesignature"
+    ]
+  },
+  {
+    "source_url": "https://export.arxiv.org/api/query?id_list=2305.20030,2404.04956,2410.07369,2404.14055,2411.03862,2412.04653,2303.15435,2306.04744,2603.13396,2311.04378,2310.16540,2509.10766,2609.14856,2609.25972,2405.11135,cs/0602007,2204.01960,2404.05607,2608.06211&max_results=100",
+    "access_date": "2026-10-19",
+    "id": "http://arxiv.org/abs/2404.05607v2",
+    "title": "MarkPlugger: Generalizable Watermark Framework for Latent Diffusion Models without Retraining",
+    "authors": [
+      "Guokai Zhang",
+      "Lanjun Wang",
+      "Yuting Su",
+      "An-An Liu"
+    ],
+    "published": "2024-04-08T15:29:46Z",
+    "updated": "2025-10-11T14:08:08Z",
+    "doi": [
+      "10.1109/TMM.2025.3565960"
+    ],
+    "journal_ref": [],
+    "comment": [
+      "IEEE Transactions on Multimedia 2025"
+    ]
+  },
+  {
+    "source_url": "https://export.arxiv.org/api/query?id_list=2305.20030,2404.04956,2410.07369,2404.14055,2411.03862,2412.04653,2303.15435,2306.04744,2603.13396,2311.04378,2310.16540,2509.10766,2609.14856,2609.25972,2405.11135,cs/0602007,2204.01960,2404.05607,2608.06211&max_results=100",
+    "access_date": "2026-10-19",
+    "id": "http://arxiv.org/abs/2603.13396v1",
+    "title": "SERUM: Simple, Efficient, Robust, and Unifying Marking for Diffusion-based Image Generation",
+    "authors": [
+      "Jan Kociszewski",
+      "Hubert Jastrzębski",
+      "Tymoteusz Stępkowski",
+      "Filip Manijak",
+      "Krzysztof Rojek",
+      "Franziska Boenisch",
+      "Adam Dziedzic"
+    ],
+    "published": "2026-03-11T14:20:10Z",
+    "updated": "2026-03-11T14:20:10Z",
+    "doi": [],
+    "journal_ref": [],
+    "comment": [
+      "Accepted as an ICLR 2026 Poster"
+    ]
+  },
+  {
+    "source_url": "https://export.arxiv.org/api/query?id_list=2305.20030,2404.04956,2410.07369,2404.14055,2411.03862,2412.04653,2303.15435,2306.04744,2603.13396,2311.04378,2310.16540,2509.10766,2609.14856,2609.25972,2405.11135,cs/0602007,2204.01960,2404.05607,2608.06211&max_results=100",
+    "access_date": "2026-10-19",
+    "id": "http://arxiv.org/abs/2410.07369v4",
+    "title": "An Undetectable Watermark for Generative Image Models",
+    "authors": [
+      "Sam Gunn",
+      "Xuandong Zhao",
+      "Dawn Song"
+    ],
+    "published": "2024-10-09T18:33:06Z",
+    "updated": "2025-04-21T21:40:23Z",
+    "doi": [],
+    "journal_ref": [],
+    "comment": [
+      "ICLR 2025"
+    ]
+  },
+  {
+    "source_url": "https://export.arxiv.org/api/query?id_list=2305.20030,2404.04956,2410.07369,2404.14055,2411.03862,2412.04653,2303.15435,2306.04744,2603.13396,2311.04378,2310.16540,2509.10766,2609.14856,2609.25972,2405.11135,cs/0602007,2204.01960,2404.05607,2608.06211&max_results=100",
+    "access_date": "2026-10-19",
+    "id": "http://arxiv.org/abs/2405.11135v1",
+    "title": "AquaLoRA: Toward White-box Protection for Customized Stable Diffusion Models via Watermark LoRA",
+    "authors": [
+      "Weitao Feng",
+      "Wenbo Zhou",
+      "Jiyan He",
+      "Jie Zhang",
+      "Tianyi Wei",
+      "Guanlin Li",
+      "Tianwei Zhang",
+      "Weiming Zhang",
+      "Nenghai Yu"
+    ],
+    "published": "2024-05-18T01:25:47Z",
+    "updated": "2024-05-18T01:25:47Z",
+    "doi": [],
+    "journal_ref": [],
+    "comment": [
+      "Code is available at https://github.com/Georgefwt/AquaLoRA"
+    ]
+  },
+  {
+    "source_url": "https://export.arxiv.org/api/query?id_list=2305.20030,2404.04956,2410.07369,2404.14055,2411.03862,2412.04653,2303.15435,2306.04744,2603.13396,2311.04378,2310.16540,2509.10766,2609.14856,2609.25972,2405.11135,cs/0602007,2204.01960,2404.05607,2608.06211&max_results=100",
+    "access_date": "2026-10-19",
+    "id": "http://arxiv.org/abs/2509.10766v2",
+    "title": "MetaSeal: Defending Against Image Attribution Forgery Through Content-Dependent Cryptographic Watermarks",
+    "authors": [
+      "Tong Zhou",
+      "Ruyi Ding",
+      "Gaowen Liu",
+      "Charles Fleming",
+      "Ramana Rao Kompella",
+      "Yunsi Fei",
+      "Xiaolin Xu",
+      "Shaolei Ren"
+    ],
+    "published": "2025-09-13T00:38:03Z",
+    "updated": "2026-02-13T01:40:08Z",
+    "doi": [],
+    "journal_ref": [],
+    "comment": [
+      "To appear at TMLR 2026. 26 pages, 14 figures"
+    ]
+  },
+  {
+    "source_url": "https://export.arxiv.org/api/query?id_list=2305.20030,2404.04956,2410.07369,2404.14055,2411.03862,2412.04653,2303.15435,2306.04744,2603.13396,2311.04378,2310.16540,2509.10766,2609.14856,2609.25972,2405.11135,cs/0602007,2204.01960,2404.05607,2608.06211&max_results=100",
+    "access_date": "2026-10-19",
+    "id": "http://arxiv.org/abs/2306.04744v3",
+    "title": "WOUAF: Weight Modulation for User Attribution and Fingerprinting in Text-to-Image Diffusion Models",
+    "authors": [
+      "Changhoon Kim",
+      "Kyle Min",
+      "Maitreya Patel",
+      "Sheng Cheng",
+      "Yezhou Yang"
+    ],
+    "published": "2023-06-07T19:44:14Z",
+    "updated": "2024-04-24T04:31:29Z",
+    "doi": [],
+    "journal_ref": [],
+    "comment": [
+      "Accepted at CVPR 2024"
+    ]
+  },
+  {
+    "source_url": "https://export.arxiv.org/api/query?id_list=2305.20030,2404.04956,2410.07369,2404.14055,2411.03862,2412.04653,2303.15435,2306.04744,2603.13396,2311.04378,2310.16540,2509.10766,2609.14856,2609.25972,2405.11135,cs/0602007,2204.01960,2404.05607,2608.06211&max_results=100",
+    "access_date": "2026-10-19",
+    "id": "http://arxiv.org/abs/2412.04653v5",
+    "title": "Hidden in the Noise: Two-Stage Robust Watermarking for Images",
+    "authors": [
+      "Kasra Arabi",
+      "Benjamin Feuer",
+      "R. Teal Witter",
+      "Chinmay Hegde",
+      "Niv Cohen"
+    ],
+    "published": "2024-12-05T22:50:42Z",
+    "updated": "2025-04-27T11:46:58Z",
+    "doi": [],
+    "journal_ref": [],
+    "comment": []
+  },
+  {
+    "source_url": "https://export.arxiv.org/api/query?id_list=2305.20030,2404.04956,2410.07369,2404.14055,2411.03862,2412.04653,2303.15435,2306.04744,2603.13396,2311.04378,2310.16540,2509.10766,2609.14856,2609.25972,2405.11135,cs/0602007,2204.01960,2404.05607,2608.06211&max_results=100",
+    "access_date": "2026-10-19",
+    "id": "http://arxiv.org/abs/2609.25972v1",
+    "title": "NAWE: Digital Watermarking with Neural-Assisted Watermark Extraction",
+    "authors": [
+      "Roman Chaban",
+      "Vitaliy Kinakh",
+      "Lilian Rouzaire",
+      "Slava Voloshynovskiy"
+    ],
+    "published": "2026-09-22T10:28:16Z",
+    "updated": "2026-09-22T10:28:16Z",
+    "doi": [],
+    "journal_ref": [],
+    "comment": []
+  },
+  {
+    "source_url": "https://export.arxiv.org/api/query?id_list=2305.20030,2404.04956,2410.07369,2404.14055,2411.03862,2412.04653,2303.15435,2306.04744,2603.13396,2311.04378,2310.16540,2509.10766,2609.14856,2609.25972,2405.11135,cs/0602007,2204.01960,2404.05607,2608.06211&max_results=100",
+    "access_date": "2026-10-19",
+    "id": "http://arxiv.org/abs/2609.14856v2",
+    "title": "RAIN: Region-Aware Inversion Network for Semantic Watermark Extraction",
+    "authors": [
+      "Zilai Li"
+    ],
+    "published": "2026-09-14T00:07:17Z",
+    "updated": "2026-09-22T23:58:40Z",
+    "doi": [],
+    "journal_ref": [],
+    "comment": []
+  },
+  {
+    "source_url": "https://export.arxiv.org/api/query?id_list=2305.20030,2404.04956,2410.07369,2404.14055,2411.03862,2412.04653,2303.15435,2306.04744,2603.13396,2311.04378,2310.16540,2509.10766,2609.14856,2609.25972,2405.11135,cs/0602007,2204.01960,2404.05607,2608.06211&max_results=100",
+    "access_date": "2026-10-19",
+    "id": "http://arxiv.org/abs/2305.20030v3",
+    "title": "Tree-Ring Watermarks: Fingerprints for Diffusion Images that are Invisible and Robust",
+    "authors": [
+      "Yuxin Wen",
+      "John Kirchenbauer",
+      "Jonas Geiping",
+      "Tom Goldstein"
+    ],
+    "published": "2023-05-31T17:00:31Z",
+    "updated": "2023-07-04T03:52:06Z",
+    "doi": [],
+    "journal_ref": [],
+    "comment": [
+      "16 pages, 8 figures, code is available at https://github.com/YuxinWenRick/tree-ring-watermark, fixed the repo link"
+    ]
+  },
+  {
+    "source_url": "https://export.arxiv.org/api/query?id_list=2305.20030,2404.04956,2410.07369,2404.14055,2411.03862,2412.04653,2303.15435,2306.04744,2603.13396,2311.04378,2310.16540,2509.10766,2609.14856,2609.25972,2405.11135,cs/0602007,2204.01960,2404.05607,2608.06211&max_results=100",
+    "access_date": "2026-10-19",
+    "id": "http://arxiv.org/abs/2204.01960v1",
+    "title": "FaceSigns: Semi-Fragile Neural Watermarks for Media Authentication and Countering Deepfakes",
+    "authors": [
+      "Paarth Neekhara",
+      "Shehzeen Hussain",
+      "Xinqiao Zhang",
+      "Ke Huang",
+      "Julian McAuley",
+      "Farinaz Koushanfar"
+    ],
+    "published": "2022-04-05T03:29:30Z",
+    "updated": "2022-04-05T03:29:30Z",
+    "doi": [],
+    "journal_ref": [],
+    "comment": [
+      "13 pages, 8 figures"
+    ]
+  },
+  {
+    "source_url": "https://export.arxiv.org/api/query?id_list=2305.20030,2404.04956,2410.07369,2404.14055,2411.03862,2412.04653,2303.15435,2306.04744,2603.13396,2311.04378,2310.16540,2509.10766,2609.14856,2609.25972,2405.11135,cs/0602007,2204.01960,2404.05607,2608.06211&max_results=100",
+    "access_date": "2026-10-19",
+    "id": "http://arxiv.org/abs/cs/0602007v4",
+    "title": "Fuzzy Extractors: How to Generate Strong Keys from Biometrics and Other Noisy Data",
+    "authors": [
+      "Yevgeniy Dodis",
+      "Rafail Ostrovsky",
+      "Leonid Reyzin",
+      "Adam Smith"
+    ],
+    "published": "2006-02-04T18:13:35Z",
+    "updated": "2008-04-01T17:50:49Z",
+    "doi": [
+      "10.1137/060651380"
+    ],
+    "journal_ref": [
+      "SIAM Journal on Computing, 38(1):97-139, 2008"
+    ],
+    "comment": [
+      "47 pp., 3 figures. Prelim. version in Eurocrypt 2004, Springer LNCS 3027, pp. 523-540. Differences from version 3: minor edits for grammar, clarity, and typos"
+    ]
+  },
+  {
+    "source_url": "https://export.arxiv.org/api/query?id_list=2305.20030,2404.04956,2410.07369,2404.14055,2411.03862,2412.04653,2303.15435,2306.04744,2603.13396,2311.04378,2310.16540,2509.10766,2609.14856,2609.25972,2405.11135,cs/0602007,2204.01960,2404.05607,2608.06211&max_results=100",
+    "access_date": "2026-10-19",
+    "id": "http://arxiv.org/abs/2404.04956v3",
+    "title": "Gaussian Shading: Provable Performance-Lossless Image Watermarking for Diffusion Models",
+    "authors": [
+      "Zijin Yang",
+      "Kai Zeng",
+      "Kejiang Chen",
+      "Han Fang",
+      "Weiming Zhang",
+      "Nenghai Yu"
+    ],
+    "published": "2024-04-07T13:30:10Z",
+    "updated": "2024-05-06T10:43:48Z",
+    "doi": [],
+    "journal_ref": [],
+    "comment": [
+      "17 pages, 11 figures, accepted by CVPR 2024"
+    ]
+  },
+  {
+    "source_url": "https://export.arxiv.org/api/query?id_list=2305.20030,2404.04956,2410.07369,2404.14055,2411.03862,2412.04653,2303.15435,2306.04744,2603.13396,2311.04378,2310.16540,2509.10766,2609.14856,2609.25972,2405.11135,cs/0602007,2204.01960,2404.05607,2608.06211&max_results=100",
+    "access_date": "2026-10-19",
+    "id": "http://arxiv.org/abs/2404.14055v3",
+    "title": "RingID: Rethinking Tree-Ring Watermarking for Enhanced Multi-Key Identification",
+    "authors": [
+      "Hai Ci",
+      "Pei Yang",
+      "Yiren Song",
+      "Mike Zheng Shou"
+    ],
+    "published": "2024-04-22T10:11:31Z",
+    "updated": "2024-07-18T11:10:02Z",
+    "doi": [],
+    "journal_ref": [],
+    "comment": [
+      "27 pages, 9 figures"
+    ]
+  },
+  {
+    "source_url": "https://export.arxiv.org/api/query?id_list=2305.20030,2404.04956,2410.07369,2404.14055,2411.03862,2412.04653,2303.15435,2306.04744,2603.13396,2311.04378,2310.16540,2509.10766,2609.14856,2609.25972,2405.11135,cs/0602007,2204.01960,2404.05607,2608.06211&max_results=100",
+    "access_date": "2026-10-19",
+    "id": "http://arxiv.org/abs/2411.03862v2",
+    "title": "ROBIN: Robust and Invisible Watermarks for Diffusion Models with Adversarial Optimization",
+    "authors": [
+      "Huayang Huang",
+      "Yu Wu",
+      "Qian Wang"
+    ],
+    "published": "2024-11-06T12:14:23Z",
+    "updated": "2025-04-03T03:11:31Z",
+    "doi": [],
+    "journal_ref": [],
+    "comment": [
+      "Accept to NeurIPS 2024"
+    ]
+  },
+  {
+    "source_url": "https://export.arxiv.org/api/query?id_list=2305.20030,2404.04956,2410.07369,2404.14055,2411.03862,2412.04653,2303.15435,2306.04744,2603.13396,2311.04378,2310.16540,2509.10766,2609.14856,2609.25972,2405.11135,cs/0602007,2204.01960,2404.05607,2608.06211&max_results=100",
+    "access_date": "2026-10-19",
+    "id": "http://arxiv.org/abs/2311.04378v5",
+    "title": "Watermarks in the Sand: Impossibility of Strong Watermarking for Generative Models",
+    "authors": [
+      "Hanlin Zhang",
+      "Benjamin L. Edelman",
+      "Danilo Francati",
+      "Daniele Venturi",
+      "Giuseppe Ateniese",
+      "Boaz Barak"
+    ],
+    "published": "2023-11-07T22:52:54Z",
+    "updated": "2025-05-27T21:31:20Z",
+    "doi": [],
+    "journal_ref": [],
+    "comment": [
+      "ICML 2024. Website: https://hanlin-zhang.com/impossibility-watermarks"
+    ]
+  },
+  {
+    "source_url": "https://export.arxiv.org/api/query?id_list=2305.20030,2404.04956,2410.07369,2404.14055,2411.03862,2412.04653,2303.15435,2306.04744,2603.13396,2311.04378,2310.16540,2509.10766,2609.14856,2609.25972,2405.11135,cs/0602007,2204.01960,2404.05607,2608.06211&max_results=100",
+    "access_date": "2026-10-19",
+    "id": "http://arxiv.org/abs/2608.06211v1",
+    "title": "Reversible Unlearnable Examples: Towards the Copyright Protection in Deep Learning Era",
+    "authors": [
+      "Binze Wang",
+      "Jinyu Tian",
+      "Xingrun Wang",
+      "Xiaochen Yuan",
+      "Jianqing Li"
+    ],
+    "published": "2026-08-06T16:04:05Z",
+    "updated": "2026-08-06T16:04:05Z",
+    "doi": [],
+    "journal_ref": [],
+    "comment": []
+  }
+]

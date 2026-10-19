@@ -1,0 +1,296 @@
+[
+  {
+    "query": "Gaussian Shading: Provable Performance-Lossless Image Watermarking for Diffusion Models",
+    "source_url": "https://api.crossref.org/works?query.title=Gaussian%20Shading%3A%20Provable%20Performance-Lossless%20Image%20Watermarking%20for%20Diffusion%20Models&rows=2",
+    "access_date": "2026-10-19",
+    "hits": [
+      {
+        "title": [
+          "Gaussian Shading: Provable Performance-Lossless Image Watermarking for Diffusion Models"
+        ],
+        "DOI": "10.1109/cvpr52733.2024.01156",
+        "authors": [
+          {
+            "given": "Zijin",
+            "family": "Yang"
+          },
+          {
+            "given": "Kai",
+            "family": "Zeng"
+          },
+          {
+            "given": "Kejiang",
+            "family": "Chen"
+          },
+          {
+            "given": "Han",
+            "family": "Fang"
+          },
+          {
+            "given": "Weiming",
+            "family": "Zhang"
+          },
+          {
+            "given": "Nenghai",
+            "family": "Yu"
+          }
+        ],
+        "venue": [
+          "2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)"
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2024,
+              6,
+              16
+            ]
+          ]
+        },
+        "page": "12162-12171",
+        "type": "proceedings-article",
+        "score": 72.62662
+      },
+      {
+        "title": [
+          "Towards provenance-aware diffusion: Key-free watermarking with Gaussian shading"
+        ],
+        "DOI": "10.1016/j.eswa.2025.130822",
+        "authors": [
+          {
+            "given": "Xiaoxiao",
+            "family": "Wang"
+          },
+          {
+            "given": "Yingjie",
+            "family": "Tian"
+          }
+        ],
+        "venue": [
+          "Expert Systems with Applications"
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2026,
+              4
+            ]
+          ]
+        },
+        "page": "130822",
+        "type": "journal-article",
+        "score": 34.171318
+      }
+    ]
+  },
+  {
+    "query": "The Stable Signature: Rooting Watermarks in Latent Diffusion Models",
+    "source_url": "https://api.crossref.org/works?query.title=The%20Stable%20Signature%3A%20Rooting%20Watermarks%20in%20Latent%20Diffusion%20Models&rows=2",
+    "access_date": "2026-10-19",
+    "hits": [
+      {
+        "title": [
+          "The Stable Signature: Rooting Watermarks in Latent Diffusion Models"
+        ],
+        "DOI": "10.1109/iccv51070.2023.02053",
+        "authors": [
+          {
+            "given": "Pierre",
+            "family": "Fernandez"
+          },
+          {
+            "given": "Guillaume",
+            "family": "Couairon"
+          },
+          {
+            "given": "Hervé",
+            "family": "Jégou"
+          },
+          {
+            "given": "Matthijs",
+            "family": "Douze"
+          },
+          {
+            "given": "Teddy",
+            "family": "Furon"
+          }
+        ],
+        "venue": [
+          "2023 IEEE/CVF International Conference on Computer Vision (ICCV)"
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2023,
+              10,
+              1
+            ]
+          ]
+        },
+        "page": "22409-22420",
+        "type": "proceedings-article",
+        "score": 60.72165
+      },
+      {
+        "title": [
+          "Implanting Robust Watermarks in Latent Diffusion Models for Video Generation"
+        ],
+        "DOI": "10.1109/icassp49660.2025.10888991",
+        "authors": [
+          {
+            "given": "Xiaohang",
+            "family": "Liu"
+          },
+          {
+            "given": "Heng",
+            "family": "Chang"
+          },
+          {
+            "given": "Jinfu",
+            "family": "Wei"
+          },
+          {
+            "given": "Lei",
+            "family": "Zhu"
+          },
+          {
+            "given": "Li",
+            "family": "Liu"
+          },
+          {
+            "given": "Likun",
+            "family": "Li"
+          },
+          {
+            "given": "Shiji",
+            "family": "Zhou"
+          },
+          {
+            "given": "Chengyuan",
+            "family": "Li"
+          },
+          {
+            "given": "Di",
+            "family": "Xu"
+          },
+          {
+            "given": "Wei",
+            "family": "Gao"
+          }
+        ],
+        "venue": [
+          "ICASSP 2025 - 2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)"
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              4,
+              6
+            ]
+          ]
+        },
+        "page": "1-5",
+        "type": "proceedings-article",
+        "score": 33.00171
+      }
+    ]
+  },
+  {
+    "query": "WOUAF: Weight Modulation for User Attribution and Fingerprinting in Text-to-Image Diffusion Models",
+    "source_url": "https://api.crossref.org/works?query.title=WOUAF%3A%20Weight%20Modulation%20for%20User%20Attribution%20and%20Fingerprinting%20in%20Text-to-Image%20Diffusion%20Models&rows=2",
+    "access_date": "2026-10-19",
+    "hits": [
+      {
+        "title": [
+          "WOUAF: Weight Modulation for User Attribution and Fingerprinting in Text-to-Image Diffusion Models"
+        ],
+        "DOI": "10.1109/cvpr52733.2024.00857",
+        "authors": [
+          {
+            "given": "Changhoon",
+            "family": "Kim"
+          },
+          {
+            "given": "Kyle",
+            "family": "Min"
+          },
+          {
+            "given": "Maitreya",
+            "family": "Patel"
+          },
+          {
+            "given": "Sheng",
+            "family": "Cheng"
+          },
+          {
+            "given": "Yezhou",
+            "family": "Yang"
+          }
+        ],
+        "venue": [
+          "2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)"
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2024,
+              6,
+              16
+            ]
+          ]
+        },
+        "page": "8974-8983",
+        "type": "proceedings-article",
+        "score": 69.9493
+      },
+      {
+        "title": [
+          "Scalable Dual Fingerprinting for Hierarchical Attribution of Text-to-Image Models"
+        ],
+        "DOI": "10.1109/iccv51701.2025.01394",
+        "authors": [
+          {
+            "given": "Jianwei",
+            "family": "Fei"
+          },
+          {
+            "given": "Yunshu",
+            "family": "Dai"
+          },
+          {
+            "given": "Peipeng",
+            "family": "Yu"
+          },
+          {
+            "given": "Zhe",
+            "family": "Kong"
+          },
+          {
+            "given": "Jiantao",
+            "family": "Zhou"
+          },
+          {
+            "given": "Zhihua",
+            "family": "Xia"
+          }
+        ],
+        "venue": [
+          "2025 IEEE/CVF International Conference on Computer Vision (ICCV)"
+        ],
+        "published": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              19
+            ]
+          ]
+        },
+        "page": "15025-15034",
+        "type": "proceedings-article",
+        "score": 36.324356
+      }
+    ]
+  }
+]

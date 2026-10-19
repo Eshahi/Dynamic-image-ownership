@@ -1,0 +1,92 @@
+{
+  "DOI": "10.1109/iwbf.2019.8739245",
+  "title": [
+    "A Robust Image Zero-watermarking using Convolutional Neural Networks"
+  ],
+  "author": [
+    {
+      "given": "Atoany",
+      "family": "Fierro-Radilla",
+      "sequence": "first",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Mariko",
+      "family": "Nakano-Miyatake",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Manuel",
+      "family": "Cedillo-Hernandez",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Laura",
+      "family": "Cleofas-Sanchez",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Hector",
+      "family": "Perez-Meana",
+      "sequence": "additional",
+      "affiliation": [],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    }
+  ],
+  "published": {
+    "date-parts": [
+      [
+        2019,
+        5
+      ]
+    ]
+  },
+  "published-print": {
+    "date-parts": [
+      [
+        2019,
+        5
+      ]
+    ]
+  },
+  "published-online": null,
+  "container-title": [
+    "2019 7th International Workshop on Biometrics and Forensics (IWBF)"
+  ],
+  "page": "1-5",
+  "publisher": "IEEE",
+  "URL": "https://doi.org/10.1109/iwbf.2019.8739245",
+  "type": "proceedings-article"
+}

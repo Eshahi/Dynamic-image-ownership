@@ -1,0 +1,35 @@
+[
+  {
+    "query": "Breaking Widely Deployed Perceptual Hash Functions",
+    "source": "https://dblp.org/search/publ/api?q=Breaking%20Widely%20Deployed%20Perceptual%20Hash%20Functions&format=json&h=3",
+    "access_date": "2026-10-19",
+    "hits": null
+  },
+  {
+    "query": "DINOv2 Learning Robust Visual Features",
+    "source": "https://dblp.org/search/publ/api?q=DINOv2%20Learning%20Robust%20Visual%20Features&format=json&h=3",
+    "access_date": "2026-10-19",
+    "hits": null
+  },
+  {
+    "query": "pHash Design and Validation",
+    "source": "https://dblp.org/search/publ/api?q=pHash%20Design%20and%20Validation&format=json&h=3",
+    "access_date": "2026-10-19",
+    "hits": null
+  },
+  {
+    "query": "Content Credentials C2PA 2.4",
+    "source": "https://dblp.org/search/publ/api?q=Content%20Credentials%20C2PA%202.4&format=json&h=3",
+    "error": "Response status code does not indicate success: 429 (Too Many Requests)."
+  },
+  {
+    "query": "A Self-Supervised Descriptor for Image Copy Detection",
+    "source": "https://dblp.org/search/publ/api?q=A%20Self-Supervised%20Descriptor%20for%20Image%20Copy%20Detection&format=json&h=3",
+    "error": "Response status code does not indicate success: 429 (Too Many Requests)."
+  },
+  {
+    "query": "Unifying Deep Local and Global Features for Image Search",
+    "source": "https://dblp.org/search/publ/api?q=Unifying%20Deep%20Local%20and%20Global%20Features%20for%20Image%20Search&format=json&h=3",
+    "error": "Response status code does not indicate success: 429 (Too Many Requests)."
+  }
+]

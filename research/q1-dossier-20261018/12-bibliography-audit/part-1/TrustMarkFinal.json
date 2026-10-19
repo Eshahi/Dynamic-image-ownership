@@ -1,0 +1,39 @@
+{
+  "source_url": "https://api.crossref.org/works/10.1109/iccv51701.2025.01731",
+  "access_date": "2026-10-19",
+  "title": [
+    "TrustMark: Robust Watermarking and Watermark Removal for Arbitrary Resolution Images"
+  ],
+  "authors": [
+    "Tu Bui",
+    "Shruti Agarwal",
+    "John Collomosse"
+  ],
+  "published": {
+    "date-parts": [
+      [
+        2025,
+        10,
+        19
+      ]
+    ]
+  },
+  "container": [
+    "2025 IEEE/CVF International Conference on Computer Vision (ICCV)"
+  ],
+  "DOI": "10.1109/iccv51701.2025.01731",
+  "pages": "18629-18639",
+  "type": "proceedings-article",
+  "indexed": {
+    "date-parts": [
+      [
+        2026,
+        10,
+        13
+      ]
+    ],
+    "date-time": "2026-10-13T17:04:31Z",
+    "timestamp": 1791911071808,
+    "version": "4.3.4"
+  }
+}

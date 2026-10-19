@@ -1,0 +1,52 @@
+[
+  {
+    "query": "Tree-Rings Watermarks Invisible Fingerprints for Diffusion Images",
+    "url": "https://dblp.org/search/publ/api?q=Tree-Rings%20Watermarks%20Invisible%20Fingerprints%20for%20Diffusion%20Images&format=json&h=3",
+    "error": "Response status code does not indicate success: 429 (Too Many Requests)."
+  },
+  {
+    "query": "Gaussian Shading Provable Performance-Lossless Image Watermarking",
+    "url": "https://dblp.org/search/publ/api?q=Gaussian%20Shading%20Provable%20Performance-Lossless%20Image%20Watermarking&format=json&h=3",
+    "error": "Response status code does not indicate success: 429 (Too Many Requests)."
+  },
+  {
+    "query": "RingID Rethinking Tree-Ring Watermarking",
+    "url": "https://dblp.org/search/publ/api?q=RingID%20Rethinking%20Tree-Ring%20Watermarking&format=json&h=3",
+    "error": "Response status code does not indicate success: 429 (Too Many Requests)."
+  },
+  {
+    "query": "ROBIN Robust Invisible Watermarks Diffusion",
+    "url": "https://dblp.org/search/publ/api?q=ROBIN%20Robust%20Invisible%20Watermarks%20Diffusion&format=json&h=3",
+    "error": "Response status code does not indicate success: 429 (Too Many Requests)."
+  },
+  {
+    "query": "Hidden in the Noise Two-Stage Robust Watermarking",
+    "url": "https://dblp.org/search/publ/api?q=Hidden%20in%20the%20Noise%20Two-Stage%20Robust%20Watermarking&format=json&h=3",
+    "error": "Response status code does not indicate success: 429 (Too Many Requests)."
+  },
+  {
+    "query": "The Stable Signature Rooting Watermarks",
+    "url": "https://dblp.org/search/publ/api?q=The%20Stable%20Signature%20Rooting%20Watermarks&format=json&h=3",
+    "error": "Response status code does not indicate success: 429 (Too Many Requests)."
+  },
+  {
+    "query": "AquaLoRA Toward White-box Protection",
+    "url": "https://dblp.org/search/publ/api?q=AquaLoRA%20Toward%20White-box%20Protection&format=json&h=3",
+    "error": "Response status code does not indicate success: 429 (Too Many Requests)."
+  },
+  {
+    "query": "WOUAF Weight Modulation User Attribution",
+    "url": "https://dblp.org/search/publ/api?q=WOUAF%20Weight%20Modulation%20User%20Attribution&format=json&h=3",
+    "error": "Response status code does not indicate success: 429 (Too Many Requests)."
+  },
+  {
+    "query": "SERUM Simple Efficient Robust Unifying Marking",
+    "url": "https://dblp.org/search/publ/api?q=SERUM%20Simple%20Efficient%20Robust%20Unifying%20Marking&format=json&h=3",
+    "error": "Response status code does not indicate success: 429 (Too Many Requests)."
+  },
+  {
+    "query": "Watermarks in the Sand Impossibility Strong Watermarking",
+    "url": "https://dblp.org/search/publ/api?q=Watermarks%20in%20the%20Sand%20Impossibility%20Strong%20Watermarking&format=json&h=3",
+    "error": "Response status code does not indicate success: 429 (Too Many Requests)."
+  }
+]

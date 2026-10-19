@@ -1,0 +1,319 @@
+[
+  {
+    "source_url": "https://api.crossref.org/works/10.1214/ss/1009213286",
+    "access_date": "2026-10-19",
+    "DOI": "10.1214/ss/1009213286",
+    "title": [
+      "Interval Estimation for a Binomial Proportion"
+    ],
+    "authors": [
+      {
+        "given": "Lawrence D.",
+        "family": "Brown"
+      },
+      {
+        "given": "T. Tony",
+        "family": "Cai"
+      },
+      {
+        "given": "Anirban",
+        "family": "DasGupta"
+      }
+    ],
+    "venue": [
+      "Statistical Science"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2001,
+          5,
+          1
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2001,
+          5,
+          1
+        ]
+      ]
+    },
+    "published_online": null,
+    "volume": "16",
+    "issue": "2",
+    "page": "101-133",
+    "article_number": null,
+    "type": "journal-article",
+    "URL": "https://doi.org/10.1214/ss/1009213286"
+  },
+  {
+    "source_url": "https://api.crossref.org/works/10.1109/ICCV51701.2025.01731",
+    "access_date": "2026-10-19",
+    "DOI": "10.1109/iccv51701.2025.01731",
+    "title": [
+      "TrustMark: Robust Watermarking and Watermark Removal for Arbitrary Resolution Images"
+    ],
+    "authors": [
+      {
+        "given": "Tu",
+        "family": "Bui"
+      },
+      {
+        "given": "Shruti",
+        "family": "Agarwal"
+      },
+      {
+        "given": "John",
+        "family": "Collomosse"
+      }
+    ],
+    "venue": [
+      "2025 IEEE/CVF International Conference on Computer Vision (ICCV)"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2025,
+          10,
+          19
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2025,
+          10,
+          19
+        ]
+      ]
+    },
+    "published_online": null,
+    "volume": null,
+    "issue": null,
+    "page": "18629-18639",
+    "article_number": null,
+    "type": "proceedings-article",
+    "URL": "https://doi.org/10.1109/iccv51701.2025.01731"
+  },
+  {
+    "source_url": "https://api.crossref.org/works/10.1016/j.jisa.2025.104139",
+    "access_date": "2026-10-19",
+    "DOI": "10.1016/j.jisa.2025.104139",
+    "title": [
+      "ConZWNet: A contrastive learning-based zero-watermarking network for high robustness and distinguishability"
+    ],
+    "authors": [
+      {
+        "given": "Deyu",
+        "family": "Tong"
+      },
+      {
+        "given": "Hongxin",
+        "family": "Han"
+      },
+      {
+        "given": "Can",
+        "family": "Li"
+      },
+      {
+        "given": "Fengting",
+        "family": "Wang"
+      },
+      {
+        "given": "Weilong",
+        "family": "Kong"
+      },
+      {
+        "given": "Na",
+        "family": "Ren"
+      }
+    ],
+    "venue": [
+      "Journal of Information Security and Applications"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2025,
+          9
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2025,
+          9
+        ]
+      ]
+    },
+    "published_online": null,
+    "volume": "93",
+    "issue": null,
+    "page": "104139",
+    "article_number": "104139",
+    "type": "journal-article",
+    "URL": "https://doi.org/10.1016/j.jisa.2025.104139"
+  },
+  {
+    "source_url": "https://api.crossref.org/works/10.52202/075280-2529",
+    "access_date": "2026-10-19",
+    "DOI": "10.52202/075280-2529",
+    "title": [
+      "Tree-Rings Watermarks: Invisible Fingerprints for Diffusion Images"
+    ],
+    "authors": [
+      {
+        "given": "Yuxin",
+        "family": "Wen"
+      },
+      {
+        "given": "John",
+        "family": "Kirchenbauer"
+      },
+      {
+        "given": "Jonas",
+        "family": "Geiping"
+      },
+      {
+        "given": "Tom",
+        "family": "Goldstein"
+      }
+    ],
+    "venue": [
+      "Advances in Neural Information Processing Systems 36"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2023
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2023
+        ]
+      ]
+    },
+    "published_online": null,
+    "volume": null,
+    "issue": null,
+    "page": "58047-58063",
+    "article_number": null,
+    "type": "proceedings-article",
+    "URL": "https://doi.org/10.52202/075280-2529"
+  },
+  {
+    "source_url": "https://api.crossref.org/works/10.52202/079017-0129",
+    "access_date": "2026-10-19",
+    "DOI": "10.52202/079017-0129",
+    "title": [
+      "ROBIN: Robust and Invisible Watermarks for Diffusion Models with Adversarial Optimization"
+    ],
+    "authors": [
+      {
+        "given": "Huayang",
+        "family": "Huang"
+      },
+      {
+        "given": "Yu",
+        "family": "Wu"
+      },
+      {
+        "given": "Qian",
+        "family": "Wang"
+      }
+    ],
+    "venue": [
+      "Advances in Neural Information Processing Systems 37"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2024
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2024
+        ]
+      ]
+    },
+    "published_online": null,
+    "volume": null,
+    "issue": null,
+    "page": "3937-3963",
+    "article_number": null,
+    "type": "proceedings-article",
+    "URL": "https://doi.org/10.52202/079017-0129"
+  },
+  {
+    "source_url": "https://api.crossref.org/works/10.1007/978-3-031-73390-1_20",
+    "access_date": "2026-10-19",
+    "DOI": "10.1007/978-3-031-73390-1_20",
+    "title": [
+      "RingID: Rethinking Tree-Ring Watermarking for Enhanced Multi-key Identification"
+    ],
+    "authors": [
+      {
+        "given": "Hai",
+        "family": "Ci"
+      },
+      {
+        "given": "Pei",
+        "family": "Yang"
+      },
+      {
+        "given": "Yiren",
+        "family": "Song"
+      },
+      {
+        "given": "Mike Zheng",
+        "family": "Shou"
+      }
+    ],
+    "venue": [
+      "Lecture Notes in Computer Science",
+      "Computer Vision – ECCV 2024"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2024,
+          10,
+          31
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2025
+        ]
+      ]
+    },
+    "published_online": {
+      "date-parts": [
+        [
+          2024,
+          10,
+          31
+        ]
+      ]
+    },
+    "volume": null,
+    "issue": null,
+    "page": "338-354",
+    "article_number": null,
+    "type": "book-chapter",
+    "URL": "https://doi.org/10.1007/978-3-031-73390-1_20"
+  }
+]

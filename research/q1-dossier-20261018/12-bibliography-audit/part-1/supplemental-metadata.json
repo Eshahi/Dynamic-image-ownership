@@ -1,0 +1,56 @@
+{
+  "access_date": "2026-10-19",
+  "purpose": "Metadata-only transcription from fetched records and web results; no manuscript text.",
+  "craver_dblp": {
+    "source_url": "https://dblp.org/rec/journals/jsac/CraverMYY98.html",
+    "retrieval": "Successfully opened with web tool; direct XML endpoint returned a bot challenge and was not used as metadata.",
+    "authors": ["Scott Craver", "Nasir D. Memon", "Boon-Lock Yeo", "Minerva M. Yeung"],
+    "title": "Resolving rightful ownerships with invisible watermarking techniques: limitations, attacks, and implications.",
+    "venue": "IEEE J. Sel. Areas Commun.",
+    "year": 1998,
+    "volume": "16",
+    "number": "4",
+    "pages": "573-586",
+    "doi": "10.1109/49.668979"
+  },
+  "forensic_v1_arxiv": {
+    "source_url": "https://export.arxiv.org/api/query?id_list=2605.09203v1",
+    "id": "http://arxiv.org/abs/2605.09203v1",
+    "title": "Removing the Watermark Is Not Enough: Forensic Stealth in Generative-AI Watermark Removal",
+    "authors": ["Yevin Nikhel Goonatilake", "Giuseppe Ateniese"],
+    "published": "2026-05-09T22:45:48Z",
+    "updated": "2026-05-09T22:45:48Z"
+  },
+  "grow_cvf": {
+    "source_url": "https://openaccess.thecvf.com/content/CVPR2026/html/Luo_GROW_Watermark_Generation_with_Progressive_Guidance_for_Diffusion_Models_CVPR_2026_paper.html",
+    "citation_title": "GROW: Watermark Generation with Progressive Guidance for Diffusion Models",
+    "citation_author": ["Luo, Pengcheng", "Jia, Zexi", "Zhong, Yijia", "Zhang, Jinchao", "Zhou, Jie"],
+    "citation_publication_date": "2026",
+    "citation_conference_title": "Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+    "citation_firstpage": "35978",
+    "citation_lastpage": "35987",
+    "doi": null
+  },
+  "grow_dblp_search_hit": {
+    "source_url": "https://dblp.org/pid/00/5012.html",
+    "record_url": "https://dblp.org/rec/conf/cvpr/LuoJZZZ26",
+    "retrieval": "Indexed current web-search excerpt only. Direct record and author-page opening failed; API 429. Not full direct registry validation.",
+    "title": "GROW: Watermark Generation with Progressive Guidance for Diffusion Models.",
+    "authors": ["Pengcheng Luo", "Zexi Jia", "Yijia Zhong", "Jinchao Zhang", "Jie Zhou"],
+    "venue_year_pages": "CVPR 2026: 35978-35987"
+  },
+  "grow_arxiv_query": {
+    "source_url": "https://export.arxiv.org/api/query?search_query=ti:%22Watermark%20Generation%20with%20Progressive%20Guidance%22&max_results=5",
+    "total_results": 0
+  },
+  "specguard_cvf_corroboration": {
+    "source_url": "https://openaccess.thecvf.com/content/ICCV2025/html/Alam_SpecGuard_Spectral_Projection-based_Advanced_Invisible_Watermarking_ICCV_2025_paper.html",
+    "retrieval": "Direct web open initially 403; current search response exposed publisher metadata and BibTeX. Crossref full matching record independently retrieved.",
+    "authors": ["Inzamamul Alam", "Md Tanvir Islam", "Simon S. Woo", "Khan Muhammad"],
+    "title": "SpecGuard: Spectral Projection-based Advanced Invisible Watermarking",
+    "venue": "Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)",
+    "year": "2025",
+    "pages": "17984-17993"
+  },
+  "temporary_response_conversion": "ArXiv XML became arxiv-metadata.json and the forensic-v1 fields above; CVF HTML became grow_cvf fields above; empty arXiv search became grow_arxiv_query; DBLP challenge was discarded. Only metadata retained."
+}

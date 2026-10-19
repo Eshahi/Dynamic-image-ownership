@@ -1,0 +1,420 @@
+[
+  {
+    "id": "http://arxiv.org/abs/2410.20824v1",
+    "title": "FreqMark: Invisible Image Watermarking via Frequency Based Optimization in Latent Space",
+    "authors": [
+      "Yiyang Guo",
+      "Ruizhe Li",
+      "Mude Hui",
+      "Hanzhong Guo",
+      "Chen Zhang",
+      "Chuangjian Cai",
+      "Le Wan",
+      "Shangfei Wang"
+    ],
+    "published": "2024-10-28T08:23:56Z",
+    "updated": "2024-10-28T08:23:56Z",
+    "comment": null,
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2410.18775v2",
+    "title": "Robust Watermarking Using Generative Priors Against Image Editing: From Benchmarking to Advances",
+    "authors": [
+      "Shilin Lu",
+      "Zihan Zhou",
+      "Jiayou Lu",
+      "Yuanzhi Zhu",
+      "Adams Wai-Kin Kong"
+    ],
+    "published": "2024-10-24T14:28:32Z",
+    "updated": "2025-03-15T02:23:29Z",
+    "comment": "Accepted by ICLR 2025",
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2511.11295v1",
+    "title": "SimuFreeMark: A Noise-Simulation-Free Robust Watermarking Against Image Editing",
+    "authors": [
+      "Yichao Tang",
+      "Mingyang Li",
+      "Di Miao",
+      "Sheng Li",
+      "Zhenxing Qian",
+      "Xinpeng Zhang"
+    ],
+    "published": "2025-11-14T13:30:43Z",
+    "updated": "2025-11-14T13:30:43Z",
+    "comment": null,
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2512.16874v1",
+    "title": "Pixel Seal: Adversarial-only training for invisible image and video watermarking",
+    "authors": [
+      "Tomáš Souček",
+      "Pierre Fernandez",
+      "Hady Elsahar",
+      "Sylvestre-Alvise Rebuffi",
+      "Valeriu Lacatusu",
+      "Tuan Tran",
+      "Tom Sander",
+      "Alexandre Mourachko"
+    ],
+    "published": "2025-12-18T18:42:19Z",
+    "updated": "2025-12-18T18:42:19Z",
+    "comment": "Code and model available at https://github.com/facebookresearch/videoseal",
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2605.09203v2",
+    "title": "Removing the Watermark Is Not Enough: Forensic Stealth in Generative-AI Watermark Removal",
+    "authors": [
+      "Yevin Nikhel Goonatilake",
+      "Giuseppe Ateniese"
+    ],
+    "published": "2026-05-09T22:45:48Z",
+    "updated": "2026-08-28T04:11:40Z",
+    "comment": "22 pages, including appendices. v2: substantially revised and expanded, with updated empirical evaluation and theoretical analysis",
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2302.06588v1",
+    "title": "Raising the Cost of Malicious AI-Powered Image Editing",
+    "authors": [
+      "Hadi Salman",
+      "Alaa Khaddaj",
+      "Guillaume Leclerc",
+      "Andrew Ilyas",
+      "Aleksander Madry"
+    ],
+    "published": "2023-02-13T18:38:42Z",
+    "updated": "2023-02-13T18:38:42Z",
+    "comment": null,
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2401.04247v2",
+    "title": "Attack-Resilient Image Watermarking Using Stable Diffusion",
+    "authors": [
+      "Lijun Zhang",
+      "Xiao Liu",
+      "Antoni Viros Martin",
+      "Cindy Xiong Bearfield",
+      "Yuriy Brun",
+      "Hui Guan"
+    ],
+    "published": "2024-01-08T21:42:56Z",
+    "updated": "2024-10-28T15:02:34Z",
+    "comment": "28 pages, 11 figures; NeurIPS24",
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2508.21072v1",
+    "title": "First-Place Solution to NeurIPS 2024 Invisible Watermark Removal Challenge",
+    "authors": [
+      "Fahad Shamshad",
+      "Tameem Bakr",
+      "Yahia Shaaban",
+      "Noor Hussein",
+      "Karthik Nandakumar",
+      "Nils Lukas"
+    ],
+    "published": "2025-08-28T17:59:59Z",
+    "updated": "2025-08-28T17:59:59Z",
+    "comment": "Winning solution to the NeurIPS 2024 Erasing the Invisible challenge",
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2601.20310v1",
+    "title": "SemBind: Binding Diffusion Watermarks to Semantics Against Black-Box Forgery Attacks",
+    "authors": [
+      "Xin Zhang",
+      "Zijin Yang",
+      "Kejiang Chen",
+      "Linfeng Ma",
+      "Weiming Zhang",
+      "Nenghai Yu"
+    ],
+    "published": "2026-01-28T07:02:40Z",
+    "updated": "2026-01-28T07:02:40Z",
+    "comment": null,
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2405.08363v2",
+    "title": "UnMarker: A Universal Attack on Defensive Image Watermarking",
+    "authors": [
+      "Andre Kassis",
+      "Urs Hengartner"
+    ],
+    "published": "2024-05-14T07:05:18Z",
+    "updated": "2024-11-22T17:56:26Z",
+    "comment": "To appear at IEEE S&P 2025",
+    "journal_ref": null,
+    "doi": "10.1109/SP61157.2025.00005"
+  },
+  {
+    "id": "http://arxiv.org/abs/2401.08573v3",
+    "title": "WAVES: Benchmarking the Robustness of Image Watermarks",
+    "authors": [
+      "Bang An",
+      "Mucong Ding",
+      "Tahseen Rabbani",
+      "Aakriti Agrawal",
+      "Yuancheng Xu",
+      "Chenghao Deng",
+      "Sicheng Zhu",
+      "Abdirisak Mohamed",
+      "Yuxin Wen",
+      "Tom Goldstein",
+      "Furong Huang"
+    ],
+    "published": "2024-01-16T18:58:36Z",
+    "updated": "2024-06-07T03:38:35Z",
+    "comment": "Accepted by ICML 2024",
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2311.18297v1",
+    "title": "TrustMark: Universal Watermarking for Arbitrary Resolution Images",
+    "authors": [
+      "Tu Bui",
+      "Shruti Agarwal",
+      "John Collomosse"
+    ],
+    "published": "2023-11-30T07:03:36Z",
+    "updated": "2023-11-30T07:03:36Z",
+    "comment": null,
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2306.01953v3",
+    "title": "Invisible Image Watermarks Are Provably Removable Using Generative AI",
+    "authors": [
+      "Xuandong Zhao",
+      "Kexun Zhang",
+      "Zihao Su",
+      "Saastha Vasan",
+      "Ilya Grishchenko",
+      "Christopher Kruegel",
+      "Giovanni Vigna",
+      "Yu-Xiang Wang",
+      "Lei Li"
+    ],
+    "published": "2023-06-02T23:29:28Z",
+    "updated": "2024-10-31T17:47:21Z",
+    "comment": "NeurIPS 2024",
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2603.20304v2",
+    "title": "Transferable Multi-Bit Watermarking Across Frozen Diffusion Models via Latent Consistency Bridges",
+    "authors": [
+      "Hong-Hanh Nguyen-Le",
+      "Van-Tuan Tran",
+      "Thuc D. Nguyen",
+      "Nhien-An Le-Khac"
+    ],
+    "published": "2026-03-19T13:13:34Z",
+    "updated": "2026-06-02T21:19:58Z",
+    "comment": "Accepted in Second Workshop on Technical AI Governance Research (TAIGR) @ ICML 2026",
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2411.07795v2",
+    "title": "InvisMark: Invisible and Robust Watermarking for AI-generated Image Provenance",
+    "authors": [
+      "Rui Xu",
+      "Mengya Hu",
+      "Deren Lei",
+      "Yaxi Li",
+      "David Lowe",
+      "Alex Gorevski",
+      "Mingyu Wang",
+      "Emily Ching",
+      "Alex Deng"
+    ],
+    "published": "2024-11-10T16:22:22Z",
+    "updated": "2024-11-19T05:19:44Z",
+    "comment": "Accepted to WACV 2025",
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2410.05470v2",
+    "title": "Image Watermarks are Removable Using Controllable Regeneration from Clean Noise",
+    "authors": [
+      "Yepeng Liu",
+      "Yiren Song",
+      "Hai Ci",
+      "Yu Zhang",
+      "Haofan Wang",
+      "Mike Zheng Shou",
+      "Yuheng Bu"
+    ],
+    "published": "2024-10-07T20:04:29Z",
+    "updated": "2025-03-02T02:07:21Z",
+    "comment": "ICLR2025",
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2601.13128v1",
+    "title": "PhaseMark: A Post-hoc, Optimization-Free Watermarking of AI-generated Images in the Latent Frequency Domain",
+    "authors": [
+      "Sung Ju Lee",
+      "Nam Ik Cho"
+    ],
+    "published": "2026-01-19T15:13:23Z",
+    "updated": "2026-01-19T15:13:23Z",
+    "comment": "Accepted to the IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP) 2026",
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2412.03283v3",
+    "title": "Black-Box Forgery Attacks on Semantic Watermarks for Diffusion Models",
+    "authors": [
+      "Andreas Müller",
+      "Denis Lukovnikov",
+      "Jonas Thietke",
+      "Asja Fischer",
+      "Erwin Quiring"
+    ],
+    "published": "2024-12-04T12:57:17Z",
+    "updated": "2025-06-07T12:42:15Z",
+    "comment": "CVPR 2025",
+    "journal_ref": "Proc. IEEE/CVF Conf. on Computer Vision and Pattern Recognition (CVPR), 2025, pp. 20937-20946",
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2510.07302v1",
+    "title": "SpecGuard: Spectral Projection-based Advanced Invisible Watermarking",
+    "authors": [
+      "Inzamamul Alam",
+      "Md Tanvir Islam",
+      "Khan Muhammad",
+      "Simon S. Woo"
+    ],
+    "published": "2025-10-08T17:56:21Z",
+    "updated": "2025-10-08T17:56:21Z",
+    "comment": "ICCV 2025 Accepted Paper",
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2606.29807v1",
+    "title": "Rethinking Forgery Attacks on Semantic Watermarks in Black-Box Settings: A Geometric Distortion Perspective",
+    "authors": [
+      "Cheng-Yi Lee",
+      "Yichi Zhang",
+      "Yuchen Yang",
+      "Chun-Shien Lu",
+      "Jun-Cheng Chen"
+    ],
+    "published": "2026-06-29T05:37:22Z",
+    "updated": "2026-06-29T05:37:22Z",
+    "comment": "Accepted at ICML 2026, updated",
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2608.30656v1",
+    "title": "APT: Anchor-aligned Perturbations for Tamper Localization in Fully Regenerated Images",
+    "authors": [
+      "Suhyeon Ha",
+      "Woo Jae Kim",
+      "Joonsung Jeon",
+      "Sooel Son",
+      "Sung-eui Yoon"
+    ],
+    "published": "2026-08-31T11:56:39Z",
+    "updated": "2026-08-31T11:56:39Z",
+    "comment": "Accepted to ECCV 2026",
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2304.03400v1",
+    "title": "RoSteALS: Robust Steganography using Autoencoder Latent Space",
+    "authors": [
+      "Tu Bui",
+      "Shruti Agarwal",
+      "Ning Yu",
+      "John Collomosse"
+    ],
+    "published": "2023-04-06T22:14:26Z",
+    "updated": "2023-04-06T22:14:26Z",
+    "comment": "accepted to CVPR WMF 2023",
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2411.07231v2",
+    "title": "Watermark Anything with Localized Messages",
+    "authors": [
+      "Tom Sander",
+      "Pierre Fernandez",
+      "Alain Durmus",
+      "Teddy Furon",
+      "Matthijs Douze"
+    ],
+    "published": "2024-11-11T18:49:58Z",
+    "updated": "2025-07-22T13:48:18Z",
+    "comment": "ICLR 2025",
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2504.20111v1",
+    "title": "Forging and Removing Latent-Noise Diffusion Watermarks Using a Single Image",
+    "authors": [
+      "Anubhav Jain",
+      "Yuya Kobayashi",
+      "Naoki Murata",
+      "Yuhta Takida",
+      "Takashi Shibuya",
+      "Yuki Mitsufuji",
+      "Niv Cohen",
+      "Nasir Memon",
+      "Julian Togelius"
+    ],
+    "published": "2025-04-27T18:29:26Z",
+    "updated": "2025-04-27T18:29:26Z",
+    "comment": null,
+    "journal_ref": null,
+    "doi": null
+  },
+  {
+    "id": "http://arxiv.org/abs/2609.16832v1",
+    "title": "What Breaks Local Watermarks? A Robustness Benchmark for Local Invisible Image Watermarking",
+    "authors": [
+      "Kai Yao",
+      "Bence Szilágyi",
+      "Sebestyén Kamp",
+      "Máté Poór",
+      "Máté Szilveszter",
+      "Matyas K. Zsoldos",
+      "Marc Juarez"
+    ],
+    "published": "2026-09-15T08:30:39Z",
+    "updated": "2026-09-15T08:30:39Z",
+    "comment": "This work has been accepted for publication in the proceedings of the 19th ACM Workshop on Artificial Intelligence and Security (AISec 2026), co-located with ACM CCS 2026. The final version will be published in the ACM Digital Library",
+    "journal_ref": null,
+    "doi": null
+  }
+]

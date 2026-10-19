@@ -1,0 +1,103 @@
+{
+  "source": "https://api.crossref.org/works/10.1109%2FCVPR52688.2022.01413",
+  "access_date": "2026-10-19",
+  "title": [
+    "A Self-Supervised Descriptor for Image Copy Detection"
+  ],
+  "authors": [
+    {
+      "given": "Ed",
+      "family": "Pizzi",
+      "sequence": "first",
+      "affiliation": [
+        {
+          "name": "Meta AI"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Sreya Dutta",
+      "family": "Roy",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Meta AI"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Sugosh Nagavara",
+      "family": "Ravindra",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Meta AI"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Priya",
+      "family": "Goyal",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Meta AI"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    },
+    {
+      "given": "Matthijs",
+      "family": "Douze",
+      "sequence": "additional",
+      "affiliation": [
+        {
+          "name": "Meta AI"
+        }
+      ],
+      "role": [
+        {
+          "vocabulary": "crossref",
+          "role": "author"
+        }
+      ]
+    }
+  ],
+  "venue": [
+    "2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)"
+  ],
+  "published": {
+    "date-parts": [
+      [
+        2022,
+        6
+      ]
+    ]
+  },
+  "doi": "10.1109/cvpr52688.2022.01413",
+  "pages": "14512-14522",
+  "type": "proceedings-article"
+}

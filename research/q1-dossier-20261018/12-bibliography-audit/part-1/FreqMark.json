@@ -1,0 +1,42 @@
+{
+  "source_url": "https://api.crossref.org/works/10.52202/079017-3564",
+  "access_date": "2026-10-19",
+  "title": [
+    "FreqMark: Invisible Image Watermarking via Frequency Based Optimization in Latent Space"
+  ],
+  "authors": [
+    "Yiyang Guo",
+    "Ruizhe Li",
+    "Mude Hui",
+    "Hanzhong Guo",
+    "Chen Zhang",
+    "Chuangjian Cai",
+    "Le Wan",
+    "Shangfei Wang"
+  ],
+  "published": {
+    "date-parts": [
+      [
+        2024
+      ]
+    ]
+  },
+  "container": [
+    "Advances in Neural Information Processing Systems 37"
+  ],
+  "DOI": "10.52202/079017-3564",
+  "pages": "112237-112261",
+  "type": "proceedings-article",
+  "indexed": {
+    "date-parts": [
+      [
+        2026,
+        10,
+        13
+      ]
+    ],
+    "date-time": "2026-10-13T17:20:33Z",
+    "timestamp": 1791912033514,
+    "version": "4.3.4"
+  }
+}

@@ -1,0 +1,504 @@
+[
+  {
+    "source": "https://api.crossref.org/works/10.52202%2F085713-1675",
+    "access_date": "2026-10-19",
+    "title": [
+      "Transferable Black-Box One-Shot Forging of Watermarks via Image Preference Models"
+    ],
+    "authors": [
+      {
+        "given": "Tomáš",
+        "family": "Souček",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Facebook"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Sylvestre-Alvise",
+        "family": "Rebuffi",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Meta"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Pierre",
+        "family": "Fernandez",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Meta, FAIR"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Nikola",
+        "family": "Jovanović",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "ETH Zurich"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Hady",
+        "family": "Elsahar",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Meta AI"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Valeriu",
+        "family": "Lacatusu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Facebook"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Tuan",
+        "family": "Tran",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Meta Platform"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Alexandre",
+        "family": "Mourachko",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Research, Facebook"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "venue": [
+      "Advances in Neural Information Processing Systems 38"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2025
+        ]
+      ]
+    },
+    "doi": "10.52202/085713-1675",
+    "pages": "55967-55990",
+    "type": "proceedings-article"
+  },
+  {
+    "source": "https://api.crossref.org/works/10.1109%2FICCV51701.2025.01503",
+    "access_date": "2026-10-19",
+    "title": [
+      "SEAL: Semantic Aware Image Watermarking"
+    ],
+    "authors": [
+      {
+        "given": "Kasra",
+        "family": "Arabi",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "New York University"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "R. Teal",
+        "family": "Witter",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "New York University"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Chinmay",
+        "family": "Hegde",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "New York University"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Niv",
+        "family": "Cohen",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "New York University"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "venue": [
+      "2025 IEEE/CVF International Conference on Computer Vision (ICCV)"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2025,
+          10,
+          19
+        ]
+      ]
+    },
+    "doi": "10.1109/iccv51701.2025.01503",
+    "pages": "16196-16205",
+    "type": "proceedings-article"
+  },
+  {
+    "source": "https://api.crossref.org/works/10.1109%2FCVPR52688.2022.01415",
+    "access_date": "2026-10-19",
+    "title": [
+      "CAD: Co-Adapting Discriminative Features for Improved Few-Shot Classification"
+    ],
+    "authors": [
+      {
+        "given": "Philip",
+        "family": "Chikontwe",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "DGIST,Department of Robotics and Mechatronics,South Korea"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Soopil",
+        "family": "Kim",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "DGIST,Department of Robotics and Mechatronics,South Korea"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Sang Hyun",
+        "family": "Park",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "DGIST,Department of Robotics and Mechatronics,South Korea"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "venue": [
+      "2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2022,
+          6
+        ]
+      ]
+    },
+    "doi": "10.1109/cvpr52688.2022.01415",
+    "pages": "14534-14543",
+    "type": "proceedings-article"
+  },
+  {
+    "source": "https://api.crossref.org/works/10.1007%2F978-3-030-58565-5_43",
+    "access_date": "2026-10-19",
+    "title": [
+      "Unifying Deep Local and Global Features for Image Search"
+    ],
+    "authors": [
+      {
+        "given": "Bingyi",
+        "family": "Cao",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "André",
+        "family": "Araujo",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Jack",
+        "family": "Sim",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "venue": [
+      "Lecture Notes in Computer Science",
+      "Computer Vision – ECCV 2020"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2020
+        ]
+      ]
+    },
+    "doi": "10.1007/978-3-030-58565-5_43",
+    "pages": "726-743",
+    "type": "book-chapter"
+  },
+  {
+    "source": "https://api.crossref.org/works/10.52202%2F085713-4608",
+    "access_date": "2026-10-19",
+    "title": [
+      "WMCopier: Forging Invisible Watermarks on Arbitrary Images"
+    ],
+    "authors": [
+      {
+        "given": "Ziping",
+        "family": "Dong",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "College of Computer Science and Technology, Zhejiang University"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Chao",
+        "family": "Shuai",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Zhejiang University"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Zhongjie",
+        "family": "Ba",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Zhejiang University"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Peng",
+        "family": "Cheng",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Zhejiang University"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Zhan",
+        "family": "Qin",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Zhejiang University"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Qinglong",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Zhejiang University"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Kui",
+        "family": "Ren",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Zhejiang University"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "venue": [
+      "Advances in Neural Information Processing Systems 38"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2025
+        ]
+      ]
+    },
+    "doi": "10.52202/085713-4608",
+    "pages": "153114-153144",
+    "type": "proceedings-article"
+  }
+]

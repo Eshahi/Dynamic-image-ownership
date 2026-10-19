@@ -2,7 +2,7 @@
 
 Accessed 2026-10-18. Verification denotes primary method and evaluation/proof inspection, not reproduction.
 
-**Metadata.** Yevgeniy Dodis, Rafail Ostrovsky, Leonid Reyzin and Adam Smith. *Fuzzy Extractors: How to Generate Strong Keys from Biometrics and Other Noisy Data*. SIAM Journal on Computing 38(1):97–139 (2008). [Author record](https://www.cs.bu.edu/~reyzin/fuzzy.html), [author manuscript dated 2008-01-20](https://www.cs.bu.edu/~reyzin/papers/fuzzy.pdf); arXiv cs/0602007. DOI left unverified here. Locators: §§3.1–3.2, Lemma 4.3, Theorems 5.1–5.2 and Appendix C.
+**Metadata.** Yevgeniy Dodis, Rafail Ostrovsky, Leonid Reyzin and Adam Smith. *Fuzzy Extractors: How to Generate Strong Keys from Biometrics and Other Noisy Data*. SIAM Journal on Computing 38(1):97–139 (2008). [Author record](https://www.cs.bu.edu/~reyzin/fuzzy.html), [author manuscript dated 2008-01-20](https://www.cs.bu.edu/~reyzin/papers/fuzzy.pdf); arXiv cs/0602007. DOI [10.1137/060651380](https://doi.org/10.1137/060651380), resolved in the E2 metadata audit on 2026-10-19. Locators: §§3.1–3.2, Lemma 4.3, Theorems 5.1–5.2 and Appendix C.
 
 **Setting/mechanism.** A secure sketch permits recovery from a nearby input while bounding entropy loss. A fuzzy extractor produces a nearly uniform secret despite public helper data, assuming sufficient input min-entropy. Hamming constructions combine error-correcting codes and extraction.
 

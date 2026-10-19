@@ -1,0 +1,104 @@
+[
+  {
+    "query": "Breaking Widely Deployed Perceptual Hash Functions Black-Box Collisions in Apple NeuralHash and Microsoft PhotoDNA",
+    "source": "https://api.crossref.org/works?query.title=Breaking%20Widely%20Deployed%20Perceptual%20Hash%20Functions%20Black-Box%20Collisions%20in%20Apple%20NeuralHash%20and%20Microsoft%20PhotoDNA&rows=2",
+    "access_date": "2026-10-19",
+    "items": [
+      {
+        "title": [
+          "Breaking Cuckoo Hash: Black Box Attacks"
+        ],
+        "authors": [
+          {
+            "ORCID": "https://orcid.org/0000-0003-2540-5234",
+            "authenticated-orcid": false,
+            "given": "Pedro",
+            "family": "Reviriego",
+            "sequence": "first",
+            "affiliation": [
+              {
+                "name": "Universidad Carlos III de Madrid, Legan&#x00E9;s, Madrid, Spain"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          },
+          {
+            "given": "Daniel",
+            "family": "Ting",
+            "sequence": "additional",
+            "affiliation": [
+              {
+                "name": "Tableau Software, Seattle, WA, USA"
+              }
+            ],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "year": {
+          "date-parts": [
+            [
+              2022,
+              7,
+              1
+            ]
+          ]
+        },
+        "doi": "10.1109/tdsc.2021.3058336",
+        "venue": [
+          "IEEE Transactions on Dependable and Secure Computing"
+        ]
+      },
+      {
+        "title": [
+          "Black-Box Property of Cryptographic Hash Functions"
+        ],
+        "authors": [
+          {
+            "given": "Michal",
+            "family": "Rjaško",
+            "sequence": "first",
+            "affiliation": [],
+            "role": [
+              {
+                "role": "author",
+                "vocabulary": "crossref"
+              }
+            ]
+          }
+        ],
+        "year": {
+          "date-parts": [
+            [
+              2012
+            ]
+          ]
+        },
+        "doi": "10.1007/978-3-642-27901-0_14",
+        "venue": [
+          "Lecture Notes in Computer Science",
+          "Foundations and Practice of Security"
+        ]
+      }
+    ]
+  },
+  {
+    "query": "pHash Design and Validation",
+    "source": "https://api.crossref.org/works?query.title=pHash%20Design%20and%20Validation&rows=2",
+    "error": "No such host is known. (api.crossref.org:443)"
+  },
+  {
+    "query": "Content Credentials C2PA",
+    "source": "https://api.crossref.org/works?query.title=Content%20Credentials%20C2PA&rows=2",
+    "error": "No such host is known. (api.crossref.org:443)"
+  }
+]

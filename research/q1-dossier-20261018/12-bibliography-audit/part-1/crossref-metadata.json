@@ -1,0 +1,544 @@
+[
+  {
+    "key": "Tancik2020StegaStamp",
+    "query": "StegaStamp: Invisible Hyperlinks in Physical Photographs",
+    "source_url": "https://api.crossref.org/works?rows=2&query.title=StegaStamp%3A%20Invisible%20Hyperlinks%20in%20Physical%20Photographs",
+    "records": [
+      {
+        "title": [
+          "StegaStamp: Invisible Hyperlinks in Physical Photographs"
+        ],
+        "authors": [
+          "Matthew Tancik",
+          "Ben Mildenhall",
+          "Ren Ng"
+        ],
+        "year": {
+          "date-parts": [
+            [
+              2020,
+              6
+            ]
+          ]
+        },
+        "container": [
+          "2020 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)"
+        ],
+        "DOI": "10.1109/cvpr42600.2020.00219",
+        "URL": "https://doi.org/10.1109/cvpr42600.2020.00219",
+        "pages": "2114-2123",
+        "type": "proceedings-article"
+      },
+      {
+        "title": [
+          "Real time Robust Invisible Hyperlinks in Physical Photographs Based on Embodied AI Platform"
+        ],
+        "authors": [
+          "Kang Chen",
+          "Fuwang Yi",
+          "Jun Jia",
+          "Guangtao Zhai"
+        ],
+        "year": {
+          "date-parts": [
+            [
+              2020,
+              8
+            ]
+          ]
+        },
+        "container": [
+          "2020 IEEE Conference on Multimedia Information Processing and Retrieval (MIPR)"
+        ],
+        "DOI": "10.1109/mipr49039.2020.00063",
+        "URL": "https://doi.org/10.1109/mipr49039.2020.00063",
+        "pages": "271-274",
+        "type": "proceedings-article"
+      }
+    ]
+  },
+  {
+    "key": "Luo2026GROW",
+    "query": "GROW: Watermark Generation with Progressive Guidance for Diffusion Models",
+    "source_url": "https://api.crossref.org/works?rows=2&query.title=GROW%3A%20Watermark%20Generation%20with%20Progressive%20Guidance%20for%20Diffusion%20Models",
+    "records": [
+      {
+        "title": [
+          "DiffWA: Diffusion Models for Watermark Attack"
+        ],
+        "authors": [
+          "Xinyu Li"
+        ],
+        "year": {
+          "date-parts": [
+            [
+              2023,
+              11,
+              24
+            ]
+          ]
+        },
+        "container": [
+          "2023 International Conference on Integrated Intelligence and Communication Systems (ICIICS)"
+        ],
+        "DOI": "10.1109/iciics59993.2023.10420918",
+        "URL": "https://doi.org/10.1109/iciics59993.2023.10420918",
+        "pages": "1-8",
+        "type": "proceedings-article"
+      },
+      {
+        "title": [
+          "Guidance in diffusion models for target-aware molecular generation"
+        ],
+        "authors": [
+          "Jeremy Zay"
+        ],
+        "year": null,
+        "container": null,
+        "DOI": "10.14418/ssbt4x23",
+        "URL": "https://doi.org/10.14418/ssbt4x23",
+        "pages": null,
+        "type": "dissertation"
+      }
+    ]
+  },
+  {
+    "key": "craver1998ownership",
+    "query": "10.1109/49.668979",
+    "source_url": "https://api.crossref.org/works/10.1109%2F49.668979",
+    "records": [
+      {
+        "title": [
+          "Resolving rightful ownerships with invisible watermarking techniques: limitations, attacks, and implications"
+        ],
+        "authors": [
+          "S. Craver",
+          "N. Memon",
+          "B.-L. Yeo",
+          "M.M. Yeung"
+        ],
+        "year": {
+          "date-parts": [
+            [
+              1998,
+              5
+            ]
+          ]
+        },
+        "container": [
+          "IEEE Journal on Selected Areas in Communications"
+        ],
+        "DOI": "10.1109/49.668979",
+        "URL": "https://doi.org/10.1109/49.668979",
+        "pages": "573-586",
+        "type": "journal-article"
+      }
+    ]
+  },
+  {
+    "key": "kutter2000copy",
+    "query": "Watermark copy attack",
+    "source_url": "https://api.crossref.org/works?rows=2&query.title=Watermark%20copy%20attack",
+    "records": [
+      {
+        "title": [
+          "&lt;title&gt;Watermark copy attack&lt;/title&gt;"
+        ],
+        "authors": [
+          "Martin Kutter",
+          "Sviatoslav V. Voloshynovskiy",
+          "Alexander Herrigel"
+        ],
+        "year": {
+          "date-parts": [
+            [
+              2000,
+              5,
+              9
+            ]
+          ]
+        },
+        "container": [
+          "SPIE Proceedings",
+          "Security and Watermarking of Multimedia Contents II"
+        ],
+        "DOI": "10.1117/12.384991",
+        "URL": "https://doi.org/10.1117/12.384991",
+        "pages": "371-380",
+        "type": "proceedings-article"
+      },
+      {
+        "title": [
+          "FAWA: Fast Adversarial Watermark Attack"
+        ],
+        "authors": [
+          "Hao Jiang",
+          "Jintao Yang",
+          "Guang Hua",
+          "Lixia Li",
+          "Ying Wang",
+          "Shenghui Tu",
+          "Song Xia"
+        ],
+        "year": {
+          "date-parts": [
+            [
+              2024,
+              2
+            ]
+          ]
+        },
+        "container": [
+          "IEEE Transactions on Computers"
+        ],
+        "DOI": "10.1109/tc.2021.3065172",
+        "URL": "https://doi.org/10.1109/tc.2021.3065172",
+        "pages": "301-313",
+        "type": "journal-article"
+      }
+    ]
+  },
+  {
+    "key": "Bui2023RoSteALS",
+    "query": "10.1109/CVPRW59228.2023.00100",
+    "source_url": "https://api.crossref.org/works/10.1109%2FCVPRW59228.2023.00100",
+    "records": [
+      {
+        "title": [
+          "RoSteALS: Robust Steganography using Autoencoder Latent Space"
+        ],
+        "authors": [
+          "Tu Bui",
+          "Shruti Agarwal",
+          "Ning Yu",
+          "John Collomosse"
+        ],
+        "year": {
+          "date-parts": [
+            [
+              2023,
+              6
+            ]
+          ]
+        },
+        "container": [
+          "2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW)"
+        ],
+        "DOI": "10.1109/cvprw59228.2023.00100",
+        "URL": "https://doi.org/10.1109/cvprw59228.2023.00100",
+        "pages": "933-942",
+        "type": "proceedings-article"
+      }
+    ]
+  },
+  {
+    "key": "Guo2024FreqMark",
+    "query": "10.52202/079017-3564",
+    "source_url": "https://api.crossref.org/works/10.52202%2F079017-3564",
+    "error": "Response status code does not indicate success: 429 (Too Many Requests)."
+  },
+  {
+    "key": "kassis2025unmarker",
+    "query": "10.1109/SP61157.2025.00005",
+    "source_url": "https://api.crossref.org/works/10.1109%2FSP61157.2025.00005",
+    "records": [
+      {
+        "title": [
+          "UnMarker: A Universal Attack on Defensive Image Watermarking"
+        ],
+        "authors": [
+          "Andre Kassis",
+          "Urs Hengartner"
+        ],
+        "year": {
+          "date-parts": [
+            [
+              2025,
+              5,
+              12
+            ]
+          ]
+        },
+        "container": [
+          "2025 IEEE Symposium on Security and Privacy (SP)"
+        ],
+        "DOI": "10.1109/sp61157.2025.00005",
+        "URL": "https://doi.org/10.1109/sp61157.2025.00005",
+        "pages": "2602-2620",
+        "type": "proceedings-article"
+      }
+    ]
+  },
+  {
+    "key": "alam2025specguard",
+    "query": "SpecGuard: Spectral Projection-based Advanced Invisible Watermarking",
+    "source_url": "https://api.crossref.org/works?rows=2&query.title=SpecGuard%3A%20Spectral%20Projection-based%20Advanced%20Invisible%20Watermarking",
+    "records": [
+      {
+        "title": [
+          "SpecGuard: Spectral Projection-Based Advanced Invisible Watermarking"
+        ],
+        "authors": [
+          "Inzamamul Alam",
+          "Md Tanvir Islam",
+          "Simon S. Woo",
+          "Khan Muhammad"
+        ],
+        "year": {
+          "date-parts": [
+            [
+              2025,
+              10,
+              19
+            ]
+          ]
+        },
+        "container": [
+          "2025 IEEE/CVF International Conference on Computer Vision (ICCV)"
+        ],
+        "DOI": "10.1109/iccv51701.2025.01671",
+        "URL": "https://doi.org/10.1109/iccv51701.2025.01671",
+        "pages": "17984-17993",
+        "type": "proceedings-article"
+      },
+      {
+        "title": [
+          "FUZZY BASED INVISIBLE WATERMARKING"
+        ],
+        "authors": [
+          " ",
+          "T.R.Vijaya Lakshmi"
+        ],
+        "year": {
+          "date-parts": [
+            [
+              2017,
+              8,
+              20
+            ]
+          ]
+        },
+        "container": [
+          "International Journal of Advanced Research in Computer Science"
+        ],
+        "DOI": "10.26483/ijarcs.v8i7.4558",
+        "URL": "https://doi.org/10.26483/ijarcs.v8i7.4558",
+        "pages": "1063-1068",
+        "type": "journal-article"
+      }
+    ]
+  },
+  {
+    "key": "Bui2023TrustMark",
+    "query": "TrustMark",
+    "source_url": "https://api.crossref.org/works?rows=2&query.title=TrustMark",
+    "records": [
+      {
+        "title": [
+          "Trustmark Corp."
+        ],
+        "authors": [
+          " "
+        ],
+        "year": {
+          "date-parts": [
+            [
+              2005,
+              9
+            ]
+          ]
+        },
+        "container": [
+          "Mergent's Dividend Achievers"
+        ],
+        "DOI": "10.1002/div.3277",
+        "URL": "https://doi.org/10.1002/div.3277",
+        "pages": "281-281",
+        "type": "journal-article"
+      },
+      {
+        "title": [
+          "Trustmark Corp."
+        ],
+        "authors": [
+          " "
+        ],
+        "year": {
+          "date-parts": [
+            [
+              2005,
+              1,
+              5
+            ]
+          ]
+        },
+        "container": [
+          "Mergent's Dividend Achievers"
+        ],
+        "DOI": "10.1002/div.2056",
+        "URL": "https://doi.org/10.1002/div.2056",
+        "pages": "266-266",
+        "type": "journal-article"
+      }
+    ]
+  },
+  {
+    "key": "Xu2024InvisMark",
+    "query": "InvisMark: Invisible and Robust Watermarking for AI-generated Image Provenance",
+    "source_url": "https://api.crossref.org/works?rows=2&query.title=InvisMark%3A%20Invisible%20and%20Robust%20Watermarking%20for%20AI-generated%20Image%20Provenance",
+    "records": [
+      {
+        "title": [
+          "InvisMark: Invisible and Robust Watermarking for AI-generated Image Provenance"
+        ],
+        "authors": [
+          "Rui Xu",
+          "Mengya Hu",
+          "Deren Lei",
+          "Yaxi Li",
+          "David Lowe",
+          "Alex Gorevski",
+          "Mingyu Wang",
+          "Emily Ching",
+          "Alex Deng"
+        ],
+        "year": {
+          "date-parts": [
+            [
+              2025,
+              2,
+              26
+            ]
+          ]
+        },
+        "container": [
+          "2025 IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)"
+        ],
+        "DOI": "10.1109/wacv61041.2025.00098",
+        "URL": "https://doi.org/10.1109/wacv61041.2025.00098",
+        "pages": "909-918",
+        "type": "proceedings-article"
+      },
+      {
+        "title": [
+          "Robust Invisible Watermarking for Image Authentication"
+        ],
+        "authors": [
+          "Priyanka R. Kulkarni",
+          "Altaaf O. Mulani",
+          "P. B. Mane"
+        ],
+        "year": {
+          "date-parts": [
+            [
+              2016,
+              11,
+              15
+            ]
+          ]
+        },
+        "container": [
+          "Lecture Notes in Electrical Engineering",
+          "Emerging Trends in Electrical, Communications and Information Technologies"
+        ],
+        "DOI": "10.1007/978-981-10-1540-3_20",
+        "URL": "https://doi.org/10.1007/978-981-10-1540-3_20",
+        "pages": "193-200",
+        "type": "book-chapter"
+      }
+    ]
+  },
+  {
+    "key": "Lee2026PhaseMark",
+    "query": "PhaseMark",
+    "source_url": "https://api.crossref.org/works?rows=2&query.title=PhaseMark",
+    "records": [
+      {
+        "title": [
+          "PhaseMark: A Post-hoc, Optimization-Free Watermarking of AI-Generated Images in the Latent Frequency Domain"
+        ],
+        "authors": [
+          "Sung Ju Lee",
+          "Nam Ik Cho"
+        ],
+        "year": {
+          "date-parts": [
+            [
+              2026,
+              5,
+              3
+            ]
+          ]
+        },
+        "container": [
+          "ICASSP 2026 - 2026 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)"
+        ],
+        "DOI": "10.1109/icassp55912.2026.11463051",
+        "URL": "https://doi.org/10.1109/icassp55912.2026.11463051",
+        "pages": "13472-13476",
+        "type": "proceedings-article"
+      }
+    ]
+  },
+  {
+    "key": "muller2025forgery",
+    "query": "Black-Box Forgery Attacks on Semantic Watermarks for Diffusion Models",
+    "source_url": "https://api.crossref.org/works?rows=2&query.title=Black-Box%20Forgery%20Attacks%20on%20Semantic%20Watermarks%20for%20Diffusion%20Models",
+    "records": [
+      {
+        "title": [
+          "Black-Box Forgery Attacks on Semantic Watermarks for Diffusion Models"
+        ],
+        "authors": [
+          "Andreas Müller",
+          "Denis Lukovnikov",
+          "Jonas Thietke",
+          "Asja Fischer",
+          "Erwin Quiring"
+        ],
+        "year": {
+          "date-parts": [
+            [
+              2025,
+              6,
+              10
+            ]
+          ]
+        },
+        "container": [
+          "2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)"
+        ],
+        "DOI": "10.1109/cvpr52734.2025.01950",
+        "URL": "https://doi.org/10.1109/cvpr52734.2025.01950",
+        "pages": "20937-20946",
+        "type": "proceedings-article"
+      },
+      {
+        "title": [
+          "Box-Free Model Watermarks are Prone to Black-Box Removal Attacks"
+        ],
+        "authors": [
+          "Haonan An",
+          "Guang Hua",
+          "Zhiping Lin",
+          "Yuguang Fang"
+        ],
+        "year": {
+          "date-parts": [
+            [
+              2026,
+              9
+            ]
+          ]
+        },
+        "container": [
+          "IEEE Transactions on Pattern Analysis and Machine Intelligence"
+        ],
+        "DOI": "10.1109/tpami.2026.3688047",
+        "URL": "https://doi.org/10.1109/tpami.2026.3688047",
+        "pages": "10610-10622",
+        "type": "journal-article"
+      }
+    ]
+  }
+]

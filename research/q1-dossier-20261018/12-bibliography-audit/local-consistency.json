@@ -1,0 +1,23 @@
+{
+  "checked_at": "2026-10-19T00:19:29.0181372-08:00",
+  "bib_entries": 87,
+  "matrix_entries": 87,
+  "duplicate_bib_keys": [],
+  "missing_bib_for_matrix": [
+    "fierce2019cnn"
+  ],
+  "bib_without_matrix": [
+    "Bui2023TrustMark"
+  ],
+  "unresolved_draft_citations": [],
+  "verification_counts": [
+    {
+      "Name": "V1",
+      "Count": 8
+    },
+    {
+      "Name": "V2",
+      "Count": 79
+    }
+  ]
+}

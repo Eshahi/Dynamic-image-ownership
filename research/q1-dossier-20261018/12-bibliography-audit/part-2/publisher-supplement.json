@@ -1,0 +1,67 @@
+{
+  "phashdesign": {
+    "authors": [
+      "Evan Klinger",
+      "David Starkweather"
+    ],
+    "title": "Design & Validation",
+    "source": "https://www.phash.org/docs/design.html",
+    "venue": "pHash.org",
+    "index_status": "Crossref title query failed DNS; DBLP query gave no usable JSON; official webpage inspected; no indexed record claimed",
+    "year": "",
+    "doi": "",
+    "kind": "official undated webpage; non-paper exception"
+  },
+  "c2pa24contentcredentials": {
+    "venue": "C2PA Specifications 2.4",
+    "doi": "",
+    "kind": "official standard; non-paper exception",
+    "official": "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html",
+    "title": "Content Credentials",
+    "year": "2026",
+    "authors": [
+      "Coalition for Content Provenance and Authenticity"
+    ],
+    "index_status": "Crossref title query failed DNS; DBLP query 429; publisher specification inspected; no indexed record claimed",
+    "source": "https://spec.c2pa.org/specifications/specifications/2.4/specs/ContentCredentials.html"
+  },
+  "leblancalbarel2026blackbox": {
+    "authors": [
+      "Diane Leblanc-Albarel",
+      "Bart Preneel"
+    ],
+    "title": "Breaking Widely Deployed Perceptual Hash Functions: Black-Box Collisions in Apple NeuralHash and Microsoft PhotoDNA",
+    "source": "https://www.usenix.org/conference/usenixsecurity26/presentation/leblanc-albarel",
+    "venue": "35th USENIX Security Symposium (USENIX Security 26)",
+    "index_status": "no matching Crossref record among two title-query results; DBLP search/API inaccessible or no usable response; not a proved absence",
+    "year": "2026",
+    "doi": "",
+    "kind": "official publisher; indexed check unresolved"
+  },
+  "papakipos2022isc": {
+    "venue": "Proceedings of the NeurIPS 2021 Competitions and Demonstrations Track",
+    "doi": "",
+    "kind": "DBLP + official PMLR",
+    "official": "https://proceedings.mlr.press/v176/papakipos22a.html",
+    "title": "Results and findings of the 2021 Image Similarity Challenge",
+    "year": "2022",
+    "authors": [
+      "Zoë Papakipos",
+      "Giorgos Tolias",
+      "Tomas Jenicek",
+      "Ed Pizzi",
+      "Shuhei Yokoo",
+      "Wenhao Wang",
+      "Yifan Sun",
+      "Weipu Zhang",
+      "Yi Yang",
+      "Sanjay Addicam",
+      "Sergio Manuel Papadakis",
+      "Cristian Canton Ferrer",
+      "Ondřej Chum",
+      "Matthijs Douze"
+    ],
+    "index_status": "DBLP located; DBLP event year 2021 conflicts with publisher publication year 2022; publisher used for citation year",
+    "source": "https://dblp.org/rec/conf/nips/PapakiposTJPYWS21.html"
+  }
+}

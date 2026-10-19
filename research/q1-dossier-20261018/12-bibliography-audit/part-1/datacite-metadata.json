@@ -1,0 +1,475 @@
+[
+  {
+    "id": "2411.07795",
+    "source_url": "https://api.datacite.org/dois/10.48550/arXiv.2411.07795",
+    "title": [
+      {
+        "title": "InvisMark: Invisible and Robust Watermarking for AI-generated Image Provenance"
+      }
+    ],
+    "creators": [
+      {
+        "name": "Xu, Rui",
+        "nameType": "Personal",
+        "givenName": "Rui",
+        "familyName": "Xu",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Hu, Mengya",
+        "nameType": "Personal",
+        "givenName": "Mengya",
+        "familyName": "Hu",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Lei, Deren",
+        "nameType": "Personal",
+        "givenName": "Deren",
+        "familyName": "Lei",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Li, Yaxi",
+        "nameType": "Personal",
+        "givenName": "Yaxi",
+        "familyName": "Li",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Lowe, David",
+        "nameType": "Personal",
+        "givenName": "David",
+        "familyName": "Lowe",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Gorevski, Alex",
+        "nameType": "Personal",
+        "givenName": "Alex",
+        "familyName": "Gorevski",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Wang, Mingyu",
+        "nameType": "Personal",
+        "givenName": "Mingyu",
+        "familyName": "Wang",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Ching, Emily",
+        "nameType": "Personal",
+        "givenName": "Emily",
+        "familyName": "Ching",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Deng, Alex",
+        "nameType": "Personal",
+        "givenName": "Alex",
+        "familyName": "Deng",
+        "affiliation": [],
+        "nameIdentifiers": []
+      }
+    ],
+    "year": 2024,
+    "publisher": "arXiv",
+    "doi": "10.48550/arxiv.2411.07795",
+    "url": "https://arxiv.org/abs/2411.07795"
+  },
+  {
+    "id": "2411.07231",
+    "source_url": "https://api.datacite.org/dois/10.48550/arXiv.2411.07231",
+    "title": [
+      {
+        "title": "Watermark Anything with Localized Messages"
+      }
+    ],
+    "creators": [
+      {
+        "name": "Sander, Tom",
+        "nameType": "Personal",
+        "givenName": "Tom",
+        "familyName": "Sander",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Fernandez, Pierre",
+        "nameType": "Personal",
+        "givenName": "Pierre",
+        "familyName": "Fernandez",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Durmus, Alain",
+        "nameType": "Personal",
+        "givenName": "Alain",
+        "familyName": "Durmus",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Furon, Teddy",
+        "nameType": "Personal",
+        "givenName": "Teddy",
+        "familyName": "Furon",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Douze, Matthijs",
+        "nameType": "Personal",
+        "givenName": "Matthijs",
+        "familyName": "Douze",
+        "affiliation": [],
+        "nameIdentifiers": []
+      }
+    ],
+    "year": 2024,
+    "publisher": "arXiv",
+    "doi": "10.48550/arxiv.2411.07231",
+    "url": "https://arxiv.org/abs/2411.07231"
+  },
+  {
+    "id": "2603.20304",
+    "source_url": "https://api.datacite.org/dois/10.48550/arXiv.2603.20304",
+    "title": [
+      {
+        "title": "Transferable Multi-Bit Watermarking Across Frozen Diffusion Models via Latent Consistency Bridges"
+      }
+    ],
+    "creators": [
+      {
+        "name": "Nguyen-Le, Hong-Hanh",
+        "nameType": "Personal",
+        "givenName": "Hong-Hanh",
+        "familyName": "Nguyen-Le",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Tran, Van-Tuan",
+        "nameType": "Personal",
+        "givenName": "Van-Tuan",
+        "familyName": "Tran",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Nguyen, Thuc D.",
+        "nameType": "Personal",
+        "givenName": "Thuc D.",
+        "familyName": "Nguyen",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Le-Khac, Nhien-An",
+        "nameType": "Personal",
+        "givenName": "Nhien-An",
+        "familyName": "Le-Khac",
+        "affiliation": [],
+        "nameIdentifiers": []
+      }
+    ],
+    "year": 2026,
+    "publisher": "arXiv",
+    "doi": "10.48550/arxiv.2603.20304",
+    "url": "https://arxiv.org/abs/2603.20304"
+  },
+  {
+    "id": "2512.16874",
+    "source_url": "https://api.datacite.org/dois/10.48550/arXiv.2512.16874",
+    "title": [
+      {
+        "title": "Pixel Seal: Adversarial-only training for invisible image and video watermarking"
+      }
+    ],
+    "creators": [
+      {
+        "name": "Souček, Tomáš",
+        "nameType": "Personal",
+        "givenName": "Tomáš",
+        "familyName": "Souček",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Fernandez, Pierre",
+        "nameType": "Personal",
+        "givenName": "Pierre",
+        "familyName": "Fernandez",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Elsahar, Hady",
+        "nameType": "Personal",
+        "givenName": "Hady",
+        "familyName": "Elsahar",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Rebuffi, Sylvestre-Alvise",
+        "nameType": "Personal",
+        "givenName": "Sylvestre-Alvise",
+        "familyName": "Rebuffi",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Lacatusu, Valeriu",
+        "nameType": "Personal",
+        "givenName": "Valeriu",
+        "familyName": "Lacatusu",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Tran, Tuan",
+        "nameType": "Personal",
+        "givenName": "Tuan",
+        "familyName": "Tran",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Sander, Tom",
+        "nameType": "Personal",
+        "givenName": "Tom",
+        "familyName": "Sander",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Mourachko, Alexandre",
+        "nameType": "Personal",
+        "givenName": "Alexandre",
+        "familyName": "Mourachko",
+        "affiliation": [],
+        "nameIdentifiers": []
+      }
+    ],
+    "year": 2025,
+    "publisher": "arXiv",
+    "doi": "10.48550/arxiv.2512.16874",
+    "url": "https://arxiv.org/abs/2512.16874"
+  },
+  {
+    "id": "2504.20111",
+    "source_url": "https://api.datacite.org/dois/10.48550/arXiv.2504.20111",
+    "title": [
+      {
+        "title": "Forging and Removing Latent-Noise Diffusion Watermarks Using a Single Image"
+      }
+    ],
+    "creators": [
+      {
+        "name": "Jain, Anubhav",
+        "nameType": "Personal",
+        "givenName": "Anubhav",
+        "familyName": "Jain",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Kobayashi, Yuya",
+        "nameType": "Personal",
+        "givenName": "Yuya",
+        "familyName": "Kobayashi",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Murata, Naoki",
+        "nameType": "Personal",
+        "givenName": "Naoki",
+        "familyName": "Murata",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Takida, Yuhta",
+        "nameType": "Personal",
+        "givenName": "Yuhta",
+        "familyName": "Takida",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Shibuya, Takashi",
+        "nameType": "Personal",
+        "givenName": "Takashi",
+        "familyName": "Shibuya",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Mitsufuji, Yuki",
+        "nameType": "Personal",
+        "givenName": "Yuki",
+        "familyName": "Mitsufuji",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Cohen, Niv",
+        "nameType": "Personal",
+        "givenName": "Niv",
+        "familyName": "Cohen",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Memon, Nasir",
+        "nameType": "Personal",
+        "givenName": "Nasir",
+        "familyName": "Memon",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Togelius, Julian",
+        "nameType": "Personal",
+        "givenName": "Julian",
+        "familyName": "Togelius",
+        "affiliation": [],
+        "nameIdentifiers": []
+      }
+    ],
+    "year": 2025,
+    "publisher": "arXiv",
+    "doi": "10.48550/arxiv.2504.20111",
+    "url": "https://arxiv.org/abs/2504.20111"
+  },
+  {
+    "id": "2601.20310",
+    "source_url": "https://api.datacite.org/dois/10.48550/arXiv.2601.20310",
+    "title": [
+      {
+        "title": "SemBind: Binding Diffusion Watermarks to Semantics Against Black-Box Forgery Attacks"
+      }
+    ],
+    "creators": [
+      {
+        "name": "Zhang, Xin",
+        "nameType": "Personal",
+        "givenName": "Xin",
+        "familyName": "Zhang",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Yang, Zijin",
+        "nameType": "Personal",
+        "givenName": "Zijin",
+        "familyName": "Yang",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Chen, Kejiang",
+        "nameType": "Personal",
+        "givenName": "Kejiang",
+        "familyName": "Chen",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Ma, Linfeng",
+        "nameType": "Personal",
+        "givenName": "Linfeng",
+        "familyName": "Ma",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Zhang, Weiming",
+        "nameType": "Personal",
+        "givenName": "Weiming",
+        "familyName": "Zhang",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Yu, Nenghai",
+        "nameType": "Personal",
+        "givenName": "Nenghai",
+        "familyName": "Yu",
+        "affiliation": [],
+        "nameIdentifiers": []
+      }
+    ],
+    "year": 2026,
+    "publisher": "arXiv",
+    "doi": "10.48550/arxiv.2601.20310",
+    "url": "https://arxiv.org/abs/2601.20310"
+  },
+  {
+    "id": "2606.29807",
+    "source_url": "https://api.datacite.org/dois/10.48550/arXiv.2606.29807",
+    "title": [
+      {
+        "title": "Rethinking Forgery Attacks on Semantic Watermarks in Black-Box Settings: A Geometric Distortion Perspective"
+      }
+    ],
+    "creators": [
+      {
+        "name": "Lee, Cheng-Yi",
+        "nameType": "Personal",
+        "givenName": "Cheng-Yi",
+        "familyName": "Lee",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Zhang, Yichi",
+        "nameType": "Personal",
+        "givenName": "Yichi",
+        "familyName": "Zhang",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Yang, Yuchen",
+        "nameType": "Personal",
+        "givenName": "Yuchen",
+        "familyName": "Yang",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Lu, Chun-Shien",
+        "nameType": "Personal",
+        "givenName": "Chun-Shien",
+        "familyName": "Lu",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Chen, Jun-Cheng",
+        "nameType": "Personal",
+        "givenName": "Jun-Cheng",
+        "familyName": "Chen",
+        "affiliation": [],
+        "nameIdentifiers": []
+      }
+    ],
+    "year": 2026,
+    "publisher": "arXiv",
+    "doi": "10.48550/arxiv.2606.29807",
+    "url": "https://arxiv.org/abs/2606.29807"
+  }
+]

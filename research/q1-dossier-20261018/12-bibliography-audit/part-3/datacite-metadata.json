@@ -1,0 +1,812 @@
+[
+  {
+    "source_url": "https://api.datacite.org/dois/10.48550/arXiv.2305.20030",
+    "access_date": "2026-10-19",
+    "doi": "10.48550/arxiv.2305.20030",
+    "titles": [
+      {
+        "title": "Tree-Ring Watermarks: Fingerprints for Diffusion Images that are Invisible and Robust"
+      }
+    ],
+    "creators": [
+      {
+        "name": "Wen, Yuxin",
+        "nameType": "Personal",
+        "givenName": "Yuxin",
+        "familyName": "Wen",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Kirchenbauer, John",
+        "nameType": "Personal",
+        "givenName": "John",
+        "familyName": "Kirchenbauer",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Geiping, Jonas",
+        "nameType": "Personal",
+        "givenName": "Jonas",
+        "familyName": "Geiping",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Goldstein, Tom",
+        "nameType": "Personal",
+        "givenName": "Tom",
+        "familyName": "Goldstein",
+        "affiliation": [],
+        "nameIdentifiers": []
+      }
+    ],
+    "publicationYear": 2023,
+    "publisher": "arXiv",
+    "url": "https://arxiv.org/abs/2305.20030",
+    "version": "3",
+    "dates": [
+      {
+        "date": "2023-05-31T17:00:31Z",
+        "dateType": "Submitted",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2023-06-01T00:26:09Z",
+        "dateType": "Updated",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2023-06-01T12:01:59Z",
+        "dateType": "Submitted",
+        "dateInformation": "v2"
+      },
+      {
+        "date": "2023-06-02T00:19:20Z",
+        "dateType": "Updated",
+        "dateInformation": "v2"
+      },
+      {
+        "date": "2023-07-04T03:52:06Z",
+        "dateType": "Submitted",
+        "dateInformation": "v3"
+      },
+      {
+        "date": "2023-07-06T00:09:55Z",
+        "dateType": "Updated",
+        "dateInformation": "v3"
+      },
+      {
+        "date": "2023-05",
+        "dateType": "Available",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2023",
+        "dateType": "Issued"
+      }
+    ],
+    "relatedIdentifiers": []
+  },
+  {
+    "source_url": "https://api.datacite.org/dois/10.48550/arXiv.2404.04956",
+    "access_date": "2026-10-19",
+    "doi": "10.48550/arxiv.2404.04956",
+    "titles": [
+      {
+        "title": "Gaussian Shading: Provable Performance-Lossless Image Watermarking for Diffusion Models"
+      }
+    ],
+    "creators": [
+      {
+        "name": "Yang, Zijin",
+        "nameType": "Personal",
+        "givenName": "Zijin",
+        "familyName": "Yang",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Zeng, Kai",
+        "nameType": "Personal",
+        "givenName": "Kai",
+        "familyName": "Zeng",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Chen, Kejiang",
+        "nameType": "Personal",
+        "givenName": "Kejiang",
+        "familyName": "Chen",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Fang, Han",
+        "nameType": "Personal",
+        "givenName": "Han",
+        "familyName": "Fang",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Zhang, Weiming",
+        "nameType": "Personal",
+        "givenName": "Weiming",
+        "familyName": "Zhang",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Yu, Nenghai",
+        "nameType": "Personal",
+        "givenName": "Nenghai",
+        "familyName": "Yu",
+        "affiliation": [],
+        "nameIdentifiers": []
+      }
+    ],
+    "publicationYear": 2024,
+    "publisher": "arXiv",
+    "url": "https://arxiv.org/abs/2404.04956",
+    "version": "3",
+    "dates": [
+      {
+        "date": "2024-04-07T13:30:10Z",
+        "dateType": "Submitted",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2024-04-09T00:56:34Z",
+        "dateType": "Updated",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2024-04-27T08:05:29Z",
+        "dateType": "Submitted",
+        "dateInformation": "v2"
+      },
+      {
+        "date": "2024-04-30T00:14:56Z",
+        "dateType": "Updated",
+        "dateInformation": "v2"
+      },
+      {
+        "date": "2024-05-06T10:43:48Z",
+        "dateType": "Submitted",
+        "dateInformation": "v3"
+      },
+      {
+        "date": "2024-05-07T01:06:44Z",
+        "dateType": "Updated",
+        "dateInformation": "v3"
+      },
+      {
+        "date": "2024-04",
+        "dateType": "Available",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2024",
+        "dateType": "Issued"
+      }
+    ],
+    "relatedIdentifiers": []
+  },
+  {
+    "source_url": "https://api.datacite.org/dois/10.48550/arXiv.2410.07369",
+    "access_date": "2026-10-19",
+    "doi": "10.48550/arxiv.2410.07369",
+    "titles": [
+      {
+        "title": "An Undetectable Watermark for Generative Image Models"
+      }
+    ],
+    "creators": [
+      {
+        "name": "Gunn, Sam",
+        "nameType": "Personal",
+        "givenName": "Sam",
+        "familyName": "Gunn",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Zhao, Xuandong",
+        "nameType": "Personal",
+        "givenName": "Xuandong",
+        "familyName": "Zhao",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Song, Dawn",
+        "nameType": "Personal",
+        "givenName": "Dawn",
+        "familyName": "Song",
+        "affiliation": [],
+        "nameIdentifiers": []
+      }
+    ],
+    "publicationYear": 2024,
+    "publisher": "arXiv",
+    "url": "https://arxiv.org/abs/2410.07369",
+    "version": "4",
+    "dates": [
+      {
+        "date": "2024-10-09T18:33:06Z",
+        "dateType": "Submitted",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2024-10-14T00:59:08Z",
+        "dateType": "Updated",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2024-11-15T19:20:37Z",
+        "dateType": "Submitted",
+        "dateInformation": "v2"
+      },
+      {
+        "date": "2024-11-19T01:03:34Z",
+        "dateType": "Updated",
+        "dateInformation": "v2"
+      },
+      {
+        "date": "2025-03-05T00:06:53Z",
+        "dateType": "Submitted",
+        "dateInformation": "v3"
+      },
+      {
+        "date": "2025-03-06T01:11:05Z",
+        "dateType": "Updated",
+        "dateInformation": "v3"
+      },
+      {
+        "date": "2025-04-21T21:40:23Z",
+        "dateType": "Submitted",
+        "dateInformation": "v4"
+      },
+      {
+        "date": "2025-04-23T00:10:12Z",
+        "dateType": "Updated",
+        "dateInformation": "v4"
+      },
+      {
+        "date": "2024-10",
+        "dateType": "Available",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2024",
+        "dateType": "Issued"
+      }
+    ],
+    "relatedIdentifiers": []
+  },
+  {
+    "source_url": "https://api.datacite.org/dois/10.48550/arXiv.2404.14055",
+    "access_date": "2026-10-19",
+    "doi": "10.48550/arxiv.2404.14055",
+    "titles": [
+      {
+        "title": "RingID: Rethinking Tree-Ring Watermarking for Enhanced Multi-Key Identification"
+      }
+    ],
+    "creators": [
+      {
+        "name": "Ci, Hai",
+        "nameType": "Personal",
+        "givenName": "Hai",
+        "familyName": "Ci",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Yang, Pei",
+        "nameType": "Personal",
+        "givenName": "Pei",
+        "familyName": "Yang",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Song, Yiren",
+        "nameType": "Personal",
+        "givenName": "Yiren",
+        "familyName": "Song",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Shou, Mike Zheng",
+        "nameType": "Personal",
+        "givenName": "Mike Zheng",
+        "familyName": "Shou",
+        "affiliation": [],
+        "nameIdentifiers": []
+      }
+    ],
+    "publicationYear": 2024,
+    "publisher": "arXiv",
+    "url": "https://arxiv.org/abs/2404.14055",
+    "version": "3",
+    "dates": [
+      {
+        "date": "2024-04-22T10:11:31Z",
+        "dateType": "Submitted",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2024-04-23T01:09:05Z",
+        "dateType": "Updated",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2024-04-23T13:04:44Z",
+        "dateType": "Submitted",
+        "dateInformation": "v2"
+      },
+      {
+        "date": "2024-04-24T00:44:59Z",
+        "dateType": "Updated",
+        "dateInformation": "v2"
+      },
+      {
+        "date": "2024-07-18T11:10:02Z",
+        "dateType": "Submitted",
+        "dateInformation": "v3"
+      },
+      {
+        "date": "2024-07-19T00:45:53Z",
+        "dateType": "Updated",
+        "dateInformation": "v3"
+      },
+      {
+        "date": "2024-04",
+        "dateType": "Available",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2024",
+        "dateType": "Issued"
+      }
+    ],
+    "relatedIdentifiers": []
+  },
+  {
+    "source_url": "https://api.datacite.org/dois/10.48550/arXiv.2411.03862",
+    "access_date": "2026-10-19",
+    "doi": "10.48550/arxiv.2411.03862",
+    "titles": [
+      {
+        "title": "ROBIN: Robust and Invisible Watermarks for Diffusion Models with Adversarial Optimization"
+      }
+    ],
+    "creators": [
+      {
+        "name": "Huang, Huayang",
+        "nameType": "Personal",
+        "givenName": "Huayang",
+        "familyName": "Huang",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Wu, Yu",
+        "nameType": "Personal",
+        "givenName": "Yu",
+        "familyName": "Wu",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Wang, Qian",
+        "nameType": "Personal",
+        "givenName": "Qian",
+        "familyName": "Wang",
+        "affiliation": [],
+        "nameIdentifiers": []
+      }
+    ],
+    "publicationYear": 2024,
+    "publisher": "arXiv",
+    "url": "https://arxiv.org/abs/2411.03862",
+    "version": "2",
+    "dates": [
+      {
+        "date": "2024-11-06T12:14:23Z",
+        "dateType": "Submitted",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2024-11-07T01:39:20Z",
+        "dateType": "Updated",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2025-04-03T03:11:31Z",
+        "dateType": "Submitted",
+        "dateInformation": "v2"
+      },
+      {
+        "date": "2025-04-04T00:21:31Z",
+        "dateType": "Updated",
+        "dateInformation": "v2"
+      },
+      {
+        "date": "2024-11",
+        "dateType": "Available",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2024",
+        "dateType": "Issued"
+      }
+    ],
+    "relatedIdentifiers": []
+  },
+  {
+    "source_url": "https://api.datacite.org/dois/10.48550/arXiv.2412.04653",
+    "access_date": "2026-10-19",
+    "doi": "10.48550/arxiv.2412.04653",
+    "titles": [
+      {
+        "title": "Hidden in the Noise: Two-Stage Robust Watermarking for Images"
+      }
+    ],
+    "creators": [
+      {
+        "name": "Arabi, Kasra",
+        "nameType": "Personal",
+        "givenName": "Kasra",
+        "familyName": "Arabi",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Feuer, Benjamin",
+        "nameType": "Personal",
+        "givenName": "Benjamin",
+        "familyName": "Feuer",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Witter, R. Teal",
+        "nameType": "Personal",
+        "givenName": "R. Teal",
+        "familyName": "Witter",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Hegde, Chinmay",
+        "nameType": "Personal",
+        "givenName": "Chinmay",
+        "familyName": "Hegde",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Cohen, Niv",
+        "nameType": "Personal",
+        "givenName": "Niv",
+        "familyName": "Cohen",
+        "affiliation": [],
+        "nameIdentifiers": []
+      }
+    ],
+    "publicationYear": 2024,
+    "publisher": "arXiv",
+    "url": "https://arxiv.org/abs/2412.04653",
+    "version": "5",
+    "dates": [
+      {
+        "date": "2024-12-05T22:50:42Z",
+        "dateType": "Submitted",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2024-12-09T01:09:55Z",
+        "dateType": "Updated",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2024-12-11T08:42:20Z",
+        "dateType": "Submitted",
+        "dateInformation": "v2"
+      },
+      {
+        "date": "2024-12-12T01:31:54Z",
+        "dateType": "Updated",
+        "dateInformation": "v2"
+      },
+      {
+        "date": "2025-02-01T15:56:15Z",
+        "dateType": "Submitted",
+        "dateInformation": "v3"
+      },
+      {
+        "date": "2025-02-04T01:37:43Z",
+        "dateType": "Updated",
+        "dateInformation": "v3"
+      },
+      {
+        "date": "2025-03-13T10:33:15Z",
+        "dateType": "Submitted",
+        "dateInformation": "v4"
+      },
+      {
+        "date": "2025-03-14T00:47:09Z",
+        "dateType": "Updated",
+        "dateInformation": "v4"
+      },
+      {
+        "date": "2025-04-27T11:46:58Z",
+        "dateType": "Submitted",
+        "dateInformation": "v5"
+      },
+      {
+        "date": "2025-04-29T00:55:28Z",
+        "dateType": "Updated",
+        "dateInformation": "v5"
+      },
+      {
+        "date": "2024-12",
+        "dateType": "Available",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2024",
+        "dateType": "Issued"
+      }
+    ],
+    "relatedIdentifiers": []
+  },
+  {
+    "source_url": "https://api.datacite.org/dois/10.48550/arXiv.2303.15435",
+    "error": "The request was canceled due to the configured HttpClient.Timeout of 30 seconds elapsing."
+  },
+  {
+    "source_url": "https://api.datacite.org/dois/10.48550/arXiv.2306.04744",
+    "error": "No such host is known. (api.datacite.org:443)"
+  },
+  {
+    "source_url": "https://api.datacite.org/dois/10.48550/arXiv.2603.13396",
+    "error": "No such host is known. (api.datacite.org:443)"
+  },
+  {
+    "source_url": "https://api.datacite.org/dois/10.48550/arXiv.2509.10766",
+    "access_date": "2026-10-19",
+    "doi": "10.48550/arxiv.2509.10766",
+    "titles": [
+      {
+        "title": "MetaSeal: Defending Against Image Attribution Forgery Through Content-Dependent Cryptographic Watermarks"
+      }
+    ],
+    "creators": [
+      {
+        "name": "Zhou, Tong",
+        "nameType": "Personal",
+        "givenName": "Tong",
+        "familyName": "Zhou",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Ding, Ruyi",
+        "nameType": "Personal",
+        "givenName": "Ruyi",
+        "familyName": "Ding",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Liu, Gaowen",
+        "nameType": "Personal",
+        "givenName": "Gaowen",
+        "familyName": "Liu",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Fleming, Charles",
+        "nameType": "Personal",
+        "givenName": "Charles",
+        "familyName": "Fleming",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Kompella, Ramana Rao",
+        "nameType": "Personal",
+        "givenName": "Ramana Rao",
+        "familyName": "Kompella",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Fei, Yunsi",
+        "nameType": "Personal",
+        "givenName": "Yunsi",
+        "familyName": "Fei",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Xu, Xiaolin",
+        "nameType": "Personal",
+        "givenName": "Xiaolin",
+        "familyName": "Xu",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Ren, Shaolei",
+        "nameType": "Personal",
+        "givenName": "Shaolei",
+        "familyName": "Ren",
+        "affiliation": [],
+        "nameIdentifiers": []
+      }
+    ],
+    "publicationYear": 2025,
+    "publisher": "arXiv",
+    "url": "https://arxiv.org/abs/2509.10766",
+    "version": "2",
+    "dates": [
+      {
+        "date": "2025-09-13T00:38:03Z",
+        "dateType": "Submitted",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2025-09-16T00:13:13Z",
+        "dateType": "Updated",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2026-02-13T01:40:08Z",
+        "dateType": "Submitted",
+        "dateInformation": "v2"
+      },
+      {
+        "date": "2026-02-16T01:13:43Z",
+        "dateType": "Updated",
+        "dateInformation": "v2"
+      },
+      {
+        "date": "2025-09",
+        "dateType": "Available",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2025",
+        "dateType": "Issued"
+      }
+    ],
+    "relatedIdentifiers": []
+  },
+  {
+    "source_url": "https://api.datacite.org/dois/10.48550/arXiv.2609.14856",
+    "access_date": "2026-10-19",
+    "doi": "10.48550/arxiv.2609.14856",
+    "titles": [
+      {
+        "title": "RAIN: Region-Aware Inversion Network for Semantic Watermark Extraction"
+      }
+    ],
+    "creators": [
+      {
+        "name": "Li, Zilai",
+        "nameType": "Personal",
+        "givenName": "Zilai",
+        "familyName": "Li",
+        "affiliation": [],
+        "nameIdentifiers": []
+      }
+    ],
+    "publicationYear": 2026,
+    "publisher": "arXiv",
+    "url": "https://arxiv.org/abs/2609.14856",
+    "version": "2",
+    "dates": [
+      {
+        "date": "2026-09-14T00:07:17Z",
+        "dateType": "Submitted",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2026-09-15T01:24:47Z",
+        "dateType": "Updated",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2026-09-22T23:58:40Z",
+        "dateType": "Submitted",
+        "dateInformation": "v2"
+      },
+      {
+        "date": "2026-09-24T00:18:14Z",
+        "dateType": "Updated",
+        "dateInformation": "v2"
+      },
+      {
+        "date": "2026-09",
+        "dateType": "Available",
+        "dateInformation": "v1"
+      }
+    ],
+    "relatedIdentifiers": []
+  },
+  {
+    "source_url": "https://api.datacite.org/dois/10.48550/arXiv.2609.25972",
+    "access_date": "2026-10-19",
+    "doi": "10.48550/arxiv.2609.25972",
+    "titles": [
+      {
+        "title": "NAWE: Digital Watermarking with Neural-Assisted Watermark Extraction"
+      }
+    ],
+    "creators": [
+      {
+        "name": "Chaban, Roman",
+        "nameType": "Personal",
+        "givenName": "Roman",
+        "familyName": "Chaban",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Kinakh, Vitaliy",
+        "nameType": "Personal",
+        "givenName": "Vitaliy",
+        "familyName": "Kinakh",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Rouzaire, Lilian",
+        "nameType": "Personal",
+        "givenName": "Lilian",
+        "familyName": "Rouzaire",
+        "affiliation": [],
+        "nameIdentifiers": []
+      },
+      {
+        "name": "Voloshynovskiy, Slava",
+        "nameType": "Personal",
+        "givenName": "Slava",
+        "familyName": "Voloshynovskiy",
+        "affiliation": [],
+        "nameIdentifiers": []
+      }
+    ],
+    "publicationYear": 2026,
+    "publisher": "arXiv",
+    "url": "https://arxiv.org/abs/2609.25972",
+    "version": "1",
+    "dates": [
+      {
+        "date": "2026-09-22T10:28:16Z",
+        "dateType": "Submitted",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2026-09-23T00:45:59Z",
+        "dateType": "Updated",
+        "dateInformation": "v1"
+      },
+      {
+        "date": "2026-09",
+        "dateType": "Available",
+        "dateInformation": "v1"
+      }
+    ],
+    "relatedIdentifiers": []
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "citekey": "fierce2019cnn",
+  "audit_date": "2026-10-19",
+  "original_scope": "matrix-only V1 addition beyond original 87 BibTeX entries",
+  "source": "Crossref; DBLP mirror",
+  "source_urls": [
+    "https://api.crossref.org/works/10.1109%2FIWBF.2019.8739245",
+    "https://dblp1.uni-trier.de/rec/conf/iwbf/Fierro-RadillaN19.html"
+  ],
+  "source_title": "A Robust Image Zero-watermarking using Convolutional Neural Networks",
+  "source_authors": [
+    "Atoany Fierro-Radilla",
+    "Mariko Nakano-Miyatake",
+    "Manuel Cedillo-Hernandez",
+    "Laura Cleofas-Sanchez",
+    "Hector Perez-Meana"
+  ],
+  "source_year": 2019,
+  "source_venue": "2019 7th International Workshop on Biometrics and Forensics (IWBF)",
+  "source_doi": "10.1109/iwbf.2019.8739245",
+  "title_status": "matches matrix",
+  "authors_status": "added complete list",
+  "year_status": "matches matrix",
+  "venue_status": "added verified conference",
+  "doi_status": "matches matrix case-insensitively",
+  "fulltext_status": "V1 unchanged"
+}

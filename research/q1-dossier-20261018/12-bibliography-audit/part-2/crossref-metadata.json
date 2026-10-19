@@ -1,0 +1,771 @@
+[
+  {
+    "key": "soucek2025oneshot",
+    "source": "https://api.crossref.org/works/10.52202%2F085713-1675",
+    "error": "Response status code does not indicate success: 429 (Too Many Requests)."
+  },
+  {
+    "key": "roy2004retrieval",
+    "source": "https://api.crossref.org/works/10.1007%2Fs00530-003-0116-1",
+    "access_date": "2026-10-19",
+    "title": [
+      "Watermarking with retrieval systems"
+    ],
+    "authors": [
+      {
+        "given": "Sujoy",
+        "family": "Roy",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Ee-Chien",
+        "family": "Chang",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      }
+    ],
+    "venue": [
+      "Multimedia Systems"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2004,
+          3,
+          1
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2004,
+          3,
+          1
+        ]
+      ]
+    },
+    "published_online": null,
+    "doi": "10.1007/s00530-003-0116-1",
+    "type": "journal-article",
+    "volume": "9",
+    "issue": "5",
+    "pages": "433-440",
+    "article_number": null
+  },
+  {
+    "key": "seenivasagam2013qr",
+    "source": "https://api.crossref.org/works/10.1155%2F2013%2F516465",
+    "access_date": "2026-10-19",
+    "title": [
+      "A QR Code Based Zero-Watermarking Scheme for Authentication of Medical Images in Teleradiology Cloud"
+    ],
+    "authors": [
+      {
+        "given": "V.",
+        "family": "Seenivasagam",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Department of Computer Science and Engineering, National Engineering College, Kovilpatti 628503, India"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-9349-6919",
+        "authenticated-orcid": true,
+        "given": "R.",
+        "family": "Velumani",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Information Technology, Sethu Institute of Technology, Pulloor, Kariapatti 626115, India"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "venue": [
+      "Computational and Mathematical Methods in Medicine"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2013
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2013
+        ]
+      ]
+    },
+    "published_online": null,
+    "doi": "10.1155/2013/516465",
+    "type": "journal-article",
+    "volume": "2013",
+    "issue": null,
+    "pages": "1-16",
+    "article_number": null
+  },
+  {
+    "key": "rocek2021critical",
+    "source": "https://api.crossref.org/works/10.1007%2Fs10278-020-00396-0",
+    "access_date": "2026-10-19",
+    "title": [
+      "Zero Watermarking: Critical Analysis of Its Role in Current Medical Imaging"
+    ],
+    "authors": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-6682-0891",
+        "authenticated-orcid": false,
+        "given": "Aleš",
+        "family": "Roček",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Michal",
+        "family": "Javorník",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Karel",
+        "family": "Slavíček",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Otto",
+        "family": "Dostál",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "venue": [
+      "Journal of Digital Imaging"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2021,
+          1,
+          7
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2021,
+          2
+        ]
+      ]
+    },
+    "published_online": {
+      "date-parts": [
+        [
+          2021,
+          1,
+          7
+        ]
+      ]
+    },
+    "doi": "10.1007/s10278-020-00396-0",
+    "type": "journal-article",
+    "volume": "34",
+    "issue": "1",
+    "pages": "204-211",
+    "article_number": null
+  },
+  {
+    "key": "gharib2025hybrid",
+    "source": "https://api.crossref.org/works/10.1038%2Fs41598-025-09290-7",
+    "access_date": "2026-10-19",
+    "title": [
+      "Robust zero-watermarking for color images using hybrid deep learning models and encryption"
+    ],
+    "authors": [
+      {
+        "given": "Hager A.",
+        "family": "Gharib",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Noha M. M.",
+        "family": "Abdelnapi",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Khalid M.",
+        "family": "Hosny",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "venue": [
+      "Scientific Reports"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2025,
+          8,
+          7
+        ]
+      ]
+    },
+    "published_print": null,
+    "published_online": {
+      "date-parts": [
+        [
+          2025,
+          8,
+          7
+        ]
+      ]
+    },
+    "doi": "10.1038/s41598-025-09290-7",
+    "type": "journal-article",
+    "volume": "15",
+    "issue": "1",
+    "pages": null,
+    "article_number": "28906"
+  },
+  {
+    "key": "hung2026signcryption",
+    "source": "https://api.crossref.org/works/10.1038%2Fs41598-026-38991-w",
+    "access_date": "2026-10-19",
+    "title": [
+      "A robust zero-watermarking and signcryption scheme for image copyright protection and license verification"
+    ],
+    "authors": [
+      {
+        "given": "Pham Thai",
+        "family": "Hung",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Ta Minh",
+        "family": "Thanh",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      }
+    ],
+    "venue": [
+      "Scientific Reports"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2026,
+          2,
+          14
+        ]
+      ]
+    },
+    "published_print": null,
+    "published_online": {
+      "date-parts": [
+        [
+          2026,
+          2,
+          14
+        ]
+      ]
+    },
+    "doi": "10.1038/s41598-026-38991-w",
+    "type": "journal-article",
+    "volume": "16",
+    "issue": "1",
+    "pages": null,
+    "article_number": "9103"
+  },
+  {
+    "key": "tanvir2026invzw",
+    "source": "https://api.crossref.org/works/10.3389%2Ffrsip.2026.1812987",
+    "access_date": "2026-10-19",
+    "title": [
+      "InvZW: invariant feature learning via noise-adversarial training for robust image zero-watermarking"
+    ],
+    "authors": [
+      {
+        "given": "Abdullah All",
+        "family": "Tanvir",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Department of Computer Science, University of Nebraska at Omaha",
+            "place": [
+              "Omaha, NE, United States"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Frank Y.",
+        "family": "Shih",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Computer Science, New Jersey Institute of Technology",
+            "place": [
+              "Newark, NJ, United States"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Xin",
+        "family": "Zhong",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Computer Science, University of Nebraska at Omaha",
+            "place": [
+              "Omaha, NE, United States"
+            ]
+          }
+        ],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      }
+    ],
+    "venue": [
+      "Frontiers in Signal Processing"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2026,
+          5,
+          13
+        ]
+      ]
+    },
+    "published_print": null,
+    "published_online": {
+      "date-parts": [
+        [
+          2026,
+          5,
+          13
+        ]
+      ]
+    },
+    "doi": "10.3389/frsip.2026.1812987",
+    "type": "journal-article",
+    "volume": "6",
+    "issue": null,
+    "pages": null,
+    "article_number": "1812987"
+  },
+  {
+    "key": "thanh2022pseudo",
+    "source": "https://api.crossref.org/works/10.1007%2Fs11042-022-12079-9",
+    "access_date": "2026-10-19",
+    "title": [
+      "Pseudo Zero-watermarking Technique based on non-blind watermarking and VSS"
+    ],
+    "authors": [
+      {
+        "given": "Ta Minh",
+        "family": "Thanh",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Giang Ngoc",
+        "family": "Dan",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      }
+    ],
+    "venue": [
+      "Multimedia Tools and Applications"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2022,
+          4,
+          2
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2022,
+          8
+        ]
+      ]
+    },
+    "published_online": {
+      "date-parts": [
+        [
+          2022,
+          4,
+          2
+        ]
+      ]
+    },
+    "doi": "10.1007/s11042-022-12079-9",
+    "type": "journal-article",
+    "volume": "81",
+    "issue": "20",
+    "pages": "29119-29136",
+    "article_number": null
+  },
+  {
+    "key": "struppek2022neuralhash",
+    "source": "https://api.crossref.org/works/10.1145%2F3531146.3533073",
+    "access_date": "2026-10-19",
+    "title": [
+      "Learning to Break Deep Perceptual Hashing: The Use Case NeuralHash"
+    ],
+    "authors": [
+      {
+        "given": "Lukas",
+        "family": "Struppek",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Department of Computer Science, Technical University of Darmstadt, Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Dominik",
+        "family": "Hintersdorf",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Computer Science, Technical University of Darmstadt, Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Daniel",
+        "family": "Neider",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Max Planck Institute for Software Systems, Germany and Safety and Explainability of Learning Systems, Carl von Ossietzky University of Oldenburg, Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Kristian",
+        "family": "Kersting",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Computer Science and Centre for Cognitive Science, Technical University of Darmstadt, Germany and Hessian Center for Artificial Intelligence, Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "venue": [
+      "2022 ACM Conference on Fairness Accountability and Transparency"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2022,
+          6,
+          20
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2022,
+          6,
+          21
+        ]
+      ]
+    },
+    "published_online": {
+      "date-parts": [
+        [
+          2022,
+          6,
+          20
+        ]
+      ]
+    },
+    "doi": "10.1145/3531146.3533073",
+    "type": "proceedings-article",
+    "volume": null,
+    "issue": null,
+    "pages": "58-69",
+    "article_number": null
+  },
+  {
+    "key": "wang2024icdiff",
+    "source": "https://api.crossref.org/works/10.52202%2F079017-0460",
+    "access_date": "2026-10-19",
+    "title": [
+      "Image Copy Detection for Diffusion Models"
+    ],
+    "authors": [
+      {
+        "given": "Wenhao",
+        "family": "Wang",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yifan",
+        "family": "Sun",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Zhentao",
+        "family": "Tan",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yi",
+        "family": "Yang",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "venue": [
+      "Advances in Neural Information Processing Systems 37"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2024
+        ]
+      ]
+    },
+    "published_print": {
+      "date-parts": [
+        [
+          2024
+        ]
+      ]
+    },
+    "published_online": null,
+    "doi": "10.52202/079017-0460",
+    "type": "proceedings-article",
+    "volume": null,
+    "issue": null,
+    "pages": "14417-14456",
+    "article_number": null
+  },
+  {
+    "key": "chandra2024nist1004",
+    "source": "https://api.crossref.org/works/10.6028%2FNIST.AI.100-4",
+    "access_date": "2026-10-19",
+    "title": [
+      "Reducing risk posed by synthetic content an overview of technical approaches to digital content transparency"
+    ],
+    "authors": [
+      {
+        "name": "National Institute of Standards and Technology (US)",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "venue": [],
+    "published": {
+      "date-parts": [
+        [
+          2024,
+          11,
+          20
+        ]
+      ]
+    },
+    "published_print": null,
+    "published_online": {
+      "date-parts": [
+        [
+          2024,
+          11,
+          20
+        ]
+      ]
+    },
+    "doi": "10.6028/nist.ai.100-4",
+    "type": "report",
+    "volume": null,
+    "issue": null,
+    "pages": null,
+    "article_number": null
+  }
+]

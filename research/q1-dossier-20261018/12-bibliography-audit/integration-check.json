@@ -1,0 +1,26 @@
+{
+  "checked_at": "2026-10-19T00:32:18.5184911-08:00",
+  "master_bib_entries": 88,
+  "audit_rows": 88,
+  "unique_keys": 88,
+  "duplicate_keys": [],
+  "bib_without_audit": [],
+  "audit_without_bib": [],
+  "matrix_without_bib": [],
+  "bibliography_history_only": [
+    "Bui2023TrustMark"
+  ],
+  "unbalanced_entries": [],
+  "doi_fields": 66,
+  "verification_counts": [
+    {
+      "Name": "V1",
+      "Count": 8
+    },
+    {
+      "Name": "V2",
+      "Count": 79
+    }
+  ],
+  "forbidden_temporary_extensions": []
+}
