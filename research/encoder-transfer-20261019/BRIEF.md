@@ -34,7 +34,7 @@ Embed every arm on the server, on the same hardware, with native settings and no
 - **v5 r3:** internal comparator, frozen.
 - **WAM:** the released MIT SA-1B checkpoint pinned in `research/journal-upgrade-20261009/wam-download.json`, with a native 32-bit message.
 - **VINE (VINE-R):** official code and weights, with a native 100-bit message.
-  - **USER APPROVAL: PENDING.** Claude replaces this line with the user's answer before the run.
+  - **USER APPROVAL: APPROVED.** The user answered in chat on 2026-10-19: "Yes, include VINE as the external baseline in this test."
   - Run this arm only if the line says APPROVED and the license permits research use; otherwise skip it and record why.
   - It reopens external baselines for this test only.
 
