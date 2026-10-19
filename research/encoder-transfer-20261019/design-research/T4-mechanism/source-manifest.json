@@ -1,0 +1,52 @@
+{
+  "topic": "T4 mechanism",
+  "stage": "pre-outcome research only",
+  "cache_root": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache",
+  "sources": [
+    {
+      "id": "zhao",
+      "url": "https://arxiv.org/html/2306.01953v3",
+      "accessed": "2026-10-19",
+      "verification": "V2 method and evaluation read; no reproduction",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-zhao.html",
+      "sha256": "41861c3d032d039a001feb23c58c8a322b0e38c27ad70b382acfc84d96423582",
+      "status": "reused T1 primary cache"
+    },
+    {
+      "id": "photoguard",
+      "url": "https://arxiv.org/html/2302.06588v1",
+      "accessed": "2026-10-19",
+      "verification": "V2 method and evaluation read; no reproduction",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\photoguard.html",
+      "sha256": "976b222d9cdd221cd88b3bc2546b08dccf3a1dcef8fc14fcce9bd913cc01ff8e",
+      "status": "reused dossier cache"
+    },
+    {
+      "id": "prc",
+      "url": "https://arxiv.org/html/2410.07369v4",
+      "accessed": "2026-10-19",
+      "verification": "V2 method and evaluation read; no reproduction",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-prc-v4.html",
+      "sha256": "e7f8017500b50dfcebf62d9899346fbfebff5162dab0b62d132b60b6facb776b",
+      "status": "new primary HTML"
+    },
+    {
+      "id": "ghostvae",
+      "url": "https://arxiv.org/html/2608.00543v1",
+      "accessed": "2026-10-19",
+      "verification": "V2 method and evaluation read; no reproduction",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-ghostvae-v1.html",
+      "sha256": "7d35917e8ee69c665473d8e9c68e0bb5fbdbedc5a4ec2cc6971a08cb51e95a8a",
+      "status": "new primary HTML"
+    },
+    {
+      "id": "bislw",
+      "url": "https://arxiv.org/html/2607.02643v1",
+      "accessed": "2026-10-19",
+      "verification": "V2 method and evaluation read; no reproduction",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-bislw-v1.html",
+      "sha256": "23980345f87dc46515dd8408eefd7a8e4837209c342775d8dc6fbdaa2069b5ab",
+      "status": "new primary HTML"
+    }
+  ]
+}

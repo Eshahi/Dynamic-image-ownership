@@ -1,0 +1,5 @@
+# GhostVAE — V2 new primary inspection
+
+Jinyuan Liu et al., *Robust Watermarks Meet Backdoored Models: Evading Diffusion Semantic Watermarks via Stealthy Backdoor*, arXiv 2608.00543v1 (2026-08-01); USENIX Security2026 publication page inspected. [Paper](https://arxiv.org/html/2608.00543v1), [venue](https://www.usenix.org/conference/usenixsecurity26/presentation/liu-jinyuan). Read §§3–5, Tables 2–9, 2026-10-19.
+
+A malicious supplier learns a trigger, then fine-tunes the reader's VAE encoder to flip triggered latents while preserving benign behavior. Training uses 8,000 generated clean images, evaluation 1,000 separate prompts; SD2.1, SDXL and FLUX-dev with Tree-Ring, Gaussian Shading and PRC. Table 3 reports PRC attack success 100%, 99% and 96% respectively. Training is four epochs; the stated server has eight A800s. This is supply-chain compromise, not removal against an honest pinned reader. Its favorable trigger-application time excludes training and cannot cost our robustification proposal. No F5 evidence. Source manifest retains cached primary HTML and hash.
