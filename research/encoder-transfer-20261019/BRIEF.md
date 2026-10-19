@@ -16,48 +16,84 @@ You (Codex) design the details, run the study on a rented vast.ai server, analyz
 
 **Prior development observation (not evidence for this test).** In the D2 discovery work, F5 kept checked semantic detection on 10/12 sources after an SDXL VAE-only round trip (`research/journal-upgrade-20261009/discovery-report.md`). Full SDXL regeneration was never run, because the laptop GPU did not have the memory (`unseen-regenerator-protocol.md`). That is why this test runs on a rented server.
 
-## 1a. Stage 1: design research before freezing (no server, no outcomes)
+## 1a. Stage 1: comprehensive design research before freezing (no server, no outcomes)
 
-The user asked, on 2026-10-19, for more research with Codex so that the results are more precise. Do it now, before the protocol is frozen; research after outcomes would make the design post-hoc.
+The user asked on 2026-10-19 for more research with Codex so that the results are more precise. They then said, translated from Persian: "I want a very comprehensive, supplementary and complete research to be done, and it does not matter however long it takes." Stage 1 therefore has **no time limit**. Its quality bar is that a hostile Q1 reviewer could not name a standard setting, baseline, encoder family or validity threat that you did not consider and decide on with reasons.
 
-**Time box:** about 2 hours of research. Write the result in `research/encoder-transfer-20261019/design-research.md`, with V2 sources (method and evaluation sections actually read), as in the Q1 dossier rules. Reuse the dossier's cards (`research/q1-dossier-20261018/02-literature/`) and do not redo them. No experiments in this stage: no GPU work, and no regeneration or detection on any real mark.
+**Two limits remain, because they protect the validity of the result:**
+- **No outcomes before freezing.** No GPU work. No regeneration, detection or scoring of any real mark. No look at any F5 result under the new channels. Research done after outcomes would make the design post-hoc.
+- **The user approves money and scope.** Anything that adds cost beyond the base budget (section 5), or adds external baselines beyond WAM and VINE, goes to the user at the stage-1 stop as a costed proposal. You do not freeze it unilaterally.
 
-**Questions to answer:**
-1. **Standard regeneration attacks.** How do W-Bench (VINE), WAVES, Zhao et al. (arXiv 2306.01953), CtrlRegen and other recent benchmarks define regeneration attacks: models, strengths or noise steps, prompts or captions, resolution and samplers? Which settings would a Q1 reviewer expect? Align R1 (and R2) with the most-cited standard. Within the budget, you may add one standard-conforming variant (for example a caption-prompted one) as a secondary channel.
-2. **Faithful baselines.**
-   - VINE: which variant (VINE-R or VINE-B), at what resolution and message length, and with which official decoding and detection or threshold protocol?
-   - WAM: what is its official detection rule?
-   - Each baseline must run as its authors evaluate it, and you must report that native operating point next to our common presence threshold.
-3. **Independent encoders.**
-   - Check that SDXL's VAE was trained separately from the SD1.x VAE, from primary sources. The SDXL paper's section 2.4 is already in the dossier's Q-VAE note.
-   - Check whether FLUX.1-schnell is ungated, its license, and its img2img step semantics.
-   - If FLUX cannot be used, pick the best ungated, permissively licensed secondary model whose autoencoder is independent of both SD1.x and SDXL (for example a 16-channel VAE or a MoVQ/DC-AE family model), and justify the choice.
-4. **SDXL and FLUX img2img technicalities.** Cover the fp32 VAE upcast, the 1024-pixel policy, scheduler and strength semantics, and the safety checkers. Confirm that the pipeline settings in section 2 do what they claim.
-5. **Sample size.** With stdlib, compute the operating characteristics of the decision rule: the probability of each label when F5's true source-majority rate is .5, .6, .7, .8 or .9. If they are poor at n = 60 and the budget allows, choose n between 60 and 120 from the same source rule.
-6. **Fair comparison.** How does the literature compare robustness at matched image quality (for example WAVES performance-quality curves)? Fix the matched-distortion analysis you will report.
+### Method
 
-**What the research may change before freezing:**
-- channel settings and one added literature-standard variant;
-- the secondary model;
+- **Sources.** Primary sources only, at verification level V2: method and evaluation sections actually read. Follow the Q1 dossier's integrity rules: search logs, no invented metadata, cache in MAIN `.thesis-build/q1-research-20261018/cache/` and never in git. Reuse the dossier's cards in `research/q1-dossier-20261018/02-literature/`; extend them, do not redo them.
+- **Code and model cards.** Read official repositories, model cards, configs and licenses on the web. Downloading weights or code to run is not allowed in stage 1.
+- **Sub-agents.** Run the topics below in parallel, at most 3 at a time. Use `gpt-6-astra` at `high`, with a self-contained brief and one output folder each.
+  - Each topic folder `research/encoder-transfer-20261019/design-research/T<n>-<slug>/` holds `search-log.md`, cards and `synthesis.md`.
+  - You integrate everything into `design-research.md`.
+- **Commits.** Commit and push after each topic.
+- **Coverage.** For every topic, write a coverage statement: what was searched, what was found, which recent (2025-2026) work was checked, and what remains inaccessible.
+
+### Topics
+
+1. **T1, regeneration attack standards.** Cover every major benchmark and attack paper: W-Bench (VINE), WAVES, Zhao et al. (arXiv 2306.01953), CtrlRegen, UnMarker, rinsing or multi-pass regeneration, DiffPure-style purification, and newer 2025-2026 benchmarks and removals (the dossier lists MarkNull, RAVEN and "Watermarks Attack Watermarks").
+   - For each, tabulate models, strengths or noise steps, samplers and step counts, prompts or captions, resolution, number of images, metrics and reported baseline numbers.
+   - Decide which settings this test adopts and why. Within the base budget, add at most one or two standard-conforming variants (for example caption-prompted regeneration, or a multi-pass channel) as secondary channels.
+2. **T2, independent-encoder landscape.** Map the open text-to-image families and their autoencoders: SD1.x/2.x kl-f8, SDXL, SD3 and SD3.5, FLUX.1 schnell and dev, any newer FLUX, Kandinsky (MoVQ), SANA (DC-AE), PixArt, Playground, Hunyuan-DiT, Qwen-Image and other current ones.
+   - For each, record: encoder lineage and whether it is independent of SD1.x and of SDXL; channels and downsampling; license and gating; img2img support in diffusers; memory and time at 1024.
+   - Include a pixel-space diffusion regenerator if a permissive, ungated one is feasible.
+   - Choose the regenerator panel that gives the widest encoder diversity within the base budget, and justify each choice. Put larger panels in the costed proposals.
+3. **T3, faithful baselines.**
+   - For VINE (variant, resolution, message length, decoding, threshold) and WAM (official detection rule), fix the exact native configuration and report the native operating point next to our common presence threshold.
+   - Survey the other public post-hoc methods robust to regeneration (for example TrustMark, StegaStamp, InvisMark, RoSteALS, ZoDiac and newer ones). Record code and weights availability, license, compute, and published regeneration results.
+   - Rank which extra baselines a Q1 reviewer would most expect. These are proposals for the user, not part of the frozen core.
+4. **T4, mechanism and predictions.**
+   - From Zhao et al.'s bound and the F5 design (`research/f5-encoder-amplified-latent.md`), derive what should happen under an independently trained encoder, and write falsifiable predictions before any data exists.
+   - Include an encoder-aware adaptive regenerator (for example regenerating with a robustified or different encoder) as an analyzed threat and a costed proposal.
+5. **T5, pipeline technicalities.**
+   - SDXL: fp32 VAE upcast, the 1024 policy and resampling, scheduler and strength semantics, determinism, safety checkers and memory.
+   - FLUX or its replacement: img2img step semantics.
+   - Confirm that every setting in section 2 does what it claims, from official docs and code.
+6. **T6, statistics and sample size.**
+   - With stdlib, compute the decision rule's operating characteristics: the probability of each label at true F5 rates of .5 to .9, accounting for clustering by source.
+   - Choose n between 60 and 120 within budget, with the source rule unchanged.
+   - Fix intervals, multiplicity handling for secondary cells, and missing-data treatment.
+7. **T7, fair comparison and reporting norms.**
+   - How do Q1 venues and benchmarks compare robustness at matched quality (WAVES-style performance-quality curves, TPR at fixed FPR)?
+   - Fix the matched-distortion analysis, the figures and the tables you will report.
+8. **T8, threats to validity.** List every threat with its mitigation or stated limitation: shared ancestry, resolution resampling, prompt policy, development-data reuse, safety blocks, baseline mis-configuration, multiple channels, and others.
+
+### What the research may change, and what it may not
+
+**May change before freezing, within the base budget:**
+- channel settings and up to two literature-standard variants;
+- the regenerator panel;
 - baseline configuration;
 - n, within 60 to 120;
-- analysis details.
+- analysis and reporting details.
 
-**What it may not change:**
+**May not change:**
 - the question;
 - R1 SDXL at strength .2 as the primary cell;
-- the proportional decision thresholds: TRANSFERS needs at least .75n, FAILS is below .5n, and the baseline margin is .05n, rounded up.
+- the proportional decision thresholds: TRANSFERS needs at least .75n, FAILS is below .5n, the margin is .05n;
+- external baselines beyond WAM and VINE without user approval.
 
-Record every change and its source in `design-research.md`.
+Record every change, with its source, in `design-research.md`.
 
-**Stage 1 deliverables and stop:**
-- `design-research.md`;
+### Independent review of the design
+
+Before the stop, one fresh agent (`gpt-6-astra`, `xhigh`, `fork_turns: "none"`) reviews `design-research.md`, the frozen protocol and the costed proposals. It checks coverage gaps, fidelity to the sources, internal consistency and pre-registration hygiene, and writes `design-review.md`. Fix what is fixable and list the rest.
+
+### Stage 1 deliverables and stop
+
+Deliver:
+- `design-research.md` and the topic folders;
+- `design-review.md`;
 - the frozen `protocol.md` and `frozen-config.json`;
 - the code with passing unit tests;
-- a short budget projection.
+- `budget-and-proposals.md`: the projected hours and cost of the frozen core, plus each costed proposal (extra baselines, extra regenerators, adaptive arm) with its cost and your recommendation.
 
-Commit and push all of it, then **stop and report to the user in Persian.** Claude reviews the frozen protocol before any money is spent. The user then rents the server and sends its SSH line, and that message starts stage 2 (sections 5 and 6).
-
+Commit and push all of it, then **stop and report to the user in Persian.** Claude reviews the frozen protocol and the proposals before any money is spent. The user then approves or declines each proposal and rents the server. They send its SSH line, and that message starts stage 2 (sections 5 and 6). If a proposal is approved, record the approval in the protocol as a pre-outcome amendment before stage 2 runs.
 ## 2. Fixed design
 
 Freeze all of this, as amended by stage 1 within its limits, in `research/encoder-transfer-20261019/protocol.md`, plus a machine-readable `frozen-config.json`. Commit and push both before any regeneration exists. Implementation details not fixed here are yours to fix in the protocol, before outputs.
@@ -193,7 +229,7 @@ Then:
 ## 8. Time
 
 Plan for about one working day plus a checkpoint:
-- stage 1 design research: about 2 h;
+- stage 1 comprehensive design research: no time limit (expect roughly 8-16 h of agent work);
 - protocol and code: 2-4 h;
 - then the stage-1 stop and Claude's protocol check, before the server is rented;
 - server setup and smoke test: 1-2 h;
@@ -205,7 +241,7 @@ Use the run time for analysis code and the results skeleton.
 ## 9. Stop point and final message
 
 There are two stops:
-- **Stage 1:** stop when the frozen protocol, design research, code and budget projection are pushed. Report in Persian (at most 10 lines): what the research changed, the final n, channels and baselines, and the projected hours and cost.
+- **Stage 1:** stop when the frozen protocol, design research, design review, code and `budget-and-proposals.md` are pushed. Report in Persian (at most 15 lines): what the research changed, the final n, channels and baselines, the projected hours and cost of the core, and each proposal awaiting the user's decision, with its cost and your recommendation.
 - **Stage 2:** stop when the results and review exist and the decision label is written, or when a hard stop applies. If the run is still in progress and the turn must end, leave the server running the journaled job, write the state to `PROGRESS.md`, and continue in the next turn.
 
 Your final message to the user is in Persian, at most 12 lines:
