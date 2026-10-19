@@ -65,7 +65,7 @@ The evaluated adversary does not actively re-mark the regenerated image, optimiz
 
 F5 r2 optimizes the RGB image while evaluating its robust carrier through the pinned SD1.5 VAE encoder. The encoder's scaled posterior-mode latent is transformed using a channel-wise orthonormal DCT. A fixed radial coefficient band and public frequency weights define the slots assigned to owner-conditioned signed carrier chips. The optimization increases the prescribed chip margins using a squared-hinge objective, normalized gradient updates, a pixel-domain perturbation budget and box constraints. The image is quantized to RGB8 before verification. These operations describe optimization through an encoder, not direct insertion into the original image's latent generative history.
 
-The retained construction also includes the predecessor's fragile luminance channel and a refinement stage. Their presence is part of the writer specification, but the registry endpoint does not require the predecessor's full semantic-and-fragile `both_match` result. Conflating that historical decision with native pointer eligibility would change the endpoint. The complete frozen profile and source-function locators are supplied in the reproducibility manifest; empirical quality is reported from final marked outputs, not inferred from an individual optimization budget (EV-72/73).
+The retained construction also includes the predecessor's fragile luminance channel and a refinement stage. Their presence is part of the writer specification, but the registry endpoint does not require the predecessor's full semantic-and-fragile `both_match` result. Conflating that historical decision with native pointer eligibility would change the endpoint. The retained run configuration and source-function locators are indexed in the evidence ledger and independent M2 review; empirical quality is reported from final marked outputs, not inferred from an individual optimization budget (EV-72/73).
 
 Encoder-directed optimization supplies a plausible mechanism for increasing a particular latent response at limited image distortion. It does not prove preservation by a diffusion denoiser or transfer to another encoder. The retained SD2.1-base result tests an unseen diffusion checkpoint, while the available architecture evidence indicates shared encoder ancestry with the SD1.x family. It should not be described as independent-encoder robustness. This restriction also prevents interpreting a loose removal bound as a positive robustness theorem.
 
@@ -96,6 +96,8 @@ The saved beta native calls have `found=false` and `read=false` in every complet
 A future component study would need owner-only, owner-plus-code, owner-plus-content and complete rules, with multiple distinct records per owner. Owner-only outputs would have no record-correctness endpoint. The preregistered question would be whether the code improves record discrimination beyond owner-plus-content while retaining useful recovery. This is the future F1 study specified in the gap plan; it has not been executed and is not a result of the present manuscript.
 
 ## Editorial provenance and remaining work
+
+Complete working prose for Sections 5–9 is now in [18-draft-results-and-discussion.md](18-draft-results-and-discussion.md). This continuation adds protocol, results, discussion, reproducibility and conclusion without changing the scientific readiness verdict.
 
 | Draft element | Evidence or source | Constraint before submission |
 |---|---|---|

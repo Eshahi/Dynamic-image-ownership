@@ -126,6 +126,14 @@ The complete confirmation fails. The frozen automated verdict and the pre-result
 
 ## Missingness and interpretation rules
 
+### Protocol facts used in the post-deadline manuscript continuation
+
+| ID | Statement | Source and verification limit |
+|---|---|---|
+| EV-78 | The registry protocol specifies DDIM20 img2img, strengths .1/.2/.4, seeds 15/16/17, empty prompt and guidance 1, with SD1.5 and SD2.1-base; strength .2 is primary. T4 uses residual scales .5/1.0 in fixed cyclic donor order. | REG-P §§4–5, read as text in R3. These are declared protocol settings, not newly executed measurements; retained manifest/source consistency was reviewed in 01b. |
+| EV-79 | Registry confirmation uses the admitted 300 DIV2K test sources, a 60-pair real look-alike panel from the next 20 eligible Tears of Steel shots, and 12 separately reported synthetic pairs. All 600 COCO test groups had already been consumed by earlier confirmations. | REG-P §3, text checked in R3; eligibility reduces the scored real panel to EV-55's 45 pairs in 16 shots. No image, split or source acquisition was performed in this follow-up. |
+| EV-80 | A documented user-approved availability amendment was recorded while the registry run was underway but before descriptor scoring and endpoint computation; it retains the frozen automated verdict, keeps E1 gaps as misses, and adds observed-case E2 and conditional E3 readings. | REG-G, checked in R3; chronology and authorization are documented in the contemporaneous note, not independently re-authenticated human decisions. The frozen outputs and thresholds remain unchanged. |
+
 1. E1 keeps all planned sources, including mark failures and blocks. Do not inflate rates by dividing by successful embeddings.
 2. E2 has missing negatives. Zero observed unrelated/T4 accepts is not zero established outcomes for all planned comparisons. The original source-cluster upper near 1% presumes 300 complete exchangeable source clusters; cite the independent review's missingness qualifications whenever discussing it. A pairwise million-trial CP bound is inappropriate even before missingness.
 3. E3's pre-result complete-case rule is authorized and distinct from frozen automated completeness. It conditions on query and own original/attacker record availability; absent cross-source competitor records may still matter. Do not promote zero observed wrong-owner events to cryptographic soundness or a claim about every planned case.
