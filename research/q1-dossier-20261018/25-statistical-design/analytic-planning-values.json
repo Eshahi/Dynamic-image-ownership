@@ -1,0 +1,168 @@
+{
+  "purpose": "Deterministic evaluation of analytic sample-design formula only; no generated observations, random draws, simulation, experiment, or empirical power.",
+  "n": 1200,
+  "a": 0.004166666666666667,
+  "quantities": [
+    {
+      "name": "H support sufficient",
+      "q": 0.075,
+      "p": 0.05,
+      "tail": "upper null",
+      "n": 1200,
+      "KL": 0.005741754557113225,
+      "bound": 0.0010178064887742264
+    },
+    {
+      "name": "L support sufficient",
+      "q": 0.006666666666666667,
+      "p": 0.02,
+      "tail": "lower null",
+      "n": 1200,
+      "KL": 0.006099545781157304,
+      "bound": 0.0006625232294560162
+    },
+    {
+      "name": "G support sufficient",
+      "q": 0.9,
+      "p": 0.85,
+      "tail": "upper null",
+      "n": 1200,
+      "KL": 0.01089606164513729,
+      "bound": 0.0000020964314375433115
+    },
+    {
+      "name": "H support failure conservative",
+      "q": 0.075,
+      "p": 0.1,
+      "tail": "lower alternative (enlarged failure event)",
+      "n": 1200,
+      "KL": 0.0037678956901223935,
+      "bound": 0.01087297606659242
+    },
+    {
+      "name": "L support failure",
+      "q": 0.0075,
+      "p": 0.002,
+      "tail": "upper alternative",
+      "n": 1200,
+      "KL": 0.00442835202787481,
+      "bound": 0.00492208807290752
+    },
+    {
+      "name": "G support failure conservative",
+      "q": 0.9,
+      "p": 0.95,
+      "tail": "lower alternative (enlarged failure event)",
+      "n": 1200,
+      "KL": 0.02065421891274627,
+      "bound": 1.721805290061734e-11
+    }
+  ],
+  "joint": 0.968409871686564,
+  "formula": "D(q||p)=q ln(q/p)+(1-q) ln((1-q)/(1-p)); bound=exp(-n D)",
+  "sufficientCountsPerChannel": {
+    "H_min": 90,
+    "L_max": 8,
+    "G_min": 1080
+  },
+  "assumptions": {
+    "target": "finite frozen eligible frame, uniform sample without replacement, fixed noninterfering block outcomes",
+    "fullyObserved": true,
+    "alternative": {
+      "H_at_least": 0.1,
+      "L_at_most": 0.002,
+      "G_at_least": 0.95
+    },
+    "channels": 2
+  },
+  "sensitivity": [
+    {
+      "H": 0.1,
+      "L": 0.002,
+      "G": 0.95,
+      "failureBounds": [
+        0.01087297606659242,
+        0.00492208807290752,
+        1.721805290061734e-11
+      ],
+      "jointLowerBound": 0.968409871686564
+    },
+    {
+      "H": 0.125,
+      "L": 0.002,
+      "G": 0.95,
+      "failureBounds": [
+        1.5066174038134772e-7,
+        0.00492208807290752,
+        1.721805290061734e-11
+      ],
+      "jointLowerBound": 0.9901555224962681
+    },
+    {
+      "H": 0.09,
+      "L": 0.002,
+      "G": 0.95,
+      "failureBounds": [
+        0.1757657616239476,
+        0.00492208807290752,
+        1.721805290061734e-11
+      ],
+      "jointLowerBound": 0.6386243005718536
+    },
+    {
+      "H": 0.075,
+      "L": 0.002,
+      "G": 0.95,
+      "failureBounds": [
+        1,
+        0.00492208807290752,
+        1.721805290061734e-11
+      ],
+      "jointLowerBound": 0
+    },
+    {
+      "H": 0.1,
+      "L": 0.005,
+      "G": 0.95,
+      "failureBounds": [
+        0.01087297606659242,
+        0.5205038586239948,
+        1.721805290061734e-11
+      ],
+      "jointLowerBound": 0
+    },
+    {
+      "H": 0.1,
+      "L": 0.01,
+      "G": 0.95,
+      "failureBounds": [
+        0.01087297606659242,
+        1,
+        1.721805290061734e-11
+      ],
+      "jointLowerBound": 0
+    },
+    {
+      "H": 0.1,
+      "L": 0.002,
+      "G": 0.92,
+      "failureBounds": [
+        0.01087297606659242,
+        0.00492208807290752,
+        0.04783455936629389
+      ],
+      "jointLowerBound": 0.8727407529884124
+    },
+    {
+      "H": 0.1,
+      "L": 0.002,
+      "G": 0.9,
+      "failureBounds": [
+        0.01087297606659242,
+        0.00492208807290752,
+        1
+      ],
+      "jointLowerBound": 0
+    }
+  ]
+}
