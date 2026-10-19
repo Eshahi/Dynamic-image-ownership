@@ -19,7 +19,7 @@ For this session, the brief overrides every section below that asks you to desig
   - stdlib Python (`.thesis-build/venv`) to count existing result files and compute bounds from existing counts;
   - writing inside `research/q1-dossier-20261018/`;
   - committing and pushing this branch.
-- **Guard.** A supervisor hides CUDA and kills child processes that use the science interpreter or run Python for more than 15 minutes. Do not work around it; write any computation you think is needed into the dossier as a proposal for later.
+- **Guard.** A guard may kill processes that use the science interpreter or run experiment scripts. In the CLI run, the supervisor also hides CUDA and stops Python that runs more than 15 minutes. Do not work around it; write any computation you think is needed into the dossier as a proposal for later.
 - **Keep working until the session deadline** in `research/q1-dossier-20261018/PROGRESS.md`. Nobody answers questions during the run: record user and supervisor decisions in the dossier and continue.
 - The integrity rules below still apply in full.
 

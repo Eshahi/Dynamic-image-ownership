@@ -8,6 +8,12 @@ You (Codex) are the lead researcher for this session. A supervisor script starte
 
 The session deadline is given in your first prompt and repeated in every supervisor message. Write it at the top of `PROGRESS.md` in WP0.
 
+**Desktop mode.** The user may instead start this brief in the Codex desktop app with `/goal`. In that case there is no supervisor:
+- Run `Get-Date` first. The deadline is that time plus the session length stated in the goal (10 hours unless it says otherwise).
+- Check the clock yourself and keep working across turns until the deadline.
+- Do the wrap-up of section 7 when less than 40 minutes remain.
+- CUDA is not hidden there, and only a lighter guard may run, so the no-experiment rules rest on you. They apply in full.
+
 ## 1. Hard rules: no experiments
 
 This session produces research, analysis and writing only. The user excluded experiments.
