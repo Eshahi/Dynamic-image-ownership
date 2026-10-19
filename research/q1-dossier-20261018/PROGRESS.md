@@ -41,7 +41,7 @@ These nominal times follow the BRIEF's shares of 600 minutes; start earlier when
 
 ## Work status
 
-WP0-WP8 delivered and pushed; WP2 and WP4 retain explicit access/verification gaps. WP9 independent review is active. WP10 and extension E1-E6 remain pending.
+WP0-WP10 core outputs delivered; WP2 and WP4 retain explicit access/verification gaps. WP9 review corrections incorporated. Extension E1-E6 pending; session remains active.
 
 ## Log
 
@@ -84,3 +84,6 @@ WP0-WP8 delivered and pushed; WP2 and WP4 retain explicit access/verification ga
 - 2026-10-18T23:45:04.6727404-08:00 — WP9 clock check and start. Spawned fresh q1_hostile_review, gpt-6-astra/xhigh, one independent review of the dossier through be6bed8, scoped since WP1 checkpoint 869d02b. Own 10-independent-review.md only, 30-minute/approximately 30-tool-turn cap. Reason: independent editorial, evidential and claim audit; all experiment prohibitions preserved. Parent checks documentary access gaps without changing the review snapshot.
 - 2026-10-18 23:57−08:00 — WP9 author desk check of saved native Booleans adds EV-77: beta found/read are false in every completed E3 query, with 293–297 calls per cell. This explains zero beta candidates before q/content checks and weakens component-attribution novelty. No new scoring, images or experiments. Revised F1 requires component controls and a native-versus-adapted DREW contract; manuscript claims are narrowed. Added older agency JCR corroboration without upgrading direct-provider verification.
 - 2026-10-19 00:00−08:00 — WP9 complete. Independent verdict: accept dossier with material documentary corrections; manuscript not submission-ready. Findings 1–3 addressed in claims, component/comparison contract and falsifiable outcome map; findings 4–6 remain explicit access/institutional/thesis gates. Review preserved, author response added. Commit subject: Address independent review and isolate owner-gate evidence.
+- WP9 resolved checkpoint — 4a92bcb, pushed successfully (be6bed8..4a92bcb).
+- 2026-10-19T00:03:21.6601938-08:00 — WP10 clock check and start. About four hours remain; core report is an interim checkpoint before mandatory extension work, not goal completion.
+- 2026-10-19 00:04−08:00 — WP10 core report written with STATUS: PARTIAL for specific WP2/WP4 verification gaps and pending extensions. MAIN STATE updated within 60 lines; identical dossier snapshot committed on our branch, while MAIN branch is not committed/pushed. No protected experiment/proposal files changed. Commit subject: Report core dossier and update authoritative research state.

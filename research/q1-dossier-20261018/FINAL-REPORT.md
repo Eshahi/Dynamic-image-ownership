@@ -1,0 +1,122 @@
+STATUS: PARTIAL
+Unmet verification requirements: WP2 consequential inaccessible full texts; WP4 current category/guide/policy fields and institutional ranking rule. Core WP0–WP10 delivered. Extension E1–E6 pending at this checkpoint; the session remains active.
+
+# Research-only Q1 dossier report
+
+## 1. Session and delivery
+
+Start: **2026-10-18T18:04:04.3769833-08:00**. Exact ten-hour deadline: **2026-10-19T04:04:04.3769833-08:00**. This initial report is a WP10 checkpoint at approximately **2026-10-19 00:02−08:00**, not the session end. The extension tier continues and this report will be refreshed. Mandatory wrap-up starts by 03:24−08:00.
+
+Lead: Codex agent, GPT-6 family; exact host model identifier was not exposed. Bounded literature/design assistants used the BRIEF-authorized Astra/high and Sol/high or medium settings; WP9 was a fresh Astra/xhigh independent reviewer. Their work and model choices are logged in [PROGRESS](PROGRESS.md). No scientific experiment, pixel inspection, GPU use, package installation, data/model/code download, paid compute, submission or external communication occurred. Permitted stdlib counted retained JSON results and calculated bounds; one post-hoc saved-Boolean count explains E3's owner gate.
+
+| Package | Delivered checkpoint commit |
+|---|---|
+| WP0 orientation | `f4285e8` |
+| WP1 ledger and M2 review | `869d02b` |
+| WP2 literature map | `da31725` |
+| WP3 positioning | `acc59b3` |
+| WP4 venue screen | `d13116a` |
+| WP5 theory/security | `8a63e2f` |
+| WP6 reviewer simulation and gap plan | `426c860` |
+| WP7 manuscript blueprint | `a283ba2` |
+| WP8 thesis alignment | `be6bed8` |
+| WP9 independent review and corrections | `4a92bcb` |
+| WP10 report and MAIN state snapshot | This report's checkpoint; resolved hash recorded in PROGRESS after commit. |
+
+All listed resolved commits were pushed to `origin/codex/q1-research-20261018`; no other branch was pushed. The authorized MAIN STATE update is saved in the main checkout and mirrored as [MAIN-STATE-snapshot.md](MAIN-STATE-snapshot.md) in this branch. MAIN's branch is not committed or pushed by this session. The snapshot preserves the exact state text in the session's own commit history.
+
+## 2. Bottom line
+
+**The current evidence is not Q1-submission-ready, and writing alone cannot make it so.** The strongest route is a bounded empirical article about the distinction between watermark recovery and registered-image attribution, with a narrower negative case-study fallback. **IEEE TIFS** is the conditional primary destination, with **IEEE TMM** and **ACM TOMM** as backups, subject to scientific improvement and institution-accepted ranking verification. The minimum research directions are a component-identifying, task-compatible comparison and fresh diverse hard negatives with complete-bank accounting (F1/F2); independent-encoder evidence is needed for broader transfer claims and active attacks for broader security claims. The independent review accepts the dossier with documentary corrections, not the manuscript for submission.
+
+## 3. What the retained evidence supports
+
+| Claim and evidence | Necessary limit |
+|---|---|
+| Strength-.2 source-majority intended-record recovery is **277/300 SD1.5, 280/300 SD2.1-base**; one-sided 95% lower bounds about .89313/.90460. EV-50–52. | Three scheduled seeds per source; unavailable outputs are misses. This is not independent-encoder transfer or all-seed recovery. |
+| The frozen overall confirmation **fails** because the descriptor check accepts **3/45** operationally different real look-alike pairs, from **2/16** shots. EV-55/70/71. | One film; descriptor-only stress endpoint, not three demonstrated full-pipeline forgeries. PSNR eligibility is operational, not human-validated identity. |
+| Zero accepts in **3,343,081 observed** unrelated comparisons; **65,519 missing** of 3,408,600 planned. T4 is **0/594 observed**, six missing of 600. EV-53/54. | Reused query/reference sources are not millions of independent trials. Every query bank has some unavailable records. |
+| Conditional E3 has zero beta acceptance in eight cells of **293–297** evaluable sources. At .4 further regeneration original-owner recovery is only **81/293** and **81/297**. EV-58–66/75. | Strict E3 gate remains false; approved pre-result complete-case reading uses incomplete observed banks. Any-beta includes ambiguity. Do not pool repeated cells. |
+| Saved beta owner calls are already rejected in every completed E3 query, before q and descriptor checks. **EV-77, post-hoc desk count.** | Explains the observed zero-beta result; does not identify incremental q/content binding. No owner-only experiment was run. |
+| Strict clean quality holds for **291/297 available marks**, or **291/300 attempts**; three marking failures, six available LPIPS failures. EV-67/73/74. | The registry protocol did not make the old quality gate an endpoint. Human visual ratings remain missing. |
+| Recorded registry runtime **12.0559 local hours**, with 53,053 successful journal units of 53,580 total; 53 science failures and 474 dependent unavailable units. EV-68/69. | Historical workload, not a new timing benchmark or deployment-latency guarantee. Fifty science failures are safety blocks. |
+
+Earlier F5/E3/registry development comparisons, post-hoc no-exact-H sensitivity, quality and cost remain in the [ledger](01-evidence-ledger.md), EV-01–43. They are not pooled into the newer confirmation. E1/E2 acceptance numerators were cross-checked saved aggregates; availability and E3 sets were independently recounted. No pixel-level rescoring occurred.
+
+Do not claim a successful overall confirmation, universal robustness, cryptographic/legal ownership, active-forgery resistance, globally unique q, independent-encoder evidence from SD2.1, or completion of the original latent/lightweight/CLIP+pHash hypotheses.
+
+## 4. Novelty verdict
+
+| Candidate contribution | Closest inspected prior art and verdict |
+|---|---|
+| Watermark pointer plus stored content check | **High novelty risk / architecture priority rejected.** DREW v2, final TrustMark §4.5, SynthID-Image §7 and Roy–Chang already establish relevant hybrid/registered-content ideas. |
+| Passive competing-enrollment result | **High risk as a standalone contribution.** Classical ownership ambiguity and hybrid provenance precede it. EV-77 shows owner-presence gating already explains zero beta acceptance; q/content benefit needs separate evidence. |
+| Recovery versus specificity/abstention boundary | **Conditional empirical opportunity.** WAVES, the October 2026 soft-binding benchmark and Rel-Zero already study related recovery/identification/near-copy issues. The current one-system, one-film case needs a precise external comparison and fresh population. |
+| Encoder-directed RGB carrier | **High method-novelty risk.** FreqMark, VINE, RoSteALS, SimuFreeMark and other VAE-aware work constrain the claim. Retained gains do not causally isolate amplification or establish independent-encoder transfer. |
+| Missingness and cluster-aware reporting | Necessary credibility, **not a new estimator or enough Q1 novelty alone**. |
+
+The literature matrix has **87 entries: 79 V2 works (77 papers and two standards/guidance), eight V1 leads** at the core checkpoint. V2 identifies the inspected version, not independent reproduction. Consequential inaccessible TIP/ConZWNet/Rad-Mark papers prevent an exhaustive novelty clearance. See [positioning](03-novelty-positioning.md), [synthesis](02-literature/synthesis.md) and [unverified leads](02-literature/unverified-leads.md).
+
+## 5. Ten next actions, ranked — desk work first
+
+Effort is approximate researcher time; items already implemented must propagate to any later manuscript rather than be rediscovered.
+
+| Rank | Action | Effort and file |
+|---|---|---|
+| 1 | Use recovery-versus-attribution framing and disclose EV-77's owner-gate explanation. | 1–2 h propagation; 03, 08, 11. Core correction done. |
+| 2 | Preserve planned/observed denominators, E2 failure, E3 conditional scope and abstention in every table. | 1–2 h; 01/01b/08 and figure specifications. Core correction done. |
+| 3 | Separate owner, q and record-check roles; preserve public derivation, valid fallback and missing-cache distinctions. | 1–2 h; 05/07/11. Core contract done. |
+| 4 | Specify the falsifiable record-level question and native-versus-adapted baseline contract before requesting studies. | 2–4 h plus feasibility; 07 F1. Planning contract done; executable protocol not created. |
+| 5 | Resolve bibliographic versions and obtain lawful full texts for remaining novelty threats. | 2–5 h plus access; 02 and extension bibliography audit. Access gaps remain. |
+| 6 | Confirm university ranking system/edition/category and current journal guide/fees. | 1 h plus institution response; 04. No institutional answer assumed. |
+| 7 | Reconcile article scope with original objectives and seek an explicit later amendment if desired. | 1–2 h plus supervisor decision; 09. Mapping complete, decisions open. |
+| 8 | Complete manuscript drafts and reviewer-response material without inventing missing evidence. | 4–8 h; 08 and extensions 11–16. |
+| 9 | Prepare a rights-aware reproducibility/release inventory and honest cost table. | 1–2 h; 08/11, future artifact appendix. No public archive is claimed complete. |
+| 10 | Turn candidate fresh-data sources into a prospective license/group/overlap plan before any acquisition or outcomes. | 1–2 h metadata design plus later curation; 07. No cohort downloaded or certified fresh here. |
+
+## 6. Future experiments — ranked proposals, NOT RUN
+
+None is approved by this dossier; closed external-baseline work requires explicit reopening. All old COCO/DIV2K test pools are consumed. Candidate new sources are Open Images V7 and individually licensed Commons sequences; V3C2 is agreement-gated reserve, UVG a small secondary panel. Exact licenses, grouping, overlap and cohort availability remain acquisition prerequisites.
+
+| Priority | Proposed evidence and unlocked claim | Rough local / rented compute allowance |
+|---|---|---|
+| F1 | Component controls plus one task-compatible external hybrid/copy control; tests q's additional record discrimination and separates native from adapted decisions. | 24–72 h; USD 21.36–64.08 rental; 3–7 researcher-days, potentially more if baseline compatibility fails. |
+| F2 | Diverse fresh hard negatives and complete banks; tests population-specific specificity and complete-bank attribution, including full-pipeline versus descriptor-only outcomes. | 12–36 h; USD 10.68–32.04; 3–10 curation/researcher-days. |
+| F3 | SDXL or another documented separately trained encoder, paired nominal-strength and development-matched-quality channels. | 12–48 h if laptop fits, otherwise infeasible locally; USD 10.68–42.72 rental. |
+| F4 | Separate active beta re-marking and bounded adaptive encoder-aware attacks; only needed for the corresponding expanded security claim. | 12–60 h; USD 10.68–53.40; excludes new robust-encoder training. |
+| F5 | Larger independent groups and bank-size study, only for stronger rare-risk/scaling claims. | 60–240 h; USD 53.40–213.60 plus substantial curation. |
+| F6 | One established stronger record verifier, only if pursuing repair rather than reporting the limitation. | 8–24 h; USD 7.12–21.36; no retraining assumed. |
+| F7 | Availability/safety accounting now; prospective sensitivity only if justified, without bypass or replacing blocked held-out outputs. | Desk correction done; optional future 4–12 h, USD 3.56–10.68. |
+
+Prices use the retrieved Runpod RTX4090 list rate of USD .89/h, as sourced in [07](07-gap-closure-plan.md); they exclude storage/tax/transfer and assume no proven rental speedup. Combined F1–F3 allowance is 48–120 rental hours, USD 42.72–106.80, with overlap and approximately 1–3 researcher-weeks; it is not a measured forecast or spending commitment. F1's component/comparison feasibility may require revision. Success, refutation, unresolved outcomes and kill rules are in 07; a nonsignificant result is not evidence of equivalence or publishability.
+
+## 7. Decisions for the user and supervisor
+
+1. Which ranking system, metric year/edition, category and evidence source does the university accept? No answer is assumed.
+2. Accept the bounded empirical article route and its negative-result fallback, or explicitly revise the scientific contribution.
+3. Decide whether to amend original latent-insertion, lightweight DCT, CLIP+pHash, data-scale and title obligations; current dossier does not amend them.
+4. Define the intended scope of image identity and any future blinded human judgments; the old PSNR label remains frozen.
+5. Decide whether to reopen F1 external comparisons and authorize a future development/confirmation plan; no new run is approved now.
+6. Set a later compute/publication budget, authorship, institutional access and release permissions. No payment, contact, submission or human verdict was fabricated.
+
+## 8. Principal risks and possible fatal objections
+
+Broad architecture novelty is pre-empted. The closest late work is the October 2026 soft-binding study, and inaccessible recent zero-watermarking/VAE-removal work may further narrow novelty. EV-77 makes a claimed joint-binding E3 advantage untenable without component evidence. DREW's native marked enrollment, top-1 decision and fallback cannot be silently changed to match our passive set-valued rule. Current E2 is one-film descriptor-only evidence; incomplete E3 banks, shared source clusters, missing human ratings and shared encoder ancestry restrict generality. A failure of our own verifier is not automatically the kind of externally relevant negative result encouraged by TIFS. These concerns may leave a solid thesis case study but no Q1-level contribution.
+
+## 9. What was not done and why
+
+No experiments of any kind were run, by the user's binding instruction. No fresh data, features, models, baselines, plots, approvals or runnable manifests were produced. Required recent papers that could not be legitimately accessed remain V1 despite bounded retries; metadata and other papers' citations do not substitute for their methods/evaluation. Several current journal fields and the institution's ranking policy remain unverified. The manuscript is a draft; public artifact release, author approvals, human visual judgments and supervisor decisions remain undone. The extension tier is pending at this core checkpoint and will be recorded here when finished or trimmed at the deadline.
+
+## 10. File index
+
+- [PROGRESS.md](PROGRESS.md): deadline, decisions, clock checks, spawns and commit/push history.
+- [01-evidence-ledger.md](01-evidence-ledger.md): result and claim IDs.
+- [01b-heldout-registry-m2-review.md](01b-heldout-registry-m2-review.md), recount JSON, [01d owner-gate audit](01d-e3-owner-gate-audit.md): independent review, retained-output arithmetic and post-hoc explanation.
+- [02-literature/synthesis.md](02-literature/synthesis.md), [matrix.csv](02-literature/matrix.csv), [references.bib](02-literature/references.bib), [Q-VAE.md](02-literature/Q-VAE.md): versioned cards, nine clusters, sources and access gaps.
+- [03-novelty-positioning.md](03-novelty-positioning.md): contribution risks and primary/fallback framing.
+- [04-venues.md](04-venues.md), fact sheets 04a–04e: ten plausible candidates plus one scope exclusion and verification gaps.
+- [05-theory-security.md](05-theory-security.md): games, exact frozen rule, hypothetical code bounds and conditional empirical inference.
+- [06-reviewer-simulation.md](06-reviewer-simulation.md), [07-gap-closure-plan.md](07-gap-closure-plan.md): three personas, desk fixes and future-only studies.
+- [08-manuscript-blueprint.md](08-manuscript-blueprint.md), [09-thesis-alignment.md](09-thesis-alignment.md): draft text/figures and all twelve original obligations.
+- [10-independent-review.md](10-independent-review.md), [10a-review-response.md](10a-review-response.md): independent verdict and author correction disposition.
+- [MAIN-STATE-snapshot.md](MAIN-STATE-snapshot.md): authorized MAIN state text preserved on this branch.
