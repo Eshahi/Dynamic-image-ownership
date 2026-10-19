@@ -1,0 +1,5608 @@
+[
+  {
+    "model": "stabilityai/stable-diffusion-xl-base-1.0",
+    "revision": "462165984030d82259a11f4367a4eed129e94a7b",
+    "gated": false,
+    "license": "openrail++",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1562,
+        "sha256": null
+      },
+      {
+        "name": "01.png",
+        "size": 4608613,
+        "sha256": "f40474e9ef8787d8209c275ade4254fc544dce290922b2e07650911ea255530c"
+      },
+      {
+        "name": "LICENSE.md",
+        "size": 14109,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 8668,
+        "sha256": null
+      },
+      {
+        "name": "comparison.png",
+        "size": 130252,
+        "sha256": null
+      },
+      {
+        "name": "model_index.json",
+        "size": 609,
+        "sha256": null
+      },
+      {
+        "name": "pipeline.png",
+        "size": 80188,
+        "sha256": null
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 479,
+        "sha256": null
+      },
+      {
+        "name": "sd_xl_base_1.0.safetensors",
+        "size": 6938078334,
+        "sha256": "31e35c80fc4829d14f90153f4c74cd59c90b779f6afe05a74cd6120b893f7e5b"
+      },
+      {
+        "name": "sd_xl_base_1.0_0.9vae.safetensors",
+        "size": 6938078334,
+        "sha256": "e6bb9ea85bbf7bf6478a7c6d18b71246f22e95d41bcdd80ed40aa212c33cfeff"
+      },
+      {
+        "name": "sd_xl_offset_example-lora_1.0.safetensors",
+        "size": 49553604,
+        "sha256": "4852686128f953d0277d0793e2f0335352f96a919c9c16a09787d77f55cbdf6f"
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 565,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/flax_model.msgpack",
+        "size": 492248682,
+        "sha256": "80269e53c9d09b1f19c6227cf903a5032878ed31ea8b49b8ecfa7808b81568d9"
+      },
+      {
+        "name": "text_encoder/model.fp16.safetensors",
+        "size": 246144152,
+        "sha256": "660c6f5b1abae9dc498ac2d21e1347d2abdb0cf6c0c0c8576cd796491d9a6cdd"
+      },
+      {
+        "name": "text_encoder/model.onnx",
+        "size": 492587457,
+        "sha256": "e27bafa0b3029ad637ef3ace24ce1efe85b8d0dbd22e03a2e70bda6fc88963a1"
+      },
+      {
+        "name": "text_encoder/model.safetensors",
+        "size": 492265168,
+        "sha256": "5c3d6454dd2d23414b56aa1b5858a72487a656937847b6fea8d0606d7a42cdbc"
+      },
+      {
+        "name": "text_encoder/openvino_model.bin",
+        "size": 492242672,
+        "sha256": "bbc78395c8cee553a17380e9b1a9a47da926c98731ba31306032d7d45fadb29b"
+      },
+      {
+        "name": "text_encoder/openvino_model.xml",
+        "size": 1057789,
+        "sha256": "ab5cf7327374d8c984f4e963564a329f92c9dad08dac9eee9b8dca86b912f1c9"
+      },
+      {
+        "name": "text_encoder_2/config.json",
+        "size": 575,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder_2/flax_model.msgpack",
+        "size": 2778657095,
+        "sha256": "dc025fc8d206bafd2ebf2f2cbf0b6f791c314612b5613c3737bf368236ac657f"
+      },
+      {
+        "name": "text_encoder_2/model.fp16.safetensors",
+        "size": 1389382176,
+        "sha256": "ec310df2af79c318e24d20511b601a591ca8cd4f1fce1d8dff822a356bcdb1f4"
+      },
+      {
+        "name": "text_encoder_2/model.onnx",
+        "size": 1041992,
+        "sha256": "162042ac6556e73f93d4172d4c67532c1cbe4dc7a6a8fa7e44dd2e3d7cbb772b"
+      },
+      {
+        "name": "text_encoder_2/model.onnx_data",
+        "size": 2778639360,
+        "sha256": "3da7ac65349fbd092e836e3eeca2c22811317bc804fd70af157b4550f2d4bcb5"
+      },
+      {
+        "name": "text_encoder_2/model.safetensors",
+        "size": 2778702264,
+        "sha256": "3a6032f63d37ae02bbc74ccd6a27440578cd71701f96532229d0154f55a8d3ff"
+      },
+      {
+        "name": "text_encoder_2/openvino_model.bin",
+        "size": 2778640120,
+        "sha256": "549d05154b0c09d46226f85abd48552f0ef999af4f24a95b3fb62d5e7d059570"
+      },
+      {
+        "name": "text_encoder_2/openvino_model.xml",
+        "size": 2790191,
+        "sha256": "38f0a4ff68dd918b24908a264140c2ad0e057eca82616f75c17cbf4a099ad6ad"
+      },
+      {
+        "name": "tokenizer/merges.txt",
+        "size": 524619,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 472,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 737,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/vocab.json",
+        "size": 1059962,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/merges.txt",
+        "size": 524619,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/special_tokens_map.json",
+        "size": 460,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/tokenizer_config.json",
+        "size": 725,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/vocab.json",
+        "size": 1059962,
+        "sha256": null
+      },
+      {
+        "name": "unet/config.json",
+        "size": 1680,
+        "sha256": null
+      },
+      {
+        "name": "unet/diffusion_flax_model.msgpack",
+        "size": 10269915611,
+        "sha256": "0b98927b43cc771954a394ed19c08ecd3064a09e6e28b1d762270978ba6a9533"
+      },
+      {
+        "name": "unet/diffusion_pytorch_model.fp16.safetensors",
+        "size": 5135149760,
+        "sha256": "83e012a805b84c7ca28e5646747c90a243c65c8ba4f070e2d7ddc9d74661e139"
+      },
+      {
+        "name": "unet/diffusion_pytorch_model.safetensors",
+        "size": 10270077736,
+        "sha256": "357650fbfb3c7b4d94c1f5fd7664da819ad1ff5a839430484b4ec422d03f710a"
+      },
+      {
+        "name": "unet/model.onnx",
+        "size": 7293842,
+        "sha256": "6f001c090fb13c0d0f8b0a5916da814712a94400b99471fabe77c1c4a51ecaaf"
+      },
+      {
+        "name": "unet/model.onnx_data",
+        "size": 10269854720,
+        "sha256": "7905b71f0044c5ea8fea8ca0451bd73cad53492ad50f964c49c3ff9250afa350"
+      },
+      {
+        "name": "unet/openvino_model.bin",
+        "size": 10269856428,
+        "sha256": "2d586bcb83c004ab07f5899adcac3d46189afe058d6a581570f0a613a010d9ec"
+      },
+      {
+        "name": "unet/openvino_model.xml",
+        "size": 22577438,
+        "sha256": "18955f96dffdba5612c4b554451f4ccc947c93e46df010173791654af4d0d7f6"
+      },
+      {
+        "name": "vae/config.json",
+        "size": 642,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_flax_model.msgpack",
+        "size": 334623853,
+        "sha256": "1857495e1d4e28140013764ffd620f6aa1fb0311dd43d7cf083f72704c69e3ee"
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.fp16.safetensors",
+        "size": 167335342,
+        "sha256": "bcb60880a46b63dea58e9bc591abe15f8350bde47b405f9c38f4be70c6161e68"
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 334643268,
+        "sha256": "1598f3d24932bcfe6634e8b618ea1e30ab1d57f5aad13a6d2de446d2199f2341"
+      },
+      {
+        "name": "vae_1_0/config.json",
+        "size": 607,
+        "sha256": null
+      },
+      {
+        "name": "vae_1_0/diffusion_pytorch_model.fp16.safetensors",
+        "size": 167335342,
+        "sha256": "eb6516ab7e1104d5d1a174a4d65c57835ae38061531d0a2192103aecfb790cc1"
+      },
+      {
+        "name": "vae_1_0/diffusion_pytorch_model.safetensors",
+        "size": 334643268,
+        "sha256": "27ed3b02e09638568e99d4398c67bc654dde04e6c0db61fb2d21dba630e7058a"
+      },
+      {
+        "name": "vae_decoder/config.json",
+        "size": 607,
+        "sha256": null
+      },
+      {
+        "name": "vae_decoder/model.onnx",
+        "size": 198093688,
+        "sha256": "0892c5e28b35791140467f7b9c9fa148c24238a5f0c381b1d4c22dcd2ed365cb"
+      },
+      {
+        "name": "vae_decoder/openvino_model.bin",
+        "size": 197961232,
+        "sha256": "34ea744ad1d75fb6b8825e31f5adbe7d62cbe2e7d061535b0a12e69c2f72d0f4"
+      },
+      {
+        "name": "vae_decoder/openvino_model.xml",
+        "size": 992181,
+        "sha256": "dd61f43e981282b77ecaecf5fc5c842d504932bae78ac99ec581cee50978b423"
+      },
+      {
+        "name": "vae_encoder/config.json",
+        "size": 607,
+        "sha256": null
+      },
+      {
+        "name": "vae_encoder/model.onnx",
+        "size": 136775724,
+        "sha256": "7b117fbb21531efd59d68c95682392785999bf3e0c2ce95647c6e0de9af36e74"
+      },
+      {
+        "name": "vae_encoder/openvino_model.bin",
+        "size": 136655184,
+        "sha256": "97f04b0cf74808c7bd9b6e09f080e8cd24821943c3c06b153145989889215ce5"
+      },
+      {
+        "name": "vae_encoder/openvino_model.xml",
+        "size": 849965,
+        "sha256": "a3ec36b6f3f74d0cb2b005b7c0a1e5426c5ef1e7163b33e463ea57fa049c5996"
+      }
+    ],
+    "vae/config.json": {
+      "_class_name": "AutoencoderKL",
+      "_diffusers_version": "0.20.0.dev0",
+      "_name_or_path": "../sdxl-vae/",
+      "act_fn": "silu",
+      "block_out_channels": [
+        128,
+        256,
+        512,
+        512
+      ],
+      "down_block_types": [
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D"
+      ],
+      "force_upcast": true,
+      "in_channels": 3,
+      "latent_channels": 4,
+      "layers_per_block": 2,
+      "norm_num_groups": 32,
+      "out_channels": 3,
+      "sample_size": 1024,
+      "scaling_factor": 0.13025,
+      "up_block_types": [
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D"
+      ]
+    }
+  },
+  {
+    "model": "black-forest-labs/FLUX.1-schnell",
+    "revision": "741f7c3ce8b383c54771c7003378a50191e9efe9",
+    "gated": "auto",
+    "license": "apache-2.0",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1668,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 3681,
+        "sha256": null
+      },
+      {
+        "name": "ae.safetensors",
+        "size": 335304388,
+        "sha256": "afc8e28272cd15db3919bacdb6918ce9c1ed22e96cb12c4d5ed0fba823529e38"
+      },
+      {
+        "name": "flux1-schnell.safetensors",
+        "size": 23782506688,
+        "sha256": "9403429e0052277ac2a87ad800adece5481eecefd9ed334e1f348723621d2a0a"
+      },
+      {
+        "name": "model_index.json",
+        "size": 536,
+        "sha256": null
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 274,
+        "sha256": null
+      },
+      {
+        "name": "schnell_grid.jpeg",
+        "size": 1671111,
+        "sha256": "5bff488da88933a529825e4fd72e10c3824e22508dc1d6f36b49850fa517ac44"
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 613,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model.safetensors",
+        "size": 246144352,
+        "sha256": "893d67a23f4693ed42cdab4cbad7fe3e727cf59609c40da28a46b5470f9ed082"
+      },
+      {
+        "name": "text_encoder_2/config.json",
+        "size": 782,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder_2/model-00001-of-00002.safetensors",
+        "size": 4994582224,
+        "sha256": "ec87bffd1923e8b2774a6d240c922a41f6143081d52cf83b8fe39e9d838c893e"
+      },
+      {
+        "name": "text_encoder_2/model-00002-of-00002.safetensors",
+        "size": 4530066360,
+        "sha256": "a5640855b301fcdbceddfa90ae8066cd9414aff020552a201a255ecf2059da00"
+      },
+      {
+        "name": "text_encoder_2/model.safetensors.index.json",
+        "size": 19885,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/merges.txt",
+        "size": 524619,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 588,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 705,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/vocab.json",
+        "size": 1059962,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/special_tokens_map.json",
+        "size": 2543,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/spiece.model",
+        "size": 791656,
+        "sha256": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86"
+      },
+      {
+        "name": "tokenizer_2/tokenizer.json",
+        "size": 2424235,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/tokenizer_config.json",
+        "size": 20817,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 321,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00001-of-00003.safetensors",
+        "size": 9962580296,
+        "sha256": "9b633dbe87316385c5b1c262bd4b5a01e3d955170661d63dcec8a01e89c0d820"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00002-of-00003.safetensors",
+        "size": 9949328904,
+        "sha256": "58b4434078f0c2567ddc54e3b5cbf39626ab55fbd9d5c22956e183668f535dec"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00003-of-00003.safetensors",
+        "size": 3870584832,
+        "sha256": "e2cbc25471ed5186e69a9b51098300cb2f612556453e38a372c851a220ed238d"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors.index.json",
+        "size": 120822,
+        "sha256": null
+      },
+      {
+        "name": "vae/config.json",
+        "size": 774,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 167666902,
+        "sha256": "f5b59a26851551b67ae1fe58d32e76486e1e812def4696a4bea97f16604d40a3"
+      }
+    ]
+  },
+  {
+    "model": "black-forest-labs/FLUX.1-dev",
+    "revision": "3de623fc3c33e44ffbe2bad470d0f45bccf2eb21",
+    "gated": "auto",
+    "license": "other",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1655,
+        "sha256": null
+      },
+      {
+        "name": "LICENSE.md",
+        "size": 18621,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 4394,
+        "sha256": null
+      },
+      {
+        "name": "ae.safetensors",
+        "size": 335304388,
+        "sha256": "afc8e28272cd15db3919bacdb6918ce9c1ed22e96cb12c4d5ed0fba823529e38"
+      },
+      {
+        "name": "dev_grid.jpg",
+        "size": 1301528,
+        "sha256": "37a587d0ff3d9dda0d8ab59d65342c0242ffb909573d8d998d599e3401d3d7e9"
+      },
+      {
+        "name": "flux1-dev.safetensors",
+        "size": 23802932552,
+        "sha256": "4610115bb0c89560703c892c59ac2742fa821e60ef5871b33493ba544683abd7"
+      },
+      {
+        "name": "model_index.json",
+        "size": 536,
+        "sha256": null
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 273,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 613,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model.safetensors",
+        "size": 246144352,
+        "sha256": "893d67a23f4693ed42cdab4cbad7fe3e727cf59609c40da28a46b5470f9ed082"
+      },
+      {
+        "name": "text_encoder_2/config.json",
+        "size": 782,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder_2/model-00001-of-00002.safetensors",
+        "size": 4994582224,
+        "sha256": "ec87bffd1923e8b2774a6d240c922a41f6143081d52cf83b8fe39e9d838c893e"
+      },
+      {
+        "name": "text_encoder_2/model-00002-of-00002.safetensors",
+        "size": 4530066360,
+        "sha256": "a5640855b301fcdbceddfa90ae8066cd9414aff020552a201a255ecf2059da00"
+      },
+      {
+        "name": "text_encoder_2/model.safetensors.index.json",
+        "size": 19885,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/merges.txt",
+        "size": 524619,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 588,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 705,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/vocab.json",
+        "size": 1059962,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/special_tokens_map.json",
+        "size": 2543,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/spiece.model",
+        "size": 791656,
+        "sha256": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86"
+      },
+      {
+        "name": "tokenizer_2/tokenizer.json",
+        "size": 2424235,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/tokenizer_config.json",
+        "size": 20817,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 378,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00001-of-00003.safetensors",
+        "size": 9983040304,
+        "sha256": "d86a3038eacaa720682cb9b1da3c49fecf8a3ded605af4def6061eaa18903eb8"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00002-of-00003.safetensors",
+        "size": 9949328904,
+        "sha256": "5e830704a83aa938dfaf23da308100a1c44b83fa084283abf1d163ea727e5f7a"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00003-of-00003.safetensors",
+        "size": 3870584832,
+        "sha256": "0d9c7c663217d1c3d44a6deed4e1cf1ac09fbc2c4137c47de1e3d74c959833de"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors.index.json",
+        "size": 121262,
+        "sha256": null
+      },
+      {
+        "name": "vae/config.json",
+        "size": 820,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 167666902,
+        "sha256": "f5b59a26851551b67ae1fe58d32e76486e1e812def4696a4bea97f16604d40a3"
+      }
+    ]
+  },
+  {
+    "model": "stabilityai/stable-diffusion-3-medium-diffusers",
+    "revision": "ea42f8cef0f178587cf766dc8129abd379c90671",
+    "gated": "auto",
+    "license": "other",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1067,
+        "sha256": null
+      },
+      {
+        "name": "LICENSE",
+        "size": 7420,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 7446,
+        "sha256": null
+      },
+      {
+        "name": "mmdit.png",
+        "size": 266439,
+        "sha256": null
+      },
+      {
+        "name": "model_index.json",
+        "size": 706,
+        "sha256": null
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 141,
+        "sha256": null
+      },
+      {
+        "name": "sd3demo.jpg",
+        "size": 7404768,
+        "sha256": "c6d829561bdf08624c0031f6147e771b0025a441d6616ee924a2af2ca7ea7f34"
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 574,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model.fp16.safetensors",
+        "size": 247323896,
+        "sha256": "71e183d11db0c6b6282a4d9e0abb74125edc8692393e89ed8ee5571005f35cb1"
+      },
+      {
+        "name": "text_encoder/model.safetensors",
+        "size": 247323896,
+        "sha256": "71e183d11db0c6b6282a4d9e0abb74125edc8692393e89ed8ee5571005f35cb1"
+      },
+      {
+        "name": "text_encoder_2/config.json",
+        "size": 570,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder_2/model.fp16.safetensors",
+        "size": 1389382176,
+        "sha256": "ec310df2af79c318e24d20511b601a591ca8cd4f1fce1d8dff822a356bcdb1f4"
+      },
+      {
+        "name": "text_encoder_2/model.safetensors",
+        "size": 1389382176,
+        "sha256": "ec310df2af79c318e24d20511b601a591ca8cd4f1fce1d8dff822a356bcdb1f4"
+      },
+      {
+        "name": "text_encoder_3/config.json",
+        "size": 740,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder_3/model-00001-of-00002.safetensors",
+        "size": 4994582104,
+        "sha256": "4f2751ceeb2a96edd693e539dc5d6bba0b8d3814f49a9b3798403a0cec4b2e3d"
+      },
+      {
+        "name": "text_encoder_3/model-00002-of-00002.safetensors",
+        "size": 4530066248,
+        "sha256": "f63154532130422309532ff56f11945fbea8266c958e3133e8e5aef85c6293c7"
+      },
+      {
+        "name": "text_encoder_3/model.fp16-00001-of-00002.safetensors",
+        "size": 4994582104,
+        "sha256": "4f2751ceeb2a96edd693e539dc5d6bba0b8d3814f49a9b3798403a0cec4b2e3d"
+      },
+      {
+        "name": "text_encoder_3/model.fp16-00002-of-00002.safetensors",
+        "size": 4530066248,
+        "sha256": "f63154532130422309532ff56f11945fbea8266c958e3133e8e5aef85c6293c7"
+      },
+      {
+        "name": "text_encoder_3/model.safetensors.index.fp16.json",
+        "size": 20980,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder_3/model.safetensors.index.json",
+        "size": 19885,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/merges.txt",
+        "size": 524619,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 588,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 705,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/vocab.json",
+        "size": 1059962,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/merges.txt",
+        "size": 524619,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/special_tokens_map.json",
+        "size": 576,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/tokenizer_config.json",
+        "size": 856,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/vocab.json",
+        "size": 1059962,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_3/special_tokens_map.json",
+        "size": 2543,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_3/spiece.model",
+        "size": 791656,
+        "sha256": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86"
+      },
+      {
+        "name": "tokenizer_3/tokenizer.json",
+        "size": 2424035,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_3/tokenizer_config.json",
+        "size": 20617,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 372,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.fp16.safetensors",
+        "size": 4169981408,
+        "sha256": "8b0e357dd04755fbfb067c63f4a883ac1de2942dd4a3240069874a17022e5418"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors",
+        "size": 4169981408,
+        "sha256": "8b0e357dd04755fbfb067c63f4a883ac1de2942dd4a3240069874a17022e5418"
+      },
+      {
+        "name": "vae/config.json",
+        "size": 739,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.fp16.safetensors",
+        "size": 167666654,
+        "sha256": "f9b67a279283625caee39d61eacb5324243848477b4eb535355eaaa8423d4e09"
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 167666654,
+        "sha256": "f9b67a279283625caee39d61eacb5324243848477b4eb535355eaaa8423d4e09"
+      }
+    ]
+  },
+  {
+    "model": "stabilityai/stable-diffusion-3.5-medium",
+    "revision": "b940f670f0eda2d07fbb75229e779da1ad11eb80",
+    "gated": "auto",
+    "license": "other",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1519,
+        "sha256": null
+      },
+      {
+        "name": "LICENSE.md",
+        "size": 11726,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 12100,
+        "sha256": null
+      },
+      {
+        "name": "SD3.5L_plus_SD3.5M_upscaling_example_workflow.json",
+        "size": 20634,
+        "sha256": null
+      },
+      {
+        "name": "SD3.5M_SLG_example_workflow.json",
+        "size": 16916,
+        "sha256": null
+      },
+      {
+        "name": "SD3.5M_example_workflow.json",
+        "size": 11982,
+        "sha256": null
+      },
+      {
+        "name": "mmdit-x.png",
+        "size": 345393,
+        "sha256": null
+      },
+      {
+        "name": "model_index.json",
+        "size": 706,
+        "sha256": null
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 141,
+        "sha256": null
+      },
+      {
+        "name": "sd3.5_medium.safetensors",
+        "size": 5107104286,
+        "sha256": "11fe06e22364b823dfeedc275912336b932b32a293a0b2f35ffac071990cc4de"
+      },
+      {
+        "name": "sd3.5_medium_demo.jpg",
+        "size": 488766,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 574,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model.fp16.safetensors",
+        "size": 247323896,
+        "sha256": "71e183d11db0c6b6282a4d9e0abb74125edc8692393e89ed8ee5571005f35cb1"
+      },
+      {
+        "name": "text_encoder/model.safetensors",
+        "size": 247323896,
+        "sha256": "71e183d11db0c6b6282a4d9e0abb74125edc8692393e89ed8ee5571005f35cb1"
+      },
+      {
+        "name": "text_encoder_2/config.json",
+        "size": 570,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder_2/model.fp16.safetensors",
+        "size": 1389382176,
+        "sha256": "ec310df2af79c318e24d20511b601a591ca8cd4f1fce1d8dff822a356bcdb1f4"
+      },
+      {
+        "name": "text_encoder_2/model.safetensors",
+        "size": 1389382176,
+        "sha256": "ec310df2af79c318e24d20511b601a591ca8cd4f1fce1d8dff822a356bcdb1f4"
+      },
+      {
+        "name": "text_encoder_3/config.json",
+        "size": 740,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder_3/model-00001-of-00002.safetensors",
+        "size": 4994582104,
+        "sha256": "4f2751ceeb2a96edd693e539dc5d6bba0b8d3814f49a9b3798403a0cec4b2e3d"
+      },
+      {
+        "name": "text_encoder_3/model-00002-of-00002.safetensors",
+        "size": 4530066248,
+        "sha256": "f63154532130422309532ff56f11945fbea8266c958e3133e8e5aef85c6293c7"
+      },
+      {
+        "name": "text_encoder_3/model.fp16-00001-of-00002.safetensors",
+        "size": 4994582104,
+        "sha256": "4f2751ceeb2a96edd693e539dc5d6bba0b8d3814f49a9b3798403a0cec4b2e3d"
+      },
+      {
+        "name": "text_encoder_3/model.fp16-00002-of-00002.safetensors",
+        "size": 4530066248,
+        "sha256": "f63154532130422309532ff56f11945fbea8266c958e3133e8e5aef85c6293c7"
+      },
+      {
+        "name": "text_encoder_3/model.safetensors.index.fp16.json",
+        "size": 20980,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder_3/model.safetensors.index.json",
+        "size": 19885,
+        "sha256": null
+      },
+      {
+        "name": "text_encoders/README.md",
+        "size": 636,
+        "sha256": null
+      },
+      {
+        "name": "text_encoders/clip_g.safetensors",
+        "size": 1389382176,
+        "sha256": "ec310df2af79c318e24d20511b601a591ca8cd4f1fce1d8dff822a356bcdb1f4"
+      },
+      {
+        "name": "text_encoders/clip_l.safetensors",
+        "size": 246144152,
+        "sha256": "660c6f5b1abae9dc498ac2d21e1347d2abdb0cf6c0c0c8576cd796491d9a6cdd"
+      },
+      {
+        "name": "text_encoders/t5xxl_fp16.safetensors",
+        "size": 9787841024,
+        "sha256": "6e480b09fae049a72d2a8c5fbccb8d3e92febeb233bbe9dfe7256958a9167635"
+      },
+      {
+        "name": "text_encoders/t5xxl_fp8_e4m3fn.safetensors",
+        "size": 4893934904,
+        "sha256": "7d330da4816157540d6bb7838bf63a0f02f573fc48ca4d8de34bb0cbfd514f09"
+      },
+      {
+        "name": "tokenizer/merges.txt",
+        "size": 524619,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 588,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 705,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/vocab.json",
+        "size": 1059962,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/merges.txt",
+        "size": 524619,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/special_tokens_map.json",
+        "size": 576,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/tokenizer_config.json",
+        "size": 856,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/vocab.json",
+        "size": 1059962,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_3/special_tokens_map.json",
+        "size": 2543,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_3/spiece.model",
+        "size": 791656,
+        "sha256": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86"
+      },
+      {
+        "name": "tokenizer_3/tokenizer.json",
+        "size": 2424035,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_3/tokenizer_config.json",
+        "size": 20617,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 524,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors",
+        "size": 4939433672,
+        "sha256": "f81eb93a348be218af757dd095cbda45090380d9bbda91049442e0e40bb4cc95"
+      },
+      {
+        "name": "vae/config.json",
+        "size": 809,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 167666902,
+        "sha256": "8f53304a79335b55e13ec50f63e5157fee4deb2f30d5fae0654e2b2653c109dc"
+      }
+    ]
+  },
+  {
+    "model": "black-forest-labs/FLUX.2-dev",
+    "revision": "26afe3a78bb242c0a8bb181dcc8937bb16e5c66c",
+    "gated": "auto",
+    "license": "other",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1867,
+        "sha256": null
+      },
+      {
+        "name": "LICENSE.md",
+        "size": 18158,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 9439,
+        "sha256": null
+      },
+      {
+        "name": "ae.safetensors",
+        "size": 336211292,
+        "sha256": "868fe7b343cc8f3a19dbcfcafbc3d5f888802be3f89bd81b65b3621a066ce8f3"
+      },
+      {
+        "name": "flux2-dev.safetensors",
+        "size": 64446596128,
+        "sha256": "6159a3f19f829c8e84ba6e9996b7afaf7c0a5f3428677f5b37445778a320d275"
+      },
+      {
+        "name": "model_index.json",
+        "size": 431,
+        "sha256": null
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 486,
+        "sha256": null
+      },
+      {
+        "name": "teaser_editing.png",
+        "size": 11257468,
+        "sha256": "c6c1aa92b4b4a3b61f43c42e3d7aa0a6c29d1a6ce150b0a17282a40ec119acdc"
+      },
+      {
+        "name": "teaser_generation.png",
+        "size": 23264407,
+        "sha256": "4df742c27729c240828ca676401f9bbee20ce1baa1b8868b7e50ead7f837d61a"
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 1216,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/generation_config.json",
+        "size": 155,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model-00001-of-00010.safetensors",
+        "size": 4883550696,
+        "sha256": "91831c2ce219df0ce63bc33c6249e5cb01db8d93816bcebf975f1c406286520e"
+      },
+      {
+        "name": "text_encoder/model-00002-of-00010.safetensors",
+        "size": 4781593336,
+        "sha256": "8ffe80706a66b2f5ef1fb058806ccf09f124ec4ad38af7a377e44ab1ee2fd664"
+      },
+      {
+        "name": "text_encoder/model-00003-of-00010.safetensors",
+        "size": 4886472224,
+        "sha256": "99ec66e891f9563f568734eadfc5b7701e04620e8e163d4d5755277a3b50cf2f"
+      },
+      {
+        "name": "text_encoder/model-00004-of-00010.safetensors",
+        "size": 4781593376,
+        "sha256": "e1df1527b12b1eb5cbd9a50914f9e6eb24e885ec830a3c16b5eed6ad0b53a396"
+      },
+      {
+        "name": "text_encoder/model-00005-of-00010.safetensors",
+        "size": 4781593368,
+        "sha256": "3556ac03f47c24eb8ad27c237e25baad639c651d9596fd72cb1523137bf56163"
+      },
+      {
+        "name": "text_encoder/model-00006-of-00010.safetensors",
+        "size": 4886472248,
+        "sha256": "2c41e6f80f2b5ca384ce703eac048a13daf2aff689c3acca66a8943f45338aae"
+      },
+      {
+        "name": "text_encoder/model-00007-of-00010.safetensors",
+        "size": 4781593376,
+        "sha256": "62a725f154f6ba942a36b5cc450db2b2df32f434e3224558c789bc04fa05fd36"
+      },
+      {
+        "name": "text_encoder/model-00008-of-00010.safetensors",
+        "size": 4781593368,
+        "sha256": "3a1a6ac77e6434418bb7273b68a7b3534fed5217c990061c92a8f990dd6ab20e"
+      },
+      {
+        "name": "text_encoder/model-00009-of-00010.safetensors",
+        "size": 4886472248,
+        "sha256": "e1fffc9bb2b77d4d2382c1bd9053e9d017741d67ca00cc6f77034a294f2f5cfd"
+      },
+      {
+        "name": "text_encoder/model-00010-of-00010.safetensors",
+        "size": 4571866320,
+        "sha256": "116ef7ae6fa0fd46b478324e4aa6a49f448afed900ca9f71d4fbd3d02289bbd4"
+      },
+      {
+        "name": "text_encoder/model.safetensors.index.json",
+        "size": 57944,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/chat_template.jinja",
+        "size": 2670,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/preprocessor_config.json",
+        "size": 700,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/processor_config.json",
+        "size": 189,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 21449,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/tokenizer.json",
+        "size": 17078037,
+        "sha256": "b76085f9923309d873994d444989f7eb6ec074b06f25b58f1e8d7b7741070949"
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 198120,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 440,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00001-of-00007.safetensors",
+        "size": 9935797200,
+        "sha256": "9d9b85f75f72fb17c7d29dacf7c430e924da93122d578a559a36a7635e153714"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00002-of-00007.safetensors",
+        "size": 9890181048,
+        "sha256": "86adf6f41474b00bd57afbb29a09f008be7d6af8ae914956585ba5bc6bf97c28"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00003-of-00007.safetensors",
+        "size": 9814681480,
+        "sha256": "a14e26e8f305dd26d7881f333e6e6ce5b562cbb55282538f46d38e1ff2715179"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00004-of-00007.safetensors",
+        "size": 9814681536,
+        "sha256": "5c4f38976fd8d7e5fb2d4cd20562d74eebba3264566987e3ef938d807c75be90"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00005-of-00007.safetensors",
+        "size": 9814681536,
+        "sha256": "4d7a74d916fc22117cde8bad76aa4b561e6dc92368cddc23bdae06dbc586ad95"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00006-of-00007.safetensors",
+        "size": 9814681536,
+        "sha256": "08f3ad03610651f9d630177ac3a4770d532fa72d788d3b36c39a0301b1595447"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00007-of-00007.safetensors",
+        "size": 5361898792,
+        "sha256": "789b9bacb607e9b97597f77c86056fa6cbb747c2a6016588e6e196814b5f9733"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors.index.json",
+        "size": 35785,
+        "sha256": null
+      },
+      {
+        "name": "vae/config.json",
+        "size": 770,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 336213556,
+        "sha256": "d64f3a68e1cc4f9f4e29b6e0da38a0204fe9a49f2d4053f0ec1fa1ca02f9c4b5"
+      }
+    ]
+  },
+  {
+    "model": "black-forest-labs/FLUX.2-klein-4B",
+    "revision": "e7b7dc27f91deacad38e78976d1f2b499d76a294",
+    "gated": false,
+    "license": "apache-2.0",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1580,
+        "sha256": null
+      },
+      {
+        "name": "LICENSE.md",
+        "size": 9584,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 9991,
+        "sha256": null
+      },
+      {
+        "name": "editing.jpg",
+        "size": 2506178,
+        "sha256": "2912ca5a7cb9ccbdc8627f8123894d28d8d5e5b0425e8907b3c8111659885ce0"
+      },
+      {
+        "name": "flux-2-klein-4b.safetensors",
+        "size": 7751105712,
+        "sha256": "ec3d4e733a771f61c052fb4856c48b336c55eaf2c65487c2a1faeb9bbda7a343"
+      },
+      {
+        "name": "model_index.json",
+        "size": 446,
+        "sha256": null
+      },
+      {
+        "name": "others.jpg",
+        "size": 3386946,
+        "sha256": "78caed191515181abe87c10b6303a0fb58ae5518b8e7c7ed5847f406b377a0e4"
+      },
+      {
+        "name": "realism.jpg",
+        "size": 2855711,
+        "sha256": "6cccc69a683c3f650eb149a006be54cdcd42eb92b367d2b8e65939d486d1946a"
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 486,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 1536,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/generation_config.json",
+        "size": 214,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model-00001-of-00002.safetensors",
+        "size": 4967215360,
+        "sha256": "8c0506e7f4936fa7e26183a4fd8da4e2bdbc5990ba64ae441f965d51228f36ea"
+      },
+      {
+        "name": "text_encoder/model-00002-of-00002.safetensors",
+        "size": 3077766632,
+        "sha256": "82f2bd839378541b0557bfabaf37c7d3d637071fdcb73302dedd7cf61162ce07"
+      },
+      {
+        "name": "text_encoder/model.safetensors.index.json",
+        "size": 32855,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/added_tokens.json",
+        "size": 707,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/chat_template.jinja",
+        "size": 4168,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/merges.txt",
+        "size": 1671853,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 613,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/tokenizer.json",
+        "size": 11422654,
+        "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 5404,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/vocab.json",
+        "size": 2776833,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 541,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors",
+        "size": 7751109744,
+        "sha256": "9f29f9edcfdae452a653ffb51a534ca4decd389952c225724ff3b94042612a6e"
+      },
+      {
+        "name": "vae/config.json",
+        "size": 821,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 168120878,
+        "sha256": "ca70d2202afe6415bdbcb8793ba8cd99fd159cfe6192381504d6c4d3036e0f04"
+      }
+    ],
+    "vae/config.json": {
+      "_class_name": "AutoencoderKLFlux2",
+      "_diffusers_version": "0.37.0.dev0",
+      "_name_or_path": "black-forest-labs/FLUX.2-dev",
+      "act_fn": "silu",
+      "batch_norm_eps": 0.0001,
+      "batch_norm_momentum": 0.1,
+      "block_out_channels": [
+        128,
+        256,
+        512,
+        512
+      ],
+      "down_block_types": [
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D"
+      ],
+      "force_upcast": true,
+      "in_channels": 3,
+      "latent_channels": 32,
+      "layers_per_block": 2,
+      "mid_block_add_attention": true,
+      "norm_num_groups": 32,
+      "out_channels": 3,
+      "patch_size": [
+        2,
+        2
+      ],
+      "sample_size": 1024,
+      "up_block_types": [
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D"
+      ],
+      "use_post_quant_conv": true,
+      "use_quant_conv": true
+    }
+  },
+  {
+    "model": "black-forest-labs/FLUX.2-klein-9B",
+    "revision": "92196c8e11f7b6cf2b7493e037d8c5345c559216",
+    "gated": "auto",
+    "license": "other",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1580,
+        "sha256": null
+      },
+      {
+        "name": "LICENSE.md",
+        "size": 18158,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 10404,
+        "sha256": null
+      },
+      {
+        "name": "editing.jpg",
+        "size": 2506178,
+        "sha256": "2912ca5a7cb9ccbdc8627f8123894d28d8d5e5b0425e8907b3c8111659885ce0"
+      },
+      {
+        "name": "flux-2-klein-9b.safetensors",
+        "size": 18157185168,
+        "sha256": "0975d6b77b5f510b99547d6724a208e36527df654e8f6134f59ece3f9f30da58"
+      },
+      {
+        "name": "model_index.json",
+        "size": 446,
+        "sha256": null
+      },
+      {
+        "name": "others.jpg",
+        "size": 3386946,
+        "sha256": "78caed191515181abe87c10b6303a0fb58ae5518b8e7c7ed5847f406b377a0e4"
+      },
+      {
+        "name": "realism.jpg",
+        "size": 2855711,
+        "sha256": "6cccc69a683c3f650eb149a006be54cdcd42eb92b367d2b8e65939d486d1946a"
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 486,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 1538,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/generation_config.json",
+        "size": 214,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model-00001-of-00004.safetensors",
+        "size": 4902257696,
+        "sha256": "c0dc64934ae0f730ddc80d99af44968d01a89e8454df07d762096ea1356446bc"
+      },
+      {
+        "name": "text_encoder/model-00002-of-00004.safetensors",
+        "size": 4915960368,
+        "sha256": "d58533b468c31caa0222540a8aefddea1d74dc6e1fee928da8556d3d85729d6e"
+      },
+      {
+        "name": "text_encoder/model-00003-of-00004.safetensors",
+        "size": 4983068496,
+        "sha256": "74927fec432e050365bf757bb30348f560a44394efac89f492680b7c910b64fd"
+      },
+      {
+        "name": "text_encoder/model-00004-of-00004.safetensors",
+        "size": 1580230264,
+        "sha256": "cb73f466fade5716702bda38d4e3b321c9358c39889e46fb9d613fb038bfcb2f"
+      },
+      {
+        "name": "text_encoder/model.safetensors.index.json",
+        "size": 32914,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/added_tokens.json",
+        "size": 707,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/chat_template.jinja",
+        "size": 4168,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/merges.txt",
+        "size": 1671853,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 613,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/tokenizer.json",
+        "size": 11422654,
+        "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 5404,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/vocab.json",
+        "size": 2776833,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 542,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00001-of-00002.safetensors",
+        "size": 9801069272,
+        "sha256": "cb942a7072865a1d06e47a3361f9ba8746e68ad207c8499083bcb735869f5102"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00002-of-00002.safetensors",
+        "size": 8356121608,
+        "sha256": "ca568a31d19c03ddbcfd8b2d4ec7dbd16dcefbaa50b7aef1b8ceefd6e6eb0970"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors.index.json",
+        "size": 24875,
+        "sha256": null
+      },
+      {
+        "name": "vae/config.json",
+        "size": 821,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 168120878,
+        "sha256": "ca70d2202afe6415bdbcb8793ba8cd99fd159cfe6192381504d6c4d3036e0f04"
+      }
+    ]
+  },
+  {
+    "model": "kandinsky-community/kandinsky-2-2-decoder",
+    "revision": "9ae140d347fed8ce6e8bb3005dcc1f48543bb8e3",
+    "gated": false,
+    "license": "apache-2.0",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1477,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 7343,
+        "sha256": null
+      },
+      {
+        "name": "model_index.json",
+        "size": 250,
+        "sha256": null
+      },
+      {
+        "name": "movq/config.json",
+        "size": 660,
+        "sha256": null
+      },
+      {
+        "name": "movq/diffusion_pytorch_model.bin",
+        "size": 271492131,
+        "sha256": "772e09739d742ddee6807add2d3c2fd2a32db53896b5d07a92c729d8c879ce59"
+      },
+      {
+        "name": "movq/diffusion_pytorch_model.safetensors",
+        "size": 271380364,
+        "sha256": "43a5860fea195a7116f2471396c5cc9535fade9b63c4857d8a192ffd924b7002"
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 317,
+        "sha256": null
+      },
+      {
+        "name": "unet/config.json",
+        "size": 1665,
+        "sha256": null
+      },
+      {
+        "name": "unet/diffusion_pytorch_model.bin",
+        "size": 5012502249,
+        "sha256": "939ba7f0768b3414c82f148a0ae16b1ac63154c987cb7f017b5ac4648f3ed09a"
+      },
+      {
+        "name": "unet/diffusion_pytorch_model.safetensors",
+        "size": 5012309584,
+        "sha256": "3cc2f07442b9de0f18fb3f22247790872c094c4acc9dbe68552f96fd2e5c1ea1"
+      }
+    ],
+    "movq/config.json": {
+      "_class_name": "VQModel",
+      "_diffusers_version": "0.17.0.dev0",
+      "act_fn": "silu",
+      "block_out_channels": [
+        128,
+        256,
+        256,
+        512
+      ],
+      "down_block_types": [
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "AttnDownEncoderBlock2D"
+      ],
+      "in_channels": 3,
+      "latent_channels": 4,
+      "layers_per_block": 2,
+      "norm_num_groups": 32,
+      "norm_type": "spatial",
+      "num_vq_embeddings": 16384,
+      "out_channels": 3,
+      "sample_size": 32,
+      "scaling_factor": 0.18215,
+      "up_block_types": [
+        "AttnUpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D"
+      ],
+      "vq_embed_dim": 4
+    }
+  },
+  {
+    "model": "kandinsky-community/kandinsky-2-2-prior",
+    "revision": "9fc51ad5732afc5d031724219d22e6c42179c5a8",
+    "gated": false,
+    "license": "apache-2.0",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1477,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 14444,
+        "sha256": null
+      },
+      {
+        "name": "image_encoder/config.json",
+        "size": 2013,
+        "sha256": null
+      },
+      {
+        "name": "image_encoder/model.safetensors",
+        "size": 3689912664,
+        "sha256": "657723e09f46a7c3957df651601029f66b1748afb12b419816330f16ed45d64d"
+      },
+      {
+        "name": "image_encoder/pytorch_model.bin",
+        "size": 3690112753,
+        "sha256": "2999562fbc02f9dc0d9c0acb7cf0970ec3a9b2a578d7d05afe82191d606d2d80"
+      },
+      {
+        "name": "image_processor/preprocessor_config.json",
+        "size": 315,
+        "sha256": null
+      },
+      {
+        "name": "model_index.json",
+        "size": 501,
+        "sha256": null
+      },
+      {
+        "name": "prior/config.json",
+        "size": 252,
+        "sha256": null
+      },
+      {
+        "name": "prior/diffusion_pytorch_model.bin",
+        "size": 4105032221,
+        "sha256": "ac7b5bface00321beaa16e974b5cc7ee8bbb5d5964b26cf023a26c42e2ca4320"
+      },
+      {
+        "name": "prior/diffusion_pytorch_model.safetensors",
+        "size": 4104940968,
+        "sha256": "ab139b2df9e40ed0b1eda8dc6270a139a796c5fa3af76cd6b0573f620dca6dde"
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 229,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 2017,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model.safetensors",
+        "size": 2778702976,
+        "sha256": "6eaafeea664d7ab87df17274d6114dfdf092c587c7cd56c13cf84aacdebc0332"
+      },
+      {
+        "name": "text_encoder/pytorch_model.bin",
+        "size": 2778835493,
+        "sha256": "45c5df89549cb6e28bf459bafc1419f17d71c348bff4fd150299e7bada91a1bb"
+      },
+      {
+        "name": "tokenizer/merges.txt",
+        "size": 524619,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 389,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 904,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/vocab.json",
+        "size": 862328,
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "model": "Efficient-Large-Model/Sana_600M_1024px_diffusers",
+    "revision": "28f3af7689de15f3883d5863059a2fca0aa9b829",
+    "gated": false,
+    "license": "apache-2.0",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1580,
+        "sha256": null
+      },
+      {
+        "name": "LICENSE",
+        "size": 11358,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 6618,
+        "sha256": null
+      },
+      {
+        "name": "model_index.json",
+        "size": 401,
+        "sha256": null
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 840,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 875,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model-00001-of-00002.safetensors",
+        "size": 4988024144,
+        "sha256": "e909230aabafad02d097c7dc02f2ae062b4e6b0593477c1f07679d277e09ce71"
+      },
+      {
+        "name": "text_encoder/model-00002-of-00002.safetensors",
+        "size": 240691624,
+        "sha256": "48e14f6b7a917e54cabc4ff2047ac2bfe0dae663e771eed3a8acf4ea27dcac18"
+      },
+      {
+        "name": "text_encoder/model.fp16-00001-of-00002.safetensors",
+        "size": 4988024144,
+        "sha256": "e909230aabafad02d097c7dc02f2ae062b4e6b0593477c1f07679d277e09ce71"
+      },
+      {
+        "name": "text_encoder/model.fp16-00002-of-00002.safetensors",
+        "size": 240691624,
+        "sha256": "48e14f6b7a917e54cabc4ff2047ac2bfe0dae663e771eed3a8acf4ea27dcac18"
+      },
+      {
+        "name": "text_encoder/model.safetensors.index.fp16.json",
+        "size": 23935,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model.safetensors.index.json",
+        "size": 22495,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 636,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/tokenizer.json",
+        "size": 34362873,
+        "sha256": "5f7eee611703c5ce5d1eee32d9cdcfe465647b8aff0c1dfb3bed7ad7dbb05060"
+      },
+      {
+        "name": "tokenizer/tokenizer.model",
+        "size": 4241003,
+        "sha256": "61a7b147390c64585d6c3543dd6fc636906c9af3865a5548f27f31aee1d4c8e2"
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 46996,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 495,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.fp16.safetensors",
+        "size": 1183558264,
+        "sha256": "712b69e1e14ac7ece99e35b257927c4e0cf8ba2c24eb49574301ff0b10069298"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors",
+        "size": 2367054536,
+        "sha256": "f9db5116ca285dd8a431dc8ee5123a9b74177640f6559c6fea4047c6e8ff5089"
+      },
+      {
+        "name": "vae/config.json",
+        "size": 1280,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.fp16.safetensors",
+        "size": 1249044836,
+        "sha256": "15a4b09e56d95b768a0ec9da50b702e21d920333fc9b3480d66bb5c7fad9d87f"
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 1249044836,
+        "sha256": "15a4b09e56d95b768a0ec9da50b702e21d920333fc9b3480d66bb5c7fad9d87f"
+      }
+    ],
+    "vae/config.json": {
+      "_class_name": "AutoencoderDC",
+      "_diffusers_version": "0.32.0.dev0",
+      "_name_or_path": "mit-han-lab/dc-ae-f32c32-sana-1.0-diffusers",
+      "attention_head_dim": 32,
+      "decoder_act_fns": "silu",
+      "decoder_block_out_channels": [
+        128,
+        256,
+        512,
+        512,
+        1024,
+        1024
+      ],
+      "decoder_block_types": [
+        "ResBlock",
+        "ResBlock",
+        "ResBlock",
+        "EfficientViTBlock",
+        "EfficientViTBlock",
+        "EfficientViTBlock"
+      ],
+      "decoder_layers_per_block": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "decoder_norm_types": "rms_norm",
+      "decoder_qkv_multiscales": [
+        [],
+        [],
+        [],
+        [
+          5
+        ],
+        [
+          5
+        ],
+        [
+          5
+        ]
+      ],
+      "downsample_block_type": "Conv",
+      "encoder_block_out_channels": [
+        128,
+        256,
+        512,
+        512,
+        1024,
+        1024
+      ],
+      "encoder_block_types": [
+        "ResBlock",
+        "ResBlock",
+        "ResBlock",
+        "EfficientViTBlock",
+        "EfficientViTBlock",
+        "EfficientViTBlock"
+      ],
+      "encoder_layers_per_block": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        3
+      ],
+      "encoder_qkv_multiscales": [
+        [],
+        [],
+        [],
+        [
+          5
+        ],
+        [
+          5
+        ],
+        [
+          5
+        ]
+      ],
+      "in_channels": 3,
+      "latent_channels": 32,
+      "scaling_factor": 0.41407,
+      "upsample_block_type": "interpolate"
+    }
+  },
+  {
+    "model": "PixArt-alpha/PixArt-XL-2-1024-MS",
+    "revision": "b89adadeccd9ead2adcb9fa2825d3fabec48d404",
+    "gated": false,
+    "license": "openrail++",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1712,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 6846,
+        "sha256": null
+      },
+      {
+        "name": "asset/PixArt.svg",
+        "size": 5934,
+        "sha256": null
+      },
+      {
+        "name": "asset/examples.py",
+        "size": 2378,
+        "sha256": null
+      },
+      {
+        "name": "asset/images/controlnet/controlnet_huawei.svg",
+        "size": 2430467,
+        "sha256": null
+      },
+      {
+        "name": "asset/images/controlnet/controlnet_iclr.svg",
+        "size": 1477594,
+        "sha256": null
+      },
+      {
+        "name": "asset/images/controlnet/controlnet_lenna.svg",
+        "size": 2376695,
+        "sha256": null
+      },
+      {
+        "name": "asset/images/dreambooth/dreambooth_dog.svg",
+        "size": 1162958,
+        "sha256": null
+      },
+      {
+        "name": "asset/images/dreambooth/dreambooth_m5.svg",
+        "size": 1077877,
+        "sha256": null
+      },
+      {
+        "name": "asset/images/efficiency.svg",
+        "size": 549512,
+        "sha256": null
+      },
+      {
+        "name": "asset/images/model.png",
+        "size": 221499,
+        "sha256": null
+      },
+      {
+        "name": "asset/images/more-samples.png",
+        "size": 4637320,
+        "sha256": "2b71e5cefebb1d871f83e33e53c49dee554a97edcf7552266a5970fd52136516"
+      },
+      {
+        "name": "asset/images/more-samples1.png",
+        "size": 4162819,
+        "sha256": "9c74626f8db6126b7fa58a86f92675f71ea35513a2c2727b5093b1c1aaa1a4c1"
+      },
+      {
+        "name": "asset/images/sample.png",
+        "size": 634261,
+        "sha256": null
+      },
+      {
+        "name": "asset/images/teaser.png",
+        "size": 5469361,
+        "sha256": "ddfd689190b3f89c47e78274cb059a4c59473fe1afbd9cc257074b4319620442"
+      },
+      {
+        "name": "asset/images/user-study.png",
+        "size": 34793,
+        "sha256": null
+      },
+      {
+        "name": "asset/logo.png",
+        "size": 55809,
+        "sha256": null
+      },
+      {
+        "name": "asset/samples.txt",
+        "size": 10758,
+        "sha256": null
+      },
+      {
+        "name": "model_index.json",
+        "size": 400,
+        "sha256": null
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 655,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 788,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model-00001-of-00002.safetensors",
+        "size": 9989150328,
+        "sha256": "eb529f693f4b17773a24e787fcba29486d5e1700dadcc20bb91e4c8b00212d08"
+      },
+      {
+        "name": "text_encoder/model-00002-of-00002.safetensors",
+        "size": 9060119392,
+        "sha256": "58f33f4acba7a5502b6b3e4cb7863f8fd503d5012016428099bb460c98e2fe77"
+      },
+      {
+        "name": "text_encoder/model.safetensors.index.json",
+        "size": 19886,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/added_tokens.json",
+        "size": 2634,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 2201,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/spiece.model",
+        "size": 791656,
+        "sha256": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86"
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 20509,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 719,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors",
+        "size": 2447431856,
+        "sha256": "809a92d52a4a228f381a4b4f4b76051294b73285fb0cbb02f0ad24f9372217a8"
+      },
+      {
+        "name": "vae/config.json",
+        "size": 654,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 334643268,
+        "sha256": "703abdcd7c389316b5128faa9b750a530ea1680b453170b27afebac5e4db30c4"
+      }
+    ],
+    "vae/config.json": {
+      "_class_name": "AutoencoderKL",
+      "_diffusers_version": "0.22.0.dev0",
+      "_name_or_path": "PixArt-alpha/PixArt-alpha",
+      "act_fn": "silu",
+      "block_out_channels": [
+        128,
+        256,
+        512,
+        512
+      ],
+      "down_block_types": [
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D"
+      ],
+      "force_upcast": true,
+      "in_channels": 3,
+      "latent_channels": 4,
+      "layers_per_block": 2,
+      "norm_num_groups": 32,
+      "out_channels": 3,
+      "sample_size": 256,
+      "scaling_factor": 0.18215,
+      "up_block_types": [
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D"
+      ]
+    }
+  },
+  {
+    "model": "PixArt-alpha/PixArt-Sigma-XL-2-1024-MS",
+    "revision": "e102b3591cc82e97071b8b4cb90d834d0c487207",
+    "gated": false,
+    "license": "openrail++",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1574,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 5509,
+        "sha256": null
+      },
+      {
+        "name": "asset/4K_image.jpg",
+        "size": 3982883,
+        "sha256": "88c9c5f61938f70598b92106efcd0b86ef22e8c3afb1700253fe8ba27862d903"
+      },
+      {
+        "name": "asset/logo-sigma.png",
+        "size": 54168,
+        "sha256": null
+      },
+      {
+        "name": "asset/model.png",
+        "size": 221499,
+        "sha256": null
+      },
+      {
+        "name": "model_index.json",
+        "size": 400,
+        "sha256": null
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 655,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 747,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model-00001-of-00002.safetensors",
+        "size": 9989150328,
+        "sha256": "eb529f693f4b17773a24e787fcba29486d5e1700dadcc20bb91e4c8b00212d08"
+      },
+      {
+        "name": "text_encoder/model-00002-of-00002.safetensors",
+        "size": 9060119392,
+        "sha256": "58f33f4acba7a5502b6b3e4cb7863f8fd503d5012016428099bb460c98e2fe77"
+      },
+      {
+        "name": "text_encoder/model.safetensors.index.json",
+        "size": 19886,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 2201,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/spiece.model",
+        "size": 791656,
+        "sha256": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86"
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 2349,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 785,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors",
+        "size": 2443492488,
+        "sha256": "2fa4dee9229c02b03163f57bdb8e80c7a5ee364b7161796abe9c05e8dd13f239"
+      },
+      {
+        "name": "vae/config.json",
+        "size": 631,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 334643238,
+        "sha256": "1b909373b28f2137098b0fd9dbc6f97f8410854f31f84ddc9fa04b077b0ace2c"
+      }
+    ],
+    "vae/config.json": {
+      "_class_name": "AutoencoderKL",
+      "_diffusers_version": "0.18.0.dev0",
+      "_name_or_path": ".",
+      "act_fn": "silu",
+      "block_out_channels": [
+        128,
+        256,
+        512,
+        512
+      ],
+      "down_block_types": [
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D"
+      ],
+      "in_channels": 3,
+      "latent_channels": 4,
+      "layers_per_block": 2,
+      "norm_num_groups": 32,
+      "out_channels": 3,
+      "sample_size": 512,
+      "scaling_factor": 0.13025,
+      "up_block_types": [
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D"
+      ],
+      "force_upcast": false
+    }
+  },
+  {
+    "model": "playgroundai/playground-v2.5-1024px-aesthetic",
+    "revision": "1e032f13f2fe6db2dc49947dbdbd196e753de573",
+    "gated": false,
+    "license": "other",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1519,
+        "sha256": null
+      },
+      {
+        "name": "LICENSE.md",
+        "size": 9464,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 6479,
+        "sha256": null
+      },
+      {
+        "name": "model_index.json",
+        "size": 684,
+        "sha256": null
+      },
+      {
+        "name": "playground-v2.5-1024px-aesthetic.fp16.safetensors",
+        "size": 6938040576,
+        "sha256": "bcaa7dd6780974f000b17b5a6c63e6f867a75c51ffa85c67d6b196882c69b992"
+      },
+      {
+        "name": "playground-v2.5-1024px-aesthetic.safetensors",
+        "size": 13875718056,
+        "sha256": "956dca99114aaa5c3eb526381309d37ee96737e78ed64c8ae613409f47c3f65a"
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 497,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 560,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model.fp16.safetensors",
+        "size": 246144152,
+        "sha256": "660c6f5b1abae9dc498ac2d21e1347d2abdb0cf6c0c0c8576cd796491d9a6cdd"
+      },
+      {
+        "name": "text_encoder/model.safetensors",
+        "size": 492265168,
+        "sha256": "778d02eb9e707c3fbaae0b67b79ea0d1399b52e624fb634f2f19375ae7c047c3"
+      },
+      {
+        "name": "text_encoder/pytorch_model.bin",
+        "size": 492306586,
+        "sha256": "4b2a888f98b610f4666b5323f4012475cc752183ce3bbec3ccf25cf32cec03d7"
+      },
+      {
+        "name": "text_encoder/pytorch_model.fp16.bin",
+        "size": 246185562,
+        "sha256": "1aaa9196f44f8283e6549b748927d0d24b91710c1a216be590e08458bb5d615c"
+      },
+      {
+        "name": "text_encoder_2/config.json",
+        "size": 570,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder_2/model.fp16.safetensors",
+        "size": 1389382176,
+        "sha256": "ec310df2af79c318e24d20511b601a591ca8cd4f1fce1d8dff822a356bcdb1f4"
+      },
+      {
+        "name": "text_encoder_2/model.safetensors",
+        "size": 2778702264,
+        "sha256": "fa5b2e6f4c2efc2d82e4b8312faec1a5540eabfc6415126c9a05c8436a530ef4"
+      },
+      {
+        "name": "text_encoder_2/pytorch_model.bin",
+        "size": 2778810142,
+        "sha256": "01854181cb926f2b305bae76ba3bbacf9f8f6eff785aeafb8b22a3e8fbe4b9b0"
+      },
+      {
+        "name": "text_encoder_2/pytorch_model.fp16.bin",
+        "size": 1389490462,
+        "sha256": "c61bac6a0e10e9c430b1faeb8338347758f7b5ca98dfbd7abff85c3e2f4305ea"
+      },
+      {
+        "name": "tokenizer/merges.txt",
+        "size": 524619,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 586,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 704,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/vocab.json",
+        "size": 1059962,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/merges.txt",
+        "size": 524619,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/special_tokens_map.json",
+        "size": 460,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/tokenizer_config.json",
+        "size": 855,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/vocab.json",
+        "size": 1059962,
+        "sha256": null
+      },
+      {
+        "name": "unet/config.json",
+        "size": 1778,
+        "sha256": null
+      },
+      {
+        "name": "unet/diffusion_pytorch_model.bin",
+        "size": 10270604314,
+        "sha256": "5544408cfc7601b9a121ed1e8e7f21142fe9d6badd55538b9ab828ad871e057c"
+      },
+      {
+        "name": "unet/diffusion_pytorch_model.fp16.bin",
+        "size": 5135669022,
+        "sha256": "26dc7594ac2d3b72f656d846dadec4a08395273f4c1a52a7966b979ab29063ca"
+      },
+      {
+        "name": "unet/diffusion_pytorch_model.fp16.safetensors",
+        "size": 5135149760,
+        "sha256": "933778ce76c1fc0ca918b37e1488411b8a99bbd3279c12f527a3ac995a340864"
+      },
+      {
+        "name": "unet/diffusion_pytorch_model.safetensors",
+        "size": 10270077736,
+        "sha256": "11b6d7bce65674659cc6b7ea960658436edfd80e566cb240ebd4bfbc3e2076c8"
+      },
+      {
+        "name": "vae/config.json",
+        "size": 746,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.bin",
+        "size": 334712578,
+        "sha256": "9512825399e39027a15fd0c7360dd0fb762d6faf87558d94fcf94e041b53e9f9"
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.fp16.bin",
+        "size": 167404866,
+        "sha256": "814c655ef8cd535c57ae1bef01ecb06526839fede56b8dc6501c02525917fd20"
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.fp16.safetensors",
+        "size": 167335342,
+        "sha256": "bcb60880a46b63dea58e9bc591abe15f8350bde47b405f9c38f4be70c6161e68"
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 334643268,
+        "sha256": "e8aef7b00195ec3fa8caaa3434e7516eff7d658e1d30eafc9ad6b0e66e9e827e"
+      }
+    ],
+    "vae/config.json": {
+      "_class_name": "AutoencoderKL",
+      "_diffusers_version": "0.27.0.dev0",
+      "act_fn": "silu",
+      "block_out_channels": [
+        128,
+        256,
+        512,
+        512
+      ],
+      "down_block_types": [
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D"
+      ],
+      "force_upcast": true,
+      "in_channels": 3,
+      "latent_channels": 4,
+      "layers_per_block": 2,
+      "norm_num_groups": 32,
+      "out_channels": 3,
+      "sample_size": 1024,
+      "up_block_types": [
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D"
+      ],
+      "latents_mean": [
+        -1.6574,
+        1.886,
+        -1.383,
+        2.5155
+      ],
+      "latents_std": [
+        8.4927,
+        5.9022,
+        6.5498,
+        5.2299
+      ],
+      "scaling_factor": 0.5
+    }
+  },
+  {
+    "model": "Tencent-Hunyuan/HunyuanDiT-v1.2-Diffusers",
+    "revision": "5e96094e0ad19e7f475de8711f03634ca0ccc40c",
+    "gated": false,
+    "license": "other",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1519,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 3766,
+        "sha256": null
+      },
+      {
+        "name": "model_index.json",
+        "size": 700,
+        "sha256": null
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 572,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 840,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model.safetensors",
+        "size": 1408188288,
+        "sha256": "c6c6348af2cb4d5852fe51102ce39605903dbe7925c005cf8995506cc21ea914"
+      },
+      {
+        "name": "text_encoder_2/config.json",
+        "size": 776,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder_2/model-00001-of-00002.safetensors",
+        "size": 4993585936,
+        "sha256": "2c0c539ab8e8fba3877cc94bc483e427f74c525f817a809b028ebc8d96d75a94"
+      },
+      {
+        "name": "text_encoder_2/model-00002-of-00002.safetensors",
+        "size": 1686275552,
+        "sha256": "3b49976cb1fe40da28a600d783f4686024c97eb01f224c54305cce55ddcd8a5e"
+      },
+      {
+        "name": "text_encoder_2/model.safetensors.index.json",
+        "size": 19885,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 695,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 1241,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/vocab.txt",
+        "size": 316627,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/special_tokens_map.json",
+        "size": 416,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_2/spiece.model",
+        "size": 4309802,
+        "sha256": "ef78f86560d809067d12bac6c09f19a462cb3af3f54d2b8acbba26e1433125d6"
+      },
+      {
+        "name": "tokenizer_2/tokenizer_config.json",
+        "size": 861,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 540,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors",
+        "size": 5999962656,
+        "sha256": "8af691cadb78047d55721259355d708e87ddbba1b7845df9377d9a5ae917b45d"
+      },
+      {
+        "name": "vae/config.json",
+        "size": 735,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 334643268,
+        "sha256": "98a14dc6fe8d71c83576f135a87c61a16561c9c080abba418d2cc976ee034f88"
+      }
+    ],
+    "vae/config.json": {
+      "_class_name": "AutoencoderKL",
+      "_diffusers_version": "0.30.0.dev0",
+      "act_fn": "silu",
+      "block_out_channels": [
+        128,
+        256,
+        512,
+        512
+      ],
+      "down_block_types": [
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D"
+      ],
+      "force_upcast": false,
+      "in_channels": 3,
+      "latent_channels": 4,
+      "latents_mean": null,
+      "latents_std": null,
+      "layers_per_block": 2,
+      "norm_num_groups": 32,
+      "out_channels": 3,
+      "sample_size": 512,
+      "scaling_factor": 0.13025,
+      "shift_factor": null,
+      "up_block_types": [
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D"
+      ],
+      "use_post_quant_conv": true,
+      "use_quant_conv": true
+    }
+  },
+  {
+    "model": "Qwen/Qwen-Image",
+    "revision": "75e0b4be04f60ec59a75f475837eced720f823b6",
+    "gated": false,
+    "license": "apache-2.0",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1519,
+        "sha256": null
+      },
+      {
+        "name": "LICENSE",
+        "size": 11343,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 6778,
+        "sha256": null
+      },
+      {
+        "name": "model_index.json",
+        "size": 443,
+        "sha256": null
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 485,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 3217,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/generation_config.json",
+        "size": 244,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model-00001-of-00004.safetensors",
+        "size": 4968243304,
+        "sha256": "d725335e4ea2399be706469e4b8807716a8fa64bd03468252e9f7acf2415fee4"
+      },
+      {
+        "name": "text_encoder/model-00002-of-00004.safetensors",
+        "size": 4991495816,
+        "sha256": "b1830db6908dcc76df3a71492acbcf2b8cac130114cf1f3c2d9edae8de8c6de3"
+      },
+      {
+        "name": "text_encoder/model-00003-of-00004.safetensors",
+        "size": 4932751040,
+        "sha256": "09c1807c6d00d7cab94f7db39d4c02ebb8537225ccde383861ac48db97945aa6"
+      },
+      {
+        "name": "text_encoder/model-00004-of-00004.safetensors",
+        "size": 1691924384,
+        "sha256": "5dd068336d14d45ffb43cef374d286cc6ba9d8741b028f90a7d040d847961f4a"
+      },
+      {
+        "name": "text_encoder/model.safetensors.index.json",
+        "size": 57655,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/added_tokens.json",
+        "size": 605,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/chat_template.jinja",
+        "size": 2427,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/merges.txt",
+        "size": 1671853,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 613,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 4686,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/vocab.json",
+        "size": 3383407,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 371,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00001-of-00009.safetensors",
+        "size": 4989364312,
+        "sha256": "9f33a59093af3abcc2836d4cf4b7bd122c238ca70a26c70f34fdde64646b3bcd"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00002-of-00009.safetensors",
+        "size": 4984214160,
+        "sha256": "49d580e85b932e15c226e68a9d5549629878d3a128da7662d28401956cee0238"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00003-of-00009.safetensors",
+        "size": 4946470000,
+        "sha256": "0d72f0cbd0d6c2bdc2e1e73e41ac143452fc9e4570d1362203498832302de69f"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00004-of-00009.safetensors",
+        "size": 4984213736,
+        "sha256": "ee87991bfa1bc8e7553034b07099151532524101ca1581c4f3a86292814e9f0d"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00005-of-00009.safetensors",
+        "size": 4946471896,
+        "sha256": "83291a65be26fe688db4cf81383749831b623a6fcb1a71c851bafb55ddc0058d"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00006-of-00009.safetensors",
+        "size": 4946451560,
+        "sha256": "61e936a995e7f4ce08d44b9d6ffb56dc65dd61200288876ee2fda72da322583d"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00007-of-00009.safetensors",
+        "size": 4908690520,
+        "sha256": "854bc9e4a65c11c256f2fef31606a6407e9a425e8bde394db8be71416c515ead"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00008-of-00009.safetensors",
+        "size": 4984232856,
+        "sha256": "caedc7cc2914ab113cfbb3684cf072350201182ae8de1a7308e419385987ae40"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00009-of-00009.safetensors",
+        "size": 1170918840,
+        "sha256": "ae0fef149890f61d54572baa1e806de97156c7ec5b7bbbbbbf27a2d87f33af61"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors.index.json",
+        "size": 198887,
+        "sha256": null
+      },
+      {
+        "name": "vae/config.json",
+        "size": 730,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 253806966,
+        "sha256": "0c8bc8b758c649abef9ea407b95408389a3b2f610d0d10fcb054fe171d0a8344"
+      }
+    ],
+    "vae/config.json": {
+      "_class_name": "AutoencoderKLQwenImage",
+      "_diffusers_version": "0.34.0.dev0",
+      "attn_scales": [],
+      "base_dim": 96,
+      "dim_mult": [
+        1,
+        2,
+        4,
+        4
+      ],
+      "dropout": 0.0,
+      "latents_mean": [
+        -0.7571,
+        -0.7089,
+        -0.9113,
+        0.1075,
+        -0.1745,
+        0.9653,
+        -0.1517,
+        1.5508,
+        0.4134,
+        -0.0715,
+        0.5517,
+        -0.3632,
+        -0.1922,
+        -0.9497,
+        0.2503,
+        -0.2921
+      ],
+      "latents_std": [
+        2.8184,
+        1.4541,
+        2.3275,
+        2.6558,
+        1.2196,
+        1.7708,
+        2.6052,
+        2.0743,
+        3.2687,
+        2.1526,
+        2.8652,
+        1.5579,
+        1.6382,
+        1.1253,
+        2.8251,
+        1.916
+      ],
+      "num_res_blocks": 2,
+      "temperal_downsample": [
+        false,
+        true,
+        true
+      ],
+      "z_dim": 16
+    }
+  },
+  {
+    "model": "Tongyi-MAI/Z-Image-Turbo",
+    "revision": "f332072aa78be7aecdf3ee76d5c247082da564a6",
+    "gated": false,
+    "license": "apache-2.0",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 2187,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 13684,
+        "sha256": null
+      },
+      {
+        "name": "assets/DMDR.webp",
+        "size": 172966,
+        "sha256": "2e6f3053b98d097f2aa11d3892bd9307326db41b65336bea54dc5825a0e03077"
+      },
+      {
+        "name": "assets/Z-Image-Gallery.pdf",
+        "size": 15767436,
+        "sha256": "6f9895b3246d2547bac74bbe0be975da500eaae93f2cad4248ad3281786b1ac6"
+      },
+      {
+        "name": "assets/architecture.webp",
+        "size": 422392,
+        "sha256": "261af62ecc7e9749ae28e1d3a84e2f70a6c192d2017b7d8f020c7bff982ef59c"
+      },
+      {
+        "name": "assets/decoupled-dmd.webp",
+        "size": 152062,
+        "sha256": "4568ca559b997fc38f57dc1c3f5b1da3a3c144ae12419caa855ced972bf8c7aa"
+      },
+      {
+        "name": "assets/leaderboard.png",
+        "size": 2034429,
+        "sha256": "e9fd4aa185bb7bff2b5515f2001b4d80df330595e78d6a098142e5a232bb4e4e"
+      },
+      {
+        "name": "assets/leaderboard.webp",
+        "size": 63754,
+        "sha256": null
+      },
+      {
+        "name": "assets/reasoning.png",
+        "size": 7696993,
+        "sha256": "96c16b2c8d8dc67bb92ecc22d54b9955ab55136977f515bb76f4b2eb42eb3cdb"
+      },
+      {
+        "name": "assets/showcase.jpg",
+        "size": 6433750,
+        "sha256": "f6ee74e066e00596e429f5a08140aebae1678e5935ce1e11ca6c1c6cd72432ee"
+      },
+      {
+        "name": "assets/showcase_editing.png",
+        "size": 4746838,
+        "sha256": "7d720c3157fd0b0c1f07ac826c6d380b4bcb1b6933c64eb11bfe804ccf7c26f4"
+      },
+      {
+        "name": "assets/showcase_realistic.png",
+        "size": 6256136,
+        "sha256": "697e6f6857f619314173508df72a14314cbb43e67475de7494123bb8b4f4eb2c"
+      },
+      {
+        "name": "assets/showcase_rendering.png",
+        "size": 7599237,
+        "sha256": "3556dd66be2200d53f957424e12ecf914ddf3eded151cde86c7353f8b231284f"
+      },
+      {
+        "name": "model_index.json",
+        "size": 467,
+        "sha256": null
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 173,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 726,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/generation_config.json",
+        "size": 239,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model-00001-of-00003.safetensors",
+        "size": 3957900840,
+        "sha256": "328a91d3122359d5547f9d79521205bc0a46e1f79a792dfe650e99fc2d651223"
+      },
+      {
+        "name": "text_encoder/model-00002-of-00003.safetensors",
+        "size": 3987450520,
+        "sha256": "6cd087b316306a68c562436b5492edbcf6e16c6dba3a1308279caa5a58e21ca5"
+      },
+      {
+        "name": "text_encoder/model-00003-of-00003.safetensors",
+        "size": 99630640,
+        "sha256": "7ca841ee75b9c61267c0c6148fd8d096d3d21b6d3e161256a9b878154f91fc52"
+      },
+      {
+        "name": "text_encoder/model.safetensors.index.json",
+        "size": 32819,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/merges.txt",
+        "size": 1671853,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/tokenizer.json",
+        "size": 11422654,
+        "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 9732,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/vocab.json",
+        "size": 2776833,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 473,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00001-of-00003.safetensors",
+        "size": 9973693184,
+        "sha256": "95facd593e2549e8252acb571c653d57f7ddb7f1060d4e81712f152555a88804"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00002-of-00003.safetensors",
+        "size": 9973714824,
+        "sha256": "a4bbe43ee184a1fb5af4b412d27555f532893bdc3165b1149e304ed82b5d7015"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00003-of-00003.safetensors",
+        "size": 4672282880,
+        "sha256": "aba4e37a590e63210878160a718d916d80398f4e1f78ab6c9b2b2a00d92769fa"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors.index.json",
+        "size": 48969,
+        "sha256": null
+      },
+      {
+        "name": "vae/config.json",
+        "size": 805,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 167666902,
+        "sha256": "f5b59a26851551b67ae1fe58d32e76486e1e812def4696a4bea97f16604d40a3"
+      }
+    ],
+    "vae/config.json": {
+      "_class_name": "AutoencoderKL",
+      "_diffusers_version": "0.36.0.dev0",
+      "_name_or_path": "flux-dev",
+      "act_fn": "silu",
+      "block_out_channels": [
+        128,
+        256,
+        512,
+        512
+      ],
+      "down_block_types": [
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D"
+      ],
+      "force_upcast": true,
+      "in_channels": 3,
+      "latent_channels": 16,
+      "latents_mean": null,
+      "latents_std": null,
+      "layers_per_block": 2,
+      "mid_block_add_attention": true,
+      "norm_num_groups": 32,
+      "out_channels": 3,
+      "sample_size": 1024,
+      "scaling_factor": 0.3611,
+      "shift_factor": 0.1159,
+      "up_block_types": [
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D"
+      ],
+      "use_post_quant_conv": false,
+      "use_quant_conv": false
+    }
+  },
+  {
+    "model": "Alpha-VLLM/Lumina-Image-2.0",
+    "revision": "53504abd8178b30685b6c4c7a4cd181ff78b73e9",
+    "gated": false,
+    "license": "apache-2.0",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1625,
+        "sha256": null
+      },
+      {
+        "name": "Demo.png",
+        "size": 22596981,
+        "sha256": "d7f37d31b2becb95288fc0ce67235cc4b0bda4d0310f8e8b719e927fb075422b"
+      },
+      {
+        "name": "README.md",
+        "size": 2397,
+        "sha256": null
+      },
+      {
+        "name": "consolidated.00-of-01.pth",
+        "size": 10439286770,
+        "sha256": "a7c09ebae62996a8289782161338a3cdba58c11d2d849c50b2d6502e152b0d6d"
+      },
+      {
+        "name": "model_args.pth",
+        "size": 1964,
+        "sha256": "291ae050720fcc5d2ed6d51a7d4b2f80f83972e2469e9b0362fce490b2fd1d6b"
+      },
+      {
+        "name": "model_index.json",
+        "size": 411,
+        "sha256": null
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 419,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 852,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model-00001-of-00003.safetensors",
+        "size": 4992575568,
+        "sha256": "d61628bc793240439e608c5ae744f55ec8770f684abb63602648a24cb6da60bc"
+      },
+      {
+        "name": "text_encoder/model-00002-of-00003.safetensors",
+        "size": 4983442368,
+        "sha256": "fbd38d35b33ad210d436cd7e9b13339474e6cb9c533e00d91517e60457cf7dbd"
+      },
+      {
+        "name": "text_encoder/model-00003-of-00003.safetensors",
+        "size": 481381280,
+        "sha256": "e8ea83fa72a2c554b9bd80398d7688a07e48acb354ab64122905b3a6c362b368"
+      },
+      {
+        "name": "text_encoder/model.safetensors.index.json",
+        "size": 22496,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 636,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/tokenizer.json",
+        "size": 17525357,
+        "sha256": "3f289bc05132635a8bc7aca7aa21255efd5e18f3710f43e3cdb96bcd41be4922"
+      },
+      {
+        "name": "tokenizer/tokenizer.model",
+        "size": 4241003,
+        "sha256": "61a7b147390c64585d6c3543dd6fc636906c9af3865a5548f27f31aee1d4c8e2"
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 46379,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 513,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00001-of-00002.safetensors",
+        "size": 9957078112,
+        "sha256": "132b4d213fdd3cfc14333746fc3eb8bbe6358cd73c3bc95ac4ccec230b97dca3"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00002-of-00002.safetensors",
+        "size": 482046552,
+        "sha256": "b9660a895cdedf3a023b131b9c655c32f7d0cd824d6b3f91f0810812bb592947"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors.index.json",
+        "size": 42158,
+        "sha256": null
+      },
+      {
+        "name": "vae/config.json",
+        "size": 825,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 335306212,
+        "sha256": "8c717328c8ad41faab2ccfd52ae17332505c6833cf176aad56e7b58f2c4d4c94"
+      }
+    ],
+    "vae/config.json": {
+      "_class_name": "AutoencoderKL",
+      "_diffusers_version": "0.33.0.dev0",
+      "_name_or_path": "black-forest-labs/FLUX.1-dev",
+      "act_fn": "silu",
+      "block_out_channels": [
+        128,
+        256,
+        512,
+        512
+      ],
+      "down_block_types": [
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D"
+      ],
+      "force_upcast": true,
+      "in_channels": 3,
+      "latent_channels": 16,
+      "latents_mean": null,
+      "latents_std": null,
+      "layers_per_block": 2,
+      "mid_block_add_attention": true,
+      "norm_num_groups": 32,
+      "out_channels": 3,
+      "sample_size": 1024,
+      "scaling_factor": 0.3611,
+      "shift_factor": 0.1159,
+      "up_block_types": [
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D"
+      ],
+      "use_post_quant_conv": false,
+      "use_quant_conv": false
+    }
+  },
+  {
+    "model": "fal/AuraFlow-v0.3",
+    "revision": "2cd8588f04c886002be4571697d84654a50e3af3",
+    "gated": false,
+    "license": "apache-2.0",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1641,
+        "sha256": null
+      },
+      {
+        "name": "LICENSE",
+        "size": 11356,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 2054,
+        "sha256": null
+      },
+      {
+        "name": "aura_flow_0.3.safetensors",
+        "size": 16463323066,
+        "sha256": "526be97cf581c89ad87c6b19c1f7c2378851137698f7ec436596d061a382d37b"
+      },
+      {
+        "name": "comfy_workflow.json",
+        "size": 6799,
+        "sha256": null
+      },
+      {
+        "name": "model_index.json",
+        "size": 458,
+        "sha256": null
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 142,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 949,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model.fp16.safetensors",
+        "size": 2950448704,
+        "sha256": "decf9b70814ed5e9965bfca9fbd0483462e2bf743790663025b7742f8c014c72"
+      },
+      {
+        "name": "text_encoder/model.safetensors",
+        "size": 4894234112,
+        "sha256": "0a07449cf1141c0ec86e653c00465f6f0d79c6e58a2c60c8bcf4203d0e4ec4f6"
+      },
+      {
+        "name": "tokenizer/added_tokens.json",
+        "size": 2593,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 2677,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/tokenizer.json",
+        "size": 1861548,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/tokenizer.model",
+        "size": 499723,
+        "sha256": "9e556afd44213b6bd1be2b850ebbbd98f5481437a8021afaf58ee7fb1818d347"
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 20978,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 379,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00001-of-00002.fp16.safetensors",
+        "size": 9942269216,
+        "sha256": "6a40b011f287452dbca80face78e667055904c5ad97eb2097ade3200259b2203"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00001-of-00003.safetensors",
+        "size": 9994324992,
+        "sha256": "05e5493018333d947bb5940083dbc2f071093027ff414bc5b1b1229e4836e5cb"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00002-of-00002.fp16.safetensors",
+        "size": 3774983112,
+        "sha256": "e46f7a419b9531c293398d8ac012e10fe99f98228bdd71ce0b7dbb51688a36c0"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00002-of-00003.safetensors",
+        "size": 9890183496,
+        "sha256": "4c169ba4fb9f72ecb48d4779da22514b8d8c816a89686138b97c691c30f31624"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00003-of-00003.safetensors",
+        "size": 7549955048,
+        "sha256": "1924d7dce586745ac64d1b7974ac3eeb42ffa1f9912ebbc276e46a09e01cadc1"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors.fp16.index.json",
+        "size": 37663,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors.index.json",
+        "size": 36008,
+        "sha256": null
+      },
+      {
+        "name": "vae/config.json",
+        "size": 859,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.fp16.safetensors",
+        "size": 167335342,
+        "sha256": "bcb60880a46b63dea58e9bc591abe15f8350bde47b405f9c38f4be70c6161e68"
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 334643268,
+        "sha256": "1598f3d24932bcfe6634e8b618ea1e30ab1d57f5aad13a6d2de446d2199f2341"
+      }
+    ],
+    "vae/config.json": {
+      "_class_name": "AutoencoderKL",
+      "_diffusers_version": "0.30.0.dev0",
+      "_name_or_path": "/raid/.cache/huggingface/models--fal--AuraFlow/snapshots/edf69bec4c8c57f5278a655aaca3ceb60d82c0b4/vae",
+      "act_fn": "silu",
+      "block_out_channels": [
+        128,
+        256,
+        512,
+        512
+      ],
+      "down_block_types": [
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D"
+      ],
+      "force_upcast": true,
+      "in_channels": 3,
+      "latent_channels": 4,
+      "latents_mean": null,
+      "latents_std": null,
+      "layers_per_block": 2,
+      "norm_num_groups": 32,
+      "out_channels": 3,
+      "sample_size": 1024,
+      "scaling_factor": 0.13025,
+      "shift_factor": null,
+      "up_block_types": [
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D"
+      ],
+      "use_post_quant_conv": true,
+      "use_quant_conv": true
+    }
+  },
+  {
+    "model": "DeepFloyd/IF-I-XL-v1.0",
+    "revision": "c03d510e9b75bce9f9db5bb85148c1402ad7e694",
+    "gated": "auto",
+    "license": "deepfloyd-if-license",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1477,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 23548,
+        "sha256": null
+      },
+      {
+        "name": "config.yml",
+        "size": 471,
+        "sha256": null
+      },
+      {
+        "name": "feature_extractor/preprocessor_config.json",
+        "size": 518,
+        "sha256": null
+      },
+      {
+        "name": "model_index.json",
+        "size": 601,
+        "sha256": null
+      },
+      {
+        "name": "pics/deepfloyd_if_scheme.jpg",
+        "size": 218514,
+        "sha256": null
+      },
+      {
+        "name": "pics/fid30k_if.jpg",
+        "size": 162757,
+        "sha256": null
+      },
+      {
+        "name": "pics/if_architecture.jpg",
+        "size": 255461,
+        "sha256": null
+      },
+      {
+        "name": "pics/loss.jpg",
+        "size": 297499,
+        "sha256": null
+      },
+      {
+        "name": "pics/lr.jpg",
+        "size": 265037,
+        "sha256": null
+      },
+      {
+        "name": "pics/scheme-h.jpg",
+        "size": 224221,
+        "sha256": null
+      },
+      {
+        "name": "pytorch_model.bin",
+        "size": 8609638545,
+        "sha256": "9ffc5f69493577559311f5f0e2f9e68617305384800467cb4ac8ca27cc6d4d05"
+      },
+      {
+        "name": "safety_checker/config.json",
+        "size": 4495,
+        "sha256": null
+      },
+      {
+        "name": "safety_checker/model.fp16.safetensors",
+        "size": 607990743,
+        "sha256": "4c917ec4f9e64a1b45156c7fb81999c0f6e6379ec79cc3a576ad144ffb5bf572"
+      },
+      {
+        "name": "safety_checker/model.safetensors",
+        "size": 1215926450,
+        "sha256": "8ae81b4aeafdbc236594495a5aab48776892b18f996727ba7ad5bd24d6349817"
+      },
+      {
+        "name": "safety_checker/pytorch_model.bin",
+        "size": 1216009409,
+        "sha256": "0a3ad83d248f5eee559ad34ace75f517f6e2560ab42350dcbb8f26fc4519f6e6"
+      },
+      {
+        "name": "safety_checker/pytorch_model.fp16.bin",
+        "size": 608075916,
+        "sha256": "c637b781b23103fb6dc47d0862bdd717bd81bff84111efc5fe022a285d3b5c6b"
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 454,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 741,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model-00001-of-00002.safetensors",
+        "size": 9989150322,
+        "sha256": "5dfaaab934ff0359d88bda7e732f95e810ab711cf9df86d97856580564a6d3bf"
+      },
+      {
+        "name": "text_encoder/model-00002-of-00002.safetensors",
+        "size": 9060119390,
+        "sha256": "41d72c7ea3f3a0026f529f71af16b7e562f1266d5e1dbc09fa3c6413c9a7122e"
+      },
+      {
+        "name": "text_encoder/model.8bit.safetensors",
+        "size": 7917591394,
+        "sha256": "6a0b8c00b2e7a168f69a77b16c46240ce76f86e473aaebba2cfb1dd55bbc5303"
+      },
+      {
+        "name": "text_encoder/model.fp16-00001-of-00002.safetensors",
+        "size": 9960786792,
+        "sha256": "82c990c09b55affae9b36b51d4d7ba071dea3b467c71c3cc88e0d77735bb3b59"
+      },
+      {
+        "name": "text_encoder/model.fp16-00002-of-00002.safetensors",
+        "size": 1577127548,
+        "sha256": "42818a228ad7133141e6b1319faaa7fdc591c7b02873da3622a4f482cd266f9c"
+      },
+      {
+        "name": "text_encoder/model.safetensors.index.fp16.json",
+        "size": 20981,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model.safetensors.index.json",
+        "size": 19886,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/pytorch_model-00001-of-00002.bin",
+        "size": 9452285635,
+        "sha256": "2f71ad0624095dae788b1023081dda1b4040bd24f7244a5b5b46eebc09825839"
+      },
+      {
+        "name": "text_encoder/pytorch_model-00002-of-00002.bin",
+        "size": 9597031749,
+        "sha256": "4f68f80678299ac59f69b3550ebd47b966571920d8f9e71f42ab61fabaaed868"
+      },
+      {
+        "name": "text_encoder/pytorch_model.8bit.bin",
+        "size": 7917675826,
+        "sha256": "c939e223d7b2d41951b27b6d9327ad45d079eb66d01e75f0a3ef59f05cc807a6"
+      },
+      {
+        "name": "text_encoder/pytorch_model.bin.index.fp16.json",
+        "size": 20981,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/pytorch_model.bin.index.json",
+        "size": 19957,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/pytorch_model.fp16-00001-of-00002.bin",
+        "size": 9960831045,
+        "sha256": "7020b9c751d9ee19e350673697e5e40974fb351c85935374bb7aa037694aa95a"
+      },
+      {
+        "name": "text_encoder/pytorch_model.fp16-00002-of-00002.bin",
+        "size": 1577134283,
+        "sha256": "f97e9431a2742bfb42fd0b634de30be0cf5fa1780129e9cd75c83382f8c90c8e"
+      },
+      {
+        "name": "text_encoder/special_tokens_map.json",
+        "size": 1786,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/spiece.model",
+        "size": 791656,
+        "sha256": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86"
+      },
+      {
+        "name": "text_encoder/tokenizer_config.json",
+        "size": 1857,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 2201,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/spiece.model",
+        "size": 791656,
+        "sha256": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86"
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 2496,
+        "sha256": null
+      },
+      {
+        "name": "unet/config.json",
+        "size": 1653,
+        "sha256": null
+      },
+      {
+        "name": "unet/diffusion_pytorch_model.bin",
+        "size": 17219076439,
+        "sha256": "a16f77026ee4bf230871b8baf96cfdeeaabb05a4ea6919aed774e8872c2a9ab2"
+      },
+      {
+        "name": "unet/diffusion_pytorch_model.fp16.bin",
+        "size": 8609688700,
+        "sha256": "e0ff0daf9c7e1ec5bc61444fb4c00942d0e25b3c74d004caf6d63fee2311de44"
+      },
+      {
+        "name": "unet/diffusion_pytorch_model.fp16.safetensors",
+        "size": 8609476940,
+        "sha256": "f5ce5e1d0d6ecf9da8988fbf7595c867386f0c98085732e2660fe2c37f04df4b"
+      },
+      {
+        "name": "unet/diffusion_pytorch_model.safetensors",
+        "size": 17218867967,
+        "sha256": "d478fe3f64e368cd58201e8a6dd5c94264cfe85249125196a2f3b43d90a8d706"
+      },
+      {
+        "name": "watermarker/config.json",
+        "size": 74,
+        "sha256": null
+      },
+      {
+        "name": "watermarker/diffusion_pytorch_model.bin",
+        "size": 16347,
+        "sha256": "4395e84091cb32cfd49cd3ea1cec69dbed871b7484702edc5909f8cb69252d1f"
+      },
+      {
+        "name": "watermarker/diffusion_pytorch_model.safetensors",
+        "size": 15492,
+        "sha256": "ad38e4ca986f391bbd3641064650aab83122b701bdb143effc8e084425df6110"
+      }
+    ]
+  },
+  {
+    "model": "google/ddpm-celebahq-256",
+    "revision": "cd5c944777ea2668051904ead6cc120739b86c4d",
+    "gated": false,
+    "license": "apache-2.0",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1173,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 2991,
+        "sha256": null
+      },
+      {
+        "name": "config.json",
+        "size": 790,
+        "sha256": null
+      },
+      {
+        "name": "diffusion_pytorch_model.bin",
+        "size": 454853117,
+        "sha256": "efff89712093ad060ce99d9b461bbe542b49d8dd4ce30f23fe5761dca292361d"
+      },
+      {
+        "name": "images/generated_image_0.png",
+        "size": 93597,
+        "sha256": null
+      },
+      {
+        "name": "images/generated_image_1.png",
+        "size": 86262,
+        "sha256": null
+      },
+      {
+        "name": "images/generated_image_2.png",
+        "size": 94919,
+        "sha256": null
+      },
+      {
+        "name": "images/generated_image_3.png",
+        "size": 92677,
+        "sha256": null
+      },
+      {
+        "name": "model_index.json",
+        "size": 180,
+        "sha256": null
+      },
+      {
+        "name": "scheduler_config.json",
+        "size": 256,
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "model": "Efficient-Large-Model/Sana_Sprint_1.6B_1024px_diffusers",
+    "revision": "19683c58b7ea290e55cedd8950ae1d86ada7ef96",
+    "gated": false,
+    "license": "apache-2.0",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1580,
+        "sha256": null
+      },
+      {
+        "name": "LICENSE",
+        "size": 11358,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 6543,
+        "sha256": null
+      },
+      {
+        "name": "model_index.json",
+        "size": 392,
+        "sha256": null
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 160,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 890,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model-00001-of-00002.safetensors",
+        "size": 4988024144,
+        "sha256": "e909230aabafad02d097c7dc02f2ae062b4e6b0593477c1f07679d277e09ce71"
+      },
+      {
+        "name": "text_encoder/model-00002-of-00002.safetensors",
+        "size": 240691624,
+        "sha256": "48e14f6b7a917e54cabc4ff2047ac2bfe0dae663e771eed3a8acf4ea27dcac18"
+      },
+      {
+        "name": "text_encoder/model.safetensors.index.json",
+        "size": 22495,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 636,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/tokenizer.json",
+        "size": 34362873,
+        "sha256": "5f7eee611703c5ce5d1eee32d9cdcfe465647b8aff0c1dfb3bed7ad7dbb05060"
+      },
+      {
+        "name": "tokenizer/tokenizer.model",
+        "size": 4241003,
+        "sha256": "61a7b147390c64585d6c3543dd6fc636906c9af3865a5548f27f31aee1d4c8e2"
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 46996,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 624,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors",
+        "size": 3220530536,
+        "sha256": "effac51c73537487ac1505993f0e7fbd292c310b23aae96f2c3e53131e876f2d"
+      },
+      {
+        "name": "vae/config.json",
+        "size": 1280,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 1249044836,
+        "sha256": "dfd991d1b54ffabf22745c5885589d8f2a7bc59930d95d92bd741c4fc64454bb"
+      }
+    ],
+    "vae/config.json": {
+      "_class_name": "AutoencoderDC",
+      "_diffusers_version": "0.33.0.dev0",
+      "_name_or_path": "mit-han-lab/dc-ae-f32c32-sana-1.1-diffusers",
+      "attention_head_dim": 32,
+      "decoder_act_fns": "silu",
+      "decoder_block_out_channels": [
+        128,
+        256,
+        512,
+        512,
+        1024,
+        1024
+      ],
+      "decoder_block_types": [
+        "ResBlock",
+        "ResBlock",
+        "ResBlock",
+        "EfficientViTBlock",
+        "EfficientViTBlock",
+        "EfficientViTBlock"
+      ],
+      "decoder_layers_per_block": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "decoder_norm_types": "rms_norm",
+      "decoder_qkv_multiscales": [
+        [],
+        [],
+        [],
+        [
+          5
+        ],
+        [
+          5
+        ],
+        [
+          5
+        ]
+      ],
+      "downsample_block_type": "Conv",
+      "encoder_block_out_channels": [
+        128,
+        256,
+        512,
+        512,
+        1024,
+        1024
+      ],
+      "encoder_block_types": [
+        "ResBlock",
+        "ResBlock",
+        "ResBlock",
+        "EfficientViTBlock",
+        "EfficientViTBlock",
+        "EfficientViTBlock"
+      ],
+      "encoder_layers_per_block": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        3
+      ],
+      "encoder_qkv_multiscales": [
+        [],
+        [],
+        [],
+        [
+          5
+        ],
+        [
+          5
+        ],
+        [
+          5
+        ]
+      ],
+      "in_channels": 3,
+      "latent_channels": 32,
+      "scaling_factor": 0.41407,
+      "upsample_block_type": "interpolate"
+    },
+    "scheduler/scheduler_config.json": {
+      "_class_name": "SCMScheduler",
+      "_diffusers_version": "0.33.0.dev0",
+      "num_train_timesteps": 1000,
+      "prediction_type": "trigflow",
+      "sigma_data": 0.5
+    },
+    "model_index.json": {
+      "_class_name": "SanaSprintPipeline",
+      "_diffusers_version": "0.33.0.dev0",
+      "scheduler": [
+        "diffusers",
+        "SCMScheduler"
+      ],
+      "text_encoder": [
+        "transformers",
+        "Gemma2Model"
+      ],
+      "tokenizer": [
+        "transformers",
+        "GemmaTokenizerFast"
+      ],
+      "transformer": [
+        "diffusers",
+        "SanaTransformer2DModel"
+      ],
+      "vae": [
+        "diffusers",
+        "AutoencoderDC"
+      ]
+    }
+  },
+  {
+    "model": "kandinsky-community/kandinsky-3",
+    "revision": "bf79e6c219da8a94abb50235fdc4567eb8fb4632",
+    "gated": false,
+    "license": "apache-2.0",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1519,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 5608,
+        "sha256": null
+      },
+      {
+        "name": "assets/kandinsky.jpg",
+        "size": 238788,
+        "sha256": null
+      },
+      {
+        "name": "assets/photo_13.jpg",
+        "size": 202937,
+        "sha256": null
+      },
+      {
+        "name": "assets/photo_14.jpg",
+        "size": 107152,
+        "sha256": null
+      },
+      {
+        "name": "assets/photo_15.jpg",
+        "size": 201570,
+        "sha256": null
+      },
+      {
+        "name": "assets/photo_16.jpg",
+        "size": 88858,
+        "sha256": null
+      },
+      {
+        "name": "assets/photo_17.jpg",
+        "size": 117021,
+        "sha256": null
+      },
+      {
+        "name": "assets/photo_19.jpg",
+        "size": 103502,
+        "sha256": null
+      },
+      {
+        "name": "assets/photo_2.jpg",
+        "size": 104135,
+        "sha256": null
+      },
+      {
+        "name": "assets/photo_7.jpg",
+        "size": 85499,
+        "sha256": null
+      },
+      {
+        "name": "assets/photo_8.jpg",
+        "size": 319029,
+        "sha256": null
+      },
+      {
+        "name": "assets/title.jpg",
+        "size": 121217,
+        "sha256": null
+      },
+      {
+        "name": "model_index.json",
+        "size": 417,
+        "sha256": null
+      },
+      {
+        "name": "movq/config.json",
+        "size": 714,
+        "sha256": null
+      },
+      {
+        "name": "movq/diffusion_pytorch_model.fp16.safetensors",
+        "size": 541388942,
+        "sha256": "8a4705625c160c49025e1f9b98776aaf5287240ca0d5ed39a1a235598fc39244"
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 509,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 793,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model.fp16-00001-of-00005.safetensors",
+        "size": 4994491352,
+        "sha256": "2745f08c74c13536c67282afc1e5ba80daf67e5ded7925845f3cb5e1983a2826"
+      },
+      {
+        "name": "text_encoder/model.fp16-00002-of-00005.safetensors",
+        "size": 4932632832,
+        "sha256": "a1c184e0f3a2e8c80360379ada2d9fce40bee23647a63e3baefa00d837084408"
+      },
+      {
+        "name": "text_encoder/model.fp16-00003-of-00005.safetensors",
+        "size": 4831960880,
+        "sha256": "3a6e4c548e5c2e6aa080a5eefad31e973dbba55b6918f95fb77af97fce341c94"
+      },
+      {
+        "name": "text_encoder/model.fp16-00004-of-00005.safetensors",
+        "size": 4999741472,
+        "sha256": "3e7652beb11f33c5549d391c2affacd6642d9ca21bc0d4319cba60fe1b357ff0"
+      },
+      {
+        "name": "text_encoder/model.fp16-00005-of-00005.safetensors",
+        "size": 1979772184,
+        "sha256": "f41b9aea886f3d583c026011cb7251ff21f615774ad604264aaaa01605e02326"
+      },
+      {
+        "name": "text_encoder/model.safetensors.index.fp16.json",
+        "size": 27893,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/added_tokens.json",
+        "size": 3255,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 2543,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/spiece.model",
+        "size": 791656,
+        "sha256": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86"
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 25436,
+        "sha256": null
+      },
+      {
+        "name": "unet/config.json",
+        "size": 322,
+        "sha256": null
+      },
+      {
+        "name": "unet/diffusion_pytorch_model.fp16.safetensors",
+        "size": 6110842296,
+        "sha256": "805179fe9c10cd1e01c59057f0c2bb07ce57834ad343f721e50ca16bef6952f6"
+      }
+    ],
+    "scheduler/scheduler_config.json": {
+      "_class_name": "DDPMScheduler",
+      "_diffusers_version": "0.24.0.dev0",
+      "beta_end": 0.012,
+      "beta_schedule": "squaredcos_cap_v2",
+      "beta_start": 0.00085,
+      "clip_sample": true,
+      "clip_sample_range": 1.0,
+      "dynamic_thresholding_ratio": 0.995,
+      "num_train_timesteps": 1000,
+      "prediction_type": "epsilon",
+      "sample_max_value": 1.0,
+      "set_alpha_to_one": false,
+      "steps_offset": 1,
+      "thresholding": false,
+      "timestep_spacing": "leading",
+      "trained_betas": null,
+      "variance_type": "fixed_small"
+    },
+    "model_index.json": {
+      "_class_name": "Kandinsky3Pipeline",
+      "_diffusers_version": "0.24.0.dev0",
+      "_name_or_path": "/home/patrick/kandinsky-3",
+      "movq": [
+        "diffusers",
+        "VQModel"
+      ],
+      "scheduler": [
+        "diffusers",
+        "DDPMScheduler"
+      ],
+      "text_encoder": [
+        "transformers",
+        "T5EncoderModel"
+      ],
+      "tokenizer": [
+        "transformers",
+        "T5Tokenizer"
+      ],
+      "unet": [
+        "diffusers",
+        "Kandinsky3UNet"
+      ]
+    }
+  },
+  {
+    "model": "Qwen/Qwen-Image-2512",
+    "revision": "25468b98e3276ca6700de15c6628e51b7de54a26",
+    "gated": false,
+    "license": "apache-2.0",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1519,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 19306,
+        "sha256": null
+      },
+      {
+        "name": "model_index.json",
+        "size": 443,
+        "sha256": null
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 485,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 3146,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/generation_config.json",
+        "size": 244,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model-00001-of-00004.safetensors",
+        "size": 4968243304,
+        "sha256": "d725335e4ea2399be706469e4b8807716a8fa64bd03468252e9f7acf2415fee4"
+      },
+      {
+        "name": "text_encoder/model-00002-of-00004.safetensors",
+        "size": 4991495816,
+        "sha256": "b1830db6908dcc76df3a71492acbcf2b8cac130114cf1f3c2d9edae8de8c6de3"
+      },
+      {
+        "name": "text_encoder/model-00003-of-00004.safetensors",
+        "size": 4932751040,
+        "sha256": "09c1807c6d00d7cab94f7db39d4c02ebb8537225ccde383861ac48db97945aa6"
+      },
+      {
+        "name": "text_encoder/model-00004-of-00004.safetensors",
+        "size": 1691924384,
+        "sha256": "5dd068336d14d45ffb43cef374d286cc6ba9d8741b028f90a7d040d847961f4a"
+      },
+      {
+        "name": "text_encoder/model.safetensors.index.json",
+        "size": 57655,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/added_tokens.json",
+        "size": 605,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/chat_template.jinja",
+        "size": 2427,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/merges.txt",
+        "size": 1671853,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 613,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 4686,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/vocab.json",
+        "size": 3383407,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 339,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00001-of-00009.safetensors",
+        "size": 4989364312,
+        "sha256": "1abb592dfb6701994f11dbbe1228d99fef1246e2cdd119a73e030da7c2b4d795"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00002-of-00009.safetensors",
+        "size": 4984214160,
+        "sha256": "f725018bd0b6b54a1529b38f20d38840b69aceefe843b443949e0e035799e88b"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00003-of-00009.safetensors",
+        "size": 4946470000,
+        "sha256": "3de6b71c7d756b4ead46c475f02bc27ff9efe64c43ce2b6790afb9fea81d821b"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00004-of-00009.safetensors",
+        "size": 4984213736,
+        "sha256": "c6877663a33e453e3e7fb73d1c6d006612a3e7b29d6a9f84d697383015e2f4b8"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00005-of-00009.safetensors",
+        "size": 4946471896,
+        "sha256": "31ce58f75ddfaa3851a95397ae5b22e8e435ded5f021dd7d903e138e12586d2e"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00006-of-00009.safetensors",
+        "size": 4946451560,
+        "sha256": "e8c1521290054c832e50086e65e50222e8e9b85cefb595667bc82ee091854772"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00007-of-00009.safetensors",
+        "size": 4908690520,
+        "sha256": "33847ad316bdc789f4b0c522cd0c388a025c6254e6e5b3f9626a6afe175655d3"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00008-of-00009.safetensors",
+        "size": 4984232856,
+        "sha256": "770716dc6e0c7007c2e8fba297f075cae23b45985a4cda3ec4dae5f7b559c03c"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00009-of-00009.safetensors",
+        "size": 1170918840,
+        "sha256": "3f8213dfaaf5aacba65f42c33bc77bb5926506755b1503fa6fa323750088fc0c"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors.index.json",
+        "size": 198887,
+        "sha256": null
+      },
+      {
+        "name": "vae/config.json",
+        "size": 730,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 253806966,
+        "sha256": "0c8bc8b758c649abef9ea407b95408389a3b2f610d0d10fcb054fe171d0a8344"
+      }
+    ],
+    "vae/config.json": {
+      "_class_name": "AutoencoderKLQwenImage",
+      "_diffusers_version": "0.36.0.dev0",
+      "attn_scales": [],
+      "base_dim": 96,
+      "dim_mult": [
+        1,
+        2,
+        4,
+        4
+      ],
+      "dropout": 0.0,
+      "latents_mean": [
+        -0.7571,
+        -0.7089,
+        -0.9113,
+        0.1075,
+        -0.1745,
+        0.9653,
+        -0.1517,
+        1.5508,
+        0.4134,
+        -0.0715,
+        0.5517,
+        -0.3632,
+        -0.1922,
+        -0.9497,
+        0.2503,
+        -0.2921
+      ],
+      "latents_std": [
+        2.8184,
+        1.4541,
+        2.3275,
+        2.6558,
+        1.2196,
+        1.7708,
+        2.6052,
+        2.0743,
+        3.2687,
+        2.1526,
+        2.8652,
+        1.5579,
+        1.6382,
+        1.1253,
+        2.8251,
+        1.916
+      ],
+      "num_res_blocks": 2,
+      "temperal_downsample": [
+        false,
+        true,
+        true
+      ],
+      "z_dim": 16
+    },
+    "scheduler/scheduler_config.json": {
+      "_class_name": "FlowMatchEulerDiscreteScheduler",
+      "_diffusers_version": "0.36.0.dev0",
+      "base_image_seq_len": 256,
+      "base_shift": 0.5,
+      "invert_sigmas": false,
+      "max_image_seq_len": 8192,
+      "max_shift": 0.9,
+      "num_train_timesteps": 1000,
+      "shift": 1.0,
+      "shift_terminal": 0.02,
+      "stochastic_sampling": false,
+      "time_shift_type": "exponential",
+      "use_beta_sigmas": false,
+      "use_dynamic_shifting": true,
+      "use_exponential_sigmas": false,
+      "use_karras_sigmas": false
+    },
+    "model_index.json": {
+      "_class_name": "QwenImagePipeline",
+      "_diffusers_version": "0.36.0.dev0",
+      "scheduler": [
+        "diffusers",
+        "FlowMatchEulerDiscreteScheduler"
+      ],
+      "text_encoder": [
+        "transformers",
+        "Qwen2_5_VLForConditionalGeneration"
+      ],
+      "tokenizer": [
+        "transformers",
+        "Qwen2Tokenizer"
+      ],
+      "transformer": [
+        "diffusers",
+        "QwenImageTransformer2DModel"
+      ],
+      "vae": [
+        "diffusers",
+        "AutoencoderKLQwenImage"
+      ]
+    }
+  },
+  {
+    "model": "tencent/HunyuanImage-3.0",
+    "revision": "36f21fe74b65614451cc50ffd8a35a5f662dac70",
+    "gated": false,
+    "license": "other",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1840,
+        "sha256": null
+      },
+      {
+        "name": "Hunyuan-Image3.md",
+        "size": 19702,
+        "sha256": null
+      },
+      {
+        "name": "LICENSE",
+        "size": 16530,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 26019,
+        "sha256": null
+      },
+      {
+        "name": "README_zh_CN.md",
+        "size": 25344,
+        "sha256": null
+      },
+      {
+        "name": "__init__.py",
+        "size": 0,
+        "sha256": null
+      },
+      {
+        "name": "assets/.DS_Store",
+        "size": 6148,
+        "sha256": null
+      },
+      {
+        "name": "assets/WECHAT.md",
+        "size": 244,
+        "sha256": null
+      },
+      {
+        "name": "assets/banner.png",
+        "size": 1405735,
+        "sha256": "53bef578e373fc53c8c16d26a1011f85ce8d4f46aeac1222be7263a09a3d8c7f"
+      },
+      {
+        "name": "assets/banner_all.jpg",
+        "size": 15257768,
+        "sha256": "667e956a3c27f6722eceacebe907b56b6669cc35b706a4957893b7ae88b7fbc0"
+      },
+      {
+        "name": "assets/demo_instruct_imgs/input_0_0.png",
+        "size": 1050550,
+        "sha256": "36d373a42642830e6cbe5f71b4da058bda52e074191342c94d00959103d9bdf7"
+      },
+      {
+        "name": "assets/demo_instruct_imgs/input_1_0.png",
+        "size": 35830,
+        "sha256": "4cbc1e8e1fc9757e2e96ab2871e77461edfec374a743e0301f829d383395d913"
+      },
+      {
+        "name": "assets/demo_instruct_imgs/input_1_1.png",
+        "size": 1186493,
+        "sha256": "fd1ba82af0f6374c52cfd412f142817a9b1516ab769d7b05eb6774201e8ff3d6"
+      },
+      {
+        "name": "assets/demo_instruct_imgs/input_2_0.png",
+        "size": 110710,
+        "sha256": "d95260cb9efed53907d9964b73c4335427bd981cf2cf04a19c250973597df86e"
+      },
+      {
+        "name": "assets/demo_instruct_imgs/input_2_1.png",
+        "size": 955497,
+        "sha256": "7828363e20b7b0faa7fa19d2c58ce335c931125a668345726070e7943166a07f"
+      },
+      {
+        "name": "assets/demo_instruct_imgs/input_2_2.png",
+        "size": 191017,
+        "sha256": "b977d8ed0f9dc2f37378947e91d5af97c65a3240261f9758ab1db89be6a02516"
+      },
+      {
+        "name": "assets/framework.png",
+        "size": 247657,
+        "sha256": "f6c0e6751b4bf0f30daeb6a2b7cdb4dc3276bd61ea58294ba528fd807a17473f"
+      },
+      {
+        "name": "assets/gsb.png",
+        "size": 190849,
+        "sha256": "8570c87bbb477e206f61d99c036a53d3671dc589829b335656931dcf01194536"
+      },
+      {
+        "name": "assets/gsb_instruct.png",
+        "size": 40152,
+        "sha256": "5fd00d0399ce3af48a1d746f4a200a36899ee3fde361a0951459540a7b133136"
+      },
+      {
+        "name": "assets/logo.png",
+        "size": 95136,
+        "sha256": "f59d594e65aff85c3ac35ff02aa7e14cccfb88d4c6296948efe5cea9a3bfb690"
+      },
+      {
+        "name": "assets/pg_imgs/image1.png",
+        "size": 1640442,
+        "sha256": "a385db722efc89cff4d5e4afdb82c96156f223907d70f0d3c7eb8b3e59edbccb"
+      },
+      {
+        "name": "assets/pg_imgs/image2.png",
+        "size": 1703472,
+        "sha256": "84a7d37d3ff8452c32ecb79f98692ad38f8f190dc201922a924ae2fda4515e12"
+      },
+      {
+        "name": "assets/pg_imgs/image3.png",
+        "size": 1392856,
+        "sha256": "913376a1ad5d10bc1549f9f28fc25a0c9f94a119b99434618bacacc7429996fa"
+      },
+      {
+        "name": "assets/pg_imgs/image4.png",
+        "size": 1551703,
+        "sha256": "71dcfd968f4c76ccec2ccc1806e9ce97babed56c73441d744f7264433bf9339a"
+      },
+      {
+        "name": "assets/pg_imgs/image5.png",
+        "size": 3312467,
+        "sha256": "b93338e2f81f9809f8a9f674e0fe3da7c03de4fc4d7aba1819acb878384abb3e"
+      },
+      {
+        "name": "assets/pg_imgs/image6.png",
+        "size": 2023590,
+        "sha256": "84e7c73dafea831bf1ceb8c3dd76c16238c9b4a31ac30e3f46c38d61005b5895"
+      },
+      {
+        "name": "assets/pg_imgs/image7.png",
+        "size": 1552741,
+        "sha256": "701f2449436f8d46f537100bdaa63569586e39448e30fffe2e5bc3e95e558daa"
+      },
+      {
+        "name": "assets/pg_imgs/image8.png",
+        "size": 1265602,
+        "sha256": "b80b97174d4f98030eda02d5dbaac2e294d814f086d957d47957482eb7b70251"
+      },
+      {
+        "name": "assets/pg_instruct_imgs/cot_ti2i.gif",
+        "size": 48040444,
+        "sha256": "f50e55f1de997a2b8380f2fbb7960b14a03adc6f08bcef8dfac873987300f47e"
+      },
+      {
+        "name": "assets/pg_instruct_imgs/image0.png",
+        "size": 1438148,
+        "sha256": "54de287f7fc6e982a358fac0b29ef901c31ed06baac39919d516c976f20a633f"
+      },
+      {
+        "name": "assets/pg_instruct_imgs/image1.png",
+        "size": 2027891,
+        "sha256": "ed594219f6043c1ce01e4c5f659a376fad53f7df79cdc2a3bc6b7cd27aa2cea1"
+      },
+      {
+        "name": "assets/pg_instruct_imgs/image2.png",
+        "size": 2129429,
+        "sha256": "9cf7a4233e0acbb0cd2454646d4f5a72327196b8e5515ca7c3932238b7d71128"
+      },
+      {
+        "name": "assets/pg_instruct_imgs/image3.png",
+        "size": 2097344,
+        "sha256": "9ff765ee0821eec5abc6c6c4d07be27be8188e8c46df067b613e047319375aeb"
+      },
+      {
+        "name": "assets/pg_instruct_imgs/image4.png",
+        "size": 2538624,
+        "sha256": "484c711acfeb0fe34169d0dee4d6e2f47b56cd00d3301f2261b1325bcd226c28"
+      },
+      {
+        "name": "assets/robot.png",
+        "size": 16382,
+        "sha256": "2a5b09f264c3752199536e92ca57836119604a79e3d08471d2818d2d576dd79b"
+      },
+      {
+        "name": "assets/ssae_side_by_side_comparison.png",
+        "size": 1524388,
+        "sha256": "665dce959769e799a14fa7d176d4a676feb33193c6575db21da97458732488fc"
+      },
+      {
+        "name": "assets/ssae_side_by_side_heatmap.png",
+        "size": 638898,
+        "sha256": "00e2342afb5cabaf20b9b415587fb2986456f8c7c8cb96dd6ecc68455457045e"
+      },
+      {
+        "name": "assets/user.png",
+        "size": 13491,
+        "sha256": "75543c163927df138a1c3d2958322e151ba259fc52fcd91bebb4cea92fc1af89"
+      },
+      {
+        "name": "assets/wechat.png",
+        "size": 30929,
+        "sha256": "7bb1d5e06408b09ca6764ddd0a70fe9acfd045295c4144c99235f74336ea0169"
+      },
+      {
+        "name": "autoencoder_kl_3d.py",
+        "size": 32209,
+        "sha256": null
+      },
+      {
+        "name": "config.json",
+        "size": 6170,
+        "sha256": null
+      },
+      {
+        "name": "configuration_hunyuan.py",
+        "size": 13427,
+        "sha256": null
+      },
+      {
+        "name": "generation_config.json",
+        "size": 454,
+        "sha256": null
+      },
+      {
+        "name": "hunyuan.py",
+        "size": 117048,
+        "sha256": null
+      },
+      {
+        "name": "hunyuan_image_3_pipeline.py",
+        "size": 37496,
+        "sha256": null
+      },
+      {
+        "name": "image_processor.py",
+        "size": 6050,
+        "sha256": null
+      },
+      {
+        "name": "model-0001-of-0032.safetensors",
+        "size": 5363066616,
+        "sha256": "dad22fa5e99dcda532c242aa4d4875f9ea6fd8b2ed59e39776dec4ea55baf4e5"
+      },
+      {
+        "name": "model-0002-of-0032.safetensors",
+        "size": 5318937248,
+        "sha256": "9987e8220f81b70d07b62f06ac6c92bb0faf38ccb0ddd3f30b65ed895ad4a2fb"
+      },
+      {
+        "name": "model-0003-of-0032.safetensors",
+        "size": 5344627472,
+        "sha256": "79f8d4d1b23562299da3360ac7e2437a4dd24be30b86bc8db580521b5f9b2616"
+      },
+      {
+        "name": "model-0004-of-0032.safetensors",
+        "size": 5327343192,
+        "sha256": "4faf1357831b25b9f9637594312e9024ee0fa1e87c734e20afdde2845fdaa516"
+      },
+      {
+        "name": "model-0005-of-0032.safetensors",
+        "size": 5344103080,
+        "sha256": "46189f8777c117c431e46cc57ec2328fe72050452119ac7bb676bdaca3f76575"
+      },
+      {
+        "name": "model-0006-of-0032.safetensors",
+        "size": 5318937248,
+        "sha256": "8f9d5f386b7c2d0b171bd8a25f3f08e3150936fde2dfd92e9aa1f6e27dbf2e0d"
+      },
+      {
+        "name": "model-0007-of-0032.safetensors",
+        "size": 5344103088,
+        "sha256": "d30616044acead06484eacace50a4cab66267feb13555f235bac63d2540cf471"
+      },
+      {
+        "name": "model-0008-of-0032.safetensors",
+        "size": 5318937256,
+        "sha256": "740ccbff8fa1dbb2847fe8c342654f7d24fa81f058065e82dfbccb89ce2743c1"
+      },
+      {
+        "name": "model-0009-of-0032.safetensors",
+        "size": 5344103088,
+        "sha256": "d5fc3df50de8591735d29f7acfece39b64b3735cccef176eb4a137f4ede68430"
+      },
+      {
+        "name": "model-0010-of-0032.safetensors",
+        "size": 5318937304,
+        "sha256": "3f6058eb7527741d18c17131cb7810f11d8bd4c69cce10962e093e684413cd2a"
+      },
+      {
+        "name": "model-0011-of-0032.safetensors",
+        "size": 5344103232,
+        "sha256": "4c38d5fd2f18191d849b444e873ff91d3f048d8c4bcd71b3035ff0f7973ac273"
+      },
+      {
+        "name": "model-0012-of-0032.safetensors",
+        "size": 5318937400,
+        "sha256": "688a6a818f6d164d345e3bb37c4f3fcee40cc7d458027d2a37f7486463843ec3"
+      },
+      {
+        "name": "model-0013-of-0032.safetensors",
+        "size": 5344103232,
+        "sha256": "f77757aa32fa67f75f8f8ec5bc831d358093483c2a8692bff7477378aea00f28"
+      },
+      {
+        "name": "model-0014-of-0032.safetensors",
+        "size": 5318937400,
+        "sha256": "3308c079c20008e1ac8852cfb986764064077278754492f2fd9ec893857b6489"
+      },
+      {
+        "name": "model-0015-of-0032.safetensors",
+        "size": 5344103232,
+        "sha256": "e32b467eb49473c7f42696db0916ca3275c01984c48a10433d78be4d351b7ff8"
+      },
+      {
+        "name": "model-0016-of-0032.safetensors",
+        "size": 5318937400,
+        "sha256": "b97d98195a45518bae971bc43c224225b60e1fbb8b2eb93115024d2bdf328dca"
+      },
+      {
+        "name": "model-0017-of-0032.safetensors",
+        "size": 5344103224,
+        "sha256": "2f00339bad7371e59f2d3642fd0575abafa92fc4509803f8fe5a64492185d2ab"
+      },
+      {
+        "name": "model-0018-of-0032.safetensors",
+        "size": 5327859080,
+        "sha256": "6b48a59d090d396aa9801765485381f8255d442c2da2d9e98f1c21a68c6b83b1"
+      },
+      {
+        "name": "model-0019-of-0032.safetensors",
+        "size": 5344111888,
+        "sha256": "dd4e5a082f3db3b61774ce86675cfb171f33319fd3dd8f942cd952633834d334"
+      },
+      {
+        "name": "model-0020-of-0032.safetensors",
+        "size": 5318937392,
+        "sha256": "f27fc2c0eedfc6b99ebe07e244c9689e89fa06dc65216d9c07aa6067783f86b5"
+      },
+      {
+        "name": "model-0021-of-0032.safetensors",
+        "size": 5344103232,
+        "sha256": "128289d2f1b5787e19c7ff3defa7f8cd591304502d0db66c0cd57a214e5ecf13"
+      },
+      {
+        "name": "model-0022-of-0032.safetensors",
+        "size": 5318937400,
+        "sha256": "0535004052f37e3756ba186bff27d00accc22dad93a16edd40734579f030d92f"
+      },
+      {
+        "name": "model-0023-of-0032.safetensors",
+        "size": 5344103232,
+        "sha256": "a6d0b876aa4b9048a1f5b9cd6a72e386d1abd8c9b24d331c2fab8c6ff5fe8080"
+      },
+      {
+        "name": "model-0024-of-0032.safetensors",
+        "size": 5318937400,
+        "sha256": "7c5c89a856e5d4b1e2d867e4b61cfb37311fa69848906be1b03e088ccc00a598"
+      },
+      {
+        "name": "model-0025-of-0032.safetensors",
+        "size": 5344103232,
+        "sha256": "b2310c229c814a7ddc076e5bbf0b03e487b016ded864c2844b1562b081445f5f"
+      },
+      {
+        "name": "model-0026-of-0032.safetensors",
+        "size": 5318937400,
+        "sha256": "c6aa2a2dc78191899d1d9019f124058caf3537777950d3d3c3761ca616a85f79"
+      },
+      {
+        "name": "model-0027-of-0032.safetensors",
+        "size": 5344103232,
+        "sha256": "784b14449c7af7674dc9f1a4e7e6b04e79afcf10250dc831a8f8ae87b4fb8827"
+      },
+      {
+        "name": "model-0028-of-0032.safetensors",
+        "size": 5318937400,
+        "sha256": "74eaa13efc2eee80630067f9e54f18db6b3b3c1374b8cb0b719cab4d54996ee8"
+      },
+      {
+        "name": "model-0029-of-0032.safetensors",
+        "size": 5344103232,
+        "sha256": "7f409aca2ec8d888bb2a7cb83c7f4b8d26ec97408f628a7268108ac028a45c31"
+      },
+      {
+        "name": "model-0030-of-0032.safetensors",
+        "size": 5318937400,
+        "sha256": "ef654a129711bb1f98957f632de83d9dc145902a95826be1ca4e187841ee5781"
+      },
+      {
+        "name": "model-0031-of-0032.safetensors",
+        "size": 5354949964,
+        "sha256": "b468761f2b64c388c728a529692067bab5780938c542644f295b2b8f453c5a70"
+      },
+      {
+        "name": "model-0032-of-0032.safetensors",
+        "size": 3203019864,
+        "sha256": "cafd49f6c37deea3d71f159c706ebc9fc5d2525b1f6b06491c3969c6aa3f4dec"
+      },
+      {
+        "name": "model.safetensors.index.json",
+        "size": 447091,
+        "sha256": null
+      },
+      {
+        "name": "siglip2.py",
+        "size": 23902,
+        "sha256": null
+      },
+      {
+        "name": "system_prompt.py",
+        "size": 10288,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer.json",
+        "size": 25022931,
+        "sha256": "f804f2be631f905a30f98f89c141abe1bbd3f916e1cda1e1563bb5dccd347b52"
+      },
+      {
+        "name": "tokenizer_config.json",
+        "size": 223,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer_wrapper.py",
+        "size": 66830,
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "model": "lodestones/Chroma1-HD",
+    "revision": "0e0c60ece1e82b17cb7f77342d765ba5024c40c0",
+    "gated": false,
+    "license": "apache-2.0",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1802,
+        "sha256": null
+      },
+      {
+        "name": "Chroma1-HD.safetensors",
+        "size": 17800038288,
+        "sha256": "d446d9695d08276f61e53653e025289dd96f7a489c27982a1fa54ecabc06642a"
+      },
+      {
+        "name": "ComfyUI_Chroma1-HD_T2I-overview.png",
+        "size": 4098529,
+        "sha256": "7fb919582e144e1f4da05aa059692f477adfec71cf0baa8814d291afc1955c7b"
+      },
+      {
+        "name": "ComfyUI_Chroma1-HD_T2I-sample.png",
+        "size": 1854807,
+        "sha256": "f11297baafd5b98723fa0bc16b35a5283bcf8fe9ee5212338649d59f620972a3"
+      },
+      {
+        "name": "ComfyUI_Chroma1-HD_T2I-workflow.json",
+        "size": 23027,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 8107,
+        "sha256": null
+      },
+      {
+        "name": "images/FictionalChromaBanner_1.png",
+        "size": 1008192,
+        "sha256": "05b4e4ff23d2ea11dc518cbcf071d1cacb1786d8ec2e0aa86f03d50018cf592d"
+      },
+      {
+        "name": "model_index.json",
+        "size": 494,
+        "sha256": null
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 482,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 741,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model-00001-of-00002.safetensors",
+        "size": 4994582224,
+        "sha256": "ec87bffd1923e8b2774a6d240c922a41f6143081d52cf83b8fe39e9d838c893e"
+      },
+      {
+        "name": "text_encoder/model-00002-of-00002.safetensors",
+        "size": 4530066360,
+        "sha256": "a5640855b301fcdbceddfa90ae8066cd9414aff020552a201a255ecf2059da00"
+      },
+      {
+        "name": "text_encoder/model.safetensors.index.json",
+        "size": 19921,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/added_tokens.json",
+        "size": 2593,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 2543,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/spiece.model",
+        "size": 791656,
+        "sha256": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86"
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 20847,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 490,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00001-of-00002.safetensors",
+        "size": 9946193392,
+        "sha256": "59f0b26eccaabb8301e4166e653f1bcdebd7c46a4a07b02fe33d7a2c46d78eba"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00002-of-00002.safetensors",
+        "size": 7853894360,
+        "sha256": "65e6541afdabbb96568a3f8975eeef929f0a7e0eef3d2c4741b1bf911ac3a6d5"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors.index.json",
+        "size": 106695,
+        "sha256": null
+      },
+      {
+        "name": "vae/config.json",
+        "size": 819,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 167666902,
+        "sha256": "f5b59a26851551b67ae1fe58d32e76486e1e812def4696a4bea97f16604d40a3"
+      }
+    ],
+    "vae/config.json": {
+      "_class_name": "AutoencoderKL",
+      "_diffusers_version": "0.35.1",
+      "_name_or_path": "/home/ubuntu/FLUX.1-schnell",
+      "act_fn": "silu",
+      "block_out_channels": [
+        128,
+        256,
+        512,
+        512
+      ],
+      "down_block_types": [
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D",
+        "DownEncoderBlock2D"
+      ],
+      "force_upcast": true,
+      "in_channels": 3,
+      "latent_channels": 16,
+      "latents_mean": null,
+      "latents_std": null,
+      "layers_per_block": 2,
+      "mid_block_add_attention": true,
+      "norm_num_groups": 32,
+      "out_channels": 3,
+      "sample_size": 1024,
+      "scaling_factor": 0.3611,
+      "shift_factor": 0.1159,
+      "up_block_types": [
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D",
+        "UpDecoderBlock2D"
+      ],
+      "use_post_quant_conv": false,
+      "use_quant_conv": false
+    },
+    "scheduler/scheduler_config.json": {
+      "_class_name": "FlowMatchEulerDiscreteScheduler",
+      "_diffusers_version": "0.35.1",
+      "base_image_seq_len": 256,
+      "base_shift": 0.5,
+      "invert_sigmas": false,
+      "max_image_seq_len": 4096,
+      "max_shift": 1.15,
+      "num_train_timesteps": 1000,
+      "shift": 3.0,
+      "shift_terminal": null,
+      "stochastic_sampling": false,
+      "time_shift_type": "exponential",
+      "use_beta_sigmas": false,
+      "use_dynamic_shifting": false,
+      "use_exponential_sigmas": false,
+      "use_karras_sigmas": false
+    },
+    "model_index.json": {
+      "_class_name": "ChromaPipeline",
+      "_diffusers_version": "0.35.1",
+      "feature_extractor": [
+        null,
+        null
+      ],
+      "image_encoder": [
+        null,
+        null
+      ],
+      "scheduler": [
+        "diffusers",
+        "FlowMatchEulerDiscreteScheduler"
+      ],
+      "text_encoder": [
+        "transformers",
+        "T5EncoderModel"
+      ],
+      "tokenizer": [
+        "transformers",
+        "T5Tokenizer"
+      ],
+      "transformer": [
+        "diffusers",
+        "ChromaTransformer2DModel"
+      ],
+      "vae": [
+        "diffusers",
+        "AutoencoderKL"
+      ]
+    }
+  },
+  {
+    "model": "lodestones/Chroma1-Radiance",
+    "revision": "a696c3104a7215de599c72bff72d32a96fb53914",
+    "gated": false,
+    "license": "apache-2.0",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1729,
+        "sha256": null
+      },
+      {
+        "name": "Chroma1-Radiance-x0-x32-proto-overview.png",
+        "size": 1047919,
+        "sha256": "6522bef432669f5b37843d13422754de50ee302bdd8126a0930f8f34fd3fb790"
+      },
+      {
+        "name": "Chroma1-Radiance-x0-x32-proto-sample.png",
+        "size": 2246081,
+        "sha256": "a8c02fede3b68d2a20d461a7aae4bb7625e9d38ef7e5f53a63aa6371340b2401"
+      },
+      {
+        "name": "Chroma1-Radiance-x0-x32-proto-workflow.json",
+        "size": 22604,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 486,
+        "sha256": null
+      },
+      {
+        "name": "config_radiance.json",
+        "size": 628,
+        "sha256": null
+      },
+      {
+        "name": "inference_reference_code.py",
+        "size": 30803,
+        "sha256": null
+      },
+      {
+        "name": "latest_x0.pth",
+        "size": 19012536669,
+        "sha256": "84548cfa6e5940969921661a93b36130c6a9103afe6aa48d490ebfe398c02630"
+      },
+      {
+        "name": "latest_x0.safetensors",
+        "size": 19012346342,
+        "sha256": "54840d542dd6242a8263fc684a57c64a195d6d9c870bc0375a7478a8b7098744"
+      },
+      {
+        "name": "latest_x0_full_20M_dataset_run.safetensors",
+        "size": 19012337718,
+        "sha256": "c576ca40f41e57557cbe326b08a5e800908355baed750549d8a74b443484d7da"
+      },
+      {
+        "name": "latest_x0_full_20M_dataset_run_1024.safetensors",
+        "size": 19012337718,
+        "sha256": "e62c3cc67cd74aad647352c5912f4f8adc325090a78d893f2f84877eec3bc92b"
+      },
+      {
+        "name": "latest_x0_x32_dino_distance.safetensors",
+        "size": 19026493494,
+        "sha256": "a86af79943470956aeb5b802d131139825e813addcf52c3393740c0c485a12a2"
+      },
+      {
+        "name": "latest_x0_x32_proto.safetensors",
+        "size": 19026502174,
+        "sha256": "932baeb3932954486ee0d2f3c2d8e532b4537e0963f9e7b42e894fff4568b46c"
+      },
+      {
+        "name": "radiance_arch.png",
+        "size": 622241,
+        "sha256": "e231d2d545c367c14d6f339ac72b5bc1463b236c6d920341b63f837dcdee7065"
+      },
+      {
+        "name": "src/models/__init__.py",
+        "size": 0,
+        "sha256": null
+      },
+      {
+        "name": "src/models/radiance.py",
+        "size": 50913,
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "model": "Qwen/Qwen-Image-2.1",
+    "revision": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+    "gated": false,
+    "license": "other",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1630,
+        "sha256": null
+      },
+      {
+        "name": "LICENSE",
+        "size": 7831,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 5707,
+        "sha256": null
+      },
+      {
+        "name": "assets/qr.png",
+        "size": 3332800,
+        "sha256": "9b1c6d8996a3560f12060affd070575dd8a3938462b15233c0dc15b2604a9243"
+      },
+      {
+        "name": "model_index.json",
+        "size": 447,
+        "sha256": null
+      },
+      {
+        "name": "processor/added_tokens.json",
+        "size": 707,
+        "sha256": null
+      },
+      {
+        "name": "processor/chat_template.jinja",
+        "size": 5292,
+        "sha256": null
+      },
+      {
+        "name": "processor/merges.txt",
+        "size": 1671853,
+        "sha256": null
+      },
+      {
+        "name": "processor/preprocessor_config.json",
+        "size": 782,
+        "sha256": null
+      },
+      {
+        "name": "processor/special_tokens_map.json",
+        "size": 613,
+        "sha256": null
+      },
+      {
+        "name": "processor/tokenizer.json",
+        "size": 11422654,
+        "sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4"
+      },
+      {
+        "name": "processor/tokenizer_config.json",
+        "size": 5445,
+        "sha256": null
+      },
+      {
+        "name": "processor/video_preprocessor_config.json",
+        "size": 817,
+        "sha256": null
+      },
+      {
+        "name": "processor/vocab.json",
+        "size": 2776833,
+        "sha256": null
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 485,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 1517,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/generation_config.json",
+        "size": 213,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model-00001-of-00004.safetensors",
+        "size": 4998056552,
+        "sha256": "dde00291b5f7fb92013895310a3da0ddba78674df9f10d505d375243dc01fc6f"
+      },
+      {
+        "name": "text_encoder/model-00002-of-00004.safetensors",
+        "size": 4915962464,
+        "sha256": "9047faccc0a6d98496a52d55f27be1c94a9c259d1e283fbea0128d054a948d42"
+      },
+      {
+        "name": "text_encoder/model-00003-of-00004.safetensors",
+        "size": 4915962496,
+        "sha256": "8c54187654c0176b73ae73785bf791dc9a14c9df7fb4310083a09d42048cb57e"
+      },
+      {
+        "name": "text_encoder/model-00004-of-00004.safetensors",
+        "size": 2704357976,
+        "sha256": "5311532aaaeae3259eb6a7b2c600636be1159adf7ded35f53579f7d0e7d43cdd"
+      },
+      {
+        "name": "text_encoder/model.safetensors.index.json",
+        "size": 67795,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 370,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00001-of-00002.safetensors",
+        "size": 9968332504,
+        "sha256": "9e6bc2d641e67bf277895ea8777141044a38f3edb7101bc469b2961dd7c36b4b"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00002-of-00002.safetensors",
+        "size": 4261951904,
+        "sha256": "3aaf234dcbe128530479735854a346b5e3e66283b7c11db56f836bbd1c13ebaa"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors.index.json",
+        "size": 30283,
+        "sha256": null
+      },
+      {
+        "name": "vae/config.json",
+        "size": 2079,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 1350989512,
+        "sha256": "a07a1b7c4ee2966a1b3bdc37de9b4f983d56937e46619f709a80b6e490675417"
+      }
+    ]
+  },
+  {
+    "model": "Photoroom/prxpixel-t2i",
+    "revision": "bcd5e63f072257a220c5d0ba039c97657398b1c2",
+    "gated": false,
+    "license": "apache-2.0",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1580,
+        "sha256": null
+      },
+      {
+        "name": "LICENSE",
+        "size": 11358,
+        "sha256": null
+      },
+      {
+        "name": "NOTICE",
+        "size": 297,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 1630,
+        "sha256": null
+      },
+      {
+        "name": "model_index.json",
+        "size": 433,
+        "sha256": null
+      },
+      {
+        "name": "scheduler/scheduler_config.json",
+        "size": 101,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 764,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model.safetensors",
+        "size": 3441183752,
+        "sha256": "4d212f35fd3ef50b5c03d3603153ee782df085c8e7286e09fe06d655bd0d2bf3"
+      },
+      {
+        "name": "tokenizer/added_tokens.json",
+        "size": 707,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/chat_template.jinja",
+        "size": 5519,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/merges.txt",
+        "size": 1671853,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/special_tokens_map.json",
+        "size": 613,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/tokenizer.json",
+        "size": 11423705,
+        "sha256": "def76fb086971c7867b829c23a26261e38d9d74e02139253b38aeb9df8b4b50a"
+      },
+      {
+        "name": "tokenizer/tokenizer_config.json",
+        "size": 5401,
+        "sha256": null
+      },
+      {
+        "name": "tokenizer/vocab.json",
+        "size": 2776833,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 460,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00001-of-00002.safetensors",
+        "size": 9980764480,
+        "sha256": "856f4e24d89a7de09a00b8d3e1871406b8f5af7b86b308dc4b7e4e1c418d9a21"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00002-of-00002.safetensors",
+        "size": 4026337856,
+        "sha256": "d05f4a9d276a564bf1c5fc9450352b66179bb5563dcfa71dfc77db67cb4ebcd7"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors.index.json",
+        "size": 26366,
+        "sha256": null
+      }
+    ]
+  },
+  {
+    "model": "black-forest-labs/flux-3-image-klein",
+    "revision": "337337621b8526e120f2275d250242f4a6bedd75",
+    "gated": "auto",
+    "license": "other",
+    "files": [
+      {
+        "name": ".gitattributes",
+        "size": 1902,
+        "sha256": null
+      },
+      {
+        "name": "LICENSE.md",
+        "size": 19593,
+        "sha256": null
+      },
+      {
+        "name": "NOTICE.md",
+        "size": 330,
+        "sha256": null
+      },
+      {
+        "name": "README.md",
+        "size": 14525,
+        "sha256": null
+      },
+      {
+        "name": "ae.safetensors",
+        "size": 336211292,
+        "sha256": "868fe7b343cc8f3a19dbcfcafbc3d5f888802be3f89bd81b65b3621a066ce8f3"
+      },
+      {
+        "name": "assets/1_figurine.png",
+        "size": 1774274,
+        "sha256": "86a6e6b61773c00dca976c3698d7727cabbeef05af8a5c0da039ae92da967fcf"
+      },
+      {
+        "name": "assets/2_coffee.png",
+        "size": 1512352,
+        "sha256": "1ddf8a42ce2e1029a43887e77656f4aebf4d9156a80c4f04fff879a4c5dceb63"
+      },
+      {
+        "name": "assets/balloons.png",
+        "size": 1498230,
+        "sha256": "ea9bed1b7db91453433b6cae390e31478cfcb4ee10b1427323c5e32f6bfcdd79"
+      },
+      {
+        "name": "config.json",
+        "size": 828,
+        "sha256": null
+      },
+      {
+        "name": "launch-gallery.jpg",
+        "size": 6537996,
+        "sha256": "0c6efa4c1cae8648a3d491431dd77c507979e309f655fb0c44bd1c827f8d5f9f"
+      },
+      {
+        "name": "manifest.json",
+        "size": 582,
+        "sha256": null
+      },
+      {
+        "name": "model.safetensors",
+        "size": 11097404512,
+        "sha256": "c3e9813cdd049c831c836b2e9db61150e49a93fc1a4c63b256494642fee0bd7c"
+      },
+      {
+        "name": "modular_model_index.json",
+        "size": 2115,
+        "sha256": null
+      },
+      {
+        "name": "teaser.jpg",
+        "size": 3075038,
+        "sha256": "db996bd5e2d8781ff6b830788e9b22568eec9e3d8bf20197006e17f1ed4bb097"
+      },
+      {
+        "name": "text_encoder/LICENSE",
+        "size": 11357,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/README.md",
+        "size": 7133,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/chat_template.json",
+        "size": 5502,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/config.json",
+        "size": 1505,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/generation_config.json",
+        "size": 269,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/merges.txt",
+        "size": 1671839,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/model-00001-of-00002.safetensors",
+        "size": 4967229296,
+        "sha256": "30a01a0556622645a3cce87b655bbbbbc1f170c196099f1b666c93202c3339a9"
+      },
+      {
+        "name": "text_encoder/model-00002-of-00002.safetensors",
+        "size": 3908490048,
+        "sha256": "046296a2a387efb43b0c997d5833c789604d168834f6e0d3064bf7bb13d002a6"
+      },
+      {
+        "name": "text_encoder/model.safetensors.index.json",
+        "size": 64742,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/preprocessor_config.json",
+        "size": 390,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/tokenizer.json",
+        "size": 7032403,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/tokenizer_config.json",
+        "size": 10868,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/video_preprocessor_config.json",
+        "size": 385,
+        "sha256": null
+      },
+      {
+        "name": "text_encoder/vocab.json",
+        "size": 2776833,
+        "sha256": null
+      },
+      {
+        "name": "transformer/config.json",
+        "size": 436,
+        "sha256": null
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00001-of-00002.safetensors",
+        "size": 9907529352,
+        "sha256": "4f01de41470090586d7a25aa4aec93987724eae45db45b68de2b3f566f438a8b"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model-00002-of-00002.safetensors",
+        "size": 1189878064,
+        "sha256": "6f6217ab2c7ce5ef177ec202f79d4c2ddab78111c4645030c8828ec615d5f02c"
+      },
+      {
+        "name": "transformer/diffusion_pytorch_model.safetensors.index.json",
+        "size": 37951,
+        "sha256": null
+      },
+      {
+        "name": "vae/config.json",
+        "size": 808,
+        "sha256": null
+      },
+      {
+        "name": "vae/diffusion_pytorch_model.safetensors",
+        "size": 336213556,
+        "sha256": "d64f3a68e1cc4f9f4e29b6e0da38a0204fe9a49f2d4053f0ec1fa1ca02f9c4b5"
+      },
+      {
+        "name": "variants/fp8r/config.json",
+        "size": 830,
+        "sha256": null
+      },
+      {
+        "name": "variants/fp8r/hf_quant_config.json",
+        "size": 1438,
+        "sha256": null
+      },
+      {
+        "name": "variants/fp8r/manifest.json",
+        "size": 1872,
+        "sha256": null
+      },
+      {
+        "name": "variants/fp8r/model.safetensors",
+        "size": 6270949144,
+        "sha256": "30054053f630725b488aead9a81b422793cee18027856a16bd17b902ad612018"
+      },
+      {
+        "name": "variants/nvfp4/config.json",
+        "size": 831,
+        "sha256": null
+      },
+      {
+        "name": "variants/nvfp4/hf_quant_config.json",
+        "size": 2784,
+        "sha256": null
+      },
+      {
+        "name": "variants/nvfp4/manifest.json",
+        "size": 3974,
+        "sha256": null
+      },
+      {
+        "name": "variants/nvfp4/model.safetensors",
+        "size": 5277674144,
+        "sha256": "30b110b0675249cf0461247b4613240312c8064ccc4ef486f4d025c9ff65fb83"
+      }
+    ]
+  }
+]

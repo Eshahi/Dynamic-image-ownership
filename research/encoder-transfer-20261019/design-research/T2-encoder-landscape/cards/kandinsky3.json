@@ -1,0 +1,20 @@
+{
+  "paper_id": "2312.03511",
+  "citation_key": "T2_kandinsky3",
+  "title": "Kandinsky 3.0 Technical Report",
+  "authors": null,
+  "year": 2023,
+  "venue": "arXiv preprint (venue not independently checked)",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2312.03511v1",
+  "access_date": "2026-10-19",
+  "source_type": "primary paper HTML",
+  "verification": "V2",
+  "inspected_locator": "Section3.4 MoVQ and Table2 reconstruction comparison; model evaluation",
+  "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky3-paper.txt",
+  "sha256": "d40b6bf75f86e7119d97e894e4d9e5c618937bb9a1e62fa4490b38c60e6fff08",
+  "claim": "Direct evidence: larger270M MoVQ trained for this family.",
+  "limitations": "Independent from SD encoders; not independent of all Kandinsky design choices.",
+  "evidence_type": "direct-evidence",
+  "runtime_validation": false
+}

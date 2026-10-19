@@ -1,0 +1,20 @@
+{
+  "paper_id": "2511.14993",
+  "citation_key": "T2_kandinsky5",
+  "title": "Kandinsky 5.0: A Family of Foundation Models for Image and Video Generation",
+  "authors": null,
+  "year": 2025,
+  "venue": "arXiv preprint (venue not independently checked)",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2511.14993v1",
+  "access_date": "2026-10-19",
+  "source_type": "primary paper HTML",
+  "verification": "partial",
+  "inspected_locator": "Architecture screening; no complete encoder initialization/evaluation extraction",
+  "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky5-paper.txt",
+  "sha256": "8a6039fc9f055662c3c76c9781c012f1d4dbf88242685eb99ecd41b6f31d066f",
+  "claim": "Inconclusive for independent encoder decision.",
+  "limitations": "Not promoted to V2; no core recommendation.",
+  "evidence_type": "partial-inspection",
+  "runtime_validation": false
+}

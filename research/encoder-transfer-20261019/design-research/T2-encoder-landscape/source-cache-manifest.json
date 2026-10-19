@@ -1,0 +1,1324 @@
+[
+  {
+    "url": "https://huggingface.co/api/models/stabilityai/stable-diffusion-xl-base-1.0?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-stabilityai--stable-diffusion-xl-base-1.0-api.json",
+    "sha256": "8f247aefb53bf24324f3469565d9e93ba5d552a99719e81ff16f9f6c7ce72600",
+    "bytes": 14419,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-stabilityai--stable-diffusion-xl-base-1.0-README.md",
+    "sha256": "40d263065b8a3e9a41996c257e11463fd97ae956ebf4e3f8b9625e0d78183893",
+    "bytes": 8668,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/vae/config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-stabilityai--stable-diffusion-xl-base-1.0-vae--config.json",
+    "sha256": "0b331c8ac22ded5f9997a144a575c1d113d6169aff262c353f39015bd24a6264",
+    "bytes": 642,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/movq/config.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/model_index.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-stabilityai--stable-diffusion-xl-base-1.0-model_index.json",
+    "sha256": "6d7b93508390ab91ac5bfbe4aeb4dc2d83f7bb1b05fb069d714b5b0c75f70d44",
+    "bytes": 609,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/api/models/black-forest-labs/FLUX.1-schnell?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-black-forest-labs--FLUX.1-schnell-api.json",
+    "sha256": "bf8cdd32fd989f82c7cbd1f5eee55b9deb4301ed1e31a5978c2ba47b50426785",
+    "bytes": 8291,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/741f7c3ce8b383c54771c7003378a50191e9efe9/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-black-forest-labs--FLUX.1-schnell-README.md",
+    "sha256": "66f915ff73552215a78f83852312eda079af1f5a08a258b6b6733350101c58aa",
+    "bytes": 3681,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/741f7c3ce8b383c54771c7003378a50191e9efe9/vae/config.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/741f7c3ce8b383c54771c7003378a50191e9efe9/movq/config.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/741f7c3ce8b383c54771c7003378a50191e9efe9/model_index.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/api/models/black-forest-labs/FLUX.1-dev?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-black-forest-labs--FLUX.1-dev-api.json",
+    "sha256": "ad065fb3e15b7b45d5de7957e9e60571dd77af48812be3087bd6c6777623457f",
+    "bytes": 8794,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/3de623fc3c33e44ffbe2bad470d0f45bccf2eb21/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-black-forest-labs--FLUX.1-dev-README.md",
+    "sha256": "efaf627d78af42f5ff92ec6c05551237c6939dbc1a8ee83910b9b5c7340d34cf",
+    "bytes": 4394,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/3de623fc3c33e44ffbe2bad470d0f45bccf2eb21/vae/config.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/3de623fc3c33e44ffbe2bad470d0f45bccf2eb21/movq/config.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/3de623fc3c33e44ffbe2bad470d0f45bccf2eb21/model_index.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/api/models/stabilityai/stable-diffusion-3-medium-diffusers?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-stabilityai--stable-diffusion-3-medium-diffusers-api.json",
+    "sha256": "fb0a542c88ee1ea608cc186c3d848cd7ef43de5aea277246c0eb5692c80fa9f1",
+    "bytes": 11037,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-3-medium-diffusers/resolve/ea42f8cef0f178587cf766dc8129abd379c90671/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-stabilityai--stable-diffusion-3-medium-diffusers-README.md",
+    "sha256": "f493f3746d6794edaa046dbbe41f94e73c406d378e933373eae556f45fc94faf",
+    "bytes": 7446,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-3-medium-diffusers/resolve/ea42f8cef0f178587cf766dc8129abd379c90671/vae/config.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-3-medium-diffusers/resolve/ea42f8cef0f178587cf766dc8129abd379c90671/movq/config.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-3-medium-diffusers/resolve/ea42f8cef0f178587cf766dc8129abd379c90671/model_index.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/api/models/stabilityai/stable-diffusion-3.5-medium?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-stabilityai--stable-diffusion-3.5-medium-api.json",
+    "sha256": "4270aa57ce84ec129efdfdf423d08cfd0d33514a0fc06012df611d153fd29858",
+    "bytes": 13118,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-medium/resolve/b940f670f0eda2d07fbb75229e779da1ad11eb80/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-stabilityai--stable-diffusion-3.5-medium-README.md",
+    "sha256": "076c5b3ce1cb9bd33751656cac2b094b6ab93212a82624dab5405f4596737f7a",
+    "bytes": 12100,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-medium/resolve/b940f670f0eda2d07fbb75229e779da1ad11eb80/vae/config.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-medium/resolve/b940f670f0eda2d07fbb75229e779da1ad11eb80/movq/config.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-medium/resolve/b940f670f0eda2d07fbb75229e779da1ad11eb80/model_index.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/api/models/black-forest-labs/FLUX.2-dev?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-black-forest-labs--FLUX.2-dev-api.json",
+    "sha256": "1e9101c07f33c92888d6a384ae4466621b2478c430464b4ef94826f1967d501c",
+    "bytes": 12056,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.2-dev/resolve/26afe3a78bb242c0a8bb181dcc8937bb16e5c66c/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-black-forest-labs--FLUX.2-dev-README.md",
+    "sha256": "f161ac5822374c29c1df2ba13ea8567a7a5318d3b0ec6ac0b1b9f00c596f300b",
+    "bytes": 9439,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.2-dev/resolve/26afe3a78bb242c0a8bb181dcc8937bb16e5c66c/vae/config.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.2-dev/resolve/26afe3a78bb242c0a8bb181dcc8937bb16e5c66c/movq/config.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.2-dev/resolve/26afe3a78bb242c0a8bb181dcc8937bb16e5c66c/model_index.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/api/models/black-forest-labs/FLUX.2-klein-4B?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-black-forest-labs--FLUX.2-klein-4B-api.json",
+    "sha256": "938f962aa6d2690d753556037e4cdd4d7cec08820de308b3c94fd5e51c0e1352",
+    "bytes": 8192,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B/resolve/e7b7dc27f91deacad38e78976d1f2b499d76a294/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-black-forest-labs--FLUX.2-klein-4B-README.md",
+    "sha256": "bd447051cf2db4bf67b992e563d89c35ebf1123f009c063361a222ab14e1c4f7",
+    "bytes": 9991,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B/resolve/e7b7dc27f91deacad38e78976d1f2b499d76a294/vae/config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-black-forest-labs--FLUX.2-klein-4B-vae--config.json",
+    "sha256": "0d6dfb69ae95a5e2ac9836284bbb63d8b38ce67b25ba2dff380752b2a10ab948",
+    "bytes": 821,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B/resolve/e7b7dc27f91deacad38e78976d1f2b499d76a294/movq/config.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B/resolve/e7b7dc27f91deacad38e78976d1f2b499d76a294/model_index.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-black-forest-labs--FLUX.2-klein-4B-model_index.json",
+    "sha256": "51a76cb1cf3ed37423a1128c79c22faee8e6fbe7f5aaeb737f0a258930dbaac0",
+    "bytes": 446,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/api/models/black-forest-labs/FLUX.2-klein-9B?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-black-forest-labs--FLUX.2-klein-9B-api.json",
+    "sha256": "b4342170edbe9b3eefc3d76a876a5d867078f620abdd0b36bd281603d03b2cf9",
+    "bytes": 9262,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-9B/resolve/92196c8e11f7b6cf2b7493e037d8c5345c559216/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-black-forest-labs--FLUX.2-klein-9B-README.md",
+    "sha256": "1328d32010b8e372df5d4c572d1a7cf3535ec0063578dcb7d60bc2f5b7d0f3f0",
+    "bytes": 10404,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-9B/resolve/92196c8e11f7b6cf2b7493e037d8c5345c559216/vae/config.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-9B/resolve/92196c8e11f7b6cf2b7493e037d8c5345c559216/movq/config.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-9B/resolve/92196c8e11f7b6cf2b7493e037d8c5345c559216/model_index.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/api/models/kandinsky-community/kandinsky-2-2-decoder?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky-community--kandinsky-2-2-decoder-api.json",
+    "sha256": "2fdf28e61979b6ac146b13716ef2f44ffef81fa01105fa6bffff058dff1559c3",
+    "bytes": 5216,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/kandinsky-community/kandinsky-2-2-decoder/resolve/9ae140d347fed8ce6e8bb3005dcc1f48543bb8e3/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky-community--kandinsky-2-2-decoder-README.md",
+    "sha256": "23e958a88dabb1a9bb6dc525eabcee038311b7a9f21fe6f0eda96af511a61917",
+    "bytes": 7343,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/kandinsky-community/kandinsky-2-2-decoder/resolve/9ae140d347fed8ce6e8bb3005dcc1f48543bb8e3/vae/config.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://huggingface.co/kandinsky-community/kandinsky-2-2-decoder/resolve/9ae140d347fed8ce6e8bb3005dcc1f48543bb8e3/movq/config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky-community--kandinsky-2-2-decoder-movq--config.json",
+    "sha256": "b7448f3ea8aecf233629b20c1f606887e22244656edcee1be6a419079717a23e",
+    "bytes": 660,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/kandinsky-community/kandinsky-2-2-decoder/resolve/9ae140d347fed8ce6e8bb3005dcc1f48543bb8e3/model_index.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky-community--kandinsky-2-2-decoder-model_index.json",
+    "sha256": "5cde694d9f2a436adcdf0874c7f2b863d03bfcf54dbaf98926d2ef55bfe32918",
+    "bytes": 250,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/api/models/kandinsky-community/kandinsky-2-2-prior?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky-community--kandinsky-2-2-prior-api.json",
+    "sha256": "d114da551dfb0f0ed4934d429958fd7a6f1eab1c664ca0a3599d40a0d6e89e63",
+    "bytes": 3879,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/kandinsky-community/kandinsky-2-2-prior/resolve/9fc51ad5732afc5d031724219d22e6c42179c5a8/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky-community--kandinsky-2-2-prior-README.md",
+    "sha256": "bba4898931a219c1d2f2f832bb8050e205a94ec781e7ebee55eb96c89add286d",
+    "bytes": 14444,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/kandinsky-community/kandinsky-2-2-prior/resolve/9fc51ad5732afc5d031724219d22e6c42179c5a8/vae/config.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://huggingface.co/kandinsky-community/kandinsky-2-2-prior/resolve/9fc51ad5732afc5d031724219d22e6c42179c5a8/movq/config.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://huggingface.co/kandinsky-community/kandinsky-2-2-prior/resolve/9fc51ad5732afc5d031724219d22e6c42179c5a8/model_index.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky-community--kandinsky-2-2-prior-model_index.json",
+    "sha256": "26cba76e560b6da612d65b8e7beac9be04442df8df2e1743b8466454988d1f5e",
+    "bytes": 501,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/api/models/Efficient-Large-Model/Sana_600M_1024px_diffusers?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Efficient-Large-Model--Sana_600M_1024px_diffusers-api.json",
+    "sha256": "2b939300a75454a6353dc0ae6541f639aba9db79a64c0f8d2ea1d2518a460b8e",
+    "bytes": 4846,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/Efficient-Large-Model/Sana_600M_1024px_diffusers/resolve/28f3af7689de15f3883d5863059a2fca0aa9b829/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Efficient-Large-Model--Sana_600M_1024px_diffusers-README.md",
+    "sha256": "956e2d4cc2706eae2a1408349325b0a9786aac24dbaae4d0c9f6c3ada25e229c",
+    "bytes": 6618,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/Efficient-Large-Model/Sana_600M_1024px_diffusers/resolve/28f3af7689de15f3883d5863059a2fca0aa9b829/vae/config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Efficient-Large-Model--Sana_600M_1024px_diffusers-vae--config.json",
+    "sha256": "4e5669aa03caa77615b73b21c9347c384cb11124a9590683e32a510df0176eb4",
+    "bytes": 1280,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/Efficient-Large-Model/Sana_600M_1024px_diffusers/resolve/28f3af7689de15f3883d5863059a2fca0aa9b829/movq/config.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://huggingface.co/Efficient-Large-Model/Sana_600M_1024px_diffusers/resolve/28f3af7689de15f3883d5863059a2fca0aa9b829/model_index.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Efficient-Large-Model--Sana_600M_1024px_diffusers-model_index.json",
+    "sha256": "5692423f50e7908bec51264ad39e5a9b7566970600f6089a0a40759524f5569b",
+    "bytes": 401,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/api/models/PixArt-alpha/PixArt-XL-2-1024-MS?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-PixArt-alpha--PixArt-XL-2-1024-MS-api.json",
+    "sha256": "8102336364865258e60e768f7539cde4d7545d0a38ba90db26eed5672af78008",
+    "bytes": 8379,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/PixArt-alpha/PixArt-XL-2-1024-MS/resolve/b89adadeccd9ead2adcb9fa2825d3fabec48d404/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-PixArt-alpha--PixArt-XL-2-1024-MS-README.md",
+    "sha256": "bdd17f61f9a9dbfec90efb0344c092466bff4c251f8e022782ac07f09c4ca04e",
+    "bytes": 6846,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/PixArt-alpha/PixArt-XL-2-1024-MS/resolve/b89adadeccd9ead2adcb9fa2825d3fabec48d404/vae/config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-PixArt-alpha--PixArt-XL-2-1024-MS-vae--config.json",
+    "sha256": "9d90ec977f9742aa150fa8c771f74e333e87142bcd927e295c5d43d24fc4661d",
+    "bytes": 654,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/PixArt-alpha/PixArt-XL-2-1024-MS/resolve/b89adadeccd9ead2adcb9fa2825d3fabec48d404/movq/config.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://huggingface.co/PixArt-alpha/PixArt-XL-2-1024-MS/resolve/b89adadeccd9ead2adcb9fa2825d3fabec48d404/model_index.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-PixArt-alpha--PixArt-XL-2-1024-MS-model_index.json",
+    "sha256": "e56aa549036ba94ed16747379e8a2c84b77612b298090fbcdfc2ded43d0e20a6",
+    "bytes": 400,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/api/models/PixArt-alpha/PixArt-Sigma-XL-2-1024-MS?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-PixArt-alpha--PixArt-Sigma-XL-2-1024-MS-api.json",
+    "sha256": "cddec51b01a6043814ba437402ddc1a11b2f78c27570621bc1ba5517890f6a4f",
+    "bytes": 4125,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/PixArt-alpha/PixArt-Sigma-XL-2-1024-MS/resolve/e102b3591cc82e97071b8b4cb90d834d0c487207/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-PixArt-alpha--PixArt-Sigma-XL-2-1024-MS-README.md",
+    "sha256": "0f44a27ede142b5ef109c5112c4604c3cb60e869356684cbc1c66f0cb9f98a23",
+    "bytes": 5509,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/PixArt-alpha/PixArt-Sigma-XL-2-1024-MS/resolve/e102b3591cc82e97071b8b4cb90d834d0c487207/vae/config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-PixArt-alpha--PixArt-Sigma-XL-2-1024-MS-vae--config.json",
+    "sha256": "f18b16fa4381c90ab44a3d7abd2e90afd05a2c31b8ca69998bc93c6453aeb7b7",
+    "bytes": 631,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/PixArt-alpha/PixArt-Sigma-XL-2-1024-MS/resolve/e102b3591cc82e97071b8b4cb90d834d0c487207/movq/config.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://huggingface.co/PixArt-alpha/PixArt-Sigma-XL-2-1024-MS/resolve/e102b3591cc82e97071b8b4cb90d834d0c487207/model_index.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-PixArt-alpha--PixArt-Sigma-XL-2-1024-MS-model_index.json",
+    "sha256": "48717b6754c57ffc40baafd747dafaa3ddfbc4b4c6b7932ab7f472c88665cd06",
+    "bytes": 400,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/api/models/playgroundai/playground-v2.5-1024px-aesthetic?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-playgroundai--playground-v2.5-1024px-aesthetic-api.json",
+    "sha256": "b191d4ae0ed0234410d7737e97f5dd106551ac2d270357504e7e52322f8669b9",
+    "bytes": 10626,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/playgroundai/playground-v2.5-1024px-aesthetic/resolve/1e032f13f2fe6db2dc49947dbdbd196e753de573/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-playgroundai--playground-v2.5-1024px-aesthetic-README.md",
+    "sha256": "c6660ae40bb2bd3a3c932072f16de46efff8ac95e22048c5f90f41540a7a85c0",
+    "bytes": 6479,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/playgroundai/playground-v2.5-1024px-aesthetic/resolve/1e032f13f2fe6db2dc49947dbdbd196e753de573/vae/config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-playgroundai--playground-v2.5-1024px-aesthetic-vae--config.json",
+    "sha256": "900dba765a6f61896ed12fa863b951a7053e9d13c8d249aa9ff757721fcf86ee",
+    "bytes": 746,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/playgroundai/playground-v2.5-1024px-aesthetic/resolve/1e032f13f2fe6db2dc49947dbdbd196e753de573/movq/config.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://huggingface.co/playgroundai/playground-v2.5-1024px-aesthetic/resolve/1e032f13f2fe6db2dc49947dbdbd196e753de573/model_index.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-playgroundai--playground-v2.5-1024px-aesthetic-model_index.json",
+    "sha256": "e69bc6c32f552e1a967c4c4c706f6ce264dc31f3d34e8972a107ee89b585da8a",
+    "bytes": 684,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/api/models/Tencent-Hunyuan/HunyuanDiT-v1.2-Diffusers?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Tencent-Hunyuan--HunyuanDiT-v1.2-Diffusers-api.json",
+    "sha256": "27db7e4bdb8908924e00f790c81246c8b848451e868c828dddff60e63b0970dc",
+    "bytes": 4036,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/Tencent-Hunyuan/HunyuanDiT-v1.2-Diffusers/resolve/5e96094e0ad19e7f475de8711f03634ca0ccc40c/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Tencent-Hunyuan--HunyuanDiT-v1.2-Diffusers-README.md",
+    "sha256": "ec53e969b5e79e898499d77135032401df181c69d03dbabac2bb32e304966655",
+    "bytes": 3766,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/Tencent-Hunyuan/HunyuanDiT-v1.2-Diffusers/resolve/5e96094e0ad19e7f475de8711f03634ca0ccc40c/vae/config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Tencent-Hunyuan--HunyuanDiT-v1.2-Diffusers-vae--config.json",
+    "sha256": "d59730ff7b5f2f4f5abd2f9572727d60ac1f8d3288e77554b10b998c606f9b12",
+    "bytes": 735,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/Tencent-Hunyuan/HunyuanDiT-v1.2-Diffusers/resolve/5e96094e0ad19e7f475de8711f03634ca0ccc40c/movq/config.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://huggingface.co/Tencent-Hunyuan/HunyuanDiT-v1.2-Diffusers/resolve/5e96094e0ad19e7f475de8711f03634ca0ccc40c/model_index.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Tencent-Hunyuan--HunyuanDiT-v1.2-Diffusers-model_index.json",
+    "sha256": "2efa723f3c6d0d3417cdaae521007ab606d20c5f8436183eaf37f10169f9e0a5",
+    "bytes": 700,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/api/models/Qwen/Qwen-Image?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Qwen--Qwen-Image-api.json",
+    "sha256": "d2c677db9546812baab2d09e422768c36053d9e94597867815d05efc1c0a2167",
+    "bytes": 9150,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen-Image/resolve/75e0b4be04f60ec59a75f475837eced720f823b6/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Qwen--Qwen-Image-README.md",
+    "sha256": "c70f9851b364e5d6209305d6f07e065086126132ecc24805c652de45d3d92ca8",
+    "bytes": 6778,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen-Image/resolve/75e0b4be04f60ec59a75f475837eced720f823b6/vae/config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Qwen--Qwen-Image-vae--config.json",
+    "sha256": "e4e61b7553f930e9eabf8935f0a77e6d004cc3ee67a601a56ef03cc41ccada68",
+    "bytes": 730,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen-Image/resolve/75e0b4be04f60ec59a75f475837eced720f823b6/movq/config.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://huggingface.co/Qwen/Qwen-Image/resolve/75e0b4be04f60ec59a75f475837eced720f823b6/model_index.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Qwen--Qwen-Image-model_index.json",
+    "sha256": "9fb9557c1e5bafb3a582af8407b5a7ad8a8bcbdb20dde4d248bbb4718e1654bd",
+    "bytes": 443,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/api/models/Tongyi-MAI/Z-Image-Turbo?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Tongyi-MAI--Z-Image-Turbo-api.json",
+    "sha256": "4489484514a5facd650bb2a6b28ead62b1612f5429658a1b005c7901f4424532",
+    "bytes": 9448,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo/resolve/f332072aa78be7aecdf3ee76d5c247082da564a6/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Tongyi-MAI--Z-Image-Turbo-README.md",
+    "sha256": "87af5e1d7933dbfe091c4048a20805541130690ee813b8039b7f396b47e64338",
+    "bytes": 13684,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo/resolve/f332072aa78be7aecdf3ee76d5c247082da564a6/vae/config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Tongyi-MAI--Z-Image-Turbo-vae--config.json",
+    "sha256": "e80af1e64a71883a9d10c3159d2e493e5934508da57852f6a180ae6ae63b14bd",
+    "bytes": 805,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo/resolve/f332072aa78be7aecdf3ee76d5c247082da564a6/movq/config.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo/resolve/f332072aa78be7aecdf3ee76d5c247082da564a6/model_index.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Tongyi-MAI--Z-Image-Turbo-model_index.json",
+    "sha256": "18a90e1bc117a29a8b7961bb200c86ff0b9704609e87c7171511dc724fcdc9d3",
+    "bytes": 467,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/api/models/Alpha-VLLM/Lumina-Image-2.0?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Alpha-VLLM--Lumina-Image-2.0-api.json",
+    "sha256": "77dc33b44630cbdbbe27013b354b661c314d9b2c2b8c65b5f1c1d0bac2204e97",
+    "bytes": 6454,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/Alpha-VLLM/Lumina-Image-2.0/resolve/53504abd8178b30685b6c4c7a4cd181ff78b73e9/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Alpha-VLLM--Lumina-Image-2.0-README.md",
+    "sha256": "028997c0841a44c282f53786c955f8bedd6b829fba36351a3ab473f5a404d6e5",
+    "bytes": 2397,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/Alpha-VLLM/Lumina-Image-2.0/resolve/53504abd8178b30685b6c4c7a4cd181ff78b73e9/vae/config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Alpha-VLLM--Lumina-Image-2.0-vae--config.json",
+    "sha256": "80c5ed836c7171f6817a8addb910cdd32d30ca65549ba13b75e097c0c30fb326",
+    "bytes": 825,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/Alpha-VLLM/Lumina-Image-2.0/resolve/53504abd8178b30685b6c4c7a4cd181ff78b73e9/movq/config.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://huggingface.co/Alpha-VLLM/Lumina-Image-2.0/resolve/53504abd8178b30685b6c4c7a4cd181ff78b73e9/model_index.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Alpha-VLLM--Lumina-Image-2.0-model_index.json",
+    "sha256": "1590e95ac1235820a3151bd6dfbed840a025ddedddcf67af5a8a304a2d2be426",
+    "bytes": 411,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/api/models/fal/AuraFlow-v0.3?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-fal--AuraFlow-v0.3-api.json",
+    "sha256": "52a371c422b083ab012d8d09e210e834b4196df01797636e5a2260e22a2deeec",
+    "bytes": 5597,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/fal/AuraFlow-v0.3/resolve/2cd8588f04c886002be4571697d84654a50e3af3/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-fal--AuraFlow-v0.3-README.md",
+    "sha256": "4b06a70c7afb2f2a3ab7fbc043373c37c291c5a348a63000e47fde18d5609e11",
+    "bytes": 2054,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/fal/AuraFlow-v0.3/resolve/2cd8588f04c886002be4571697d84654a50e3af3/vae/config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-fal--AuraFlow-v0.3-vae--config.json",
+    "sha256": "bf2daa82c70fb8437853a3e9cd901c775a3f7a9af9b49227663ad86e93be3bc7",
+    "bytes": 859,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/fal/AuraFlow-v0.3/resolve/2cd8588f04c886002be4571697d84654a50e3af3/movq/config.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://huggingface.co/fal/AuraFlow-v0.3/resolve/2cd8588f04c886002be4571697d84654a50e3af3/model_index.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-fal--AuraFlow-v0.3-model_index.json",
+    "sha256": "7ffee10ae3277f136a341bac357405d615961f7c949f7c2e231075f8c7d18541",
+    "bytes": 458,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/api/models/DeepFloyd/IF-I-XL-v1.0?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-DeepFloyd--IF-I-XL-v1.0-api.json",
+    "sha256": "ca81b413993d45a9f1d1405c7cb7bf426e4fa735e32b3e75e622d6e5a4c1c496",
+    "bytes": 21597,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/DeepFloyd/IF-I-XL-v1.0/resolve/c03d510e9b75bce9f9db5bb85148c1402ad7e694/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-DeepFloyd--IF-I-XL-v1.0-README.md",
+    "sha256": "3894749f2a584954759728d1e8c25900e3a5d048537dadca08239a0e91a978a1",
+    "bytes": 23548,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/DeepFloyd/IF-I-XL-v1.0/resolve/c03d510e9b75bce9f9db5bb85148c1402ad7e694/vae/config.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/DeepFloyd/IF-I-XL-v1.0/resolve/c03d510e9b75bce9f9db5bb85148c1402ad7e694/movq/config.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/DeepFloyd/IF-I-XL-v1.0/resolve/c03d510e9b75bce9f9db5bb85148c1402ad7e694/model_index.json",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "url": "https://huggingface.co/api/models/google/ddpm-celebahq-256?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-google--ddpm-celebahq-256-api.json",
+    "sha256": "3a29527a29b3ae2bca9eb22fff595f30e015959ec0c578b443c4b895f574a04e",
+    "bytes": 4429,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/google/ddpm-celebahq-256/resolve/cd5c944777ea2668051904ead6cc120739b86c4d/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-google--ddpm-celebahq-256-README.md",
+    "sha256": "8c5543f321d69e4974766eefc80dd1e4b280d5c8c90b2d7b7db2becee5e26c00",
+    "bytes": 2991,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/google/ddpm-celebahq-256/resolve/cd5c944777ea2668051904ead6cc120739b86c4d/vae/config.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://huggingface.co/google/ddpm-celebahq-256/resolve/cd5c944777ea2668051904ead6cc120739b86c4d/movq/config.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://huggingface.co/google/ddpm-celebahq-256/resolve/cd5c944777ea2668051904ead6cc120739b86c4d/model_index.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-google--ddpm-celebahq-256-model_index.json",
+    "sha256": "c6a0e54d1d235280bce7e40abae49b73c4de0011ddbf09d817ce39e848cc2fa7",
+    "bytes": 180,
+    "status": 200
+  },
+  {
+    "name": "sdxl-paper",
+    "url": "https://arxiv.org/html/2307.01952v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-sdxl-paper.txt",
+    "sha256": "f50bf5a2c55213b90feb5c37d3059ea60d7509ed181ce78ef496df3753082efd",
+    "bytes": 366453,
+    "status": 200
+  },
+  {
+    "name": "sd3-paper",
+    "url": "https://arxiv.org/html/2403.03206v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-sd3-paper.txt",
+    "sha256": "f82ef37115732eb873f96dbc7bb0baad3fd95b1e711aac2868b2ed43801a6c91",
+    "bytes": 640778,
+    "status": 200
+  },
+  {
+    "name": "dcae-paper",
+    "url": "https://arxiv.org/html/2410.10733v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-dcae-paper.txt",
+    "sha256": "379cb7cff3040afea41fb34d8fb7d0785b1d5d3e84d867e0ef6c684f783ee993",
+    "bytes": 246461,
+    "status": 200
+  },
+  {
+    "name": "sana-paper",
+    "url": "https://arxiv.org/html/2410.10629v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-sana-paper.txt",
+    "sha256": "8ea6edac419bd04be43aff4fc2b41c4815fed271a217fcd2fd808fd71ba11959",
+    "bytes": 302387,
+    "status": 200
+  },
+  {
+    "name": "qwen-paper",
+    "url": "https://arxiv.org/html/2508.02324v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-qwen-paper.txt",
+    "sha256": "7e32948c2c21b304ada3b58aab2cd58079eb35c0885dc747d21d681580710c97",
+    "bytes": 493043,
+    "status": 200
+  },
+  {
+    "name": "hunyuan-paper",
+    "url": "https://arxiv.org/html/2405.08748v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-hunyuan-paper.txt",
+    "sha256": "69373dd3134bbf703b6acca804648b24cdb7d156296eb5ab7392f14b29f1607a",
+    "bytes": 167001,
+    "status": 200
+  },
+  {
+    "name": "pixartsigma-paper",
+    "url": "https://arxiv.org/html/2403.04692v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-pixartsigma-paper.txt",
+    "sha256": "fae501058e9f5b60b203577b4aaaacbaac06a8af2004a1e76eecd76ae655d775",
+    "bytes": 175211,
+    "status": 200
+  },
+  {
+    "name": "sana-doc",
+    "url": "https://huggingface.co/docs/diffusers/api/pipelines/sana",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-sana-doc.txt",
+    "sha256": "5cb681231c53371406c9058ccafbf134a11110fae567aa8d2ab35d6cecee1b39",
+    "bytes": 357183,
+    "status": 200
+  },
+  {
+    "name": "sanasprint-doc",
+    "url": "https://huggingface.co/docs/diffusers/api/pipelines/sana_sprint",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-sanasprint-doc.txt",
+    "sha256": "4910a53b48e9d33f52f5e5ee967aebdedfb377df615b0dcea8deb320b14c6640",
+    "bytes": 347061,
+    "status": 200
+  },
+  {
+    "name": "kandinsky-doc",
+    "url": "https://huggingface.co/docs/diffusers/api/pipelines/kandinsky",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky-doc.txt",
+    "sha256": "3e166aef8ba87eef17302e29024647b12269f8622c06adf894fa384cacd78816",
+    "bytes": 675121,
+    "status": 200
+  },
+  {
+    "name": "flux-doc",
+    "url": "https://huggingface.co/docs/diffusers/api/pipelines/flux",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-flux-doc.txt",
+    "sha256": "c24fe3e7f404dca39280ce68100db65bb2f2f6368a9e0c92e45a81be62cae86c",
+    "bytes": 1214936,
+    "status": 200
+  },
+  {
+    "name": "flux2-doc",
+    "url": "https://huggingface.co/docs/diffusers/api/pipelines/flux2",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-flux2-doc.txt",
+    "sha256": "fc3dbc4dfe0bacd7a2b347727fc9f2769eea003500f14100980ef2906796712b",
+    "bytes": 342419,
+    "status": 200
+  },
+  {
+    "name": "qwen-doc",
+    "url": "https://huggingface.co/docs/diffusers/api/pipelines/qwenimage",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-qwen-doc.txt",
+    "sha256": "2c3e2f01347d7fde00a0d5a82bb69bfffa95bb78670b6395cb9329ad712a1a81",
+    "bytes": 820124,
+    "status": 200
+  },
+  {
+    "name": "zimage-doc",
+    "url": "https://huggingface.co/docs/diffusers/api/pipelines/z_image",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-zimage-doc.txt",
+    "sha256": "83f81f5c92db23ecb8816dadfc15c4b3839b0f8c92d3b854b9458e126f1ae2a0",
+    "bytes": 390175,
+    "status": 200
+  },
+  {
+    "name": "pixart-doc",
+    "url": "https://huggingface.co/docs/diffusers/api/pipelines/pixart",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-pixart-doc.txt",
+    "sha256": "e0706f5b005a9e3f48852f6495b249c9e015d85074e27fd9a469c9b1504cdb1c",
+    "bytes": 280207,
+    "status": 200
+  },
+  {
+    "name": "hunyuan-doc",
+    "url": "https://huggingface.co/docs/diffusers/api/pipelines/hunyuandit",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-hunyuan-doc.txt",
+    "sha256": "3a2524330d66cd71482832a19eac7431e57e0ec97e3305aae9fb4897e185c777",
+    "bytes": 293219,
+    "status": 200
+  },
+  {
+    "name": "sd3-doc",
+    "url": "https://huggingface.co/docs/diffusers/api/pipelines/stable_diffusion/stable_diffusion_3",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-sd3-doc.txt",
+    "sha256": "e62defe26d6f8bed55a701ac065849bd8ada051ca7ae323a9c1a628775252e77",
+    "bytes": 403262,
+    "status": 200
+  },
+  {
+    "name": "diffusers-tree",
+    "url": "https://api.github.com/repos/huggingface/diffusers/git/trees/main?recursive=1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-diffusers-tree.txt",
+    "sha256": "0db303480931f3afb8ccb43b420256418746c569cd3b73acf274f8d833db8bc1",
+    "bytes": 880558,
+    "status": 200
+  },
+  {
+    "name": "flux-official-readme",
+    "url": "https://raw.githubusercontent.com/black-forest-labs/flux/main/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-flux-official-readme.txt",
+    "sha256": "d87b208a6a7b4669f08fa1882025c6fe825ee29605b0250d0b9f56b36ce27078",
+    "bytes": 6722,
+    "status": 200
+  },
+  {
+    "name": "flux2-official-readme",
+    "url": "https://raw.githubusercontent.com/black-forest-labs/flux2/main/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-flux2-official-readme.txt",
+    "sha256": "435753749320bbb395c15983e63e3dc73936c03f0f1870c628e7bf922c55eef7",
+    "bytes": 8466,
+    "status": 200
+  },
+  {
+    "name": "kandinsky-official-readme",
+    "url": "https://raw.githubusercontent.com/ai-forever/Kandinsky-2/main/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky-official-readme.txt",
+    "sha256": "2037bf33a66d39e2fd0e14c31afed6e9786b0276c39a9d3d105a95bbb7baf01c",
+    "bytes": 9010,
+    "status": 200
+  },
+  {
+    "name": "sana-official-readme",
+    "url": "https://raw.githubusercontent.com/NVlabs/Sana/main/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-sana-official-readme.txt",
+    "sha256": "2a6d1b1e31b3b5c16327caba70e871397bea199e63e8c1be9a0d72491243242f",
+    "bytes": 36169,
+    "status": 200
+  },
+  {
+    "name": "playground-paper",
+    "url": "https://arxiv.org/html/2402.17245v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-playground-paper.txt",
+    "sha256": "d18793404f00870bc71976147fede04facbf7b0dea79fd29406b2bc445f9a6ad",
+    "bytes": 107684,
+    "status": 200
+  },
+  {
+    "name": "kandinsky-paper",
+    "url": "https://arxiv.org/html/2310.03502v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky-paper.txt",
+    "sha256": "c5a5071a5212155cc6af1d82fe3dad4d002a942e36f964eb7b0be3830ceba72d",
+    "bytes": 122877,
+    "status": 200
+  },
+  {
+    "name": "ldm-paper",
+    "url": "https://arxiv.org/html/2112.10752v2",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-ldm-paper.txt",
+    "sha256": "bc27be0c28b03fbd9e444e31224035d38d3f6622c59e45e49ef37ed927dcd5ea",
+    "bytes": 816760,
+    "status": 200
+  },
+  {
+    "name": "flux2-license",
+    "url": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B/raw/main/LICENSE.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-flux2-license.txt",
+    "sha256": "ca02bc51900ab07789d1b70283329e7137f5af98f5161c23a1c81fc38a4af1fe",
+    "bytes": 9584,
+    "status": 200
+  },
+  {
+    "name": "kandinsky-license",
+    "url": "https://huggingface.co/kandinsky-community/kandinsky-2-2-decoder/raw/main/LICENSE",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "name": "sana-license",
+    "url": "https://huggingface.co/Efficient-Large-Model/Sana_600M_1024px_diffusers/raw/main/LICENSE.md",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "name": "sprint-paper",
+    "url": "https://arxiv.org/html/2503.09641v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-sprint-paper.txt",
+    "sha256": "4201d344a00121f4b154bb2717b72ceadbc634d6e81f46e93f610282580877c0",
+    "bytes": 538788,
+    "status": 200
+  },
+  {
+    "name": "wan-paper",
+    "url": "https://arxiv.org/html/2503.20314v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-wan-paper.txt",
+    "sha256": "13dcf2d644ea8bd345f9c1d1b61e40c29311394f1d1c6ce9f828c2b5653c0201",
+    "bytes": 435890,
+    "status": 200
+  },
+  {
+    "name": "flux3-doc",
+    "url": "https://huggingface.co/docs/diffusers/main/en/api/pipelines/flux3",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-flux3-doc.txt",
+    "sha256": "d0641b20b86896dd616baae6d4f8cce2acdef5258dec88499e7fc67c91c596f9",
+    "bytes": 281654,
+    "status": 200
+  },
+  {
+    "name": "kandinsky5-paper",
+    "url": "https://arxiv.org/html/2511.14993v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky5-paper.txt",
+    "sha256": "8a6039fc9f055662c3c76c9781c012f1d4dbf88242685eb99ecd41b6f31d066f",
+    "bytes": 735843,
+    "status": 200
+  },
+  {
+    "name": "zimage-paper",
+    "url": "https://arxiv.org/html/2511.22699v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-zimage-paper.txt",
+    "sha256": "3f9f86f6f2c25a6d1a66ab78873d7f1ddde3c52661a11f15cf3b617c9481371a",
+    "bytes": 782252,
+    "status": 200
+  },
+  {
+    "name": "sprint-pipeline-v036",
+    "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.36.0/src/diffusers/pipelines/sana/pipeline_sana_sprint_img2img.py",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-sprint-pipeline-v036.txt",
+    "sha256": "0bb391f36d098ff53a912bcde721855a86397bddfb20789978a585990a0f52bb",
+    "bytes": 46830,
+    "status": 200
+  },
+  {
+    "name": "kandinsky-pipeline-v036",
+    "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.36.0/src/diffusers/pipelines/kandinsky2_2/pipeline_kandinsky2_2_img2img.py",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky-pipeline-v036.txt",
+    "sha256": "f5b968f05494823e12c1530b24ae18b4d3696e986535e26c3458d970af39afaa",
+    "bytes": 17167,
+    "status": 200
+  },
+  {
+    "name": "flux-pipeline-v036",
+    "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.36.0/src/diffusers/pipelines/flux/pipeline_flux_img2img.py",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-flux-pipeline-v036.txt",
+    "sha256": "57dfd7fb482e7028659626deb89c35b60f8b292fc4720db363739f051083f033",
+    "bytes": 53520,
+    "status": 200
+  },
+  {
+    "name": "kandinsky-movq-readme",
+    "url": "https://raw.githubusercontent.com/ai-forever/MoVQGAN/main/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky-movq-readme.txt",
+    "sha256": "85b4382f70323f1aaaa77c61059a41992fa230d1bf0fe5e03f7bc20045c8f3ee",
+    "bytes": 3923,
+    "status": 200
+  },
+  {
+    "name": "kandinsky-movq-license",
+    "url": "https://raw.githubusercontent.com/ai-forever/MoVQGAN/main/LICENSE",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "name": "sana-license-repo",
+    "url": "https://raw.githubusercontent.com/NVlabs/Sana/main/LICENSE",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-sana-license-repo.txt",
+    "sha256": "86ab03e3ea19f1891d7ea5a110de47f809e1e690aef2a64fad13aef6d5aded4f",
+    "bytes": 11336,
+    "status": 200
+  },
+  {
+    "name": "google-ddpm-license",
+    "url": "https://huggingface.co/google/ddpm-celebahq-256/raw/main/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-google-ddpm-license.txt",
+    "sha256": "8c5543f321d69e4974766eefc80dd1e4b280d5c8c90b2d7b7db2becee5e26c00",
+    "bytes": 2991,
+    "status": 200
+  },
+  {
+    "name": "playground-license",
+    "url": "https://huggingface.co/playgroundai/playground-v2.5-1024px-aesthetic/raw/main/LICENSE.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-playground-license.txt",
+    "sha256": "482775f827dd925031e7bc828ca78a7f10a2d7d21999792240e55442d1fbdfa7",
+    "bytes": 9464,
+    "status": 200
+  },
+  {
+    "name": "hunyuan-license",
+    "url": "https://huggingface.co/Tencent-Hunyuan/HunyuanDiT-v1.2-Diffusers/raw/main/LICENSE.txt",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "name": "sdxl-license",
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/main/LICENSE.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-sdxl-license.txt",
+    "sha256": "19b6998b569b53ac1fc2158a8a3202c8699a9a4605b47075715d9c96be7fb6d0",
+    "bytes": 14109,
+    "status": 200
+  },
+  {
+    "name": "Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers-api",
+    "url": "https://huggingface.co/api/models/Efficient-Large-Model/Sana_Sprint_1.6B_1024px_diffusers?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers-api.txt",
+    "sha256": "901bcfdbd332e9d683a0088c01d0441cbeef23469c3297a740b1b306c62bdf6e",
+    "bytes": 4253,
+    "status": 200
+  },
+  {
+    "name": "Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers-README.md",
+    "url": "https://huggingface.co/Efficient-Large-Model/Sana_Sprint_1.6B_1024px_diffusers/resolve/19683c58b7ea290e55cedd8950ae1d86ada7ef96/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers-README.md.txt",
+    "sha256": "d4c7975b684d492b80d6103cfb35117e91d8dfab14cff1c2bcc415e391fc28b7",
+    "bytes": 6543,
+    "status": 200
+  },
+  {
+    "name": "Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers-vae--config.json",
+    "url": "https://huggingface.co/Efficient-Large-Model/Sana_Sprint_1.6B_1024px_diffusers/resolve/19683c58b7ea290e55cedd8950ae1d86ada7ef96/vae/config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers-vae--config.json.txt",
+    "sha256": "ba6f3d3e44d75d44fdd3760097c069173b5b925e6d14604d5d3582628d09cca6",
+    "bytes": 1280,
+    "status": 200
+  },
+  {
+    "name": "Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers-scheduler--scheduler_config.json",
+    "url": "https://huggingface.co/Efficient-Large-Model/Sana_Sprint_1.6B_1024px_diffusers/resolve/19683c58b7ea290e55cedd8950ae1d86ada7ef96/scheduler/scheduler_config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers-scheduler--scheduler_config.json.txt",
+    "sha256": "9a2c56f902710bfde73c81045c7fb99902ab3ead525fa201b58a35817995173b",
+    "bytes": 160,
+    "status": 200
+  },
+  {
+    "name": "Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers-model_index.json",
+    "url": "https://huggingface.co/Efficient-Large-Model/Sana_Sprint_1.6B_1024px_diffusers/resolve/19683c58b7ea290e55cedd8950ae1d86ada7ef96/model_index.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers-model_index.json.txt",
+    "sha256": "e3294833370d55fe1d568ab6f9b24df46c4270403d24daffd594eb01927e3fca",
+    "bytes": 392,
+    "status": 200
+  },
+  {
+    "name": "kandinsky-community--kandinsky-3-api",
+    "url": "https://huggingface.co/api/models/kandinsky-community/kandinsky-3?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky-community--kandinsky-3-api.txt",
+    "sha256": "b2c4b9353292e03e4db4730ac918b4dd0fb3086081abc7ea2641cf643f0ea13b",
+    "bytes": 5274,
+    "status": 200
+  },
+  {
+    "name": "kandinsky-community--kandinsky-3-README.md",
+    "url": "https://huggingface.co/kandinsky-community/kandinsky-3/resolve/bf79e6c219da8a94abb50235fdc4567eb8fb4632/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky-community--kandinsky-3-README.md.txt",
+    "sha256": "b2dc591f2c95099c97f8fd67d41521a8180be696a44297846b49babf23472be7",
+    "bytes": 5608,
+    "status": 200
+  },
+  {
+    "name": "kandinsky-community--kandinsky-3-vae--config.json",
+    "url": "https://huggingface.co/kandinsky-community/kandinsky-3/resolve/bf79e6c219da8a94abb50235fdc4567eb8fb4632/vae/config.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "name": "kandinsky-community--kandinsky-3-scheduler--scheduler_config.json",
+    "url": "https://huggingface.co/kandinsky-community/kandinsky-3/resolve/bf79e6c219da8a94abb50235fdc4567eb8fb4632/scheduler/scheduler_config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky-community--kandinsky-3-scheduler--scheduler_config.json.txt",
+    "sha256": "9e05a641fe4024b17b85cba59f894fc2b5324c148ea31b10c5cb12f3c0cb5471",
+    "bytes": 509,
+    "status": 200
+  },
+  {
+    "name": "kandinsky-community--kandinsky-3-model_index.json",
+    "url": "https://huggingface.co/kandinsky-community/kandinsky-3/resolve/bf79e6c219da8a94abb50235fdc4567eb8fb4632/model_index.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky-community--kandinsky-3-model_index.json.txt",
+    "sha256": "6b437e9e2d1d66fbf9dc99f6871da3705d1ba67591a9298b3b5b4e4ddc050b49",
+    "bytes": 417,
+    "status": 200
+  },
+  {
+    "name": "black-forest-labs--FLUX.2-klein-4b-base-api",
+    "url": "https://huggingface.co/api/models/black-forest-labs/FLUX.2-klein-4b-base?blobs=true",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "name": "Qwen--Qwen-Image-2512-api",
+    "url": "https://huggingface.co/api/models/Qwen/Qwen-Image-2512?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Qwen--Qwen-Image-2512-api.txt",
+    "sha256": "aaf97aa2a37d7d819db99a81856286b193d29a2ebcccbe9059210c50f6a95a01",
+    "bytes": 9212,
+    "status": 200
+  },
+  {
+    "name": "Qwen--Qwen-Image-2512-README.md",
+    "url": "https://huggingface.co/Qwen/Qwen-Image-2512/resolve/25468b98e3276ca6700de15c6628e51b7de54a26/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Qwen--Qwen-Image-2512-README.md.txt",
+    "sha256": "db371596007403d9588e0d78d9798ecafa59bf7772fbdc12952e581b1562920b",
+    "bytes": 19306,
+    "status": 200
+  },
+  {
+    "name": "Qwen--Qwen-Image-2512-vae--config.json",
+    "url": "https://huggingface.co/Qwen/Qwen-Image-2512/resolve/25468b98e3276ca6700de15c6628e51b7de54a26/vae/config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Qwen--Qwen-Image-2512-vae--config.json.txt",
+    "sha256": "c448160dba5ce79c965cb075ee02e18d1c42eb6424f787e5869790d577b56a65",
+    "bytes": 730,
+    "status": 200
+  },
+  {
+    "name": "Qwen--Qwen-Image-2512-scheduler--scheduler_config.json",
+    "url": "https://huggingface.co/Qwen/Qwen-Image-2512/resolve/25468b98e3276ca6700de15c6628e51b7de54a26/scheduler/scheduler_config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Qwen--Qwen-Image-2512-scheduler--scheduler_config.json.txt",
+    "sha256": "7ee767e37bae4af31d4eb935e125bb20a2237eeecafd22af6610093865c6f587",
+    "bytes": 485,
+    "status": 200
+  },
+  {
+    "name": "Qwen--Qwen-Image-2512-model_index.json",
+    "url": "https://huggingface.co/Qwen/Qwen-Image-2512/resolve/25468b98e3276ca6700de15c6628e51b7de54a26/model_index.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Qwen--Qwen-Image-2512-model_index.json.txt",
+    "sha256": "caf5f49ee3d897fff6a8e8d6353b084c8d1da3e40ba2f32e9bc554eb0ee4b4e9",
+    "bytes": 443,
+    "status": 200
+  },
+  {
+    "name": "tencent--HunyuanImage-3.0-api",
+    "url": "https://huggingface.co/api/models/tencent/HunyuanImage-3.0?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-tencent--HunyuanImage-3.0-api.txt",
+    "sha256": "87e1c74738f023fe9aaf8f9794d164dedfd506aca2c985eba17e903d194ba844",
+    "bytes": 20049,
+    "status": 200
+  },
+  {
+    "name": "tencent--HunyuanImage-3.0-README.md",
+    "url": "https://huggingface.co/tencent/HunyuanImage-3.0/resolve/36f21fe74b65614451cc50ffd8a35a5f662dac70/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-tencent--HunyuanImage-3.0-README.md.txt",
+    "sha256": "28e098542099baac5a958457dad024c63c4c0f66daa7f2cec80c4dd33e7e6b06",
+    "bytes": 26019,
+    "status": 200
+  },
+  {
+    "name": "tencent--HunyuanImage-3.0-vae--config.json",
+    "url": "https://huggingface.co/tencent/HunyuanImage-3.0/resolve/36f21fe74b65614451cc50ffd8a35a5f662dac70/vae/config.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "name": "tencent--HunyuanImage-3.0-scheduler--scheduler_config.json",
+    "url": "https://huggingface.co/tencent/HunyuanImage-3.0/resolve/36f21fe74b65614451cc50ffd8a35a5f662dac70/scheduler/scheduler_config.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "name": "tencent--HunyuanImage-3.0-model_index.json",
+    "url": "https://huggingface.co/tencent/HunyuanImage-3.0/resolve/36f21fe74b65614451cc50ffd8a35a5f662dac70/model_index.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "name": "lodestones--Chroma1-HD-api",
+    "url": "https://huggingface.co/api/models/lodestones/Chroma1-HD?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-lodestones--Chroma1-HD-api.txt",
+    "sha256": "ce4dab89114fe6a9980c137cf66387d2ea096e1d9de30e6297886e1fdfa4a216",
+    "bytes": 5285,
+    "status": 200
+  },
+  {
+    "name": "lodestones--Chroma1-HD-README.md",
+    "url": "https://huggingface.co/lodestones/Chroma1-HD/resolve/0e0c60ece1e82b17cb7f77342d765ba5024c40c0/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-lodestones--Chroma1-HD-README.md.txt",
+    "sha256": "7fb4b45c76fd5e2028d540dd76b59491eb547edd6271f88769a513c4ac1336be",
+    "bytes": 8107,
+    "status": 200
+  },
+  {
+    "name": "lodestones--Chroma1-HD-vae--config.json",
+    "url": "https://huggingface.co/lodestones/Chroma1-HD/resolve/0e0c60ece1e82b17cb7f77342d765ba5024c40c0/vae/config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-lodestones--Chroma1-HD-vae--config.json.txt",
+    "sha256": "e423b4a9e49572574de14faf263494416bc757e1bdd62645cfade7284a912565",
+    "bytes": 819,
+    "status": 200
+  },
+  {
+    "name": "lodestones--Chroma1-HD-scheduler--scheduler_config.json",
+    "url": "https://huggingface.co/lodestones/Chroma1-HD/resolve/0e0c60ece1e82b17cb7f77342d765ba5024c40c0/scheduler/scheduler_config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-lodestones--Chroma1-HD-scheduler--scheduler_config.json.txt",
+    "sha256": "5420bd572b9a520774c50d79a8bb511f73bf58e691c2a38e4763435625cea197",
+    "bytes": 482,
+    "status": 200
+  },
+  {
+    "name": "lodestones--Chroma1-HD-model_index.json",
+    "url": "https://huggingface.co/lodestones/Chroma1-HD/resolve/0e0c60ece1e82b17cb7f77342d765ba5024c40c0/model_index.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-lodestones--Chroma1-HD-model_index.json.txt",
+    "sha256": "cf83237e214327ef542d8b139cade5537fb44b8eb3aa33911ad6a5f8b4356202",
+    "bytes": 494,
+    "status": 200
+  },
+  {
+    "name": "lodestones--Chroma1-Radiance-api",
+    "url": "https://huggingface.co/api/models/lodestones/Chroma1-Radiance?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-lodestones--Chroma1-Radiance-api.txt",
+    "sha256": "8c337b7c7403e90283179e9603f7adee47e520aed583d6681bfd5fc853605039",
+    "bytes": 3732,
+    "status": 200
+  },
+  {
+    "name": "lodestones--Chroma1-Radiance-README.md",
+    "url": "https://huggingface.co/lodestones/Chroma1-Radiance/resolve/a696c3104a7215de599c72bff72d32a96fb53914/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-lodestones--Chroma1-Radiance-README.md.txt",
+    "sha256": "d278779c5fe7b0e1860dd3b78d64c3a2abcbd454c8beae0877963c7bb6469da0",
+    "bytes": 486,
+    "status": 200
+  },
+  {
+    "name": "lodestones--Chroma1-Radiance-config_radiance.json",
+    "url": "https://huggingface.co/lodestones/Chroma1-Radiance/resolve/a696c3104a7215de599c72bff72d32a96fb53914/config_radiance.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-lodestones--Chroma1-Radiance-config_radiance.json.txt",
+    "sha256": "a69d9a4e01ad49f2bb39c2e5dfb313cda2da14ad5438d557ddb80e12d6b79573",
+    "bytes": 628,
+    "status": 200
+  },
+  {
+    "name": "black-forest-labs--FLUX.3-Image-Klein-api",
+    "url": "https://huggingface.co/api/models/black-forest-labs/FLUX.3-Image-Klein?blobs=true",
+    "status": "HTTP Error 401: Unauthorized"
+  },
+  {
+    "name": "Qwen--Qwen-Image-2.1-api",
+    "url": "https://huggingface.co/api/models/Qwen/Qwen-Image-2.1?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Qwen--Qwen-Image-2.1-api.txt",
+    "sha256": "7e57a4bc1b61eb2974a8fea1d2af2aac1b798bbbf83ae41b096969bf7a16257d",
+    "bytes": 8735,
+    "status": 200
+  },
+  {
+    "name": "Qwen--Qwen-Image-2.1-README.md",
+    "url": "https://huggingface.co/Qwen/Qwen-Image-2.1/resolve/d26bb61231c349cf6b7896fa83353113880e1ba3/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Qwen--Qwen-Image-2.1-README.md.txt",
+    "sha256": "d4aee8d372df2a890b6283e7d1885e3f68b57190c7d3f4b9466a61beffc16016",
+    "bytes": 5707,
+    "status": 200
+  },
+  {
+    "name": "Qwen--Qwen-Image-2.1-config_radiance.json",
+    "url": "https://huggingface.co/Qwen/Qwen-Image-2.1/resolve/d26bb61231c349cf6b7896fa83353113880e1ba3/config_radiance.json",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "name": "flux2-technical",
+    "url": "https://bfl.ai/research/representation-comparison",
+    "status": "<urlopen error [Errno 11001] getaddrinfo failed>"
+  },
+  {
+    "name": "flux3-blog",
+    "url": "https://bfl.ai/blog/flux-3-image-klein",
+    "status": "<urlopen error [Errno 11001] getaddrinfo failed>"
+  },
+  {
+    "name": "kandinsky3-paper",
+    "url": "https://arxiv.org/html/2312.03511v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky3-paper.txt",
+    "sha256": "d40b6bf75f86e7119d97e894e4d9e5c618937bb9a1e62fa4490b38c60e6fff08",
+    "bytes": 138884,
+    "status": 200
+  },
+  {
+    "name": "lens-paper",
+    "url": "https://arxiv.org/html/2605.21573v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-lens-paper.txt",
+    "sha256": "a489c0e453326f60ce67312c753649d1bca1544bb964550edf71876ca55ce414",
+    "bytes": 540399,
+    "status": 200
+  },
+  {
+    "name": "radiance-reference",
+    "url": "https://huggingface.co/lodestones/Chroma1-Radiance/raw/main/inference_reference_code.py",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-radiance-reference.txt",
+    "sha256": "6612ab32eba6f20eb978b81fa93852ba4cd41cb90c5560b590267f1d24b98dd2",
+    "bytes": 30803,
+    "status": 200
+  },
+  {
+    "name": "gemma-terms",
+    "url": "https://ai.google.dev/gemma/terms",
+    "status": "HTTP Error 403: Forbidden"
+  },
+  {
+    "name": "kandinsky-license-apache",
+    "url": "https://raw.githubusercontent.com/ai-forever/Kandinsky-2/main/LICENSE",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "name": "movq-license-apache",
+    "url": "https://raw.githubusercontent.com/ai-forever/MoVQGAN/main/LICENSE.txt",
+    "status": "HTTP Error 404: Not Found"
+  },
+  {
+    "name": "sprint-license",
+    "url": "https://huggingface.co/Efficient-Large-Model/Sana_Sprint_1.6B_1024px_diffusers/raw/main/LICENSE",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-sprint-license.txt",
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "bytes": 11358,
+    "status": 200
+  },
+  {
+    "name": "sprint-text-config",
+    "url": "https://huggingface.co/Efficient-Large-Model/Sana_Sprint_1.6B_1024px_diffusers/raw/main/text_encoder/config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-sprint-text-config.txt",
+    "sha256": "733f241a6692770dfba10383e2c5a56a4f88b320732d9ee8fa16118737eca84d",
+    "bytes": 890,
+    "status": 200
+  },
+  {
+    "name": "kandinsky3-movq-config",
+    "url": "https://huggingface.co/kandinsky-community/kandinsky-3/raw/main/movq/config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky3-movq-config.txt",
+    "sha256": "f6943ecf69ea1fd24aabcf74fa5a244e8d79c1d01e7c942046314d3a70b6576d",
+    "bytes": 714,
+    "status": 200
+  },
+  {
+    "name": "kandinsky22-scheduler",
+    "url": "https://huggingface.co/kandinsky-community/kandinsky-2-2-decoder/raw/main/scheduler/scheduler_config.json",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky22-scheduler.txt",
+    "sha256": "b0900b16ee3e47c7b1e3c3fda579835d8dbc8bb5ba8434395412fed5c732c597",
+    "bytes": 317,
+    "status": 200
+  },
+  {
+    "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.36.0/src/diffusers/pipelines/kandinsky3/pipeline_kandinsky3_img2img.py",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky3-pipeline-v036.txt",
+    "sha256": "2ba7126ca5d46809c87cead3fd42043864241dd42940aeb03e742101903cb311",
+    "bytes": 30505,
+    "status": 200
+  },
+  {
+    "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.36.0/src/diffusers/models/autoencoders/vq_model.py",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-vq-model-v036.txt",
+    "sha256": "74276357e1d327324323880d393b5d54a1f6004e9a9ce35e1289adf575b6cb1a",
+    "bytes": 7964,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/docs/diffusers/main/en/api/pipelines/prx_pixel",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-prx-pixel-doc.txt",
+    "sha256": "7b994bad43112ee0192c51f5efab3c3bf202820d06403100b9814e96150f116f",
+    "bytes": 280774,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/google/flan-ul2/raw/main/README.md",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-flan-ul2-card.txt",
+    "sha256": "ab548553eb9592df1b29f38ddbdabe75c8f10a1cd1dd637f866efe3f3b7f386b",
+    "bytes": 14811,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/api/models/Photoroom/prxpixel-t2i?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-Photoroom--prxpixel-t2i-api.txt",
+    "sha256": "9aadd78d2b36480467432ae544f27a812cfcdbeee1a9c03316239ae62e5809fb",
+    "bytes": 3581,
+    "status": 200
+  },
+  {
+    "url": "https://huggingface.co/api/models/black-forest-labs/flux-3-image-klein?blobs=true",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-black-forest-labs--flux-3-image-klein-api.txt",
+    "sha256": "7668f6b03deaeabf1708c98b0c75914ad79e3a1563773df3b38da5d88eea7209",
+    "bytes": 7806,
+    "status": 200
+  }
+]

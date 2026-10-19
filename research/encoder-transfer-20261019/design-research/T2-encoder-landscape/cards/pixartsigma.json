@@ -1,0 +1,20 @@
+{
+  "paper_id": "2403.04692",
+  "citation_key": "T2_pixartsigma",
+  "title": "PixArt-Σ: Weak-to-Strong Training of Diffusion Transformer for 4K Text-to-Image Generation",
+  "authors": null,
+  "year": 2024,
+  "venue": "arXiv preprint (venue not independently checked)",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2403.04692v1",
+  "access_date": "2026-10-19",
+  "source_type": "primary paper HTML",
+  "verification": "V2",
+  "inspected_locator": "Section3.3 VAE; section4 experimental setup/evaluation",
+  "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-pixartsigma-paper.txt",
+  "sha256": "fae501058e9f5b60b203577b4aaaacbaac06a8af2004a1e76eecd76ae655d775",
+  "claim": "Direct evidence: frozen SDXL VAE and generator adaptation.",
+  "limitations": "Distinct denoiser is not distinct encoder.",
+  "evidence_type": "direct-evidence",
+  "runtime_validation": false
+}

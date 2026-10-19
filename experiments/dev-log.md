@@ -338,3 +338,5 @@
 - 2026-10-19 Codex push planned: codex/encoder-transfer-20261019, 44c9ad9..this T3 topic commit; agent Codex. Push outcome follows in the next log entry.
 
 - 2026-10-19 Codex push confirmed: codex/encoder-transfer-20261019 44c9ad9..f7b515b (T3). T1 completed: attack-standard inventory and one rinse secondary; research only. Escalations T5 pipeline and T6 statistics: fresh gpt-6-astra high. T1 push range f7b515b..this commit, outcome to follow.
+
+- 2026-10-19 Codex T1 push confirmed. T2 completed: independent-encoder lineage and executable-access audit; FLUX gated, core remains SDXL, wider panels are costed proposals. T2 push range previous T1 commit..this commit; outcome to follow.

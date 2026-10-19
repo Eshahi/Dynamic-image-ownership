@@ -1,0 +1,345 @@
+{
+  "status": "proposed selective files only; no weights downloaded",
+  "units": "decimal bytes/GB",
+  "plans": [
+    {
+      "model": "stabilityai/stable-diffusion-xl-base-1.0",
+      "revision": "462165984030d82259a11f4367a4eed129e94a7b",
+      "license": "openrail++",
+      "gated": false,
+      "weight_files": [
+        {
+          "name": "text_encoder/model.fp16.safetensors",
+          "size": 246144152,
+          "sha256": "660c6f5b1abae9dc498ac2d21e1347d2abdb0cf6c0c0c8576cd796491d9a6cdd"
+        },
+        {
+          "name": "text_encoder_2/model.fp16.safetensors",
+          "size": 1389382176,
+          "sha256": "ec310df2af79c318e24d20511b601a591ca8cd4f1fce1d8dff822a356bcdb1f4"
+        },
+        {
+          "name": "unet/diffusion_pytorch_model.fp16.safetensors",
+          "size": 5135149760,
+          "sha256": "83e012a805b84c7ca28e5646747c90a243c65c8ba4f070e2d7ddc9d74661e139"
+        },
+        {
+          "name": "vae/diffusion_pytorch_model.safetensors",
+          "size": 334643268,
+          "sha256": "1598f3d24932bcfe6634e8b618ea1e30ab1d57f5aad13a6d2de446d2199f2341"
+        }
+      ],
+      "total_bytes": 7105319356,
+      "companion_files": [
+        {
+          "name": "LICENSE.md",
+          "size": 14109,
+          "sha256": null
+        },
+        {
+          "name": "README.md",
+          "size": 8668,
+          "sha256": null
+        },
+        {
+          "name": "model_index.json",
+          "size": 609,
+          "sha256": null
+        },
+        {
+          "name": "scheduler/scheduler_config.json",
+          "size": 479,
+          "sha256": null
+        },
+        {
+          "name": "text_encoder/config.json",
+          "size": 565,
+          "sha256": null
+        },
+        {
+          "name": "text_encoder_2/config.json",
+          "size": 575,
+          "sha256": null
+        },
+        {
+          "name": "tokenizer/merges.txt",
+          "size": 524619,
+          "sha256": null
+        },
+        {
+          "name": "tokenizer/special_tokens_map.json",
+          "size": 472,
+          "sha256": null
+        },
+        {
+          "name": "tokenizer/tokenizer_config.json",
+          "size": 737,
+          "sha256": null
+        },
+        {
+          "name": "tokenizer/vocab.json",
+          "size": 1059962,
+          "sha256": null
+        },
+        {
+          "name": "tokenizer_2/merges.txt",
+          "size": 524619,
+          "sha256": null
+        },
+        {
+          "name": "tokenizer_2/special_tokens_map.json",
+          "size": 460,
+          "sha256": null
+        },
+        {
+          "name": "tokenizer_2/tokenizer_config.json",
+          "size": 725,
+          "sha256": null
+        },
+        {
+          "name": "tokenizer_2/vocab.json",
+          "size": 1059962,
+          "sha256": null
+        },
+        {
+          "name": "unet/config.json",
+          "size": 1680,
+          "sha256": null
+        },
+        {
+          "name": "vae/config.json",
+          "size": 642,
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "model": "kandinsky-community/kandinsky-3",
+      "revision": "bf79e6c219da8a94abb50235fdc4567eb8fb4632",
+      "license": "apache-2.0",
+      "gated": false,
+      "weight_files": [
+        {
+          "name": "movq/diffusion_pytorch_model.fp16.safetensors",
+          "size": 541388942,
+          "sha256": "8a4705625c160c49025e1f9b98776aaf5287240ca0d5ed39a1a235598fc39244"
+        },
+        {
+          "name": "text_encoder/model.fp16-00001-of-00005.safetensors",
+          "size": 4994491352,
+          "sha256": "2745f08c74c13536c67282afc1e5ba80daf67e5ded7925845f3cb5e1983a2826"
+        },
+        {
+          "name": "text_encoder/model.fp16-00002-of-00005.safetensors",
+          "size": 4932632832,
+          "sha256": "a1c184e0f3a2e8c80360379ada2d9fce40bee23647a63e3baefa00d837084408"
+        },
+        {
+          "name": "text_encoder/model.fp16-00003-of-00005.safetensors",
+          "size": 4831960880,
+          "sha256": "3a6e4c548e5c2e6aa080a5eefad31e973dbba55b6918f95fb77af97fce341c94"
+        },
+        {
+          "name": "text_encoder/model.fp16-00004-of-00005.safetensors",
+          "size": 4999741472,
+          "sha256": "3e7652beb11f33c5549d391c2affacd6642d9ca21bc0d4319cba60fe1b357ff0"
+        },
+        {
+          "name": "text_encoder/model.fp16-00005-of-00005.safetensors",
+          "size": 1979772184,
+          "sha256": "f41b9aea886f3d583c026011cb7251ff21f615774ad604264aaaa01605e02326"
+        },
+        {
+          "name": "unet/diffusion_pytorch_model.fp16.safetensors",
+          "size": 6110842296,
+          "sha256": "805179fe9c10cd1e01c59057f0c2bb07ce57834ad343f721e50ca16bef6952f6"
+        }
+      ],
+      "total_bytes": 28390829958,
+      "companion_files": [
+        {
+          "name": "README.md",
+          "size": 5608,
+          "sha256": null
+        },
+        {
+          "name": "model_index.json",
+          "size": 417,
+          "sha256": null
+        },
+        {
+          "name": "movq/config.json",
+          "size": 714,
+          "sha256": null
+        },
+        {
+          "name": "scheduler/scheduler_config.json",
+          "size": 509,
+          "sha256": null
+        },
+        {
+          "name": "text_encoder/config.json",
+          "size": 793,
+          "sha256": null
+        },
+        {
+          "name": "text_encoder/model.safetensors.index.fp16.json",
+          "size": 27893,
+          "sha256": null
+        },
+        {
+          "name": "tokenizer/added_tokens.json",
+          "size": 3255,
+          "sha256": null
+        },
+        {
+          "name": "tokenizer/special_tokens_map.json",
+          "size": 2543,
+          "sha256": null
+        },
+        {
+          "name": "tokenizer/spiece.model",
+          "size": 791656,
+          "sha256": "d60acb128cf7b7f2536e8f38a5b18a05535c9e14c7a355904270e15b0945ea86"
+        },
+        {
+          "name": "tokenizer/tokenizer_config.json",
+          "size": 25436,
+          "sha256": null
+        },
+        {
+          "name": "unet/config.json",
+          "size": 322,
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "model": "kandinsky-community/kandinsky-2-2-decoder",
+      "revision": "9ae140d347fed8ce6e8bb3005dcc1f48543bb8e3",
+      "license": "apache-2.0",
+      "gated": false,
+      "weight_files": [
+        {
+          "name": "movq/diffusion_pytorch_model.safetensors",
+          "size": 271380364,
+          "sha256": "43a5860fea195a7116f2471396c5cc9535fade9b63c4857d8a192ffd924b7002"
+        },
+        {
+          "name": "unet/diffusion_pytorch_model.safetensors",
+          "size": 5012309584,
+          "sha256": "3cc2f07442b9de0f18fb3f22247790872c094c4acc9dbe68552f96fd2e5c1ea1"
+        }
+      ],
+      "total_bytes": 5283689948,
+      "companion_files": [
+        {
+          "name": "README.md",
+          "size": 7343,
+          "sha256": null
+        },
+        {
+          "name": "model_index.json",
+          "size": 250,
+          "sha256": null
+        },
+        {
+          "name": "movq/config.json",
+          "size": 660,
+          "sha256": null
+        },
+        {
+          "name": "scheduler/scheduler_config.json",
+          "size": 317,
+          "sha256": null
+        },
+        {
+          "name": "unet/config.json",
+          "size": 1665,
+          "sha256": null
+        }
+      ]
+    },
+    {
+      "model": "kandinsky-community/kandinsky-2-2-prior",
+      "revision": "9fc51ad5732afc5d031724219d22e6c42179c5a8",
+      "license": "apache-2.0",
+      "gated": false,
+      "weight_files": [
+        {
+          "name": "image_encoder/model.safetensors",
+          "size": 3689912664,
+          "sha256": "657723e09f46a7c3957df651601029f66b1748afb12b419816330f16ed45d64d"
+        },
+        {
+          "name": "prior/diffusion_pytorch_model.safetensors",
+          "size": 4104940968,
+          "sha256": "ab139b2df9e40ed0b1eda8dc6270a139a796c5fa3af76cd6b0573f620dca6dde"
+        },
+        {
+          "name": "text_encoder/model.safetensors",
+          "size": 2778702976,
+          "sha256": "6eaafeea664d7ab87df17274d6114dfdf092c587c7cd56c13cf84aacdebc0332"
+        }
+      ],
+      "total_bytes": 10573556608,
+      "companion_files": [
+        {
+          "name": "README.md",
+          "size": 14444,
+          "sha256": null
+        },
+        {
+          "name": "image_encoder/config.json",
+          "size": 2013,
+          "sha256": null
+        },
+        {
+          "name": "image_processor/preprocessor_config.json",
+          "size": 315,
+          "sha256": null
+        },
+        {
+          "name": "model_index.json",
+          "size": 501,
+          "sha256": null
+        },
+        {
+          "name": "prior/config.json",
+          "size": 252,
+          "sha256": null
+        },
+        {
+          "name": "scheduler/scheduler_config.json",
+          "size": 229,
+          "sha256": null
+        },
+        {
+          "name": "text_encoder/config.json",
+          "size": 2017,
+          "sha256": null
+        },
+        {
+          "name": "tokenizer/merges.txt",
+          "size": 524619,
+          "sha256": null
+        },
+        {
+          "name": "tokenizer/special_tokens_map.json",
+          "size": 389,
+          "sha256": null
+        },
+        {
+          "name": "tokenizer/tokenizer_config.json",
+          "size": 904,
+          "sha256": null
+        },
+        {
+          "name": "tokenizer/vocab.json",
+          "size": 862328,
+          "sha256": null
+        }
+      ]
+    }
+  ]
+}

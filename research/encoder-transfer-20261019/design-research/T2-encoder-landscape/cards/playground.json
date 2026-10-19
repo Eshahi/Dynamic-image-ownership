@@ -1,0 +1,20 @@
+{
+  "paper_id": "2402.17245",
+  "citation_key": "T2_playground",
+  "title": "Playground v2.5: Three Insights towards Enhancing Aesthetic Quality in Text-to-Image Generation",
+  "authors": null,
+  "year": 2024,
+  "venue": "arXiv preprint (venue not independently checked)",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2402.17245v1",
+  "access_date": "2026-10-19",
+  "source_type": "primary paper HTML",
+  "verification": "V2",
+  "inspected_locator": "EDM methods and evaluation section",
+  "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-playground-paper.txt",
+  "sha256": "d18793404f00870bc71976147fede04facbf7b0dea79fd29406b2bc445f9a6ad",
+  "claim": "Direct evidence: generator training/EDM improvements.",
+  "limitations": "VAE identity conclusion comes from official model-file SHA equality, not an unsupported paper lineage claim.",
+  "evidence_type": "direct-evidence",
+  "runtime_validation": false
+}

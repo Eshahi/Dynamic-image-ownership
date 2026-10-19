@@ -1,0 +1,20 @@
+{
+  "paper_id": "2403.03206",
+  "citation_key": "T2_sd3",
+  "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+  "authors": null,
+  "year": 2024,
+  "venue": "arXiv preprint (venue not independently checked)",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2403.03206v1",
+  "access_date": "2026-10-19",
+  "source_type": "primary paper HTML",
+  "verification": "V2",
+  "inspected_locator": "Section5.2.1 and appendixB.2; reconstruction comparison Table3",
+  "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-sd3-paper.txt",
+  "sha256": "f82ef37115732eb873f96dbc7bb0baad3fd95b1e711aac2868b2ed43801a6c91",
+  "claim": "Direct evidence: larger latent channel autoencoders evaluated.",
+  "limitations": "Initialization independence from SD1/SDXL unresolved; dimension change is insufficient.",
+  "evidence_type": "direct-evidence",
+  "runtime_validation": false
+}

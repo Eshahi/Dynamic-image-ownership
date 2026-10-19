@@ -1,0 +1,20 @@
+{
+  "paper_id": "2112.10752",
+  "citation_key": "T2_ldm",
+  "title": "High-Resolution Image Synthesis with Latent Diffusion Models",
+  "authors": null,
+  "year": 2021,
+  "venue": "arXiv preprint (venue not independently checked)",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2112.10752v2",
+  "access_date": "2026-10-19",
+  "source_type": "primary paper HTML",
+  "verification": "screened; inherited Q-VAE V2",
+  "inspected_locator": "First-stage autoencoder method and reconstruction evaluation; existing Q-VAE reused",
+  "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-ldm-paper.txt",
+  "sha256": "bc27be0c28b03fbd9e444e31224035d38d3f6622c59e45e49ef37ed927dcd5ea",
+  "claim": "Direct evidence: perceptual compression for latent diffusion.",
+  "limitations": "For actual SD1/SD2 shared encoder use the existing Q-VAE checkpoint evidence; do not infer every checkpoint ancestry from this paper.",
+  "evidence_type": "partial-inspection",
+  "runtime_validation": false
+}

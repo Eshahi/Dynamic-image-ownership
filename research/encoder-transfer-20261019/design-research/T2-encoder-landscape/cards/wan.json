@@ -1,0 +1,20 @@
+{
+  "paper_id": "2503.20314",
+  "citation_key": "T2_wan",
+  "title": "Wan: Open and Advanced Large-Scale Video Generative Models",
+  "authors": null,
+  "year": 2025,
+  "venue": "arXiv preprint (venue not independently checked)",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2503.20314v1",
+  "access_date": "2026-10-19",
+  "source_type": "primary paper HTML",
+  "verification": "V2",
+  "inspected_locator": "Sections4.1.2 training and4.1.4 VAE evaluation",
+  "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-wan-paper.txt",
+  "sha256": "13dcf2d644ea8bd345f9c1d1b61e40c29311394f1d1c6ce9f828c2b5653c0201",
+  "claim": "Direct evidence: own2D VAE training, inflation and video training.",
+  "limitations": "Documentary lineage supports Qwen independence from SD; video evaluation is not an image-watermark benchmark.",
+  "evidence_type": "direct-evidence",
+  "runtime_validation": false
+}

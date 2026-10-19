@@ -1,0 +1,20 @@
+{
+  "paper_id": "2405.08748",
+  "citation_key": "T2_hunyuan",
+  "title": "Hunyuan-DiT : A Powerful Multi-Resolution Diffusion Transformer with Fine-Grained Chinese Understanding",
+  "authors": null,
+  "year": 2024,
+  "venue": "arXiv preprint (venue not independently checked)",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2405.08748v1",
+  "access_date": "2026-10-19",
+  "source_type": "primary paper HTML",
+  "verification": "V2",
+  "inspected_locator": "VAE architecture description and section4 human evaluation/Table3",
+  "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-hunyuan-paper.txt",
+  "sha256": "69373dd3134bbf703b6acca804648b24cdb7d156296eb5ab7392f14b29f1607a",
+  "claim": "Direct evidence: adopts SDXL VAE.",
+  "limitations": "Secondary characterization of SDXL as fine-tuned conflicts with SDXL primary from-scratch statement; use SDXL primary for ancestry.",
+  "evidence_type": "direct-evidence",
+  "runtime_validation": false
+}

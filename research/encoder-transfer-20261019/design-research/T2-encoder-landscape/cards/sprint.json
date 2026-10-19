@@ -1,0 +1,20 @@
+{
+  "paper_id": "2503.09641",
+  "citation_key": "T2_sprint",
+  "title": "SANA-Sprint: One-Step Diffusion with Continuous-Time Consistency Distillation",
+  "authors": null,
+  "year": 2025,
+  "venue": "arXiv preprint (venue not independently checked)",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2503.09641v1",
+  "access_date": "2026-10-19",
+  "source_type": "primary paper HTML",
+  "verification": "V2",
+  "inspected_locator": "Distillation method and sections4.1/4.2 evaluation",
+  "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-sprint-paper.txt",
+  "sha256": "4201d344a00121f4b154bb2717b72ceadbc634d6e81f46e93f610282580877c0",
+  "claim": "Direct evidence: short-step SANA distillation.",
+  "limitations": "Native SCM implementation determines severity semantics; one-step endpoints cannot form the requested three-strength grid.",
+  "evidence_type": "direct-evidence",
+  "runtime_validation": false
+}

@@ -1,0 +1,8 @@
+{
+  "status": "pass",
+  "cached_entries_hash_verified": 146,
+  "mismatches": [],
+  "json_files_parsed": 19,
+  "stage": "research only; no runtime/weight verification",
+  "skill_schema_validator": "unavailable in checkout; not executed successfully"
+}

@@ -1,0 +1,20 @@
+{
+  "paper_id": "2410.10733",
+  "citation_key": "T2_dcae",
+  "title": "Deep Compression Autoencoder for Efficient High-Resolution Diffusion Models",
+  "authors": null,
+  "year": 2024,
+  "venue": "arXiv preprint (venue not independently checked)",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2410.10733v1",
+  "access_date": "2026-10-19",
+  "source_type": "primary paper HTML",
+  "verification": "V2",
+  "inspected_locator": "Sections3.2,4.1,4.2,4.3; compression and efficiency ablations",
+  "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-dcae-paper.txt",
+  "sha256": "379cb7cff3040afea41fb34d8fb7d0785b1d5d3e84d867e0ef6c684f783ee993",
+  "claim": "Direct evidence: residual autoencoding and decoupled training create high-compression encoders.",
+  "limitations": "Training-memory and single-step throughput comparisons cannot be substituted for full img2img timing.",
+  "evidence_type": "direct-evidence",
+  "runtime_validation": false
+}

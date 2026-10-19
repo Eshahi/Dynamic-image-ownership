@@ -1,0 +1,20 @@
+{
+  "paper_id": "2310.03502",
+  "citation_key": "T2_kandinsky",
+  "title": "Kandinsky: an Improved Text-to-Image Synthesis with Image Prior and Latent Diffusion",
+  "authors": null,
+  "year": 2023,
+  "venue": "arXiv preprint (venue not independently checked)",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2310.03502v1",
+  "access_date": "2026-10-19",
+  "source_type": "primary paper HTML",
+  "verification": "V2",
+  "inspected_locator": "Section4 autoencoder; section5 FID/CLIP and DrawBench human evaluation",
+  "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-kandinsky-paper.txt",
+  "sha256": "c5a5071a5212155cc6af1d82fe3dad4d002a942e36f964eb7b0be3830ceba72d",
+  "claim": "Direct evidence: separate MoVQ training on LAION HighRes.",
+  "limitations": "Supports separate SD lineage; performance tables concern generation, not watermark removal.",
+  "evidence_type": "direct-evidence",
+  "runtime_validation": false
+}

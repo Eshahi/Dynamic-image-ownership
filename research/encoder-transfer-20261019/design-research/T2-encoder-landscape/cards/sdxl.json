@@ -1,0 +1,20 @@
+{
+  "paper_id": "2307.01952",
+  "citation_key": "T2_sdxl",
+  "title": "SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis",
+  "authors": null,
+  "year": 2023,
+  "venue": "arXiv preprint (venue not independently checked)",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2307.01952v1",
+  "access_date": "2026-10-19",
+  "source_type": "primary paper HTML",
+  "verification": "V2",
+  "inspected_locator": "Section2.4 VAE; section2.5 and Table3 reconstruction evaluation",
+  "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-sdxl-paper.txt",
+  "sha256": "f50bf5a2c55213b90feb5c37d3059ea60d7509ed181ce78ef496df3753082efd",
+  "claim": "Direct evidence: SDXL autoencoder trained from scratch; four-channel f8 remains structurally similar.",
+  "limitations": "Supports independence from SD1; does not establish watermark transfer.",
+  "evidence_type": "direct-evidence",
+  "runtime_validation": false
+}

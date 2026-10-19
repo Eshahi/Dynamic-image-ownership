@@ -1,0 +1,20 @@
+{
+  "paper_id": "2511.22699",
+  "citation_key": "T2_zimage",
+  "title": "Z-Image: An Efficient Image Generation Foundation Model with Single-Stream Diffusion Transformer",
+  "authors": null,
+  "year": 2025,
+  "venue": "arXiv preprint (venue not independently checked)",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2511.22699v1",
+  "access_date": "2026-10-19",
+  "source_type": "primary paper HTML",
+  "verification": "partial",
+  "inspected_locator": "Architecture FLUX VAE statement and section4.5.1 distillation; not full evaluation audit",
+  "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T2-zimage-paper.txt",
+  "sha256": "3f9f86f6f2c25a6d1a66ab78873d7f1ddde3c52661a11f15cf3b617c9481371a",
+  "claim": "Direct evidence: reuses FLUX VAE.",
+  "limitations": "Not promoted to V2; file SHA corroborates reuse.",
+  "evidence_type": "partial-inspection",
+  "runtime_validation": false
+}
