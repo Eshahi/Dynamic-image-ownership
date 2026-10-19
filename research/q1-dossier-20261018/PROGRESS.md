@@ -41,7 +41,7 @@ These nominal times follow the BRIEF's shares of 600 minutes; start earlier when
 
 ## Work status
 
-WP0-WP10 core outputs delivered; WP2 and WP4 retain explicit access/verification gaps. WP9 review corrections incorporated. Extension E1-E6 pending; session remains active.
+WP0-WP10 core outputs delivered; WP2 and WP4 retain explicit access/verification gaps. WP9 review corrections incorporated. Extension E1-E2 delivered; E3-E6 continuing; session remains active.
 
 ## Log
 
@@ -93,3 +93,6 @@ WP0-WP10 core outputs delivered; WP2 and WP4 retain explicit access/verification
 - E1 resolved checkpoint — 2aff414, pushed successfully (b1689f2..2aff414).
 - 2026-10-19T00:17:59.7390273-08:00 — E2 clock check and start. Audit all 87 bibliography records against Crossref, DBLP or arXiv; metadata verification does not upgrade a paper's fulltext verification level. Three fresh gpt-6.1-sol/high agents each own 29 assigned entries in separate part folders, no shared edits or commits. Parent integrates source-backed corrections and checks coverage; unavailable records remain explicit.
 - 2026-10-19T00:32:18.5184911-08:00 — E2 complete: all original87 BibTeX entries audited, plus one matrix-only V1 record added for88 final entries.83 have directly retrieved index records; three non-paper official-source exceptions and two publisher-corroborated index-retrieval gaps remain explicit. Bibliography keys, audit coverage and braces checked; V2 counts unchanged. Root harmonized pure-preprint first-release years and preserved final-version caveats. Three short-lived agents finished; temporary metadata utilities removed, final artifacts MD/CSV/BIB/JSON only. Commit subject: Audit bibliography identities and preserve publication versions.
+- E2 resolved checkpoint — 7d0f562, pushed successfully (2aff414..7d0f562).
+- 2026-10-19T00:35:44.6400586-08:00 — E3 clock check and start. Prepare fifteen evidence-linked rebuttals, explicitly separating documentary corrections from unresolved scientific objections. No new data or approval is implied.
+- 2026-10-19T00:38:43.9709360-08:00 — E3 complete: fifteen prepared responses with evidence locators, current disposition and future-only action map. Checked E3 outcome and owner-gate statements against the ledger; corrected file locators. No response claims that writing cures missing scientific evidence. Commit subject: Prepare evidence-linked reviewer rebuttal bank.
