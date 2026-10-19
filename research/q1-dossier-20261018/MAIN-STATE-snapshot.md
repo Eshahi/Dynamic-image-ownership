@@ -1,6 +1,6 @@
 # Current state
 
-Updated by Codex agent, 2026-10-19T05:04:53.1338064-08:00, after the R7/R8 research-only follow-up.
+Updated by Codex agent, 2026-10-19T06:20:59.3825518-08:00, after the R10/R11 statistical-design follow-up.
 The copy of this text in MAIN thesis-runs/d916749c/STATE.md is authoritative.
 
 ## Current method and result
@@ -38,15 +38,15 @@ Conditional target: TIFS; backups TMM and TOMM. IEEE confirms TIFS Q1 for JCR202
 FINAL-REPORT remains PARTIAL for WP2 fulltext and WP4 policy/ranking gaps; all extension deliverables exist.
 Writing alone cannot make the current evidence Q1-ready.
 All nine manuscript sections and abstract are assembled in 21-manuscript-working-draft.md; no new result.
-Folders 19/20 provide a 64-entry release inventory and prospective data policies/schema; no assets acquired.
-Folder 24 exports seven manuscript CSV tables with 46 rows from existing corrected counts and explicit provenance.
+Folders 19/20 retain the release inventory and data policies; 24 supplies seven tables/46 existing-evidence rows.
+No new assets or outcomes exist; the proposed frame, licenses, annotation personnel and execution feasibility remain unverified.
 Contract 23 separates code reading from record matching: Full versus ORVF isolates the proposed q-distance increment.
-Next proposed research: justify population/bank, paired risk/recovery margins and dependence/precision for F1/F2; no study ran.
+Folder 25 completes the next local study: 1,200 sampled creator/bank blocks, eight records each, two fixed checkpoint channels.
 Independent-encoder and active-attack studies are needed only for their corresponding broader claims; none ran here.
 New external baseline work remains closed until explicitly reopened by the user.
-The user requested continuation at 04:05 and 04:51-08:00 after the deadline; the original clock was not reset.
-Five access refreshes remain V1; Beyond Generation is refreshed to v2; current journal guides remain incomplete.
-One failed out-of-purpose stdlib HTTP fetch is disclosed in FINAL-REPORT; no science interpreter or experiment was used.
+The user delegated statistical choices on October 19; the original deadline was not reset and no execution was approved.
+Selected H/L/G margins are .05/.02/.85; exact hypergeometric limits provide at least 95% simultaneous finite-frame coverage.
+Analytic joint assurance is at least 96.84% only under the stated strong fully observed alternative; no simulation or experiment.
 
 ## Preserved scope and obligations
 

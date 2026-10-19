@@ -1,5 +1,7 @@
 # Future component-identification contract for F1/F2
 
+**R10 continuation:** the user delegated the outstanding statistical choices. [The selected next-study design](25-statistical-design/README.md) now fixes the finite frame, eight-record disjoint banks, n=1,200, paired H/L/G outcomes, .05/.02/.85 margins, exact simultaneous hypergeometric inference, missingness and stopping. It supersedes the provisional fields below only for that local Full-versus-ORVF study. The broader external-comparison contract remains prospective and unapproved. This document retains its original conceptual derivation and chronology; statements below that choices were open describe R7, not the current next-study status.
+
 Authored by Codex, 19 October 2026. **Future-only conceptual design; NOT RUN, not a preregistration, execution contract, manifest, approval, or independent milestone review.** This document refines the scientific identification question in [F1/F2](07-gap-closure-plan.md); it changes neither the frozen historical method nor its results. New external baselines remain closed until the user explicitly reopens them. No pixels, descriptors, models, experiments, simulations, timing, count computations, downloads, or Python were used for this document.
 
 The clock at this bounded follow-up's start was `2026-10-19T04:52:55.2135445-08:00`. The original `2026-10-19T04:04:04.3769833-08:00` deadline had expired; the parent relayed the user's continuation instruction. No deadline is reset. Only this file is authored here.

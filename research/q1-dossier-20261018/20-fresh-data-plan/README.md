@@ -1,5 +1,7 @@
 # Prospective fresh-data provenance and separation plan
 
+**Selected next-study update, R10:** [the completed statistical design](../25-statistical-design/README.md) selects a finite curated Commons real-camera frame, four capture pairs per component, an eight-record bank and 1,200 sampled creator/production blocks. It supplies the previously open sample-size/margin choices for that narrower local comparison. Its genuine post-freeze uniform sampling without replacement supersedes the deterministic hash-ranking/replacement proposal below for this study; it requires no new calibration split. This source-policy/schema document remains an asset-free provenance framework, and broader F2 acquisition ambitions are not an adequate sample-size or cost claim for the new design.
+
 Authored by Codex, 19 October 2026. **Proposal only; metadata documentation, not an executable manifest, acquisition authorization, selected cohort, or independent review.**
 
 The local clock at the start of this bounded follow-up was `2026-10-19T04:09:55.4604753-08:00`. The original session deadline was `2026-10-19T04:04:04.3769833-08:00` and had expired. This follow-up sets no replacement deadline. It develops N7/F2 in [07-gap-closure-plan.md](../07-gap-closure-plan.md) following the user's continuation instruction relayed by the parent task.

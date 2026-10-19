@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-19T05:05:25.4795873-08:00",
+  "checked_at": "2026-10-19T06:22:03.6651623-08:00",
   "kind": "Author documentary integration check; no scientific experiment or independent review",
   "manuscript": "21-manuscript-working-draft.md",
   "numbered_sections": [
@@ -30,9 +30,15 @@
     "21-manuscript-working-draft.md",
     "23-component-study-contract.md",
     "24-manuscript-tables/README.md",
-    "FINAL-REPORT.md"
+    "FINAL-REPORT.md",
+    "25-statistical-design/README.md",
+    "25-statistical-design/design-core.md",
+    "25-statistical-design/analytic-justification.md",
+    "25-statistical-design/implementation-inheritance.md",
+    "25-statistical-design/search-log.md",
+    "PROGRESS.md"
   ],
-  "existing_local_links": 122,
+  "existing_local_links": 142,
   "missing_local_links": [],
   "inventory_entries": 64,
   "inventory_local_available": 59,
@@ -47,12 +53,36 @@
   "scientific_readiness": "not Q1-submission-ready",
   "residual_documentary_status": "PARTIAL: WP2 fulltexts; WP4 current policy/ranking/institution gaps",
   "no_new_scientific_result": true,
-  "previous_check_at": "2026-10-19T04:19:46.0484752-08:00",
-  "input_dossier_commit": "bc907955f7aac97671e0d4c32edf71275bac4374",
+  "previous_check_at": "2026-10-19T05:05:25.4795873-08:00",
+  "input_dossier_commit": "94a3306c5c0e309df0cd32fc6fcb958ecebe9042",
   "abstract_words": 205,
   "inventory_status_scope": "R4 timestamped path/rights snapshot; presence values not refreshed during R9",
   "table_csv_files": 7,
   "table_csv_rows": 46,
   "table_input_output_local_hashes_match": true,
-  "component_contract_status": "Future-only; Full versus ORVF q-distance contrast; no study/preregistration/approval"
+  "component_contract_status": "Future-only; Full versus ORVF q-distance contrast; no study/preregistration/approval",
+  "unchanged_manuscript_literature_and_table_check_carried_from": "2026-10-19T05:05:25.4795873-08:00",
+  "carried_check_reason": "Git diff against ae580b5 confirms manuscript source/assembly, literature matrix/bibliography and all table files unchanged. Prior counts, assembly/citation and table-hash results are retained, not claimed freshly recomputed.",
+  "statistical_design": {
+    "files": 6,
+    "status": "Scientific choices completed; no experiment, simulation, asset selection, preregistration or execution approval",
+    "sample_blocks": 1200,
+    "finite_frame_N": "not acquired; require N>=1200",
+    "records_per_bank": 8,
+    "checkpoints": 2,
+    "fixed_seeds": [
+      15,
+      16,
+      17
+    ],
+    "H_min": 0.05,
+    "L_max": 0.02,
+    "G_min": 0.85,
+    "directional_bounds": 12,
+    "one_sided_alpha": 0.004166666666666667,
+    "simultaneous_coverage_min": 0.95,
+    "conditional_assurance_lower": 0.968409871686564,
+    "assurance_scope": "H>=.10,L<=.002,G>=.95 in both checkpoints and fully observed; analytic bound only",
+    "source_count_effect": "Supplementary statistical references are separate; 98-work/90-V2 matrix unchanged"
+  }
 }
