@@ -46,6 +46,8 @@ Fingerprint-only uses the identical descriptor rule and records, but omits `P_r`
 
 **WP9 identifiability correction:** the saved beta native calls have neither `found` nor `read` in every completed E3 query (EV-77). Therefore no beta candidate reaches q matching or descriptor acceptance in those observations. This explains the measured zero-beta result at the owner gate; it does not prove that q and F provide additional rejection, or that they are unnecessary for alpha record correctness. The count is post-hoc analysis of retained Booleans, not a new ablation. A future comparison must separate owner, q and descriptor stages and distinguish record-level from owner-level correctness.
 
+**R7 refinement:** removing the pointer's code gate also removes its successful-read prerequisite. A q-specific decision-rule comparison therefore needs a control retaining owner detection, readable valid code and the same F predicate but omitting only code-to-record distance selection. On common valid inputs, Full is a subset of this control, which is a subset of owner-plus-F and F-only. Wrong acceptance and inclusion of the correct record can both decrease mechanically; usefulness needs a paired recovery/risk tradeoff, not error reduction alone. The [future component contract](23-component-study-contract.md) specifies this distinction, exact-record/owner outcomes, shared-bank dependence and bounds that preserve jointly consistent missing states. It changes no historical rule or result.
+
 ## 2. Identity and channel definitions
 
 For the real/synthetic look-alike endpoint, the frozen operational negative predicate is

@@ -20,7 +20,7 @@ Prepared 2026-10-19 for extension E3. This is an internal drafting bank, not a s
 
 **Prepared response.** That interpretation is supported by the saved outputs. Our post-hoc Boolean audit finds beta `found` and `read` false in every completed E3 query, across cells with 293–297 sources. Consequently, beta is rejected before the record-code and content checks. We now treat the zero-beta observation as a property of the evaluated full policy in this passive scenario, not an identified benefit of adding the record code or verifier. The fingerprint-only contrast simultaneously removes multiple conditions and cannot estimate their individual contributions. No new owner-only experimental arm was run during this audit.
 
-**Disposition.** A/W correction complete; component-effect claim unavailable. F1 proposes owner-only, owner-plus-code, owner-plus-verifier, full-policy and fingerprint-only controls, including multiple records per owner and same-owner confusions. Whether the code improves record discrimination beyond owner-plus-verifier is unresolved.
+**Disposition.** A/W correction complete; component-effect claim unavailable. F1 now also requires readable-code-plus-owner-plus-verifier as an intermediate control, so the primary Full-versus-ORVF contrast removes only code-distance selection. Full versus owner-plus-verifier conflates reading and matching. Multiple records per owner, same-owner confusions and paired recovery/error tradeoffs remain necessary; the [future contract](23-component-study-contract.md) makes these requirements precise. No added code benefit is established.
 
 **Evidence.** EV-77; `01d-e3-owner-gate-audit.md`; `10a-review-response.md`; F1.
 

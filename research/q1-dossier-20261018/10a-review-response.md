@@ -15,4 +15,6 @@ The research destination remains conditional TIFS, with TMM and TOMM backups. EV
 
 ## Continuation disposition, 19 October 2026
 
+R7 author-design correction to the historical dispositions for findings 1/3 above: Full versus O+F removes both successful reading and code matching. The revised [F1 plan](07-gap-closure-plan.md) and [component contract](23-component-study-contract.md) add ORVF (owner, readable valid code, same descriptor) and make Full versus ORVF the code-distance contrast. They also require paired recovery/error tradeoffs because nested accepted sets reduce errors mechanically. This is further author reasoning, not an independent re-review or new experimental evidence; the original reviewer report remains unchanged.
+
 Findings4–5 received a further bounded access pass in [17-completion](17-completion/README.md). Five paper refreshes remain V1, while Beyond Generation's focused reading is now v2. Direct IEEE-publisher evidence now confirms TIFS Q1 for JCR2024 without a named category; the newest category/institutional question remains open. Current TOMM/Elsevier guides remain inaccessible. These additions narrow the unresolved documentary work but do not close findings4–5 or alter the independent verdict. The continuation was integrated by the parent, not separately independently reviewed.
