@@ -87,3 +87,6 @@ WP0-WP10 core outputs delivered; WP2 and WP4 retain explicit access/verification
 - WP9 resolved checkpoint — 4a92bcb, pushed successfully (be6bed8..4a92bcb).
 - 2026-10-19T00:03:21.6601938-08:00 — WP10 clock check and start. About four hours remain; core report is an interim checkpoint before mandatory extension work, not goal completion.
 - 2026-10-19 00:04−08:00 — WP10 core report written with STATUS: PARTIAL for specific WP2/WP4 verification gaps and pending extensions. MAIN STATE updated within 60 lines; identical dossier snapshot committed on our branch, while MAIN branch is not committed/pushed. No protected experiment/proposal files changed. Commit subject: Report core dossier and update authoritative research state.
+- WP10 resolved checkpoint — b1689f2, pushed successfully (4a92bcb..b1689f2); HEAD matched origin.
+- 2026-10-19T00:04:08.3604386-08:00 — E1 clock check and start. Full Introduction, Related Work, Threat Model and Method prose, incorporating the independent review and EV-77; no new experiments.
+- 2026-10-19T00:10:31.7134880-08:00 — E1 complete: 3,419-word working document including editorial provenance, all citation keys resolve to V2 entries. Writer code read as text only; default function arguments are not substituted for frozen-run configuration. Commit subject: Draft complete evidence-linked manuscript sections.
