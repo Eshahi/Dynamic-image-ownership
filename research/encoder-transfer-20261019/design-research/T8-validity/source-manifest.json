@@ -1,0 +1,33 @@
+{
+  "kind": "inherited V2 primary evidence; explicit provenance, not new outcome data",
+  "manifests": [
+    {
+      "path": "research\\encoder-transfer-20261019\\design-research\\T1-attack-standards\\source-manifest.json",
+      "sha256": "18e7de837c80ae4d245ad7c14ed7a42e41d052eacfbc3a0e39bd65ddae7cacbb"
+    },
+    {
+      "path": "research\\encoder-transfer-20261019\\design-research\\T2-encoder-landscape\\source-cache-manifest.json",
+      "sha256": "a55ea74825cbb0c81a6090b052c2ad65ef556876fef9aa253fd99e4100133334"
+    },
+    {
+      "path": "research\\encoder-transfer-20261019\\design-research\\T3-baseline-fidelity\\manifest.json",
+      "sha256": "cacb93ac986e828777bc734363825805a843ab67cd587614ed705cce59ec884f"
+    },
+    {
+      "path": "research\\encoder-transfer-20261019\\design-research\\T4-mechanism\\source-manifest.json",
+      "sha256": "fd6696991349b2b9497c040e6c980a359ea48e394a2353815d7b19f635b2bbc6"
+    },
+    {
+      "path": "research\\encoder-transfer-20261019\\design-research\\T5-pipeline\\source-manifest.json",
+      "sha256": "15d784d1c34389ed9052527a9388202ca503af59a5944569168dadda7bad7793"
+    },
+    {
+      "path": "research\\encoder-transfer-20261019\\design-research\\T6-statistics\\source-manifest.json",
+      "sha256": "4ecaf0f253b5dcc95d677f4ff866b19af9a7b1f512b3f7878430b3ae3d29cf52"
+    },
+    {
+      "path": "research\\encoder-transfer-20261019\\design-research\\T7-fair-reporting\\manifest.json",
+      "sha256": "506356e8a8a3ab12adbcd75212f398cb63c958daa8f2f3d36151f8911249f02b"
+    }
+  ]
+}
