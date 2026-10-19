@@ -1,0 +1,9 @@
+# C8 synthesis
+
+Theoretical guarantees must be attached to an explicit observation model. Removal bounds assume a perturbation distribution, a quality oracle, a mixing condition or a smooth representation. The retained registry has additional side information and an instance-level acceptance rule, so neither removal paper proves this system impossible or secure. Equally, successful measurements against two diffusion checkpoints do not invalidate a theorem whose adversary was never instantiated.
+
+A secure sketch addresses noisy recovery; a fuzzy extractor additionally addresses secrecy under an entropy assumption. Neither supplies the missing semantic relation between legitimate regenerated variants and distinct same-shot images. A public image can be reproduced by an adversary, and helper information can reduce residual entropy. Therefore a cryptographic replacement must first define what is secret, what is bound, which feature distances are accepted, and how enrollment is authenticated. Adding an error-correcting code or a hash is not by itself a security proof.
+
+The statistical counterpart is equally important. A zero count only bounds a specified event under specified sampling assumptions. Independent images, repeated transformations of an image, pairs sharing an image, and queries against one shared bank are different units. The dossier uses existing counts to expose those distinctions. It does not convert the incomplete unrelated grid into a complete-bank guarantee or pool the eight E3 cells into independent trials.
+
+For the article, retain the frozen one-sided confidence convention and report descriptive counts, missingness and error definitions together. Any future near-duplicate confirmation needs multiple independent content groups and a new pool. Changing the interval method after observing the result cannot fix selection, dependence or lack of coverage of the target population.

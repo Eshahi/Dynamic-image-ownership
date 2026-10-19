@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-18",
+  "purpose": "Explicit parent integration guidance; this file does not mutate existing cards or matrices.",
+  "updates": [
+    {
+      "prior_citekey": "li2024zwnet",
+      "refresh_citekey": "li2024zwnet",
+      "cluster": "C4",
+      "action": "Replace prior V1 matrix evidence with this V2 inspection; preserve existing card history.",
+      "additional_unique_works": 0,
+      "additional_unique_V2_works": 1
+    },
+    {
+      "prior_citekey": "Bui2023TrustMark",
+      "refresh_citekey": "Bui2025TrustMark",
+      "cluster": "C1",
+      "action": "Use final-version card for current comparison, explicitly retaining old-preprint identity and version history. Do not count as a second work.",
+      "additional_unique_works": 0,
+      "additional_unique_V2_works": 0
+    },
+    {
+      "prior_citekey": "neekhara2024facesigns",
+      "refresh_citekey": "neekhara2024facesigns",
+      "cluster": "C9",
+      "action": "Keep existing V2 for the 2022 preprint; attach the 2024-final V1 access gap without downgrading or duplicating the older inspected work.",
+      "additional_unique_works": 0,
+      "additional_unique_V2_works": 0
+    }
+  ],
+  "other_rows": "Unresolved V1 access records only; no full-paper novelty or method comparison is authorized by those rows."
+}

@@ -1,0 +1,11 @@
+# Luo et al. (2026): MantleMark
+
+**Verification: V2.** Read method IV and experiments V of the [Lancaster-hosted 16-page manuscript](https://eprints.lancs.ac.uk/id/eprint/234126/1/111.pdf), 2026-10-18 PDT. [CityU's author-affiliated publication record](https://scholars.cityu.edu.hk/en/publications/mantlemark-migrating-watermarks-from-multi-view-images-to-radianc/) verifies TIFS 21, 256–271 (2026), online 21 November 2025, DOI [10.1109/TIFS.2025.3636020](https://doi.org/10.1109/TIFS.2025.3636020). Manuscript title/authors match; the repository PDF has journal-style running headers but its exact revision and identity to the version of record remain unverified.
+
+Frequency-magnitude modulation embeds pose-dependent rings derived from a spherical frequency representation into multi-view images. Detection uses normalized correlation with a known, pose-dependent template; reconstruction access is not required for embedding. This is binary mark-presence detection through NeRF/3DGS reconstruction, not single-photo diffusion regeneration or cryptographic attribution.
+
+V-A uses eight Synthetic NeRF objects (100 views each), eight LLFF scenes (20–62 views each), and nine Mip-NeRF360 scenes (100–200 views each); Instant-NGP, TensoRF and 3DGS are evaluated. Tables I–II aggregate 600 rendered views, five repetitions and 95% confidence intervals. Metrics include TPR@1%FPR, AUC, accuracy, PSNR, SSIM and LPIPS; threshold selection uses unmarked validation images, whose count was not established. Nine public-code 2D baselines and separate 3D baselines are considered. V-G reports 3.1 seconds per image embedding on Xeon/V100; comparator times use whole scenes. The manuscript links a GitHub repository.
+
+**Assessment.** Renderings share scene information: view counts and repetitions cannot be treated as equally many independent sources. Report scene-level uncertainty separately. Normalize timing units before claiming efficiency, and distinguish template/pose access from a reference-free detector. Its fixed-FPR reporting is useful practice; its journal acceptance does not validate every statistical or security assumption.
+
+**Locators:** IV-A/E/G, pp. 4–7; V-A, pp. 7–9; Tables I–II, pp. 10–11; V-F/G, p. 12; Table V.

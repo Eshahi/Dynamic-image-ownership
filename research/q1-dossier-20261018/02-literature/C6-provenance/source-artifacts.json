@@ -1,0 +1,72 @@
+{
+  "access_date": "2026-10-18",
+  "cluster": "C6",
+  "cache_directory": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/C6",
+  "total_bytes": 8182081.0,
+  "scope": "Primary textual research artifacts only; no code, weights, datasets or images",
+  "artifacts": [
+    {
+      "filename": "c2pa24.html",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C6\\c2pa24.html",
+      "url": "https://spec.c2pa.org/specifications/specifications/2.4/specs/ContentCredentials.html",
+      "version": "Specification 2.4",
+      "status": "current inspected standard",
+      "bytes": 991947,
+      "sha256": "60750805E3D284C841770CE3295C0579EA0F91A137D8B9235BD8EDE4678A9578"
+    },
+    {
+      "filename": "drew2406v2.html",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C6\\drew2406v2.html",
+      "url": "https://arxiv.org/html/2406.02836v2",
+      "version": "arXiv v2",
+      "status": "current",
+      "bytes": 264444,
+      "sha256": "D0D998083D31E9409064B6C1FE1EC2D8E80C502E51ABDA3BA2EA70CCA48FCB42"
+    },
+    {
+      "filename": "fairoze2502v1.html",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C6\\fairoze2502v1.html",
+      "url": "https://arxiv.org/html/2502.04901v1",
+      "version": "initial request named v1",
+      "status": "superseded; not cited",
+      "bytes": 442404,
+      "sha256": "EE2BA4709A71FF9EF31F4241CBC984B7DAE23589B6AFA9A81BA963B20270B304"
+    },
+    {
+      "filename": "fairoze2502v2.html",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C6\\fairoze2502v2.html",
+      "url": "https://arxiv.org/html/2502.04901v2",
+      "version": "arXiv v2",
+      "status": "current",
+      "bytes": 442404,
+      "sha256": "D8BB1142045E50F52A7ADA23268109DC6EDE49BA0BC544D5DB5B4EEBF53620EF"
+    },
+    {
+      "filename": "kazempourradi2610v1.html",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C6\\kazempourradi2610v1.html",
+      "url": "https://arxiv.org/html/2610.04151v1",
+      "version": "arXiv v1",
+      "status": "current",
+      "bytes": 1128771,
+      "sha256": "41B32E9930CCF14BBE3D1EFDCBCF7BA96782177029238F6E96EAEBF280C250A9"
+    },
+    {
+      "filename": "nist1004.pdf",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C6\\nist1004.pdf",
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-4.pdf",
+      "version": "Final November 2024",
+      "status": "current inspected report",
+      "bytes": 4306208,
+      "sha256": "A387A4977DB70D65CDBC178C8B0CB8AA5DEDB85FA80D6F473C244E2767A4FD54"
+    },
+    {
+      "filename": "synthid2510v1.html",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C6\\synthid2510v1.html",
+      "url": "https://arxiv.org/html/2510.09263v1",
+      "version": "arXiv v1",
+      "status": "current",
+      "bytes": 605903,
+      "sha256": "810A90D43D282DADEE663228EE0648473713E9CCE91413945826D67CC2F3E8B8"
+    }
+  ]
+}
