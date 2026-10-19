@@ -1,6 +1,6 @@
 # Current state
 
-Updated by Codex agent, 2026-10-19T04:18:58.3542444-08:00, after the post-deadline research-only follow-up.
+Updated by Codex agent, 2026-10-19T05:04:53.1338064-08:00, after the R7/R8 research-only follow-up.
 The copy of this text in MAIN thesis-runs/d916749c/STATE.md is authoritative.
 
 ## Current method and result
@@ -39,10 +39,12 @@ FINAL-REPORT remains PARTIAL for WP2 fulltext and WP4 policy/ranking gaps; all e
 Writing alone cannot make the current evidence Q1-ready.
 All nine manuscript sections and abstract are assembled in 21-manuscript-working-draft.md; no new result.
 Folders 19/20 provide a 64-entry release inventory and prospective data policies/schema; no assets acquired.
-Next proposed research: identify owner/q/content contributions with compatible controls, then diverse fresh hard negatives and complete banks.
+Folder 24 exports seven manuscript CSV tables with 46 rows from existing corrected counts and explicit provenance.
+Contract 23 separates code reading from record matching: Full versus ORVF isolates the proposed q-distance increment.
+Next proposed research: justify population/bank, paired risk/recovery margins and dependence/precision for F1/F2; no study ran.
 Independent-encoder and active-attack studies are needed only for their corresponding broader claims; none ran here.
 New external baseline work remains closed until explicitly reopened by the user.
-The user requested further continuation at 04:05-08:00 after the deadline; the original clock was not reset.
+The user requested continuation at 04:05 and 04:51-08:00 after the deadline; the original clock was not reset.
 Five access refreshes remain V1; Beyond Generation is refreshed to v2; current journal guides remain incomplete.
 One failed out-of-purpose stdlib HTTP fetch is disclosed in FINAL-REPORT; no science interpreter or experiment was used.
 

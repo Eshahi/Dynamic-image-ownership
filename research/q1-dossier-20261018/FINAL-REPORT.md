@@ -9,6 +9,8 @@ Start: **2026-10-18T18:04:04.3769833-08:00**. Exact ten-hour deadline: **2026-10
 
 Lead: Codex agent, GPT-6 family; exact host model identifier was not exposed. Bounded literature/design assistants used the BRIEF-authorized Astra/high and Sol/high or medium settings; WP9 was a fresh Astra/xhigh independent reviewer. Their work and model choices are logged in [PROGRESS](PROGRESS.md). No scientific experiment, pixel inspection, GPU use, package installation, data/model/code download, paid compute, submission or external communication occurred. Permitted stdlib counted retained JSON results and calculated bounds; one post-hoc saved-Boolean count explains E3's owner gate. A continuation assistant also made one out-of-purpose stdlib HTTP fetch attempt; it failed with HTTP 403 before parsing/saving and is disclosed in section 9. No experiment occurred, but Python-purpose compliance was not perfect.
 
+The renewed continuation at **2026-10-19T04:51:26.7321373-08:00** delivered a future-only component-identification contract and seven manuscript-table CSVs containing 46 existing-evidence rows. Its central correction is that Full versus owner-plus-content removes both successful reading and code matching; the revised q-specific contrast retains reading and removes only code-to-record matching. Theory, the study plan, rebuttals and the complete manuscript now reflect that distinction. Final reconciliation began at 05:03:01-08:00 and its documentary checks completed at **2026-10-19T05:05:25.4795873-08:00**; the closing message records the final commit/push receipt. No new scientific result or source verification was produced in this continuation.
+
 | Package | Delivered checkpoint commit |
 |---|---|
 | WP0 orientation | `f4285e8` |
@@ -34,7 +36,10 @@ Lead: Codex agent, GPT-6 family; exact host model identifier was not exposed. Bo
 | R3 complete protocol/results/discussion/conclusion prose | `dbf2f9e` |
 | R4 reproducibility and prospective release inventory | `ee80774` |
 | R5 prospective fresh-data metadata/separation plan | `9848720` |
-| R6 complete manuscript assembly / final state | Commit containing this revised report; exact hash/push outcome in closing chat. |
+| R6 complete manuscript assembly / final state | `5701fa7` |
+| R8 export seven existing-evidence manuscript tables | `37d338e` |
+| R7 component-identification contract / manuscript correction | `bc90795` |
+| R9 report, integration checks and MAIN state reconciliation | Commit containing this revised report; exact hash/push outcome in closing chat. |
 
 All listed resolved commits were pushed to `origin/codex/q1-research-20261018`; no other branch was pushed. The authorized MAIN STATE update is saved in the main checkout and mirrored as [MAIN-STATE-snapshot.md](MAIN-STATE-snapshot.md) in this branch. MAIN's branch is not committed or pushed by this session. The snapshot preserves the exact state text in the session's own commit history.
 
@@ -77,14 +82,14 @@ Effort is approximate researcher time; items already implemented must propagate 
 | Rank | Action | Effort and file |
 |---|---|---|
 | 1 | Use recovery-versus-attribution framing and disclose EV-77's owner-gate explanation. | 1–2 h propagation; 03, 08, 11. Core correction done. |
-| 2 | Preserve planned/observed denominators, E2 failure, E3 conditional scope and abstention in every table. | 1–2 h; 01/01b/08 and figure specifications. Core correction done. |
-| 3 | Separate owner, q and record-check roles; preserve public derivation, valid fallback and missing-cache distinctions. | 1–2 h; 05/07/11. Core contract done. |
-| 4 | Specify the falsifiable record-level question and native-versus-adapted baseline contract before requesting studies. | 2–4 h plus feasibility; 07 F1. Planning contract done; executable protocol not created. |
+| 2 | Preserve planned/observed denominators, E2 failure, E3 conditional scope and abstention in every table. | **Delivered:** corrected tables in 18/21 plus seven CSV exports with 46 rows and provenance in 24. Graphics remain specifications. |
+| 3 | Separate owner detection, readable code, code-distance selection and record checking; preserve public derivation, valid fallback and missing-data distinctions. | **Delivered:** 05/07/11/23. Full versus ORVF isolates the q-distance decision; Full versus OF is composite. No added component benefit has been measured. |
+| 4 | Specify the falsifiable record-level question and native-versus-adapted baseline contract before requesting studies. | **Delivered:** 07 F1 and 23. Nested-set tradeoffs, paired risk/recovery, shared-bank dependence and missingness bounds are specified. Population/bank, useful margins, interval method and precision remain unresolved; no executable protocol. |
 | 5 | Resolve bibliographic versions and obtain lawful full texts for remaining novelty threats. | 2–5 h plus access; 02 and extension bibliography audit. Access gaps remain. |
 | 6 | Confirm university ranking system/edition/category and current journal guide/fees. | 1 h plus institution response; 04. No institutional answer assumed. |
 | 7 | Reconcile article scope with original objectives and seek an explicit later amendment if desired. | 1–2 h plus supervisor decision; 09. Mapping complete, decisions open. |
-| 8 | Revise the assembled manuscript, rebuttal bank, figure specifications and submission drafts after missing scientific evidence and author decisions exist. | All nine sections and the 205-word abstract now assembled in 21; about 6,671 words including editorial notes. Later typesetting/consolidation remains production work, not evidence. |
-| 9 | Prepare a rights-aware reproducibility/release inventory and honest cost table. | **Delivered:** 19, 64 scoped entries and EV-keyed historical costs. Table-only producer, source rights and public archive remain pending; aggregate-only reconstruction limits are explicit. |
+| 8 | Revise the assembled manuscript, rebuttal bank, figure specifications and submission drafts after missing scientific evidence and author decisions exist. | All nine sections and the 205-word abstract now assembled in 21; 6,809 whitespace-delimited words including editorial notes. Later typesetting/length editing remains production work, not evidence. |
+| 9 | Prepare a rights-aware reproducibility/release inventory and honest cost table. | **Delivered:** 19, 64 scoped entries and EV-keyed historical costs; 24 supplies CSV inputs. A reusable standalone table producer, source rights and public archive remain pending; aggregate-only reconstruction limits are explicit. |
 | 10 | Turn candidate fresh-data sources into a prospective license/group/overlap plan before any acquisition or outcomes. | **Delivered:** 20, four source-policy rows and 55 schema fields, zero asset rows. Grouping, unknown-provenance quarantine, ID/hash limits and future allocation/label rules are specified. No cohort certified fresh or sample size justified as adequate. |
 
 ## 6. Future experiments — ranked proposals, NOT RUN
@@ -93,7 +98,7 @@ None is approved by this dossier; closed external-baseline work requires explici
 
 | Priority | Proposed evidence and unlocked claim | Rough local / rented compute allowance |
 |---|---|---|
-| F1 | Component controls plus one task-compatible external hybrid/copy control; tests q's additional record discrimination and separates native from adapted decisions. | 24–72 h; USD 21.36–64.08 rental; 3–7 researcher-days, potentially more if baseline compatibility fails. |
+| F1 | Full versus ORVF for code-distance discrimination; separate read/content contrasts and one task-compatible external hybrid/copy control. Requires a useful paired recovery/risk tradeoff and preserves native/adapted semantics. | 24–72 h; USD 21.36–64.08 rental; 3–7 researcher-days, potentially more if baseline compatibility fails. |
 | F2 | Diverse fresh hard negatives and complete banks; tests population-specific specificity and complete-bank attribution, including full-pipeline versus descriptor-only outcomes. | 12–36 h; USD 10.68–32.04; 3–10 curation/researcher-days. |
 | F3 | SDXL or another documented separately trained encoder, paired nominal-strength and development-matched-quality channels. | 12–48 h if laptop fits, otherwise infeasible locally; USD 10.68–42.72 rental. |
 | F4 | Separate active beta re-marking and bounded adaptive encoder-aware attacks; only needed for the corresponding expanded security claim. | 12–60 h; USD 10.68–53.40; excludes new robust-encoder training. |
@@ -111,6 +116,7 @@ Prices use the retrieved Runpod RTX4090 list rate of USD .89/h, as sourced in [0
 4. Define the intended scope of image identity and any future blinded human judgments; the old PSNR label remains frozen.
 5. Decide whether to reopen F1 external comparisons and authorize a future development/confirmation plan; no new run is approved now.
 6. Set a later compute/publication budget, authorship, institutional access and release permissions. No payment, contact, submission or human verdict was fabricated.
+7. Before F1/F2, choose a scientifically useful target population/bank and justify risk/recovery margins, dependence handling and precision. The five-point examples and acquisition counts are not approved gates or a power calculation; see 23's unresolved-field table.
 
 ## 8. Principal risks and possible fatal objections
 
@@ -127,6 +133,8 @@ The continuation strengthens TIFS ranking evidence: the IEEE January 2026 title 
 Documentary checks found 25 required artifacts, unique 98 matrix/99 bibliography keys, existing card paths, and V2 status for all 30/35 distinct citations in the two manuscript drafts. Structured files and selected current links pass the checks recorded in [integration-check.json](17-completion/integration-check.json). These are author structural checks, not an independent scientific audit. All continuation agents are finished.
 
 The post-deadline follow-up adds Sections 5–9, a complete working manuscript, the local release inventory and the prospective data plan. It uses existing outcomes only, with EV-78–80 added for protocol settings/cohort/availability-amendment facts rather than new results. The current [integration check](22-documentary-integration-check.json) covers the assembly and supporting documents. UVG's official license hyperlink now resolves to BY-NC 3.0; actual sequence/use scope remains unresolved. No current journal-policy field or inaccessible paper was silently upgraded. The two follow-up agents performed authoring and source checks, not another independent milestone review. No Python or experiment was used in this follow-up.
+
+The later R7/R8 continuation adds [the component contract](23-component-study-contract.md) and [table exports](24-manuscript-tables/README.md). Its one design author was not an independent reviewer. The CSVs select corrected saved counts, copy prior confidence bounds and disclose saved-aggregate verification limits; their existence does not reproduce image-level scientific decisions. No Python, new metric, bound calculation, experimental arm, dataset or public release was produced. The original scientific and WP2/WP4 access gaps remain.
 
 ## 10. File index
 
@@ -154,3 +162,5 @@ The post-deadline follow-up adds Sections 5–9, a complete working manuscript, 
 - [20-fresh-data-plan/README.md](20-fresh-data-plan/README.md), [metadata schema](20-fresh-data-plan/metadata-schema.csv): prospective source policies, creator grouping, overlap/separation and labeling rules; no assets.
 - [21-manuscript-working-draft.md](21-manuscript-working-draft.md): assembled abstract and Sections 1–9, complete prose but not submission-ready evidence.
 - [22-documentary-integration-check.json](22-documentary-integration-check.json): final author checks of section assembly, citations, links, supporting CSVs and state synchronization.
+- [23-component-study-contract.md](23-component-study-contract.md): future-only read-versus-code-matching controls, paired utility/risk estimands, missingness bounds, comparison semantics and unresolved protocol choices.
+- [24-manuscript-tables/README.md](24-manuscript-tables/README.md), [export provenance](24-manuscript-tables/export-provenance.json): seven existing-evidence CSVs, 46 rows, field mappings, local hashes and reconstruction limits.
