@@ -34,7 +34,7 @@ OpenAlex returned zero DREW citers despite the verified IConMark edge, one Synth
 
 Searches used exact titles, arXiv identifiers, authors and references/citations terms, then inspected primary text. No authenticated Web of Science, Scopus or Scholar census was performed. The registers preserve failed opens, metadata-only leads, anonymous submissions, older/final version separation and fulltext gaps. A November–December issue label for the Rel-Zero citer does not establish its online-first date; only the accessible primary preview at this retrieval date is claimed.
 
-RAVEN's final CVPR metadata is verified, while its scientific card is pinned to arXiv v1. Beyond Generation is pinned to inspected v1 although v2 metadata exists. NRGMark's author PDF is not asserted byte-identical to the proceedings. Source-specific numbers must retain these version qualifications. Final TrustMark is ICCV 2025; an initial delegation label saying CVPR was corrected before integration.
+RAVEN's final CVPR metadata is verified, while its scientific card remains pinned to arXiv v1 after the continuation's failed final-text routes. Beyond Generation was initially inspected at v1 and has now been refreshed to **v2** for the focused method, evaluation, limitations and SynthID reference; its earlier cache and agent access logs remain v1 history. See [version checks](17-completion/version-checks.md). NRGMark's author PDF is not asserted byte-identical to the proceedings. Source-specific numbers must retain these version qualifications. Final TrustMark is ICCV 2025; an initial delegation label saying CVPR was corrected before integration.
 
 ## Audit trail
 

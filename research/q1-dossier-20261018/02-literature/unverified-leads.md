@@ -1,6 +1,6 @@
 # V1/V0 leads, access gaps and version limits
 
-As of 2026-10-18. V1 means primary metadata/abstract or incomplete text; V0 means an unverified discovery lead. Neither supports a method comparison. A source may have an older V2 manuscript and an inaccessible newer version; the newer version is not silently credited with the older reading. The matrix has 79 unique V2 works, including 77 research papers and two standard/guidance documents; this exceeds the numerical target, but does not remove the access gaps below.
+As of 2026-10-19, after the continuation access audit. V1 means primary metadata/abstract or incomplete text; V0 means an unverified discovery lead. Neither supports a method comparison. A source may have an older V2 manuscript and an inaccessible newer version; the newer version is not silently credited with the older reading. The matrix has **98 works, 90 V2 (88 research papers and two standards/guidance) and eight V1**. This exceeds the numerical target but does not remove the access gaps below. Documentation-only V1 entries are not counted as missing research papers.
 
 ## Consequential unresolved primary papers
 
@@ -15,7 +15,7 @@ As of 2026-10-18. V1 means primary metadata/abstract or incomplete text; V0 mean
 | pHash design page | V1; [official documentation](https://www.phash.org/docs/design.html) | A full method/evaluation source for any proposed operating point | Documentation is not an empirical security evaluation |
 | TrustMark/C2PA integration README | V1; [official repository page](https://github.com/adobe/trustmark/blob/main/c2pa/README.md) | Paper-equivalent evaluation is not supplied by README | Use the V2 final TrustMark paper and C2PA specification instead |
 
-The BRIEF's demand to read every consequential recent C1/C3/C4/C6 paper at V2 remains access-limited for the first three rows. They are explicit unresolved novelty checks. No paid access, contact, credentials, package installation or external communication was attempted. Full access-route logs are in `access-refresh/search-log.md` and `access-refresh/access-gaps.md`.
+The BRIEF's demand to read every consequential recent C1/C3/C4/C6 paper at V2 remains access-limited for the **first four rows**. They are explicit unresolved novelty checks, even where the matrix groups journal exemplars under C9. No paid access, contact, credentials, package installation or external communication was attempted. Original access-route logs are in `access-refresh/search-log.md` and `access-refresh/access-gaps.md`; the continuation adds [recent journal routes](../17-completion/recent-papers/REPORT.md) and [zero-watermarking routes](../17-completion/zero-watermark/REPORT.md). The five refreshed papers remain V1. ConZWNet's OA metadata conflict is unresolved: OA indexes point only to its DOI while the publisher API returns non-OA core metadata, not full text. Failed searches do not establish the absence of a lawful manuscript.
 
 ## Version-qualified sources already counted at V2
 
@@ -27,6 +27,8 @@ The BRIEF's demand to read every consequential recent C1/C3/C4/C6 paper at V2 re
 - MantleMark: university-hosted journal-formatted manuscript is V2; precise revision equivalence is unresolved.
 - Reversible Unlearnable Examples: author arXiv v1 is V2. Correspondence with the journal article is supported by authors, abstract and mechanism, with a Toward/Towards title difference and no explicit arXiv journal DOI. Keep manuscript-qualified numbers.
 - MetaSeal and RAIN were refreshed to their current v2 versions; NAWE is current v1. Earlier unresolved-lead notes in cluster logs describe superseded search states.
+- Beyond Generation: current arXiv v2 now has a focused primary method/evaluation reading; the earlier v1 cache and access log remain historical, not v2 provenance. Its reconstruction/SynthID causal limitation remains.
+- RAVEN: arXiv v1 is V2; CVPR2026 identity is verified. The final CVF HTML/PDF routes remained inaccessible during the continuation. No final-version experimental equivalence is asserted.
 
 ## Discovery-only and discarded leads
 

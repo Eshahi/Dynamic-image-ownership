@@ -1,5 +1,7 @@
 # WP4 ranking refresh and Information Sciences candidate
 
+**Dated-record notice, 2026-10-19:** the table below preserves the original 18 October audit. The [continuation](17-completion/rankings/report.md) now verifies IEEE-publisher JCR2024 Q1 for TIFS (category unspecified) and SCImago2024 best-Q1 for Information Sciences. It does not close their newest named-category gaps. The integrated current comparison is [04-venues.md](04-venues.md).
+
 Checked 18 October 2026. Research-only supplement to `04a-ieee-venue-evidence.md` and `04b-elsevier-venue-evidence.md`; those files were not edited. Only primary ranking-provider/publisher evidence is accepted below. Publisher-deposited Crossref records supply bibliographic metadata. No experiment, download of research material, submission, payment, or external contact was performed.
 
 ## Ranking result and interpretation

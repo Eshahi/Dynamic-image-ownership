@@ -1,0 +1,70 @@
+{
+  "access_date": "2026-10-19",
+  "type": "selected_fields_transcribed_from_observed_public_metadata_responses",
+  "not_fulltext_artifacts": true,
+  "conzwnet": {
+    "doi": "10.1016/j.jisa.2025.104139",
+    "canonical_author_source": "https://api.crossref.org/works/10.1016/j.jisa.2025.104139",
+    "canonical_authors": ["Deyu Tong", "Hongxin Han", "Can Li", "Fengting Wang", "Weilong Kong", "Na Ren"],
+    "openalex": {
+      "url": "https://api.openalex.org/works/https://doi.org/10.1016/j.jisa.2025.104139?select=id,doi,title,open_access,best_oa_location,locations",
+      "id": "https://openalex.org/W4411856970",
+      "is_oa": true,
+      "oa_status": "hybrid",
+      "oa_url": "https://doi.org/10.1016/j.jisa.2025.104139",
+      "any_repository_has_fulltext": false,
+      "best_location_pdf_url": null,
+      "best_location_license": "cc-by-nc-nd",
+      "best_location_version": "publishedVersion"
+    },
+    "semantic_scholar": {
+      "paper_id": "ac304987c4af572002af9ddbf6bf36cd27ce3ab3",
+      "openAccessPdf": {"url": "https://doi.org/10.1016/j.jisa.2025.104139", "status": "HYBRID", "license": "CCBYNCND"},
+      "author_name_discrepancies_not_adopted": ["De-Yu Tong", "Hongxing Han"]
+    },
+    "elsevier_public_api": {
+      "url": "https://api.elsevier.com/content/article/pii/S2214212625001760",
+      "request_accept": "text/xml",
+      "http_status": 200,
+      "response_characters": 1881,
+      "response_scope": "coredata only; no full article body",
+      "openaccess": "0",
+      "openaccessArticle": "false",
+      "openaccessUserLicense": "",
+      "coverDisplayDate": "September 2025"
+    },
+    "conclusion": "Access metadata conflict unresolved. No fulltext obtained; remains V1."
+  },
+  "radmark": {
+    "doi": "10.1016/j.neucom.2025.129970",
+    "canonical_author_source": "https://api.crossref.org/works/10.1016/j.neucom.2025.129970",
+    "canonical_authors": ["Kun Hu", "Dakai Zhai", "Heng Gao", "Haoyu Xie", "Xingjun Wang"],
+    "elsevier_public_api_status": 429,
+    "semantic_scholar_result": "timeout, not an empty record or no-OA finding",
+    "conclusion": "No fulltext obtained; remains V1."
+  },
+  "pseudo2022": {
+    "doi": "10.1007/s11042-022-12079-9",
+    "canonical_metadata_source": "https://link.springer.com/article/10.1007/s11042-022-12079-9",
+    "authors": ["Ta Minh Thanh", "Giang Ngoc Dan"],
+    "volume": "81",
+    "pages": "29119-29136",
+    "published": "2022-04-02",
+    "version_of_record": "2022-04-02",
+    "publisher_access": "subscription preview; SharedIt link unavailable",
+    "semantic_scholar": {
+      "paper_id": "19051dbb66eb680c1d31cd1c84cdba6450afd119",
+      "openAccessPdf": {"url": "", "status": null, "license": null}
+    },
+    "researchgate_scope": "first-page publisher preview only despite author-profile fulltext label",
+    "distinct_chapter": {
+      "doi": "10.1007/978-3-030-77424-0_36",
+      "authors": ["Le Danh Tai", "Cao Thi Luyen", "Ta Minh Thanh"],
+      "year": 2021,
+      "source": "https://eudl.eu/doi/10.1007/978-3-030-77424-0_36",
+      "access": "free-account login required; no account created; no manuscript acquired",
+      "relation_to_journal_version": "not established beyond similar title and abstract; not merged"
+    },
+    "conclusion": "No fulltext obtained; remains V1."
+  }
+}

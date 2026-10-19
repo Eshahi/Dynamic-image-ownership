@@ -1,0 +1,44 @@
+{
+  "access_date": "2026-10-19",
+  "agent": "Codex completion_recent_papers",
+  "kind": "selected factual metadata and access observations; not full text",
+  "papers": [
+    {
+      "citekey": "guo2025robustreversible",
+      "title": "Robust Reversible Watermarking With Invisible Distortion Against VAE Watermark Removal",
+      "authors": ["Bobiao Guo", "Ping Ping", "Fan Liu", "Feng Xu"],
+      "doi": "10.1109/TIP.2025.3613958",
+      "journal": "IEEE Transactions on Image Processing",
+      "volume": "34",
+      "pages": "6386-6401",
+      "year": 2025,
+      "verification": "V1",
+      "source_urls": ["https://api.crossref.org/works/10.1109/TIP.2025.3613958", "https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11185321", "https://perfectpicture.top/"],
+      "ieee_isOpenAccess": false,
+      "ieee_pdfUrl": "/stamp/stamp.jsp?tp=&arnumber=11185321",
+      "retrieved_content": "publisher article HTML metadata and abstract; no methods or evaluation",
+      "fulltext_artifact": null,
+      "fulltext_sha256": null,
+      "comparison_eligible": false
+    },
+    {
+      "citekey": "zhao2026rimark",
+      "title": "RI-Mark: Robust and imperceptible watermarking for diffusion models",
+      "authors": ["Chengming Zhao", "Li Li", "Yanli Ren", "Guorui Feng"],
+      "doi": "10.1016/j.eswa.2026.132903",
+      "journal": "Expert Systems with Applications",
+      "volume": "328",
+      "article_number": "132903",
+      "crossref_published_date_parts": [2026, 10],
+      "year": 2026,
+      "verification": "V1",
+      "source_urls": ["https://api.crossref.org/works/10.1016/j.eswa.2026.132903", "https://www.sciencedirect.com/science/article/pii/S0957417426018154", "https://dblp.org/pid/438/6010.html"],
+      "semantic_scholar_paper_id": "3669a9bcbc6b17522cca18044858d52005e3c2e9",
+      "semantic_scholar_openAccessPdf": {"url": "", "status": null, "license": null},
+      "retrieved_content": "Crossref/DBLP metadata and indexed publisher preview; no complete methods or evaluation",
+      "fulltext_artifact": null,
+      "fulltext_sha256": null,
+      "comparison_eligible": false
+    }
+  ]
+}
