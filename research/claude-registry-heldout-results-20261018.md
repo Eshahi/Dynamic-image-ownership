@@ -15,8 +15,8 @@ The pre-result reading the user approved is in `claude-registry-heldout-gap-note
 |---|---|---|---|
 | E1, SD1.5 at .2 | ≥ 266/300 (one-sided 95% CP lower ≥ .85) | **277/300**, lower bound .893 | pass |
 | E1, SD2.1 at .2 | ≥ 266/300 | **280/300**, lower bound .905 | pass |
-| E2, unrelated pairs | 0 false accepts | **0** of 3,408,600 (300 clusters, upper 95% ≈ 1.0%) | pass |
-| E2, T4 copy-paste transfers | 0 | **0** of 594 | pass |
+| E2, unrelated pairs | 0 false accepts | **0** of 3,343,081 observed (3,408,600 planned, 65,519 unavailable; 300 clusters, upper 95% ≈ 1.0%) | pass |
+| E2, T4 copy-paste transfers | 0 | **0** of 594 observed (600 planned, 297 donor groups) | pass |
 | E2, real look-alikes below 18.126 dB | 0 | **3** of 45 pairs, in 2 of 16 shots | **fail** |
 | E3, wrong-owner attributions (approved reading) | 0 | **0** in all 8 cells; 293-297 of 300 evaluable per cell | pass |
 
@@ -71,8 +71,8 @@ Without the watermark, fingerprint matching cannot tell owner from attacker (alm
 
 - **May claim:**
   - registry attribution of SD1.5/SD2.1 regenerations at strength .2 on new real photographs (277/300 and 280/300);
-  - zero false accepts against 3.4 million unrelated pairs and 594 copy-paste transfers;
-  - zero wrong-owner attributions after regenerate-and-enroll, where fingerprint-only matching fails.
+  - zero false accepts among 3,343,081 observed unrelated comparisons and 594 observed copy-paste transfers. These are correlated comparisons, not millions of independent trials;
+  - under the approved pre-result complete-case reading, zero attacker accepts among 293-297 evaluable sources per cell after passive regenerate-and-enroll. Fingerprint-only matching fails the same criterion, mostly through ambiguity: it accepts both owners. Unique attacker attributions are reported separately from that ambiguity.
 - **May not claim:**
   - the confirmation as a whole;
   - zero false accepts on clearly different look-alikes. Observed: 3/45 pairs, 2/16 shots, cluster upper 95% bound .34.
@@ -93,3 +93,17 @@ The user chose to report the result as it stands ("Treat it"). Claude asked them
 - No thresholds or definitions are changed on this data.
 
 **Next M2 step:** one independent review and claims audit by Codex (strongest model), once Codex runs again.
+
+## Independent M2 review (Codex, 2026-10-18)
+
+**Verdict: accept with corrections, for reporting a bounded negative overall confirmation.** Review file: `research/q1-dossier-20261018/01b-heldout-registry-m2-review.md` on branch `codex/q1-research-20261018`.
+
+The four blocking corrections are applied above:
+1. **Unrelated pairs:** 3,343,081 observed of 3,408,600 planned. Claude checked this against `metrics/endpoints.json` (`E2.unknown_pairs` = 65,519).
+2. **E3 wording:** stated as complete-case. The frozen flags stay false: `pass_`, `plan_view_E1_E2_pass`, `E2.pass_` and `E3.pass_`.
+3. **Fingerprint comparison:** ambiguity is a failure of the criterion, reported apart from unique wrong-owner calls.
+4. **Effective units:** 297 observed T4 donors, 16 shots for the look-alikes, and 293-297 sources per E3 cell.
+
+**Post-hoc explanation of E3 (EV-77, a count of saved results only).** In every completed query, the attacker's own owner detection returned `found=false`, because a passive attacker never embeds a mark. The zero-attacker result therefore follows from owner detection alone. It does not show any added benefit from the q-code match or the D1+B1 record check. The reportable value of E3 is narrower: the original owner's mark survives and names that owner, where fingerprint-only matching cannot decide.
+
+**Wording change in the user decision above:** "E1 and E3 are confirmed" should be read as E1 confirmed, and E3 observed under the complete-case reading with the EV-77 explanation.
