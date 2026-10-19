@@ -1,0 +1,39 @@
+# WAM: faithful released implementation and two detectors
+
+Inspected 2026-10-19. Extend dossier `Sander2025WAM.md`. [Paper v2](https://arxiv.org/html/2411.07231v2) §§3–5, Eq1–2, §5.3, Appendix G.3/Table9 are V2, reread for this adapter decision. Official release pinned to [2c08af04d037d5667c02f6ddebbda9ff04581c3e](https://github.com/facebookresearch/watermark-anything/tree/2c08af04d037d5667c02f6ddebbda9ff04581c3e).
+
+Use the existing `research/journal-upgrade-20261009/wam-download.json`: SA-1B MIT checkpoint [wam_mit.pth](https://dl.fbaipublicfiles.com/watermark_anything/wam_mit.pth), 377,825,938 bytes, SHA256 `90ef232384e023bd63245eb0c131abd69d2afc7b8f17a71ccedceb542bf009e2`. Do not substitute the differently licensed COCO checkpoint. Source archive SHA256 `7baaa18c6774d1397207b262cd077f588150e846fada9c7c7b5ce7d0239ef0b6` is inherited from that manifest; no new weights/source archive downloaded.
+
+## Native parameters and preprocessing
+
+`checkpoints/params.json`: nbits32, scaling_w2.0, scaling_i1.0, img_size256, img_size_extractor256, vae_small embedder, sam_base extractor, JND `jnd_1_3_blue`. Use one full-image message, not DBSCAN/multiple watermarks. No tuning or quality_w0p5 arm is part of this core.
+
+RGB512 -> ToTensor [0,1] -> ImageNet normalization mean[.485,.456,.406], std[.229,.224,.225]. `Wam.embed` internally bilinear-resizes to256, generates residual, resizes residual back to512 with antialias=True, and blends with native JND and scales. `Wam.detect` internally bilinear-resizes normalized input to256, returns B×33×256×256 logits. Pin torchvision behavior; do not apply an external 256 PIL resize instead.
+
+Native README saves unnormalized image through `torchvision.utils.save_image`, which clamps after multiply255/add.5 and converts to uint8. Existing `journal_wam_probe.py` uses np.rint; this differs at exactly half-integer ties. For the new experiment use the official saving rule consistently and score reopened RGB PNG. The existing historical probe remains untouched and is not the new arm's output.
+
+## Native detection is not nonempty mask
+
+Paper Eq1 defines s_det as the fraction of pixels passing a pixel threshold. §5.3 flags a whole image if **s_det > .07**, calibrated there on COCO validation images to approximately 2.6e-4 FPR. Use released README's pixel threshold **sigmoid(mask_logit) > .5** and strict image threshold >.07, reporting the raw fraction. Neither mean mask confidence nor any-positive-pixel is the native image-level detector.
+
+**Calibration qualification:** the paper's experiments use COCO-trained weights; the frozen arm is MIT SA-1B. Applying (.5,.07) is a transferred published operating rule, not proof that the SA-1B release achieves the paper's FPR. Report observed C0 false positives and intervals. No held-out training pixels are accessed or calibrated here. Native localization/presence and known-message recovery are different endpoints.
+
+## Decoder fidelity and paper/code discrepancy
+
+`README.md:139–145` applies sigmoid only to mask logits, then passes **raw bit logits** into `msg_predict_inference`. Pinned `watermark_anything/data/metrics.py:150–195`, default semihard:
+
+- select pixels whose supplied mask probability is >.5;
+- average each raw bit logit across selected pixels;
+- output true iff that average is **>.5** (not >0).
+
+Paper Eq2 instead describes averaging bit probabilities and thresholding at .5. Preserve the released-code rule as the native implementation, record the discrepancy explicitly, and do not silently apply a sigmoid to bit logits or change the threshold. The current `journal_wam_probe.py` follows the pinned README's raw-logit semantics, despite the surprising threshold. The optional `threshold` argument is not used by semihard's final comparison; passing threshold=0 does not fix/change it. Empty masks must yield explicit abstention, decoded_message=null, presence false, common presence false; otherwise the upstream NaN comparison can manufacture an all-zero decoded message.
+
+The current adapter's strict tensor state_dict loading, ImageNet preprocessing, Wam construction and unused Identity training augmenter are suitable. Add native image presence >.07, integer agreeing-bit count, common presence, exact-message recovery, independent random wrong-message schedule, and explicit empty-mask abstention. Its existing `native_mask_nonempty_diagnostic` is correctly diagnostic only, never a calibrated detection result. Preserve FP32 inference and finite output checks.
+
+## Common operating point
+
+For a decoded native32 message, common presence = at least **27/32** matches (one-sided exact Binomial tail 0.00005653710104525089). This tests agreement with the known per-source message; no registry matching is given to WAM. Do not require native image detection additionally for this endpoint: native zero-bit presence is reported separately. Empty-mask abstention fails both. The theoretical tail assumes a uniform independent candidate message under null; observed C0/wrong-message results remain mandatory and correlated seed/image calls are not independent FPR trials.
+
+## Published regeneration evidence
+
+Table9 reports WAM bit accuracies100.0/99.4/71.3/49.1% at DiffPure recovered-image PSNR30.1/28.4/27.0/24.9 dB; VAE attacks100.0/99.8/98.6/53.7% at32.9/32.4/28.6/25.5dB. These are bit accuracies for the paper model, not TPR for the released MIT checkpoint or SDXL strength.2. The same table's TrustMark DiffPure accuracies100.0/98.3/74.9/54.3% demonstrate why ordinary-distortion robustness cannot stand in for regeneration survival.

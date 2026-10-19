@@ -1,0 +1,581 @@
+{
+  "topic": "T3-baseline-fidelity",
+  "date": "2026-10-19",
+  "status": "research_only_no_outcomes",
+  "source_cache": [
+    {
+      "file": "vine-enc-README.md.txt",
+      "url": "https://huggingface.co/Shilin-LU/VINE-R-Enc/raw/0c255688e032e4318c700c485c0625367b70908c/README.md",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\vine-enc-README.md.txt",
+      "bytes": 437,
+      "sha256": "74f463fac078f5619b10bedff1966d25d8bdbbdbba4450a4d633db64b34eb74d"
+    },
+    {
+      "file": "vine-LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/LICENSE",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\vine-LICENSE.txt",
+      "bytes": 6359,
+      "sha256": "06950399f70f78c4cd1d3404238b5ca7ae5686d354f210f1037ccfbc9c48b8e1"
+    },
+    {
+      "file": "vine-vine-src-watermark_encoding.py.txt",
+      "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/watermark_encoding.py",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\vine-vine-src-watermark_encoding.py.txt",
+      "bytes": 4151,
+      "sha256": "fea5858da71902f6f509da56a4a3a8b40d4cd7f78b6bcc2066cff132d2f1cbbb"
+    },
+    {
+      "file": "vine-vine-src-watermark_decoding.py.txt",
+      "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/watermark_decoding.py",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\vine-vine-src-watermark_decoding.py.txt",
+      "bytes": 2820,
+      "sha256": "4280853c8a5e6759521c313130824a8faa7f14cb6a4788ed9edd79abdb20801d"
+    },
+    {
+      "file": "wam-README.md.txt",
+      "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/README.md",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\wam-README.md.txt",
+      "bytes": 12339,
+      "sha256": "83956b2b71c89c07fdaa6ca43cdd92b65edd8a8437901cdc6647517c2cd4e677"
+    },
+    {
+      "file": "wam-watermark_anything-data-transforms.py.txt",
+      "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/watermark_anything/data/transforms.py",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\wam-watermark_anything-data-transforms.py.txt",
+      "bytes": 3990,
+      "sha256": "45f0e56f4e8febb6657a08001b740bcc4c2fa655812215eb4c929324fddafb21"
+    },
+    {
+      "file": "wam-watermark_anything-data-metrics.py.txt",
+      "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/watermark_anything/data/metrics.py",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\wam-watermark_anything-data-metrics.py.txt",
+      "bytes": 8607,
+      "sha256": "245a7f3f4069c5121da44b4b718571855cd96bb14cfa97eadb08594df4b77933"
+    },
+    {
+      "file": "wam-watermark_anything-models-wam.py.txt",
+      "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/watermark_anything/models/wam.py",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\wam-watermark_anything-models-wam.py.txt",
+      "bytes": 12878,
+      "sha256": "8ce5b1f40bb79914d24ee0e466f88d8ae91237db44884933e92baf317c4761b9"
+    },
+    {
+      "file": "vine-vine-src-watermark_decoding_wbench.py.txt",
+      "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/watermark_decoding_wbench.py",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\vine-vine-src-watermark_decoding_wbench.py.txt",
+      "bytes": 10028,
+      "sha256": "220c942ebfe2af69b3c102b613774d70224135a549a05008125bc3b8e363189d"
+    },
+    {
+      "file": "wam-LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/LICENSE",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\wam-LICENSE.txt",
+      "bytes": 1086,
+      "sha256": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85"
+    },
+    {
+      "file": "wam-checkpoints-params.json.txt",
+      "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/checkpoints/params.json",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\wam-checkpoints-params.json.txt",
+      "bytes": 1221,
+      "sha256": "d133a504d126b56b3e980add9fc014d718e3635a0f5740d8d6dc3190007fb476"
+    },
+    {
+      "file": "vine-enc-config.json.txt",
+      "url": "https://huggingface.co/Shilin-LU/VINE-R-Enc/raw/0c255688e032e4318c700c485c0625367b70908c/config.json",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\vine-enc-config.json.txt",
+      "bytes": 43,
+      "sha256": "5aa84b300e94ca18db89d36a1b6c63fa52567b0d7aa1f6e8a0691c60d0bb8271"
+    },
+    {
+      "file": "vine-dec-config.json.txt",
+      "url": "https://huggingface.co/Shilin-LU/VINE-R-Dec/raw/0f094b300be71a358f7c1769221f50318f1b4d74/config.json",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\vine-dec-config.json.txt",
+      "bytes": 63,
+      "sha256": "2e0fb5506df812193402a1de353c45824a6a0ee1bee37c3ff9730c9fd8b3482d"
+    },
+    {
+      "file": "vine-dec-README.md.txt",
+      "url": "https://huggingface.co/Shilin-LU/VINE-R-Dec/raw/0f094b300be71a358f7c1769221f50318f1b4d74/README.md",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\vine-dec-README.md.txt",
+      "bytes": 338,
+      "sha256": "74102a48db669a07864d34026bb58ccbd3f2b2bc3a4d91bd883f48abae416c2d"
+    },
+    {
+      "file": "adobe-trustmark-readme.txt",
+      "url": "https://raw.githubusercontent.com/adobe/trustmark/main/README.md",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\adobe-trustmark-readme.txt",
+      "bytes": 6146,
+      "sha256": "e7a8dc8a6b18c26facd52089e62a4edeb4c6331827529d9b4a1fab65be0110d1"
+    },
+    {
+      "file": "vine-vine-src-watermark_encoding_wbench.py.txt",
+      "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/watermark_encoding_wbench.py",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\vine-vine-src-watermark_encoding_wbench.py.txt",
+      "bytes": 7898,
+      "sha256": "7b190c070acb30769f0d5313ef7b41dadca3efdc73936e91c20d44b5794da826"
+    },
+    {
+      "file": "tancik-StegaStamp-meta.txt",
+      "url": "https://api.github.com/repos/tancik/StegaStamp",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\tancik-StegaStamp-meta.txt",
+      "bytes": 5241,
+      "sha256": "2e971d2467cba5842a0f39ee0938e3e808ff9c76f5fe4f3d3d9ea3e846789a60"
+    },
+    {
+      "file": "microsoft-InvisMark-meta.txt",
+      "url": "https://api.github.com/repos/microsoft/InvisMark",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\microsoft-InvisMark-meta.txt",
+      "bytes": 6380,
+      "sha256": "931bd7b417d886bd027c3ff84e040a8b9b69734af1f0220eb41ed27f7defd26d"
+    },
+    {
+      "file": "TuBui-RoSteALS-meta.txt",
+      "url": "https://api.github.com/repos/TuBui/RoSteALS",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\TuBui-RoSteALS-meta.txt",
+      "bytes": 15659,
+      "sha256": "2268fe9ed5c98be03eb7f1020bb5ff308c6ad9786ed041d4808e816831ff7212"
+    },
+    {
+      "file": "adobe-trustmark-meta.txt",
+      "url": "https://api.github.com/repos/adobe/trustmark",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\adobe-trustmark-meta.txt",
+      "bytes": 6074,
+      "sha256": "a6ae2f807242bb9795a060e2f91c4040c775a6366915eabc562c995dec62dfb8"
+    },
+    {
+      "file": "vine-vine-src-vine_turbo.py.txt",
+      "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/vine_turbo.py",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\vine-vine-src-vine_turbo.py.txt",
+      "bytes": 10981,
+      "sha256": "afe0935f6c0e335c9e9c41715b4b96db12d071eb70ecdbdebcd1e226645933e9"
+    },
+    {
+      "file": "zhanglijun95-ZoDiac-meta.txt",
+      "url": "https://api.github.com/repos/zhanglijun95/ZoDiac",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\zhanglijun95-ZoDiac-meta.txt",
+      "bytes": 5176,
+      "sha256": "94928aa9fb67d368c8d4bc87046d598787dbc0aef22f13ba4dbe41b4bc1bc20b"
+    },
+    {
+      "file": "vine-setup.py.txt",
+      "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/setup.py",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\vine-setup.py.txt",
+      "bytes": 2276,
+      "sha256": "b24358a5ea64a195268868b1032c0056dd4427d0b20bb16449f959ecb2797072"
+    },
+    {
+      "file": "microsoft-InvisMark-readme.txt",
+      "url": "https://raw.githubusercontent.com/microsoft/InvisMark/main/README.md",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\microsoft-InvisMark-readme.txt",
+      "bytes": 1129,
+      "sha256": "e52bceffe43e46c0f0c6339240d862c8e9059baf41c9eeeefb15e466c6f08272"
+    },
+    {
+      "file": "vine-vine-src-stega_encoder_decoder.py.txt",
+      "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/stega_encoder_decoder.py",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\vine-vine-src-stega_encoder_decoder.py.txt",
+      "bytes": 7489,
+      "sha256": "591054de121a2f3f400e2d745dbcb1a44c045348026f70d62d146e0192e688ad"
+    },
+    {
+      "file": "TuBui-RoSteALS-readme.txt",
+      "url": "https://raw.githubusercontent.com/TuBui/RoSteALS/main/README.md",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\TuBui-RoSteALS-readme.txt",
+      "bytes": 3727,
+      "sha256": "e0be7969e6d2a3188e95a1d02421be3a0f7132164d90917a38ce1e325531d4e3"
+    },
+    {
+      "file": "adobe-trustmark-license.txt",
+      "url": "https://raw.githubusercontent.com/adobe/trustmark/main/LICENSE",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\adobe-trustmark-license.txt",
+      "bytes": 1218,
+      "sha256": "58d47a5cdfaaceda98925d845e8207d90336c62347a2383f95962b667b1cdaf5"
+    },
+    {
+      "file": "microsoft-InvisMark-license.txt",
+      "url": "https://raw.githubusercontent.com/microsoft/InvisMark/main/LICENSE",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\microsoft-InvisMark-license.txt",
+      "bytes": 1141,
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+    },
+    {
+      "file": "zhanglijun95-ZoDiac-readme.txt",
+      "url": "https://raw.githubusercontent.com/zhanglijun95/ZoDiac/master/README.md",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\zhanglijun95-ZoDiac-readme.txt",
+      "bytes": 2138,
+      "sha256": "0f670838919b69766010846b4d847274350ff9fd172969ada1cd6ae6221c789a"
+    },
+    {
+      "file": "tancik-StegaStamp-license.txt",
+      "url": "https://raw.githubusercontent.com/tancik/StegaStamp/master/LICENSE",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\tancik-StegaStamp-license.txt",
+      "bytes": 1095,
+      "sha256": "597e4c8e3110b6b9e67a5b1fee1d7461cdb25e03df590119583b26c9aade5f7f"
+    },
+    {
+      "file": "sd-turbo-meta.txt",
+      "url": "https://huggingface.co/api/models/stabilityai/sd-turbo",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\sd-turbo-meta.txt",
+      "bytes": 4821,
+      "sha256": "41bc13a38d6dd7f3ef25bfe2644e2bcda478f38d6933cb5fa05e64ca39f0d019"
+    },
+    {
+      "file": "microsoft-InvisMark-commit.txt",
+      "url": "https://api.github.com/repos/microsoft/InvisMark/commits/main",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\microsoft-InvisMark-commit.txt",
+      "bytes": 8477,
+      "sha256": "a4381fddf016836ce771910258e72bbc4fa1362f1d61d208e3687fbaddc4a324"
+    },
+    {
+      "file": "tancik-StegaStamp-commit.txt",
+      "url": "https://api.github.com/repos/tancik/StegaStamp/commits/master",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\tancik-StegaStamp-commit.txt",
+      "bytes": 5812,
+      "sha256": "b79684938989123b454b065f7a0e61d719a0fd4dd602bf4c9ee1d0e7f7a116f1"
+    },
+    {
+      "file": "TuBui-RoSteALS-license.txt",
+      "url": "https://raw.githubusercontent.com/TuBui/RoSteALS/main/LICENSE",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\TuBui-RoSteALS-license.txt",
+      "bytes": 20843,
+      "sha256": "5b8e7938e1b5e0a675869ffe429cc8e7cc187d76a7c6ea1e0546c412782a43da"
+    },
+    {
+      "file": "zhanglijun95-ZoDiac-commit.txt",
+      "url": "https://api.github.com/repos/zhanglijun95/ZoDiac/commits/master",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\zhanglijun95-ZoDiac-commit.txt",
+      "bytes": 8560,
+      "sha256": "6dd4ec1083351328e813b12da561f806210ee5ce7aa5c2c8b3aff22c61bef4f5"
+    },
+    {
+      "file": "trustmark-config.txt",
+      "url": "https://raw.githubusercontent.com/adobe/trustmark/main/python/CONFIG.md",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\trustmark-config.txt",
+      "bytes": 5935,
+      "sha256": "35a4d599375fba3e2c955a2696afee42278631842aab9b5e7eb21f76600f97e9"
+    },
+    {
+      "file": "trustmark-loader.txt",
+      "url": "https://raw.githubusercontent.com/adobe/trustmark/main/python/trustmark/trustmark.py",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\trustmark-loader.txt",
+      "bytes": 23608,
+      "sha256": "1016f4f6f842743b2d5710c52ef38441ec3dd6b4658aae5bc05e27b17406c288"
+    },
+    {
+      "file": "adobe-trustmark-commit.txt",
+      "url": "https://api.github.com/repos/adobe/trustmark/commits/main",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\adobe-trustmark-commit.txt",
+      "bytes": 48674,
+      "sha256": "13c48608f2eb00a785affa0740111721b713a7c242a58c1a81cfedee6f4ffd7a"
+    },
+    {
+      "file": "rosteals-models.txt",
+      "url": "https://raw.githubusercontent.com/TuBui/RoSteALS/main/download_models.sh",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\rosteals-models.txt",
+      "bytes": 380,
+      "sha256": "e388c56cb982107e4a3cec3545203dc186cff49050ca4735a154b307852399e1"
+    },
+    {
+      "file": "specguard-readme.txt",
+      "url": "https://raw.githubusercontent.com/inzamamulDU/SpecGuard_ICCV_2025/main/README.md",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\specguard-readme.txt",
+      "bytes": 1585,
+      "sha256": "5db9b44ced400a5b13aac74486f14b74e0eeda4ae103ce88aeb1aad5207805c7"
+    },
+    {
+      "file": "TuBui-RoSteALS-commit.txt",
+      "url": "https://api.github.com/repos/TuBui/RoSteALS/commits/main",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\TuBui-RoSteALS-commit.txt",
+      "bytes": 5388,
+      "sha256": "bbf6d9a1df5c635554aa9727e567e1790a954c26058e942c808c9b64b49b452a"
+    },
+    {
+      "file": "tancik-StegaStamp-readme.txt",
+      "url": "https://raw.githubusercontent.com/tancik/StegaStamp/master/README.md",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\tancik-StegaStamp-readme.txt",
+      "bytes": 4327,
+      "sha256": "7d7df182dcede59ef1e9f00f9f7186a47db9606fc914ec0ec4c5b046f95a9d1d"
+    },
+    {
+      "file": "vine-model.txt",
+      "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/model.py",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\vine-model.txt",
+      "bytes": 2676,
+      "sha256": "15e44fd8f98c8db39804e69c4980bb5f6ab0452efc57f6b74d628526470f83f1"
+    },
+    {
+      "file": "sd-turbo-readme.txt",
+      "url": "https://huggingface.co/stabilityai/sd-turbo/raw/b261bac6fd2cf515557d5d0707481eafa0485ec2/README.md",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\sd-turbo-readme.txt",
+      "bytes": 5900,
+      "sha256": "2482ac53e71baf0624ede7aca74122ef60e442360535105cd57bcc9d7138c22e"
+    },
+    {
+      "file": "sd-turbo-license.txt",
+      "url": "https://huggingface.co/stabilityai/sd-turbo/raw/b261bac6fd2cf515557d5d0707481eafa0485ec2/LICENSE.md",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\sd-turbo-license.txt",
+      "bytes": 11852,
+      "sha256": "d6f6b1a4dce5c852bd6d7d9482d002baf0ccdb71e662250b73be9eec8764ee8d"
+    },
+    {
+      "file": "phase-license.txt",
+      "url": "https://raw.githubusercontent.com/thomas11809/PhaseMark/main/LICENSE",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\phase-license.txt",
+      "bytes": 777,
+      "sha256": "f2f715abab48515faa39f2e42e07ed3518da2fdae36838e6e48ea4a20c2678b8"
+    },
+    {
+      "file": "phase-readme.txt",
+      "url": "https://raw.githubusercontent.com/thomas11809/PhaseMark/main/README.md",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\phase-readme.txt",
+      "bytes": 21059,
+      "sha256": "3e9aeed30cd0717040270acc49f5a0e897a80355f916ed2878f658ff80b5dcd2"
+    },
+    {
+      "file": "phase-meta.txt",
+      "url": "https://api.github.com/repos/thomas11809/PhaseMark",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\phase-meta.txt",
+      "bytes": 5272,
+      "sha256": "6be69e9367b5aa780f0448590c3631021b277c858cc237a32ce5fe7bc42da53d"
+    },
+    {
+      "file": "phase-commit.txt",
+      "url": "https://api.github.com/repos/thomas11809/PhaseMark/commits/main",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\phase-commit.txt",
+      "bytes": 5750,
+      "sha256": "88c868cf1a6d598f4cee9e34251ba5304333add0469f534570c0a636dc295803"
+    },
+    {
+      "file": "sd-turbo-files.txt",
+      "url": "https://huggingface.co/api/models/stabilityai/sd-turbo/tree/b261bac6fd2cf515557d5d0707481eafa0485ec2?recursive=true&expand=false",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\sd-turbo-files.txt",
+      "bytes": 4359,
+      "sha256": "f485b45b1329a761c77ac1aaa072b71d08156c818e54088e1589d49cbf0eca59"
+    },
+    {
+      "file": "vine-dec-files.txt",
+      "url": "https://huggingface.co/api/models/Shilin-LU/VINE-R-Dec/tree/0f094b300be71a358f7c1769221f50318f1b4d74?recursive=true&expand=false",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\vine-dec-files.txt",
+      "bytes": 595,
+      "sha256": "d183c88454ec1f422d9abf2bdbec2f54182e9d33990daaa965704f474f336530"
+    },
+    {
+      "file": "vine-enc-files.txt",
+      "url": "https://huggingface.co/api/models/Shilin-LU/VINE-R-Enc/tree/0c255688e032e4318c700c485c0625367b70908c?recursive=true&expand=false",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\vine-enc-files.txt",
+      "bytes": 597,
+      "sha256": "dd3ceb9997685b1bef7d93781dbfd781d10c16ee4554d2189e3f9fffe648b22b"
+    },
+    {
+      "kind": "reused_v2_html",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\vine.html",
+      "sha256": "f6fb25d7b27ec0e95f883674e2e08a41a9075f5929e76287f02330e339e049dd"
+    },
+    {
+      "kind": "derived_text",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\paper-vine.txt",
+      "sha256": "8bb85cd7d1b530051c88ae8390e4eb65d7750fd50a240ccbc05f232701101e8b"
+    },
+    {
+      "kind": "reused_v2_html",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\wam.html",
+      "sha256": "3ca12cea768aa10c8eda2e351a88c3e85790e69db64e60cad747771897c9c6aa"
+    },
+    {
+      "kind": "derived_text",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\paper-wam.txt",
+      "sha256": "7740219ef33108335cec4aea085448f31d14c990b3cf8f5fe8cc78c5cbf03213"
+    },
+    {
+      "kind": "reused_v2_html",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\invis.html",
+      "sha256": "a4851485a056418c41ad65d605b783a0c626d805f759622d5e978b2a02405343"
+    },
+    {
+      "kind": "derived_text",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\paper-invis.txt",
+      "sha256": "be6b17b690b773e3079aeb5a8162b7dbc7ae5be442048e380f37728136950c0e"
+    },
+    {
+      "kind": "reused_v2_html",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\rosteals.html",
+      "sha256": "687ed6e8bb09968bfff2a3c200640c03ac02819a2656696720a426128c6de00a"
+    },
+    {
+      "kind": "derived_text",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\paper-rosteals.txt",
+      "sha256": "752c924716334bf879e10219be89b401f5785e2a483e555dcd7a13d313448e5a"
+    },
+    {
+      "kind": "reused_v2_html",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\zodiac.html",
+      "sha256": "80f626f4abdaef8a9468497ab5b28bc4e27510aecc4bc365fb3b509a40e72145"
+    },
+    {
+      "kind": "derived_text",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3\\paper-zodiac.txt",
+      "sha256": "9c8b939c87305530102e0b7f1da99ab3a5a99654ff0994a06a79e3e3aed4ca5d"
+    }
+  ],
+  "approved_core_weight_plan": [
+    {
+      "repo": "stabilityai/sd-turbo",
+      "revision": "b261bac6fd2cf515557d5d0707481eafa0485ec2",
+      "path": "model_index.json",
+      "bytes_remote": 616,
+      "sha256_remote_lfs": null,
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/model_index.json",
+      "downloaded": false
+    },
+    {
+      "repo": "stabilityai/sd-turbo",
+      "revision": "b261bac6fd2cf515557d5d0707481eafa0485ec2",
+      "path": "scheduler/scheduler_config.json",
+      "bytes_remote": 553,
+      "sha256_remote_lfs": null,
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/scheduler/scheduler_config.json",
+      "downloaded": false
+    },
+    {
+      "repo": "stabilityai/sd-turbo",
+      "revision": "b261bac6fd2cf515557d5d0707481eafa0485ec2",
+      "path": "text_encoder/config.json",
+      "bytes_remote": 618,
+      "sha256_remote_lfs": null,
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/text_encoder/config.json",
+      "downloaded": false
+    },
+    {
+      "repo": "stabilityai/sd-turbo",
+      "revision": "b261bac6fd2cf515557d5d0707481eafa0485ec2",
+      "path": "text_encoder/model.safetensors",
+      "bytes_remote": 1361596304,
+      "sha256_remote_lfs": "67e013543d4fac905c882e2993d86a2d454ee69dc9e8f37c0c23d33a48959d15",
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/text_encoder/model.safetensors",
+      "downloaded": false
+    },
+    {
+      "repo": "stabilityai/sd-turbo",
+      "revision": "b261bac6fd2cf515557d5d0707481eafa0485ec2",
+      "path": "tokenizer/merges.txt",
+      "bytes_remote": 524619,
+      "sha256_remote_lfs": null,
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/tokenizer/merges.txt",
+      "downloaded": false
+    },
+    {
+      "repo": "stabilityai/sd-turbo",
+      "revision": "b261bac6fd2cf515557d5d0707481eafa0485ec2",
+      "path": "tokenizer/special_tokens_map.json",
+      "bytes_remote": 574,
+      "sha256_remote_lfs": null,
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/tokenizer/special_tokens_map.json",
+      "downloaded": false
+    },
+    {
+      "repo": "stabilityai/sd-turbo",
+      "revision": "b261bac6fd2cf515557d5d0707481eafa0485ec2",
+      "path": "tokenizer/tokenizer_config.json",
+      "bytes_remote": 855,
+      "sha256_remote_lfs": null,
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/tokenizer/tokenizer_config.json",
+      "downloaded": false
+    },
+    {
+      "repo": "stabilityai/sd-turbo",
+      "revision": "b261bac6fd2cf515557d5d0707481eafa0485ec2",
+      "path": "tokenizer/vocab.json",
+      "bytes_remote": 1059962,
+      "sha256_remote_lfs": null,
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/tokenizer/vocab.json",
+      "downloaded": false
+    },
+    {
+      "repo": "stabilityai/sd-turbo",
+      "revision": "b261bac6fd2cf515557d5d0707481eafa0485ec2",
+      "path": "unet/config.json",
+      "bytes_remote": 1867,
+      "sha256_remote_lfs": null,
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/unet/config.json",
+      "downloaded": false
+    },
+    {
+      "repo": "stabilityai/sd-turbo",
+      "revision": "b261bac6fd2cf515557d5d0707481eafa0485ec2",
+      "path": "unet/diffusion_pytorch_model.safetensors",
+      "bytes_remote": 3463726504,
+      "sha256_remote_lfs": "438da6db739c8651ec4152341b8133d6896db452ea27afdb6b9b0344f0c40532",
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/unet/diffusion_pytorch_model.safetensors",
+      "downloaded": false
+    },
+    {
+      "repo": "stabilityai/sd-turbo",
+      "revision": "b261bac6fd2cf515557d5d0707481eafa0485ec2",
+      "path": "vae/config.json",
+      "bytes_remote": 655,
+      "sha256_remote_lfs": null,
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/vae/config.json",
+      "downloaded": false
+    },
+    {
+      "repo": "stabilityai/sd-turbo",
+      "revision": "b261bac6fd2cf515557d5d0707481eafa0485ec2",
+      "path": "vae/diffusion_pytorch_model.safetensors",
+      "bytes_remote": 334643268,
+      "sha256_remote_lfs": "2aa1f43011b553a4cba7f37456465cdbd48aab7b54b9348b890e8058ea7683ec",
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/vae/diffusion_pytorch_model.safetensors",
+      "downloaded": false
+    },
+    {
+      "repo": "Shilin-LU/VINE-R-Enc",
+      "revision": "0c255688e032e4318c700c485c0625367b70908c",
+      "path": "config.json",
+      "bytes_remote": 43,
+      "sha256_remote_lfs": null,
+      "url": "https://huggingface.co/Shilin-LU/VINE-R-Enc/resolve/0c255688e032e4318c700c485c0625367b70908c/config.json",
+      "downloaded": false
+    },
+    {
+      "repo": "Shilin-LU/VINE-R-Enc",
+      "revision": "0c255688e032e4318c700c485c0625367b70908c",
+      "path": "model.safetensors",
+      "bytes_remote": 4019166704,
+      "sha256_remote_lfs": "16bf5f2acf5f7d5f00570431f5dc9dd61a8e95f828a2f68483ffe06448293dd6",
+      "url": "https://huggingface.co/Shilin-LU/VINE-R-Enc/resolve/0c255688e032e4318c700c485c0625367b70908c/model.safetensors",
+      "downloaded": false
+    },
+    {
+      "repo": "Shilin-LU/VINE-R-Dec",
+      "revision": "0f094b300be71a358f7c1769221f50318f1b4d74",
+      "path": "config.json",
+      "bytes_remote": 63,
+      "sha256_remote_lfs": null,
+      "url": "https://huggingface.co/Shilin-LU/VINE-R-Dec/resolve/0f094b300be71a358f7c1769221f50318f1b4d74/config.json",
+      "downloaded": false
+    },
+    {
+      "repo": "Shilin-LU/VINE-R-Dec",
+      "revision": "0f094b300be71a358f7c1769221f50318f1b4d74",
+      "path": "model.safetensors",
+      "bytes_remote": 354802864,
+      "sha256_remote_lfs": "9aded1fc22efe47bdafc8f436f81953cd06bde1d6c7242f86bf101c020d7eea0",
+      "url": "https://huggingface.co/Shilin-LU/VINE-R-Dec/resolve/0f094b300be71a358f7c1769221f50318f1b4d74/model.safetensors",
+      "downloaded": false
+    }
+  ],
+  "phase_code_commit": "dfe42ad0449459e26fe1579957c6d05ccdee9b92",
+  "common_thresholds": [
+    {
+      "bits": 32,
+      "k": 27,
+      "one_sided_tail": 5.653710104525089e-05
+    },
+    {
+      "bits": 100,
+      "k": 69,
+      "one_sided_tail": 9.157161244117683e-05
+    }
+  ],
+  "weight_hash_caveat": "HF LFS oids are remotely advertised SHA256 identifiers, not hashes of bytes downloaded in this session."
+}

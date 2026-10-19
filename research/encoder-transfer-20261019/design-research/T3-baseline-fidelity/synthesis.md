@@ -1,0 +1,25 @@
+# T3 synthesis: faithful baselines before outcomes
+
+Status: completed research deliverable,2026-10-19; no GPU, weight download, mark embedding, detection, scoring or held-out access. Author: Codex T3 agent. Only this topic folder was edited; source cache is outside git. Read [VINE contract](cards/VINE.md), [WAM contract](cards/WAM.md), [additional-baseline survey](cards/additional-baselines.md) and manifest.json together.
+
+## Decisions for core protocol
+
+1. Keep VINE-R raw100bits and WAM MIT-SA1B raw32bits at released native embedding settings. Both embed into the same canonical512RGB image. Their internal256-resolution residual pipelines differ and must remain native. Common attack resizing remains a separate operation.
+2. Common presence thresholds are69/100 and27/32, respectively; tail probabilities9.1571612441e-5 and5.6537101045e-5. Neither is a measured false-positive guarantee. Report bit accuracy, exact-message recovery, common known-message presence, observed unmarked/wrong-message false positives, missingness and source-majority counts separately.
+3. WAM native image detection is fraction(sigmoid(mask_logits)>.5)>.07. Preserve pinned released raw-logit semihard decoding; paper Eq2 and code differ. Empty masks abstain. Do not convert a nonempty mask into native detection. Paper calibration on COCO does not establish SA1B checkpoint calibration.
+4. VINE has no released universal native threshold. Report its native empirical ROC operating-point convention (strict FPR<.001/.01), with sample-resolution limitations, alongside the frozen common rule. Do not invent a native70%/80% threshold. Native descriptive ROC must never tune the primary endpoint.
+5. Pin every VINE dependency: actual released constructor uses **SD-Turbo**, contrary to SDXL-Turbo prose. This is an unresolved paper/release discrepancy to disclose. Preserve official classes and native FP32 initialization and one-step scheduler. Local path patches must redirect all nested load calls; top-level snapshot path alone is insufficient.
+6. Published WAM uses save_image rounding; VINE uses ToPILImage truncation. Preserve each native quantization for marks and score the saved PNG. This is a fidelity requirement, not a result-driven optimization. Pin dependency versions to lock interpolation.
+7. No extra arms are silently added. First additional standard comparator proposal is TrustMark Q; StegaStamp supplies classic benchmark continuity; PhaseMark supplies the most direct recent optimization-free VAE mechanism comparator. ZoDiac adds expensive inversion and has an unresolved license.
+
+## Implementation checks before paid execution
+
+Unit tests can verify preprocessing math on synthetic tensors, exact payload dimensions/schedules, strict thresholds and tie handling, empty-mask abstention, local-path substitution completeness, missing keys, output shape/finite checks, and JSON endpoint naming without model inference. Stage1 must not smoke-test a real mark. Stage2 loads pinned checkpoints and records actual hashes/environment; mismatched model state or unresolved license is a failed arm/preflight, not permission to replace a baseline. No unsafe deserialization fallback.
+
+The one-sided binomial tail is for a fixed known-message comparison under a uniform independent-message null. Different payload lengths and native ECC schemes change the task; do not collapse them into identical32-bit ownership recovery. Random wrong messages should be generated independently, not just bitwise complements (complements are deterministic anticorrelated diagnostics). Detector side information includes trained weights and candidate message for common presence; WAM native zero-bit detection does not need the candidate message, and neither baseline receives F5's trusted registry descriptors.
+
+## Coverage and remaining gaps
+
+Searched official repositories/model cards and current web for VINE/WAM native behavior, five named alternative baselines,2025–2026 post-hoc regeneration work, SimuFreeMark, SpecGuard and PhaseMark. Reused the dossier's versioned V2 paper cards; reread core VINE/WAM methods/evaluation and selected RoSteALS/ZoDiac/InvisMark sections. Updated InvisMark venue using official CVF metadata and identified a public PhaseMark implementation (author repository now links ICASSP2026). SpecGuard remains incomplete; SimuFreeMark code/checkpoints were not located. Pixel Seal and APT are explicitly bounded inherited V2 survey entries, not newly verified executable arms. No claim of exhaustive global absence of newer methods follows.
+
+Remaining limitations that must survive integration: VINE paper/release backbone discrepancy; WAM paper-versus-code bit aggregation and COCO-to-SA1B calibration mismatch; small-n inability to validate1e-4 FPR; unverified immutable StegaStamp/InvisMark weight access; ZoDiac license; PhaseMark dependency mirror identity/license; no measured server throughput; some final publication versions remain not freshly reread. These do not prevent freezing the two already authorized released baseline configurations, provided they are transparently labeled.

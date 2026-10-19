@@ -332,3 +332,7 @@
 2026-10-17 Codex: final scoring wrapper reproduction at36b506e in MAIN .thesis-build/dev-runs/20261017-registry-final-reproduction passed round3 counts, plan_view and synthetic ambiguity; USD0. Final analysis-only replay at36b506e in 20261017-registry-final-analysis-replay completed22.862s with identical JSON scientific endpoints; initial in-memory histogram-key comparison error retained, corrected by JSON-normalized comparison. Final verification:102 M1b tests221.205s,12 recovery/footage tests7.518s,28 dispatcher tests14.582s, all OK. Manifest preview only; no held-out execution or approval.
 
 2026-10-17 Codex: single independent Astra review completed, READY for exact-manifest human review/no blockers; audited81 inputs and unchanged scientific core3ced354af2bd2a1eef05846a2243b2ca95dcbce5d85418fdff489be44f9a2370. No execution approval granted. Final docs-only manifest rebind follows; stop at preview.
+`n- 2026-10-19 Codex stage-1 escalation: T1 attack standards, T2 independent-encoder landscape and T3 baseline fidelity; gpt-6-astra high, fresh agents, one topic folder each. Research only; no outcomes or GPU work.
+
+- 2026-10-19 Codex stage-1 T3 completed: faithful WAM/VINE configurations, official pins/licences, native versus common thresholds, and proposal-only baseline survey. No scientific execution. Escalation T4 mechanism and adaptive-threat analysis: fresh gpt-6-astra high.
+- 2026-10-19 Codex push planned: codex/encoder-transfer-20261019, 44c9ad9..this T3 topic commit; agent Codex. Push outcome follows in the next log entry.
