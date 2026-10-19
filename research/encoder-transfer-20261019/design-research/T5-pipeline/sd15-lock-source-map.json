@@ -1,0 +1,142 @@
+{
+  "revision": "451f4fe16113bff5a5d2269ed5ad43b0592e9a14",
+  "authoritative_lock": "research/a6-candidate-model-assets.json",
+  "repo": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+  "files": [
+    {
+      "git_blob_id": "5294955ff7801083f720b34b55d0f1f51313c5c5",
+      "matches": true,
+      "path": "sd15-fp16/feature_extractor/preprocessor_config.json",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/feature_extractor/preprocessor_config.json",
+      "remote_sha256": "2a1da83b5e1032aaeef397552ddb408dca0d8cd1dc58f61bf6abf38d6f33a0a2",
+      "expected_sha256": "2a1da83b5e1032aaeef397552ddb408dca0d8cd1dc58f61bf6abf38d6f33a0a2",
+      "size_bytes": 342
+    },
+    {
+      "git_blob_id": "daf7e2e2dfc64fb437a2b44525667111b00cb9fc",
+      "matches": true,
+      "path": "sd15-fp16/model_index.json",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/model_index.json",
+      "remote_sha256": "e2f6f22e274374010aec30c79eb2d6e53fff4a36ac0225523a92cb2d41a83347",
+      "expected_sha256": "e2f6f22e274374010aec30c79eb2d6e53fff4a36ac0225523a92cb2d41a83347",
+      "size_bytes": 541
+    },
+    {
+      "git_blob_id": "5dbd88952e7e521aa665e5052e6db7def3641d03",
+      "matches": true,
+      "path": "sd15-fp16/safety_checker/config.json",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/safety_checker/config.json",
+      "remote_sha256": "5dd77a06cbd9b155060bd58deb81ffd1aafc1c6d7970acac674c1128bd4edfe2",
+      "expected_sha256": "5dd77a06cbd9b155060bd58deb81ffd1aafc1c6d7970acac674c1128bd4edfe2",
+      "size_bytes": 4723
+    },
+    {
+      "git_blob_id": "d802a3abeacaea6d76e2c6c62b20a6b59372597c",
+      "matches": true,
+      "path": "sd15-fp16/safety_checker/model.fp16.safetensors",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/safety_checker/model.fp16.safetensors",
+      "remote_sha256": "08902f19b1cfebd7c989f152fc0507bef6898c706a91d666509383122324b511",
+      "expected_sha256": "08902f19b1cfebd7c989f152fc0507bef6898c706a91d666509383122324b511",
+      "size_bytes": 608018440
+    },
+    {
+      "git_blob_id": "82d05b0e688d7ea94675678646c427907419346e",
+      "matches": true,
+      "path": "sd15-fp16/scheduler/scheduler_config.json",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/scheduler/scheduler_config.json",
+      "remote_sha256": "699cce92eb7c122e2eb7dfdea78e6187fda76a5ed4a8e42319b85610e620e091",
+      "expected_sha256": "699cce92eb7c122e2eb7dfdea78e6187fda76a5ed4a8e42319b85610e620e091",
+      "size_bytes": 308
+    },
+    {
+      "git_blob_id": "4d3e873ab5086ad989f407abd50fdce66db8d657",
+      "matches": true,
+      "path": "sd15-fp16/text_encoder/config.json",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/text_encoder/config.json",
+      "remote_sha256": "845df614cb9327ae7bbea027316246fae917827407da6df13572e41b5f93b4cc",
+      "expected_sha256": "845df614cb9327ae7bbea027316246fae917827407da6df13572e41b5f93b4cc",
+      "size_bytes": 617
+    },
+    {
+      "git_blob_id": "1ee9520565624366f70ff4ff21b8e79cc70cfb22",
+      "matches": true,
+      "path": "sd15-fp16/text_encoder/model.fp16.safetensors",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/text_encoder/model.fp16.safetensors",
+      "remote_sha256": "77795e2023adcf39bc29a884661950380bd093cf0750a966d473d1718dc9ef4e",
+      "expected_sha256": "77795e2023adcf39bc29a884661950380bd093cf0750a966d473d1718dc9ef4e",
+      "size_bytes": 246144864
+    },
+    {
+      "git_blob_id": "76e821f1b6f0a9709293c3b6b51ed90980b3166b",
+      "matches": true,
+      "path": "sd15-fp16/tokenizer/merges.txt",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/tokenizer/merges.txt",
+      "remote_sha256": "9fd691f7c8039210e0fced15865466c65820d09b63988b0174bfe25de299051a",
+      "expected_sha256": "9fd691f7c8039210e0fced15865466c65820d09b63988b0174bfe25de299051a",
+      "size_bytes": 524619
+    },
+    {
+      "git_blob_id": "2c2130b544c0c5a72d5d00da071ba130a9800fb2",
+      "matches": true,
+      "path": "sd15-fp16/tokenizer/special_tokens_map.json",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/tokenizer/special_tokens_map.json",
+      "remote_sha256": "c4864a9376a8401918425bed71fc14fc0e81f9b59ec45c1cf96cccb2df508eac",
+      "expected_sha256": "c4864a9376a8401918425bed71fc14fc0e81f9b59ec45c1cf96cccb2df508eac",
+      "size_bytes": 472
+    },
+    {
+      "git_blob_id": "5ba7bf706515bc60487ad0e1816b4929b82542d6",
+      "matches": true,
+      "path": "sd15-fp16/tokenizer/tokenizer_config.json",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/tokenizer/tokenizer_config.json",
+      "remote_sha256": "00439066fcba73de57644cf41e4e3b9f2dbb09d7f3fc2005898ba52399045882",
+      "expected_sha256": "00439066fcba73de57644cf41e4e3b9f2dbb09d7f3fc2005898ba52399045882",
+      "size_bytes": 806
+    },
+    {
+      "git_blob_id": "469be27c5c010538f845f518c4f5e8574c78f7c8",
+      "matches": true,
+      "path": "sd15-fp16/tokenizer/vocab.json",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/tokenizer/vocab.json",
+      "remote_sha256": "e089ad92ba36837a0d31433e555c8f45fe601ab5c221d4f607ded32d9f7a4349",
+      "expected_sha256": "e089ad92ba36837a0d31433e555c8f45fe601ab5c221d4f607ded32d9f7a4349",
+      "size_bytes": 1059962
+    },
+    {
+      "git_blob_id": "1a02ee8abc93e840ffbcb2d68b66ccbcb74b3ab3",
+      "matches": true,
+      "path": "sd15-fp16/unet/config.json",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/unet/config.json",
+      "remote_sha256": "78f474de6bab3d893868f37be97b636ae65c0df3073ed3256ca458ff599b5f96",
+      "expected_sha256": "78f474de6bab3d893868f37be97b636ae65c0df3073ed3256ca458ff599b5f96",
+      "size_bytes": 743
+    },
+    {
+      "git_blob_id": "375836c152030e60c8333fc3930392e0bbdda83e",
+      "matches": true,
+      "path": "sd15-fp16/unet/diffusion_pytorch_model.fp16.safetensors",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/unet/diffusion_pytorch_model.fp16.safetensors",
+      "remote_sha256": "c83908253f9a64d08c25fc90874c9c8aef9a329ce1ca5fb909d73b0c83d1ea21",
+      "expected_sha256": "c83908253f9a64d08c25fc90874c9c8aef9a329ce1ca5fb909d73b0c83d1ea21",
+      "size_bytes": 1719125304
+    },
+    {
+      "git_blob_id": "55d78924fee13e4220f24320127c5f16284e13b9",
+      "matches": true,
+      "path": "sd15-fp16/vae/config.json",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/vae/config.json",
+      "remote_sha256": "786a7d21647ddea6a04b9675c03d3cb45e90a2f3c6da5fbda2c54ade040036de",
+      "expected_sha256": "786a7d21647ddea6a04b9675c03d3cb45e90a2f3c6da5fbda2c54ade040036de",
+      "size_bytes": 547
+    },
+    {
+      "git_blob_id": "6dc048fdbcb71764cbd7af4ec6eb2a0e8a7bfbb2",
+      "matches": true,
+      "path": "sd15-fp16/vae/diffusion_pytorch_model.fp16.safetensors",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/vae/diffusion_pytorch_model.fp16.safetensors",
+      "remote_sha256": "4fbcf0ebe55a0984f5a5e00d8c4521d52359af7229bb4d81890039d2aa16dd7c",
+      "expected_sha256": "4fbcf0ebe55a0984f5a5e00d8c4521d52359af7229bb4d81890039d2aa16dd7c",
+      "size_bytes": 167335342
+    }
+  ]
+}
