@@ -1,6 +1,6 @@
 # Current state
 
-Updated by Codex agent, 2026-10-19, completed research-only Q1 dossier session.
+Updated by Codex agent, 2026-10-19, after the research-only dossier continuation.
 The copy of this text in MAIN thesis-runs/d916749c/STATE.md is authoritative.
 
 ## Current method and result
@@ -34,13 +34,15 @@ WP1 independent M2 verdict: accept with corrections for reporting a negative ove
 WP9 independent core-dossier verdict: accept with documentary corrections; manuscript not submission-ready.
 The dossier has 90 V2 sources, including 88 papers and two standards/guidance, and 99 audited bibliography entries.
 Primary framing is an empirical study of recovery versus registered-image attribution, with a narrower case-study fallback.
-Conditional journal target: TIFS; backups TMM and TOMM. Ranking eligibility and some current policies remain unresolved.
+Conditional target: TIFS; backups TMM and TOMM. IEEE confirms TIFS Q1 for JCR2024; newest category eligibility remains unresolved.
 FINAL-REPORT remains PARTIAL for WP2 fulltext and WP4 policy/ranking gaps; all extension deliverables exist.
 Writing alone cannot make the current evidence Q1-ready.
 Next proposed research: identify owner/q/content contributions with compatible controls, then diverse fresh hard negatives and complete banks.
 Independent-encoder and active-attack studies are needed only for their corresponding broader claims; none ran here.
 New external baseline work remains closed until explicitly reopened by the user.
-Research session ended 2026-10-19T01:04:59.7693169-08:00; no new experiment was performed.
+Continuation reconciled 2026-10-19T02:51:25.2008401-08:00; no new experiment was performed.
+Five access refreshes remain V1; Beyond Generation is refreshed to v2; current journal guides remain incomplete.
+One failed out-of-purpose stdlib HTTP fetch is disclosed in FINAL-REPORT; no science interpreter or experiment was used.
 
 ## Preserved scope and obligations
 

@@ -12,3 +12,7 @@ WP9, 19 October 2026, Codex agent. The reviewer file is preserved unedited. Its 
 | 6. Thesis obligations | Preserved the twelve-row mapping and outstanding original hypotheses. | 09; supervisor decisions, missing human visual ratings and untested original obligations remain. Protected proposal/claim ledger untouched. |
 
 The research destination remains conditional TIFS, with TMM and TOMM backups. EV-77 makes the current E3 novelty case weaker and the need for a genuine record-level question clearer. F1/F2 are research directions whose informative outcomes are necessary for the proposed article; they are not sufficient conditions for journal acceptance. The narrower negative thesis case study remains defensible now.
+
+## Continuation disposition, 19 October 2026
+
+Findings4–5 received a further bounded access pass in [17-completion](17-completion/README.md). Five paper refreshes remain V1, while Beyond Generation's focused reading is now v2. Direct IEEE-publisher evidence now confirms TIFS Q1 for JCR2024 without a named category; the newest category/institutional question remains open. Current TOMM/Elsevier guides remain inaccessible. These additions narrow the unresolved documentary work but do not close findings4–5 or alter the independent verdict. The continuation was integrated by the parent, not separately independently reviewed.

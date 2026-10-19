@@ -5,9 +5,9 @@ All core packages WP0–WP10 and extension E1–E6 have deliverables. The resear
 
 ## 1. Session and delivery
 
-Start: **2026-10-18T18:04:04.3769833-08:00**. Exact ten-hour deadline: **2026-10-19T04:04:04.3769833-08:00**. End of research and final reconciliation: **2026-10-19T01:04:59.7693169-08:00**, approximately **7.02 hours** after the first clock reading; final commit/push verification follows. The user explicitly allows completion when the extension tier is finished, so the unused allocation does not imply unperformed experiment work. The exact deadline remains unchanged.
+Start: **2026-10-18T18:04:04.3769833-08:00**. Exact ten-hour deadline: **2026-10-19T04:04:04.3769833-08:00** (12:04:04.3769833Z). The initial WP0–WP10/E1–E6 delivery ended at 01:04:59-08:00 and was pushed as `bea4656`. At the user's request, documentary work resumed at 02:28:49-08:00. Final continuation reconciliation: **2026-10-19T02:51:25.2008401-08:00**, approximately **8.79 elapsed hours** from the first clock reading, including the gap between deliveries; this is not a claim of that many uninterrupted active hours. Final commit/push verification follows. The original deadline is unchanged. The user's extension-complete end condition is met; inaccessible sources are still disclosed as PARTIAL, not represented as completed verification. Timestamps preserve the first host-clock offset rather than silently relabelling it as the configured America/Los_Angeles time zone.
 
-Lead: Codex agent, GPT-6 family; exact host model identifier was not exposed. Bounded literature/design assistants used the BRIEF-authorized Astra/high and Sol/high or medium settings; WP9 was a fresh Astra/xhigh independent reviewer. Their work and model choices are logged in [PROGRESS](PROGRESS.md). No scientific experiment, pixel inspection, GPU use, package installation, data/model/code download, paid compute, submission or external communication occurred. Permitted stdlib counted retained JSON results and calculated bounds; one post-hoc saved-Boolean count explains E3's owner gate.
+Lead: Codex agent, GPT-6 family; exact host model identifier was not exposed. Bounded literature/design assistants used the BRIEF-authorized Astra/high and Sol/high or medium settings; WP9 was a fresh Astra/xhigh independent reviewer. Their work and model choices are logged in [PROGRESS](PROGRESS.md). No scientific experiment, pixel inspection, GPU use, package installation, data/model/code download, paid compute, submission or external communication occurred. Permitted stdlib counted retained JSON results and calculated bounds; one post-hoc saved-Boolean count explains E3's owner gate. A continuation assistant also made one out-of-purpose stdlib HTTP fetch attempt; it failed with HTTP 403 before parsing/saving and is disclosed in section 9. No experiment occurred, but Python-purpose compliance was not perfect.
 
 | Package | Delivered checkpoint commit |
 |---|---|
@@ -28,7 +28,9 @@ Lead: Codex agent, GPT-6 family; exact host model identifier was not exposed. Bo
 | E4 forward-citation sweep | `c55ef6c` |
 | E5 five figure specifications | `ba9e296` |
 | E6 submission-material drafts | `0c500e0` |
-| Final report / MAIN state refresh | Commit containing this final report; its exact hash and push outcome are reported in the closing chat. |
+| Initial final report / MAIN state refresh | `bea4656` |
+| Continued sources, versions and journal access audit | `49d3fee` |
+| Continuation final reconciliation / MAIN state refresh | Commit containing this revised report; exact hash/push outcome in closing chat. |
 
 All listed resolved commits were pushed to `origin/codex/q1-research-20261018`; no other branch was pushed. The authorized MAIN STATE update is saved in the main checkout and mirrored as [MAIN-STATE-snapshot.md](MAIN-STATE-snapshot.md) in this branch. MAIN's branch is not committed or pushed by this session. The snapshot preserves the exact state text in the session's own commit history.
 
@@ -62,7 +64,7 @@ Do not claim a successful overall confirmation, universal robustness, cryptograp
 | Encoder-directed RGB carrier | **High method-novelty risk.** FreqMark, VINE, RoSteALS, SimuFreeMark and other VAE-aware work constrain the claim. Retained gains do not causally isolate amplification or establish independent-encoder transfer. |
 | Missingness and cluster-aware reporting | Necessary credibility, **not a new estimator or enough Q1 novelty alone**. |
 
-The final literature matrix has **98 works: 90 V2 (88 research papers and two standards/guidance), eight V1**. The master bibliography has **99 entries**, including the retained predecessor TrustMark version. E2 audited its original 88 entries; E4 separately audited eleven additions, for 94 direct index identity checks and five explicit official-source/index-access exceptions. The E4 sweep confirms 15 work-level primary citation edges, with version and V1 limitations; incomplete indexes prevent a citation-absence inference. V2 identifies inspection depth and version, not independent reproduction. Consequential inaccessible TIP/ConZWNet/Rad-Mark papers and new publisher/version gaps prevent exhaustive novelty clearance. See [positioning](03-novelty-positioning.md), [synthesis](02-literature/synthesis.md) and [unverified leads](02-literature/unverified-leads.md).
+The final literature matrix has **98 works: 90 V2 (88 research papers and two standards/guidance), eight V1**. The master bibliography has **99 entries**, including the retained predecessor TrustMark version. E2 audited its original 88 entries; E4 separately audited eleven additions, for 94 direct index identity checks and five explicit official-source/index-access exceptions. The E4 sweep confirms 15 work-level primary citation edges, with version and V1 limitations; incomplete indexes prevent a citation-absence inference. V2 identifies inspection depth and version, not independent reproduction. Consequential inaccessible TIP/ConZWNet/Rad-Mark/RI-Mark papers and publisher/version gaps prevent exhaustive novelty clearance. The continuation checked five paper-access paths without any V1 promotion and refreshed Beyond Generation to v2; source totals are unchanged. See [positioning](03-novelty-positioning.md), [synthesis](02-literature/synthesis.md) and [unverified leads](02-literature/unverified-leads.md).
 
 ## 5. Ten next actions, ranked — desk work first
 
@@ -114,6 +116,12 @@ Broad architecture novelty is pre-empted. The October 2026 soft-binding study is
 
 No experiments of any kind were run, by the user's binding instruction. No fresh data, features, models, baselines, plots, approvals or runnable manifests were produced. Required recent papers that could not be legitimately accessed remain V1 despite bounded retries; metadata and other papers' citations do not substitute for their methods/evaluation. Several current journal fields and the institution's ranking policy remain unverified. The manuscript is a draft; public artifact release, author approvals, human visual judgments and supervisor decisions remain undone. All six extension packages are complete. Figure and graphical-abstract outputs are text specifications only. The cached primary papers occupy approximately 56.6 MB, below the 3 GB cap, and are not committed; the dossier contains only Markdown, CSV, BibTeX and JSON. Completion of the scheduled research process does not resolve inaccessible evidence or make the manuscript ready.
 
+The continuation strengthens TIFS ranking evidence: the IEEE January 2026 title list directly reports Q1 for JCR 2024, released June 2025, without a category. Information Sciences now has a primary-origin SCImago 2024 best-Q1 row. Neither finding certifies the newest named category or the university's accepted ranking rule. The current six-journal policy pass retains 36 field-level dispositions and does not fill inaccessible guides with guesses. See [completion results](17-completion/README.md).
+
+**Procedural limitations:** one journal-policy assistant used MAIN's stdlib Python for an APC-workbook HTTP fetch, outside the permitted retained-count/bounds purpose. The first fetch returned HTTP 403 before any workbook save, parsing or calculation. No scientific interpreter/package or experiment was used; the parent stopped further such use. The exact invocation is in the [policy report](17-completion/journal-guides/report.md#procedural-deviation). Some parent discovery-query expressions before compaction were not retained verbatim; source destinations/outcomes and later queries are recorded, while agent logs preserve their exact queries. This limits claims of exhaustive search/process compliance and does not change scientific results.
+
+Documentary checks found 25 required artifacts, unique 98 matrix/99 bibliography keys, existing card paths, and V2 status for all 30/35 distinct citations in the two manuscript drafts. Structured files and selected current links pass the checks recorded in [integration-check.json](17-completion/integration-check.json). These are author structural checks, not an independent scientific audit. All continuation agents are finished.
+
 ## 10. File index
 
 - [PROGRESS.md](PROGRESS.md): deadline, decisions, clock checks, spawns and commit/push history.
@@ -133,3 +141,5 @@ No experiments of any kind were run, by the user's binding instruction. No fresh
 - [14-forward-citation-sweep.md](14-forward-citation-sweep.md): five-target citation search, source cards, edge register, new identity audit and quarantine/access limits.
 - [15-figure-specifications.md](15-figure-specifications.md): five exact source/field/layout/caption specifications; no plots.
 - [16-submission-materials.md](16-submission-materials.md): conditional cover letter, highlights and graphical-abstract text brief; no submission.
+
+- [17-completion/README.md](17-completion/README.md): resumed source-access audit, current-version refresh, ranking/policy evidence, residual dependencies and procedural disclosure.

@@ -1,0 +1,44 @@
+{
+  "checked_at": "2026-10-19T02:49:14.60648-08:00",
+  "scope": "Documentary structural checks only; not scientific validation or an experiment",
+  "required_artifacts": 25,
+  "missing_artifacts": [],
+  "matrix_rows": 98,
+  "verification_counts": [
+    {
+      "Name": "V1",
+      "Count": 8
+    },
+    {
+      "Name": "V2",
+      "Count": 90
+    }
+  ],
+  "duplicate_matrix_keys": [],
+  "missing_card_paths": [],
+  "bibliography_entries": 99,
+  "duplicate_bib_keys": [],
+  "matrix_without_bib": [],
+  "bib_history_only": [
+    "Bui2023TrustMark"
+  ],
+  "bib_brace_balance": 0,
+  "draft_citation_counts": [
+    {
+      "file": "08-manuscript-blueprint.md",
+      "distinct_cited_keys": 30
+    },
+    {
+      "file": "11-draft-sections.md",
+      "distinct_cited_keys": 35
+    }
+  ],
+  "draft_citation_failures": [],
+  "broken_selected_markdown_links": [],
+  "unparseable_json": [],
+  "unexpected_file_extensions": [],
+  "scientific_status": "Overall frozen confirmation fails E2; no new evidence or approvals",
+  "residual_status": "PARTIAL: WP2 fulltexts and WP4 current fields/institutional ranking decision",
+  "json_files_parsed": 49,
+  "json_parser_note": "PowerShell ConvertFrom-Json -AsHashtable preserves distinct case-sensitive JSON keys; one historical OpenAlex response contains both to and To, which are valid JSON keys."
+}

@@ -26,7 +26,7 @@ The parent read all three discrepancy reports and integrated their corrected ent
 
 For consistency, the parent selected **first arXiv release year for pure preprint citations** and publication year for publication citations. Accordingly, VINE and WAM use 2024, DINOv2 uses 2023, PRC and WIND use 2024, WOUAF uses 2023, and MetaSeal uses 2025 in the merged preprint entries; their inspected revisions and later venues remain explicit. This harmonizes the three auditors' initially different defensible year conventions. It does not assert that the later conference/issue years were false. Keys remain unchanged, and the literature matrix retains its work/version context.
 
-The C2PA release year and fuzzy-extractors DOI were also propagated to the matrix/card; Cameron's final page range was resolved in its card. No V1 source was upgraded. The 79 V2 matrix items still comprise 77 research-paper items and two standards/guidance items; the older TrustMark bibliography entry remains version history, not an additional unique work.
+The C2PA release year and fuzzy-extractors DOI were also propagated to the matrix/card; Cameron's final page range was resolved in its card. No V1 source was upgraded at E2. **At that checkpoint**, 79 V2 matrix items comprised 77 research-paper items and two standards/guidance items. E4 later raised the current total to90 V2, as documented below; the older TrustMark bibliography entry remains version history, not an additional unique work.
 
 - [Normalized audit of all 88 entries](12-bibliography-audit/all-entries.csv)
 - [Part 1 discrepancy report](12-bibliography-audit/part-1/audit.md), [Part 2](12-bibliography-audit/part-2/audit.md), [Part 3](12-bibliography-audit/part-3/audit.md)
