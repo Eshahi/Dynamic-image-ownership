@@ -1,0 +1,90 @@
+{
+  "reused_primary_sources": [
+    {
+      "id": "vine",
+      "url": "https://arxiv.org/html/2410.18775v2",
+      "accessed": "2026-10-19",
+      "kind": "primary_paper_html",
+      "verification": "V2_method_and_evaluation_read",
+      "status": "inspected_not_reproduced",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-vine.html",
+      "bytes": 362103,
+      "sha256": "F6FB25D7B27EC0E95F883674E2E08A41A9075F5929E76287F02330E339E049DD",
+      "derived_text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-vine.txt",
+      "derived_text_sha256": "46787D558A32DF39FAA09346EC501F618C75CBB7B080743B1E96BCBF45B2844E"
+    },
+    {
+      "id": "waves",
+      "url": "https://arxiv.org/html/2401.08573v3",
+      "accessed": "2026-10-19",
+      "kind": "primary_paper_html",
+      "verification": "V2_method_and_evaluation_read",
+      "status": "inspected_not_reproduced",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-waves.html",
+      "bytes": 466453,
+      "sha256": "238FFA869B2B8424A92AEEEF27E39D7B7909B33ED487A3D4E794E7E6F67E7A08",
+      "derived_text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-waves.txt",
+      "derived_text_sha256": "690276ACCBB6797976FEB292164895DA991323A791F98F28B5E933FDF3CE915C"
+    },
+    {
+      "id": "marknull",
+      "url": "https://arxiv.org/html/2608.10166v1",
+      "accessed": "2026-10-19",
+      "kind": "primary_paper_html",
+      "verification": "V2_method_and_evaluation_read",
+      "status": "inspected_not_reproduced",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-marknull.html",
+      "bytes": 617482,
+      "sha256": "522723A9664B1226762FDA200C4B758A2B16476F6552D27C1E081B124BF1FF32",
+      "derived_text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-marknull.txt",
+      "derived_text_sha256": "3BDE4C2AD7A121631E79303CF5D5DEE9024EC75C290107C68C5A7C022D7E58B4"
+    },
+    {
+      "id": "raven",
+      "url": "https://arxiv.org/html/2601.08832v1",
+      "accessed": "2026-10-19",
+      "kind": "primary_paper_html",
+      "verification": "V2_method_and_evaluation_read",
+      "status": "inspected_not_reproduced",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-raven.html",
+      "bytes": 441566,
+      "sha256": "A0BDFDFF7E0C81BE8AD4D1AA01D1CD29FEAC57FA34BBC81EBBA5CE0CF14635D6",
+      "derived_text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-raven.txt",
+      "derived_text_sha256": "43764FABF06086A49F8579890514205D255B300B7F5AC4959AE46485FF846500"
+    },
+    {
+      "id": "waw",
+      "url": "https://arxiv.org/html/2605.16796v1",
+      "accessed": "2026-10-19",
+      "kind": "primary_paper_html",
+      "verification": "V2_method_and_evaluation_read",
+      "status": "inspected_not_reproduced",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-waw.html",
+      "bytes": 375545,
+      "sha256": "724AF9FF339BF2AFBF1388166BEDB0449FA927657F56DE1255CA880DF92DDB99",
+      "derived_text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-waw.txt",
+      "derived_text_sha256": "E8A505690C261A0149340464C2A20D7FE25B6242D3271DD3C142EC5AFB84A133"
+    },
+    {
+      "id": "drift",
+      "url": "https://arxiv.org/html/2609.08213v1",
+      "accessed": "2026-10-19",
+      "kind": "primary_paper_html",
+      "verification": "V2_method_and_evaluation_read",
+      "status": "inspected_not_reproduced",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-drift.html",
+      "bytes": 565321,
+      "sha256": "EFCBA5E4B246AED6503D397929E5555487BD14F0FDF322F877A5DE066DF4DA97",
+      "derived_text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-drift.txt",
+      "derived_text_sha256": "C007BD35291D4DD2DD0E6BAFE72EF43A29E082E2EFAF82FDAA5ABB9CF0330157"
+    }
+  ],
+  "inherited_wam_manifest": "../T3-baseline-fidelity/manifest.json",
+  "policy": {
+    "url": "https://signalprocessingsociety.org/publications-resources/information-authors",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\transfer-integration\\ieee-sps-authors.html",
+    "sha256": "334208c8ed9ec79d5c884667d683c3ee279b0978e51e1f19872bd0b402c51328",
+    "bytes": 150053
+  },
+  "no_new_experimental_data": true
+}
