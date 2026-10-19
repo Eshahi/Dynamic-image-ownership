@@ -2,26 +2,15 @@
 
 This file is already in your context; never re-read it. At the start of a thread, or right after a context compaction, read `thesis-runs/d916749c/STATE.md` once; the copy in the main checkout `W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5` is the only authoritative one, also when you work in a worktree.
 
-## Current mode: research-only Q1 dossier session (user decision, 2026-10-18)
+## Current direction: independent-encoder transfer test (user decision, 2026-10-19)
 
-The user asked, verbatim: "for the next recommended hours(at least 7), I want to setup the codex to gather and also research for enhancing and move forward to make the thesis a Q1 nominee ( without any experiment)." Claude set up this session on branch `codex/q1-research-20261018`. The brief is `research/q1-dossier-20261018/BRIEF.md`.
+The user reviewed the research-only Q1 dossier with Claude on 2026-10-19. They said they want a Q1 article for themselves (it is not required) and that a rented server is better. They chose to run the cheapest decisive experiment first. The brief is `research/encoder-transfer-20261019/BRIEF.md`. It overrides the Milestones and Current-direction text below where they conflict. The research-only restriction of 2026-10-18 no longer applies on this branch, except as the brief states.
 
-For this session, the brief overrides every section below that asks you to design, implement or run experiments: Operating mode, Current direction, Milestones, "Iterate fast", "Cheapest decisive test first", and Execution and provenance.
-
-- **No experiments of any kind:**
-  - no image generation, marking, regeneration, attack, detection, descriptor extraction, training, calibration or scoring;
-  - no GPU, and no `.thesis-build/a6-science-venv` or other interpreter with torch, diffusers, numpy or PIL;
-  - no dev runs, rehearsals, manifests or approvals;
-  - no downloads of images, datasets, model weights or code, and no package installs.
-- **Allowed:**
-  - reading files anywhere;
-  - web search and reading papers;
-  - stdlib Python (`.thesis-build/venv`) to count existing result files and compute bounds from existing counts;
-  - writing inside `research/q1-dossier-20261018/`;
-  - committing and pushing this branch.
-- **Guard.** A guard may kill processes that use the science interpreter or run experiment scripts. In the CLI run, the supervisor also hides CUDA and stops Python that runs more than 15 minutes. Do not work around it; write any computation you think is needed into the dossier as a proposal for later.
-- **Keep working until the session deadline** in `research/q1-dossier-20261018/PROGRESS.md`. Nobody answers questions during the run: record user and supervisor decisions in the dossier and continue.
-- The integrity rules below still apply in full.
+- **One experiment only.** It is a development study of F5 r2 under regenerators whose autoencoders were trained independently of SD1.5: SDXL, and FLUX.1-schnell if available. The comparators are v5 r3 and the external baselines the brief names. It runs on a vast.ai server the user rents. The decision rule is fixed in the brief before any output exists.
+- **Development data only.** Never move held-out or test pools to the server, and never touch them anywhere.
+- **Paid compute.** The user rents and pays for the server; do not exceed the brief's budget. Stop the instance when the results are home. Never destroy it: destroying is the user's action.
+- **Stop for the user** when the decision rule has been applied and the results and one independent review are written. No held-out run follows without a new user decision.
+- The integrity rules below apply in full.
 
 ## Operating mode: autonomous handoff (user decision, 2026-10-03)
 
