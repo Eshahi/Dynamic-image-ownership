@@ -1,0 +1,41 @@
+# ACM TOMM and the Computers & Security exclusion
+
+Retrieved 2026-10-18. WP4 source notes; no experiment or submission. Bibliographic records here are V1 metadata, not evidence that methods were read. Ranking systems, metric years and release years are kept separate.
+
+## ACM Transactions on Multimedia Computing, Communications, and Applications
+
+| Field | Evidence and qualification |
+|---|---|
+| Quartile | **Publicly verified publisher report of JCR Q1**, latest JCR release discussed by ACM on **1 July 2026**, using 2025 impact metrics. The [ACM release](https://prod-www.acm.bloomreach.cloud/media-center/2026/july/impact-factors-2026) explicitly gives TOMM Q1 in all three categories and names its **17th position in Computer Science, Software Engineering**; the same release gives 128 journals in that category. JIF 5.6 is not itself the quartile proof. The other two category names were not established by this source. SCImago category/year quartiles remain UNVERIFIED here. Retrieved 2026-10-18. |
+| Scope quote | “Media content security and rights management” — [ACM-hosted author guide, Topics](https://tomccap.hosting.acm.org/guide.html). This is a **legacy** guide: its linked home page still announces 2015 events. Current subject relevance is also supported by the two recent papers below. |
+| Length and format | Legacy guide: regular paper 23 pages including figures/references, small ACM submission format; five additional online-appendix pages; combined PDF. Survey 28 pages. **Current cap/template UNVERIFIED** because current `tomm.acm.org/authors.cfm` was inaccessible and the [DL guide](https://dl.acm.org/journal/tomm/author-guidelines) returned 403. Do not treat the legacy limit as an approved 2026 submission specification. |
+| Review | Peer reviewed. Current single/double anonymization UNVERIFIED. Legacy guide says reviews normally return within three months; [legacy reviewer instructions](https://tomccap.hosting.acm.org/reviewer.html) request a report in six weeks. Neither is a current observed median or a publication-time guarantee. |
+| Open access and costs | ACM became fully OA in January 2026. [ACM Open for Authors](https://prod-authors.acm.bloomreach.cloud/open-access/acm-open-for-authors-home): eligible institutional coverage removes the author APC; otherwise temporary 2026 journal rates are **USD 1,450**, or **USD 950** with at least one ACM/SIG member; lower-middle-income rates are USD 725/475. Eligibility is not established for this project. |
+| Forward budget | [Official APC list pricing](https://prod-libraries.acm.bloomreach.cloud/acmopen/apc-list-pricing) says journal articles processed in eRights from **1 January 2027, US Eastern time**, return to **USD 1,800 / 1,300 member** list pricing. This date matters more than the current 2026 subsidy for an article requiring more research. Recheck before submission; no payment is authorized here. |
+| Data/code policy | Legacy guide encourages supplementary multimedia with a README. A current TOMM-specific mandatory code/data deposit or artifact-badge procedure was not verified. Do not import a different ACM conference's rules. The manuscript should still provide its own reproducibility and licensed-data statement. |
+| Related paper 1 | *FaceSigns: Semi-fragile Watermarks for Media Authentication*, **20(11), November 2024**, published online 12 September 2024 (accepted manuscript online January 2024). [DOI 10.1145/3640466](https://doi.org/10.1145/3640466). Publisher page opened/search-index text inspected. This is a media-authentication neighborhood, not a matched regeneration baseline. |
+| Related paper 2 | *Attack-Defending Contrastive Learning for Volumetric Medical Image Zero-Watermarking*, **21(2), February 2025, article 62**, online 26 December 2024. [DOI 10.1145/3702230](https://doi.org/10.1145/3702230); [publisher-deposited Crossref metadata](https://api.crossref.org/works/10.1145/3702230); [DBLP issue record](https://dblp.org/rec/journals/tomccap/LiuYHFSZZZ25). V1; no method comparison inferred. |
+| Special issues | No open, directly matching future-deadline call verified on an accessible current official journal page. The encountered multimodal-fusion call's 31 August 2026 deadline has passed. Do not delay or reshape the study to fit that call. |
+| Fit / desk risk | Plausible multimedia-security backup for the empirical attribution-boundary framing. The two recent papers establish a relevant publication neighborhood. A single implementation's failure and a registry connection alone remain weak contributions; the paper needs a general multimedia-security question and matched controls. Confirm current format and ranking accepted by the university before selecting this as a destination. |
+
+## Computers & Security: screened out, despite ranking
+
+| Field | Evidence and qualification |
+|---|---|
+| Quartile | **SCImago 2024 Q1** in **Computer Science (miscellaneous)** and **Law**, SJR 1.445, explicitly present in the [official indexed profile](https://www.scimagojr.com/journalsearch.php/press.jhu.edu/journalsearch.php?q=28898&tip=sid). Retrieved 2026-10-18. This is 2024 SJR, not a 2025/2026 or JCR certification. JCR category/year status UNVERIFIED here. |
+| Scope quote | “computer security, audit, control and data integrity” — [official Elsevier scope](https://shop.elsevier.com/journals/computers-and-security/0167-4048), Description. |
+| Decisive exclusion | The same current publisher page explicitly excludes principal-component cryptology, including watermarking and steganography, and records an early-2024 moratorium on significant AI/ML content. The proposed image-watermark article is therefore **out of the stated scope**. The exclusion overrides thematic similarity in older or exceptional publications. |
+| Related publication history 1 | *HSTW: A robust network flow watermarking method based on hybrid packet sequence-timing*, **139 (April 2024), 103701**, [DOI 10.1016/j.cose.2024.103701](https://doi.org/10.1016/j.cose.2024.103701), [publisher metadata](https://www.sciencedirect.com/science/article/abs/pii/S0167404824000026). Network-flow watermarking is not image attribution. |
+| Related publication history 2 | *DeMarking: A defense for network flow watermarking in real-time*, **152 (May 2025), 104355**, [DOI 10.1016/j.cose.2025.104355](https://doi.org/10.1016/j.cose.2025.104355), [publisher metadata](https://www.sciencedirect.com/science/article/pii/S0167404825000446). These publications show that the historical catalog is not identical to the current stated submission policy; they do not authorize an assumption that the policy is waived for this work. |
+| Length, format, review | Current journal-specific limits/anonymization UNVERIFIED in accessible official guide. Not a submission candidate, so no formatting plan is based on it. |
+| APC / OA / decision time | Current numeric charge and timing UNVERIFIED in a retrievable journal-specific primary page. A JournalFinder indexed lead was not promoted to a final price because its opened result contained no text. |
+| Data/code and special issue | Current mandatory data/code requirements and a relevant open special issue UNVERIFIED. None can cure the explicit scope exclusion. |
+| Decision | Exclude from the primary/backups irrespective of Q1 status. Do not contact editors or submit during this session. |
+
+## Access and integrity notes
+
+- ACM's current author portal redirected to ACM-controlled Bloomreach production hosts; their publisher text identifies the institutional program and official rates. The 2026 press release was retrieved from that same ACM publication site.
+- The 2024 ACM press release supplies historical Q1 information and the 2025 release supplies a 6.0 impact factor; the current recommendation uses the later July 2026 release instead.
+- Current TOMM author-guide and several policy opens returned 403/inaccessible. Legacy rules are labeled explicitly, not silently carried forward.
+- `computersandsecurity.org` and `sciencedirectelsevier.com` were not used as publisher evidence. Their naming and content do not establish affiliation with Elsevier.
+- Scope excerpts are short. Source facts establish fit/policy only, not acceptance probability. Submission, institutional APC eligibility and the university's ranking rule remain human decisions.

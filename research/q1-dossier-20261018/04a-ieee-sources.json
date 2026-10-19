@@ -1,0 +1,298 @@
+{
+  "purpose": "IEEE venue fit metadata; not method comparison evidence",
+  "accessed": "2026-10-18",
+  "records": [
+    {
+      "DOI": "10.1109/TIFS.2024.3383648",
+      "title": [
+        "Dual Defense: Adversarial, Traceable, and Invisible Robust Watermarking Against Face Swapping"
+      ],
+      "journal": [
+        "IEEE Transactions on Information Forensics and Security"
+      ],
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+      "published": {
+        "date-parts": [
+          [
+            2024
+          ]
+        ]
+      },
+      "published_print": {
+        "date-parts": [
+          [
+            2024
+          ]
+        ]
+      },
+      "published_online": null,
+      "volume": "19",
+      "issue": null,
+      "pages": "4628-4641",
+      "source": "https://api.crossref.org/works/10.1109/TIFS.2024.3383648",
+      "verification": "V1 publisher-deposited Crossref metadata only",
+      "accessed_local": "2026-10-18",
+      "date_precision": "As deposited; DOI suffix year is not issue publication year"
+    },
+    {
+      "DOI": "10.1109/TIFS.2025.3636020",
+      "title": [
+        "MantleMark: Migrating Watermarks From Multi-View Images to Radiance Fields via Frequency Modulation"
+      ],
+      "journal": [
+        "IEEE Transactions on Information Forensics and Security"
+      ],
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+      "published": {
+        "date-parts": [
+          [
+            2026
+          ]
+        ]
+      },
+      "published_print": {
+        "date-parts": [
+          [
+            2026
+          ]
+        ]
+      },
+      "published_online": null,
+      "volume": "21",
+      "issue": null,
+      "pages": "256-271",
+      "source": "https://api.crossref.org/works/10.1109/TIFS.2025.3636020",
+      "verification": "V1 publisher-deposited Crossref metadata only",
+      "accessed_local": "2026-10-18",
+      "date_precision": "As deposited; DOI suffix year is not issue publication year"
+    },
+    {
+      "DOI": "10.1109/TIP.2025.3613958",
+      "title": [
+        "Robust Reversible Watermarking With Invisible Distortion Against VAE Watermark Removal"
+      ],
+      "journal": [
+        "IEEE Transactions on Image Processing"
+      ],
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+      "published": {
+        "date-parts": [
+          [
+            2025
+          ]
+        ]
+      },
+      "published_print": {
+        "date-parts": [
+          [
+            2025
+          ]
+        ]
+      },
+      "published_online": null,
+      "volume": "34",
+      "issue": null,
+      "pages": "6386-6401",
+      "source": "https://api.crossref.org/works/10.1109/TIP.2025.3613958",
+      "verification": "V1 publisher-deposited Crossref metadata only",
+      "accessed_local": "2026-10-18",
+      "date_precision": "As deposited; DOI suffix year is not issue publication year"
+    },
+    {
+      "DOI": "10.1109/TIP.2026.3657635",
+      "title": [
+        "SACMark: Spatial-Angle Consistency Watermarking Network for Light Field Image Copyright Protection"
+      ],
+      "journal": [
+        "IEEE Transactions on Image Processing"
+      ],
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+      "published": {
+        "date-parts": [
+          [
+            2026
+          ]
+        ]
+      },
+      "published_print": {
+        "date-parts": [
+          [
+            2026
+          ]
+        ]
+      },
+      "published_online": null,
+      "volume": "35",
+      "issue": null,
+      "pages": "1364-1379",
+      "source": "https://api.crossref.org/works/10.1109/TIP.2026.3657635",
+      "verification": "V1 publisher-deposited Crossref metadata only",
+      "accessed_local": "2026-10-18",
+      "date_precision": "As deposited; DOI suffix year is not issue publication year"
+    },
+    {
+      "DOI": "10.1109/TCSVT.2024.3474029",
+      "title": [
+        "Robust Image Watermarking With Synchronization Using Template Enhanced-Extracted Network"
+      ],
+      "journal": [
+        "IEEE Transactions on Circuits and Systems for Video Technology"
+      ],
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+      "published": {
+        "date-parts": [
+          [
+            2025,
+            2
+          ]
+        ]
+      },
+      "published_print": {
+        "date-parts": [
+          [
+            2025,
+            2
+          ]
+        ]
+      },
+      "published_online": null,
+      "volume": "35",
+      "issue": "2",
+      "pages": "1602-1614",
+      "source": "https://api.crossref.org/works/10.1109/TCSVT.2024.3474029",
+      "verification": "V1 publisher-deposited Crossref metadata only",
+      "accessed_local": "2026-10-18",
+      "date_precision": "As deposited; DOI suffix year is not issue publication year"
+    },
+    {
+      "DOI": "10.1109/TCSVT.2025.3619199",
+      "title": [
+        "Reversible Unlearnable Examples: Toward the Copyright Protection in Deep Learning Era"
+      ],
+      "journal": [
+        "IEEE Transactions on Circuits and Systems for Video Technology"
+      ],
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+      "published": {
+        "date-parts": [
+          [
+            2026,
+            3
+          ]
+        ]
+      },
+      "published_print": {
+        "date-parts": [
+          [
+            2026,
+            3
+          ]
+        ]
+      },
+      "published_online": null,
+      "volume": "36",
+      "issue": "3",
+      "pages": "3975-3988",
+      "source": "https://api.crossref.org/works/10.1109/TCSVT.2025.3619199",
+      "verification": "V1 publisher-deposited Crossref metadata only",
+      "accessed_local": "2026-10-18",
+      "date_precision": "As deposited; DOI suffix year is not issue publication year"
+    },
+    {
+      "DOI": "10.1109/TMM.2025.3565960",
+      "title": [
+        "MarkPlugger: Generalizable Watermark Framework for Latent Diffusion Models Without Retraining"
+      ],
+      "journal": [
+        "IEEE Transactions on Multimedia"
+      ],
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+      "published": {
+        "date-parts": [
+          [
+            2025
+          ]
+        ]
+      },
+      "published_print": {
+        "date-parts": [
+          [
+            2025
+          ]
+        ]
+      },
+      "published_online": null,
+      "volume": "27",
+      "issue": null,
+      "pages": "6211-6220",
+      "source": "https://api.crossref.org/works/10.1109/TMM.2025.3565960",
+      "verification": "V1 publisher-deposited Crossref metadata only",
+      "accessed_local": "2026-10-18",
+      "date_precision": "As deposited; DOI suffix year is not issue publication year"
+    },
+    {
+      "DOI": "10.1109/TMM.2025.3543079",
+      "title": [
+        "Robust Watermarking Based on Multi-Layer Watermark Feature Fusion"
+      ],
+      "journal": [
+        "IEEE Transactions on Multimedia"
+      ],
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+      "published": {
+        "date-parts": [
+          [
+            2025
+          ]
+        ]
+      },
+      "published_print": {
+        "date-parts": [
+          [
+            2025
+          ]
+        ]
+      },
+      "published_online": null,
+      "volume": "27",
+      "issue": null,
+      "pages": "5156-5169",
+      "source": "https://api.crossref.org/works/10.1109/TMM.2025.3543079",
+      "verification": "V1 publisher-deposited Crossref metadata only",
+      "accessed_local": "2026-10-18",
+      "date_precision": "As deposited; DOI suffix year is not issue publication year"
+    },
+    {
+      "DOI": "10.1109/TMM.2024.3370380",
+      "title": [
+        "Two-Stage Watermark Removal Framework for Spread Spectrum Watermarking"
+      ],
+      "journal": [
+        "IEEE Transactions on Multimedia"
+      ],
+      "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+      "published": {
+        "date-parts": [
+          [
+            2024
+          ]
+        ]
+      },
+      "published_print": {
+        "date-parts": [
+          [
+            2024
+          ]
+        ]
+      },
+      "published_online": null,
+      "volume": "26",
+      "issue": null,
+      "pages": "7687-7699",
+      "source": "https://api.crossref.org/works/10.1109/TMM.2024.3370380",
+      "verification": "V1 publisher-deposited Crossref metadata only",
+      "accessed_local": "2026-10-18",
+      "date_precision": "As deposited; DOI suffix year is not issue publication year"
+    }
+  ]
+}

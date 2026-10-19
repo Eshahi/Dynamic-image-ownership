@@ -41,7 +41,7 @@ These nominal times follow the BRIEF's shares of 600 minutes; start earlier when
 
 ## Work status
 
-WP0-WP2 delivered; WP2 retains explicit inaccessible-paper gaps. WP3-WP10 and extension E1-E6 pending.
+WP0-WP4 delivered; WP2 and WP4 retain explicit access/verification gaps. WP5 drafted and checked. WP6-WP10 and extension E1-E6 pending.
 
 ## Log
 
@@ -64,3 +64,8 @@ WP0-WP2 delivered; WP2 retains explicit inaccessible-paper gaps. WP3-WP10 and ex
 - WP2 resolved checkpoint — da31725, pushed successfully (869d02b..da31725); HEAD and origin match. 2026-10-18 18:54:11−08:00 — WP3 clock check and start. Escalating the contribution/framing decision to a fresh gpt-6-astra/high agent; parent prepares venue primary-source verification. No methods are changed or experiments authorized.
 - 2026-10-18T18:55:09.4674586-08:00 — WP4 clock check and start of parallel venue verification while WP3 authoring finishes. Fresh bounded sol/medium assistants split IEEE and Elsevier journal fact sheets; parent checks rankings and ACM/remaining scope. Source quotations stay short; unknown prices, policies or ranking editions stay unverified.
 - 2026-10-18 19:02−08:00 — WP3 complete. Fresh Astra author recommends C: an empirical attribution-boundary study, with A: a narrower passive-enrollment evaluation as fallback. Architecture novelty is pre-empted by DREW, final TrustMark and SynthID; no Q1 submission is justified by writing alone. Root checked the contribution text against the ledger, retained failure/missingness qualifications, and accepted the framing. Commit subject: Position article around measured attribution limits.
+- 2026-10-18T19:02:40.7869388-08:00 — WP5 clock check and start while WP4 verification continues. Escalation: fresh gpt-6-astra/high for formal games, collision/conjunction reasoning and count-based bounds, one file only, no experiments. Parent checks journal evidence. A fresh sol/medium source-verification task is authorized within WP4 to resolve ranking edition/category and add Information Sciences; no shared-state writes.
+
+- WP3 resolved checkpoint — acc59b3, pushed successfully (da31725..acc59b3); HEAD and origin match. WP4 parent verified current ACM July 2026 JCR report: TOMM Q1 in Software Engineering, rank 17; 2026/2027 OA fees distinguished. Computers & Security is out of its stated watermarking/AI scope despite historical network-watermark publications.
+
+- 2026-10-18T23:30:32.6501420-08:00 — Clock revalidated after context restoration: about 4 h 33 min remain. WP4 completed as a comparative screen of eleven titles (ten plausible), with inaccessible policy/ranking fields explicitly incomplete. Primary TIFS, backups TMM/TOMM; no submission now. Commit subject: Compare journal fit and document verification gaps.
