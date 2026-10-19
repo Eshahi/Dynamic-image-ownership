@@ -1,0 +1,56 @@
+relation,field,type,required_when,validation_or_missing_rule,purpose
+snapshot,snapshot_id,string,all future inventories,Unique immutable documentation revision; none instantiated here,Pin collection metadata state
+snapshot,accessed_at,string,all records,ISO 8601 with offset,Record observation time without promising currency
+snapshot,provider_revision,string,when exposed,Unknown explicitly if unavailable,Pin provider metadata or page revision
+snapshot,policy_versions,string,all allocation plans,Grouping eligibility overlap labeling and selection versions plus historical-exclusion-register revision,Prevent outcome-dependent policy drift
+asset,record_key,string,all candidate records,Dataset namespace plus provider ID and revision; no invented assets in this file,Identify distributed record
+asset,source_family,string,all records,Open Images V7 or Commons or V3C2 or UVG,Keep populations and source strata visible
+asset,original_platform_id,string,all eligible records,Preserve namespace; unresolved origin means quarantine,Join cross-dataset original identities
+asset,original_landing_url,string,all eligible records,Raw URL retained alongside normalized identity; not a pixel-fetch instruction,Preserve origin provenance
+asset,provider_record_url,string,all records,Text metadata or description-page URL,Locate provider evidence
+asset,title,string,if supplied,Missing explicit; never fabricate,Attribution and identity context
+asset,source_revision,string,all eligible records,Separate description-page revision from file revision timestamp when available,Anchor original and distributed variants
+asset,media_type,string,all records,Still or video or sequence or unknown,Separate roles and eligibility
+asset,variant_description,string,all eligible records,Original versus resize or encode or crop or frame extraction; unknown explicit,Do not compare hashes across unlike byte variants
+asset,geometry_timing_metadata,string,eligibility depends on geometry or time,Structured native width height duration frame rate and provider evidence; unknown is unresolved,Outcome-independent prospective eligibility
+asset,supplied_checksum_algorithm,string,checksum supplied by provider,MD5 or SHA-1 or other named algorithm; none explicit,Comparable overlap checks only
+asset,supplied_checksum_encoding,string,checksum supplied,Base64 versus hex recorded; never infer from visual similarity,Prevent encoding mistakes
+asset,supplied_checksum_value,string,checksum supplied,Retain raw checksum and exact variant; no new hashes computed here,Flag known byte overlap
+asset,creator_evidence_ref,string,all eligible records,Source evidence supports original creator; uploader alone insufficient,Separate authorship and hosting
+asset,uploader_identity,string,when supplied,Never substituted for original creator,Retain distribution provenance
+asset,license_name_version,string,all eligible records,Exact applicable media license and version; ambiguous means quarantine,Prevent blanket-license assumption
+asset,license_url,string,all eligible records,Official applicable terms and file-level supporting evidence,Locate terms
+asset,license_evidence_ref,string,all eligible records,Per-file or original-source locator with observation date and revision,Audit license assertion without legal certification
+asset,annotation_license,string,annotation metadata used,Separate from media license; not_applicable permitted,Avoid mixing annotation and asset rights
+asset,attribution_requirements,string,all eligible records,Creator title when supplied source license notice and requested credit line; preserve verbatim fields as needed,Plan compliant attribution
+asset,reuse_review_status,string,all records,Unresolved or quarantined or documented_for_proposed_use; never legally_cleared,Keep actual-use uncertainty visible
+asset,reuse_constraints,string,all records,Derivative terms noncommercial restriction other rights agreement withdrawal and release conditions,Plan use-specific rights review
+group,dependency_component_id,string,all proposed allocations,Connected provenance component across datasets; unknown creator not an independent component,Keep related material in one split
+group,creator_production_ids,string,all eligible components,One or more evidence-backed normalized identities with aliases and confidence; unresolved quarantined,Highest sampling and dependency level
+group,video_session_id,string,all source groups,Original video or photo-capture session; uncertainty explicit,Retain nested dependence
+group,shot_capture_id,string,when known,Evidence-backed shot/capture ID; unknown stays whole-video or whole-session grouping,Distinguish source unit from pair
+group,original_work_id,string,all eligible records,Canonical original creative work with derivative connections,Bind reuploads and variants
+group,grouping_evidence_refs,string,all merges,Reason and source evidence for each creator production original or derivative link,Make grouping auditable
+group,grouping_confidence,string,all records,Supported or uncertain or conflicting; uncertain/conflicting quarantined,Prevent invented independence
+link,parent_and_child_keys,string,derivative or compilation,Reference real records or attributable original works; unknown components quarantine,Preserve derivative graph
+link,relationship,string,all links,Same creator or production or original or session or duplicate or derivative or compilation,Explain dependency edges
+link,evidence_ref,string,all links,Source locator and revision; no outcome-based evidence,Bound source-driven grouping
+overlap,exclusion_register_revision,string,all screens,All known prior development calibration confirmation sources and derivatives; coverage gaps explicit,Anchor consumed-pool exclusion
+overlap,screen_coverage,string,all screens,ID URL algorithm/encoding/variant coverage and missing sources,No silent exhaustive-screen claim
+overlap,status,string,all screened components,Known overlap or no_known_metadata_overlap or unresolved,Negative checks never certify unseen content
+overlap,matched_prior_refs,string,known overlap,Prior source/group IDs and comparison evidence,Exclude dependent component from confirmation
+eligibility,metadata_eligibility_status,string,all candidates,Eligible or excluded or quarantined plus fixed-rule reason; not scored by method outputs,Outcome-independent selection
+eligibility,quality_rule_version,string,future content screening,Fixed prior rubric and numeric thresholds if later chosen; no thresholds instantiated here,Separate quality eligibility from marking success
+allocation,role_and_split,string,only future locked allocation,Ordinary photo or temporal negative; development or confirmation or reserve; entire dependency component together,Prevent source leakage
+allocation,ranking_contract_ref,string,future allocation,Seed canonical encoding domain tag digest tie rule strata caps and count plan frozen before ranking,Reproducible outcome-independent sampling proposal
+allocation,lock_revision_and_time,string,future freeze,Membership reference/query roles and planned-attempt structure fixed before outcomes,Make split lock explicit
+allocation,screening_disposition,string,all attempted candidates,Retain exclusions unavailable quarantine replacement order and administrative reason,No favorable-output replacement
+pair,pair_key,string,only future pair observations,Distinct from source and dependency-component IDs; none instantiated here,Prevent pair-count pseudoreplication
+pair,member_record_keys,string,future pair,Two real file/frame variants with reference/query roles,Define endpoint observation
+pair,temporal_selection_spec,string,future temporal pairs,Timestamps or frame indices offsets direction boundary rule shared-frame reuse and rule version,Preserve deterministic temporal choice
+label,identity_policy_version,string,any future annotations,Prospective identity notion and taxonomy-to-endpoint mapping fixed before outcomes,No post-hoc identity definition
+label,relationship_annotation,string,future blinded annotations,Exact copy or same-capture derivative or distinct capture same shot or distinct shot/capture or uncertain,Separate identity and scene similarity
+label,annotator_blinding_and_verdict,string,future human labels,Record individual labels uncertainty disagreement adjudication missingness and output blinding; never invented,Preserve human evidence provenance
+label,historical_gray_psnr_label_ref,string,only comparison to old endpoint,Immutable retained record locator or not_applicable; do not relabel old data,Keep historical operational definition separate
+audit,status_and_missing_reason,string,all future planned attempts,Screened excluded quarantined selected unavailable withdrawn attempted and missing tracked separately,Complete denominator and bank accounting
+audit,breach_or_withdrawal_ref,string,link or rights issue discovered later,Versioned incident record with affected components and confirmatory interpretation,No silent reassignment or removal
