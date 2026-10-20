@@ -131,6 +131,16 @@ These are floors, not targets. Each source counts once, must be at least V2 (met
   - record any pre-outcome amendment (within the limits of section 1a) in `protocol.md` and `frozen-config.json`;
   - update `budget-and-proposals.md`, keeping P1-P8, revising them and adding new ones where the research supports it.
 
+### Cost settings (user decision, 2026-10-20 05:40)
+
+The weekly Codex quota fell from 6% to 45% used in under two hours, so the user switched to cheaper settings. These override the agent settings in the process rules above:
+- The main thread runs at `high`.
+- Remaining and re-briefed topic agents (T3, T5, T6, T7, T8 and any gap fills) use `gpt-6.1-sol` at `high`; T4 uses `gpt-6-astra` at `high`.
+- At most 2 agents run at a time.
+- `design-review-2` stays one fresh `gpt-6-astra` agent at `xhigh`.
+- Every floor and rule of section 1b is unchanged.
+- A watchdog pauses the run when weekly usage reaches 75%, to keep quota for stage 2. Commit accepted topics promptly.
+
 ### Second independent review and re-freeze
 
 1. A fresh agent (`gpt-6-astra`, `xhigh`, `fork_turns: "none"`), different from the first reviewer, writes `design-review-2.md`. It must first audit the coverage table above, with counts per topic. **It fails the package if any floor is unmet.** Then it reviews the design and its amendments as in section 1a.
