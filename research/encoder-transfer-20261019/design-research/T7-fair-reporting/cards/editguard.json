@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "t7_editguard",
+  "citation_key": "T7_editguard_2024",
+  "doi": null,
+  "canonical_url": "https://openaccess.thecvf.com/content/CVPR2024/html/Zhang_EditGuard_Versatile_Image_Watermarking_for_Tamper_Localization_and_Copyright_Protection_CVPR_2024_paper.html",
+  "title": "EditGuard: Versatile Image Watermarking for Tamper Localization and Copyright Protection",
+  "authors": [
+    "Zhang, Xuanyu",
+    "Li, Runyi",
+    "Yu, Jiwen",
+    "Xu, Youmin",
+    "Li, Weiqi",
+    "Zhang, Jian"
+  ],
+  "year": 2024,
+  "venue": "CVPR",
+  "access_date": "2026-10-20",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "editguard-paper.pdf",
+    "sha256": "7e092c780e106a49f9bb532ea11a03f80cb67d32e627c4b39d4179f4794b4c18"
+  },
+  "limitations": [
+    "Extra predefined localization image is detector side information; dual localization/copyright tasks differ from arbitrary payload recovery and semantic binding. Bit and localization results cannot be collapsed into one detection rate.",
+    "V2 means method and evaluation windows inspected; experiments were not reproduced. DOI was not independently verified and remains null."
+  ]
+}

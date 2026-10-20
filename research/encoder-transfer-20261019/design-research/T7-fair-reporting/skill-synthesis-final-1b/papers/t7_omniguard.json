@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "t7_omniguard",
+  "citation_key": "T7_omniguard_2025",
+  "doi": null,
+  "canonical_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Zhang_OmniGuard_Hybrid_Manipulation_Localization_via_Augmented_Versatile_Deep_Image_Watermarking_CVPR_2025_paper.html",
+  "title": "OmniGuard: Hybrid Manipulation Localization via Augmented Versatile Deep Image Watermarking",
+  "authors": [
+    "Zhang, Xuanyu",
+    "Tang, Zecheng",
+    "Xu, Zhipei",
+    "Li, Runyi",
+    "Xu, Youmin",
+    "Chen, Bin",
+    "Gao, Feng",
+    "Zhang, Jian"
+  ],
+  "year": 2025,
+  "venue": "CVPR",
+  "access_date": "2026-10-20",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "omniguard-paper.pdf",
+    "sha256": "4e8a7cf6f4b7c8350ce1651bbb5c5c02739fcb3b15be5b76b9bb2f0f32ca50e5"
+  },
+  "limitations": [
+    "Table header labels bit accuracy (%) but entries are fractions such as.981; preserve raw scale and explain as98.1% only when converting. Local edits that retain unedited pixels do not measure full-image independent-encoder regeneration.",
+    "V2 means method and evaluation windows inspected; experiments were not reproduced. DOI was not independently verified and remains null."
+  ]
+}

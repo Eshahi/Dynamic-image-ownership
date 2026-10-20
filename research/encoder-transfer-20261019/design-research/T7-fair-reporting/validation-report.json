@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-20",
+  "status": "author_checks_pass",
+  "distinct_sources": 15,
+  "own_v2_cards": 15,
+  "evaluation_rows": 15,
+  "evidence_entries": 120,
+  "queries": 12,
+  "query_categories": 4,
+  "venue_year_counts": {
+    "ICML 2024": 1,
+    "ICLR 2025": 3,
+    "ICCV 2025": 3,
+    "ECCV 2024": 3,
+    "CVPR 2024": 2,
+    "CVPR 2025": 1,
+    "CVPR 2026": 1,
+    "NeurIPS 2024": 1
+  },
+  "hash_comparisons": 59,
+  "distinct_hashed_files": 56,
+  "tables": 8,
+  "figures": 7,
+  "skill_validation": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "skill_command": [
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\venv\\Scripts\\python.exe",
+    "C:\\Users\\Soroush\\.codex\\skills\\thesis-literature-synthesis\\scripts\\validate_literature.py",
+    "validate",
+    "C:\\Users\\Soroush\\.codex\\worktrees\\codex-encoder-transfer\\research\\encoder-transfer-20261019\\design-research\\T7-fair-reporting\\literature-response.json",
+    "--evidence-root",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b",
+    "--request-id",
+    "encoder_transfer_t7_stage1b"
+  ],
+  "literature_response_sha256": "d91f00897e2bd7ed57147bf97c5b2cc843b4926785495661d13c6e4b0fcab5a3",
+  "final_skill_export": "skill-synthesis-final-1b",
+  "final_export_papers": 15,
+  "scope": "Documentary author checks; not independent review, scientific reproduction or outcome evidence."
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "t7_zodiac",
+  "citation_key": "T7_zodiac_2024",
+  "doi": null,
+  "canonical_url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/43d33182360378d5c8e69dd706c24f2f-Abstract.html",
+  "title": "Attack-Resilient Image Watermarking Using Stable Diffusion",
+  "authors": [
+    "Zhang, Lijun",
+    "Liu, Xiao",
+    "Martin, Antoni V.",
+    "Bearfield, Cindy X.",
+    "Brun, Yuriy",
+    "Guan, Hui"
+  ],
+  "year": 2024,
+  "venue": "NeurIPS",
+  "access_date": "2026-10-20",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "zodiac-paper.pdf",
+    "sha256": "3f4e0a431674cfdfb1aac89b0c37c48209f36cd6d3789477eec37cb361b51a4a"
+  },
+  "limitations": [
+    "Official venue isNeurIPS2024, neitherECCV norACMMM. Default writer SD2.1 model differs from an independent-encoder regeneration claim. Native-quality enhancement can reduce robustness and cannot be treated as free equalization.",
+    "V2 means method and evaluation windows inspected; experiments were not reproduced. DOI was not independently verified and remains null."
+  ]
+}

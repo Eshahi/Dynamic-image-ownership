@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "t7_robustwide",
+  "citation_key": "T7_robustwide_2024",
+  "doi": null,
+  "canonical_url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/3220_ECCV_2024_paper.php",
+  "title": "Robust-Wide: Robust Watermarking against Instruction-driven Image Editing",
+  "authors": [
+    "Runyi Hu",
+    "Jie Zhang",
+    "Ting Xu",
+    "Jiwei Li",
+    "Tianwei Zhang"
+  ],
+  "year": 2024,
+  "venue": "ECCV",
+  "access_date": "2026-10-20",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "robustwide-paper.pdf",
+    "sha256": "33171a8b6d26ec2292c5e8904aad9342f10f9ff4fbe362355fc020779d171860"
+  },
+  "limitations": [
+    "Training editor InstructPix2Pix is also default evaluation editor; robustness to it is not independent-encoder transfer. Capacity and preprocessing differ across baselines.",
+    "V2 means method and evaluation windows inspected; experiments were not reproduced. DOI was not independently verified and remains null."
+  ]
+}

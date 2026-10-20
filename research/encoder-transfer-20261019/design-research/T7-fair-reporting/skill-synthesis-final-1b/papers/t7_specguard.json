@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "t7_specguard",
+  "citation_key": "T7_specguard_2025",
+  "doi": null,
+  "canonical_url": "https://openaccess.thecvf.com/content/ICCV2025/html/Alam_SpecGuard_Spectral_Projection-based_Advanced_Invisible_Watermarking_ICCV_2025_paper.html",
+  "title": "SpecGuard: Spectral Projection-based Advanced Invisible Watermarking",
+  "authors": [
+    "Alam, Inzamamul",
+    "Islam, Md Tanvir",
+    "Woo, Simon S.",
+    "Muhammad, Khan"
+  ],
+  "year": 2025,
+  "venue": "ICCV",
+  "access_date": "2026-10-20",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "specguard-paper.pdf",
+    "sha256": "f23bbfbc1a88d141117b10045539488c687267095928b587d4ff4c07dee6683e"
+  },
+  "limitations": [
+    "Missing exact n and FPR details limit reproduction; bibliographic eligibility does not make every evaluation setting complete. Some comparisons change payload/resolution. Do not infer a common detection test from BRA alone.",
+    "V2 means method and evaluation windows inspected; experiments were not reproduced. DOI was not independently verified and remains null."
+  ]
+}

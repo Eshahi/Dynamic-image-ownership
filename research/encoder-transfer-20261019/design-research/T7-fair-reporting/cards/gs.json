@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "t7_gs",
+  "citation_key": "T7_gs_2024",
+  "doi": null,
+  "canonical_url": "https://openaccess.thecvf.com/content/CVPR2024/html/Yang_Gaussian_Shading_Provable_Performance-Lossless_Image_Watermarking_for_Diffusion_Models_CVPR_2024_paper.html",
+  "title": "Gaussian Shading: Provable Performance-Lossless Image Watermarking for Diffusion Models",
+  "authors": [
+    "Yang, Zijin",
+    "Zeng, Kai",
+    "Chen, Kejiang",
+    "Fang, Han",
+    "Zhang, Weiming",
+    "Yu, Nenghai"
+  ],
+  "year": 2024,
+  "venue": "CVPR",
+  "access_date": "2026-10-20",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "gs-paper.pdf",
+    "sha256": "fe4d7935082b80fc8be8fe8b1c167e8c8901e130ee9cf3642c25038af5cef9ae"
+  },
+  "limitations": [
+    "Distributional quality theorem is not image-by-image equality. The paper's inference about performance-losslessness from low t-values is author interpretation; non-rejection is not an equivalence proof.",
+    "V2 means method and evaluation windows inspected; experiments were not reproduced. DOI was not independently verified and remains null."
+  ]
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "waves",
+    "title": "WAVES: Benchmarking the Robustness of Image Watermarks",
+    "venue": "ICML",
+    "year": 2024,
+    "venue_url": "https://proceedings.mlr.press/v235/an24a.html",
+    "pdf_url": "https://raw.githubusercontent.com/mlresearch/v235/main/assets/an24a/an24a.pdf"
+  },
+  {
+    "id": "vine",
+    "title": "Robust Watermarking Using Generative Priors Against Image Editing: From Benchmarking to Advances",
+    "venue": "ICLR",
+    "year": 2025,
+    "venue_url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/d077bc9ea82a2998ca6b2d0158b5ac6e-Abstract-Conference.html",
+    "pdf_url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/d077bc9ea82a2998ca6b2d0158b5ac6e-Paper-Conference.pdf"
+  },
+  {
+    "id": "wam",
+    "title": "Watermark Anything With Localized Messages",
+    "venue": "ICLR",
+    "year": 2025,
+    "venue_url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/c5ee1911dffe4886367eee7fca314235-Abstract-Conference.html",
+    "pdf_url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/c5ee1911dffe4886367eee7fca314235-Paper-Conference.pdf"
+  },
+  {
+    "id": "trustmark",
+    "title": "TrustMark: Robust Watermarking and Watermark Removal for Arbitrary Resolution Images",
+    "venue": "ICCV",
+    "year": 2025,
+    "venue_url": "https://openaccess.thecvf.com/content/ICCV2025/html/Bui_TrustMark_Robust_Watermarking_and_Watermark_Removal_for_Arbitrary_Resolution_Images_ICCV_2025_paper.html",
+    "pdf_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Bui_TrustMark_Robust_Watermarking_and_Watermark_Removal_for_Arbitrary_Resolution_Images_ICCV_2025_paper.pdf"
+  },
+  {
+    "id": "lawa",
+    "title": "LaWa: Using Latent Space for In-Generation Image Watermarking",
+    "venue": "ECCV",
+    "year": 2024,
+    "venue_url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/12460_ECCV_2024_paper.php",
+    "pdf_url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/12460.pdf"
+  },
+  {
+    "id": "ringid",
+    "title": "RingID: Rethinking Tree-Ring Watermarking for Enhanced Multi-Key Identification",
+    "venue": "ECCV",
+    "year": 2024,
+    "venue_url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/4104_ECCV_2024_paper.php",
+    "pdf_url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/04104.pdf"
+  },
+  {
+    "id": "robustwide",
+    "title": "Robust-Wide: Robust Watermarking against Instruction-driven Image Editing",
+    "venue": "ECCV",
+    "year": 2024,
+    "venue_url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/3220_ECCV_2024_paper.php",
+    "pdf_url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/03220.pdf"
+  },
+  {
+    "id": "gs",
+    "title": "Gaussian Shading: Provable Performance-Lossless Image Watermarking for Diffusion Models",
+    "venue": "CVPR",
+    "year": 2024,
+    "venue_url": "https://openaccess.thecvf.com/content/CVPR2024/html/Yang_Gaussian_Shading_Provable_Performance-Lossless_Image_Watermarking_for_Diffusion_Models_CVPR_2024_paper.html",
+    "pdf_url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Yang_Gaussian_Shading_Provable_Performance-Lossless_Image_Watermarking_for_Diffusion_Models_CVPR_2024_paper.pdf"
+  },
+  {
+    "id": "editguard",
+    "title": "EditGuard: Versatile Image Watermarking for Tamper Localization and Copyright Protection",
+    "venue": "CVPR",
+    "year": 2024,
+    "venue_url": "https://openaccess.thecvf.com/content/CVPR2024/html/Zhang_EditGuard_Versatile_Image_Watermarking_for_Tamper_Localization_and_Copyright_Protection_CVPR_2024_paper.html",
+    "pdf_url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Zhang_EditGuard_Versatile_Image_Watermarking_for_Tamper_Localization_and_Copyright_Protection_CVPR_2024_paper.pdf"
+  },
+  {
+    "id": "omniguard",
+    "title": "OmniGuard: Hybrid Manipulation Localization via Augmented Versatile Deep Image Watermarking",
+    "venue": "CVPR",
+    "year": 2025,
+    "venue_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Zhang_OmniGuard_Hybrid_Manipulation_Localization_via_Augmented_Versatile_Deep_Image_Watermarking_CVPR_2025_paper.html",
+    "pdf_url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Zhang_OmniGuard_Hybrid_Manipulation_Localization_via_Augmented_Versatile_Deep_Image_Watermarking_CVPR_2025_paper.pdf"
+  },
+  {
+    "id": "specguard",
+    "title": "SpecGuard: Spectral Projection-based Advanced Invisible Watermarking",
+    "venue": "ICCV",
+    "year": 2025,
+    "venue_url": "https://openaccess.thecvf.com/content/ICCV2025/html/Alam_SpecGuard_Spectral_Projection-based_Advanced_Invisible_Watermarking_ICCV_2025_paper.html",
+    "pdf_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Alam_SpecGuard_Spectral_Projection-based_Advanced_Invisible_Watermarking_ICCV_2025_paper.pdf"
+  },
+  {
+    "id": "wind",
+    "title": "Hidden in the Noise: Two-Stage Robust Watermarking for Images",
+    "venue": "ICLR",
+    "year": 2025,
+    "venue_url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/999fcab97007ebef0cda9949550b4a9e-Abstract-Conference.html",
+    "pdf_url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/999fcab97007ebef0cda9949550b4a9e-Paper-Conference.pdf"
+  },
+  {
+    "id": "seal",
+    "title": "SEAL: Semantic Aware Image Watermarking",
+    "venue": "ICCV",
+    "year": 2025,
+    "venue_url": "https://openaccess.thecvf.com/content/ICCV2025/html/Arabi_SEAL_Semantic_Aware_Image_Watermarking_ICCV_2025_paper.html",
+    "pdf_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Arabi_SEAL_Semantic_Aware_Image_Watermarking_ICCV_2025_paper.pdf"
+  },
+  {
+    "id": "peccvai",
+    "title": "PECCVAI: Overcoming the Brittleness of AI Image Watermarking Under Visual Paraphrasing Attacks",
+    "venue": "CVPR",
+    "year": 2026,
+    "venue_url": "https://openaccess.thecvf.com/content/CVPR2026/html/Dixit_PECCVAI_Overcoming_the_Brittleness_of_AI_Image_Watermarking_Under_Visual_CVPR_2026_paper.html",
+    "pdf_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Dixit_PECCVAI_Overcoming_the_Brittleness_of_AI_Image_Watermarking_Under_Visual_CVPR_2026_paper.pdf"
+  },
+  {
+    "id": "zodiac",
+    "title": "Attack-Resilient Image Watermarking Using Stable Diffusion",
+    "venue": "NeurIPS",
+    "year": 2024,
+    "venue_url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/43d33182360378d5c8e69dd706c24f2f-Abstract.html",
+    "pdf_url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/43d33182360378d5c8e69dd706c24f2f-Paper-Conference.pdf"
+  }
+]

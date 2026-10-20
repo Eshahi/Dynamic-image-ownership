@@ -86,5 +86,8 @@
     "sha256": "334208c8ed9ec79d5c884667d683c3ee279b0978e51e1f19872bd0b402c51328",
     "bytes": 150053
   },
-  "no_new_experimental_data": true
+  "no_new_experimental_data": true,
+  "stage1b_current_source_manifest": "source-manifest.json",
+  "stage1b_query_manifest": "query-manifest.json",
+  "historical_entries_counted_toward_stage1b_floor": false
 }

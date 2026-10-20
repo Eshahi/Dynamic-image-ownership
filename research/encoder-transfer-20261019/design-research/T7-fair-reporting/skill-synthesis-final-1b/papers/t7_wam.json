@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "t7_wam",
+  "citation_key": "T7_wam_2025",
+  "doi": null,
+  "canonical_url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/c5ee1911dffe4886367eee7fca314235-Abstract-Conference.html",
+  "title": "Watermark Anything With Localized Messages",
+  "authors": [
+    "Sander, Tom",
+    "Fernandez, Pierre",
+    "Oliviero Durmus, Alain",
+    "Furon, Teddy",
+    "Douze, Matthijs"
+  ],
+  "year": 2025,
+  "venue": "ICLR",
+  "access_date": "2026-10-20",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "wam-paper.pdf",
+    "sha256": "2ee08bf693643a35156733082235ff4bd850533c535e7d4517a9704ad5723f94"
+  },
+  "limitations": [
+    "Paper COCO training/calibration differs from frozen MIT SA-1B release. Native mask calibration does not transfer automatically. DBSCAN-conditioned recovery must not silently omit undiscovered messages.",
+    "V2 means method and evaluation windows inspected; experiments were not reproduced. DOI was not independently verified and remains null."
+  ]
+}

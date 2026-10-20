@@ -22,8 +22,8 @@ Record unresolved gaps before acceptance. A below-floor delivery returns to a fr
 | T4 | 8 mechanism sources; all-channel and proposal predictions | 13 distinct V2 sources; 26 prediction rows | 18 queries / 4 categories | Accepted after parent inspection | cc25f1683bb2960080f777e38ed1a0fcc00ab613 |
 | T5 | Six named implementations; all relied-on settings pinned by file/line | 6 implementations, 61 setting rows, 6 paper V2 cards | 16 queries / 3 categories | Accepted after parent inspection | 4601425749c940f2eaa7a852324a542af26659da |
 | T6 | n60/90/120; seed correlation and missing-unit sensitivity | 8 paper V2 + 5 official references; 15 tables / 5,154 rows | 12 queries / 3 categories | Accepted after parent inspection | a0ff0a00fe0cbe0b5f1b13d6a1c445c5084a2fe1 |
-| T7 | 12 evaluation sections from 2024-2026 eligible venues | Pending | Pending | Assigned to fresh sol/high | Pending |
-| T8 | 25 distinct validity threats | 68 mechanisms; 14 own V2 papers | 11 successful queries / 4 categories (17 attempted) | Accepted after parent inspection | Current acceptance commit |
+| T7 | 12 evaluation sections from 2024-2026 eligible venues | 15 own V2 papers and evaluation rows | 12 durable queries / 4 categories | Accepted after parent inspection | Current acceptance commit |
+| T8 | 25 distinct validity threats | 68 mechanisms; 14 own V2 papers | 11 successful queries / 4 categories (17 attempted) | Accepted after parent inspection | 074250957757faa9555e9dcd2b79658bcc6269bd |
 
 ## Evidence inspection and gaps
 
@@ -107,3 +107,9 @@ Parent rechecked WAM final ICLR Section5.3 and Table2a in the primary text (T7 c
 ### T8 accepted, 2026-10-20
 
 Parent read all fourteen own V2 paper cards, the official/local card, all68 threat rows and the complete synthesis. Each row has a distinct mechanism, mitigation or retained limitation and primary/source-contract argument; no severity sum or new security guarantee is inferred. Parent independently verified all59 source/query/snapshot hashes, counted68 CSV rows and eleven unique successful substantive queries in four allowed categories (repository/model-hub combined), and checked the actual successful skill-validation receipt against the current response hash. Historical grouped cards and generated exports are not additional papers. WAM nominal versus empirical FPR and BrushOff clean-denominator distinctions were rechecked against primary text. The old38-threat synthesis is preserved as historical; current synthesis is authoritative. New BrushOff/taxonomy leads are assigned separately to a fresh T1 gap agent. No core setting, proposal, server or outcome changed.
+
+### T7 accepted, 2026-10-20
+
+Parent read all fifteen individual evaluation records/cards, the full reporting synthesis and the durable query ledger; official venue pages independently identify eligible 2024-2026 ICML, ICLR, CVPR, ICCV, ECCV and NeurIPS papers. Fifteen source IDs and complete table rows exceed twelve; twelve distinct successful queries span four categories, with missing historical receipts explicitly excluded. All 59 current artifact/hash comparisons passed, including the separately added SEAL supplement, and the installed literature validator reported zero errors/warnings for fifteen papers and 120 evidence entries. The final generated export is authoritative; its superseded intermediate is preserved and not counted.
+
+Parent checked consequential WAM theoretical/empirical FPR, TrustMark unstated n, VINE conflicting denominators, SEAL supplement counts and WIND final Table11 against primary evidence. WIND page23 was rendered and visually confirmed; its AUC/TPR inconsistency remains unresolved. SEAL latent-forgery n100 does not fill its main removal denominator. Two arXiv transport fallbacks and uninspected leads remain explicit. Eight tables, seven figures, matching calipers and three primary Holm tests are unchanged. ROC missing-positive and cutoff-tie wording now describes the existing implementation; it cannot replace fixed endpoint predicates. No core amendment or scientific outcome is introduced.

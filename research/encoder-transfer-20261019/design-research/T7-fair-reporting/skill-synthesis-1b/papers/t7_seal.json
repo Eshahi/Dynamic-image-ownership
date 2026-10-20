@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "t7_seal",
+  "citation_key": "T7_seal_2025",
+  "doi": null,
+  "canonical_url": "https://openaccess.thecvf.com/content/ICCV2025/html/Arabi_SEAL_Semantic_Aware_Image_Watermarking_ICCV_2025_paper.html",
+  "title": "SEAL: Semantic Aware Image Watermarking",
+  "authors": [
+    "Arabi, Kasra",
+    "Witter, R. Teal",
+    "Hegde, Chinmay",
+    "Cohen, Niv"
+  ],
+  "year": 2025,
+  "venue": "ICCV",
+  "access_date": "2026-10-20",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "seal-paper.pdf",
+    "sha256": "28e1ab0517cf6ac501a9f1b218d0f05117229fd88ad782c7c70a289b02daf2e0"
+  },
+  "limitations": [
+    "Uses a semantic model and diffusion inversion; semantic binding differs from F5 content-match read endpoint. All five official supplement pages were text-inspected on2026-10-20, including explicit100-image latent-forgery experiment, but main removal/CatAttack n remainsNR. Extraction emitted wrong-pointing-object warnings; relevant prose/tables are coherent, without inferring unavailable figure details. AUC and robustness claims do not supply low-FPR calibration.",
+    "V2 means method and evaluation windows inspected; experiments were not reproduced. DOI was not independently verified and remains null."
+  ]
+}

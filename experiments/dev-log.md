@@ -395,3 +395,6 @@
 - 2026-10-20T21:28:40.594786+00:00 Codex agent pushed own branch codex/encoder-transfer-20261019 ad985e022275ac4aad77da457b3f8177edf2a6b7..34d203db426e318efd8b3322353a244c5e854ab0; origin exact head verified. Interrupted research preserved; TrustMark count precision corrected.
 
 - 2026-10-20T21:42:08.590351+00:00 Codex agent accepted T8 (68 threats,14 V2,11 queries/4categories,59 hashes verified); assigned fresh gpt-6.1-sol/high T1 gap agent for newly discovered recent attack sources. Planned own-branch push from34d203d to T8 acceptance commit; exact range follows.
+
+2026-10-20 UTC | Codex agent push verified | codex/encoder-transfer-20261019 | 34d203d..074250957757faa9555e9dcd2b79658bcc6269bd | accepted T8 and WAM editorial clarification.
+2026-10-20 UTC | Codex agent | T7 accepted after parent floor/evidence audit; planned own-branch push from 0742509 to this acceptance commit. No server/GPU/outcomes.

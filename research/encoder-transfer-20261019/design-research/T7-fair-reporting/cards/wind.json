@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "t7_wind",
+  "citation_key": "T7_wind_2025",
+  "doi": null,
+  "canonical_url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/999fcab97007ebef0cda9949550b4a9e-Abstract-Conference.html",
+  "title": "Hidden in the Noise: Two-Stage Robust Watermarking for Images",
+  "authors": [
+    "Arabi, Kasra",
+    "Feuer, Benjamin",
+    "Witter, R. Teal",
+    "Hegde, Chinmay",
+    "Cohen, Niv"
+  ],
+  "year": 2025,
+  "venue": "ICLR",
+  "access_date": "2026-10-20",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "wind-paper.pdf",
+    "sha256": "628e6b51865c25ef88d9d49b34b7e7f7d5af731b1e14d82dce851a06e9cafcfc"
+  },
+  "limitations": [
+    "Dictionary size is side information and not payload-bit count or evaluation n. Full versus fast search and generated versus inpainted modes differ materially. Main-image n remains NR rather than guessed from decimal steps. Unresolved internal inconsistency: final Table11 reports AUC .971 and TP@1% 1.000. If both summarize the same standard monotone ROC, TPR=1 at FPR=.01 implies AUC>=.99. Neither rounding nor column extraction resolves this gap; no distinct aggregation explanation was found in inspected AppendixD.6. Preserve both as reported, not coherent calibration evidence. The parent agent rendered and visually inspected final-PDF page 23 on 2026-10-20; cache wind-render/page-023.png confirms the headers and ordering. This is attributed visual verification, not a claim that the T7 author performed that rendering.",
+    "V2 means method and evaluation windows inspected; experiments were not reproduced. DOI was not independently verified and remains null."
+  ]
+}

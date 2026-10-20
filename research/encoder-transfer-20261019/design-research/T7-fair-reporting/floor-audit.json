@@ -1,0 +1,50 @@
+{
+  "topic": "T7",
+  "date": "2026-10-20",
+  "status": "author_floor_check_pass_pending_parent_and_independent_review",
+  "distinct_eligible_v2_sources": 15,
+  "minimum_sources": 12,
+  "own_card_ids": [
+    "waves",
+    "vine",
+    "wam",
+    "trustmark",
+    "lawa",
+    "ringid",
+    "robustwide",
+    "gs",
+    "editguard",
+    "omniguard",
+    "specguard",
+    "wind",
+    "seal",
+    "peccvai",
+    "zodiac"
+  ],
+  "legacy_group_cards_counted": false,
+  "queries": 12,
+  "minimum_queries": 10,
+  "categories": [
+    "arxiv_api",
+    "official_repository",
+    "openalex",
+    "web_search"
+  ],
+  "minimum_categories": 3,
+  "final_pdfs": 13,
+  "explicit_arxiv_transport_fallbacks": [
+    "waves",
+    "vine"
+  ],
+  "all_artifacts_hash_checked": true,
+  "evaluation_table_rows": 15,
+  "matched_quality_contract": "Preserved finite grid, calipers and embedding-qualified subset; no scientific experiment amendment.",
+  "tables": 8,
+  "figures": 7,
+  "inferential_tests": "Only three primary paired exact sign tests, one Holm family; no additional tests.",
+  "unresolved_source_conflicts": [
+    "VINE denominator text/caption conflict",
+    "WIND final Table11 same-ROC inconsistency"
+  ],
+  "no_images_models_gpu_or_outcomes": true
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "t7_vine",
+  "citation_key": "T7_vine_2025",
+  "doi": null,
+  "canonical_url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/d077bc9ea82a2998ca6b2d0158b5ac6e-Abstract-Conference.html",
+  "title": "Robust Watermarking Using Generative Priors Against Image Editing: From Benchmarking to Advances",
+  "authors": [
+    "Lu, Shilin",
+    "Zhou, Zihan",
+    "Lu, Jiayou",
+    "Zhu, Yuanzhi",
+    "Kong, Adams"
+  ],
+  "year": 2025,
+  "venue": "ICLR",
+  "access_date": "2026-10-20",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "vine-reused.html",
+    "sha256": "f6fb25d7b27ec0e95f883674e2e08a41a9075f5929e76287f02330e339e049dd"
+  },
+  "limitations": [
+    "Inspected arXiv v2 full text; official proceedings PDF retrieval failed. Venue is ICLR2025, notICCV. The §4.2/§4.3 versusTable1caption image-count conflict remains unresolved and is preserved. No universal released VINE-R native presence cutoff is established by this paper. SDXL-Turbo ancestry must remain visible when comparing SDXL transfer.",
+    "V2 means method and evaluation windows inspected; experiments were not reproduced. DOI was not independently verified and remains null."
+  ]
+}

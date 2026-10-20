@@ -6482,6 +6482,249 @@
       "license": "Documentary inspection only; see topic source manifest",
       "version_or_revision": "Retrieval snapshot SHA; URL version when available",
       "source_manifest": "research/encoder-transfer-20261019/design-research/T8-validity/source-manifest.json"
+    },
+    {
+      "url": "https://proceedings.mlr.press/v235/an24a.html",
+      "sha256": "100aa3da0747c6b95bd2c1dd055e2c1e25489e165263c4185ed0139a83d3f79d",
+      "bytes": 15760,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\waves-venue.html",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "arXiv 2401.08573v3 (official PDF transport failure)",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/d077bc9ea82a2998ca6b2d0158b5ac6e-Abstract-Conference.html",
+      "sha256": "6d628af13414837a73e1ed49a441b5cd9b555724641a2658e309c2fd54628bd0",
+      "bytes": 9840,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\vine-venue.html",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "arXiv 2410.18775v2 (official PDF transport failure)",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/c5ee1911dffe4886367eee7fca314235-Paper-Conference.pdf",
+      "sha256": "2ee08bf693643a35156733082235ff4bd850533c535e7d4517a9704ad5723f94",
+      "bytes": 27081692,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\wam-paper.pdf",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "ICLR 2025 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/c5ee1911dffe4886367eee7fca314235-Abstract-Conference.html",
+      "sha256": "fc4c0c63c9ad501d4869b636fca14289136c30cb5e9ecdbb3fdf1ea10ad98e83",
+      "bytes": 9394,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\wam-venue.html",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "ICLR 2025 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Bui_TrustMark_Robust_Watermarking_and_Watermark_Removal_for_Arbitrary_Resolution_Images_ICCV_2025_paper.html",
+      "sha256": "ae185a39b63475835d11a8a63eaeb1747c05fa6280aa7c3797aa930f78b73202",
+      "bytes": 5610,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\trustmark-venue.html",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "ICCV 2025 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/12460.pdf",
+      "sha256": "735711486683ed3389fa1c350449cccb8710b3d29b23d7de57756f71538c4fcb",
+      "bytes": 6532992,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\lawa-paper.pdf",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "ECCV 2024 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/12460_ECCV_2024_paper.php",
+      "sha256": "dc65be3e437deeafbcf53401ea177946a25e4cdad3369f2d87aeebf0dcffb510",
+      "bytes": 5034,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\lawa-venue.html",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "ECCV 2024 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/04104.pdf",
+      "sha256": "09a2be633d53dda926f0bae2677fdb6c107f0791375b0fed655e56b52dcb046b",
+      "bytes": 2135646,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\ringid-paper.pdf",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "ECCV 2024 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/4104_ECCV_2024_paper.php",
+      "sha256": "e064b9739e4f6ea6bb2b088f7548b048e29db0ae60d4ca6296d34cdcc71e09ca",
+      "bytes": 4777,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\ringid-venue.html",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "ECCV 2024 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/03220.pdf",
+      "sha256": "33171a8b6d26ec2292c5e8904aad9342f10f9ff4fbe362355fc020779d171860",
+      "bytes": 5343195,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\robustwide-paper.pdf",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "ECCV 2024 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/3220_ECCV_2024_paper.php",
+      "sha256": "cf95f774096f8356d0d74dde34f5aab5ba9307c32f4034ce3aef94c3008fb7df",
+      "bytes": 5593,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\robustwide-venue.html",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "ECCV 2024 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Yang_Gaussian_Shading_Provable_Performance-Lossless_Image_Watermarking_for_Diffusion_Models_CVPR_2024_paper.pdf",
+      "sha256": "fe4d7935082b80fc8be8fe8b1c167e8c8901e130ee9cf3642c25038af5cef9ae",
+      "bytes": 5555024,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\gs-paper.pdf",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "CVPR 2024 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2024/html/Yang_Gaussian_Shading_Provable_Performance-Lossless_Image_Watermarking_for_Diffusion_Models_CVPR_2024_paper.html",
+      "sha256": "f9a1c63144029acbe187ad9f074b2b5746112eb369b99015988f014a81c41473",
+      "bytes": 6735,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\gs-venue.html",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "CVPR 2024 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Zhang_EditGuard_Versatile_Image_Watermarking_for_Tamper_Localization_and_Copyright_Protection_CVPR_2024_paper.pdf",
+      "sha256": "7e092c780e106a49f9bb532ea11a03f80cb67d32e627c4b39d4179f4794b4c18",
+      "bytes": 7186147,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\editguard-paper.pdf",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "CVPR 2024 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2024/html/Zhang_EditGuard_Versatile_Image_Watermarking_for_Tamper_Localization_and_Copyright_Protection_CVPR_2024_paper.html",
+      "sha256": "2dc16de3d508bf4a750fe8499d33d36aac236560de5dfa72d0cfd394b71e63b6",
+      "bytes": 6391,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\editguard-venue.html",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "CVPR 2024 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Zhang_OmniGuard_Hybrid_Manipulation_Localization_via_Augmented_Versatile_Deep_Image_Watermarking_CVPR_2025_paper.pdf",
+      "sha256": "4e8a7cf6f4b7c8350ce1651bbb5c5c02739fcb3b15be5b76b9bb2f0f32ca50e5",
+      "bytes": 3977694,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\omniguard-paper.pdf",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "CVPR 2025 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Zhang_OmniGuard_Hybrid_Manipulation_Localization_via_Augmented_Versatile_Deep_Image_Watermarking_CVPR_2025_paper.html",
+      "sha256": "f09e605fbc369b673d79bb39521a2bea4f30abf27eeb69c4a80f3c5823f5c2bc",
+      "bytes": 6805,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\omniguard-venue.html",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "CVPR 2025 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Alam_SpecGuard_Spectral_Projection-based_Advanced_Invisible_Watermarking_ICCV_2025_paper.pdf",
+      "sha256": "f23bbfbc1a88d141117b10045539488c687267095928b587d4ff4c07dee6683e",
+      "bytes": 2732487,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\specguard-paper.pdf",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "ICCV 2025 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Alam_SpecGuard_Spectral_Projection-based_Advanced_Invisible_Watermarking_ICCV_2025_paper.html",
+      "sha256": "0be8ffddeb825b865d78d9ad313b9c2a3e040f3b4bfb190cb3a48daebbeca459",
+      "bytes": 6514,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\specguard-venue.html",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "ICCV 2025 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/999fcab97007ebef0cda9949550b4a9e-Paper-Conference.pdf",
+      "sha256": "628e6b51865c25ef88d9d49b34b7e7f7d5af731b1e14d82dce851a06e9cafcfc",
+      "bytes": 37647291,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\wind-paper.pdf",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "ICLR 2025 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/999fcab97007ebef0cda9949550b4a9e-Abstract-Conference.html",
+      "sha256": "fe8815194569f09237d6b017ffa19c9738ff6cde89dd8d5190d8a2626508ca83",
+      "bytes": 9547,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\wind-venue.html",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "ICLR 2025 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Arabi_SEAL_Semantic_Aware_Image_Watermarking_ICCV_2025_paper.pdf",
+      "sha256": "28e1ab0517cf6ac501a9f1b218d0f05117229fd88ad782c7c70a289b02daf2e0",
+      "bytes": 5624296,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\seal-paper.pdf",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "ICCV 2025 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Arabi_SEAL_Semantic_Aware_Image_Watermarking_ICCV_2025_paper.html",
+      "sha256": "9e96b929d78d1cec7d77e338bfb7151c25b267326719ce0ed85ed9e1d40b8031",
+      "bytes": 6604,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\seal-venue.html",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "ICCV 2025 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/supplemental/Arabi_SEAL_Semantic_Aware_ICCV_2025_supplemental.pdf",
+      "sha256": "f09db824dd4b2ba008b5db42580a60f2014344492d54d669b04ae517779f5e28",
+      "bytes": 4976596,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\seal-supplement.pdf",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "ICCV 2025 official supplement",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Dixit_PECCVAI_Overcoming_the_Brittleness_of_AI_Image_Watermarking_Under_Visual_CVPR_2026_paper.pdf",
+      "sha256": "1fd41b97fe1c3aef51c5507654127b9419e540e75760dfced7654dc5cc3334a6",
+      "bytes": 1208686,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\peccvai-paper.pdf",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "CVPR 2026 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Dixit_PECCVAI_Overcoming_the_Brittleness_of_AI_Image_Watermarking_Under_Visual_CVPR_2026_paper.html",
+      "sha256": "17a27e88b520f1697121d54f6cfe2dbd8d8e4737dbc8139a8a68ec5f2792ae28",
+      "bytes": 7058,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\peccvai-venue.html",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "CVPR 2026 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/43d33182360378d5c8e69dd706c24f2f-Paper-Conference.pdf",
+      "sha256": "3f4e0a431674cfdfb1aac89b0c37c48209f36cd6d3789477eec37cb361b51a4a",
+      "bytes": 3694865,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\zodiac-paper.pdf",
+      "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
+      "version_or_revision": "NeurIPS 2024 final PDF",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
     }
   ],
   "indexed_bytes": 170159981,
@@ -6492,8 +6735,10 @@
     "T4",
     "T5",
     "T6",
+    "T7",
     "T8"
   ],
-  "updated_utc": "2026-10-20T21:42:08.590351+00:00",
-  "record_count": 720
+  "updated_utc": "2026-10-20T21:46:54.768980+00:00",
+  "record_count": 747,
+  "total_indexed_bytes": 283962254
 }

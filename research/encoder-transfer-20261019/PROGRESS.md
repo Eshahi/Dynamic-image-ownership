@@ -111,3 +111,5 @@ Git HEAD ad985e0 and all work-in-progress were preserved. The supervisor reports
 ## 2026-10-20T21:42:08.590351+00:00 - T8 accepted; fresh T1 addendum underway
 
 Parent accepted68 distinct threats,14 own V2 papers,11 successful queries across4 categories, and59 matching documentary hashes. Validation/export passed. T7 is completing its supplement checks. A fresh sol/high T1 agent now screens BrushOff, the taxonomy/case-study paper and the recent visual-paraphrasing lead. At most two agents remain active. No core settings, server, GPU or outcome changed.
+
+2026-10-20: T8 accepted and pushed at 0742509 (remote verified). T7 parent acceptance passed: 15 V2 eligible evaluations, 12 queries/four categories, 59 artifact checks, with explicit denominator/ROC conflicts. T1 fresh-source addendum is in progress. All core gates and budget remain unchanged; review2 and re-freeze are still pending.

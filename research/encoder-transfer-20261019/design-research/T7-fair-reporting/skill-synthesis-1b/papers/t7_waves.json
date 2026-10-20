@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "t7_waves",
+  "citation_key": "T7_waves_2024",
+  "doi": null,
+  "canonical_url": "https://proceedings.mlr.press/v235/an24a.html",
+  "title": "WAVES: Benchmarking the Robustness of Image Watermarks",
+  "authors": [
+    "Bang An",
+    "Mucong Ding",
+    "Tahseen Rabbani",
+    "Aakriti Agrawal",
+    "Yuancheng Xu",
+    "Chenghao Deng",
+    "Sicheng Zhu",
+    "Abdirisak Mohamed",
+    "Yuxin Wen",
+    "Tom Goldstein",
+    "Furong Huang"
+  ],
+  "year": 2024,
+  "venue": "ICML",
+  "access_date": "2026-10-20",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "waves-reused.html",
+    "sha256": "238ffa869b2b8424a92aeeef27e39d7b7909b33ed487a3d4e794e7e6f67e7a08"
+  },
+  "limitations": [
+    "The inspected full text is arXiv v3, not the failed official proceedings PDF. Official ICML 2024 identity is verified separately. Its larger, filtered source distribution and attack normalization cannot be imported into n=60 development data.",
+    "V2 means method and evaluation windows inspected; experiments were not reproduced. DOI was not independently verified and remains null."
+  ]
+}

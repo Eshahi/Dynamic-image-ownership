@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "t7_lawa",
+  "citation_key": "T7_lawa_2024",
+  "doi": null,
+  "canonical_url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/html/12460_ECCV_2024_paper.php",
+  "title": "LaWa: Using Latent Space for In-Generation Image Watermarking",
+  "authors": [
+    "Ahmad Rezaei",
+    "Mohammad Akbari",
+    "Saeed Ranjbar Alvar",
+    "Arezou Fatemi",
+    "Yong Zhang"
+  ],
+  "year": 2024,
+  "venue": "ECCV",
+  "access_date": "2026-10-20",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "lawa-paper.pdf",
+    "sha256": "735711486683ed3389fa1c350449cccb8710b3d29b23d7de57756f71538c4fcb"
+  },
+  "limitations": [
+    "Ten messages per image are repeated measures. Theoretical tails, post-/in-generation modes and32/48-bit capacities must not be pooled. Final PDF contains stray template text; only identified scientific sections support claims.",
+    "V2 means method and evaluation windows inspected; experiments were not reproduced. DOI was not independently verified and remains null."
+  ]
+}

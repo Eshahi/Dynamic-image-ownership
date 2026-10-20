@@ -1,0 +1,337 @@
+[
+  {
+    "id": "waves",
+    "author": "Codex T7 resumed author",
+    "date": "2026-10-20",
+    "method_locator": "arXiv 2401.08573v3 §§3.1–3.2; Appendix E.1–E.6",
+    "evaluation_locator": "§§4.1–4.3; Appendix D.1 and E.2–E.6",
+    "reopened_text_file": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\waves-reused.txt",
+    "line_windows_1based": [
+      [
+        646,
+        730
+      ],
+      [
+        851,
+        945
+      ],
+      [
+        2546,
+        2602
+      ]
+    ],
+    "text_sha256": "690276accbb6797976feb292164895da991323a791f98f28b5e933fdf3ce915c",
+    "note": "Windows identify personal reinspection; prior agent inspection is supplementary. These line numbers refer to cached extraction, not journal pagination."
+  },
+  {
+    "id": "vine",
+    "author": "Codex T7 resumed author",
+    "date": "2026-10-20",
+    "method_locator": "arXiv 2410.18775v2 §3.2–3.3, Appendix D and F",
+    "evaluation_locator": "§4.2–4.3, Table 1, Figure 5, Appendix C and G.2",
+    "reopened_text_file": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\vine-reused.txt",
+    "line_windows_1based": [
+      [
+        411,
+        487
+      ],
+      [
+        513,
+        592
+      ],
+      [
+        745,
+        780
+      ]
+    ],
+    "text_sha256": "46787d558a32df39faa09346ec501f618c75cbb7b080743b1e96bcbf45b2844e",
+    "note": "Windows identify personal reinspection; prior agent inspection is supplementary. These line numbers refer to cached extraction, not journal pagination."
+  },
+  {
+    "id": "wam",
+    "author": "Codex T7 resumed author",
+    "date": "2026-10-20",
+    "method_locator": "Final ICLR PDF §§3–4, Eqs.1–2",
+    "evaluation_locator": "§§5.1–5.5, Tables 1–2, Appendix D.3 and G.1–G.2",
+    "reopened_text_file": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\wam-paper.txt",
+    "line_windows_1based": [
+      [
+        196,
+        275
+      ],
+      [
+        351,
+        490
+      ]
+    ],
+    "text_sha256": "01193fc381cdb9adfb96aee29600cfb7b0fe906fdb22b8f27349138add34b4f0",
+    "note": "Windows identify personal reinspection; prior agent inspection is supplementary. These line numbers refer to cached extraction, not journal pagination."
+  },
+  {
+    "id": "trustmark",
+    "author": "Codex T7 resumed author",
+    "date": "2026-10-20",
+    "method_locator": "Final ICCV PDF §3.1 and Algorithm1",
+    "evaluation_locator": "§§4.1–4.3, Tables1–2 and Figure3",
+    "reopened_text_file": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\trustmark-paper.txt",
+    "line_windows_1based": [
+      [
+        181,
+        265
+      ],
+      [
+        361,
+        480
+      ]
+    ],
+    "text_sha256": "aeb6cb1769f7c1c3cee2203d3614efa2a0bb851388d4d7fb3dee7083a1d6d871",
+    "note": "Windows identify personal reinspection; prior agent inspection is supplementary. These line numbers refer to cached extraction, not journal pagination."
+  },
+  {
+    "id": "lawa",
+    "author": "Codex T7 resumed author",
+    "date": "2026-10-20",
+    "method_locator": "Final ECCV PDF §§3.1–3.4",
+    "evaluation_locator": "§§4.1–4.2 and4.6, Table1 and Figure6",
+    "reopened_text_file": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\lawa-paper.txt",
+    "line_windows_1based": [
+      [
+        191,
+        265
+      ],
+      [
+        330,
+        429
+      ],
+      [
+        450,
+        456
+      ],
+      [
+        581,
+        660
+      ]
+    ],
+    "text_sha256": "aeac7c82e9efbb42156429d0656653f3b5ab5b0d0d232f68073ee4f76953c188",
+    "note": "Windows identify personal reinspection; prior agent inspection is supplementary. These line numbers refer to cached extraction, not journal pagination."
+  },
+  {
+    "id": "ringid",
+    "author": "Codex T7 resumed author",
+    "date": "2026-10-20",
+    "method_locator": "Final ECCV PDF §§4–5",
+    "evaluation_locator": "§§6.1–6.2 and Tables1–2",
+    "reopened_text_file": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\ringid-paper.txt",
+    "line_windows_1based": [
+      [
+        246,
+        315
+      ],
+      [
+        411,
+        515
+      ]
+    ],
+    "text_sha256": "a6e5e5c43eab052450777e71d41c38dac77626752b4ab267133f34e584801c96",
+    "note": "Windows identify personal reinspection; prior agent inspection is supplementary. These line numbers refer to cached extraction, not journal pagination."
+  },
+  {
+    "id": "robustwide",
+    "author": "Codex T7 resumed author",
+    "date": "2026-10-20",
+    "method_locator": "Final ECCV PDF §§3.1–3.5",
+    "evaluation_locator": "§4 setup and§§4.1–4.2, Tables1–3",
+    "reopened_text_file": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\robustwide-paper.txt",
+    "line_windows_1based": [
+      [
+        276,
+        450
+      ]
+    ],
+    "text_sha256": "7913743971cd04fec99b24f0a97a988885a1a7242ac0d6443bbf19df865305a5",
+    "note": "Windows identify personal reinspection; prior agent inspection is supplementary. These line numbers refer to cached extraction, not journal pagination."
+  },
+  {
+    "id": "gs",
+    "author": "Codex T7 resumed author",
+    "date": "2026-10-20",
+    "method_locator": "Final CVPR PDF §3, Figure3",
+    "evaluation_locator": "§§4.1–4.3, Figure5 and Table1",
+    "reopened_text_file": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\gs-paper.txt",
+    "line_windows_1based": [
+      [
+        251,
+        315
+      ],
+      [
+        511,
+        610
+      ],
+      [
+        604,
+        688
+      ]
+    ],
+    "text_sha256": "643e7ca6bc2319e71777764935e271b66143374cca5d82c700bb3cf77eda84ac",
+    "note": "Windows identify personal reinspection; prior agent inspection is supplementary. These line numbers refer to cached extraction, not journal pagination."
+  },
+  {
+    "id": "editguard",
+    "author": "Codex T7 resumed author",
+    "date": "2026-10-20",
+    "method_locator": "Final CVPR PDF §§3–4.5",
+    "evaluation_locator": "§§5.1–5.4, Tables1–3",
+    "reopened_text_file": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\editguard-paper.txt",
+    "line_windows_1based": [
+      [
+        261,
+        325
+      ],
+      [
+        598,
+        687
+      ]
+    ],
+    "text_sha256": "637954ed12799de0a78110fd1f41bf33e943cf03e5410d11059da124fc1fec00",
+    "note": "Windows identify personal reinspection; prior agent inspection is supplementary. These line numbers refer to cached extraction, not journal pagination."
+  },
+  {
+    "id": "omniguard",
+    "author": "Codex T7 resumed author",
+    "date": "2026-10-20",
+    "method_locator": "Final CVPR PDF §3, Figure4",
+    "evaluation_locator": "§§4.1–4.3, Table3",
+    "reopened_text_file": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\omniguard-paper.txt",
+    "line_windows_1based": [
+      [
+        281,
+        345
+      ],
+      [
+        561,
+        660
+      ]
+    ],
+    "text_sha256": "65c2958d813865d27000bb7bb0de7c9abb1558dad4e2798017be92c144112659",
+    "note": "Windows identify personal reinspection; prior agent inspection is supplementary. These line numbers refer to cached extraction, not journal pagination."
+  },
+  {
+    "id": "specguard",
+    "author": "Codex T7 resumed author",
+    "date": "2026-10-20",
+    "method_locator": "Final ICCV PDF §3, Figure2, Eqs.6–11",
+    "evaluation_locator": "§§4.1–4.5, Tables1–3",
+    "reopened_text_file": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\specguard-paper.txt",
+    "line_windows_1based": [
+      [
+        291,
+        380
+      ],
+      [
+        596,
+        703
+      ]
+    ],
+    "text_sha256": "9e9480bad7db7383236d67384c24d77dd843b3b494d1f8ba95acc5db09251799",
+    "note": "Windows identify personal reinspection; prior agent inspection is supplementary. These line numbers refer to cached extraction, not journal pagination."
+  },
+  {
+    "id": "wind",
+    "author": "Codex T7 resumed author",
+    "date": "2026-10-20",
+    "method_locator": "Final ICLR PDF §§3–4.1 and AppendixH",
+    "evaluation_locator": "§5.1, Tables1–3; final-PDF AppendixD.1–D.9 (pp20–24), G/H (pp25–26), Table11 (p23)",
+    "reopened_text_file": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\wind-paper.txt",
+    "line_windows_1based": [
+      [
+        255,
+        301
+      ],
+      [
+        347,
+        401
+      ],
+      [
+        780,
+        898
+      ],
+      [
+        976,
+        1004
+      ]
+    ],
+    "text_sha256": "b2e07e80944c08501568430880876e1ae54c30931b921e5d416076717b26f430",
+    "note": "Windows identify personal reinspection; prior agent inspection is supplementary. These line numbers refer to cached extraction, not journal pagination."
+  },
+  {
+    "id": "seal",
+    "author": "Codex T7 resumed author",
+    "date": "2026-10-20",
+    "method_locator": "Final ICCV PDF §3.2, Algorithms1–2",
+    "evaluation_locator": "Final main §4, Tables1–2; separate official supplement §§9–13, Tables3–7 (five pages)",
+    "reopened_text_file": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\seal-paper.txt",
+    "line_windows_1based": [
+      [
+        238,
+        307
+      ],
+      [
+        553,
+        642
+      ]
+    ],
+    "text_sha256": "21d0a869f5b59940de004503efb8523645610a328a9082f219b0f7df0019f2a5",
+    "note": "Windows identify personal reinspection; prior agent inspection is supplementary. These line numbers refer to cached extraction, not journal pagination.",
+    "supplement": {
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\seal-supplement.pdf",
+      "sha256": "f09db824dd4b2ba008b5db42580a60f2014344492d54d669b04ae517779f5e28",
+      "text": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\seal-supplement.txt",
+      "text_sha256": "2b9b1bf82c85cc91ce5ddde5d5ecd05d11fd86eca3a3cf4e0b50c26c5b7a81f4",
+      "pages_read": "All five pages, text only; §§9–13 rechecked for numeric units and evaluation conditions."
+    }
+  },
+  {
+    "id": "peccvai",
+    "author": "Codex T7 resumed author",
+    "date": "2026-10-20",
+    "method_locator": "Final CVPR2026 PDF §§3.1–3.2, Figure4",
+    "evaluation_locator": "§§4.1–4.3 and Table1",
+    "reopened_text_file": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\peccvai-paper.txt",
+    "line_windows_1based": [
+      [
+        281,
+        380
+      ],
+      [
+        571,
+        670
+      ]
+    ],
+    "text_sha256": "f25b61edff5a18630a754fed6c2dc472f098dd0792f61a9add9b301682c32283",
+    "note": "Windows identify personal reinspection; prior agent inspection is supplementary. These line numbers refer to cached extraction, not journal pagination."
+  },
+  {
+    "id": "zodiac",
+    "author": "Codex T7 resumed author",
+    "date": "2026-10-20",
+    "method_locator": "Final NeurIPS PDF §§3.1–3.3, Algorithm1 andEq.9",
+    "evaluation_locator": "§§4.1–4.4, Tables1–3 and Figure3",
+    "reopened_text_file": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\zodiac-paper.txt",
+    "line_windows_1based": [
+      [
+        282,
+        377
+      ],
+      [
+        378,
+        477
+      ],
+      [
+        491,
+        560
+      ]
+    ],
+    "text_sha256": "6ce8fcaed7dea3f5fc34697a20882692ef98159cee18468abc63875e40749387",
+    "note": "Windows identify personal reinspection; prior agent inspection is supplementary. These line numbers refer to cached extraction, not journal pagination."
+  }
+]

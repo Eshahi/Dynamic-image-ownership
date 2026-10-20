@@ -435,3 +435,5 @@ The cumulative [receipt index](encoder-transfer-20261019/research-downloads.json
 - 2026-10-20: Accepted Stage1b T3/T4/T6 documentary receipts and the official ZoDiac venue correction bring the cumulative index to708 URL/SHA records and167,753,220 indexed bytes. Includes reused cache content; not new network use. Source/license/version/read limits remain in topic manifests; T3 explicitly retains two overwritten historical HTML receipts separately. No model weights, executable model installation, image data or scientific outcomes. See encoder-transfer-20261019/research-downloads.json.
 
 - 2026-10-20T21:42:08.590351+00:00: Accepted T8 documentary receipt integration adds12 URL/SHA records; cumulative720 records/170,159,981 indexed bytes. Reused content included, not new-network-byte total; no weights, image data or executable installation.
+
+2026-10-20: Accepted T7 documentary receipts add 27 URL/SHA records to encoder-transfer research-downloads.json: 747 cumulative indexed artifacts, 283,962,254 bytes (includes reused content, not network usage). Primary/venue versions, licenses and hashes are recorded; no weights/code installation.

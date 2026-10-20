@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "t7_trustmark",
+  "citation_key": "T7_trustmark_2025",
+  "doi": null,
+  "canonical_url": "https://openaccess.thecvf.com/content/ICCV2025/html/Bui_TrustMark_Robust_Watermarking_and_Watermark_Removal_for_Arbitrary_Resolution_Images_ICCV_2025_paper.html",
+  "title": "TrustMark: Robust Watermarking and Watermark Removal for Arbitrary Resolution Images",
+  "authors": [
+    "Bui, Tu",
+    "Agarwal, Shruti",
+    "Collomosse, John"
+  ],
+  "year": 2025,
+  "venue": "ICCV",
+  "access_date": "2026-10-20",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "trustmark-paper.pdf",
+    "sha256": "94be2a50e08356b321c4f64a56579eeb63ea4676634ac9c019e3c76f6c5726f5"
+  },
+  "limitations": [
+    "Final ICCV2025 paper adds material beyond 2023 arXiv TrustMark. Do not transfer release checkpoint behavior, bit length or FPR from older versions. Exact evaluation n remains NR rather than inferred from dataset convention.",
+    "V2 means method and evaluation windows inspected; experiments were not reproduced. DOI was not independently verified and remains null."
+  ]
+}

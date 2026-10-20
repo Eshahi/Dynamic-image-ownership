@@ -1,0 +1,1 @@
+This generated intermediate export is retained as work history. The final validated export is `../skill-synthesis-final-1b/`, generated after restoring the RingID title prefix from the inspected final paper. Neither export adds sources beyond the fifteen stable IDs in `../source-manifest.json`.

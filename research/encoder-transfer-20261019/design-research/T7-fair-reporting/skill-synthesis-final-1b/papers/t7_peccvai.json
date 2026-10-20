@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "t7_peccvai",
+  "citation_key": "T7_peccvai_2026",
+  "doi": null,
+  "canonical_url": "https://openaccess.thecvf.com/content/CVPR2026/html/Dixit_PECCVAI_Overcoming_the_Brittleness_of_AI_Image_Watermarking_Under_Visual_CVPR_2026_paper.html",
+  "title": "PECCVAI: Overcoming the Brittleness of AI Image Watermarking Under Visual Paraphrasing Attacks",
+  "authors": [
+    "Dixit, Shreyas",
+    "Aziz, Ashhar",
+    "Bajpai, Shashwat",
+    "Sharma, Vasu",
+    "Chadha, Aman",
+    "Jain, Vinija",
+    "Das, Amitava"
+  ],
+  "year": 2026,
+  "venue": "CVPR",
+  "access_date": "2026-10-20",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "peccvai-paper.pdf",
+    "sha256": "1fd41b97fe1c3aef51c5507654127b9419e540e75760dfced7654dc5cc3334a6"
+  },
+  "limitations": [
+    "Official CVF title spellsPECCVAI; paper body spellsPECCAVI. Final venue is verifiedCVPR2026, not inferred from the2025 preprint. Appendix MOS was not read and is not borrowed as a human verdict. Architectural separation alone is not a universal robustness proof.",
+    "V2 means method and evaluation windows inspected; experiments were not reproduced. DOI was not independently verified and remains null."
+  ]
+}
