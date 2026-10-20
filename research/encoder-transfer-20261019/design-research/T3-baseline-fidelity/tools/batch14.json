@@ -1,0 +1,26 @@
+[
+  [
+    "chunkyseal-config.html",
+    "https://github.com/facebookresearch/videoseal/blob/870ca7fb33578b90f14c602016b6c2788096226e/videoseal/cards/chunkyseal.yaml",
+    "official_repository",
+    "inspect ChunkySeal native model card after official README release lead"
+  ],
+  [
+    "snw.html",
+    "https://arxiv.org/html/2609.34744v1",
+    "primary_paper",
+    "SNW September 2026 method and evaluation full text"
+  ],
+  [
+    "semantic-attention.html",
+    "https://www.sciencedirect.com/science/article/pii/S0923596526001955",
+    "primary_paper",
+    "check full-text availability for semantic-aware post-hoc latent journal method"
+  ],
+  [
+    "latentshield.html",
+    "https://www.sciencedirect.com/science/article/pii/S2667305326000931",
+    "primary_paper",
+    "check full-text availability and post-hoc eligibility for LatentShield"
+  ]
+]

@@ -377,3 +377,7 @@
 - 2026-10-20T13:47:10+00:00 | Codex agent | Push confirmed at c3b20cc153f168119a9ebe474cf1b0184354571a, origin identical. Immediate parent was a28292200f210d4288ab977b75982d92bf13830f (user cost-settings amendment); user commit was preserved. Earlier4601425 remains the T5 acceptance commit.
 
 - 2026-10-20T13:53:01.542902+00:00 Codex stage1b T6 resume escalation: gpt-6.1-sol/high, user cost policy, complete interrupted statistical research with all floors; no model execution. T4 parent accepted and queued for own-branch push from c3b20cc.
+
+- 2026-10-20 UTC Codex push verified: codex/encoder-transfer-20261019, c3b20cc153f168119a9ebe474cf1b0184354571a..cc25f1683bb2960080f777e38ed1a0fcc00ab613. T4 accepted after parent floor audit; origin head matches.
+
+- 2026-10-20T14:02:40.980607+00:00 Codex T3 accepted after parent floor audit (24 methods, 22 queries/3 categories); queued push from cc25f16. T7 escalation: gpt-6.1-sol/high, user cost policy, >=12 eligible recent venue evaluations and broad search; no science execution.

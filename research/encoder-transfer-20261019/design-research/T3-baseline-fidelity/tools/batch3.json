@@ -1,0 +1,110 @@
+[
+  [
+    "mbrs-README.md.txt",
+    "https://raw.githubusercontent.com/jzyustc/MBRS/2bab0df66480f66cfdef534d38c851354ee2c6aa/README.md",
+    "official_repository",
+    "jzyustc/MBRS@2bab0df66480f66cfdef534d38c851354ee2c6aa README.md text inspection"
+  ],
+  [
+    "mbrs-LICENSE.txt",
+    "https://raw.githubusercontent.com/jzyustc/MBRS/2bab0df66480f66cfdef534d38c851354ee2c6aa/LICENSE",
+    "official_repository",
+    "jzyustc/MBRS@2bab0df66480f66cfdef534d38c851354ee2c6aa LICENSE text inspection"
+  ],
+  [
+    "mbrs-tree.json",
+    "https://api.github.com/repos/jzyustc/MBRS/git/trees/2bab0df66480f66cfdef534d38c851354ee2c6aa?recursive=1",
+    "official_repository",
+    "jzyustc/MBRS@2bab0df66480f66cfdef534d38c851354ee2c6aa paths for native configuration checkpoint access"
+  ],
+  [
+    "ssl-README.md.txt",
+    "https://raw.githubusercontent.com/facebookresearch/ssl_watermarking/3e65334bd28ecbc66756f0179def9dc4c88a6acc/README.md",
+    "official_repository",
+    "facebookresearch/ssl_watermarking@3e65334bd28ecbc66756f0179def9dc4c88a6acc README.md text inspection"
+  ],
+  [
+    "ssl-LICENSE.txt",
+    "https://raw.githubusercontent.com/facebookresearch/ssl_watermarking/3e65334bd28ecbc66756f0179def9dc4c88a6acc/LICENSE",
+    "official_repository",
+    "facebookresearch/ssl_watermarking@3e65334bd28ecbc66756f0179def9dc4c88a6acc LICENSE text inspection"
+  ],
+  [
+    "ssl-tree.json",
+    "https://api.github.com/repos/facebookresearch/ssl_watermarking/git/trees/3e65334bd28ecbc66756f0179def9dc4c88a6acc?recursive=1",
+    "official_repository",
+    "facebookresearch/ssl_watermarking@3e65334bd28ecbc66756f0179def9dc4c88a6acc paths for native configuration checkpoint access"
+  ],
+  [
+    "specguard-README.md.txt",
+    "https://raw.githubusercontent.com/inzamamulDU/SpecGuard_ICCV_2025/eebe26e12c0647f7aebb060e7fabf90d4931783e/README.md",
+    "official_repository",
+    "inzamamulDU/SpecGuard_ICCV_2025@eebe26e12c0647f7aebb060e7fabf90d4931783e README.md text inspection"
+  ],
+  [
+    "specguard-LICENSE.txt",
+    "https://raw.githubusercontent.com/inzamamulDU/SpecGuard_ICCV_2025/eebe26e12c0647f7aebb060e7fabf90d4931783e/LICENSE",
+    "official_repository",
+    "inzamamulDU/SpecGuard_ICCV_2025@eebe26e12c0647f7aebb060e7fabf90d4931783e LICENSE text inspection"
+  ],
+  [
+    "specguard-tree.json",
+    "https://api.github.com/repos/inzamamulDU/SpecGuard_ICCV_2025/git/trees/eebe26e12c0647f7aebb060e7fabf90d4931783e?recursive=1",
+    "official_repository",
+    "inzamamulDU/SpecGuard_ICCV_2025@eebe26e12c0647f7aebb060e7fabf90d4931783e paths for native configuration checkpoint access"
+  ],
+  [
+    "pixelseal-README.md.txt",
+    "https://raw.githubusercontent.com/facebookresearch/videoseal/870ca7fb33578b90f14c602016b6c2788096226e/README.md",
+    "official_repository",
+    "facebookresearch/videoseal@870ca7fb33578b90f14c602016b6c2788096226e README.md text inspection"
+  ],
+  [
+    "pixelseal-LICENSE.txt",
+    "https://raw.githubusercontent.com/facebookresearch/videoseal/870ca7fb33578b90f14c602016b6c2788096226e/LICENSE",
+    "official_repository",
+    "facebookresearch/videoseal@870ca7fb33578b90f14c602016b6c2788096226e LICENSE text inspection"
+  ],
+  [
+    "pixelseal-tree.json",
+    "https://api.github.com/repos/facebookresearch/videoseal/git/trees/870ca7fb33578b90f14c602016b6c2788096226e?recursive=1",
+    "official_repository",
+    "facebookresearch/videoseal@870ca7fb33578b90f14c602016b6c2788096226e paths for native configuration checkpoint access"
+  ],
+  [
+    "jigmark.html",
+    "https://arxiv.org/html/2406.03720v1",
+    "primary_paper",
+    "jigmark complete primary method evaluation"
+  ],
+  [
+    "robustwide.html",
+    "https://arxiv.org/html/2402.12688v1",
+    "primary_paper",
+    "robustwide complete primary method evaluation"
+  ],
+  [
+    "spreadmark.html",
+    "https://arxiv.org/html/2608.03165v1",
+    "primary_paper",
+    "spreadmark complete primary method evaluation"
+  ],
+  [
+    "nawe.html",
+    "https://arxiv.org/html/2609.25972v1",
+    "primary_paper",
+    "nawe complete primary method evaluation"
+  ],
+  [
+    "robustwide-repo.json",
+    "https://api.github.com/repos/hurunyi/Robust-Wide",
+    "official_repository",
+    "hurunyi/Robust-Wide official candidate code weights license"
+  ],
+  [
+    "jigmark-repo.json",
+    "https://api.github.com/repos/milesfun/jigmark",
+    "official_repository",
+    "milesfun/jigmark official candidate code weights license"
+  ]
+]

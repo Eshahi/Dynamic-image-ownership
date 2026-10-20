@@ -38,3 +38,61 @@ Freeze common presence at at least **69/100** agreeing bits, exact one-sided Bin
 ## Published evidence and limits
 
 Table1 at 512: VINE-R clean PSNR37.34, SSIM.9934, LPIPS.0063; stochastic/deterministic regeneration TPR@.1% FPR 99.66%/99.98%. These aggregate heterogeneous severity levels, not SDXL strength.2. §4.1 stochastic noise timesteps60–240 in increments20; deterministic DPM-Solver15/25/35/45; all global/local editing50 steps, prompt guidance5–9 and image guidance1.5. Table7 on Quadro RTX6000 reports .0795 s/image and 4982MB for VINE; it is an author benchmark, not this server's timing. The native model is a strong approved comparator but not evidence that F5 should meet the same number under another encoder.
+
+
+
+
+
+
+
+
+
+
+<!-- STAGE1B DEEPENING -->
+
+# VINE: inspected method and evaluation
+
+Evidence level **V2**. Inspected 2026-10-20; post-hoc eligibility is established in the method below. This is literature evidence, not a local outcome or execution approval.
+
+## Source identity and inspected sections
+
+Exact title: **Robust Watermarking Using Generative Priors Against Image Editing: From Benchmarking to Advances**. Version/date: arXiv:2410.18775v2 [cs.CV] 15 Mar 2025. Venue: ICLR 2025; official repository and paper version inspected.
+
+Authors: Shilin Lu; Zihan Zhou; Jiayou Lu; Yuanzhi Zhu; Adams Wai-Kin Kong. Year: 2024. DOI: not established for this inspected version.
+
+Stable ID: `arxiv:2410.18775v2`. Citekey: `T3VINE2410`. Canonical URL: https://arxiv.org/abs/2410.18775v2
+
+Primary full text: https://arxiv.org/html/2410.18775v2
+
+Cached text: `W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/vine-reused.txt`
+SHA-256: `545752a95b5f8811bba484c9bd4ba662444a2e8fd636ef1747da47816ca1d567`
+
+Actually inspected: Method §§3.1–3.3; evaluation §§4.1–4.3, Table 1; Appendix C/G.2/H, Table 7; native encoder/decoder and stochastic/deterministic regeneration scripts at the pinned commit.
+
+Full source and official-code cache hashes/URLs are in [deepening-manifest.json](../deepening-manifest.json); earlier release/weight metadata is retained in [manifest.json](../manifest.json). A cached abstract or repository listing alone does not establish V2.
+
+## Mechanism and post-hoc applicability
+
+Low-frequency surrogate corruption trains a one-step generative-prior residual encoder and ConvNeXt-B message decoder. VINE-R is the chosen robust post-hoc checkpoint. VINE-Base is a separate quality/robustness point, not an interchangeable baseline.
+
+## Native operating point and detector side information
+
+VINE-R uses 100 raw bits. The native encoder takes RGB 256 in [-1,1]; the decoder takes RGB 256 in [0,1], with sigmoid outputs and NumPy rounding. Input uses PIL bicubic resizing; the encoder uses the posterior mode. Its tensor bicubic residual is upsampled onto the original 512-pixel image, clamped, converted through native ToPILImage truncation, saved and reopened as PNG. No ImageNet normalization is used. The text CLI writes 96 text bits plus four zeros; arbitrary 100-bit API use is distinct. Paper/README says SDXL-Turbo, but the constructor loads stabilityai/sd-turbo. Native evaluation reports ROC TPR at FPR below .001 or .01; no universal numerical message-match threshold is published. Common presence at 69/100 matches is a separate fair-query tail rule (9.1571612441e-5), not native TPR at .1% FPR. C0 and wrong-owner behavior must remain visible without outcome-based recalibration.
+
+## Code, weights, pinned release and licenses
+
+Shilin-LU/VINE@d72f11a93f8de9bc45ef61202b9c8dda2a70cc77. Repository NTUITIVE noncommercial license; HF cards separately say MIT; sd-turbo dependency has Stability AI Community License. Do not label the stack MIT. Encoder Shilin-LU/VINE-R-Enc@0c255688e032e4318c700c485c0625367b70908c: 4019166704 bytes, LFS SHA256 16bf5f2acf5f7d5f00570431f5dc9dd61a8e95f828a2f68483ffe06448293dd6. Decoder VINE-R-Dec@0f094b300be71a358f7c1769221f50318f1b4d74: 354802864 bytes, SHA256 9aded1fc22efe47bdafc8f436f81953cd06bde1d6c7242f86bf101c020d7eea0. sd-turbo@b261bac6fd2cf515557d5d0707481eafa0485ec2; combined needed fp32 stack 9533935644 bytes. Immutable URLs are in retained manifest.json. No weights downloaded.
+
+## Published evaluation and regeneration conditions
+
+Table 1 gives VINE-R PSNR 37.34, SSIM .9934, LPIPS .0063 and stochastic/deterministic regeneration TPR 99.66/99.98% at .1% FPR, averaged over severities. VINE-Base gives 40.51/.9954/.0029 and 91.03/99.25%. Official stochastic code loads stabilityai/stable-diffusion-2-1, fp16 revision fp16, DDIM, noise indices 60 through 240 in increments of 20, requested 50 inference steps and head-start logic 50-max(noise//20,1), CFG 7.5, empty prompt unless captions are supplied, and sampled latent posterior. Deterministic code uses SD2.1-base fp32, DPM multistep inverse/forward scheduler of order 2, 15/25/35/45 steps, CFG 1, empty prompt/negative prompt and posterior mean times .18215. The native benchmark uses 512 pixels. COUNT CONFLICT: Table 1 caption says 5,000 images per editing method; Section 4.2 says 1,000 stochastic and 1,000 deterministic sources; Section 4.3 describes m times 1,000 over severities. Preserve all statements without claiming 5,000 independent sources. Quality uses 10,000 UltraEdit images. Native ROC calibration is empirical against unmarked images; no 1e-4 calibration is claimed.
+
+## Cost and uncertainty
+
+Table 7 reports .0795 seconds and 4,982 MB on NVIDIA Quadro RTX6000, averaged over 1,000 images. The phase/batch scope is insufficiently explicit to derive whole-grid time. Approximately 9.53 GB of required fp32 weight storage is not peak VRAM. Target-server timing remains unmeasured.
+
+## Limitation and design implication
+
+Independent SDXL regeneration is absent from these SD2.1 attack scripts. The generative prior's name does not prove independent-encoder transfer. Freeze actual released sd-turbo and preprocessing, and label both operating points.
+
+Disposition: **Core: user-approved VINE-R; VINE-Base remains excluded.**

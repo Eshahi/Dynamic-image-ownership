@@ -1,0 +1,19 @@
+[
+  ["arxiv-regen-query.xml", "https://export.arxiv.org/api/query?search_query=all%3Awatermark%20AND%20all%3Aregeneration&start=0&max_results=25&sortBy=submittedDate&sortOrder=descending", "arxiv_api", "watermark AND regeneration, latest 25"],
+  ["arxiv-posthoc-query.xml", "https://export.arxiv.org/api/query?search_query=all%3Awatermark%20AND%20all%3Apost-hoc&start=0&max_results=25&sortBy=submittedDate&sortOrder=descending", "arxiv_api", "watermark AND post-hoc, latest 25"],
+  ["arxiv-simufree-query.xml", "https://export.arxiv.org/api/query?id_list=2511.11295,2601.13128,2607.02643,2510.07302,2512.16874&max_results=5", "arxiv_api", "verify SimuFreeMark PhaseMark BiSLW SpecGuard Pixel Seal metadata"],
+  ["mbrs.html", "https://arxiv.org/html/2108.08211v1", "primary_paper", "MBRS complete method and evaluation"],
+  ["ssl.html", "https://arxiv.org/html/2112.09581v1", "primary_paper", "Watermarking Images in Self-Supervised Latent-Spaces complete paper"],
+  ["stegastamp.html", "https://arxiv.org/html/1904.05343v2", "primary_paper", "StegaStamp complete method and evaluation"],
+  ["specguard.html", "https://arxiv.org/html/2510.07302v1", "primary_paper", "SpecGuard complete method and evaluation"],
+  ["simufreemark.html", "https://arxiv.org/html/2511.11295v1", "primary_paper", "SimuFreeMark complete method and evaluation"],
+  ["phase.html", "https://arxiv.org/html/2601.13128v1", "primary_paper", "PhaseMark complete method and evaluation"],
+  ["pixelseal.html", "https://arxiv.org/html/2512.16874v1", "primary_paper", "Pixel Seal complete method and evaluation"],
+  ["mbrs-repo.json", "https://api.github.com/repos/jzyustc/MBRS", "official_repository", "jzyustc MBRS official repository license release"],
+  ["ssl-repo.json", "https://api.github.com/repos/facebookresearch/ssl_watermarking", "official_repository", "facebookresearch SSL watermark official repository license release"],
+  ["specguard-repo.json", "https://api.github.com/repos/inzamamulDU/SpecGuard_ICCV_2025", "official_repository", "SpecGuard official repository complete code weights license status"],
+  ["pixelseal-repo.json", "https://api.github.com/repos/facebookresearch/videoseal", "official_repository", "Pixel Seal official Video Seal repository models license"],
+  ["bislw-repo.json", "https://api.github.com/repos/OVER-CODER/BiSLW", "official_repository", "BiSLW official repository post-hoc support and weights"],
+  ["simufree-github-search.json", "https://api.github.com/search/repositories?q=SimuFreeMark", "official_repository", "Search official GitHub repositories named SimuFreeMark"],
+  ["openalex-baselines.json", "https://api.openalex.org/works?search=post-hoc%20watermarking%20regeneration&per-page=20", "openalex", "post-hoc watermarking regeneration recent omitted methods"]
+]

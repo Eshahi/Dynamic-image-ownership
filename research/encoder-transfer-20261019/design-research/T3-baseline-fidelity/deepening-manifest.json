@@ -1,0 +1,2256 @@
+{
+  "schema": "topic-research-deepening-v1",
+  "topic": "T3-baseline-fidelity",
+  "accessed": "2026-10-20",
+  "author": "Codex agent",
+  "scope": "Research-only primary paper and source-code text. No downloaded code executed, weights acquired, images inspected, science runs or new outcomes.",
+  "evidence_policy": "V2 requires actual method and evaluation inspection. Search hits, code listings and inaccessible abstracts are not V2. Versions/release identities are not counted as extra methods.",
+  "distinct_v2_posthoc_methods": 24,
+  "method_sources": [
+    {
+      "method": "WAM",
+      "evidence": "V2",
+      "source_id": "arxiv:2411.07231v2",
+      "canonical_url": "https://arxiv.org/abs/2411.07231v2",
+      "fulltext_url": "https://arxiv.org/html/2411.07231v2",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/wam-reused.txt",
+      "bytes": 122666,
+      "sha256": "24ec9c24afc63108df55aaf207b5bab90a4d3b55dc6c8eaf32a240e7ecbdeb1d",
+      "inspected_sections": "Method §§3–4, Eqs. 1–2; evaluation §§5.1–5.3; Appendix G.1–G.3, Table 9; pinned README, params.json, embed/detect and metrics.py.",
+      "card": "cards/WAM.md"
+    },
+    {
+      "method": "VINE",
+      "evidence": "V2",
+      "source_id": "arxiv:2410.18775v2",
+      "canonical_url": "https://arxiv.org/abs/2410.18775v2",
+      "fulltext_url": "https://arxiv.org/html/2410.18775v2",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/vine-reused.txt",
+      "bytes": 109659,
+      "sha256": "545752a95b5f8811bba484c9bd4ba662444a2e8fd636ef1747da47816ca1d567",
+      "inspected_sections": "Method §§3.1–3.3; evaluation §§4.1–4.3, Table 1; Appendix C/G.2/H, Table 7; native encoder/decoder and stochastic/deterministic regeneration scripts at the pinned commit.",
+      "card": "cards/VINE.md"
+    },
+    {
+      "method": "TrustMark",
+      "evidence": "V2",
+      "source_id": "arxiv:2311.18297v1",
+      "canonical_url": "https://arxiv.org/abs/2311.18297v1",
+      "fulltext_url": "https://arxiv.org/html/2311.18297v1",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/trustmark-reused.txt",
+      "bytes": 59590,
+      "sha256": "7610cc8f76c61f1314ff8b481a4ab79a29089af718419708cad3113cec8eed9a",
+      "inspected_sections": "arXiv v1 §§3.1–3.3,4.1–4.4; final ICCV PDF pp. 3–7 (method, Algorithm 1, experimental setup, Table 3); Table 3 visually verified from rendered page 7; pinned official Q loader/config/LICENSE.",
+      "card": "cards/TrustMark.md"
+    },
+    {
+      "method": "StegaStamp",
+      "evidence": "V2",
+      "source_id": "arxiv:1904.05343v2",
+      "canonical_url": "https://arxiv.org/abs/1904.05343v2",
+      "fulltext_url": "https://arxiv.org/html/1904.05343v2",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/stegastamp.txt",
+      "bytes": 52766,
+      "sha256": "4c06b800c078acaae1cfb45c0adbe2b7e06633bda49903c21d319777631ba4d4",
+      "inspected_sections": "§§4.1–4.4 encoder/decoder/BCH and print-camera pipeline; §§5.1–5.5 and Table 2; official README/LICENSE.",
+      "card": "cards/StegaStamp.md"
+    },
+    {
+      "method": "InvisMark",
+      "evidence": "V2",
+      "source_id": "arxiv:2411.07795v2",
+      "canonical_url": "https://arxiv.org/abs/2411.07795v2",
+      "fulltext_url": "https://arxiv.org/html/2411.07795v2",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/invis-reused.txt",
+      "bytes": 44323,
+      "sha256": "e45a3b5375de5c9ae3f04aca3e10146b0474aada3476bcde89d8a692a435e7d0",
+      "inspected_sections": "§§2.1–2.4; §§3.1–3.5, Tables 2–3, Figure 4 and UUID extension.",
+      "card": "cards/InvisMark.md"
+    },
+    {
+      "method": "RoSteALS",
+      "evidence": "V2",
+      "source_id": "arxiv:2304.03400v1",
+      "canonical_url": "https://arxiv.org/abs/2304.03400v1",
+      "fulltext_url": "https://arxiv.org/html/2304.03400v1",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/rosteals-reused.txt",
+      "bytes": 50988,
+      "sha256": "956e32ea1db3a9d8eacf7b0488c3a57e90ee62701c0409a1de4de8a42d7d6cdb",
+      "inspected_sections": "§§3.1–3.2;§§4.1–4.3 and evaluation definitions; official README/license/checkpoint metadata.",
+      "card": "cards/RoSteALS.md"
+    },
+    {
+      "method": "ZoDiac",
+      "evidence": "V2",
+      "source_id": "arxiv:2401.04247v2",
+      "canonical_url": "https://arxiv.org/abs/2401.04247v2",
+      "fulltext_url": "https://arxiv.org/html/2401.04247v2",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/zodiac-reused.txt",
+      "bytes": 93781,
+      "sha256": "3711f3a711ecdba59e4d05d677216029d1398584330fba1d5a046b4ab1647488",
+      "inspected_sections": "§§3.2–3.3,4.1; Appendix B.6/Table 15,B.7/Table 16 and Appendix D timing/memory.",
+      "card": "cards/ZoDiac.md"
+    },
+    {
+      "method": "PhaseMark",
+      "evidence": "V2",
+      "source_id": "arxiv:2601.13128v1",
+      "canonical_url": "https://arxiv.org/abs/2601.13128v1",
+      "fulltext_url": "https://arxiv.org/html/2601.13128v1",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/phase.txt",
+      "bytes": 28923,
+      "sha256": "070d6755e25462c303e2a8e128912127868ddb013024ad2cf990ec0688c222b7",
+      "inspected_sections": "§§2.1–2.3,3.1–3.3, Tables 1–2; official code README/LICENSE.",
+      "card": "cards/PhaseMark.md"
+    },
+    {
+      "method": "MBRS",
+      "evidence": "V2",
+      "source_id": "arxiv:2108.08211v1",
+      "canonical_url": "https://arxiv.org/abs/2108.08211v1",
+      "fulltext_url": "https://arxiv.org/html/2108.08211v1",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/mbrs.txt",
+      "bytes": 51159,
+      "sha256": "aa8e81d5f9cdc45cbd158c985a430d31c44d1529e03930ce06211e5c340e3f54",
+      "inspected_sections": "§§3.1–3.3,4.1–4.2; official README, repository tree and release metadata.",
+      "card": "cards/MBRS.md"
+    },
+    {
+      "method": "SSL",
+      "evidence": "V2",
+      "source_id": "arxiv:2112.09581v1",
+      "canonical_url": "https://arxiv.org/abs/2112.09581v1",
+      "fulltext_url": "https://arxiv.org/html/2112.09581v1",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/ssl.txt",
+      "bytes": 36056,
+      "sha256": "22b58c938f21799cfec9b2ffc89c26030c86b053e085fa8bafc925ce65c69575",
+      "inspected_sections": "§§3.1–3.4,4.1–4.3; official README/LICENSE and DINO/normalization asset listing.",
+      "card": "cards/SSL.md"
+    },
+    {
+      "method": "SimuFreeMark",
+      "evidence": "V2",
+      "source_id": "arxiv:2511.11295v1",
+      "canonical_url": "https://arxiv.org/abs/2511.11295v1",
+      "fulltext_url": "https://arxiv.org/html/2511.11295v1",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/simufreemark.txt",
+      "bytes": 47316,
+      "sha256": "a964732819a4f3a5ee991566b450cb9d582da59ac1366665f0c3bb14d7fb5ed6",
+      "inspected_sections": "§§3.2–3.3,4.1–4.2, Tables 1–2.",
+      "card": "cards/SimuFreeMark.md"
+    },
+    {
+      "method": "SpecGuard",
+      "evidence": "V2",
+      "source_id": "arxiv:2510.07302v1",
+      "canonical_url": "https://arxiv.org/abs/2510.07302v1",
+      "fulltext_url": "https://arxiv.org/html/2510.07302v1",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/specguard.txt",
+      "bytes": 90595,
+      "sha256": "4fd1371cea06309cc8f53bf4cdb16cd3bb596df499f229c04cc0ee877799a3d5",
+      "inspected_sections": "§§3.1–3.3 including Eqs. 13–17/Algorithm 1;§§4.1–4.6; Appendix 12.2/Table 9 attack settings.",
+      "card": "cards/SpecGuard.md"
+    },
+    {
+      "method": "Pixel-Seal",
+      "evidence": "V2",
+      "source_id": "arxiv:2512.16874v1",
+      "canonical_url": "https://arxiv.org/abs/2512.16874v1",
+      "fulltext_url": "https://arxiv.org/html/2512.16874v1",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/pixelseal.txt",
+      "bytes": 72132,
+      "sha256": "fc7ff923bef9b1dee0989e93b57f83d59868c11ea1bda5d7f594f65092f30a68",
+      "inspected_sections": "§§4.1–4.4,5.1–5.3, Tables 1–2; official VideoSeal README/LICENSE and pinned pixelseal.yaml.",
+      "card": "cards/Pixel-Seal.md"
+    },
+    {
+      "method": "JigMark",
+      "evidence": "V2",
+      "source_id": "arxiv:2406.03720v1",
+      "canonical_url": "https://arxiv.org/abs/2406.03720v1",
+      "fulltext_url": "https://arxiv.org/html/2406.03720v1",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/jigmark.txt",
+      "bytes": 115734,
+      "sha256": "4dab1981ae4f549cf3ec66d3ae125c814220273fc903f6224f5774769e951fee",
+      "inspected_sections": "§§4.1–4.2,5.1–5.4,Table 3; Appendix D.3–D.4,F.1, Tables 7–9; official README/LICENSE.",
+      "card": "cards/JigMark.md"
+    },
+    {
+      "method": "Robust-Wide",
+      "evidence": "V2",
+      "source_id": "arxiv:2402.12688v1",
+      "canonical_url": "https://arxiv.org/abs/2402.12688v1",
+      "fulltext_url": "https://arxiv.org/html/2402.12688v1",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/robustwide.txt",
+      "bytes": 49375,
+      "sha256": "04878080ead4fc22187d7aa8dcc33361a288664c4b9487ab24e089b1cc4cf27f",
+      "inspected_sections": "§§3.1–3.5,4.1–4.4, Tables 1/4; official README/LICENSE.",
+      "card": "cards/Robust-Wide.md"
+    },
+    {
+      "method": "SpreadMark",
+      "evidence": "V2",
+      "source_id": "arxiv:2608.03165v2",
+      "canonical_url": "https://arxiv.org/abs/2608.03165v2",
+      "fulltext_url": "https://arxiv.org/html/2608.03165v2",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/spreadmark-v2.txt",
+      "bytes": 65395,
+      "sha256": "d12bf733f7f9094c7e847dd10ac29082e42b5f41fc47a7b204d7e00d26b97b24",
+      "inspected_sections": "Method 'Spread-Spectrum Embedding', 'Receiver', SA-AT; experimental setup, Tables 1–2, Ablations and Discussion; v1-to-v2 diff inspected.",
+      "card": "cards/SpreadMark.md"
+    },
+    {
+      "method": "NAWE",
+      "evidence": "V2",
+      "source_id": "arxiv:2609.25972v1",
+      "canonical_url": "https://arxiv.org/abs/2609.25972v1",
+      "fulltext_url": "https://arxiv.org/html/2609.25972v1",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/nawe.txt",
+      "bytes": 32506,
+      "sha256": "a17025bad8105b739e66753a051a54a8e76b1074d4e609773f2b8678fb579222",
+      "inspected_sections": "§§3.1–3.3,4.1–4.4, robustness grid and OFAT evaluation.",
+      "card": "cards/NAWE.md"
+    },
+    {
+      "method": "LaWa",
+      "evidence": "V2",
+      "source_id": "arxiv:2408.05868v1",
+      "canonical_url": "https://arxiv.org/abs/2408.05868v1",
+      "fulltext_url": "https://arxiv.org/html/2408.05868v1",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/lawa.txt",
+      "bytes": 59979,
+      "sha256": "bcccee962a53738a1ce11b0d755e99969285e8ba5ef7e6f0bbc744370bff7f4f",
+      "inspected_sections": "§§3.1–3.4,4.1–4.2,4.6–4.7 and Figure 7; official README/download.sh.",
+      "card": "cards/LaWa.md"
+    },
+    {
+      "method": "Chunky-Seal",
+      "evidence": "V2",
+      "source_id": "arxiv:2510.12812v1",
+      "canonical_url": "https://arxiv.org/abs/2510.12812v1",
+      "fulltext_url": "https://arxiv.org/html/2510.12812v1",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/chunkyseal.txt",
+      "bytes": 170882,
+      "sha256": "a3f23c62ff925b4b5519f604eef09f9157229712c5ed6201c292b19a4f08e6f1",
+      "inspected_sections": "§5 model architecture/training/Table 3;§6 discussion and Appendix I.1 contextual evaluation.",
+      "card": "cards/Chunky-Seal.md"
+    },
+    {
+      "method": "GenPTW",
+      "evidence": "V2",
+      "source_id": "arxiv:2504.19567v2",
+      "canonical_url": "https://arxiv.org/abs/2504.19567v2",
+      "fulltext_url": "https://arxiv.org/html/2504.19567v2",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/genptw-latest.txt",
+      "bytes": 51197,
+      "sha256": "4b361ce0840afc49746f97b5cca8e8d5d32da5a178ca25f366033bfe27f9756c",
+      "inspected_sections": "Method: Overall Framework, Multiscale Latent Embedding, CAF/SF, Tamper-Aware Extractor; Experimental Setup, Tables 1–3, Comparison with Deep Watermarking.",
+      "card": "cards/GenPTW.md"
+    },
+    {
+      "method": "DistSeal",
+      "evidence": "V2",
+      "source_id": "arxiv:2601.16140v1",
+      "canonical_url": "https://arxiv.org/abs/2601.16140v1",
+      "fulltext_url": "https://arxiv.org/html/2601.16140v1",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/distseal.txt",
+      "bytes": 91061,
+      "sha256": "7462d1e3f1a2236e8e95ae517fc8d2ed26cf4cc1dfe925d786e9957d992921cd",
+      "inspected_sections": "§§4.1–4.2,5.1–5.2, Tables 1–3; official README post-hoc image-notebook description/LICENSE.",
+      "card": "cards/DistSeal.md"
+    },
+    {
+      "method": "EditGuard",
+      "evidence": "V2",
+      "source_id": "arxiv:2312.08883v1",
+      "canonical_url": "https://arxiv.org/abs/2312.08883v1",
+      "fulltext_url": "https://arxiv.org/html/2312.08883v1",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/editguard-latest.txt",
+      "bytes": 98007,
+      "sha256": "c2bceb9b4b2c093789ca5779038e660462d65c2f1dcbb68a8ce66cc52fe2770e",
+      "inspected_sections": "Sections 3.1–3.3, 4.1–4.5, 5.1–5.4; Equation 7; Tables 2–4; Appendix A and network details; official repository README and license metadata.",
+      "card": "cards/EditGuard.md"
+    },
+    {
+      "method": "OmniGuard",
+      "evidence": "V2",
+      "source_id": "arxiv:2412.01615v2",
+      "canonical_url": "https://arxiv.org/abs/2412.01615v2",
+      "fulltext_url": "https://arxiv.org/html/2412.01615v2",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/omniguard.txt",
+      "bytes": 72130,
+      "sha256": "f0e0aa3ff71deff02222a9deb83af3e2d53d98cdad0c82614dbec0636904228b",
+      "inspected_sections": "Sections 3.1–3.6 and 4.1–4.4; Tables 2–5; Appendix A.1–A.4 and B–C; official README, API metadata and app.py.",
+      "card": "cards/OmniGuard.md"
+    },
+    {
+      "method": "SNW",
+      "evidence": "V2",
+      "source_id": "arxiv:2609.34744v1",
+      "canonical_url": "https://arxiv.org/abs/2609.34744v1",
+      "fulltext_url": "https://arxiv.org/html/2609.34744v1",
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/snw.txt",
+      "bytes": 92562,
+      "sha256": "fabf24603a312b094fe4a959aba3a2b45b760b67b980ea8842a6f0b42999cb3f",
+      "inspected_sections": "Sections 2 through 4, 5, 6.1 through 6.2; Appendix C.1, F, G and H.2; Table 6. Method, evaluation and security scope were read, not only the abstract.",
+      "card": "cards/SNW.md"
+    }
+  ],
+  "final_version_supplement": {
+    "method": "TrustMark",
+    "version": "ICCV 2025 final",
+    "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Bui_TrustMark_Robust_Watermarking_and_Watermark_Removal_for_Arbitrary_Resolution_Images_ICCV_2025_paper.pdf",
+    "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/access-refresh/trustmark-iccv2025.pdf",
+    "bytes": 6840136,
+    "sha256": "94be2a50e08356b321c4f64a56579eeb63ea4676634ac9c019e3c76f6c5726f5",
+    "doi": "10.1109/ICCV51701.2025.01731",
+    "provenance_card": "research/q1-dossier-20261018/02-literature/access-refresh/cards/Bui2025TrustMark.md",
+    "inspection": "Method, Algorithm 1, setup and Table 3; predecessor visually checked rendered PDF page 7. The separate T3b fetch failure does not negate earlier cached acquisition success."
+  },
+  "search_event_counts": {
+    "arxiv_api": 3,
+    "primary_paper": 23,
+    "official_repository": 70,
+    "openalex": 1,
+    "web_search": 18
+  },
+  "search_events": "search-events.jsonl",
+  "counted_discovery": {
+    "web_search": 18,
+    "openalex": 1,
+    "official_repository": 3,
+    "total": 22,
+    "categories": 3,
+    "official_queries": [
+      "Search official GitHub repositories named SimuFreeMark",
+      "discovery: SpreadMark watermark",
+      "discovery: NAWE watermark"
+    ],
+    "arxiv_api_failed_attempts_not_counted": 3,
+    "policy": "Counts are conservative. Repository file fetches, metadata verification and retries are not additional discovery queries. Earlier legacy web queries are not added to these counts."
+  },
+  "reused_sources": [
+    {
+      "id": "wam",
+      "source_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\wam.html",
+      "source_sha256": "3ca12cea768aa10c8eda2e351a88c3e85790e69db64e60cad747771897c9c6aa",
+      "text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\wam-reused.txt",
+      "text_sha256": "24ec9c24afc63108df55aaf207b5bab90a4d3b55dc6c8eaf32a240e7ecbdeb1d"
+    },
+    {
+      "id": "vine",
+      "source_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\vine.html",
+      "source_sha256": "f6fb25d7b27ec0e95f883674e2e08a41a9075f5929e76287f02330e339e049dd",
+      "text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\vine-reused.txt",
+      "text_sha256": "545752a95b5f8811bba484c9bd4ba662444a2e8fd636ef1747da47816ca1d567"
+    },
+    {
+      "id": "invis",
+      "source_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\invis.html",
+      "source_sha256": "a4851485a056418c41ad65d605b783a0c626d805f759622d5e978b2a02405343",
+      "text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\invis-reused.txt",
+      "text_sha256": "e45a3b5375de5c9ae3f04aca3e10146b0474aada3476bcde89d8a692a435e7d0"
+    },
+    {
+      "id": "rosteals",
+      "source_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\rosteals.html",
+      "source_sha256": "687ed6e8bb09968bfff2a3c200640c03ac02819a2656696720a426128c6de00a",
+      "text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\rosteals-reused.txt",
+      "text_sha256": "956e32ea1db3a9d8eacf7b0488c3a57e90ee62701c0409a1de4de8a42d7d6cdb"
+    },
+    {
+      "id": "zodiac",
+      "source_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\zodiac.html",
+      "source_sha256": "80f626f4abdaef8a9468497ab5b28bc4e27510aecc4bc365fb3b509a40e72145",
+      "text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\zodiac-reused.txt",
+      "text_sha256": "3711f3a711ecdba59e4d05d677216029d1398584330fba1d5a046b4ab1647488"
+    },
+    {
+      "id": "trustmark",
+      "source_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\trustmark.html",
+      "source_sha256": "2002a7b13dafa321aa36270b94c00e2bfcb2fd28228c6ab9375f57ee13faae93",
+      "text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\trustmark-reused.txt",
+      "text_sha256": "7610cc8f76c61f1314ff8b481a4ab79a29089af718419708cad3113cec8eed9a"
+    },
+    {
+      "id": "pixelseal",
+      "source_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\pixelseal.html",
+      "source_sha256": "cb6d43ca864a9c6a73e27fa1d7e0f1d97e0e23bc712e7d7a9f19d33de1ea7554",
+      "text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\pixelseal-reused.txt",
+      "text_sha256": "fc7ff923bef9b1dee0989e93b57f83d59868c11ea1bda5d7f594f65092f30a68"
+    },
+    {
+      "id": "phase",
+      "source_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\phase.html",
+      "source_sha256": "903c711eacb06288a39471fa6f7947eb9fa1d05b620003c57662d26071e41009",
+      "text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\phase-reused.txt",
+      "text_sha256": "070d6755e25462c303e2a8e128912127868ddb013024ad2cf990ec0688c222b7"
+    },
+    {
+      "id": "bislw",
+      "source_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-bislw-v1.html",
+      "source_sha256": "23980345f87dc46515dd8408eefd7a8e4837209c342775d8dc6fbdaa2069b5ab",
+      "text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\bislw.txt",
+      "text_sha256": "8ad84e8bfcd1b63da6e2a9e26435223ab83ac550f5a5fc581f8ed1e00c1dedb4"
+    }
+  ],
+  "event_cache_checks": [
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2108.08211v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\mbrs.html",
+      "recorded_sha256": "98a99698b68f5e4bd4d6e672db36fc5d972931a043af07680f990fe1e85023f9",
+      "exists": true,
+      "current_sha256": "98a99698b68f5e4bd4d6e672db36fc5d972931a043af07680f990fe1e85023f9",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2108.08211v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\mbrs.txt",
+      "recorded_sha256": "aa8e81d5f9cdc45cbd158c985a430d31c44d1529e03930ce06211e5c340e3f54",
+      "exists": true,
+      "current_sha256": "aa8e81d5f9cdc45cbd158c985a430d31c44d1529e03930ce06211e5c340e3f54",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2112.09581v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\ssl.html",
+      "recorded_sha256": "28d4ebf286da53777ca27288b046a78e30180d70c5975fca3559ed7f5220b8ea",
+      "exists": true,
+      "current_sha256": "28d4ebf286da53777ca27288b046a78e30180d70c5975fca3559ed7f5220b8ea",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2112.09581v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\ssl.txt",
+      "recorded_sha256": "22b58c938f21799cfec9b2ffc89c26030c86b053e085fa8bafc925ce65c69575",
+      "exists": true,
+      "current_sha256": "22b58c938f21799cfec9b2ffc89c26030c86b053e085fa8bafc925ce65c69575",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/1904.05343v2",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\stegastamp.html",
+      "recorded_sha256": "02440c2045fd00d102b75c0c06f69ed1f55a374e2094e218cd0b7e054616a76f",
+      "exists": true,
+      "current_sha256": "02440c2045fd00d102b75c0c06f69ed1f55a374e2094e218cd0b7e054616a76f",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/1904.05343v2",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\stegastamp.txt",
+      "recorded_sha256": "4c06b800c078acaae1cfb45c0adbe2b7e06633bda49903c21d319777631ba4d4",
+      "exists": true,
+      "current_sha256": "4c06b800c078acaae1cfb45c0adbe2b7e06633bda49903c21d319777631ba4d4",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2510.07302v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\specguard.html",
+      "recorded_sha256": "a31901177bccb41de0abc89b7567eafdf1cf0a05f6a2bfbcbbda0697234e16e3",
+      "exists": true,
+      "current_sha256": "a31901177bccb41de0abc89b7567eafdf1cf0a05f6a2bfbcbbda0697234e16e3",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2510.07302v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\specguard.txt",
+      "recorded_sha256": "4fd1371cea06309cc8f53bf4cdb16cd3bb596df499f229c04cc0ee877799a3d5",
+      "exists": true,
+      "current_sha256": "4fd1371cea06309cc8f53bf4cdb16cd3bb596df499f229c04cc0ee877799a3d5",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2511.11295v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\simufreemark.html",
+      "recorded_sha256": "47891d84da8e293c6d1de6c175f3994f20aa1707829bbbcff9eb714681750828",
+      "exists": true,
+      "current_sha256": "47891d84da8e293c6d1de6c175f3994f20aa1707829bbbcff9eb714681750828",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2511.11295v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\simufreemark.txt",
+      "recorded_sha256": "a964732819a4f3a5ee991566b450cb9d582da59ac1366665f0c3bb14d7fb5ed6",
+      "exists": true,
+      "current_sha256": "a964732819a4f3a5ee991566b450cb9d582da59ac1366665f0c3bb14d7fb5ed6",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2601.13128v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\phase.html",
+      "recorded_sha256": "903c711eacb06288a39471fa6f7947eb9fa1d05b620003c57662d26071e41009",
+      "exists": true,
+      "current_sha256": "903c711eacb06288a39471fa6f7947eb9fa1d05b620003c57662d26071e41009",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2601.13128v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\phase.txt",
+      "recorded_sha256": "070d6755e25462c303e2a8e128912127868ddb013024ad2cf990ec0688c222b7",
+      "exists": true,
+      "current_sha256": "070d6755e25462c303e2a8e128912127868ddb013024ad2cf990ec0688c222b7",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2512.16874v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\pixelseal.html",
+      "recorded_sha256": "cb6d43ca864a9c6a73e27fa1d7e0f1d97e0e23bc712e7d7a9f19d33de1ea7554",
+      "exists": true,
+      "current_sha256": "cb6d43ca864a9c6a73e27fa1d7e0f1d97e0e23bc712e7d7a9f19d33de1ea7554",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2512.16874v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\pixelseal.txt",
+      "recorded_sha256": "fc7ff923bef9b1dee0989e93b57f83d59868c11ea1bda5d7f594f65092f30a68",
+      "exists": true,
+      "current_sha256": "fc7ff923bef9b1dee0989e93b57f83d59868c11ea1bda5d7f594f65092f30a68",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/jzyustc/MBRS",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\mbrs-repo.json",
+      "recorded_sha256": "f7803a1149053e613cf631fb7003b8c9ad6be5c3ef9ec86c18c5f2d3a2f30cea",
+      "exists": true,
+      "current_sha256": "f7803a1149053e613cf631fb7003b8c9ad6be5c3ef9ec86c18c5f2d3a2f30cea",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/facebookresearch/ssl_watermarking",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\ssl-repo.json",
+      "recorded_sha256": "156b12eadcec9d7560f23b80fb7835bffa756e7f88214ecd158f967bb275f275",
+      "exists": true,
+      "current_sha256": "156b12eadcec9d7560f23b80fb7835bffa756e7f88214ecd158f967bb275f275",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/inzamamulDU/SpecGuard_ICCV_2025",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\specguard-repo.json",
+      "recorded_sha256": "4cf2c528963b17a528f012ecc508033b40db96d66fe77699555d094afcff5494",
+      "exists": true,
+      "current_sha256": "4cf2c528963b17a528f012ecc508033b40db96d66fe77699555d094afcff5494",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/facebookresearch/videoseal",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\pixelseal-repo.json",
+      "recorded_sha256": "e1076cd8bc35dda87dc5c7b2c3899018c2f071b237073ede3e66209ec1a613bc",
+      "exists": true,
+      "current_sha256": "e1076cd8bc35dda87dc5c7b2c3899018c2f071b237073ede3e66209ec1a613bc",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/search/repositories?q=SimuFreeMark",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\simufree-github-search.json",
+      "recorded_sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f",
+      "exists": true,
+      "current_sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "openalex",
+      "event_url": "https://api.openalex.org/works?search=post-hoc%20watermarking%20regeneration&per-page=20",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\openalex-baselines.json",
+      "recorded_sha256": "3511a5a6eb6e3cb170a28686ae5fdd1a4b0b667cdc5476038318b2edddeb26d9",
+      "exists": true,
+      "current_sha256": "3511a5a6eb6e3cb170a28686ae5fdd1a4b0b667cdc5476038318b2edddeb26d9",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/jzyustc/MBRS/commits/HEAD",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\mbrs-commit.json",
+      "recorded_sha256": "d87b1c6a8fa8a15cda93e12f8a39099d48261e69e080e127ececa53c179a70cc",
+      "exists": true,
+      "current_sha256": "d87b1c6a8fa8a15cda93e12f8a39099d48261e69e080e127ececa53c179a70cc",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/facebookresearch/ssl_watermarking/commits/HEAD",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\ssl-commit.json",
+      "recorded_sha256": "ddb88dd106544f1339a12ba1d24c5ffe93696b6d70ef0524c43e3b4006dcbbdd",
+      "exists": true,
+      "current_sha256": "ddb88dd106544f1339a12ba1d24c5ffe93696b6d70ef0524c43e3b4006dcbbdd",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/inzamamulDU/SpecGuard_ICCV_2025/commits/HEAD",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\specguard-commit.json",
+      "recorded_sha256": "556e6f866125b9bf920563f490f509d97ee5f51d1361ea3f5a11a152e5e85292",
+      "exists": true,
+      "current_sha256": "556e6f866125b9bf920563f490f509d97ee5f51d1361ea3f5a11a152e5e85292",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/facebookresearch/videoseal/commits/HEAD",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\pixelseal-commit.json",
+      "recorded_sha256": "d8c92ad02f069395ac428e64d29bd290b4014bba0a6808bc29c4a23815c11b4a",
+      "exists": true,
+      "current_sha256": "d8c92ad02f069395ac428e64d29bd290b4014bba0a6808bc29c4a23815c11b4a",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/jzyustc/MBRS/git/trees/2bab0df66480f66cfdef534d38c851354ee2c6aa?recursive=1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\mbrs-tree.json",
+      "recorded_sha256": "fa9697fa00f7e14ffd0c9351897520b048f1879752da130abddbc829881684ea",
+      "exists": true,
+      "current_sha256": "fa9697fa00f7e14ffd0c9351897520b048f1879752da130abddbc829881684ea",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/facebookresearch/ssl_watermarking/git/trees/3e65334bd28ecbc66756f0179def9dc4c88a6acc?recursive=1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\ssl-tree.json",
+      "recorded_sha256": "ad1d46e55c3661211f57bdc246f647b5575ab1e9cd487e0226848267002a0952",
+      "exists": true,
+      "current_sha256": "ad1d46e55c3661211f57bdc246f647b5575ab1e9cd487e0226848267002a0952",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/inzamamulDU/SpecGuard_ICCV_2025/git/trees/eebe26e12c0647f7aebb060e7fabf90d4931783e?recursive=1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\specguard-tree.json",
+      "recorded_sha256": "aa850bc08fa369051f07c47f44c8b61efc44bf64baaa7063774bbcd055e0086c",
+      "exists": true,
+      "current_sha256": "aa850bc08fa369051f07c47f44c8b61efc44bf64baaa7063774bbcd055e0086c",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/facebookresearch/videoseal/git/trees/870ca7fb33578b90f14c602016b6c2788096226e?recursive=1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\pixelseal-tree.json",
+      "recorded_sha256": "d615b339bc6b6b761508674617d2a10bf683f74a919a9ec622aace2112d9c2f2",
+      "exists": true,
+      "current_sha256": "d615b339bc6b6b761508674617d2a10bf683f74a919a9ec622aace2112d9c2f2",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2406.03720v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\jigmark.html",
+      "recorded_sha256": "dac04a6d209d1b95bd4a6230b46ffd09c5503043c4f0d8d9bc2e9d4e639cf09a",
+      "exists": true,
+      "current_sha256": "dac04a6d209d1b95bd4a6230b46ffd09c5503043c4f0d8d9bc2e9d4e639cf09a",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2406.03720v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\jigmark.txt",
+      "recorded_sha256": "4dab1981ae4f549cf3ec66d3ae125c814220273fc903f6224f5774769e951fee",
+      "exists": true,
+      "current_sha256": "4dab1981ae4f549cf3ec66d3ae125c814220273fc903f6224f5774769e951fee",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2402.12688v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\robustwide.html",
+      "recorded_sha256": "1674727035b91fd11b9bd5748ba55837196e0935cea4b7ed72d4e95d5720639a",
+      "exists": true,
+      "current_sha256": "1674727035b91fd11b9bd5748ba55837196e0935cea4b7ed72d4e95d5720639a",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2402.12688v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\robustwide.txt",
+      "recorded_sha256": "04878080ead4fc22187d7aa8dcc33361a288664c4b9487ab24e089b1cc4cf27f",
+      "exists": true,
+      "current_sha256": "04878080ead4fc22187d7aa8dcc33361a288664c4b9487ab24e089b1cc4cf27f",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2608.03165v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\spreadmark.html",
+      "recorded_sha256": "1ada06f08a7e2cd26105d39faf69f6e0a3ebaa41d9a5d1b1910946e0a40c8ed6",
+      "exists": true,
+      "current_sha256": "1ada06f08a7e2cd26105d39faf69f6e0a3ebaa41d9a5d1b1910946e0a40c8ed6",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2608.03165v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\spreadmark.txt",
+      "recorded_sha256": "ef5f86e2485303f3d4aaad840504dda8c6c694d2e90c600f25cc71b881c04003",
+      "exists": true,
+      "current_sha256": "ef5f86e2485303f3d4aaad840504dda8c6c694d2e90c600f25cc71b881c04003",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2609.25972v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\nawe.html",
+      "recorded_sha256": "94d5e6248532d411bfe12f816fa76a32527a501c2fa4ea7dc6753122aa4a135e",
+      "exists": true,
+      "current_sha256": "94d5e6248532d411bfe12f816fa76a32527a501c2fa4ea7dc6753122aa4a135e",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2609.25972v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\nawe.txt",
+      "recorded_sha256": "a17025bad8105b739e66753a051a54a8e76b1074d4e609773f2b8678fb579222",
+      "exists": true,
+      "current_sha256": "a17025bad8105b739e66753a051a54a8e76b1074d4e609773f2b8678fb579222",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/hurunyi/Robust-Wide",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\robustwide-repo.json",
+      "recorded_sha256": "76ede728b897cfa21666ee611628ccef07d590501c160c8449dc3468747aee6f",
+      "exists": true,
+      "current_sha256": "76ede728b897cfa21666ee611628ccef07d590501c160c8449dc3468747aee6f",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/jzyustc/MBRS/contents/README.md?ref=2bab0df66480f66cfdef534d38c851354ee2c6aa",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\mbrs-README.md-api.json",
+      "recorded_sha256": "30506235fe7bbc89c93142d70d6a589f6d67b142c28853241d339f7b456986fd",
+      "exists": true,
+      "current_sha256": "30506235fe7bbc89c93142d70d6a589f6d67b142c28853241d339f7b456986fd",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/facebookresearch/ssl_watermarking/contents/README.md?ref=3e65334bd28ecbc66756f0179def9dc4c88a6acc",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\ssl-README.md-api.json",
+      "recorded_sha256": "5f616527e375f604e0e84538810fd09bb1eec5cccb8e5c1dc35c37fd18aa3077",
+      "exists": true,
+      "current_sha256": "5f616527e375f604e0e84538810fd09bb1eec5cccb8e5c1dc35c37fd18aa3077",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/facebookresearch/ssl_watermarking/contents/LICENSE?ref=3e65334bd28ecbc66756f0179def9dc4c88a6acc",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\ssl-LICENSE-api.json",
+      "recorded_sha256": "b376a84b3aafa51d1d4603ceafd06978d394394258cfd00212d8b09ccaf19c58",
+      "exists": true,
+      "current_sha256": "b376a84b3aafa51d1d4603ceafd06978d394394258cfd00212d8b09ccaf19c58",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/inzamamulDU/SpecGuard_ICCV_2025/contents/README.md?ref=eebe26e12c0647f7aebb060e7fabf90d4931783e",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\specguard-README.md-api.json",
+      "recorded_sha256": "35e310c4171a2ff10244d26ad8c8adf3a8894314677a8385e41ae6f8432c1617",
+      "exists": true,
+      "current_sha256": "35e310c4171a2ff10244d26ad8c8adf3a8894314677a8385e41ae6f8432c1617",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/inzamamulDU/SpecGuard_ICCV_2025/contents/LICENSE?ref=eebe26e12c0647f7aebb060e7fabf90d4931783e",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\specguard-LICENSE-api.json",
+      "recorded_sha256": "7d0b6fbc66212a914bcd2d9195f66eec98164557e5b3df089123a3e2c7020430",
+      "exists": true,
+      "current_sha256": "7d0b6fbc66212a914bcd2d9195f66eec98164557e5b3df089123a3e2c7020430",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/facebookresearch/videoseal/contents/README.md?ref=870ca7fb33578b90f14c602016b6c2788096226e",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\pixelseal-README.md-api.json",
+      "recorded_sha256": "31c281a9fd9871b9f755b947cac594a5d0cd08208a2dd95ac42e8d483d4cd125",
+      "exists": true,
+      "current_sha256": "31c281a9fd9871b9f755b947cac594a5d0cd08208a2dd95ac42e8d483d4cd125",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/facebookresearch/videoseal/contents/LICENSE?ref=870ca7fb33578b90f14c602016b6c2788096226e",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\pixelseal-LICENSE-api.json",
+      "recorded_sha256": "044d2c33474d937789486f639b0cd5d4fe2d02e169c260f3c34b09a0f65314c5",
+      "exists": true,
+      "current_sha256": "044d2c33474d937789486f639b0cd5d4fe2d02e169c260f3c34b09a0f65314c5",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/pmzzs/JigMark/commits/HEAD",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\jigmark-commit.json",
+      "recorded_sha256": "7384adb321ac30a1659a751c120f0fad7fe3b7f545680340a3d4d0748ad254a2",
+      "exists": true,
+      "current_sha256": "7384adb321ac30a1659a751c120f0fad7fe3b7f545680340a3d4d0748ad254a2",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/hurunyi/Robust-Wide/commits/HEAD",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\robustwide-commit.json",
+      "recorded_sha256": "545f9a7d95494ee3f4ee16a3faad91fffdf58c415bc3e7e26d5750056a7a1397",
+      "exists": true,
+      "current_sha256": "545f9a7d95494ee3f4ee16a3faad91fffdf58c415bc3e7e26d5750056a7a1397",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/search/repositories?q=SpreadMark%20watermark",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\spread-repos.json",
+      "recorded_sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f",
+      "exists": true,
+      "current_sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/search/repositories?q=NAWE%20watermark",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\nawe-repos.json",
+      "recorded_sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f",
+      "exists": true,
+      "current_sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2608.03165v2",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\spreadmark-v2.html",
+      "recorded_sha256": "2d9ab1e040db502a76a32b1d13504596a60384c926abb6a8b3b95c1002f917b2",
+      "exists": true,
+      "current_sha256": "2d9ab1e040db502a76a32b1d13504596a60384c926abb6a8b3b95c1002f917b2",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2608.03165v2",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\spreadmark-v2.txt",
+      "recorded_sha256": "d12bf733f7f9094c7e847dd10ac29082e42b5f41fc47a7b204d7e00d26b97b24",
+      "exists": true,
+      "current_sha256": "d12bf733f7f9094c7e847dd10ac29082e42b5f41fc47a7b204d7e00d26b97b24",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/Shilin-LU/VINE/blob/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/w_bench_utils/regeneration/stochastic_regeneration.py",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\vine-stochastic_regeneration.py.html",
+      "recorded_sha256": "0cecc2c5278cbdd6a0f5252a1d487007a96e16ab41ebb3dc19cbaed082ffda3b",
+      "exists": true,
+      "current_sha256": "0cecc2c5278cbdd6a0f5252a1d487007a96e16ab41ebb3dc19cbaed082ffda3b",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/Shilin-LU/VINE/blob/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/w_bench_utils/regeneration/stochastic_regeneration.py",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\vine-stochastic_regeneration.py.txt",
+      "recorded_sha256": "d60e75c0795aa67918a5ab57120ac0edc9f0d35d790944eef9c6d08c692c3607",
+      "exists": true,
+      "current_sha256": "d60e75c0795aa67918a5ab57120ac0edc9f0d35d790944eef9c6d08c692c3607",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/Shilin-LU/VINE/blob/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/w_bench_utils/regeneration/deterministic_inversion.py",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\vine-deterministic_inversion.py.html",
+      "recorded_sha256": "f5a16e86678c7d944aaf2e932d422bd6601889461bdb79d3a7161eaf8b7204b9",
+      "exists": true,
+      "current_sha256": "f5a16e86678c7d944aaf2e932d422bd6601889461bdb79d3a7161eaf8b7204b9",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/Shilin-LU/VINE/blob/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/w_bench_utils/regeneration/deterministic_inversion.py",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\vine-deterministic_inversion.py.txt",
+      "recorded_sha256": "cff6e79e62b60f436b6f87f9d08dcbb2009a385bea51ba36fd7a5112167fe937",
+      "exists": true,
+      "current_sha256": "cff6e79e62b60f436b6f87f9d08dcbb2009a385bea51ba36fd7a5112167fe937",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/Shilin-LU/VINE/blob/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/w_bench_utils/regeneration/utils_sto_regeneration.py",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\vine-utils_sto_regeneration.py.html",
+      "recorded_sha256": "75491baf0a376b675be09489b4bf50dbee7e444f6096441b40982992bff2ac8d",
+      "exists": true,
+      "current_sha256": "75491baf0a376b675be09489b4bf50dbee7e444f6096441b40982992bff2ac8d",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/Shilin-LU/VINE/blob/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/w_bench_utils/regeneration/utils_sto_regeneration.py",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\vine-utils_sto_regeneration.py.txt",
+      "recorded_sha256": "4850b0a1e7a08dee6da6fe1fcb27e3ceac427f3c8db4e70bff8264c2c5bc8f84",
+      "exists": true,
+      "current_sha256": "4850b0a1e7a08dee6da6fe1fcb27e3ceac427f3c8db4e70bff8264c2c5bc8f84",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/Shilin-LU/VINE/blob/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/w_bench_utils/regeneration/utils_det_inversion.py",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\vine-utils_det_inversion.py.html",
+      "recorded_sha256": "77db31498c34b9f50e89e00fe5bc18a3eb6bd5f0fc816371321fdfc43b2f6b64",
+      "exists": true,
+      "current_sha256": "77db31498c34b9f50e89e00fe5bc18a3eb6bd5f0fc816371321fdfc43b2f6b64",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/Shilin-LU/VINE/blob/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/w_bench_utils/regeneration/utils_det_inversion.py",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\vine-utils_det_inversion.py.txt",
+      "recorded_sha256": "f733b0412f29784c83c57782238ad1a495ebeced727b3b60c5a7c56e58bbf32a",
+      "exists": true,
+      "current_sha256": "f733b0412f29784c83c57782238ad1a495ebeced727b3b60c5a7c56e58bbf32a",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/pmzzs/JigMark/blob/4e51cd1ebcf6b95ca01e286d086f9e8883df4621/README.md",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\jigmark-README.md.html",
+      "recorded_sha256": "dae140e4c95d3a9e0fffb708b565bdf904fd8c338bfffa009aaaafd92573b443",
+      "exists": true,
+      "current_sha256": "dae140e4c95d3a9e0fffb708b565bdf904fd8c338bfffa009aaaafd92573b443",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/pmzzs/JigMark/blob/4e51cd1ebcf6b95ca01e286d086f9e8883df4621/README.md",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\jigmark-README.md.txt",
+      "recorded_sha256": "87cf1b776faf548a23e2f0666a1961da08122b1452b909bc34d3584fd618cf61",
+      "exists": true,
+      "current_sha256": "87cf1b776faf548a23e2f0666a1961da08122b1452b909bc34d3584fd618cf61",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/pmzzs/JigMark/blob/4e51cd1ebcf6b95ca01e286d086f9e8883df4621/LICENSE",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\jigmark-LICENSE.html",
+      "recorded_sha256": "57f9081ec027cc77b7cf715a21b20f5b7f265b1d966b30aec770c52f53097f1c",
+      "exists": true,
+      "current_sha256": "57f9081ec027cc77b7cf715a21b20f5b7f265b1d966b30aec770c52f53097f1c",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/pmzzs/JigMark/blob/4e51cd1ebcf6b95ca01e286d086f9e8883df4621/LICENSE",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\jigmark-LICENSE.txt",
+      "recorded_sha256": "e79b80cb3fc636baf643087fa4ff99a6da8348091e028730051e9ad302e3f24b",
+      "exists": true,
+      "current_sha256": "e79b80cb3fc636baf643087fa4ff99a6da8348091e028730051e9ad302e3f24b",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/hurunyi/Robust-Wide/blob/6a2ee6c991b27f36f2980a7de5c6d7b064c9fa11/README.md",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\robustwide-README.md.html",
+      "recorded_sha256": "4d1ba196db73648149e55a1a9a4a8fba6a1ccfedef452c68d44aaca86fa5f460",
+      "exists": true,
+      "current_sha256": "4d1ba196db73648149e55a1a9a4a8fba6a1ccfedef452c68d44aaca86fa5f460",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/hurunyi/Robust-Wide/blob/6a2ee6c991b27f36f2980a7de5c6d7b064c9fa11/README.md",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\robustwide-README.md.txt",
+      "recorded_sha256": "a5255e3ba77f211f6e0f3f056779ee230941b5a918dd0bfbf100350c46bd8cf3",
+      "exists": true,
+      "current_sha256": "a5255e3ba77f211f6e0f3f056779ee230941b5a918dd0bfbf100350c46bd8cf3",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/hurunyi/Robust-Wide/blob/6a2ee6c991b27f36f2980a7de5c6d7b064c9fa11/LICENSE",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\robustwide-LICENSE.html",
+      "recorded_sha256": "7fa0c46b83e2ceb54bb8e28675990b3851cb2cf2cb2d7903787966f16c14c142",
+      "exists": true,
+      "current_sha256": "7fa0c46b83e2ceb54bb8e28675990b3851cb2cf2cb2d7903787966f16c14c142",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/hurunyi/Robust-Wide/blob/6a2ee6c991b27f36f2980a7de5c6d7b064c9fa11/LICENSE",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\robustwide-LICENSE.txt",
+      "recorded_sha256": "253c6ce8a97866bb619e896c80d595a24c929a53fb8e0e5fb2b20269f5d43331",
+      "exists": true,
+      "current_sha256": "253c6ce8a97866bb619e896c80d595a24c929a53fb8e0e5fb2b20269f5d43331",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2408.05868v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\lawa.html",
+      "recorded_sha256": "f85dc94a6436973fdf02739b6e0be543f0ab0bc7e00b502c8b83a6d6c0c3672f",
+      "exists": true,
+      "current_sha256": "f85dc94a6436973fdf02739b6e0be543f0ab0bc7e00b502c8b83a6d6c0c3672f",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2408.05868v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\lawa.txt",
+      "recorded_sha256": "bcccee962a53738a1ce11b0d755e99969285e8ba5ef7e6f0bbc744370bff7f4f",
+      "exists": true,
+      "current_sha256": "bcccee962a53738a1ce11b0d755e99969285e8ba5ef7e6f0bbc744370bff7f4f",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2510.12812v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\chunkyseal.html",
+      "recorded_sha256": "4a1bbc05d0021bdaeeca3b7647dbc080c8991777044d36ff3aa8880cbcbc5316",
+      "exists": true,
+      "current_sha256": "4a1bbc05d0021bdaeeca3b7647dbc080c8991777044d36ff3aa8880cbcbc5316",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2510.12812v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\chunkyseal.txt",
+      "recorded_sha256": "a3f23c62ff925b4b5519f604eef09f9157229712c5ed6201c292b19a4f08e6f1",
+      "exists": true,
+      "current_sha256": "a3f23c62ff925b4b5519f604eef09f9157229712c5ed6201c292b19a4f08e6f1",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/facebookresearch/distseal",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\distseal-repo.html",
+      "recorded_sha256": "2b708137815d0ab926679c5be36c3e2c02910dbc6bd23ce02762489f3dd06c4c",
+      "exists": true,
+      "current_sha256": "2a4e105acc3150fe2a8c457848a09ae771cd110ba9fdffff9a874e2b8b33b4bf",
+      "matches_recorded": false,
+      "cache_state": "earlier HTML snapshot overwritten by later acquisition; retained plain text hash still matches"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/facebookresearch/distseal",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\distseal-repo.txt",
+      "recorded_sha256": "fa2c98e5a8b43c820065003db9ca4d5d8a7596b4d33f0420f606500aff611c2d",
+      "exists": true,
+      "current_sha256": "fa2c98e5a8b43c820065003db9ca4d5d8a7596b4d33f0420f606500aff611c2d",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/vbdi/LaWa",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\lawa-repo.html",
+      "recorded_sha256": "3d3edf535ede1737c46b380abe977ae79d1da660badd700ce5e3eeefc85ba4d5",
+      "exists": true,
+      "current_sha256": "970f0f92c2be415606d2119fa66d003daf0b954380f9243ebe47a492891009d5",
+      "matches_recorded": false,
+      "cache_state": "earlier HTML snapshot overwritten by later acquisition; retained plain text hash still matches"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/vbdi/LaWa",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\lawa-repo.txt",
+      "recorded_sha256": "786a790c311794e5870eea81ed1ed0b085b18b79fcb7e653c67d549a7627e78e",
+      "exists": true,
+      "current_sha256": "786a790c311794e5870eea81ed1ed0b085b18b79fcb7e653c67d549a7627e78e",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/facebookresearch/videoseal/blob/870ca7fb33578b90f14c602016b6c2788096226e/videoseal/cards/pixelseal.yaml",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\pixelseal-config.html",
+      "recorded_sha256": "c46472b3896aa039becf389c22a452fc94eccf280ac7455c409a229bffad54a0",
+      "exists": true,
+      "current_sha256": "c46472b3896aa039becf389c22a452fc94eccf280ac7455c409a229bffad54a0",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/facebookresearch/videoseal/blob/870ca7fb33578b90f14c602016b6c2788096226e/videoseal/cards/pixelseal.yaml",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\pixelseal-config.txt",
+      "recorded_sha256": "44606389146e5f13ad6526b4e6583945f2333edc9a7fca921e1aefe90517df32",
+      "exists": true,
+      "current_sha256": "44606389146e5f13ad6526b4e6583945f2333edc9a7fca921e1aefe90517df32",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2504.19567",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\genptw-latest.html",
+      "recorded_sha256": "95ccc4a754c51754c7bfa0c488db78c655c6f274463a5e73488e289503d6218b",
+      "exists": true,
+      "current_sha256": "95ccc4a754c51754c7bfa0c488db78c655c6f274463a5e73488e289503d6218b",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2504.19567",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\genptw-latest.txt",
+      "recorded_sha256": "4b361ce0840afc49746f97b5cca8e8d5d32da5a178ca25f366033bfe27f9756c",
+      "exists": true,
+      "current_sha256": "4b361ce0840afc49746f97b5cca8e8d5d32da5a178ca25f366033bfe27f9756c",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2601.16140v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\distseal.html",
+      "recorded_sha256": "ca44d1401d3b3251e19e6795e698b7147d32c3b2cbd8063ec3c2935c42e013eb",
+      "exists": true,
+      "current_sha256": "ca44d1401d3b3251e19e6795e698b7147d32c3b2cbd8063ec3c2935c42e013eb",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2601.16140v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\distseal.txt",
+      "recorded_sha256": "7462d1e3f1a2236e8e95ae517fc8d2ed26cf4cc1dfe925d786e9957d992921cd",
+      "exists": true,
+      "current_sha256": "7462d1e3f1a2236e8e95ae517fc8d2ed26cf4cc1dfe925d786e9957d992921cd",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/vbdi/LaWa",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\lawa-repo.html",
+      "recorded_sha256": "970f0f92c2be415606d2119fa66d003daf0b954380f9243ebe47a492891009d5",
+      "exists": true,
+      "current_sha256": "970f0f92c2be415606d2119fa66d003daf0b954380f9243ebe47a492891009d5",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/vbdi/LaWa",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\lawa-repo.txt",
+      "recorded_sha256": "786a790c311794e5870eea81ed1ed0b085b18b79fcb7e653c67d549a7627e78e",
+      "exists": true,
+      "current_sha256": "786a790c311794e5870eea81ed1ed0b085b18b79fcb7e653c67d549a7627e78e",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/facebookresearch/distseal",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\distseal-repo.html",
+      "recorded_sha256": "2a4e105acc3150fe2a8c457848a09ae771cd110ba9fdffff9a874e2b8b33b4bf",
+      "exists": true,
+      "current_sha256": "2a4e105acc3150fe2a8c457848a09ae771cd110ba9fdffff9a874e2b8b33b4bf",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/facebookresearch/distseal",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\distseal-repo.txt",
+      "recorded_sha256": "fa2c98e5a8b43c820065003db9ca4d5d8a7596b4d33f0420f606500aff611c2d",
+      "exists": true,
+      "current_sha256": "fa2c98e5a8b43c820065003db9ca4d5d8a7596b4d33f0420f606500aff611c2d",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/facebookresearch/distseal/blob/d0a71cd272bb29e3b49cdc965bbaf4d24f2684ac/LICENSE",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\distseal-LICENSE.html",
+      "recorded_sha256": "e128cd0d4dca63d2cd84cddcf72047bfde7d112827a2ae4a17a9762762d5d0f8",
+      "exists": true,
+      "current_sha256": "e128cd0d4dca63d2cd84cddcf72047bfde7d112827a2ae4a17a9762762d5d0f8",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/facebookresearch/distseal/blob/d0a71cd272bb29e3b49cdc965bbaf4d24f2684ac/LICENSE",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\distseal-LICENSE.txt",
+      "recorded_sha256": "c988314b60086433ebd08c3e70c744d4aaa8a6375348a290b7a69f3b5057dcdd",
+      "exists": true,
+      "current_sha256": "c988314b60086433ebd08c3e70c744d4aaa8a6375348a290b7a69f3b5057dcdd",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/vbdi/LaWa/blob/251ac11aa223e6ff12553364a65a75add5b1aecf/download.sh",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\lawa-download.html",
+      "recorded_sha256": "48ec2e9fd8c5278d58f1a68808a009e94c60178d69255c9895c4aac332a0a431",
+      "exists": true,
+      "current_sha256": "48ec2e9fd8c5278d58f1a68808a009e94c60178d69255c9895c4aac332a0a431",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/vbdi/LaWa/blob/251ac11aa223e6ff12553364a65a75add5b1aecf/download.sh",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\lawa-download.txt",
+      "recorded_sha256": "5cd759a6f88db158603a8b142f6bdf21f6f02708c5dd0080d118c5608cfef828",
+      "exists": true,
+      "current_sha256": "5cd759a6f88db158603a8b142f6bdf21f6f02708c5dd0080d118c5608cfef828",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2412.01615v2",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\omniguard.html",
+      "recorded_sha256": "e1e35fd5f59177ab17a9c541905b01bc0b5807d12e8ab6bb9f2acfa26aa21d0f",
+      "exists": true,
+      "current_sha256": "e1e35fd5f59177ab17a9c541905b01bc0b5807d12e8ab6bb9f2acfa26aa21d0f",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2412.01615v2",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\omniguard.txt",
+      "recorded_sha256": "f0e0aa3ff71deff02222a9deb83af3e2d53d98cdad0c82614dbec0636904228b",
+      "exists": true,
+      "current_sha256": "f0e0aa3ff71deff02222a9deb83af3e2d53d98cdad0c82614dbec0636904228b",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/xuanyuzhang21/EditGuard",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\editguard-repo.html",
+      "recorded_sha256": "48abf66e55a05c88a5c83d8f1cbb5e56cfb6e3d80bac01fa0f15bfca2878a5b1",
+      "exists": true,
+      "current_sha256": "48abf66e55a05c88a5c83d8f1cbb5e56cfb6e3d80bac01fa0f15bfca2878a5b1",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/xuanyuzhang21/EditGuard",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\editguard-repo.txt",
+      "recorded_sha256": "e187453cb174f9e8ab7ec18d85c97542648c6e2f69414ebdb03f221e8c429ae4",
+      "exists": true,
+      "current_sha256": "e187453cb174f9e8ab7ec18d85c97542648c6e2f69414ebdb03f221e8c429ae4",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/xuanyuzhang21/OmniGuard",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\omniguard-repo.html",
+      "recorded_sha256": "d8b22f679991a5eac3f6de51a2060171535eaf7aa48b7e695ef8963bf4c26e2f",
+      "exists": true,
+      "current_sha256": "d8b22f679991a5eac3f6de51a2060171535eaf7aa48b7e695ef8963bf4c26e2f",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/xuanyuzhang21/OmniGuard",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\omniguard-repo.txt",
+      "recorded_sha256": "34f978f2077eea46ae7951196e07735e8f963ab2b0df1e5d73bd8f32fe0ff606",
+      "exists": true,
+      "current_sha256": "34f978f2077eea46ae7951196e07735e8f963ab2b0df1e5d73bd8f32fe0ff606",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2312.08883",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\editguard-latest.html",
+      "recorded_sha256": "4d98ca0560c2f618ff8d63f4cca8ce6c2a67efa5285df4d047aa071834a03f16",
+      "exists": true,
+      "current_sha256": "4d98ca0560c2f618ff8d63f4cca8ce6c2a67efa5285df4d047aa071834a03f16",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2312.08883",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\editguard-latest.txt",
+      "recorded_sha256": "c2bceb9b4b2c093789ca5779038e660462d65c2f1dcbb68a8ce66cc52fe2770e",
+      "exists": true,
+      "current_sha256": "c2bceb9b4b2c093789ca5779038e660462d65c2f1dcbb68a8ce66cc52fe2770e",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/xuanyuzhang21/EditGuard",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\editguard-api.json",
+      "recorded_sha256": "aef74add2458ddbb1ef301d0a92cd4882afcc72b87835efe60db41f4f215b124",
+      "exists": true,
+      "current_sha256": "aef74add2458ddbb1ef301d0a92cd4882afcc72b87835efe60db41f4f215b124",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://api.github.com/repos/xuanyuzhang21/OmniGuard",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\omniguard-api.json",
+      "recorded_sha256": "9a8c7b392904cb4add60eb05796d0cb6d4c0e2ad96c39bb69113adaefa19e750",
+      "exists": true,
+      "current_sha256": "9a8c7b392904cb4add60eb05796d0cb6d4c0e2ad96c39bb69113adaefa19e750",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/xuanyuzhang21/OmniGuard/blob/main/app.py",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\omniguard-app.html",
+      "recorded_sha256": "d67e53d3aca8f2a96ec669afa05159ef777e23b04b435fb87e38b37cc204481c",
+      "exists": true,
+      "current_sha256": "d67e53d3aca8f2a96ec669afa05159ef777e23b04b435fb87e38b37cc204481c",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/xuanyuzhang21/OmniGuard/blob/main/app.py",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\omniguard-app.txt",
+      "recorded_sha256": "6df925337658a4c151f3013d0edaf7ec17edf6a5ab75ae3ebcd91df4f3c9963c",
+      "exists": true,
+      "current_sha256": "6df925337658a4c151f3013d0edaf7ec17edf6a5ab75ae3ebcd91df4f3c9963c",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/facebookresearch/videoseal/blob/870ca7fb33578b90f14c602016b6c2788096226e/videoseal/cards/chunkyseal.yaml",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\chunkyseal-config.html",
+      "recorded_sha256": "00b949f3c369c2e6ae53958281a75f947c09027a6afed16f93c3197d9079136f",
+      "exists": true,
+      "current_sha256": "00b949f3c369c2e6ae53958281a75f947c09027a6afed16f93c3197d9079136f",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "official_repository",
+      "event_url": "https://github.com/facebookresearch/videoseal/blob/870ca7fb33578b90f14c602016b6c2788096226e/videoseal/cards/chunkyseal.yaml",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\chunkyseal-config.txt",
+      "recorded_sha256": "72d615f9263ae497c706c3b2921068668aa020c26b6979a2f6cbe10873b7d4d7",
+      "exists": true,
+      "current_sha256": "72d615f9263ae497c706c3b2921068668aa020c26b6979a2f6cbe10873b7d4d7",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2609.34744v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\snw.html",
+      "recorded_sha256": "738ac34cae9baff58d9f699377cea3f7fd6a18a81dbda9ba791149165c81fdde",
+      "exists": true,
+      "current_sha256": "738ac34cae9baff58d9f699377cea3f7fd6a18a81dbda9ba791149165c81fdde",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "primary_paper",
+      "event_url": "https://arxiv.org/html/2609.34744v1",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\snw.txt",
+      "recorded_sha256": "fabf24603a312b094fe4a959aba3a2b45b760b67b980ea8842a6f0b42999cb3f",
+      "exists": true,
+      "current_sha256": "fabf24603a312b094fe4a959aba3a2b45b760b67b980ea8842a6f0b42999cb3f",
+      "matches_recorded": true,
+      "cache_state": "matches recorded acquisition"
+    },
+    {
+      "event_channel": "reused_primary",
+      "event_url": null,
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\wam.html",
+      "recorded_sha256": "3ca12cea768aa10c8eda2e351a88c3e85790e69db64e60cad747771897c9c6aa",
+      "exists": true,
+      "current_sha256": "3ca12cea768aa10c8eda2e351a88c3e85790e69db64e60cad747771897c9c6aa",
+      "matches_recorded": true
+    },
+    {
+      "event_channel": "reused_primary",
+      "event_url": null,
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\wam-reused.txt",
+      "recorded_sha256": "24ec9c24afc63108df55aaf207b5bab90a4d3b55dc6c8eaf32a240e7ecbdeb1d",
+      "exists": true,
+      "current_sha256": "24ec9c24afc63108df55aaf207b5bab90a4d3b55dc6c8eaf32a240e7ecbdeb1d",
+      "matches_recorded": true
+    },
+    {
+      "event_channel": "reused_primary",
+      "event_url": null,
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\vine.html",
+      "recorded_sha256": "f6fb25d7b27ec0e95f883674e2e08a41a9075f5929e76287f02330e339e049dd",
+      "exists": true,
+      "current_sha256": "f6fb25d7b27ec0e95f883674e2e08a41a9075f5929e76287f02330e339e049dd",
+      "matches_recorded": true
+    },
+    {
+      "event_channel": "reused_primary",
+      "event_url": null,
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\vine-reused.txt",
+      "recorded_sha256": "545752a95b5f8811bba484c9bd4ba662444a2e8fd636ef1747da47816ca1d567",
+      "exists": true,
+      "current_sha256": "545752a95b5f8811bba484c9bd4ba662444a2e8fd636ef1747da47816ca1d567",
+      "matches_recorded": true
+    },
+    {
+      "event_channel": "reused_primary",
+      "event_url": null,
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\invis.html",
+      "recorded_sha256": "a4851485a056418c41ad65d605b783a0c626d805f759622d5e978b2a02405343",
+      "exists": true,
+      "current_sha256": "a4851485a056418c41ad65d605b783a0c626d805f759622d5e978b2a02405343",
+      "matches_recorded": true
+    },
+    {
+      "event_channel": "reused_primary",
+      "event_url": null,
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\invis-reused.txt",
+      "recorded_sha256": "e45a3b5375de5c9ae3f04aca3e10146b0474aada3476bcde89d8a692a435e7d0",
+      "exists": true,
+      "current_sha256": "e45a3b5375de5c9ae3f04aca3e10146b0474aada3476bcde89d8a692a435e7d0",
+      "matches_recorded": true
+    },
+    {
+      "event_channel": "reused_primary",
+      "event_url": null,
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\rosteals.html",
+      "recorded_sha256": "687ed6e8bb09968bfff2a3c200640c03ac02819a2656696720a426128c6de00a",
+      "exists": true,
+      "current_sha256": "687ed6e8bb09968bfff2a3c200640c03ac02819a2656696720a426128c6de00a",
+      "matches_recorded": true
+    },
+    {
+      "event_channel": "reused_primary",
+      "event_url": null,
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\rosteals-reused.txt",
+      "recorded_sha256": "956e32ea1db3a9d8eacf7b0488c3a57e90ee62701c0409a1de4de8a42d7d6cdb",
+      "exists": true,
+      "current_sha256": "956e32ea1db3a9d8eacf7b0488c3a57e90ee62701c0409a1de4de8a42d7d6cdb",
+      "matches_recorded": true
+    },
+    {
+      "event_channel": "reused_primary",
+      "event_url": null,
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\zodiac.html",
+      "recorded_sha256": "80f626f4abdaef8a9468497ab5b28bc4e27510aecc4bc365fb3b509a40e72145",
+      "exists": true,
+      "current_sha256": "80f626f4abdaef8a9468497ab5b28bc4e27510aecc4bc365fb3b509a40e72145",
+      "matches_recorded": true
+    },
+    {
+      "event_channel": "reused_primary",
+      "event_url": null,
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\zodiac-reused.txt",
+      "recorded_sha256": "3711f3a711ecdba59e4d05d677216029d1398584330fba1d5a046b4ab1647488",
+      "exists": true,
+      "current_sha256": "3711f3a711ecdba59e4d05d677216029d1398584330fba1d5a046b4ab1647488",
+      "matches_recorded": true
+    },
+    {
+      "event_channel": "reused_primary",
+      "event_url": null,
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\trustmark.html",
+      "recorded_sha256": "2002a7b13dafa321aa36270b94c00e2bfcb2fd28228c6ab9375f57ee13faae93",
+      "exists": true,
+      "current_sha256": "2002a7b13dafa321aa36270b94c00e2bfcb2fd28228c6ab9375f57ee13faae93",
+      "matches_recorded": true
+    },
+    {
+      "event_channel": "reused_primary",
+      "event_url": null,
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\trustmark-reused.txt",
+      "recorded_sha256": "7610cc8f76c61f1314ff8b481a4ab79a29089af718419708cad3113cec8eed9a",
+      "exists": true,
+      "current_sha256": "7610cc8f76c61f1314ff8b481a4ab79a29089af718419708cad3113cec8eed9a",
+      "matches_recorded": true
+    },
+    {
+      "event_channel": "reused_primary",
+      "event_url": null,
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\pixelseal.html",
+      "recorded_sha256": "cb6d43ca864a9c6a73e27fa1d7e0f1d97e0e23bc712e7d7a9f19d33de1ea7554",
+      "exists": true,
+      "current_sha256": "cb6d43ca864a9c6a73e27fa1d7e0f1d97e0e23bc712e7d7a9f19d33de1ea7554",
+      "matches_recorded": true
+    },
+    {
+      "event_channel": "reused_primary",
+      "event_url": null,
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\pixelseal-reused.txt",
+      "recorded_sha256": "fc7ff923bef9b1dee0989e93b57f83d59868c11ea1bda5d7f594f65092f30a68",
+      "exists": true,
+      "current_sha256": "fc7ff923bef9b1dee0989e93b57f83d59868c11ea1bda5d7f594f65092f30a68",
+      "matches_recorded": true
+    },
+    {
+      "event_channel": "reused_primary",
+      "event_url": null,
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\phase.html",
+      "recorded_sha256": "903c711eacb06288a39471fa6f7947eb9fa1d05b620003c57662d26071e41009",
+      "exists": true,
+      "current_sha256": "903c711eacb06288a39471fa6f7947eb9fa1d05b620003c57662d26071e41009",
+      "matches_recorded": true
+    },
+    {
+      "event_channel": "reused_primary",
+      "event_url": null,
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\phase-reused.txt",
+      "recorded_sha256": "070d6755e25462c303e2a8e128912127868ddb013024ad2cf990ec0688c222b7",
+      "exists": true,
+      "current_sha256": "070d6755e25462c303e2a8e128912127868ddb013024ad2cf990ec0688c222b7",
+      "matches_recorded": true
+    },
+    {
+      "event_channel": "reused_primary",
+      "event_url": null,
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-bislw-v1.html",
+      "recorded_sha256": "23980345f87dc46515dd8408eefd7a8e4837209c342775d8dc6fbdaa2069b5ab",
+      "exists": true,
+      "current_sha256": "23980345f87dc46515dd8408eefd7a8e4837209c342775d8dc6fbdaa2069b5ab",
+      "matches_recorded": true
+    },
+    {
+      "event_channel": "reused_primary",
+      "event_url": null,
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\bislw.txt",
+      "recorded_sha256": "8ad84e8bfcd1b63da6e2a9e26435223ab83ac550f5a5fc581f8ed1e00c1dedb4",
+      "exists": true,
+      "current_sha256": "8ad84e8bfcd1b63da6e2a9e26435223ab83ac550f5a5fc581f8ed1e00c1dedb4",
+      "matches_recorded": true
+    }
+  ],
+  "cache_inventory": [
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/bislw.txt",
+      "bytes": 67092,
+      "sha256": "8ad84e8bfcd1b63da6e2a9e26435223ab83ac550f5a5fc581f8ed1e00c1dedb4"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/chunkyseal-config.html",
+      "bytes": 238630,
+      "sha256": "00b949f3c369c2e6ae53958281a75f947c09027a6afed16f93c3197d9079136f"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/chunkyseal-config.source.txt",
+      "bytes": 1047,
+      "sha256": "fdc42b84c8abf612a89ca2d9752e8d0c64355c8c2073359bfe6891b8b1c92f99"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/chunkyseal-config.txt",
+      "bytes": 3857,
+      "sha256": "72d615f9263ae497c706c3b2921068668aa020c26b6979a2f6cbe10873b7d4d7"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/chunkyseal.html",
+      "bytes": 1129268,
+      "sha256": "4a1bbc05d0021bdaeeca3b7647dbc080c8991777044d36ff3aa8880cbcbc5316"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/chunkyseal.txt",
+      "bytes": 170882,
+      "sha256": "a3f23c62ff925b4b5519f604eef09f9157229712c5ed6201c292b19a4f08e6f1"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/distseal-LICENSE.html",
+      "bytes": 222096,
+      "sha256": "e128cd0d4dca63d2cd84cddcf72047bfde7d112827a2ae4a17a9762762d5d0f8"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/distseal-LICENSE.source.txt",
+      "bytes": 1107,
+      "sha256": "98d5cea9c8ead20362a25feca7268effc2dd31baabdfe45c20d09020ab41e7b4"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/distseal-LICENSE.txt",
+      "bytes": 3992,
+      "sha256": "c988314b60086433ebd08c3e70c744d4aaa8a6375348a290b7a69f3b5057dcdd"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/distseal-repo.html",
+      "bytes": 417375,
+      "sha256": "2a4e105acc3150fe2a8c457848a09ae771cd110ba9fdffff9a874e2b8b33b4bf"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/distseal-repo.txt",
+      "bytes": 15861,
+      "sha256": "fa2c98e5a8b43c820065003db9ca4d5d8a7596b4d33f0420f606500aff611c2d"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/distseal.html",
+      "bytes": 388979,
+      "sha256": "ca44d1401d3b3251e19e6795e698b7147d32c3b2cbd8063ec3c2935c42e013eb"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/distseal.txt",
+      "bytes": 91061,
+      "sha256": "7462d1e3f1a2236e8e95ae517fc8d2ed26cf4cc1dfe925d786e9957d992921cd"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/editguard-api.json",
+      "bytes": 5443,
+      "sha256": "aef74add2458ddbb1ef301d0a92cd4882afcc72b87835efe60db41f4f215b124"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/editguard-latest.html",
+      "bytes": 440006,
+      "sha256": "4d98ca0560c2f618ff8d63f4cca8ce6c2a67efa5285df4d047aa071834a03f16"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/editguard-latest.txt",
+      "bytes": 98007,
+      "sha256": "c2bceb9b4b2c093789ca5779038e660462d65c2f1dcbb68a8ce66cc52fe2770e"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/editguard-repo.html",
+      "bytes": 300558,
+      "sha256": "48abf66e55a05c88a5c83d8f1cbb5e56cfb6e3d80bac01fa0f15bfca2878a5b1"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/editguard-repo.txt",
+      "bytes": 7104,
+      "sha256": "e187453cb174f9e8ab7ec18d85c97542648c6e2f69414ebdb03f221e8c429ae4"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/genptw-latest.html",
+      "bytes": 187007,
+      "sha256": "95ccc4a754c51754c7bfa0c488db78c655c6f274463a5e73488e289503d6218b"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/genptw-latest.txt",
+      "bytes": 51197,
+      "sha256": "4b361ce0840afc49746f97b5cca8e8d5d32da5a178ca25f366033bfe27f9756c"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/invis-reused.txt",
+      "bytes": 44323,
+      "sha256": "e45a3b5375de5c9ae3f04aca3e10146b0474aada3476bcde89d8a692a435e7d0"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/jigmark-commit.json",
+      "bytes": 5794,
+      "sha256": "7384adb321ac30a1659a751c120f0fad7fe3b7f545680340a3d4d0748ad254a2"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/jigmark-LICENSE.html",
+      "bytes": 220514,
+      "sha256": "57f9081ec027cc77b7cf715a21b20f5b7f265b1d966b30aec770c52f53097f1c"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/jigmark-LICENSE.source.txt",
+      "bytes": 1082,
+      "sha256": "591db8001603973a81c0418cd9fb6992246c4e0ab6c5ac26b79701a1ac48c94c"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/jigmark-LICENSE.txt",
+      "bytes": 3940,
+      "sha256": "e79b80cb3fc636baf643087fa4ff99a6da8348091e028730051e9ad302e3f24b"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/jigmark-README.md.html",
+      "bytes": 254077,
+      "sha256": "dae140e4c95d3a9e0fffb708b565bdf904fd8c338bfffa009aaaafd92573b443"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/jigmark-README.md.source.txt",
+      "bytes": 3298,
+      "sha256": "234441abccdd4494fd2a6dd9bb8514d52dfc0276e0a85dea31de51744d2eee73"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/jigmark-README.md.txt",
+      "bytes": 5659,
+      "sha256": "87cf1b776faf548a23e2f0666a1961da08122b1452b909bc34d3584fd618cf61"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/jigmark.html",
+      "bytes": 510836,
+      "sha256": "dac04a6d209d1b95bd4a6230b46ffd09c5503043c4f0d8d9bc2e9d4e639cf09a"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/jigmark.txt",
+      "bytes": 115734,
+      "sha256": "4dab1981ae4f549cf3ec66d3ae125c814220273fc903f6224f5774769e951fee"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/lawa-download.html",
+      "bytes": 217763,
+      "sha256": "48ec2e9fd8c5278d58f1a68808a009e94c60178d69255c9895c4aac332a0a431"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/lawa-download.source.txt",
+      "bytes": 567,
+      "sha256": "bc33505aee36051c5e2c58033a74976305e647d7ca6f4e181a856197f02cb8c8"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/lawa-download.txt",
+      "bytes": 3418,
+      "sha256": "5cd759a6f88db158603a8b142f6bdf21f6f02708c5dd0080d118c5608cfef828"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/lawa-repo.html",
+      "bytes": 293516,
+      "sha256": "970f0f92c2be415606d2119fa66d003daf0b954380f9243ebe47a492891009d5"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/lawa-repo.txt",
+      "bytes": 6740,
+      "sha256": "786a790c311794e5870eea81ed1ed0b085b18b79fcb7e653c67d549a7627e78e"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/lawa.html",
+      "bytes": 318564,
+      "sha256": "f85dc94a6436973fdf02739b6e0be543f0ab0bc7e00b502c8b83a6d6c0c3672f"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/lawa.txt",
+      "bytes": 59979,
+      "sha256": "bcccee962a53738a1ce11b0d755e99969285e8ba5ef7e6f0bbc744370bff7f4f"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/mbrs-commit.json",
+      "bytes": 5384,
+      "sha256": "d87b1c6a8fa8a15cda93e12f8a39099d48261e69e080e127ececa53c179a70cc"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/mbrs-README.md-api.json",
+      "bytes": 6132,
+      "sha256": "30506235fe7bbc89c93142d70d6a589f6d67b142c28853241d339f7b456986fd"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/mbrs-README.md-api.txt",
+      "bytes": 3790,
+      "sha256": "2cd1e54e7d70c069c90f53f3459722428ad66790507e5b2afbc9dd5f074f9957"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/mbrs-repo.json",
+      "bytes": 4942,
+      "sha256": "f7803a1149053e613cf631fb7003b8c9ad6be5c3ef9ec86c18c5f2d3a2f30cea"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/mbrs-tree.json",
+      "bytes": 21225,
+      "sha256": "fa9697fa00f7e14ffd0c9351897520b048f1879752da130abddbc829881684ea"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/mbrs.html",
+      "bytes": 181783,
+      "sha256": "98a99698b68f5e4bd4d6e672db36fc5d972931a043af07680f990fe1e85023f9"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/mbrs.txt",
+      "bytes": 51159,
+      "sha256": "aa8e81d5f9cdc45cbd158c985a430d31c44d1529e03930ce06211e5c340e3f54"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/nawe-repos.json",
+      "bytes": 55,
+      "sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/nawe.html",
+      "bytes": 174238,
+      "sha256": "94d5e6248532d411bfe12f816fa76a32527a501c2fa4ea7dc6753122aa4a135e"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/nawe.txt",
+      "bytes": 32506,
+      "sha256": "a17025bad8105b739e66753a051a54a8e76b1074d4e609773f2b8678fb579222"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/omniguard-api.json",
+      "bytes": 5389,
+      "sha256": "9a8c7b392904cb4add60eb05796d0cb6d4c0e2ad96c39bb69113adaefa19e750"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/omniguard-app.html",
+      "bytes": 378174,
+      "sha256": "d67e53d3aca8f2a96ec669afa05159ef777e23b04b435fb87e38b37cc204481c"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/omniguard-app.source.txt",
+      "bytes": 9504,
+      "sha256": "4a201009fab7a057c313b42ba60b022e791c06039562cf7147b08db182cde0a6"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/omniguard-app.txt",
+      "bytes": 11011,
+      "sha256": "6df925337658a4c151f3013d0edaf7ec17edf6a5ab75ae3ebcd91df4f3c9963c"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/omniguard-repo.html",
+      "bytes": 304751,
+      "sha256": "d8b22f679991a5eac3f6de51a2060171535eaf7aa48b7e695ef8963bf4c26e2f"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/omniguard-repo.txt",
+      "bytes": 4841,
+      "sha256": "34f978f2077eea46ae7951196e07735e8f963ab2b0df1e5d73bd8f32fe0ff606"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/omniguard.html",
+      "bytes": 292001,
+      "sha256": "e1e35fd5f59177ab17a9c541905b01bc0b5807d12e8ab6bb9f2acfa26aa21d0f"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/omniguard.txt",
+      "bytes": 72130,
+      "sha256": "f0e0aa3ff71deff02222a9deb83af3e2d53d98cdad0c82614dbec0636904228b"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/openalex-baselines.json",
+      "bytes": 333575,
+      "sha256": "3511a5a6eb6e3cb170a28686ae5fdd1a4b0b667cdc5476038318b2edddeb26d9"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/phase-reused.txt",
+      "bytes": 28923,
+      "sha256": "070d6755e25462c303e2a8e128912127868ddb013024ad2cf990ec0688c222b7"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/phase.html",
+      "bytes": 196671,
+      "sha256": "903c711eacb06288a39471fa6f7947eb9fa1d05b620003c57662d26071e41009"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/phase.txt",
+      "bytes": 28923,
+      "sha256": "070d6755e25462c303e2a8e128912127868ddb013024ad2cf990ec0688c222b7"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/pixelseal-commit.json",
+      "bytes": 8309,
+      "sha256": "d8c92ad02f069395ac428e64d29bd290b4014bba0a6808bc29c4a23815c11b4a"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/pixelseal-config.html",
+      "bytes": 234647,
+      "sha256": "c46472b3896aa039becf389c22a452fc94eccf280ac7455c409a229bffad54a0"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/pixelseal-config.source.txt",
+      "bytes": 978,
+      "sha256": "a4a145537a0acd4e5d3cf5c295d7a3ab753664fbf57e779f40d2223b866c68e8"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/pixelseal-config.txt",
+      "bytes": 3834,
+      "sha256": "44606389146e5f13ad6526b4e6583945f2333edc9a7fca921e1aefe90517df32"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/pixelseal-LICENSE-api.json",
+      "bytes": 2492,
+      "sha256": "044d2c33474d937789486f639b0cd5d4fe2d02e169c260f3c34b09a0f65314c5"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/pixelseal-LICENSE-api.txt",
+      "bytes": 1087,
+      "sha256": "cf9b17822d1fcd4ff32ccbe14183386fb3adf6f2ff92dc184130823f7fc28173"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/pixelseal-README.md-api.json",
+      "bytes": 19549,
+      "sha256": "31c281a9fd9871b9f755b947cac594a5d0cd08208a2dd95ac42e8d483d4cd125"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/pixelseal-README.md-api.txt",
+      "bytes": 13457,
+      "sha256": "92e00c8a9e051de5bd257e7d4a7840dbdae655dd51b860ae0a21f425ef6a7328"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/pixelseal-repo.json",
+      "bytes": 6782,
+      "sha256": "e1076cd8bc35dda87dc5c7b2c3899018c2f071b237073ede3e66209ec1a613bc"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/pixelseal-reused.txt",
+      "bytes": 72132,
+      "sha256": "fc7ff923bef9b1dee0989e93b57f83d59868c11ea1bda5d7f594f65092f30a68"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/pixelseal-tree.json",
+      "bytes": 40060,
+      "sha256": "d615b339bc6b6b761508674617d2a10bf683f74a919a9ec622aace2112d9c2f2"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/pixelseal.html",
+      "bytes": 423217,
+      "sha256": "cb6d43ca864a9c6a73e27fa1d7e0f1d97e0e23bc712e7d7a9f19d33de1ea7554"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/pixelseal.txt",
+      "bytes": 72132,
+      "sha256": "fc7ff923bef9b1dee0989e93b57f83d59868c11ea1bda5d7f594f65092f30a68"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/robustwide-commit.json",
+      "bytes": 5985,
+      "sha256": "545f9a7d95494ee3f4ee16a3faad91fffdf58c415bc3e7e26d5750056a7a1397"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/robustwide-LICENSE.html",
+      "bytes": 221231,
+      "sha256": "7fa0c46b83e2ceb54bb8e28675990b3851cb2cf2cb2d7903787966f16c14c142"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/robustwide-LICENSE.source.txt",
+      "bytes": 1084,
+      "sha256": "9c88d2d8584682b31f1bef59d80b662b7d1a75777f1772b610edd46bb71bdd12"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/robustwide-LICENSE.txt",
+      "bytes": 3961,
+      "sha256": "253c6ce8a97866bb619e896c80d595a24c929a53fb8e0e5fb2b20269f5d43331"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/robustwide-README.md.html",
+      "bytes": 236399,
+      "sha256": "4d1ba196db73648149e55a1a9a4a8fba6a1ccfedef452c68d44aaca86fa5f460"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/robustwide-README.md.source.txt",
+      "bytes": 1611,
+      "sha256": "4def69e4fa32d77ca5dcbfb576ec0c1eaf374cfe9e68bac02d4bfc5403bf9462"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/robustwide-README.md.txt",
+      "bytes": 4001,
+      "sha256": "a5255e3ba77f211f6e0f3f056779ee230941b5a918dd0bfbf100350c46bd8cf3"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/robustwide-repo.json",
+      "bytes": 5280,
+      "sha256": "76ede728b897cfa21666ee611628ccef07d590501c160c8449dc3468747aee6f"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/robustwide.html",
+      "bytes": 233273,
+      "sha256": "1674727035b91fd11b9bd5748ba55837196e0935cea4b7ed72d4e95d5720639a"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/robustwide.txt",
+      "bytes": 49375,
+      "sha256": "04878080ead4fc22187d7aa8dcc33361a288664c4b9487ab24e089b1cc4cf27f"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/rosteals-reused.txt",
+      "bytes": 50988,
+      "sha256": "956e32ea1db3a9d8eacf7b0488c3a57e90ee62701c0409a1de4de8a42d7d6cdb"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/simufree-github-search.json",
+      "bytes": 55,
+      "sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/simufreemark.html",
+      "bytes": 247195,
+      "sha256": "47891d84da8e293c6d1de6c175f3994f20aa1707829bbbcff9eb714681750828"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/simufreemark.txt",
+      "bytes": 47316,
+      "sha256": "a964732819a4f3a5ee991566b450cb9d582da59ac1366665f0c3bb14d7fb5ed6"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/snw.html",
+      "bytes": 494130,
+      "sha256": "738ac34cae9baff58d9f699377cea3f7fd6a18a81dbda9ba791149165c81fdde"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/snw.txt",
+      "bytes": 92562,
+      "sha256": "fabf24603a312b094fe4a959aba3a2b45b760b67b980ea8842a6f0b42999cb3f"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/specguard-commit.json",
+      "bytes": 5275,
+      "sha256": "556e6f866125b9bf920563f490f509d97ee5f51d1361ea3f5a11a152e5e85292"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/specguard-LICENSE-api.json",
+      "bytes": 2501,
+      "sha256": "7d0b6fbc66212a914bcd2d9195f66eec98164557e5b3df089123a3e2c7020430"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/specguard-LICENSE-api.txt",
+      "bytes": 1071,
+      "sha256": "7d71c905354ca67d4e854e34d2c72387758c7fb80c8b63e7cfc57024622d5c45"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/specguard-README.md-api.json",
+      "bytes": 3227,
+      "sha256": "35e310c4171a2ff10244d26ad8c8adf3a8894314677a8385e41ae6f8432c1617"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/specguard-README.md-api.txt",
+      "bytes": 1585,
+      "sha256": "5db9b44ced400a5b13aac74486f14b74e0eeda4ae103ce88aeb1aad5207805c7"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/specguard-repo.json",
+      "bytes": 5789,
+      "sha256": "4cf2c528963b17a528f012ecc508033b40db96d66fe77699555d094afcff5494"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/specguard-tree.json",
+      "bytes": 1625,
+      "sha256": "aa850bc08fa369051f07c47f44c8b61efc44bf64baaa7063774bbcd055e0086c"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/specguard.html",
+      "bytes": 640484,
+      "sha256": "a31901177bccb41de0abc89b7567eafdf1cf0a05f6a2bfbcbbda0697234e16e3"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/specguard.txt",
+      "bytes": 90595,
+      "sha256": "4fd1371cea06309cc8f53bf4cdb16cd3bb596df499f229c04cc0ee877799a3d5"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/spread-repos.json",
+      "bytes": 55,
+      "sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/spreadmark-v2.html",
+      "bytes": 296276,
+      "sha256": "2d9ab1e040db502a76a32b1d13504596a60384c926abb6a8b3b95c1002f917b2"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/spreadmark-v2.txt",
+      "bytes": 65395,
+      "sha256": "d12bf733f7f9094c7e847dd10ac29082e42b5f41fc47a7b204d7e00d26b97b24"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/spreadmark.html",
+      "bytes": 320890,
+      "sha256": "1ada06f08a7e2cd26105d39faf69f6e0a3ebaa41d9a5d1b1910946e0a40c8ed6"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/spreadmark.txt",
+      "bytes": 65630,
+      "sha256": "ef5f86e2485303f3d4aaad840504dda8c6c694d2e90c600f25cc71b881c04003"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/ssl-commit.json",
+      "bytes": 5201,
+      "sha256": "ddb88dd106544f1339a12ba1d24c5ffe93696b6d70ef0524c43e3b4006dcbbdd"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/ssl-LICENSE-api.json",
+      "bytes": 27680,
+      "sha256": "b376a84b3aafa51d1d4603ceafd06978d394394258cfd00212d8b09ccaf19c58"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/ssl-LICENSE-api.txt",
+      "bytes": 19333,
+      "sha256": "bc8f60ee50544b2dd70b4bc90e22de503aa23b317d284046a479811f2e06f396"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/ssl-README.md-api.json",
+      "bytes": 21598,
+      "sha256": "5f616527e375f604e0e84538810fd09bb1eec5cccb8e5c1dc35c37fd18aa3077"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/ssl-README.md-api.txt",
+      "bytes": 14908,
+      "sha256": "c44315322e26f62795556006ace64ddf1794b79f4fea2436f50befa7321ca940"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/ssl-repo.json",
+      "bytes": 7061,
+      "sha256": "156b12eadcec9d7560f23b80fb7835bffa756e7f88214ecd158f967bb275f275"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/ssl-tree.json",
+      "bytes": 6874,
+      "sha256": "ad1d46e55c3661211f57bdc246f647b5575ab1e9cd487e0226848267002a0952"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/ssl.html",
+      "bytes": 189606,
+      "sha256": "28d4ebf286da53777ca27288b046a78e30180d70c5975fca3559ed7f5220b8ea"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/ssl.txt",
+      "bytes": 36056,
+      "sha256": "22b58c938f21799cfec9b2ffc89c26030c86b053e085fa8bafc925ce65c69575"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/stegastamp.html",
+      "bytes": 199692,
+      "sha256": "02440c2045fd00d102b75c0c06f69ed1f55a374e2094e218cd0b7e054616a76f"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/stegastamp.txt",
+      "bytes": 52766,
+      "sha256": "4c06b800c078acaae1cfb45c0adbe2b7e06633bda49903c21d319777631ba4d4"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/trustmark-reused.txt",
+      "bytes": 59590,
+      "sha256": "7610cc8f76c61f1314ff8b481a4ab79a29089af718419708cad3113cec8eed9a"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/vine-deterministic_inversion.py.html",
+      "bytes": 248435,
+      "sha256": "f5a16e86678c7d944aaf2e932d422bd6601889461bdb79d3a7161eaf8b7204b9"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/vine-deterministic_inversion.py.source.txt",
+      "bytes": 2171,
+      "sha256": "2e7d0155f0c3b9cd3bc67104ebfd8c3ca8a551530c140a2f10574ce22c7a08a1"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/vine-deterministic_inversion.py.txt",
+      "bytes": 4919,
+      "sha256": "cff6e79e62b60f436b6f87f9d08dcbb2009a385bea51ba36fd7a5112167fe937"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/vine-reused.txt",
+      "bytes": 109659,
+      "sha256": "545752a95b5f8811bba484c9bd4ba662444a2e8fd636ef1747da47816ca1d567"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/vine-stochastic_regeneration.py.html",
+      "bytes": 241553,
+      "sha256": "0cecc2c5278cbdd6a0f5252a1d487007a96e16ab41ebb3dc19cbaed082ffda3b"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/vine-stochastic_regeneration.py.source.txt",
+      "bytes": 1907,
+      "sha256": "aeb7227368cef5192dc7d7638bdfb2d13c2bde0f8393b18a6455703845a5846c"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/vine-stochastic_regeneration.py.txt",
+      "bytes": 4765,
+      "sha256": "d60e75c0795aa67918a5ab57120ac0edc9f0d35d790944eef9c6d08c692c3607"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/vine-utils_det_inversion.py.html",
+      "bytes": 304114,
+      "sha256": "77db31498c34b9f50e89e00fe5bc18a3eb6bd5f0fc816371321fdfc43b2f6b64"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/vine-utils_det_inversion.py.source.txt",
+      "bytes": 5626,
+      "sha256": "2a06905cbe2c18d5154ad6899814a623eb3426a9f653d10ffcd616a62d66d722"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/vine-utils_det_inversion.py.txt",
+      "bytes": 8212,
+      "sha256": "f733b0412f29784c83c57782238ad1a495ebeced727b3b60c5a7c56e58bbf32a"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/vine-utils_sto_regeneration.py.html",
+      "bytes": 475108,
+      "sha256": "75491baf0a376b675be09489b4bf50dbee7e444f6096441b40982992bff2ac8d"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/vine-utils_sto_regeneration.py.source.txt",
+      "bytes": 17485,
+      "sha256": "454b42f9ae601a15d99bbe02ac5462760c88bf23939c8c715b2c349830c1dc22"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/vine-utils_sto_regeneration.py.txt",
+      "bytes": 17470,
+      "sha256": "4850b0a1e7a08dee6da6fe1fcb27e3ceac427f3c8db4e70bff8264c2c5bc8f84"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/wam-reused.txt",
+      "bytes": 122666,
+      "sha256": "24ec9c24afc63108df55aaf207b5bab90a4d3b55dc6c8eaf32a240e7ecbdeb1d"
+    },
+    {
+      "path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/zodiac-reused.txt",
+      "bytes": 93781,
+      "sha256": "3711f3a711ecdba59e4d05d677216029d1398584330fba1d5a046b4ab1647488"
+    }
+  ],
+  "limitations": [
+    "No real-image or rented-GPU measurement exists. Costs are assumptions or explicitly scoped published measurements.",
+    "Most papers omit a complete attack model/revision/strength/sampler/prompt/seed tuple or calibrated image FPR.",
+    "Two newly found journal leads remain inaccessible and are not V2.",
+    "Mutable checkpoint URLs and unresolved dependency/license permissions remain unresolved where marked.",
+    "Two earlier GitHub HTML snapshots (DistSeal and LaWa) were overwritten by later fetches of the same URL; both extracted texts retained identical hashes. Earlier HTML hashes are historical receipts, not current-file checks."
+  ],
+  "legacy_manifest": "manifest.json"
+}

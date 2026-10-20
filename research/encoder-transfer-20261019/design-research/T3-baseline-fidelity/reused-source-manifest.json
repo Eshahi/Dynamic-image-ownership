@@ -1,0 +1,65 @@
+[
+  {
+    "id": "wam",
+    "source_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\wam.html",
+    "source_sha256": "3ca12cea768aa10c8eda2e351a88c3e85790e69db64e60cad747771897c9c6aa",
+    "text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\wam-reused.txt",
+    "text_sha256": "24ec9c24afc63108df55aaf207b5bab90a4d3b55dc6c8eaf32a240e7ecbdeb1d"
+  },
+  {
+    "id": "vine",
+    "source_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\vine.html",
+    "source_sha256": "f6fb25d7b27ec0e95f883674e2e08a41a9075f5929e76287f02330e339e049dd",
+    "text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\vine-reused.txt",
+    "text_sha256": "545752a95b5f8811bba484c9bd4ba662444a2e8fd636ef1747da47816ca1d567"
+  },
+  {
+    "id": "invis",
+    "source_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\invis.html",
+    "source_sha256": "a4851485a056418c41ad65d605b783a0c626d805f759622d5e978b2a02405343",
+    "text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\invis-reused.txt",
+    "text_sha256": "e45a3b5375de5c9ae3f04aca3e10146b0474aada3476bcde89d8a692a435e7d0"
+  },
+  {
+    "id": "rosteals",
+    "source_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\rosteals.html",
+    "source_sha256": "687ed6e8bb09968bfff2a3c200640c03ac02819a2656696720a426128c6de00a",
+    "text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\rosteals-reused.txt",
+    "text_sha256": "956e32ea1db3a9d8eacf7b0488c3a57e90ee62701c0409a1de4de8a42d7d6cdb"
+  },
+  {
+    "id": "zodiac",
+    "source_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\zodiac.html",
+    "source_sha256": "80f626f4abdaef8a9468497ab5b28bc4e27510aecc4bc365fb3b509a40e72145",
+    "text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\zodiac-reused.txt",
+    "text_sha256": "3711f3a711ecdba59e4d05d677216029d1398584330fba1d5a046b4ab1647488"
+  },
+  {
+    "id": "trustmark",
+    "source_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\trustmark.html",
+    "source_sha256": "2002a7b13dafa321aa36270b94c00e2bfcb2fd28228c6ab9375f57ee13faae93",
+    "text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\trustmark-reused.txt",
+    "text_sha256": "7610cc8f76c61f1314ff8b481a4ab79a29089af718419708cad3113cec8eed9a"
+  },
+  {
+    "id": "pixelseal",
+    "source_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\pixelseal.html",
+    "source_sha256": "cb6d43ca864a9c6a73e27fa1d7e0f1d97e0e23bc712e7d7a9f19d33de1ea7554",
+    "text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\pixelseal-reused.txt",
+    "text_sha256": "fc7ff923bef9b1dee0989e93b57f83d59868c11ea1bda5d7f594f65092f30a68"
+  },
+  {
+    "id": "phase",
+    "source_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C1\\phase.html",
+    "source_sha256": "903c711eacb06288a39471fa6f7947eb9fa1d05b620003c57662d26071e41009",
+    "text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\phase-reused.txt",
+    "text_sha256": "070d6755e25462c303e2a8e128912127868ddb013024ad2cf990ec0688c222b7"
+  },
+  {
+    "id": "bislw",
+    "source_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-bislw-v1.html",
+    "source_sha256": "23980345f87dc46515dd8408eefd7a8e4837209c342775d8dc6fbdaa2069b5ab",
+    "text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\bislw.txt",
+    "text_sha256": "8ad84e8bfcd1b63da6e2a9e26435223ab83ac550f5a5fc581f8ed1e00c1dedb4"
+  }
+]

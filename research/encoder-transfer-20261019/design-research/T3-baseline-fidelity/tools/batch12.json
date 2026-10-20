@@ -1,0 +1,6 @@
+[
+ ["editguard.html","https://arxiv.org/html/2312.08883v2","primary_paper","inspection only: EditGuard method and evaluation"],
+ ["omniguard.html","https://arxiv.org/html/2412.01615v2","primary_paper","inspection only: OmniGuard method and evaluation"],
+ ["editguard-repo.html","https://github.com/xuanyuzhang21/EditGuard","official_repository","inspection only: EditGuard official release"],
+ ["omniguard-repo.html","https://github.com/xuanyuzhang21/OmniGuard","official_repository","inspection only: OmniGuard official release"]
+]

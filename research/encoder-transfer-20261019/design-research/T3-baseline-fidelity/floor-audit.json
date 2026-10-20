@@ -1,0 +1,71 @@
+{
+  "author_self_check_not_independent_review": true,
+  "date": "2026-10-20",
+  "method_count": 24,
+  "counted_discovery_queries": 22,
+  "successful_discovery_categories": 3,
+  "query_events": 115,
+  "bibliography_records": 25,
+  "current_method_hash_matches": 24,
+  "event_cache_records": 122,
+  "event_cache_hash_matches": 120,
+  "historical_overwritten_html_receipts": 2,
+  "checks": [
+    {
+      "check": "24 distinct post-hoc method identities",
+      "passed": true
+    },
+    {
+      "check": "all 24 records include metadata and required evidence fields",
+      "passed": true
+    },
+    {
+      "check": "all 24 current method-cache hashes match",
+      "passed": true
+    },
+    {
+      "check": "all 24 cards exist and declare V2 with source and evaluation",
+      "passed": true
+    },
+    {
+      "check": "CSV has same 24 ordered identities as JSON",
+      "passed": true
+    },
+    {
+      "check": "25 unique bibliography records, 24 versioned methods plus final TrustMark",
+      "passed": true
+    },
+    {
+      "check": "22 conservatively counted distinct discovery queries across 3 successful categories",
+      "passed": true
+    },
+    {
+      "check": "exact gap heading in synthesis and search log",
+      "passed": true
+    },
+    {
+      "check": "OmniGuard full title propagated",
+      "passed": true
+    },
+    {
+      "check": "ChunkySeal release correction present",
+      "passed": true
+    },
+    {
+      "check": "SimuFreeMark licensing limitation corrected",
+      "passed": true
+    },
+    {
+      "check": "two overwritten historical HTML receipts are explicit, no unreported missing artifacts",
+      "passed": true
+    },
+    {
+      "check": "all Markdown relative links resolve",
+      "passed": true
+    },
+    {
+      "check": "owned text has no trailing whitespace",
+      "passed": true
+    }
+  ]
+}

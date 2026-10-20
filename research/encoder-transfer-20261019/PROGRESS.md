@@ -87,3 +87,7 @@ The user deliberately interrupted the prior turn to lower cost; no scientific fa
 ## 2026-10-20T13:53:01.542902+00:00 - T4 parent acceptance; T6 resumed
 
 T4 passes its section1b floor: thirteen V2 mechanism sources, eighteen queries across four categories and twenty-six core/conditional/proposal prediction rows. Parent final checks are recorded in stage1b-parent-audit.md. P5 recommends separately costed matched mode controls; P6 uses per-suspect captions. Read-first carrier reporting is descriptive only. T6 resumed with gpt-6.1-sol/high and preserves the earlier analytic work. No server, GPU or outcomes; review2 remains required.
+
+## 2026-10-20T14:02:40.980607+00:00 - T3 parent acceptance; T7 started
+
+T3 passes with 24 distinct post-hoc V2 methods, 25 version-specific bibliography entries and 22 successful discovery queries across three categories. Parent checked all method hashes and acknowledged two overwritten historical HTML receipts with unchanged extracted text. Accepted changes are fidelity/coverage corrections and conditional P9 PixelSeal; core arms remain unchanged. T7 now runs on gpt-6.1-sol/high alongside T6, within the two-agent cap. T4 origin push cc25f1683bb2960080f777e38ed1a0fcc00ab613 was verified. No server, GPU or outcomes; T6-T8 and review2 remain required.

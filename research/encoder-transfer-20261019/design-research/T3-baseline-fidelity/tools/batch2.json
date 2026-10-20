@@ -1,0 +1,26 @@
+[
+  [
+    "mbrs-commit.json",
+    "https://api.github.com/repos/jzyustc/MBRS/commits/HEAD",
+    "official_repository",
+    "jzyustc/MBRS latest immutable commit metadata"
+  ],
+  [
+    "ssl-commit.json",
+    "https://api.github.com/repos/facebookresearch/ssl_watermarking/commits/HEAD",
+    "official_repository",
+    "facebookresearch/ssl_watermarking latest immutable commit metadata"
+  ],
+  [
+    "specguard-commit.json",
+    "https://api.github.com/repos/inzamamulDU/SpecGuard_ICCV_2025/commits/HEAD",
+    "official_repository",
+    "inzamamulDU/SpecGuard_ICCV_2025 latest immutable commit metadata"
+  ],
+  [
+    "pixelseal-commit.json",
+    "https://api.github.com/repos/facebookresearch/videoseal/commits/HEAD",
+    "official_repository",
+    "facebookresearch/videoseal latest immutable commit metadata"
+  ]
+]

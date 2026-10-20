@@ -37,3 +37,61 @@ For a decoded native32 message, common presence = at least **27/32** matches (on
 ## Published regeneration evidence
 
 Table9 reports WAM bit accuracies100.0/99.4/71.3/49.1% at DiffPure recovered-image PSNR30.1/28.4/27.0/24.9 dB; VAE attacks100.0/99.8/98.6/53.7% at32.9/32.4/28.6/25.5dB. These are bit accuracies for the paper model, not TPR for the released MIT checkpoint or SDXL strength.2. The same table's TrustMark DiffPure accuracies100.0/98.3/74.9/54.3% demonstrate why ordinary-distortion robustness cannot stand in for regeneration survival.
+
+
+
+
+
+
+
+
+
+
+<!-- STAGE1B DEEPENING -->
+
+# WAM: inspected method and evaluation
+
+Evidence level **V2**. Inspected 2026-10-20; post-hoc eligibility is established in the method below. This is literature evidence, not a local outcome or execution approval.
+
+## Source identity and inspected sections
+
+Exact title: **Watermark Anything with Localized Messages**. Version/date: arXiv:2411.07231v2 [cs.CV] 22 Jul 2025. Venue: ICLR 2025; inspected arXiv v2 is the evidence version.
+
+Authors: Tom Sander; Pierre Fernandez; Alain Durmus; Teddy Furon; Matthijs Douze. Year: 2024. DOI: not established for this inspected version.
+
+Stable ID: `arxiv:2411.07231v2`. Citekey: `T3WAM2411`. Canonical URL: https://arxiv.org/abs/2411.07231v2
+
+Primary full text: https://arxiv.org/html/2411.07231v2
+
+Cached text: `W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T3b/wam-reused.txt`
+SHA-256: `24ec9c24afc63108df55aaf207b5bab90a4d3b55dc6c8eaf32a240e7ecbdeb1d`
+
+Actually inspected: Method §§3–4, Eqs. 1–2; evaluation §§5.1–5.3; Appendix G.1–G.3, Table 9; pinned README, params.json, embed/detect and metrics.py.
+
+Full source and official-code cache hashes/URLs are in [deepening-manifest.json](../deepening-manifest.json); earlier release/weight metadata is retained in [manifest.json](../manifest.json). A cached abstract or repository listing alone does not establish V2.
+
+## Mechanism and post-hoc applicability
+
+A message-conditioned autoencoder writes a residual; a ViT-based extractor predicts one mask logit and 32 message logits per pixel. Full-image single-message embedding is the relevant post-hoc use. Localization and several messages are additional capabilities, not owner authentication.
+
+## Native operating point and detector side information
+
+Native released MIT SA-1B model: 32 raw bits, processing size 256, scaling_w=2.0, scaling_i=1.0 and JND jnd_1_3_blue. RGB input at 512 is ImageNet-normalized; internal bilinear resizing and antialiased residual upsampling preserve the original image. The paper trains on COCO with alpha=.3 and high-resolution JND scaling; those weights differ from this release. Pixel mask uses sigmoid >.5; paper image presence is mask-positive area >.07, calibrated on COCO to about 2.6e-4 FPR. Released README passes RAW message logits to semihard aggregation: select mask >.5, average logits, then compare the average >.5. This differs from averaging probabilities in paper Equation 2; retain the released behavior. An empty mask is an abstention. Official save_image multiplies by 255, adds .5, clamps and converts to uint8. Common known-message presence uses at least 27/32 matches (analytic fair-query tail 5.6537101045e-5); this is a separate endpoint and must not be conjoined with the native image detector. COCO calibration does not automatically transfer to SA-1B weights.
+
+## Code, weights, pinned release and licenses
+
+Official facebookresearch/watermark-anything@2c08af04d037d5667c02f6ddebbda9ff04581c3e; MIT code and chosen SA-1B checkpoint. https://dl.fbaipublicfiles.com/watermark_anything/wam_mit.pth is 377825938 bytes; inherited metadata SHA256 90ef232384e023bd63245eb0c131abd69d2afc7b8f17a71ccedceb542bf009e2. Source archive SHA256 7baaa18c6774d1397207b262cd077f588150e846fada9c7c7b5ce7d0239ef0b6. No new binary download. COCO-weight licensing is distinct and those weights are not substituted.
+
+## Published evaluation and regeneration conditions
+
+Primary Table 9, Appendix G.3: DiffPure attack PSNR 30.1/28.4/27.0/24.9 dB corresponds to bit accuracy 100/99.4/71.3/49.1%; VAE attack PSNR 32.9/32.4/28.6/25.5 corresponds to 100/99.8/98.6/53.7%. These are bit accuracies, not TPR at our threshold. The appendix does not specify enough to reproduce model revision, diffusion strength/noise schedule, sampler, prompt, exact evaluation count or every attack resolution; do not infer them from the main 10,000-image COCO/DIV2K evaluation. These curves use COCO weights. VINE and SpreadMark comparisons use different payload, quality and attack conditions; they do not establish this release's R1 outcome.
+
+## Cost and uncertainty
+
+The paper reports approximately 1.1M embedder and 96M extractor parameters. Checkpoint size is storage, not peak VRAM. Inference needs an embedder and a ViT forward; target-server time and memory remain unmeasured. The core cost remains within the parent budget; this is not a new timing claim.
+
+## Limitation and design implication
+
+Maintain separate native mask-presence, common queried-message presence, exact recovery and clean quality columns. Do not silently fix the paper/code threshold discrepancy. Preserve native quality; no outcome-based residual scaling.
+
+Disposition: **Core: already user-approved; no new arm.**

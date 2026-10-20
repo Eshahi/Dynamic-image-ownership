@@ -1,0 +1,6 @@
+[
+ ["editguard-latest.html","https://arxiv.org/html/2312.08883","primary_paper","inspection only: fallback after v2 HTML 404"],
+ ["editguard-api.json","https://api.github.com/repos/xuanyuzhang21/EditGuard","official_repository","inspection only: release license metadata"],
+ ["omniguard-api.json","https://api.github.com/repos/xuanyuzhang21/OmniGuard","official_repository","inspection only: release license metadata"],
+ ["omniguard-app.html","https://github.com/xuanyuzhang21/OmniGuard/blob/main/app.py","official_repository","inspection only: native runtime arguments"]
+]
