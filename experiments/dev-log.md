@@ -360,3 +360,5 @@
 - 2026-10-20T11:55:19.675479+00:00 Codex agent reopened stage1b at user-authored fe8b78d. Escalations per BRIEF1b: T1 fresh Astra/high, T2 and T3 fresh Astra/xhigh; one topic folder each, no shared writes, floor-gated parent acceptance. Prior freeze is preserved; no scientific execution.
 
 - 2026-10-20 12:57 UTC Codex agent escalation: fresh gpt-6-astra xhigh T4 mechanism author, explicitly required by BRIEF1b; derive pre-outcome predictions for all core channels and proposals. T1 accepted after parent floor/source checks: 20 direct/34 total V2 sources, 30 queries across three categories. Planned origin push on codex/encoder-transfer-20261019: fe8b78d..this T1 acceptance commit; actual range recorded after push.
+
+- 2026-10-20 13:00 UTC Codex agent push confirmed: origin codex/encoder-transfer-20261019 fe8b78d..42cc385aeb0b9b500528064e454f0afec1a191e1, remote equals local. Escalation: fresh gpt-6-astra high T5 official pipeline audit per BRIEF1b. T2 accepted after parent evidence/floor checks (18 qualifying families, 30 cards, 16 successful intents / three categories). Planned next push 42cc385..this T2 acceptance commit; no outcomes or execution.

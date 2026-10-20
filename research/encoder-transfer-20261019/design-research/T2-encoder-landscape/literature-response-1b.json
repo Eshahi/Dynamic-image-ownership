@@ -1,0 +1,1428 @@
+{
+  "request_id": "encoder-transfer-T2-1b-20261020",
+  "papers": [
+    {
+      "schema_version": "1.0",
+      "paper_id": "ldm",
+      "citation_key": "T2_ldm_2021",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2112.10752v2",
+      "title": "High-Resolution Image Synthesis with Latent Diffusion Models",
+      "authors": [
+        "Robin Rombach",
+        "Andreas Blattmann",
+        "Dominik Lorenz",
+        "Patrick Esser",
+        "Björn Ommer"
+      ],
+      "year": 2021,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "Generation/reconstruction metrics do not evaluate watermark survival. Official SD2 metadata endpoint was inaccessible; no new SD2 revision or gate status is invented."
+      ],
+      "inspection": {
+        "artifact": "T2-ldm-paper.txt",
+        "sha256": "bc27be0c28b03fbd9e444e31224035d38d3f6622c59e45e49ef37ed927dcd5ea"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "sdxl",
+      "citation_key": "T2_sdxl_2023",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2307.01952v1",
+      "title": "SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis",
+      "authors": [
+        "Dustin Podell",
+        "Zion English",
+        "Kyle Lacey",
+        "Andreas Blattmann",
+        "Tim Dockhorn",
+        "Jonas Müller",
+        "Joe Penna",
+        "Robin Rombach"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "Reconstruction at256 does not predict1024 survival. From-scratch training is an author statement, not independent initialization forensics."
+      ],
+      "inspection": {
+        "artifact": "T2-sdxl-paper.txt",
+        "sha256": "f50bf5a2c55213b90feb5c37d3059ea60d7509ed181ce78ef496df3753082efd"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "sd3",
+      "citation_key": "T2_sd3_2024",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2403.03206v1",
+      "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+      "authors": [
+        "Patrick Esser",
+        "Sumith Kulal",
+        "Andreas Blattmann",
+        "Rahim Entezari",
+        "Jonas Müller",
+        "Harry Saini",
+        "Yam Levi",
+        "Dominik Lorenz",
+        "Axel Sauer",
+        "Frederic Boesel",
+        "Dustin Podell",
+        "Tim Dockhorn",
+        "Zion English",
+        "Kyle Lacey",
+        "Alex Goodwin",
+        "Yannik Marek",
+        "Robin Rombach"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "SD3Medium noncommercial research terms; SD3.5 Community terms differ. Both API snapshots auto-gated. Public text does not authorize gated weights."
+      ],
+      "inspection": {
+        "artifact": "T2-sd3-paper.txt",
+        "sha256": "f82ef37115732eb873f96dbc7bb0baad3fd95b1e711aac2868b2ed43801a6c91"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "kandinsky",
+      "citation_key": "T2_kandinsky_2023",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2310.03502v1",
+      "title": "Kandinsky: an Improved Text-to-Image Synthesis with Image Prior and Latent Diffusion",
+      "authors": [
+        "Anton Razzhigaev",
+        "Arseniy Shakhmatov",
+        "Anastasia Maltseva",
+        "Vladimir Arkhipkin",
+        "Igor Pavlov",
+        "Ilya Ryabov",
+        "Angelina Kuts",
+        "Alexander Panchenko",
+        "Andrey Kuznetsov",
+        "Denis Dimitrov"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "KD2.2 native resolution lower than1024; KD3 better1024 proposal. Fix quantization mode explicitly. Independence conclusion does not extend toKandinsky5."
+      ],
+      "inspection": {
+        "artifact": "T2-kandinsky-paper.txt",
+        "sha256": "c5a5071a5212155cc6af1d82fe3dad4d002a942e36f964eb7b0be3830ceba72d"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "sana",
+      "citation_key": "T2_sana_2024",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2410.10629v1",
+      "title": "Sana: Efficient High-Resolution Image Synthesis with Linear Diffusion Transformers",
+      "authors": [
+        "Enze Xie",
+        "Junsong Chen",
+        "Junyu Chen",
+        "Han Cai",
+        "Haotian Tang",
+        "Yujun Lin",
+        "Zhekai Zhang",
+        "Muyang Li",
+        "Ligeng Zhu",
+        "Yao Lu",
+        "Song Han"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "Apache ungated packages; upstreamGemma terms/access remain separate. Packaged weights do not erase upstream terms. Optimized headlines do not establish frozen-stack24GB throughput."
+      ],
+      "inspection": {
+        "artifact": "T2-sana-paper.txt",
+        "sha256": "8ea6edac419bd04be43aff4fc2b41c4815fed271a217fcd2fd808fd71ba11959"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "pixartsigma",
+      "citation_key": "T2_pixartsigma_2024",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2403.04692v1",
+      "title": "PixArt-Σ : Weak-to-Strong Training of Diffusion Transformer for 4K Text-to-Image Generation",
+      "authors": [
+        "Junsong Chen",
+        "Chongjian Ge",
+        "Enze Xie",
+        "Yue Wu",
+        "Lewei Yao",
+        "Xiaozhe Ren",
+        "Zhongdao Wang",
+        "Ping Luo",
+        "Huchuan Lu",
+        "Zhenguo Li"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "Ungated OpenRAIL++ packages, not Apache/MIT permissiveness. Private evaluation/evaluator differences prevent direct score ranking."
+      ],
+      "inspection": {
+        "artifact": "T2-pixartsigma-paper.txt",
+        "sha256": "fae501058e9f5b60b203577b4aaaacbaac06a8af2004a1e76eecd76ae655d775"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "playground",
+      "citation_key": "T2_playground_2024",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2402.17245v1",
+      "title": "Playground v2.5: Three Insights towards Enhancing Aesthetic Quality in Text-to-Image Generation",
+      "authors": [
+        "Daiqing Li",
+        "Aleks Kamko",
+        "Ehsan Akhgari",
+        "Ali Sabet",
+        "Linmiao Xu",
+        "Suhail Doshi"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "Custom Playground Community license, ungated. AdvertisedVAE hash is metadata evidence, not locally verified weights."
+      ],
+      "inspection": {
+        "artifact": "T2-playground-paper.txt",
+        "sha256": "d18793404f00870bc71976147fede04facbf7b0dea79fd29406b2bc445f9a6ad"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "hunyuan",
+      "citation_key": "T2_hunyuan_2024",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2405.08748v1",
+      "title": "Hunyuan-DiT : A Powerful Multi-Resolution Diffusion Transformer with Fine-Grained Chinese Understanding",
+      "authors": [
+        "Zhimin Li",
+        "Jianwei Zhang",
+        "Qin Lin",
+        "Jiangfeng Xiong",
+        "Yanxin Long",
+        "Xinchi Deng",
+        "Yingfang Zhang",
+        "Xingchao Liu",
+        "Minbin Huang",
+        "Zedong Xiao",
+        "Dayou Chen",
+        "Jiajun He",
+        "Jiahao Li",
+        "Wenyue Li",
+        "Chen Zhang",
+        "Rongwei Quan",
+        "Jianxiang Lu",
+        "Jiabin Huang",
+        "Xiaoyan Yuan",
+        "Xiaoxiao Zheng",
+        "Yixuan Li",
+        "Jihong Zhang",
+        "Chao Zhang",
+        "Meng Chen",
+        "Jie Liu",
+        "Zheng Fang",
+        "Weiyan Wang",
+        "Jinbao Xue",
+        "Yangyu Tao",
+        "Jianchen Zhu",
+        "Kai Liu",
+        "Sihuan Lin",
+        "Yifu Sun",
+        "Yun Li",
+        "Dongdong Wang",
+        "Mingtao Chen",
+        "Zhichao Hu",
+        "Xiao Xiao",
+        "Yan Chen",
+        "Yuhong Liu",
+        "Wei Liu",
+        "Di Wang",
+        "Yong Yang",
+        "Jie Jiang",
+        "Qinglin Lu"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "Tencent custom terms, ungated hub; availability is not permissiveness. Native strength wrapper not verified."
+      ],
+      "inspection": {
+        "artifact": "T2-hunyuan-paper.txt",
+        "sha256": "69373dd3134bbf703b6acca804648b24cdb7d156296eb5ab7392f14b29f1607a"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "qwen",
+      "citation_key": "T2_qwen_2025",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2508.02324v1",
+      "title": "Qwen-Image Technical Report",
+      "authors": [
+        "Qwen Team"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "Qwen-Image/2512 are Apache and ungated. Qwen2.1 uses ungated Qwen Research terms, not Apache. The original paper cannot establish successor initialization."
+      ],
+      "inspection": {
+        "artifact": "T2-qwen-paper.txt",
+        "sha256": "7e32948c2c21b304ada3b58aab2cd58079eb35c0885dc747d21d681580710c97"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "zimage",
+      "citation_key": "T2_zimage_2025",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2511.22699v1",
+      "title": "Z-Image: An Efficient Image Generation Foundation Model with Single-Stream Diffusion Transformer",
+      "authors": [
+        "Z-Image Team"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "Apache2 and ungated model package. Published object hashes are metadata evidence; no weights or outcomes were generated."
+      ],
+      "inspection": {
+        "artifact": "T2-zimage-paper.txt",
+        "sha256": "3f9f86f6f2c25a6d1a66ab78873d7f1ddde3c52661a11f15cf3b617c9481371a"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "lumina",
+      "citation_key": "T2_lumina_2025",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2503.21758v1",
+      "title": "Lumina-Image 2.0: A Unified and Efficient Image Generative Framework",
+      "authors": [
+        "Qi Qin",
+        "Le Zhuo",
+        "Yi Xin",
+        "Ruoyi Du",
+        "Zhen Li",
+        "Bin Fu",
+        "Yiting Lu",
+        "Jiakang Yuan",
+        "Xinyue Li",
+        "Dongyang Liu",
+        "Xiangyang Zhu",
+        "Manyuan Zhang",
+        "Will Beddow",
+        "Erwann Millon",
+        "Victor Perez",
+        "Wenhai Wang",
+        "Conghui He",
+        "Bo Zhang",
+        "Xiaohong Liu",
+        "Hongsheng Li",
+        "Yu Qiao",
+        "Chang Xu",
+        "Peng Gao"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "Apache ungated package; upstream Gemma license/access remain separate dependencies. No native strength interface is assumed."
+      ],
+      "inspection": {
+        "artifact": "T2-1b/lumina-paper.txt",
+        "sha256": "0d145a61994b9054cc1c0e90b865262e0ece4bc2b298704af34476ba31ae8275"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "hidream",
+      "citation_key": "T2_hidream_2025",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2505.22705v1",
+      "title": "HiDream-I1: A High-Efficient Image Generative Foundation Model with Sparse Diffusion Transformer",
+      "authors": [
+        "HiDream.ai"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "MIT ungated model packages. I1 external Llama3.1 is gated. O1 optional Gemma prompt refiner is gated; plain inference loads the local bundled model/processor, not a required external text encoder. No runtime validation."
+      ],
+      "inspection": {
+        "artifact": "T2-1b/hidream-paper.txt",
+        "sha256": "2d2ea0614b4b9a1c5e2a3cd019e99d18a6d32fe197a7c69e3ea8e26d42863ac4"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "omnigen",
+      "citation_key": "T2_omnigen_2024",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2409.11340v2",
+      "title": "OmniGen: Unified Image Generation",
+      "authors": [
+        "Shitao Xiao",
+        "Yueze Wang",
+        "Junjie Zhou",
+        "Huaying Yuan"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "MIT ungated model. Resource table uses official custom code; current Diffusers may differ, so reported seconds cannot be transferred blindly."
+      ],
+      "inspection": {
+        "artifact": "T2-1b/omnigen-paper.txt",
+        "sha256": "e4671ad968d012e2abe3fb7245371f14d8879c3f9a74d76625e148f434783c42"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "cascade",
+      "citation_key": "T2_cascade_2023",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2306.00637v2",
+      "title": "Würstchen: An Efficient Architecture for Large-Scale Text-to-Image Diffusion Models",
+      "authors": [
+        "Pablo Pernias",
+        "Dominic Rampas",
+        "Mats L. Richter",
+        "Christopher J. Pal",
+        "Marc Aubreville"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "Ungated custom noncommercial model license. Successor weights and stages prevent direct reuse of paper timing or scores."
+      ],
+      "inspection": {
+        "artifact": "T2-1b/cascade-paper.txt",
+        "sha256": "785b933d564d2ebd751d2fe8fa7e550702dd1751566164e06bcaf1286d8186ca"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "ddpm",
+      "citation_key": "T2_ddpm_2020",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2006.11239v2",
+      "title": "Denoising Diffusion Probabilistic Models",
+      "authors": [
+        "Jonathan Ho",
+        "Ajay Jain",
+        "Pieter Abbeel"
+      ],
+      "year": 2020,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "Apache2 model and permissive diffusion code. An adapter would be new scientific work;256 feasibility does not establish1024 feasibility."
+      ],
+      "inspection": {
+        "artifact": "T2-1b/ddpm-paper.txt",
+        "sha256": "889bf6b3d1e18930447c30ab2c32c4c9b6134777502794e2f09aa7fd4506aef5"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "lens",
+      "citation_key": "T2_lens_2026",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2605.21573v1",
+      "title": "Lens: Rethinking Training Efficiency for Foundational Text-to-Image Models",
+      "authors": [
+        "Microsoft Lens Team"
+      ],
+      "year": 2026,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "Code MIT. Actual model revision/license unverified at inaccessible endpoint. GPU-specific quantization undermines a blanket small-VRAM claim."
+      ],
+      "inspection": {
+        "artifact": "T2-lens-paper.txt",
+        "sha256": "a489c0e453326f60ce67312c753649d1bca1544bb964550edf71876ca55ce414"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "pixelgen",
+      "citation_key": "T2_pixelgen_2026",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2602.02493v1",
+      "title": "PixelGen: Pixel Diffusion Beats Latent Diffusion with Perceptual Loss",
+      "authors": [
+        "Zehong Ma",
+        "Ruihan Xu",
+        "Shiliang Zhang"
+      ],
+      "year": 2026,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "Official HF weights Apache2 and ungated. Repository tree lacks LICENSE; do not infer code permission from weight terms. Community Diffusers mirror is not official support."
+      ],
+      "inspection": {
+        "artifact": "T2-1b/pixelgen-paper.txt",
+        "sha256": "3f9e6de030cf7982515d06c6f52363fd9fd51f8cdcd0a46ce76670009ef099cc"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "pixsgr",
+      "citation_key": "T2_pixsgr_2026",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2609.00798v1",
+      "title": "Advanced Pixel Diffusion Model with Guided Sparse Global Refinement",
+      "authors": [
+        "Weiyi You",
+        "Jinhua Zhang",
+        "Xingyu Zhou",
+        "Wei Long",
+        "Junyu Lou",
+        "Shuhang Gu \\corresponding"
+      ],
+      "year": 2026,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "Ungated but empty HF repository; license/code/weights unavailable rather than gated."
+      ],
+      "inspection": {
+        "artifact": "T2-1b/pixsgr-paper.txt",
+        "sha256": "1fa6bce6d006efb68ca048ca89845bbc3a3a68a6305776335eefa57df193e214"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "dcae",
+      "citation_key": "T2_dcae_2024",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2410.10733v1",
+      "title": "Deep Compression Autoencoder for Efficient High-Resolution Diffusion Models",
+      "authors": [
+        "Junyu Chen",
+        "Han Cai",
+        "Junsong Chen",
+        "Enze Xie",
+        "Shang Yang",
+        "Haotian Tang",
+        "Muyang Li",
+        "Yao Lu",
+        "Song Han"
+      ],
+      "year": 2024,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "No full diffusion result can be inferred from encoder-only reconstruction quality."
+      ],
+      "inspection": {
+        "artifact": "T2-dcae-paper.txt",
+        "sha256": "379cb7cff3040afea41fb34d8fb7d0785b1d5d3e84d867e0ef6c684f783ee993"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "sprint",
+      "citation_key": "T2_sprint_2025",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2503.09641v1",
+      "title": "SANA-Sprint: One-Step Diffusion with Continuous-Time Consistency Distillation",
+      "authors": [
+        "Junsong Chen",
+        "Shuchen Xue",
+        "Yuyang Zhao",
+        "Jincheng Yu",
+        "Sayak Paul",
+        "Junyu Chen",
+        "Han Cai",
+        "Enze Xie",
+        "Song Han"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "Distilled speed claims do not justify assuming strength labels have the same meaning as DDIM."
+      ],
+      "inspection": {
+        "artifact": "T2-sprint-paper.txt",
+        "sha256": "4201d344a00121f4b154bb2717b72ceadbc634d6e81f46e93f610282580877c0"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "wan",
+      "citation_key": "T2_wan_2025",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2503.20314v1",
+      "title": "Wan : Open and Advanced Large-Scale Video Generative Models",
+      "authors": [
+        "Wan Team"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "Counted under Qwen family for the conservative floor, not as an extra family just for AE reuse."
+      ],
+      "inspection": {
+        "artifact": "T2-wan-paper.txt",
+        "sha256": "13dcf2d644ea8bd345f9c1d1b61e40c29311394f1d1c6ce9f828c2b5653c0201"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "kandinsky3",
+      "citation_key": "T2_kandinsky3_2023",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2312.03511v1",
+      "title": "Kandinsky 3.0 Technical Report",
+      "authors": [
+        "Vladimir Arkhipkin",
+        "Andrei Filatov",
+        "Viacheslav Vasilev",
+        "Anastasia Maltseva",
+        "Said Azizov",
+        "Igor Pavlov",
+        "Julia Agafonova",
+        "Andrey Kuznetsov",
+        "Denis Dimitrov"
+      ],
+      "year": 2023,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "A larger MoVQ model is not automatically independent of earlier MoVQ training; count the family once."
+      ],
+      "inspection": {
+        "artifact": "T2-kandinsky3-paper.txt",
+        "sha256": "d40b6bf75f86e7119d97e894e4d9e5c618937bb9a1e62fa4490b38c60e6fff08"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "kandinsky5",
+      "citation_key": "T2_kandinsky5_2025",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2511.14993v1",
+      "title": "Kandinsky 5.0: A Family of Foundation Models for Image and Video Generation",
+      "authors": [
+        "Kandinsky Lab"
+      ],
+      "year": 2025,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "Paper inspected V2, but exact image checkpoint revision/license/gate not resolved in this sweep. Treat those model-release fields unavailable, not inferred from old Apache Kandinsky."
+      ],
+      "inspection": {
+        "artifact": "T2-kandinsky5-paper.txt",
+        "sha256": "8a6039fc9f055662c3c76c9781c012f1d4dbf88242685eb99ecd41b6f31d066f"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "qwen_vae2",
+      "citation_key": "T2_qwen_vae2_2026",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2605.13565v1",
+      "title": "Qwen-Image-VAE-2.0 Technical Report",
+      "authors": [
+        "Qwen Team"
+      ],
+      "year": 2026,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "Supplement only, not an additional model family in the floor."
+      ],
+      "inspection": {
+        "artifact": "T2-1b/qwen-vae2-paper.txt",
+        "sha256": "5cdd7618ba73f3526154a8e2f16dafa0d46206848eb6a20975f47818fdfaa67b"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "hidream_o1",
+      "citation_key": "T2_hidream_o1_2026",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2605.11061v1",
+      "title": "HiDream-O1-Image: A Natively Unified Image Generative Foundation Model with Pixel-level Unified Transformer",
+      "authors": [
+        "HiDream.ai"
+      ],
+      "year": 2026,
+      "venue": "arXiv",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "limitations": [
+        "MIT code/models, HF ungated. Plain inference uses bundled local weights/tokenizer/processor; optional Gemma4-31B prompt agent requires gate acceptance, optional API can cost money. Neither optional reasoner is required for plain generation or authorized here. PyTorch≥2.10/Transformers4.57.1 and optional FlashAttention differ from frozen stack."
+      ],
+      "inspection": {
+        "artifact": "T2-1b/hidream-o1-paper.txt",
+        "sha256": "a1f32df6e2e2032508a5c21470733be424a21cd7538b549508a20f81eecee4db"
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "ldm-method",
+      "claim": "The paper trains perceptual autoencoders with KL or VQ regularization, then trains cross-attention diffusion in their compressed latent spaces. It studies multiple compression factors rather than one later Stable Diffusion release configuration.",
+      "source_id": "ldm",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3.1 perceptual compression; §3.2 latent diffusion; §4.1/Fig.7 compression evaluation; official sd-vae-ft-mse Training/Evaluation; SD1.5 VAE config",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "ldm-evaluation",
+      "claim": "Figure 7 compares compression factors 1, 2, 4, 8, 16 and 32 using 5K samples, 500K CelebA-HQ or 2M ImageNet training updates and A100/DDIM sampling sweeps. Moderate compression balances image quality and sampling cost.",
+      "source_id": "ldm",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3.1 perceptual compression; §3.2 latent diffusion; §4.1/Fig.7 compression evaluation; official sd-vae-ft-mse Training/Evaluation; SD1.5 VAE config",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "sdxl-method",
+      "claim": "KL AutoencoderKL,C=4,f=8; same architecture class as SD1, separately trained. SDXL U-Net≈2.6B, dual CLIP conditioning; native1024. Optional refiner excluded from core.",
+      "source_id": "sdxl",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§2.1 architecture; §2.4 improved autoencoder; Table3 reconstruction; official VAE config and img2img prepare_latents",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "sdxl-evaluation",
+      "claim": "Table3 COCO2017-val256: SDXL PSNR24.7/SSIM.73/LPIPS.88/rFID4.4; SD1 23.4/.69/.96/5.0; SD2 24.5/.71/.92/4.7. Preserve paper metric convention rather than treating these LPIPS values as the thesis assessor. Generation preferences can include refiner and cannot be assigned to base-only img2img.",
+      "source_id": "sdxl",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§2.1 architecture; §2.4 improved autoencoder; Table3 reconstruction; official VAE config and img2img prepare_latents",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "sd3-method",
+      "claim": "The paper uses MMDiT with rectified-flow training and evaluates a 16-channel latent autoencoder against smaller bottlenecks.",
+      "source_id": "sd3",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3 rectified flow; §5.2.1/Table3 VAE channels; AppendixE.1/Table7 component memory/throughput",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "sd3-evaluation",
+      "claim": "Table3 C16 VAE PSNR28.62/SSIM.86/FID1.06 versus C4 25.12/.75/2.41; dataset/resolution not clear in inspected caption, so do not assign COCO/1024. Generator-quality gains do not establish encoder-transfer survival.",
+      "source_id": "sd3",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3 rectified flow; §5.2.1/Table3 VAE channels; AppendixE.1/Table7 component memory/throughput",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "kandinsky-method",
+      "claim": "Kandinsky combines an image-embedding prior, a diffusion decoder and MoVQ reconstruction; the paper compares linear and diffusion priors and quantized versus unquantized decoding.",
+      "source_id": "kandinsky",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§4 components/MoVQ; §5 quantitative/human evaluation; MoVQ configs; KD2.2 encode/decode",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "kandinsky-evaluation",
+      "claim": "§5 COCO30K256: linear-prior FID8.03; diffusion-prior quantized9.86 versus unquantized9.87. Human DrawBench5,000 votes. These are generation, not native1024 regeneration/watermark metrics.",
+      "source_id": "kandinsky",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§4 components/MoVQ; §5 quantitative/human evaluation; MoVQ configs; KD2.2 encode/decode",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "sana-method",
+      "claim": "SANA combines a deeply compressed DC-AE latent representation, linear-attention diffusion transformer and Gemma text conditioning. Its spatial compression factor is 32; this differs from the transformer patch size.",
+      "source_id": "sana",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§2 DC-AE/linearDiT/text; §4 benchmark protocol; Table5 latency/quantization; paired DC-AE/Sprint cards",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "sana-evaluation",
+      "claim": "The paper reports GenEval with 533 prompts as stated, DPG with 1,065 prompts and MJHQ30K. Table 5 reports CLIP 28.5 to 28.3 and ImageReward 1.03 to .96 under quantization on the stated evaluation subsets. These are generation and optimization results, not matched source-corruption measurements.",
+      "source_id": "sana",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§2 DC-AE/linearDiT/text; §4 benchmark protocol; Table5 latency/quantization; paired DC-AE/Sprint cards",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "pixartsigma-method",
+      "claim": "PixArt-Sigma replaces the earlier autoencoder with the SDXL VAE and adapts the denoiser for 2K updates; it also applies key/value compression to support higher-resolution generation.",
+      "source_id": "pixartsigma",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3.2 KV compression; §3.3 VAE adaptation; §4.1/4.2 evaluation; paired α methods/evaluation",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "pixartsigma-evaluation",
+      "claim": "The Sigma report evaluates 30K curated high-quality examples and a 300-caption human/GPT4V preference subset. The curated prompts and evaluator protocol limit comparisons with other papers.",
+      "source_id": "pixartsigma",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3.2 KV compression; §3.3 VAE adaptation; §4.1/4.2 evaluation; paired α methods/evaluation",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "playground-method",
+      "claim": "Playground v2.5 uses an SDXL-like diffusion architecture with EDM formulation, noise-schedule changes and balanced resolution-bucket training.",
+      "source_id": "playground",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§2 EDM/noise/resolution buckets; §3/Table1 MJHQ/preference; official VAE config/LFS metadata",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "playground-evaluation",
+      "claim": "MJHQ30K1024 FID4.48 versusSDXL+refiner9.55; private1K-prompt aesthetic preference4.8×ratio. Settings mix model/sampler/training differences, not AE isolation.",
+      "source_id": "playground",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§2 EDM/noise/resolution buckets; §3/Table1 MJHQ/preference; official VAE config/LFS metadata",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "hunyuan-method",
+      "claim": "≈1.5B transformer with bilingualCLIP/T5; C4/f8 VAE explicitly fromSDXL.",
+      "source_id": "hunyuan",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§2.1 VAE/text/DiT; §4 evaluation/ablations; official cards/config",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "hunyuan-evaluation",
+      "claim": "§4 >3,000 prompts,>50 professional raters,four dimensions,30–50 prompts/subcategory. Smaller.7B ablations COCO30K256. Do not assign those conditions to1024 full-model reconstruction/survival.",
+      "source_id": "hunyuan",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§2.1 VAE/text/DiT; §4 evaluation/ablations; official cards/config",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "qwen-method",
+      "claim": "Qwen-Image uses an MMDiT architecture and adopts the Wan VAE. Section 2.3 freezes its image encoder and fine-tunes the decoder; decoder reconstruction gains therefore do not establish a separately trained image encoder.",
+      "source_id": "qwen",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§2.3 image VAE: frozen Wan encoder and decoder-only fine-tuning; Table2 reconstruction; architecture discussion and official configs/native img2img",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "qwen-evaluation",
+      "claim": "Table2 ImageNet-val256FP32 PSNR33.42/SSIM.9159 versusWan31.29/.887; in-house text-rich25636.63/.9839 versus26.77/.9386. Effective image encoder19M/decoder25M. Decoder improvement does not prove new encoder.",
+      "source_id": "qwen",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§2.3 image VAE: frozen Wan encoder and decoder-only fine-tuning; Table2 reconstruction; architecture discussion and official configs/native img2img",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "zimage-method",
+      "claim": "6B single-stream S3-DiT with Qwen3-4B conditioning; frozen FLUX1 VAE, C=16/f=8. Turbo uses 8 NFE.",
+      "source_id": "zimage",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "S3-DiT and distillation methods; §5.2.1/Table9; official speed claim and VAE metadata",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "zimage-evaluation",
+      "claim": "Table9 reports GenEval .84 for base and .82 for Turbo. Speed depends on NFE and specialized optimization; quality scores do not isolate the encoder. Prompt rewriting and distillation can affect outcomes.",
+      "source_id": "zimage",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "S3-DiT and distillation methods; §5.2.1/Table9; official speed claim and VAE metadata",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "lumina-method",
+      "claim": "2.6B UnifiedNextDiT with Gemma2-2B and FLUX VAE, C=16/f=8. Progressive multiresolution training, RoPE and CFG normalization improve the denoiser.",
+      "source_id": "lumina",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "UnifiedNextDiT architecture; official README VAE statement; §5.4/Table8; Fig11 efficiency protocol",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "lumina-evaluation",
+      "claim": "Table8: low-resolution DPG84.5/GenEval.63 → high-resolution85.7/.67 → high-quality5K updates87.2/.73 →11K updates87.6/.72. Nonmonotonic GenEval requires retaining training-stage context. FDPM/TeaCache speed choices trade stability or blur.",
+      "source_id": "lumina",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "UnifiedNextDiT architecture; official README VAE statement; §5.4/Table8; Fig11 efficiency protocol",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "hidream-method",
+      "claim": "HiDream-I1 uses a 17B sparse-mixture-of-experts diffusion transformer, four text encoders and a pretrained autoencoder. The official repository identifies the autoencoder family separately; that identification is not attributed to this paper.",
+      "source_id": "hidream",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "MoE/training methods; benchmark tables; official README lines105/109 and VAE config; paired O1 methods/evaluation",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "hidream-evaluation",
+      "claim": "The I1 paper reports GenEval .83, DPG 85.89 and HPSv2.1 mean 33.82. Its 50/28/14-step variants are distinct settings, and some evaluation tables do not fully specify image resolution or sample counts.",
+      "source_id": "hidream",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "MoE/training methods; benchmark tables; official README lines105/109 and VAE config; paired O1 methods/evaluation",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "omnigen-method",
+      "claim": "OmniGen initializes its unified transformer from Phi-3 and uses a pretrained SDXL VAE. Input images supply multimodal instruction/context tokens; this interface alone does not define a partial-noise source regeneration attack.",
+      "source_id": "omnigen",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§2/3 architecture/training; Table2 and editing evaluation; official docs/inference.md memory/time table",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "omnigen-evaluation",
+      "claim": "Table 2 reports GenEval .70 versus SD3 .68. The paper also evaluates editing and subject-driven generation using EmuEdit and DreamBench. These results do not establish matched-strength regeneration.",
+      "source_id": "omnigen",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§2/3 architecture/training; Table2 and editing evaluation; official docs/inference.md memory/time table",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "cascade-method",
+      "claim": "Wuerstchen uses a three-stage system: Stage A VQ reconstruction at spatial factor 4, Stage B latent reconstruction and Stage C diffusion over a highly compressed semantic representation produced with an EfficientNetV2-S-based compressor. The effective semantic compression is about 42 rather than an ordinary factor-8 VAE.",
+      "source_id": "cascade",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3 three-stage compression; §4.1 COCO/PickScore; §4.2/Table2; Fig4; successor modelcard",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "cascade-evaluation",
+      "claim": "COCO30K generated at1024, downsampled to256 for FID. Table2 Würstchen FID23.6/IS40.9; Stage C60 steps, Stage B12 steps, CFG4. PickScore also uses LocalNarratives5K and PartiPrompts. These are not measurements of the Stable Cascade3.6B release.",
+      "source_id": "cascade",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3 three-stage compression; §4.1 COCO/PickScore; §4.2/Table2; Fig4; successor modelcard",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "ddpm-method",
+      "claim": "RGB C=3/f=1, no AE. U-Net predicts noise with group normalization and attention at16². Training uses1000 steps and beta1e-4→.02.",
+      "source_id": "ddpm",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3 forward/reverse process and objective; §4/Table1; AppendixB architecture and sampling cost",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "ddpm-evaluation",
+      "claim": "Table1 CIFAR train-reference FID3.17 (test-reference5.24), IS9.46. LSUNChurch256 FID7.89 and Bedroom4.90. These unconditional domain metrics do not validate general-photo regeneration.",
+      "source_id": "ddpm",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3 forward/reverse process and objective; §4/Table1; AppendixB architecture and sampling cost",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "lens-method",
+      "claim": "3.8B48-block MMDiT with frozen FLUX2 VAE, C=32/f=8;2×2 packing gives128 channels/f16 token grid. GPT-OSS20B total/about3B active text encoder.",
+      "source_id": "lens",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§2.2 FLUX2 VAE and architecture; §2.5 acceleration; §3/Table2 and protocols; official README",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "lens-evaluation",
+      "claim": "Table2: Lens20-step GenEval.930 and Turbo4-step.914; OneIG EN/ZH are separate columns (.557/.525 for Lens), not two GenEval settings. Protocols include OneIG1,120 prompts, GenEval553 as this paper states and LongText160. Default inference refines prompts with a reasoner, uses20 steps/CFG5, while Turbo4-step uses no CFG. Prompt rewriting and system-prompt search therefore limit comparison with frozen unrewritten prompts. The H100 .84s/3.15s speed reports are primary author measurements, not our replication.",
+      "source_id": "lens",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§2.2 FLUX2 VAE and architecture; §2.5 acceleration; §3/Table2 and protocols; official README",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "pixelgen-method",
+      "claim": "The method performs clean-image prediction in RGB pixel space and converts it to a flow field, using LPIPS, perceptual DINO and REPA training losses without an external compression autoencoder.",
+      "source_id": "pixelgen",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3.1–3.4 pixel prediction/perceptual losses; ImageNet/T2I evaluations; official PixelAE/config/actual sampler",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "pixelgen-evaluation",
+      "claim": "ImageNet 256 evaluation reports FID 5.11 at 80 epochs without CFG, and FID 1.83 at 160 epochs with CFG and 50 Heun steps. The 1.1B text-to-image model at 512 reports GenEval .79.",
+      "source_id": "pixelgen",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3.1–3.4 pixel prediction/perceptual losses; ImageNet/T2I evaluations; official PixelAE/config/actual sampler",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "pixsgr-method",
+      "claim": "Pixel diffusion with learned low-channel bottleneck and sparse global refinement inside the denoiser. RGB3/f1 output, no external pretrained AE.",
+      "source_id": "pixsgr",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3.1 low-channel bottleneck; §3.2 sparse global refinement; ImageNet protocol/tables; official release inventory",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "pixsgr-evaluation",
+      "claim": "ImageNet256,50K samples,320 epochs,875M model: FID1.51, IS311, precision.78, recall.65. CFG3 over[.2,.98], interval guidance.04 over[.2,.7]. These are evaluation settings, not .2 img2img strength. No general T2I1024 result established.",
+      "source_id": "pixsgr",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3.1 low-channel bottleneck; §3.2 sparse global refinement; ImageNet protocol/tables; official release inventory",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "dcae-method",
+      "claim": "Continuous nonvariational deep-compression AE; SANA uses C32/f32. Paper studies f64/c128 and f128/c512 too; denoiser patch size is separate from AE compression.",
+      "source_id": "dcae",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3 residual shortcuts/three-phase training; reconstruction tables; high-resolution efficiency comparisons",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "dcae-evaluation",
+      "claim": "Table2 ImageNet512 reconstruction: f64/c128 rFID16.84→.22 and f128/c512100.74→.23 with the proposed training/shortcuts. Reconstruction tradeoffs do not imply better preservation of a watermark.",
+      "source_id": "dcae",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3 residual shortcuts/three-phase training; reconstruction tables; high-resolution efficiency comparisons",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "sprint-method",
+      "claim": "Same DC-AE C32/f32; SANA denoiser distilled to1–4 steps. Conversion rescales time, SNR and model output between flow matching and TrigFlow.",
+      "source_id": "sprint",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3 flow-to-TrigFlow/self-consistency/adversarial distillation; §4.1/4.2 benchmarks and latency",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "sprint-evaluation",
+      "claim": "MJHQ30K FID/CLIP and GenEval comparisons: headline one-step FID7.59/GenEval.74; four-step table FID6.48/GenEval.76. Faster sampling is not evidence of matched source corruption.",
+      "source_id": "sprint",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3 flow-to-TrigFlow/self-consistency/adversarial distillation; §4.1/4.2 benchmarks and latency",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "wan-method",
+      "claim": "127M causal3D VAE, C16/spatial8/temporal4; first image frame only undergoes spatial compression. Train2D image AE then inflate to3D with L1/KL/LPIPS followed by adversarial learning.",
+      "source_id": "wan",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§4.1.1/4.1.2 causal VAE and training; Fig7 reconstruction/throughput; §4.7.1 WanBench",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "wan-evaluation",
+      "claim": "WanBench1,035 cases/model and VBench14B86.22%; video evaluation is not image regeneration. Fig7 numerical image values were not reliably extracted, so no fabricated PSNR/latency is listed.",
+      "source_id": "wan",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§4.1.1/4.1.2 causal VAE and training; Fig7 reconstruction/throughput; §4.7.1 WanBench",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "kandinsky3-method",
+      "claim": "C4/f8 MoVQ; compares67M,102M,270M and selects270M. Updated model combines roughly3B U-Net and8.6B FLAN-UL2 text encoder.",
+      "source_id": "kandinsky3",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3.4/Table2 MoVQ sizes/training; evaluation; updated2410.21061 §4 architecture and human protocol",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "kandinsky3-evaluation",
+      "claim": "Table2 ImageNet reconstruction270M FID.686/SSIM.741/PSNR27.04, latent32². Do not invent an image resolution absent from the inspected table caption. Updated report uses human comparisons; these are not watermark outcomes.",
+      "source_id": "kandinsky3",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3.4/Table2 MoVQ sizes/training; evaluation; updated2410.21061 §4 architecture and human protocol",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "kandinsky5-method",
+      "claim": "Image Lite6B CrossDiT flow matching; explicitly FLUX.1-dev VAE C16/f8. Video uses HunyuanVideo VAE. The image branch is not MoVQ.",
+      "source_id": "kandinsky5",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§5.1–5.3 CrossDiT/encoders; §8.2.8 image-generation/editing SBS; official current Diffusers I2I signature",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "kandinsky5-evaluation",
+      "claim": "§8.2.8 uses internal SBS prompts expanded from PartiPrompts with GigaMax; expert judges rate prompt following/visual quality against FLUX-dev/Qwen and editing counterparts. Figure win percentages and exact sample count were not extracted; remain unknown. Video2.7× speedup is not image timing.",
+      "source_id": "kandinsky5",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§5.1–5.3 CrossDiT/encoders; §8.2.8 image-generation/editing SBS; official current Diffusers I2I signature",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "qwen-vae2-method",
+      "claim": "Qwen-VAE2 introduces global space-to-channel shortcuts and semantic DINO alignment, including image autoencoder experiments with spatial factor 16 and 64 or 128 latent channels. These experiments do not by themselves identify the ancestry of a separately released Qwen-Image checkpoint.",
+      "source_id": "qwen_vae2",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§2 global shortcut/semantic alignment; §3 training; §6.1.1/6.1.3 reconstruction and SiT evaluations",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "qwen-vae2-evaluation",
+      "claim": "ImageNet256 and FFHQ1024 reconstruction; OmniDoc roughly3K images at256, f16/c128 PSNR30.45/SSIM.9706/NED.9617 versus FLUX1 NED.9546. SiT80-epoch no-CFG comparisons change patch rates. NED convention and OCR quality matter; not our mark detector.",
+      "source_id": "qwen_vae2",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§2 global shortcut/semantic alignment; §3 training; §6.1.1/6.1.3 reconstruction and SiT evaluations",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "hidream-o1-method",
+      "claim": "HiDream-O1 uses a shared text/image token model initialized from Qwen3-VL-8B, with raw-pixel clean-image prediction, perceptual losses and flow conversion. It does not require an external VAE or a disjoint text encoder; distribution-matching and adversarial distillation produce faster variants.",
+      "source_id": "hidream_o1",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3.2–3.4 unified pixel transformer/losses; §4 progressive training; §5 distillation/evaluation; official inference/pipeline/utils/index",
+      "confidence": "high",
+      "limitations": [
+        "Paper evidence only. Official code/config and successor claims are separately sourced in the human Markdown card."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "hidream-o1-evaluation",
+      "claim": "§5/table1 8B GenEval.90, Pro.92; DPG8B89.83. Full50/Dev28-step protocols and multiple text/editing benchmarks provide substantive evaluation. Sampling resolution/sample counts are not fully specified for every table; leaderboard images are not independent measurements.",
+      "source_id": "hidream_o1",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3.2–3.4 unified pixel transformer/losses; §4 progressive training; §5 distillation/evaluation; official inference/pipeline/utils/index",
+      "confidence": "medium",
+      "limitations": [
+        "Author-reported metrics under stated protocol; not thesis outcomes."
+      ],
+      "assumptions": []
+    }
+  ],
+  "assumptions": [],
+  "open_questions": [
+    "Exact initialization of FLUX/SD3 and released Qwen2.1 VAE remains unresolved.",
+    "No target GPU memory/throughput or mark survival was measured."
+  ]
+}

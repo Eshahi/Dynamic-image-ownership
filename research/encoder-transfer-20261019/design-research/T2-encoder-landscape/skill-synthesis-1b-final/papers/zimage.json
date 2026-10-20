@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "zimage",
+  "citation_key": "T2_zimage_2025",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2511.22699v1",
+  "title": "Z-Image: An Efficient Image Generation Foundation Model with Single-Stream Diffusion Transformer",
+  "authors": [
+    "Z-Image Team"
+  ],
+  "year": 2025,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "Apache2 and ungated model package. Published object hashes are metadata evidence; no weights or outcomes were generated."
+  ],
+  "inspection": {
+    "artifact": "T2-zimage-paper.txt",
+    "sha256": "3f9f86f6f2c25a6d1a66ab78873d7f1ddde3c52661a11f15cf3b617c9481371a"
+  }
+}

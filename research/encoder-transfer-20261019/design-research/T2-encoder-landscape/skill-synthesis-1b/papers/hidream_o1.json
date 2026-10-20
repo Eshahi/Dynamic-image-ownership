@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "hidream_o1",
+  "citation_key": "T2_hidream_o1_2026",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2605.11061v1",
+  "title": "HiDream-O1-Image: A Natively Unified Image Generative Foundation Model with Pixel-level Unified Transformer",
+  "authors": [
+    "HiDream.ai"
+  ],
+  "year": 2026,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "MIT code/models, HF ungated. Plain inference uses bundled local weights/tokenizer/processor; optional Gemma4-31B prompt agent requires gate acceptance, optional API can cost money. Neither optional reasoner is required for plain generation or authorized here. PyTorch≥2.10/Transformers4.57.1 and optional FlashAttention differ from frozen stack."
+  ],
+  "inspection": {
+    "artifact": "T2-1b/hidream-o1-paper.txt",
+    "sha256": "a1f32df6e2e2032508a5c21470733be424a21cd7538b549508a20f81eecee4db"
+  }
+}

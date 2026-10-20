@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "qwen_vae2",
+  "citation_key": "T2_qwen_vae2_2026",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2605.13565v1",
+  "title": "Qwen-Image-VAE-2.0 Technical Report",
+  "authors": [
+    "Qwen Team"
+  ],
+  "year": 2026,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "Supplement only, not an additional model family in the floor."
+  ],
+  "inspection": {
+    "artifact": "T2-1b/qwen-vae2-paper.txt",
+    "sha256": "5cdd7618ba73f3526154a8e2f16dafa0d46206848eb6a20975f47818fdfaa67b"
+  }
+}

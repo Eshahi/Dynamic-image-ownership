@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "lens",
+  "citation_key": "T2_lens_2026",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2605.21573v1",
+  "title": "Lens: Rethinking Training Efficiency for Foundational Text-to-Image Models",
+  "authors": [
+    "Microsoft Lens Team"
+  ],
+  "year": 2026,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "Code MIT. Actual model revision/license unverified at inaccessible endpoint. GPU-specific quantization undermines a blanket small-VRAM claim."
+  ],
+  "inspection": {
+    "artifact": "T2-lens-paper.txt",
+    "sha256": "a489c0e453326f60ce67312c753649d1bca1544bb964550edf71876ca55ce414"
+  }
+}

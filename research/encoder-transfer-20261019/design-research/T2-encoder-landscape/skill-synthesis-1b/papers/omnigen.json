@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "omnigen",
+  "citation_key": "T2_omnigen_2024",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2409.11340v2",
+  "title": "OmniGen: Unified Image Generation",
+  "authors": [
+    "Shitao Xiao",
+    "Yueze Wang",
+    "Junjie Zhou",
+    "Huaying Yuan"
+  ],
+  "year": 2024,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "MIT ungated model. Resource table uses official custom code; current Diffusers may differ, so reported seconds cannot be transferred blindly."
+  ],
+  "inspection": {
+    "artifact": "T2-1b/omnigen-paper.txt",
+    "sha256": "e4671ad968d012e2abe3fb7245371f14d8879c3f9a74d76625e148f434783c42"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "pixsgr",
+  "citation_key": "T2_pixsgr_2026",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2609.00798v1",
+  "title": "Advanced Pixel Diffusion Model with Guided Sparse Global Refinement",
+  "authors": [
+    "Weiyi You",
+    "Jinhua Zhang",
+    "Xingyu Zhou",
+    "Wei Long",
+    "Junyu Lou",
+    "Shuhang Gu \\corresponding"
+  ],
+  "year": 2026,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "Ungated but empty HF repository; license/code/weights unavailable rather than gated."
+  ],
+  "inspection": {
+    "artifact": "T2-1b/pixsgr-paper.txt",
+    "sha256": "1fa6bce6d006efb68ca048ca89845bbc3a3a68a6305776335eefa57df193e214"
+  }
+}

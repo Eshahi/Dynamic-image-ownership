@@ -1,0 +1,1031 @@
+[
+  {
+    "id": "ldm",
+    "name": "Latent Diffusion / Stable Diffusion 1.x–2.x",
+    "paper": "2112.10752v2",
+    "sections": "§3.1 perceptual compression; §3.2 latent diffusion; §4.1/Fig.7 compression evaluation; official sd-vae-ft-mse Training/Evaluation; SD1.5 VAE config",
+    "architecture": "KL-regularized convolutional perceptual autoencoder with adversarial/perceptual reconstruction; latent C=4, spatial f=8 in SD1.5 (1024→128²×4). Cross-attention U-Net diffusion. LDM also studies VQ and other compression factors; these are not all SD1.5 configurations.",
+    "lineage": "vs SD1: SAME anchor. vs SDXL: DISTINCT because SDXL explicitly retrains its AE from scratch. SD2 is not evidence of a fresh encoder: official ft-EMA/ft-MSE describes decoder-only fine-tuning, and SDXL §2.4 identifies the SD2 decoder change. Exact identity of every SD2 release is not established by this family description.",
+    "models": [
+      "stable-diffusion-v1-5/stable-diffusion-v1-5",
+      "CompVis/stable-diffusion-v1-4",
+      "stabilityai/sd-vae-ft-mse"
+    ],
+    "code": "stable_diffusion/pipeline_stable_diffusion_img2img.py: get_timesteps, prepare_latents, __call__; native image+strength, floor(N×strength), encode then scheduler noise; VAE scaling. SD1.5 DDIM identity remains the anchor.",
+    "memory": "No primary 1024 batch-one peak/time found. SD1.5 ≈0.86B U-Net implies ≈1.72 GB BF16 parameters alone (2 bytes/parameter); CLIP, VAE, activations, CFG and allocator add memory. Native training was512, so1024 is an extrapolation, not equivalent native-resolution quality. Frozen runtime remains unmeasured.",
+    "evaluation": "Fig.7 compares f=1,2,4,8,16,32, 5K samples,500K CelebA-HQ or2M ImageNet updates, A100 and DDIM step sweeps; f4/8 balances speed and quality. Official decoder-ft card: COCO2017-val5K at256, original PSNR23.4±3.8dB/SSIM.69/rFID4.99 versus ft-MSE24.5±3.7/.71/4.70. Its PSIM column is not our LPIPS assessor.",
+    "implication": "Retain SD1.5; do not count SD2.1 as independent-encoder transfer. The relevant mechanism is encoder initialization, not decoder fine-tuning or changed text encoders.",
+    "limitations": "Generation/reconstruction metrics do not evaluate watermark survival. Official SD2 metadata endpoint was inaccessible; no new SD2 revision or gate status is invented.",
+    "extra": [
+      "sd-vae-mse-card",
+      "sd15-config"
+    ],
+    "qualifies": true,
+    "sources": [
+      "T2-ldm-paper",
+      "sd14-api",
+      "sd-vae-mse-api",
+      "code-stable_diffusion--pipeline_stable_diffusion_img2img.py-api",
+      "sd14-card",
+      "sd-vae-mse-card",
+      "code-stable_diffusion--pipeline_stable_diffusion_img2img.py-api-decoded",
+      "sd15-api",
+      "sd15-config",
+      "sd15-card",
+      "T2-ldm-paper.read"
+    ]
+  },
+  {
+    "id": "sdxl",
+    "name": "SDXL",
+    "paper": "2307.01952v1",
+    "sections": "§2.1 architecture; §2.4 improved autoencoder; Table3 reconstruction; official VAE config and img2img prepare_latents",
+    "architecture": "KL AutoencoderKL,C=4,f=8; same architecture class as SD1, separately trained. SDXL U-Net≈2.6B, dual CLIP conditioning; native1024. Optional refiner excluded from core.",
+    "lineage": "vs SD1: YES, explicit from-scratch AE training in §2.4,batch256 versus9,EMA. vs SDXL: SELF anchor. Similar architecture does not imply weight ancestry.",
+    "models": [
+      "stabilityai/stable-diffusion-xl-base-1.0"
+    ],
+    "code": "stable_diffusion_xl/pipeline_stable_diffusion_xl_img2img.py: native image+strength and get_timesteps/prepare_latents. The frozen protocol executes the pinned official fp16 checkpoint values in full fp32 VAE arithmetic; it does not replace the artifact with the separate fp32 file or an external fp16-fix model.",
+    "memory": "No matched primary batch-one1024 peak/time. The roughly2.6B U-Net implies at least5.2GB BF16 parameters plus dual CLIP and fp32 VAE execution/activations. Frozen stage2 selected SDXL assets total6.941187536GB. Earlier7.105319356GB estimate used a different selection and is superseded, not an amendment of the asset plan. Official fp16 VAE is167,335,342 bytes versus separate fp32 artifact334,643,268 bytes; file precision differs from execution precision. Core10–14h is a project estimate, not a primary measurement.",
+    "evaluation": "Table3 COCO2017-val256: SDXL PSNR24.7/SSIM.73/LPIPS.88/rFID4.4; SD1 23.4/.69/.96/5.0; SD2 24.5/.71/.92/4.7. Preserve paper metric convention rather than treating these LPIPS values as the thesis assessor. Generation preferences can include refiner and cannot be assigned to base-only img2img.",
+    "implication": "Retain R1 as the strongest documented independent-encoder anchor, with full fp32 VAE execution of the pinned official checkpoint and deterministic posterior-mode D1.",
+    "limitations": "Reconstruction at256 does not predict1024 survival. From-scratch training is an author statement, not independent initialization forensics.",
+    "extra": [],
+    "qualifies": true,
+    "sources": [
+      "T2-stabilityai--stable-diffusion-xl-base-1.0-api",
+      "T2-stabilityai--stable-diffusion-xl-base-1.0-README",
+      "T2-stabilityai--stable-diffusion-xl-base-1.0-vae--config",
+      "T2-stabilityai--stable-diffusion-xl-base-1.0-model_index",
+      "T2-sdxl-paper",
+      "stabilityai--stable-diffusion-xl-base-1.0--README.md",
+      "stabilityai--stable-diffusion-xl-base-1.0--vae--config.json",
+      "stabilityai--stable-diffusion-xl-base-1.0--model_index.json",
+      "code-stable_diffusion_xl--pipeline_stable_diffusion_xl_img2img.py-api",
+      "code-stable_diffusion_xl--pipeline_stable_diffusion_xl_img2img.py-api-decoded",
+      "T2-sdxl-paper.read"
+    ]
+  },
+  {
+    "id": "sd3",
+    "name": "Stable Diffusion 3 / 3.5",
+    "paper": "2403.03206v1",
+    "sections": "§3 rectified flow; §5.2.1/Table3 VAE channels; AppendixE.1/Table7 component memory/throughput",
+    "architecture": "MMDiT rectified flow, KL VAE C=16/f=8 with latent scale/shift. SD3.5 grouped withSD3; model size/version is not a fresh AE family.",
+    "lineage": "vs SD1: UNKNOWN initialization. vs SDXL: UNKNOWN initialization. Table3 proves a wider bottleneck and improved reconstruction, but does not explicitly establish random initialization or absence of SD weights.",
+    "models": [
+      "stabilityai/stable-diffusion-3-medium-diffusers",
+      "stabilityai/stable-diffusion-3.5-medium"
+    ],
+    "code": "stable_diffusion_3/pipeline_stable_diffusion_3_img2img.py: native image+strength; get_timesteps/encode with shift+scale and flow scheduler. Equal numeric DDIM/flow strength is not equal corruption.",
+    "memory": "2B denoiser≥4GB BF16 weights. AppendixE.1: VAE encoder weights.14GB and2.45ms forward at batch32; T5 weights19.05GB. Component reports are not1024 batch-one peak/runtime. Complete residentT5 pipeline needs offload/more memory; candidate runtime unknown.",
+    "evaluation": "Table3 C16 VAE PSNR28.62/SSIM.86/FID1.06 versus C4 25.12/.75/2.41; dataset/resolution not clear in inspected caption, so do not assign COCO/1024. Generator-quality gains do not establish encoder-transfer survival.",
+    "implication": "Potential larger-panel architecture contrast if access and ancestry gaps resolved; exclude gated models now.",
+    "limitations": "SD3Medium noncommercial research terms; SD3.5 Community terms differ. Both API snapshots auto-gated. Public text does not authorize gated weights.",
+    "extra": [],
+    "qualifies": true,
+    "sources": [
+      "T2-stabilityai--stable-diffusion-3-medium-diffusers-api",
+      "T2-stabilityai--stable-diffusion-3-medium-diffusers-README",
+      "T2-stabilityai--stable-diffusion-3.5-medium-api",
+      "T2-stabilityai--stable-diffusion-3.5-medium-README",
+      "T2-sd3-paper",
+      "stabilityai--stable-diffusion-3-medium-diffusers--README.md",
+      "stabilityai--stable-diffusion-3.5-medium--README.md",
+      "code-stable_diffusion_3--pipeline_stable_diffusion_3_img2img.py-api",
+      "code-stable_diffusion_3--pipeline_stable_diffusion_3_img2img.py-api-decoded",
+      "T2-sd3-paper.read"
+    ]
+  },
+  {
+    "id": "kandinsky",
+    "name": "Kandinsky 2.x / MoVQ (3.x/5.x grouped)",
+    "paper": "2310.03502v1",
+    "sections": "§4 components/MoVQ; §5 quantitative/human evaluation; MoVQ configs; KD2.2 encode/decode",
+    "architecture": "Image-embedding prior, diffusion decoder and MoVQ,C=4/f=8. Kandinsky3 enlarges MoVQ; Kandinsky5 images use FLUX.1-dev VAE, so the brand is not a persistent encoder lineage.",
+    "lineage": "vs SD1/SDXL: documented separate MoVQ training, qualified YES. Sber-trained MoVQ on LAION-HighRes67M is training evidence, not an inference from different names or datasets. Initialization is less explicit than SDXL.",
+    "models": [
+      "kandinsky-community/kandinsky-2-2-decoder",
+      "kandinsky-community/kandinsky-2-2-prior",
+      "kandinsky-community/kandinsky-3"
+    ],
+    "code": "Pinned v0.36.0 kandinsky2_2/pipeline_kandinsky2_2_img2img.py and models/autoencoders/vq_model.py: native image+strength; KD2.2 decode can bypass nearest-codebook quantization with force_not_quantize=True. Paper quantization ablations are not automatically the runtime path.",
+    "memory": "KD2.2 decoder package≈5.284GB plus prior≈10.574GB on disk, not peakVRAM. KD3 components total28.391GB (text21.739,U-Net6.111,MoVQ.541); phased offload needed on24GB. Matched1024 peak/runtime unknown.",
+    "evaluation": "§5 COCO30K256: linear-prior FID8.03; diffusion-prior quantized9.86 versus unquantized9.87. Human DrawBench5,000 votes. These are generation, not native1024 regeneration/watermark metrics.",
+    "implication": "Highest-priority additional convolutional encoder: native strength API, permissive ungated packages, documented MoVQ training. AE-only diagnostic cheaper than full prior+decoder regeneration.",
+    "limitations": "KD2.2 native resolution lower than1024; KD3 better1024 proposal. Fix quantization mode explicitly. Independence conclusion does not extend toKandinsky5.",
+    "extra": [
+      "T2-kandinsky-pipeline-v036",
+      "T2-vq-model-v036"
+    ],
+    "qualifies": true,
+    "sources": [
+      "T2-kandinsky-community--kandinsky-2-2-decoder-api",
+      "T2-kandinsky-community--kandinsky-2-2-decoder-README",
+      "T2-kandinsky-community--kandinsky-2-2-decoder-movq--config",
+      "T2-kandinsky-community--kandinsky-2-2-decoder-model_index",
+      "T2-kandinsky-community--kandinsky-2-2-prior-api",
+      "T2-kandinsky-community--kandinsky-2-2-prior-README",
+      "T2-kandinsky-community--kandinsky-2-2-prior-model_index",
+      "T2-kandinsky-paper",
+      "T2-kandinsky-pipeline-v036",
+      "T2-kandinsky-community--kandinsky-3-api",
+      "T2-kandinsky-community--kandinsky-3-README.md",
+      "T2-kandinsky-community--kandinsky-3-scheduler--scheduler_config.json",
+      "T2-kandinsky-community--kandinsky-3-model_index.json",
+      "T2-vq-model-v036",
+      "kandinsky-community--kandinsky-2-2-decoder--README.md",
+      "kandinsky-community--kandinsky-2-2-decoder--model_index.json",
+      "kandinsky-community--kandinsky-2-2-prior--README.md",
+      "kandinsky-community--kandinsky-2-2-prior--model_index.json",
+      "kandinsky-community--kandinsky-3--README.md",
+      "kandinsky-community--kandinsky-3--model_index.json",
+      "T2-kandinsky-paper.read"
+    ]
+  },
+  {
+    "id": "sana",
+    "name": "SANA / DC-AE / SANA-Sprint",
+    "paper": "2410.10629v1",
+    "sections": "§2 DC-AE/linearDiT/text; §4 benchmark protocol; Table5 latency/quantization; paired DC-AE/Sprint cards",
+    "architecture": "DC-AE continuous nonvariational C32/f32 (1024→32²×32), residual shortcuts and linear-attention DiT, Gemma2-2B. Sprint is distilled, not another family.",
+    "lineage": "vs SD1/SDXL: documented separate DC-AE training, qualified YES; no SD checkpoint initialization described. Compression geometry alone would not suffice; DC-AE §3 supplies training evidence.",
+    "models": [
+      "Efficient-Large-Model/Sana_600M_1024px_diffusers",
+      "Efficient-Large-Model/Sana_Sprint_1.6B_1024px_diffusers"
+    ],
+    "code": "sana/pipeline_sana.py T2I-only. sana/pipeline_sana_sprint_img2img.py exposes image+strength with TrigFlow time transform/default2steps; v0.36 also has Sprint img2img. floor(N×strength) can give zero steps for .1/.2/.4 at tinyN; core strengths cannot simply be copied.",
+    "memory": "Table5 RTX4090 1024 FP16 .88s versus optimized W8A8 .37s, with quality changes. Official4bit8GB claim uses Nunchaku. These are optimizedT2I, not frozen img2img measurements. 600M denoiser≥1.2GB BF16 plus≈4GB Gemma/AE/activations; target runtime unknown.",
+    "evaluation": "GenEval533 prompts as paper states, DPG1,065,MJHQ30K. Table5 quantization CLIP28.5→28.3 and ImageReward1.03→.96 on statedMJHQ/first1K subsets. DC-AE supplies reconstruction evidence; Sprint few-step gains do not validate equal corruption.",
+    "implication": "DC-AE provides large compression change and cheap AE-only contrast. FullSprint needs a defensible corruption schedule and cannot silently replaceR1.",
+    "limitations": "Apache ungated packages; upstreamGemma terms/access remain separate. Packaged weights do not erase upstream terms. Optimized headlines do not establish frozen-stack24GB throughput.",
+    "extra": [],
+    "qualifies": true,
+    "sources": [
+      "T2-Efficient-Large-Model--Sana_600M_1024px_diffusers-api",
+      "T2-Efficient-Large-Model--Sana_600M_1024px_diffusers-README",
+      "T2-Efficient-Large-Model--Sana_600M_1024px_diffusers-vae--config",
+      "T2-Efficient-Large-Model--Sana_600M_1024px_diffusers-model_index",
+      "T2-sana-paper",
+      "T2-sprint-pipeline-v036",
+      "T2-Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers-api",
+      "T2-Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers-README.md",
+      "T2-Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers-vae--config.json",
+      "T2-Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers-scheduler--scheduler_config.json",
+      "T2-Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers-model_index.json",
+      "Efficient-Large-Model--Sana_600M_1024px_diffusers--README.md",
+      "Efficient-Large-Model--Sana_600M_1024px_diffusers--vae--config.json",
+      "Efficient-Large-Model--Sana_600M_1024px_diffusers--model_index.json",
+      "Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers--README.md",
+      "Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers--vae--config.json",
+      "Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers--model_index.json",
+      "code-sana--pipeline_sana.py-html",
+      "code-sana--pipeline_sana_sprint_img2img.py-html",
+      "code-sana--pipeline_sana.py-html.decoded",
+      "code-sana--pipeline_sana_sprint_img2img.py-html.decoded",
+      "T2-sana-paper.read"
+    ]
+  },
+  {
+    "id": "pixartsigma",
+    "name": "PixArt-α / PixArt-Σ",
+    "paper": "2403.04692v1",
+    "sections": "§3.2 KV compression; §3.3 VAE adaptation; §4.1/4.2 evaluation; paired α methods/evaluation",
+    "architecture": "0.6B DiT/T5, KL VAE C4/f8. α uses pretrained LDM VAE; Σ explicitly replaces with SDXL VAE and adapts denoiser2K updates. α paper does not establish exactSD1.5 versusSD2 checkpoint.",
+    "lineage": "α vs SD1: shared pretrainedLDM lineage, not proven new. Σ vs SD1: inherits SDXL distinct ancestry; Σ vs SDXL: SAME. No new encoder diversity.",
+    "models": [
+      "PixArt-alpha/PixArt-XL-2-1024-MS",
+      "PixArt-alpha/PixArt-Sigma-XL-2-1024-MS"
+    ],
+    "code": "pixart_alpha/pipeline_pixart_sigma.py T2I signature; no image/strength. Community adapter is not native support in inspected official class.",
+    "memory": "Denoiser≥1.2GB BF16 plusT5/VAE. No matched1024 batch-one peak/seconds. ≈34% KV compression relative high-resolution speed improvement is not a portable absolute1024 measurement.",
+    "evaluation": "Σ evaluates30K curated high-quality examples and300-caption human/GPT4V preference subset. α COCO30K FID7.32. α753 A100GPU-days partly converts V100 by2.2×; training estimate, not inference cost.",
+    "implication": "Useful denoiser control holding SDXL encoder fixed, low priority for encoder diversity.",
+    "limitations": "Ungated OpenRAIL++ packages, not Apache/MIT permissiveness. Private evaluation/evaluator differences prevent direct score ranking.",
+    "extra": [
+      "pixartalpha-paper"
+    ],
+    "qualifies": true,
+    "sources": [
+      "T2-PixArt-alpha--PixArt-XL-2-1024-MS-api",
+      "T2-PixArt-alpha--PixArt-XL-2-1024-MS-README",
+      "T2-PixArt-alpha--PixArt-XL-2-1024-MS-vae--config",
+      "T2-PixArt-alpha--PixArt-XL-2-1024-MS-model_index",
+      "T2-PixArt-alpha--PixArt-Sigma-XL-2-1024-MS-api",
+      "T2-PixArt-alpha--PixArt-Sigma-XL-2-1024-MS-README",
+      "T2-PixArt-alpha--PixArt-Sigma-XL-2-1024-MS-vae--config",
+      "T2-PixArt-alpha--PixArt-Sigma-XL-2-1024-MS-model_index",
+      "T2-pixartsigma-paper",
+      "pixartalpha-paper",
+      "PixArt-alpha--PixArt-XL-2-1024-MS--README.md",
+      "PixArt-alpha--PixArt-XL-2-1024-MS--vae--config.json",
+      "PixArt-alpha--PixArt-XL-2-1024-MS--model_index.json",
+      "PixArt-alpha--PixArt-Sigma-XL-2-1024-MS--README.md",
+      "PixArt-alpha--PixArt-Sigma-XL-2-1024-MS--vae--config.json",
+      "PixArt-alpha--PixArt-Sigma-XL-2-1024-MS--model_index.json",
+      "code-pixart_alpha--pipeline_pixart_sigma.py-html",
+      "code-pixart_alpha--pipeline_pixart_sigma.py-html.decoded",
+      "pixartalpha-paper.read",
+      "T2-pixartsigma-paper.read"
+    ]
+  },
+  {
+    "id": "playground",
+    "name": "Playground v2.5",
+    "paper": "2402.17245v1",
+    "sections": "§2 EDM/noise/resolution buckets; §3/Table1 MJHQ/preference; official VAE config/LFS metadata",
+    "architecture": "SDXL-like U-Net with EDM and balanced resolution buckets; C4/f8 SDXL VAE.",
+    "lineage": "vs SD1: inherits SDXL ancestry. vs SDXL: SAME. Advertised fp16VAE LFS SHA matches officialSDXL (bcb60880…c6161e68); metadata identity without downloading weights.",
+    "models": [
+      "playgroundai/playground-v2.5-1024px-aesthetic"
+    ],
+    "code": "stable_diffusion_xl/pipeline_stable_diffusion_xl_img2img.py supports architecture; EDM scheduler/config compatibility remains a condition, not tested runtime.",
+    "memory": "≈2.6B denoiser≥5.2GB BF16 plustext/VAE/activations. No matched primary1024 peak/time. Similar parameter count does not justify copying latency across schedulers.",
+    "evaluation": "MJHQ30K1024 FID4.48 versusSDXL+refiner9.55; private1K-prompt aesthetic preference4.8×ratio. Settings mix model/sampler/training differences, not AE isolation.",
+    "implication": "Exclude from encoder-diversity expansion; at most a separate denoiser/scheduler control.",
+    "limitations": "Custom Playground Community license, ungated. AdvertisedVAE hash is metadata evidence, not locally verified weights.",
+    "extra": [],
+    "qualifies": true,
+    "sources": [
+      "T2-playgroundai--playground-v2.5-1024px-aesthetic-api",
+      "T2-playgroundai--playground-v2.5-1024px-aesthetic-README",
+      "T2-playgroundai--playground-v2.5-1024px-aesthetic-vae--config",
+      "T2-playgroundai--playground-v2.5-1024px-aesthetic-model_index",
+      "T2-playground-paper",
+      "playgroundai--playground-v2.5-1024px-aesthetic--README.md",
+      "playgroundai--playground-v2.5-1024px-aesthetic--vae--config.json",
+      "playgroundai--playground-v2.5-1024px-aesthetic--model_index.json",
+      "code-stable_diffusion_xl--pipeline_stable_diffusion_xl_img2img.py-api",
+      "code-stable_diffusion_xl--pipeline_stable_diffusion_xl_img2img.py-api-decoded",
+      "T2-playground-paper.read"
+    ]
+  },
+  {
+    "id": "hunyuan",
+    "name": "Hunyuan-DiT",
+    "paper": "2405.08748v1",
+    "sections": "§2.1 VAE/text/DiT; §4 evaluation/ablations; official cards/config",
+    "architecture": "≈1.5B transformer with bilingualCLIP/T5; C4/f8 VAE explicitly fromSDXL.",
+    "lineage": "vs SD1: inheritsSDXL ancestry. vs SDXL: SAME. Hunyuan text callsSDXL fine-tunedSD1.5, conflicting with creatorSDXL§2.4; prefer original from-scratch account and preserve conflict.",
+    "models": [
+      "Tencent-Hunyuan/HunyuanDiT-v1.2-Diffusers",
+      "tencent/HunyuanImage-3.0"
+    ],
+    "code": "hunyuandit/pipeline_hunyuandit.py T2I-only, no source image/strength. HunyuanImage3 is separate80B-MoE generation; no inherited VAE-lineage assertion.",
+    "memory": "1.5B denoiser≥3GB BF16 plustext/VAE; matched1024 peak/time unknown. HunyuanImage3 advertised weights≈168GB; activeMoE parameters do not equal resident memory.",
+    "evaluation": "§4 >3,000 prompts,>50 professional raters,four dimensions,30–50 prompts/subcategory. Smaller.7B ablations COCO30K256. Do not assign those conditions to1024 full-model reconstruction/survival.",
+    "implication": "DiT adds no encoder diversity. Image3 remains current lead with unresolved AE ancestry and huge resident footprint.",
+    "limitations": "Tencent custom terms, ungated hub; availability is not permissiveness. Native strength wrapper not verified.",
+    "extra": [],
+    "qualifies": true,
+    "sources": [
+      "T2-Tencent-Hunyuan--HunyuanDiT-v1.2-Diffusers-api",
+      "T2-Tencent-Hunyuan--HunyuanDiT-v1.2-Diffusers-README",
+      "T2-Tencent-Hunyuan--HunyuanDiT-v1.2-Diffusers-vae--config",
+      "T2-Tencent-Hunyuan--HunyuanDiT-v1.2-Diffusers-model_index",
+      "T2-hunyuan-paper",
+      "T2-tencent--HunyuanImage-3.0-api",
+      "T2-tencent--HunyuanImage-3.0-README.md",
+      "Tencent-Hunyuan--HunyuanDiT-v1.2-Diffusers--README.md",
+      "Tencent-Hunyuan--HunyuanDiT-v1.2-Diffusers--vae--config.json",
+      "Tencent-Hunyuan--HunyuanDiT-v1.2-Diffusers--model_index.json",
+      "tencent--HunyuanImage-3.0--README.md",
+      "code-hunyuandit--pipeline_hunyuandit.py-html",
+      "code-hunyuandit--pipeline_hunyuandit.py-html.decoded",
+      "T2-hunyuan-paper.read"
+    ]
+  },
+  {
+    "id": "qwen",
+    "name": "Qwen-Image / newer Qwen variants",
+    "paper": "2508.02324v1",
+    "sections": "§2.3 image VAE: frozen Wan encoder and decoder-only fine-tuning; Table2 reconstruction; architecture discussion and official configs/native img2img",
+    "architecture": "20B MMDiT/Qwen2.5VL, Wan2.1 VAE C16/spatial8/temporal4. Image encoder frozen, decoder fine-tuned. Qwen2.1 instead RGBA4 input/output,z64,spatial16/temporal8; no inheritedWan assumption.",
+    "lineage": "Original vs SD1/SDXL: qualified distinctWan training lineage, not newly trainedQwen encoder. Qwen2.1 vsboth UNKNOWN. Qwen-VAE2 from-scratch ablations do not establish mapping to released2.1.",
+    "models": [
+      "Qwen/Qwen-Image",
+      "Qwen/Qwen-Image-2512",
+      "Qwen/Qwen-Image-2.1"
+    ],
+    "code": "qwenimage/pipeline_qwenimage_img2img.py native image+strength, mean/std normalization/flow truncation. qwenimage21/pipeline_qwenimage21.py image conditioning but no strength; not interchangeable.",
+    "memory": "The20B denoiser requires at least40GB BF16 parameters, plus about14GB for the7B text encoder, VAE and activations. A fully resident24GB pipeline is impossible under these assumptions. Offload/quantization changes runtime; no matched primary1024 peak/time found. Wan video8.19GB is not a Qwen1024 image measurement.",
+    "evaluation": "Table2 ImageNet-val256FP32 PSNR33.42/SSIM.9159 versusWan31.29/.887; in-house text-rich25636.63/.9839 versus26.77/.9386. Effective image encoder19M/decoder25M. Decoder improvement does not prove new encoder.",
+    "implication": "Wan/Qwen AE-only distinct-lineage diagnostic useful; fullregeneration costly. Treat2.1 as unresolved new config.",
+    "limitations": "Qwen-Image/2512 are Apache and ungated. Qwen2.1 uses ungated Qwen Research terms, not Apache. The original paper cannot establish successor initialization.",
+    "extra": [],
+    "qualifies": true,
+    "sources": [
+      "T2-Qwen--Qwen-Image-api",
+      "T2-Qwen--Qwen-Image-README",
+      "T2-Qwen--Qwen-Image-vae--config",
+      "T2-Qwen--Qwen-Image-model_index",
+      "T2-qwen-paper",
+      "T2-Qwen--Qwen-Image-2512-api",
+      "T2-Qwen--Qwen-Image-2512-README.md",
+      "T2-Qwen--Qwen-Image-2512-vae--config.json",
+      "T2-Qwen--Qwen-Image-2512-scheduler--scheduler_config.json",
+      "T2-Qwen--Qwen-Image-2512-model_index.json",
+      "T2-Qwen--Qwen-Image-2.1-api",
+      "T2-Qwen--Qwen-Image-2.1-README.md",
+      "qwen21-api",
+      "Qwen--Qwen-Image--README.md",
+      "Qwen--Qwen-Image--vae--config.json",
+      "Qwen--Qwen-Image--model_index.json",
+      "Qwen--Qwen-Image-2512--README.md",
+      "Qwen--Qwen-Image-2512--vae--config.json",
+      "Qwen--Qwen-Image-2512--model_index.json",
+      "Qwen--Qwen-Image-2.1--README.md",
+      "Qwen--Qwen-Image-2.1--vae--config.json",
+      "Qwen--Qwen-Image-2.1--model_index.json",
+      "code-qwenimage--pipeline_qwenimage_img2img.py-api",
+      "code-qwenimage--pipeline_qwenimage_img2img.py-api-decoded",
+      "code-qwenimage21--pipeline_qwenimage21.py-html",
+      "code-qwenimage21--pipeline_qwenimage21.py-html.decoded",
+      "T2-qwen-paper.read"
+    ]
+  },
+  {
+    "id": "zimage",
+    "name": "Z-Image",
+    "paper": "2511.22699v1",
+    "sections": "S3-DiT and distillation methods; §5.2.1/Table9; official speed claim and VAE metadata",
+    "architecture": "6B single-stream S3-DiT with Qwen3-4B conditioning; frozen FLUX1 VAE, C=16/f=8. Turbo uses 8 NFE.",
+    "lineage": "Against SD1 and SDXL: UNKNOWN through FLUX initialization. The advertised VAE LFS SHA f5b59a26…604d40a3 matches FLUX1 and Chroma; this is encoder reuse, not new training.",
+    "models": [
+      "Tongyi-MAI/Z-Image-Turbo"
+    ],
+    "code": "z_image/pipeline_z_image_img2img.py native image+strength, VAEshift/scale/flow. Currentpin; frozen v0.35.1 compatibility not established.",
+    "memory": "The 6B denoiser alone requires at least 12 GB BF16 weights, plus about 8 GB for the 4B text encoder and additional VAE/activations. Primary subsecond speed uses H800, FlashAttention3 and compilation. The modelcard 16 GB claim does not prove a fully resident BF16 pipeline. Our 1024 peak and runtime remain unknown.",
+    "evaluation": "Table9 reports GenEval .84 for base and .82 for Turbo. Speed depends on NFE and specialized optimization; quality scores do not isolate the encoder. Prompt rewriting and distillation can affect outcomes.",
+    "implication": "An accessible modern FLUX-family contrast, but not a proven freshly initialized AE. Replacing gated FLUX with Z-Image would not establish independent-encoder transfer.",
+    "limitations": "Apache2 and ungated model package. Published object hashes are metadata evidence; no weights or outcomes were generated.",
+    "extra": [],
+    "qualifies": true,
+    "sources": [
+      "T2-Tongyi-MAI--Z-Image-Turbo-api",
+      "T2-Tongyi-MAI--Z-Image-Turbo-README",
+      "T2-Tongyi-MAI--Z-Image-Turbo-vae--config",
+      "T2-Tongyi-MAI--Z-Image-Turbo-model_index",
+      "T2-zimage-paper",
+      "Tongyi-MAI--Z-Image-Turbo--README.md",
+      "Tongyi-MAI--Z-Image-Turbo--vae--config.json",
+      "Tongyi-MAI--Z-Image-Turbo--model_index.json",
+      "code-z_image--pipeline_z_image_img2img.py-api",
+      "code-z_image--pipeline_z_image_img2img.py-api-decoded",
+      "T2-zimage-paper.read"
+    ]
+  },
+  {
+    "id": "lumina",
+    "name": "Lumina-Image 2.0",
+    "paper": "2503.21758v1",
+    "sections": "UnifiedNextDiT architecture; official README VAE statement; §5.4/Table8; Fig11 efficiency protocol",
+    "architecture": "2.6B UnifiedNextDiT with Gemma2-2B and FLUX VAE, C=16/f=8. Progressive multiresolution training, RoPE and CFG normalization improve the denoiser.",
+    "lineage": "Against SD1 and SDXL: UNKNOWN through FLUX. The VAE is reused, not separately trained for Lumina.",
+    "models": [
+      "Alpha-VLLM/Lumina-Image-2.0"
+    ],
+    "code": "lumina2/pipeline_lumina2.py: T2I only, default 30 steps, no image/strength parameter.",
+    "memory": "Denoiser weights alone are at least 5.2 GB BF16, plus about 4 GB Gemma and VAE/activations. Fig11 compares A100 batch-one 1024 latency graphically; exact seconds were not reliably extracted. Target-device peak/runtime remain unknown.",
+    "evaluation": "Table8: low-resolution DPG84.5/GenEval.63 → high-resolution85.7/.67 → high-quality5K updates87.2/.73 →11K updates87.6/.72. Nonmonotonic GenEval requires retaining training-stage context. FDPM/TeaCache speed choices trade stability or blur.",
+    "implication": "A further FLUX reuse example, low priority for an independent-encoder panel.",
+    "limitations": "Apache ungated package; upstream Gemma license/access remain separate dependencies. No native strength interface is assumed.",
+    "extra": [],
+    "qualifies": true,
+    "sources": [
+      "T2-Alpha-VLLM--Lumina-Image-2.0-api",
+      "T2-Alpha-VLLM--Lumina-Image-2.0-README",
+      "T2-Alpha-VLLM--Lumina-Image-2.0-vae--config",
+      "T2-Alpha-VLLM--Lumina-Image-2.0-model_index",
+      "lumina2-api",
+      "lumina-paper",
+      "Alpha-VLLM--Lumina-Image-2.0--README.md",
+      "Alpha-VLLM--Lumina-Image-2.0--vae--config.json",
+      "Alpha-VLLM--Lumina-Image-2.0--model_index.json",
+      "code-lumina2--pipeline_lumina2.py-api",
+      "code-lumina2--pipeline_lumina2.py-api-decoded",
+      "lumina-paper.read"
+    ]
+  },
+  {
+    "id": "hidream",
+    "name": "HiDream-I1 / O1 successor (one conservative family)",
+    "paper": "2505.22705v1",
+    "sections": "MoE/training methods; benchmark tables; official README lines105/109 and VAE config; paired O1 methods/evaluation",
+    "architecture": "I1 uses a 17B sparse-MoE DiT, four text encoders and FLUX1 VAE, C=16/f=8. O1 is native RGB3/f1 unified pixel diffusion; its separate card is conservatively grouped under this one family.",
+    "lineage": "I1 ancestry against SD1/SDXL is UNKNOWN through FLUX. README names FLUX.1-schnell while config _name_or_path is ../checkpoints/flux-dev: both support FLUX1 family reuse, not byte identity. O1 has no AE, so encoder independence is not applicable. Qwen3-VL denoiser initialization is not AE initialization.",
+    "models": [
+      "HiDream-ai/HiDream-I1-Full",
+      "HiDream-ai/HiDream-O1-Image"
+    ],
+    "code": "hidream_image/pipeline_hidream_image.py is I1 T2I only. O1 custom inference.py accepts reference images for editing/subject conditioning, but is not native Diffusers strength-controlled img2img; see its separate card.",
+    "memory": "I1 denoiser alone requires at least34GB BF16 before T5/Llama8B/CLIP/VAE. O1 index reports8,804,887,792 parameters:17.609775584GB BF16 parameter floor, excluding activations/KV. Eight official files total35.219643552GB on disk. Added to20.206GB core gives55.425643552GB before packages/images, below the future authorized80GB cap but not an execution authorization. Target1024 peak/runtime unknown; current O1 interface snaps square requests to2048.",
+    "evaluation": "I1 reports GenEval .83, DPG85.89 and HPSv2.1 mean33.82. Paper 50/28/14-step variants differ from the native Fast16 example; preserve revisions. Sample count/resolution are incomplete in the table. O1 GenEval .90 and DPG89.83 support pixel generation potential, not corruption equivalence.",
+    "implication": "I1 adds no encoder lineage. O1 leads a high-resolution pixel-method research proposal because methods/evaluations are substantive; PRX remains the more direct native1024 interface candidate. Neither is ready for the frozen strength-controlled experiment.",
+    "limitations": "MIT ungated model packages. I1 external Llama3.1 is gated. O1 optional Gemma prompt refiner is gated; plain inference loads the local bundled model/processor, not a required external text encoder. No runtime validation.",
+    "extra": [],
+    "qualifies": true,
+    "sources": [
+      "hidream-api",
+      "hidream-paper",
+      "HiDream-ai--HiDream-I1-Full--README.md",
+      "HiDream-ai--HiDream-I1-Full--vae--config.json",
+      "HiDream-ai--HiDream-I1-Full--model_index.json",
+      "code-hidream_image--pipeline_hidream_image.py-api",
+      "code-hidream_image--pipeline_hidream_image.py-api-decoded",
+      "hidream-o1-api",
+      "hidream-o1-card",
+      "hidream-o1-config",
+      "hidream-o1-index",
+      "hidream-paper.read"
+    ]
+  },
+  {
+    "id": "omnigen",
+    "name": "OmniGen v1",
+    "paper": "2409.11340v2",
+    "sections": "§2/3 architecture/training; Table2 and editing evaluation; official docs/inference.md memory/time table",
+    "architecture": "3.8B Phi3-initialized multimodal rectified flow with frozen SDXL VAE, C=4/f=8. Input images are instruction/context tokens, not necessarily source latents initialized with partial noise.",
+    "lineage": "Against SD1: inherits SDXL separately trained ancestry. Against SDXL: SAME frozen encoder.",
+    "models": [
+      "Shitao/OmniGen-v1"
+    ],
+    "code": "omnigen/pipeline_omnigen.py accepts input_images and img_guidance_scale, but no strength. Native editing is not demonstrated SDEdit.",
+    "memory": "Official repo d4752019ae16741dc3801fd4989432aad4c81a4f reports1024: A800 text9GB31s/single image12GB66s/two images13GB80s; RTX3090 text9GB77s/single12GB166s/two13GB203s. KV caching/offload and separate CFG are enabled, model offload false. With model offload,3090 single image5GB469s. Precision/steps are incompletely specified; these are author reports, not our measurements.",
+    "evaluation": "Table2 GenEval overall .70 versus SD3 .68; task tests include EmuEdit and DreamBench. Editing capability does not validate matched-strength regeneration. Resource measurements show an offload latency tradeoff.",
+    "implication": "No encoder diversity. It demonstrates why fitting 24 GB and fitting 15 hours are different constraints.",
+    "limitations": "MIT ungated model. Resource table uses official custom code; current Diffusers may differ, so reported seconds cannot be transferred blindly.",
+    "extra": [
+      "omnigen-resource-pinned",
+      "omnigen-resource-html.decoded"
+    ],
+    "qualifies": true,
+    "sources": [
+      "omnigen-api",
+      "omnigen-paper",
+      "Shitao--OmniGen-v1--README.md",
+      "Shitao--OmniGen-v1--vae--config.json",
+      "code-omnigen--pipeline_omnigen.py-api",
+      "code-omnigen--pipeline_omnigen.py-api-decoded",
+      "omnigen-resource-pinned",
+      "omnigen-paper.read",
+      "omnigen-resource-html.decoded"
+    ]
+  },
+  {
+    "id": "cascade",
+    "name": "Würstchen / Stable Cascade",
+    "paper": "2306.00637v2",
+    "sections": "§3 three-stage compression; §4.1 COCO/PickScore; §4.2/Table2; Fig4; successor modelcard",
+    "architecture": "Stage A VQ reconstruction uses spatial f=4; Stage B reconstructs its latent; Stage C uses a semantic EfficientNetV2-S compressor with16 channels and about24×24 tokens for1024, effective f≈42.7. This is not a single f8 VAE. Stable Cascade successor sizes differ from the paper.",
+    "lineage": "Against SD1/SDXL: qualified YES for a distinct documented semantic compressor, ImageNet pretraining and stage training. This does not prove disjoint training data.",
+    "models": [
+      "stabilityai/stable-cascade"
+    ],
+    "code": "stable_cascade/pipeline_stable_cascade_prior.py allows images to condition the prior, but no strength. It does not expose source-latent partial denoising.",
+    "memory": "Paper Fig4 A1001024 shows more than2× SDXL relative speed; exact portable peak/seconds unavailable. Stable Cascade3.6B prior alone requires at least7.2GB BF16 plus decoder/text/VQ. Sequential offload changes time; matched release1024 runtime unknown.",
+    "evaluation": "COCO30K generated at1024, downsampled to256 for FID. Table2 Würstchen FID23.6/IS40.9; Stage C60 steps, Stage B12 steps, CFG4. PickScore also uses LocalNarratives5K and PartiPrompts. These are not measurements of the Stable Cascade3.6B release.",
+    "implication": "A distinct semantic compression route, but noncommercial terms and non-equivalent conditioning reduce immediate feasibility.",
+    "limitations": "Ungated custom noncommercial model license. Successor weights and stages prevent direct reuse of paper timing or scores.",
+    "extra": [
+      "cascade-bibliographic-metadata"
+    ],
+    "qualifies": true,
+    "sources": [
+      "cascade-api",
+      "cascade-paper",
+      "stabilityai--stable-cascade--README.md",
+      "stabilityai--stable-cascade--model_index.json",
+      "code-stable_cascade--pipeline_stable_cascade_prior.py-api",
+      "code-stable_cascade--pipeline_stable_cascade_prior.py-api-decoded",
+      "cascade-bibliographic-metadata",
+      "cascade-paper.read"
+    ]
+  },
+  {
+    "id": "ddpm",
+    "name": "Pixel-space DDPM",
+    "paper": "2006.11239v2",
+    "sections": "§3 forward/reverse process and objective; §4/Table1; AppendixB architecture and sampling cost",
+    "architecture": "RGB C=3/f=1, no AE. U-Net predicts noise with group normalization and attention at16². Training uses1000 steps and beta1e-4→.02.",
+    "lineage": "Against SD1 and SDXL: NOT APPLICABLE, no AE. This tests regeneration without an AE bottleneck, not another independently trained encoder.",
+    "models": [
+      "google/ddpm-celebahq-256"
+    ],
+    "code": "ddpm/pipeline_ddpm.py accepts batch_size and num_inference_steps, not image/strength. Pixel SDEdit requires forward-noising and correct scheduler truncation; not implemented or authorized.",
+    "memory": "The114M model requires at least .228GB BF16 parameters. Paper sampling on TPUv3-8 takes300s for batch128 at256; not GPU batch-one or1024. Official face checkpoint supports256; no validated1024 setting, peak or latency.",
+    "evaluation": "Table1 CIFAR train-reference FID3.17 (test-reference5.24), IS9.46. LSUNChurch256 FID7.89 and Bedroom4.90. These unconditional domain metrics do not validate general-photo regeneration.",
+    "implication": "Feasible permissive ungated small mechanism control, but demoted from the lead pixel proposal because high-resolution pixel alternatives exist. It cannot stand in for general-photo1024 regeneration.",
+    "limitations": "Apache2 model and permissive diffusion code. An adapter would be new scientific work;256 feasibility does not establish1024 feasibility.",
+    "extra": [],
+    "qualifies": true,
+    "sources": [
+      "T2-google--ddpm-celebahq-256-api",
+      "T2-google--ddpm-celebahq-256-README",
+      "T2-google--ddpm-celebahq-256-model_index",
+      "ddpm-api",
+      "ddpm-paper",
+      "google--ddpm-celebahq-256--README.md",
+      "google--ddpm-celebahq-256--model_index.json",
+      "code-ddpm--pipeline_ddpm.py-api",
+      "code-ddpm--pipeline_ddpm.py-api-decoded",
+      "ddpm-paper.read"
+    ]
+  },
+  {
+    "id": "lens",
+    "name": "Microsoft Lens",
+    "paper": "2605.21573v1",
+    "sections": "§2.2 FLUX2 VAE and architecture; §2.5 acceleration; §3/Table2 and protocols; official README",
+    "architecture": "3.8B48-block MMDiT with frozen FLUX2 VAE, C=32/f=8;2×2 packing gives128 channels/f16 token grid. GPT-OSS20B total/about3B active text encoder.",
+    "lineage": "Against SD1/SDXL: UNKNOWN through FLUX2 initialization. Explicit reuse means a freshly trained Lens denoiser is not a fresh AE.",
+    "models": [],
+    "code": "Official microsoft/Lens repo5bf0f0cea2f4bc32ebb2b7ed2ef96d5e88b701e0 has a custom pipeline. No Lens native Diffusers class in inspected tree, nor verified source-noise image+strength interface.",
+    "memory": "§2.5 reports1024 on H100:20 steps3.15s and4-step Turbo.84s. Denoiser floor7.6GB BF16; dequantized GPT-OSS20B on A100 adds about40GB, unlike Hopper MXFP4. Target peak/runtime unknown; reasoner cost is not assumed included.",
+    "evaluation": "Table2: Lens20-step GenEval.930 and Turbo4-step.914; OneIG EN/ZH are separate columns (.557/.525 for Lens), not two GenEval settings. Protocols include OneIG1,120 prompts, GenEval553 as this paper states and LongText160. Default inference refines prompts with a reasoner, uses20 steps/CFG5, while Turbo4-step uses no CFG. Prompt rewriting and system-prompt search therefore limit comparison with frozen unrewritten prompts. The H100 .84s/3.15s speed reports are primary author measurements, not our replication.",
+    "implication": "Current efficiency lead but no new encoder lineage. Advertised model API401 and empty owner search mean access unavailable, not proof of nonexistence.",
+    "limitations": "Code MIT. Actual model revision/license unverified at inaccessible endpoint. GPU-specific quantization undermines a blanket small-VRAM claim.",
+    "extra": [
+      "lens-readme-html.decoded",
+      "lens-repo",
+      "lens-hub-discovery"
+    ],
+    "qualifies": true,
+    "sources": [
+      "T2-lens-paper",
+      "lens-repo",
+      "lens-hub-discovery",
+      "lens-readme-html.decoded",
+      "T2-lens-paper.read"
+    ]
+  },
+  {
+    "id": "pixelgen",
+    "name": "PixelGen",
+    "paper": "2602.02493v1",
+    "sections": "§3.1–3.4 pixel prediction/perceptual losses; ImageNet/T2I evaluations; official PixelAE/config/actual sampler",
+    "architecture": "RGB C=3/f=1 with affine identity PixelAE: encode x/scale+shift, inverse decode. Clean-image prediction converts to flow. LPIPS, perceptual DINO and REPA losses train the model; no compression AE.",
+    "lineage": "Against SD1/SDXL: NOT APPLICABLE, no AE. Training perceptual networks are not inference compressors.",
+    "models": [
+      "zehongma/PixelGen"
+    ],
+    "code": "Official repo7b94115d6f14d1c4ce0fe7a17a06351934ef2d4a: T2I config uses adam_sampling.AdamLMSamplerJiT and PixelAE. Sampler starts from noise; no verified image+strength adapter. Generic sampling.py is not the configured sampler. No official native Diffusers support verified.",
+    "memory": "ImageNet676M model floor1.352GB BF16; T2I1.1B floor2.2GB plus text/activations. Native T2I512; no1024 peak/time. Token/attention scaling is not captured by parameter memory.",
+    "evaluation": "ImageNet256,80 epochs without CFG: FID5.11;160 epochs with CFG and50 Heun steps: FID1.83. T2I5121.1B GenEval.79. Paper title “Pixel Diffusion Beats Latent Diffusion with Perceptual Loss” differs from repository “Improving Pixel Diffusion with Perceptual Loss”; retain version distinction.",
+    "implication": "Modern pixel-method evidence and lower model size, but native512 and code-license gap put it behind HiDream-O1 for P7.",
+    "limitations": "Official HF weights Apache2 and ungated. Repository tree lacks LICENSE; do not infer code permission from weight terms. Community Diffusers mirror is not official support.",
+    "extra": [
+      "pixelgen-config-html.decoded",
+      "pixelgen-ae.decoded",
+      "pixelgen-adam-sampler.decoded",
+      "pixelgen-repo-tree"
+    ],
+    "qualifies": true,
+    "sources": [
+      "pixelgen-paper",
+      "pixelgen-repo-tree",
+      "pixelgen-api",
+      "pixelgen-card",
+      "pixelgen-ae.decoded",
+      "pixelgen-adam-sampler.decoded",
+      "pixelgen-config-html.decoded",
+      "pixelgen-paper.read"
+    ]
+  },
+  {
+    "id": "pixsgr",
+    "name": "PixSGR",
+    "paper": "2609.00798v1",
+    "sections": "§3.1 low-channel bottleneck; §3.2 sparse global refinement; ImageNet protocol/tables; official release inventory",
+    "architecture": "Pixel diffusion with learned low-channel bottleneck and sparse global refinement inside the denoiser. RGB3/f1 output, no external pretrained AE.",
+    "lineage": "Against SD1/SDXL: NOT APPLICABLE. Internal representation learning can still remove marks; pixel space does not guarantee retention.",
+    "models": [
+      "CVLUESTC/PixSGR"
+    ],
+    "code": "CVL-UESTC/PixSGR repo1f08f332fb469c893cfa8992ad269d8588173c5a exposes README/assets, no runnable sampler inspected. HF contains only .gitattributes and no released weights. Native Diffusers support unverified.",
+    "memory": "875M parameters imply at least1.75GB BF16 weights. Evaluation at256/512; no supported1024 model or primary1024 peak/time. Availability gap blocks an executable cost plan.",
+    "evaluation": "ImageNet256,50K samples,320 epochs,875M model: FID1.51, IS311, precision.78, recall.65. CFG3 over[.2,.98], interval guidance.04 over[.2,.7]. These are evaluation settings, not .2 img2img strength. No general T2I1024 result established.",
+    "implication": "Qualifies as substantively inspected distinct research, not an executable candidate. Paper evidence and released-model availability are separate.",
+    "limitations": "Ungated but empty HF repository; license/code/weights unavailable rather than gated.",
+    "extra": [
+      "pixsgr-readme-pinned",
+      "pixsgr-repo-discovery",
+      "pixsgr-api"
+    ],
+    "qualifies": true,
+    "sources": [
+      "pixsgr-paper",
+      "pixsgr-repo-discovery",
+      "pixsgr-api",
+      "pixsgr-readme-pinned",
+      "pixsgr-readme-pinned.decoded",
+      "pixsgr-paper.read"
+    ]
+  },
+  {
+    "id": "dcae",
+    "name": "DC-AE supporting encoder evidence",
+    "paper": "2410.10733v1",
+    "sections": "§3 residual shortcuts/three-phase training; reconstruction tables; high-resolution efficiency comparisons",
+    "architecture": "Continuous nonvariational deep-compression AE; SANA uses C32/f32. Paper studies f64/c128 and f128/c512 too; denoiser patch size is separate from AE compression.",
+    "lineage": "Against SD1/SDXL: qualified distinct training lineage. Three phases train on ImageNet/SAM/Mapillary/FFHQ; no SD initialization is stated. Architectural resemblance alone is not independence evidence.",
+    "models": [
+      "Efficient-Large-Model/Sana_600M_1024px_diffusers"
+    ],
+    "code": "DC-AE encode/decode is used by Sana and Sprint classes. Standalone reconstruction is possible conceptually, but no execution/adapter was built.",
+    "memory": "Primary19.1× H100 speedup concerns UViT-H512, not1024 batch-one AE or full-generation latency. AE-only memory/seconds unknown; dense weights and activations must be measured later.",
+    "evaluation": "Table2 ImageNet512 reconstruction: f64/c128 rFID16.84→.22 and f128/c512100.74→.23 with the proposed training/shortcuts. Reconstruction tradeoffs do not imply better preservation of a watermark.",
+    "implication": "Supports the SANA family independence rationale; does not add another family to the floor.",
+    "limitations": "No full diffusion result can be inferred from encoder-only reconstruction quality.",
+    "extra": [],
+    "qualifies": false,
+    "sources": [
+      "T2-Efficient-Large-Model--Sana_600M_1024px_diffusers-api",
+      "T2-Efficient-Large-Model--Sana_600M_1024px_diffusers-README",
+      "T2-Efficient-Large-Model--Sana_600M_1024px_diffusers-vae--config",
+      "T2-Efficient-Large-Model--Sana_600M_1024px_diffusers-model_index",
+      "T2-dcae-paper",
+      "Efficient-Large-Model--Sana_600M_1024px_diffusers--README.md",
+      "Efficient-Large-Model--Sana_600M_1024px_diffusers--vae--config.json",
+      "Efficient-Large-Model--Sana_600M_1024px_diffusers--model_index.json",
+      "T2-dcae-paper.read"
+    ]
+  },
+  {
+    "id": "sprint",
+    "name": "SANA-Sprint supporting distillation evidence",
+    "paper": "2503.09641v1",
+    "sections": "§3 flow-to-TrigFlow/self-consistency/adversarial distillation; §4.1/4.2 benchmarks and latency",
+    "architecture": "Same DC-AE C32/f32; SANA denoiser distilled to1–4 steps. Conversion rescales time, SNR and model output between flow matching and TrigFlow.",
+    "lineage": "Same DC-AE encoder as SANA, not an additional independently trained AE. Against SD1/SDXL use the qualified training evidence in dcae.md.",
+    "models": [
+      "Efficient-Large-Model/Sana_Sprint_1.6B_1024px_diffusers"
+    ],
+    "code": "sana/pipeline_sana_sprint_img2img.py exposes image+strength, default2 steps, TrigFlow-specific time bounds. Small-step integer truncation can empty the core .1/.2/.4 schedule.",
+    "memory": "Headline1024 one-step .1s H100/.31s RTX4090 uses optimized conditions. Another table gives .21s for600M one-step and .32s four-step: different configurations must not be merged. Our img2img time/peak unknown;1.6B denoiser BF16 floor3.2GB plus text/AE.",
+    "evaluation": "MJHQ30K FID/CLIP and GenEval comparisons: headline one-step FID7.59/GenEval.74; four-step table FID6.48/GenEval.76. Faster sampling is not evidence of matched source corruption.",
+    "implication": "Cheap generation candidate after a separate schedule design, or DC-AE-only diagnostic now as a proposal. No silent schedule amendment.",
+    "limitations": "Distilled speed claims do not justify assuming strength labels have the same meaning as DDIM.",
+    "extra": [],
+    "qualifies": false,
+    "sources": [
+      "T2-sprint-paper",
+      "T2-sprint-pipeline-v036",
+      "T2-Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers-api",
+      "T2-Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers-README.md",
+      "T2-Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers-vae--config.json",
+      "T2-Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers-scheduler--scheduler_config.json",
+      "T2-Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers-model_index.json",
+      "Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers--README.md",
+      "Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers--vae--config.json",
+      "Efficient-Large-Model--Sana_Sprint_1.6B_1024px_diffusers--model_index.json",
+      "code-sana--pipeline_sana_sprint_img2img.py-html",
+      "code-sana--pipeline_sana_sprint_img2img.py-html.decoded",
+      "T2-sprint-paper.read"
+    ]
+  },
+  {
+    "id": "wan",
+    "name": "Wan supporting Qwen encoder lineage",
+    "paper": "2503.20314v1",
+    "sections": "§4.1.1/4.1.2 causal VAE and training; Fig7 reconstruction/throughput; §4.7.1 WanBench",
+    "architecture": "127M causal3D VAE, C16/spatial8/temporal4; first image frame only undergoes spatial compression. Train2D image AE then inflate to3D with L1/KL/LPIPS followed by adversarial learning.",
+    "lineage": "Qualified separate documented training vs SD1/SDXL; initial2D checkpoint random initialization is not explicit. Qwen freezes this encoder and fine-tunes decoder; not a second new encoder.",
+    "models": [
+      "Qwen/Qwen-Image"
+    ],
+    "code": "Original Qwen img2img is an image-specific consumer of the Wan-derived AE; no claim that video pipelines implement a matched1024 image attack.",
+    "memory": "Video8.19GB report belongs to video settings. Fig7 uses720²25-frame reconstruction/throughput, not1024 image batch-one peak/time. Standalone image AE runtime unknown.",
+    "evaluation": "WanBench1,035 cases/model and VBench14B86.22%; video evaluation is not image regeneration. Fig7 numerical image values were not reliably extracted, so no fabricated PSNR/latency is listed.",
+    "implication": "Training lineage supports a Qwen/Wan AE-only proposal with a different bottleneck and decoder history.",
+    "limitations": "Counted under Qwen family for the conservative floor, not as an extra family just for AE reuse.",
+    "extra": [],
+    "qualifies": false,
+    "sources": [
+      "T2-Qwen--Qwen-Image-api",
+      "T2-Qwen--Qwen-Image-README",
+      "T2-Qwen--Qwen-Image-vae--config",
+      "T2-Qwen--Qwen-Image-model_index",
+      "T2-wan-paper",
+      "T2-Qwen--Qwen-Image-2512-api",
+      "T2-Qwen--Qwen-Image-2512-README.md",
+      "T2-Qwen--Qwen-Image-2512-vae--config.json",
+      "T2-Qwen--Qwen-Image-2512-scheduler--scheduler_config.json",
+      "T2-Qwen--Qwen-Image-2512-model_index.json",
+      "T2-Qwen--Qwen-Image-2.1-api",
+      "T2-Qwen--Qwen-Image-2.1-README.md",
+      "qwen21-api",
+      "Qwen--Qwen-Image--README.md",
+      "Qwen--Qwen-Image--vae--config.json",
+      "Qwen--Qwen-Image--model_index.json",
+      "Qwen--Qwen-Image-2512--README.md",
+      "Qwen--Qwen-Image-2512--vae--config.json",
+      "Qwen--Qwen-Image-2512--model_index.json",
+      "Qwen--Qwen-Image-2.1--README.md",
+      "Qwen--Qwen-Image-2.1--vae--config.json",
+      "Qwen--Qwen-Image-2.1--model_index.json",
+      "T2-wan-paper.read"
+    ]
+  },
+  {
+    "id": "kandinsky3",
+    "name": "Kandinsky3 MoVQ detail",
+    "paper": "2312.03511v1",
+    "sections": "§3.4/Table2 MoVQ sizes/training; evaluation; updated2410.21061 §4 architecture and human protocol",
+    "architecture": "C4/f8 MoVQ; compares67M,102M,270M and selects270M. Updated model combines roughly3B U-Net and8.6B FLAN-UL2 text encoder.",
+    "lineage": "Against SD1/SDXL: qualified separate MoVQ training on LAION-HighRes. No fresh family count beyond Kandinsky2/3 grouping. AE is frozen during generator training.",
+    "models": [
+      "kandinsky-community/kandinsky-3"
+    ],
+    "code": "v0.36.0 kandinsky3/pipeline_kandinsky3_img2img.py provides image+strength; official native1024 model. Quantization path must be fixed from source, not assumed from the term MoVQ.",
+    "memory": "Advertised component bytes: text21.739GB, U-Net6.111GB, MoVQ.541GB, total28.391GB. These are disk/weight amounts, not peak; phase offload needed24GB. Primary matched1024 time/peak unknown.",
+    "evaluation": "Table2 ImageNet reconstruction270M FID.686/SSIM.741/PSNR27.04, latent32². Do not invent an image resolution absent from the inspected table caption. Updated report uses human comparisons; these are not watermark outcomes.",
+    "implication": "Best optional full1024 regenerator among documented independent MoVQ variants, subject to timing and explicit proposal approval.",
+    "limitations": "A larger MoVQ model is not automatically independent of earlier MoVQ training; count the family once.",
+    "extra": [
+      "kd3-updated-paper",
+      "T2-kandinsky3-pipeline-v036"
+    ],
+    "qualifies": false,
+    "sources": [
+      "T2-kandinsky-community--kandinsky-3-api",
+      "T2-kandinsky-community--kandinsky-3-README.md",
+      "T2-kandinsky-community--kandinsky-3-scheduler--scheduler_config.json",
+      "T2-kandinsky-community--kandinsky-3-model_index.json",
+      "T2-kandinsky3-paper",
+      "T2-kandinsky3-pipeline-v036",
+      "kd3-updated-paper",
+      "kandinsky-community--kandinsky-3--README.md",
+      "kandinsky-community--kandinsky-3--model_index.json",
+      "kd3-updated-paper.read",
+      "T2-kandinsky3-paper.read"
+    ]
+  },
+  {
+    "id": "kandinsky5",
+    "name": "Kandinsky5 image lineage correction",
+    "paper": "2511.14993v1",
+    "sections": "§5.1–5.3 CrossDiT/encoders; §8.2.8 image-generation/editing SBS; official current Diffusers I2I signature",
+    "architecture": "Image Lite6B CrossDiT flow matching; explicitly FLUX.1-dev VAE C16/f8. Video uses HunyuanVideo VAE. The image branch is not MoVQ.",
+    "lineage": "Against SD1/SDXL: UNKNOWN through FLUX1. Does not inherit Kandinsky2/3 distinct MoVQ encoder lineage.",
+    "models": [],
+    "code": "kandinsky5/pipeline_kandinsky_i2i.py accepts image and prompt, default50 steps/CFG3.5, but no strength. Native instruction editing is not the frozen source-noise attack.",
+    "memory": "6B image denoiser floor12GB BF16 plus Qwen2.5VL7B text conditioning/VAE. No matched primary1024 image peak/time; video acceleration figures cannot be reused.",
+    "evaluation": "§8.2.8 uses internal SBS prompts expanded from PartiPrompts with GigaMax; expert judges rate prompt following/visual quality against FLUX-dev/Qwen and editing counterparts. Figure win percentages and exact sample count were not extracted; remain unknown. Video2.7× speedup is not image timing.",
+    "implication": "Correct the family-level assumption: newer Kandinsky does not automatically provide another independent encoder.",
+    "limitations": "Paper inspected V2, but exact image checkpoint revision/license/gate not resolved in this sweep. Treat those model-release fields unavailable, not inferred from old Apache Kandinsky.",
+    "extra": [],
+    "qualifies": false,
+    "sources": [
+      "T2-kandinsky5-paper",
+      "code-kandinsky5--pipeline_kandinsky_i2i.py-html",
+      "code-kandinsky5--pipeline_kandinsky_i2i.py-html.decoded",
+      "T2-kandinsky5-paper.read"
+    ]
+  },
+  {
+    "id": "qwen-vae2",
+    "name": "Qwen-VAE2 supporting newer AE research",
+    "paper": "2605.13565v1",
+    "sections": "§2 global shortcut/semantic alignment; §3 training; §6.1.1/6.1.3 reconstruction and SiT evaluations",
+    "architecture": "Global space-to-channel shortcut plus semantic DINO alignment; studies f16/c64 and f16/c128 image AEs. These are not automatically the released Qwen2.1 RGBA z64/f16 checkpoint.",
+    "lineage": "Paper includes from-scratch f16/c64 ablation. Independence of that experiment is evidence; mapping it to the newer released model remains UNKNOWN.",
+    "models": [
+      "Qwen/Qwen-Image-2.1"
+    ],
+    "code": "qwenimage21/pipeline_qwenimage21.py is conditional generation/editing without strength. No verified released checkpoint mapping to the paper AE configurations.",
+    "memory": "No matched1024 peak/time. Higher latent channel count does not alone determine peak memory; DINO loss is a training component, not necessarily inference residency.",
+    "evaluation": "ImageNet256 and FFHQ1024 reconstruction; OmniDoc roughly3K images at256, f16/c128 PSNR30.45/SSIM.9706/NED.9617 versus FLUX1 NED.9546. SiT80-epoch no-CFG comparisons change patch rates. NED convention and OCR quality matter; not our mark detector.",
+    "implication": "Potential additional encoder lineage for future work, conditional on exact release provenance; no automatic independent status for Qwen2.1.",
+    "limitations": "Supplement only, not an additional model family in the floor.",
+    "extra": [],
+    "qualifies": false,
+    "sources": [
+      "T2-Qwen--Qwen-Image-2.1-api",
+      "T2-Qwen--Qwen-Image-2.1-README.md",
+      "qwen-vae2-paper",
+      "qwen21-api",
+      "Qwen--Qwen-Image-2.1--README.md",
+      "Qwen--Qwen-Image-2.1--vae--config.json",
+      "Qwen--Qwen-Image-2.1--model_index.json",
+      "code-qwenimage21--pipeline_qwenimage21.py-html",
+      "code-qwenimage21--pipeline_qwenimage21.py-html.decoded",
+      "qwen-vae2-paper.read"
+    ]
+  },
+  {
+    "id": "hidream-o1",
+    "name": "HiDream-O1 native pixel model and P7 recommendation",
+    "paper": "2605.11061v1",
+    "sections": "§3.2–3.4 unified pixel transformer/losses; §4 progressive training; §5 distillation/evaluation; official inference/pipeline/utils/index",
+    "architecture": "Raw RGB C3/f1, no external VAE or disjoint text encoder; single shared text/image token system. Pixel patches32×32 are tokenization, not a learned AE compression. Qwen3-VL-8B initialization, clean-image prediction, LPIPS/perceptualDINO and flow conversion; distillation uses distribution matching/adversarial training.",
+    "lineage": "Against SD1/SDXL: NOT APPLICABLE, no AE. The integrated vision tower for reference conditioning is not a source-image latent bottleneck for target generation.",
+    "models": [
+      "HiDream-ai/HiDream-O1-Image"
+    ],
+    "code": "Official repo2c2d29ff729e48f33e41f49edfdbd81d5ac103b4: inference.py loads local model_path processor/model in BF16 CUDA. generate_image(ref_image_paths,height,width,steps,...) has no strength; target initializes Gaussian RGB noise, references provide context. Full50 steps/CFG5/shift3; Dev28 steps/CFG0/shift1, flow_match editing versus flash elsewhere. No native Diffusers O1 class verified.",
+    "memory": "Official index:8,804,887,792 parameters →17.609775584GB BF16 weight floor, excluding KV/activations/reference tokens. Tensor metadata35.219551168GB; eight files35.219643552GB. With20.206GB core,55.425643552GB before packages/images, below future80GB cap but not authorized now. No primary1024 peak/time. Crucially utils PREDEFINED_RESOLUTIONS includes2048² and~4MP rectangles, not1024; requested1024² snaps to2048². keep_original_aspect rescales toward2048² area, not a1024 bypass.",
+    "evaluation": "§5/table1 8B GenEval.90, Pro.92; DPG8B89.83. Full50/Dev28-step protocols and multiple text/editing benchmarks provide substantive evaluation. Sampling resolution/sample counts are not fully specified for every table; leaderboard images are not independent measurements.",
+    "implication": "P7: replace DDPM as lead high-resolution pixel research direction with O1, but retain PRX as the direct1024-interface lead. O1 is NOT a drop-in frozen1024 regenerator: no strength, resolution snapping, runtime unmeasured and new dependency stack. Any1024 adaptation or native instruction-editing scenario needs explicit proposal/design approval and separate interpretation.",
+    "limitations": "MIT code/models, HF ungated. Plain inference uses bundled local weights/tokenizer/processor; optional Gemma4-31B prompt agent requires gate acceptance, optional API can cost money. Neither optional reasoner is required for plain generation or authorized here. PyTorch≥2.10/Transformers4.57.1 and optional FlashAttention differ from frozen stack.",
+    "extra": [
+      "hidream-o1-card",
+      "hidream-o1-index",
+      "hidream-o1-config",
+      "hidream-o1-inference.py.decoded",
+      "hidream-o1-models--pipeline.py.decoded",
+      "hidream-o1-utils.decoded",
+      "hidream-o1-requirements.txt.decoded",
+      "hidream-o1-LICENSE.decoded"
+    ],
+    "qualifies": false,
+    "sources": [
+      "hidream-o1-paper",
+      "hidream-o1-api",
+      "hidream-o1-card",
+      "hidream-o1-config",
+      "hidream-o1-inference.py.decoded",
+      "hidream-o1-LICENSE.decoded",
+      "hidream-o1-models--pipeline.py.decoded",
+      "hidream-o1-requirements.txt.decoded",
+      "hidream-o1-index",
+      "hidream-o1-paper.read",
+      "hidream-o1-utils.decoded"
+    ]
+  },
+  {
+    "id": "flux",
+    "name": "FLUX1, FLUX2 and FLUX3 native model evidence",
+    "paper": null,
+    "sections": "Official modelcards Architecture/Usage/Limitations; official autoencoder code; current model API gates; FLUX2 Klein pipeline signature",
+    "architecture": "FLUX1 C16/f8,12B flow transformer. FLUX2 C32/f8 with2×2 packing gives128 channels/f16 token grid; code ch_mult=[1,2,4,4]. FLUX3 is a newer flow-map release, not proof of newly initialized AE.",
+    "lineage": "Against SD1/SDXL: UNKNOWN initialization for all inspected FLUX generations. Different channels or names do not prove independent training. FLUX2 adoption by Lens is reuse.",
+    "models": [
+      "black-forest-labs/FLUX.1-schnell",
+      "black-forest-labs/FLUX.1-dev",
+      "black-forest-labs/FLUX.2-dev",
+      "black-forest-labs/FLUX.2-klein-4B",
+      "black-forest-labs/FLUX.2-klein-9B",
+      "black-forest-labs/flux-3-image-klein"
+    ],
+    "code": "v0.36.0 flux/pipeline_flux_img2img.py supports image+strength for FLUX1. Current flux2/pipeline_flux2_klein.py accepts image conditioning but no strength, despite being an editing pipeline.",
+    "memory": "FLUX1 denoiser12B≥24GB BF16 before T5/VAE. FLUX2 Klein4B card claims~13GB/subsecond without matched conditions;9B~29GB. FLUX3 card reports B2001024 with prompt upsampler off: BF16 peak31GB,FP8 26GB,NVFP4 25GB; upsampler adds28GB on80GB devices. None measures our target1024 img2img.",
+    "evaluation": "Native cards/code substantiate architectures and reported operational numbers, but no opened full FLUX training/evaluation paper establishes AE initialization or watermark behavior. Distinguish primary model evidence from paper V2; excluded from conservative18-paper floor.",
+    "implication": "Retain gated FLUX1 exclusion. Ungated Klein4B is available under Apache but is not an equivalent strength-controlled replacement and not proven independently initialized.",
+    "limitations": "API auto-gated: FLUX1-schnell despite Apache, FLUX1-dev customNC, FLUX2-dev/custom, Klein9B/custom, FLUX3/KommUnity. Klein4B ungated Apache. Public README availability is not ungated weight access.",
+    "extra": [
+      "flux-ae-code.decoded",
+      "flux2-ae-html.decoded",
+      "T2-flux-pipeline-v036"
+    ],
+    "qualifies": false,
+    "sources": [
+      "T2-black-forest-labs--FLUX.1-schnell-api",
+      "T2-black-forest-labs--FLUX.1-schnell-README",
+      "T2-black-forest-labs--FLUX.1-dev-api",
+      "T2-black-forest-labs--FLUX.1-dev-README",
+      "T2-black-forest-labs--FLUX.2-dev-api",
+      "T2-black-forest-labs--FLUX.2-dev-README",
+      "T2-black-forest-labs--FLUX.2-klein-4B-api",
+      "T2-black-forest-labs--FLUX.2-klein-4B-README",
+      "T2-black-forest-labs--FLUX.2-klein-4B-vae--config",
+      "T2-black-forest-labs--FLUX.2-klein-4B-model_index",
+      "T2-black-forest-labs--FLUX.2-klein-9B-api",
+      "T2-black-forest-labs--FLUX.2-klein-9B-README",
+      "T2-flux-pipeline-v036",
+      "T2-black-forest-labs--flux-3-image-klein-api",
+      "black-forest-labs--FLUX.1-schnell--README.md",
+      "black-forest-labs--FLUX.1-dev--README.md",
+      "black-forest-labs--FLUX.2-klein-4B--README.md",
+      "black-forest-labs--FLUX.2-klein-4B--vae--config.json",
+      "black-forest-labs--FLUX.2-klein-4B--model_index.json",
+      "black-forest-labs--FLUX.2-klein-9B--README.md",
+      "black-forest-labs--flux-3-image-klein--README.md",
+      "flux-ae-code-decoded",
+      "code-flux2--pipeline_flux2_klein.py-html",
+      "code-flux2--pipeline_flux2_klein.py-html.decoded",
+      "flux2-ae-html.decoded"
+    ]
+  },
+  {
+    "id": "if",
+    "name": "DeepFloyd IF native primary model evidence",
+    "paper": null,
+    "sections": "Official IF modelcard architecture/training/evaluation/usage; IF repository resource notes; native img2img source",
+    "architecture": "Three pixel diffusion stages64→256→1024, T5 text encoder, no AE in IF stages. Common example substitutes SDx4 latent upscaler for stage3, so that example is not fully pixel-space.",
+    "lineage": "Against SD1/SDXL: no AE in true IF stages; substituted SD upscaler changes that conclusion.",
+    "models": [
+      "DeepFloyd/IF-I-XL-v1.0"
+    ],
+    "code": "deepfloyd_if/pipeline_if_img2img.py accepts image+strength, adds pixel noise. StageI operates64, then cascades; not a single native1024 source-preserving denoiser.",
+    "memory": "Modelcard CPU-offload14GB and repo16GB stages1/2,24GB mixed full pipeline reports use different configurations. StageI4.3B floor8.6GB BF16 plus T5/superresolution. Matched fully pixel1024 img2img time/peak unknown.",
+    "evaluation": "Primary card reports COCO30K FID6.66, StageI2.42M training steps at64 and1000-step cosine noise schedule. No paper V2 claim; native card is substantively inspected but not counted among18 paper families.",
+    "implication": "Pixel mechanism example with native img2img, but gate/noncommercial terms and low-resolution cascade weaken feasibility.",
+    "limitations": "Auto-gated custom DeepFloyd research license, not permissive/ungated. Do not describe substituted SD upscaler example as no-AE.",
+    "extra": [
+      "if-repo-readme.decoded"
+    ],
+    "qualifies": false,
+    "sources": [
+      "T2-DeepFloyd--IF-I-XL-v1.0-api",
+      "T2-DeepFloyd--IF-I-XL-v1.0-README",
+      "if-api",
+      "DeepFloyd--IF-I-XL-v1.0--README.md",
+      "code-deepfloyd_if--pipeline_if_img2img.py-api",
+      "code-deepfloyd_if--pipeline_if_img2img.py-api-decoded",
+      "if-repo-readme-decoded"
+    ]
+  },
+  {
+    "id": "auraflow",
+    "name": "AuraFlow v0.3 lead",
+    "paper": null,
+    "sections": "Official modelcard Usage/Limitations; VAE config and advertised LFS hash; native pipeline signature",
+    "architecture": "Flow transformer with C4/f8 VAE; advertised VAE object matches SDXL. Card describes beta v0.3 and1536/multiaspect generation.",
+    "lineage": "Against SD1 inheritsSDXL ancestry; againstSDXL SAME published VAE object. Different generator does not add encoder diversity.",
+    "models": [
+      "fal/AuraFlow-v0.3"
+    ],
+    "code": "auraflow/pipeline_aura_flow.py T2I only at inspected code;50-step/CFG3.5 example, no image+strength.",
+    "memory": "No primary1024 peak/time. Model family roughly6.8B implies≥13.6GB BF16 weights if that nominal count is used; exact component count not independently checked, so treat this as conditional estimate, not guaranteed floor.",
+    "evaluation": "No reproducible quantitative benchmark protocol in inspected card. This is a model/code lead, not a qualifying evaluated family.",
+    "implication": "Exclude from independent-encoder expansion and conservative floor.",
+    "limitations": "Apache ungated metadata; evidence insufficient for generation-quality ranking.",
+    "extra": [
+      "code-aura-api.decoded"
+    ],
+    "qualifies": false,
+    "sources": [
+      "T2-fal--AuraFlow-v0.3-api",
+      "T2-fal--AuraFlow-v0.3-README",
+      "T2-fal--AuraFlow-v0.3-vae--config",
+      "T2-fal--AuraFlow-v0.3-model_index",
+      "auraflow-api",
+      "fal--AuraFlow-v0.3--README.md",
+      "fal--AuraFlow-v0.3--vae--config.json",
+      "fal--AuraFlow-v0.3--model_index.json",
+      "code-aura-api-decoded"
+    ]
+  },
+  {
+    "id": "chroma",
+    "name": "Chroma1-HD / Radiance leads",
+    "paper": null,
+    "sections": "Official cards/config/LFS metadata; Chroma native img2img source",
+    "architecture": "HD8.9B derived from FLUX1-schnell, VAE C16/f8 with same advertised FLUX object. Radiance card is a short WIP pixel-model announcement; architecture was not sufficiently documented to assert an exact bottleneck.",
+    "lineage": "HD againstSD1/SDXL UNKNOWN throughFLUX; no new encoder. Radiance no verified ancestry conclusion.",
+    "models": [
+      "lodestones/Chroma1-HD",
+      "lodestones/Chroma1-Radiance"
+    ],
+    "code": "chroma/pipeline_chroma_img2img.py supports HD image+strength. Radiance native source-noise support not established by its short card.",
+    "memory": "HD denoiser≥17.8GB BF16 plus text/VAE/activations; no primary matched1024 peak/time. Radiance footprint/runtime unknown.",
+    "evaluation": "No sufficiently specified quantitative evaluation in inspected native cards. Radiance describes hourly checkpoints/history replacement; this is not stable evaluated release evidence.",
+    "implication": "Record current leads without counting them as evaluated families or independent encoders.",
+    "limitations": "Apache ungated metadata. WIP announcement does not establish production or experiment readiness.",
+    "extra": [],
+    "qualifies": false,
+    "sources": [
+      "T2-lodestones--Chroma1-HD-api",
+      "T2-lodestones--Chroma1-HD-README.md",
+      "T2-lodestones--Chroma1-HD-vae--config.json",
+      "T2-lodestones--Chroma1-HD-scheduler--scheduler_config.json",
+      "T2-lodestones--Chroma1-HD-model_index.json",
+      "T2-lodestones--Chroma1-Radiance-api",
+      "T2-lodestones--Chroma1-Radiance-README.md",
+      "T2-lodestones--Chroma1-Radiance-config_radiance.json",
+      "lodestones--Chroma1-HD--README.md",
+      "lodestones--Chroma1-HD--vae--config.json",
+      "lodestones--Chroma1-HD--model_index.json",
+      "lodestones--Chroma1-Radiance--README.md",
+      "code-chroma--pipeline_chroma_img2img.py-api",
+      "code-chroma--pipeline_chroma_img2img.py-api-decoded"
+    ]
+  },
+  {
+    "id": "prxpixel",
+    "name": "PRX Pixel native1024 candidate",
+    "paper": null,
+    "sections": "Official modelcard architecture/usage; native prx pipeline signature and pixel noise path",
+    "architecture": "7B pixel transformer, rawRGB C3/f1 and no VAE; Qwen3-VL text conditioning, FlowMatchEuler,28-step example at1024.",
+    "lineage": "AgainstSD1/SDXL NOT APPLICABLE, no AE. Pixel denoising still may remove marks.",
+    "models": [
+      "Photoroom/prxpixel-t2i"
+    ],
+    "code": "prx/pipeline_prx_pixel.py exists at pinned current Diffusers main, despite card saying branch support; no image/strength. DefaultCFG4 in source versus5 in card is a configuration discrepancy. Requires a new pixel-noise adapter for SDEdit.",
+    "memory": "Nominal7B denoiser≥14GB BF16 plus text/activations. No primary1024 batch-one peak/time found;24GB fit is unproved. Native1024 usage is clearer than current O1 source, which snaps to2048.",
+    "evaluation": "Card lacks a reproducible quantitative comparison protocol. Therefore nonqualifying for18-paper floor, despite useful official architecture/code evidence.",
+    "implication": "Retain as direct1024-interface P7 candidate; O1 leads substantive high-resolution pixel-method evidence. Neither is a frozen regenerator, and no adapter was implemented.",
+    "limitations": "Apache ungated model metadata; dependency access must be checked for the exact execution package. Current code support does not imply compatibility with frozen v0.35.1.",
+    "extra": [],
+    "qualifies": false,
+    "sources": [
+      "T2-Photoroom--prxpixel-t2i-api",
+      "prxpixel-api",
+      "Photoroom--prxpixel-t2i--README.md",
+      "Photoroom--prxpixel-t2i--model_index.json",
+      "code-prx--pipeline_prx_pixel.py-api",
+      "code-prx--pipeline_prx_pixel.py-api-decoded"
+    ]
+  }
+]

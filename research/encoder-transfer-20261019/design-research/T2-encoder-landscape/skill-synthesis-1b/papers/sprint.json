@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "sprint",
+  "citation_key": "T2_sprint_2025",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2503.09641v1",
+  "title": "SANA-Sprint: One-Step Diffusion with Continuous-Time Consistency Distillation",
+  "authors": [
+    "Junsong Chen",
+    "Shuchen Xue",
+    "Yuyang Zhao",
+    "Jincheng Yu",
+    "Sayak Paul",
+    "Junyu Chen",
+    "Han Cai",
+    "Enze Xie",
+    "Song Han"
+  ],
+  "year": 2025,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "Distilled speed claims do not justify assuming strength labels have the same meaning as DDIM."
+  ],
+  "inspection": {
+    "artifact": "T2-sprint-paper.txt",
+    "sha256": "4201d344a00121f4b154bb2717b72ceadbc634d6e81f46e93f610282580877c0"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "ddpm",
+  "citation_key": "T2_ddpm_2020",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2006.11239v2",
+  "title": "Denoising Diffusion Probabilistic Models",
+  "authors": [
+    "Jonathan Ho",
+    "Ajay Jain",
+    "Pieter Abbeel"
+  ],
+  "year": 2020,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "Apache2 model and permissive diffusion code. An adapter would be new scientific work;256 feasibility does not establish1024 feasibility."
+  ],
+  "inspection": {
+    "artifact": "T2-1b/ddpm-paper.txt",
+    "sha256": "889bf6b3d1e18930447c30ab2c32c4c9b6134777502794e2f09aa7fd4506aef5"
+  }
+}

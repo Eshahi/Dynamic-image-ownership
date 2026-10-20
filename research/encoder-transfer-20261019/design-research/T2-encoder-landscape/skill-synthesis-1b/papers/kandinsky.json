@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "kandinsky",
+  "citation_key": "T2_kandinsky_2023",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2310.03502v1",
+  "title": "Kandinsky: an Improved Text-to-Image Synthesis with Image Prior and Latent Diffusion",
+  "authors": [
+    "Anton Razzhigaev",
+    "Arseniy Shakhmatov",
+    "Anastasia Maltseva",
+    "Vladimir Arkhipkin",
+    "Igor Pavlov",
+    "Ilya Ryabov",
+    "Angelina Kuts",
+    "Alexander Panchenko",
+    "Andrey Kuznetsov",
+    "Denis Dimitrov"
+  ],
+  "year": 2023,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "KD2.2 native resolution lower than1024; KD3 better1024 proposal. Fix quantization mode explicitly. Independence conclusion does not extend toKandinsky5."
+  ],
+  "inspection": {
+    "artifact": "T2-kandinsky-paper.txt",
+    "sha256": "c5a5071a5212155cc6af1d82fe3dad4d002a942e36f964eb7b0be3830ceba72d"
+  }
+}

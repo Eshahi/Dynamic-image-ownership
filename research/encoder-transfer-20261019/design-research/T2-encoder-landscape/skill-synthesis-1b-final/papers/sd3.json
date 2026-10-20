@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "sd3",
+  "citation_key": "T2_sd3_2024",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2403.03206v1",
+  "title": "Scaling Rectified Flow Transformers for High-Resolution Image Synthesis",
+  "authors": [
+    "Patrick Esser",
+    "Sumith Kulal",
+    "Andreas Blattmann",
+    "Rahim Entezari",
+    "Jonas Müller",
+    "Harry Saini",
+    "Yam Levi",
+    "Dominik Lorenz",
+    "Axel Sauer",
+    "Frederic Boesel",
+    "Dustin Podell",
+    "Tim Dockhorn",
+    "Zion English",
+    "Kyle Lacey",
+    "Alex Goodwin",
+    "Yannik Marek",
+    "Robin Rombach"
+  ],
+  "year": 2024,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "SD3Medium noncommercial research terms; SD3.5 Community terms differ. Both API snapshots auto-gated. Public text does not authorize gated weights."
+  ],
+  "inspection": {
+    "artifact": "T2-sd3-paper.txt",
+    "sha256": "f82ef37115732eb873f96dbc7bb0baad3fd95b1e711aac2868b2ed43801a6c91"
+  }
+}

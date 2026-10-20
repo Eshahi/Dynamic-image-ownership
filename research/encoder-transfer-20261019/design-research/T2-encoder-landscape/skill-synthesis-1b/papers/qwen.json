@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "qwen",
+  "citation_key": "T2_qwen_2025",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2508.02324v1",
+  "title": "Qwen-Image Technical Report",
+  "authors": [
+    "Qwen Team"
+  ],
+  "year": 2025,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "Qwen-Image/2512 are Apache and ungated. Qwen2.1 uses ungated Qwen Research terms, not Apache. The original paper cannot establish successor initialization."
+  ],
+  "inspection": {
+    "artifact": "T2-qwen-paper.txt",
+    "sha256": "7e32948c2c21b304ada3b58aab2cd58079eb35c0885dc747d21d681580710c97"
+  }
+}

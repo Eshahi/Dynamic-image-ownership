@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "ldm",
+  "citation_key": "T2_ldm_2021",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2112.10752v2",
+  "title": "High-Resolution Image Synthesis with Latent Diffusion Models",
+  "authors": [
+    "Robin Rombach",
+    "Andreas Blattmann",
+    "Dominik Lorenz",
+    "Patrick Esser",
+    "Björn Ommer"
+  ],
+  "year": 2021,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "Generation/reconstruction metrics do not evaluate watermark survival. Official SD2 metadata endpoint was inaccessible; no new SD2 revision or gate status is invented."
+  ],
+  "inspection": {
+    "artifact": "T2-ldm-paper.txt",
+    "sha256": "bc27be0c28b03fbd9e444e31224035d38d3f6622c59e45e49ef37ed927dcd5ea"
+  }
+}

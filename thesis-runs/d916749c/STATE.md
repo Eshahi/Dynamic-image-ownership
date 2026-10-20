@@ -23,7 +23,8 @@ Primary F5 R1 .2 source-majority C: at least 45/60 plus complete zero R1 negativ
 The full grid has 7500 units including C0; smoke has 250. Core estimate is 10-14 instance-hours under the 15h/USD15 cap.
 Native GPU compatibility, throughput and memory remain unmeasured. Timing-only smoke may apply only the frozen budget reductions.
 No server, paid compute, GPU science, weight download, real-mark scoring, new outcome or held-out image access occurred.
-Stage1b T1 accepted: 20 direct/34 total V2 sources and 30 queries across three categories. T2/T3 are completing; T4 xhigh is active.
+Stage1b T1 accepted: 20 direct/34 total V2 sources; T2 accepted: 18 families/30 cards. Both exceed search floors.
+T3/T4 xhigh and T5 high agents remain active. All topic floors and review2 precede re-freeze.
 Complete all eight floors; wait/resume on usage limits. Stage2 remains unauthorized.
 
 ## Preserved registry confirmation result

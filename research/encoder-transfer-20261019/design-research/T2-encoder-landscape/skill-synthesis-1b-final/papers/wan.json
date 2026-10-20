@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "wan",
+  "citation_key": "T2_wan_2025",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2503.20314v1",
+  "title": "Wan : Open and Advanced Large-Scale Video Generative Models",
+  "authors": [
+    "Wan Team"
+  ],
+  "year": 2025,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "Counted under Qwen family for the conservative floor, not as an extra family just for AE reuse."
+  ],
+  "inspection": {
+    "artifact": "T2-wan-paper.txt",
+    "sha256": "13dcf2d644ea8bd345f9c1d1b61e40c29311394f1d1c6ce9f828c2b5653c0201"
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "date_utc": "2026-10-20T12:57:18.001316+00:00",
+  "validator_command": [
+    "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/venv/Scripts/python.exe",
+    "-X",
+    "utf8",
+    "C:/Users/Soroush/.codex/skills/thesis-literature-synthesis/scripts/validate_literature.py",
+    "validate",
+    "C:\\Users\\Soroush\\.codex\\worktrees\\codex-encoder-transfer\\research\\encoder-transfer-20261019\\design-research\\T2-encoder-landscape\\literature-response-1b.json",
+    "--evidence-root",
+    "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache",
+    "--request-id",
+    "encoder-transfer-T2-1b-20261020"
+  ],
+  "validator_exit_code": 0,
+  "validator_result": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "response_sha256": "bd862792181a87cd9ddb7f46a32d02fac11d34760af64482f3c60310f882fced",
+  "synthesis_command": [
+    "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/venv/Scripts/python.exe",
+    "-X",
+    "utf8",
+    "C:/Users/Soroush/.codex/skills/thesis-literature-synthesis/scripts/validate_literature.py",
+    "synthesize",
+    "C:\\Users\\Soroush\\.codex\\worktrees\\codex-encoder-transfer\\research\\encoder-transfer-20261019\\design-research\\T2-encoder-landscape\\literature-response-1b.json",
+    "--evidence-root",
+    "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache",
+    "--out",
+    "C:\\Users\\Soroush\\.codex\\worktrees\\codex-encoder-transfer\\research\\encoder-transfer-20261019\\design-research\\T2-encoder-landscape\\skill-synthesis-1b-final"
+  ],
+  "synthesis_observed_result": {
+    "valid": true,
+    "errors": [],
+    "warnings": []
+  },
+  "structural_checks": {
+    "qualifying_distinct_families": 18,
+    "individual_markdown_cards": 30,
+    "matrix_rows": 30,
+    "paper_records": 25,
+    "source_specific_evidence_items": 50,
+    "search_events": 19,
+    "successful_search_categories": 3,
+    "cache_checks": 390,
+    "cache_mismatches": 0,
+    "all_required_fields_present": true
+  },
+  "final_export_files": [
+    {
+      "path": "skill-synthesis-1b-final/evidence-ledger.jsonl",
+      "sha256": "5e03f640ee515e00a87998ce92633fb51af1fe1e4a6884a2b68697524c478d64"
+    },
+    {
+      "path": "skill-synthesis-1b-final/findings.md",
+      "sha256": "caf33c91a1529f79b5f75636570c981b8a2b4584603eb5f05654c4e6e5a4c9fc"
+    },
+    {
+      "path": "skill-synthesis-1b-final/literature-matrix.csv",
+      "sha256": "6c7ffb862e27aeb98720b0bd3f3f06010f3a15101ea1e355b3094bb9c051ea79"
+    },
+    {
+      "path": "skill-synthesis-1b-final/open-questions.md",
+      "sha256": "264a6e159ae0b65c70bd0b401cea91f1386c0acf766569b4b2f24aa7e4547d2f"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/cascade.json",
+      "sha256": "b93152acc3b66b80fdfef126f0c6193acc364c2720cbb52662c5bf4cd382ef15"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/dcae.json",
+      "sha256": "d7e30b0cb7f17c002c369d899f334e33f3e72ed1684d4c66fc1ad2a46633d293"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/ddpm.json",
+      "sha256": "6a0d3ce4e91b3593d69a926f34f80079b1a2a4b5c4b1eb5263e338558964535a"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/hidream.json",
+      "sha256": "9a4358eecd93768eb828321909f578cee0ad21b6c2a114180e3931ea466790f8"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/hidream_o1.json",
+      "sha256": "d1660347fb597cb6bcf65a01c44caf2cb5055affdafe89ce5595e6e9fa027ad0"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/hunyuan.json",
+      "sha256": "e8f7b704c85a11c2ea892345f3ce6d4c3fe041ece145ee04dddc8e88398efedc"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/kandinsky.json",
+      "sha256": "3c369c78a959a95739adc80a9918847dc93cdeec5a3e6677799247a2093e5548"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/kandinsky3.json",
+      "sha256": "8ae09bfba2f0dbc26105855d3c4d9bd6184425744f489f5e3c6760c60920a1f7"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/kandinsky5.json",
+      "sha256": "bd81743e7052cff5496d6fc9c4789a24b94d7b45b913435784e70774c3fcd72e"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/ldm.json",
+      "sha256": "c8acf42d9153c0626eedf9531ee54e92d14b08c4de684ee0f304f30d2332b1d8"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/lens.json",
+      "sha256": "39fb7266c3e69fbce5d9afdf590a788beecf342920c5ae277dfd73520de9f2ee"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/lumina.json",
+      "sha256": "48fb0385fb2efba69c0043915274a90b7d506ce8d99f9bddce3eb6022cd5dc83"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/omnigen.json",
+      "sha256": "5d0416c10b5b06d10cbee8907a77e1e865e3e0ec2a59637c3014003b96e29a98"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/pixartsigma.json",
+      "sha256": "c4f76f0a2ac8c2c97b8f11860e30366b31bdd49fe19db142afb6a00e516c2fde"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/pixelgen.json",
+      "sha256": "16a592eb772e97f5fe563a7af6c4feeda54e94a16c08739a0693db33498d318d"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/pixsgr.json",
+      "sha256": "e8cfbb69db8d7cd1865a59716630ab8000247327641dab32668d8c6531ac457c"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/playground.json",
+      "sha256": "55c484ae6e20b94e3981e8ef2649760fab8bd266d510359785a1ef75f1270a70"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/qwen.json",
+      "sha256": "44b892bcba8eb33b34738b231b87226d281a60a456f38ebbc8c73d685ff5f926"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/qwen_vae2.json",
+      "sha256": "95e095a3ceb071ecc9f2aad6fe098c5b63e8b007f6139c9ce643d9b56192d4a6"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/sana.json",
+      "sha256": "c169c072d85ae8017538e4f2a23e6eb4525e33b92ca6863e357ce26b903bb8a8"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/sd3.json",
+      "sha256": "dbecfb7182cfadb23494627570d89ff9c8707d8ff42974fa9f63af7aa32b1c3e"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/sdxl.json",
+      "sha256": "61bc740358e4600bc19f41a00c0a7cba24220ccebb08f89c6dac3f8c3167cf86"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/sprint.json",
+      "sha256": "9e2024abeac82925d9230f4c674da9ce0535969430e6347ee0a74062b5a4d55a"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/wan.json",
+      "sha256": "6a5e8a13a43de01b061a31faba9d331334790f0505d1c7697e1e503bc513aab3"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/zimage.json",
+      "sha256": "c64655f47892492a2caf2e7ad485220ed7b3529f81a778e566f5cb87e396f9a3"
+    },
+    {
+      "path": "skill-synthesis-1b-final/README.md",
+      "sha256": "35d940b1c4c9c54794f31f8e5c03f6bb0ead2c2dc38ae0c6382d78bc5d5b65c6"
+    },
+    {
+      "path": "skill-synthesis-1b-final/references.bib",
+      "sha256": "fe739fc265795f814ec3d2ade786b6c834c16d4460a78dacebde52eb8b4de46c"
+    }
+  ],
+  "limits": "Structural validation is not independent scientific review or parent floor acceptance. No model execution or weight download occurred.",
+  "superseded_export": "skill-synthesis-1b/; retained after automated cleanup rejection, not authoritative."
+}

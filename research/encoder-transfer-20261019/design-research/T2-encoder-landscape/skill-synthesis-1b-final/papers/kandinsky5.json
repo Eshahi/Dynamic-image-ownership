@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "kandinsky5",
+  "citation_key": "T2_kandinsky5_2025",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2511.14993v1",
+  "title": "Kandinsky 5.0: A Family of Foundation Models for Image and Video Generation",
+  "authors": [
+    "Kandinsky Lab"
+  ],
+  "year": 2025,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "Paper inspected V2, but exact image checkpoint revision/license/gate not resolved in this sweep. Treat those model-release fields unavailable, not inferred from old Apache Kandinsky."
+  ],
+  "inspection": {
+    "artifact": "T2-kandinsky5-paper.txt",
+    "sha256": "8a6039fc9f055662c3c76c9781c012f1d4dbf88242685eb99ecd41b6f31d066f"
+  }
+}

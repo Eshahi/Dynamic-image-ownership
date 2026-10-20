@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "dcae",
+  "citation_key": "T2_dcae_2024",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2410.10733v1",
+  "title": "Deep Compression Autoencoder for Efficient High-Resolution Diffusion Models",
+  "authors": [
+    "Junyu Chen",
+    "Han Cai",
+    "Junsong Chen",
+    "Enze Xie",
+    "Shang Yang",
+    "Haotian Tang",
+    "Muyang Li",
+    "Yao Lu",
+    "Song Han"
+  ],
+  "year": 2024,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "No full diffusion result can be inferred from encoder-only reconstruction quality."
+  ],
+  "inspection": {
+    "artifact": "T2-dcae-paper.txt",
+    "sha256": "379cb7cff3040afea41fb34d8fb7d0785b1d5d3e84d867e0ef6c684f783ee993"
+  }
+}

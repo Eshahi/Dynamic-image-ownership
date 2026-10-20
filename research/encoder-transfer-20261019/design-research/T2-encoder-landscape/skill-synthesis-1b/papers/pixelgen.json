@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "pixelgen",
+  "citation_key": "T2_pixelgen_2026",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2602.02493v1",
+  "title": "PixelGen: Pixel Diffusion Beats Latent Diffusion with Perceptual Loss",
+  "authors": [
+    "Zehong Ma",
+    "Ruihan Xu",
+    "Shiliang Zhang"
+  ],
+  "year": 2026,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "Official HF weights Apache2 and ungated. Repository tree lacks LICENSE; do not infer code permission from weight terms. Community Diffusers mirror is not official support."
+  ],
+  "inspection": {
+    "artifact": "T2-1b/pixelgen-paper.txt",
+    "sha256": "3f9e6de030cf7982515d06c6f52363fd9fd51f8cdcd0a46ce76670009ef099cc"
+  }
+}

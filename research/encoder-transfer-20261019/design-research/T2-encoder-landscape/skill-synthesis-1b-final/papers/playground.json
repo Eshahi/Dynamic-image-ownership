@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "playground",
+  "citation_key": "T2_playground_2024",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2402.17245v1",
+  "title": "Playground v2.5: Three Insights towards Enhancing Aesthetic Quality in Text-to-Image Generation",
+  "authors": [
+    "Daiqing Li",
+    "Aleks Kamko",
+    "Ehsan Akhgari",
+    "Ali Sabet",
+    "Linmiao Xu",
+    "Suhail Doshi"
+  ],
+  "year": 2024,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "Custom Playground Community license, ungated. AdvertisedVAE hash is metadata evidence, not locally verified weights."
+  ],
+  "inspection": {
+    "artifact": "T2-playground-paper.txt",
+    "sha256": "d18793404f00870bc71976147fede04facbf7b0dea79fd29406b2bc445f9a6ad"
+  }
+}

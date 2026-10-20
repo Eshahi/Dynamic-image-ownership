@@ -16,11 +16,11 @@ Record unresolved gaps before acceptance. A below-floor delivery returns to a fr
 
 | Topic | Required content floor | Qualifying count | Distinct queries / categories | Parent disposition | Accepted topic commit |
 |---|---|---:|---|---|---|
-| T1 | 15 benchmark/attack sources; complete settings table | 20 direct; 34 total V2 | 30 queries, 20 intents / 3 categories | Accepted after parent inspection | This acceptance commit |
-| T2 | 15 model families; lineage and implementation table | Pending | Pending | In research | Pending |
+| T1 | 15 benchmark/attack sources; complete settings table | 20 direct; 34 total V2 | 30 queries, 20 intents / 3 categories | Accepted after parent inspection | 42cc385aeb0b9b500528064e454f0afec1a191e1 |
+| T2 | 15 model families; lineage and implementation table | 18 families; 30 individual cards | 17 successful queries, 16 intents / 3 categories | Accepted after parent inspection | This acceptance commit |
 | T3 | 12 post-hoc methods; fidelity and run-cost table | Pending | Pending | In research | Pending |
 | T4 | 8 mechanism sources; all-channel and proposal predictions | Pending | Pending | In research, fresh Astra xhigh | Pending |
-| T5 | Six named implementations; all relied-on settings pinned by file/line | Pending | Pending | Not yet assigned | Pending |
+| T5 | Six named implementations; all relied-on settings pinned by file/line | Pending | Pending | In research, fresh Astra high | Pending |
 | T6 | n60/90/120; seed correlation and missing-unit sensitivity | Pending | Pending | Not yet assigned | Pending |
 | T7 | 12 evaluation sections from 2024-2026 eligible venues | Pending | Pending | Not yet assigned | Pending |
 | T8 | 25 distinct validity threats | Pending | Pending | Not yet assigned | Pending |
@@ -48,3 +48,13 @@ The query ledger contains 34 events: 30 successful distinct query strings, conse
 Consequential corrections were verified in the primary texts: DIP Appendix B specifies a maximum of 500 optimization iterations and the baseline grids; UnMarker Appendix A supplies its optimization schedules; MarkCleaner needs its main attack row and cannot collapse bit accuracy into calibrated detection; VINE's paper and release differ in generator lineage and its reported evaluation denominators conflict. The competition report's conflicting attack-score and calibration descriptions are retained rather than silently reconciled. The parent also checked ProxyEraseAgent's 128-pixel evaluation and BER-at-least-.1 success criterion, the autoregressive benchmark's three-pass rinse results, and SNW's conflicting 1,000-versus-200 attack-image denominators. These prevent importing unlike endpoints as F5 performance predictions.
 
 The result is acceptance of documentary coverage, not endorsement of every source's inference. Inaccessible full text, omitted settings, questionable endpoint definitions and unconfirmed preprint venues remain visible limitations. T1 recommends reporting and lineage corrections, not another core attack variant. No outcomes were produced.
+
+### T2 accepted, 2026-10-20
+
+The parent counted 18 distinct qualifying paper families, 30 individual Markdown cards and 30 matrix rows. Twenty-five paper records support the package; supporting variants, native model-card-only leads and inaccessible releases do not inflate the 18-family count. Every required matrix field has evidence or an explicit availability/measurement limitation. Empty revision fields for Lens and Kandinsky5 mean unresolved releases, as their cards state. Model-family count is not independent-encoder count.
+
+The parent read the substantive method, evaluation, lineage, implementation and resource fields for all thirty records, inspected the final cards and query ledger, and independently verified all 390 cached receipt hashes with zero mismatches. There are 19 query events: 17 successful query strings across web (11), OpenAlex (2) and official hubs/repositories (4), conservatively 16 distinct successful intents after collapsing corrected Lens-owner discovery. Two unsuccessful arXiv API queries are excluded from successful coverage. The exact missed-evidence section and broad uninspected-lead register prevent an exhaustive-landscape claim.
+
+Primary checks and corrected draft issues are recorded above. Additional final checks confirm Qwen's frozen-encoder statement is Section 2.3; official SDXL fp16 checkpoint values and full-fp32 arithmetic are distinguished; the frozen Diffusers version remains 0.35.1; opaque revision strings are intact. The source-inspection pin for newer APIs is documentary and does not amend the executable environment.
+
+T2 supports preserving the core. MoVQ is the preferred optional training-lineage contrast, with a narrower AE-only alternative. O1 is an inspected high-resolution pixel-method lead but its native API snaps square 1024 requests to 2048 and lacks strength; PRX has a native 1024 interface but lacks a sufficient quantitative paper evaluation and also lacks img2img strength. Neither is a frozen drop-in. The potential Klein P10 is rejected for this question. Proposed full-model panels exceed the existing time/download allocations; parameter storage, file bytes, peak VRAM and measured latency remain separate quantities. The superseded intermediate synthesis is preserved but excluded from evidence integration and counts; `skill-synthesis-1b-final/` is authoritative.

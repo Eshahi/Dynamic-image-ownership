@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "pixartsigma",
+  "citation_key": "T2_pixartsigma_2024",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2403.04692v1",
+  "title": "PixArt-Σ : Weak-to-Strong Training of Diffusion Transformer for 4K Text-to-Image Generation",
+  "authors": [
+    "Junsong Chen",
+    "Chongjian Ge",
+    "Enze Xie",
+    "Yue Wu",
+    "Lewei Yao",
+    "Xiaozhe Ren",
+    "Zhongdao Wang",
+    "Ping Luo",
+    "Huchuan Lu",
+    "Zhenguo Li"
+  ],
+  "year": 2024,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "Ungated OpenRAIL++ packages, not Apache/MIT permissiveness. Private evaluation/evaluator differences prevent direct score ranking."
+  ],
+  "inspection": {
+    "artifact": "T2-pixartsigma-paper.txt",
+    "sha256": "fae501058e9f5b60b203577b4aaaacbaac06a8af2004a1e76eecd76ae655d775"
+  }
+}

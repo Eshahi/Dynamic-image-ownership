@@ -59,3 +59,7 @@ T1 has drafted twenty direct V2 attack/benchmark sources and three adjunct cards
 ### 2026-10-20 12:57 UTC - T1 accepted; T4 underway
 
 The parent accepted T1 after reading all 34 V2 cards, checking the 34 settings rows and verifying the cached primary hashes. The conservative floor is 20 direct attack/benchmark sources, with 30 successful queries (20 intents) across three categories. Remaining inaccessible or contradictory evidence is explicit. The detailed acceptance is in stage1b-parent-audit.md. T2 and T3 remain under author completion/parent review. A fresh Astra/xhigh T4 agent now develops mechanism predictions; no server, GPU work or outcomes.
+
+### 2026-10-20 13:00 UTC - T2 accepted; T5 underway
+
+T1 push fe8b78d..42cc385aeb0b9b500528064e454f0afec1a191e1 was verified against origin. T2 now passes parent acceptance: 18 distinct V2 paper families, 30 cards, 17 successful queries (16 intents) across three categories, and 390 receipt hashes checked. The core remains unchanged. MoVQ AE-only is a narrower optional proposal; O1/PRX pixel models are not direct strength-controlled replacements, and Klein P10 is not recommended. A fresh Astra/high T5 agent audits exact pinned code paths. T3 and T4 continue. All eight topics and design-review-2 remain required before re-freeze.

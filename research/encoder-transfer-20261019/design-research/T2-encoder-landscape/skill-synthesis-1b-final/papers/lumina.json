@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "lumina",
+  "citation_key": "T2_lumina_2025",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2503.21758v1",
+  "title": "Lumina-Image 2.0: A Unified and Efficient Image Generative Framework",
+  "authors": [
+    "Qi Qin",
+    "Le Zhuo",
+    "Yi Xin",
+    "Ruoyi Du",
+    "Zhen Li",
+    "Bin Fu",
+    "Yiting Lu",
+    "Jiakang Yuan",
+    "Xinyue Li",
+    "Dongyang Liu",
+    "Xiangyang Zhu",
+    "Manyuan Zhang",
+    "Will Beddow",
+    "Erwann Millon",
+    "Victor Perez",
+    "Wenhai Wang",
+    "Conghui He",
+    "Bo Zhang",
+    "Xiaohong Liu",
+    "Hongsheng Li",
+    "Yu Qiao",
+    "Chang Xu",
+    "Peng Gao"
+  ],
+  "year": 2025,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "Apache ungated package; upstream Gemma license/access remain separate dependencies. No native strength interface is assumed."
+  ],
+  "inspection": {
+    "artifact": "T2-1b/lumina-paper.txt",
+    "sha256": "0d145a61994b9054cc1c0e90b865262e0ece4bc2b298704af34476ba31ae8275"
+  }
+}

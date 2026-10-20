@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "cascade",
+  "citation_key": "T2_cascade_2023",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2306.00637v2",
+  "title": "Würstchen: An Efficient Architecture for Large-Scale Text-to-Image Diffusion Models",
+  "authors": [
+    "Pablo Pernias",
+    "Dominic Rampas",
+    "Mats L. Richter",
+    "Christopher J. Pal"
+  ],
+  "year": 2023,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "Ungated custom noncommercial model license. Successor weights and stages prevent direct reuse of paper timing or scores."
+  ],
+  "inspection": {
+    "artifact": "T2-1b/cascade-paper.txt",
+    "sha256": "785b933d564d2ebd751d2fe8fa7e550702dd1751566164e06bcaf1286d8186ca"
+  }
+}

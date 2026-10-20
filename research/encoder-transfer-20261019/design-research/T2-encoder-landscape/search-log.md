@@ -1,26 +1,40 @@
-# T2 search and inspection log
+# T2 §1b search and inspection log
 
-Date: 2026-10-19. Researcher: Codex T2 agent. Scope: independent image encoder ancestry, native regeneration support, access/license and budget feasibility. The requested deliverable is Markdown and supporting cards; no shared literature ledger or existing bibliography was edited.
+Executed 2026-10-20 UTC. The previous search log is superseded by this expanded log and machine-readable `search-events.jsonl`.
 
-1. Read authoritative MAIN STATE and current BRIEF; reused existing Q-VAE dossier. Did not inspect source images, held-out pools or new outcomes.
-2. Primary-source searches covered SDXL from-scratch VAE; SD3 autoencoder latent dimensions; FLUX1/2/3 VAE configs, licenses and access; Kandinsky MoVQ training and official img2img; DC-AE/SANA/Sprint methods and deployment; PixArt, Playground and Hunyuan VAE reuse; Qwen/Wan encoder training; newer Z-Image, Lumina, Chroma, AuraFlow and HunyuanImage releases; pixel-space DDPM, IF, Chroma Radiance and PRX Pixel.
-3. Opened papers through arXiv HTML. Method and evaluation locators for each V2 item are recorded in cards. Abstract-only or partially screened new papers are not V2. Existing Q-VAE was reused rather than silently reclassified as newly inspected evidence.
-4. Queried official Hugging Face API with `blobs=true` to obtain repository revisions, gate flags, filenames, LFS sizes and SHA-256. Read available pinned config JSON, README and licenses. These were metadata/text requests only; no weight or model executable was acquired. Code sources were read as plain cached text for API inspection, not installed or run.
-5. Read official diffusers documentation and repository tree. Inspected exact v0.36.0 Kandinsky2.2, Kandinsky3, SanaSprint, Flux img2img implementations and VQModel. Identified floor-vs-ceil truncation, native scheduler, quantization bypass, and image preprocessing. Current main-tree snapshot: e04f0c5f24392fcd34b32d18d0ce03668f9bcd50. Stable v0.36.0 APIs are distinguished from newer main-only integrations.
-6. Compared metadata hashes where identical released VAE files establish reuse. Did not claim unequal hashes prove different encoders. SD3/FLUX initialization remains unknown where explicit evidence was absent.
-7. Initial FLUX3 uppercase guessed ID failed; corrected official lower-case ID was resolved successfully. Only the corrected API gate flag supports its gating classification. Some guessed LICENSE paths returned404; these failures do not imply absent licensing. Anonymous FLUX/SD3 pinned config requests401 are preserved. Browser access to Gemma terms succeeded while cache-client access failed; exact terms text is not represented as a locally verified paper.
-8. Derived planning-only timings and cost arithmetic; no rental price or GPU measurement was fabricated. Corrected initial rough KD3 download estimate using all five text-encoder shards:28.390829958GB, not14.2GB. No download or execution proposal was enacted.
+There are 19 query events: 11 unique substantive web queries, 2 OpenAlex queries, 4 official hub/repository queries and 2 failed arXiv API requests. H02/H03 are one corrected owner-discovery intent, so the conservative intent count is 18 overall and 16 successful. This exceeds ten without counting individual file downloads as new searches. Three successful categories are web search, OpenAlex and official repositories/model hubs; arXiv API was executed but failed and is not counted as a successful category.
 
-## Artifacts and verification
+The eleven web queries were repeated once to preserve raw response artifacts. Re-execution does not increase the unique count. Batched engine responses combine results across queries; event records retain the whole response group instead of inventing a per-result query assignment. Result snippets and abstracts are discovery only. Scientific claims come from the method/evaluation sections in individual cards.
 
-- `synthesis.md`: self-contained decision, comprehensive requested-family map, optional native API and costed panels.
-- `model-metadata.json`:30 official model metadata records, including failed config-access fields where applicable.
-- `download-plan.json`: exact selected SDXL/KD3/KD2.2 filenames, pinned revisions, sizes and published hashes. Config/tokenizer/index companion lists are metadata, not downloaded assets.
-- `source-cache-manifest.json`: original URLs, successful cached paths, bytes, SHA-256 and access failures. Cache resides only in MAIN `.thesis-build/q1-research-20261018/cache/`, with unique T2 prefixes, outside git.
-- `cards/*.json`, `literature-matrix.csv`, `evidence-ledger.jsonl`, `references.bib`: bounded local literature records. Unextracted authors and DOI remain null/missing instead of invented. The BibTeX is an inspection index, not publication-ready author metadata.
+| ID/category | Exact query or endpoint | Outcome and inspection |
+|---|---|---|
+| W01 / web_search | SDXL autoencoder trained from scratch SD3 16 channel VAE independent — web.run search_query | success; Original SDXL and SD3 method/evaluation cards, not forum speculation. cards/sdxl.md, cards/sd3.md |
+| W02 / web_search | Kandinsky 3 MoVQ 270M 1024 inference VRAM paper — web.run search_query | success; Kandinsky primary reports; official model resource/config inspection. cards/kandinsky.md, cards/kandinsky3.md |
+| W03 / web_search | SANA DC AE 32 compression 1024 latency 4090 — web.run search_query | success; SANA/DC-AE/Sprint primary methods, benchmarks and native source. cards/sana.md, cards/dcae.md, cards/sprint.md |
+| W04 / web_search | site.arxiv.org "Qwen-Image" "Wan" "VAE" — web.run search_query | success; Qwen frozen encoder/decoder-only training, Wan causal AE and successor caveat. cards/qwen.md, cards/wan.md, cards/qwen-vae2.md |
+| W05 / web_search | site.github.com black-forest-labs FLUX.2 autoencoder 32 latent channels — web.run search_query | success; Official FLUX2 autoencoder code/config; Lens explicit reuse. cards/flux.md, cards/lens.md |
+| W06 / web_search | site.huggingface.co "PRX Pixel" — web.run search_query | success; Official modelcard and pinned Diffusers source; quantitative evaluation missing. cards/prxpixel.md |
+| W07 / web_search | site.arxiv.org pixel diffusion 2026 "LENS" "Kandinsky" — web.run search_query | success; Primary reports inspected directly; broad web result noisy, not an absence proof. cards/lens.md, cards/kandinsky5.md |
+| W08 / web_search | site.huggingface.co "AuraFlow-v0.3" "VAE" — web.run search_query | success; Official card/config/hash; no sufficient quantitative evaluation. cards/auraflow.md |
+| W09 / web_search | site.github.com "Lumina-Image-2.0" "vae" — web.run search_query | success; Primary paper and official README/config; FLUX reuse. cards/lumina.md |
+| W10 / web_search | site.arxiv.org "pixel" "diffusion" "2026" "image generation" — web.run search_query | success; Primary methods/evaluations; PixARG remains uninspected lead. cards/pixelgen.md, cards/pixsgr.md, cards/hidream-o1.md |
+| W11 / web_search | site.huggingface.co "HiDream-I1-Full" "VRAM" — web.run search_query | success; Primary papers and official source; third-party VRAM reports excluded. cards/hidream.md, cards/hidream-o1.md |
+| A01 / arxiv_api | all:autoencoder AND all:diffusion, latest submitted, top10 — https://export.arxiv.org/api/query?search_query=all%3Aautoencoder%20AND%20all%3Adiffusion&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending | failed; 429 response; switched to arXiv HTML found through web/official papers. Failure is not successful search coverage.  |
+| A02 / arxiv_api | ti:Qwen-Image OR ti:Lumina OR ti:HiDream, top15 — https://export.arxiv.org/api/query?search_query=ti%3A%22Qwen-Image%22%20OR%20ti%3A%22Lumina%22%20OR%20ti%3A%22HiDream%22&start=0&max_results=15 | failed; Timed out; switched to primary paper HTML and official repositories.  |
+| O01 / openalex | pixel space diffusion image generation — https://api.openalex.org/works?search=pixel%20space%20diffusion%20image%20generation&per-page=10 | success; Metadata discovery only. Returned Edify, Latent Forcing, WiT, PixelDiT, Pixel-Space Diffusion Transformers, HiDiT and related work. No abstract-only evidence promoted to V2.  |
+| O02 / openalex | deep compression autoencoder image generation — https://api.openalex.org/works?search=deep%20compression%20autoencoder%20image%20generation&per-page=10 | success; Broad results included generic compression/TC-AE; inspected primary DC-AE through official trail. No negative completeness inference. cards/dcae.md |
+| H01 / official_repository_model_hub | HuggingFace models search PixelGen, limit20 — https://huggingface.co/api/models?search=PixelGen&limit=20 | success; Seven results; only paper-author zehongma/PixelGen used as official. Community mirrors excluded from support claim. cards/pixelgen.md |
+| H02 / official_repository_model_hub | HuggingFace models search Lens author LensAI, limit20 — https://huggingface.co/api/models?search=Lens&author=LensAI&limit=20 | success; Empty wrong-owner query; corrected to Microsoft using primary-paper/repository links. cards/lens.md |
+| H03 / official_repository_model_hub | HuggingFace models author microsoft search Lens, limit30 — https://huggingface.co/api/models?author=microsoft&search=Lens&limit=30 | success; Corrected owner search empty; direct advertised model API401. Do not infer model nonexistent. cards/lens.md |
+| H04 / official_repository_model_hub | GitHub repository search PixSGR — https://api.github.com/search/repositories?q=PixSGR | success; Two repositories; paper links identify CVL-UESTC/PixSGR. Its HF release is empty, not gated. cards/pixsgr.md |
 
-The literature skill's standard validator command was attempted, but `scripts/validate_literature.py` does not exist in this checkout. The requested bespoke topic structure was retained; no claim of schema-validator success is made. Local JSON/CSV parsing and cached-file checksum verification were used. This is a documentary deliverable, not a tested runtime environment.
 
-## Remaining uncertainty
+## Retrieval failures and alternatives
 
-No exhaustive absence claim: newer releases, private models and all fine-tunes are outside this bounded search. Full from-scratch initialization remains unresolved for FLUX and SD3. New reference-image editing APIs do not establish classic regeneration equivalence. Runtime1024 memory, actual rental price, host-RAM peak and complete baseline download total must be verified at the authorized execution stage before admitting an optional arm. None of these open items changes the fixed SDXL .2 decision rule.
+Raw GitHub downloads repeatedly failed with TLS EOF; GitHub contents API later returned403. Pinned GitHub blob pages exposed embedded rawLines, decoded as text without executing code. Each successful fallback has URL, original-response SHA and derived-text SHA in the receipt manifest. arXiv API429/timeout did not block primary full-text HTML inspection. Lens model401, empty PixSGR weights, gated FLUX/SD3 and a missing paper benchmark are different availability classes and are not conflated.
+
+Official model API snapshots were used for exact revision, actual `gated` state, declared license, component sizes and advertised LFS SHA. They are model-release audits, not extra substantive discovery queries. Unknown initialization stays unknown even where config and weights are available.
+
+## Search stopping rationale
+
+All named brief families and newer pixel/high-compression directions are represented. Eighteen conservative families have their own inspected paper card. Additional models with only metadata or a short card remain nonqualifying. Search was stopped after method/evaluation and operational distinctions were resolved for the major requested families, not on reaching fifteen names. This is a bounded landscape, not a claim to enumerate every October2026 model.

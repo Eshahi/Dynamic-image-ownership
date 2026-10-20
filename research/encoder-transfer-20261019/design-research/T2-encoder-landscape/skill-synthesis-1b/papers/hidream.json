@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "hidream",
+  "citation_key": "T2_hidream_2025",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2505.22705v1",
+  "title": "HiDream-I1: A High-Efficient Image Generative Foundation Model with Sparse Diffusion Transformer",
+  "authors": [
+    "HiDream.ai"
+  ],
+  "year": 2025,
+  "venue": "arXiv",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "limitations": [
+    "MIT ungated model packages. I1 external Llama3.1 is gated. O1 optional Gemma prompt refiner is gated; plain inference loads the local bundled model/processor, not a required external text encoder. No runtime validation."
+  ],
+  "inspection": {
+    "artifact": "T2-1b/hidream-paper.txt",
+    "sha256": "2d2ea0614b4b9a1c5e2a3cd019e99d18a6d32fe197a7c69e3ea8e26d42863ac4"
+  }
+}
