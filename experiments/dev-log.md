@@ -387,3 +387,7 @@
 - 2026-10-20T14:10:46.470909+00:00 Codex agent: accepted Stage1b T6 (8 paper V2,5 official references,12 queries/3 categories,15 tables/5154 analytic rows,9 checks passed); escalated T8 to fresh gpt-6.1-sol/high for the >=25-threat validity floor. No outcomes/GPU/server. Planned push on own codex/encoder-transfer-20261019 branch from d9bd236 to the T6 acceptance commit; exact range recorded after push.
 
 - 2026-10-20T14:12:38.347650+00:00 Codex agent pushed own branch codex/encoder-transfer-20261019 d9bd2362ae8416219cde1066e227c9e7e78b90b1..a0ff0a00fe0cbe0b5f1b13d6a1c445c5084a2fe1; origin exact head verified. T6 accepted analytical planning only.
+
+- 2026-10-20T14:16:24.581418+00:00 Codex agent pushed own codex/encoder-transfer-20261019 branch a0ff0a00fe0cbe0b5f1b13d6a1c445c5084a2fe1..ad985e022275ac4aad77da457b3f8177edf2a6b7; origin head verified. Statistical interpretation and official ZoDiac venue correction only; no core rule, model execution or outcome.
+
+- 2026-10-20T21:24:51.3378317Z Codex agent: re-briefed interrupted T7 and T8 to fresh gpt-6.1-sol/high agents; documentary floors unchanged, max two active. Preserving accepted work and correcting TrustMark count precision. Planned own-branch checkpoint push from ad985e0; exact range follows verification.

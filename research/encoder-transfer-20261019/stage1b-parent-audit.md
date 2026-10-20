@@ -16,7 +16,7 @@ Record unresolved gaps before acceptance. A below-floor delivery returns to a fr
 
 | Topic | Required content floor | Qualifying count | Distinct queries / categories | Parent disposition | Accepted topic commit |
 |---|---|---:|---|---|---|
-| T1 | 15 benchmark/attack sources; complete settings table | 20 direct; 34 total V2 | 30 queries, 20 intents / 3 categories | Accepted after parent inspection | 42cc385aeb0b9b500528064e454f0afec1a191e1 |
+| T1 | 15 benchmark/attack sources; complete settings table | 20 direct; 34 total V2 | 30 queries, 20 intents / 3 categories | Original accepted; newly discovered BrushOff addendum pending | 42cc385aeb0b9b500528064e454f0afec1a191e1 |
 | T2 | 15 model families; lineage and implementation table | 18 families; 30 individual cards | 17 successful queries, 16 intents / 3 categories | Accepted after parent inspection | ae5c7f33baa23cd363a70657a57d102fd2394f3d |
 | T3 | 12 post-hoc methods; fidelity and run-cost table | 24 distinct V2 methods; 25 version-specific references | 22 queries / 3 categories | Accepted after parent inspection | d9bd2362ae8416219cde1066e227c9e7e78b90b1 |
 | T4 | 8 mechanism sources; all-channel and proposal predictions | 13 distinct V2 sources; 26 prediction rows | 18 queries / 4 categories | Accepted after parent inspection | cc25f1683bb2960080f777e38ed1a0fcc00ab613 |
@@ -99,3 +99,5 @@ The complete floor covers source rates .50-.90 at n60/90/120; beta-binomial seed
 ### Cross-topic metadata erratum, 2026-10-20
 
 T7 cross-check identified the T3 ZoDiac venue error. Parent opened and cached the official NeurIPS 2024 main-track entry, corrected the card, comparison records and builder, and retained arXiv v2 as the numerical evidence version. VINE is independently verified at ICLR 2025 and already correct in the accepted T3 package. No method count, native configuration or experiment changed.
+
+T7 also prompted a more precise TrustMark count statement. Parent reread final ICCV Section4.1 in the primary PDF text: it names DIV2K training plus validation but does not state a numeric evaluated count. T3 now preserves that wording instead of presenting the standard-split total900 as a directly reported evaluation number. The Table3-specific count remains unreported.

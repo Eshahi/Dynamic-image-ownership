@@ -99,3 +99,11 @@ T6 passes parent checks with eight paper V2 cards, five official references, twe
 ## 2026-10-20T14:12:38.347650+00:00 - T6 push verified and source metadata corrected
 
 Origin confirms a0ff0a00fe0cbe0b5f1b13d6a1c445c5084a2fe1 after the T6 acceptance push. T7 cross-check found an incorrect ZoDiac venue in T3; the parent checked official proceedings and corrected it to NeurIPS2024, preserving the actual arXiv-v2 numerical evidence. VINE ICLR2025 is verified. No scientific settings changed. T7/T8 continue.
+
+## 2026-10-20T14:20:29.169279+00:00 - New attack-coverage lead from T8
+
+T8 discovery found BrushOff, arXiv2610.26682v1 dated2026-10-19, a painting-specific stroke re-rendering removal study absent from accepted T1. Parent read the full primary method/evaluation and will commission a fresh sol/high T1 gap agent once a topic slot is free. This extends source coverage under the existing include-recent-benchmarks rule; it does not add an experimental channel or spending proposal. The initially accepted T1 counts remain34 total/20 direct until the addendum is checked. A second taxonomy/case-study lead is being screened for relevance. T7/T8 continue; all floors and review2 remain required before the stop marker.
+
+## 2026-10-20T21:24:51.3378317Z - Supervisor interruption recovery
+
+Git HEAD ad985e0 and all work-in-progress were preserved. The supervisor reports the prior interruption was a stale usage-watchdog record, not a work failure. T1-T6 acceptance remains recorded; T1 additionally requires the newly discovered BrushOff/taxonomy screen. Fresh gpt-6.1-sol/high agents resume T7 and T8 in place, with at most two active. The remaining floors and fresh Astra/xhigh review2 are unchanged. The parent visually checked WIND final Table11: reported AUC .971 and TP@1% 1.000 remain an unresolved source inconsistency, not an extraction fix. TrustMark numeric evaluation count is corrected to unreported. No server, GPU, real-mark scoring or outcome occurred.
