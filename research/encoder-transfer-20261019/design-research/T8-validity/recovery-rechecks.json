@@ -1,0 +1,274 @@
+{
+  "date": "2026-10-20",
+  "purpose": "Replacement agent personal focused reinspection of substantive method/evaluation evidence, after prior deliberate interruption; not independent design review.",
+  "sources": [
+    {
+      "id": "T8-waves",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-waves.txt",
+      "sha256": "690276accbb6797976feb292164895da991323a791f98f28b5e933fdf3ce915c",
+      "one_based_line_windows": [
+        [
+          710,
+          727
+        ],
+        [
+          850,
+          875
+        ]
+      ],
+      "status": "personally_read"
+    },
+    {
+      "id": "T8-vine",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-vine.txt",
+      "sha256": "46787d558a32df39faa09346ec501f618c75cbb7b080743b1e96bcbf45b2844e",
+      "one_based_line_windows": [
+        [
+          375,
+          405
+        ],
+        [
+          730,
+          763
+        ]
+      ],
+      "status": "personally_read"
+    },
+    {
+      "id": "T8-unmarker",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-unmarker.txt",
+      "sha256": "9f714df1fd412d702a34b8a1e0c35496ea3a23f7c70792ccc90a2ed490837c18",
+      "one_based_line_windows": [
+        [
+          508,
+          535
+        ],
+        [
+          801,
+          835
+        ],
+        [
+          1095,
+          1112
+        ]
+      ],
+      "status": "personally_read"
+    },
+    {
+      "id": "T8-marknull",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-marknull.txt",
+      "sha256": "3bde4c2ad7a121631e79303cf5d5dee9024ec75c290107c68c5a7c022d7e58b4",
+      "one_based_line_windows": [
+        [
+          722,
+          745
+        ],
+        [
+          1244,
+          1272
+        ],
+        [
+          2430,
+          2440
+        ]
+      ],
+      "status": "personally_read"
+    },
+    {
+      "id": "T8-raven",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-raven.txt",
+      "sha256": "43764fabf06086a49f8579890514205d255b300b7f5ac4959ae46485ff846500",
+      "one_based_line_windows": [
+        [
+          481,
+          505
+        ],
+        [
+          1443,
+          1474
+        ]
+      ],
+      "status": "personally_read"
+    },
+    {
+      "id": "T8-waw",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-waw.txt",
+      "sha256": "e8a505690c261a0149340464c2a20d7fe25b6242d3271dd3c142ec5afb84a133",
+      "one_based_line_windows": [
+        [
+          442,
+          466
+        ],
+        [
+          814,
+          836
+        ],
+        [
+          944,
+          967
+        ]
+      ],
+      "status": "personally_read"
+    },
+    {
+      "id": "T8-zhao",
+      "artifact": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T4-1b/zhao.txt",
+      "sha256": "9b990e8a3e30598523ed1d8b0a01bc80c0acee98d9aed2a73454fb600e6a851a",
+      "one_based_line_windows": [
+        [
+          187,
+          240
+        ]
+      ],
+      "status": "personally_read"
+    },
+    {
+      "id": "T8-prc",
+      "artifact": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T4-1b/prc.txt",
+      "sha256": "b3c2f6f7eb04a72663825b1fe783bdf65a9d869da284ea4a5a4ef624babe77af",
+      "one_based_line_windows": [
+        [
+          165,
+          177
+        ],
+        [
+          205,
+          233
+        ],
+        [
+          250,
+          281
+        ],
+        [
+          383,
+          407
+        ]
+      ],
+      "status": "personally_read"
+    },
+    {
+      "id": "T8-ctrlregen",
+      "artifact": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T4-1b/ctrlregen.txt",
+      "sha256": "5fad65c1fc3d6f3ed8677189b04575e6d53af73ff908909a1be0a9d48832ed58",
+      "one_based_line_windows": [
+        [
+          74,
+          120
+        ],
+        [
+          301,
+          330
+        ]
+      ],
+      "status": "personally_read"
+    },
+    {
+      "id": "T8-wam",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T5-1b\\paper-wam.txt",
+      "sha256": "7740219ef33108335cec4aea085448f31d14c990b3cf8f5fe8cc78c5cbf03213",
+      "one_based_line_windows": [
+        [
+          532,
+          570
+        ],
+        [
+          1160,
+          1208
+        ],
+        [
+          1221,
+          1345
+        ]
+      ],
+      "status": "personally_read"
+    },
+    {
+      "id": "T8-sdxl",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T5-1b\\sdxl-paper.read.txt",
+      "sha256": "e0f0e615b71bf00cfe64b2101ac73a3154d57e9b2ead21af22193719cca7df4b",
+      "one_based_line_windows": [
+        [
+          1093,
+          1164
+        ]
+      ],
+      "status": "personally_read"
+    },
+    {
+      "id": "T8-drew",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\drew.read.txt",
+      "sha256": "bda03736bee7714a47e03227cea42a2b1798753e62e86c9074ff55637241bdcf",
+      "one_based_line_windows": [
+        [
+          120,
+          178
+        ],
+        [
+          431,
+          461
+        ]
+      ],
+      "status": "personally_read"
+    },
+    {
+      "id": "T8-brushoff",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\brushoff.read.txt",
+      "sha256": "ef49588148f39302dadcf82872370895317cb895c9010081dd719b7defb6831c",
+      "one_based_line_windows": [
+        [
+          171,
+          191
+        ],
+        [
+          221,
+          324
+        ],
+        [
+          600,
+          620
+        ]
+      ],
+      "status": "personally_read"
+    },
+    {
+      "id": "T8-softbinding",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\softbinding.read.txt",
+      "sha256": "80ffde33271686525cca77736b2b7c652f6cb5df17ff1f9671dcc8e577e68dfe",
+      "one_based_line_windows": [
+        [
+          164,
+          172
+        ],
+        [
+          1797,
+          1811
+        ],
+        [
+          2366,
+          2374
+        ]
+      ],
+      "status": "personally_read"
+    }
+  ],
+  "additional_rechecks": [
+    "SDXL pinned pipeline 703-735",
+    "WAM metrics 148-195",
+    "PyTorch reproducibility 1-35",
+    "VINE decoder 32-46",
+    "local predicates 70-87",
+    "current BRIEF section 1b",
+    "current protocol and frozen-config",
+    "accepted T1-T6 syntheses and parent acceptance audit"
+  ],
+  "corrections": [
+    "WAM nominal comparison 2.6e-4 is distinct from Table 2a empirical WAM 0.04%.",
+    "BrushOff DwtDct349/500 is not DwtDctSvd500/500; RivaGAN485/500."
+  ],
+  "excluded": [
+    "Active T7 unfinished files",
+    "held-out or real-image pixels",
+    "outcomes",
+    "weights/GPU/server"
+  ]
+}

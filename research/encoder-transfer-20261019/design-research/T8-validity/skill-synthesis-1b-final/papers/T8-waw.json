@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "T8-waw",
+  "citation_key": "T8_waw",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2605.16796v1",
+  "title": "Watermarks Attack Watermarks: Re-Watermarking as a Generic Removal Strategy",
+  "authors": [
+    "Maria Bulychev",
+    "Neil G. Marchant",
+    "Benjamin I. P. Rubinstein"
+  ],
+  "year": 2026,
+  "venue": "arXiv preprint; final venue not independently verified",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": ".thesis-build/q1-research-20261018/cache/T1-waw.html",
+    "sha256": "724af9ff339bf2afbf1388166bedb0449fa927657f56de1255ca880df92ddb99"
+  },
+  "limitations": [
+    "These attack and side-information conditions do not match the fixed core. Its normalized quality is not our PSNR/SSIM/LPIPS caliper set or an imagewise causal match."
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "T8-raven",
+  "citation_key": "T8_raven",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2601.08832v1",
+  "title": "RAVEN : Erasing Invisible Watermarks via Novel View Synthesis",
+  "authors": [
+    "Fahad Shamshad",
+    "Nils Lukas",
+    "Karthik Nandakumar"
+  ],
+  "year": 2026,
+  "venue": "arXiv preprint; final venue not independently verified",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": ".thesis-build/q1-research-20261018/cache/T1-raven.html",
+    "sha256": "a0bdfdff7e0c81be8ad4d1aa01d1cd29feac57fa34bbc81ebba5ce0cf14635d6"
+  },
+  "limitations": [
+    "Novel-view editing changes geometry and is outside the frozen T3 empty-prompt regeneration grid. Prompt/scene consistency is not proof of image identity or imperceptibility."
+  ]
+}

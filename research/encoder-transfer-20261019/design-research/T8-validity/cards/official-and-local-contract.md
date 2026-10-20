@@ -1,0 +1,11 @@
+# Official implementation and local contract evidence
+
+Inspected 2026-10-20; this is not a paper card and does not count toward the 14-paper total. Exact URLs and source hashes are in [source-manifest](../source-manifest.json), with byte snapshots only in MAIN cache.
+
+**Direct official evidence.** Diffusers 0.35.1 SDXL prepare_latents690–780 casts the input to prompt dtype at 709 before force_upcast promotes it to float32 at 717–720, then samples the VAE posterior and initial diffusion noise. CFG959–964 activates only above1. The PyTorch 2.7.1 reproducibility note1–35 disclaims identical results across releases, CPU/GPU and platforms even with equal seeds. WAM pinned metrics.py150–194 selects mask>.5, averages raw message logits, then thresholds>.5; VINE pinned decoder32–46 rounds predicted probabilities with NumPy. These observations were directly reopened, not inferred from abstracts.
+
+**Direct local evidence.** BRIEF1a/1b, full protocol/config, runtime save/read/dtype branches and endpoint analysis70–87 were inspected. C is literally `semantic.read and semantic.content_match`, without found. Missing positive attempts fail the planned denominator; missing negative calls remain unresolved. Public expected messages, frozen WAM27/32/VINE69/100 common rules, and native rules stay separate. Protocol says eight tables/seven figures; active T7 files were not inspected. Local artifacts are working-tree snapshots, not experimental results.
+
+**Inference/limits.** R1 versus manual D1 changes sampling and input rounding as well as diffusion. Saved RGB8 inputs, resolution cycles, second-pass saved input and finite guards are part of the tested method. Full fp32 VAE arithmetic over fp16-valued weights is not a separate full-fp32 checkpoint. Deterministic flags reduce variability but cannot promise cross-hardware bit identity. Official/source-code inspection does not prove GPU memory fit, elapsed cost or numerical success. These remain stage2 measurements.
+
+**Licence limits.** WAM MIT SA-1B and VINE research/noncommercial release terms are distinct; the paper licence does not override checkpoint/dependency restrictions. FLUX.1-schnell discovery reports gated auto at the inspected revision; absence is operational unavailability, not inferior performance. No code or weights were executed or downloaded for this card.

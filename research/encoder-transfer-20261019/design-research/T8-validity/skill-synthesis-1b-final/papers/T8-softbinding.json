@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "T8-softbinding",
+  "citation_key": "T8_softbinding",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2610.04151v1",
+  "title": "Watermarks and Fingerprints as Soft Bindings for Content Provenance: An Open-Licence Benchmark for Images, Audio and Video",
+  "authors": [
+    "Seyedmahdi Kazempourradi",
+    "Ramtin Mojtahedi",
+    "Behrang Mohseni"
+  ],
+  "year": 2026,
+  "venue": "arXiv preprint; final venue not independently verified",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": ".thesis-build/q1-research-20261018/cache/T8-1b/softbinding.html",
+    "sha256": "41b32e9930ccf14bbe3d1efdcbcf7ba96782177029238f6e96eaebf280c250a9"
+  },
+  "limitations": [
+    "Open paper/code licenses do not automatically grant all model/media uses. Its calibration split and combined score do not authorize held-out access, post-hoc cutoffs or a new score in this study."
+  ]
+}

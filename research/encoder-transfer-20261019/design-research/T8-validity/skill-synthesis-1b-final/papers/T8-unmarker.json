@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "T8-unmarker",
+  "citation_key": "T8_unmarker",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2405.08363v2",
+  "title": "UnMarker: A Universal Attack on Defensive Image Watermarking",
+  "authors": [
+    "Andre Kassis",
+    "Urs Hengartner"
+  ],
+  "year": 2024,
+  "venue": "arXiv preprint; final venue not independently verified",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": ".thesis-build/q1-research-20261018/cache/T1-unmarker.html",
+    "sha256": "f7cf99c1482bdd9df24b712855c33bff6a8ec8db4466157db02ac5bda9b52002"
+  },
+  "limitations": [
+    "Broad universal-removal language exceeds what a finite method/grid evaluation can prove. Selected losses and image sets are still conditional choices. No exact attack was run against F5 here."
+  ]
+}

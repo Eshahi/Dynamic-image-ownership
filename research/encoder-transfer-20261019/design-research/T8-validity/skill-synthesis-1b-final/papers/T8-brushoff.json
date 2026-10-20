@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "T8-brushoff",
+  "citation_key": "T8_brushoff",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2610.26682v1",
+  "title": "BrushOff: Stroke-Based Re-rendering as a Watermark Removal Attack on Paintings",
+  "authors": [
+    "Hao Chen",
+    "Junnan Xu"
+  ],
+  "year": 2026,
+  "venue": "arXiv preprint; final venue not independently verified",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": ".thesis-build/q1-research-20261018/cache/T8-1b/brushoff.html",
+    "sha256": "af33f29ecdcf4d761015133bdecefcb6eb682a37f2e33b4c0d26cc7839cf2c01"
+  },
+  "limitations": [
+    "Painting-only domain, one renderer, fixed payload, changed probes after results and visible texture changes limit generality. VINE-only quality does not prove cross-arm distortion equivalence. No F5 output was attacked."
+  ]
+}

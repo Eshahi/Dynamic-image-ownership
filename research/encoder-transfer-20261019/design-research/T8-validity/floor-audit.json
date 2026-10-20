@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-20",
+  "status": "author-side checks passed; parent acceptance pending",
+  "threat_floor": 25,
+  "distinct_threats": 68,
+  "own_distinct_primary_V2_papers": 14,
+  "official_implementation_references_not_papers": 4,
+  "local_snapshots_not_papers": 5,
+  "attempted_distinct_queries": 17,
+  "conservatively_counted_successful_substantive_queries": 11,
+  "successful_categories": [
+    "OpenAlex",
+    "arXiv API",
+    "official-repository-or-model-hub",
+    "web"
+  ],
+  "paper_card_count_exclusions": [
+    "official-and-local-contract.md",
+    "validity-evidence-map.md",
+    "discovery-only taxonomy/FeatMark/video leads",
+    "accepted sibling topic cards",
+    "generated skill paper JSON"
+  ],
+  "checksum_checks": 59,
+  "checksum_mismatches": 0,
+  "relative_markdown_links_checked": 102,
+  "broken_relative_links": 0,
+  "threat_ids_unique": true,
+  "skill_validation": {
+    "valid": true,
+    "errors": 0,
+    "warnings": 0,
+    "synthesis_export_successful": true,
+    "receipt": "skill-checks.json"
+  },
+  "independent_review": false,
+  "limitations": [
+    "No source venue/DOI independently reverified in this topic; versioned primary texts carry numerical evidence.",
+    "Queries bound discovery rather than establishing exhaustive coverage.",
+    "No model/server/weights/real-image scoring/outcomes/held-out access.",
+    "Raw historical local snapshots retain original hashes even if the live contract subsequently changes."
+  ]
+}

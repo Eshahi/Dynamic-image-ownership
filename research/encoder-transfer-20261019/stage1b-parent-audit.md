@@ -23,7 +23,7 @@ Record unresolved gaps before acceptance. A below-floor delivery returns to a fr
 | T5 | Six named implementations; all relied-on settings pinned by file/line | 6 implementations, 61 setting rows, 6 paper V2 cards | 16 queries / 3 categories | Accepted after parent inspection | 4601425749c940f2eaa7a852324a542af26659da |
 | T6 | n60/90/120; seed correlation and missing-unit sensitivity | 8 paper V2 + 5 official references; 15 tables / 5,154 rows | 12 queries / 3 categories | Accepted after parent inspection | a0ff0a00fe0cbe0b5f1b13d6a1c445c5084a2fe1 |
 | T7 | 12 evaluation sections from 2024-2026 eligible venues | Pending | Pending | Assigned to fresh sol/high | Pending |
-| T8 | 25 distinct validity threats | Pending | Pending | Assigned to fresh sol/high | Pending |
+| T8 | 25 distinct validity threats | 68 mechanisms; 14 own V2 papers | 11 successful queries / 4 categories (17 attempted) | Accepted after parent inspection | Current acceptance commit |
 
 ## Evidence inspection and gaps
 
@@ -101,3 +101,9 @@ The complete floor covers source rates .50-.90 at n60/90/120; beta-binomial seed
 T7 cross-check identified the T3 ZoDiac venue error. Parent opened and cached the official NeurIPS 2024 main-track entry, corrected the card, comparison records and builder, and retained arXiv v2 as the numerical evidence version. VINE is independently verified at ICLR 2025 and already correct in the accepted T3 package. No method count, native configuration or experiment changed.
 
 T7 also prompted a more precise TrustMark count statement. Parent reread final ICCV Section4.1 in the primary PDF text: it names DIV2K training plus validation but does not state a numeric evaluated count. T3 now preserves that wording instead of presenting the standard-split total900 as a directly reported evaluation number. The Table3-specific count remains unreported.
+
+Parent rechecked WAM final ICLR Section5.3 and Table2a in the primary text (T7 cache lines451-458,520-521): nominal comparison is2.6e-4 from a16-bit/one-error null, whereas measured COCO FPR is0.04%. Accepted T3/T5 wording now separates them. Native .07 threshold and the explicit non-transfer of calibration to SA-1B are unchanged.
+
+### T8 accepted, 2026-10-20
+
+Parent read all fourteen own V2 paper cards, the official/local card, all68 threat rows and the complete synthesis. Each row has a distinct mechanism, mitigation or retained limitation and primary/source-contract argument; no severity sum or new security guarantee is inferred. Parent independently verified all59 source/query/snapshot hashes, counted68 CSV rows and eleven unique successful substantive queries in four allowed categories (repository/model-hub combined), and checked the actual successful skill-validation receipt against the current response hash. Historical grouped cards and generated exports are not additional papers. WAM nominal versus empirical FPR and BrushOff clean-denominator distinctions were rechecked against primary text. The old38-threat synthesis is preserved as historical; current synthesis is authoritative. New BrushOff/taxonomy leads are assigned separately to a fresh T1 gap agent. No core setting, proposal, server or outcome changed.

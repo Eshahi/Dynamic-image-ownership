@@ -1,16 +1,20 @@
-# Primary evidence map
+# T8 own evidence map
 
-This extends existing V2 cards rather than claiming to reverify every source independently.
+This replaces the Stage1a inherited map. Fourteen distinct primary preprints have own V2 method/evaluation cards; no metadata-only lead, official source, repeated version or accepted sibling synthesis adds to that count.
 
-| Evidence | Method/evaluation locator and inherited record | Bounded use |
-|---|---|---|
-| WAVES | 2401.08573v3 §§3–4,E–F; T1 benchmark extension | Quality tradeoffs, decoder/encoder attack access, rinsing, calibrated-task distinctions |
-| VINE/W-Bench | 2410.18775v2 §§3.3,4.1–4.4; T3 VINE card | Native payload/resolution and heterogeneous edit evaluation |
-| WAM | 2411.07231v2 §§3–5,G.3; T3 WAM card | Presence versus recovery; checkpoint calibration caveat |
-| Zhao | 2306.01953v3 §§3–5,Theorem4.3,A/C/D; T4 Zhao card | Removal bound assumptions, no converse survival guarantee |
-| PRC | T4 PRC card, method/evaluation and Figure8 | Reader robustness differs from attacker encoder intervention |
-| WAW/DRIFT | T1 recent extensions, method/evaluation sections | Payload attack versus removal, fixed versus adaptive policies |
-| Ahmed–Shoukri | T6 card §§2,4 | Illustrative beta-binomial dependence, not fitted source ICC |
-| Cameron–Miller | T6 inherited V2 card/manifest | Cluster dependence warning; no seed-level independence |
+- [WAVES: Benchmarking the Robustness of Image Watermarks](waves.md): `2401.08573v3`, own recheck locators/hashes in card.
+- [Robust Watermarking Using Generative Priors Against Image Editing: From Benchmarking to Advances](vine.md): `2410.18775v2`, own recheck locators/hashes in card.
+- [UnMarker: A Universal Attack on Defensive Image Watermarking](unmarker.md): `2405.08363v2`, own recheck locators/hashes in card.
+- [MarkNull : Model-Agnostic Watermark Removal in AI-Generated Images via On-Manifold Latent Manipulation](marknull.md): `2608.10166v1`, own recheck locators/hashes in card.
+- [RAVEN : Erasing Invisible Watermarks via Novel View Synthesis](raven.md): `2601.08832v1`, own recheck locators/hashes in card.
+- [Watermarks Attack Watermarks: Re-Watermarking as a Generic Removal Strategy](waw.md): `2605.16796v1`, own recheck locators/hashes in card.
+- [Invisible Image Watermarks Are Provably Removable Using Generative AI](zhao.md): `2306.01953v3`, own recheck locators/hashes in card.
+- [An undetectable watermark for generative image models](prc.md): `2410.07369v4`, own recheck locators/hashes in card.
+- [Image Watermarks are Removable Using Controllable Regeneration from Clean Noise](ctrlregen.md): `2410.05470v2`, own recheck locators/hashes in card.
+- [Watermark Anything with Localized Messages](wam.md): `2411.07231v2`, own recheck locators/hashes in card.
+- [SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis](sdxl.md): `2307.01952v1`, own recheck locators/hashes in card.
+- [DREW: Towards Robust Data Provenance by Leveraging Error-Controlled Watermarking](drew.md): `2406.02836v2`, own recheck locators/hashes in card.
+- [BrushOff: Stroke-Based Re-rendering as a Watermark Removal Attack on Paintings](brushoff.md): `2610.26682v1`, own recheck locators/hashes in card.
+- [Watermarks and Fingerprints as Soft Bindings for Content Provenance: An Open-Licence Benchmark for Images, Audio and Video](softbinding.md): `2610.04151v1`, own recheck locators/hashes in card.
 
-All source URLs, versions, inspected sections and cached SHA256 receipts are retained in linked topic manifests. Source cache manifests are copied by reference and hash in `source-manifest.json`. No new empirical numbers are asserted by this map.
+[Official/local contract card](official-and-local-contract.md) is implementation evidence, not another paper. [Threat register](../threat-register.md) maps analytical limitations to these cards.

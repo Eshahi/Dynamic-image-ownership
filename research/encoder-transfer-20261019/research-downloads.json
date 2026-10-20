@@ -6374,17 +6374,126 @@
       "license": "Not asserted by this receipt; documentary access only, no redistribution; see primary source and topic card",
       "version_or_revision": "Pinned in URL where available; otherwise retrieval snapshot SHA",
       "source_manifest": "research/encoder-transfer-20261019/design-research/T2-encoder-landscape/manifest-receipts-1b.json"
+    },
+    {
+      "url": "https://arxiv.org/html/2406.02836v2",
+      "sha256": "d0d998083d31e9409064b6c1fe1ec2d8e80c502e51abda3ba2ea70cca48fcb42",
+      "bytes": 264444,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\C6\\drew2406v2.html",
+      "license": "arXiv perpetual non-exclusive",
+      "version_or_revision": "2406.02836v2",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T8-validity/source-manifest.json"
+    },
+    {
+      "url": "https://arxiv.org/html/2610.26682v1",
+      "sha256": "af33f29ecdcf4d761015133bdecefcb6eb682a37f2e33b4c0d26cc7839cf2c01",
+      "bytes": 176946,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\brushoff.html",
+      "license": "arXiv perpetual non-exclusive",
+      "version_or_revision": "2610.26682v1",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T8-validity/source-manifest.json"
+    },
+    {
+      "url": "https://arxiv.org/html/2610.04151v1",
+      "sha256": "41b32e9930ccf14bbe3d1efdcbcf7ba96782177029238f6e96eaebf280c250a9",
+      "bytes": 1128771,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\softbinding.html",
+      "license": "CC BY 4.0",
+      "version_or_revision": "2610.04151v1",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T8-validity/source-manifest.json"
+    },
+    {
+      "url": "https://api.openalex.org/works?search=watermark%20regeneration%20evaluation%20false%20positive%20quality&per-page=5",
+      "sha256": "cc71778d7e8e2ed642abb8cb61da4e7a16f840a583e6a2be012d544235634b7a",
+      "bytes": 85607,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-09.json",
+      "license": "Documentary inspection only; see topic source manifest",
+      "version_or_revision": "Retrieval snapshot SHA; URL version when available",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T8-validity/source-manifest.json"
+    },
+    {
+      "url": "https://api.openalex.org/works?search=SDXL%20autoencoder%20trained%20from%20scratch&per-page=5",
+      "sha256": "6f21c5174c78cb102fbb7aa5cacd0eccf5a8350e1d313ba7bf56773987ec7deb",
+      "bytes": 83235,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-10.json",
+      "license": "Documentary inspection only; see topic source manifest",
+      "version_or_revision": "Retrieval snapshot SHA; URL version when available",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T8-validity/source-manifest.json"
+    },
+    {
+      "url": "https://api.openalex.org/works?search=DREW%20error%20controlled%20watermarking%20provenance&per-page=5",
+      "sha256": "019d1316f2400408e04813e319a96d1db6546f7cdec38a6f4c17fc073ce7c356",
+      "bytes": 102276,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-11.json",
+      "license": "Documentary inspection only; see topic source manifest",
+      "version_or_revision": "Retrieval snapshot SHA; URL version when available",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T8-validity/source-manifest.json"
+    },
+    {
+      "url": "https://api.openalex.org/works?search=MarkNull%20RAVEN%20watermark%20removal&per-page=5",
+      "sha256": "19878d6d7e6333d0ae6fbf21abedfc601605706cbca93d2a67130910b45f69c2",
+      "bytes": 1028,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-12.json",
+      "license": "Documentary inspection only; see topic source manifest",
+      "version_or_revision": "Retrieval snapshot SHA; URL version when available",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T8-validity/source-manifest.json"
+    },
+    {
+      "url": "https://huggingface.co/api/models/stabilityai/stable-diffusion-xl-base-1.0/revision/462165984030d82259a11f4367a4eed129e94a7b",
+      "sha256": "492f34528fba0d765522f43795d3fd2c04df623baa0ca7e700d3588c1c581eb8",
+      "bytes": 6424,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-13.json",
+      "license": "Documentary inspection only; see topic source manifest",
+      "version_or_revision": "Retrieval snapshot SHA; URL version when available",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T8-validity/source-manifest.json"
+    },
+    {
+      "url": "https://huggingface.co/api/models/black-forest-labs/FLUX.1-schnell",
+      "sha256": "ba669a72a39484718d2584febd9b9773f3c58706fe55b959529b04748433544c",
+      "bytes": 5146,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-14.json",
+      "license": "Documentary inspection only; see topic source manifest",
+      "version_or_revision": "Retrieval snapshot SHA; URL version when available",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T8-validity/source-manifest.json"
+    },
+    {
+      "url": "https://api.github.com/repos/facebookresearch/watermark-anything/git/trees/2c08af04d037d5667c02f6ddebbda9ff04581c3e?recursive=1",
+      "sha256": "57a51f2b16de91d1a17192af1d9bb7f023648a9a0361d08b6acb478c2dae3996",
+      "bytes": 17866,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-15.json",
+      "license": "Documentary inspection only; see topic source manifest",
+      "version_or_revision": "Retrieval snapshot SHA; URL version when available",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T8-validity/source-manifest.json"
+    },
+    {
+      "url": "https://api.github.com/repos/Shilin-LU/VINE/git/trees/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77?recursive=1",
+      "sha256": "75061bb296b0196ecdd465156a57d19a36acf54b6adcf479d2b9c96955865c4e",
+      "bytes": 521115,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-16.json",
+      "license": "Documentary inspection only; see topic source manifest",
+      "version_or_revision": "Retrieval snapshot SHA; URL version when available",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T8-validity/source-manifest.json"
+    },
+    {
+      "url": "https://export.arxiv.org/api/query?search_query=all:watermark+AND+all:regeneration&start=0&max_results=5&sortBy=submittedDate&sortOrder=descending",
+      "sha256": "f6b6fbf8d0a65d3def7514f983338d2b5c246ab38ee7643b47776956569b0172",
+      "bytes": 13903,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-17.xml",
+      "license": "Documentary inspection only; see topic source manifest",
+      "version_or_revision": "Retrieval snapshot SHA; URL version when available",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T8-validity/source-manifest.json"
     }
   ],
-  "indexed_bytes": 167753220,
+  "indexed_bytes": 170159981,
   "stage1b_accepted_topics_indexed": [
     "T1",
     "T2",
     "T3",
     "T4",
     "T5",
-    "T6"
+    "T6",
+    "T8"
   ],
-  "updated_utc": "2026-10-20T14:12:38.347650+00:00",
-  "record_count": 708
+  "updated_utc": "2026-10-20T21:42:08.590351+00:00",
+  "record_count": 720
 }

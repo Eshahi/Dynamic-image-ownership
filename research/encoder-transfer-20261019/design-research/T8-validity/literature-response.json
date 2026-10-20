@@ -1,0 +1,983 @@
+{
+  "request_id": "T8-stage1b-validity",
+  "papers": [
+    {
+      "schema_version": "1.0",
+      "paper_id": "T8-waves",
+      "citation_key": "T8_waves",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2401.08573v3",
+      "title": "WAVES: Benchmarking the Robustness of Image Watermarks",
+      "authors": [
+        "Bang An",
+        "Mucong Ding",
+        "Tahseen Rabbani",
+        "Aakriti Agrawal",
+        "Yuancheng Xu",
+        "Chenghao Deng",
+        "Sicheng Zhu",
+        "Abdirisak Mohamed",
+        "Yuxin Wen",
+        "Tom Goldstein",
+        "Furong Huang"
+      ],
+      "year": 2024,
+      "venue": "arXiv preprint; final venue not independently verified",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": ".thesis-build/q1-research-20261018/cache/T1-waves.html",
+        "sha256": "238ffa869b2b8424a92aeeef27e39d7b7909b33ed487a3d4e794e7e6f67e7a08"
+      },
+      "limitations": [
+        "The normalization and attack grids are benchmark-specific. No F5 result, theorem of encoder independence, or calibrated SDXL operating point is supplied."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "T8-vine",
+      "citation_key": "T8_vine",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2410.18775v2",
+      "title": "Robust Watermarking Using Generative Priors Against Image Editing: From Benchmarking to Advances",
+      "authors": [
+        "Shilin Lu",
+        "Zihan Zhou",
+        "Jiayou Lu",
+        "Yuanzhi Zhu",
+        "Adams Wai-Kin Kong"
+      ],
+      "year": 2024,
+      "venue": "arXiv preprint; final venue not independently verified",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": ".thesis-build/q1-research-20261018/cache/T1-vine.html",
+        "sha256": "f6fb25d7b27ec0e95f883674e2e08a41a9075f5929e76287f02330e339e049dd"
+      },
+      "limitations": [
+        "This is an author evaluation, not a native universal cutoff. Training on editing proxies and paper/release lineage mismatch limit the inference of unseen encoder transfer."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "T8-unmarker",
+      "citation_key": "T8_unmarker",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2405.08363v2",
+      "title": "UnMarker: A Universal Attack on Defensive Image Watermarking",
+      "authors": [
+        "Andre Kassis",
+        "Urs Hengartner"
+      ],
+      "year": 2024,
+      "venue": "arXiv preprint; final venue not independently verified",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": ".thesis-build/q1-research-20261018/cache/T1-unmarker.html",
+        "sha256": "f7cf99c1482bdd9df24b712855c33bff6a8ec8db4466157db02ac5bda9b52002"
+      },
+      "limitations": [
+        "Broad universal-removal language exceeds what a finite method/grid evaluation can prove. Selected losses and image sets are still conditional choices. No exact attack was run against F5 here."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "T8-marknull",
+      "citation_key": "T8_marknull",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2608.10166v1",
+      "title": "MarkNull : Model-Agnostic Watermark Removal in AI-Generated Images via On-Manifold Latent Manipulation",
+      "authors": [
+        "Jie Cao",
+        "Qi Li",
+        "Zelin Zhang",
+        "Xiaodong Wu",
+        "Lingshuang Liu",
+        "Xiangman Li",
+        "Jianbing Ni"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint; final venue not independently verified",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": ".thesis-build/q1-research-20261018/cache/T1-marknull.html",
+        "sha256": "522723a9664b1226762fda200c4b758a2b16476f6552d27c1e081b124bf1ff32"
+      },
+      "limitations": [
+        "This is an adaptive trained attacker with method/dataset choices, not the frozen honest SDXL regenerator. Cross-method averages can mix different clean hosts and endpoint classes."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "T8-raven",
+      "citation_key": "T8_raven",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2601.08832v1",
+      "title": "RAVEN : Erasing Invisible Watermarks via Novel View Synthesis",
+      "authors": [
+        "Fahad Shamshad",
+        "Nils Lukas",
+        "Karthik Nandakumar"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint; final venue not independently verified",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": ".thesis-build/q1-research-20261018/cache/T1-raven.html",
+        "sha256": "a0bdfdff7e0c81be8ad4d1aa01d1cd29feac57fa34bbc81ebba5ce0cf14635d6"
+      },
+      "limitations": [
+        "Novel-view editing changes geometry and is outside the frozen T3 empty-prompt regeneration grid. Prompt/scene consistency is not proof of image identity or imperceptibility."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "T8-waw",
+      "citation_key": "T8_waw",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2605.16796v1",
+      "title": "Watermarks Attack Watermarks: Re-Watermarking as a Generic Removal Strategy",
+      "authors": [
+        "Maria Bulychev",
+        "Neil G. Marchant",
+        "Benjamin I. P. Rubinstein"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint; final venue not independently verified",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": ".thesis-build/q1-research-20261018/cache/T1-waw.html",
+        "sha256": "724af9ff339bf2afbf1388166bedb0449fa927657f56de1255ca880df92ddb99"
+      },
+      "limitations": [
+        "These attack and side-information conditions do not match the fixed core. Its normalized quality is not our PSNR/SSIM/LPIPS caliper set or an imagewise causal match."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "T8-zhao",
+      "citation_key": "T8_zhao",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2306.01953v3",
+      "title": "Invisible Image Watermarks Are Provably Removable Using Generative AI",
+      "authors": [
+        "Xuandong Zhao",
+        "Kexun Zhang",
+        "Zihao Su",
+        "Saastha Vasan",
+        "Ilya Grishchenko",
+        "Christopher Kruegel",
+        "Giovanni Vigna",
+        "Yu-Xiang Wang",
+        "Lei Li"
+      ],
+      "year": 2023,
+      "venue": "arXiv preprint; final venue not independently verified",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": ".thesis-build/q1-research-20261018/cache/T4-1b/zhao.html",
+        "sha256": "41861c3d032d039a001feb23c58c8a322b0e38c27ad70b382acfc84d96423582"
+      },
+      "limitations": [
+        "A real VAE posterior has input-dependent mean and variance. Posterior sampling, mode-only D1, changed prompts and preprocessing are not automatically the same theorem. Large encoder gain weakens an impossibility bound; it does not prove survival."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "T8-prc",
+      "citation_key": "T8_prc",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2410.07369v4",
+      "title": "An undetectable watermark for generative image models",
+      "authors": [
+        "Sam Gunn",
+        "Xuandong Zhao",
+        "Dawn Song"
+      ],
+      "year": 2024,
+      "venue": "arXiv preprint; final venue not independently verified",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": ".thesis-build/q1-research-20261018/cache/T4-1b/prc.html",
+        "sha256": "e7f8017500b50dfcebf62d9899346fbfebff5162dab0b62d132b60b6facb776b"
+      },
+      "limitations": [
+        "Public deterministic F5 chips, content-derived codes and expected-message checks do not inherit PRC secrecy, undetectability, unforgeability or random-key quantifiers."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "T8-ctrlregen",
+      "citation_key": "T8_ctrlregen",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2410.05470v2",
+      "title": "Image Watermarks are Removable Using Controllable Regeneration from Clean Noise",
+      "authors": [
+        "Yepeng Liu",
+        "Yiren Song",
+        "Hai Ci",
+        "Yu Zhang",
+        "Haofan Wang",
+        "Mike Zheng Shou",
+        "Yuheng Bu"
+      ],
+      "year": 2024,
+      "venue": "arXiv preprint; final venue not independently verified",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": ".thesis-build/q1-research-20261018/cache/T4-1b/ctrlregen.html",
+        "sha256": "8167b5480d5f4a71a9ec4b298c9c00e26d6b9c9dab98e0935af42a0e071d14df"
+      },
+      "limitations": [
+        "This is not pixel diffusion or a ready independently trained replacement for the current SDXL path. Its strong conditional control and trained/adaptive attack are outside core."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "T8-wam",
+      "citation_key": "T8_wam",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2411.07231v2",
+      "title": "Watermark Anything with Localized Messages",
+      "authors": [
+        "Tom Sander",
+        "Pierre Fernandez",
+        "Alain Durmus",
+        "Teddy Furon",
+        "Matthijs Douze"
+      ],
+      "year": 2024,
+      "venue": "arXiv preprint; final venue not independently verified",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": ".thesis-build/q1-research-20261018/cache/T5-1b/paper-wam.txt",
+        "sha256": "7740219ef33108335cec4aea085448f31d14c990b3cf8f5fe8cc78c5cbf03213"
+      },
+      "limitations": [
+        "Neither the paper calibration nor the random-message tail establishes image FPR for the released MIT model. The official semihard raw-logit threshold differs from a tempting sigmoid-mean implementation."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "T8-sdxl",
+      "citation_key": "T8_sdxl",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2307.01952v1",
+      "title": "SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis",
+      "authors": [
+        "Dustin Podell",
+        "Zion English",
+        "Kyle Lacey",
+        "Andreas Blattmann",
+        "Tim Dockhorn",
+        "Jonas Müller",
+        "Joe Penna",
+        "Robin Rombach"
+      ],
+      "year": 2023,
+      "venue": "arXiv preprint; final venue not independently verified",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": ".thesis-build/q1-research-20261018/cache/T2-sdxl-paper.txt",
+        "sha256": "f50bf5a2c55213b90feb5c37d3059ea60d7509ed181ce78ef496df3753082efd"
+      },
+      "limitations": [
+        "The paper establishes a different autoencoder training run, not independence of training data, learned features, latent directions or generative priors. The core excludes the refiner, so its behavior cannot inherit complete base-plus-refiner preference claims."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "T8-drew",
+      "citation_key": "T8_drew",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2406.02836v2",
+      "title": "DREW: Towards Robust Data Provenance by Leveraging Error-Controlled Watermarking",
+      "authors": [
+        "Mehrdad Saberi",
+        "Vinu Sankar Sadasivan",
+        "Arman Zarei",
+        "Hessam Mahdavifar",
+        "Soheil Feizi"
+      ],
+      "year": 2024,
+      "venue": "arXiv preprint; final venue not independently verified",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": ".thesis-build/q1-research-20261018/cache/C6/drew2406v2.html",
+        "sha256": "d0d998083d31e9409064b6c1fe1ec2d8e80c502e51abda3ba2ea70cca48fcb42"
+      },
+      "limitations": [
+        "Retrieval success is not authenticity, exclusive ownership or secure content binding. This paper is direct prior art for a registry hybrid, so an unqualified first-hybrid claim is untenable; it does not authorize adding a registry here."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "T8-brushoff",
+      "citation_key": "T8_brushoff",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2610.26682v1",
+      "title": "BrushOff: Stroke-Based Re-rendering as a Watermark Removal Attack on Paintings",
+      "authors": [
+        "Hao Chen",
+        "Junnan Xu"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint; final venue not independently verified",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": ".thesis-build/q1-research-20261018/cache/T8-1b/brushoff.html",
+        "sha256": "af33f29ecdcf4d761015133bdecefcb6eb682a37f2e33b4c0d26cc7839cf2c01"
+      },
+      "limitations": [
+        "Painting-only domain, one renderer, fixed payload, changed probes after results and visible texture changes limit generality. VINE-only quality does not prove cross-arm distortion equivalence. No F5 output was attacked."
+      ]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "T8-softbinding",
+      "citation_key": "T8_softbinding",
+      "doi": null,
+      "canonical_url": "https://arxiv.org/html/2610.04151v1",
+      "title": "Watermarks and Fingerprints as Soft Bindings for Content Provenance: An Open-Licence Benchmark for Images, Audio and Video",
+      "authors": [
+        "Seyedmahdi Kazempourradi",
+        "Ramtin Mojtahedi",
+        "Behrang Mohseni"
+      ],
+      "year": 2026,
+      "venue": "arXiv preprint; final venue not independently verified",
+      "access_date": "2026-10-20",
+      "source_type": "preprint",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": ".thesis-build/q1-research-20261018/cache/T8-1b/softbinding.html",
+        "sha256": "41b32e9930ccf14bbe3d1efdcbcf7ba96782177029238f6e96eaebf280c250a9"
+      },
+      "limitations": [
+        "Open paper/code licenses do not automatically grant all model/media uses. Its calibration split and combined score do not authorize held-out access, post-hoc cutoffs or a new score in this study."
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "T8-waves-1",
+      "claim": "WAVES separates presence detection from message identification, measures TPR at 0.1% FPR, and combines eight fidelity measures into dataset-dependent normalized quality. Its attack families include reconstruction, partial-noise diffusion, repeated regeneration and stronger access conditions. Repeated settings share the original sources. These are actual benchmark choices, not interchangeable definitions of survival.",
+      "source_id": "T8-waves",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3.1–3.2, §4–4.1; cached text 699–929; quality/detection and dataset setup",
+      "confidence": "high",
+      "limitations": [
+        "The normalization and attack grids are benchmark-specific. No F5 result, theorem of encoder independence, or calibrated SDXL operating point is supplied."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-waves-2",
+      "claim": "Three watermarks and three image sources are evaluated across 26 attacks. Reported aggregate performance over severities is not the detection count at a single frozen channel. Similar versus different autoencoder experiments motivate a transfer question but cannot determine F5 behavior.",
+      "source_id": "T8-waves",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3.1–3.2, §4–4.1; cached text 699–929; quality/detection and dataset setup",
+      "confidence": "high",
+      "limitations": [
+        "The normalization and attack grids are benchmark-specific. No F5 result, theorem of encoder independence, or calibrated SDXL operating point is supplied."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-waves-3",
+      "claim": "Keep attack fidelity, total fidelity and fixed survival endpoints separate; a broad benchmark motivates explicit scope limits rather than copying its aggregate score.",
+      "source_id": "T8-waves",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "§3.1–3.2, §4–4.1; cached text 699–929; quality/detection and dataset setup",
+      "confidence": "medium",
+      "limitations": [
+        "The normalization and attack grids are benchmark-specific. No F5 result, theorem of encoder independence, or calibrated SDXL operating point is supplied."
+      ],
+      "assumptions": [
+        "Implementation and source distribution remain as frozen; no new outcomes are available."
+      ]
+    },
+    {
+      "claim_id": "T8-vine-1",
+      "claim": "VINE uses a generative-prior image writer, residual adaptation to higher resolution, a 100-bit extractor, and blur/noise augmentation as a proxy for regeneration. W-Bench distinguishes stochastic regeneration, deterministic inversion, global/local editing and video. The paper describes an SDXL-Turbo prior, while the inspected official released constructor uses SD-Turbo; preserve that disagreement.",
+      "source_id": "T8-vine",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3.1–3.3 and §4.1; cached375–513; §4.2–4.3/Table1 cached730–793",
+      "confidence": "high",
+      "limitations": [
+        "This is an author evaluation, not a native universal cutoff. Training on editing proxies and paper/release lineage mismatch limit the inference of unseen encoder transfer."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-vine-2",
+      "claim": "OpenImages training uses 256-pixel inputs and testing applies residuals at512. Section4.2 partitions 10,000 UltraEdit sources into 1k stochastic,1k deterministic,1k global,5k local,1k video,1k distortion; Table1 instead says5,000 images per edit. Both denominators remain recorded rather than repaired. TPR at fixed empirical FPR is more specific than mean bit accuracy or AUROC.",
+      "source_id": "T8-vine",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3.1–3.3 and §4.1; cached375–513; §4.2–4.3/Table1 cached730–793",
+      "confidence": "high",
+      "limitations": [
+        "This is an author evaluation, not a native universal cutoff. Training on editing proxies and paper/release lineage mismatch limit the inference of unseen encoder transfer."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-vine-3",
+      "claim": "Use the pinned VINE-R release, retain its own writer quality and public expected-message side information; native and common presence results need distinct labels.",
+      "source_id": "T8-vine",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "§3.1–3.3 and §4.1; cached375–513; §4.2–4.3/Table1 cached730–793",
+      "confidence": "medium",
+      "limitations": [
+        "This is an author evaluation, not a native universal cutoff. Training on editing proxies and paper/release lineage mismatch limit the inference of unseen encoder transfer."
+      ],
+      "assumptions": [
+        "Implementation and source distribution remain as frozen; no new outcomes are available."
+      ]
+    },
+    {
+      "claim_id": "T8-unmarker-1",
+      "claim": "UnMarker uses spectral/perceptual optimization with high-frequency and low-frequency stages, without requiring a target VAE or watermark detector queries. This supplies a materially different attack path from fixed partial-noise diffusion.",
+      "source_id": "T8-unmarker",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§4 high-frequency cached508–560; low-frequency730–755; §6 setup801–872; evaluation1095–1130",
+      "confidence": "high",
+      "limitations": [
+        "Broad universal-removal language exceeds what a finite method/grid evaluation can prove. Selected losses and image sets are still conditional choices. No exact attack was run against F5 here."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-unmarker-2",
+      "claim": "The evaluation uses100 images per method and different detector operating rules (including modeled bit thresholds and Tree-Ring calibration). Quality includes LPIPS-VGG, deliberately different from the optimization loss. The authors use an operational detection/security rule that must not be substituted for this study's fixed source-majority rule.",
+      "source_id": "T8-unmarker",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§4 high-frequency cached508–560; low-frequency730–755; §6 setup801–872; evaluation1095–1130",
+      "confidence": "high",
+      "limitations": [
+        "Broad universal-removal language exceeds what a finite method/grid evaluation can prove. Selected losses and image sets are still conditional choices. No exact attack was run against F5 here."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-unmarker-3",
+      "claim": "A transfer pass leaves adaptive spectral and query-free attacks unresolved. Metric agreement is evidence about fidelity, not a human verdict or a security guarantee.",
+      "source_id": "T8-unmarker",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "§4 high-frequency cached508–560; low-frequency730–755; §6 setup801–872; evaluation1095–1130",
+      "confidence": "medium",
+      "limitations": [
+        "Broad universal-removal language exceeds what a finite method/grid evaluation can prove. Selected losses and image sets are still conditional choices. No exact attack was run against F5 here."
+      ],
+      "assumptions": [
+        "Implementation and source distribution remain as frozen; no new outcomes are available."
+      ]
+    },
+    {
+      "claim_id": "T8-marknull-1",
+      "claim": "MarkNull constructs a latent near-orthogonality/perceptual objective and amortizes removal in a learned network. The paper interprets orthogonality as independence; that interpretation is not a general probabilistic theorem and is not imported into this analysis.",
+      "source_id": "T8-marknull",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3 NLAS/perceptual training cached722–765; §4 setup1236–1280; evaluation2430–2475",
+      "confidence": "high",
+      "limitations": [
+        "This is an adaptive trained attacker with method/dataset choices, not the frozen honest SDXL regenerator. Cross-method averages can mix different clean hosts and endpoint classes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-marknull-2",
+      "claim": "Nine watermark baselines use100 images per method. Generative methods use SD2.1 images; post-hoc methods use SDXL images, with an SD1.5 proxy for parts of removal. Multi-bit bit accuracy and zero-bit TPR are reported as different tasks.",
+      "source_id": "T8-marknull",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3 NLAS/perceptual training cached722–765; §4 setup1236–1280; evaluation2430–2475",
+      "confidence": "high",
+      "limitations": [
+        "This is an adaptive trained attacker with method/dataset choices, not the frozen honest SDXL regenerator. Cross-method averages can mix different clean hosts and endpoint classes."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-marknull-3",
+      "claim": "Keep current causal scope narrow and do not compare F5 C directly to literature mean BA as if the denominators, payloads and attacker access matched.",
+      "source_id": "T8-marknull",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "§3 NLAS/perceptual training cached722–765; §4 setup1236–1280; evaluation2430–2475",
+      "confidence": "medium",
+      "limitations": [
+        "This is an adaptive trained attacker with method/dataset choices, not the frozen honest SDXL regenerator. Cross-method averages can mix different clean hosts and endpoint classes."
+      ],
+      "assumptions": [
+        "Implementation and source distribution remain as frozen; no new outcomes are available."
+      ]
+    },
+    {
+      "claim_id": "T8-raven-1",
+      "claim": "RAVEN introduces novel-view image transformations with partial inversion and cross-frame attention. Its generative attack can retain a recognizable scene while shifting spatial content enough to disrupt a watermark, so semantic similarity and exact content binding are separate observables.",
+      "source_id": "T8-raven",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3 cached481–505; §4 setup1291–1312; evaluation1429–1474",
+      "confidence": "high",
+      "limitations": [
+        "Novel-view editing changes geometry and is outside the frozen T3 empty-prompt regeneration grid. Prompt/scene consistency is not proof of image identity or imperceptibility."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-raven-2",
+      "claim": "Setup includes unknown empty prompts, CFG2.5 and a .15 refiner setting; evaluation reports TPR at1% FPR. Source pools and generated outputs have different counts, and the paper has unresolved counts of methods across abstract, list and table; no invented unified denominator is supplied.",
+      "source_id": "T8-raven",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3 cached481–505; §4 setup1291–1312; evaluation1429–1474",
+      "confidence": "high",
+      "limitations": [
+        "Novel-view editing changes geometry and is outside the frozen T3 empty-prompt regeneration grid. Prompt/scene consistency is not proof of image identity or imperceptibility."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-raven-3",
+      "claim": "A fixed regenerator pass supports no universal robustness claim over semantic editing; readable-code/content-match decomposition is necessary even when a quality metric stays favorable.",
+      "source_id": "T8-raven",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "§3 cached481–505; §4 setup1291–1312; evaluation1429–1474",
+      "confidence": "medium",
+      "limitations": [
+        "Novel-view editing changes geometry and is outside the frozen T3 empty-prompt regeneration grid. Prompt/scene consistency is not proof of image identity or imperceptibility."
+      ],
+      "assumptions": [
+        "Implementation and source distribution remain as frozen; no new outcomes are available."
+      ]
+    },
+    {
+      "claim_id": "T8-waw-1",
+      "claim": "Re-watermarking uses off-the-shelf writers to interfere with an earlier mark while adding a second trace. Attribution/confusion and removal are distinct: failure to recover an expected payload does not mean no watermark remains in the output.",
+      "source_id": "T8-waw",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Threat/method cached442–533; classifier814–836; Table4/evaluation944–1017",
+      "confidence": "high",
+      "limitations": [
+        "These attack and side-information conditions do not match the fixed core. Its normalized quality is not our PSNR/SSIM/LPIPS caliper set or an imagewise causal match."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-waw-2",
+      "claim": "The study compares an erasure/classification pipeline across watermark sources and matches a normalized quality budget. Its four-pass regeneration comparator can exceed that budget, which is explicitly relevant when interpreting performance rankings. A trained classifier's black-box deployment does not mean the complete pipeline needed no queries/data.",
+      "source_id": "T8-waw",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Threat/method cached442–533; classifier814–836; Table4/evaluation944–1017",
+      "confidence": "high",
+      "limitations": [
+        "These attack and side-information conditions do not match the fixed core. Its normalized quality is not our PSNR/SSIM/LPIPS caliper set or an imagewise causal match."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-waw-3",
+      "claim": "Keep reader ownership/binding, carrier absence and attack fidelity as separate claims; do not describe the current negative gate as resistance to re-watermarking or forgery.",
+      "source_id": "T8-waw",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "Threat/method cached442–533; classifier814–836; Table4/evaluation944–1017",
+      "confidence": "medium",
+      "limitations": [
+        "These attack and side-information conditions do not match the fixed core. Its normalized quality is not our PSNR/SSIM/LPIPS caliper set or an imagewise causal match."
+      ],
+      "assumptions": [
+        "Implementation and source distribution remain as frozen; no new outcomes are available."
+      ]
+    },
+    {
+      "claim_id": "T8-zhao-1",
+      "claim": "The attack corrupts an embedding with additive equal-covariance Gaussian noise and applies a common downstream generator. Its detection-error tradeoff is controlled by embedded marked/clean separation relative to noise. The utility result assumes the generator denoises unmarked inputs well; it does not conjure fidelity from a removal bound.",
+      "source_id": "T8-zhao",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3–4 cached136–220 (Theorem4.3 at198–205, utility206–220); §5 cached221–240",
+      "confidence": "high",
+      "limitations": [
+        "A real VAE posterior has input-dependent mean and variance. Posterior sampling, mode-only D1, changed prompts and preprocessing are not automatically the same theorem. Large encoder gain weakens an impossibility bound; it does not prove survival."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-zhao-2",
+      "claim": "Experiments use SD2.1 regeneration with PNDM,500 MS-COCO and500 generated sources, and include a theoretical/empirical DwtDctSvd tradeoff illustration. Their binomial bit threshold is a model for a particular null, not a universal media FPR calibration.",
+      "source_id": "T8-zhao",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3–4 cached136–220 (Theorem4.3 at198–205, utility206–220); §5 cached221–240",
+      "confidence": "high",
+      "limitations": [
+        "A real VAE posterior has input-dependent mean and variance. Posterior sampling, mode-only D1, changed prompts and preprocessing are not automatically the same theorem. Large encoder gain weakens an impossibility bound; it does not prove survival."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-zhao-3",
+      "claim": "State the whole attack channel. Interpret independent-SDXL failure as channel susceptibility, and a pass as survival on that channel, without claiming causal isolation or contradiction of the theorem.",
+      "source_id": "T8-zhao",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "§3–4 cached136–220 (Theorem4.3 at198–205, utility206–220); §5 cached221–240",
+      "confidence": "medium",
+      "limitations": [
+        "A real VAE posterior has input-dependent mean and variance. Posterior sampling, mode-only D1, changed prompts and preprocessing are not automatically the same theorem. Large encoder gain weakens an impossibility bound; it does not prove survival."
+      ],
+      "assumptions": [
+        "Implementation and source distribution remain as frozen; no new outcomes are available."
+      ]
+    },
+    {
+      "claim_id": "T8-prc-1",
+      "claim": "PRC watermarks encode pseudorandom-code signs in initial generative latents and recover them through inversion. Theoretical undetectability is computational and assumption/parameter dependent. The false-positive theorem quantifies over a random independent key for a fixed image; it is not a fixed public-key image-distribution theorem.",
+      "source_id": "T8-prc",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Construction cached165–210 and232–267; experiments268–281,383–407",
+      "confidence": "high",
+      "limitations": [
+        "Public deterministic F5 chips, content-derived codes and expected-message checks do not inherit PRC secrecy, undetectability, unforgeability or random-key quantifiers."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-prc-2",
+      "claim": "The authors evaluate500 SD2.1 images and512-bit message decoding with GPU inversion, report TPR at1% FPR and distinguish more robust detection from less robust decoding. Larger unattacked payload demonstrations do not establish robust capacity. The authors expressly warn their finite experimental parameters do not meet all asymptotic proof bounds.",
+      "source_id": "T8-prc",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Construction cached165–210 and232–267; experiments268–281,383–407",
+      "confidence": "high",
+      "limitations": [
+        "Public deterministic F5 chips, content-derived codes and expected-message checks do not inherit PRC secrecy, undetectability, unforgeability or random-key quantifiers."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-prc-3",
+      "claim": "Use the paper to clarify the missing assumptions behind cryptographic claims; this is a measured development carrier/binding study, not a proof of legal ownership or adversarial authenticity.",
+      "source_id": "T8-prc",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "Construction cached165–210 and232–267; experiments268–281,383–407",
+      "confidence": "medium",
+      "limitations": [
+        "Public deterministic F5 chips, content-derived codes and expected-message checks do not inherit PRC secrecy, undetectability, unforgeability or random-key quantifiers."
+      ],
+      "assumptions": [
+        "Implementation and source distribution remain as frozen; no new outcomes are available."
+      ]
+    },
+    {
+      "claim_id": "T8-ctrlregen-1",
+      "claim": "CtrlRegen starts from fresh noise and conditions generation on DINOv2 semantic features and image edges; CtrlRegen+ also uses a partially noised image latent with adaptive strength. The conditioning channels can retain image details and are part of the attacker, not evidence of a watermark-free latent by definition.",
+      "source_id": "T8-ctrlregen",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3 cached74–120 including semantic/spatial controls; evaluation cached301–330",
+      "confidence": "high",
+      "limitations": [
+        "This is not pixel diffusion or a ready independently trained replacement for the current SDXL path. Its strong conditional control and trained/adaptive attack are outside core."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-ctrlregen-2",
+      "claim": "Evaluation uses1000 MIRFLICKR real images and1000 DiffusionDB generated images. The trained control model uses an SD1.5 backbone and substantial training hardware; inference cost and training cost are different quantities. Empty text prompts do not remove image conditioning.",
+      "source_id": "T8-ctrlregen",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3 cached74–120 including semantic/spatial controls; evaluation cached301–330",
+      "confidence": "high",
+      "limitations": [
+        "This is not pixel diffusion or a ready independently trained replacement for the current SDXL path. Its strong conditional control and trained/adaptive attack are outside core."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-ctrlregen-3",
+      "claim": "Record unresolved attack-family coverage without silently adding training or a new baseline. A surviving carrier need not be a semantic code, and preserving scene descriptors need not preserve the carrier.",
+      "source_id": "T8-ctrlregen",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "§3 cached74–120 including semantic/spatial controls; evaluation cached301–330",
+      "confidence": "medium",
+      "limitations": [
+        "This is not pixel diffusion or a ready independently trained replacement for the current SDXL path. Its strong conditional control and trained/adaptive attack are outside core."
+      ],
+      "assumptions": [
+        "Implementation and source distribution remain as frozen; no new outcomes are available."
+      ]
+    },
+    {
+      "claim_id": "T8-wam-1",
+      "claim": "WAM predicts a per-pixel presence mask and per-pixel message logits. Its image decision uses the fraction of mask pixels crossing a threshold, while message inference averages selected pixel predictions. This makes empty masks and the order of aggregation substantive detector behavior.",
+      "source_id": "T8-wam",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3 dense extraction/pooling cached532–619; §5.1 setup898–935; §5.3 detection 1158–1208; Table 2a 1221–1345",
+      "confidence": "high",
+      "limitations": [
+        "Neither the paper calibration nor the random-message tail establishes image FPR for the released MIT model. The official semihard raw-logit threshold differs from a tempting sigmoid-mean implementation."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-wam-2",
+      "claim": "The paper trains 32-bit, 256-pixel COCO models. Section 5.3 gives a nominal 2.6e-4 fair-bit false-positive tail for the other baselines' 16-bit, at-most-one-error rule. WAM instead uses mask fraction>.07 and is described as having an approximately similar empirical COCO FPR; Table 2a reports WAM FPR 0.04% (4e-4), not exactly 2.6e-4. Those weights and population differ from the MIT SA-1B core release. Its own related-work discussion explicitly notes decoded bits need not be equiprobable or independent.",
+      "source_id": "T8-wam",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3 dense extraction/pooling cached532–619; §5.1 setup898–935; §5.3 detection 1158–1208; Table 2a 1221–1345",
+      "confidence": "high",
+      "limitations": [
+        "Neither the paper calibration nor the random-message tail establishes image FPR for the released MIT model. The official semihard raw-logit threshold differs from a tempting sigmoid-mean implementation."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-wam-3",
+      "claim": "Preserve native mask rule and release pooling; label common queried-message presence separately and report observed negatives without borrowing paper calibration.",
+      "source_id": "T8-wam",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "§3 dense extraction/pooling cached532–619; §5.1 setup898–935; §5.3 detection 1158–1208; Table 2a 1221–1345",
+      "confidence": "medium",
+      "limitations": [
+        "Neither the paper calibration nor the random-message tail establishes image FPR for the released MIT model. The official semihard raw-logit threshold differs from a tempting sigmoid-mean implementation."
+      ],
+      "assumptions": [
+        "Implementation and source distribution remain as frozen; no new outcomes are available."
+      ]
+    },
+    {
+      "claim_id": "T8-sdxl-1",
+      "claim": "SDXL explicitly trains its autoencoder from scratch while retaining the SD1/SD2 architecture class; larger batch256 versus9 and EMA are described. In contrast SD2 fine-tunes the decoder with the SD1 encoder retained. Architecture family and trained-weight ancestry are separate axes.",
+      "source_id": "T8-sdxl",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§2.4/Table3 cached1093–1164; §2.5 preference evaluation1190–1289; header114–127",
+      "confidence": "high",
+      "limitations": [
+        "The paper establishes a different autoencoder training run, not independence of training data, learned features, latent directions or generative priors. The core excludes the refiner, so its behavior cannot inherit complete base-plus-refiner preference claims."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-sdxl-2",
+      "claim": "Table3 evaluates reconstruction on COCO2017 validation at256 pixels; the subsequent synthesis preference study includes model/refiner conditions. These measurements do not evaluate watermark retention at the core1024 img2img path.",
+      "source_id": "T8-sdxl",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§2.4/Table3 cached1093–1164; §2.5 preference evaluation1190–1289; header114–127",
+      "confidence": "high",
+      "limitations": [
+        "The paper establishes a different autoencoder training run, not independence of training data, learned features, latent directions or generative priors. The core excludes the refiner, so its behavior cannot inherit complete base-plus-refiner preference claims."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-sdxl-3",
+      "claim": "Call R1 an independently trained SDXL autoencoder pipeline, retain the shared latent architecture/prior caveat, and do not turn R0/R1 into a clean causal experiment on encoders alone.",
+      "source_id": "T8-sdxl",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "§2.4/Table3 cached1093–1164; §2.5 preference evaluation1190–1289; header114–127",
+      "confidence": "medium",
+      "limitations": [
+        "The paper establishes a different autoencoder training run, not independence of training data, learned features, latent directions or generative priors. The core excludes the refiner, so its behavior cannot inherit complete base-plus-refiner preference claims."
+      ],
+      "assumptions": [
+        "Implementation and source distribution remain as frozen; no new outcomes are available."
+      ]
+    },
+    {
+      "claim_id": "T8-drew-1",
+      "claim": "DREW assigns database records to error-corrected watermark clusters and retrieves a continuous descriptor within the decoded cluster. Unreliable decoding triggers full-database retrieval. The reference database and retrieval threshold are detector side information, unlike the current reference-free core.",
+      "source_id": "T8-drew",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3.3 Algorithm2/§3.4 cached120–178; §4.1–4.2 cached431–461; AppendixC675–690",
+      "confidence": "high",
+      "limitations": [
+        "Retrieval success is not authenticity, exclusive ownership or secure content binding. This paper is direct prior art for a registry hybrid, so an unqualified first-hybrid claim is untenable; it does not authorize adding a registry here."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-drew-2",
+      "claim": "Experiments use100-bit marks,10 cluster bits,1024 clusters,768-dimensional DINOv2/CLIP features, six datasets and1000 queries per dataset/modification. Diffusion modification is included. AppendixC considers descriptor evasion while wrong-cluster spoofing remains future robustness work.",
+      "source_id": "T8-drew",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3.3 Algorithm2/§3.4 cached120–178; §4.1–4.2 cached431–461; AppendixC675–690",
+      "confidence": "high",
+      "limitations": [
+        "Retrieval success is not authenticity, exclusive ownership or secure content binding. This paper is direct prior art for a registry hybrid, so an unqualified first-hybrid claim is untenable; it does not authorize adding a registry here."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-drew-3",
+      "claim": "State that the current experiment measures owner/content evidence under fixed side information. Do not substitute prior or future registry results for independent encoder transfer.",
+      "source_id": "T8-drew",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "§3.3 Algorithm2/§3.4 cached120–178; §4.1–4.2 cached431–461; AppendixC675–690",
+      "confidence": "medium",
+      "limitations": [
+        "Retrieval success is not authenticity, exclusive ownership or secure content binding. This paper is direct prior art for a registry hybrid, so an unqualified first-hybrid claim is untenable; it does not authorize adding a registry here."
+      ],
+      "assumptions": [
+        "Implementation and source distribution remain as frozen; no new outcomes are available."
+      ]
+    },
+    {
+      "claim_id": "T8-brushoff-1",
+      "claim": "BrushOff converts images into a sequence of painted strokes using PaintTransformer, renders at different canvas sizes, and downsamples. This is a non-diffusion, stroke bottleneck relevant to image-domain marks. IV-C uses an independent/uniform decoded-bit null at10^-3 plus0/500 empirical clean positives; neither certifies population image FPR.",
+      "source_id": "T8-brushoff",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§III–IV cached171–240; IV-C–E271–324; TableII/results325–365,540–554,600–661",
+      "confidence": "high",
+      "limitations": [
+        "Painting-only domain, one renderer, fixed payload, changed probes after results and visible texture changes limit generality. VINE-only quality does not prove cross-arm distortion equivalence. No F5 output was attacked."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-brushoff-2",
+      "claim": "Five hundred WikiArt paintings span five styles. IV-C drops15 RivaGAN clean failures, predominantly flat Color Field images; this changes the attack denominator. TableI separately shows a DwtDct variant with349 clean detections versus500 for DwtDctSvd, which must not be conflated. Non-VINE2048 canvases use a100-image subset. IV-E measures attacked-to-clean fidelity only on VINE and applies it to other methods after a pilot assumption.",
+      "source_id": "T8-brushoff",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§III–IV cached171–240; IV-C–E271–324; TableII/results325–365,540–554,600–661",
+      "confidence": "high",
+      "limitations": [
+        "Painting-only domain, one renderer, fixed payload, changed probes after results and visible texture changes limit generality. VINE-only quality does not prove cross-arm distortion equivalence. No F5 output was attacked."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-brushoff-3",
+      "claim": "Keep fixed clean-failure denominators and arm-specific quality references in our core. Flag the new T1 attack-coverage gap; parent will commission its separate setting row/card. This card does not close that gap or add an experiment.",
+      "source_id": "T8-brushoff",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "§III–IV cached171–240; IV-C–E271–324; TableII/results325–365,540–554,600–661",
+      "confidence": "medium",
+      "limitations": [
+        "Painting-only domain, one renderer, fixed payload, changed probes after results and visible texture changes limit generality. VINE-only quality does not prove cross-arm distortion equivalence. No F5 output was attacked."
+      ],
+      "assumptions": [
+        "Implementation and source distribution remain as frozen; no new outcomes are available."
+      ]
+    },
+    {
+      "claim_id": "T8-softbinding-1",
+      "claim": "The benchmark separates watermarking from fingerprint retrieval, pins public media, uses source as the statistical unit, and separates native blind/ECC decisions from expected-payload checks. Its image watermark track uses85 sources and14 benign transformations; this does not evaluate motivated diffusion removal.",
+      "source_id": "T8-softbinding",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3.1 cached164–172; watermark methods260–301; false positives1797–1811; cross-device2089–2106; hard negatives2366–2374; discussion2886–2908",
+      "confidence": "high",
+      "limitations": [
+        "Open paper/code licenses do not automatically grant all model/media uses. Its calibration split and combined score do not authorize held-out access, post-hoc cutoffs or a new score in this study."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-softbinding-2",
+      "claim": "False-match controls, sourcewise intervals and hard near-duplicate negatives are substantive evaluation design. Cross-device analysis attributes some bit changes to input color/conversion differences, and difficult product variants dominate fingerprint errors. Those particular video/color results are not measurements of this PNG pipeline.",
+      "source_id": "T8-softbinding",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "§3.1 cached164–172; watermark methods260–301; false positives1797–1811; cross-device2089–2106; hard negatives2366–2374; discussion2886–2908",
+      "confidence": "high",
+      "limitations": [
+        "Open paper/code licenses do not automatically grant all model/media uses. Its calibration split and combined score do not authorize held-out access, post-hoc cutoffs or a new score in this study."
+      ],
+      "assumptions": []
+    },
+    {
+      "claim_id": "T8-softbinding-3",
+      "claim": "Use exact saved pixels, distinguish expected-message claims from blind extraction, and keep real near-duplicate/ownership/security limitations explicit; the present C0/wrong-owner grid is narrower.",
+      "source_id": "T8-softbinding",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "§3.1 cached164–172; watermark methods260–301; false positives1797–1811; cross-device2089–2106; hard negatives2366–2374; discussion2886–2908",
+      "confidence": "medium",
+      "limitations": [
+        "Open paper/code licenses do not automatically grant all model/media uses. Its calibration split and combined score do not authorize held-out access, post-hoc cutoffs or a new score in this study."
+      ],
+      "assumptions": [
+        "Implementation and source distribution remain as frozen; no new outcomes are available."
+      ]
+    }
+  ],
+  "assumptions": [
+    "Documentary pre-outcome synthesis only; no population representativeness or adversarial security assumed."
+  ],
+  "open_questions": [
+    "Whether F5 C survives independent SDXL regeneration on this frozen cohort is unmeasured.",
+    "Human quality, adaptive public-profile forgery, population false positives and performance on further independently trained latent families remain unmeasured."
+  ]
+}

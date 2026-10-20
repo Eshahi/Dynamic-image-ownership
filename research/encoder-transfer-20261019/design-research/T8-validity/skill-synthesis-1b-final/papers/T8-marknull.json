@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "T8-marknull",
+  "citation_key": "T8_marknull",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2608.10166v1",
+  "title": "MarkNull : Model-Agnostic Watermark Removal in AI-Generated Images via On-Manifold Latent Manipulation",
+  "authors": [
+    "Jie Cao",
+    "Qi Li",
+    "Zelin Zhang",
+    "Xiaodong Wu",
+    "Lingshuang Liu",
+    "Xiangman Li",
+    "Jianbing Ni"
+  ],
+  "year": 2026,
+  "venue": "arXiv preprint; final venue not independently verified",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": ".thesis-build/q1-research-20261018/cache/T1-marknull.html",
+    "sha256": "522723a9664b1226762fda200c4b758a2b16476f6552d27c1e081b124bf1ff32"
+  },
+  "limitations": [
+    "This is an adaptive trained attacker with method/dataset choices, not the frozen honest SDXL regenerator. Cross-method averages can mix different clean hosts and endpoint classes."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "T8-wam",
+  "citation_key": "T8_wam",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2411.07231v2",
+  "title": "Watermark Anything with Localized Messages",
+  "authors": [
+    "Tom Sander",
+    "Pierre Fernandez",
+    "Alain Durmus",
+    "Teddy Furon",
+    "Matthijs Douze"
+  ],
+  "year": 2024,
+  "venue": "arXiv preprint; final venue not independently verified",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": ".thesis-build/q1-research-20261018/cache/T5-1b/paper-wam.txt",
+    "sha256": "7740219ef33108335cec4aea085448f31d14c990b3cf8f5fe8cc78c5cbf03213"
+  },
+  "limitations": [
+    "Neither the paper calibration nor the random-message tail establishes image FPR for the released MIT model. The official semihard raw-logit threshold differs from a tempting sigmoid-mean implementation."
+  ]
+}

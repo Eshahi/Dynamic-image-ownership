@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "T8-drew",
+  "citation_key": "T8_drew",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2406.02836v2",
+  "title": "DREW: Towards Robust Data Provenance by Leveraging Error-Controlled Watermarking",
+  "authors": [
+    "Mehrdad Saberi",
+    "Vinu Sankar Sadasivan",
+    "Arman Zarei",
+    "Hessam Mahdavifar",
+    "Soheil Feizi"
+  ],
+  "year": 2024,
+  "venue": "arXiv preprint; final venue not independently verified",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": ".thesis-build/q1-research-20261018/cache/C6/drew2406v2.html",
+    "sha256": "d0d998083d31e9409064b6c1fe1ec2d8e80c502e51abda3ba2ea70cca48fcb42"
+  },
+  "limitations": [
+    "Retrieval success is not authenticity, exclusive ownership or secure content binding. This paper is direct prior art for a registry hybrid, so an unqualified first-hybrid claim is untenable; it does not authorize adding a registry here."
+  ]
+}

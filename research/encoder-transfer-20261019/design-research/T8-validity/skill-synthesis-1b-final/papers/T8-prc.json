@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "T8-prc",
+  "citation_key": "T8_prc",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2410.07369v4",
+  "title": "An undetectable watermark for generative image models",
+  "authors": [
+    "Sam Gunn",
+    "Xuandong Zhao",
+    "Dawn Song"
+  ],
+  "year": 2024,
+  "venue": "arXiv preprint; final venue not independently verified",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": ".thesis-build/q1-research-20261018/cache/T4-1b/prc.html",
+    "sha256": "e7f8017500b50dfcebf62d9899346fbfebff5162dab0b62d132b60b6facb776b"
+  },
+  "limitations": [
+    "Public deterministic F5 chips, content-derived codes and expected-message checks do not inherit PRC secrecy, undetectability, unforgeability or random-key quantifiers."
+  ]
+}

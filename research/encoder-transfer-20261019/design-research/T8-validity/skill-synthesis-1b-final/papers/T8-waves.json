@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "T8-waves",
+  "citation_key": "T8_waves",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2401.08573v3",
+  "title": "WAVES: Benchmarking the Robustness of Image Watermarks",
+  "authors": [
+    "Bang An",
+    "Mucong Ding",
+    "Tahseen Rabbani",
+    "Aakriti Agrawal",
+    "Yuancheng Xu",
+    "Chenghao Deng",
+    "Sicheng Zhu",
+    "Abdirisak Mohamed",
+    "Yuxin Wen",
+    "Tom Goldstein",
+    "Furong Huang"
+  ],
+  "year": 2024,
+  "venue": "arXiv preprint; final venue not independently verified",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": ".thesis-build/q1-research-20261018/cache/T1-waves.html",
+    "sha256": "238ffa869b2b8424a92aeeef27e39d7b7909b33ed487a3d4e794e7e6f67e7a08"
+  },
+  "limitations": [
+    "The normalization and attack grids are benchmark-specific. No F5 result, theorem of encoder independence, or calibrated SDXL operating point is supplied."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "T8-zhao",
+  "citation_key": "T8_zhao",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2306.01953v3",
+  "title": "Invisible Image Watermarks Are Provably Removable Using Generative AI",
+  "authors": [
+    "Xuandong Zhao",
+    "Kexun Zhang",
+    "Zihao Su",
+    "Saastha Vasan",
+    "Ilya Grishchenko",
+    "Christopher Kruegel",
+    "Giovanni Vigna",
+    "Yu-Xiang Wang",
+    "Lei Li"
+  ],
+  "year": 2023,
+  "venue": "arXiv preprint; final venue not independently verified",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": ".thesis-build/q1-research-20261018/cache/T4-1b/zhao.html",
+    "sha256": "41861c3d032d039a001feb23c58c8a322b0e38c27ad70b382acfc84d96423582"
+  },
+  "limitations": [
+    "A real VAE posterior has input-dependent mean and variance. Posterior sampling, mode-only D1, changed prompts and preprocessing are not automatically the same theorem. Large encoder gain weakens an impossibility bound; it does not prove survival."
+  ]
+}

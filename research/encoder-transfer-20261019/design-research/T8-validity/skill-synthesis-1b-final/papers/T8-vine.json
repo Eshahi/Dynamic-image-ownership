@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "T8-vine",
+  "citation_key": "T8_vine",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2410.18775v2",
+  "title": "Robust Watermarking Using Generative Priors Against Image Editing: From Benchmarking to Advances",
+  "authors": [
+    "Shilin Lu",
+    "Zihan Zhou",
+    "Jiayou Lu",
+    "Yuanzhi Zhu",
+    "Adams Wai-Kin Kong"
+  ],
+  "year": 2024,
+  "venue": "arXiv preprint; final venue not independently verified",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": ".thesis-build/q1-research-20261018/cache/T1-vine.html",
+    "sha256": "f6fb25d7b27ec0e95f883674e2e08a41a9075f5929e76287f02330e339e049dd"
+  },
+  "limitations": [
+    "This is an author evaluation, not a native universal cutoff. Training on editing proxies and paper/release lineage mismatch limit the inference of unseen encoder transfer."
+  ]
+}

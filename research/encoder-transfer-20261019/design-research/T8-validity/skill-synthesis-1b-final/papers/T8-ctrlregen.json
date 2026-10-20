@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "T8-ctrlregen",
+  "citation_key": "T8_ctrlregen",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/html/2410.05470v2",
+  "title": "Image Watermarks are Removable Using Controllable Regeneration from Clean Noise",
+  "authors": [
+    "Yepeng Liu",
+    "Yiren Song",
+    "Hai Ci",
+    "Yu Zhang",
+    "Haofan Wang",
+    "Mike Zheng Shou",
+    "Yuheng Bu"
+  ],
+  "year": 2024,
+  "venue": "arXiv preprint; final venue not independently verified",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": ".thesis-build/q1-research-20261018/cache/T4-1b/ctrlregen.html",
+    "sha256": "8167b5480d5f4a71a9ec4b298c9c00e26d6b9c9dab98e0935af42a0e071d14df"
+  },
+  "limitations": [
+    "This is not pixel diffusion or a ready independently trained replacement for the current SDXL path. Its strong conditional control and trained/adaptive attack are outside core."
+  ]
+}

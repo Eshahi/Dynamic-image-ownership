@@ -1,0 +1,109 @@
+{
+  "date": "2026-10-20",
+  "python": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/venv/Scripts/python.exe",
+  "cli": "C:/Users/Soroush/.codex/skills/thesis-literature-synthesis/scripts/validate_literature.py",
+  "response": "research/encoder-transfer-20261019/design-research/T8-validity/literature-response.json",
+  "response_sha256": "c93696440f3453b3dea51c9980f75e8827bcbe59583757a40a0ff20ebd89dbc3",
+  "evidence_root": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5",
+  "request_id": "T8-stage1b-validity",
+  "validate": {
+    "exit_code": 0,
+    "result": {
+      "valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    "observation": "Actual CLI validation succeeded, including final repeat after source corrections."
+  },
+  "synthesize": {
+    "exit_code": 0,
+    "result": {
+      "valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    "out": "research/encoder-transfer-20261019/design-research/T8-validity/skill-synthesis-1b-final",
+    "observation": "Actual CLI synthesis succeeded into this previously unused directory during this recovery task; no overwrite/re-run into existing export."
+  },
+  "export_paper_json_count": 14,
+  "export_ledger_entries": 42,
+  "exports": [
+    {
+      "path": "skill-synthesis-1b-final/evidence-ledger.jsonl",
+      "sha256": "6fe9131fb57cb72b05041e34c7cfd2cf621dfa111000f15eee62dcaffcaeb210"
+    },
+    {
+      "path": "skill-synthesis-1b-final/findings.md",
+      "sha256": "ed27a32cca80b8552b7053df612778d4d9d3013573ea62273853ae09efb7e36f"
+    },
+    {
+      "path": "skill-synthesis-1b-final/literature-matrix.csv",
+      "sha256": "3ac215d5b86ca06f7e8d8180dae42f267477144d660bc83eccb80bc24e16a4ff"
+    },
+    {
+      "path": "skill-synthesis-1b-final/open-questions.md",
+      "sha256": "b4c38f443b5b53aa468a40c29c3a3d2308b9de603d2943c32f875c5b647c884c"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/T8-brushoff.json",
+      "sha256": "4e48847bb4838c506adbf53d98d060a415f88f3d0e6b2259f4f14f414b9384a5"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/T8-ctrlregen.json",
+      "sha256": "fe4feff0edd99b1b27a9dedef7e0fbad81001d6c24dd2fab37bc2e0f12bc8c9d"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/T8-drew.json",
+      "sha256": "87f21668de10205149c208aa85021639390d3f54ea21368612fdfa99d9fd2cd5"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/T8-marknull.json",
+      "sha256": "088b56358cd0ef081aa1d581e78fbc27a09ba822e44ce08fdc7e2877d2aad10f"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/T8-prc.json",
+      "sha256": "2e772881486517533716156e6aec297cb879919d06520d04247d8f739e4b4c0a"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/T8-raven.json",
+      "sha256": "7fdadbed14c087c2e92f9d8830ffc452e9b0f90e064c4180c4301805f6947b52"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/T8-sdxl.json",
+      "sha256": "2ab9f6c3707a9a3beaaa7a617cc45adfec46c4e1bc194daf6088d102d0f24514"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/T8-softbinding.json",
+      "sha256": "5b5385414ab51ef5fa26e691297b33862ec96fc2d436a9afe5a2cc2dbb4403cf"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/T8-unmarker.json",
+      "sha256": "2b50dfbbdd3728d51cb2417768f5d8a017d61093d6385af58121cceb8087c249"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/T8-vine.json",
+      "sha256": "b75a01110e178e56d56c6c2064c8d91ad2c9981cb1e99340c595f919fbd5769a"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/T8-wam.json",
+      "sha256": "bc64c468ded2193c2a5b9be3b615c88b0ead0532add6b3efc110c39182184de5"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/T8-waves.json",
+      "sha256": "aa74f4282949e447c47444383a910db05bb1463183ab6831bd15ef734c74b091"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/T8-waw.json",
+      "sha256": "6dec4aa150385bc58013e92377839ac62f0d8b8bcf84bf9e86251451c3be252b"
+    },
+    {
+      "path": "skill-synthesis-1b-final/papers/T8-zhao.json",
+      "sha256": "226cbdc2dc980f0f81d98aaa62d9c5898c1873f6df13ac5ad7816a96a324ac34"
+    },
+    {
+      "path": "skill-synthesis-1b-final/references.bib",
+      "sha256": "4b89084109f624f48c9107997d57123aa0344a8328c658a795da97a558045a1c"
+    }
+  ],
+  "scope": "Skill shape/provenance validation is not independent scientific review or parent acceptance."
+}

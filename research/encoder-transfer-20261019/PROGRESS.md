@@ -107,3 +107,7 @@ T8 discovery found BrushOff, arXiv2610.26682v1 dated2026-10-19, a painting-speci
 ## 2026-10-20T21:24:51.3378317Z - Supervisor interruption recovery
 
 Git HEAD ad985e0 and all work-in-progress were preserved. The supervisor reports the prior interruption was a stale usage-watchdog record, not a work failure. T1-T6 acceptance remains recorded; T1 additionally requires the newly discovered BrushOff/taxonomy screen. Fresh gpt-6.1-sol/high agents resume T7 and T8 in place, with at most two active. The remaining floors and fresh Astra/xhigh review2 are unchanged. The parent visually checked WIND final Table11: reported AUC .971 and TP@1% 1.000 remain an unresolved source inconsistency, not an extraction fix. TrustMark numeric evaluation count is corrected to unreported. No server, GPU, real-mark scoring or outcome occurred.
+
+## 2026-10-20T21:42:08.590351+00:00 - T8 accepted; fresh T1 addendum underway
+
+Parent accepted68 distinct threats,14 own V2 papers,11 successful queries across4 categories, and59 matching documentary hashes. Validation/export passed. T7 is completing its supplement checks. A fresh sol/high T1 agent now screens BrushOff, the taxonomy/case-study paper and the recent visual-paraphrasing lead. At most two agents remain active. No core settings, server, GPU or outcome changed.
