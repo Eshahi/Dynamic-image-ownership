@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "T1-edit-survival",
+  "citation_key": "T1_edit_survival",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/abs/2610.09702v1",
+  "title": "Latent Watermarks under Generative Editing: A Benchmark and Analysis of Detection Survival",
+  "authors": [
+    "Sung Ju Lee",
+    "Nam Ik Cho"
+  ],
+  "year": 2026,
+  "venue": "arXiv preprint; final venue not independently verified",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": ".thesis-build/q1-research-20261018/cache/T1b-edit-survival.html",
+    "sha256": "92ee050f2d969f77db7f6b00c87cc8c2e252884d4cf6c8edb0c993b8874825b9"
+  },
+  "limitations": [
+    "Conservative adjunct: ordinary editing rather than fixed regeneration/removal; seven of eight composite terms are added distortions. Native severity and semantic edits are not perceptually matched. Gaussian Shading/TAG limit d-prime analysis. Missing outputs are omitted. Code/artifacts are planned, not a verified release. This new study is distinct from the taxonomy, rather than independent confirmation of its reused tables."
+  ]
+}

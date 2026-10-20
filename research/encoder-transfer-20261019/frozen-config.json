@@ -245,6 +245,17 @@
       "operating_characteristics": "hypothetical conditional laws, not empirical outcomes; count-table transfer assumes complete passing negative gate",
       "cohort_inference": "exploratory source-binomial assumptions on deterministic development cohort; no population-FPR certification",
       "dependence": "seed marginals and pairwise ICC do not identify three-way majority; arm marginals do not identify external-maximum route"
+    },
+    "empirical_roc_contract": {
+      "score_comparison": "score >= cutoff",
+      "strict_fpr_targets": [
+        0.001,
+        0.01
+      ],
+      "cutoff_selection": "maximum TPR, fewest false positives, highest cutoff; reject-all sentinel retained",
+      "source_positive_missing": "minus infinity per missing seed before median",
+      "source_negative_missing": "any missing seed makes view not estimable",
+      "role": "descriptive; never replaces fixed endpoint or decision"
     }
   },
   "freeze_utc": "2026-10-20T08:01:29.605632+00:00",

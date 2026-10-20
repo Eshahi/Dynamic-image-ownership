@@ -113,3 +113,9 @@ Git HEAD ad985e0 and all work-in-progress were preserved. The supervisor reports
 Parent accepted68 distinct threats,14 own V2 papers,11 successful queries across4 categories, and59 matching documentary hashes. Validation/export passed. T7 is completing its supplement checks. A fresh sol/high T1 agent now screens BrushOff, the taxonomy/case-study paper and the recent visual-paraphrasing lead. At most two agents remain active. No core settings, server, GPU or outcome changed.
 
 2026-10-20: T8 accepted and pushed at 0742509 (remote verified). T7 parent acceptance passed: 15 V2 eligible evaluations, 12 queries/four categories, 59 artifact checks, with explicit denominator/ROC conflicts. T1 fresh-source addendum is in progress. All core gates and budget remain unchanged; review2 and re-freeze are still pending.
+
+2026-10-20: T7 accepted and pushed at a54377f, remote verified. Parent corrected a reversed ROC comparison in protocol prose (implementation already uses score >= cutoff), and made existing tie/missing-score conventions explicit in protocol/config. This is a pre-outcome documentary clarification, not an endpoint change.
+
+2026-10-20: Pre-review CPU fixture suite passed all 26 tests in 11.458 seconds. No GPU/model/source-image execution. T7 cumulative documentary receipt byte summary synchronized with its newly indexed files.
+
+2026-10-20: T1 late-lead addendum accepted after parent evidence/floor checks: 39 V2/22 direct, 39 settings rows, 34 successful queries/24 intents/three categories. All eight topics now pass parent acceptance. Integrated design, protocol/config clarifications and cost proposals are ready for the required fresh Astra/xhigh floor-first review2. CPU tests26 PASS; T6 analytic15 tables/nine checks PASS. No outcomes or paid execution.

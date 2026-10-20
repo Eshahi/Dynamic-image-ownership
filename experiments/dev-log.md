@@ -398,3 +398,7 @@
 
 2026-10-20 UTC | Codex agent push verified | codex/encoder-transfer-20261019 | 34d203d..074250957757faa9555e9dcd2b79658bcc6269bd | accepted T8 and WAM editorial clarification.
 2026-10-20 UTC | Codex agent | T7 accepted after parent floor/evidence audit; planned own-branch push from 0742509 to this acceptance commit. No server/GPU/outcomes.
+
+2026-10-20 UTC | Codex agent push verified | codex/encoder-transfer-20261019 | 0742509..a54377fef83ca4d221ace95b24eb4d9dfa681a9c | accepted T7 reporting evidence.
+
+2026-10-20 UTC | Codex agent | accepted T1 five-source addendum and integrated review2 candidate; own-branch push planned from a54377f to this commit. All eight topic floors passed parent checks; no server/GPU/outcomes.

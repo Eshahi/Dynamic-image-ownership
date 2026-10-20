@@ -238,3 +238,47 @@ Query: `Inspect DIP optimization learning rate in official evations source`
 Endpoint: https://api.github.com/repos/sun-umn/DIP_Watermark_Evasion_TMLR/git/trees/main?recursive=1
 Results/receipt: "HTTP403 APIrate limit; web folder failed; root README accessible"
 Inspection: No learning-rate claim fromfailedroute; AppendixB grid independentlyread
+
+## Late-lead targeted gap-fill (original 34 events / 30 successful queries preserved)
+
+### GAP-WEB01
+
+Query: `"BrushOff" "Stroke-Based" watermark`. Category: web search. Date: 2026-10-20. Successful counted discovery: False. Intent: brushoff-targeted-screen.
+
+Receipt: [{"url": "https://arxiv.org/html/2610.26682v1", "description": "Targeted search produced no distinct usable search hit; supplied primary opened and cached full methods/evaluation independently read."}]
+
+Targeted gap-fill; scientific evidence from cached primary full texts only, not search snippets.
+
+### GAP-WEB02
+
+Query: `"Diffusion-Generated Image Watermarking" "Two-Axis"`. Category: web search. Date: 2026-10-20. Successful counted discovery: True. Intent: taxonomy-provenance-screen.
+
+Receipt: [{"url": "https://arxiv.org/abs/2610.09755", "description": "Primary metadata and full HTML; reused/translated evidence distinguished. Related result exposed 2610.09702."}]
+
+Targeted gap-fill; scientific evidence from cached primary full texts only, not search snippets.
+
+### GAP-WEB03
+
+Query: `"Overcoming Brittleness" "Visual Paraphrasing"`. Category: web search. Date: 2026-10-20. Successful counted discovery: True. Intent: peccvai-final-benchmark-screen.
+
+Receipt: [{"url": "https://openaccess.thecvf.com/content/CVPR2026/html/Dixit_PECCVAI_Overcoming_the_Brittleness_of_AI_Image_Watermarking_Under_Visual_CVPR_2026_paper.html", "description": "Search lead; cached official CVF paper independently read. Direct web re-open returned 403. Secondary summaries not used as scientific evidence."}]
+
+Targeted gap-fill; scientific evidence from cached primary full texts only, not search snippets.
+
+### GAP-WEB04
+
+Query: `"Latent Watermarks under Generative Editing"`. Category: web search. Date: 2026-10-20. Successful counted discovery: True. Intent: editing-survival-benchmark-screen.
+
+Receipt: [{"url": "https://arxiv.org/abs/2610.09702", "description": "New primary benchmark discovered; full methods, Table 1 and Appendix E read. Related result exposed 2509.11745."}]
+
+Targeted gap-fill; scientific evidence from cached primary full texts only, not search snippets.
+
+### GAP-WEB05
+
+Query: `"Removal Attack and Defense on AI-generated Content Latent-based Watermarking"`. Category: web search. Date: 2026-10-20. Successful counted discovery: True. Intent: boundary-attack-benchmark-screen.
+
+Receipt: [{"url": "https://arxiv.org/abs/2509.11745", "description": "Full v3 methods/evaluations cached and read. CCS 2025 venue search lead was not promoted to independently verified venue."}, {"url": "https://www.sigsac.org/ccs/CCS2025/accepted-papers/", "description": "Official accepted-list retrieval yielded a client-rendered shell without the title. The linked page JavaScript was retrieved as text, not executed; title was not found. Venue remains unverified."}]
+
+Targeted gap-fill; scientific evidence from cached primary full texts only, not search snippets.
+
+Inspection-only access: arXiv HTML 2610.26682v1 and 2610.09755v1 opened successfully; HTTP downloads of 2610.09755v1, 2610.09702v1 and 2509.11745v3 succeeded. CVF PECCVAI live re-open returned 403; its existing official primary PDF remains accessible locally and was independently read. The CCS accepted-list shell/JavaScript did not verify venue. These inspections add no discovery count. The retained inaccessible ICDMW 2025 lead stays uncounted.

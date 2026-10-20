@@ -1,8 +1,8 @@
 {
   "date": "2026-10-20",
   "scope": "T1 documentary-only Stage1b; author self-check, pending parent acceptance",
-  "unique_v2_sources": 34,
-  "qualifying_direct_sources": 20,
+  "unique_v2_sources": 39,
+  "qualifying_direct_sources": 22,
   "mandatory_floor": 15,
   "floor_met": true,
   "qualifying_sources": [
@@ -185,6 +185,24 @@
       "verification": "V2_method_and_evaluation_read",
       "v2_sections": "Method subsections; Experiments/Tables1-4; web-rendered90-157 and158-224",
       "sha256": "e20712bc1898dc381d76b2ad23247dec90a6248cef3e68c1d2fc58c2abe801e2"
+    },
+    {
+      "id": "brushoff",
+      "title": "BrushOff: Stroke-Based Re-rendering as a Watermark Removal Attack on Paintings",
+      "canonical_url": "https://arxiv.org/abs/2610.26682v1",
+      "card_path": "cards/brushoff.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "Own T1 recheck: Sections III-A--III-C and IV-A--IV-E; Tables I--II; V-A--V-E; VI-A--VI-C and VII. Cached text lines 155--633; numerical Table II 388--477.",
+      "sha256": "af33f29ecdcf4d761015133bdecefcb6eb682a37f2e33b4c0d26cc7839cf2c01"
+    },
+    {
+      "id": "boundary",
+      "title": "Removal Attack and Defense on AI-generated Content Latent-based Watermarking",
+      "canonical_url": "https://arxiv.org/abs/2509.11745v3",
+      "card_path": "cards/boundary.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "Own T1 recheck: Sections 4.1--4.3 stealthy/minimum-distortion methods; defense statement/assumptions; Sections 6.1--6.2, Tables 2--3; Appendix C.1--C.2, Table 4. Cached lines 1665--1940, 3865--4460 and 5025--5220.",
+      "sha256": "43ebc1cb2074d56682e7e2d4754c139cd4701cce6acdb47bccd4830cb8fbe710"
     }
   ],
   "supplemental_v2": [
@@ -257,13 +275,28 @@
       "id": "proxyerase",
       "card_path": "cards/proxyerase.md",
       "reason": "Adjunct/critical/conservative supplemental; full row included"
+    },
+    {
+      "id": "taxonomy",
+      "card_path": "cards/taxonomy.md",
+      "reason": "Adjunct only: reused data dominate; no complete attack configuration or image denominator is supplied here. Table 2 harmonization and new HSTR quality do not make Tables 4/5 fresh experiments. The translated original is not counted again. A semantic carrier remains a hypothesis; editing conditions and native readouts differ across tables."
+    },
+    {
+      "id": "peccvai",
+      "card_path": "cards/peccvai.md",
+      "reason": "Adjunct despite a genuine new benchmark: WDP combines bit accuracy and confidence across methods; maximum search needs image-level null calibration. No matched attack-quality operating points are established. Main embedding quality is not attack fidelity. The title spells PECCVAI and the body PECCAVI. Appendix human MOS was not read or borrowed."
+    },
+    {
+      "id": "edit-survival",
+      "card_path": "cards/edit-survival.md",
+      "reason": "Conservative adjunct: ordinary editing rather than fixed regeneration/removal; seven of eight composite terms are added distortions. Native severity and semantic edits are not perceptually matched. Gaussian Shading/TAG limit d-prime analysis. Missing outputs are omitted. Code/artifacts are planned, not a verified release. This new study is distinct from the taxonomy, rather than independent confirmation of its reused tables."
     }
   ],
-  "query_events": 34,
-  "successful_discovery_events": 30,
-  "distinct_substantive_intents": 20,
+  "query_events": 39,
+  "successful_discovery_events": 34,
+  "distinct_substantive_intents": 24,
   "successful_categories": {
-    "web_search": 26,
+    "web_search": 30,
     "OpenAlex": 2,
     "official_repository_search": 2
   },
@@ -292,7 +325,7 @@
     "Repository metadata alone",
     "Failed API/search attempts"
   ],
-  "settings_table_rows": 34,
+  "settings_table_rows": 39,
   "settings_fields": [
     "mechanism",
     "models",
@@ -312,5 +345,16 @@
     "No experimental outcomes orheldoutpixels accessed"
   ],
   "validation_errors": [],
-  "validation": "PASS"
+  "validation": "PASS",
+  "late_gapfill": {
+    "original_accepted_v2": 34,
+    "original_direct": 20,
+    "added_v2": 5,
+    "added_direct": 2,
+    "added_adjunct": 3,
+    "search_successes_added": 4,
+    "search_events_added": 5,
+    "intents_added": 4,
+    "note": "BrushOff targeted query returned no usable independent hit and is uncounted. Original three categories remain unchanged. New editing benchmark included despite adjacent threat; translated taxonomy original not counted twice."
+  }
 }

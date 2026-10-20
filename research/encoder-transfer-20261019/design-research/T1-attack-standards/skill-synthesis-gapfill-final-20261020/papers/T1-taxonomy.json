@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "T1-taxonomy",
+  "citation_key": "T1_taxonomy",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/abs/2610.09755v1",
+  "title": "Diffusion-Generated Image Watermarking: A Two-Axis Taxonomy and Three Protocol-Bounded Case Studies",
+  "authors": [
+    "Sung Ju Lee",
+    "Nam Ik Cho"
+  ],
+  "year": 2026,
+  "venue": "arXiv preprint; final venue not independently verified",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": ".thesis-build/q1-research-20261018/cache/T1b-taxonomy.html",
+    "sha256": "1cecf056723788113e305811b50cee7deb2efd95738797f888438496767d0609"
+  },
+  "limitations": [
+    "Adjunct only: reused data dominate; no complete attack configuration or image denominator is supplied here. Table 2 harmonization and new HSTR quality do not make Tables 4/5 fresh experiments. The translated original is not counted again. A semantic carrier remains a hypothesis; editing conditions and native readouts differ across tables."
+  ]
+}

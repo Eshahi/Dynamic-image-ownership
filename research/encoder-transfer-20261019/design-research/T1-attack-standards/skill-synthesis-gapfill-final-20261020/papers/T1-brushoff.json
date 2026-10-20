@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "T1-brushoff",
+  "citation_key": "T1_brushoff",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/abs/2610.26682v1",
+  "title": "BrushOff: Stroke-Based Re-rendering as a Watermark Removal Attack on Paintings",
+  "authors": [
+    "Hao Chen",
+    "Junnan Xu"
+  ],
+  "year": 2026,
+  "venue": "arXiv preprint; final venue not independently verified",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": ".thesis-build/q1-research-20261018/cache/T8-1b/brushoff.html",
+    "sha256": "af33f29ecdcf4d761015133bdecefcb6eb682a37f2e33b4c0d26cc7839cf2c01"
+  },
+  "limitations": [
+    "Painting domain only, one renderer, fixed payload and outcome-selected operating-point discussion. Nominal binomial FPR assumes fair independent null bits; 0/500 is not empirical proof of 1e-3. Borrowing VINE fidelity for other marks is a pilot-based assumption. The reported 27 seconds per 2048-canvas image on an unnamed consumer GPU is not our cost estimate. Probe decoder changed after clean failure and is exploratory."
+  ]
+}

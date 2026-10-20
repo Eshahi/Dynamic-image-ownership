@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "T1-peccvai",
+  "citation_key": "T1_peccvai",
+  "doi": null,
+  "canonical_url": "https://openaccess.thecvf.com/content/CVPR2026/html/Dixit_PECCVAI_Overcoming_the_Brittleness_of_AI_Image_Watermarking_Under_Visual_CVPR_2026_paper.html",
+  "title": "PECCVAI: Overcoming the Brittleness of AI Image Watermarking Under Visual Paraphrasing Attacks",
+  "authors": [
+    "Shreyas Dixit",
+    "Ashhar Aziz",
+    "Shashwat Bajpai",
+    "Vasu Sharma",
+    "Aman Chadha",
+    "Vinija Jain",
+    "Amitava Das"
+  ],
+  "year": 2026,
+  "venue": "CVPR 2026; official CVF final paper artifact",
+  "access_date": "2026-10-20",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": ".thesis-build/q1-research-20261018/cache/T7-1b/peccvai-paper.pdf",
+    "sha256": "1fd41b97fe1c3aef51c5507654127b9419e540e75760dfced7654dc5cc3334a6"
+  },
+  "limitations": [
+    "Adjunct despite a genuine new benchmark: WDP combines bit accuracy and confidence across methods; maximum search needs image-level null calibration. No matched attack-quality operating points are established. Main embedding quality is not attack fidelity. The title spells PECCVAI and the body PECCAVI. Appendix human MOS was not read or borrowed."
+  ]
+}

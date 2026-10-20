@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "T1-boundary",
+  "citation_key": "T1_boundary",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/abs/2509.11745v3",
+  "title": "Removal Attack and Defense on AI-generated Content Latent-based Watermarking",
+  "authors": [
+    "De Zhang Lee",
+    "Han Fang",
+    "Hanyi Wang",
+    "Ee-Chien Chang"
+  ],
+  "year": 2025,
+  "venue": "arXiv v3 preprint; CCS 2025 accepted-list search lead, but venue not independently verified in retrieved full page",
+  "access_date": "2026-10-20",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": ".thesis-build/q1-research-20261018/cache/T1b-boundary.html",
+    "sha256": "43ebc1cb2074d56682e7e2d4754c139cd4701cce6acdb47bccd4830cb8fbe710"
+  },
+  "limitations": [
+    "Same-pipeline inversion and optional original prompt differ from our independent, query-free regeneration; no empirical image-level FPR guarantee. The ideal-inversion/synthetic 15x claim is not a universal image gain. Printed Algorithm 4.2 uses budget 2|s|^2 <= epsilon although squared L2 cost of a sign flip is 4s^2; indexing also appears ambiguous. Preserve paper labels rather than silently implementing a correction. Appendix C figure labels say MSE while tables say RMSE. Table 4 rates .19/.01/.12 cannot all be two-decimal rounded binary counts out of the stated 30 images; repetitions or averaging are not explained, so no integer success counts are reconstructed."
+  ]
+}

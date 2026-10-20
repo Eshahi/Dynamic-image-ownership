@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-20",
+  "base_commit": "a54377f",
+  "scope": "T1 late-lead documentary self-check; not an independent milestone review",
+  "passed": true,
+  "git_diff_check": "PASS",
+  "original_34_source_records_unchanged": true,
+  "original_34_evidence_records_unchanged": true,
+  "original_34_cards_unchanged": true,
+  "original_34_settings_rows_unchanged": true,
+  "original_34_query_events_unchanged": true,
+  "unique_v2_sources": 39,
+  "direct_sources": 22,
+  "adjunct_sources": 17,
+  "settings_rows": 39,
+  "query_events": 39,
+  "successful_queries": 34,
+  "distinct_intents": 24,
+  "successful_categories": {
+    "web_search": 30,
+    "OpenAlex": 2,
+    "official_repository_search": 2
+  },
+  "new_primary_and_derived_sha256_matches": 10,
+  "new_cards": [
+    "cards/brushoff.md",
+    "cards/taxonomy.md",
+    "cards/peccvai.md",
+    "cards/edit-survival.md",
+    "cards/boundary.md"
+  ],
+  "skill_response": {
+    "papers": 5,
+    "evidence_entries": 10,
+    "validation": {
+      "valid": true,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "skill_synthesis": {
+    "path": "skill-synthesis-gapfill-final-20261020",
+    "papers": 5,
+    "evidence_entries": 10,
+    "result": "PASS; command separately executed successfully with no warnings"
+  },
+  "validation_command": [
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\venv\\Scripts\\python.exe",
+    "C:\\Users\\Soroush\\.codex\\skills\\thesis-literature-synthesis\\scripts\\validate_literature.py",
+    "validate",
+    "C:\\Users\\Soroush\\.codex\\worktrees\\codex-encoder-transfer\\research\\encoder-transfer-20261019\\design-research\\T1-attack-standards\\gapfill-literature-response.json",
+    "--evidence-root",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5",
+    "--request-id",
+    "T1-stage1b-late-gapfill"
+  ],
+  "synthesis_command": [
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\venv\\Scripts\\python.exe",
+    "C:\\Users\\Soroush\\.codex\\skills\\thesis-literature-synthesis\\scripts\\validate_literature.py",
+    "synthesize",
+    "C:\\Users\\Soroush\\.codex\\worktrees\\codex-encoder-transfer\\research\\encoder-transfer-20261019\\design-research\\T1-attack-standards\\gapfill-literature-response.json",
+    "--evidence-root",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5",
+    "--out",
+    "C:\\Users\\Soroush\\.codex\\worktrees\\codex-encoder-transfer\\research\\encoder-transfer-20261019\\design-research\\T1-attack-standards\\skill-synthesis-gapfill-final-20261020"
+  ],
+  "limitations": [
+    "No experiments run; external numbers remain source claims.",
+    "Boundary SDXL rate aggregation unexplained; no integer success counts reconstructed.",
+    "CVF live re-open 403; cached official PDF independently read.",
+    "Boundary venue shell did not verify accepted-list title.",
+    "Original inaccessible ICDMW 2025 lead remains uncounted."
+  ]
+}

@@ -6725,9 +6725,36 @@
       "license": "Publicly served research copy; author/venue rights retained; no redistribution permission inferred",
       "version_or_revision": "NeurIPS 2024 final PDF",
       "source_manifest": "research/encoder-transfer-20261019/design-research/T7-fair-reporting/source-manifest.json"
+    },
+    {
+      "url": "https://arxiv.org/html/2610.09755v1",
+      "sha256": "1cecf056723788113e305811b50cee7deb2efd95738797f888438496767d0609",
+      "bytes": 241377,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1b-taxonomy.html",
+      "license": "Public primary research; author/venue rights retained, no redistribution inferred",
+      "version_or_revision": "2610.09755v1; 07 Oct 2026",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T1-attack-standards/source-manifest.json"
+    },
+    {
+      "url": "https://arxiv.org/html/2610.09702v1",
+      "sha256": "92ee050f2d969f77db7f6b00c87cc8c2e252884d4cf6c8edb0c993b8874825b9",
+      "bytes": 718738,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1b-edit-survival.html",
+      "license": "Public primary research; author/venue rights retained, no redistribution inferred",
+      "version_or_revision": "2610.09702v1; 07 Oct 2026",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T1-attack-standards/source-manifest.json"
+    },
+    {
+      "url": "https://arxiv.org/html/2509.11745v3",
+      "sha256": "43ebc1cb2074d56682e7e2d4754c139cd4701cce6acdb47bccd4830cb8fbe710",
+      "bytes": 502337,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1b-boundary.html",
+      "license": "Public primary research; author/venue rights retained, no redistribution inferred",
+      "version_or_revision": "2509.11745v3; 12 Nov 2025",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T1-attack-standards/source-manifest.json"
     }
   ],
-  "indexed_bytes": 170159981,
+  "indexed_bytes": 285424706,
   "stage1b_accepted_topics_indexed": [
     "T1",
     "T2",
@@ -6738,7 +6765,6 @@
     "T7",
     "T8"
   ],
-  "updated_utc": "2026-10-20T21:46:54.768980+00:00",
-  "record_count": 747,
-  "total_indexed_bytes": 283962254
+  "updated_utc": "2026-10-20T21:54:41.335717+00:00",
+  "record_count": 750
 }

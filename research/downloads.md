@@ -437,3 +437,5 @@ The cumulative [receipt index](encoder-transfer-20261019/research-downloads.json
 - 2026-10-20T21:42:08.590351+00:00: Accepted T8 documentary receipt integration adds12 URL/SHA records; cumulative720 records/170,159,981 indexed bytes. Reused content included, not new-network-byte total; no weights, image data or executable installation.
 
 2026-10-20: Accepted T7 documentary receipts add 27 URL/SHA records to encoder-transfer research-downloads.json: 747 cumulative indexed artifacts, 283,962,254 bytes (includes reused content, not network usage). Primary/venue versions, licenses and hashes are recorded; no weights/code installation.
+
+2026-10-20: Accepted T1 late-lead additions add 3 new URL/SHA receipts, with existing T7/T8 primary caches reused. Cumulative research index: 750 records, 285,424,706 bytes; documentary material only, no model weights or executable installation.
