@@ -5,27 +5,28 @@ F5 r2 remains the selected image-domain encoder-directed writer; no new M1a or t
 Prior unseen SD2.1 development C was 24/24 at strength .2; this did not establish independent-encoder transfer.
 Next experiment is the independent-encoder development study in research/encoder-transfer-20261019/BRIEF.md.
 
-## Stage 1b active: deeper evidence before re-freeze
+## Stage 1b complete: re-freeze stop
 
-Worktree: C:/Users/Soroush/.codex/worktrees/codex-encoder-transfer.
-Branch: codex/encoder-transfer-20261019. Eight research topics were individually committed and pushed through eb517ed.
-Section1b requires expanded V2 cards, ten queries across three categories per topic, parent floor checks, amendments and revised proposals.
-The prior review is historical. A different fresh Astra/xhigh reviewer must audit every section1b floor before design-review-2 and re-freeze.
-Four findings were corrected: readout preservation, unavailable-comparison inference, nonfinite guards and Windows/Linux manifest hashes.
-All 25 final CPU tests passed: author 3.004s and independent reviewer 3.021s, including Windows/Linux LF/hash portability.
-Prior freeze c2384e7 remains in history. User-requested BRIEF section1b at fe8b78d reopens design review; execution is blocked until re-freeze.
-N is 60 development sources, with disjoint smoke IDs 1790 and 1822; selection inspected metadata and hashes only.
-Core arms are F5 r2, v5 r3, WAM and user-approved VINE-R. No registry is used in this study.
-R0 is SD1.5 and R1 is independent-encoder SDXL, strengths .1/.2/.4, seeds 12/13/14.
-D1 is deterministic SDXL VAE-only; X1/X2 are resize controls; one .1+.1 SDXL rinse is secondary.
-FLUX R2/D2 are excluded because official access is gated; proposals P1-P8 are excluded pending the user's decision.
-Primary F5 R1 .2 source-majority C: at least 45/60 plus complete zero R1 negatives transfers; below 30/60 fails; margin 3.
-The full grid has 7500 units including C0; smoke has 250. Core estimate is 10-14 instance-hours under the 15h/USD15 cap.
-Native GPU compatibility, throughput and memory remain unmeasured. Timing-only smoke may apply only the frozen budget reductions.
-No server, paid compute, GPU science, weight download, real-mark scoring, new outcome or held-out image access occurred.
-Stage1b T1 accepted: 20 direct/34 total V2 sources; T2 accepted: 18 families/30 cards. Both exceed search floors.
-T3/T4 xhigh and T5 high agents remain active. All topic floors and review2 precede re-freeze.
-Complete all eight floors; wait/resume on usage limits. Stage2 remains unauthorized.
+Worktree: C:/Users/Soroush/.codex/worktrees/codex-encoder-transfer; branch codex/encoder-transfer-20261019.
+All eight topic floors pass parent checks and fresh independent Astra/xhigh design-review-2; B1-B4 are closed.
+Final reviewed scientific content is fc32ea8ca28f2eb613595e894292a95f751271bf; release metadata follows in the re-freeze commit.
+Prior freeze c2384e7 and reopened-review history remain preserved. The new config status is frozen-after-independent-review.
+T1: 40 V2 sources, 23 direct; T2: 18 families/30 cards; T3: 24 distinct post-hoc V2 methods.
+T4: 13 V2 sources/26 predictions; T5: six implementations/61 pinned setting rows/six paper V2.
+T6: eight paper V2 plus five official references, 15 tables/5,154 hypothetical rows and nine checks.
+T7: 15 eligible V2 evaluations; T8: 68 distinct threats/14 paper V2 plus four official references.
+Each topic passes ten distinct discovery intents across at least three categories; inspections are excluded.
+All 26 CPU fixture tests pass (parent 11.458s; independent reviewer 3.144s). Native GPU execution is unverified.
+N remains 60 development sources; smoke IDs 1790/1822 are disjoint, selected by metadata and hashes only.
+Core arms: F5 r2, v5 r3, WAM, VINE-R; no registry. R0 SD1.5 and R1 SDXL use .1/.2/.4, seeds 12/13/14.
+D1 is SDXL VAE-only, X1/X2 resize controls, and one .1+.1 rinse is secondary. Gated FLUX remains excluded.
+Primary F5 R1 .2 C majority: at least 45/60 plus complete zero R1 negatives transfers; below 30 fails; margin three.
+The 7,500-unit core plus 250 smoke units estimates 10-14 hours under the 15-hour/USD15 ceiling.
+Read-first carrier diagnostics and fidelity/statistical/reporting clarifications are pre-outcome amendments; gates unchanged.
+P1-P8 remain excluded/unapproved; P9 PixelSeal is an additional proposal, P10 Klein rejected. Costs are in budget-and-proposals.md.
+No server, paid compute, GPU science, weights, real-mark scoring, new outcome or held-out pixel access occurred.
+Stop after committing/pushing this release for Claude/user review of the protocol and proposals.
+No stage 2 until the user's subsequent scope/budget decision and SSH message; no automatic confirmation.
 
 ## Preserved registry confirmation result
 

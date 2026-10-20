@@ -1,8 +1,8 @@
 # Independent-encoder transfer protocol
 
-**Stage1b reopened, 2026-10-20.** BRIEF section1b requires deeper topic evidence and a new floor-first independent review. The prior freeze below remains historical; the machine configuration now blocks scientific execution until re-freeze. No new outcome exists.
+**Stage 1b re-frozen after independent review, 2026-10-20.** All eight BRIEF section 1b floors pass. [Design review 2](design-review-2.md) accepts content commit `fc32ea8ca28f2eb613595e894292a95f751271bf`; all four blocking findings are closed. No new outcome exists.
 
-Version: Stage 1b revision in progress, before outcomes. The first independent review accepted the historical package at `c2384e7`; that acceptance does not cover this deepening. The machine configuration has `pre-outcome-stage1b-under-review` status and blocks scientific execution. All eight topic floors, the second independent review and a new release commit/push must precede re-freeze. Stage 2 begins only after the user's subsequent decision and SSH message. The brief, integrated research and costed proposals define the authorized scope; proposals are excluded unless approved in a pre-outcome amendment.
+Version: Stage 1b final pre-outcome release. The historical freeze `c2384e7` and first review remain preserved. The machine configuration now has `frozen-after-independent-review` status; this release changes only acceptance metadata and its planning hash. The reviewed scientific settings and pre-outcome amendments below are unchanged. Stage 1 stops with this committed and pushed package. Stage 2 begins only after the user's subsequent decision and SSH message. The brief, integrated research and costed proposals define the scope; proposals remain excluded unless approved in a pre-outcome amendment. Native GPU compatibility and throughput remain unmeasured.
 
 ## Question and population
 

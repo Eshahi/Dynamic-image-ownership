@@ -16,14 +16,14 @@ Record unresolved gaps before acceptance. A below-floor delivery returns to a fr
 
 | Topic | Required content floor | Qualifying count | Distinct queries / categories | Parent disposition | Accepted topic commit |
 |---|---|---:|---|---|---|
-| T1 | 15 benchmark/attack sources; complete settings table | 23 direct; 40 total V2 | 34 successful queries, 24 intents / 3 categories | Accepted including six late-lead additions | 42cc385; addendum ece403e233515ab5d6fd39be4f22ba6bf1dc7eb8 |
+| T1 | 15 benchmark/attack sources; complete settings table | 23 direct; 40 total V2 | 34 successful queries, 24 intents / 3 categories | Accepted including six late-lead additions | 42cc385; addenda ece403e and 0ba83570cff1bd3d006bbf0b9bc7da4cb79653d8 |
 | T2 | 15 model families; lineage and implementation table | 18 families; 30 individual cards | 17 successful queries, 16 intents / 3 categories | Accepted after parent inspection | ae5c7f33baa23cd363a70657a57d102fd2394f3d |
 | T3 | 12 post-hoc methods; fidelity and run-cost table | 24 distinct V2 methods; 25 version-specific references | 22 queries / 3 categories | Accepted after parent inspection | d9bd2362ae8416219cde1066e227c9e7e78b90b1 |
 | T4 | 8 mechanism sources; all-channel and proposal predictions | 13 distinct V2 sources; 26 prediction rows | 18 queries / 4 categories | Accepted after parent inspection | cc25f1683bb2960080f777e38ed1a0fcc00ab613 |
 | T5 | Six named implementations; all relied-on settings pinned by file/line | 6 implementations, 61 setting rows, 6 paper V2 cards | 16 queries / 3 categories | Accepted after parent inspection | 4601425749c940f2eaa7a852324a542af26659da |
-| T6 | n60/90/120; seed correlation and missing-unit sensitivity | 8 paper V2 + 5 official references; 15 tables / 5,154 rows | 16 queries, 10 conservative intents / 3 categories | Accepted after fresh intent-gap check | a0ff0a0 plus intent-gap checkpoint |
+| T6 | n60/90/120; seed correlation and missing-unit sensitivity | 8 paper V2 + 5 official references; 15 tables / 5,154 rows | 16 queries, 10 conservative intents / 3 categories | Accepted after fresh intent-gap check | a0ff0a0 plus 4dd0c162976eaa1a3712fe9a86486002b77a2172 |
 | T7 | 12 evaluation sections from 2024-2026 eligible venues | 15 own V2 papers and evaluation rows | 12 genuine discovery queries / 3 categories; 3 inspections excluded | Accepted after fresh query-gap check | a54377f plus116f423a63a4af9732461656c47959c519b1fba8 |
-| T8 | 25 distinct validity threats | 68 mechanisms; 14 own V2 papers | 13 discovery queries, 11 conservative intents / 3 categories; 4 inspections excluded | Accepted after fresh intent-gap check | 0742509 plus3f25198e22bcd9a04c10737d9832756c9e88b291 |
+| T8 | 25 distinct validity threats | 68 mechanisms; 14 own V2 papers | 13 discovery queries, 11 conservative intents / 3 categories; 4 inspections excluded | Accepted after fresh intent-gap check | 0742509 plus 3f25198 and fc32ea8ca28f2eb613595e894292a95f751271bf |
 
 ## Evidence inspection and gaps
 
@@ -143,3 +143,7 @@ Parent read query-gap-audit.md and all24 per-lead screens, independently verifie
 ## T8 conservative intent-floor closure, 2026-10-20
 
 Parent read the second audit, all countable new result screens and the eleven-intent mapping. Independently checked the six Q28/Q29 raw request/response/receipt hashes and preserved historical first-gap audit/checks. Q01/Q09 and Q05/Q17 are merged; new geographic image-cohort representation and diffusion finite-precision jobs supply distinct I10/I11. Final13 countable queries/11 conservative intents/3categories;29 distinct specifications include four inspections, peripheral searches and pooled supplemental web results excluded. Web raw-save retries are disclosed and nevercounted. Quantization leads do not measure our fp16/fp32 effect; geographic leads do not quantify cohort bias.68 threats/14 own V2 unchanged. No science, scope or spending amendment. Same-reviewer B2 closure required.
+
+## Final independent closure and release, 2026-10-20
+
+The fresh independent Astra/xhigh reviewer accepted scientific content commit fc32ea8ca28f2eb613595e894292a95f751271bf in design-review-2.md. B1-B4 are closed; the historical pending/rejected entries above remain the audit trail, not current dispositions. Final counts in the dispositions table pass all eight floors. Release edits only finalize acceptance headers, freeze metadata and the corresponding planning-config hash. No scientific setting, optional-proposal authorization or outcome is added.

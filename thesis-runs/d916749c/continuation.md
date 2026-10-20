@@ -132,3 +132,7 @@ The clarified558239d scorer and layout-only adapter are frozen. DIV2K300 and60 f
 ## 2026-10-20: Independent-encoder stage 1 complete
 
 All eight V2 design topics are integrated and pushed. A fresh Astra/xhigh review accepts the bounded study; four implementation/portability findings are closed and25 CPU tests pass independently. Freeze c2384e7 retains n60, F5/v5/WAM/VINE-R, SD1.5/SDXL .1/.2/.4, VAE/resize controls and one rinse; gated FLUX is excluded. The7500-unit core estimates10-14h under15h/USD15. Eight optional proposals remain unapproved. No server, GPU science, weights, real-mark outcome or held-out pixels were used. Stop for the user's protocol/proposal decision and later SSH message; no automatic stage2 or confirmation.
+
+## 2026-10-20: Independent-encoder stage 1b re-freeze
+
+All eight expanded topics pass parent and independent Astra/xhigh review2; B1-B4 closed at scientific content fc32ea8. Counts T1 40V2/23direct, T2 18families, T3 24methods, T4 13sources/26predictions, T5 6implementations/61settings, T6 15tables/5154rows, T7 15evaluations, T8 68threats. All search floors pass. CPU fixtures26 PASS; core n60, arms, gates and 10-14h estimate under15h/$15 unchanged. Read-first diagnostics and fidelity/statistical clarifications are pre-outcome. P1-P9 await scope decisions; P10 rejected. No server/GPU/outcomes. Re-freeze stop for user review; stage2 needs the subsequent decision and SSH.

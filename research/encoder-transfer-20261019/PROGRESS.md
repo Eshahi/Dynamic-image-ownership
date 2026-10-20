@@ -135,3 +135,11 @@ Parent accepted68 distinct threats,14 own V2 papers,11 successful queries across
 2026-10-20: T1RAN checkpoint0ba8357 pushed/verified. Parent accepted fresh T6 intent addendum:16 actual searches/10 conservatively distinct intents/3categories; four raw response/request pairs and58 unchanged evidence/analytic files verified. No new V2/scientific claim from discovery metadata. T8 second intent addendum continues; same reviewer will close all findings.
 
 2026-10-20: T6intent checkpoint4dd0c16 pushed/verified; same independent reviewer closed B3. Parent accepted final T8 intent addendum:13 countable searches/11 conservative intents/3categories; geography and finite-precision discovery added with exact receipts, weak/pooled searches excluded.68 threats/14V2 unchanged. Reviewer closes B2/B4 before re-freeze; no stop marker yet.
+
+## 2026-10-20T22:36:27.932320+00:00 - Final review PASS and stage-1b re-freeze stop
+
+Scientific content fc32ea8ca28f2eb613595e894292a95f751271bf is pushed and remote verified. Fresh independent gpt-6-astra/xhigh design-review-2 accepts all eight floors and closes B1-B4. Final counts: T1 40 own V2/23 direct; T2 18 families/30 cards; T3 24 post-hoc V2 methods; T4 13 V2/26 predictions; T5 six implementations/61 settings/six paper V2; T6 eight paper V2/five official references/15 tables/5154 rows; T7 15 V2 evaluations; T8 68 threats/14 V2/four official references. Every topic meets the conservative ten-intent/three-category discovery floor. Historical rejected counts and access limitations remain visible.
+
+Final release changes only acceptance headers, status/time/review metadata and its dependent planning hash. All15 analytic tables are unchanged; nine stdlib checks pass. The26 CPU fixtures passed both parent and independent review; unchanged code does not need another run. Config SHA-256 3dbb53c1463ef63fb004e8b66880404906b52941f80f6d3e76ad297e3c048e16. Core n60, arms, channels and decision gates are unchanged. No server, GPU, weight download, real-mark scoring, held-out pixels or new outcome occurred. P1-P9 remain optional/unapproved and P10 rejected. MAIN STATE and continuation now record the stage-1 stop. This release is committed and pushed next; no automatic stage2. User/Claude review, the subsequent scope/budget decision and SSH message precede any paid execution.
+
+STAGE-1B STOP REACHED

@@ -1,6 +1,6 @@
 {
   "schema": "encoder-transfer-v1",
-  "status": "pre-outcome-stage1b-under-review",
+  "status": "frozen-after-independent-review",
   "data_split": "development",
   "n": 60,
   "sources_file": "research/encoder-transfer-20261019/source-list.json",
@@ -258,8 +258,10 @@
       "role": "descriptive; never replaces fixed endpoint or decision"
     }
   },
-  "freeze_utc": "2026-10-20T08:01:29.605632+00:00",
-  "design_review_file": "research/encoder-transfer-20261019/design-review.md",
+  "freeze_utc": "2026-10-20T22:35:47.127666+00:00",
+  "design_review_file": "research/encoder-transfer-20261019/design-review-2.md",
   "stage1b_reopened_utc": "2026-10-20T11:55:19.675479+00:00",
-  "prior_frozen_commit": "c2384e76b562d93c94d68b7093463eb96db44b21"
+  "prior_frozen_commit": "c2384e76b562d93c94d68b7093463eb96db44b21",
+  "prior_freeze_utc": "2026-10-20T08:01:29.605632+00:00",
+  "stage1b_reviewed_content_commit": "fc32ea8ca28f2eb613595e894292a95f751271bf"
 }
