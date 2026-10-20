@@ -94,6 +94,50 @@ Deliver:
 - `budget-and-proposals.md`: the projected hours and cost of the frozen core, plus each costed proposal (extra baselines, extra regenerators, adaptive arm) with its cost and your recommendation.
 
 Commit and push all of it, then **stop and report to the user in Persian.** Claude reviews the frozen protocol and the proposals before any money is spent. The user then approves or declines each proposal and rents the server. They send its SSH line, and that message starts stage 2 (sections 5 and 6). If a proposal is approved, record the approval in the protocol as a pre-outcome amendment before stage 2 runs.
+## 1b. Stage 1 deepening (user request, 2026-10-20)
+
+**Why.** Claude checked the stage-1 session logs, and the research was thinner than section 1a asked for:
+- the main thread was active for about 1 hour, with an 8.8-hour pause for a usage limit;
+- each topic agent worked 3 to 13 minutes;
+- the eight topics have 19 cards in total (T2 has none, T8 one), and their search logs have 9 to 26 lines each.
+
+The user asked for a very comprehensive, complete research effort, whatever it takes. Deepen stage 1 before any server is rented. The frozen package `c2384e7` stays in history. Any change it leads to is a pre-outcome amendment, because no outcomes exist yet.
+
+### Minimum coverage per topic
+
+These are floors, not targets. Each source counts once, must be at least V2 (method and evaluation sections actually read), and needs its own card in the topic's `cards/` folder. Cards from the Q1 dossier count only if the topic folder gets a card that says what was re-checked for this design question.
+
+| Topic | Minimum |
+|---|---|
+| T1 attack standards | 15 benchmark or attack sources. Include every 2025-2026 regeneration or removal benchmark you find. Each gets a row in a settings table: models, strengths or noise steps, sampler and steps, prompt policy, resolution, image counts, metrics. |
+| T2 encoder landscape | 15 model families, one card each: paper or model card, autoencoder lineage evidence, channels and downsampling, license and gating, diffusers img2img support, memory at 1024. |
+| T3 baselines | 12 post-hoc methods, one card each: code, weights, license, native settings and thresholds, published regeneration results with their conditions, and run-cost notes. |
+| T4 mechanism | 8 theory or mechanism sources, plus written falsifiable predictions for every channel in the frozen core and in each proposal. |
+| T5 pipelines | For each of SD1.5, SDXL, Kandinsky 3, VINE, WAM and TrustMark: the exact code path in the pinned versions, cited by file and line, for every setting the protocol relies on. |
+| T6 statistics | Operating characteristics of the decision rule, including sensitivity to between-seed correlation and to missing units, for n = 60, 90 and 120. |
+| T7 reporting norms | 12 recent (2024-2026) evaluation sections from Q1 journals or top venues, tabulated: image counts, metrics, FPR operating points, matched-quality practice, baselines. |
+| T8 validity | 25 distinct threats, each with its mechanism, its mitigation or stated limitation, and a source or argument. |
+
+**Search breadth.** Every topic logs at least 10 distinct queries across at least three of these: web search, the arXiv API, Semantic Scholar or OpenAlex, and official repositories or model hubs. Each topic writes a coverage statement and a section "what we might still have missed", with reasons.
+
+### Process rules
+
+- **One agent per topic.** Use `gpt-6-astra` at `xhigh` for T2, T3 and T4, and at `high` for the others. Run at most 3 at a time. Give each a self-contained brief that includes its minimum.
+- **Check minimums before accepting.** The parent counts the cards and the search-log entries before accepting a topic. A topic below its floor goes back to a fresh agent with the gap list. The parent never fills a topic hastily itself.
+- **Usage limits.** If an agent fails or a usage limit interrupts, wait, then resume or re-brief. Shortening the topic is never the fix.
+- **Commits.** Commit and push after each accepted topic.
+- **Then:**
+  - revise `design-research.md`;
+  - record any pre-outcome amendment (within the limits of section 1a) in `protocol.md` and `frozen-config.json`;
+  - update `budget-and-proposals.md`, keeping P1-P8, revising them and adding new ones where the research supports it.
+
+### Second independent review and re-freeze
+
+1. A fresh agent (`gpt-6-astra`, `xhigh`, `fork_turns: "none"`), different from the first reviewer, writes `design-review-2.md`. It must first audit the coverage table above, with counts per topic. **It fails the package if any floor is unmet.** Then it reviews the design and its amendments as in section 1a.
+2. Fix what it finds.
+3. Re-freeze with a new commit and push.
+4. Stop and report in Persian, as in section 9 stage 1. Add the per-topic counts and what the deepening changed.
+
 ## 2. Fixed design
 
 Freeze all of this, as amended by stage 1 within its limits, in `research/encoder-transfer-20261019/protocol.md`, plus a machine-readable `frozen-config.json`. Commit and push both before any regeneration exists. Implementation details not fixed here are yours to fix in the protocol, before outputs.
