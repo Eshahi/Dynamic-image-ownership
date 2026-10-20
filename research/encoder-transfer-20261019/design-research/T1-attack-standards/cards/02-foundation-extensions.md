@@ -1,3 +1,5 @@
+> Historical stage1b discovery grouping. Superseded by individual source cards and evidence-records.json; excluded from all counts and current claims. Earlier incomplete extraction is not current evidence.
+
 # Foundation and controlled-removal extensions
 
 Inspected 2026-10-19; V2 method/evaluation inspection, not replication. Full setting matrix and source hashes accompany this file.

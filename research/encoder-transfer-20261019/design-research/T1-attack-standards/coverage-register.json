@@ -1,0 +1,166 @@
+[
+  {
+    "id": "sadre",
+    "title": "Saliency-Aware Diffusion Reconstruction for Effective Invisible Watermark Removal",
+    "url": "https://arxiv.org/pdf/2504.12809v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1b-sadre.pdf",
+    "sha256": "b2f73e1e2e87023ff260c7905ea590cc98ae33b8ac798b3ece90676b73365ea7",
+    "status": "V2 supplemental fully tabulated; excluded conservative direct floor",
+    "card_path": "cards/sadre.md",
+    "qualifies_direct_floor": false
+  },
+  {
+    "id": "orthogonal",
+    "title": "The Orthogonal Vulnerabilities of Generative AI Watermarks: A Comparative Empirical Benchmark of Spatial and Latent Provenance",
+    "url": "https://arxiv.org/pdf/2603.10323v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1b-orthogonal.pdf",
+    "sha256": "3d352ecd2863889032f2960d9fbc574b8eb414f2e81c165fe03982ff8ae3ca79",
+    "status": "V2 supplemental fully tabulated; excluded conservative direct floor",
+    "card_path": "cards/orthogonal.md",
+    "qualifies_direct_floor": false
+  },
+  {
+    "id": "hideseek",
+    "title": "Hide&Seek: Remove Image Watermarks with Negligible Cost via Pixel-wise Reconstruction",
+    "url": "https://arxiv.org/html/2603.01067v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1b-hideseek.html",
+    "sha256": "fc71e2c81cc9c43cc9701e27c66eb9f71b733790bbc624a9135814fbd7db5342",
+    "status": "V2 supplemental fully tabulated; excluded conservative direct floor",
+    "card_path": "cards/hideseek.md",
+    "qualifies_direct_floor": false
+  },
+  {
+    "id": "proxyerase",
+    "title": "ProxyEraseAgent: Blind Watermark Removal in the Wild",
+    "url": "https://arxiv.org/html/2610.11290v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1b-proxyerase.html",
+    "sha256": "d915143174d5f943f4a8a8f2058af81501fa929a1f8a2bd6e2fe2d4550a23447",
+    "status": "V2 supplemental fully tabulated; excluded conservative direct floor",
+    "card_path": "cards/proxyerase.md",
+    "qualifies_direct_floor": false
+  },
+  {
+    "id": "editing",
+    "title": "Diffusion-Based Image Editing for Breaking Robust Watermarks",
+    "url": "https://arxiv.org/html/2510.05978v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-editing.html",
+    "sha256": "6241712daa1dee469a12b70d270a296bc9f484fc907fdea72c7ce2fe9dba10a4",
+    "status": "V2 supplemental fully tabulated; excluded conservative direct floor",
+    "card_path": "cards/editing.md",
+    "qualifies_direct_floor": false
+  },
+  {
+    "id": "fuediting",
+    "title": "Diffusion-Based Image Editing: An Unforeseen Adversary to Robust Invisible Watermarks",
+    "url": "https://arxiv.org/html/2511.05598v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1b-fuediting.html",
+    "sha256": "1f679e146b624435c911c9d812f5e8a4dbf0f9495f8fc9bf49aff5ff4958f3b0",
+    "status": "V2 supplemental fully tabulated; excluded conservative direct floor",
+    "card_path": "cards/fuediting.md",
+    "qualifies_direct_floor": false
+  },
+  {
+    "id": "vanishing",
+    "title": "Vanishing Watermarks: Diffusion-Based Image Editing Undermines Robust Invisible Watermarking",
+    "url": "https://arxiv.org/html/2602.20680v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1b-vanishing.html",
+    "sha256": "3e0347b58ba9e1fc81bf927f7d8c9efb73cc880a6ff63de5506556184a813732",
+    "status": "V2 supplemental fully tabulated; excluded conservative direct floor",
+    "card_path": "cards/vanishing.md",
+    "qualifies_direct_floor": false
+  },
+  {
+    "id": "wmforger",
+    "title": "Transferable Black-Box One-Shot Forging of Watermarks via Image Preference Models",
+    "url": "https://arxiv.org/html/2510.20468v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1b-wmforger.html",
+    "sha256": "4f02d93a26bbe904ae93d23e1bf2aa447c670cf4fe2f90466eec1a0cd0b8c001",
+    "status": "V2 supplemental fully tabulated; excluded conservative direct floor",
+    "card_path": "cards/wmforger.md",
+    "qualifies_direct_floor": false
+  },
+  {
+    "id": "fddwan",
+    "title": "FDDWAN: A Frequency-Decoupled Diffusion Network for Watermarking Attack",
+    "url": "https://arxiv.org/html/2607.27800v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1b-fddwan.html",
+    "sha256": "f942ef5b92d335d5bb0dd2d4fe68aa07fa89439ecb7150006e260bbd788f211d",
+    "status": "V2 supplemental fully tabulated; excluded conservative direct floor",
+    "card_path": "cards/fddwan.md",
+    "qualifies_direct_floor": false
+  },
+  {
+    "id": "arrobust",
+    "title": "On the Robustness of Watermarking for Autoregressive Image Generation",
+    "url": "https://arxiv.org/html/2604.11720v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1b-arrobust.html",
+    "sha256": "905907ffe4a9b4eba0ba1dbe537c6026fba0e5457cf83de6a2d6d04f7dafe94e",
+    "status": "V2 supplemental fully tabulated; excluded conservative direct floor",
+    "card_path": "cards/arrobust.md",
+    "qualifies_direct_floor": false
+  },
+  {
+    "id": "erasing-shadows",
+    "title": "Erasing Shadows: Residual-Guided Watermark Removal Via Reverse Diffusion",
+    "url": "https://doi.org/10.1109/IJCB65343.2025.11411170",
+    "status": "unqualified_metadata_or_scope_exclusion",
+    "card_path": "cards/lead-erasing-shadows.md",
+    "qualifies_direct_floor": false
+  },
+  {
+    "id": "icdmw",
+    "title": "Evaluating the Robustness of Invisible Watermarking Against Adversarial Attacks",
+    "url": "https://doi.org/10.1109/ICDMW69685.2025.00345",
+    "status": "Metadata verified; primary fulltext inaccessible after title,DOI,authorPDF and arXiv searches; excluded floor",
+    "card_path": "cards/lead-icdmw.md",
+    "qualifies_direct_floor": false,
+    "access_attempts": [
+      "DOI https://doi.org/10.1109/ICDMW69685.2025.00345 returned web InternalError",
+      "ResearchGate entry explicitly nofulltext; norequest sent",
+      "Official ICDM2025 program confirms title/authors/session only",
+      "Noauthorversion located by four substantive query formulations WEB23-WEB26"
+    ]
+  },
+  {
+    "id": "wibe",
+    "title": "WIBE: Watermarks for generated Images - Benchmarking & Evaluation",
+    "url": "https://github.com/ispras/wibe",
+    "status": "Duplicate software of WARP; WARP primary abstract explicitly links https://github.com/ispras/wibe; no separate paper count",
+    "card_path": "cards/lead-wibe.md",
+    "qualifies_direct_floor": false
+  },
+  {
+    "id": "channel",
+    "title": "Optimizing and Securing the Modern Watermarking Channel for Images",
+    "url": "https://arxiv.org/html/2609.34744v1",
+    "status": "V2 supplemental fully tabulated; excluded conservative direct floor",
+    "card_path": "cards/channel.md",
+    "qualifies_direct_floor": false,
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1b-channel.html",
+    "sha256": "738ac34cae9baff58d9f699377cea3f7fd6a18a81dbda9ba791149165c81fdde"
+  },
+  {
+    "id": "noiseprints",
+    "title": "NoisePrints",
+    "url": "https://arxiv.org/abs/2510.13793",
+    "status": "unqualified_metadata_or_scope_exclusion",
+    "card_path": "cards/lead-noiseprints.md",
+    "qualifies_direct_floor": false
+  },
+  {
+    "id": "video",
+    "title": "Video benchmarks and video-removal catalog leads",
+    "url": "https://arxiv.org/abs/2505.21620",
+    "status": "unqualified_metadata_or_scope_exclusion",
+    "card_path": "cards/lead-video.md",
+    "qualifies_direct_floor": false
+  },
+  {
+    "id": "screencam",
+    "title": "screencam-watermark-lab",
+    "url": "https://doi.org/10.5281/zenodo.21852744",
+    "status": "unqualified_metadata_or_scope_exclusion",
+    "card_path": "cards/lead-screencam.md",
+    "qualifies_direct_floor": false
+  }
+]

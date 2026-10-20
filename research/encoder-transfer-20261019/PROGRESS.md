@@ -37,3 +37,25 @@ Release preflight found CRLF/LF hash drift between Windows files and the Git ind
 Frozen scientific package commit `c2384e76b562d93c94d68b7093463eb96db44b21` was pushed by Codex agent to origin/codex/encoder-transfer-20261019; `git ls-remote` matched local HEAD. Eight research topics, the integrated design, independent review, protocol/configuration, code with25 passing CPU tests and budget/proposals are all in that release. The main authoritative STATE and the milestone continuation are updated. This final documentation checkpoint does not change the frozen scientific package.
 
 Stage1 is complete. Stop for the user/Claude protocol check and optional-proposal decisions. No stage2 execution follows until the user supplies the next decision, actual price/start context and SSH connection. No server was rented, contacted or left running; no new scientific outcome exists.
+
+## 2026-10-20T11:55:19.675479+00:00 - stage1b reopened under fe8b78d
+
+The user requested measurable deepening under new BRIEF section1b. First command confirmed HEAD fe8b78d. The prior c2384e7 freeze and first review remain historical; they do not satisfy section1b. No outcomes exist. The machine execution status is reopened pending a second independent review and re-freeze.
+
+One fresh agent per topic is required. T1 is assigned to Astra/high; T2 and T3 to Astra/xhigh, each with its own folder and exact floors. At most three topic agents run concurrently. Every topic must log at least10 distinct substantive queries across at least3 specified search categories. The parent will count qualifying unique cards and query events, inspect coverage and consequential claims, and record an acceptance disposition before committing/pushing that topic. Incomplete work returns to a fresh agent with a gap list; usage limits require waiting/resuming, not parent substitution or reduced scope. T4-T8 follow as slots free. No user answer is expected during this work.
+
+No server, GPU work, weights, real-mark scoring, new scientific outcome or held-out pixels are permitted. The exact stop marker will be written only after all floors, amendments, final tests and design-review-2 are satisfied. P1-P8 remain proposals, and the immutable question/primary cell/proportional decision rule remain fixed.
+
+### Stage1b parent checkpoint
+
+The parent acceptance method and pending topic table are in stage1b-parent-audit.md. New agent discovery reports identify additional 2025-2026 removal benchmarks, pixel-space model families and a proposal-cost counting issue; these are leads until source/card checks complete. No topic has yet been accepted. The parent opened the WARP, local-watermark benchmark and latent-frequency-masking primary full texts to prepare consequential-claim checks. The current unchanged implementation passed all 25 CPU fake-fixture unit tests in 10.417 seconds (exit 0); this is an interim regression check, not the required final post-amendment validation. No experimental outcomes were produced.
+
+The large-PDF access gap has a working local route: the parent used existing Windows PdfDocument and OCR APIs to render all 32 pages of the already cached 27 MB competition paper. Derived PNG/text files and a small read-only helper remain in the documentary cache outside Git. No package, model or runnable upstream repository was installed. Topic agents retain responsibility for actual method/evaluation reading and visual verification of consequential values; this tooling assistance is not parent substitution for a topic. The same route is available for other legitimately downloaded primary papers.
+
+### 2026-10-20 12:40 UTC - evidence checks continue
+
+T1 has drafted twenty direct V2 attack/benchmark sources and three adjunct cards; acceptance remains pending final search/coverage checks and follow-up on every discovered recent benchmark. The parent requested corrections against primary text rather than accepting counts alone. T2 verified that the newer HiDream-O1 pixel-space release snaps the requested 1024 interface to about2048 pixels and advertises35.220GB of checkpoint shards; these are proposal feasibility constraints, not grounds to change the core. The stage2 brief permits80GB total downloads, so that model size alone is not a violation of the future cap. T3 is checking nineteen post-hoc methods and a possible Pixel Seal proposal. None of these findings is an outcome, added arm, spending approval or completed topic yet.
+
+### 2026-10-20 12:57 UTC - T1 accepted; T4 underway
+
+The parent accepted T1 after reading all 34 V2 cards, checking the 34 settings rows and verifying the cached primary hashes. The conservative floor is 20 direct attack/benchmark sources, with 30 successful queries (20 intents) across three categories. Remaining inaccessible or contradictory evidence is explicit. The detailed acceptance is in stage1b-parent-audit.md. T2 and T3 remain under author completion/parent review. A fresh Astra/xhigh T4 agent now develops mechanism predictions; no server, GPU work or outcomes.

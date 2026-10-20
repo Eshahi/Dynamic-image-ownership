@@ -1,0 +1,21 @@
+# T1 coverage and exclusions
+
+All accessible found 2025-2026 image regeneration/removal benchmarks have method/evaluation cards and settings rows, including critical studies excluded from the conservative floor. ICDMW2025 remains a documented access gap, not a negative result. The register also preserves scope exclusions.
+
+- **sadre**: Saliency-Aware Diffusion Reconstruction for Effective Invisible Watermark Removal. V2 supplemental fully tabulated; excluded conservative direct floor. [Card](cards/sadre.md); [primary](https://arxiv.org/pdf/2504.12809v1).
+- **orthogonal**: The Orthogonal Vulnerabilities of Generative AI Watermarks: A Comparative Empirical Benchmark of Spatial and Latent Provenance. V2 supplemental fully tabulated; excluded conservative direct floor. [Card](cards/orthogonal.md); [primary](https://arxiv.org/pdf/2603.10323v1).
+- **hideseek**: Hide&Seek: Remove Image Watermarks with Negligible Cost via Pixel-wise Reconstruction. V2 supplemental fully tabulated; excluded conservative direct floor. [Card](cards/hideseek.md); [primary](https://arxiv.org/html/2603.01067v1).
+- **proxyerase**: ProxyEraseAgent: Blind Watermark Removal in the Wild. V2 supplemental fully tabulated; excluded conservative direct floor. [Card](cards/proxyerase.md); [primary](https://arxiv.org/html/2610.11290v1).
+- **editing**: Diffusion-Based Image Editing for Breaking Robust Watermarks. V2 supplemental fully tabulated; excluded conservative direct floor. [Card](cards/editing.md); [primary](https://arxiv.org/html/2510.05978v1).
+- **fuediting**: Diffusion-Based Image Editing: An Unforeseen Adversary to Robust Invisible Watermarks. V2 supplemental fully tabulated; excluded conservative direct floor. [Card](cards/fuediting.md); [primary](https://arxiv.org/html/2511.05598v1).
+- **vanishing**: Vanishing Watermarks: Diffusion-Based Image Editing Undermines Robust Invisible Watermarking. V2 supplemental fully tabulated; excluded conservative direct floor. [Card](cards/vanishing.md); [primary](https://arxiv.org/html/2602.20680v1).
+- **wmforger**: Transferable Black-Box One-Shot Forging of Watermarks via Image Preference Models. V2 supplemental fully tabulated; excluded conservative direct floor. [Card](cards/wmforger.md); [primary](https://arxiv.org/html/2510.20468v1).
+- **fddwan**: FDDWAN: A Frequency-Decoupled Diffusion Network for Watermarking Attack. V2 supplemental fully tabulated; excluded conservative direct floor. [Card](cards/fddwan.md); [primary](https://arxiv.org/html/2607.27800v1).
+- **arrobust**: On the Robustness of Watermarking for Autoregressive Image Generation. V2 supplemental fully tabulated; excluded conservative direct floor. [Card](cards/arrobust.md); [primary](https://arxiv.org/html/2604.11720v1).
+- **erasing-shadows**: Erasing Shadows: Residual-Guided Watermark Removal Via Reverse Diffusion. unqualified_metadata_or_scope_exclusion. [Card](cards/lead-erasing-shadows.md); [primary](https://doi.org/10.1109/IJCB65343.2025.11411170).
+- **icdmw**: Evaluating the Robustness of Invisible Watermarking Against Adversarial Attacks. Metadata verified; primary fulltext inaccessible after title,DOI,authorPDF and arXiv searches; excluded floor. [Card](cards/lead-icdmw.md); [primary](https://doi.org/10.1109/ICDMW69685.2025.00345).
+- **wibe**: WIBE: Watermarks for generated Images - Benchmarking & Evaluation. Duplicate software of WARP; WARP primary abstract explicitly links https://github.com/ispras/wibe; no separate paper count. [Card](cards/lead-wibe.md); [primary](https://github.com/ispras/wibe).
+- **channel**: Optimizing and Securing the Modern Watermarking Channel for Images. V2 supplemental fully tabulated; excluded conservative direct floor. [Card](cards/channel.md); [primary](https://arxiv.org/html/2609.34744v1).
+- **noiseprints**: NoisePrints. unqualified_metadata_or_scope_exclusion. [Card](cards/lead-noiseprints.md); [primary](https://arxiv.org/abs/2510.13793).
+- **video**: Video benchmarks and video-removal catalog leads. unqualified_metadata_or_scope_exclusion. [Card](cards/lead-video.md); [primary](https://arxiv.org/abs/2505.21620).
+- **screencam**: screencam-watermark-lab. unqualified_metadata_or_scope_exclusion. [Card](cards/lead-screencam.md); [primary](https://doi.org/10.5281/zenodo.21852744).

@@ -5,15 +5,15 @@ F5 r2 remains the selected image-domain encoder-directed writer; no new M1a or t
 Prior unseen SD2.1 development C was 24/24 at strength .2; this did not establish independent-encoder transfer.
 Next experiment is the independent-encoder development study in research/encoder-transfer-20261019/BRIEF.md.
 
-## Stage 1 complete: stop for the user
+## Stage 1b active: deeper evidence before re-freeze
 
 Worktree: C:/Users/Soroush/.codex/worktrees/codex-encoder-transfer.
 Branch: codex/encoder-transfer-20261019. Eight research topics were individually committed and pushed through eb517ed.
-Comprehensive V2 design research, protocol, configuration, tested code, pinned assets and budget/proposals are written.
-The single fresh Astra/xhigh independent reviewer accepted this bounded development study with warnings and no open blockers.
+Section1b requires expanded V2 cards, ten queries across three categories per topic, parent floor checks, amendments and revised proposals.
+The prior review is historical. A different fresh Astra/xhigh reviewer must audit every section1b floor before design-review-2 and re-freeze.
 Four findings were corrected: readout preservation, unavailable-comparison inference, nonfinite guards and Windows/Linux manifest hashes.
 All 25 final CPU tests passed: author 3.004s and independent reviewer 3.021s, including Windows/Linux LF/hash portability.
-The reviewed freeze is commit c2384e7, pushed to origin and verified against the remote branch. Stage 1 is complete.
+Prior freeze c2384e7 remains in history. User-requested BRIEF section1b at fe8b78d reopens design review; execution is blocked until re-freeze.
 N is 60 development sources, with disjoint smoke IDs 1790 and 1822; selection inspected metadata and hashes only.
 Core arms are F5 r2, v5 r3, WAM and user-approved VINE-R. No registry is used in this study.
 R0 is SD1.5 and R1 is independent-encoder SDXL, strengths .1/.2/.4, seeds 12/13/14.
@@ -23,7 +23,8 @@ Primary F5 R1 .2 source-majority C: at least 45/60 plus complete zero R1 negativ
 The full grid has 7500 units including C0; smoke has 250. Core estimate is 10-14 instance-hours under the 15h/USD15 cap.
 Native GPU compatibility, throughput and memory remain unmeasured. Timing-only smoke may apply only the frozen budget reductions.
 No server, paid compute, GPU science, weight download, real-mark scoring, new outcome or held-out image access occurred.
-Stage 2 requires the user's subsequent decision and SSH message. No held-out run follows automatically.
+Stage1b T1 accepted: 20 direct/34 total V2 sources and 30 queries across three categories. T2/T3 are completing; T4 xhigh is active.
+Complete all eight floors; wait/resume on usage limits. Stage2 remains unauthorized.
 
 ## Preserved registry confirmation result
 

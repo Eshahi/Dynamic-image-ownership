@@ -1,6 +1,6 @@
 # Independent-encoder transfer: integrated design research
 
-2026-10-19. Author: Codex agent. **Frozen before outcomes; independent design review accepted with stated warnings (finalized 2026-10-20 UTC).** No server, GPU computation, runnable upstream code/weight download, real-mark scoring or new scientific outcome occurred in stage 1. Analytical probabilities and fake-fixture tests are design calculations, not experiment results.
+2026-10-19. Author: Codex agent. **Reopened for section 1b on 2026-10-20; the prior accepted freeze is historical and does not satisfy the new evidence floors.** The integration below records the prior design and will be revised after all eight deepened topic packages pass the [parent acceptance audit](stage1b-parent-audit.md) and a fresh second independent review. No server, GPU computation, runnable upstream code/weight download, real-mark scoring or new scientific outcome occurred in stage 1. Analytical probabilities and fake-fixture tests are design calculations, not experiment results.
 
 The question is whether the frozen F5 r2 image-domain writer transfers from its SD1.5 writing/reading encoder to regeneration through the independently trained SDXL autoencoder. The complete specification is [protocol.md](protocol.md); prices and scope proposals are in [budget-and-proposals.md](budget-and-proposals.md). Nothing here asserts Q1 acceptance or universal robustness.
 

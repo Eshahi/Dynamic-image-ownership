@@ -1,0 +1,221 @@
+{
+  "scope": "T1 pre-outcome primary-source research",
+  "sources": [
+    {
+      "id": "vine",
+      "url": "https://arxiv.org/html/2410.18775v2",
+      "accessed": "2026-10-19",
+      "kind": "primary_paper_html",
+      "verification": "V2_method_and_evaluation_read",
+      "status": "inspected_not_reproduced",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-vine.html",
+      "bytes": 362103,
+      "sha256": "F6FB25D7B27EC0E95F883674E2E08A41A9075F5929E76287F02330E339E049DD",
+      "derived_text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-vine.txt",
+      "derived_text_sha256": "46787D558A32DF39FAA09346EC501F618C75CBB7B080743B1E96BCBF45B2844E"
+    },
+    {
+      "id": "waves",
+      "url": "https://arxiv.org/html/2401.08573v3",
+      "accessed": "2026-10-19",
+      "kind": "primary_paper_html",
+      "verification": "V2_method_and_evaluation_read",
+      "status": "inspected_not_reproduced",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-waves.html",
+      "bytes": 466453,
+      "sha256": "238FFA869B2B8424A92AEEEF27E39D7B7909B33ED487A3D4E794E7E6F67E7A08",
+      "derived_text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-waves.txt",
+      "derived_text_sha256": "690276ACCBB6797976FEB292164895DA991323A791F98F28B5E933FDF3CE915C"
+    },
+    {
+      "id": "zhao",
+      "url": "https://arxiv.org/html/2306.01953v3",
+      "accessed": "2026-10-19",
+      "kind": "primary_paper_html",
+      "verification": "V2_method_and_evaluation_read",
+      "status": "inspected_not_reproduced",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-zhao.html",
+      "bytes": 352470,
+      "sha256": "41861C3D032D039A001FEB23C58C8A322B0E38C27AD70B382ACFC84D96423582",
+      "derived_text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-zhao.txt",
+      "derived_text_sha256": "3456EFEFBD6CBD9F9FF5EA4AA3789373DD7A04D53A1F2A9DD803B376E4AC74E6"
+    },
+    {
+      "id": "ctrlregen",
+      "url": "https://arxiv.org/html/2410.05470v2",
+      "accessed": "2026-10-19",
+      "kind": "primary_paper_html",
+      "verification": "V2_method_and_evaluation_read",
+      "status": "inspected_not_reproduced",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-ctrlregen.html",
+      "bytes": 261501,
+      "sha256": "BCF6954245A45313525B56ACBB9ECCF31A59CF3671CB8DB9F24D0562D9F39DFE",
+      "derived_text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-ctrlregen.txt",
+      "derived_text_sha256": "F056F8632144A41C294E801497D92EEC140800B24880C4CDA8D37E7BA348DDD9"
+    },
+    {
+      "id": "unmarker",
+      "url": "https://arxiv.org/html/2405.08363v2",
+      "accessed": "2026-10-19",
+      "kind": "primary_paper_html",
+      "verification": "V2_method_and_evaluation_read",
+      "status": "inspected_not_reproduced",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-unmarker.html",
+      "bytes": 596813,
+      "sha256": "F7CF99C1482BDD9DF24B712855C33BFF6A8EC8DB4466157DB02AC5BDA9B52002",
+      "derived_text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-unmarker.txt",
+      "derived_text_sha256": "9F714DF1FD412D702A34B8A1E0C35496EA3A23F7C70792CCC90A2ED490837C18"
+    },
+    {
+      "id": "marknull",
+      "url": "https://arxiv.org/html/2608.10166v1",
+      "accessed": "2026-10-19",
+      "kind": "primary_paper_html",
+      "verification": "V2_method_and_evaluation_read",
+      "status": "inspected_not_reproduced",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-marknull.html",
+      "bytes": 617482,
+      "sha256": "522723A9664B1226762FDA200C4B758A2B16476F6552D27C1E081B124BF1FF32",
+      "derived_text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-marknull.txt",
+      "derived_text_sha256": "3BDE4C2AD7A121631E79303CF5D5DEE9024EC75C290107C68C5A7C022D7E58B4"
+    },
+    {
+      "id": "raven",
+      "url": "https://arxiv.org/html/2601.08832v1",
+      "accessed": "2026-10-19",
+      "kind": "primary_paper_html",
+      "verification": "V2_method_and_evaluation_read",
+      "status": "inspected_not_reproduced",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-raven.html",
+      "bytes": 441566,
+      "sha256": "A0BDFDFF7E0C81BE8AD4D1AA01D1CD29FEAC57FA34BBC81EBBA5CE0CF14635D6",
+      "derived_text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-raven.txt",
+      "derived_text_sha256": "43764FABF06086A49F8579890514205D255B300B7F5AC4959AE46485FF846500"
+    },
+    {
+      "id": "waw",
+      "url": "https://arxiv.org/html/2605.16796v1",
+      "accessed": "2026-10-19",
+      "kind": "primary_paper_html",
+      "verification": "V2_method_and_evaluation_read",
+      "status": "inspected_not_reproduced",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-waw.html",
+      "bytes": 375545,
+      "sha256": "724AF9FF339BF2AFBF1388166BEDB0449FA927657F56DE1255CA880DF92DDB99",
+      "derived_text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-waw.txt",
+      "derived_text_sha256": "E8A505690C261A0149340464C2A20D7FE25B6242D3271DD3C142EC5AFB84A133"
+    },
+    {
+      "id": "diffpure",
+      "url": "https://arxiv.org/html/2205.07460v1",
+      "accessed": "2026-10-19",
+      "kind": "primary_paper_html",
+      "verification": "V2_method_and_evaluation_read",
+      "status": "inspected_not_reproduced",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-diffpure.html",
+      "bytes": 590120,
+      "sha256": "17AB7E23CA7F120A85150C9F929B50882CC324F4D2FA753DA05741BEC0BA75B7",
+      "derived_text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-diffpure.txt",
+      "derived_text_sha256": "B2076D67A2B4D1410018C085FD42C52353A7E98736F3F6185F714ED1622387DA"
+    },
+    {
+      "id": "drift",
+      "url": "https://arxiv.org/html/2609.08213v1",
+      "accessed": "2026-10-19",
+      "kind": "primary_paper_html",
+      "verification": "V2_method_and_evaluation_read",
+      "status": "inspected_not_reproduced",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-drift.html",
+      "bytes": 565321,
+      "sha256": "EFCBA5E4B246AED6503D397929E5555487BD14F0FDF322F877A5DE066DF4DA97",
+      "derived_text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-drift.txt",
+      "derived_text_sha256": "C007BD35291D4DD2DD0E6BAFE72EF43A29E082E2EFAF82FDAA5ABB9CF0330157"
+    },
+    {
+      "id": "partial",
+      "url": "https://arxiv.org/html/2505.08234v1",
+      "accessed": "2026-10-19",
+      "kind": "primary_paper_html",
+      "verification": "V2_method_and_evaluation_read",
+      "status": "inspected_not_reproduced",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-partial.html",
+      "bytes": 176126,
+      "sha256": "73271E5B8EE97034E7CA77D509526910B5F19338F157BB30734FC06ED0123D5C",
+      "derived_text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-partial.txt",
+      "derived_text_sha256": "0DDCAED7B69A2BCBA2895B1F1EE8DB14196599629BE4DADEB72FAE34CF27DFCB"
+    },
+    {
+      "id": "editing",
+      "url": "https://arxiv.org/html/2510.05978v1",
+      "accessed": "2026-10-19",
+      "kind": "primary_paper_html",
+      "verification": "V2_method_and_evaluation_read",
+      "status": "quarantined_not_positive_evidence",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-editing.html",
+      "bytes": 180416,
+      "sha256": "6241712DAA1DEE469A12B70D270A296BC9F484FC907FDEA72C7CE2FE9DBA10A4",
+      "derived_text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-editing.txt",
+      "derived_text_sha256": "EB8C4D2871898AAB5E4CF94A7CD8973E57AD6868DA39838127322591A81B3971"
+    },
+    {
+      "id": "challengewinner",
+      "url": "https://arxiv.org/html/2508.21072v1",
+      "accessed": "2026-10-19",
+      "kind": "primary_paper_html",
+      "verification": "V2_method_and_evaluation_read",
+      "status": "inspected_not_reproduced",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-challengewinner.html",
+      "bytes": 260338,
+      "sha256": "62C448A0A6C79E6097FF01305BC0238C52CDF53E1EF2EAA0F1E13EA404D32D51",
+      "derived_text_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-challengewinner.txt",
+      "derived_text_sha256": "3619003788D42D4A11B4A46AE16C7948D6E327CA166D2D69BD49CA245F8C5B4B"
+    },
+    {
+      "id": "vine-stochastic",
+      "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/w_bench_utils/regeneration/stochastic_regeneration.py",
+      "accessed": "2026-10-19",
+      "kind": "official_code_read_only",
+      "verification": "inspected_text_not_executed",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-vine-stochastic.txt",
+      "bytes": 1868,
+      "sha256": "AA20E9C168E062E7547C099F546E021C99BC70BE376F36195D7D1B3C45126A01"
+    },
+    {
+      "id": "vine-stochastic-utils",
+      "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/w_bench_utils/regeneration/utils_sto_regeneration.py",
+      "accessed": "2026-10-19",
+      "kind": "official_code_read_only",
+      "verification": "inspected_text_not_executed",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-vine-stochastic-utils.txt",
+      "bytes": 17119,
+      "sha256": "AF67BCC99414396027C44EE1B1DEFD5297C36CC21795C94610721E59FBAAA4B8"
+    },
+    {
+      "id": "vine-deterministic",
+      "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/w_bench_utils/regeneration/deterministic_inversion.py",
+      "accessed": "2026-10-19",
+      "kind": "official_code_read_only",
+      "verification": "inspected_text_not_executed",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-vine-deterministic.txt",
+      "bytes": 2124,
+      "sha256": "F34337EA3DF6A8BE220A636C496FBBFD99E4ABD0819F3336E2FC252567BD3395"
+    },
+    {
+      "id": "waves-regen",
+      "url": "https://raw.githubusercontent.com/umd-huang-lab/WAVES/1477635d306d6f8c77a588e6441bd4ba301a1f7a/regeneration/regen.py",
+      "accessed": "2026-10-19",
+      "kind": "official_code_read_only",
+      "verification": "inspected_text_not_executed",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-waves-regen.txt",
+      "bytes": 7284,
+      "sha256": "D77E552A5BD66A708B7FAC566050D20A0E2FC7814B575EF29BC759577F34D039"
+    }
+  ],
+  "exclusions": [
+    "T1-challenge.html: exploratory URL; identity not verified; not evidence"
+  ],
+  "notes": [
+    "No code or weights downloaded for execution. Official code stored as textual research only.",
+    "Derived text strips HTML, so mathematical markup may be duplicated; primary HTML governs."
+  ]
+}

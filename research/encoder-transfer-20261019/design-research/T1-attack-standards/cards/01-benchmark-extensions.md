@@ -1,3 +1,5 @@
+> Historical stage1b discovery grouping. Superseded by individual source cards and evidence-records.json; excluded from all counts and current claims. Earlier incomplete extraction is not current evidence.
+
 # Benchmark extensions: VINE / W-Bench and WAVES
 
 These extend [VINE](../../../../q1-dossier-20261018/02-literature/C1-posthoc/cards/Lu2025VINE.md) and [WAVES](../../../../q1-dossier-20261018/02-literature/C2-removal/cards/an2024waves.md). Inspected 2026-10-19, V2; source hashes in the manifest.

@@ -356,3 +356,7 @@
 - 2026-10-20 07:58 UTC Codex agent stage-1 freeze: single fresh Astra/xhigh independent review accepted with warnings, three blockers corrected, 24 CPU tests passed independently. Frozen n60/four arms/7500 units, no scientific outcomes or server. Planned origin push on codex/encoder-transfer-20261019: eb517ed..this freeze commit; actual SHA/range confirmation follows after remote verification.
 
 - 2026-10-20 08:02 UTC Codex agent push confirmed: origin codex/encoder-transfer-20261019, eb517ed..c2384e76b562d93c94d68b7093463eb96db44b21; local HEAD equals remote ref. Independent review accepted with four closed findings;25 final CPU tests pass. Stage1 complete, no server/GPU/outcomes. Release-record push range c2384e7..HEAD of this documentation checkpoint on the same branch; verify remote equality before reporting completion.
+
+- 2026-10-20T11:55:19.675479+00:00 Codex agent reopened stage1b at user-authored fe8b78d. Escalations per BRIEF1b: T1 fresh Astra/high, T2 and T3 fresh Astra/xhigh; one topic folder each, no shared writes, floor-gated parent acceptance. Prior freeze is preserved; no scientific execution.
+
+- 2026-10-20 12:57 UTC Codex agent escalation: fresh gpt-6-astra xhigh T4 mechanism author, explicitly required by BRIEF1b; derive pre-outcome predictions for all core channels and proposals. T1 accepted after parent floor/source checks: 20 direct/34 total V2 sources, 30 queries across three categories. Planned origin push on codex/encoder-transfer-20261019: fe8b78d..this T1 acceptance commit; actual range recorded after push.

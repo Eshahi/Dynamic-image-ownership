@@ -1,0 +1,316 @@
+{
+  "date": "2026-10-20",
+  "scope": "T1 documentary-only Stage1b; author self-check, pending parent acceptance",
+  "unique_v2_sources": 34,
+  "qualifying_direct_sources": 20,
+  "mandatory_floor": 15,
+  "floor_met": true,
+  "qualifying_sources": [
+    {
+      "id": "vine",
+      "title": "Robust Watermarking Using Generative Priors Against Image Editing: From Benchmarking to Advances",
+      "canonical_url": "https://arxiv.org/abs/2410.18775v2",
+      "card_path": "cards/vine.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "Method Sections 3-4 and cached text lines 375-485; W-Bench settings 493-513; evaluation/Table 1 730-793; official stochastic and deterministic source text; caption cached517, Sections4.2-4.3 cached758-776; released vine/src/vine_turbo.py lines47,77,85,114,138-139 read directly",
+      "sha256": "f6fb25d7b27ec0e95f883674e2e08a41a9075f5929e76287f02330e339e049dd"
+    },
+    {
+      "id": "waves",
+      "title": "WAVES: Benchmarking the Robustness of Image Watermarks",
+      "canonical_url": "https://arxiv.org/abs/2401.08573v3",
+      "card_path": "cards/waves.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "Sections 3-4 cached699-929; Table3 1176-1193; AppendixE2546 and F3103-3246; official regen.py",
+      "sha256": "238ffa869b2b8424a92aeeef27e39d7b7909b33ed487a3d4e794e7e6f67e7a08"
+    },
+    {
+      "id": "zhao",
+      "title": "Invisible Image Watermarks Are Provably Removable Using Generative AI",
+      "canonical_url": "https://arxiv.org/abs/2306.01953v3",
+      "card_path": "cards/zhao.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "Method/theory cached494-646; Section5/Table1/Figures4,7 cached790-986; final full-text/appendix search for resolution, sampler, steps, prompts and implementation settings checked; fields explicitly absent remain unknown",
+      "sha256": "41861c3d032d039a001feb23c58c8a322b0e38c27ad70b382acfc84d96423582"
+    },
+    {
+      "id": "ctrlregen",
+      "title": "Image Watermarks are Removable Using Controllable Regeneration from Clean Noise",
+      "canonical_url": "https://arxiv.org/abs/2410.05470v2",
+      "card_path": "cards/ctrlregen.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "Method cached350-529; Section4/Table1 setup760-811 and AppendixA; final full-text/appendix search for resolution, sampler, steps, prompts and implementation settings checked; fields explicitly absent remain unknown",
+      "sha256": "bcf6954245a45313525b56acbb9eccf31a59cf3671cb8db9f24d0562d9f39dfe"
+    },
+    {
+      "id": "unmarker",
+      "title": "UnMarker: A Universal Attack on Defensive Image Watermarking",
+      "canonical_url": "https://arxiv.org/abs/2405.08363v2",
+      "card_path": "cards/unmarker.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "Sections IV-VI cached508-628,730-755,801-872; TablesII-III and1095-1130; AppendixA hyperparameters2054-2062 and2334-2346 re-read",
+      "sha256": "f7cf99c1482bdd9df24b712855c33bff6a8ec8db4466157db02ac5bda9b52002"
+    },
+    {
+      "id": "marknull",
+      "title": "MarkNull : Model-Agnostic Watermark Removal in AI-Generated Images via On-Manifold Latent Manipulation",
+      "canonical_url": "https://arxiv.org/abs/2608.10166v1",
+      "card_path": "cards/marknull.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "Method cached722-765; setup1236-1280; evaluation2430-2475; AppendixB3836-3892; final full-text/appendix search for resolution, sampler, steps, prompts and implementation settings checked; fields explicitly absent remain unknown",
+      "sha256": "522723a9664b1226762fda200c4b758a2b16476f6552d27c1e081b124bf1ff32"
+    },
+    {
+      "id": "raven",
+      "title": "RAVEN : Erasing Invisible Watermarks via Novel View Synthesis",
+      "canonical_url": "https://arxiv.org/abs/2601.08832v1",
+      "card_path": "cards/raven.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "Method cached481-505; evaluation/Table2 setup1291-1312 and1429-1474; Appendix DiffusionDB text cached2229 claims1001 prompts, compared with main detectionN1000",
+      "sha256": "a0bdfdff7e0c81be8ad4d1aa01d1cd29feac57fa34bbc81ebba5ce0cf14635d6"
+    },
+    {
+      "id": "waw",
+      "title": "Watermarks Attack Watermarks: Re-Watermarking as a Generic Removal Strategy",
+      "canonical_url": "https://arxiv.org/abs/2605.16796v1",
+      "card_path": "cards/waw.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "Method cached442-533,814-836; evaluation/Table4 944-1017; AppendixC2199-2262; final full-text/appendix search for resolution, sampler, steps, prompts and implementation settings checked; fields explicitly absent remain unknown",
+      "sha256": "724af9ff339bf2afbf1388166bedb0449fa927657f56de1255ca880df92ddb99"
+    },
+    {
+      "id": "drift",
+      "title": "DRIFT: Removing Diffusion Watermarks by Deflecting the Generative Trajectory",
+      "canonical_url": "https://arxiv.org/abs/2609.08213v1",
+      "card_path": "cards/drift.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "Method cached385-426,620-678; Section4/Table1 984-1149,1153,1329,1399-1403; AppendixE2775,3063; final full-text/appendix search for resolution, sampler, steps, prompts and implementation settings checked; fields explicitly absent remain unknown",
+      "sha256": "efcba5e4b246aed6503d397929e5555487bd14f0fdf322f877a5de066df4da97"
+    },
+    {
+      "id": "partial",
+      "title": "Removing Watermarks with Partial Regeneration using Semantic Information",
+      "canonical_url": "https://arxiv.org/abs/2505.08234v1",
+      "card_path": "cards/partial.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "SemanticRegen method cached484-598,785-814; evaluation/Table3 1035-1114; Section3.3 cached750-785 and Table3 caption1083; final full-text/appendix search for resolution, sampler, steps, prompts and implementation settings checked; fields explicitly absent remain unknown",
+      "sha256": "73271e5b8ee97034e7ca77d509526910b5f19338f157bb30734fc06ed0123d5c"
+    },
+    {
+      "id": "challengewinner",
+      "title": "First-Place Solution to NeurIPS 2024 Invisible Watermark Removal Challenge",
+      "canonical_url": "https://arxiv.org/abs/2508.21072v1",
+      "card_path": "cards/challengewinner.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "Method cached409-455,878-942,1000-1029; evaluation297-375,1215-1231",
+      "sha256": "62c448a0a6c79e6097ff01305bc0238c52cdf53e1ef2eaa0f1e13ea404d32d51"
+    },
+    {
+      "id": "warp",
+      "title": "WARP: A Unified Benchmark for Invisible Image Watermarking — Robustness and Protection Against Attacks",
+      "canonical_url": "https://arxiv.org/abs/2609.40031v1",
+      "card_path": "cards/warp.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "Benchmark method cached226-243; evaluation249-266; AppendixB850-854 and C1392-1398; AppendixTable4 cached1491-1645 read; no forensic experiment present",
+      "sha256": "0e87fbcc8839ce6bd3e89c649a3f7fbfcf2cc0f3f09f510a339d02f6df2ad1ab"
+    },
+    {
+      "id": "local",
+      "title": "What Breaks Local Watermarks? A Robustness Benchmark for Local Invisible Image Watermarking",
+      "canonical_url": "https://arxiv.org/abs/2609.16832v1",
+      "card_path": "cards/local.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "Method cached180-220; evaluation232-280; AppendixA610-623; Table4 858-884; final full-text/appendix search for resolution, sampler, steps, prompts and implementation settings checked; fields explicitly absent remain unknown",
+      "sha256": "58a071e8937f10827491f86c8cde4dd23181b3940891e4cd1e1dfc57f0ea13ba"
+    },
+    {
+      "id": "markcleaner",
+      "title": "MarkCleaner : High-Fidelity Watermark Removal via Imperceptible Micro-Geometric Perturbation",
+      "canonical_url": "https://arxiv.org/abs/2602.01513v1",
+      "card_path": "cards/markcleaner.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "Method cached122-196; evaluation setup443-471; Figure2 diagnostic; mainTable1 cached197-442 and AppendixG.1 cached976-982",
+      "sha256": "3979395bbc8258cbe805972fa79196c8dc135d888ba998e27d41949bd19f4f2b"
+    },
+    {
+      "id": "masking",
+      "title": "Exploring Weaknesses of Generative Image Watermarks against Latent Frequency Masking",
+      "canonical_url": "https://arxiv.org/abs/2610.02010v1",
+      "card_path": "cards/masking.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "SectionIII cached91-170; SectionIV setup271-313; SectionV/TableI415-481; final full-text/appendix search for resolution, sampler, steps, prompts and implementation settings checked; fields explicitly absent remain unknown",
+      "sha256": "0e4c5f212b8bce8fea276fe19611688591f071c5d678a533168c7a8b696c6856"
+    },
+    {
+      "id": "libra",
+      "title": "LiBRA: Detection-Aware Image Watermark Removal via Bidirectional Latent Optimization",
+      "canonical_url": "https://arxiv.org/abs/2610.03166v1",
+      "card_path": "cards/libra.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "Method cached174-208; evaluation309-359; Table4 360-405",
+      "sha256": "34d311de58b23fd2d3daa485e87148620cc8598c059f6498780e295078d02ed1"
+    },
+    {
+      "id": "dip",
+      "title": "A Baseline Method for Removing Invisible Image Watermarks using Deep Image Prior",
+      "canonical_url": "https://arxiv.org/html/2502.13998v2",
+      "card_path": "cards/dip.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "Section3/Algorithm1; Section4/Table2; AppendixB Table6 cached compact3328-3425; AppendixC runtime; official repository root inspected, recursive tree API403 and folder web error",
+      "sha256": "b40b04cb654d44b085633f858ce66df92b60b37a4d702ccbab17f662ce114213"
+    },
+    {
+      "id": "nfpa",
+      "title": "The Future Unmarked: Watermark Removal in AI-Generated Images via Next-Frame Prediction",
+      "canonical_url": "https://proceedings.neurips.cc/paper_files/paper/2025/file/b48405307576689bea14d221ccba73ae-Paper-Conference.pdf",
+      "card_path": "cards/nfpa.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "Section3 pp4-6; Section4 pp6-8,10; AppendixB p22, limitations p26; Table1/Figure5 visually checked PNG pp8/10",
+      "sha256": "fb07425e8f44b564920b8455ec48e8819d28a8671d0dc03f09167eda161e2eea"
+    },
+    {
+      "id": "competition",
+      "title": "A Technical Report on \"Erasing the Invisible\": The 2024 NeurIPS Competition on Stress Testing Image Watermarks",
+      "canonical_url": "https://proceedings.neurips.cc/paper_files/paper/2025/file/15389039ccef67b6bed9b2df8414400f-Paper-Datasets_and_Benchmarks_Track.pdf",
+      "card_path": "cards/competition.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "Section2 pp2-4; Section3 pp4-6; AppendixA p20; AppendixE pp22-23; winning methods pp28/30; Tables5-6 and conflicting metric definition visually checked pp30/23",
+      "sha256": "2e3a9ba346d706334b39a11bcc2045a572f4c67944b1ade41c010ca3c3edcebf"
+    },
+    {
+      "id": "spfm",
+      "title": "SPFM-Net: Semantic-Prior-Guided Frequency-Constrained Mamba for Invisible Watermark Attack",
+      "canonical_url": "https://arxiv.org/html/2607.27811v1",
+      "card_path": "cards/spfm.md",
+      "verification": "V2_method_and_evaluation_read",
+      "v2_sections": "Method subsections; Experiments/Tables1-4; web-rendered90-157 and158-224",
+      "sha256": "e20712bc1898dc381d76b2ad23247dec90a6248cef3e68c1d2fc58c2abe801e2"
+    }
+  ],
+  "supplemental_v2": [
+    {
+      "id": "forensiccost",
+      "card_path": "cards/forensiccost.md",
+      "reason": "Adjunct/critical/conservative supplemental; full row included"
+    },
+    {
+      "id": "forensicstealth",
+      "card_path": "cards/forensicstealth.md",
+      "reason": "Adjunct/critical/conservative supplemental; full row included"
+    },
+    {
+      "id": "diffpure",
+      "card_path": "cards/diffpure.md",
+      "reason": "Adjunct/critical/conservative supplemental; full row included"
+    },
+    {
+      "id": "sadre",
+      "card_path": "cards/sadre.md",
+      "reason": "Adjunct/critical/conservative supplemental; full row included"
+    },
+    {
+      "id": "orthogonal",
+      "card_path": "cards/orthogonal.md",
+      "reason": "Adjunct/critical/conservative supplemental; full row included"
+    },
+    {
+      "id": "wmforger",
+      "card_path": "cards/wmforger.md",
+      "reason": "Adjunct/critical/conservative supplemental; full row included"
+    },
+    {
+      "id": "fddwan",
+      "card_path": "cards/fddwan.md",
+      "reason": "Adjunct/critical/conservative supplemental; full row included"
+    },
+    {
+      "id": "arrobust",
+      "card_path": "cards/arrobust.md",
+      "reason": "Adjunct/critical/conservative supplemental; full row included"
+    },
+    {
+      "id": "editing",
+      "card_path": "cards/editing.md",
+      "reason": "Adjunct/critical/conservative supplemental; full row included"
+    },
+    {
+      "id": "fuediting",
+      "card_path": "cards/fuediting.md",
+      "reason": "Adjunct/critical/conservative supplemental; full row included"
+    },
+    {
+      "id": "vanishing",
+      "card_path": "cards/vanishing.md",
+      "reason": "Adjunct/critical/conservative supplemental; full row included"
+    },
+    {
+      "id": "channel",
+      "card_path": "cards/channel.md",
+      "reason": "Adjunct/critical/conservative supplemental; full row included"
+    },
+    {
+      "id": "hideseek",
+      "card_path": "cards/hideseek.md",
+      "reason": "Adjunct/critical/conservative supplemental; full row included"
+    },
+    {
+      "id": "proxyerase",
+      "card_path": "cards/proxyerase.md",
+      "reason": "Adjunct/critical/conservative supplemental; full row included"
+    }
+  ],
+  "query_events": 34,
+  "successful_discovery_events": 30,
+  "distinct_substantive_intents": 20,
+  "successful_categories": {
+    "web_search": 26,
+    "OpenAlex": 2,
+    "official_repository_search": 2
+  },
+  "search_breadth_met": true,
+  "required_named_sources": [
+    "vine",
+    "waves",
+    "zhao",
+    "ctrlregen",
+    "unmarker",
+    "diffpure",
+    "marknull",
+    "raven",
+    "waw"
+  ],
+  "rinsing_coverage": [
+    "waves",
+    "ctrlregen",
+    "arrobust"
+  ],
+  "not_counted": [
+    "Historical grouped cards",
+    "Discovery-pointer cards",
+    "WIBE duplicate software ofWARP",
+    "Inaccessible/metadata-only leads",
+    "Repository metadata alone",
+    "Failed API/search attempts"
+  ],
+  "settings_table_rows": 34,
+  "settings_fields": [
+    "mechanism",
+    "models",
+    "strength_noise",
+    "sampler_steps",
+    "prompt",
+    "resolution",
+    "image_counts",
+    "metrics",
+    "numeric_baseline_results",
+    "limits"
+  ],
+  "exceptions": [
+    "ICDMW2025 primaryfulltext inaccessible; exact routes in coverage card/searchlog",
+    "Source missingfields and contradictions preserved, never filled fromdefaults",
+    "Competition andwinner are related distinctpapers, notindependent replication",
+    "No experimental outcomes orheldoutpixels accessed"
+  ],
+  "validation_errors": [],
+  "validation": "PASS"
+}

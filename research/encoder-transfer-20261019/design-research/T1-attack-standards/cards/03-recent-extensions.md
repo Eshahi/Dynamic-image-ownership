@@ -1,3 +1,5 @@
+> Historical stage1b discovery grouping. Superseded by individual source cards and evidence-records.json; excluded from all counts and current claims. Earlier incomplete extraction is not current evidence.
+
 # 2026 removal extensions
 
 Inspected 2026-10-19; all scientific versions below are arXiv v1. V2 records reading, not endorsement.

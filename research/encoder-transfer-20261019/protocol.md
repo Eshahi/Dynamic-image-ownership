@@ -1,5 +1,7 @@
 # Independent-encoder transfer protocol
 
+**Stage1b reopened, 2026-10-20.** BRIEF section1b requires deeper topic evidence and a new floor-first independent review. The prior freeze below remains historical; the machine configuration now blocks scientific execution until re-freeze. No new outcome exists.
+
 Version: frozen 2026-10-20 UTC, before outcomes. **Independent design review accepted this bounded development study; all blocking findings are closed.** The machine configuration has frozen status. The release commit and push identify this package before any server run. No experimental outcomes exist. Stage 2 begins only after the user's subsequent decision and SSH message. The brief, integrated research and costed proposals define the authorized scope; proposals are excluded unless approved in a pre-outcome amendment.
 
 ## Question and population

@@ -1,3 +1,5 @@
+> Historical stage1b discovery grouping. Superseded by individual source cards and evidence-records.json; excluded from all counts and current claims. Earlier incomplete extraction is not current evidence.
+
 # Adjacent 2025 work and evidence exclusions
 
 ## Competition winner
