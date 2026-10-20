@@ -1,0 +1,54 @@
+{
+  "schema": "T6-stage1b-floor-audit-v2",
+  "status": "topic completed for parent review; not an independent scientific or human approval",
+  "paper_v2_sources": 8,
+  "official_reference_cards": 5,
+  "discovery_queries": 12,
+  "discovery_categories": 3,
+  "query_manifest": "query-manifest.json",
+  "source_manifest": "source-manifest.json",
+  "analytic_tables": 15,
+  "analytic_rows": 5154,
+  "n_values": [
+    60,
+    90,
+    120
+  ],
+  "source_probability_grid": ".50 through .90 by .01",
+  "seed_correlation_grid": [
+    0,
+    0.1,
+    0.3,
+    0.5,
+    0.9,
+    1
+  ],
+  "missingness": "independent seed, whole-source, outcome-dependent seed/source, fixed missing-source tipping, negative dependence bounds",
+  "coverage": [
+    "operating characteristics",
+    "sharp finite exchangeable seed-majority bounds",
+    "cross-source dependence",
+    "negative safety and missingness gates",
+    "paired and independent-baseline route sensitivity",
+    "exact intervals",
+    "paired exact sign and Holm multiplicity",
+    "hypothetical budget"
+  ],
+  "checks_passed": [
+    "CP every k at all three n: bounds, reflection, exact endpoint identities",
+    "Runner exact thresholds and all three negative-gate blockers n60..120",
+    "All 27 observed/missing seed patterns obey fixed majority",
+    "Beta limits, exchangeable bounds and missingness formula vs exhaustive 64-pattern enumeration",
+    "Sharp finite-exchangeable endpoints: valid probability distributions and preserved mean",
+    "Exact sign test discordance examples and ties",
+    "Paired-route DP collapses to univariate F5 transfer probability",
+    "Independent-two-baseline route maximum partitions all labels",
+    "Frozen abstract plan 125n full units plus smoke250, no images/real records used"
+  ],
+  "recommendation_n": 60,
+  "threshold_or_route_change": false,
+  "protected_or_shared_file_edits": false,
+  "used_real_images_weights_outcomes_gpu_server": false,
+  "planning_record": "planning-table-v2.json",
+  "historical_files": "planning-table.json and tools/plan.py are superseded v1 history; not current claims"
+}

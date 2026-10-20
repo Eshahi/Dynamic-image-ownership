@@ -1,0 +1,154 @@
+{
+  "distinct_queries": 12,
+  "categories": [
+    "arxivAPI",
+    "OpenAlex",
+    "web"
+  ],
+  "queries": [
+    {
+      "id": "arxiv-query-1.xml",
+      "category": "arxivAPI",
+      "query": "all:\"beta binomial\" AND all:\"correlation\"",
+      "url": "https://export.arxiv.org/api/query?search_query=all%3A%22beta+binomial%22+AND+all%3A%22correlation%22&start=0&max_results=12&sortBy=submittedDate&sortOrder=descending",
+      "retrieved_utc": "2026-10-20T13:35:06.241628+00:00",
+      "status": 200,
+      "final_url": "https://export.arxiv.org/api/query?search_query=all%3A%22beta+binomial%22+AND+all%3A%22correlation%22&start=0&max_results=12&sortBy=submittedDate&sortOrder=descending",
+      "content_type": "application/atom+xml; charset=utf-8",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\arxiv-query-1.xml",
+      "bytes": 29318,
+      "sha256": "fd454089d069ed53efd65732bac5fa284a2a140edc9a727e0b66afaf755f84b1"
+    },
+    {
+      "id": "arxiv-query-2.xml",
+      "category": "arxivAPI",
+      "query": "all:\"missing\" AND all:\"cluster\" AND submittedDate:[202501010000 TO 202610202359]",
+      "url": "https://export.arxiv.org/api/query?search_query=all%3A%22missing%22+AND+all%3A%22cluster%22+AND+submittedDate%3A%5B202501010000+TO+202610202359%5D&start=0&max_results=12&sortBy=submittedDate&sortOrder=descending",
+      "retrieved_utc": "2026-10-20T13:35:06.241628+00:00",
+      "status": 200,
+      "final_url": "https://export.arxiv.org/api/query?search_query=all%3A%22missing%22+AND+all%3A%22cluster%22+AND+submittedDate%3A%5B202501010000+TO+202610202359%5D&start=0&max_results=12&sortBy=submittedDate&sortOrder=descending",
+      "content_type": "application/atom+xml; charset=utf-8",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\arxiv-query-2.xml",
+      "bytes": 28547,
+      "sha256": "23ce319f1238c3be5a8e4d4814a313242b456ca84290e9e99170c17a6cec7abf"
+    },
+    {
+      "id": "arxiv-query-3.xml",
+      "category": "arxivAPI",
+      "query": "all:\"binomial\" AND all:\"confidence\" AND all:\"exact\"",
+      "url": "https://export.arxiv.org/api/query?search_query=all%3A%22binomial%22+AND+all%3A%22confidence%22+AND+all%3A%22exact%22&start=0&max_results=12&sortBy=submittedDate&sortOrder=descending",
+      "retrieved_utc": "2026-10-20T13:35:06.242629+00:00",
+      "status": 200,
+      "final_url": "https://export.arxiv.org/api/query?search_query=all%3A%22binomial%22+AND+all%3A%22confidence%22+AND+all%3A%22exact%22&start=0&max_results=12&sortBy=submittedDate&sortOrder=descending",
+      "content_type": "application/atom+xml; charset=utf-8",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\arxiv-query-3.xml",
+      "bytes": 29361,
+      "sha256": "1dbd560cd1bd255a5da1f8bf54d7547d081656e68bae1c2dc3b5162c18714269"
+    },
+    {
+      "id": "openalex-query-1.json",
+      "category": "OpenAlex",
+      "query": "clustered binary outcomes missing data sensitivity analysis",
+      "url": "https://api.openalex.org/works?search=clustered+binary+outcomes+missing+data+sensitivity+analysis&per_page=8",
+      "retrieved_utc": "2026-10-20T13:35:06.242629+00:00",
+      "status": 200,
+      "final_url": "https://api.openalex.org/works?search=clustered+binary+outcomes+missing+data+sensitivity+analysis&per_page=8",
+      "content_type": "application/json",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\openalex-query-1.json",
+      "bytes": 238166,
+      "sha256": "ae66edc29fcead77faf2651a27c107f22c1bec305ba24a032fbe9ecfab726623"
+    },
+    {
+      "id": "openalex-query-2.json",
+      "category": "OpenAlex",
+      "query": "beta binomial intraclass correlation validation",
+      "url": "https://api.openalex.org/works?search=beta+binomial+intraclass+correlation+validation&per_page=8",
+      "retrieved_utc": "2026-10-20T13:35:08.149506+00:00",
+      "status": 200,
+      "final_url": "https://api.openalex.org/works?search=beta+binomial+intraclass+correlation+validation&per_page=8",
+      "content_type": "application/json",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\openalex-query-2.json",
+      "bytes": 171035,
+      "sha256": "9a9ba7b7fb1dd135e7db13161725cd9c3cb1eff32a0d9931927fdbfa61e5c940"
+    },
+    {
+      "id": "openalex-query-3.json",
+      "category": "OpenAlex",
+      "query": "exact binomial confidence interval sample size",
+      "url": "https://api.openalex.org/works?search=exact+binomial+confidence+interval+sample+size&per_page=8",
+      "retrieved_utc": "2026-10-20T13:35:08.715040+00:00",
+      "status": 200,
+      "final_url": "https://api.openalex.org/works?search=exact+binomial+confidence+interval+sample+size&per_page=8",
+      "content_type": "application/json",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\openalex-query-3.json",
+      "bytes": 131782,
+      "sha256": "a15542e38fdc98ec9c6a8a3ff21133ad661de8e694622f31aab961aee73edf3e"
+    },
+    {
+      "id": "openalex-query-4.json",
+      "category": "OpenAlex",
+      "query": "benchmark machine learning correlated evaluation 2025 2026",
+      "url": "https://api.openalex.org/works?search=benchmark+machine+learning+correlated+evaluation+2025+2026&per_page=8",
+      "retrieved_utc": "2026-10-20T13:35:08.936883+00:00",
+      "status": 200,
+      "final_url": "https://api.openalex.org/works?search=benchmark+machine+learning+correlated+evaluation+2025+2026&per_page=8",
+      "content_type": "application/json",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\openalex-query-4.json",
+      "bytes": 207073,
+      "sha256": "52049df71e82c849b825e6c4502ee23c29cb4afe6cd61a8eff062611d5be74ae"
+    },
+    {
+      "id": "arxiv-query-4.xml",
+      "category": "arxivAPI",
+      "query": "cat:stat.ME AND all:\"missing\" AND all:\"binary\" AND submittedDate:[202501010000 TO 202610202359]",
+      "url": "https://export.arxiv.org/api/query?search_query=cat%3Astat.ME+AND+all%3A%22missing%22+AND+all%3A%22binary%22+AND+submittedDate%3A%5B202501010000+TO+202610202359%5D&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending",
+      "retrieved_utc": "2026-10-20T13:40:55.624023+00:00",
+      "status": 200,
+      "final_url": "https://export.arxiv.org/api/query?search_query=cat%3Astat.ME+AND+all%3A%22missing%22+AND+all%3A%22binary%22+AND+submittedDate%3A%5B202501010000+TO+202610202359%5D&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending",
+      "content_type": "application/atom+xml; charset=utf-8",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\arxiv-query-4.xml",
+      "bytes": 25491,
+      "sha256": "c1efeedd59e19af404033301f15cfd8540a523cb9b37364a8d0df43d40198294"
+    },
+    {
+      "id": "arxiv-query-5.xml",
+      "category": "arxivAPI",
+      "query": "all:\"majority\" AND all:\"correlation\" AND cat:stat.ML",
+      "url": "https://export.arxiv.org/api/query?search_query=all%3A%22majority%22+AND+all%3A%22correlation%22+AND+cat%3Astat.ML&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending",
+      "retrieved_utc": "2026-10-20T13:40:56.568476+00:00",
+      "status": 200,
+      "final_url": "https://export.arxiv.org/api/query?search_query=all%3A%22majority%22+AND+all%3A%22correlation%22+AND+cat%3Astat.ML&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending",
+      "content_type": "application/atom+xml; charset=utf-8",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\arxiv-query-5.xml",
+      "bytes": 25061,
+      "sha256": "a133b65570c27f7ef62e3c9b2399b68f06f87e9f1b9f8e2411658f9e1fbcafaa"
+    },
+    {
+      "category": "web",
+      "query": "exact binomial confidence interval clustered data beta binomial missing data evaluation",
+      "url": "web search service query; exact text retained",
+      "retrieved_utc": "2026-10-20; raw response retained",
+      "response_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\web-discovery-resume.json",
+      "response_sha256": "5e4b8f5dbdc4308fdceba6a419fd429708c8226df7b599788edf7ff9585f9766",
+      "note": "Three queries batched in one service response; not three independent response files"
+    },
+    {
+      "category": "web",
+      "query": "Holm multiple testing exact McNemar official R binom.test",
+      "url": "web search service query; exact text retained",
+      "retrieved_utc": "2026-10-20; raw response retained",
+      "response_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\web-discovery-resume.json",
+      "response_sha256": "5e4b8f5dbdc4308fdceba6a419fd429708c8226df7b599788edf7ff9585f9766",
+      "note": "Three queries batched in one service response; not three independent response files"
+    },
+    {
+      "category": "web",
+      "query": "2025 2026 machine learning benchmark correlated evaluations missing data statistical uncertainty",
+      "url": "web search service query; exact text retained",
+      "retrieved_utc": "2026-10-20; raw response retained",
+      "response_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\web-discovery-resume.json",
+      "response_sha256": "5e4b8f5dbdc4308fdceba6a419fd429708c8226df7b599788edf7ff9585f9766",
+      "note": "Three queries batched in one service response; not three independent response files"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "schema": "encoder-transfer-T6-planning-v2",
+  "kind": "analytic hypothetical planning; no observations",
+  "recommendation_n": 60,
+  "source_rule_unchanged": true,
+  "seeds": [
+    12,
+    13,
+    14
+  ],
+  "tables": {
+    "source_oc": {
+      "rows": 123,
+      "json": "tables/source_oc.json",
+      "csv": "tables/source_oc.csv"
+    },
+    "within_source": {
+      "rows": 162,
+      "json": "tables/within_source.json",
+      "csv": "tables/within_source.csv"
+    },
+    "exchangeable_bounds": {
+      "rows": 162,
+      "json": "tables/exchangeable_bounds.json",
+      "csv": "tables/exchangeable_bounds.csv"
+    },
+    "missing_positive": {
+      "rows": 1620,
+      "json": "tables/missing_positive.json",
+      "csv": "tables/missing_positive.csv"
+    },
+    "informative_missing_positive": {
+      "rows": 2592,
+      "json": "tables/informative_missing_positive.json",
+      "csv": "tables/informative_missing_positive.csv"
+    },
+    "fixed_missing_sources": {
+      "rows": 189,
+      "json": "tables/fixed_missing_sources.json",
+      "csv": "tables/fixed_missing_sources.csv"
+    },
+    "cross_source": {
+      "rows": 54,
+      "json": "tables/cross_source.json",
+      "csv": "tables/cross_source.csv"
+    },
+    "joint_negative_gate": {
+      "rows": 135,
+      "json": "tables/joint_negative_gate.json",
+      "csv": "tables/joint_negative_gate.csv"
+    },
+    "negative_missing_gate": {
+      "rows": 30,
+      "json": "tables/negative_missing_gate.json",
+      "csv": "tables/negative_missing_gate.csv"
+    },
+    "negative_fpr_resolution": {
+      "rows": 9,
+      "json": "tables/negative_fpr_resolution.json",
+      "csv": "tables/negative_fpr_resolution.csv"
+    },
+    "negative_false_gate": {
+      "rows": 9,
+      "json": "tables/negative_false_gate.json",
+      "csv": "tables/negative_false_gate.csv"
+    },
+    "paired_route_examples": {
+      "rows": 18,
+      "json": "tables/paired_route_examples.json",
+      "csv": "tables/paired_route_examples.csv"
+    },
+    "independent_route_examples": {
+      "rows": 36,
+      "json": "tables/independent_route_examples.json",
+      "csv": "tables/independent_route_examples.csv"
+    },
+    "cp_examples": {
+      "rows": 12,
+      "json": "tables/cp_examples.json",
+      "csv": "tables/cp_examples.csv"
+    },
+    "budget": {
+      "rows": 3,
+      "json": "tables/budget.json",
+      "csv": "tables/budget.csv"
+    }
+  },
+  "checks": [
+    "CP every k at all three n: bounds, reflection, exact endpoint identities",
+    "Runner exact thresholds and all three negative-gate blockers n60..120",
+    "All 27 observed/missing seed patterns obey fixed majority",
+    "Beta limits, exchangeable bounds and missingness formula vs exhaustive 64-pattern enumeration",
+    "Sharp finite-exchangeable endpoints: valid probability distributions and preserved mean",
+    "Exact sign test discordance examples and ties",
+    "Paired-route DP collapses to univariate F5 transfer probability",
+    "Independent-two-baseline route maximum partitions all labels",
+    "Frozen abstract plan 125n full units plus smoke250, no images/real records used"
+  ],
+  "gate_scope": "All TRANSFERS in count tables assume complete zero R1 F5 negatives; not unconditional assurance",
+  "negative_trials_for_one_sided95_upper_1e4": 29956,
+  "thresholds": [
+    {
+      "bits": 32,
+      "k": 27,
+      "tail": 5.653710104525089e-05,
+      "previous_tail": 0.0002675263676792383
+    },
+    {
+      "bits": 100,
+      "k": 69,
+      "tail": 9.157161244117683e-05,
+      "previous_tail": 0.00020438858371340761
+    }
+  ],
+  "runner_sha256": "9d58c6a9aa4e65de4959c0ef74071859aa3e413feffe81d7a725345f46ff7c57",
+  "frozen_config_sha256": "614acf4c35358160e2e34a49332c0ca721c054fa76d3eddf5b6858159475b790",
+  "script_sha256": "76a2b4a466afef0e8add3c544d15afdf5c5b7e3e3be7e62623ddea5f64c27df3"
+}

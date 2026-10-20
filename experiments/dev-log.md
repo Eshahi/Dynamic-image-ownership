@@ -381,3 +381,7 @@
 - 2026-10-20 UTC Codex push verified: codex/encoder-transfer-20261019, c3b20cc153f168119a9ebe474cf1b0184354571a..cc25f1683bb2960080f777e38ed1a0fcc00ab613. T4 accepted after parent floor audit; origin head matches.
 
 - 2026-10-20T14:02:40.980607+00:00 Codex T3 accepted after parent floor audit (24 methods, 22 queries/3 categories); queued push from cc25f16. T7 escalation: gpt-6.1-sol/high, user cost policy, >=12 eligible recent venue evaluations and broad search; no science execution.
+
+- 2026-10-20 UTC Codex push verified: codex/encoder-transfer-20261019, cc25f1683bb2960080f777e38ed1a0fcc00ab613..d9bd2362ae8416219cde1066e227c9e7e78b90b1. T3 accepted after parent floor audit; origin head matches.
+
+- 2026-10-20T14:10:46.470909+00:00 Codex agent: accepted Stage1b T6 (8 paper V2,5 official references,12 queries/3 categories,15 tables/5154 analytic rows,9 checks passed); escalated T8 to fresh gpt-6.1-sol/high for the >=25-threat validity floor. No outcomes/GPU/server. Planned push on own codex/encoder-transfer-20261019 branch from d9bd236 to the T6 acceptance commit; exact range recorded after push.

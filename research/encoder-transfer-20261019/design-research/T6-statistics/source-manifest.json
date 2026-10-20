@@ -1,46 +1,436 @@
-[
-  {
-    "id": "ahmed2010.pdf",
-    "url": "https://jds-online.org/journal/JDS/article/912/file/pdf",
-    "final_url": "https://jds-online.org/journal/JDS/article/912/file/pdf",
-    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6\\ahmed2010.pdf",
-    "bytes": 91985,
-    "sha256": "e448540a33a642dd6b7fcc1790b596dbbe2abc953a9ce6e9b76dc8388ff0b503",
-    "retrieved_utc": "2026-10-19T21:54:48.250829+00:00",
-    "inspection": "Sections 2 and 4, PDF pp.2-7; beta-binomial and simulation limits",
-    "status": "cached"
-  },
-  {
-    "id": "cameron2015.pdf",
-    "url": "https://faculty.econ.ucdavis.edu/faculty/cameron/research/Cameron_Miller_JHR_2015_February.pdf",
-    "final_url": "https://faculty.econ.ucdavis.edu/faculty/cameron/research/Cameron_Miller_JHR_2015_February.pdf",
-    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6\\cameron2015.pdf",
-    "bytes": 513747,
-    "sha256": "a2d6ef5622b5597ef2c18dd53d700c6b2ffbadaa4c202af0e21ddc0520072214",
-    "retrieved_utc": "2026-10-19T21:54:53.442159+00:00",
-    "inspection": "Existing V2 card reused; introduction and Section II refreshed",
-    "status": "cached"
-  },
-  {
-    "id": "nist-exact.html",
-    "url": "https://www.itl.nist.gov/div898/software/dataplot/refman2/auxillar/exacbino.htm",
-    "final_url": "https://www.itl.nist.gov/div898/software/dataplot/refman2/auxillar/exacbino.htm",
-    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6\\nist-exact.html",
-    "bytes": 18232,
-    "sha256": "7362ceb47d3d9251dc84f276fc7d6e8ebe5bfa4b4fbfdf41958450da84006c8f",
-    "retrieved_utc": "2026-10-19T21:54:55.754911+00:00",
-    "inspection": "Description: exact lower/upper tail inversion and examples",
-    "status": "cached"
-  },
-  {
-    "id": "r-padjust.html",
-    "url": "https://stat.ethz.ch/R-manual/R-devel/library/stats/html/p.adjust.html",
-    "final_url": "https://stat.ethz.ch/R-manual/R-devel/library/stats/html/p.adjust.html",
-    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6\\r-padjust.html",
-    "bytes": 11257,
-    "sha256": "6f94e1865b7ffdea6a8018cf6a84b6891798ecc568cea661e97ebaae533059b6",
-    "retrieved_utc": "2026-10-19T21:54:56.943818+00:00",
-    "inspection": "Details, arbitrary-dependence Holm control, examples",
-    "status": "cached"
-  }
-]
+{
+  "schema": "T6-stage1b-source-manifest-v2",
+  "scope": "Primary statistical methods and official software references; no images, weights, experiment outputs or executable third-party tests",
+  "cache_root": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b",
+  "paper_v2_count": 8,
+  "official_reference_count": 5,
+  "sources": [
+    {
+      "id": "ahmed2010",
+      "kind": "paper",
+      "card": "cards/ahmed2010.md",
+      "card_sha256": "cf362b06f874fc5129c037d14c9037ea96f59986d7fd7b406ab2f41b15f4b921",
+      "depth": "V2 method plus evaluation",
+      "topic_recheck_date": "2026-10-20",
+      "license": "Not established; local research cache only",
+      "assets": [
+        {
+          "id": "ahmed2010.pdf",
+          "category": "primary-source",
+          "query": "https://jds-online.org/journal/JDS/article/912/file/pdf",
+          "url": "https://jds-online.org/journal/JDS/article/912/file/pdf",
+          "retrieved_utc": "2026-10-20T13:35:10.117662+00:00",
+          "status": 200,
+          "final_url": "https://jds-online.org/journal/JDS/article/912/file/pdf",
+          "content_type": "application/pdf",
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\ahmed2010.pdf",
+          "bytes": 91985,
+          "sha256": "e448540a33a642dd6b7fcc1790b596dbbe2abc953a9ce6e9b76dc8388ff0b503",
+          "verified_bytes": 91985
+        }
+      ]
+    },
+    {
+      "id": "cameron2015",
+      "kind": "paper",
+      "card": "cards/cameron2015.md",
+      "card_sha256": "42bea8a28a9fe62916321d3f4ce722b81f45268f81063c6f0307637da139f6d1",
+      "depth": "V2 method plus evaluation",
+      "topic_recheck_date": "2026-10-20",
+      "license": "Author-hosted manuscript; redistribution terms not established",
+      "assets": [
+        {
+          "id": "cameron2015.pdf",
+          "category": "primary-source",
+          "query": "https://faculty.econ.ucdavis.edu/faculty/cameron/research/Cameron_Miller_JHR_2015_February.pdf",
+          "url": "https://faculty.econ.ucdavis.edu/faculty/cameron/research/Cameron_Miller_JHR_2015_February.pdf",
+          "retrieved_utc": "2026-10-20T13:35:14.260393+00:00",
+          "status": 200,
+          "final_url": "https://faculty.econ.ucdavis.edu/faculty/cameron/research/Cameron_Miller_JHR_2015_February.pdf",
+          "content_type": "application/pdf",
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\cameron2015.pdf",
+          "bytes": 513747,
+          "sha256": "a2d6ef5622b5597ef2c18dd53d700c6b2ffbadaa4c202af0e21ddc0520072214",
+          "verified_bytes": 513747
+        }
+      ]
+    },
+    {
+      "id": "thulin2013",
+      "kind": "paper",
+      "card": "cards/thulin2013.md",
+      "card_sha256": "e597a360129264b45c8c33ebf4b29e9d836273918908ff29dd6298e78167d575",
+      "depth": "V2 method plus evaluation",
+      "topic_recheck_date": "2026-10-20",
+      "license": "arXiv perpetual non-exclusive distribution license; not unrestricted reuse",
+      "assets": [
+        {
+          "id": "thulin2013.html",
+          "category": "primary-source",
+          "query": "https://arxiv.org/html/1303.1288",
+          "url": "https://arxiv.org/html/1303.1288",
+          "retrieved_utc": "2026-10-20T13:57:51.057077+00:00",
+          "status": 200,
+          "final_url": "https://arxiv.org/html/1303.1288",
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\thulin2013.html",
+          "bytes": 300342,
+          "sha256": "f7b59329ac0802206e40c18f406e8e1344debf4d47fa0d7c0b30cb8ccc576f1f",
+          "verified_bytes": 300342
+        },
+        {
+          "id": "thulin2014.pdf",
+          "category": "primary-source",
+          "query": "https://arxiv.org/pdf/1303.1288",
+          "url": "https://arxiv.org/pdf/1303.1288",
+          "retrieved_utc": "2026-10-20T13:35:12.442213+00:00",
+          "status": 200,
+          "final_url": "https://arxiv.org/pdf/1303.1288",
+          "content_type": "application/pdf",
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\thulin2014.pdf",
+          "bytes": 406439,
+          "sha256": "66279954472fe9daea51ab11e3a7a3fd0f2fbf71d81b45822e32e8dbdad05bb6",
+          "verified_bytes": 406439
+        }
+      ]
+    },
+    {
+      "id": "hossain2016",
+      "kind": "paper",
+      "card": "cards/hossain2016.md",
+      "card_sha256": "c3d63fbf2f3afa8bb872b943c19b05c7bc775031cfe276beb09fea503f1f3bf7",
+      "depth": "V2 method plus evaluation",
+      "topic_recheck_date": "2026-10-20",
+      "license": "arXiv perpetual non-exclusive distribution license",
+      "assets": [
+        {
+          "id": "hossain2016.html",
+          "category": "primary-source",
+          "query": "https://arxiv.org/html/1608.05289",
+          "url": "https://arxiv.org/html/1608.05289",
+          "retrieved_utc": "2026-10-20T13:35:12.413215+00:00",
+          "status": 200,
+          "final_url": "https://arxiv.org/html/1608.05289",
+          "content_type": "text/html; charset=utf-8",
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\hossain2016.html",
+          "bytes": 549295,
+          "sha256": "555dd954b3aa1c3a7c245d41e0b2932fcf220224f39571434afb6fce7d848685",
+          "verified_bytes": 549295
+        }
+      ]
+    },
+    {
+      "id": "wang2026",
+      "kind": "paper",
+      "card": "cards/wang2026.md",
+      "card_sha256": "bd10eb1d803a258ee6bb3d5b2d399ce28c34ae7097d678a1c1e97ca5f0410996",
+      "depth": "V2 method plus evaluation",
+      "topic_recheck_date": "2026-10-20",
+      "license": "PMC permissions notice restricts reuse; local research cache only",
+      "assets": [
+        {
+          "id": "wang2025.html",
+          "category": "primary-source",
+          "query": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13108325/",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13108325/",
+          "retrieved_utc": "2026-10-20T13:35:12.775369+00:00",
+          "status": 200,
+          "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13108325/",
+          "content_type": "text/html; charset=utf-8",
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\wang2025.html",
+          "bytes": 300186,
+          "sha256": "51936dbca3e1545f24f944e08f713a508dffbee3380aebd745ce968e5d20a2e3",
+          "verified_bytes": 300186
+        }
+      ]
+    },
+    {
+      "id": "elmore2020",
+      "kind": "paper",
+      "card": "cards/elmore2020.md",
+      "card_sha256": "a286b3ea05a6958ba2005a5d21fd55aaa500dca21c6f63bb4087beae9301d02a",
+      "depth": "V2 method plus evaluation",
+      "topic_recheck_date": "2026-10-20",
+      "license": "arXiv perpetual non-exclusive distribution license",
+      "assets": [
+        {
+          "id": "exchangeable2020.html",
+          "category": "primary-source",
+          "query": "https://arxiv.org/html/2007.11657v2",
+          "url": "https://arxiv.org/html/2007.11657v2",
+          "retrieved_utc": "2026-10-20T13:40:53.796709+00:00",
+          "status": 200,
+          "final_url": "https://arxiv.org/html/2007.11657v2",
+          "content_type": "text/html; charset=utf-8",
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\exchangeable2020.html",
+          "bytes": 192754,
+          "sha256": "01f3732da7079e95cc20fb40ed69f4bf9c551bf98bd92346435c1c021be8e2b2",
+          "verified_bytes": 192754
+        }
+      ]
+    },
+    {
+      "id": "longjohn2025",
+      "kind": "paper",
+      "card": "cards/longjohn2025.md",
+      "card_sha256": "c19144e2836f48ecaba79a5daf17804445bfd63c81cc6dd8083ef6e559ea4f4c",
+      "depth": "V2 method plus evaluation",
+      "topic_recheck_date": "2026-10-20",
+      "license": "CC BY 4.0, inspected v2 2026-09-11",
+      "assets": [
+        {
+          "id": "aggregate2025.html",
+          "category": "primary-source",
+          "query": "https://arxiv.org/html/2501.04234",
+          "url": "https://arxiv.org/html/2501.04234",
+          "retrieved_utc": "2026-10-20T13:57:51.057077+00:00",
+          "status": 200,
+          "final_url": "https://arxiv.org/html/2501.04234",
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\aggregate2025.html",
+          "bytes": 298307,
+          "sha256": "0b96f373d569fcfa84c08a415d434676a4825591bfda8294c69e25d336d2d407",
+          "verified_bytes": 298307
+        }
+      ]
+    },
+    {
+      "id": "singh2026",
+      "kind": "paper",
+      "card": "cards/singh2026.md",
+      "card_sha256": "e600546c1f500b8057287df58be5a108fdcee372a20da8dc0cddccf832e192f1",
+      "depth": "V2 method plus evaluation",
+      "topic_recheck_date": "2026-10-20",
+      "license": "CC BY 4.0, inspected v1 2026-09-08",
+      "assets": [
+        {
+          "id": "singh2026.html",
+          "category": "primary-source",
+          "query": "https://arxiv.org/html/2609.09245v1",
+          "url": "https://arxiv.org/html/2609.09245v1",
+          "retrieved_utc": "2026-10-20T13:40:53.795709+00:00",
+          "status": 200,
+          "final_url": "https://arxiv.org/html/2609.09245v1",
+          "content_type": "text/html; charset=utf-8",
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\singh2026.html",
+          "bytes": 272504,
+          "sha256": "be456b2d91cad2d2f47a7cebc35bcf67361233de7562b13966f15ea89cb6595c",
+          "verified_bytes": 272504
+        }
+      ]
+    },
+    {
+      "id": "nist-exact",
+      "kind": "official implementation/reference",
+      "card": "cards/nist-exact.md",
+      "card_sha256": "3a8cc43ad6ec9e3d3df34573fc399673bbca85746da08ccafa8c84d043eac8a8",
+      "depth": "official method plus worked example or regression tests; not paper V2",
+      "topic_recheck_date": "2026-10-20",
+      "license": "Specific page reuse terms not established; local research cache only",
+      "assets": [
+        {
+          "id": "nist-exact.html",
+          "category": "primary-source",
+          "query": "https://www.itl.nist.gov/div898/software/dataplot/refman2/auxillar/exacbino.htm",
+          "url": "https://www.itl.nist.gov/div898/software/dataplot/refman2/auxillar/exacbino.htm",
+          "retrieved_utc": "2026-10-20T13:35:10.386858+00:00",
+          "status": 200,
+          "final_url": "https://www.itl.nist.gov/div898/software/dataplot/refman2/auxillar/exacbino.htm",
+          "content_type": "text/html; charset=utf-8",
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\nist-exact.html",
+          "bytes": 18232,
+          "sha256": "fac9ed43e9b5c4e6c461cc093dbdc12d4d5613132451f1c0bcef5bf7dc1a7b2c",
+          "verified_bytes": 18232
+        }
+      ]
+    },
+    {
+      "id": "r-binom",
+      "kind": "official implementation/reference",
+      "card": "cards/r-binom.md",
+      "card_sha256": "f7a99ac7e3ae06b52a15e8df7980bce2377d2b007388bd1999fa5121c03069f6",
+      "depth": "official method plus worked example or regression tests; not paper V2",
+      "topic_recheck_date": "2026-10-20",
+      "license": "Specific page reuse terms not established; local research cache only",
+      "assets": [
+        {
+          "id": "r-binom.html",
+          "category": "primary-source",
+          "query": "https://stat.ethz.ch/R-manual/R-devel/library/stats/html/binom.test.html",
+          "url": "https://stat.ethz.ch/R-manual/R-devel/library/stats/html/binom.test.html",
+          "retrieved_utc": "2026-10-20T13:35:11.078348+00:00",
+          "status": 200,
+          "final_url": "https://stat.ethz.ch/R-manual/R-devel/library/stats/html/binom.test.html",
+          "content_type": "text/html; charset=UTF-8",
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\r-binom.html",
+          "bytes": 5349,
+          "sha256": "5a6c16e8892be50e0110b907a03c2bc2037def70531734690afaa6dc0458e764",
+          "verified_bytes": 5349
+        }
+      ]
+    },
+    {
+      "id": "r-padjust",
+      "kind": "official implementation/reference",
+      "card": "cards/r-padjust.md",
+      "card_sha256": "e83c2b6fe5f75bee35e37265ef2561a685c8edfef9ea2cdc91cb59128d12d495",
+      "depth": "official method plus worked example or regression tests; not paper V2",
+      "topic_recheck_date": "2026-10-20",
+      "license": "Specific page reuse terms not established; local research cache only",
+      "assets": [
+        {
+          "id": "r-padjust.html",
+          "category": "primary-source",
+          "query": "https://stat.ethz.ch/R-manual/R-devel/library/stats/html/p.adjust.html",
+          "url": "https://stat.ethz.ch/R-manual/R-devel/library/stats/html/p.adjust.html",
+          "retrieved_utc": "2026-10-20T13:35:10.817811+00:00",
+          "status": 200,
+          "final_url": "https://stat.ethz.ch/R-manual/R-devel/library/stats/html/p.adjust.html",
+          "content_type": "text/html; charset=UTF-8",
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\r-padjust.html",
+          "bytes": 11257,
+          "sha256": "6f94e1865b7ffdea6a8018cf6a84b6891798ecc568cea661e97ebaae533059b6",
+          "verified_bytes": 11257
+        }
+      ]
+    },
+    {
+      "id": "scipy-betabinom",
+      "kind": "official implementation/reference",
+      "card": "cards/scipy-betabinom.md",
+      "card_sha256": "a5eb81cba6d5dbfb82666e282c9023105fb1dcfc3f3d66903729f3bd6e6af1b8",
+      "depth": "official method plus worked example or regression tests; not paper V2",
+      "topic_recheck_date": "2026-10-20",
+      "license": "SciPy community copyright; specific page terms not established; local cache only",
+      "assets": [
+        {
+          "id": "scipy-beta.html",
+          "category": "primary-source",
+          "query": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.betabinom.html",
+          "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.betabinom.html",
+          "retrieved_utc": "2026-10-20T13:35:11.567480+00:00",
+          "status": 200,
+          "final_url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.betabinom.html",
+          "content_type": "text/html",
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\scipy-beta.html",
+          "bytes": 40710,
+          "sha256": "0f39ee94f2979b0c39eb640e2d98c44765744d8fad418e8aca5898990ef15efd",
+          "verified_bytes": 40710
+        }
+      ]
+    },
+    {
+      "id": "statsmodels-mcnemar",
+      "kind": "official implementation/reference",
+      "card": "cards/statsmodels-mcnemar.md",
+      "card_sha256": "24f4d4d4d7bc8ef063df7f9098288fa2a426adf2af8406d4affb6815ceb3ed24",
+      "depth": "official method plus worked example or regression tests; not paper V2",
+      "topic_recheck_date": "2026-10-20",
+      "license": "Specific page terms not established; raw LICENSE fetch failed; local research cache only",
+      "assets": [
+        {
+          "id": "statsmodels-mcnemar.html",
+          "category": "primary-source",
+          "query": "https://www.statsmodels.org/stable/generated/statsmodels.stats.contingency_tables.mcnemar.html",
+          "url": "https://www.statsmodels.org/stable/generated/statsmodels.stats.contingency_tables.mcnemar.html",
+          "retrieved_utc": "2026-10-20T13:35:11.901845+00:00",
+          "status": 200,
+          "final_url": "https://www.statsmodels.org/stable/generated/statsmodels.stats.contingency_tables.mcnemar.html",
+          "content_type": "text/html; charset=utf-8",
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\statsmodels-mcnemar.html",
+          "bytes": 35606,
+          "sha256": "03c61c14cd07c492bb35f87dca5fe4899f2e9a0fac500ff90ce914dd48ed0560",
+          "verified_bytes": 35606
+        },
+        {
+          "id": "statsmodels-tests-page.html",
+          "category": "primary-source",
+          "query": "https://github.com/statsmodels/statsmodels/blob/v0.14.4/statsmodels/stats/tests/test_contingency_tables.py",
+          "url": "https://github.com/statsmodels/statsmodels/blob/v0.14.4/statsmodels/stats/tests/test_contingency_tables.py",
+          "retrieved_utc": "2026-10-20T13:57:51.058077+00:00",
+          "status": 200,
+          "final_url": "https://github.com/statsmodels/statsmodels/blob/v0.14.4/statsmodels/stats/tests/test_contingency_tables.py",
+          "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\statsmodels-tests-page.html",
+          "bytes": 641177,
+          "sha256": "56c6f9a42639011355321e1207c91435389c32877dc62edc94c20fca2d7ea0d4",
+          "verified_bytes": 641177
+        }
+      ]
+    }
+  ],
+  "other_fetch_receipts": [
+    {
+      "id": "statsmodels-tests.txt",
+      "category": "primary-source",
+      "query": "https://raw.githubusercontent.com/statsmodels/statsmodels/v0.14.4/statsmodels/stats/tests/test_contingency_tables.py",
+      "url": "https://raw.githubusercontent.com/statsmodels/statsmodels/v0.14.4/statsmodels/stats/tests/test_contingency_tables.py",
+      "retrieved_utc": "2026-10-20T13:35:12.077300+00:00",
+      "status": "failed",
+      "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\statsmodels-tests.txt",
+      "bytes": 103,
+      "sha256": "c93c12323ad0e98f1d4ba6c42c738b01717059a69a102663a93cc2781234bea2"
+    },
+    {
+      "id": "kim2017.html",
+      "category": "primary-source",
+      "query": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5736152/",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5736152/",
+      "retrieved_utc": "2026-10-20T13:35:12.585842+00:00",
+      "status": 200,
+      "final_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5736152/",
+      "content_type": "text/html; charset=utf-8",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\kim2017.html",
+      "bytes": 21377,
+      "sha256": "dbd786afce6137690f0dfbc1320532047cec77b1b0406174909f9f5497ed9ef2"
+    },
+    {
+      "id": "matched2026.html",
+      "category": "primary-source",
+      "query": "https://arxiv.org/html/2609.03227v1",
+      "url": "https://arxiv.org/html/2609.03227v1",
+      "retrieved_utc": "2026-10-20T13:40:53.796709+00:00",
+      "status": 200,
+      "final_url": "https://arxiv.org/html/2609.03227v1",
+      "content_type": "text/html; charset=utf-8",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\matched2026.html",
+      "bytes": 715928,
+      "sha256": "7b92c43f3dd8c8dced82e7bb7b0e8e22b732a74e70aa0a25762ff40850a6967d"
+    },
+    {
+      "id": "llm2025.html",
+      "category": "primary-source",
+      "query": "https://arxiv.org/html/2510.23874v5",
+      "url": "https://arxiv.org/html/2510.23874v5",
+      "retrieved_utc": "2026-10-20T13:40:53.797709+00:00",
+      "status": 200,
+      "final_url": "https://arxiv.org/html/2510.23874v5",
+      "content_type": "text/html; charset=utf-8",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\llm2025.html",
+      "bytes": 613140,
+      "sha256": "12bd09604d92d75594b72301e6479646b2b07c0d52f5b36e4487d8bba40a6e70"
+    },
+    {
+      "id": "statsmodels-tests-v2.txt",
+      "category": "primary-source",
+      "query": "https://raw.githubusercontent.com/statsmodels/statsmodels/v0.14.4/statsmodels/stats/tests/test_contingency_tables.py",
+      "url": "https://raw.githubusercontent.com/statsmodels/statsmodels/v0.14.4/statsmodels/stats/tests/test_contingency_tables.py",
+      "retrieved_utc": "2026-10-20T13:57:51.058077+00:00",
+      "status": "failed",
+      "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+    },
+    {
+      "id": "statsmodels-license.txt",
+      "category": "primary-source",
+      "query": "https://raw.githubusercontent.com/statsmodels/statsmodels/v0.14.4/LICENSE.txt",
+      "url": "https://raw.githubusercontent.com/statsmodels/statsmodels/v0.14.4/LICENSE.txt",
+      "retrieved_utc": "2026-10-20T13:57:52.058179+00:00",
+      "status": "failed",
+      "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+    }
+  ],
+  "receipt_files": [
+    "discovery-receipts.json",
+    "discovery-receipts-extra.json",
+    "discovery-receipts-resume.json",
+    "query-manifest.json"
+  ]
+}

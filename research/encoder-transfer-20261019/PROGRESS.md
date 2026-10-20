@@ -91,3 +91,7 @@ T4 passes its section1b floor: thirteen V2 mechanism sources, eighteen queries a
 ## 2026-10-20T14:02:40.980607+00:00 - T3 parent acceptance; T7 started
 
 T3 passes with 24 distinct post-hoc V2 methods, 25 version-specific bibliography entries and 22 successful discovery queries across three categories. Parent checked all method hashes and acknowledged two overwritten historical HTML receipts with unchanged extracted text. Accepted changes are fidelity/coverage corrections and conditional P9 PixelSeal; core arms remain unchanged. T7 now runs on gpt-6.1-sol/high alongside T6, within the two-agent cap. T4 origin push cc25f1683bb2960080f777e38ed1a0fcc00ab613 was verified. No server, GPU or outcomes; T6-T8 and review2 remain required.
+
+## 2026-10-20T14:10:46.470909+00:00 - T6 accepted; T8 started
+
+T6 passes parent checks with eight paper V2 cards, five official references, twelve queries across three categories, and fifteen analytic tables/5,154 rows. Parent verified all forty card/source/query hashes and independently reran all nine analytical check groups. Retain n60 and every decision threshold; dependence, missingness, negative safety and route laws are now explicit. T7 and T8 run on sol/high within the two-agent cap. T3 push d9bd2362ae8416219cde1066e227c9e7e78b90b1 was verified. No server, GPU, real-data scoring or outcome; review2 and re-freeze remain required.

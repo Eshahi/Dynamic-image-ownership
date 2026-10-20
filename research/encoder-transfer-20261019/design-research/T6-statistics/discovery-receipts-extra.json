@@ -1,0 +1,80 @@
+[
+  {
+    "id": "singh2026.html",
+    "category": "primary-source",
+    "query": "https://arxiv.org/html/2609.09245v1",
+    "url": "https://arxiv.org/html/2609.09245v1",
+    "retrieved_utc": "2026-10-20T13:40:53.795709+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/html/2609.09245v1",
+    "content_type": "text/html; charset=utf-8",
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\singh2026.html",
+    "bytes": 272504,
+    "sha256": "be456b2d91cad2d2f47a7cebc35bcf67361233de7562b13966f15ea89cb6595c"
+  },
+  {
+    "id": "exchangeable2020.html",
+    "category": "primary-source",
+    "query": "https://arxiv.org/html/2007.11657v2",
+    "url": "https://arxiv.org/html/2007.11657v2",
+    "retrieved_utc": "2026-10-20T13:40:53.796709+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/html/2007.11657v2",
+    "content_type": "text/html; charset=utf-8",
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\exchangeable2020.html",
+    "bytes": 192754,
+    "sha256": "01f3732da7079e95cc20fb40ed69f4bf9c551bf98bd92346435c1c021be8e2b2"
+  },
+  {
+    "id": "matched2026.html",
+    "category": "primary-source",
+    "query": "https://arxiv.org/html/2609.03227v1",
+    "url": "https://arxiv.org/html/2609.03227v1",
+    "retrieved_utc": "2026-10-20T13:40:53.796709+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/html/2609.03227v1",
+    "content_type": "text/html; charset=utf-8",
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\matched2026.html",
+    "bytes": 715928,
+    "sha256": "7b92c43f3dd8c8dced82e7bb7b0e8e22b732a74e70aa0a25762ff40850a6967d"
+  },
+  {
+    "id": "llm2025.html",
+    "category": "primary-source",
+    "query": "https://arxiv.org/html/2510.23874v5",
+    "url": "https://arxiv.org/html/2510.23874v5",
+    "retrieved_utc": "2026-10-20T13:40:53.797709+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/html/2510.23874v5",
+    "content_type": "text/html; charset=utf-8",
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\llm2025.html",
+    "bytes": 613140,
+    "sha256": "12bd09604d92d75594b72301e6479646b2b07c0d52f5b36e4487d8bba40a6e70"
+  },
+  {
+    "id": "arxiv-query-4.xml",
+    "category": "arxivAPI",
+    "query": "cat:stat.ME AND all:\"missing\" AND all:\"binary\" AND submittedDate:[202501010000 TO 202610202359]",
+    "url": "https://export.arxiv.org/api/query?search_query=cat%3Astat.ME+AND+all%3A%22missing%22+AND+all%3A%22binary%22+AND+submittedDate%3A%5B202501010000+TO+202610202359%5D&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending",
+    "retrieved_utc": "2026-10-20T13:40:55.624023+00:00",
+    "status": 200,
+    "final_url": "https://export.arxiv.org/api/query?search_query=cat%3Astat.ME+AND+all%3A%22missing%22+AND+all%3A%22binary%22+AND+submittedDate%3A%5B202501010000+TO+202610202359%5D&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending",
+    "content_type": "application/atom+xml; charset=utf-8",
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\arxiv-query-4.xml",
+    "bytes": 25491,
+    "sha256": "c1efeedd59e19af404033301f15cfd8540a523cb9b37364a8d0df43d40198294"
+  },
+  {
+    "id": "arxiv-query-5.xml",
+    "category": "arxivAPI",
+    "query": "all:\"majority\" AND all:\"correlation\" AND cat:stat.ML",
+    "url": "https://export.arxiv.org/api/query?search_query=all%3A%22majority%22+AND+all%3A%22correlation%22+AND+cat%3Astat.ML&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending",
+    "retrieved_utc": "2026-10-20T13:40:56.568476+00:00",
+    "status": 200,
+    "final_url": "https://export.arxiv.org/api/query?search_query=all%3A%22majority%22+AND+all%3A%22correlation%22+AND+cat%3Astat.ML&start=0&max_results=10&sortBy=submittedDate&sortOrder=descending",
+    "content_type": "application/atom+xml; charset=utf-8",
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\arxiv-query-5.xml",
+    "bytes": 25061,
+    "sha256": "a133b65570c27f7ef62e3c9b2399b68f06f87e9f1b9f8e2411658f9e1fbcafaa"
+  }
+]

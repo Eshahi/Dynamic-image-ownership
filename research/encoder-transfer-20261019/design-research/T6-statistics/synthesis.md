@@ -1,81 +1,107 @@
-# T6: statistical design and sample size
+# T6 Stage1b: statistical operating characteristics and limits
 
-2026-10-19. Stage-1 planning only. No observations, images, models, GPU work or random simulations were used. Arithmetic is reproducible with `tools/plan.py`; all precision beyond the printed tables is in `planning-table.json`.
+Completed 2026-10-20. This is hypothetical analytic design research, not an experiment result. No real images, outcomes, weights, GPU or server were used. Retain the frozen n=60 core, fixed three-seed majority, denominator, negative safety gate and routing rule. Increasing to n=90/120 offers conditional precision but is not justified under current time/cost assumptions. The revision is to reporting: show conditional operating characteristics, dependence and missingness sensitivity instead of calling a binomial calculation an unconditional probability of success.
 
-## Recommendation and estimand
+Eight primary papers have individual method-and-evaluation V2 cards; five official implementation/reference cards are separate. Twelve substantive discovery queries span arXiv API, OpenAlex and web. See `search-log.md`, `query-manifest.json`, `source-manifest.json`, `references.bib` and `floor-audit.json`. Exact cache hashes/URLs and licenses are recorded; caches are outside Git. Software worked examples do not count as paper evaluations.
 
-Retain **n = 60**, the three fixed seeds and the source-majority rule. Freeze the deterministic source roster before outcomes. The primary estimand actually measured is the fraction of this consulted development roster whose F5 C endpoint succeeds on at least two of seeds 12, 13, 14 in R1 SDXL at strength .2, counting missing positives as failures. It is a finite-roster descriptive endpoint. Source order is purposive/deterministic, not a probability sample of Internet images. Neither a confidence interval nor more seeds makes this a confirmation or gives design-based population coverage.
+## Fixed endpoint and estimand
 
-The count rule stays unchanged: K >= ceil(.75n) plus a complete zero-negative gate gives TRANSFERS; 2K < n gives FAILS; everything else gives PARTIAL. At n=60 these are >=45 and <=29; margin m=3. At n=90 they are >=68 and <=44, m=5; at n=120 >=90 and <=59, m=6. A strict comparison with .5 matters at the boundary. The margin is a routing convention, not a statistically established noninferiority margin. ROUTE A/B depends on paired baseline results and cannot have a unique operating characteristic specified from F5's success rate alone.
+The primary cell is F5 r2 under R1 SDXL strength .2. A source succeeds if at least two of fixed seeds 12,13,14 recover C; K counts successful sources among fixed n. G means complete R1 F5 C0 and wrong-A negative calls with zero positives across all retained R1 strengths. TRANSFERS requires K>=ceil(.75n) and G; FAILS requires 2K<n; otherwise PARTIAL, including safety failure blocking TRANSFERS. Missing positive calls are false. Missing negative calls are unresolved, never silently zero. The denominator is the preregistered roster, not completed sources.
 
-## Exact count-rule operating characteristics
-
-For planning only, suppose the **source-majority indicators**, not the seed calls, are independent exchangeable Bernoulli(p). Then K is Binomial(n,p). Each row below gives percentages in the order FAILS / PARTIAL / TRANSFERS. The negative gate is assumed to hold with certainty in this table; this is an upper-envelope transfer probability, not unconditional whole-rule assurance.
-
-| Source p | n=60: F / P / T (%) | n=90: F / P / T (%) | n=120: F / P / T (%) |
+| n | Transfer threshold | Largest failing count | External margin ceil(.05n) |
 |---|---:|---:|---:|
-| .50 | 44.8711 / 55.1222 / .0067 | 45.8064 / 54.1935 / .0000625 | 46.3658 / 53.6342 / .00000189 |
-| .60 | 4.4480 / 94.4571 / 1.0948 | 2.1292 / 97.7291 / .1417 | 1.0460 / 98.9137 / .0404 |
-| .70 | .0364 / 75.5852 / 24.3784 | .0023 / 85.0023 / 14.9954 | .000146 / 86.4076 / 13.5923 |
-| .75 | .000838 / 43.1194 / 56.8797 | .00000941 / 49.1853 / 50.8147 | .000000111 / 45.1147 / 54.8853 |
-| .80 | .00000489 / 13.0621 / 86.9379 | <.000001 / 11.9508 / 88.0492 | <.000001 / 7.2122 / 92.7878 |
-| .85 | <.000001 / 1.3599 / 98.6401 | <.000001 / .6247 / 99.3753 | <.000001 / .1409 / 99.8591 |
-| .90 | <.000001 / .0201 / 99.9799 | <.000001 / .0019 / 99.9981 | <.000001 / .000060 / 99.99994 |
+| 60 | 45 | 29 | 3 |
+| 90 | 68 | 44 | 5 |
+| 120 | 90 | 59 | 6 |
 
-Thus n=60 distinguishes strong transfer (p=.85) cheaply. Doubling to 120 raises the conditional TRANSFERS probability at p=.8 by only 5.85 percentage points, while doubling image work. Near p=.75 the label remains uncertain at every allowed n; integer thresholds also make assurance nonmonotone in n. At p=.6, PARTIAL is the intended likely outcome, not an error to tune away. At p=.5, FAILS happens under half the time because the threshold is strict; this design is not a high-power test against p=.5. A label of TRANSFERS is not a 95% lower confidence statement that p >= .75.
+This selected development cohort is not a probability sample of images, owners, prompts or regenerators. Counts on it describe that finite cohort. Repeated-sampling probabilities and intervals below require hypothetical source laws; exact arithmetic does not supply representativeness. Cameron/Miller's cluster warning and Longjohn et al.'s aggregate-comparison work support separating counts from inferential assumptions, not population generalization.
 
-If G is the event of complete, all-zero F5 R1 negatives, the actual transfer probability is P(K>=cut, G). Given only g=P(G) and t=P(K>=cut), its bounds are max(0,t+g-1) to min(t,g). Under the additional illustrative independence assumption it is gt; FAILS is unchanged and the lost transfer mass moves to PARTIAL. At n=60,p=.8,g=.9, this gives 78.2441% TRANSFERS, versus 86.9379% with g=1. Positive and negative outcomes share sources and can be dependent, so multiplication is not an empirical prediction. The JSON includes g=.8,.9,.95,1 sensitivity.
+## Conditional source-count operating characteristics
 
-## Dependence: two different levels
+If source outcomes were iid Bernoulli(p), K would be Binomial(n,p). Direct finite sums give this probability of reaching the positive threshold **with the safety gate treated as satisfied (G=1)**. Full FAILS/PARTIAL/TRANSFERS partitions for p=.50,.51,...,.90 and all three n are in `tables/source_oc.csv` (123 rows).
 
-The source-majority endpoint already respects clustering of three seed calls within a source. Using Binomial(180,p) on the pooled seeds would change the estimand and falsely treat seed repetitions as new images. Pair all methods on the same source and preserve all seeds together in summaries.
+| Hypothetical p | n=60 | n=90 | n=120 |
+|---|---:|---:|---:|
+| .50 | .0000673 | .000000625 | .0000000189 |
+| .60 | .010948 | .001417 | .000404 |
+| .70 | .243784 | .149954 | .135923 |
+| .75 | .568797 | .508147 | .548853 |
+| .80 | .869379 | .880492 | .927878 |
+| .85 | .986401 | .993753 | .998591 |
+| .90 | .999799 | .999981 | .999999 |
 
-For an illustrative seed-dependence calculation, let a source-specific seed probability Q have Beta(a,b), with conditional independent seed calls. With seed mean q and within-source ICC rho, use a=q(1/rho-1), b=(1-q)(1/rho-1). The source-majority probability is 3 E[Q^2] - 2 E[Q^3], with the rho=0 limit 3q^2-2q^3. This is an analyst-specified sensitivity model, not a fitted model or measured ICC. The beta-binomial construction is supported by Ahmed and Shoukri, section 2; their estimator is not adopted.
+At p=.50 and n=60, FAILS probability is .448711 and PARTIAL .551222: half successes do not satisfy the strict failure rule. At p=.75, integer rounding means the threshold probability need not increase monotonically with n. At p=.80 the gain from 60 to 90 is small relative to the workload increase. These numbers do not predict F5's unknown success probability.
 
-| q=.8, seed ICC | source-majority p | n=60 conditional TRANSFERS |
+## Seed dependence and identification
+
+The transparent sensitivity model assumes a source's conditionally iid Bernoulli seeds have Q~Beta(a,b), mean q and nonnegative pairwise ICC rho=1/(a+b+1). For 0<rho<1, a=q(1/rho-1), b=(1-q)(1/rho-1). Sum beta-binomial probabilities of two and three successes for the majority probability. At rho=0 use iid seeds, p=3q^2-2q^3; at rho=1 use identical outcomes, p=q. Ahmed/Shoukri supports this model, but its cluster-size-two estimator simulation does not validate three image seeds. SciPy's reference cross-checks the PMF; no library or estimator ran.
+
+At q=.80 and n=60, with independent sources and G:
+
+| Seed ICC | Majority p | Positive threshold probability |
 |---|---:|---:|
-| 0 | .8960 | .999685 |
+| 0 | .896000 | .999685 |
 | .1 | .870691 | .996727 |
 | .3 | .836185 | .970669 |
-| .5 | .8160 | .926818 |
+| .5 | .816000 | .926818 |
 | .9 | .800505 | .871526 |
+| 1 | .800000 | .869379 |
 
-The table at the start already parameterizes **p after majority**, so no extra design-effect multiplier should be applied to that p. Different sources may also be correlated through shared creator, near-duplicate content or dataset provenance. A separate sensitivity treats K as beta-binomial with source ICC .01 or .05. At p=.8,n=60, transfer probabilities then become .817327 and .736340; at n=120 they become .841619 and .734545. This all-sources exchangeable mixture is deliberately illustrative and does not assert that these ICC values describe the roster. It demonstrates that more images cannot remove systematic cohort dependence. Record known group structure and counts; do not report nominal CP coverage as valid under that dependence. The existing Cameron–Miller V2 card is reused only for the general clustering warning.
+`within_source` covers q=.50 to .90 by .05 and rho=0,.1,.3,.5,.9,1 for each n (162 rows). These are assumptions, not estimated ICCs.
 
-## Intervals, comparisons and multiplicity
+Mean and pairwise correlation do not identify a three-seed majority. Define s=q^2+rho*q*(1-q), t=P(all three succeed). Under finite exchangeability, probabilities for counts 3,2,1,0 are t,3(s-t),3q-6s+3t,1-3q+3s-t. Nonnegativity implies max(0,2s-q)<=t<=min(s,1-3q+3s); majority probability is 3s-2t. Both endpoint distributions are feasible, checked locally. `exchangeable_bounds` gives these sharp bounds beside the beta assumption. Elmore emphasizes higher-order joint probabilities; Singh separates pooled random-task mixture assumptions from fixed labeled likelihoods. These finite-three-variable bounds are a local derivation, not attributed as an image-seed theorem in either paper. Negative ICC and nonexchangeable seed laws are outside this grid.
 
-Report two-sided equal-tailed **95% Clopper–Pearson** intervals for each source-level proportion, with the caption: "Model-based exploratory interval assuming independent exchangeable source indicators; consulted deterministic development cohort." Invert binomial tails at .025, as in NIST's exact-binomial documentation; the existing Brown–Cai–DasGupta V2 card documents conservatism. The interval is marginal per cell, not simultaneous across cells. No interval changes the fixed rule. Illustrations: 45/60 -> [.6214,.8528]; 68/90 -> [.6536,.8400]; 90/120 -> [.6627,.8245]. Even the transfer cutoff is compatible with substantially lower model p.
+Cross-source dependence is separate. `cross_source` uses hypothetical beta-binomial K with source ICC .01/.05 and variance inflation 1+(n-1)rho (1.59/3.95 at n=60). Creator/content groups may violate source independence. Do not multiply a seed design effect into K after already mapping seed calls to a majority, or treat this second beta mixture as an estimated image population model. More sources need not deliver iid precision when shared dependence persists.
 
-For the primary cell, compare F5 against v5, WAM and VINE using source-majority binary pairs. Report the full paired table, wins w, losses l and ties; difference=(w-l)/n. The two-sided exact sign/McNemar conditional p-value is min(1,2 P[Binomial(w+l,.5)<=min(w,l)]); no discordances gives p=1. Its validity requires independent source pairs with symmetric discordance under the null. Shared fixed seed labels do not create randomized treatment assignment. Tests compare operational endpoints with different payloads/side information; they do not establish equivalent tasks or fair quality by themselves.
+## Missing units and fixed denominators
 
-Use **one prespecified Holm family of three primary comparisons**, reporting raw and adjusted p-values. Sorted adjusted values are max over j<=i of min(1,(3-j+1)p_(j)). Unavailable comparisons retain a family slot, use p=1 internally and display "not estimable". Official R documentation confirms Holm's arbitrary-dependence family control; this does not repair invalid individual p-values or selection of sources. Other channels, strengths, diagnostics and secondary endpoints are descriptive: counts, marginal intervals, distortion and paired deltas, with no extra inferential stars. If the author later adds exploratory secondary tests, place all added tests in one declared secondary family, retain the complete family and apply Holm there; never let that change routing. Prefer not to add them.
+False-imputation is retained; complete-case analysis or imputation does not replace it. Hossain et al. and Wang et al. motivate explicit missingness/estimand assumptions, not transferring their clinical estimators or rates.
 
-## Negatives and missing observations
+* Independent seed loss d: conditional on k latent successful calls, retained successes follow Binomial(k,1-d); sum the chance of retaining at least two over the beta-binomial count law.
+* Whole-source loss d: majority success probability is (1-d)p. All calls within a lost source are absent, unlike independent call loss.
+* Outcome-dependent loss: for latent success probability u and loss risk ratio r=d_success/d_failure, set d_failure=d/(u*r+1-u), d_success=r*d_failure. Use u=q for seed loss and u=p for source loss. Tables use r=.5/2 with feasible probabilities checked. Seed retention masks are conditionally independent here; this is not arbitrary informative missingness.
+* Fixed h lost sources: K~Binomial(n-h,p) under homogeneous independent surviving-source assumptions, keeping original cutoff/denominator. At n=60, h=15 requires all 45 remaining sources to succeed; h>=16 makes transfer impossible. Other tipping points are h>22 at n=90 and h>30 at n=120.
 
-The integrator has frozen the conservative historical **A endpoint** (any found semantic or instance) for the F5 negative gate, and will report every negative endpoint separately. Primary positives remain C. Gate inventory includes every F5 C0 and wrong-owner call on R1 outputs over the retained .1/.2/.4 strengths: 540 C0 + 540 wrong-owner calls at n=60, unless a prespecified budget drop removes .1 before the full run. Any observed false call or unresolved planned negative blocks TRANSFERS; no majority vote is applied to negatives. R0, D1 and resize negatives are reported but do not silently expand this gate.
+`missing_positive` has 1,620 rows, `informative_missing_positive` has 2,592, and `fixed_missing_sources` has 189. Loss rates 0,.01,.05,.10,.20 are hypothetical. All 27 three-seed observed/missing patterns and all 64 latent-outcome/retention patterns are checked. Reports should disclose missing counts/reasons by arm/strength/source. An optimistic completion count (whether successes+missing could reach two) may describe unresolved potential; it cannot replace the pessimistic endpoint or negative safety gate. Shared outage/process-triggered missingness may satisfy none of these models.
 
-Zero observed negatives is not an empirical FPR <=1e-4 claim. Even with 1,080 independent trials, the one-sided 95% zero-count upper bound is .002770; at 540 it is .005532. Treating 1,080 correlated calls as independent would itself be unjustified. Define source-level "any observed negative acceptance" for description; with 60 fully observed independent hypothetical source groups, 0/60 has one-sided upper .048703 (two-sided CP upper .059629). No bound proves a population FPR for this selected cohort. Under genuine independent Bernoulli sampling, 29,956 zero trials are needed just for a one-sided 95% upper bound <=1e-4.
+## Negative safety and FPR resolution
 
-The common presence thresholds are k=27/32 for WAM (random-message tail .0000565371) and k=69/100 for VINE (tail .0000915716). The previous k values exceed 1e-4. These are arithmetic properties of independent fair random matching bits, not validation of empirical false detections, correlated decoder bits or source-majority FPR.
+Full R1 safety requirements are 18n calls: two control types x three seeds x three retained strengths (.1,.2,.4). The predefined reduction dropping .1 leaves 12n, not 9n. At n=60 these are 1,080 or 720 correlated calls, not independent sources.
 
-Keep n fixed. A missing/safety-blocked positive seed contributes false; two observed successful seeds still yield source success if the third is missing. Do not remove or replace difficult sources, lower n, select successful seeds or treat absent journal rows as completed negative calls. Show attempted, observed, missing and safety-blocked denominators. For transparency add non-decision optimistic bounds: count a source successful if its observed successes plus missing seeds could reach two; bound the count between the fixed failure-imputed K and this optimistic count. This is missingness sensitivity, not a rescued verdict. If K<.5n, FAILS remains the operational rule even with missingness, but explicitly distinguish execution failures from observed detector failures. Missing negatives stay unresolved, never zero. Complete-case summaries may be secondary only. Preserve paired alignment in sign tests and show imputation counts per arm; differential failures can drive the operational comparison.
+If t is the positive-threshold probability and g=P(G), unrestricted intersection bounds are max(0,t+g-1)<=P(TRANSFERS)<=min(t,g). Multiplication t*g requires independence. `joint_negative_gate` supplies 135 examples; the principal OC hides no assumption of independence between positive and negative results.
 
-## Budget and why not n=90 or 120
+For missing negatives with marginal rate d and M required calls, completeness is (1-d)^M under independent call loss, (1-d)^n under independent whole-source loss, or 1-d if all calls share one loss event. Arbitrary dependence bounds are max(0,1-Md) and 1-d. At n=60, M=1080, d=.001 these named laws give .339412,.941736,.999; unrestricted bounds are [0,.999]. `negative_missing_gate` retains all 30 scenarios. Missing negatives can block transfer without any false positive and must not be reported as an FPR. `negative_false_gate` separately varies source-level any-negative probability. Combining call errors with missingness requires another dependence model.
 
-Four marked arms plus one shared unmarked stream, two channels, three strengths and three seeds produce **90n regeneration calls**. Wrong-owner calls decode existing outputs and add no regeneration. D1 adds 5n deterministic VAE round trips; a resize-only control adds 5n image transformations. A second .1 rinse pass on the saved first-pass R1 .1 outputs adds **15n** calls, assuming three seed trajectories and no independent repeated first pass. FLUX is absent from this planning core; D2 is therefore absent.
+With zero events among 60 independent source-level any-negative trials, a hypothetical one-sided 95% upper bound is still .048703 (two-sided .059629). Counterfactually independent 1,080 calls would yield .002770; 720 calls .004152. The latter are resolution illustrations, not valid bounds for these correlated repeated controls. A one-sided zero-event upper bound<=1e-4 requires 29,956 independent trials. Thus finite development controls cannot certify global FPR<=1e-4.
 
-| n | Core calls | Extra rinse calls | D1 / resize units | Average core-call ceiling with 3h nonregeneration reserve | Ceiling with rinse |
-|---|---:|---:|---:|---:|---:|
-| 60 | 5,400 | 900 | 300 / 300 | 8.00 s | 6.86 s |
-| 90 | 8,100 | 1,350 | 450 / 450 | 5.33 s | 4.57 s |
-| 120 | 10,800 | 1,800 | 600 / 600 | 4.00 s | 3.43 s |
+Ideal fair-independent-bit null calibration is distinct: 27/32 has upper tail .0000565371 versus .000267526 for 26/32; 69/100 has .0000915716 versus .000204389 for 68/100. Real bit/owner dependence or selected thresholds can invalidate that null. Keep bit-model calibration distinct from measured zero-control counts.
 
-These are break-even arithmetic, **not measured runtime promises**. They include a hypothetical three-hour reserve for setup, embedding, detection, metrics, diagnostics, smoke and transfer; the integrator must reconcile that reserve with its hardware plan. More precisely total hours = H_other + [45n*t_R0 + 45n*t_R1 + 15n*t_rinse]/3600, using amortized seconds and omitting rinse if absent. The hard limit is min(15,15/hourly_USD_rate). The displayed ceilings assume hourly rate <=$1; at $1.50/hour the allowed time is 10h and the n=60 core ceiling with the same reserve falls to 4.67s. Include download/setup billing and result-transfer time. Freeze n before any output; smoke timing may trigger only the brief's declared channel drops, not outcome-based resizing or stopping. A budget truncation retains fixed-n missing-data accounting.
+## External comparison and route dependence
 
-At .8, n90 buys just 1.11 percentage points of conditional transfer probability for 50% more work; n120 buys 5.85 points for 100% more work. At .85, n60 already has 98.64% conditional transfer probability. The purpose is a cheapest decisive development screen, so n60 gives the best defensible balance. A larger n could improve precision in a later fresh confirmation, but this study must not be represented as powered to resolve small baseline margins or broad FPR claims.
+The external reference is max(K_WAM,K_VINE) among eligible available arms. With F5 TRANSFERS, Route A requires F5 count>=external maximum-ceil(.05n); Route B applies when the external maximum exceeds F5 by more than that margin. Remaining outcomes keep frozen Route C/UNDECIDED logic. Eligibility/availability and safety are runner responsibilities; these examples assume eligible available arms and G=1. The arithmetic margin is a development decision rule, not a statistical noninferiority test.
 
-## Draft-code review and provenance
+Marginals do not identify routes. `paired_route_examples` uses exact source-paired DP for three feasible F5/baseline p11 laws with WAM=VINE. At n=60 and all three p=.8, Route A is .739199/.748825/.869379 at minimum/independent/maximum feasible F5/shared-baseline joint success; Route B is .130180/.120554/0. `independent_route_examples` separately sums the maximum of two independent external binomial counts and an independent F5 count: same marginals yield A .662007 and B .207372. These named joint laws are not bounds across arbitrary three-arm dependence. Source difficulty can couple every method; retain the observed paired table.
 
-Read-only review of `scripts/encoder_transfer_test.py` found the integer ceilings, strict fail threshold, negative/unresolved blocking, CP inversion and sign-tail formulas correct for the specified integer count domain. `tools/plan.py` extracts only five pure functions with AST, never imports the runner, and checks all decisions for n60..120, CP bounds/reflection for every k at n60/90/120, zero/all-success closed forms and simple exact sign cases. It records the inspected draft hash. No GPU/model/image code executes. Input-validation hardening is advisable: reject noninteger n/k and alpha outside (0,1), and require actual Boolean paired vectors. These are API defenses, not found errors for the frozen valid inputs. Add Holm output and explicit negative-A documentation during integration; the reviewer did not edit shared code.
+## Intervals, paired tests and multiplicity
 
-Coverage: primary statistical references and official implementation documentation were searched; existing Brown and Cameron cards were reused. Ahmed–Shoukri's model and evaluation were inspected. A 2025 exact randomized-experiment paper was screened but full text was inaccessible here and its randomized-assignment estimand does not replace this study's deterministic source design. A 2025 differential-privacy interval lead is outside scope. No specific relevant 2026 methodological improvement was verified; no claim of exhaustive statistical literature coverage is made. Holm's 1979 original full text was inaccessible; the adopted implementation guidance is the inspected official R documentation, not an invented full-paper reading. See `search-log.md`, cards and `source-manifest.json` for exact accesses and cached-file hashes.
+Retain source-level two-sided 95% Clopper-Pearson displays using exact tail inversion. Thulin evaluates their length cost; NIST and R cross-check formulas and terminology. For 45/60 the interval is [.621404,.852814], not evidence of population success above .75. Label intervals exploratory and conditional on source-binomial assumptions for this selected cohort. Every k at n=60/90/120 is checked for endpoint bounds/reflection. Seed calls never replace source denominators. Secondary channels, strengths, distortion-matched comparisons and quality metrics are descriptive, not opportunities to rescue the primary route.
+
+For the three prespecified primary paired F5 comparisons report source 2x2 tables, wins/losses/ties and count difference divided by fixed n. Under the conditional sign/McNemar null, wins among discordances are Binomial(d,.5). Ties remain in effect denominators but contribute no discordance. Six wins/zero losses gives two-sided p=.03125; all ties gives p=1 but does not establish precise equivalence. Valid independent-source null assumptions remain necessary. The official statsmodels pinned tests compare the exact branch with an R reference; downloaded tests never execute.
+
+Holm uses one fixed family of three comparisons: sorted p-values multiplied by 3,2,1 with monotonic truncation. It tolerates dependence among valid component p-values (official R guidance), not invalid component tests. An unavailable comparator keeps an internal p=1 slot but displays not estimable; no manufactured comparison is reported. Missing calls keep frozen false-imputation operationally and must be disclosed when interpreting comparisons. Adjusted exploratory tests never override counts, margin or safety.
+
+## Budget and reproducibility
+
+Full abstract work is core 90n+rinse 15n+clean 5n+D1 5n+both X1/X2 controls 10n=125n plus 250 smoke units. Units are heterogeneous planning counts, not measured throughput.
+
+| n | Full units | With smoke | Illustrative hours scaled from n=60 10-14h |
+|---|---:|---:|---:|
+| 60 | 7,500 | 7,750 | 10-14 |
+| 90 | 11,250 | 11,500 | 14.84-20.77 |
+| 120 | 15,000 | 15,250 | 19.68-27.55 |
+
+The cap is min(15h,$15/hourly price), not authorization to buy compute. A three-hour reserve gives arithmetic average ceilings 5.57/3.76/2.83 seconds per unit under the 15h case, but unit costs differ and no timing was measured. Keep n=60; no resizing after outcomes. Larger n remains proposed only, with no hardware feasibility inferred.
+
+`tools/plan_v2.py` uses stdlib finite sums, lgamma beta masses, root inversion, exact DP and assertions; no Monte Carlo or observations. It extracts only allowlisted pure rule functions from runner AST without importing execution machinery. Rerun with MAIN's bundled stdlib Python after current reporting config: 15 JSON/CSV tables, 5,154 rows, all 9 check groups passed. `planning-table-v2.json` records script/runner/config hashes. A later metadata-only refreeze can change the raw config hash; that is not an outcome-driven statistical amendment. Historical `synthesis-v1.md`, `planning-table.json` and `tools/plan.py` are superseded history, retained transparently.
+
+Changed decisions: no endpoint, n, seeds, threshold, gate, route or margin changed. Reporting now separates positive OCs from negative-gated transfer, includes finite-exchangeable bounds, informative/grouped missingness, explicit cross-method route laws, fixed multiplicity and honest cohort/FPR limits. These strengthen design interpretation without running or tuning an experiment.

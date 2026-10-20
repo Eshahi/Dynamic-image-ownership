@@ -1,0 +1,56 @@
+[
+  {
+    "id": "thulin2013.html",
+    "category": "primary-source",
+    "query": "https://arxiv.org/html/1303.1288",
+    "url": "https://arxiv.org/html/1303.1288",
+    "retrieved_utc": "2026-10-20T13:57:51.057077+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/html/1303.1288",
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\thulin2013.html",
+    "bytes": 300342,
+    "sha256": "f7b59329ac0802206e40c18f406e8e1344debf4d47fa0d7c0b30cb8ccc576f1f"
+  },
+  {
+    "id": "aggregate2025.html",
+    "category": "primary-source",
+    "query": "https://arxiv.org/html/2501.04234",
+    "url": "https://arxiv.org/html/2501.04234",
+    "retrieved_utc": "2026-10-20T13:57:51.057077+00:00",
+    "status": 200,
+    "final_url": "https://arxiv.org/html/2501.04234",
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\aggregate2025.html",
+    "bytes": 298307,
+    "sha256": "0b96f373d569fcfa84c08a415d434676a4825591bfda8294c69e25d336d2d407"
+  },
+  {
+    "id": "statsmodels-tests-page.html",
+    "category": "primary-source",
+    "query": "https://github.com/statsmodels/statsmodels/blob/v0.14.4/statsmodels/stats/tests/test_contingency_tables.py",
+    "url": "https://github.com/statsmodels/statsmodels/blob/v0.14.4/statsmodels/stats/tests/test_contingency_tables.py",
+    "retrieved_utc": "2026-10-20T13:57:51.058077+00:00",
+    "status": 200,
+    "final_url": "https://github.com/statsmodels/statsmodels/blob/v0.14.4/statsmodels/stats/tests/test_contingency_tables.py",
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T6-1b\\statsmodels-tests-page.html",
+    "bytes": 641177,
+    "sha256": "56c6f9a42639011355321e1207c91435389c32877dc62edc94c20fca2d7ea0d4"
+  },
+  {
+    "id": "statsmodels-tests-v2.txt",
+    "category": "primary-source",
+    "query": "https://raw.githubusercontent.com/statsmodels/statsmodels/v0.14.4/statsmodels/stats/tests/test_contingency_tables.py",
+    "url": "https://raw.githubusercontent.com/statsmodels/statsmodels/v0.14.4/statsmodels/stats/tests/test_contingency_tables.py",
+    "retrieved_utc": "2026-10-20T13:57:51.058077+00:00",
+    "status": "failed",
+    "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+  },
+  {
+    "id": "statsmodels-license.txt",
+    "category": "primary-source",
+    "query": "https://raw.githubusercontent.com/statsmodels/statsmodels/v0.14.4/LICENSE.txt",
+    "url": "https://raw.githubusercontent.com/statsmodels/statsmodels/v0.14.4/LICENSE.txt",
+    "retrieved_utc": "2026-10-20T13:57:52.058179+00:00",
+    "status": "failed",
+    "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)>"
+  }
+]

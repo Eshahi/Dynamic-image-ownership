@@ -18,12 +18,12 @@ Record unresolved gaps before acceptance. A below-floor delivery returns to a fr
 |---|---|---:|---|---|---|
 | T1 | 15 benchmark/attack sources; complete settings table | 20 direct; 34 total V2 | 30 queries, 20 intents / 3 categories | Accepted after parent inspection | 42cc385aeb0b9b500528064e454f0afec1a191e1 |
 | T2 | 15 model families; lineage and implementation table | 18 families; 30 individual cards | 17 successful queries, 16 intents / 3 categories | Accepted after parent inspection | ae5c7f33baa23cd363a70657a57d102fd2394f3d |
-| T3 | 12 post-hoc methods; fidelity and run-cost table | 24 distinct V2 methods; 25 version-specific references | 22 queries / 3 categories | Accepted after parent inspection | This topic acceptance commit |
+| T3 | 12 post-hoc methods; fidelity and run-cost table | 24 distinct V2 methods; 25 version-specific references | 22 queries / 3 categories | Accepted after parent inspection | d9bd2362ae8416219cde1066e227c9e7e78b90b1 |
 | T4 | 8 mechanism sources; all-channel and proposal predictions | 13 distinct V2 sources; 26 prediction rows | 18 queries / 4 categories | Accepted after parent inspection | cc25f1683bb2960080f777e38ed1a0fcc00ab613 |
 | T5 | Six named implementations; all relied-on settings pinned by file/line | 6 implementations, 61 setting rows, 6 paper V2 cards | 16 queries / 3 categories | Accepted after parent inspection | 4601425749c940f2eaa7a852324a542af26659da |
-| T6 | n60/90/120; seed correlation and missing-unit sensitivity | Pending | Pending | Resumed by fresh sol/high; acceptance pending | Pending |
+| T6 | n60/90/120; seed correlation and missing-unit sensitivity | 8 paper V2 + 5 official references; 15 tables / 5,154 rows | 12 queries / 3 categories | Accepted after parent inspection | This topic commit |
 | T7 | 12 evaluation sections from 2024-2026 eligible venues | Pending | Pending | Assigned to fresh sol/high | Pending |
-| T8 | 25 distinct validity threats | Pending | Pending | Not yet assigned | Pending |
+| T8 | 25 distinct validity threats | Pending | Pending | Assigned to fresh sol/high | Pending |
 
 ## Evidence inspection and gaps
 
@@ -89,3 +89,9 @@ The parent read all 24 individual method cards and the method/native-setting/rel
 The parent independently checked all 24 current method-text hashes and all 122 event-cache records. There are 120 matches and two historical HTML snapshots overwritten by later same-URL retrievals (DistSeal and LaWa). Original digests remain historical; current hashes and unchanged extracted texts are explicitly documented. This limitation does not invalidate the intact method/evaluation evidence, and no all-receipts-match claim is made. The parent checked consequential GenPTW post-hoc quality, DistSeal module-only timings, PixelSeal residual construction, TrustMark final-PDF provenance and SNW denominator/endpoint distinctions against primary evidence. Earlier draft checks and corrections are recorded above.
 
 The accepted synthesis fixes OmniGuard's full title and partial demo limitations, the previously missed official ChunkySeal release, SimuFreeMark's unresolved implementation release, and TrustMark's native BCH61/245-pixel reader contract. SNW provides third-party PixelSeal capacity estimates at a rescaled, whitened operating point, not native P9 detection evidence. The core remains WAM32 and VINE-R100; P1 TrustMark is the first optional baseline, P9 PixelSeal a second limited-grid option. Their adapters, permissions, checkpoints and costs remain conditional. No outcome or additional core arm is created by acceptance.
+
+### T6 accepted, 2026-10-20
+
+The parent read all thirteen cards (eight paper V2 and five distinct official references), the complete final synthesis and search/query manifests. Twelve substantive queries comprise five arXiv API, four OpenAlex and three web searches; the batched web receipt is transparently shared. All forty card/source/query checksum checks passed. The parent checked Elmore Section2 equations1-3 and Hossain missingness/simulation claims against cached primary text, reviewed the full stdlib planning code and independently reran it: fifteen tables, 5,154 rows and nine check groups passed. This is analytic design work, not observed performance. Coverage and the exact missed-evidence section are present.
+
+The complete floor covers source rates .50-.90 at n60/90/120; beta-binomial seed dependence and sharp finite-exchangeable bounds; cross-source dependence; independent, grouped, informative and fixed missing positives; negative completeness/error gates; paired and independent-external route laws; exact source intervals and fixed three-comparison Holm correction. Thresholds, n60, seeds and rules are unchanged. Conditional positive-threshold probabilities cannot be reported as unconditional transfer probabilities, and three-way seed or cross-method dependence is not identified by marginals. The fixed cohort and 60 groups do not certify a population image FPR. Larger-n timing scenarios are unmeasured and not spending authorization.

@@ -1,0 +1,74 @@
+[
+  {
+    "n_sources": 60,
+    "trial_unit": "source_any_negative",
+    "independent_trials": 60,
+    "one_sided95_upper": 0.04870291331009746,
+    "two_sided95_upper": 0.059629492286166874,
+    "empirical_step": 0.016666666666666666
+  },
+  {
+    "n_sources": 60,
+    "trial_unit": "hypothetical_full_independent_calls",
+    "independent_trials": 1080,
+    "one_sided95_upper": 0.002769982677936489,
+    "two_sided95_upper": 0.003409802498774206,
+    "empirical_step": 0.000925925925925926
+  },
+  {
+    "n_sources": 60,
+    "trial_unit": "hypothetical_reduced_independent_calls",
+    "independent_trials": 720,
+    "one_sided95_upper": 0.0041520953856636345,
+    "two_sided95_upper": 0.005110341234774163,
+    "empirical_step": 0.001388888888888889
+  },
+  {
+    "n_sources": 90,
+    "trial_unit": "source_any_negative",
+    "independent_trials": 90,
+    "one_sided95_upper": 0.032738033833534574,
+    "two_sided95_upper": 0.04015891961577467,
+    "empirical_step": 0.011111111111111112
+  },
+  {
+    "n_sources": 90,
+    "trial_unit": "hypothetical_full_independent_calls",
+    "independent_trials": 1620,
+    "one_sided95_upper": 0.0018475087036624593,
+    "two_sided95_upper": 0.002274495488980288,
+    "empirical_step": 0.0006172839506172839
+  },
+  {
+    "n_sources": 90,
+    "trial_unit": "hypothetical_reduced_independent_calls",
+    "independent_trials": 1080,
+    "one_sided95_upper": 0.002769982677936489,
+    "two_sided95_upper": 0.003409802498774206,
+    "empirical_step": 0.000925925925925926
+  },
+  {
+    "n_sources": 120,
+    "trial_unit": "source_any_negative",
+    "independent_trials": 120,
+    "one_sided95_upper": 0.024655401055656334,
+    "two_sided95_upper": 0.03027297257742012,
+    "empirical_step": 0.008333333333333333
+  },
+  {
+    "n_sources": 120,
+    "trial_unit": "hypothetical_full_independent_calls",
+    "independent_trials": 2160,
+    "one_sided95_upper": 0.0013859517701227952,
+    "two_sided95_upper": 0.001706357076623588,
+    "empirical_step": 0.000462962962962963
+  },
+  {
+    "n_sources": 120,
+    "trial_unit": "hypothetical_reduced_independent_calls",
+    "independent_trials": 1440,
+    "one_sided95_upper": 0.0020782071653429046,
+    "two_sided95_upper": 0.0025584434337889705,
+    "empirical_step": 0.0006944444444444445
+  }
+]

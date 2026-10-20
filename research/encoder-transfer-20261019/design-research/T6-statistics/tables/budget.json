@@ -1,0 +1,53 @@
+[
+  {
+    "n": 60,
+    "full_units": 7500,
+    "smoke_units": 250,
+    "total_units": 7750,
+    "primary_seed_calls": 180,
+    "full_gate_calls": 1080,
+    "reduced_gate_calls": 720,
+    "core_regeneration": 5400,
+    "rinse": 900,
+    "clean": 300,
+    "d1": 300,
+    "x1_x2": 600,
+    "illustrative_total_hours_low": 10.0,
+    "illustrative_total_hours_high": 14.0,
+    "average_seconds_per_unit_after_3h_reserve": 5.574193548387097
+  },
+  {
+    "n": 90,
+    "full_units": 11250,
+    "smoke_units": 250,
+    "total_units": 11500,
+    "primary_seed_calls": 270,
+    "full_gate_calls": 1620,
+    "reduced_gate_calls": 1080,
+    "core_regeneration": 8100,
+    "rinse": 1350,
+    "clean": 450,
+    "d1": 450,
+    "x1_x2": 900,
+    "illustrative_total_hours_low": 14.838709677419354,
+    "illustrative_total_hours_high": 20.774193548387096,
+    "average_seconds_per_unit_after_3h_reserve": 3.756521739130435
+  },
+  {
+    "n": 120,
+    "full_units": 15000,
+    "smoke_units": 250,
+    "total_units": 15250,
+    "primary_seed_calls": 360,
+    "full_gate_calls": 2160,
+    "reduced_gate_calls": 1440,
+    "core_regeneration": 10800,
+    "rinse": 1800,
+    "clean": 600,
+    "d1": 600,
+    "x1_x2": 1200,
+    "illustrative_total_hours_low": 19.677419354838708,
+    "illustrative_total_hours_high": 27.548387096774192,
+    "average_seconds_per_unit_after_3h_reserve": 2.8327868852459015
+  }
+]

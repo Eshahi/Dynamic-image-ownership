@@ -1,0 +1,92 @@
+[
+  {
+    "n": 60,
+    "gate_calls": 1080,
+    "per_call_false_rate": 0.0001,
+    "g_zero_if_independent_calls": 0.8976227489313438,
+    "g_zero_if_perfect_dependence_within_source": 0.9940176658287095,
+    "g_zero_if_all_calls_identical": 0.9999,
+    "g_zero_lower": 0.892,
+    "g_zero_upper": 0.9999
+  },
+  {
+    "n": 60,
+    "gate_calls": 1080,
+    "per_call_false_rate": 0.001,
+    "g_zero_if_independent_calls": 0.33941207128512474,
+    "g_zero_if_perfect_dependence_within_source": 0.9417362622231682,
+    "g_zero_if_all_calls_identical": 0.999,
+    "g_zero_lower": 0.0,
+    "g_zero_upper": 0.999
+  },
+  {
+    "n": 60,
+    "gate_calls": 1080,
+    "per_call_false_rate": 0.01,
+    "g_zero_if_independent_calls": 1.9320135383410193e-05,
+    "g_zero_if_perfect_dependence_within_source": 0.5471566423907612,
+    "g_zero_if_all_calls_identical": 0.99,
+    "g_zero_lower": 0.0,
+    "g_zero_upper": 0.99
+  },
+  {
+    "n": 90,
+    "gate_calls": 1620,
+    "per_call_false_rate": 0.0001,
+    "g_zero_if_independent_calls": 0.850434315535121,
+    "g_zero_if_perfect_dependence_within_source": 0.9910399327750811,
+    "g_zero_if_all_calls_identical": 0.9999,
+    "g_zero_lower": 0.838,
+    "g_zero_upper": 0.9999
+  },
+  {
+    "n": 90,
+    "gate_calls": 1620,
+    "per_call_false_rate": 0.001,
+    "g_zero_if_independent_calls": 0.19773835918160887,
+    "g_zero_if_perfect_dependence_within_source": 0.913890031855952,
+    "g_zero_if_all_calls_identical": 0.999,
+    "g_zero_lower": 0.0,
+    "g_zero_upper": 0.999
+  },
+  {
+    "n": 90,
+    "gate_calls": 1620,
+    "per_call_false_rate": 0.01,
+    "g_zero_if_independent_calls": 8.492102901915496e-08,
+    "g_zero_if_perfect_dependence_within_source": 0.4047319726783238,
+    "g_zero_if_all_calls_identical": 0.99,
+    "g_zero_lower": 0.0,
+    "g_zero_upper": 0.99
+  },
+  {
+    "n": 120,
+    "gate_calls": 2160,
+    "per_call_false_rate": 0.0001,
+    "g_zero_if_independent_calls": 0.8057265993990622,
+    "g_zero_if_perfect_dependence_within_source": 0.9880711199795562,
+    "g_zero_if_all_calls_identical": 0.9999,
+    "g_zero_lower": 0.784,
+    "g_zero_upper": 0.9999
+  },
+  {
+    "n": 120,
+    "gate_calls": 2160,
+    "per_call_false_rate": 0.001,
+    "g_zero_if_independent_calls": 0.1152005541340586,
+    "g_zero_if_perfect_dependence_within_source": 0.8868671875860638,
+    "g_zero_if_all_calls_identical": 0.999,
+    "g_zero_lower": 0.0,
+    "g_zero_upper": 0.999
+  },
+  {
+    "n": 120,
+    "gate_calls": 2160,
+    "per_call_false_rate": 0.01,
+    "g_zero_if_independent_calls": 3.7326763123329857e-10,
+    "g_zero_if_perfect_dependence_within_source": 0.2993803913123313,
+    "g_zero_if_all_calls_identical": 0.99,
+    "g_zero_lower": 0.0,
+    "g_zero_upper": 0.99
+  }
+]

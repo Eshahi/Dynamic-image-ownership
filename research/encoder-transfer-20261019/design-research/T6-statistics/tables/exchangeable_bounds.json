@@ -1,0 +1,1460 @@
+[
+  {
+    "n": 60,
+    "q_seed": 0.5,
+    "seed_icc": 0.0,
+    "p_source_min": 0.25,
+    "p_source_max": 0.75,
+    "transfer_min": 6.434477243625752e-16,
+    "transfer_max": 0.5687972749643674
+  },
+  {
+    "n": 60,
+    "q_seed": 0.5,
+    "seed_icc": 0.1,
+    "p_source_min": 0.275,
+    "p_source_max": 0.725,
+    "transfer_min": 2.867619552724257e-14,
+    "transfer_max": 0.3941400930173811
+  },
+  {
+    "n": 60,
+    "q_seed": 0.5,
+    "seed_icc": 0.3,
+    "p_source_min": 0.32500000000000007,
+    "p_source_max": 0.675,
+    "transfer_min": 1.8754229520792392e-11,
+    "transfer_max": 0.13417312858178948
+  },
+  {
+    "n": 60,
+    "q_seed": 0.5,
+    "seed_icc": 0.5,
+    "p_source_min": 0.375,
+    "p_source_max": 0.625,
+    "transfer_min": 3.871972204451158e-09,
+    "transfer_max": 0.028470599536249447
+  },
+  {
+    "n": 60,
+    "q_seed": 0.5,
+    "seed_icc": 0.9,
+    "p_source_min": 0.47499999999999987,
+    "p_source_max": 0.5249999999999999,
+    "transfer_min": 1.3347561354291313e-05,
+    "transfer_max": 0.00029330638993409485
+  },
+  {
+    "n": 60,
+    "q_seed": 0.5,
+    "seed_icc": 1.0,
+    "p_source_min": 0.5,
+    "p_source_max": 0.5,
+    "transfer_min": 6.725704046424766e-05,
+    "transfer_max": 6.725704046424766e-05
+  },
+  {
+    "n": 60,
+    "q_seed": 0.55,
+    "seed_icc": 0.0,
+    "p_source_min": 0.39250000000000007,
+    "p_source_max": 0.7975000000000001,
+    "transfer_min": 2.0048623410773695e-08,
+    "transfer_max": 0.8584365909881848
+  },
+  {
+    "n": 60,
+    "q_seed": 0.55,
+    "seed_icc": 0.1,
+    "p_source_min": 0.32725000000000004,
+    "p_source_max": 0.77275,
+    "transfer_min": 2.4377250437782147e-11,
+    "transfer_max": 0.7233962736260823
+  },
+  {
+    "n": 60,
+    "q_seed": 0.55,
+    "seed_icc": 0.3,
+    "p_source_min": 0.37675000000000014,
+    "p_source_max": 0.7232500000000002,
+    "transfer_min": 4.58574353819689e-09,
+    "transfer_max": 0.382536789591884
+  },
+  {
+    "n": 60,
+    "q_seed": 0.55,
+    "seed_icc": 0.5,
+    "p_source_min": 0.42625,
+    "p_source_max": 0.6737500000000001,
+    "transfer_min": 3.6185770445240117e-07,
+    "transfer_max": 0.1298238221319334
+  },
+  {
+    "n": 60,
+    "q_seed": 0.55,
+    "seed_icc": 0.9,
+    "p_source_min": 0.52525,
+    "p_source_max": 0.5747500000000001,
+    "transfer_min": 0.00029744893159143677,
+    "transfer_max": 0.0036803256842128733
+  },
+  {
+    "n": 60,
+    "q_seed": 0.55,
+    "seed_icc": 1.0,
+    "p_source_min": 0.55,
+    "p_source_max": 0.55,
+    "transfer_min": 0.0011155554472993272,
+    "transfer_max": 0.0011155554472993272
+  },
+  {
+    "n": 60,
+    "q_seed": 0.6,
+    "seed_icc": 0.0,
+    "p_source_min": 0.5199999999999996,
+    "p_source_max": 0.8400000000000001,
+    "transfer_min": 0.0002209293320579157,
+    "transfer_max": 0.975974680622827
+  },
+  {
+    "n": 60,
+    "q_seed": 0.6,
+    "seed_icc": 0.1,
+    "p_source_min": 0.4479999999999995,
+    "p_source_max": 0.8160000000000001,
+    "transfer_min": 1.956729710695248e-06,
+    "transfer_max": 0.9268184600849312
+  },
+  {
+    "n": 60,
+    "q_seed": 0.6,
+    "seed_icc": 0.3,
+    "p_source_min": 0.43200000000000005,
+    "p_source_max": 0.768,
+    "transfer_min": 5.726473436811974e-07,
+    "transfer_max": 0.6927883334633921
+  },
+  {
+    "n": 60,
+    "q_seed": 0.6,
+    "seed_icc": 0.5,
+    "p_source_min": 0.48,
+    "p_source_max": 0.72,
+    "transfer_min": 1.866711814228113e-05,
+    "transfer_max": 0.36134936039677146
+  },
+  {
+    "n": 60,
+    "q_seed": 0.6,
+    "seed_icc": 0.9,
+    "p_source_min": 0.5760000000000001,
+    "p_source_max": 0.6239999999999999,
+    "transfer_min": 0.003896077533969013,
+    "transfer_max": 0.027466757524237478
+  },
+  {
+    "n": 60,
+    "q_seed": 0.6,
+    "seed_icc": 1.0,
+    "p_source_min": 0.5999999999999999,
+    "p_source_max": 0.5999999999999999,
+    "transfer_min": 0.010948230401696216,
+    "transfer_max": 0.010948230401696216
+  },
+  {
+    "n": 60,
+    "q_seed": 0.65,
+    "seed_icc": 0.0,
+    "p_source_min": 0.6325000000000003,
+    "p_source_max": 0.8775,
+    "transfer_min": 0.03703765559524455,
+    "transfer_max": 0.9981221698685021
+  },
+  {
+    "n": 60,
+    "q_seed": 0.65,
+    "seed_icc": 0.1,
+    "p_source_min": 0.5642500000000004,
+    "p_source_max": 0.8547499999999999,
+    "transfer_min": 0.002252301806693476,
+    "transfer_max": 0.989880959414369
+  },
+  {
+    "n": 60,
+    "q_seed": 0.65,
+    "seed_icc": 0.3,
+    "p_source_min": 0.49075,
+    "p_source_max": 0.80925,
+    "transfer_min": 3.761756172569e-05,
+    "transfer_max": 0.9052227132423175
+  },
+  {
+    "n": 60,
+    "q_seed": 0.65,
+    "seed_icc": 0.5,
+    "p_source_min": 0.5362500000000001,
+    "p_source_max": 0.7637500000000002,
+    "transfer_min": 0.0005439750751545156,
+    "transfer_max": 0.6644725001282235
+  },
+  {
+    "n": 60,
+    "q_seed": 0.65,
+    "seed_icc": 0.9,
+    "p_source_min": 0.6272500000000001,
+    "p_source_max": 0.67275,
+    "transfer_min": 0.030843633422896304,
+    "transfer_max": 0.12641917339607978
+  },
+  {
+    "n": 60,
+    "q_seed": 0.65,
+    "seed_icc": 1.0,
+    "p_source_min": 0.6500000000000001,
+    "p_source_max": 0.6500000000000001,
+    "transfer_min": 0.06560857027283176,
+    "transfer_max": 0.06560857027283176
+  },
+  {
+    "n": 60,
+    "q_seed": 0.7,
+    "seed_icc": 0.0,
+    "p_source_min": 0.7299999999999995,
+    "p_source_max": 0.9099999999999999,
+    "transfer_min": 0.42795278650341856,
+    "transfer_max": 0.9999417255581738
+  },
+  {
+    "n": 60,
+    "q_seed": 0.7,
+    "seed_icc": 0.1,
+    "p_source_min": 0.6669999999999996,
+    "p_source_max": 0.889,
+    "transfer_min": 0.1081065743810743,
+    "transfer_max": 0.9993473558476997
+  },
+  {
+    "n": 60,
+    "q_seed": 0.7,
+    "seed_icc": 0.3,
+    "p_source_min": 0.5529999999999999,
+    "p_source_max": 0.847,
+    "transfer_min": 0.0012979242310644744,
+    "transfer_max": 0.9837501172799912
+  },
+  {
+    "n": 60,
+    "q_seed": 0.7,
+    "seed_icc": 0.5,
+    "p_source_min": 0.595,
+    "p_source_max": 0.8049999999999999,
+    "transfer_min": 0.00891164421274293,
+    "transfer_max": 0.8896622698016337
+  },
+  {
+    "n": 60,
+    "q_seed": 0.7,
+    "seed_icc": 0.9,
+    "p_source_min": 0.679,
+    "p_source_max": 0.7210000000000001,
+    "transfer_min": 0.14879844803011835,
+    "transfer_max": 0.36781623446474465
+  },
+  {
+    "n": 60,
+    "q_seed": 0.7,
+    "seed_icc": 1.0,
+    "p_source_min": 0.6999999999999997,
+    "p_source_max": 0.6999999999999997,
+    "transfer_min": 0.24378409334956166,
+    "transfer_max": 0.24378409334956166
+  },
+  {
+    "n": 60,
+    "q_seed": 0.75,
+    "seed_icc": 0.0,
+    "p_source_min": 0.8125,
+    "p_source_max": 0.9375,
+    "transfer_min": 0.9160917844142236,
+    "transfer_max": 0.9999994289744886
+  },
+  {
+    "n": 60,
+    "q_seed": 0.75,
+    "seed_icc": 0.1,
+    "p_source_min": 0.7562499999999999,
+    "p_source_max": 0.91875,
+    "transfer_min": 0.6128566699621831,
+    "transfer_max": 0.9999832897069941
+  },
+  {
+    "n": 60,
+    "q_seed": 0.75,
+    "seed_icc": 0.3,
+    "p_source_min": 0.6437499999999998,
+    "p_source_max": 0.8812500000000001,
+    "transfer_min": 0.05385200146772146,
+    "transfer_max": 0.9986463196108482
+  },
+  {
+    "n": 60,
+    "q_seed": 0.75,
+    "seed_icc": 0.5,
+    "p_source_min": 0.65625,
+    "p_source_max": 0.84375,
+    "transfer_min": 0.0793375620076681,
+    "transfer_max": 0.9804343568746966
+  },
+  {
+    "n": 60,
+    "q_seed": 0.75,
+    "seed_icc": 0.9,
+    "p_source_min": 0.7312499999999997,
+    "p_source_max": 0.7687499999999998,
+    "transfer_min": 0.4365408822515179,
+    "transfer_max": 0.6976989673499887
+  },
+  {
+    "n": 60,
+    "q_seed": 0.75,
+    "seed_icc": 1.0,
+    "p_source_min": 0.75,
+    "p_source_max": 0.75,
+    "transfer_min": 0.5687972749643674,
+    "transfer_max": 0.5687972749643674
+  },
+  {
+    "n": 60,
+    "q_seed": 0.8,
+    "seed_icc": 0.0,
+    "p_source_min": 0.8800000000000003,
+    "p_source_max": 0.96,
+    "transfer_min": 0.9984876032372666,
+    "transfer_max": 0.9999999988061896
+  },
+  {
+    "n": 60,
+    "q_seed": 0.8,
+    "seed_icc": 0.1,
+    "p_source_min": 0.8320000000000003,
+    "p_source_max": 0.944,
+    "transfer_min": 0.963870791012357,
+    "transfer_max": 0.9999998693596981
+  },
+  {
+    "n": 60,
+    "q_seed": 0.8,
+    "seed_icc": 0.3,
+    "p_source_min": 0.7360000000000002,
+    "p_source_max": 0.9119999999999999,
+    "transfer_min": 0.4695716473615726,
+    "transfer_max": 0.9999555506960135
+  },
+  {
+    "n": 60,
+    "q_seed": 0.8,
+    "seed_icc": 0.5,
+    "p_source_min": 0.72,
+    "p_source_max": 0.8799999999999999,
+    "transfer_min": 0.36134936039677146,
+    "transfer_max": 0.9984876032372666
+  },
+  {
+    "n": 60,
+    "q_seed": 0.8,
+    "seed_icc": 0.9,
+    "p_source_min": 0.784,
+    "p_source_max": 0.8159999999999998,
+    "transfer_min": 0.7904217598620373,
+    "transfer_max": 0.9268184600849306
+  },
+  {
+    "n": 60,
+    "q_seed": 0.8,
+    "seed_icc": 1.0,
+    "p_source_min": 0.8000000000000003,
+    "p_source_max": 0.8000000000000003,
+    "transfer_min": 0.8693793203042377,
+    "transfer_max": 0.8693793203042377
+  },
+  {
+    "n": 60,
+    "q_seed": 0.85,
+    "seed_icc": 0.0,
+    "p_source_min": 0.9325000000000001,
+    "p_source_max": 0.9774999999999998,
+    "transfer_min": 0.9999984267655483,
+    "transfer_max": 0.9999999999997479
+  },
+  {
+    "n": 60,
+    "q_seed": 0.85,
+    "seed_icc": 0.1,
+    "p_source_min": 0.8942499999999995,
+    "p_source_max": 0.9647500000000002,
+    "transfer_min": 0.9996192948175506,
+    "transfer_max": 0.9999999998065618
+  },
+  {
+    "n": 60,
+    "q_seed": 0.85,
+    "seed_icc": 0.3,
+    "p_source_min": 0.8177499999999998,
+    "p_source_max": 0.9392500000000001,
+    "transfer_min": 0.9318094911482258,
+    "transfer_max": 0.9999996088394645
+  },
+  {
+    "n": 60,
+    "q_seed": 0.85,
+    "seed_icc": 0.5,
+    "p_source_min": 0.7862499999999999,
+    "p_source_max": 0.9137500000000001,
+    "transfer_min": 0.802762332043294,
+    "transfer_max": 0.9999651688642127
+  },
+  {
+    "n": 60,
+    "q_seed": 0.85,
+    "seed_icc": 0.9,
+    "p_source_min": 0.8372499999999998,
+    "p_source_max": 0.8627499999999999,
+    "transfer_min": 0.9722329484710265,
+    "transfer_max": 0.994094807843643
+  },
+  {
+    "n": 60,
+    "q_seed": 0.85,
+    "seed_icc": 1.0,
+    "p_source_min": 0.8500000000000001,
+    "p_source_max": 0.8500000000000003,
+    "transfer_min": 0.9864005300746339,
+    "transfer_max": 0.986400530074634
+  },
+  {
+    "n": 60,
+    "q_seed": 0.9,
+    "seed_icc": 0.0,
+    "p_source_min": 0.9700000000000002,
+    "p_source_max": 0.99,
+    "transfer_min": 0.9999999999816837,
+    "transfer_max": 1.0000000000000002
+  },
+  {
+    "n": 60,
+    "q_seed": 0.9,
+    "seed_icc": 0.1,
+    "p_source_min": 0.9430000000000001,
+    "p_source_max": 0.9810000000000001,
+    "transfer_min": 0.9999998339414767,
+    "transfer_max": 0.9999999999999805
+  },
+  {
+    "n": 60,
+    "q_seed": 0.9,
+    "seed_icc": 0.3,
+    "p_source_min": 0.8890000000000002,
+    "p_source_max": 0.9629999999999999,
+    "transfer_min": 0.9993473558476997,
+    "transfer_max": 0.9999999996102077
+  },
+  {
+    "n": 60,
+    "q_seed": 0.9,
+    "seed_icc": 0.5,
+    "p_source_min": 0.8550000000000002,
+    "p_source_max": 0.9450000000000001,
+    "transfer_min": 0.9900419745488199,
+    "transfer_max": 0.999999897750188
+  },
+  {
+    "n": 60,
+    "q_seed": 0.9,
+    "seed_icc": 0.9,
+    "p_source_min": 0.891,
+    "p_source_max": 0.909,
+    "transfer_min": 0.9994660992343305,
+    "transfer_max": 0.999933477748027
+  },
+  {
+    "n": 60,
+    "q_seed": 0.9,
+    "seed_icc": 1.0,
+    "p_source_min": 0.9000000000000001,
+    "p_source_max": 0.9000000000000001,
+    "transfer_min": 0.9997986122245102,
+    "transfer_max": 0.9997986122245102
+  },
+  {
+    "n": 90,
+    "q_seed": 0.5,
+    "seed_icc": 0.0,
+    "p_source_min": 0.25,
+    "p_source_max": 0.75,
+    "transfer_min": 1.2201750946533188e-23,
+    "transfer_max": 0.5081465380742233
+  },
+  {
+    "n": 90,
+    "q_seed": 0.5,
+    "seed_icc": 0.1,
+    "p_source_min": 0.275,
+    "p_source_max": 0.725,
+    "transfer_min": 3.839518301990892e-21,
+    "transfer_max": 0.3022605512393285
+  },
+  {
+    "n": 90,
+    "q_seed": 0.5,
+    "seed_icc": 0.3,
+    "p_source_min": 0.32500000000000007,
+    "p_source_max": 0.675,
+    "transfer_min": 7.09618402609068e-17,
+    "transfer_max": 0.06181458051049392
+  },
+  {
+    "n": 90,
+    "q_seed": 0.5,
+    "seed_icc": 0.5,
+    "p_source_min": 0.375,
+    "p_source_max": 0.625,
+    "transfer_min": 2.296326221323668e-13,
+    "transfer_max": 0.006011061721460573
+  },
+  {
+    "n": 90,
+    "q_seed": 0.5,
+    "seed_icc": 0.9,
+    "p_source_min": 0.47499999999999987,
+    "p_source_max": 0.5249999999999999,
+    "transfer_min": 5.3614206345765624e-08,
+    "transfer_max": 5.843491433944293e-06
+  },
+  {
+    "n": 90,
+    "q_seed": 0.5,
+    "seed_icc": 1.0,
+    "p_source_min": 0.5,
+    "p_source_max": 0.5,
+    "transfer_min": 6.246290643815517e-07,
+    "transfer_max": 6.246290643815517e-07
+  },
+  {
+    "n": 90,
+    "q_seed": 0.55,
+    "seed_icc": 0.0,
+    "p_source_min": 0.39250000000000007,
+    "p_source_max": 0.7975000000000001,
+    "transfer_min": 2.7819823492068477e-12,
+    "transfer_max": 0.8678773369451346
+  },
+  {
+    "n": 90,
+    "q_seed": 0.55,
+    "seed_icc": 0.1,
+    "p_source_min": 0.32725000000000004,
+    "p_source_max": 0.77275,
+    "transfer_min": 1.055997675561516e-16,
+    "transfer_max": 0.7024777892601043
+  },
+  {
+    "n": 90,
+    "q_seed": 0.55,
+    "seed_icc": 0.3,
+    "p_source_min": 0.37675000000000014,
+    "p_source_max": 0.7232500000000002,
+    "transfer_min": 2.968136662075257e-13,
+    "transfer_max": 0.28951310760617893
+  },
+  {
+    "n": 90,
+    "q_seed": 0.55,
+    "seed_icc": 0.5,
+    "p_source_min": 0.42625,
+    "p_source_max": 0.6737500000000001,
+    "transfer_min": 2.2431215421836595e-10,
+    "transfer_max": 0.05884744755228596
+  },
+  {
+    "n": 90,
+    "q_seed": 0.55,
+    "seed_icc": 0.9,
+    "p_source_min": 0.52525,
+    "p_source_max": 0.5747500000000001,
+    "transfer_min": 5.9692427607495425e-06,
+    "transfer_max": 0.000271486575669198
+  },
+  {
+    "n": 90,
+    "q_seed": 0.55,
+    "seed_icc": 1.0,
+    "p_source_min": 0.55,
+    "p_source_max": 0.55,
+    "transfer_min": 4.439304185507583e-05,
+    "transfer_max": 4.439304185507583e-05
+  },
+  {
+    "n": 90,
+    "q_seed": 0.6,
+    "seed_icc": 0.0,
+    "p_source_min": 0.5199999999999996,
+    "p_source_max": 0.8400000000000001,
+    "transfer_min": 3.8004370066666415e-06,
+    "transfer_max": 0.9866548374777314
+  },
+  {
+    "n": 90,
+    "q_seed": 0.6,
+    "seed_icc": 0.1,
+    "p_source_min": 0.4479999999999995,
+    "p_source_max": 0.8160000000000001,
+    "transfer_min": 2.9066107129643306e-09,
+    "transfer_max": 0.9427098328658844
+  },
+  {
+    "n": 90,
+    "q_seed": 0.6,
+    "seed_icc": 0.3,
+    "p_source_min": 0.43200000000000005,
+    "p_source_max": 0.768,
+    "transfer_min": 4.501967528001435e-10,
+    "transfer_max": 0.6638235497743338
+  },
+  {
+    "n": 90,
+    "q_seed": 0.6,
+    "seed_icc": 0.5,
+    "p_source_min": 0.48,
+    "p_source_max": 0.72,
+    "transfer_min": 8.921738499913133e-08,
+    "transfer_max": 0.26661490059984255
+  },
+  {
+    "n": 90,
+    "q_seed": 0.6,
+    "seed_icc": 0.9,
+    "p_source_min": 0.5760000000000001,
+    "p_source_max": 0.6239999999999999,
+    "transfer_min": 0.0002959815882833673,
+    "transfer_max": 0.0056938497600281775
+  },
+  {
+    "n": 90,
+    "q_seed": 0.6,
+    "seed_icc": 1.0,
+    "p_source_min": 0.5999999999999999,
+    "p_source_max": 0.5999999999999999,
+    "transfer_min": 0.0014165166250827436,
+    "transfer_max": 0.0014165166250827436
+  },
+  {
+    "n": 90,
+    "q_seed": 0.65,
+    "seed_icc": 0.0,
+    "p_source_min": 0.6325000000000003,
+    "p_source_max": 0.8775,
+    "transfer_min": 0.008941335604424661,
+    "transfer_max": 0.999575075142901
+  },
+  {
+    "n": 90,
+    "q_seed": 0.65,
+    "seed_icc": 0.1,
+    "p_source_min": 0.5642500000000004,
+    "p_source_max": 0.8547499999999999,
+    "transfer_min": 0.00012891323258898348,
+    "transfer_max": 0.9958008084576226
+  },
+  {
+    "n": 90,
+    "q_seed": 0.65,
+    "seed_icc": 0.3,
+    "p_source_min": 0.49075,
+    "p_source_max": 0.80925,
+    "transfer_min": 2.585127401162652e-07,
+    "transfer_max": 0.9202591856876372
+  },
+  {
+    "n": 90,
+    "q_seed": 0.65,
+    "seed_icc": 0.5,
+    "p_source_min": 0.5362500000000001,
+    "p_source_max": 0.7637500000000002,
+    "transfer_min": 1.4924566492949902e-05,
+    "transfer_max": 0.628023417489918
+  },
+  {
+    "n": 90,
+    "q_seed": 0.65,
+    "seed_icc": 0.9,
+    "p_source_min": 0.6272500000000001,
+    "p_source_max": 0.67275,
+    "transfer_min": 0.006783487035404496,
+    "transfer_max": 0.05655767720860143
+  },
+  {
+    "n": 90,
+    "q_seed": 0.65,
+    "seed_icc": 1.0,
+    "p_source_min": 0.6500000000000001,
+    "p_source_max": 0.6500000000000001,
+    "transfer_min": 0.021156665583313753,
+    "transfer_max": 0.021156665583313753
+  },
+  {
+    "n": 90,
+    "q_seed": 0.7,
+    "seed_icc": 0.0,
+    "p_source_min": 0.7299999999999995,
+    "p_source_max": 0.9099999999999999,
+    "transfer_min": 0.3401860498410475,
+    "transfer_max": 0.9999965485882845
+  },
+  {
+    "n": 90,
+    "q_seed": 0.7,
+    "seed_icc": 0.1,
+    "p_source_min": 0.6669999999999996,
+    "p_source_max": 0.889,
+    "transfer_min": 0.044758500205560756,
+    "transfer_max": 0.9999008116216158
+  },
+  {
+    "n": 90,
+    "q_seed": 0.7,
+    "seed_icc": 0.3,
+    "p_source_min": 0.5529999999999999,
+    "p_source_max": 0.847,
+    "transfer_min": 5.586045107064175e-05,
+    "transfer_max": 0.9920718680514844
+  },
+  {
+    "n": 90,
+    "q_seed": 0.7,
+    "seed_icc": 0.5,
+    "p_source_min": 0.595,
+    "p_source_max": 0.8049999999999999,
+    "transfer_min": 0.0010371786582556344,
+    "transfer_max": 0.9033235486585535
+  },
+  {
+    "n": 90,
+    "q_seed": 0.7,
+    "seed_icc": 0.9,
+    "p_source_min": 0.679,
+    "p_source_max": 0.7210000000000001,
+    "transfer_min": 0.07212671719609863,
+    "transfer_max": 0.2735506491096787
+  },
+  {
+    "n": 90,
+    "q_seed": 0.7,
+    "seed_icc": 1.0,
+    "p_source_min": 0.6999999999999997,
+    "p_source_max": 0.6999999999999997,
+    "transfer_min": 0.149953930970241,
+    "transfer_max": 0.149953930970241
+  },
+  {
+    "n": 90,
+    "q_seed": 0.75,
+    "seed_icc": 0.0,
+    "p_source_min": 0.8125,
+    "p_source_max": 0.9375,
+    "transfer_min": 0.9317294195545124,
+    "transfer_max": 0.9999999948350673
+  },
+  {
+    "n": 90,
+    "q_seed": 0.75,
+    "seed_icc": 0.1,
+    "p_source_min": 0.7562499999999999,
+    "p_source_max": 0.91875,
+    "transfer_min": 0.5630186242240479,
+    "transfer_max": 0.9999993996279349
+  },
+  {
+    "n": 90,
+    "q_seed": 0.75,
+    "seed_icc": 0.3,
+    "p_source_min": 0.6437499999999998,
+    "p_source_max": 0.8812500000000001,
+    "transfer_min": 0.015718453293519084,
+    "transfer_max": 0.9997288891366701
+  },
+  {
+    "n": 90,
+    "q_seed": 0.75,
+    "seed_icc": 0.5,
+    "p_source_min": 0.65625,
+    "p_source_max": 0.84375,
+    "transfer_min": 0.028147058323613933,
+    "transfer_max": 0.9898427551700814
+  },
+  {
+    "n": 90,
+    "q_seed": 0.75,
+    "seed_icc": 0.9,
+    "p_source_min": 0.7312499999999997,
+    "p_source_max": 0.7687499999999998,
+    "transfer_min": 0.3499925644050849,
+    "transfer_max": 0.670031702870368
+  },
+  {
+    "n": 90,
+    "q_seed": 0.75,
+    "seed_icc": 1.0,
+    "p_source_min": 0.75,
+    "p_source_max": 0.75,
+    "transfer_min": 0.5081465380742233,
+    "transfer_max": 0.5081465380742233
+  },
+  {
+    "n": 90,
+    "q_seed": 0.8,
+    "seed_icc": 0.0,
+    "p_source_min": 0.8800000000000003,
+    "p_source_max": 0.96,
+    "transfer_min": 0.9996842714245422,
+    "transfer_max": 0.9999999999991865
+  },
+  {
+    "n": 90,
+    "q_seed": 0.8,
+    "seed_icc": 0.1,
+    "p_source_min": 0.8320000000000003,
+    "p_source_max": 0.944,
+    "transfer_min": 0.9771267540554378,
+    "transfer_max": 0.9999999993592679
+  },
+  {
+    "n": 90,
+    "q_seed": 0.8,
+    "seed_icc": 0.3,
+    "p_source_min": 0.7360000000000002,
+    "p_source_max": 0.9119999999999999,
+    "transfer_min": 0.3883094288004961,
+    "transfer_max": 0.9999976363516336
+  },
+  {
+    "n": 90,
+    "q_seed": 0.8,
+    "seed_icc": 0.5,
+    "p_source_min": 0.72,
+    "p_source_max": 0.8799999999999999,
+    "transfer_min": 0.26661490059984255,
+    "transfer_max": 0.9996842714245422
+  },
+  {
+    "n": 90,
+    "q_seed": 0.8,
+    "seed_icc": 0.9,
+    "p_source_min": 0.784,
+    "p_source_max": 0.8159999999999998,
+    "transfer_min": 0.7861845355334546,
+    "transfer_max": 0.9427098328658837
+  },
+  {
+    "n": 90,
+    "q_seed": 0.8,
+    "seed_icc": 1.0,
+    "p_source_min": 0.8000000000000003,
+    "p_source_max": 0.8000000000000003,
+    "transfer_min": 0.8804920680787907,
+    "transfer_max": 0.8804920680787907
+  },
+  {
+    "n": 90,
+    "q_seed": 0.85,
+    "seed_icc": 0.0,
+    "p_source_min": 0.9325000000000001,
+    "p_source_max": 0.9774999999999998,
+    "transfer_min": 0.9999999783950592,
+    "transfer_max": 1.0
+  },
+  {
+    "n": 90,
+    "q_seed": 0.85,
+    "seed_icc": 0.1,
+    "p_source_min": 0.8942499999999995,
+    "p_source_max": 0.9647500000000002,
+    "transfer_min": 0.9999529509660993,
+    "transfer_max": 0.9999999999999392
+  },
+  {
+    "n": 90,
+    "q_seed": 0.85,
+    "seed_icc": 0.3,
+    "p_source_min": 0.8177499999999998,
+    "p_source_max": 0.9392500000000001,
+    "transfer_min": 0.9476891570526114,
+    "transfer_max": 0.9999999969745804
+  },
+  {
+    "n": 90,
+    "q_seed": 0.85,
+    "seed_icc": 0.5,
+    "p_source_min": 0.7862499999999999,
+    "p_source_max": 0.9137500000000001,
+    "transfer_min": 0.8013328860475666,
+    "transfer_max": 0.9999983195843891
+  },
+  {
+    "n": 90,
+    "q_seed": 0.85,
+    "seed_icc": 0.9,
+    "p_source_min": 0.8372499999999998,
+    "p_source_max": 0.8627499999999999,
+    "transfer_min": 0.9838345036973596,
+    "transfer_max": 0.9979720576661351
+  },
+  {
+    "n": 90,
+    "q_seed": 0.85,
+    "seed_icc": 1.0,
+    "p_source_min": 0.8500000000000001,
+    "p_source_max": 0.8500000000000003,
+    "transfer_min": 0.9937531335893391,
+    "transfer_max": 0.9937531335893391
+  },
+  {
+    "n": 90,
+    "q_seed": 0.9,
+    "seed_icc": 0.0,
+    "p_source_min": 0.9700000000000002,
+    "p_source_max": 0.99,
+    "transfer_min": 0.9999999999999979,
+    "transfer_max": 1.0
+  },
+  {
+    "n": 90,
+    "q_seed": 0.9,
+    "seed_icc": 0.1,
+    "p_source_min": 0.9430000000000001,
+    "p_source_max": 0.9810000000000001,
+    "transfer_min": 0.9999999991000291,
+    "transfer_max": 0.9999999999999999
+  },
+  {
+    "n": 90,
+    "q_seed": 0.9,
+    "seed_icc": 0.3,
+    "p_source_min": 0.8890000000000002,
+    "p_source_max": 0.9629999999999999,
+    "transfer_min": 0.9999008116216159,
+    "transfer_max": 0.9999999999998348
+  },
+  {
+    "n": 90,
+    "q_seed": 0.9,
+    "seed_icc": 0.5,
+    "p_source_min": 0.8550000000000002,
+    "p_source_max": 0.9450000000000001,
+    "transfer_min": 0.9958905450211719,
+    "transfer_max": 0.9999999995471914
+  },
+  {
+    "n": 90,
+    "q_seed": 0.9,
+    "seed_icc": 0.9,
+    "p_source_min": 0.891,
+    "p_source_max": 0.909,
+    "transfer_min": 0.9999248556424608,
+    "transfer_max": 0.9999958475539551
+  },
+  {
+    "n": 90,
+    "q_seed": 0.9,
+    "seed_icc": 1.0,
+    "p_source_min": 0.9000000000000001,
+    "p_source_max": 0.9000000000000001,
+    "transfer_min": 0.9999805609011403,
+    "transfer_max": 0.9999805609011403
+  },
+  {
+    "n": 120,
+    "q_seed": 0.5,
+    "seed_icc": 0.0,
+    "p_source_min": 0.25,
+    "p_source_max": 0.75,
+    "transfer_min": 2.2207879649738707e-30,
+    "transfer_max": 0.5488533257854148
+  },
+  {
+    "n": 120,
+    "q_seed": 0.5,
+    "seed_icc": 0.1,
+    "p_source_min": 0.275,
+    "p_source_max": 0.725,
+    "transfer_min": 4.340241171196813e-27,
+    "transfer_max": 0.3087523357874242
+  },
+  {
+    "n": 120,
+    "q_seed": 0.5,
+    "seed_icc": 0.3,
+    "p_source_min": 0.32500000000000007,
+    "p_source_max": 0.675,
+    "transfer_min": 1.7898488198356214e-21,
+    "transfer_max": 0.04646562649212382
+  },
+  {
+    "n": 120,
+    "q_seed": 0.5,
+    "seed_icc": 0.5,
+    "p_source_min": 0.375,
+    "p_source_max": 0.625,
+    "transfer_min": 7.304828876652873e-17,
+    "transfer_max": 0.002532539022045551
+  },
+  {
+    "n": 120,
+    "q_seed": 0.5,
+    "seed_icc": 0.9,
+    "p_source_min": 0.47499999999999987,
+    "p_source_max": 0.5249999999999999,
+    "transfer_min": 7.719647833559094e-10,
+    "transfer_max": 3.4356639865218224e-07
+  },
+  {
+    "n": 120,
+    "q_seed": 0.5,
+    "seed_icc": 1.0,
+    "p_source_min": 0.5,
+    "p_source_max": 0.5,
+    "transfer_min": 1.886376653177654e-08,
+    "transfer_max": 1.886376653177654e-08
+  },
+  {
+    "n": 120,
+    "q_seed": 0.55,
+    "seed_icc": 0.0,
+    "p_source_min": 0.39250000000000007,
+    "p_source_max": 0.7975000000000001,
+    "transfer_min": 1.9250135890326394e-15,
+    "transfer_max": 0.917675898954359
+  },
+  {
+    "n": 120,
+    "q_seed": 0.55,
+    "seed_icc": 0.1,
+    "p_source_min": 0.32725000000000004,
+    "p_source_max": 0.77275,
+    "transfer_min": 3.0186224674936923e-21,
+    "transfer_max": 0.7622401935403117
+  },
+  {
+    "n": 120,
+    "q_seed": 0.55,
+    "seed_icc": 0.3,
+    "p_source_min": 0.37675000000000014,
+    "p_source_max": 0.7232500000000002,
+    "transfer_min": 1.0229147224394817e-16,
+    "transfer_max": 0.29389865852431474
+  },
+  {
+    "n": 120,
+    "q_seed": 0.55,
+    "seed_icc": 0.5,
+    "p_source_min": 0.42625,
+    "p_source_max": 0.6737500000000001,
+    "transfer_min": 6.044546743268142e-13,
+    "transfer_max": 0.04374452841655035
+  },
+  {
+    "n": 120,
+    "q_seed": 0.55,
+    "seed_icc": 0.9,
+    "p_source_min": 0.52525,
+    "p_source_max": 0.5747500000000001,
+    "transfer_min": 3.5317702689235175e-07,
+    "transfer_max": 4.871124943800994e-05
+  },
+  {
+    "n": 120,
+    "q_seed": 0.55,
+    "seed_icc": 1.0,
+    "p_source_min": 0.55,
+    "p_source_max": 0.55,
+    "transfer_min": 4.731552967504105e-06,
+    "transfer_max": 4.731552967504105e-06
+  },
+  {
+    "n": 120,
+    "q_seed": 0.6,
+    "seed_icc": 0.0,
+    "p_source_min": 0.5199999999999996,
+    "p_source_max": 0.8400000000000001,
+    "transfer_min": 1.9670784165498318e-07,
+    "transfer_max": 0.996103359614643
+  },
+  {
+    "n": 120,
+    "q_seed": 0.6,
+    "seed_icc": 0.1,
+    "p_source_min": 0.4479999999999995,
+    "p_source_max": 0.8160000000000001,
+    "transfer_min": 1.7210913521979884e-11,
+    "transfer_max": 0.9727697480588839
+  },
+  {
+    "n": 120,
+    "q_seed": 0.6,
+    "seed_icc": 0.3,
+    "p_source_min": 0.43200000000000005,
+    "p_source_max": 0.768,
+    "transfer_min": 1.503533972534741e-12,
+    "transfer_max": 0.7217263798960722
+  },
+  {
+    "n": 120,
+    "q_seed": 0.6,
+    "seed_icc": 0.5,
+    "p_source_min": 0.48,
+    "p_source_max": 0.72,
+    "transfer_min": 1.498906310991921e-09,
+    "transfer_max": 0.26732201284718843
+  },
+  {
+    "n": 120,
+    "q_seed": 0.6,
+    "seed_icc": 0.9,
+    "p_source_min": 0.5760000000000001,
+    "p_source_max": 0.6239999999999999,
+    "transfer_min": 5.442527985787132e-05,
+    "transfer_max": 0.002364740122225003
+  },
+  {
+    "n": 120,
+    "q_seed": 0.6,
+    "seed_icc": 1.0,
+    "p_source_min": 0.5999999999999999,
+    "p_source_max": 0.5999999999999999,
+    "transfer_min": 0.00040376660227532907,
+    "transfer_max": 0.00040376660227532907
+  },
+  {
+    "n": 120,
+    "q_seed": 0.65,
+    "seed_icc": 0.0,
+    "p_source_min": 0.6325000000000003,
+    "p_source_max": 0.8775,
+    "transfer_min": 0.004180446755550007,
+    "transfer_max": 0.9999619033104402
+  },
+  {
+    "n": 120,
+    "q_seed": 0.65,
+    "seed_icc": 0.1,
+    "p_source_min": 0.5642500000000004,
+    "p_source_max": 0.8547499999999999,
+    "transfer_min": 1.869680198587113e-05,
+    "transfer_max": 0.9991726472806199
+  },
+  {
+    "n": 120,
+    "q_seed": 0.65,
+    "seed_icc": 0.3,
+    "p_source_min": 0.49075,
+    "p_source_max": 0.80925,
+    "transfer_min": 5.988551541995977e-09,
+    "transfer_max": 0.9577656512635276
+  },
+  {
+    "n": 120,
+    "q_seed": 0.65,
+    "seed_icc": 0.5,
+    "p_source_min": 0.5362500000000001,
+    "p_source_max": 0.7637500000000002,
+    "transfer_min": 1.1568182534316267e-06,
+    "transfer_max": 0.6832021721710327
+  },
+  {
+    "n": 120,
+    "q_seed": 0.65,
+    "seed_icc": 0.9,
+    "p_source_min": 0.6272500000000001,
+    "p_source_max": 0.67275,
+    "transfer_min": 0.0029505226560296743,
+    "transfer_max": 0.041663751728398604
+  },
+  {
+    "n": 120,
+    "q_seed": 0.65,
+    "seed_icc": 1.0,
+    "p_source_min": 0.6500000000000001,
+    "p_source_max": 0.6500000000000001,
+    "transfer_min": 0.012317091672530834,
+    "transfer_max": 0.012317091672530834
+  },
+  {
+    "n": 120,
+    "q_seed": 0.7,
+    "seed_icc": 0.0,
+    "p_source_min": 0.7299999999999995,
+    "p_source_max": 0.9099999999999999,
+    "transfer_min": 0.35310824440695326,
+    "transfer_max": 0.9999999416335624
+  },
+  {
+    "n": 120,
+    "q_seed": 0.7,
+    "seed_icc": 0.1,
+    "p_source_min": 0.6669999999999996,
+    "p_source_max": 0.889,
+    "transfer_min": 0.03123393741266447,
+    "transfer_max": 0.9999946223775006
+  },
+  {
+    "n": 120,
+    "q_seed": 0.7,
+    "seed_icc": 0.3,
+    "p_source_min": 0.5529999999999999,
+    "p_source_max": 0.847,
+    "transfer_min": 6.364481159000266e-06,
+    "transfer_max": 0.9980599493860296
+  },
+  {
+    "n": 120,
+    "q_seed": 0.7,
+    "seed_icc": 0.5,
+    "p_source_min": 0.595,
+    "p_source_max": 0.8049999999999999,
+    "transfer_min": 0.00027122074460790525,
+    "transfer_max": 0.9454969091365159
+  },
+  {
+    "n": 120,
+    "q_seed": 0.7,
+    "seed_icc": 0.9,
+    "p_source_min": 0.679,
+    "p_source_max": 0.7210000000000001,
+    "transfer_min": 0.056122999556231914,
+    "transfer_max": 0.2753556872980247
+  },
+  {
+    "n": 120,
+    "q_seed": 0.7,
+    "seed_icc": 1.0,
+    "p_source_min": 0.6999999999999997,
+    "p_source_max": 0.6999999999999997,
+    "transfer_min": 0.13592279811760363,
+    "transfer_max": 0.13592279811760363
+  },
+  {
+    "n": 120,
+    "q_seed": 0.75,
+    "seed_icc": 0.0,
+    "p_source_min": 0.8125,
+    "p_source_max": 0.9375,
+    "transfer_min": 0.9656281434096022,
+    "transfer_max": 0.9999999999909098
+  },
+  {
+    "n": 120,
+    "q_seed": 0.75,
+    "seed_icc": 0.1,
+    "p_source_min": 0.7562499999999999,
+    "p_source_max": 0.91875,
+    "transfer_min": 0.6112198957915355,
+    "transfer_max": 0.9999999944720078
+  },
+  {
+    "n": 120,
+    "q_seed": 0.75,
+    "seed_icc": 0.3,
+    "p_source_min": 0.6437499999999998,
+    "p_source_max": 0.8812500000000001,
+    "transfer_min": 0.008493938359368668,
+    "transfer_max": 0.9999791875918117
+  },
+  {
+    "n": 120,
+    "q_seed": 0.75,
+    "seed_icc": 0.5,
+    "p_source_min": 0.65625,
+    "p_source_max": 0.84375,
+    "transfer_min": 0.017579778343419852,
+    "transfer_max": 0.9972961984069213
+  },
+  {
+    "n": 120,
+    "q_seed": 0.75,
+    "seed_icc": 0.9,
+    "p_source_min": 0.7312499999999997,
+    "p_source_max": 0.7687499999999998,
+    "transfer_min": 0.3646021823437175,
+    "transfer_max": 0.7283132110689062
+  },
+  {
+    "n": 120,
+    "q_seed": 0.75,
+    "seed_icc": 1.0,
+    "p_source_min": 0.75,
+    "p_source_max": 0.75,
+    "transfer_min": 0.5488533257854148,
+    "transfer_max": 0.5488533257854148
+  },
+  {
+    "n": 120,
+    "q_seed": 0.8,
+    "seed_icc": 0.0,
+    "p_source_min": 0.8800000000000003,
+    "p_source_max": 0.96,
+    "transfer_min": 0.9999744525130676,
+    "transfer_max": 0.9999999999999999
+  },
+  {
+    "n": 120,
+    "q_seed": 0.8,
+    "seed_icc": 0.1,
+    "p_source_min": 0.8320000000000003,
+    "p_source_max": 0.944,
+    "transfer_min": 0.9919908792265185,
+    "transfer_max": 0.9999999999994547
+  },
+  {
+    "n": 120,
+    "q_seed": 0.8,
+    "seed_icc": 0.3,
+    "p_source_min": 0.7360000000000002,
+    "p_source_max": 0.9119999999999999,
+    "transfer_min": 0.4095310654032145,
+    "transfer_max": 0.9999999649553857
+  },
+  {
+    "n": 120,
+    "q_seed": 0.8,
+    "seed_icc": 0.5,
+    "p_source_min": 0.72,
+    "p_source_max": 0.8799999999999999,
+    "transfer_min": 0.26732201284718843,
+    "transfer_max": 0.9999744525130675
+  },
+  {
+    "n": 120,
+    "q_seed": 0.8,
+    "seed_icc": 0.9,
+    "p_source_min": 0.784,
+    "p_source_max": 0.8159999999999998,
+    "transfer_min": 0.8451952744806077,
+    "transfer_max": 0.9727697480588835
+  },
+  {
+    "n": 120,
+    "q_seed": 0.8,
+    "seed_icc": 1.0,
+    "p_source_min": 0.8000000000000003,
+    "p_source_max": 0.8000000000000003,
+    "transfer_min": 0.9278779008797062,
+    "transfer_max": 0.9278779008797062
+  },
+  {
+    "n": 120,
+    "q_seed": 0.85,
+    "seed_icc": 0.0,
+    "p_source_min": 0.9325000000000001,
+    "p_source_max": 0.9774999999999998,
+    "transfer_min": 0.9999999999374282,
+    "transfer_max": 1.0
+  },
+  {
+    "n": 120,
+    "q_seed": 0.85,
+    "seed_icc": 0.1,
+    "p_source_min": 0.8942499999999995,
+    "p_source_max": 0.9647500000000002,
+    "transfer_min": 0.9999980299609069,
+    "transfer_max": 1.0
+  },
+  {
+    "n": 120,
+    "q_seed": 0.85,
+    "seed_icc": 0.3,
+    "p_source_min": 0.8177499999999998,
+    "p_source_max": 0.9392500000000001,
+    "transfer_min": 0.975870495330375,
+    "transfer_max": 0.9999999999955798
+  },
+  {
+    "n": 120,
+    "q_seed": 0.85,
+    "seed_icc": 0.5,
+    "p_source_min": 0.7862499999999999,
+    "p_source_max": 0.9137500000000001,
+    "transfer_min": 0.8593644272609713,
+    "transfer_max": 0.9999999778709806
+  },
+  {
+    "n": 120,
+    "q_seed": 0.85,
+    "seed_icc": 0.9,
+    "p_source_min": 0.8372499999999998,
+    "p_source_max": 0.8627499999999999,
+    "transfer_min": 0.9949639210816866,
+    "transfer_max": 0.9996886115944329
+  },
+  {
+    "n": 120,
+    "q_seed": 0.85,
+    "seed_icc": 1.0,
+    "p_source_min": 0.8500000000000001,
+    "p_source_max": 0.8500000000000003,
+    "transfer_min": 0.9985905077970406,
+    "transfer_max": 0.9985905077970406
+  },
+  {
+    "n": 120,
+    "q_seed": 0.9,
+    "seed_icc": 0.0,
+    "p_source_min": 0.9700000000000002,
+    "p_source_max": 0.99,
+    "transfer_min": 1.0,
+    "transfer_max": 1.0
+  },
+  {
+    "n": 120,
+    "q_seed": 0.9,
+    "seed_icc": 0.1,
+    "p_source_min": 0.9430000000000001,
+    "p_source_max": 0.9810000000000001,
+    "transfer_min": 0.9999999999991378,
+    "transfer_max": 1.0
+  },
+  {
+    "n": 120,
+    "q_seed": 0.9,
+    "seed_icc": 0.3,
+    "p_source_min": 0.8890000000000002,
+    "p_source_max": 0.9629999999999999,
+    "transfer_min": 0.9999946223775006,
+    "transfer_max": 1.0
+  },
+  {
+    "n": 120,
+    "q_seed": 0.9,
+    "seed_icc": 0.5,
+    "p_source_min": 0.8550000000000002,
+    "p_source_max": 0.9450000000000001,
+    "transfer_min": 0.9991962841813723,
+    "transfer_max": 0.9999999999996585
+  },
+  {
+    "n": 120,
+    "q_seed": 0.9,
+    "seed_icc": 0.9,
+    "p_source_min": 0.891,
+    "p_source_max": 0.909,
+    "transfer_min": 0.9999962993687666,
+    "transfer_max": 0.9999999251193659
+  },
+  {
+    "n": 120,
+    "q_seed": 0.9,
+    "seed_icc": 1.0,
+    "p_source_min": 0.9000000000000001,
+    "p_source_max": 0.9000000000000001,
+    "transfer_min": 0.9999994009243746,
+    "transfer_max": 0.9999994009243746
+  }
+]
