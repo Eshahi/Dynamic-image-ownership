@@ -414,3 +414,8 @@
 
 2026-10-20 UTC | escalation | /root/stage1b_t1_ran_gap gpt-6.1-sol high fork none | newly found2026 removal study RAN and adjacent lead scope screening; own T1 file deliverable, no outcomes.
 2026-10-20 UTC | Codex agent | T8 strict-query correction accepted; own-branch push planned from116f423 to this checkpoint.
+
+2026-10-20 UTC | Codex agent push verified | codex/encoder-transfer-20261019 | 116f423..3f25198e22bcd9a04c10737d9832756c9e88b291 | T8 strict discovery-query correction.
+
+2026-10-20 UTC | escalation | fresh /root/stage1b_t6_intent_gap and /root/stage1b_t8_intent_gap | gpt-6.1-sol high fork none | conservative independent-review intent breadth; max2 active, same reviewer idle for final closure.
+2026-10-20 UTC | Codex agent | T1RAN accepted40V2/23direct; own-branch push planned from3f25198 including explicitly unaccepted review2 draft.

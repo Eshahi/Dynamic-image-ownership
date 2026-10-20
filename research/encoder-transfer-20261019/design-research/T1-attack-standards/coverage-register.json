@@ -217,5 +217,49 @@
     "qualifies_direct_floor": true,
     "status": "V2 own T1 recheck; direct attack floor included",
     "reason": "Same-pipeline inversion and optional original prompt differ from our independent, query-free regeneration; no empirical image-level FPR guarantee. The ideal-inversion/synthetic 15x claim is not a universal image gain. Printed Algorithm 4.2 uses budget 2|s|^2 <= epsilon although squared L2 cost of a sign flip is 4s^2; indexing also appears ambiguous. Preserve paper labels rather than silently implementing a correction. Appendix C figure labels say MSE while tables say RMSE. Table 4 rates .19/.01/.12 cannot all be two-decimal rounded binary counts out of the stated 30 images; repetitions or averaging are not explained, so no integer success counts are reconstructed."
+  },
+  {
+    "id": "ran",
+    "title": "RAN: A randomness-anchored watermark attacking network with stealth and effectiveness",
+    "url": "https://www.nature.com/articles/s41598-026-52298-w",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-1b-ran-gap\\ran.html",
+    "sha256": "215e56e99633bd9b7b2f645d3d1a0c101338257162ea6fdc91eb75ebd3635e9e",
+    "card_path": "cards/ran.md",
+    "qualifies_direct_floor": true,
+    "status": "V2 own T1 read; direct attack floor included",
+    "reason": "Only two embedding schemes; traditional mean BER.240 does not establish random/chance decoding despite the randomness objective. WAM near-.5 mean BER is not calibrated image-level removal. Captions of Tables2--3 identify I_co versus I_a, while the metric definitions and narrative use I_w versus I_a: quality-reference conflict unresolved. Exact WAM checkpoint/native settings, random support/seeds, extractor-gradient handling and WAM-specific n are NR. No forensic stealth test; no F5 or independent-encoder transfer evidence; reported inference .022s on their setup is not a server cost estimate."
+  },
+  {
+    "id": "residual-transferability",
+    "title": "Residual Transferability in Neural Image Watermarking",
+    "url": "https://arxiv.org/html/2609.32241v1",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-1b-ran-gap\\residual.html",
+    "sha256": "2953c6c5af8146d070ef5148e7a9cdb1448bd2cf6cac2c16032433c1ee406aa3",
+    "card_path": "cards/lead-residual-transferability.md",
+    "qualifies_direct_floor": false,
+    "status": "Primary method/evaluation scope screened; excluded T1; not added to V2 count",
+    "reason": "Sections2.2--2.3 define residual-transfer forgery onto unrelated images; Sections3--4 measure RT and build CoverLock; Section5/Table2 evaluates forgery ASR, Table3 six ordinary distortions. No regeneration/removal benchmark. Relevant to T4 forgery, not independent-encoder regeneration."
+  },
+  {
+    "id": "msat-ldm",
+    "title": "MSAT-LDM: Toward Transferable High-Fidelity Watermarking for Latent Diffusion Model via Modular Self-Augmented Training",
+    "url": "https://ojs.aaai.org/index.php/AAAI/article/download/40921/44882",
+    "cache_path": null,
+    "sha256": null,
+    "card_path": "cards/lead-msat-ldm.md",
+    "qualifies_direct_floor": false,
+    "status": "Official PDF method/evaluation scope screened via web; excluded T1; no retained full-PDF artifact; uncounted",
+    "reason": "Sections4--5 (pp36050--36054), Tables1--2: VAE-decoder watermark construction, self-augmented training, seven ordinary distortions; few-shot400-image adaptation to SD1.5 fine-tunes/LoRAs. Transfer means adaptation of watermark module, not survival under independent-encoder regeneration. Appendix advertised but not supplied in nine-page proceedings PDF; not inspected. Native PDF requests failed twice, web PDF extraction accessible."
+  },
+  {
+    "id": "chen-self-supervised",
+    "title": "Attacking the Digital Watermark of Watermarked Images Through Residual Learning and Self-supervised Training",
+    "url": "https://link.springer.com/article/10.1007/s00034-025-03262-y",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T1-1b-ran-gap\\chen-preview.html",
+    "sha256": "6a5db77d716cc18c5b00970fdc87abdb78cd50c6125e82a1e1d4654523056fa8",
+    "card_path": "cards/lead-chen-self-supervised.md",
+    "qualifies_direct_floor": false,
+    "status": "Relevant2025 removal lead; publisher subscription preview only; inaccessible method/evaluation; uncounted",
+    "reason": "Publisher28July2025, CSSP44:9675--9693, DOI10.1007/s00034-025-03262-y. Publisher HTML exposes abstract and figures, explicitly subscription preview; full PDF web route inaccessible. Exact DOI/PDF and title/arXiv searches found metadata/ResearchGate preview, no verified open primary manuscript. No scientific baseline values adopted."
   }
 ]

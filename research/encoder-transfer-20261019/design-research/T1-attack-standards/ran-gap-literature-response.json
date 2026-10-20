@@ -1,0 +1,73 @@
+{
+  "request_id": "T1-stage1b-ran-gap",
+  "papers": [
+    {
+      "schema_version": "1.0",
+      "paper_id": "T1-ran",
+      "citation_key": "T1_ran",
+      "doi": "10.1038/s41598-026-52298-w",
+      "canonical_url": "https://www.nature.com/articles/s41598-026-52298-w",
+      "title": "RAN: A randomness-anchored watermark attacking network with stealth and effectiveness",
+      "authors": [
+        "Fan Li",
+        "Du Li",
+        "Kunqi Li",
+        "Yanyu Jiang",
+        "Yanlin Leng",
+        "Kai Zhou",
+        "Yong Tang"
+      ],
+      "year": 2026,
+      "venue": "Scientific Reports 16, article 21334 (2026)",
+      "access_date": "2026-10-20",
+      "source_type": "paper",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": ".thesis-build/q1-research-20261018/cache/T1-1b-ran-gap/ran.html",
+        "sha256": "215e56e99633bd9b7b2f645d3d1a0c101338257162ea6fdc91eb75ebd3635e9e"
+      },
+      "limitations": [
+        "Only two embedding schemes; traditional mean BER.240 does not establish random/chance decoding despite the randomness objective. WAM near-.5 mean BER is not calibrated image-level removal. Captions of Tables2--3 identify I_co versus I_a, while the metric definitions and narrative use I_w versus I_a: quality-reference conflict unresolved. Exact WAM checkpoint/native settings, random support/seeds, extractor-gradient handling and WAM-specific n are NR. No forensic stealth test; no F5 or independent-encoder transfer evidence; reported inference .022s on their setup is not a server cost estimate."
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "claim_id": "T1-ran-result",
+      "claim": "Table2 DWT-DCT-SVD: KLD SSIM.987(.018)/PSNR37.060(3.658)dB/NC.240(.485)/BER.240(.189); MSE .987(.018)/37.152(3.707)/.550(.346)/.206(.178). Gaussian5x5 .705(.127)/24.784(3.840)/.010(.032)/.412(.121); JPEG30 .865(.035)/30.778(2.685)/.342(.105)/.298(.111). Table3 WAM: KLD .973(.021)/37.383(3.677)/BER.494(.066); MSE .973(.022)/37.488(3.740)/.060(.046); JPEG30 .873(.039)/30.833(2.823)/.096(.084).",
+      "source_id": "T1-ran",
+      "kind": "direct-evidence",
+      "stance": "supporting",
+      "locator": "Methods: architecture/losses, Equations 1--6; Experiments: datasets/training/metrics, Equations 7--11; Results and Discussion. Cached main text lines 78--163; all rows of separately cached official Tables 1--3.",
+      "confidence": "high",
+      "limitations": [
+        "Only two embedding schemes; traditional mean BER.240 does not establish random/chance decoding despite the randomness objective. WAM near-.5 mean BER is not calibrated image-level removal. Captions of Tables2--3 identify I_co versus I_a, while the metric definitions and narrative use I_w versus I_a: quality-reference conflict unresolved. Exact WAM checkpoint/native settings, random support/seeds, extractor-gradient handling and WAM-specific n are NR. No forensic stealth test; no F5 or independent-encoder transfer evidence; reported inference .022s on their setup is not a server cost estimate."
+      ],
+      "assumptions": [
+        "Reported external numbers are source claims, not reproduced project outcomes."
+      ]
+    },
+    {
+      "claim_id": "T1-ran-scope",
+      "claim": "Include as a recent non-diffusion removal benchmark and an untested learned-attack limitation. Do not import BER as our endpoint or add an attack, baseline, proposal or compute cost to the frozen SDXL study.",
+      "source_id": "T1-ran",
+      "kind": "agent-inference",
+      "stance": "inconclusive",
+      "locator": "Methods: architecture/losses, Equations 1--6; Experiments: datasets/training/metrics, Equations 7--11; Results and Discussion. Cached main text lines 78--163; all rows of separately cached official Tables 1--3.",
+      "confidence": "medium",
+      "limitations": [
+        "Only two embedding schemes; traditional mean BER.240 does not establish random/chance decoding despite the randomness objective. WAM near-.5 mean BER is not calibrated image-level removal. Captions of Tables2--3 identify I_co versus I_a, while the metric definitions and narrative use I_w versus I_a: quality-reference conflict unresolved. Exact WAM checkpoint/native settings, random support/seeds, extractor-gradient handling and WAM-specific n are NR. No forensic stealth test; no F5 or independent-encoder transfer evidence; reported inference .022s on their setup is not a server cost estimate."
+      ],
+      "assumptions": [
+        "Reported external numbers are source claims, not reproduced project outcomes."
+      ]
+    }
+  ],
+  "assumptions": [],
+  "open_questions": [
+    "How would RAN perform on F5? Untested; outside frozen independent-encoder study.",
+    "What quality reference, WAM-specific n/checkpoint and extractor-gradient path generated RAN Tables2--3?",
+    "Can a lawful open primary manuscript close the Chen2025 access gap?"
+  ]
+}

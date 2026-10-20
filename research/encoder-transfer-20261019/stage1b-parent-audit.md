@@ -16,14 +16,14 @@ Record unresolved gaps before acceptance. A below-floor delivery returns to a fr
 
 | Topic | Required content floor | Qualifying count | Distinct queries / categories | Parent disposition | Accepted topic commit |
 |---|---|---:|---|---|---|
-| T1 | 15 benchmark/attack sources; complete settings table | 22 direct; 39 total V2 | 34 successful queries, 24 intents / 3 categories | Accepted including five late-lead additions | 42cc385; addendum ece403e233515ab5d6fd39be4f22ba6bf1dc7eb8 |
+| T1 | 15 benchmark/attack sources; complete settings table | 23 direct; 40 total V2 | 34 successful queries, 24 intents / 3 categories | Accepted including six late-lead additions | 42cc385; addendum ece403e233515ab5d6fd39be4f22ba6bf1dc7eb8 |
 | T2 | 15 model families; lineage and implementation table | 18 families; 30 individual cards | 17 successful queries, 16 intents / 3 categories | Accepted after parent inspection | ae5c7f33baa23cd363a70657a57d102fd2394f3d |
 | T3 | 12 post-hoc methods; fidelity and run-cost table | 24 distinct V2 methods; 25 version-specific references | 22 queries / 3 categories | Accepted after parent inspection | d9bd2362ae8416219cde1066e227c9e7e78b90b1 |
 | T4 | 8 mechanism sources; all-channel and proposal predictions | 13 distinct V2 sources; 26 prediction rows | 18 queries / 4 categories | Accepted after parent inspection | cc25f1683bb2960080f777e38ed1a0fcc00ab613 |
 | T5 | Six named implementations; all relied-on settings pinned by file/line | 6 implementations, 61 setting rows, 6 paper V2 cards | 16 queries / 3 categories | Accepted after parent inspection | 4601425749c940f2eaa7a852324a542af26659da |
 | T6 | n60/90/120; seed correlation and missing-unit sensitivity | 8 paper V2 + 5 official references; 15 tables / 5,154 rows | 12 queries / 3 categories | Accepted after parent inspection | a0ff0a00fe0cbe0b5f1b13d6a1c445c5084a2fe1 |
-| T7 | 12 evaluation sections from 2024-2026 eligible venues | 15 own V2 papers and evaluation rows | 12 genuine discovery queries / 3 categories; 3 inspections excluded | Accepted after fresh query-gap check | a54377f plus query-gap commit |
-| T8 | 25 distinct validity threats | 68 mechanisms; 14 own V2 papers | 11 successful queries / 4 categories (17 attempted) | Accepted after parent inspection | 074250957757faa9555e9dcd2b79658bcc6269bd |
+| T7 | 12 evaluation sections from 2024-2026 eligible venues | 15 own V2 papers and evaluation rows | 12 genuine discovery queries / 3 categories; 3 inspections excluded | Accepted after fresh query-gap check | a54377f plus116f423a63a4af9732461656c47959c519b1fba8 |
+| T8 | 25 distinct validity threats | 68 mechanisms; 14 own V2 papers | 11 substantive discovery queries / 3 categories; 4 inspections excluded | Accepted after fresh query-gap check | 0742509 plus3f25198e22bcd9a04c10737d9832756c9e88b291 |
 
 ## Evidence inspection and gaps
 
@@ -131,3 +131,7 @@ Parent read the new three query requests, complete returned-result screening and
 ## T8 strict discovery-floor closure, 2026-10-20
 
 Fresh sol/high gap agent preserved the original author receipts and reclassified Q13-Q16 as inspections. Parent read the complete gap audit, eleven counted query intents and all48 new lead-screening decisions; independently matched every new raw-response/request hash and checked the recorded existing receipt hashes. Six new searches add four substantive intents (safety-filter missingness, forgery/null calibration, perceptual-metric shift sensitivity, dataset duplication/memorization); Q18/Q20 are excluded. Corrected acceptance is11 successful substantive discovery queries across web/OpenAlex/arXiv API,23 total requests including four inspections. Source/threat acceptance remains14 own V2 papers/68 distinct threats. No empirical claim rests on the new metadata-only leads. RAN and two adjacent recent leads are passed to the fresh T1 gap agent; T6 conservative intent strengthening remains pending.
+
+## T1 RAN late-source acceptance, 2026-10-20
+
+Parent read the new complete RAN card and all three scope/access cards, and independently checked cached primary experimental conditions and official Tables2/3. RAN is a2026 non-diffusion learned-removal benchmark:23 direct/40 own V2/40 settings rows; the earlier39 source dictionaries, evidence, cards and rows remain unchanged. Parent reran check-ran-gap.py: eight new primary/derived hashes, two scope-preview hashes, preservation checks and skill validation PASS with zero errors/warnings. Its WAM BER.494 is not a calibrated removal rate; unknown WAM-specific denominator/checkpoint and I_co/I_w quality-reference conflict remain explicit. Residual Transferability and MSAT are excluded with primary method/evaluation scope reasons; Chen2025 is a subscription-preview access gap, never V2. No added channel, outcome or paid proposal. Existing34 searches/24 intents/3 categories unchanged. Review2 draft is preserved with open coverage blockers pending same-reviewer closure.

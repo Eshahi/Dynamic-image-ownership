@@ -1,8 +1,8 @@
 {
   "date": "2026-10-20",
   "scope": "T1 documentary-only Stage1b; author self-check, pending parent acceptance",
-  "unique_v2_sources": 39,
-  "qualifying_direct_sources": 22,
+  "unique_v2_sources": 40,
+  "qualifying_direct_sources": 23,
   "mandatory_floor": 15,
   "floor_met": true,
   "qualifying_sources": [
@@ -203,6 +203,15 @@
       "verification": "V2_method_and_evaluation_read",
       "v2_sections": "Own T1 recheck: Sections 4.1--4.3 stealthy/minimum-distortion methods; defense statement/assumptions; Sections 6.1--6.2, Tables 2--3; Appendix C.1--C.2, Table 4. Cached lines 1665--1940, 3865--4460 and 5025--5220.",
       "sha256": "43ebc1cb2074d56682e7e2d4754c139cd4701cce6acdb47bccd4830cb8fbe710"
+    },
+    {
+      "id": "ran",
+      "title": "RAN: A randomness-anchored watermark attacking network with stealth and effectiveness",
+      "canonical_url": "https://www.nature.com/articles/s41598-026-52298-w",
+      "card_path": "cards/ran.md",
+      "verification": "V2_method_and_evaluation_read",
+      "sha256": "215e56e99633bd9b7b2f645d3d1a0c101338257162ea6fdc91eb75ebd3635e9e",
+      "v2_sections": "Methods: architecture/losses, Equations 1--6; Experiments: datasets/training/metrics, Equations 7--11; Results and Discussion. Cached main text lines 78--163; all rows of separately cached official Tables 1--3."
     }
   ],
   "supplemental_v2": [
@@ -323,9 +332,12 @@
     "WIBE duplicate software ofWARP",
     "Inaccessible/metadata-only leads",
     "Repository metadata alone",
-    "Failed API/search attempts"
+    "Failed API/search attempts",
+    "Residual Transferability: primary method/evaluation scope excluded (forgery).",
+    "MSAT-LDM: primary method/evaluation scope excluded (construction/distortions/SD1.5 adaptation).",
+    "Chen2025 self-supervised removal: subscription preview, no method/evaluation access."
   ],
-  "settings_table_rows": 39,
+  "settings_table_rows": 40,
   "settings_fields": [
     "mechanism",
     "models",
@@ -356,5 +368,14 @@
     "search_events_added": 5,
     "intents_added": 4,
     "note": "BrushOff targeted query returned no usable independent hit and is uncounted. Original three categories remain unchanged. New editing benchmark included despite adjacent threat; translated taxonomy original not counted twice."
+  },
+  "ran_gap": {
+    "base_commit": "ece403e",
+    "accepted39_unchanged": true,
+    "added_v2": 1,
+    "added_direct": 1,
+    "scope_excluded": 2,
+    "inaccessible_recent_removal_added": 1,
+    "discovery_floor_unchanged": "34 successful queries,24 substantive intents,3 categories; exact-primary access checks not counted as new discovery"
   }
 }

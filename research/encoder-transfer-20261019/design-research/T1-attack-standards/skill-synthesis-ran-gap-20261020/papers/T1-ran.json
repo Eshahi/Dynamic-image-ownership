@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "T1-ran",
+  "citation_key": "T1_ran",
+  "doi": "10.1038/s41598-026-52298-w",
+  "canonical_url": "https://www.nature.com/articles/s41598-026-52298-w",
+  "title": "RAN: A randomness-anchored watermark attacking network with stealth and effectiveness",
+  "authors": [
+    "Fan Li",
+    "Du Li",
+    "Kunqi Li",
+    "Yanyu Jiang",
+    "Yanlin Leng",
+    "Kai Zhou",
+    "Yong Tang"
+  ],
+  "year": 2026,
+  "venue": "Scientific Reports 16, article 21334 (2026)",
+  "access_date": "2026-10-20",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": ".thesis-build/q1-research-20261018/cache/T1-1b-ran-gap/ran.html",
+    "sha256": "215e56e99633bd9b7b2f645d3d1a0c101338257162ea6fdc91eb75ebd3635e9e"
+  },
+  "limitations": [
+    "Only two embedding schemes; traditional mean BER.240 does not establish random/chance decoding despite the randomness objective. WAM near-.5 mean BER is not calibrated image-level removal. Captions of Tables2--3 identify I_co versus I_a, while the metric definitions and narrative use I_w versus I_a: quality-reference conflict unresolved. Exact WAM checkpoint/native settings, random support/seeds, extractor-gradient handling and WAM-specific n are NR. No forensic stealth test; no F5 or independent-encoder transfer evidence; reported inference .022s on their setup is not a server cost estimate."
+  ]
+}
