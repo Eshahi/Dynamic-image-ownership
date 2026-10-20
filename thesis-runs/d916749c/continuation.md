@@ -128,3 +128,7 @@ F5 r2 wins the fixed selection rule: E3 and F5 tie at 24/24 on SD2.1 .2. H-free 
 ## 2026-10-17: Registry confirmation package preview
 
 The clarified558239d scorer and layout-only adapter are frozen. DIV2K300 and60 footage pairs are reserved from metadata; held-out pixels remain unopened. Real8-source development rehearsal completed1170s and1464 units after stop/resume, retaining one safety rejection;21 checkpoint rows stayed unchanged. Final142 tests pass; wrapper reproduction and endpoint replay agree. Estimate12.3h,15.4h with margin,10.8GiB (20GiB reserved). Acronis reboot risk is recorded and process birth identity protects resume. One independent package review closes this package. Stop at exact-manifest preview: user approval is required; no approval file or confirmation was created.
+
+## 2026-10-20: Independent-encoder stage 1 complete
+
+All eight V2 design topics are integrated and pushed. A fresh Astra/xhigh review accepts the bounded study; four implementation/portability findings are closed and25 CPU tests pass independently. Freeze c2384e7 retains n60, F5/v5/WAM/VINE-R, SD1.5/SDXL .1/.2/.4, VAE/resize controls and one rinse; gated FLUX is excluded. The7500-unit core estimates10-14h under15h/USD15. Eight optional proposals remain unapproved. No server, GPU science, weights, real-mark outcome or held-out pixels were used. Stop for the user's protocol/proposal decision and later SSH message; no automatic stage2 or confirmation.

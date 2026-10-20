@@ -5,7 +5,7 @@ F5 r2 remains the selected image-domain encoder-directed writer; no new M1a or t
 Prior unseen SD2.1 development C was 24/24 at strength .2; this did not establish independent-encoder transfer.
 Next experiment is the independent-encoder development study in research/encoder-transfer-20261019/BRIEF.md.
 
-## Stage 1 frozen, release in progress
+## Stage 1 complete: stop for the user
 
 Worktree: C:/Users/Soroush/.codex/worktrees/codex-encoder-transfer.
 Branch: codex/encoder-transfer-20261019. Eight research topics were individually committed and pushed through eb517ed.
@@ -13,7 +13,7 @@ Comprehensive V2 design research, protocol, configuration, tested code, pinned a
 The single fresh Astra/xhigh independent reviewer accepted this bounded development study with warnings and no open blockers.
 Four findings were corrected: readout preservation, unavailable-comparison inference, nonfinite guards and Windows/Linux manifest hashes.
 All 25 final CPU tests passed: author 3.004s and independent reviewer 3.021s, including Windows/Linux LF/hash portability.
-The design is frozen before outcomes. Final commit and remote verification are in progress; then stop for the user.
+The reviewed freeze is commit c2384e7, pushed to origin and verified against the remote branch. Stage 1 is complete.
 N is 60 development sources, with disjoint smoke IDs 1790 and 1822; selection inspected metadata and hashes only.
 Core arms are F5 r2, v5 r3, WAM and user-approved VINE-R. No registry is used in this study.
 R0 is SD1.5 and R1 is independent-encoder SDXL, strengths .1/.2/.4, seeds 12/13/14.
