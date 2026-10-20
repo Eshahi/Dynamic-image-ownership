@@ -350,3 +350,7 @@
 - 2026-10-19 Codex T6 push confirmed ce83e29..be47804. T7 synthesis recovered from stopped agent; parent completed primary-source reporting cards, coverage log and manifest, reconciled extra-tests policy with T6. T7 push be47804..this commit, confirmation follows. No outcomes.
 
 - 2026-10-19 Codex T7 push confirmed be47804..4fa8cf4. Parent completed T8 validity register after assigned agent's usage-limit failure, with V2 evidence-map reuse and live primary-source searches. T8 push 4fa8cf4..this commit, confirmation follows. Independent review remains unperformed.
+
+- 2026-10-19 Codex T8 push confirmed 4fa8cf4..eb517ed. Integrated stage-1 research/protocol/budget and CPU-only implementation prepared for review. Escalation: one fresh gpt-6-astra xhigh independent design reviewer, explicit BRIEF section1a requirement; review candidate only, no outcomes, no server/GPU/weights. Final freeze is blocked until actual review and corrections.
+
+- 2026-10-20 07:58 UTC Codex agent stage-1 freeze: single fresh Astra/xhigh independent review accepted with warnings, three blockers corrected, 24 CPU tests passed independently. Frozen n60/four arms/7500 units, no scientific outcomes or server. Planned origin push on codex/encoder-transfer-20261019: eb517ed..this freeze commit; actual SHA/range confirmation follows after remote verification.

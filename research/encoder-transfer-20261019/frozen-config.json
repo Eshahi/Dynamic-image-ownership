@@ -1,0 +1,235 @@
+{
+  "schema": "encoder-transfer-v1",
+  "status": "frozen-after-independent-review",
+  "data_split": "development",
+  "n": 60,
+  "sources_file": "research/encoder-transfer-20261019/source-list.json",
+  "sources_sha256": "490d3d04efcf6e02a61eeadeacb7494313d2a5607b84fd57a7a2c0e6faea8b72",
+  "asset_plan_file": "research/encoder-transfer-20261019/asset-download-plan.json",
+  "asset_plan_sha256": "e7e742094fa1da7d0536f2f25820b963ce1d14ceb8a9a201687b9ec03ac3df0d",
+  "profile_file": "experiments/c4-v5-two-tier-regeneration-v1/profile.json",
+  "profile_sha256": "25f9cb188368be04cd8d2b95ea1066872d3ca70908bd554af01ff93a53b40723",
+  "arms": [
+    "f5-r2",
+    "v5-r3",
+    "wam",
+    "vine-r"
+  ],
+  "seeds": [
+    12,
+    13,
+    14
+  ],
+  "message_seed": 20261019,
+  "wrong_message_seed": 20261020,
+  "implementation_seed": 42,
+  "payload_bits": {
+    "wam": 32,
+    "vine-r": 100
+  },
+  "f5": {
+    "psnr_db": 52.0,
+    "steps": 150,
+    "target_margin": 4.0,
+    "mask_power": 0.0,
+    "band": [
+      4,
+      32
+    ],
+    "whitening": 1.0,
+    "refine_rounds": 1,
+    "binding": "soft",
+    "semantic_views": 7
+  },
+  "channels": [
+    {
+      "id": "R0",
+      "kind": "diffusion",
+      "family": "sd15",
+      "resolution": 512,
+      "steps": 20,
+      "prompt": "",
+      "guidance_scale": 1.0,
+      "strengths": [
+        0.1,
+        0.2,
+        0.4
+      ],
+      "seeds": [
+        12,
+        13,
+        14
+      ],
+      "scheduler_overrides": {
+        "num_train_timesteps": 1000,
+        "beta_start": 0.00085,
+        "beta_end": 0.012,
+        "beta_schedule": "scaled_linear",
+        "trained_betas": null,
+        "clip_sample": false,
+        "set_alpha_to_one": false,
+        "steps_offset": 1,
+        "prediction_type": "epsilon",
+        "thresholding": false,
+        "timestep_spacing": "leading",
+        "rescale_betas_zero_snr": false
+      }
+    },
+    {
+      "id": "R1",
+      "kind": "diffusion",
+      "family": "sdxl",
+      "resolution": 1024,
+      "steps": 20,
+      "prompt": "",
+      "guidance_scale": 1.0,
+      "strengths": [
+        0.1,
+        0.2,
+        0.4
+      ],
+      "seeds": [
+        12,
+        13,
+        14
+      ],
+      "scheduler_overrides": {
+        "num_train_timesteps": 1000,
+        "beta_start": 0.00085,
+        "beta_end": 0.012,
+        "beta_schedule": "scaled_linear",
+        "trained_betas": null,
+        "clip_sample": false,
+        "set_alpha_to_one": false,
+        "steps_offset": 1,
+        "prediction_type": "epsilon",
+        "thresholding": false,
+        "timestep_spacing": "leading",
+        "rescale_betas_zero_snr": false
+      }
+    },
+    {
+      "id": "D1",
+      "kind": "vae",
+      "family": "sdxl",
+      "base_channel": "R1",
+      "resolution": 1024
+    },
+    {
+      "id": "X1",
+      "kind": "resize",
+      "passes": 1
+    },
+    {
+      "id": "X2",
+      "kind": "resize",
+      "passes": 2
+    },
+    {
+      "id": "R1-rinse",
+      "kind": "rinse",
+      "family": "sdxl",
+      "base_channel": "R1",
+      "resolution": 1024,
+      "strengths": [
+        0.1
+      ],
+      "pass_strength": 0.1,
+      "seeds": [
+        12,
+        13,
+        14
+      ],
+      "seed_offset": 100
+    },
+    {
+      "id": "R2",
+      "enabled": false,
+      "kind": "diffusion",
+      "family": "flux-schnell",
+      "reason": "Official repository gated=auto; anonymous download fails ungated condition"
+    },
+    {
+      "id": "D2",
+      "enabled": false,
+      "kind": "vae",
+      "family": "flux-schnell",
+      "reason": "R2 unavailable"
+    }
+  ],
+  "packages": {
+    "torch": "2.7.1+cu128",
+    "torchvision": "0.22.1+cu128",
+    "diffusers": "0.35.1",
+    "transformers": "4.53.3",
+    "huggingface-hub": "0.34.4",
+    "peft": "0.17.0",
+    "accelerate": "1.10.1",
+    "safetensors": "0.6.2",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "Pillow": "12.3.0",
+    "lpips": "0.1.4",
+    "omegaconf": "2.3.0",
+    "einops": "0.8.0",
+    "timm": "1.0.11",
+    "pycocotools": "2.0.8",
+    "opencv-python-headless": "4.10.0.84",
+    "scikit-image": "0.24.0",
+    "scikit-learn": "1.5.2",
+    "ftfy": "6.3.1",
+    "regex": "2025.7.34",
+    "tokenizers": "0.21.2"
+  },
+  "primary": {
+    "channel": "R1",
+    "strength": 0.2,
+    "endpoint": "C",
+    "aggregation": "2 of 3 seeds per source",
+    "negative_endpoint": "A",
+    "negative_scope": "all active R1 outputs, no majority",
+    "transfer_cut": 45,
+    "fail_below": 30,
+    "margin": 3
+  },
+  "budget": {
+    "max_instance_hours": 15,
+    "max_usd": 15,
+    "retrieval_stop_reserve_seconds": 1800,
+    "drop_order": [
+      "R2",
+      "D2",
+      "strength_0.1_with_dependent_rinse"
+    ],
+    "protected": [
+      "R0 .2/.4",
+      "R1 .2/.4"
+    ]
+  },
+  "reporting": {
+    "lpips_bins": [
+      0,
+      0.05,
+      0.1,
+      0.2,
+      0.3,
+      0.5,
+      null
+    ],
+    "attack_calipers": {
+      "psnr_db": 1,
+      "ssim_rgb": 0.02,
+      "lpips": 0.02
+    },
+    "embedding_calipers": {
+      "psnr_db": 1,
+      "ssim_rgb": 0.01,
+      "lpips": 0.01
+    },
+    "secondary_inference": "none",
+    "primary_sign_holm_family": 3,
+    "human_visual_assessment": "missing"
+  },
+  "freeze_utc": "2026-10-20T08:01:29.605632+00:00",
+  "design_review_file": "research/encoder-transfer-20261019/design-review.md"
+}

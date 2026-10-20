@@ -1,0 +1,459 @@
+{
+  "schema": "encoder-transfer-assets-v1",
+  "stage1": "metadata only, no runnable upstream code/weights downloaded",
+  "files": [
+    {
+      "path": "sdxl/model_index.json",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/model_index.json",
+      "sha256": "6d7b93508390ab91ac5bfbe4aeb4dc2d83f7bb1b05fb069d714b5b0c75f70d44",
+      "size_bytes": 609,
+      "license": "CreativeML Open RAIL++-M"
+    },
+    {
+      "path": "sdxl/scheduler/scheduler_config.json",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/scheduler/scheduler_config.json",
+      "sha256": "af3e45a949aff8b8341ab8b811429ec03fee857a700a1d9477363e4fff9666e2",
+      "size_bytes": 479,
+      "license": "CreativeML Open RAIL++-M"
+    },
+    {
+      "path": "sdxl/text_encoder/config.json",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/text_encoder/config.json",
+      "sha256": "39b8b2e4b1949e36969caa425b6c81c68bace99198dd9078ce05d16ad401fe7f",
+      "size_bytes": 565,
+      "license": "CreativeML Open RAIL++-M"
+    },
+    {
+      "path": "sdxl/text_encoder/model.fp16.safetensors",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/text_encoder/model.fp16.safetensors",
+      "sha256": "660c6f5b1abae9dc498ac2d21e1347d2abdb0cf6c0c0c8576cd796491d9a6cdd",
+      "size_bytes": 246144152,
+      "license": "CreativeML Open RAIL++-M"
+    },
+    {
+      "path": "sdxl/text_encoder_2/config.json",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/text_encoder_2/config.json",
+      "sha256": "a892d1c3a69a7e9247a24de2bc1d5891e3109a54696e53be20093af671072c34",
+      "size_bytes": 575,
+      "license": "CreativeML Open RAIL++-M"
+    },
+    {
+      "path": "sdxl/text_encoder_2/model.fp16.safetensors",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/text_encoder_2/model.fp16.safetensors",
+      "sha256": "ec310df2af79c318e24d20511b601a591ca8cd4f1fce1d8dff822a356bcdb1f4",
+      "size_bytes": 1389382176,
+      "license": "CreativeML Open RAIL++-M"
+    },
+    {
+      "path": "sdxl/tokenizer/merges.txt",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/tokenizer/merges.txt",
+      "sha256": "9fd691f7c8039210e0fced15865466c65820d09b63988b0174bfe25de299051a",
+      "size_bytes": 524619,
+      "license": "CreativeML Open RAIL++-M"
+    },
+    {
+      "path": "sdxl/tokenizer/special_tokens_map.json",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/tokenizer/special_tokens_map.json",
+      "sha256": "c4864a9376a8401918425bed71fc14fc0e81f9b59ec45c1cf96cccb2df508eac",
+      "size_bytes": 472,
+      "license": "CreativeML Open RAIL++-M"
+    },
+    {
+      "path": "sdxl/tokenizer/tokenizer_config.json",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/tokenizer/tokenizer_config.json",
+      "sha256": "19d7b034cb0cc3ce9766c2231373ab8aa8991fc72e2c8f76558bfaae3de0d563",
+      "size_bytes": 737,
+      "license": "CreativeML Open RAIL++-M"
+    },
+    {
+      "path": "sdxl/tokenizer/vocab.json",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/tokenizer/vocab.json",
+      "sha256": "e089ad92ba36837a0d31433e555c8f45fe601ab5c221d4f607ded32d9f7a4349",
+      "size_bytes": 1059962,
+      "license": "CreativeML Open RAIL++-M"
+    },
+    {
+      "path": "sdxl/tokenizer_2/merges.txt",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/tokenizer_2/merges.txt",
+      "sha256": "9fd691f7c8039210e0fced15865466c65820d09b63988b0174bfe25de299051a",
+      "size_bytes": 524619,
+      "license": "CreativeML Open RAIL++-M"
+    },
+    {
+      "path": "sdxl/tokenizer_2/special_tokens_map.json",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/tokenizer_2/special_tokens_map.json",
+      "sha256": "f118ab3a983206e4f32583448de6bd6aae4ee21869135cef1f5848a753cdaab6",
+      "size_bytes": 460,
+      "license": "CreativeML Open RAIL++-M"
+    },
+    {
+      "path": "sdxl/tokenizer_2/tokenizer_config.json",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/tokenizer_2/tokenizer_config.json",
+      "sha256": "c9d23941f76a41cbd50eda9290f57be7828f0a7a677939e9ef181f7e12bd1bdf",
+      "size_bytes": 725,
+      "license": "CreativeML Open RAIL++-M"
+    },
+    {
+      "path": "sdxl/tokenizer_2/vocab.json",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/tokenizer_2/vocab.json",
+      "sha256": "e089ad92ba36837a0d31433e555c8f45fe601ab5c221d4f607ded32d9f7a4349",
+      "size_bytes": 1059962,
+      "license": "CreativeML Open RAIL++-M"
+    },
+    {
+      "path": "sdxl/unet/config.json",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/unet/config.json",
+      "sha256": "30ebc70750223e59006f7f2b4e1e6c102570aa19a9c4ae3e1fbe7591332dbae6",
+      "size_bytes": 1680,
+      "license": "CreativeML Open RAIL++-M"
+    },
+    {
+      "path": "sdxl/unet/diffusion_pytorch_model.fp16.safetensors",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/unet/diffusion_pytorch_model.fp16.safetensors",
+      "sha256": "83e012a805b84c7ca28e5646747c90a243c65c8ba4f070e2d7ddc9d74661e139",
+      "size_bytes": 5135149760,
+      "license": "CreativeML Open RAIL++-M"
+    },
+    {
+      "path": "sdxl/vae/config.json",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/vae/config.json",
+      "sha256": "0b331c8ac22ded5f9997a144a575c1d113d6169aff262c353f39015bd24a6264",
+      "size_bytes": 642,
+      "license": "CreativeML Open RAIL++-M"
+    },
+    {
+      "path": "sdxl/vae/diffusion_pytorch_model.fp16.safetensors",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/462165984030d82259a11f4367a4eed129e94a7b/vae/diffusion_pytorch_model.fp16.safetensors",
+      "sha256": "bcb60880a46b63dea58e9bc591abe15f8350bde47b405f9c38f4be70c6161e68",
+      "size_bytes": 167335342,
+      "license": "CreativeML Open RAIL++-M"
+    },
+    {
+      "path": "a6/sd15-fp16/feature_extractor/preprocessor_config.json",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/feature_extractor/preprocessor_config.json",
+      "sha256": "2a1da83b5e1032aaeef397552ddb408dca0d8cd1dc58f61bf6abf38d6f33a0a2",
+      "size_bytes": 342,
+      "license": "CreativeML OpenRAIL-M"
+    },
+    {
+      "path": "a6/sd15-fp16/model_index.json",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/model_index.json",
+      "sha256": "e2f6f22e274374010aec30c79eb2d6e53fff4a36ac0225523a92cb2d41a83347",
+      "size_bytes": 541,
+      "license": "CreativeML OpenRAIL-M"
+    },
+    {
+      "path": "a6/sd15-fp16/safety_checker/config.json",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/safety_checker/config.json",
+      "sha256": "5dd77a06cbd9b155060bd58deb81ffd1aafc1c6d7970acac674c1128bd4edfe2",
+      "size_bytes": 4723,
+      "license": "CreativeML OpenRAIL-M"
+    },
+    {
+      "path": "a6/sd15-fp16/safety_checker/model.fp16.safetensors",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/safety_checker/model.fp16.safetensors",
+      "sha256": "08902f19b1cfebd7c989f152fc0507bef6898c706a91d666509383122324b511",
+      "size_bytes": 608018440,
+      "license": "CreativeML OpenRAIL-M"
+    },
+    {
+      "path": "a6/sd15-fp16/scheduler/scheduler_config.json",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/scheduler/scheduler_config.json",
+      "sha256": "699cce92eb7c122e2eb7dfdea78e6187fda76a5ed4a8e42319b85610e620e091",
+      "size_bytes": 308,
+      "license": "CreativeML OpenRAIL-M"
+    },
+    {
+      "path": "a6/sd15-fp16/text_encoder/config.json",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/text_encoder/config.json",
+      "sha256": "845df614cb9327ae7bbea027316246fae917827407da6df13572e41b5f93b4cc",
+      "size_bytes": 617,
+      "license": "CreativeML OpenRAIL-M"
+    },
+    {
+      "path": "a6/sd15-fp16/text_encoder/model.fp16.safetensors",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/text_encoder/model.fp16.safetensors",
+      "sha256": "77795e2023adcf39bc29a884661950380bd093cf0750a966d473d1718dc9ef4e",
+      "size_bytes": 246144864,
+      "license": "CreativeML OpenRAIL-M"
+    },
+    {
+      "path": "a6/sd15-fp16/tokenizer/merges.txt",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/tokenizer/merges.txt",
+      "sha256": "9fd691f7c8039210e0fced15865466c65820d09b63988b0174bfe25de299051a",
+      "size_bytes": 524619,
+      "license": "CreativeML OpenRAIL-M"
+    },
+    {
+      "path": "a6/sd15-fp16/tokenizer/special_tokens_map.json",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/tokenizer/special_tokens_map.json",
+      "sha256": "c4864a9376a8401918425bed71fc14fc0e81f9b59ec45c1cf96cccb2df508eac",
+      "size_bytes": 472,
+      "license": "CreativeML OpenRAIL-M"
+    },
+    {
+      "path": "a6/sd15-fp16/tokenizer/tokenizer_config.json",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/tokenizer/tokenizer_config.json",
+      "sha256": "00439066fcba73de57644cf41e4e3b9f2dbb09d7f3fc2005898ba52399045882",
+      "size_bytes": 806,
+      "license": "CreativeML OpenRAIL-M"
+    },
+    {
+      "path": "a6/sd15-fp16/tokenizer/vocab.json",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/tokenizer/vocab.json",
+      "sha256": "e089ad92ba36837a0d31433e555c8f45fe601ab5c221d4f607ded32d9f7a4349",
+      "size_bytes": 1059962,
+      "license": "CreativeML OpenRAIL-M"
+    },
+    {
+      "path": "a6/sd15-fp16/unet/config.json",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/unet/config.json",
+      "sha256": "78f474de6bab3d893868f37be97b636ae65c0df3073ed3256ca458ff599b5f96",
+      "size_bytes": 743,
+      "license": "CreativeML OpenRAIL-M"
+    },
+    {
+      "path": "a6/sd15-fp16/unet/diffusion_pytorch_model.fp16.safetensors",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/unet/diffusion_pytorch_model.fp16.safetensors",
+      "sha256": "c83908253f9a64d08c25fc90874c9c8aef9a329ce1ca5fb909d73b0c83d1ea21",
+      "size_bytes": 1719125304,
+      "license": "CreativeML OpenRAIL-M"
+    },
+    {
+      "path": "a6/sd15-fp16/vae/config.json",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/vae/config.json",
+      "sha256": "786a7d21647ddea6a04b9675c03d3cb45e90a2f3c6da5fbda2c54ade040036de",
+      "size_bytes": 547,
+      "license": "CreativeML OpenRAIL-M"
+    },
+    {
+      "path": "a6/sd15-fp16/vae/diffusion_pytorch_model.fp16.safetensors",
+      "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/resolve/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/vae/diffusion_pytorch_model.fp16.safetensors",
+      "sha256": "4fbcf0ebe55a0984f5a5e00d8c4521d52359af7229bb4d81890039d2aa16dd7c",
+      "size_bytes": 167335342,
+      "license": "CreativeML OpenRAIL-M"
+    },
+    {
+      "path": "a6/clip/ViT-B-32.pt",
+      "size_bytes": 353976522,
+      "sha256": "40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af",
+      "url": "https://openaipublic.azureedge.net/clip/models/40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af/ViT-B-32.pt",
+      "license": "MIT (CLIP) / BSD-3-Clause (torchvision)"
+    },
+    {
+      "path": "a6/alexnet/alexnet-owt-7be5be79.pth",
+      "size_bytes": 244408911,
+      "sha256": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02",
+      "url": "https://download.pytorch.org/models/alexnet-owt-7be5be79.pth",
+      "license": "MIT (CLIP) / BSD-3-Clause (torchvision)"
+    },
+    {
+      "path": "vine/sd-turbo/model_index.json",
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/model_index.json",
+      "sha256": "679fe7c2a03a419a046f4330bb2e32570d96e7a6da51b7df147d4a87bc7f775c",
+      "size_bytes": 616,
+      "license": "VINE author research code terms / HF card MIT; SD-Turbo Community License 2024"
+    },
+    {
+      "path": "vine/sd-turbo/scheduler/scheduler_config.json",
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/scheduler/scheduler_config.json",
+      "sha256": "5599066c725fc2747a201fa3165ad7c8c3de3be629ce325451752e8f94c0d1ae",
+      "size_bytes": 553,
+      "license": "VINE author research code terms / HF card MIT; SD-Turbo Community License 2024"
+    },
+    {
+      "path": "vine/sd-turbo/text_encoder/config.json",
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/text_encoder/config.json",
+      "sha256": "9f6935d3d41bf8ce49b1d7ed912b29e770649d1aa3f3972215284f9397cd97d2",
+      "size_bytes": 618,
+      "license": "VINE author research code terms / HF card MIT; SD-Turbo Community License 2024"
+    },
+    {
+      "path": "vine/sd-turbo/text_encoder/model.safetensors",
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/text_encoder/model.safetensors",
+      "sha256": "67e013543d4fac905c882e2993d86a2d454ee69dc9e8f37c0c23d33a48959d15",
+      "size_bytes": 1361596304,
+      "license": "VINE author research code terms / HF card MIT; SD-Turbo Community License 2024"
+    },
+    {
+      "path": "vine/sd-turbo/tokenizer/merges.txt",
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/tokenizer/merges.txt",
+      "sha256": "9fd691f7c8039210e0fced15865466c65820d09b63988b0174bfe25de299051a",
+      "size_bytes": 524619,
+      "license": "VINE author research code terms / HF card MIT; SD-Turbo Community License 2024"
+    },
+    {
+      "path": "vine/sd-turbo/tokenizer/special_tokens_map.json",
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/tokenizer/special_tokens_map.json",
+      "sha256": "c2d0fb8b86ad86b1f46134d4a5f93fd1e688c932a78efc8d149087c33a53ad06",
+      "size_bytes": 574,
+      "license": "VINE author research code terms / HF card MIT; SD-Turbo Community License 2024"
+    },
+    {
+      "path": "vine/sd-turbo/tokenizer/tokenizer_config.json",
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/tokenizer/tokenizer_config.json",
+      "sha256": "516314ccab66918d7cb647480ac27abd3520d14e1e5825aac99f50c851c16071",
+      "size_bytes": 855,
+      "license": "VINE author research code terms / HF card MIT; SD-Turbo Community License 2024"
+    },
+    {
+      "path": "vine/sd-turbo/tokenizer/vocab.json",
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/tokenizer/vocab.json",
+      "sha256": "e089ad92ba36837a0d31433e555c8f45fe601ab5c221d4f607ded32d9f7a4349",
+      "size_bytes": 1059962,
+      "license": "VINE author research code terms / HF card MIT; SD-Turbo Community License 2024"
+    },
+    {
+      "path": "vine/sd-turbo/unet/config.json",
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/unet/config.json",
+      "sha256": "ca09d494527ebe13343006e22b4468d45bf12aa34e76cf03639b6dbba1fb5c6d",
+      "size_bytes": 1867,
+      "license": "VINE author research code terms / HF card MIT; SD-Turbo Community License 2024"
+    },
+    {
+      "path": "vine/sd-turbo/unet/diffusion_pytorch_model.safetensors",
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/unet/diffusion_pytorch_model.safetensors",
+      "sha256": "438da6db739c8651ec4152341b8133d6896db452ea27afdb6b9b0344f0c40532",
+      "size_bytes": 3463726504,
+      "license": "VINE author research code terms / HF card MIT; SD-Turbo Community License 2024"
+    },
+    {
+      "path": "vine/sd-turbo/vae/config.json",
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/vae/config.json",
+      "sha256": "699a58ef7ecf3bffa201a507a3eaa3eed7efabab457ac547bf82df798b52a9be",
+      "size_bytes": 655,
+      "license": "VINE author research code terms / HF card MIT; SD-Turbo Community License 2024"
+    },
+    {
+      "path": "vine/sd-turbo/vae/diffusion_pytorch_model.safetensors",
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/vae/diffusion_pytorch_model.safetensors",
+      "sha256": "2aa1f43011b553a4cba7f37456465cdbd48aab7b54b9348b890e8058ea7683ec",
+      "size_bytes": 334643268,
+      "license": "VINE author research code terms / HF card MIT; SD-Turbo Community License 2024"
+    },
+    {
+      "path": "vine/encoder/config.json",
+      "url": "https://huggingface.co/Shilin-LU/VINE-R-Enc/resolve/0c255688e032e4318c700c485c0625367b70908c/config.json",
+      "sha256": "5aa84b300e94ca18db89d36a1b6c63fa52567b0d7aa1f6e8a0691c60d0bb8271",
+      "size_bytes": 43,
+      "license": "VINE author research code terms / HF card MIT; SD-Turbo Community License 2024"
+    },
+    {
+      "path": "vine/encoder/model.safetensors",
+      "url": "https://huggingface.co/Shilin-LU/VINE-R-Enc/resolve/0c255688e032e4318c700c485c0625367b70908c/model.safetensors",
+      "sha256": "16bf5f2acf5f7d5f00570431f5dc9dd61a8e95f828a2f68483ffe06448293dd6",
+      "size_bytes": 4019166704,
+      "license": "VINE author research code terms / HF card MIT; SD-Turbo Community License 2024"
+    },
+    {
+      "path": "vine/decoder/config.json",
+      "url": "https://huggingface.co/Shilin-LU/VINE-R-Dec/resolve/0f094b300be71a358f7c1769221f50318f1b4d74/config.json",
+      "sha256": "2e0fb5506df812193402a1de353c45824a6a0ee1bee37c3ff9730c9fd8b3482d",
+      "size_bytes": 63,
+      "license": "VINE author research code terms / HF card MIT; SD-Turbo Community License 2024"
+    },
+    {
+      "path": "vine/decoder/model.safetensors",
+      "url": "https://huggingface.co/Shilin-LU/VINE-R-Dec/resolve/0f094b300be71a358f7c1769221f50318f1b4d74/model.safetensors",
+      "sha256": "9aded1fc22efe47bdafc8f436f81953cd06bde1d6c7242f86bf101c020d7eea0",
+      "size_bytes": 354802864,
+      "license": "VINE author research code terms / HF card MIT; SD-Turbo Community License 2024"
+    },
+    {
+      "path": "wam/source.zip",
+      "url": "https://codeload.github.com/facebookresearch/watermark-anything/zip/2c08af04d037d5667c02f6ddebbda9ff04581c3e",
+      "sha256": "7baaa18c6774d1397207b262cd077f588150e846fada9c7c7b5ce7d0239ef0b6",
+      "size_bytes": 10876097,
+      "license": "MIT"
+    },
+    {
+      "path": "wam/wam_mit.pth",
+      "url": "https://dl.fbaipublicfiles.com/watermark_anything/wam_mit.pth",
+      "sha256": "90ef232384e023bd63245eb0c131abd69d2afc7b8f17a71ccedceb542bf009e2",
+      "size_bytes": 377825938,
+      "license": "MIT"
+    }
+  ],
+  "total_file_bytes": 20206018703,
+  "wam_revision": "2c08af04d037d5667c02f6ddebbda9ff04581c3e",
+  "vine_repository": "https://github.com/Shilin-LU/VINE.git",
+  "vine_revision": "d72f11a93f8de9bc45ef61202b9c8dda2a70cc77",
+  "vine_patch_source_sha256": {
+    "vine/src/vine_turbo.py": "afe0935f6c0e335c9e9c41715b4b96db12d071eb70ecdbdebcd1e226645933e9",
+    "vine/src/model.py": "15e44fd8f98c8db39804e69c4980bb5f6ab0452efc57f6b74d628526470f83f1"
+  },
+  "small_text_receipts": [
+    {
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/model_index.json",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\transfer-integration\\stabilityai_sd-turbo_model_index.json",
+      "bytes": 616,
+      "sha256": "679fe7c2a03a419a046f4330bb2e32570d96e7a6da51b7df147d4a87bc7f775c"
+    },
+    {
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/scheduler/scheduler_config.json",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\transfer-integration\\stabilityai_sd-turbo_scheduler_scheduler_config.json",
+      "bytes": 553,
+      "sha256": "5599066c725fc2747a201fa3165ad7c8c3de3be629ce325451752e8f94c0d1ae"
+    },
+    {
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/text_encoder/config.json",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\transfer-integration\\stabilityai_sd-turbo_text_encoder_config.json",
+      "bytes": 618,
+      "sha256": "9f6935d3d41bf8ce49b1d7ed912b29e770649d1aa3f3972215284f9397cd97d2"
+    },
+    {
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/tokenizer/merges.txt",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\transfer-integration\\stabilityai_sd-turbo_tokenizer_merges.txt",
+      "bytes": 524619,
+      "sha256": "9fd691f7c8039210e0fced15865466c65820d09b63988b0174bfe25de299051a"
+    },
+    {
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/tokenizer/special_tokens_map.json",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\transfer-integration\\stabilityai_sd-turbo_tokenizer_special_tokens_map.json",
+      "bytes": 574,
+      "sha256": "c2d0fb8b86ad86b1f46134d4a5f93fd1e688c932a78efc8d149087c33a53ad06"
+    },
+    {
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/tokenizer/tokenizer_config.json",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\transfer-integration\\stabilityai_sd-turbo_tokenizer_tokenizer_config.json",
+      "bytes": 855,
+      "sha256": "516314ccab66918d7cb647480ac27abd3520d14e1e5825aac99f50c851c16071"
+    },
+    {
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/tokenizer/vocab.json",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\transfer-integration\\stabilityai_sd-turbo_tokenizer_vocab.json",
+      "bytes": 1059962,
+      "sha256": "e089ad92ba36837a0d31433e555c8f45fe601ab5c221d4f607ded32d9f7a4349"
+    },
+    {
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/unet/config.json",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\transfer-integration\\stabilityai_sd-turbo_unet_config.json",
+      "bytes": 1867,
+      "sha256": "ca09d494527ebe13343006e22b4468d45bf12aa34e76cf03639b6dbba1fb5c6d"
+    },
+    {
+      "url": "https://huggingface.co/stabilityai/sd-turbo/resolve/b261bac6fd2cf515557d5d0707481eafa0485ec2/vae/config.json",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\transfer-integration\\stabilityai_sd-turbo_vae_config.json",
+      "bytes": 655,
+      "sha256": "699a58ef7ecf3bffa201a507a3eaa3eed7efabab457ac547bf82df798b52a9be"
+    },
+    {
+      "url": "https://huggingface.co/Shilin-LU/VINE-R-Enc/resolve/0c255688e032e4318c700c485c0625367b70908c/config.json",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\transfer-integration\\Shilin-LU_VINE-R-Enc_config.json",
+      "bytes": 43,
+      "sha256": "5aa84b300e94ca18db89d36a1b6c63fa52567b0d7aa1f6e8a0691c60d0bb8271"
+    },
+    {
+      "url": "https://huggingface.co/Shilin-LU/VINE-R-Dec/resolve/0f094b300be71a358f7c1769221f50318f1b4d74/config.json",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\transfer-integration\\Shilin-LU_VINE-R-Dec_config.json",
+      "bytes": 63,
+      "sha256": "2e0fb5506df812193402a1de353c45824a6a0ee1bee37c3ff9730c9fd8b3482d"
+    }
+  ],
+  "allowance": {
+    "asset_download_bytes": 40000000000,
+    "dependencies_bytes": 20000000000,
+    "other_reserve_bytes": 20000000000,
+    "total_bytes": 80000000000
+  }
+}

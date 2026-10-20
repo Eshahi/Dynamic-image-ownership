@@ -1,26 +1,51 @@
 # Current state
 
-F5 r2 is the selected thesis development method. Step 2 fresh registry evaluation is complete and fails the fixed development gate: D1 source-majority F_R at strength .2 is 30/40 on SD1.5 and 32/40 on SD2.1, below 36/40. All scientific children ended. The independent whole-package review is complete with no blocking finding. The next action is the user's milestone decision; no rescue experiment or held-out run is authorized.
+Updated by Codex agent, 2026-10-20 UTC. MAIN copy is authoritative.
+F5 r2 remains the selected image-domain encoder-directed writer; no new M1a or transfer outcome exists.
+Prior unseen SD2.1 development C was 24/24 at strength .2; this did not establish independent-encoder transfer.
+Next experiment is the independent-encoder development study in research/encoder-transfer-20261019/BRIEF.md.
 
-## Completed October 16-17 steps
+## Stage 1 frozen, release in progress
 
-The fixed step-1 rule selects F5 because E3 and F5 both reach 24/24 majority C on unseen SD2.1 .2; E3 lacks the required three-source advantage. Native v5 reaches 5/24. Strict clean quality passes 24/24 for all three, at unmatched distortion. Exact H and full F remain zero after regeneration. Transfer computation took 3251.016 recorded seconds, including the retained initial SD2.1 load failure. SDXL full generation was omitted prospectively for conservative memory feasibility, not a measured OOM; its VAE control remains. The promised encoder-only comparison was not recorded; encoder sharing remains unresolved.
-The post-hoc M2 sensitivity removes the clean exact-H gate. H-free majority S is 281 versus 278 at .1 (one-sided paired p=.364166) and 278 versus 229 at .2 (p=1.15172e-8). Ungated S is 287/283 and 284/232; exact checked J is 287/80 and 284/17. A .1 advantage is not established; nonsignificance is not equivalence. Retained M2 outputs and the reviewed report remain unchanged.
-The 24-source registry screen passed D1 with F5 .2 majority F_R 22/24 on SD1.5 and 24/24 on SD2.1; D2 and D3 failed. It was consulted development evidence. The initial competing-enrollment scenario completed. Sixty fresh licensed development sources and twenty licensed real near-duplicate pairs were reserved by fixed rules, with 20/40 and 7/13 calibration/evaluation splits and ID/hash exclusions.
-Original fresh calibration failed before threshold freeze on 27 unavailable native D1 vectors. An explicit post-calibration, pre-evaluation amendment verifies native finite weak-detail abstentions and treats them as rejections, retaining full denominators. Features, floor, descriptor choice and threshold rule stayed fixed. Genuine omissions still block; expected safety-blocked negatives remain unresolved. The original failure and 415.907-second cost are preserved. This is amended development evidence, not an unchanged preregistration pass.
-Frozen D1 tau is 0.586548254817741, set by near pair tos-02_3a (maximum cosine 0.5865482548177409). The maximum outside the real-near-duplicate family is 0.05467683669602197, a difference of 0.5318714181217189. No alternative-threshold evaluation or D2 rescue was run.
-Fresh D1 majority F_R at .1/.2/.4 is 35/30/7 of 40 on SD1.5 and 37/32/8 of 40 on SD2.1. Registry observed false accepts are zero, with 819 safety-blocked wrong-source comparisons unresolved. Fingerprint-only accepts 4/13 real near-duplicate evaluation pairs (11 finite, two abstaining); registry accepts none. All 13 near pairs are unmarked with no pointer candidate; this is not instance discrimination conditional on a valid pointer. D1 has 40 planned clean records and 39 searchable ones. All 60 fresh marks satisfy strict clean quality. Full F remains zero after regeneration.
-Fresh competing enrollment completed with 80 planned records. At .2, unique original-owner attribution for exact copy/further regeneration is 28/20 of 40 on SD1.5 and 32/22 on SD2.1; at .4 it is 7/2 and 7/1. Every unique-alpha success has a searchable competing beta record. Fingerprint best-original selection is zero in all cells. No tested beta-unique or ambiguous pointer attribution occurred; missing inputs and native abstentions remain visible. This does not establish arbitrary-owner security.
-Step 2 recorded wall time is 9361.484 seconds; adding 240 seconds of interruption allowance gives 9601.484 charged seconds, below the 14400-second cap. The allowance is not measured compute. Two app restarts left historical running invocation entries; unchanged-code resumes completed evaluation. A Windows status-file-lock failure in the fresh grid was also retained. Free acquisition is excluded from compute charges. Local USD 0; no paid or held-out execution.
+Worktree: C:/Users/Soroush/.codex/worktrees/codex-encoder-transfer.
+Branch: codex/encoder-transfer-20261019. Eight research topics were individually committed and pushed through eb517ed.
+Comprehensive V2 design research, protocol, configuration, tested code, pinned assets and budget/proposals are written.
+The single fresh Astra/xhigh independent reviewer accepted this bounded development study with warnings and no open blockers.
+Four findings were corrected: readout preservation, unavailable-comparison inference, nonfinite guards and Windows/Linux manifest hashes.
+All 25 final CPU tests passed: author 3.004s and independent reviewer 3.021s, including Windows/Linux LF/hash portability.
+The design is frozen before outcomes. Final commit and remote verification are in progress; then stop for the user.
+N is 60 development sources, with disjoint smoke IDs 1790 and 1822; selection inspected metadata and hashes only.
+Core arms are F5 r2, v5 r3, WAM and user-approved VINE-R. No registry is used in this study.
+R0 is SD1.5 and R1 is independent-encoder SDXL, strengths .1/.2/.4, seeds 12/13/14.
+D1 is deterministic SDXL VAE-only; X1/X2 are resize controls; one .1+.1 SDXL rinse is secondary.
+FLUX R2/D2 are excluded because official access is gated; proposals P1-P8 are excluded pending the user's decision.
+Primary F5 R1 .2 source-majority C: at least 45/60 plus complete zero R1 negatives transfers; below 30/60 fails; margin 3.
+The full grid has 7500 units including C0; smoke has 250. Core estimate is 10-14 instance-hours under the 15h/USD15 cap.
+Native GPU compatibility, throughput and memory remain unmeasured. Timing-only smoke may apply only the frozen budget reductions.
+No server, paid compute, GPU science, weight download, real-mark scoring, new outcome or held-out image access occurred.
+Stage 2 requires the user's subsequent decision and SSH message. No held-out run follows automatically.
 
-## Package and decision
+## Preserved registry confirmation result
 
-Journal worktree: C:/Users/Soroush/.codex/worktrees/journal-roadmap/THESIS_GUIDE_OFFLINE_v5. Branch codex/journal-upgrade-plan. Scientific amendment and fresh runs use fd2566c; completed results package d58c63a. The fresh independent Astra/high review covers ef9bc9b..d58c63a and finds no blocker to reporting this bounded negative result. Its three reporting warnings are clarified: unmarked near-pair pointer rejection, unresolved encoder sharing, and descriptor-container versus D1 searchability. Results: research/journal-upgrade-20261009/unseen-regenerator-results.md and registry-verification-results.md; sensitivity: e3-s1-m2-sensitivity.md.
-The registry adds trusted enrolled continuous descriptors and owner/record lookup as detector side information. The real near-duplicate panel is twenty fixed frame pairs from one licensed footage collection, not a population sample. No population FPR, cryptographic authorization, legal ownership, lightweight detector or proposal-faithful latent insertion is established. Ownership transfer, ledgers and rights management remain out of scope.
-The measured frontier supports a bounded negative result for this fixed registry design, not a general impossibility claim. At the milestone the user decides whether to retain this thesis result or authorize a different research direction. No held-out confirmatory execution follows automatically.
+The prior registry design uses trusted enrolled-record side information; this transfer study does not.
+Registry-div2k300-confirm-01 fails overall because E2 fails.
+E1 meets its fixed strength-.2 source-majority criterion: SD1.5 277/300, SD2.1-base 280/300.
+E2 accepts 3/45 operationally different look-alike pairs from 2/16 shots of one film; these are descriptor-only accepts, not demonstrated whole-pipeline forgeries.
+There are zero accepts among 3343081 observed unrelated comparisons, with 65519 planned comparisons missing.
+T4 has zero accepts among 594 observed transfers, six missing of 600, with 297 observed donor groups.
+Pair counts are not independent statistical trials. The strict E3 gate remains false because all banks are incomplete.
+The approved complete-case reading gives zero beta accepts in eight cells of 293-297 sources.
+At strength .4, original attribution is only 81/293 and 81/297; the rest abstain.
+Beta owner detection fails before q/content checks in every completed saved E3 query, so zero-beta does not isolate added record-code benefit.
+Strict clean quality is 291/297 available marks, or 291/300 attempts; human ratings are missing.
+No frozen result, threshold or retained output was changed.
 
-## Retained historical evidence and boundaries
+## Scope and obligations
 
-Historical E3-S1 M1a passed on 12 sources: strict quality and clean exact q/h/F 12/12, minimum PSNR 40.36345 dB, minimum SSIM .95645766, maximum LPIPS .07625771. T3 S/Q/J 36/36 at .1 and 35/36 at .2; matched S 29/29 and 28/28 versus v5 27/29 and 18/28. T4/T5 were not worse on the prescribed panel.
-Frozen E3 M2 local-r3 completed October 13 on 300 sources: 42031 planned records, 41742 completed, 49 blocked regeneration images and 240 dependent unavailable calls. Original gated counts 281/300 versus 151/300 at .1 and 278/300 versus 129/300 at .2 require the sensitivity qualification above. Strict quality 294/300 E3 and 298/300 v5; full H/D/F zero after regeneration. M2 evidence review passed e2ecbe3; human M2 acceptance and visual ratings remain missing.
-Authoritative STATE is this MAIN file. Preserve proposal, claims.csv, source plan, HTML and retained run outputs. Closed reference-free descriptor variants, E3 microvariants, FreqMark retries and new external baselines remain closed. No fabricated human verdict or official lifecycle transition. Final report is Persian.
+T3 regeneration, T4 copy transfer and T5 content collision remain the thesis threat scope; this study tests T3 only.
+Ownership transfer, ledgers and rights management remain product scope. Neither enrollment nor detection proves lawful ownership.
+Original latent insertion, lightweight DCT extraction and CLIP+pHash hypotheses remain open.
+COCO and DIV2K test pools are consumed; future confirmation requires fresh preassigned source groups and a new user decision.
+The prior Q1 dossier is in research/q1-dossier-20261018/; it is not a claim of submission readiness.
+Proposal inputs, claim ledger, source plan, HTML guide and retained run outputs remain protected and unchanged.
+No publication, institutional decision or human approval was produced by this stage.
