@@ -5022,14 +5022,159 @@
       "license": "Not asserted by this receipt; documentary access only, no redistribution; see primary source and topic card",
       "version_or_revision": "Pinned in URL where available; otherwise retrieval snapshot SHA",
       "source_manifest": "research/encoder-transfer-20261019/design-research/T2-encoder-landscape/manifest-receipts-1b.json"
+    },
+    {
+      "url": "https://export.arxiv.org/api/query?search_query=all%3A%22watermark%22+AND+all%3A%22encoder%22+AND+all%3A%22regeneration%22&start=0&max_results=8&sortBy=submittedDate&sortOrder=descending",
+      "sha256": "02ddba898e76fd816d86865a1cff34f5655f1f814369405f73d0b177ce3b7f12",
+      "bytes": 20660,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\A01.xml",
+      "license": "Public discovery metadata; no software/model license inferred; not redistributed as executable assets.",
+      "version_or_revision": "API response captured at recorded UTC",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T4-mechanism/download-receipts.json"
+    },
+    {
+      "url": "https://export.arxiv.org/api/query?search_query=all%3A%22watermark%22+AND+all%3A%22Gaussian%22+AND+all%3A%22bound%22&start=0&max_results=8&sortBy=submittedDate&sortOrder=descending",
+      "sha256": "948e8c6ac117b03a31351befafb539082dc7388489b65d6ba4bca2d1e052531f",
+      "bytes": 21212,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\A02.xml",
+      "license": "Public discovery metadata; no software/model license inferred; not redistributed as executable assets.",
+      "version_or_revision": "API response captured at recorded UTC",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T4-mechanism/download-receipts.json"
+    },
+    {
+      "url": "https://export.arxiv.org/api/query?search_query=all%3A%22adversarial%22+AND+all%3A%22autoencoder%22+AND+all%3A%22robust%22&start=0&max_results=8&sortBy=submittedDate&sortOrder=descending",
+      "sha256": "b4436af0df6a478f8433b515942c072b0579aff35ccd7dbfe0fef930036f0ef7",
+      "bytes": 22471,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\A03.xml",
+      "license": "Public discovery metadata; no software/model license inferred; not redistributed as executable assets.",
+      "version_or_revision": "API response captured at recorded UTC",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T4-mechanism/download-receipts.json"
+    },
+    {
+      "url": "https://api.openalex.org/works?search=watermark+regeneration+encoder+robustness&per-page=8",
+      "sha256": "b8f6553c334184a558ab169d0171bb4f8a2565ed86eb46d6ac8886ea343332d4",
+      "bytes": 156236,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\O01.json",
+      "license": "Public discovery metadata; no software/model license inferred; not redistributed as executable assets.",
+      "version_or_revision": "API response captured at recorded UTC",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T4-mechanism/download-receipts.json"
+    },
+    {
+      "url": "https://api.openalex.org/works?search=adversarial+transferability+Jacobian+alignment&per-page=8",
+      "sha256": "f8eedd2167632030d6eff1ef5254a3f3b6d9764d69c6211be7f98db15bb08abd",
+      "bytes": 172440,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\O02.json",
+      "license": "Public discovery metadata; no software/model license inferred; not redistributed as executable assets.",
+      "version_or_revision": "API response captured at recorded UTC",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T4-mechanism/download-receipts.json"
+    },
+    {
+      "url": "https://api.openalex.org/works?search=latent+frequency+watermark+removal&per-page=8",
+      "sha256": "cacfd0b31c20dc42881714c4794aeaf3bc1f3570ae6ed8fe570b19d55bfe3684",
+      "bytes": 152638,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\O03.json",
+      "license": "Public discovery metadata; no software/model license inferred; not redistributed as executable assets.",
+      "version_or_revision": "API response captured at recorded UTC",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T4-mechanism/download-receipts.json"
+    },
+    {
+      "url": "https://api.github.com/search/repositories?q=watermark+robust+encoder&per_page=6",
+      "sha256": "6a15972a710af940d3f82645196a1c4ebcfb0d33ddecd8ddc667d3a6479a99bf",
+      "bytes": 37349,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\G01.json",
+      "license": "Public discovery metadata; no software/model license inferred; not redistributed as executable assets.",
+      "version_or_revision": "API response captured at recorded UTC",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T4-mechanism/download-receipts.json"
+    },
+    {
+      "url": "https://api.github.com/search/repositories?q=latent+frequency+masking+watermark&per_page=6",
+      "sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f",
+      "bytes": 55,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\G02.json",
+      "license": "Public discovery metadata; no software/model license inferred; not redistributed as executable assets.",
+      "version_or_revision": "API response captured at recorded UTC",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T4-mechanism/download-receipts.json"
+    },
+    {
+      "url": "https://api.github.com/search/repositories?q=diffusion+randomized+smoothing+purification&per_page=6",
+      "sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f",
+      "bytes": 55,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\G03.json",
+      "license": "Public discovery metadata; no software/model license inferred; not redistributed as executable assets.",
+      "version_or_revision": "API response captured at recorded UTC",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T4-mechanism/download-receipts.json"
+    },
+    {
+      "url": "https://arxiv.org/html/2410.20824v1",
+      "sha256": "856524b2eef7dc07efb9f1be26d7e24df834f81bdeca880369a1966f01e1d70e",
+      "bytes": 352766,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\freqmark.html",
+      "license": "arXiv perpetual non-exclusive",
+      "version_or_revision": "2410.20824v1",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T4-mechanism/download-receipts.json"
+    },
+    {
+      "url": "https://arxiv.org/html/2310.00076v2",
+      "sha256": "62263e94c500f1efeb29d9c9a63bf5b6508a52bb923b082ca270892faf18ed83",
+      "bytes": 479727,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\saberi.html",
+      "license": "CC BY 4.0",
+      "version_or_revision": "2310.00076v2",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T4-mechanism/download-receipts.json"
+    },
+    {
+      "url": "https://arxiv.org/html/2410.05470v2",
+      "sha256": "8167b5480d5f4a71a9ec4b298c9c00e26d6b9c9dab98e0935af42a0e071d14df",
+      "bytes": 261736,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\ctrlregen.html",
+      "license": "CC BY-NC-SA 4.0",
+      "version_or_revision": "2410.05470v2",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T4-mechanism/download-receipts.json"
+    },
+    {
+      "url": "https://arxiv.org/html/2609.24377v1",
+      "sha256": "a23c0159176067314dd65b9d3d1a17bf292fdd76519054585899b22ca125ad8d",
+      "bytes": 823612,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\limits.html",
+      "license": "arXiv perpetual non-exclusive",
+      "version_or_revision": "2609.24377v1",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T4-mechanism/download-receipts.json"
+    },
+    {
+      "url": "https://arxiv.org/html/2610.11848v1",
+      "sha256": "ef9cb22f198db395765458b9768f63e16348e442626981cd3a117b5c875abcf6",
+      "bytes": 631823,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\semfield.html",
+      "license": "CC BY-SA 4.0",
+      "version_or_revision": "2610.11848v1",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T4-mechanism/download-receipts.json"
+    },
+    {
+      "url": "https://arxiv.org/html/1902.02918v2",
+      "sha256": "495222299e2d790810117a64717bfb8110ea7fa7f1ff346ebdce0a6e5b4e287c",
+      "bytes": 946571,
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\smoothing.html",
+      "license": "arXiv perpetual non-exclusive",
+      "version_or_revision": "1902.02918v2",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T4-mechanism/download-receipts.json"
+    },
+    {
+      "url": "https://arxiv.org/html/2311.18495v2",
+      "sha256": "b3212ef7732a6b02ecb288fdaab49e5a8e8dcb681e9a67293feaef67475d3a6f",
+      "bytes": 628815,
+      "cache_path": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/q1-research-20261018/cache/T4-1b/alignment.html",
+      "license": "CC BY 4.0",
+      "version_or_revision": "2311.18495v2",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T4-mechanism/download-receipts.json"
     }
   ],
-  "indexed_bytes": 137068265,
+  "indexed_bytes": 141776431,
   "stage1b_accepted_topics_indexed": [
     "T1",
     "T2",
+    "T4",
     "T5"
   ],
-  "updated_utc": "2026-10-20T13:45:23+00:00",
-  "record_count": 558
+  "updated_utc": "2026-10-20T13:53:01.542902+00:00",
+  "record_count": 574
 }

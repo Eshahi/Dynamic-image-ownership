@@ -83,3 +83,7 @@ T5 acceptance is pushed at4601425749c940f2eaa7a852324a542af26659da; origin head 
 ## 2026-10-20T13:45:23+00:00 - User cost-policy change and interruption recovery
 
 The user deliberately interrupted the prior turn to lower cost; no scientific failure occurred. Git status was inspected first and all files retained. T1/T2/T5 are already parent-accepted and pushed through4601425749c940f2eaa7a852324a542af26659da. Parent reporting code has26 passing CPU tests and is being committed separately. T3 and T4 are re-briefed in place to finish their durable packages, using gpt-6.1-sol/high and gpt-6-astra/high respectively. At most two topic agents run concurrently. T6 has partial discovery/planning files and must be re-briefed, then T7/T8; every remaining or gap-fill topic uses gpt-6.1-sol/high except T4. The final fresh design-review-2 reviewer remains gpt-6-astra/xhigh. No floor, search rule or stop requirement was shortened. No server, GPU or outcome work occurred.
+
+## 2026-10-20T13:53:01.542902+00:00 - T4 parent acceptance; T6 resumed
+
+T4 passes its section1b floor: thirteen V2 mechanism sources, eighteen queries across four categories and twenty-six core/conditional/proposal prediction rows. Parent final checks are recorded in stage1b-parent-audit.md. P5 recommends separately costed matched mode controls; P6 uses per-suspect captions. Read-first carrier reporting is descriptive only. T6 resumed with gpt-6.1-sol/high and preserves the earlier analytic work. No server, GPU or outcomes; review2 remains required.

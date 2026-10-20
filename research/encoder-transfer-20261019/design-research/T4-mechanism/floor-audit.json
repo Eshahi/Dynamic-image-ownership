@@ -1,0 +1,296 @@
+{
+    "topic":  "T4 mechanism",
+    "stage":  "Stage1b",
+    "date":  "2026-10-20",
+    "author":  "Codex T4 topic agent /root/stage1b_t4",
+    "audit_type":  "author documentary completeness check; not independent milestone review",
+    "requirements":  {
+                         "min_distinct_v2_theory_mechanism_sources":  8,
+                         "min_distinct_discovery_queries":  10,
+                         "min_discovery_categories":  3
+                     },
+    "observed":  {
+                     "distinct_v2_sources":  13,
+                     "qualifying_ids":  [
+                                            "T4-01",
+                                            "T4-02",
+                                            "T4-03",
+                                            "T4-04",
+                                            "T4-05",
+                                            "T4-06",
+                                            "T4-07",
+                                            "T4-08",
+                                            "T4-09",
+                                            "T4-10",
+                                            "T4-11",
+                                            "T4-12",
+                                            "T4-13"
+                                        ],
+                     "qualifying_cards":  [
+                                              "cards/zhao.md",
+                                              "cards/photoguard.md",
+                                              "cards/prc.md",
+                                              "cards/ghostvae.md",
+                                              "cards/bislw.md",
+                                              "cards/freqmark.md",
+                                              "cards/saberi.md",
+                                              "cards/ctrlregen.md",
+                                              "cards/smoothing.md",
+                                              "cards/diffpure.md",
+                                              "cards/lfm.md",
+                                              "cards/limits.md",
+                                              "cards/alignment.md"
+                                          ],
+                     "rechecked_prior_source_ids":  [
+                                                        "T4-01",
+                                                        "T4-02",
+                                                        "T4-03",
+                                                        "T4-04",
+                                                        "T4-05"
+                                                    ],
+                     "new_source_ids":  [
+                                            "T4-06",
+                                            "T4-07",
+                                            "T4-08",
+                                            "T4-09",
+                                            "T4-10",
+                                            "T4-11",
+                                            "T4-12",
+                                            "T4-13"
+                                        ],
+                     "theory_with_numerical_evaluation_ids":  [
+                                                                  "T4-12"
+                                                              ],
+                     "empirical_method_evaluation_source_count":  12,
+                     "discovery_queries":  18,
+                     "discovery_query_ids":  [
+                                                 "W01",
+                                                 "W02",
+                                                 "W03",
+                                                 "W04",
+                                                 "W05",
+                                                 "W06",
+                                                 "W07",
+                                                 "W08",
+                                                 "W09",
+                                                 "A01",
+                                                 "A02",
+                                                 "A03",
+                                                 "O01",
+                                                 "O02",
+                                                 "O03",
+                                                 "G01",
+                                                 "G02",
+                                                 "G03"
+                                             ],
+                     "category_counts":  {
+                                             "web":  9,
+                                             "arxiv_api":  3,
+                                             "openalex":  3,
+                                             "official_repository_platform":  3
+                                         },
+                     "failed_discovery_queries":  0,
+                     "successful_zero_result_queries":  [
+                                                            "G02",
+                                                            "G03"
+                                                        ],
+                     "failed_direct_paper_retrievals":  5,
+                     "excluded_fulltext_sources":  [
+                                                       "semfield: text/sentence modality"
+                                                   ]
+                 },
+    "source_checks":  [
+                          {
+                              "id":  "T4-01",
+                              "card":  "cards/zhao.md",
+                              "words":  475,
+                              "cache_hash_verified":  true,
+                              "method_and_evaluation_locators_present":  true,
+                              "evidence_kind":  "primary method and evaluation"
+                          },
+                          {
+                              "id":  "T4-02",
+                              "card":  "cards/photoguard.md",
+                              "words":  416,
+                              "cache_hash_verified":  true,
+                              "method_and_evaluation_locators_present":  true,
+                              "evidence_kind":  "primary method and evaluation"
+                          },
+                          {
+                              "id":  "T4-03",
+                              "card":  "cards/prc.md",
+                              "words":  419,
+                              "cache_hash_verified":  true,
+                              "method_and_evaluation_locators_present":  true,
+                              "evidence_kind":  "primary method and evaluation"
+                          },
+                          {
+                              "id":  "T4-04",
+                              "card":  "cards/ghostvae.md",
+                              "words":  405,
+                              "cache_hash_verified":  true,
+                              "method_and_evaluation_locators_present":  true,
+                              "evidence_kind":  "primary method and evaluation"
+                          },
+                          {
+                              "id":  "T4-05",
+                              "card":  "cards/bislw.md",
+                              "words":  403,
+                              "cache_hash_verified":  true,
+                              "method_and_evaluation_locators_present":  true,
+                              "evidence_kind":  "primary method and evaluation"
+                          },
+                          {
+                              "id":  "T4-06",
+                              "card":  "cards/freqmark.md",
+                              "words":  399,
+                              "cache_hash_verified":  true,
+                              "method_and_evaluation_locators_present":  true,
+                              "evidence_kind":  "primary method and evaluation"
+                          },
+                          {
+                              "id":  "T4-07",
+                              "card":  "cards/saberi.md",
+                              "words":  384,
+                              "cache_hash_verified":  true,
+                              "method_and_evaluation_locators_present":  true,
+                              "evidence_kind":  "primary method and evaluation"
+                          },
+                          {
+                              "id":  "T4-08",
+                              "card":  "cards/ctrlregen.md",
+                              "words":  395,
+                              "cache_hash_verified":  true,
+                              "method_and_evaluation_locators_present":  true,
+                              "evidence_kind":  "primary method and evaluation"
+                          },
+                          {
+                              "id":  "T4-09",
+                              "card":  "cards/smoothing.md",
+                              "words":  468,
+                              "cache_hash_verified":  true,
+                              "method_and_evaluation_locators_present":  true,
+                              "evidence_kind":  "primary method and evaluation"
+                          },
+                          {
+                              "id":  "T4-10",
+                              "card":  "cards/diffpure.md",
+                              "words":  381,
+                              "cache_hash_verified":  true,
+                              "method_and_evaluation_locators_present":  true,
+                              "evidence_kind":  "primary method and evaluation"
+                          },
+                          {
+                              "id":  "T4-11",
+                              "card":  "cards/lfm.md",
+                              "words":  393,
+                              "cache_hash_verified":  true,
+                              "method_and_evaluation_locators_present":  true,
+                              "evidence_kind":  "primary method and evaluation"
+                          },
+                          {
+                              "id":  "T4-12",
+                              "card":  "cards/limits.md",
+                              "words":  407,
+                              "cache_hash_verified":  true,
+                              "method_and_evaluation_locators_present":  true,
+                              "evidence_kind":  "formal results and numerical Gaussian evaluation"
+                          },
+                          {
+                              "id":  "T4-13",
+                              "card":  "cards/alignment.md",
+                              "words":  318,
+                              "cache_hash_verified":  true,
+                              "method_and_evaluation_locators_present":  true,
+                              "evidence_kind":  "primary method and evaluation"
+                          }
+                      ],
+    "coverage":  {
+                     "core":  [
+                                  "Clean marked inputs",
+                                  "R0 .1",
+                                  "R0 .2",
+                                  "R0 .4",
+                                  "R1 .1",
+                                  "R1 .2, primary",
+                                  "R1 .4",
+                                  "D1, SDXL",
+                                  "X1, one",
+                                  "X2, two",
+                                  "R1-rinse .1+.1"
+                              ],
+                     "conditional_excluded_channels":  [
+                                                           "R2 .1",
+                                                           "R2 .2",
+                                                           "R2 .4",
+                                                           "D2, FLUX"
+                                                       ],
+                     "proposal_rows":  [
+                                           "P1 TrustMark",
+                                           "P2 StegaStamp",
+                                           "P3 PhaseMark",
+                                           "P4 Kandinsky",
+                                           "P4 narrower",
+                                           "P5 fixed",
+                                           "P6 caption",
+                                           "P7 pixel",
+                                           "P8 learned",
+                                           "P9 PixelSeal",
+                                           "P10 FLUX"
+                                       ],
+                     "all_rows_have_predictions_disconfirmation_endpoints_limits":  true,
+                     "negative_controls":  "All R1 strengths, every planned C0/wrong-owner call; A endpoint unchanged.",
+                     "native_endpoint_limits":  "C/read/content/Q split; external native and common presence separate.",
+                     "pre_outcome_amendments":  [
+                                                    "No core endpoint or threshold changes.",
+                                                    "Descriptive read-first failure categories plus raw_unavailable/read_without_found.",
+                                                    "R1/D1 rounding/posterior/diffusion compound contrast.",
+                                                    "Recommend P5 1800 diffusion outputs: 900 smoothed-mode plus 900 matched unsmoothed-mode; 2400 smoothed encodes plus 300 control encodes.",
+                                                    "P5 exact shared-array seed/RNG and precision need proposal amendment; illustrative 3.5-8 hours and proposed 8-hour/$8 cap at $1/hour need user approval.",
+                                                    "Cheaper P5 900-output comparison with sampled R1 tests only the compound attacker.",
+                                                    "Recommend P6 one caption per pre-regeneration suspect input, 300 captions reused over 900 outputs; captioner revision/settings need proposal amendment.",
+                                                    "P4 actual continuous MoVQ path, no posterior/quantization assumption.",
+                                                    "P7 no drop-in protocol or measured price; P10 remains rejected."
+                                                ]
+                 },
+    "scope":  {
+                  "no_model_weights":  true,
+                  "no_experiment_images":  true,
+                  "no_gpu":  true,
+                  "no_scoring":  true,
+                  "no_heldout":  true,
+                  "no_shared_file_edits":  true,
+                  "no_commits_or_pushes":  true
+              },
+    "limitations":  [
+                        "V2 is source reading, not empirical reproduction.",
+                        "Limits is formal theory plus numerical Gaussian plots, not image benchmark.",
+                        "Web queries were returned in pooled batches; documentary summaries are not raw-result exports.",
+                        "Source hashes verified only for these newly cached documents, not retained development run re-audits.",
+                        "No global absence claim about unlocated replacement encoders."
+                    ],
+    "status":  "floor_satisfied_by_author_check",
+    "resume_author_check":  {
+                                "author":  "Codex T4 resume agent /root/stage1b_t4_resume",
+                                "date":  "2026-10-20",
+                                "type":  "Final author consistency completion, not independent review or user approval",
+                                "actual_cards":  13,
+                                "unique_primary_sources":  13,
+                                "unique_discovery_queries":  18,
+                                "categories":  [
+                                                   "arxiv_api",
+                                                   "official_repository_platform",
+                                                   "openalex",
+                                                   "web"
+                                               ],
+                                "download_receipts":  23,
+                                "all_source_cards_read":  true,
+                                "synthesis_and_matrix_consistent":  true,
+                                "p5_original_construction_restored":  true,
+                                "p5_p6_recommendations_not_approved":  true,
+                                "ascii_matrix_check":  true,
+                                "exact_coverage_heading_present":  true,
+                                "parent_acceptance":  "Pending parent final floor check",
+                                "source_hash_note":  "Source hashes had already been independently verified by parent; this resume did not repeat that audit."
+                            }
+}

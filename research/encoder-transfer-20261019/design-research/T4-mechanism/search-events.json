@@ -1,0 +1,619 @@
+{
+  "topic": "T4 Stage1b",
+  "date": "2026-10-20",
+  "cutoff": "2026-10-20",
+  "events": [
+    {
+      "id": "W01",
+      "event_type": "discovery_query",
+      "category": "web",
+      "query": "watermark regeneration removal Gaussian bound encoder Lipschitz Zhao invisible watermarks",
+      "date": "2026-10-20",
+      "utc": null,
+      "status": "success",
+      "transport": "web.run search_query",
+      "batch": "batch1",
+      "outcome": "Found Zhao removal-bound source and related watermark-removal leads.",
+      "lead_urls": [
+        "https://arxiv.org/html/2306.01953v3"
+      ],
+      "count_as_discovery": true,
+      "provenance_note": "Exact submitted query; results were returned pooled by batch. Outcome describes batch-level relevant leads, not a unique per-query ranking. No full raw web-result export was available; this is a documentary event summary."
+    },
+    {
+      "id": "W02",
+      "event_type": "discovery_query",
+      "category": "web",
+      "query": "adversarial perturbation transfer encoder Jacobian alignment diffusion VAE watermark",
+      "date": "2026-10-20",
+      "utc": null,
+      "status": "success",
+      "transport": "web.run search_query",
+      "batch": "batch1",
+      "outcome": "Found encoder-attack/backdoor and adversarial-watermark leads; primary mechanisms rechecked via PhotoGuard/GhostVAE.",
+      "lead_urls": [
+        "https://arxiv.org/html/2608.00543v1"
+      ],
+      "count_as_discovery": true,
+      "provenance_note": "Exact submitted query; results were returned pooled by batch. Outcome describes batch-level relevant leads, not a unique per-query ranking. No full raw web-result export was available; this is a documentary event summary."
+    },
+    {
+      "id": "W03",
+      "event_type": "discovery_query",
+      "category": "web",
+      "query": "2025 2026 watermark encoder robustness smoothing regeneration PRC",
+      "date": "2026-10-20",
+      "utc": null,
+      "status": "success",
+      "transport": "web.run search_query",
+      "batch": "batch1",
+      "outcome": "Found FreqMark, LFM, CtrlRegen and other recent leads; unsupported secondary/publisher-only results not promoted.",
+      "lead_urls": [
+        "https://arxiv.org/html/2610.02010v1"
+      ],
+      "count_as_discovery": true,
+      "provenance_note": "Exact submitted query; results were returned pooled by batch. Outcome describes batch-level relevant leads, not a unique per-query ranking. No full raw web-result export was available; this is a documentary event summary."
+    },
+    {
+      "id": "W04",
+      "event_type": "discovery_query",
+      "category": "web",
+      "query": "site.arxiv.org \"Certified Adversarial Robustness via Randomized Smoothing\"",
+      "date": "2026-10-20",
+      "utc": null,
+      "status": "success",
+      "transport": "web.run search_query",
+      "batch": "batch2",
+      "outcome": "Located Cohen smoothing primary source; actual version resolved by arXiv metadata after failed version guesses.",
+      "lead_urls": [
+        "https://arxiv.org/abs/1902.02918"
+      ],
+      "count_as_discovery": true,
+      "provenance_note": "Exact submitted query; results were returned pooled by batch. Outcome describes batch-level relevant leads, not a unique per-query ranking. No full raw web-result export was available; this is a documentary event summary."
+    },
+    {
+      "id": "W05",
+      "event_type": "discovery_query",
+      "category": "web",
+      "query": "site.arxiv.org \"Diffusion Models for Adversarial Purification\"",
+      "date": "2026-10-20",
+      "utc": null,
+      "status": "success",
+      "transport": "web.run search_query",
+      "batch": "batch2",
+      "outcome": "Located DiffPure primary source and related purification work; version1 subsequently inspected.",
+      "lead_urls": [
+        "https://arxiv.org/abs/2205.07460"
+      ],
+      "count_as_discovery": true,
+      "provenance_note": "Exact submitted query; results were returned pooled by batch. Outcome describes batch-level relevant leads, not a unique per-query ranking. No full raw web-result export was available; this is a documentary event summary."
+    },
+    {
+      "id": "W06",
+      "event_type": "discovery_query",
+      "category": "web",
+      "query": "site.arxiv.org watermark \"Robustness of AI-Image Detectors\" Saberi",
+      "date": "2026-10-20",
+      "utc": null,
+      "status": "success",
+      "transport": "web.run search_query",
+      "batch": "batch2",
+      "outcome": "Located Saberi detector-limit/purification primary source.",
+      "lead_urls": [
+        "https://arxiv.org/html/2310.00076v2"
+      ],
+      "count_as_discovery": true,
+      "provenance_note": "Exact submitted query; results were returned pooled by batch. Outcome describes batch-level relevant leads, not a unique per-query ranking. No full raw web-result export was available; this is a documentary event summary."
+    },
+    {
+      "id": "W07",
+      "event_type": "discovery_query",
+      "category": "web",
+      "query": "site.arxiv.org \"Latent Frequency Masking\"",
+      "date": "2026-10-20",
+      "utc": null,
+      "status": "success",
+      "transport": "web.run search_query",
+      "batch": "batch2",
+      "outcome": "Located LFM paper, selected for fresh method/evaluation reading.",
+      "lead_urls": [
+        "https://arxiv.org/html/2610.02010v1"
+      ],
+      "count_as_discovery": true,
+      "provenance_note": "Exact submitted query; results were returned pooled by batch. Outcome describes batch-level relevant leads, not a unique per-query ranking. No full raw web-result export was available; this is a documentary event summary."
+    },
+    {
+      "id": "W08",
+      "event_type": "discovery_query",
+      "category": "web",
+      "query": "\"Improving Adversarial Transferability via Model Alignment\" ECCV 2024 paper",
+      "date": "2026-10-20",
+      "utc": null,
+      "status": "success",
+      "transport": "web.run search_query",
+      "batch": "batch3",
+      "outcome": "Located ECVA paper, arXiv version history and author repository; arXiv v2 method/evaluation read as T4-13.",
+      "lead_urls": [
+        "https://arxiv.org/html/2311.18495v2"
+      ],
+      "count_as_discovery": true,
+      "provenance_note": "Exact submitted query; results were returned pooled by batch. Outcome describes batch-level relevant leads, not a unique per-query ranking. No full raw web-result export was available; this is a documentary event summary."
+    },
+    {
+      "id": "W09",
+      "event_type": "discovery_query",
+      "category": "web",
+      "query": "\"An adversarial transferability metric based on SVD of Jacobians\" paper",
+      "date": "2026-10-20",
+      "utc": null,
+      "status": "success",
+      "transport": "web.run search_query",
+      "batch": "batch3",
+      "outcome": "Located open-access publisher article; discovery only, not floor evidence. Model-alignment paper selected for deep reading.",
+      "lead_urls": [
+        "https://link.springer.com/article/10.1007/s10489-022-04066-2"
+      ],
+      "count_as_discovery": true,
+      "provenance_note": "Exact submitted query; results were returned pooled by batch. Outcome describes batch-level relevant leads, not a unique per-query ranking. No full raw web-result export was available; this is a documentary event summary."
+    },
+    {
+      "id": "A01",
+      "url": "https://export.arxiv.org/api/query?search_query=all%3A%22watermark%22+AND+all%3A%22encoder%22+AND+all%3A%22regeneration%22&start=0&max_results=8&sortBy=submittedDate&sortOrder=descending",
+      "kind": "arxiv-api",
+      "query": "all:\"watermark\" AND all:\"encoder\" AND all:\"regeneration\"",
+      "utc": "2026-10-20T12:55:58.401772+00:00",
+      "http_status": 200,
+      "resolved_url": "https://export.arxiv.org/api/query?search_query=all%3A%22watermark%22+AND+all%3A%22encoder%22+AND+all%3A%22regeneration%22&start=0&max_results=8&sortBy=submittedDate&sortOrder=descending",
+      "status": "success",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\A01.xml",
+      "sha256": "02ddba898e76fd816d86865a1cff34f5655f1f814369405f73d0b177ce3b7f12",
+      "bytes": 20660,
+      "event_type": "discovery_query",
+      "category": "arxiv_api",
+      "count_as_discovery": true,
+      "results": [
+        {
+          "url": "http://arxiv.org/abs/2609.30980v1",
+          "title": "FeatMark: Feature-level Watermark Protection against Mimicry Attacks with Diffusion Models",
+          "published": "2026-09-25T08:26:49Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/2609.24377v1",
+          "title": "On the Information-Theoretic Limits of Latent-Space Watermarking Through Pretrained Generators",
+          "published": "2026-09-21T10:10:27Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/2608.03165v2",
+          "title": "SpreadMark: Robust Image Watermarking via Spread-Spectrum Embedding",
+          "published": "2026-08-04T05:52:17Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/2607.02643v1",
+          "title": "BiSLW: Bi-Spectral Latent Watermarking for Generative Diffusion Models",
+          "published": "2026-07-02T17:48:54Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/2602.21508v1",
+          "title": "WaterVIB: Learning Minimal Sufficient Watermark Representations via Variational Information Bottleneck",
+          "published": "2026-02-25T02:38:17Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/2602.20053v1",
+          "title": "Decoupling Defense Strategies for Robust Image Watermarking",
+          "published": "2026-02-23T17:02:55Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/2602.01513v1",
+          "title": "MarkCleaner: High-Fidelity Watermark Removal via Imperceptible Micro-Geometric Perturbation",
+          "published": "2026-02-02T01:03:21Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/2510.07302v1",
+          "title": "SpecGuard: Spectral Projection-based Advanced Invisible Watermarking",
+          "published": "2025-10-08T17:56:21Z"
+        }
+      ],
+      "returned_count": 8,
+      "outcome": "New Limits and BiSLW mechanism leads; FeatMark, SpreadMark, WaterVIB and other leads preserved as discovery-only."
+    },
+    {
+      "id": "A02",
+      "url": "https://export.arxiv.org/api/query?search_query=all%3A%22watermark%22+AND+all%3A%22Gaussian%22+AND+all%3A%22bound%22&start=0&max_results=8&sortBy=submittedDate&sortOrder=descending",
+      "kind": "arxiv-api",
+      "query": "all:\"watermark\" AND all:\"Gaussian\" AND all:\"bound\"",
+      "utc": "2026-10-20T12:55:58.401772+00:00",
+      "http_status": 200,
+      "resolved_url": "https://export.arxiv.org/api/query?search_query=all%3A%22watermark%22+AND+all%3A%22Gaussian%22+AND+all%3A%22bound%22&start=0&max_results=8&sortBy=submittedDate&sortOrder=descending",
+      "status": "success",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\A02.xml",
+      "sha256": "948e8c6ac117b03a31351befafb539082dc7388489b65d6ba4bca2d1e052531f",
+      "bytes": 21212,
+      "event_type": "discovery_query",
+      "category": "arxiv_api",
+      "count_as_discovery": true,
+      "results": [
+        {
+          "url": "http://arxiv.org/abs/2610.11848v1",
+          "title": "SemField: A Simple, Linear, Continuous, yet Robust Semantic Watermark",
+          "published": "2026-10-08T12:35:11Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/2610.11364v1",
+          "title": "FlyMark: Training-Free Invisible Watermarking of 3D Gaussian Splatting via a Fruit Fly Connectome",
+          "published": "2026-10-08T06:56:53Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/2610.02010v1",
+          "title": "Exploring Weaknesses of Generative Image Watermarks against Latent Frequency Masking",
+          "published": "2026-10-01T16:36:29Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/2609.24377v1",
+          "title": "On the Information-Theoretic Limits of Latent-Space Watermarking Through Pretrained Generators",
+          "published": "2026-09-21T10:10:27Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/2609.29603v1",
+          "title": "MoSign: Challenge-Response Motion-Watermark Authentication for Anonymous Virtual-Reality Users",
+          "published": "2026-08-30T18:48:12Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/2506.04462v4",
+          "title": "Watermarking Degrades Alignment in Language Models: Analysis and Mitigation",
+          "published": "2025-06-04T21:29:07Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/2501.13941v1",
+          "title": "GaussMark: A Practical Approach for Structural Watermarking of Language Models",
+          "published": "2025-01-17T22:30:08Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/1204.3238v1",
+          "title": "Reliable communication over non-binary insertion/deletion channels",
+          "published": "2012-04-15T05:43:28Z"
+        }
+      ],
+      "returned_count": 8,
+      "outcome": "New LFM and Limits leads qualified; SemField full text screened as text watermarking and excluded; 3D/VR/LLM leads excluded."
+    },
+    {
+      "id": "A03",
+      "url": "https://export.arxiv.org/api/query?search_query=all%3A%22adversarial%22+AND+all%3A%22autoencoder%22+AND+all%3A%22robust%22&start=0&max_results=8&sortBy=submittedDate&sortOrder=descending",
+      "kind": "arxiv-api",
+      "query": "all:\"adversarial\" AND all:\"autoencoder\" AND all:\"robust\"",
+      "utc": "2026-10-20T12:55:58.402771+00:00",
+      "http_status": 200,
+      "resolved_url": "https://export.arxiv.org/api/query?search_query=all%3A%22adversarial%22+AND+all%3A%22autoencoder%22+AND+all%3A%22robust%22&start=0&max_results=8&sortBy=submittedDate&sortOrder=descending",
+      "status": "success",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\A03.xml",
+      "sha256": "b4436af0df6a478f8433b515942c072b0579aff35ccd7dbfe0fef930036f0ef7",
+      "bytes": 22471,
+      "event_type": "discovery_query",
+      "category": "arxiv_api",
+      "count_as_discovery": true,
+      "results": [
+        {
+          "url": "http://arxiv.org/abs/2610.26240v1",
+          "title": "Q-MALDetect: Quantum Image-Based Malware Detection and Adversarial Robustness Analysis",
+          "published": "2026-10-19T12:01:48Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/2610.03498v1",
+          "title": "Detect and Suppress: A Mechanistic Defense against Adversarial Patches in VLA Models",
+          "published": "2026-10-02T15:57:04Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/2609.39584v1",
+          "title": "Cybersecurity in Edge Computing: A Trust-Aware Federated Hybrid Intrusion Detection Framework",
+          "published": "2026-09-30T12:12:26Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/2609.35273v1",
+          "title": "Physics-informed self-supervised generation of digital brain MRI phantoms from weighted images using differentiable MRI simulation",
+          "published": "2026-09-28T14:27:42Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/2609.35890v1",
+          "title": "Representational Simplicity and Circuit Size Dissociate in a Threshold-Dependent Way: A Controlled Test via Adversarial Training",
+          "published": "2026-09-27T07:35:31Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/2609.31726v1",
+          "title": "High-Capacity Robust Medical Image Exfiltration via Neural Network Weight Replacement",
+          "published": "2026-09-22T08:24:10Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/2609.16229v1",
+          "title": "Test-Time Unlearning via Sparse Autoencoder",
+          "published": "2026-09-14T18:58:09Z"
+        },
+        {
+          "url": "http://arxiv.org/abs/2609.14593v1",
+          "title": "SENTINEL: A Multi-Pathway Architecture for Detecting Living-Off-the-Land APT Attacks on Windows Command Lines",
+          "published": "2026-09-13T15:20:34Z"
+        }
+      ],
+      "returned_count": 8,
+      "outcome": "Broad robustness search returned mainly malware/VLA/medical/security-domain items; no qualified replacement SDXL attack encoder."
+    },
+    {
+      "id": "O01",
+      "url": "https://api.openalex.org/works?search=watermark+regeneration+encoder+robustness&per-page=8",
+      "kind": "openalex",
+      "query": "watermark regeneration encoder robustness",
+      "utc": "2026-10-20T12:55:59.348627+00:00",
+      "http_status": 200,
+      "resolved_url": "https://api.openalex.org/works?search=watermark+regeneration+encoder+robustness&per-page=8",
+      "status": "success",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\O01.json",
+      "sha256": "b8f6553c334184a558ab169d0171bb4f8a2565ed86eb46d6ac8886ea343332d4",
+      "bytes": 156236,
+      "event_type": "discovery_query",
+      "category": "openalex",
+      "count_as_discovery": true,
+      "results": [
+        {
+          "id": "https://openalex.org/W7131385655",
+          "title": "Decoupling Defense Strategies for Robust Image Watermarking",
+          "published": "2026-02-23"
+        },
+        {
+          "id": "https://openalex.org/W7117971200",
+          "title": "An Object Watermarking Method Aimed at Comprehensive Robustness",
+          "published": "2026-01-01"
+        },
+        {
+          "id": "https://openalex.org/W2972633733",
+          "title": "A Survey on Reversible Watermarking for Multimedia Content: A Robustness Overview",
+          "published": "2019-01-01"
+        },
+        {
+          "id": "https://openalex.org/W7172530353",
+          "title": "SpreadMark: Robust Image Watermarking via Spread-Spectrum Embedding",
+          "published": "2026-08-04"
+        },
+        {
+          "id": "https://openalex.org/W2119673650",
+          "title": "Audio watermarking robust against D/A and A/D conversions",
+          "published": "2011-05-13"
+        },
+        {
+          "id": "https://openalex.org/W7164860263",
+          "title": "Source-Free Latent Watermarking for Robust and Scalable Image Traceability",
+          "published": "2026-01-01"
+        },
+        {
+          "id": "https://openalex.org/W4405562062",
+          "title": "Invisible Watermarks: Attacks and Robustness",
+          "published": "2024-12-17"
+        },
+        {
+          "id": "https://openalex.org/W4406302087",
+          "title": "MCGMark: An Encodable and Robust Online Watermark for Tracing LLM-Generated Malicious Code",
+          "published": "2026-10-06"
+        }
+      ],
+      "returned_count": 8,
+      "outcome": "Returned Decoupling Defense, SpreadMark and image-watermark survey leads plus out-of-modality records; no absence claim."
+    },
+    {
+      "id": "O02",
+      "url": "https://api.openalex.org/works?search=adversarial+transferability+Jacobian+alignment&per-page=8",
+      "kind": "openalex",
+      "query": "adversarial transferability Jacobian alignment",
+      "utc": "2026-10-20T12:55:59.456862+00:00",
+      "http_status": 200,
+      "resolved_url": "https://api.openalex.org/works?search=adversarial+transferability+Jacobian+alignment&per-page=8",
+      "status": "success",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\O02.json",
+      "sha256": "f8eedd2167632030d6eff1ef5254a3f3b6d9764d69c6211be7f98db15bb08abd",
+      "bytes": 172440,
+      "event_type": "discovery_query",
+      "category": "openalex",
+      "count_as_discovery": true,
+      "results": [
+        {
+          "id": "https://openalex.org/W4295021485",
+          "title": "An adversarial transferability metric based on SVD of Jacobians to disentangle the correlation with robustness",
+          "published": "2022-09-09"
+        },
+        {
+          "id": "https://openalex.org/W4403906474",
+          "title": "Improving Adversarial Transferability via Model Alignment",
+          "published": "2024-10-31"
+        },
+        {
+          "id": "https://openalex.org/W3207267053",
+          "title": "Demystifying the Transferability of Adversarial Attacks in Computer Networks",
+          "published": "2022-04-01"
+        },
+        {
+          "id": "https://openalex.org/W4386074714",
+          "title": "Jacobian norm with Selective Input Gradient Regularization for interpretable adversarial defense",
+          "published": "2023-08-22"
+        },
+        {
+          "id": "https://openalex.org/W4377081716",
+          "title": "Jacobian Norm with Selective Input Gradient Regularization for Improved and Interpretable Adversarial Defense",
+          "published": "2023-01-01"
+        },
+        {
+          "id": "https://openalex.org/W7220908713",
+          "title": "Breaking Adversarial Transferability in Fine-Tuned Speech Recognition",
+          "published": "2026-10-06"
+        },
+        {
+          "id": "https://openalex.org/W4414847359",
+          "title": "Information-Geometric Inverse Distillation for Enhancing Adversarial Transferability",
+          "published": "2025-02-24"
+        },
+        {
+          "id": "https://openalex.org/W7130420969",
+          "title": "On the Adversarial Transferability of Generalized “Skip Connections”",
+          "published": "2026-02-18"
+        }
+      ],
+      "returned_count": 8,
+      "outcome": "Located Jacobian-SVD and model-alignment papers; model alignment subsequently read as T4-13."
+    },
+    {
+      "id": "O03",
+      "url": "https://api.openalex.org/works?search=latent+frequency+watermark+removal&per-page=8",
+      "kind": "openalex",
+      "query": "latent frequency watermark removal",
+      "utc": "2026-10-20T12:55:59.830942+00:00",
+      "http_status": 200,
+      "resolved_url": "https://api.openalex.org/works?search=latent+frequency+watermark+removal&per-page=8",
+      "status": "success",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\O03.json",
+      "sha256": "cacfd0b31c20dc42881714c4794aeaf3bc1f3570ae6ed8fe570b19d55bfe3684",
+      "bytes": 152638,
+      "event_type": "discovery_query",
+      "category": "openalex",
+      "count_as_discovery": true,
+      "results": [
+        {
+          "id": "https://openalex.org/W7216423992",
+          "title": "Exploring Weaknesses of Generative Image Watermarks against Latent Frequency Masking",
+          "published": "2026-10-01"
+        },
+        {
+          "id": "https://openalex.org/W7220438889",
+          "title": "LiBRA: Detection-Aware Image Watermark Removal via Bidirectional Latent Optimization",
+          "published": "2026-10-02"
+        },
+        {
+          "id": "https://openalex.org/W4390872921",
+          "title": "The Stable Signature: Rooting Watermarks in Latent Diffusion Models",
+          "published": "2023-10-01"
+        },
+        {
+          "id": "https://openalex.org/W7203672221",
+          "title": "How Fragile Is Your Watermark? Training-Free Structural Removal of Neural Audio Watermarks",
+          "published": "2026-08-17"
+        },
+        {
+          "id": "https://openalex.org/W4416394973",
+          "title": "Low-Compute Watermark Removal via Dual-Domain Natural Projection",
+          "published": "2025-10-08"
+        },
+        {
+          "id": "https://openalex.org/W7124173318",
+          "title": "RAVEN: Erasing Invisible Watermarks via Novel View Synthesis",
+          "published": "2026-01-13"
+        },
+        {
+          "id": "https://openalex.org/W4388555465",
+          "title": "Watermarks in the Sand: Impossibility of Strong Watermarking for Generative Models",
+          "published": "2023-11-07"
+        },
+        {
+          "id": "https://openalex.org/W7221187400",
+          "title": "ProxyEraseAgent: Blind Watermark Removal in the Wild",
+          "published": "2026-10-08"
+        }
+      ],
+      "returned_count": 8,
+      "outcome": "Located LFM and newer adaptive attack leads; LFM qualified, LiBRA/RAVEN/ProxyEraseAgent remain discovery-only."
+    },
+    {
+      "id": "G01",
+      "url": "https://api.github.com/search/repositories?q=watermark+robust+encoder&per_page=6",
+      "kind": "github",
+      "query": "watermark robust encoder",
+      "utc": "2026-10-20T12:56:00.603992+00:00",
+      "http_status": 200,
+      "resolved_url": "https://api.github.com/search/repositories?q=watermark+robust+encoder&per_page=6",
+      "status": "success",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\G01.json",
+      "sha256": "6a15972a710af940d3f82645196a1c4ebcfb0d33ddecd8ddc667d3a6479a99bf",
+      "bytes": 37349,
+      "event_type": "discovery_query",
+      "category": "official_repository_platform",
+      "count_as_discovery": true,
+      "total_count": 9,
+      "results": [
+        {
+          "name": "mingi-sid/Transform-Robust-Watermark",
+          "url": "https://github.com/mingi-sid/Transform-Robust-Watermark"
+        },
+        {
+          "name": "Jeffreylin810/A-Robust-Watermarking-Method-Based-on-Multi-Encoder-Conditional-Latent-Diffusion-Model",
+          "url": "https://github.com/Jeffreylin810/A-Robust-Watermarking-Method-Based-on-Multi-Encoder-Conditional-Latent-Diffusion-Model"
+        },
+        {
+          "name": "DBSystel-Hub/SynthID",
+          "url": "https://github.com/DBSystel-Hub/SynthID"
+        },
+        {
+          "name": "AyatiSinha/deep-image-watermarking",
+          "url": "https://github.com/AyatiSinha/deep-image-watermarking"
+        },
+        {
+          "name": "zu0my/hidden_watermark",
+          "url": "https://github.com/zu0my/hidden_watermark"
+        },
+        {
+          "name": "Horpeoluwa/Watermark-Project",
+          "url": "https://github.com/Horpeoluwa/Watermark-Project"
+        }
+      ],
+      "returned_count": 6,
+      "outcome": "Nine total repositories, six returned; no verified drop-in robust SDXL attack encoder. Platform search does not establish author ownership or code rights."
+    },
+    {
+      "id": "G02",
+      "url": "https://api.github.com/search/repositories?q=latent+frequency+masking+watermark&per_page=6",
+      "kind": "github",
+      "query": "latent frequency masking watermark",
+      "utc": "2026-10-20T12:56:00.832515+00:00",
+      "http_status": 200,
+      "resolved_url": "https://api.github.com/search/repositories?q=latent+frequency+masking+watermark&per_page=6",
+      "status": "success",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\G02.json",
+      "sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f",
+      "bytes": 55,
+      "event_type": "discovery_query",
+      "category": "official_repository_platform",
+      "count_as_discovery": true,
+      "total_count": 0,
+      "results": [],
+      "returned_count": 0,
+      "outcome": "Successful search with zero results; official LFM repository was separately located through paper/web. Empty search is not an absence proof."
+    },
+    {
+      "id": "G03",
+      "url": "https://api.github.com/search/repositories?q=diffusion+randomized+smoothing+purification&per_page=6",
+      "kind": "github",
+      "query": "diffusion randomized smoothing purification",
+      "utc": "2026-10-20T12:56:01.019124+00:00",
+      "http_status": 200,
+      "resolved_url": "https://api.github.com/search/repositories?q=diffusion+randomized+smoothing+purification&per_page=6",
+      "status": "success",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T4-1b\\G03.json",
+      "sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f",
+      "bytes": 55,
+      "event_type": "discovery_query",
+      "category": "official_repository_platform",
+      "count_as_discovery": true,
+      "total_count": 0,
+      "results": [],
+      "returned_count": 0,
+      "outcome": "Successful search with zero results; does not establish absence of purification implementations."
+    }
+  ],
+  "successful_queries": 18,
+  "failed_queries": 0,
+  "categories": [
+    "web",
+    "arxiv_api",
+    "openalex",
+    "official_repository_platform"
+  ],
+  "notes": [
+    "Direct URL retrievals are excluded from discovery counts.",
+    "Zero-result searches count as successful transport, not successful identification.",
+    "Search results are leads, not V2 evidence.",
+    "Published dates come from source/API metadata; identifiers alone are not used to infer dates."
+  ]
+}

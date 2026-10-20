@@ -373,3 +373,7 @@
 
 - 2026-10-20T13:45:23+00:00 | User cost-policy recovery: T3 re-briefed gpt-6.1-sol/high; T4 re-briefed gpt-6-astra/high; maximum two concurrent topic agents. Remaining T6/T7/T8 and gaps use sol/high; final reviewer remains fresh Astra/xhigh. Preserve all unfinished files, accept only after parent floor check.
 - 2026-10-20T13:45:23+00:00 | Codex agent | Push prepared on codex/encoder-transfer-20261019: 4601425749c940f2eaa7a852324a542af26659da -> reporting amendment commit (resolved in next log). Pre-outcome diagnostic summaries only;26 CPU tests passed; no extra experiment calls.
+
+- 2026-10-20T13:47:10+00:00 | Codex agent | Push confirmed at c3b20cc153f168119a9ebe474cf1b0184354571a, origin identical. Immediate parent was a28292200f210d4288ab977b75982d92bf13830f (user cost-settings amendment); user commit was preserved. Earlier4601425 remains the T5 acceptance commit.
+
+- 2026-10-20T13:53:01.542902+00:00 Codex stage1b T6 resume escalation: gpt-6.1-sol/high, user cost policy, complete interrupted statistical research with all floors; no model execution. T4 parent accepted and queued for own-branch push from c3b20cc.
