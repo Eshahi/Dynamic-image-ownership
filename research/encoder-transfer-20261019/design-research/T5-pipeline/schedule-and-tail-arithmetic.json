@@ -1,0 +1,72 @@
+{
+  "kind": "documentary formula arithmetic; no package or model execution",
+  "DDIM_20_leading_offset1": [
+    951,
+    901,
+    851,
+    801,
+    751,
+    701,
+    651,
+    601,
+    551,
+    501,
+    451,
+    401,
+    351,
+    301,
+    251,
+    201,
+    151,
+    101,
+    51,
+    1
+  ],
+  "strength_tails": {
+    "0.1": {
+      "updates": 2,
+      "timesteps": [
+        51,
+        1
+      ]
+    },
+    "0.2": {
+      "updates": 4,
+      "timesteps": [
+        151,
+        101,
+        51,
+        1
+      ]
+    },
+    "0.4": {
+      "updates": 8,
+      "timesteps": [
+        351,
+        301,
+        251,
+        201,
+        151,
+        101,
+        51,
+        1
+      ]
+    }
+  },
+  "message_tails": {
+    "32": {
+      "at_least": 27,
+      "numerator": 242825,
+      "denominator": 4294967296,
+      "probability": 5.653710104525089e-05,
+      "interpretation": "iid fair random-message agreement only, not image FPR"
+    },
+    "100": {
+      "at_least": 69,
+      "numerator": 116080809474924600429525560,
+      "denominator": 1267650600228229401496703205376,
+      "probability": 9.157161244117683e-05,
+      "interpretation": "iid fair random-message agreement only, not image FPR"
+    }
+  }
+}

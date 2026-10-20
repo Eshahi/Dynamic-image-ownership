@@ -63,3 +63,15 @@ The parent accepted T1 after reading all 34 V2 cards, checking the 34 settings r
 ### 2026-10-20 13:00 UTC - T2 accepted; T5 underway
 
 T1 push fe8b78d..42cc385aeb0b9b500528064e454f0afec1a191e1 was verified against origin. T2 now passes parent acceptance: 18 distinct V2 paper families, 30 cards, 17 successful queries (16 intents) across three categories, and 390 receipt hashes checked. The core remains unchanged. MoVQ AE-only is a narrower optional proposal; O1/PRX pixel models are not direct strength-controlled replacements, and Klein P10 is not recommended. A fresh Astra/high T5 agent audits exact pinned code paths. T3 and T4 continue. All eight topics and design-review-2 remain required before re-freeze.
+
+### Accepted-topic integration checkpoint
+
+T2 push 42cc385..ae5c7f33baa23cd363a70657a57d102fd2394f3d was verified against origin. The integrated research now uses the accepted T1/T2 counts and findings; other topic sections remain explicitly pending. Their 60 topic-local bibliography entries are indexed in research/references.bib; cumulative documentary receipts are 499 records/135,410,781 indexed bytes. P4 now exposes the narrower MoVQ-only alternative; P7 replaces an unjustified fixed cost with explicit 900-output timing scenarios and the O1/PRX interface limits. Nothing changes the frozen scientific core, enables execution or approves spending.
+
+## 2026-10-20T13:25:47.421522+00:00 ? cross-topic draft audit
+
+The parent has read all 21 draft T3 method records, all 12 draft T4 mechanism cards and all six draft T5 implementation cards. These topics are not yet accepted: final coverage/search/receipt checks remain. Obvious EditGuard and OmniGuard leads were returned to T3 for assessment; draft spacing and exact identifiers require cleanup. TrustMark Q is native BCH61 with a245-pixel Python decoder; its raw-mode success boolean is not calibrated presence. P5 needs a separately costed unsmoothed posterior-mode control if the claim concerns smoothing specifically. P6 must state whether captions use clean-source privileged information or each suspect. Native R1 versus D1 differs in input rounding, posterior sampling and denoising, so their contrast is descriptive. The protocol's introduction now clearly marks the original review/freeze as historical; execution remains blocked pending review2 and re-freeze. No server, model execution or outcome.
+
+## 2026-10-20T13:35:00+00:00 - T5 parent acceptance and T6 assignment
+
+T5 passed its documentary floor: six implementations, 61 exact-setting rows, six paper V2 cards and 16 discovery queries in three categories. Parent read cards, checked consequential code and independently verified all 100 cached hashes. No core bug was established. Clarifications cover input precision, VINE RNG, WAM calibration transfer, TrustMark BCH61/245 and continuous MoVQ. T6 is assigned to a fresh Astra high agent for all three sample sizes, correlation and missingness sensitivity. T3/T4 remain in research; no model or server work occurred. T5 is being committed and pushed; the re-freeze stop has not been reached.

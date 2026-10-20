@@ -1,0 +1,24 @@
+{
+  "checked_utc": "2026-10-20T13:32:15.582349+00:00",
+  "six_implementations": [
+    "SD1.5",
+    "SDXL",
+    "Kandinsky3",
+    "WAM",
+    "VINE",
+    "TrustMark"
+  ],
+  "setting_rows": 61,
+  "paper_v2_cards": 6,
+  "unique_discovery_queries": 16,
+  "successful_categories": [
+    "OpenAlex",
+    "official model hub search",
+    "web"
+  ],
+  "sources": 100,
+  "source_bytes": 3667513,
+  "line_range_or_sha_errors": [],
+  "package_model_execution": false,
+  "tests": "Document integrity only: official/local line ranges, source SHA and discovery categories. No runtime/model smoke claimed."
+}

@@ -362,3 +362,8 @@
 - 2026-10-20 12:57 UTC Codex agent escalation: fresh gpt-6-astra xhigh T4 mechanism author, explicitly required by BRIEF1b; derive pre-outcome predictions for all core channels and proposals. T1 accepted after parent floor/source checks: 20 direct/34 total V2 sources, 30 queries across three categories. Planned origin push on codex/encoder-transfer-20261019: fe8b78d..this T1 acceptance commit; actual range recorded after push.
 
 - 2026-10-20 13:00 UTC Codex agent push confirmed: origin codex/encoder-transfer-20261019 fe8b78d..42cc385aeb0b9b500528064e454f0afec1a191e1, remote equals local. Escalation: fresh gpt-6-astra high T5 official pipeline audit per BRIEF1b. T2 accepted after parent evidence/floor checks (18 qualifying families, 30 cards, 16 successful intents / three categories). Planned next push 42cc385..this T2 acceptance commit; no outcomes or execution.
+
+- 2026-10-20 13:02 UTC Codex agent push confirmed: origin codex/encoder-transfer-20261019 42cc385..ae5c7f33baa23cd363a70657a57d102fd2394f3d; local HEAD equals remote. T1/T2 accepted; remaining six topics and fresh second review are still mandatory.
+
+- 2026-10-20T13:35:00+00:00 | Stage1b T6 escalation: fresh gpt-6-astra/high, separate topic folder; full decision operating characteristics, correlation/missingness and n60/90/120 budget assessment. No outcomes or compute run.
+- 2026-10-20T13:35:00+00:00 | Codex agent | T5 floor accepted and push prepared on codex/encoder-transfer-20261019: ae5c7f3 -> topic acceptance commit (resolved in subsequent log entry). Six implementations/61 settings, six V2 papers, 16 queries/3 categories; 100 parent-verified receipt hashes.

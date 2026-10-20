@@ -1,0 +1,1937 @@
+{
+  "stage": "1b",
+  "date": "2026-10-20",
+  "executed_model_tests": false,
+  "implementations": {
+    "SD1.5": {
+      "setting_rows": 10,
+      "source_inspected": true,
+      "runtime_validated": false
+    },
+    "SDXL": {
+      "setting_rows": 11,
+      "source_inspected": true,
+      "runtime_validated": false
+    },
+    "Kandinsky3": {
+      "setting_rows": 10,
+      "source_inspected": true,
+      "runtime_validated": false
+    },
+    "WAM": {
+      "setting_rows": 10,
+      "source_inspected": true,
+      "runtime_validated": false
+    },
+    "VINE": {
+      "setting_rows": 10,
+      "source_inspected": true,
+      "runtime_validated": false
+    },
+    "TrustMark": {
+      "setting_rows": 10,
+      "source_inspected": true,
+      "runtime_validated": false
+    }
+  },
+  "rows": [
+    {
+      "implementation": "SD1.5",
+      "setting": "Revision, license, access",
+      "source_lines": [
+        {
+          "alias": "sd15-api.json",
+          "lines": 1,
+          "url": "https://huggingface.co/api/models/stable-diffusion-v1-5/stable-diffusion-v1-5/revision/451f4fe16113bff5a5d2269ed5ad43b0592e9a14"
+        },
+        {
+          "alias": "sd15-README.md.txt",
+          "lines": "1-3",
+          "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/raw/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/README.md"
+        },
+        {
+          "alias": "sd15-model_index.json.txt",
+          "lines": "1-31",
+          "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/raw/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/model_index.json"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/three_threat_models.py",
+          "lines": "94-112"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "296-314"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "SD1.5",
+      "setting": "Loading / dtype",
+      "source_lines": [
+        {
+          "alias": "sd15-pipeline.txt",
+          "lines": "735-796",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion/pipeline_stable_diffusion_img2img.py"
+        },
+        {
+          "alias": "vae.txt",
+          "lines": "76-99",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/models/autoencoders/autoencoder_kl.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/three_threat_models.py",
+          "lines": "94-112"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "296-314"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "SD1.5",
+      "setting": "Architecture / scaling",
+      "source_lines": [
+        {
+          "alias": "sd15-vae--config.json.txt",
+          "lines": "1-29",
+          "url": "https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/raw/451f4fe16113bff5a5d2269ed5ad43b0592e9a14/vae/config.json"
+        },
+        {
+          "alias": "vae.txt",
+          "lines": "76-99",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/models/autoencoders/autoencoder_kl.py"
+        },
+        {
+          "alias": "sd15-pipeline.txt",
+          "lines": "764-771",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion/pipeline_stable_diffusion_img2img.py"
+        },
+        {
+          "alias": "sd15-pipeline.txt",
+          "lines": "1137-1143",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion/pipeline_stable_diffusion_img2img.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/three_threat_models.py",
+          "lines": "94-112"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "296-314"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "SD1.5",
+      "setting": "API / CFG / prompt",
+      "source_lines": [
+        {
+          "alias": "sd15-pipeline.txt",
+          "lines": "839-845",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion/pipeline_stable_diffusion_img2img.py"
+        },
+        {
+          "alias": "sd15-pipeline.txt",
+          "lines": "860-897",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion/pipeline_stable_diffusion_img2img.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/three_threat_models.py",
+          "lines": "94-112"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "296-314"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "SD1.5",
+      "setting": "Scheduler / strength",
+      "source_lines": [
+        {
+          "alias": "ddim.txt",
+          "lines": "187-229",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/schedulers/scheduling_ddim.py"
+        },
+        {
+          "alias": "ddim.txt",
+          "lines": "297-341",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/schedulers/scheduling_ddim.py"
+        },
+        {
+          "alias": "sd15-pipeline.txt",
+          "lines": "724-733",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion/pipeline_stable_diffusion_img2img.py"
+        },
+        {
+          "alias": "ddim.txt",
+          "lines": "400-410",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/schedulers/scheduling_ddim.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/three_threat_models.py",
+          "lines": "94-112"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "296-314"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "SD1.5",
+      "setting": "Randomness / posterior",
+      "source_lines": [
+        {
+          "alias": "sd15-pipeline.txt",
+          "lines": "86-98",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion/pipeline_stable_diffusion_img2img.py"
+        },
+        {
+          "alias": "sd15-pipeline.txt",
+          "lines": "764-795",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion/pipeline_stable_diffusion_img2img.py"
+        },
+        {
+          "alias": "vae-distributions.txt",
+          "lines": "691-711",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/models/autoencoders/vae.py"
+        },
+        {
+          "alias": "ddim.txt",
+          "lines": "450-461",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/schedulers/scheduling_ddim.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/three_threat_models.py",
+          "lines": "94-112"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "296-314"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "SD1.5",
+      "setting": "Spatial / RGB rounding",
+      "source_lines": [
+        {
+          "alias": "image-processor.txt",
+          "lines": "108-121",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/image_processor.py"
+        },
+        {
+          "alias": "image-processor.txt",
+          "lines": "134-151",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/image_processor.py"
+        },
+        {
+          "alias": "image-processor.txt",
+          "lines": "600-610",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/image_processor.py"
+        },
+        {
+          "alias": "image-processor.txt",
+          "lines": "688-703",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/image_processor.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/three_threat_models.py",
+          "lines": "94-112"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "296-314"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "SD1.5",
+      "setting": "Safety / watermark",
+      "source_lines": [
+        {
+          "alias": "sd15-pipeline.txt",
+          "lines": "612-624",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion/pipeline_stable_diffusion_img2img.py"
+        },
+        {
+          "alias": "sd15-pipeline.txt",
+          "lines": "1137-1156",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion/pipeline_stable_diffusion_img2img.py"
+        },
+        {
+          "alias": "safety.txt",
+          "lines": "44-100",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion/safety_checker.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/three_threat_models.py",
+          "lines": "94-112"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "296-314"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "SD1.5",
+      "setting": "Memory / determinism",
+      "source_lines": [
+        {
+          "alias": "vae.txt",
+          "lines": "128-129",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/models/autoencoders/autoencoder_kl.py"
+        },
+        {
+          "alias": "pipeline-utils.txt",
+          "lines": "1154-1239",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/pipeline_utils.py"
+        },
+        {
+          "alias": "pipeline-utils.txt",
+          "lines": "1270-1336",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/pipeline_utils.py"
+        },
+        {
+          "alias": "torch-determinism.txt",
+          "lines": "5-19",
+          "url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.7.1/docs/source/notes/randomness.rst"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/three_threat_models.py",
+          "lines": "94-112"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "296-314"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "SD1.5",
+      "setting": "Decode / native detector",
+      "source_lines": [
+        {
+          "alias": "sd15-pipeline.txt",
+          "lines": "1137-1161",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion/pipeline_stable_diffusion_img2img.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/three_threat_models.py",
+          "lines": "94-112"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "296-314"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "SDXL",
+      "setting": "Revision / access / license",
+      "source_lines": [
+        {
+          "alias": "sdxl-api.json",
+          "lines": 1,
+          "url": "https://huggingface.co/api/models/stabilityai/stable-diffusion-xl-base-1.0/revision/462165984030d82259a11f4367a4eed129e94a7b"
+        },
+        {
+          "alias": "sdxl-README.md.txt",
+          "lines": "1-3",
+          "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/462165984030d82259a11f4367a4eed129e94a7b/README.md"
+        },
+        {
+          "alias": "sdxl-model_index.json.txt",
+          "lines": "1-34",
+          "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/462165984030d82259a11f4367a4eed129e94a7b/model_index.json"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "78-99"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "265-314"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "412-432"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "SDXL",
+      "setting": "VAE config / dtype",
+      "source_lines": [
+        {
+          "alias": "sdxl-vae--config.json.txt",
+          "lines": "1-32",
+          "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/462165984030d82259a11f4367a4eed129e94a7b/vae/config.json"
+        },
+        {
+          "alias": "sdxl-pipeline.txt",
+          "lines": "709-753",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion_xl/pipeline_stable_diffusion_xl_img2img.py"
+        },
+        {
+          "alias": "sdxl-pipeline.txt",
+          "lines": "899-915",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion_xl/pipeline_stable_diffusion_xl_img2img.py"
+        },
+        {
+          "alias": "sdxl-pipeline.txt",
+          "lines": "1456-1487",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion_xl/pipeline_stable_diffusion_xl_img2img.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "78-99"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "265-314"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "412-432"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "SDXL",
+      "setting": "Pipeline API / prompt / CFG",
+      "source_lines": [
+        {
+          "alias": "sdxl-pipeline.txt",
+          "lines": "959-965",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion_xl/pipeline_stable_diffusion_xl_img2img.py"
+        },
+        {
+          "alias": "sdxl-pipeline.txt",
+          "lines": "984-1025",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion_xl/pipeline_stable_diffusion_xl_img2img.py"
+        },
+        {
+          "alias": "sdxl-pipeline.txt",
+          "lines": "1260-1303",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion_xl/pipeline_stable_diffusion_xl_img2img.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "78-99"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "265-314"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "412-432"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "SDXL",
+      "setting": "Conditioning sizes",
+      "source_lines": [
+        {
+          "alias": "sdxl-pipeline.txt",
+          "lines": "849-889",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion_xl/pipeline_stable_diffusion_xl_img2img.py"
+        },
+        {
+          "alias": "sdxl-pipeline.txt",
+          "lines": "1312-1343",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion_xl/pipeline_stable_diffusion_xl_img2img.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "78-99"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "265-314"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "412-432"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "SDXL",
+      "setting": "Schedule / strength",
+      "source_lines": [
+        {
+          "alias": "ddim.txt",
+          "lines": "187-229",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/schedulers/scheduling_ddim.py"
+        },
+        {
+          "alias": "ddim.txt",
+          "lines": "324-328",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/schedulers/scheduling_ddim.py"
+        },
+        {
+          "alias": "sdxl-pipeline.txt",
+          "lines": "651-660",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion_xl/pipeline_stable_diffusion_xl_img2img.py"
+        },
+        {
+          "alias": "sdxl-pipeline.txt",
+          "lines": "1291-1303",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion_xl/pipeline_stable_diffusion_xl_img2img.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "78-99"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "265-314"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "412-432"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "SDXL",
+      "setting": "RNG / VAE sampling",
+      "source_lines": [
+        {
+          "alias": "sdxl-pipeline.txt",
+          "lines": "119-130",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion_xl/pipeline_stable_diffusion_xl_img2img.py"
+        },
+        {
+          "alias": "sdxl-pipeline.txt",
+          "lines": "737-770",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion_xl/pipeline_stable_diffusion_xl_img2img.py"
+        },
+        {
+          "alias": "vae-distributions.txt",
+          "lines": "691-711",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/models/autoencoders/vae.py"
+        },
+        {
+          "alias": "vae-distributions.txt",
+          "lines": "743-744",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/models/autoencoders/vae.py"
+        },
+        {
+          "alias": "ddim.txt",
+          "lines": "450-461",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/schedulers/scheduling_ddim.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "78-99"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "265-314"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "412-432"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "SDXL",
+      "setting": "Spatial / output / rinse",
+      "source_lines": [
+        {
+          "alias": "image-processor.txt",
+          "lines": "134-151",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/image_processor.py"
+        },
+        {
+          "alias": "image-processor.txt",
+          "lines": "468-505",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/image_processor.py"
+        },
+        {
+          "alias": "image-processor.txt",
+          "lines": "600-610",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/image_processor.py"
+        },
+        {
+          "alias": "image-processor.txt",
+          "lines": "688-703",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/image_processor.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "78-99"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "265-314"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "412-432"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "SDXL",
+      "setting": "D1 reconstruction",
+      "source_lines": [
+        {
+          "alias": "vae.txt",
+          "lines": "259-286",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/models/autoencoders/autoencoder_kl.py"
+        },
+        {
+          "alias": "vae.txt",
+          "lines": "302-333",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/models/autoencoders/autoencoder_kl.py"
+        },
+        {
+          "alias": "vae-distributions.txt",
+          "lines": "743-744",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/models/autoencoders/vae.py"
+        },
+        {
+          "alias": "sdxl-pipeline.txt",
+          "lines": "753-753",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion_xl/pipeline_stable_diffusion_xl_img2img.py"
+        },
+        {
+          "alias": "sdxl-pipeline.txt",
+          "lines": "1473-1483",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion_xl/pipeline_stable_diffusion_xl_img2img.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "78-99"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "265-314"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "412-432"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "SDXL",
+      "setting": "Safety / watermark",
+      "source_lines": [
+        {
+          "alias": "sdxl-pipeline.txt",
+          "lines": "277-302",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion_xl/pipeline_stable_diffusion_xl_img2img.py"
+        },
+        {
+          "alias": "sdxl-pipeline.txt",
+          "lines": "1491-1495",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion_xl/pipeline_stable_diffusion_xl_img2img.py"
+        },
+        {
+          "alias": "watermark.txt",
+          "lines": "16-42",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion_xl/watermark.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "78-99"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "265-314"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "412-432"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "SDXL",
+      "setting": "Memory / determinism",
+      "source_lines": [
+        {
+          "alias": "vae.txt",
+          "lines": "128-129",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/models/autoencoders/autoencoder_kl.py"
+        },
+        {
+          "alias": "pipeline-utils.txt",
+          "lines": "1154-1239",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/pipeline_utils.py"
+        },
+        {
+          "alias": "pipeline-utils.txt",
+          "lines": "1270-1336",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/pipeline_utils.py"
+        },
+        {
+          "alias": "torch-determinism.txt",
+          "lines": "5-19",
+          "url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.7.1/docs/source/notes/randomness.rst"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "78-99"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "265-314"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "412-432"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "SDXL",
+      "setting": "Decode / thresholds",
+      "source_lines": [
+        {
+          "alias": "sdxl-pipeline.txt",
+          "lines": "1483-1503",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion_xl/pipeline_stable_diffusion_xl_img2img.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "78-99"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "265-314"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "412-432"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "Kandinsky3",
+      "setting": "Revision / license / components",
+      "source_lines": [
+        {
+          "alias": "kd3-api.json",
+          "lines": 1,
+          "url": "https://huggingface.co/api/models/kandinsky-community/kandinsky-3/revision/bf79e6c219da8a94abb50235fdc4567eb8fb4632"
+        },
+        {
+          "alias": "kd3-README.md.txt",
+          "lines": "1-3",
+          "url": "https://huggingface.co/kandinsky-community/kandinsky-3/raw/bf79e6c219da8a94abb50235fdc4567eb8fb4632/README.md"
+        },
+        {
+          "alias": "kd3-model_index.json.txt",
+          "lines": "1-24",
+          "url": "https://huggingface.co/kandinsky-community/kandinsky-3/raw/bf79e6c219da8a94abb50235fdc4567eb8fb4632/model_index.json"
+        }
+      ],
+      "local_runtime_trace": [],
+      "local_runtime_status": "proposal only; no local runtime implementation"
+    },
+    {
+      "implementation": "Kandinsky3",
+      "setting": "Architecture / latent config",
+      "source_lines": [
+        {
+          "alias": "kd3-movq--config.json.txt",
+          "lines": "1-34",
+          "url": "https://huggingface.co/kandinsky-community/kandinsky-3/raw/bf79e6c219da8a94abb50235fdc4567eb8fb4632/movq/config.json"
+        },
+        {
+          "alias": "kd3-pipeline.txt",
+          "lines": "56-86",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/kandinsky3/pipeline_kandinsky3_img2img.py"
+        }
+      ],
+      "local_runtime_trace": [],
+      "local_runtime_status": "proposal only; no local runtime implementation"
+    },
+    {
+      "implementation": "Kandinsky3",
+      "setting": "API / prompt / CFG",
+      "source_lines": [
+        {
+          "alias": "kd3-pipeline.txt",
+          "lines": "97-183",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/kandinsky3/pipeline_kandinsky3_img2img.py"
+        },
+        {
+          "alias": "kd3-pipeline.txt",
+          "lines": "401-429",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/kandinsky3/pipeline_kandinsky3_img2img.py"
+        },
+        {
+          "alias": "kd3-pipeline.txt",
+          "lines": "393-394",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/kandinsky3/pipeline_kandinsky3_img2img.py"
+        },
+        {
+          "alias": "kd3-pipeline.txt",
+          "lines": "583-591",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/kandinsky3/pipeline_kandinsky3_img2img.py"
+        }
+      ],
+      "local_runtime_trace": [],
+      "local_runtime_status": "proposal only; no local runtime implementation"
+    },
+    {
+      "implementation": "Kandinsky3",
+      "setting": "Scheduler / strength",
+      "source_lines": [
+        {
+          "alias": "kd3-scheduler--scheduler_config.json.txt",
+          "lines": "1-19",
+          "url": "https://huggingface.co/kandinsky-community/kandinsky-3/raw/bf79e6c219da8a94abb50235fdc4567eb8fb4632/scheduler/scheduler_config.json"
+        },
+        {
+          "alias": "ddpm.txt",
+          "lines": "181-229",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/schedulers/scheduling_ddpm.py"
+        },
+        {
+          "alias": "ddpm.txt",
+          "lines": "299-319",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/schedulers/scheduling_ddpm.py"
+        },
+        {
+          "alias": "kd3-pipeline.txt",
+          "lines": "88-95",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/kandinsky3/pipeline_kandinsky3_img2img.py"
+        }
+      ],
+      "local_runtime_trace": [],
+      "local_runtime_status": "proposal only; no local runtime implementation"
+    },
+    {
+      "implementation": "Kandinsky3",
+      "setting": "Posterior / actual path",
+      "source_lines": [
+        {
+          "alias": "kd3-pipeline.txt",
+          "lines": "256-294",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/kandinsky3/pipeline_kandinsky3_img2img.py"
+        },
+        {
+          "alias": "kd3-pipeline.txt",
+          "lines": "559-570",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/kandinsky3/pipeline_kandinsky3_img2img.py"
+        },
+        {
+          "alias": "vq.txt",
+          "lines": "133-140",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/models/autoencoders/vq_model.py"
+        }
+      ],
+      "local_runtime_trace": [],
+      "local_runtime_status": "proposal only; no local runtime implementation"
+    },
+    {
+      "implementation": "Kandinsky3",
+      "setting": "Noise / decode / MoVQ control",
+      "source_lines": [
+        {
+          "alias": "kd3-pipeline.txt",
+          "lines": "285-294",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/kandinsky3/pipeline_kandinsky3_img2img.py"
+        },
+        {
+          "alias": "kd3-pipeline.txt",
+          "lines": "594-599",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/kandinsky3/pipeline_kandinsky3_img2img.py"
+        },
+        {
+          "alias": "kd3-pipeline.txt",
+          "lines": "621-625",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/kandinsky3/pipeline_kandinsky3_img2img.py"
+        },
+        {
+          "alias": "vq.txt",
+          "lines": "144-156",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/models/autoencoders/vq_model.py"
+        },
+        {
+          "alias": "ddpm.txt",
+          "lines": "477-492",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/schedulers/scheduling_ddpm.py"
+        }
+      ],
+      "local_runtime_trace": [],
+      "local_runtime_status": "proposal only; no local runtime implementation"
+    },
+    {
+      "implementation": "Kandinsky3",
+      "setting": "Spatial / RGB rounding",
+      "source_lines": [
+        {
+          "alias": "kd3-pipeline.txt",
+          "lines": "77-86",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/kandinsky3/pipeline_kandinsky3_img2img.py"
+        },
+        {
+          "alias": "image-processor.txt",
+          "lines": "134-151",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/image_processor.py"
+        },
+        {
+          "alias": "image-processor.txt",
+          "lines": "468-505",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/image_processor.py"
+        },
+        {
+          "alias": "image-processor.txt",
+          "lines": "600-610",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/image_processor.py"
+        }
+      ],
+      "local_runtime_trace": [],
+      "local_runtime_status": "proposal only; no local runtime implementation"
+    },
+    {
+      "implementation": "Kandinsky3",
+      "setting": "Precision / upcasting",
+      "source_lines": [
+        {
+          "alias": "kd3-pipeline.txt",
+          "lines": "256-294",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/kandinsky3/pipeline_kandinsky3_img2img.py"
+        },
+        {
+          "alias": "kd3-pipeline.txt",
+          "lines": "559-570",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/kandinsky3/pipeline_kandinsky3_img2img.py"
+        },
+        {
+          "alias": "vq.txt",
+          "lines": "133-156",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/models/autoencoders/vq_model.py"
+        }
+      ],
+      "local_runtime_trace": [],
+      "local_runtime_status": "proposal only; no local runtime implementation"
+    },
+    {
+      "implementation": "Kandinsky3",
+      "setting": "Safety / watermark / detector",
+      "source_lines": [
+        {
+          "alias": "kd3-pipeline.txt",
+          "lines": "56-86",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/kandinsky3/pipeline_kandinsky3_img2img.py"
+        },
+        {
+          "alias": "kd3-pipeline.txt",
+          "lines": "621-633",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/kandinsky3/pipeline_kandinsky3_img2img.py"
+        }
+      ],
+      "local_runtime_trace": [],
+      "local_runtime_status": "proposal only; no local runtime implementation"
+    },
+    {
+      "implementation": "Kandinsky3",
+      "setting": "Memory / offload / determinism",
+      "source_lines": [
+        {
+          "alias": "kd3-pipeline.txt",
+          "lines": "56-64",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/kandinsky3/pipeline_kandinsky3_img2img.py"
+        },
+        {
+          "alias": "pipeline-utils.txt",
+          "lines": "1154-1239",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/pipeline_utils.py"
+        },
+        {
+          "alias": "torch-determinism.txt",
+          "lines": "5-19",
+          "url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.7.1/docs/source/notes/randomness.rst"
+        }
+      ],
+      "local_runtime_trace": [],
+      "local_runtime_status": "proposal only; no local runtime implementation"
+    },
+    {
+      "implementation": "WAM",
+      "setting": "License / revision / access",
+      "source_lines": [
+        {
+          "alias": "wam-LICENSE.txt",
+          "lines": "1-21",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/LICENSE"
+        },
+        {
+          "alias": "wam-README.md.txt",
+          "lines": "17-45",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/README.md"
+        },
+        {
+          "alias": "wam-README.md.txt",
+          "lines": "252-261",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/README.md"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/journal_wam_probe.py",
+          "lines": "40-83"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "183-207"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "WAM",
+      "setting": "Native config / payload",
+      "source_lines": [
+        {
+          "alias": "wam-checkpoints-params.json.txt",
+          "lines": 1,
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/checkpoints/params.json"
+        },
+        {
+          "alias": "wam-embedder_config.txt",
+          "lines": "1-29",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/configs/embedder.yaml"
+        },
+        {
+          "alias": "wam-embedder.txt",
+          "lines": "85-98",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/watermark_anything/models/embedder.py"
+        },
+        {
+          "alias": "wam-extractor_config.txt",
+          "lines": "45-61",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/configs/extractor.yaml"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/journal_wam_probe.py",
+          "lines": "40-83"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "183-207"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "WAM",
+      "setting": "API / precision",
+      "source_lines": [
+        {
+          "alias": "wam-watermark_anything-models-wam.py.txt",
+          "lines": "147-222",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/watermark_anything/models/wam.py"
+        },
+        {
+          "alias": "wam-embedder.txt",
+          "lines": "67-82",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/watermark_anything/models/embedder.py"
+        },
+        {
+          "alias": "wam-embedder_config.txt",
+          "lines": "3-29",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/configs/embedder.yaml"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/journal_wam_probe.py",
+          "lines": "40-83"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "183-207"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "WAM",
+      "setting": "RGB / input normalization",
+      "source_lines": [
+        {
+          "alias": "wam-watermark_anything-data-transforms.py.txt",
+          "lines": "9-24",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/watermark_anything/data/transforms.py"
+        },
+        {
+          "alias": "wam-watermark_anything-models-wam.py.txt",
+          "lines": "164-192",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/watermark_anything/models/wam.py"
+        },
+        {
+          "alias": "wam-watermark_anything-models-wam.py.txt",
+          "lines": "207-222",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/watermark_anything/models/wam.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/journal_wam_probe.py",
+          "lines": "40-83"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "183-207"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "WAM",
+      "setting": "Interpolation / residual / JND",
+      "source_lines": [
+        {
+          "alias": "wam-watermark_anything-models-wam.py.txt",
+          "lines": "61-77",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/watermark_anything/models/wam.py"
+        },
+        {
+          "alias": "wam-watermark_anything-models-wam.py.txt",
+          "lines": "164-192",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/watermark_anything/models/wam.py"
+        },
+        {
+          "alias": "tv-transforms.txt",
+          "lines": "330-354",
+          "url": "https://raw.githubusercontent.com/pytorch/vision/v0.22.1/torchvision/transforms/transforms.py"
+        },
+        {
+          "alias": "tv-functional-tensor.txt",
+          "lines": "445-467",
+          "url": "https://raw.githubusercontent.com/pytorch/vision/v0.22.1/torchvision/transforms/_functional_tensor.py"
+        },
+        {
+          "alias": "wam-jnd.txt",
+          "lines": "65-118",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/watermark_anything/modules/jnd.py"
+        },
+        {
+          "alias": "wam-attenuation_config.txt",
+          "lines": "13-16",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/configs/attenuation.yaml"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/journal_wam_probe.py",
+          "lines": "40-83"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "183-207"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "WAM",
+      "setting": "PNG quantization",
+      "source_lines": [
+        {
+          "alias": "wam-README.md.txt",
+          "lines": "134-149",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/README.md"
+        },
+        {
+          "alias": "tv-utils.txt",
+          "lines": "126-152",
+          "url": "https://raw.githubusercontent.com/pytorch/vision/v0.22.1/torchvision/utils.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/journal_wam_probe.py",
+          "lines": "40-83"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "183-207"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "WAM",
+      "setting": "Native localization / image rule",
+      "source_lines": [
+        {
+          "alias": "wam-README.md.txt",
+          "lines": "134-145",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/README.md"
+        },
+        {
+          "alias": "wam-watermark_anything-data-metrics.py.txt",
+          "lines": "150-194",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/watermark_anything/data/metrics.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/journal_wam_probe.py",
+          "lines": "40-83"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "183-207"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "WAM",
+      "setting": "Native message decision",
+      "source_lines": [
+        {
+          "alias": "wam-watermark_anything-data-metrics.py.txt",
+          "lines": "150-194",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/watermark_anything/data/metrics.py"
+        },
+        {
+          "alias": "wam-README.md.txt",
+          "lines": "138-145",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/README.md"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/journal_wam_probe.py",
+          "lines": "40-83"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "183-207"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "WAM",
+      "setting": "RNG / deterministic scope",
+      "source_lines": [
+        {
+          "alias": "wam-watermark_anything-models-wam.py.txt",
+          "lines": "164-192",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/watermark_anything/models/wam.py"
+        },
+        {
+          "alias": "wam-watermark_anything-models-wam.py.txt",
+          "lines": "194-222",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/watermark_anything/models/wam.py"
+        },
+        {
+          "alias": "wam-embedder.txt",
+          "lines": "60-61",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/watermark_anything/models/embedder.py"
+        },
+        {
+          "alias": "torch-determinism.txt",
+          "lines": "5-19",
+          "url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.7.1/docs/source/notes/randomness.rst"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/journal_wam_probe.py",
+          "lines": "40-83"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "183-207"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "WAM",
+      "setting": "Safety / memory / offload",
+      "source_lines": [
+        {
+          "alias": "wam-watermark_anything-models-wam.py.txt",
+          "lines": "22-55",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/watermark_anything/models/wam.py"
+        },
+        {
+          "alias": "wam-watermark_anything-models-wam.py.txt",
+          "lines": "147-222",
+          "url": "https://raw.githubusercontent.com/facebookresearch/watermark-anything/2c08af04d037d5667c02f6ddebbda9ff04581c3e/watermark_anything/models/wam.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/journal_wam_probe.py",
+          "lines": "40-83"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "183-207"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "VINE",
+      "setting": "License / access / model pins",
+      "source_lines": [
+        {
+          "alias": "vine-LICENSE.txt",
+          "lines": "1-10",
+          "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/LICENSE"
+        },
+        {
+          "alias": "vine-enc-README.md.txt",
+          "lines": "1-9",
+          "url": "https://huggingface.co/Shilin-LU/VINE-R-Enc/raw/0c255688e032e4318c700c485c0625367b70908c/README.md"
+        },
+        {
+          "alias": "vine-enc-config.json.txt",
+          "lines": 1,
+          "url": "https://huggingface.co/Shilin-LU/VINE-R-Enc/raw/0c255688e032e4318c700c485c0625367b70908c/config.json"
+        },
+        {
+          "alias": "vine-dec-config.json.txt",
+          "lines": 1,
+          "url": "https://huggingface.co/Shilin-LU/VINE-R-Dec/raw/0f094b300be71a358f7c1769221f50318f1b4d74/config.json"
+        },
+        {
+          "alias": "sdturbo-api.json",
+          "lines": 1,
+          "url": "https://huggingface.co/api/models/stabilityai/sd-turbo/revision/b261bac6fd2cf515557d5d0707481eafa0485ec2"
+        },
+        {
+          "alias": "sdturbo-license.txt",
+          "lines": "1-9",
+          "url": "https://huggingface.co/stabilityai/sd-turbo/raw/b261bac6fd2cf515557d5d0707481eafa0485ec2/LICENSE.md"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "210-252"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "323-330"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "373"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "VINE",
+      "setting": "Pipeline / dtype / dependency",
+      "source_lines": [
+        {
+          "alias": "vine-vine-src-vine_turbo.py.txt",
+          "lines": "114-155",
+          "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/vine_turbo.py"
+        },
+        {
+          "alias": "vine-model.txt",
+          "lines": "7-11",
+          "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/model.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "210-252"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "323-330"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "373"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "VINE",
+      "setting": "Prompt / schedule / timestep",
+      "source_lines": [
+        {
+          "alias": "vine-vine-src-vine_turbo.py.txt",
+          "lines": "136-155",
+          "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/vine_turbo.py"
+        },
+        {
+          "alias": "vine-vine-src-vine_turbo.py.txt",
+          "lines": "214-223",
+          "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/vine_turbo.py"
+        },
+        {
+          "alias": "vine-model.txt",
+          "lines": "7-11",
+          "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/model.py"
+        },
+        {
+          "alias": "sdturbo-scheduler.json.txt",
+          "lines": "1-21",
+          "url": "https://huggingface.co/stabilityai/sd-turbo/raw/b261bac6fd2cf515557d5d0707481eafa0485ec2/scheduler/scheduler_config.json"
+        },
+        {
+          "alias": "ddpm.txt",
+          "lines": "181-229",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/schedulers/scheduling_ddpm.py"
+        },
+        {
+          "alias": "ddpm.txt",
+          "lines": "299-319",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/schedulers/scheduling_ddpm.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "210-252"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "323-330"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "373"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "VINE",
+      "setting": "Posterior / skip decoder / scale",
+      "source_lines": [
+        {
+          "alias": "vine-vine-src-vine_turbo.py.txt",
+          "lines": "13-43",
+          "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/vine_turbo.py"
+        },
+        {
+          "alias": "vine-model.txt",
+          "lines": "14-70",
+          "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/model.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "210-252"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "323-330"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "373"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "VINE",
+      "setting": "RNG subtlety",
+      "source_lines": [
+        {
+          "alias": "vine-vine-src-vine_turbo.py.txt",
+          "lines": "214-223",
+          "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/vine_turbo.py"
+        },
+        {
+          "alias": "ddpm.txt",
+          "lines": "325-345",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/schedulers/scheduling_ddpm.py"
+        },
+        {
+          "alias": "ddpm.txt",
+          "lines": "477-492",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/schedulers/scheduling_ddpm.py"
+        },
+        {
+          "alias": "ddpm.txt",
+          "lines": "550-558",
+          "url": "https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/schedulers/scheduling_ddpm.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "210-252"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "323-330"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "373"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "VINE",
+      "setting": "Embedding preprocessing",
+      "source_lines": [
+        {
+          "alias": "vine-vine-src-watermark_encoding.py.txt",
+          "lines": "27-76",
+          "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/watermark_encoding.py"
+        },
+        {
+          "alias": "tv-functional-tensor.txt",
+          "lines": "445-467",
+          "url": "https://raw.githubusercontent.com/pytorch/vision/v0.22.1/torchvision/transforms/_functional_tensor.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "210-252"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "323-330"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "373"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "VINE",
+      "setting": "PNG quantization",
+      "source_lines": [
+        {
+          "alias": "vine-vine-src-watermark_encoding.py.txt",
+          "lines": "67-76",
+          "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/watermark_encoding.py"
+        },
+        {
+          "alias": "tv-functional.txt",
+          "lines": "260-284",
+          "url": "https://raw.githubusercontent.com/pytorch/vision/v0.22.1/torchvision/transforms/functional.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "210-252"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "323-330"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "373"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "VINE",
+      "setting": "Decoder / native bit rule",
+      "source_lines": [
+        {
+          "alias": "vine-vine-src-watermark_decoding.py.txt",
+          "lines": "32-46",
+          "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/watermark_decoding.py"
+        },
+        {
+          "alias": "vine-vine-src-stega_encoder_decoder.py.txt",
+          "lines": "176-190",
+          "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/stega_encoder_decoder.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "210-252"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "323-330"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "373"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "VINE",
+      "setting": "Native operating point / common rule",
+      "source_lines": [
+        {
+          "alias": "vine-vine-src-watermark_decoding_wbench.py.txt",
+          "lines": "134-150",
+          "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/watermark_decoding_wbench.py"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "210-252"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "323-330"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "373"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "VINE",
+      "setting": "Safety / memory / determinism",
+      "source_lines": [
+        {
+          "alias": "vine-vine-src-vine_turbo.py.txt",
+          "lines": "13-43",
+          "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/vine_turbo.py"
+        },
+        {
+          "alias": "vine-vine-src-vine_turbo.py.txt",
+          "lines": "214-223",
+          "url": "https://raw.githubusercontent.com/Shilin-LU/VINE/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77/vine/src/vine_turbo.py"
+        },
+        {
+          "alias": "torch-determinism.txt",
+          "lines": "5-19",
+          "url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.7.1/docs/source/notes/randomness.rst"
+        }
+      ],
+      "local_runtime_trace": [
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "210-252"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "323-330"
+        },
+        {
+          "path": "scripts/encoder_transfer_runtime.py",
+          "lines": "373"
+        }
+      ],
+      "local_runtime_status": "implemented core; documentary inspected"
+    },
+    {
+      "implementation": "TrustMark",
+      "setting": "Revision / license / checkpoint pin",
+      "source_lines": [
+        {
+          "alias": "trustmark-license.txt",
+          "lines": "1-23",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/LICENSE"
+        },
+        {
+          "alias": "trustmark.txt",
+          "lines": "28-49",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/python/trustmark/trustmark.py"
+        },
+        {
+          "alias": "trustmark.txt",
+          "lines": "141-151",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/python/trustmark/trustmark.py"
+        }
+      ],
+      "local_runtime_trace": [],
+      "local_runtime_status": "proposal only; no local runtime implementation"
+    },
+    {
+      "implementation": "TrustMark",
+      "setting": "Config / API / extra downloads",
+      "source_lines": [
+        {
+          "alias": "trustmark-Q.yaml.txt",
+          "lines": "1-22",
+          "url": "https://cai-watermark.adobe.net/watermarking/trustmark-models/trustmark_Q.yaml"
+        },
+        {
+          "alias": "trustmark.txt",
+          "lines": "69-131",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/python/trustmark/trustmark.py"
+        }
+      ],
+      "local_runtime_trace": [],
+      "local_runtime_status": "proposal only; no local runtime implementation"
+    },
+    {
+      "implementation": "TrustMark",
+      "setting": "Precision / loading / RNG",
+      "source_lines": [
+        {
+          "alias": "trustmark.txt",
+          "lines": "153-197",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/python/trustmark/trustmark.py"
+        },
+        {
+          "alias": "trustmark.txt",
+          "lines": "465-505",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/python/trustmark/trustmark.py"
+        },
+        {
+          "alias": "trustmark-datalayer.txt",
+          "lines": "118-147",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/python/trustmark/datalayer.py"
+        },
+        {
+          "alias": "torch-serialization.txt",
+          "lines": "88-91",
+          "url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.7.1/torch/serialization.py"
+        },
+        {
+          "alias": "torch-serialization.txt",
+          "lines": "1427-1431",
+          "url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.7.1/torch/serialization.py"
+        }
+      ],
+      "local_runtime_trace": [],
+      "local_runtime_status": "proposal only; no local runtime implementation"
+    },
+    {
+      "implementation": "TrustMark",
+      "setting": "Encode spatial / residual / rounding",
+      "source_lines": [
+        {
+          "alias": "trustmark.txt",
+          "lines": "465-508",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/python/trustmark/trustmark.py"
+        },
+        {
+          "alias": "torch-functional.txt",
+          "lines": "4453-4460",
+          "url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.7.1/torch/nn/functional.py"
+        },
+        {
+          "alias": "torch-functional.txt",
+          "lines": "4545-4551",
+          "url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.7.1/torch/nn/functional.py"
+        }
+      ],
+      "local_runtime_trace": [],
+      "local_runtime_status": "proposal only; no local runtime implementation"
+    },
+    {
+      "implementation": "TrustMark",
+      "setting": "Decode size / normalization",
+      "source_lines": [
+        {
+          "alias": "trustmark.txt",
+          "lines": "115-123",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/python/trustmark/trustmark.py"
+        },
+        {
+          "alias": "trustmark.txt",
+          "lines": "401-460",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/python/trustmark/trustmark.py"
+        }
+      ],
+      "local_runtime_trace": [],
+      "local_runtime_status": "proposal only; no local runtime implementation"
+    },
+    {
+      "implementation": "TrustMark",
+      "setting": "Raw native bit threshold",
+      "source_lines": [
+        {
+          "alias": "trustmark.txt",
+          "lines": "451-463",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/python/trustmark/trustmark.py"
+        }
+      ],
+      "local_runtime_trace": [],
+      "local_runtime_status": "proposal only; no local runtime implementation"
+    },
+    {
+      "implementation": "TrustMark",
+      "setting": "ECC layout / capacity",
+      "source_lines": [
+        {
+          "alias": "trustmark.txt",
+          "lines": "74-82",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/python/trustmark/trustmark.py"
+        },
+        {
+          "alias": "trustmark-datalayer.txt",
+          "lines": "12-57",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/python/trustmark/datalayer.py"
+        },
+        {
+          "alias": "trustmark-datalayer.txt",
+          "lines": "60-100",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/python/trustmark/datalayer.py"
+        },
+        {
+          "alias": "trustmark-datalayer.txt",
+          "lines": "118-147",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/python/trustmark/datalayer.py"
+        }
+      ],
+      "local_runtime_trace": [],
+      "local_runtime_status": "proposal only; no local runtime implementation"
+    },
+    {
+      "implementation": "TrustMark",
+      "setting": "Native success / ownership decision",
+      "source_lines": [
+        {
+          "alias": "trustmark-datalayer.txt",
+          "lines": "166-209",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/python/trustmark/datalayer.py"
+        },
+        {
+          "alias": "trustmark-bch.txt",
+          "lines": "1-35",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/python/trustmark/bchecc.py"
+        }
+      ],
+      "local_runtime_trace": [],
+      "local_runtime_status": "proposal only; no local runtime implementation"
+    },
+    {
+      "implementation": "TrustMark",
+      "setting": "Schedule / safety / watermark",
+      "source_lines": [
+        {
+          "alias": "trustmark.txt",
+          "lines": "124-131",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/python/trustmark/trustmark.py"
+        },
+        {
+          "alias": "trustmark.txt",
+          "lines": "401-508",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/python/trustmark/trustmark.py"
+        }
+      ],
+      "local_runtime_trace": [],
+      "local_runtime_status": "proposal only; no local runtime implementation"
+    },
+    {
+      "implementation": "TrustMark",
+      "setting": "Memory / determinism",
+      "source_lines": [
+        {
+          "alias": "trustmark.txt",
+          "lines": "82-131",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/python/trustmark/trustmark.py"
+        },
+        {
+          "alias": "trustmark.txt",
+          "lines": "401-460",
+          "url": "https://raw.githubusercontent.com/adobe/trustmark/6df5a0a29b51cbec832695fdf02051a1937e37bd/python/trustmark/trustmark.py"
+        },
+        {
+          "alias": "torch-determinism.txt",
+          "lines": "5-19",
+          "url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.7.1/docs/source/notes/randomness.rst"
+        }
+      ],
+      "local_runtime_trace": [],
+      "local_runtime_status": "proposal only; no local runtime implementation"
+    }
+  ],
+  "discovery_query_count": 16,
+  "successful_discovery_categories": [
+    "OpenAlex",
+    "official model hub search",
+    "web"
+  ],
+  "paper_v2_cards": 6
+}

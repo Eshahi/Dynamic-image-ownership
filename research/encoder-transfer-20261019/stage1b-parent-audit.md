@@ -17,11 +17,11 @@ Record unresolved gaps before acceptance. A below-floor delivery returns to a fr
 | Topic | Required content floor | Qualifying count | Distinct queries / categories | Parent disposition | Accepted topic commit |
 |---|---|---:|---|---|---|
 | T1 | 15 benchmark/attack sources; complete settings table | 20 direct; 34 total V2 | 30 queries, 20 intents / 3 categories | Accepted after parent inspection | 42cc385aeb0b9b500528064e454f0afec1a191e1 |
-| T2 | 15 model families; lineage and implementation table | 18 families; 30 individual cards | 17 successful queries, 16 intents / 3 categories | Accepted after parent inspection | This acceptance commit |
+| T2 | 15 model families; lineage and implementation table | 18 families; 30 individual cards | 17 successful queries, 16 intents / 3 categories | Accepted after parent inspection | ae5c7f33baa23cd363a70657a57d102fd2394f3d |
 | T3 | 12 post-hoc methods; fidelity and run-cost table | Pending | Pending | In research | Pending |
 | T4 | 8 mechanism sources; all-channel and proposal predictions | Pending | Pending | In research, fresh Astra xhigh | Pending |
-| T5 | Six named implementations; all relied-on settings pinned by file/line | Pending | Pending | In research, fresh Astra high | Pending |
-| T6 | n60/90/120; seed correlation and missing-unit sensitivity | Pending | Pending | Not yet assigned | Pending |
+| T5 | Six named implementations; all relied-on settings pinned by file/line | 6 implementations, 61 setting rows, 6 paper V2 cards | 16 queries / 3 categories | Accepted after parent inspection | This topic commit |
+| T6 | n60/90/120; seed correlation and missing-unit sensitivity | Pending | Pending | In research, fresh Astra high | Pending |
 | T7 | 12 evaluation sections from 2024-2026 eligible venues | Pending | Pending | Not yet assigned | Pending |
 | T8 | 25 distinct validity threats | Pending | Pending | Not yet assigned | Pending |
 
@@ -58,3 +58,18 @@ The parent read the substantive method, evaluation, lineage, implementation and 
 Primary checks and corrected draft issues are recorded above. Additional final checks confirm Qwen's frozen-encoder statement is Section 2.3; official SDXL fp16 checkpoint values and full-fp32 arithmetic are distinguished; the frozen Diffusers version remains 0.35.1; opaque revision strings are intact. The source-inspection pin for newer APIs is documentary and does not amend the executable environment.
 
 T2 supports preserving the core. MoVQ is the preferred optional training-lineage contrast, with a narrower AE-only alternative. O1 is an inspected high-resolution pixel-method lead but its native API snaps square 1024 requests to 2048 and lacks strength; PRX has a native 1024 interface but lacks a sufficient quantitative paper evaluation and also lacks img2img strength. Neither is a frozen drop-in. The potential Klein P10 is rejected for this question. Proposed full-model panels exceed the existing time/download allocations; parameter storage, file bytes, peak VRAM and measured latency remain separate quantities. The superseded intermediate synthesis is preserved but excluded from evidence integration and counts; `skill-synthesis-1b-final/` is authoritative.
+
+
+### T3-T5 draft checks, not acceptance
+
+The parent read all 21 drafted T3 method records and independently checked the primary DistSeal method/evaluation and GenPTW post-hoc Table 2/setup, plus Pixel Seal's high-resolution residual construction. DistSeal's timing excludes codec round trips; GenPTW's in-generation quality must not replace its post-hoc values. Obvious EditGuard/OmniGuard discovery leads were returned for assessment. Native TrustMark Q must retain its 61-bit BCH payload and 245-pixel decoder; raw-mode `detected=True` is not presence evidence. Structured BCH/header bits do not automatically satisfy a fair-independent-100-bit null. Artificial internal spacing in the draft prose and identifiers must be corrected before acceptance.
+
+All twelve drafted T4 cards were read. The parent independently checked Zhao Theorems 4.3/4.4 and Remark C.6 in the cached primary text, the repeated-channel paper's Sections VI and numerical illustration, and Cohen et al.'s smoothing theorem/certification algorithm. The cards correctly distinguish equal input-independent Gaussian covariance from a sampled VAE posterior, a canonical repeated Gaussian channel from arbitrary DDIM repetition, and certified classifier smoothing from eight averaged continuous encoder outputs. P5 needs an explicitly costed unsmoothed posterior-mode control to isolate smoothing; ordinary sampled-posterior R1 does not provide that control. P6 caption side information must be explicit.
+
+All six drafted T5 implementation cards were read. The parent returned the R1-versus-D1 input-rounding distinction to T4: native R1 casts pixels through prompt dtype before full VAE upcast, whereas D1 starts from fp32 normalization. The MoVQ call uses continuous latents and bypasses quantization; its dormant posterior helper must not be treated as executed behavior. A complete setting/link/receipt and search-floor check remains pending final delivery.
+
+### T5 accepted, 2026-10-20
+
+The parent read all six implementation cards, the six separate paper V2 cards, the synthesis, search ledger and 61-row setting matrix. Coverage is SD1.5 (10 rows), SDXL (11), Kandinsky3 (10), WAM (10), VINE (10) and TrustMark (10). Exact pinned official file/line citations cover the settings relied on, with no invented optional local implementations. Sixteen substantive discovery queries comprise eight web, four OpenAlex and four official-Hub searches; raw receipts and failed retrievals remain indexed. All 100 cached source hashes were independently verified by the parent with zero mismatches.
+
+Consequential code checks confirm SDXL input casting before the VAE upcast (709-753), actual KD3 MoVQ encode/continuous-latent path (559-570), VINE DDPM global-noise branch (477-492), and TrustMark raw-mode unconditional true return through line 462. WAM paper Section5.3 was reread for the 10k COCO evaluation and transferred .07 presence threshold; the paper operating point is not certified for the released SA-1B weights. The missing TrustMark return-line citation was corrected before acceptance. No core implementation change is required by this documentary audit. GPU compatibility, effective kernel, full-fp32 memory and timing remain unmeasured; acceptance does not claim model execution.

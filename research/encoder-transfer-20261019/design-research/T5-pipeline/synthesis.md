@@ -1,15 +1,40 @@
-# T5 synthesis: pipeline settings ready to freeze
+# T5 Stage1b: pinned pipeline fidelity audit
 
-Stage1 research only,2026-10-19. No model weights downloaded or imported, no GPU/images/marks/outcomes/held-out data. Read the two cards with `source-manifest.json`. New evidence is inspected official code/configs; inherited scientific V2 claims remain attributed to T2/T3/dossier rather than relabeled as freshly verified papers.
+The six required implementations have been inspected at actual frozen source versions. The61-setting matrix links exact official files and line ranges; six independent paper V2 cards record methods **and** evaluation rereads. No core scientific-definition bug was established by this static audit. Documentary completeness does not imply package, checkpoint, CUDA or model runtime validation.
 
-1. Freeze diffusers0.35.1 and supported torch2.7.1/torchvision0.22.1 cu128; audit package imports and freeze transitive environment separately. Hardware compatibility is supported by official PyTorch docs; this exact experiment runtime has not run.
-2. Fix SDXL's full-fp32 decode explicitly. Native force_upcast fully promotes encode, but native decode selectively retains fp16 blocks with SDPA. Minimal upcast_vae override is in the pipeline card. Preserve official fp16 VAE checkpoint values, expanded for fp32 arithmetic; no fp16-fix replacement. Disable native SDXL watermark overlay explicitly.
-3. Pin SDXL revision462165984030d82259a11f4367a4eed129e94a7b. `sdxl-download-plan.json` lists18 exact files, immutable URLs, sizes, Git blobs and SHA-256. Weight SHA values come from official remote LFS metadata, not a claimed local download. Total **6,941,187,536 bytes**. No monoliths, fp32 duplicates, vae_1_0 or refiner files.
-4. Preserve the existing15 SD15 asset-lock entries unchanged. `sd15-lock-source-map.json` verifies every expected hash against official mirror revision451f4fe16113bff5a5d2269ed5ad43b0592e9a14. Small text files were hashed locally; model SHA values were compared against LFS metadata. The old `a6-candidate-model-assets.json` remains authoritative, including evaluator assets not in this source map.
-5. Explicit DDIM configuration makes strength.1/.2/.4 mean2/4/8 denoising updates starting51/151/351. Eta0 still uses posterior and input-noise randomness. Prompt empty means learned empty conditioning; guidance1 disables CFG. Freeze SDXL1024 microconditioning and Lanczos resampling/PNG roundtrip exactly.
-6. D1 uses fp32 posterior mode encode/decode at1024 with no diffusion scaling/noise. One resize-only control and twice-resize rinse control identify resampling loss. Rinse pass2 reuses saved512 R1.1 output with seeds112–114, not hidden1024 tensors.
-7. Retain R0 safety checker; mark blocked calls missing with the denominator retained. R1 has no native checker. Do not count black placeholder images. Label R0 as same configuration on new runtime, not a bit-exact reproduction of historical outputs.
-8. R2/D2 stay disabled: FLUX.1-schnell official repository gated=auto. KD3 is a separate user proposal with native DDPM/MoVQ semantics, additional storage/runtime and licensing/dependency inventory from T2. No family has equal corruption merely because strengths match.
-9. Preserve native FP32 WAM/VINE adapters and T3 operating points. VINE released SD-Turbo constructor was independently confirmed here. All nested model loads must resolve to pinned local files with offline flags; VINE needs PEFT import even without active LoRA.
+## Findings that matter
 
-Coverage: official SDXL encode/decode precision, safety/watermarker, timestep/noise semantics, prompts/microconditioning, RNG consumption, resampling/diagnostics/rinsing, supported Blackwell/cu128 pair, dependency traps, memory/offload and alternative FLUX/KD3 semantics were inspected. Recent2025 package releases and current2026 model metadata were checked; T2 supplies broad newer-family coverage. Remaining gaps are operational, explicitly unmeasured: exact server throughput/peak VRAM, actual full transitive installation compatibility, CUDA host driver minimum and device-specific deterministic kernels. No outcome-based modification is authorized by these gaps; fix the pre-outcome environment or report failed setup. R0 new-runtime parity with historical outputs is intentionally not claimed.
+1. **R0/R1 strength semantics:** frozen DDIM20 leading/offset1 retains2/4/8 updates at.1/.2/.4, beginning51/151/351. `schedule-and-tail-arithmetic.json` gives the whole schedule. Equal indices do not equate severity across encoders. R0/R1 sample posterior; D1 uses unscaled posterior mode.
+2. **SDXL precision is a deliberate policy:** native diffusers0.35.1 upcast partly returns decoder blocks to fp16; the existing local override correctly retains the entire official VAE in fp32. This preserves fp16 checkpoint values promoted to fp32, not a replacement fp32 file. Native R1 preprocess casts image values to pipeline fp16 before float32 VAE encoding, whereas D1 preprocesses directly to fp32; describe D1 as a reconstruction control, not an exact subtraction of R1's encoder arithmetic.
+3. **Spatial arithmetic is method-specific:** WAM tensor bilinear resizing uses torchvision0.22.1 antialias=True and image output floor(255x+.5); VINE uses PIL bicubic256 plus tensor bicubic residual scaling and ToPIL uint8 truncation; diffusers rounds to nearest/ties-even. Rinse uses the saved512 PNG between attacks. Harmonizing these details would silently change the released methods.
+4. **Native detectors differ:** WAM mask sigmoid>.5/fraction>.07 is a transferred published presence rule; message aggregation thresholds mean raw logits>.5. Empty masks abstain. VINE has a100bit decoder with np.round and no universal fixed presence cutoff. Common27/32 and69/100 are random-message tail rules, never image-FPR bounds.
+5. **VINE RNG:** posterior.mode is deterministic, but its one-step DDPM999→−1 still draws a tiny global Gaussian term because variance clamps at1e−20. Existing per-mark global seed42 covers it. Do not silently replace the native step to remove that draw. Released dependency SD-Turbo differs from paper SDXL-Turbo prose.
+6. **Optional Kandinsky3:** actual img2img encodes continuous4-channel MoVQ latents then bypasses the helper's stale `.latent_dist.sample` branch; decode uses `force_not_quantize=True` and no latent scaling. DDPM cosine/noisy reverse semantics differ from R1. Source precision and runtime memory remain unmeasured proposal choices.
+7. **Optional TrustMark-Q:** Python decoder245, encoder256; default BCH_5 neural100bits contain61payload+35parity+4header. Native logits>0 feed ECC; valid ECC and exact expected-payload equality are separate. Raw mode's unconditional detected=True is not presence. Official CDN Q YAML matches pinned MD5; no weights retrieved. Do not use JS256, P224, arbitrary100bit-binomial calibration or an unofficial mirror.
+
+## Classification: fixes, amendments and missing evidence
+
+| Class | Finding | Required action |
+|---|---|---|
+| Required core bug fix established | None from this documentary audit | No shared code edit made; parent retains responsibility for final integration and runtime smoke |
+| Textual clarification | R1 input half-rounding versus D1, VINE tiny global RNG, WAM release calibration transfer, TrustMark245/ECC, KD3 bypass | Carry these limits into consolidated protocol/report |
+| Version compatibility | Safe-load/native imports, VINE offline nested paths, full-fp32 VAE guards, selected CUDA backend | Authorized Stage2 synthetic smoke before real development-image execution; retain errors explicitly |
+| Pre-outcome amendment if adopted | P1 TrustMark, P4 KD3, offload, tiling, precision, scheduling, replacement AE files | Freeze change and why before outcomes; this audit does not adopt them |
+| Missing evidence | Actual checkpoint source tensor precision where metadata lacks it; server VRAM/elapsed time; effective SDPA kernel; TrustMark newly downloaded bytes | Collect during authorized setup, not invented from paper/model-size numbers |
+
+Consequential checks only: Stage2 should verify2/4/8 scheduler tails, SDXL full-fp32 encode/decode guards after R1/D1 switching, native WAM raw-logit aggregation/empty-mask handling, and distinct PNG rounding. Optional P1 would need exact61payload/schema/245resize assertions; optional P4 would need the continuous-latent bypass. Existing CPU tests are not rerun or relabelled as CUDA/model validation here.
+
+## Search coverage and audit boundaries
+
+Sixteen distinct substantive queries cover general web discovery (8), OpenAlex scholarly search (4), and official Hub search (4). Direct file retrievals do not count toward breadth. Search results include noisy leads and newer alternatives; only inspected primary methods/evaluation and exact pinned code support claims. Raw API/tool responses, failed retrieval events and SHA manifests are retained. No packages/models were executed and no marks, real images or held-out pixels were inspected.
+
+## what we might still have missed
+
+- A compatible exact-release checkpoint may contain metadata unsupported by the frozen safe loader; text source inspection cannot establish actual deserialization success.
+- Effective CUDA/SDPA kernel selection, full-fp32-VAE peak memory and runtime depend on the rented hardware. Documentary compatibility is not a measured smoke result.
+- Public CDN weight URLs can change; historical WAM SHA and TrustMark expected MD5 must be checked after authorized downloads, with SHA256 recorded. TrustMark's native downloader does not itself validate new bytes after transfer.
+- Official release/model-card metadata and paper training descriptions can be inconsistent (VINE is a concrete case); unreported training-data overlap remains possible despite independent AE training.
+- Hub fuzzy searches missed the author VINE handle and returned unofficial TrustMark mirrors; direct author-source resolution corrected these leads. New papers found via OpenAlex were discovery leads, not silently cited as evaluated evidence.
+- T5 is a fidelity audit, not an exhaustive alternative-method ranking. T1/T2/T3 own attack/encoder/baseline breadth, and this package adds no unapproved external baseline.
+
+Stop boundary remains the Stage1b documentary review. No server start, paid compute, model download, image scoring or held-out run follows from this audit.
