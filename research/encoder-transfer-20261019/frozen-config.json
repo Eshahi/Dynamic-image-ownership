@@ -228,7 +228,18 @@
     },
     "secondary_inference": "none",
     "primary_sign_holm_family": 3,
-    "human_visual_assessment": "missing"
+    "human_visual_assessment": "missing",
+    "internal_carrier_states": [
+      "missing_call",
+      "raw_unavailable",
+      "not_found",
+      "found_not_read",
+      "read_content_mismatch",
+      "C_success"
+    ],
+    "carrier_state_priority": "read/content before found; raw fields required; descriptive source-grouped counts",
+    "read_without_found_diagnostic": true,
+    "exact_Q_separate": true
   },
   "freeze_utc": "2026-10-20T08:01:29.605632+00:00",
   "design_review_file": "research/encoder-transfer-20261019/design-review.md",

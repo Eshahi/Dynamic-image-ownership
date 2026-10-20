@@ -5,6 +5,52 @@ from encoder_transfer_test import ALPHA,BETA,RULES,unit_id,call_value,plan
 
 METRICS=("psnr_db","ssim_rgb","lpips")
 BINS=(0,.05,.10,.20,.30,.50,math.inf)
+CARRIER_STATES=("missing_call","raw_unavailable","not_found","found_not_read",
+                "read_content_mismatch","C_success")
+
+
+def carrier_state(row,method):
+    """Describe a persisted semantic read without changing historical endpoints."""
+    if not row or row.get("status") not in ("generated","ok"):
+        return "missing_call",False
+    call=row.get("detections",{}).get(method,{}).get(ALPHA,{})
+    if call.get("status")!="ok":
+        return "missing_call",False
+    raw=call.get("raw")
+    semantic=raw.get("semantic") if isinstance(raw,dict) else None
+    if not isinstance(semantic,dict) or any(type(semantic.get(k)) is not bool
+                                          for k in ("found","read","content_match")):
+        return "raw_unavailable",False
+    # C literally depends on read/content_match, not found. Preserve that order.
+    if semantic["read"]:
+        return ("C_success" if semantic["content_match"] else "read_content_mismatch",
+                not semantic["found"])
+    return ("found_not_read" if semantic["found"] else "not_found"),False
+
+
+def carrier_summary(ids,seeds,rows,method,cid,strength):
+    """Retain source clustering; these are descriptive call states, not trials."""
+    totals=dict.fromkeys(CARRIER_STATES,0)
+    grouped=[]
+    for sid in ids:
+        counts=dict.fromkeys(CARRIER_STATES,0)
+        read_without_found=0
+        q_values=[]
+        for seed in seeds:
+            row=rows.get(unit_id(sid,cid,strength,seed,method))
+            state,anomaly=carrier_state(row,method)
+            counts[state]+=1
+            read_without_found+=anomaly
+            q_values.append(call_value(row,method,ALPHA,"Q"))
+        for state in CARRIER_STATES:
+            totals[state]+=counts[state]
+        grouped.append(dict(source_id=sid,counts=counts,read_without_found=read_without_found,
+                            Q_true=sum(v is True for v in q_values),
+                            Q_observed=sum(v is not None for v in q_values)))
+    return dict(planned_sources=len(ids),planned_calls=len(ids)*len(seeds),counts=totals,
+                read_without_found=sum(g["read_without_found"] for g in grouped),
+                Q_true=sum(g["Q_true"] for g in grouped),
+                Q_observed=sum(g["Q_observed"] for g in grouped),by_source=grouped)
 
 
 def quantiles(values):
@@ -107,7 +153,7 @@ def matched_grid(config,sources,rows,vectors):
 
 def reporting(config,sources,rows,vectors):
     ids=[s["source_id"] for s in sources["sources"]]
-    negatives,quality,external,roc={}, {}, {}, {}
+    negatives,quality,external,roc,carrier={}, {}, {}, {}, {}
     active=[dict(id="clean"),*[c for c in config["channels"] if c.get("enabled",True)]]
     for spec in active:
         cid=spec["id"]
@@ -133,6 +179,8 @@ def reporting(config,sources,rows,vectors):
                     quality[prefix]["strict_quality"]=dict(pass_count=sum(r.get("strict_quality") is True for r in units),planned=len(ids))
             for method in config["arms"]:
                 keys=RULES if method in ("f5-r2","v5-r3") else ["presence"]
+                if method in ("f5-r2","v5-r3"):
+                    carrier[f"{method}/{cid}/{strength}"]=carrier_summary(ids,seeds,rows,method,cid,strength)
                 for control in (["C0","wrong_owner"] if method in ("f5-r2","v5-r3") else ["C0"]):
                     arm="unmarked" if control=="C0" else method
                     owner=ALPHA if control=="C0" else BETA
@@ -173,6 +221,9 @@ def reporting(config,sources,rows,vectors):
                     p=[median([-math.inf if v is None else v for v in g]) for g in groups[method]]
                     n=[None if any(v is None for v in g) else median(g) for g in groups["unmarked"]]
                     roc[prefix+"/"+kind+"/sources"]=empirical_roc(p,n)
-    return dict(negatives=negatives,quality=quality,external_operating_points=external,empirical_roc=roc,
+    return dict(negatives=negatives,quality=quality,internal_carrier_states=carrier,
+                external_operating_points=external,empirical_roc=roc,
                 matched_distortion=matched_grid(config,sources,rows,vectors),
-                captions=dict(roc="Outcome-selected descriptive ROC; no calibration claim",matched="Fixed calipers and bins; no inferential tests; no decision override"))
+                captions=dict(roc="Outcome-selected descriptive ROC; no calibration claim",
+                              matched="Fixed calipers and bins; no inferential tests; no decision override",
+                              carrier="Read-first descriptive states; binding mismatch is not carrier absence; missing raw fields remain unresolved"))

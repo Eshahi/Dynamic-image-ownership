@@ -5027,13 +5027,9 @@
   "indexed_bytes": 137068265,
   "stage1b_accepted_topics_indexed": [
     "T1",
-    "T2"
-  ],
-  "updated_utc": "2026-10-20T13:03:03.377440+00:00",
-  "record_count": 558,
-  "accepted_topics_indexed": [
-    "T1",
     "T2",
     "T5"
-  ]
+  ],
+  "updated_utc": "2026-10-20T13:45:23+00:00",
+  "record_count": 558
 }

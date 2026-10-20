@@ -1,6 +1,6 @@
 # Independent-encoder transfer literature index
 
-2026-10-19, deepened from 2026-10-20 under BRIEF section 1b. No experimental outcomes. Paper cards are retained beside the topic that uses them and extend the existing Q1 dossier. The [parent audit](../encoder-transfer-20261019/stage1b-parent-audit.md) controls accepted counts: T1 currently has 34 V2 sources (20 direct qualifying); T2 has 18 qualifying families and 30 individual cards. Remaining topics are still being deepened. The integrated decisions and coverage gaps are in [design-research.md](../encoder-transfer-20261019/design-research.md).
+2026-10-19, deepened from 2026-10-20 under BRIEF section 1b. No experimental outcomes. Paper cards are retained beside the topic that uses them and extend the existing Q1 dossier. The [parent audit](../encoder-transfer-20261019/stage1b-parent-audit.md) controls accepted counts: T1 currently has 34 V2 sources (20 direct qualifying); T2 has 18 qualifying families and 30 individual cards. T5 has six implementations, 61 exact-setting rows and six separate paper V2 cards. Remaining topics are still being deepened. The integrated decisions and coverage gaps are in [design-research.md](../encoder-transfer-20261019/design-research.md).
 
 | Topic | Cards and synthesis |
 |---|---|

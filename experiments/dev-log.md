@@ -367,3 +367,9 @@
 
 - 2026-10-20T13:35:00+00:00 | Stage1b T6 escalation: fresh gpt-6-astra/high, separate topic folder; full decision operating characteristics, correlation/missingness and n60/90/120 budget assessment. No outcomes or compute run.
 - 2026-10-20T13:35:00+00:00 | Codex agent | T5 floor accepted and push prepared on codex/encoder-transfer-20261019: ae5c7f3 -> topic acceptance commit (resolved in subsequent log entry). Six implementations/61 settings, six V2 papers, 16 queries/3 categories; 100 parent-verified receipt hashes.
+
+- 2026-10-20T13:38:00+00:00 | Codex agent | Push confirmed: codex/encoder-transfer-20261019 ae5c7f33baa23cd363a70657a57d102fd2394f3d..4601425749c940f2eaa7a852324a542af26659da; origin head verified identical.
+- 2026-10-20T13:38:00+00:00 | Pre-outcome stage1b reporting amendment: read-first carrier/binding/coverage diagnostics preserve literal C and separate Q; source clusters retained. CPU-only unit suite26/26 PASS in3.240s, including malformed/missing raw and interrupted quality coverage. No experiment or model execution.
+
+- 2026-10-20T13:45:23+00:00 | User cost-policy recovery: T3 re-briefed gpt-6.1-sol/high; T4 re-briefed gpt-6-astra/high; maximum two concurrent topic agents. Remaining T6/T7/T8 and gaps use sol/high; final reviewer remains fresh Astra/xhigh. Preserve all unfinished files, accept only after parent floor check.
+- 2026-10-20T13:45:23+00:00 | Codex agent | Push prepared on codex/encoder-transfer-20261019: 4601425749c940f2eaa7a852324a542af26659da -> reporting amendment commit (resolved in next log). Pre-outcome diagnostic summaries only;26 CPU tests passed; no extra experiment calls.

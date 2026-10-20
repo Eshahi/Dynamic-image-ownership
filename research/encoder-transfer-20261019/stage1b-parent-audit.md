@@ -18,10 +18,10 @@ Record unresolved gaps before acceptance. A below-floor delivery returns to a fr
 |---|---|---:|---|---|---|
 | T1 | 15 benchmark/attack sources; complete settings table | 20 direct; 34 total V2 | 30 queries, 20 intents / 3 categories | Accepted after parent inspection | 42cc385aeb0b9b500528064e454f0afec1a191e1 |
 | T2 | 15 model families; lineage and implementation table | 18 families; 30 individual cards | 17 successful queries, 16 intents / 3 categories | Accepted after parent inspection | ae5c7f33baa23cd363a70657a57d102fd2394f3d |
-| T3 | 12 post-hoc methods; fidelity and run-cost table | Pending | Pending | In research | Pending |
-| T4 | 8 mechanism sources; all-channel and proposal predictions | Pending | Pending | In research, fresh Astra xhigh | Pending |
-| T5 | Six named implementations; all relied-on settings pinned by file/line | 6 implementations, 61 setting rows, 6 paper V2 cards | 16 queries / 3 categories | Accepted after parent inspection | This topic commit |
-| T6 | n60/90/120; seed correlation and missing-unit sensitivity | Pending | Pending | In research, fresh Astra high | Pending |
+| T3 | 12 post-hoc methods; fidelity and run-cost table | Pending | Pending | Interrupted package resumed by fresh sol/high | Pending |
+| T4 | 8 mechanism sources; all-channel and proposal predictions | Pending | Pending | Interrupted package resumed by fresh Astra high | Pending |
+| T5 | Six named implementations; all relied-on settings pinned by file/line | 6 implementations, 61 setting rows, 6 paper V2 cards | 16 queries / 3 categories | Accepted after parent inspection | 4601425749c940f2eaa7a852324a542af26659da |
+| T6 | n60/90/120; seed correlation and missing-unit sensitivity | Pending | Pending | Partial research preserved; awaits sol/high re-brief | Pending |
 | T7 | 12 evaluation sections from 2024-2026 eligible venues | Pending | Pending | Not yet assigned | Pending |
 | T8 | 25 distinct validity threats | Pending | Pending | Not yet assigned | Pending |
 

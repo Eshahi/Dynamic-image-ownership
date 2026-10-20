@@ -192,6 +192,39 @@ class FrozenContractTests(unittest.TestCase):
 
 
 class ReportingTests(unittest.TestCase):
+    def test_carrier_diagnostics_separate_binding_exactness_and_coverage(self):
+        from encoder_transfer_reporting import carrier_state,carrier_summary
+        def row(found,read,match,q):
+            raw=dict(semantic=dict(found=found,read=read,content_match=match,decoded_code="01"),instance={})
+            return dict(status="generated",detections={"f5-r2":{et.ALPHA:dict(
+                status="ok",raw=raw,endpoints=et.endpoints(raw,dict(q=q)))}})
+        success=row(False,True,True,"02")
+        mismatch=row(True,True,False,"01")
+        recomputed=row(True,False,True,"01")
+        self.assertEqual(carrier_state(success,"f5-r2"),("C_success",True))
+        self.assertEqual(carrier_state(mismatch,"f5-r2"),("read_content_mismatch",False))
+        self.assertEqual(carrier_state(recomputed,"f5-r2"),("found_not_read",False))
+        self.assertEqual(carrier_state(row(False,False,False,"01"),"f5-r2"),("not_found",False))
+        rows={et.unit_id(1,"R1",.2,s,"f5-r2"):r for s,r in zip((12,13,14),(success,mismatch,recomputed))}
+        result=carrier_summary([1,2],[12,13,14],rows,"f5-r2","R1",.2)
+        self.assertEqual(sum(result["counts"].values()),6)
+        self.assertEqual(result["counts"]["missing_call"],3)
+        self.assertEqual(result["counts"]["C_success"],1)
+        self.assertEqual(result["counts"]["read_content_mismatch"],1)
+        self.assertEqual(result["Q_true"],1)
+        self.assertEqual(result["Q_observed"],3)
+        self.assertEqual(result["read_without_found"],1)
+        self.assertEqual(result["by_source"][1]["counts"]["missing_call"],3)
+        # Persisted endpoint coverage remains valid even if diagnostic raw data is absent.
+        call=success["detections"]["f5-r2"][et.ALPHA]
+        call.pop("raw")
+        self.assertEqual(carrier_state(success,"f5-r2"),("raw_unavailable",False))
+        self.assertIs(et.call_value(success,"f5-r2",et.ALPHA,"C"),True)
+        call["raw"]=dict(semantic=dict(found=False,read=False))
+        self.assertEqual(carrier_state(success,"f5-r2"),("raw_unavailable",False))
+        call["status"]="error"
+        self.assertEqual(carrier_state(success,"f5-r2"),("missing_call",False))
+
     def test_external_native_and_exact_source_majorities_are_separate(self):
         from encoder_transfer_reporting import reporting
         config=dict(arms=["wam"],channels=[dict(id="R1",strengths=[.2],seeds=[12,13,14])])
