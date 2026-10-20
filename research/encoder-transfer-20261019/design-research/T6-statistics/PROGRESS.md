@@ -1,0 +1,3 @@
+# T6 intent-gap progress
+
+2026-10-20 UTC: Completed four focused, successful OpenAlex discovery requests and screened all 24 returned ranked metadata leads. The current totals are 16 successful query strings / 10 conservative intents / 3 categories. Eight V2 papers, five official references, 15 tables / 5,154 rows / nine check groups and n=60 are unchanged. All pre-existing bytes were archived before editing; old query records and analytical/source/history bytes were checked. No source-level claim or V2 credit is based on the new metadata. Parent acceptance and same-reviewer closure are pending. No server, GPU, weights, real images, outcomes or held-out material were used.

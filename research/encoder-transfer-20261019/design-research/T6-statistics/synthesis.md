@@ -2,7 +2,7 @@
 
 Completed 2026-10-20. This is hypothetical analytic design research, not an experiment result. No real images, outcomes, weights, GPU or server were used. Retain the frozen n=60 core, fixed three-seed majority, denominator, negative safety gate and routing rule. Increasing to n=90/120 offers conditional precision but is not justified under current time/cost assumptions. The revision is to reporting: show conditional operating characteristics, dependence and missingness sensitivity instead of calling a binomial calculation an unconditional probability of success.
 
-Eight primary papers have individual method-and-evaluation V2 cards; five official implementation/reference cards are separate. Twelve substantive discovery queries span arXiv API, OpenAlex and web. See `search-log.md`, `query-manifest.json`, `source-manifest.json`, `references.bib` and `floor-audit.json`. Exact cache hashes/URLs and licenses are recorded; caches are outside Git. Software worked examples do not count as paper evaluations.
+Eight primary papers have individual method-and-evaluation V2 cards; five official implementation/reference cards are separate. Sixteen successful query strings span arXiv API, OpenAlex and web; conservative merging yields ten substantive intents. The four intent-gap searches and their 24 metadata-only leads add no scientific source credit; see query-gap-audit.md. Historical receipts and the analytical package remain unchanged. See `search-log.md`, `query-manifest.json`, `source-manifest.json`, `references.bib` and `floor-audit.json`. Exact cache hashes/URLs and licenses are recorded; caches are outside Git. Software worked examples do not count as paper evaluations.
 
 ## Fixed endpoint and estimand
 

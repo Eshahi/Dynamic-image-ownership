@@ -1,6 +1,6 @@
 # T6 Stage1b search and inspection log
 
-Completed 2026-10-20. Twelve distinct substantive discovery queries across three categories (5 arXiv API, 4 OpenAlex, 3 web); direct source retrievals and repeated searches are not added to this count. Exact API response bytes, URLs and SHA-256 receipts are in the manifests. The three web queries share a single cached service response, clearly identified rather than presented as separate receipts.
+Completed 2026-10-20. Sixteen successful discovery query strings across three categories (5 arXiv API, 8 OpenAlex, 3 web), conservatively ten substantive intents after merging overlaps; direct source retrievals and repeated searches are not added to this count. Exact API response bytes, URLs and SHA-256 receipts are in the manifests. The three web queries share a single cached service response, clearly identified rather than presented as separate receipts.
 
 | # | Category | Exact query |
 |---|---|---|
@@ -16,6 +16,12 @@ Completed 2026-10-20. Twelve distinct substantive discovery queries across three
 | 10 | web | `exact binomial confidence interval clustered data beta binomial missing data evaluation` |
 | 11 | web | `Holm multiple testing exact McNemar official R binom.test` |
 | 12 | web | `2025 2026 machine learning benchmark correlated evaluations missing data statistical uncertainty` |
+| 13 | OpenAlex | `correlated paired binary outcomes joint probability superiority margin` |
+| 14 | OpenAlex | `co primary efficacy safety endpoints joint probability dependence` |
+| 15 | OpenAlex | `matching post treatment variable collider bias common support caliper` |
+| 16 | OpenAlex | `computational experiments time budget informative censoring runtime algorithm benchmarking` |
+
+Intent counts and 24 metadata-only lead screenings: `query-gap-audit.md` and `intent-gap-screening.json`. The four additional searches do not add scientific source credit. Historical 12-query records/bytes are preserved in MAIN cache.
 
 ## Selection and reading
 

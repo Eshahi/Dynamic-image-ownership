@@ -1,9 +1,9 @@
 {
   "schema": "T6-stage1b-floor-audit-v2",
-  "status": "topic completed for parent review; not an independent scientific or human approval",
+  "status": "intent-gap addendum completed; parent acceptance and independent closure pending",
   "paper_v2_sources": 8,
   "official_reference_cards": 5,
-  "discovery_queries": 12,
+  "discovery_queries": 16,
   "discovery_categories": 3,
   "query_manifest": "query-manifest.json",
   "source_manifest": "source-manifest.json",
@@ -50,5 +50,9 @@
   "protected_or_shared_file_edits": false,
   "used_real_images_weights_outcomes_gpu_server": false,
   "planning_record": "planning-table-v2.json",
-  "historical_files": "planning-table.json and tools/plan.py are superseded v1 history; not current claims"
+  "historical_files": "planning-table.json and tools/plan.py are superseded v1 history; not current claims",
+  "substantive_intents_conservative": 10,
+  "discovery_only_ranked_leads": 24,
+  "added_v2_sources": 0,
+  "query_gap_audit": "query-gap-audit.md"
 }
