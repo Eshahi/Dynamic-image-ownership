@@ -26,7 +26,6 @@
   "minimum_queries": 10,
   "categories": [
     "arxiv_api",
-    "official_repository",
     "openalex",
     "web_search"
   ],
@@ -46,5 +45,16 @@
     "VINE denominator text/caption conflict",
     "WIND final Table11 same-ROC inconsistency"
   ],
-  "no_images_models_gpu_or_outcomes": true
+  "no_images_models_gpu_or_outcomes": true,
+  "discovery_queries": 12,
+  "query_receipt_entries": 15,
+  "inspection_entries": 3,
+  "inspection_ids": [
+    "Q34",
+    "Q35",
+    "Q36"
+  ],
+  "strict_prior_discovery_queries": 9,
+  "query_count_rule": "Count distinct discovery intents only; Q34-Q36 known README inspections and initial combined search batch are excluded.",
+  "query_gap_audit": "query-gap-audit.md"
 }

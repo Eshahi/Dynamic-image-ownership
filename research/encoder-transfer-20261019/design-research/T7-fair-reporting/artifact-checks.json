@@ -163,5 +163,29 @@
     "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\seal-supplement.pdf",
     "sha256": "f09db824dd4b2ba008b5db42580a60f2014344492d54d669b04ae517779f5e28",
     "check": "matches durable retrieval receipt"
+  },
+  {
+    "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b-query-gap\\initial-batch-web.json",
+    "sha256": "86febd9b631e5dfed91fafa5b7654b35080d9335492149758a91e0beadee4a69",
+    "check": "Fresh query-gap raw live web response retained exactly; discovery only, not V2.",
+    "counted_discovery_receipt": false
+  },
+  {
+    "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b-query-gap\\Q43-web.json",
+    "sha256": "af6b07e8f2229164ab43ad4bf774fcf04a05826aa487ed8c5a4c48a7de55dd9a",
+    "check": "Fresh query-gap raw live web response retained exactly; discovery only, not V2.",
+    "counted_discovery_receipt": true
+  },
+  {
+    "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b-query-gap\\Q44-web.json",
+    "sha256": "5cc300d3f42cc5bbde579dc8cad40c0f55dbe6e70284610582dfdbd2d160fbbd",
+    "check": "Fresh query-gap raw live web response retained exactly; discovery only, not V2.",
+    "counted_discovery_receipt": true
+  },
+  {
+    "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b-query-gap\\Q45-web.json",
+    "sha256": "fa3917ca9a29c56f1bebec2e8977d00b93b2da823b19cd0bfcbd9f7ee2cb8a12",
+    "check": "Fresh query-gap raw live web response retained exactly; discovery only, not V2.",
+    "counted_discovery_receipt": true
   }
 ]

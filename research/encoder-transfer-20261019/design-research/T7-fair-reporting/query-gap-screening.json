@@ -1,0 +1,359 @@
+{
+  "date": "2026-10-20",
+  "queries": [
+    {
+      "query_id": "Q43",
+      "exact_query": "site:ieeexplore.ieee.org \"image watermarking\" \"2024\" evaluation quality robustness",
+      "intent": "Venue-focused discovery of 2024-2026 journal image-watermark evaluation protocols, rather than the prior top-conference emphasis.",
+      "screening": "Found two IEEE TCSVT journal candidates. Stable Signature is a 2023 conference paper despite its 2024 index-addition date and is excluded from the 2024-2026 source floor. Multikey image retrieval is adjacent product/retrieval scope. No result was read to V2; no journal quartile is asserted.",
+      "results": [
+        {
+          "title": "Robust Image Watermarking With Synchronization Using Template Enhanced-Extracted Network | IEEE Journals & Magazine | IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org/document/10705361/",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "The Stable Signature: Rooting Watermarks in Latent Diffusion Models | IEEE Conference Publication | IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org/abstract/document/10377226",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Robust Blind Symmetry-based Watermarking in the Frequency Domain Against Social Network Processing and Desynchronization Attacks | IEEE Journals & Magazine | IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org/document/10516610/",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Secure and Traceable Multikey Image Retrieval in Cloud-Assisted Internet of Things | IEEE Journals & Magazine | IEEE Xplore",
+          "url": "https://ieeexplore.ieee.org/document/10673990/",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        }
+      ]
+    },
+    {
+      "query_id": "Q44",
+      "exact_query": "image watermark \"false positive\" \"multiple\" \"keys\" calibration 2024 2025 2026",
+      "intent": "Discovery of null-population calibration and multi-key false-positive multiplicity, beyond a single fixed-key image-detection operating point.",
+      "screening": "Retrieval is dominated by LLM watermarking and unrelated modalities; these are excluded as image evaluation evidence. Randomized Key Selection has an image-forgery example in search output but its method/evaluation scope was not inspected, so it remains an unverified cross-modal lead. A key-free Gaussian-shading journal candidate is a lead only. This search did not resolve image-population calibration practice.",
+      "results": [
+        {
+          "title": "Under review as a conference paper at ICLR 2025",
+          "url": "https://openreview.net/pdf?id=jln7IcheW6",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Under review as a conference paper at ICLR 2026",
+          "url": "https://openreview.net/pdf?id=oSBHt98To6",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Under review as a conference paper at ICLR 2026",
+          "url": "https://openreview.net/pdf/23f48c7601fd4ef5dbcd4a235bc18c45a69f919c.pdf",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "U.S. Patent Application for PROCESS FOR EMBEDDING A DIGITAL WATERMARK IN TOKENISED DATA Patent Application (Application #20250005115 issued January 2, 2025) - Justia Patents Search",
+          "url": "https://patents.justia.com/patent/20250005115",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Mitigating Watermark Forgery in Generative Models via Randomized Key Selection | Toluwani Aremu",
+          "url": "https://www.toluwaniaremu.com/wm-forgery",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Towards provenance-aware diffusion: Key-free watermarking with Gaussian shading - ScienceDirect",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0957417425044379",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Can Watermarked LLMs be Identified by Users via Crafted Prompts?",
+          "url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/596b9662ebbc92686901e8a9665c92ed-Abstract-Conference.html",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "MeMark: Membrane-Space Watermarking for Spiking Neural Networks (AI summary) | Paperlayer",
+          "url": "https://paperlayer.ai/abs/2608.25738v1",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Under review as a conference paper at ICLR 2026",
+          "url": "https://openreview.net/pdf/d91adcfe371ced41e90c6917390258b300589b71.pdf",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Mitigating Watermark Forgery in Generative Models via Randomized Key Selection — Lacuna",
+          "url": "https://lacuna.tiptreesystems.com/work/mitigating-watermark-forgery-in-generative-models-via-randomized-key-selection/wrk_9c43dfb65cea99cb1d43bff42a41ba13",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Exhaustive Geometrical Search and the False Positive Watermark",
+          "url": "https://citeseerx.ist.psu.edu/document?doi=46f8d2459ba3d1a1e487af10fda4b3bca13ac665&repid=rep1&type=pdf",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Published as a conference paper at ICLR 2025",
+          "url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/596b9662ebbc92686901e8a9665c92ed-Paper-Conference.pdf",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Full article: Towards Better Statistical Understanding of Watermarking LLMs",
+          "url": "https://doi.org/10.1080/01621459.2026.2618290",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Multi-use LLM Watermarking and the False Detection Problem · Pith Review",
+          "url": "https://pith.science/paper/2506.15975",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Are LLM watermarks reliable in practice? A systematic review of evidence, robustness, threat models, and deployment assumptions - ScienceDirect",
+          "url": "https://www.sciencedirect.com/science/article/pii/S1574013726001826",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "[2410.03168] Can Watermarked LLMs be Identified by Users via Crafted Prompts?",
+          "url": "https://accelresearching.com/accel-zinc-picolinate-50mg/?_=%2Fabs%2F2410.03168%23nLw79nwZb1b3uPkZUsgpm5M%3D",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Watermark Embedding Robustness in Generated Visual Media: Signals Born Inside the Pixels | Scixa",
+          "url": "https://www.scixa.com/article?lang=en%3Fdownload&slug=watermark-embedding-robustness-in-generated-visual-media",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Blind Watermarking for Tabular Datasets in Machine Learning: A Primary Key-Free Method | ACM Transactions on Knowledge Discovery from Data",
+          "url": "https://doi.org/10.1145/3820040",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        }
+      ]
+    },
+    {
+      "query_id": "Q45",
+      "exact_query": "image watermarking \"human\" \"perceptual\" \"evaluation\" 2025 2026 Pixel Seal",
+      "intent": "Discovery of human-observer/JND watermark invisibility evaluation and objective-metric disagreement, distinct from average PSNR/LPIPS robustness tables.",
+      "screening": "Pixel Seal is a relevant perceptual-evaluation lead, but the individually returned versions are secondary mirrors and were not read to V2. The initial batch also returned its primary arXiv identifier. Journal methods and surveys are leads only; old perceptual-quality papers, general reference pages and non-image modalities are excluded from the recent evaluation source floor. No human/JND claim is promoted to evidence.",
+      "results": [
+        {
+          "title": "Wav-UNet for Image Watermarking via Wavelets and Deformable Convolution - ScienceDirect",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0020025526006869",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Semantic-aware attention-guided digital watermarking for diffusion models - ScienceDirect",
+          "url": "https://www.sciencedirect.com/science/article/pii/S0923596526001955",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "RAN: A randomness-anchored watermark attacking network with stealth and effectiveness | Scientific Reports",
+          "url": "https://www.nature.com/articles/s41598-026-52298-w",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Forensic Joint Photographic Experts Group (JPEG) Watermarking for Disk Image Leak Attribution: An Adaptive Discrete Cosine Transform–Discrete Wavelet Transform (DCT-DWT) Approach",
+          "url": "https://www.mdpi.com/2079-9292/14/9/1800",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Image watermarking based on spiking neural networks | Cluster Computing | Springer Nature Link",
+          "url": "https://link.springer.com/article/10.1007/s10586-025-05582-9",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "An integrated framework for proactive deepfake mitigation via attention-driven watermarking and blockchain-based authenticity verification | Scientific Reports",
+          "url": "https://www.nature.com/articles/s41598-026-40166-6",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Verifiable client-side watermarking for thumbnail preserving encrypted images resisting malicious forgery and redistribution | Journal of King Saud University Computer and Information Sciences | Springer Nature Link",
+          "url": "https://link.springer.com/article/10.1007/s44443-026-00759-7",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "A comprehensive survey of watermarking techniques for copyright protection and integrity verification on DNNs and generative models | Discover Applied Sciences | Springer Nature Link",
+          "url": "https://link.springer.com/article/10.1007/s42452-026-08576-3",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "(PDF) Pixel Seal: Adversarial-only training for invisible image and video watermarking",
+          "url": "https://www.researchgate.net/publication/398850992_Pixel_Seal_Adversarial-only_training_for_invisible_image_and_video_watermarking",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "FSCCNet: Robust image watermarking via multi-scale collaborative convolution and perceptual embedding control - ScienceDirect",
+          "url": "https://www.sciencedirect.com/science/article/pii/S1047320326002646",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Image Copyright Protection: A Comprehensive Survey of Digital Watermarking, Deep Learning, and Blockchain Approaches | IEEE Journals & Magazine | IEEE Xplore",
+          "url": "https://xplorestaging.ieee.org/document/11339926",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Pixel Seal: Adversarial-only training for invisible image and video watermarking (arXiv:2512.16874v1) - ScienceStack",
+          "url": "https://www.sciencestack.ai/paper/2512.16874",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "A Reversible and Imperceptible Watermarking",
+          "url": "https://salford-repository.worktribe.com/preview/1489468/Final_Thesis%2025-7-19.pdf",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Signiﬁcant Pixel Watermarking Using Human",
+          "url": "https://www.cse.iitb.ac.in/~sharat/icvgip.org/icvgip2006/papers/fulltext_18.pdf",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Published at the 1st workshop on GenAI Watermarking, collocated with ICLR 2025",
+          "url": "https://openreview.net/pdf/af043c958343525b19a03a52c61fc3784fc9b7c5.pdf",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "International Journal of Engineering Research & Management Technology",
+          "url": "https://www.ijermt.org/publication/80/512.%20july%202025%20ijermt.pdf",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "A Review of Watermarking techniques: Apps, Characteristics, Classification 1239",
+          "url": "https://bit.kuas.edu.tw/~jihmsp/2025/vol16/N4/09.JIHMSP-250704.pdf",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Perceptual Attacks of No-Reference Image Quality Models with Human-in-the-Loop",
+          "url": "https://arxiv.org/abs/2210.00933",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Digital watermarking",
+          "url": "https://en.wikipedia.org/wiki/Digital_watermarking",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Perceptual Evaluation of Video Quality",
+          "url": "https://en.wikipedia.org/wiki/Perceptual_Evaluation_of_Video_Quality",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Image Quality Assessment for Perceptual Image Restoration: A New Dataset, Benchmark and Metric",
+          "url": "https://arxiv.org/abs/2011.15002",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Image quality",
+          "url": "https://en.wikipedia.org/wiki/Image_quality",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "The 2018 PIRM Challenge on Perceptual Image Super-resolution",
+          "url": "https://arxiv.org/abs/1809.07517",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "PIPAL: a Large-Scale Image Quality Assessment Dataset for Perceptual Image Restoration",
+          "url": "https://arxiv.org/abs/2007.12142",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        },
+        {
+          "title": "Perceptual Evaluation of Audio Quality",
+          "url": "https://en.wikipedia.org/wiki/Perceptual_Evaluation_of_Audio_Quality",
+          "inspection_status": "search_result_only_not_full_text",
+          "v2": false,
+          "source_floor_counted": false
+        }
+      ]
+    }
+  ],
+  "rule": "Discovery screening only. Search output and abstracts are not V2, and no new card/source is counted. No scientific conclusion rests on these leads."
+}

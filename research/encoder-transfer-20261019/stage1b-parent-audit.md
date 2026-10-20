@@ -16,13 +16,13 @@ Record unresolved gaps before acceptance. A below-floor delivery returns to a fr
 
 | Topic | Required content floor | Qualifying count | Distinct queries / categories | Parent disposition | Accepted topic commit |
 |---|---|---:|---|---|---|
-| T1 | 15 benchmark/attack sources; complete settings table | 22 direct; 39 total V2 | 34 successful queries, 24 intents / 3 categories | Accepted including five late-lead additions | 42cc385 plus current addendum commit |
+| T1 | 15 benchmark/attack sources; complete settings table | 22 direct; 39 total V2 | 34 successful queries, 24 intents / 3 categories | Accepted including five late-lead additions | 42cc385; addendum ece403e233515ab5d6fd39be4f22ba6bf1dc7eb8 |
 | T2 | 15 model families; lineage and implementation table | 18 families; 30 individual cards | 17 successful queries, 16 intents / 3 categories | Accepted after parent inspection | ae5c7f33baa23cd363a70657a57d102fd2394f3d |
 | T3 | 12 post-hoc methods; fidelity and run-cost table | 24 distinct V2 methods; 25 version-specific references | 22 queries / 3 categories | Accepted after parent inspection | d9bd2362ae8416219cde1066e227c9e7e78b90b1 |
 | T4 | 8 mechanism sources; all-channel and proposal predictions | 13 distinct V2 sources; 26 prediction rows | 18 queries / 4 categories | Accepted after parent inspection | cc25f1683bb2960080f777e38ed1a0fcc00ab613 |
 | T5 | Six named implementations; all relied-on settings pinned by file/line | 6 implementations, 61 setting rows, 6 paper V2 cards | 16 queries / 3 categories | Accepted after parent inspection | 4601425749c940f2eaa7a852324a542af26659da |
 | T6 | n60/90/120; seed correlation and missing-unit sensitivity | 8 paper V2 + 5 official references; 15 tables / 5,154 rows | 12 queries / 3 categories | Accepted after parent inspection | a0ff0a00fe0cbe0b5f1b13d6a1c445c5084a2fe1 |
-| T7 | 12 evaluation sections from 2024-2026 eligible venues | 15 own V2 papers and evaluation rows | 12 durable queries / 4 categories | Accepted after parent inspection | a54377fef83ca4d221ace95b24eb4d9dfa681a9c |
+| T7 | 12 evaluation sections from 2024-2026 eligible venues | 15 own V2 papers and evaluation rows | 12 genuine discovery queries / 3 categories; 3 inspections excluded | Accepted after fresh query-gap check | a54377f plus query-gap commit |
 | T8 | 25 distinct validity threats | 68 mechanisms; 14 own V2 papers | 11 successful queries / 4 categories (17 attempted) | Accepted after parent inspection | 074250957757faa9555e9dcd2b79658bcc6269bd |
 
 ## Evidence inspection and gaps
@@ -119,3 +119,11 @@ Parent checked consequential WAM theoretical/empirical FPR, TrustMark unstated n
 Parent read all five new own V2 cards and complete settings/evidence records: BrushOff and Boundary are direct removal sources; taxonomy, PECCVAI and the new editing-survival benchmark are conservative adjuncts, fully tabulated rather than concealed. The accepted original 34 cards/records/rows/search events remain unchanged. Total 39 V2 sources include 22 direct and 17 adjunct; 39 settings rows and 34 successful queries (24 intents) across three categories exceed the floor. The parent independently reran the gap check and verified all ten new primary/derived hashes and zero-error skill validation.
 
 Parent rechecked BrushOff conditions, the taxonomy reused-data boundary, PECCVAI native WDP, editing Appendix E, and Boundary Tables3/4/C.2 against full primary evidence. Corrected TrustMark overhead is 61 payload +35 BCH parity +4 header bits. Boundary stated n30 and printed rates have unexplained aggregation; no integer counts are invented. CVF paper transport reuse and unverified Boundary venue remain explicit. No additional core attack, scope or budget change follows. All eight topics now pass parent acceptance; this is not the independent review verdict.
+
+### Review2 search-classification correction, pending closure
+
+The independent reviewer correctly separated known-artifact inspection from discovery. T7 Q34-Q36 README contents retrievals do not count as discovery (strict prior search count nine). T8 Q13-Q16 known-model metadata/tree inspections do not count (strict prior count seven). Parent search-floor acceptance for T7/T8 is reopened pending fresh topic-specific search addenda and parent checks. Original source/threat acceptance is unchanged; prior numerical claims above are historical, not silently erased.
+
+### T7 query-gap parent closure, 2026-10-20
+
+Parent read the new three query requests, complete returned-result screening and query-gap audit. Journal evaluation, multi-key/population FPR and human/JND evaluation are distinct discovery intents; low-yield results remain limitations. Q34-Q36 direct README retrievals stay preserved as uncounted inspections. Strict discovery coverage is now twelve across OpenAlex/arXiv API/web (three categories), not the prior twelve/four claim. Parent reran the updated checker: fifteen V2 sources and 120 evidence entries unchanged, 62 artifact comparisons pass, skill validator zero errors/warnings. This closes the parent search-floor gap; independent reviewer closure remains pending.

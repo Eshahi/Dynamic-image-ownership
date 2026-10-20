@@ -119,3 +119,9 @@ Parent accepted68 distinct threats,14 own V2 papers,11 successful queries across
 2026-10-20: Pre-review CPU fixture suite passed all 26 tests in 11.458 seconds. No GPU/model/source-image execution. T7 cumulative documentary receipt byte summary synchronized with its newly indexed files.
 
 2026-10-20: T1 late-lead addendum accepted after parent evidence/floor checks: 39 V2/22 direct, 39 settings rows, 34 successful queries/24 intents/three categories. All eight topics now pass parent acceptance. Integrated design, protocol/config clarifications and cost proposals are ready for the required fresh Astra/xhigh floor-first review2. CPU tests26 PASS; T6 analytic15 tables/nine checks PASS. No outcomes or paid execution.
+
+2026-10-20: All-topic candidate ece403e is pushed and remote verified. Fresh independent gpt-6-astra/xhigh reviewer /root/stage1b_independent_review2 assigned the complete floor-first audit and design/code/budget review. It is a different identity from the original reviewer; parent will resolve concrete findings before freeze.
+
+2026-10-20: Review2 identified an overly permissive search count: T7 three README retrievals and T8 four known-model metadata/tree inspections are not discovery queries. Prior parent acceptance of their search floors is reopened; source/threat floors remain intact. Fresh sol/high T7 gap agent adds genuine distinct discovery searches first, then a separate fresh T8 agent will do the same (max two active including reviewer). Floors are not reduced; original receipts are retained and reclassified.
+
+2026-10-20: Fresh T7 discovery addendum accepted by parent: strict count9 ->12 across3categories, three README inspections uncounted. Fifteen own V2 sources unchanged; 62 hash comparisons and validator passed. Fresh sol/high T8 query-gap agent now active alongside reviewer.

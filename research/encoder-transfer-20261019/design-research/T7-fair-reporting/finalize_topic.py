@@ -1,3 +1,5 @@
+# HISTORICAL PACKAGER: superseded by the 2026-10-20 query-gap correction.
+# Do not rerun: it regenerates the old inspection-inclusive search counts.
 """Documentary T7 packaging only; reads cached papers, never images/models."""
 from pathlib import Path
 from html.parser import HTMLParser

@@ -6,7 +6,27 @@
   "evaluation_rows": 15,
   "evidence_entries": 120,
   "queries": 12,
-  "query_categories": 4,
+  "discovery_queries": 12,
+  "query_categories": 3,
+  "discovery_categories": [
+    "arxiv_api",
+    "openalex",
+    "web_search"
+  ],
+  "query_receipt_entries": 15,
+  "inspection_entries": 3,
+  "inspection_ids": [
+    "Q34",
+    "Q35",
+    "Q36"
+  ],
+  "strict_prior_discovery_queries": 9,
+  "new_discovery_query_ids": [
+    "Q43",
+    "Q44",
+    "Q45"
+  ],
+  "query_count_rule": "Distinct discovery intents only; known README inspections and the repeated initial search batch excluded.",
   "venue_year_counts": {
     "ICML 2024": 1,
     "ICLR 2025": 3,
@@ -17,8 +37,8 @@
     "CVPR 2026": 1,
     "NeurIPS 2024": 1
   },
-  "hash_comparisons": 59,
-  "distinct_hashed_files": 56,
+  "hash_comparisons": 62,
+  "distinct_hashed_files": 59,
   "tables": 8,
   "figures": 7,
   "skill_validation": {

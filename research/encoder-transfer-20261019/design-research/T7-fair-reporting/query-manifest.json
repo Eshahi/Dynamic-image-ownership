@@ -19,7 +19,9 @@
       "SynthID-Image: Image watermarking at internet scale"
     ],
     "screening": "Metadata discovery only; overlapping leads link to full-text cards; no metadata-only item counts as V2.",
-    "personally_rechecked_by": "Codex T7 resumed author, 2026-10-20"
+    "personally_rechecked_by": "Codex T7 resumed author, 2026-10-20",
+    "activity": "discovery",
+    "counted_for_search_floor": true
   },
   {
     "id": "Q32",
@@ -41,7 +43,9 @@
       "Gaussian Shading: Provable Performance-Lossless Image Watermarking for Diffusion Models"
     ],
     "screening": "Metadata discovery only; overlapping leads link to full-text cards; no metadata-only item counts as V2.",
-    "personally_rechecked_by": "Codex T7 resumed author, 2026-10-20"
+    "personally_rechecked_by": "Codex T7 resumed author, 2026-10-20",
+    "activity": "discovery",
+    "counted_for_search_floor": true
   },
   {
     "id": "Q33",
@@ -63,7 +67,9 @@
       "Semantic Watermarking for Malicious Image Manipulation Detection"
     ],
     "screening": "Metadata discovery only; overlapping leads link to full-text cards; no metadata-only item counts as V2.",
-    "personally_rechecked_by": "Codex T7 resumed author, 2026-10-20"
+    "personally_rechecked_by": "Codex T7 resumed author, 2026-10-20",
+    "activity": "discovery",
+    "counted_for_search_floor": true
   },
   {
     "id": "Q34",
@@ -76,9 +82,12 @@
     "status": "retrieved",
     "bytes": 25227,
     "sha256": "22b52bf89e40cc0fd4caa242495c3228c717f0afa1381107c7e9a18111f704ef",
-    "screening": "Official README read as discovery/release context only; frozen pinned implementation remains T5 authority.",
+    "screening": "Official README inspection for release context only; excluded from discovery query/category counts. Frozen pinned implementation remains T5 authority.",
     "screened_repository": "https://github.com/Shilin-LU/VINE/blob/main/README.md",
-    "personally_rechecked_by": "Codex T7 resumed author, 2026-10-20"
+    "personally_rechecked_by": "Codex T7 resumed author, 2026-10-20",
+    "activity": "inspection",
+    "counted_for_search_floor": false,
+    "classification_correction": "Fresh query-gap audit: direct known README retrieval is inspection, not a literature-discovery query. Original ID, URL, cache and hash preserved."
   },
   {
     "id": "Q35",
@@ -91,9 +100,12 @@
     "status": "retrieved",
     "bytes": 17890,
     "sha256": "067385a65934792f5883b4880618db86f9a5b47f68ff9da2ee22738674e8aa53",
-    "screening": "Official README read as discovery/release context only; frozen pinned implementation remains T5 authority.",
+    "screening": "Official README inspection for release context only; excluded from discovery query/category counts. Frozen pinned implementation remains T5 authority.",
     "screened_repository": "https://github.com/facebookresearch/watermark-anything/blob/main/README.md",
-    "personally_rechecked_by": "Codex T7 resumed author, 2026-10-20"
+    "personally_rechecked_by": "Codex T7 resumed author, 2026-10-20",
+    "activity": "inspection",
+    "counted_for_search_floor": false,
+    "classification_correction": "Fresh query-gap audit: direct known README retrieval is inspection, not a literature-discovery query. Original ID, URL, cache and hash preserved."
   },
   {
     "id": "Q36",
@@ -106,9 +118,12 @@
     "status": "retrieved",
     "bytes": 12419,
     "sha256": "404c818ae3cc5c8896553ada0955b6d0e3ffc1d39013bd8525ff37e6e70640ad",
-    "screening": "Official README read as discovery/release context only; frozen pinned implementation remains T5 authority.",
+    "screening": "Official README inspection for release context only; excluded from discovery query/category counts. Frozen pinned implementation remains T5 authority.",
     "screened_repository": "https://github.com/umd-huang-lab/WAVES/blob/main/README.md",
-    "personally_rechecked_by": "Codex T7 resumed author, 2026-10-20"
+    "personally_rechecked_by": "Codex T7 resumed author, 2026-10-20",
+    "activity": "inspection",
+    "counted_for_search_floor": false,
+    "classification_correction": "Fresh query-gap audit: direct known README retrieval is inspection, not a literature-discovery query. Original ID, URL, cache and hash preserved."
   },
   {
     "id": "Q37",
@@ -130,7 +145,9 @@
       "Ropedia W0: Scaling Loco-Manipulation World Models across Embodiments with Human Experience"
     ],
     "screening": "Metadata discovery only; not proof of venue or evaluation practice.",
-    "personally_rechecked_by": "Codex T7 resumed author, 2026-10-20"
+    "personally_rechecked_by": "Codex T7 resumed author, 2026-10-20",
+    "activity": "discovery",
+    "counted_for_search_floor": true
   },
   {
     "id": "Q38",
@@ -152,7 +169,9 @@
       "Isolated zeros of the Riemann zeta function and zeros of linear combinations of Dirichlet $L$-functions"
     ],
     "screening": "Metadata discovery only; not proof of venue or evaluation practice.",
-    "personally_rechecked_by": "Codex T7 resumed author, 2026-10-20"
+    "personally_rechecked_by": "Codex T7 resumed author, 2026-10-20",
+    "activity": "discovery",
+    "counted_for_search_floor": true
   },
   {
     "id": "Q39",
@@ -163,7 +182,9 @@
     "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\Q39-Q42-web.json",
     "sha256": "33aac61616d262f1aaee01fcbec144c3c606e8336d6f953595cf0dbd3b8b639c",
     "receipt_scope": "One live web tool call contained four distinct queries; cached full tool response is shared.",
-    "screening": "Official CVF/NeurIPS/ICLR/ECVA identities corroborated. Certifiably Robust Image Watermark and Structured-Key candidates are screened leads only, not V2 cards; LLM watermark results are excluded as a different modality."
+    "screening": "Official CVF/NeurIPS/ICLR/ECVA identities corroborated. Certifiably Robust Image Watermark and Structured-Key candidates are screened leads only, not V2 cards; LLM watermark results are excluded as a different modality.",
+    "activity": "discovery",
+    "counted_for_search_floor": true
   },
   {
     "id": "Q40",
@@ -174,7 +195,9 @@
     "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\Q39-Q42-web.json",
     "sha256": "33aac61616d262f1aaee01fcbec144c3c606e8336d6f953595cf0dbd3b8b639c",
     "receipt_scope": "One live web tool call contained four distinct queries; cached full tool response is shared.",
-    "screening": "Official CVF/NeurIPS/ICLR/ECVA identities corroborated. Certifiably Robust Image Watermark and Structured-Key candidates are screened leads only, not V2 cards; LLM watermark results are excluded as a different modality."
+    "screening": "Official CVF/NeurIPS/ICLR/ECVA identities corroborated. Certifiably Robust Image Watermark and Structured-Key candidates are screened leads only, not V2 cards; LLM watermark results are excluded as a different modality.",
+    "activity": "discovery",
+    "counted_for_search_floor": true
   },
   {
     "id": "Q41",
@@ -185,7 +208,9 @@
     "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\Q39-Q42-web.json",
     "sha256": "33aac61616d262f1aaee01fcbec144c3c606e8336d6f953595cf0dbd3b8b639c",
     "receipt_scope": "One live web tool call contained four distinct queries; cached full tool response is shared.",
-    "screening": "Official CVF/NeurIPS/ICLR/ECVA identities corroborated. Certifiably Robust Image Watermark and Structured-Key candidates are screened leads only, not V2 cards; LLM watermark results are excluded as a different modality."
+    "screening": "Official CVF/NeurIPS/ICLR/ECVA identities corroborated. Certifiably Robust Image Watermark and Structured-Key candidates are screened leads only, not V2 cards; LLM watermark results are excluded as a different modality.",
+    "activity": "discovery",
+    "counted_for_search_floor": true
   },
   {
     "id": "Q42",
@@ -196,6 +221,118 @@
     "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b\\Q39-Q42-web.json",
     "sha256": "33aac61616d262f1aaee01fcbec144c3c606e8336d6f953595cf0dbd3b8b639c",
     "receipt_scope": "One live web tool call contained four distinct queries; cached full tool response is shared.",
-    "screening": "Official CVF/NeurIPS/ICLR/ECVA identities corroborated. Certifiably Robust Image Watermark and Structured-Key candidates are screened leads only, not V2 cards; LLM watermark results are excluded as a different modality."
+    "screening": "Official CVF/NeurIPS/ICLR/ECVA identities corroborated. Certifiably Robust Image Watermark and Structured-Key candidates are screened leads only, not V2 cards; LLM watermark results are excluded as a different modality.",
+    "activity": "discovery",
+    "counted_for_search_floor": true
+  },
+  {
+    "id": "Q43",
+    "category": "web_search",
+    "activity": "discovery",
+    "counted_for_search_floor": true,
+    "query": "site:ieeexplore.ieee.org \"image watermarking\" \"2024\" evaluation quality robustness",
+    "intent_id": "journal_evaluation_protocols",
+    "distinct_intent": "Venue-focused discovery of 2024-2026 journal image-watermark evaluation protocols, rather than the prior top-conference emphasis.",
+    "status": "retrieved",
+    "accessed": "2026-10-20",
+    "accessed_utc": "2026-10-20 21:59:39 UTC",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b-query-gap\\Q43-web.json",
+    "bytes": 11275,
+    "sha256": "af6b07e8f2229164ab43ad4bf774fcf04a05826aa487ed8c5a4c48a7de55dd9a",
+    "receipt_scope": "One individual live web.run discovery request and its complete returned response. Initial three-intent combined batch is retained separately and never counted again.",
+    "result_count": 4,
+    "screened_titles": [
+      "Robust Image Watermarking With Synchronization Using Template Enhanced-Extracted Network | IEEE Journals & Magazine | IEEE Xplore",
+      "The Stable Signature: Rooting Watermarks in Latent Diffusion Models | IEEE Conference Publication | IEEE Xplore",
+      "Robust Blind Symmetry-based Watermarking in the Frequency Domain Against Social Network Processing and Desynchronization Attacks | IEEE Journals & Magazine | IEEE Xplore",
+      "Secure and Traceable Multikey Image Retrieval in Cloud-Assisted Internet of Things | IEEE Journals & Magazine | IEEE Xplore"
+    ],
+    "screening": "Found two IEEE TCSVT journal candidates. Stable Signature is a 2023 conference paper despite its 2024 index-addition date and is excluded from the 2024-2026 source floor. Multikey image retrieval is adjacent product/retrieval scope. No result was read to V2; no journal quartile is asserted.",
+    "personally_rechecked_by": "Codex fresh T7 query-gap agent, 2026-10-20"
+  },
+  {
+    "id": "Q44",
+    "category": "web_search",
+    "activity": "discovery",
+    "counted_for_search_floor": true,
+    "query": "image watermark \"false positive\" \"multiple\" \"keys\" calibration 2024 2025 2026",
+    "intent_id": "population_and_multikey_fpr",
+    "distinct_intent": "Discovery of null-population calibration and multi-key false-positive multiplicity, beyond a single fixed-key image-detection operating point.",
+    "status": "retrieved",
+    "accessed": "2026-10-20",
+    "accessed_utc": "2026-10-20 21:59:58 UTC",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b-query-gap\\Q44-web.json",
+    "bytes": 34981,
+    "sha256": "5cc300d3f42cc5bbde579dc8cad40c0f55dbe6e70284610582dfdbd2d160fbbd",
+    "receipt_scope": "One individual live web.run discovery request and its complete returned response. Initial three-intent combined batch is retained separately and never counted again.",
+    "result_count": 18,
+    "screened_titles": [
+      "Under review as a conference paper at ICLR 2025",
+      "Under review as a conference paper at ICLR 2026",
+      "Under review as a conference paper at ICLR 2026",
+      "U.S. Patent Application for PROCESS FOR EMBEDDING A DIGITAL WATERMARK IN TOKENISED DATA Patent Application (Application #20250005115 issued January 2, 2025) - Justia Patents Search",
+      "Mitigating Watermark Forgery in Generative Models via Randomized Key Selection | Toluwani Aremu",
+      "Towards provenance-aware diffusion: Key-free watermarking with Gaussian shading - ScienceDirect",
+      "Can Watermarked LLMs be Identified by Users via Crafted Prompts?",
+      "MeMark: Membrane-Space Watermarking for Spiking Neural Networks (AI summary) | Paperlayer",
+      "Under review as a conference paper at ICLR 2026",
+      "Mitigating Watermark Forgery in Generative Models via Randomized Key Selection — Lacuna",
+      "Exhaustive Geometrical Search and the False Positive Watermark",
+      "Published as a conference paper at ICLR 2025",
+      "Full article: Towards Better Statistical Understanding of Watermarking LLMs",
+      "Multi-use LLM Watermarking and the False Detection Problem · Pith Review",
+      "Are LLM watermarks reliable in practice? A systematic review of evidence, robustness, threat models, and deployment assumptions - ScienceDirect",
+      "[2410.03168] Can Watermarked LLMs be Identified by Users via Crafted Prompts?",
+      "Watermark Embedding Robustness in Generated Visual Media: Signals Born Inside the Pixels | Scixa",
+      "Blind Watermarking for Tabular Datasets in Machine Learning: A Primary Key-Free Method | ACM Transactions on Knowledge Discovery from Data"
+    ],
+    "screening": "Retrieval is dominated by LLM watermarking and unrelated modalities; these are excluded as image evaluation evidence. Randomized Key Selection has an image-forgery example in search output but its method/evaluation scope was not inspected, so it remains an unverified cross-modal lead. A key-free Gaussian-shading journal candidate is a lead only. This search did not resolve image-population calibration practice.",
+    "personally_rechecked_by": "Codex fresh T7 query-gap agent, 2026-10-20"
+  },
+  {
+    "id": "Q45",
+    "category": "web_search",
+    "activity": "discovery",
+    "counted_for_search_floor": true,
+    "query": "image watermarking \"human\" \"perceptual\" \"evaluation\" 2025 2026 Pixel Seal",
+    "intent_id": "human_perceptual_evaluation",
+    "distinct_intent": "Discovery of human-observer/JND watermark invisibility evaluation and objective-metric disagreement, distinct from average PSNR/LPIPS robustness tables.",
+    "status": "retrieved",
+    "accessed": "2026-10-20",
+    "accessed_utc": "2026-10-20 21:59:58 UTC",
+    "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T7-1b-query-gap\\Q45-web.json",
+    "bytes": 38681,
+    "sha256": "fa3917ca9a29c56f1bebec2e8977d00b93b2da823b19cd0bfcbd9f7ee2cb8a12",
+    "receipt_scope": "One individual live web.run discovery request and its complete returned response. Initial three-intent combined batch is retained separately and never counted again.",
+    "result_count": 25,
+    "screened_titles": [
+      "Wav-UNet for Image Watermarking via Wavelets and Deformable Convolution - ScienceDirect",
+      "Semantic-aware attention-guided digital watermarking for diffusion models - ScienceDirect",
+      "RAN: A randomness-anchored watermark attacking network with stealth and effectiveness | Scientific Reports",
+      "Forensic Joint Photographic Experts Group (JPEG) Watermarking for Disk Image Leak Attribution: An Adaptive Discrete Cosine Transform–Discrete Wavelet Transform (DCT-DWT) Approach",
+      "Image watermarking based on spiking neural networks | Cluster Computing | Springer Nature Link",
+      "An integrated framework for proactive deepfake mitigation via attention-driven watermarking and blockchain-based authenticity verification | Scientific Reports",
+      "Verifiable client-side watermarking for thumbnail preserving encrypted images resisting malicious forgery and redistribution | Journal of King Saud University Computer and Information Sciences | Springer Nature Link",
+      "A comprehensive survey of watermarking techniques for copyright protection and integrity verification on DNNs and generative models | Discover Applied Sciences | Springer Nature Link",
+      "(PDF) Pixel Seal: Adversarial-only training for invisible image and video watermarking",
+      "FSCCNet: Robust image watermarking via multi-scale collaborative convolution and perceptual embedding control - ScienceDirect",
+      "Image Copyright Protection: A Comprehensive Survey of Digital Watermarking, Deep Learning, and Blockchain Approaches | IEEE Journals & Magazine | IEEE Xplore",
+      "Pixel Seal: Adversarial-only training for invisible image and video watermarking (arXiv:2512.16874v1) - ScienceStack",
+      "A Reversible and Imperceptible Watermarking",
+      "Signiﬁcant Pixel Watermarking Using Human",
+      "Published at the 1st workshop on GenAI Watermarking, collocated with ICLR 2025",
+      "International Journal of Engineering Research & Management Technology",
+      "A Review of Watermarking techniques: Apps, Characteristics, Classification 1239",
+      "Perceptual Attacks of No-Reference Image Quality Models with Human-in-the-Loop",
+      "Digital watermarking",
+      "Perceptual Evaluation of Video Quality",
+      "Image Quality Assessment for Perceptual Image Restoration: A New Dataset, Benchmark and Metric",
+      "Image quality",
+      "The 2018 PIRM Challenge on Perceptual Image Super-resolution",
+      "PIPAL: a Large-Scale Image Quality Assessment Dataset for Perceptual Image Restoration",
+      "Perceptual Evaluation of Audio Quality"
+    ],
+    "screening": "Pixel Seal is a relevant perceptual-evaluation lead, but the individually returned versions are secondary mirrors and were not read to V2. The initial batch also returned its primary arXiv identifier. Journal methods and surveys are leads only; old perceptual-quality papers, general reference pages and non-image modalities are excluded from the recent evaluation source floor. No human/JND claim is promoted to evidence.",
+    "personally_rechecked_by": "Codex fresh T7 query-gap agent, 2026-10-20"
   }
 ]
