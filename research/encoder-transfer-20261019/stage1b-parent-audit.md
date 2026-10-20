@@ -23,7 +23,7 @@ Record unresolved gaps before acceptance. A below-floor delivery returns to a fr
 | T5 | Six named implementations; all relied-on settings pinned by file/line | 6 implementations, 61 setting rows, 6 paper V2 cards | 16 queries / 3 categories | Accepted after parent inspection | 4601425749c940f2eaa7a852324a542af26659da |
 | T6 | n60/90/120; seed correlation and missing-unit sensitivity | 8 paper V2 + 5 official references; 15 tables / 5,154 rows | 16 queries, 10 conservative intents / 3 categories | Accepted after fresh intent-gap check | a0ff0a0 plus intent-gap checkpoint |
 | T7 | 12 evaluation sections from 2024-2026 eligible venues | 15 own V2 papers and evaluation rows | 12 genuine discovery queries / 3 categories; 3 inspections excluded | Accepted after fresh query-gap check | a54377f plus116f423a63a4af9732461656c47959c519b1fba8 |
-| T8 | 25 distinct validity threats | 68 mechanisms; 14 own V2 papers | 11 substantive discovery queries / 3 categories; 4 inspections excluded | Accepted after fresh query-gap check | 0742509 plus3f25198e22bcd9a04c10737d9832756c9e88b291 |
+| T8 | 25 distinct validity threats | 68 mechanisms; 14 own V2 papers | 13 discovery queries, 11 conservative intents / 3 categories; 4 inspections excluded | Accepted after fresh intent-gap check | 0742509 plus3f25198e22bcd9a04c10737d9832756c9e88b291 |
 
 ## Evidence inspection and gaps
 
@@ -139,3 +139,7 @@ Parent read the new complete RAN card and all three scope/access cards, and inde
 ## T6 conservative intent-floor closure, 2026-10-20
 
 Parent read query-gap-audit.md and all24 per-lead screens, independently verified four full raw responses/requests, preserved original12 query objects, and58 unchanged source/analytical files against archived hashes. The old12 strings collapse to six conservative intents; new paired-route joint probability, composite positive/zero-negative gates, achieved-quality selection and runtime-dependent completion bring the total to ten, across16 successful strings/3categories. Runtime-completion selection asks about a shared wall-clock mechanism distinct from generic conditional missing-unit laws; all old missingness queries count only once. Returned metadata remains unread primary evidence and supports no scientific claim; several leads are indirect and are labeled so. Eight V2 papers/five official references,15 tables/5154 rows/nine checks and n60 unchanged. Same-reviewer B3 closure remains required.
+
+## T8 conservative intent-floor closure, 2026-10-20
+
+Parent read the second audit, all countable new result screens and the eleven-intent mapping. Independently checked the six Q28/Q29 raw request/response/receipt hashes and preserved historical first-gap audit/checks. Q01/Q09 and Q05/Q17 are merged; new geographic image-cohort representation and diffusion finite-precision jobs supply distinct I10/I11. Final13 countable queries/11 conservative intents/3categories;29 distinct specifications include four inspections, peripheral searches and pooled supplemental web results excluded. Web raw-save retries are disclosed and nevercounted. Quantization leads do not measure our fp16/fp32 effect; geographic leads do not quantify cohort bias.68 threats/14 own V2 unchanged. No science, scope or spending amendment. Same-reviewer B2 closure required.

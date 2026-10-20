@@ -1,7 +1,7 @@
 {
   "date": "2026-10-20",
-  "attempted_distinct_queries": 23,
-  "successful_substantive_queries": 11,
+  "attempted_distinct_queries": 29,
+  "successful_substantive_queries": 13,
   "successful_categories": [
     "OpenAlex",
     "arXiv API",
@@ -18,7 +18,8 @@
       "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
       "result": "WAVES primary paper/project",
       "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on.",
-      "request_kind": "discovery search"
+      "request_kind": "discovery search",
+      "conservative_intent_id": "I01"
     },
     {
       "id": "T8-Q02",
@@ -30,7 +31,8 @@
       "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
       "result": "Lineage lead; primary independently reread, pooled batch not uniquely attributed",
       "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on.",
-      "request_kind": "discovery search"
+      "request_kind": "discovery search",
+      "conservative_intent_id": null
     },
     {
       "id": "T8-Q03",
@@ -42,7 +44,8 @@
       "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
       "result": "VINE primary paper",
       "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on.",
-      "request_kind": "discovery search"
+      "request_kind": "discovery search",
+      "conservative_intent_id": "I02"
     },
     {
       "id": "T8-Q04",
@@ -54,7 +57,8 @@
       "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
       "result": "Official WAM repository",
       "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on.",
-      "request_kind": "discovery search"
+      "request_kind": "discovery search",
+      "conservative_intent_id": "I03"
     },
     {
       "id": "T8-Q05",
@@ -66,7 +70,8 @@
       "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
       "result": "MarkNull/RAVEN/UnMarker primary leads",
       "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on.",
-      "request_kind": "discovery search"
+      "request_kind": "discovery search",
+      "conservative_intent_id": "I04"
     },
     {
       "id": "T8-Q06",
@@ -78,7 +83,8 @@
       "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
       "result": "No uniquely attributed substantive DREW result in pooled batch; OpenAlex Q11 supplies it",
       "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on.",
-      "request_kind": "discovery search"
+      "request_kind": "discovery search",
+      "conservative_intent_id": null
     },
     {
       "id": "T8-Q07",
@@ -90,7 +96,8 @@
       "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
       "result": "Pooled official latest-source lead, exact pin independently rechecked; not discovery floor",
       "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on.",
-      "request_kind": "discovery search"
+      "request_kind": "discovery search",
+      "conservative_intent_id": null
     },
     {
       "id": "T8-Q08",
@@ -102,7 +109,8 @@
       "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
       "result": "Official reproducibility lead; excluded conservatively from floor",
       "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on.",
-      "request_kind": "discovery search"
+      "request_kind": "discovery search",
+      "conservative_intent_id": null
     },
     {
       "id": "T8-Q09",
@@ -145,7 +153,8 @@
       ],
       "substantive_evidence_counted": true,
       "limits": "Metadata/discovery evidence only, not V2 full-text inspection.",
-      "request_kind": "discovery search"
+      "request_kind": "discovery search",
+      "conservative_intent_id": "I01"
     },
     {
       "id": "T8-Q10",
@@ -188,7 +197,8 @@
       ],
       "substantive_evidence_counted": false,
       "limits": "Peripheral recent autoencoder results, not direct SDXL lineage evidence; excluded from floor.",
-      "request_kind": "discovery search"
+      "request_kind": "discovery search",
+      "conservative_intent_id": null
     },
     {
       "id": "T8-Q11",
@@ -231,7 +241,8 @@
       ],
       "substantive_evidence_counted": true,
       "limits": "Metadata/discovery evidence only, not V2 full-text inspection.",
-      "request_kind": "discovery search"
+      "request_kind": "discovery search",
+      "conservative_intent_id": "I05"
     },
     {
       "id": "T8-Q12",
@@ -248,7 +259,8 @@
       "results": [],
       "substantive_evidence_counted": false,
       "limits": "Metadata/discovery evidence only, not V2 full-text inspection.",
-      "request_kind": "discovery search"
+      "request_kind": "discovery search",
+      "conservative_intent_id": null
     },
     {
       "id": "T8-Q13",
@@ -278,7 +290,8 @@
       "limits": "Known-content inspection; not counted toward section 1b discovery floor. Not V2 scientific evidence.",
       "request_kind": "known-content inspection",
       "historical_author_substantive_evidence_counted": true,
-      "count_correction": "Fresh strict discovery audit, 2026-10-20: named model metadata and named repository tree retrieval are useful inspections, not discovery queries. Historical receipts retained."
+      "count_correction": "Fresh strict discovery audit, 2026-10-20: named model metadata and named repository tree retrieval are useful inspections, not discovery queries. Historical receipts retained.",
+      "conservative_intent_id": null
     },
     {
       "id": "T8-Q14",
@@ -312,7 +325,8 @@
       "limits": "Known-content inspection; not counted toward section 1b discovery floor. Not V2 scientific evidence.",
       "request_kind": "known-content inspection",
       "historical_author_substantive_evidence_counted": true,
-      "count_correction": "Fresh strict discovery audit, 2026-10-20: named model metadata and named repository tree retrieval are useful inspections, not discovery queries. Historical receipts retained."
+      "count_correction": "Fresh strict discovery audit, 2026-10-20: named model metadata and named repository tree retrieval are useful inspections, not discovery queries. Historical receipts retained.",
+      "conservative_intent_id": null
     },
     {
       "id": "T8-Q15",
@@ -337,7 +351,8 @@
       "limits": "Known-content inspection; not counted toward section 1b discovery floor. Not V2 scientific evidence.",
       "request_kind": "known-content inspection",
       "historical_author_substantive_evidence_counted": true,
-      "count_correction": "Fresh strict discovery audit, 2026-10-20: named model metadata and named repository tree retrieval are useful inspections, not discovery queries. Historical receipts retained."
+      "count_correction": "Fresh strict discovery audit, 2026-10-20: named model metadata and named repository tree retrieval are useful inspections, not discovery queries. Historical receipts retained.",
+      "conservative_intent_id": null
     },
     {
       "id": "T8-Q16",
@@ -382,7 +397,8 @@
       "limits": "Known-content inspection; not counted toward section 1b discovery floor. Not V2 scientific evidence.",
       "request_kind": "known-content inspection",
       "historical_author_substantive_evidence_counted": true,
-      "count_correction": "Fresh strict discovery audit, 2026-10-20: named model metadata and named repository tree retrieval are useful inspections, not discovery queries. Historical receipts retained."
+      "count_correction": "Fresh strict discovery audit, 2026-10-20: named model metadata and named repository tree retrieval are useful inspections, not discovery queries. Historical receipts retained.",
+      "conservative_intent_id": null
     },
     {
       "id": "T8-Q17",
@@ -399,7 +415,8 @@
       "substantive_evidence_counted": true,
       "limits": "Metadata/discovery evidence only, not V2 full-text inspection.",
       "request_kind": "discovery search",
-      "exact_search_expression": "all:watermark AND all:regeneration"
+      "exact_search_expression": "all:watermark AND all:regeneration",
+      "conservative_intent_id": "I04"
     },
     {
       "id": "T8-Q18",
@@ -557,7 +574,8 @@
           "decision": "Dataset copyright-auditing benchmark; adjacent task, not the present transfer endpoint."
         }
       ],
-      "count_exclusion": "Conservatively excluded: results mostly concern watermark training/task boundaries, rather than directly resolving training-data overlap. Q23 supplies the more direct distinct memorization/duplication search."
+      "count_exclusion": "Conservatively excluded: results mostly concern watermark training/task boundaries, rather than directly resolving training-data overlap. Q23 supplies the more direct distinct memorization/duplication search.",
+      "conservative_intent_id": null
     },
     {
       "id": "T8-Q19",
@@ -714,7 +732,8 @@
           "title": "FreezeAsGuard: Mitigating Illegal Adaptation of Diffusion Models via Selective Tensor Freezing",
           "decision": "Illegal adaptation defense; not safety-filter missingness, excluded."
         }
-      ]
+      ],
+      "conservative_intent_id": "I06"
     },
     {
       "id": "T8-Q20",
@@ -872,7 +891,8 @@
           "decision": "Broad high-resolution evaluation lead; not direct LPIPS sensitivity evidence."
         }
       ],
-      "count_exclusion": "Broad results are mostly peripheral; direct metric-sensitivity discovery is supplied separately by arXiv Q22."
+      "count_exclusion": "Broad results are mostly peripheral; direct metric-sensitivity discovery is supplied separately by arXiv Q22.",
+      "conservative_intent_id": null
     },
     {
       "id": "T8-Q21",
@@ -1029,7 +1049,8 @@
           "title": "Watermarks and Fingerprints as Soft Bindings for Content Provenance: An Open-Licence Benchmark for Images, Audio and Video",
           "decision": "Already has own T8 V2 card; duplicate source not recounted."
         }
-      ]
+      ],
+      "conservative_intent_id": "I07"
     },
     {
       "id": "T8-Q22",
@@ -1152,7 +1173,8 @@
           "title": "Provably Adversarially Robust Nearest Prototype Classifiers",
           "decision": "Prototype classification; different task."
         }
-      ]
+      ],
+      "conservative_intent_id": "I08"
     },
     {
       "id": "T8-Q23",
@@ -1309,12 +1331,1056 @@
           "title": "Mitigating Memorization in Text-to-Image Diffusion via Region-Aware Prompt Augmentation and Multimodal Copy Detection",
           "decision": "Recent multimodal copy-detection/memorization lead; no new dataset inspection."
         }
+      ],
+      "conservative_intent_id": "I09"
+    },
+    {
+      "id": "T8-Q24",
+      "category": "OpenAlex",
+      "query": "image dataset decay link rot availability bias",
+      "url": "https://api.openalex.org/works?search=image+dataset+decay+link+rot+availability+bias&per-page=8",
+      "started_utc": "2026-10-20T22:21:55.809127+00:00",
+      "completed_utc": "2026-10-20T22:21:57.716911+00:00",
+      "http_status": 200,
+      "request_kind": "discovery search",
+      "status": "successful HTTP200 discovery response; peripheral/adjacent yield, excluded",
+      "substantive_evidence_counted": false,
+      "request": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q24-request.json",
+      "request_sha256": "a6bd37bd19127408d90c8122791b7bceec2fb3c7ba7031a8859fa696da1e19e8",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q24-response.json",
+      "sha256": "26be67786a11de255516ea065954be5bf6ab56742c7e5a19b74d53086cf88eed",
+      "bytes": 135607,
+      "receipt": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q24-receipt.json",
+      "receipt_sha256": "abb21070a293919e3a9f49143059d834ab280b78fd0b4324e6972240af10bf8c",
+      "request_headers": {
+        "User-Agent": "Thesis-T8-validity-literature-discovery/1.0"
+      },
+      "results": [
+        {
+          "rank": 1,
+          "id": "https://openalex.org/W7124697079",
+          "title": "Solutions for Link Rot on the Modern Web",
+          "year": 2025,
+          "doi": "https://doi.org/10.7302/28084",
+          "primary_landing_page": "https://hdl.handle.net/2027.42/201000"
+        },
+        {
+          "rank": 2,
+          "id": "https://openalex.org/W3120367921",
+          "title": "Fungal communities of beech (Fagus sylvatica) trees: Heart rot and origins of decay",
+          "year": 2020,
+          "doi": null,
+          "primary_landing_page": "https://orca.cardiff.ac.uk/134149/1/Emma%20Gilmartin%20Thesis.pdf"
+        },
+        {
+          "rank": 3,
+          "id": "https://openalex.org/W98952073",
+          "title": "Population Structure of the Sour Rot Pathogens Galactomyces citri-aurantii and G. geotrichum and Evaluation of Sterol Demethylation Inhibitors for Postharvest Management of Citrus Decays",
+          "year": 2011,
+          "doi": null,
+          "primary_landing_page": "https://escholarship.org/uc/item/2nv0s0cg"
+        },
+        {
+          "rank": 4,
+          "id": "https://openalex.org/W1802220679",
+          "title": "Rot detection in wooden poles using electrical impedance tomography",
+          "year": 2006,
+          "doi": null,
+          "primary_landing_page": "http://hdl.handle.net/11427/5108"
+        },
+        {
+          "rank": 5,
+          "id": "https://openalex.org/W7222626135",
+          "title": "Proximal Remote Sensing of Oil Palm Basal Stem Rot Using Deep Learning Vision Algorithms and Ground-based Images",
+          "year": 2026,
+          "doi": "https://doi.org/10.22266/ijies2026.1130.31",
+          "primary_landing_page": "https://doi.org/10.22266/ijies2026.1130.31"
+        },
+        {
+          "rank": 6,
+          "id": "https://openalex.org/W4382939112",
+          "title": "Archiving website‐based references in academic papers: Problems caused by reference rot, potential solutions and limitations",
+          "year": 2023,
+          "doi": "https://doi.org/10.1002/leap.1560",
+          "primary_landing_page": "https://doi.org/10.1002/leap.1560"
+        },
+        {
+          "rank": 7,
+          "id": "https://openalex.org/W4224229618",
+          "title": "Wood Decay Detection in Norway Spruce Forests Based on Airborne Hyperspectral and ALS Data",
+          "year": 2022,
+          "doi": "https://doi.org/10.3390/rs14081892",
+          "primary_landing_page": "https://doi.org/10.3390/rs14081892"
+        },
+        {
+          "rank": 8,
+          "id": "https://openalex.org/W3179056709",
+          "title": "Quantification of selected pathogens of the root-rot complex of pea using qPCR",
+          "year": 2019,
+          "doi": "https://doi.org/10.5281/zenodo.4738447",
+          "primary_landing_page": "https://orgprints.org/id/eprint/39826/"
+        }
+      ],
+      "screening": [
+        {
+          "rank": 1,
+          "title": "Solutions for Link Rot on the Modern Web",
+          "decision": "General web link-rot thesis; adjacent rather than image-cohort evidence."
+        },
+        {
+          "rank": 2,
+          "title": "Fungal communities of beech (Fagus sylvatica) trees: Heart rot and origins of decay",
+          "decision": "Fungal beech heart rot; irrelevant biological decay."
+        },
+        {
+          "rank": 3,
+          "title": "Population Structure of the Sour Rot Pathogens Galactomyces citri-aurantii and G. geotrichum and Evaluation of Sterol Demethylation Inhibitors for Postharvest Management of Citrus Decays",
+          "decision": "Citrus pathogens; irrelevant biological decay."
+        },
+        {
+          "rank": 4,
+          "title": "Rot detection in wooden poles using electrical impedance tomography",
+          "decision": "Wooden-pole rot detection; irrelevant imaging application."
+        },
+        {
+          "rank": 5,
+          "title": "Proximal Remote Sensing of Oil Palm Basal Stem Rot Using Deep Learning Vision Algorithms and Ground-based Images",
+          "decision": "Oil-palm stem rot; irrelevant imaging application."
+        },
+        {
+          "rank": 6,
+          "title": "Archiving website‐based references in academic papers: Problems caused by reference rot, potential solutions and limitations",
+          "decision": "Academic reference archiving; adjacent rather than image-cohort evidence."
+        },
+        {
+          "rank": 7,
+          "title": "Wood Decay Detection in Norway Spruce Forests Based on Airborne Hyperspectral and ALS Data",
+          "decision": "Spruce wood decay; irrelevant remote-sensing application."
+        },
+        {
+          "rank": 8,
+          "title": "Quantification of selected pathogens of the root-rot complex of pea using qPCR",
+          "decision": "Pea pathogens; irrelevant biological decay."
+        }
+      ],
+      "limits": "Discovery metadata only. No V2 credit, empirical claim, method amendment or model experiment.",
+      "conservative_intent_id": null
+    },
+    {
+      "id": "T8-Q25",
+      "category": "OpenAlex",
+      "query": "diffusion models numerical precision reproducibility hardware nondeterminism",
+      "url": "https://api.openalex.org/works?search=diffusion+models+numerical+precision+reproducibility+hardware+nondeterminism&per-page=8",
+      "started_utc": "2026-10-20T22:21:55.809127+00:00",
+      "completed_utc": "2026-10-20T22:21:57.759918+00:00",
+      "http_status": 200,
+      "request_kind": "discovery search",
+      "status": "successful HTTP200 discovery response; peripheral/adjacent yield, excluded",
+      "substantive_evidence_counted": false,
+      "request": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q25-request.json",
+      "request_sha256": "ec0f8e8e295ee5e55024c6d71cbcf14afc640a72899a0ef5c7bb8fd7d8c78f0c",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q25-response.json",
+      "sha256": "332524825e1b2aa3b5f596ac7132a83913ae04fc356a58244ffe66ab92d5240c",
+      "bytes": 140578,
+      "receipt": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q25-receipt.json",
+      "receipt_sha256": "64e8015fa804b266ebf42c2ee2f8a205c4756ebb3fb6881a7288101203948462",
+      "request_headers": {
+        "User-Agent": "Thesis-T8-validity-literature-discovery/1.0"
+      },
+      "results": [
+        {
+          "rank": 1,
+          "id": "https://openalex.org/W7220977403",
+          "title": "Same Text, Different Prediction: Serving-Context Nondeterminism in Text Classifiers",
+          "year": 2026,
+          "doi": "https://doi.org/10.48550/arxiv.2610.09111",
+          "primary_landing_page": "https://arxiv.org/abs/2610.09111"
+        },
+        {
+          "rank": 2,
+          "id": "https://openalex.org/W3162669808",
+          "title": "On the reproducibility of fully convolutional neural networks for modeling time–space-evolving physical systems",
+          "year": 2022,
+          "doi": "https://doi.org/10.1017/dce.2022.18",
+          "primary_landing_page": "https://doi.org/10.1017/dce.2022.18"
+        },
+        {
+          "rank": 3,
+          "id": "https://openalex.org/W7154569595",
+          "title": "Dataset-Level Metrics Attenuate Non-Determinism: A Fine-Grained Non-Determinism Evaluation in Diffusion Language Models",
+          "year": 2026,
+          "doi": "https://doi.org/10.48550/arxiv.2604.13413",
+          "primary_landing_page": "https://arxiv.org/abs/2604.13413"
+        },
+        {
+          "rank": 4,
+          "id": "https://openalex.org/W7166703032",
+          "title": "Understanding Evaluation Illusion in Diffusion Large Language Models",
+          "year": 2026,
+          "doi": "https://doi.org/10.48550/arxiv.2606.29228",
+          "primary_landing_page": "https://arxiv.org/abs/2606.29228"
+        },
+        {
+          "rank": 5,
+          "id": "https://openalex.org/W7213371436",
+          "title": "Evaluating Losslessness in Speculative Decoding Under Finite-Precision Inference",
+          "year": 2026,
+          "doi": null,
+          "primary_landing_page": "https://arxiv.org/abs/2609.15504"
+        },
+        {
+          "rank": 6,
+          "id": "https://openalex.org/W7162149334",
+          "title": "The Silent Hyperparameter: Quantifying the Impact of Inference Backends on LLM Reproducibility",
+          "year": 2026,
+          "doi": null,
+          "primary_landing_page": "https://arxiv.org/abs/2605.19537"
+        },
+        {
+          "rank": 7,
+          "id": "https://openalex.org/W7172232970",
+          "title": "Spatiotemporal Ghosts in the Silicon: Hardware Perturbations, Autoregressive Cascade Amplification, and the Naturalization of Computer Science in LLM Inference",
+          "year": 2026,
+          "doi": "https://doi.org/10.2139/ssrn.7342558",
+          "primary_landing_page": "https://doi.org/10.2139/ssrn.7342558"
+        },
+        {
+          "rank": 8,
+          "id": "https://openalex.org/W7169473912",
+          "title": "TraceSynth: Generating Production-Quality Kernel Traces with Constraint-Guided Diffusion Models",
+          "year": 2026,
+          "doi": null,
+          "primary_landing_page": "https://arxiv.org/abs/2607.12104"
+        }
+      ],
+      "screening": [
+        {
+          "rank": 1,
+          "title": "Same Text, Different Prediction: Serving-Context Nondeterminism in Text Classifiers",
+          "decision": "Text classifier serving nondeterminism; adjacent modality, excluded."
+        },
+        {
+          "rank": 2,
+          "title": "On the reproducibility of fully convolutional neural networks for modeling time–space-evolving physical systems",
+          "decision": "Physical-system CNN reproducibility; adjacent model/application, excluded."
+        },
+        {
+          "rank": 3,
+          "title": "Dataset-Level Metrics Attenuate Non-Determinism: A Fine-Grained Non-Determinism Evaluation in Diffusion Language Models",
+          "decision": "Diffusion language-model nondeterminism; adjacent modality, excluded."
+        },
+        {
+          "rank": 4,
+          "title": "Understanding Evaluation Illusion in Diffusion Large Language Models",
+          "decision": "Diffusion language-model evaluation; adjacent modality, excluded."
+        },
+        {
+          "rank": 5,
+          "title": "Evaluating Losslessness in Speculative Decoding Under Finite-Precision Inference",
+          "decision": "Speculative decoding precision; adjacent language model, excluded."
+        },
+        {
+          "rank": 6,
+          "title": "The Silent Hyperparameter: Quantifying the Impact of Inference Backends on LLM Reproducibility",
+          "decision": "LLM backend reproducibility; adjacent modality, excluded."
+        },
+        {
+          "rank": 7,
+          "title": "Spatiotemporal Ghosts in the Silicon: Hardware Perturbations, Autoregressive Cascade Amplification, and the Naturalization of Computer Science in LLM Inference",
+          "decision": "LLM hardware perturbations; adjacent modality, excluded."
+        },
+        {
+          "rank": 8,
+          "title": "TraceSynth: Generating Production-Quality Kernel Traces with Constraint-Guided Diffusion Models",
+          "decision": "Kernel-trace synthesis; adjacent output/application, excluded."
+        }
+      ],
+      "limits": "Discovery metadata only. No V2 credit, empirical claim, method amendment or model experiment.",
+      "conservative_intent_id": null
+    },
+    {
+      "id": "T8-Q26",
+      "category": "web",
+      "query": "image dataset decay availability bias disappearing images Flickr datasets",
+      "request_kind": "discovery search",
+      "status": "successful pooled web response; excluded",
+      "substantive_evidence_counted": false,
+      "request": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\web-Q26-Q27-request.json",
+      "request_sha256": "5c4d791491c9976dca36c34e311f5c134798f3b82a53a5673f2ecb13310ff6f8",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\web-Q26-Q27-response.json",
+      "sha256": "40f5d2537f0a9a83fb8c9a3f43581b6a1ee38c72b8121dc38d473b6456a7f322",
+      "screening": [
+        {
+          "rank": 1,
+          "title_and_url": "Seeds And Reproducibility | Diffusion Docs (https://bubbafett5611.github.io/DiffusionDocs/reference/concepts/seeds-and-reproducibility.html)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 2,
+          "title_and_url": "The Ghost Stays in the Picture, Part 2: Data Casts Shadows - Flickr Foundation (https://www.flickr.org/ghost-stays-2/)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 3,
+          "title_and_url": "Create reproducible pipelines · Hugging Face (https://huggingface.co/docs/diffusers/v0.26.3/using-diffusers/reproducibility)",
+          "decision": "Primary official reproducibility discovery lead; no new scientific claim; pooled batch excluded from floor."
+        },
+        {
+          "rank": 4,
+          "title_and_url": "Approaches for Privacy Aware Image Processing in (https://central.bac-lac.gc.ca/.item?app=Library&id=TC-QMM-119518&oclc_number=870982922&op=pdf)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 5,
+          "title_and_url": "Seeds and Reproducibility in AI Image Generation Guide (https://aiunderstanding.org/learn/seeds-and-reproducibility-in-ai-image-generation)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 6,
+          "title_and_url": "Data Lifeboat Update 5: Prototypes and policy - Flickr Foundation (https://www.flickr.org/data-lifeboat-update-5-prototypes-and-policy/)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 7,
+          "title_and_url": "Data Lifeboat: Deeper research into the challenge of archiving social media objects - Flickr Foundation (https://www.flickr.org/data-lifeboat-deeper-research-into-the-challenge-of-archiving-social-media-objects/)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 8,
+          "title_and_url": "Bili-Sakura/RSGen-8k — Shadowgraph (https://shadowgraph.io/Bili-Sakura/RSGen-8k)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 9,
+          "title_and_url": "Implementing Deterministic Seeding for Reproducible Latent Diffusion Outputs (https://mediacreator.hashnode.dev/implementing-deterministic-seeding-for-reproducible-latent-diffusion-outputs)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 10,
+          "title_and_url": "COCO-style geographically unbiased image dataset for computer vision applications - UMI UMMISCO (https://dataverse.ird.fr/dataset.xhtml?persistentId=doi%3A10.23708%2FN2UY4C)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 11,
+          "title_and_url": "Data Lifeboat - Development Notes - Flickr Foundation (https://www.flickr.org/programs/content-mobility/data-lifeboat-development-notes/)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 12,
+          "title_and_url": "Seeds, Determinism, and Reproducing an Image · Multigrid (https://multigrid.ai/learn/image-generation-seeds)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 13,
+          "title_and_url": "Consistency across variations | Flux Intermediate Course | The Neural Base (https://theneuralbase.com/flux/learn/intermediate/consistency-across-variations/)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 14,
+          "title_and_url": "Figure 10: Random examples of the Flickr dataset. (Faced blurred for privacy protection.) (https://openaccess.thecvf.com/content/ICCV2021/supplemental/Van_Hoorick_Dissecting_Image_Crops_ICCV_2021_supplemental.pdf)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 15,
+          "title_and_url": "Under review as a conference paper at ICLR 2025 (https://openreview.net/pdf?id=nExUJBF5tR)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 16,
+          "title_and_url": "Low-Bitwidth Floating Point Quantization for Efficient High-Quality Diffusion Models (https://arxiv.org/abs/2408.06995)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 17,
+          "title_and_url": "Flickr Africa: Examining Geo-Diversity in Large-Scale, Human-Centric Visual Data (https://arxiv.org/abs/2308.08656)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 18,
+          "title_and_url": "Stereotyping and Bias in the Flickr30K Dataset (https://arxiv.org/abs/1605.06083)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 19,
+          "title_and_url": "A. Data Generation (https://openaccess.thecvf.com/content/WACV2025/supplemental/Xu_Good_Seed_Makes_WACV_2025_supplemental.pdf)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 20,
+          "title_and_url": "Good Seed Makes a Good Crop: Discovering Secret Seeds in Text-to-Image Diffusion Models (https://openaccess.thecvf.com/content/WACV2025/papers/Xu_Good_Seed_Makes_a_Good_Crop_Discovering_Secret_Seeds_in_WACV_2025_paper.pdf)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 21,
+          "title_and_url": "Effects of different graphics cards, batching, and precision: (https://www.reddit.com/r/StableDiffusion/comments/yh0xgk)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 22,
+          "title_and_url": "Give Me FP32 or Give Me Death? Challenges and Solutions for Reproducible Reasoning (https://arxiv.org/abs/2506.09501)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 23,
+          "title_and_url": "Delft University of Technology (https://pure.tudelft.nl/ws/portalfiles/portal/158995276/9789463667494_WEB.pdf)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 24,
+          "title_and_url": "Stable Diffusion (https://en.wikipedia.org/wiki/Stable_Diffusion)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 25,
+          "title_and_url": "StableDiffusion RUNS on M1 chips. (https://www.reddit.com/r/StableDiffusion/comments/wx0tkn)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 26,
+          "title_and_url": "Quick Question about \"seed\" differences (https://www.reddit.com/r/StableDiffusion/comments/1oz5hds)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 27,
+          "title_and_url": "Mersenne Twister (https://en.wikipedia.org/wiki/Mersenne_Twister)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 28,
+          "title_and_url": "List of datasets in computer vision and image processing (https://en.wikipedia.org/wiki/List_of_datasets_in_computer_vision_and_image_processing)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 29,
+          "title_and_url": "How much can a video generated by the same diffusion model differ across GPU architectures if the initial noise latent is fixed? [D] (https://www.reddit.com/r/MachineLearning/comments/1t69dvx/how_much_can_a_video_generated_by_the_same/)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 30,
+          "title_and_url": "80 Million Tiny Images (https://en.wikipedia.org/wiki/80_Million_Tiny_Images)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 31,
+          "title_and_url": "Warning: Graphics card changes more than you realize (https://www.reddit.com/r/StableDiffusion/comments/1b4vc3z)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 32,
+          "title_and_url": "Can the same llm in different machine generate the exact same thing using the same prompt and exact settings (https://www.reddit.com/r/StableDiffusion/comments/1r12qqy/can_the_same_llm_in_different_machine_generate/)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 33,
+          "title_and_url": "So... I was wrong. The hardware you run on *does* affect your generation. (https://www.reddit.com/r/StableDiffusion/comments/11lcctq)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 34,
+          "title_and_url": "Open scientific data (https://en.wikipedia.org/wiki/Open_scientific_data)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 35,
+          "title_and_url": "Same Prompt, Same Seed, Different Hardware, follow-up results (https://www.reddit.com/r/StableDiffusion/comments/yhoqdv)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 36,
+          "title_and_url": "Full Replication of MIT's New \"Drifting Model\" - Open Source PyTorch Library, Package, and Repo (now live) (https://www.reddit.com/r/StableDiffusion/comments/1rkt937/full_replication_of_mits_new_drifting_model_open/)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 37,
+          "title_and_url": "Same settings and seed, different results each gen? (https://www.reddit.com/r/StableDiffusion/comments/138mqh1)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 38,
+          "title_and_url": "Anyone experience image 'drift' with Auto1111? Can't regen a single image... (https://www.reddit.com/r/StableDiffusion/comments/10ssc8c)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 39,
+          "title_and_url": "Help: Stable Diffusion not creating Images (https://www.reddit.com/r/StableDiffusion/comments/15w6pwx)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 40,
+          "title_and_url": "AMD unveils industry-first Stable Diffusion 3.0 Medium AI model generator tailored for XDNA 2 NPUs - designed to run locally on Ryzen AI laptops (https://www.tomshardware.com/tech-industry/artificial-intelligence/amd-unveils-industry-first-stable-diffusion-3-0-medium-ai-model-generator-tailored-for-xdna-2-npus-designed-to-run-locally-on-ryzen-ai-laptops)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        }
+      ],
+      "limits": "Pooled batch not uniquely attributed. Repeated three times to save response; repeats add no query or intent. First two response versions survive only in task transcript; third raw serialized tool response saved. No scientific reliance.",
+      "conservative_intent_id": null
+    },
+    {
+      "id": "T8-Q27",
+      "category": "web",
+      "query": "diffusion image generation reproducibility hardware floating point precision seeds",
+      "request_kind": "discovery search",
+      "status": "successful pooled web response; excluded",
+      "substantive_evidence_counted": false,
+      "request": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\web-Q26-Q27-request.json",
+      "request_sha256": "5c4d791491c9976dca36c34e311f5c134798f3b82a53a5673f2ecb13310ff6f8",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\web-Q26-Q27-response.json",
+      "sha256": "40f5d2537f0a9a83fb8c9a3f43581b6a1ee38c72b8121dc38d473b6456a7f322",
+      "screening": [
+        {
+          "rank": 1,
+          "title_and_url": "Seeds And Reproducibility | Diffusion Docs (https://bubbafett5611.github.io/DiffusionDocs/reference/concepts/seeds-and-reproducibility.html)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 2,
+          "title_and_url": "The Ghost Stays in the Picture, Part 2: Data Casts Shadows - Flickr Foundation (https://www.flickr.org/ghost-stays-2/)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 3,
+          "title_and_url": "Create reproducible pipelines · Hugging Face (https://huggingface.co/docs/diffusers/v0.26.3/using-diffusers/reproducibility)",
+          "decision": "Primary official reproducibility discovery lead; no new scientific claim; pooled batch excluded from floor."
+        },
+        {
+          "rank": 4,
+          "title_and_url": "Approaches for Privacy Aware Image Processing in (https://central.bac-lac.gc.ca/.item?app=Library&id=TC-QMM-119518&oclc_number=870982922&op=pdf)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 5,
+          "title_and_url": "Seeds and Reproducibility in AI Image Generation Guide (https://aiunderstanding.org/learn/seeds-and-reproducibility-in-ai-image-generation)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 6,
+          "title_and_url": "Data Lifeboat Update 5: Prototypes and policy - Flickr Foundation (https://www.flickr.org/data-lifeboat-update-5-prototypes-and-policy/)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 7,
+          "title_and_url": "Data Lifeboat: Deeper research into the challenge of archiving social media objects - Flickr Foundation (https://www.flickr.org/data-lifeboat-deeper-research-into-the-challenge-of-archiving-social-media-objects/)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 8,
+          "title_and_url": "Bili-Sakura/RSGen-8k — Shadowgraph (https://shadowgraph.io/Bili-Sakura/RSGen-8k)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 9,
+          "title_and_url": "Implementing Deterministic Seeding for Reproducible Latent Diffusion Outputs (https://mediacreator.hashnode.dev/implementing-deterministic-seeding-for-reproducible-latent-diffusion-outputs)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 10,
+          "title_and_url": "COCO-style geographically unbiased image dataset for computer vision applications - UMI UMMISCO (https://dataverse.ird.fr/dataset.xhtml?persistentId=doi%3A10.23708%2FN2UY4C)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 11,
+          "title_and_url": "Data Lifeboat - Development Notes - Flickr Foundation (https://www.flickr.org/programs/content-mobility/data-lifeboat-development-notes/)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 12,
+          "title_and_url": "Seeds, Determinism, and Reproducing an Image · Multigrid (https://multigrid.ai/learn/image-generation-seeds)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 13,
+          "title_and_url": "Consistency across variations | Flux Intermediate Course | The Neural Base (https://theneuralbase.com/flux/learn/intermediate/consistency-across-variations/)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 14,
+          "title_and_url": "Figure 10: Random examples of the Flickr dataset. (Faced blurred for privacy protection.) (https://openaccess.thecvf.com/content/ICCV2021/supplemental/Van_Hoorick_Dissecting_Image_Crops_ICCV_2021_supplemental.pdf)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 15,
+          "title_and_url": "Under review as a conference paper at ICLR 2025 (https://openreview.net/pdf?id=nExUJBF5tR)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 16,
+          "title_and_url": "Low-Bitwidth Floating Point Quantization for Efficient High-Quality Diffusion Models (https://arxiv.org/abs/2408.06995)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 17,
+          "title_and_url": "Flickr Africa: Examining Geo-Diversity in Large-Scale, Human-Centric Visual Data (https://arxiv.org/abs/2308.08656)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 18,
+          "title_and_url": "Stereotyping and Bias in the Flickr30K Dataset (https://arxiv.org/abs/1605.06083)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 19,
+          "title_and_url": "A. Data Generation (https://openaccess.thecvf.com/content/WACV2025/supplemental/Xu_Good_Seed_Makes_WACV_2025_supplemental.pdf)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 20,
+          "title_and_url": "Good Seed Makes a Good Crop: Discovering Secret Seeds in Text-to-Image Diffusion Models (https://openaccess.thecvf.com/content/WACV2025/papers/Xu_Good_Seed_Makes_a_Good_Crop_Discovering_Secret_Seeds_in_WACV_2025_paper.pdf)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 21,
+          "title_and_url": "Effects of different graphics cards, batching, and precision: (https://www.reddit.com/r/StableDiffusion/comments/yh0xgk)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 22,
+          "title_and_url": "Give Me FP32 or Give Me Death? Challenges and Solutions for Reproducible Reasoning (https://arxiv.org/abs/2506.09501)",
+          "decision": "Primary candidate discovery lead for cohort selection or precision; title/snippet only, no V2 or empirical credit."
+        },
+        {
+          "rank": 23,
+          "title_and_url": "Delft University of Technology (https://pure.tudelft.nl/ws/portalfiles/portal/158995276/9789463667494_WEB.pdf)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 24,
+          "title_and_url": "Stable Diffusion (https://en.wikipedia.org/wiki/Stable_Diffusion)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 25,
+          "title_and_url": "StableDiffusion RUNS on M1 chips. (https://www.reddit.com/r/StableDiffusion/comments/wx0tkn)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 26,
+          "title_and_url": "Quick Question about \"seed\" differences (https://www.reddit.com/r/StableDiffusion/comments/1oz5hds)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 27,
+          "title_and_url": "Mersenne Twister (https://en.wikipedia.org/wiki/Mersenne_Twister)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 28,
+          "title_and_url": "List of datasets in computer vision and image processing (https://en.wikipedia.org/wiki/List_of_datasets_in_computer_vision_and_image_processing)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 29,
+          "title_and_url": "How much can a video generated by the same diffusion model differ across GPU architectures if the initial noise latent is fixed? [D] (https://www.reddit.com/r/MachineLearning/comments/1t69dvx/how_much_can_a_video_generated_by_the_same/)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 30,
+          "title_and_url": "80 Million Tiny Images (https://en.wikipedia.org/wiki/80_Million_Tiny_Images)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 31,
+          "title_and_url": "Warning: Graphics card changes more than you realize (https://www.reddit.com/r/StableDiffusion/comments/1b4vc3z)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 32,
+          "title_and_url": "Can the same llm in different machine generate the exact same thing using the same prompt and exact settings (https://www.reddit.com/r/StableDiffusion/comments/1r12qqy/can_the_same_llm_in_different_machine_generate/)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 33,
+          "title_and_url": "So... I was wrong. The hardware you run on *does* affect your generation. (https://www.reddit.com/r/StableDiffusion/comments/11lcctq)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 34,
+          "title_and_url": "Open scientific data (https://en.wikipedia.org/wiki/Open_scientific_data)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 35,
+          "title_and_url": "Same Prompt, Same Seed, Different Hardware, follow-up results (https://www.reddit.com/r/StableDiffusion/comments/yhoqdv)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 36,
+          "title_and_url": "Full Replication of MIT's New \"Drifting Model\" - Open Source PyTorch Library, Package, and Repo (now live) (https://www.reddit.com/r/StableDiffusion/comments/1rkt937/full_replication_of_mits_new_drifting_model_open/)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 37,
+          "title_and_url": "Same settings and seed, different results each gen? (https://www.reddit.com/r/StableDiffusion/comments/138mqh1)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 38,
+          "title_and_url": "Anyone experience image 'drift' with Auto1111? Can't regen a single image... (https://www.reddit.com/r/StableDiffusion/comments/10ssc8c)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 39,
+          "title_and_url": "Help: Stable Diffusion not creating Images (https://www.reddit.com/r/StableDiffusion/comments/15w6pwx)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        },
+        {
+          "rank": 40,
+          "title_and_url": "AMD unveils industry-first Stable Diffusion 3.0 Medium AI model generator tailored for XDNA 2 NPUs - designed to run locally on Ryzen AI laptops (https://www.tomshardware.com/tech-industry/artificial-intelligence/amd-unveils-industry-first-stable-diffusion-3-0-medium-ai-model-generator-tailored-for-xdna-2-npus-designed-to-run-locally-on-ryzen-ai-laptops)",
+          "decision": "Secondary, adjacent or unrelated web lead; excluded from scientific evidence and floor."
+        }
+      ],
+      "limits": "Pooled batch not uniquely attributed. Repeated three times to save response; repeats add no query or intent. First two response versions survive only in task transcript; third raw serialized tool response saved. No scientific reliance.",
+      "conservative_intent_id": null
+    },
+    {
+      "id": "T8-Q28",
+      "category": "OpenAlex",
+      "query": "image dataset geographic diversity bias",
+      "url": "https://api.openalex.org/works?search=image+dataset+geographic+diversity+bias&per-page=8",
+      "started_utc": "2026-10-20T22:22:42.417732+00:00",
+      "completed_utc": "2026-10-20T22:22:48.145361+00:00",
+      "http_status": 200,
+      "request_kind": "discovery search",
+      "status": "successful HTTP200 discovery response; counted",
+      "substantive_evidence_counted": true,
+      "request": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q28-request.json",
+      "request_sha256": "2e13d42b3c80fc25bab6eeb9e80cc173f6e6d0773335a7194712c5e49759a2e2",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q28-response.json",
+      "sha256": "31d959ba76f3e1402a6be6429940708da7693de40780ba68957308e32f1f63f6",
+      "bytes": 137107,
+      "receipt": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q28-receipt.json",
+      "receipt_sha256": "b658faa1c86536ae73a4b8ea4ae96ce83f86199a027b3a658b30b8f2eec41617",
+      "request_headers": {
+        "User-Agent": "Thesis-T8-validity-literature-discovery/1.0"
+      },
+      "results": [
+        {
+          "rank": 1,
+          "id": "https://openalex.org/W7131655447",
+          "title": "GeoDiv: Framework For Measuring Geographical Diversity In Text-To-Image Models",
+          "year": 2026,
+          "doi": "https://doi.org/10.48550/arxiv.2602.22120",
+          "primary_landing_page": "http://arxiv.org/abs/2602.22120"
+        },
+        {
+          "rank": 2,
+          "id": "https://openalex.org/W7163777652",
+          "title": "Geographic Bias and Diversity in AI Evaluation",
+          "year": 2026,
+          "doi": null,
+          "primary_landing_page": "https://arxiv.org/abs/2606.05187"
+        },
+        {
+          "rank": 3,
+          "id": "https://openalex.org/W3210025243",
+          "title": "Dataset diversity: measuring and mitigating geographical biasin image search and retrieval",
+          "year": 2021,
+          "doi": null,
+          "primary_landing_page": "http://doras.dcu.ie/26268/"
+        },
+        {
+          "rank": 4,
+          "id": "https://openalex.org/W3209190492",
+          "title": "Dataset Diversity",
+          "year": 2021,
+          "doi": "https://doi.org/10.1145/3475731.3484956",
+          "primary_landing_page": "https://doi.org/10.1145/3475731.3484956"
+        },
+        {
+          "rank": 5,
+          "id": "https://openalex.org/W7129078169",
+          "title": "IndicFairFace: Balanced Indian Face Dataset for Auditing and Mitigating Geographical Bias in Vision-Language Models",
+          "year": 2026,
+          "doi": "https://doi.org/10.48550/arxiv.2602.12659",
+          "primary_landing_page": "http://arxiv.org/abs/2602.12659"
+        },
+        {
+          "rank": 6,
+          "id": "https://openalex.org/W4405396658",
+          "title": "Facesaliencyaug: mitigating geographic, gender and stereotypical biases via saliency-based data augmentation",
+          "year": 2024,
+          "doi": "https://doi.org/10.1007/s11760-024-03623-1",
+          "primary_landing_page": "https://doi.org/10.1007/s11760-024-03623-1"
+        },
+        {
+          "rank": 7,
+          "id": "https://openalex.org/W7163777490",
+          "title": "Assessing the Geographic Diversity of AI's Platial Representations in Image Generation",
+          "year": 2026,
+          "doi": null,
+          "primary_landing_page": "https://arxiv.org/abs/2606.05188"
+        },
+        {
+          "rank": 8,
+          "id": "https://openalex.org/W7164183500",
+          "title": "Assessing the Geographic Diversity of AI’s Platial Representations in Image Generation",
+          "year": 2026,
+          "doi": "https://doi.org/10.5194/agile-giss-7-10-2026",
+          "primary_landing_page": "https://doi.org/10.5194/agile-giss-7-10-2026"
+        }
+      ],
+      "screening": [
+        {
+          "rank": 1,
+          "title": "GeoDiv: Framework For Measuring Geographical Diversity In Text-To-Image Models",
+          "decision": "Direct text-to-image geographic-diversity measurement lead; no empirical result adopted."
+        },
+        {
+          "rank": 2,
+          "title": "Geographic Bias and Diversity in AI Evaluation",
+          "decision": "Broader AI evaluation geographic-bias lead; needs primary-text scope check before reliance."
+        },
+        {
+          "rank": 3,
+          "title": "Dataset diversity: measuring and mitigating geographical biasin image search and retrieval",
+          "decision": "Direct image search/retrieval dataset-geography lead; candidate for cohort selection V24."
+        },
+        {
+          "rank": 4,
+          "title": "Dataset Diversity",
+          "decision": "Dataset-diversity conference lead; may share work with rank 3; no separate source credit."
+        },
+        {
+          "rank": 5,
+          "title": "IndicFairFace: Balanced Indian Face Dataset for Auditing and Mitigating Geographical Bias in Vision-Language Models",
+          "decision": "Face-cohort geographic-bias audit lead; narrower than general natural-image cohort."
+        },
+        {
+          "rank": 6,
+          "title": "Facesaliencyaug: mitigating geographic, gender and stereotypical biases via saliency-based data augmentation",
+          "decision": "Image augmentation/geographic-bias lead; candidate only, no remedy adopted."
+        },
+        {
+          "rank": 7,
+          "title": "Assessing the Geographic Diversity of AI's Platial Representations in Image Generation",
+          "decision": "Image-generation geographic-representation lead; source duplication with rank 8 possible."
+        },
+        {
+          "rank": 8,
+          "title": "Assessing the Geographic Diversity of AI’s Platial Representations in Image Generation",
+          "decision": "Same titled geographical-representation work as rank 7; no extra source credit."
+        }
+      ],
+      "limits": "Discovery metadata only. No V2 credit, empirical claim, method amendment or model experiment.",
+      "conservative_intent_id": "I10"
+    },
+    {
+      "id": "T8-Q29",
+      "category": "OpenAlex",
+      "query": "diffusion floating point quantization",
+      "url": "https://api.openalex.org/works?search=diffusion+floating+point+quantization&per-page=8",
+      "started_utc": "2026-10-20T22:22:42.417732+00:00",
+      "completed_utc": "2026-10-20T22:22:47.873081+00:00",
+      "http_status": 200,
+      "request_kind": "discovery search",
+      "status": "successful HTTP200 discovery response; counted",
+      "substantive_evidence_counted": true,
+      "request": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q29-request.json",
+      "request_sha256": "d5bd64a4b1ae8a3c992d878a0665e01ebc2a4c67eb4f99ec68a01fdaa36a328f",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q29-response.json",
+      "sha256": "8f1f732a7646ef36afd7b30aa7bad0bda251dbb282fed408f1ab64631738d501",
+      "bytes": 142287,
+      "receipt": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q29-receipt.json",
+      "receipt_sha256": "62087c23bd20136e6c6c7a39f65b77561209df1321d55e2d36b05259f6c54d0d",
+      "request_headers": {
+        "User-Agent": "Thesis-T8-validity-literature-discovery/1.0"
+      },
+      "results": [
+        {
+          "rank": 1,
+          "id": "https://openalex.org/W7133014209",
+          "title": "Low-bitwidth Floating-Point Quantization for Diffusion Models",
+          "year": 2024,
+          "doi": null,
+          "primary_landing_page": "http://hdl.handle.net/1807/141088"
+        },
+        {
+          "rank": 2,
+          "id": "https://openalex.org/W4404849657",
+          "title": "Low-Bitwidth Floating Point Quantization for Efficient High-Quality Diffusion Models",
+          "year": 2024,
+          "doi": "https://doi.org/10.1109/iiswc63097.2024.00025",
+          "primary_landing_page": "https://doi.org/10.1109/iiswc63097.2024.00025"
+        },
+        {
+          "rank": 3,
+          "id": "https://openalex.org/W4390874074",
+          "title": "Q-Diffusion: Quantizing Diffusion Models",
+          "year": 2023,
+          "doi": "https://doi.org/10.1109/iccv51070.2023.01608",
+          "primary_landing_page": "https://doi.org/10.1109/iccv51070.2023.01608"
+        },
+        {
+          "rank": 4,
+          "id": "https://openalex.org/W4386065704",
+          "title": "Post-Training Quantization on Diffusion Models",
+          "year": 2023,
+          "doi": "https://doi.org/10.1109/cvpr52729.2023.00196",
+          "primary_landing_page": "https://doi.org/10.1109/cvpr52729.2023.00196"
+        },
+        {
+          "rank": 5,
+          "id": "https://openalex.org/W4399252246",
+          "title": "HQ-DiT: Efficient Diffusion Transformer with FP4 Hybrid Quantization",
+          "year": 2024,
+          "doi": "https://doi.org/10.48550/arxiv.2405.19751",
+          "primary_landing_page": "http://arxiv.org/abs/2405.19751"
+        },
+        {
+          "rank": 6,
+          "id": "https://openalex.org/W4416450645",
+          "title": "FPQVAR: Floating Point Quantization for Visual Autoregressive Model with FPGA Hardware Co-design",
+          "year": 2025,
+          "doi": "https://doi.org/10.48550/arxiv.2505.16335",
+          "primary_landing_page": "http://arxiv.org/abs/2505.16335"
+        },
+        {
+          "rank": 7,
+          "id": "https://openalex.org/W4405551724",
+          "title": "Efficiency Meets Fidelity: A Novel Quantization Framework for Stable Diffusion",
+          "year": 2024,
+          "doi": "https://doi.org/10.32388/5b8tbl",
+          "primary_landing_page": "https://doi.org/10.32388/5b8tbl"
+        },
+        {
+          "rank": 8,
+          "id": "https://openalex.org/W4413145899",
+          "title": "Pioneering 4-Bit FP Quantization for Diffusion Models: Mixup-Sign Quantization and Timestep-Aware Fine-Tuning",
+          "year": 2025,
+          "doi": "https://doi.org/10.1109/cvpr52734.2025.01690",
+          "primary_landing_page": "https://doi.org/10.1109/cvpr52734.2025.01690"
+        }
+      ],
+      "screening": [
+        {
+          "rank": 1,
+          "title": "Low-bitwidth Floating-Point Quantization for Diffusion Models",
+          "decision": "Direct diffusion finite-precision thesis lead; may overlap rank 2, no source credit."
+        },
+        {
+          "rank": 2,
+          "title": "Low-Bitwidth Floating Point Quantization for Efficient High-Quality Diffusion Models",
+          "decision": "Direct floating-point diffusion quantization lead; precision job, not hardware determinism proof."
+        },
+        {
+          "rank": 3,
+          "title": "Q-Diffusion: Quantizing Diffusion Models",
+          "decision": "Direct diffusion quantization lead; candidate arithmetic-sensitivity evidence only."
+        },
+        {
+          "rank": 4,
+          "title": "Post-Training Quantization on Diffusion Models",
+          "decision": "Direct post-training diffusion quantization lead; candidate only, no quantization proposed."
+        },
+        {
+          "rank": 5,
+          "title": "HQ-DiT: Efficient Diffusion Transformer with FP4 Hybrid Quantization",
+          "decision": "Direct diffusion-transformer FP4 lead; architecture differs from frozen SDXL."
+        },
+        {
+          "rank": 6,
+          "title": "FPQVAR: Floating Point Quantization for Visual Autoregressive Model with FPGA Hardware Co-design",
+          "decision": "Visual autoregressive quantization/FPGA work; adjacent architecture, excluded."
+        },
+        {
+          "rank": 7,
+          "title": "Efficiency Meets Fidelity: A Novel Quantization Framework for Stable Diffusion",
+          "decision": "Stable Diffusion quantization lead; metadata alone does not validate quality or provenance."
+        },
+        {
+          "rank": 8,
+          "title": "Pioneering 4-Bit FP Quantization for Diffusion Models: Mixup-Sign Quantization and Timestep-Aware Fine-Tuning",
+          "decision": "Direct diffusion low-bit floating-point lead; no inferred fp16/fp32 effect for this pipeline."
+        }
+      ],
+      "limits": "Discovery metadata only. No V2 credit, empirical claim, method amendment or model experiment.",
+      "conservative_intent_id": "I11"
+    }
+  ],
+  "total_logged_requests": 29,
+  "distinct_discovery_search_requests": 25,
+  "known_content_inspections": 4,
+  "count_revision_note": "B2 conservatively merges Q01/Q09 and Q05/Q17: prior 11 searches supplied nine intents. Q28 cohort geography and Q29 finite precision add two new intents. Q24/Q25 peripheral and Q26/Q27 pooled/repeated searches excluded. There are now 29 distinct query/inspection specifications, 25 discovery searches, 13 countable queries and 11 conservative intents across three categories. Backend repetitions are not distinct queries.",
+  "new_query_gap_receipts": "query-gap-checks.json",
+  "conservative_distinct_successful_intents": 11,
+  "conservative_intent_mapping": [
+    {
+      "intent_id": "I01",
+      "intent": "Evaluation, false positives and quality",
+      "queries": [
+        "T8-Q01",
+        "T8-Q09"
+      ]
+    },
+    {
+      "intent_id": "I02",
+      "intent": "VINE/W-Bench baseline-specific evaluation conventions",
+      "queries": [
+        "T8-Q03"
+      ]
+    },
+    {
+      "intent_id": "I03",
+      "intent": "WAM native detection/mask calibration conventions",
+      "queries": [
+        "T8-Q04"
+      ]
+    },
+    {
+      "intent_id": "I04",
+      "intent": "Removal and regeneration attacks",
+      "queries": [
+        "T8-Q05",
+        "T8-Q17"
+      ]
+    },
+    {
+      "intent_id": "I05",
+      "intent": "Error-controlled provenance and registry/retrieval side information",
+      "queries": [
+        "T8-Q11"
+      ]
+    },
+    {
+      "intent_id": "I06",
+      "intent": "Safety-filter missingness/content selection",
+      "queries": [
+        "T8-Q19"
+      ]
+    },
+    {
+      "intent_id": "I07",
+      "intent": "Forgery and false attribution",
+      "queries": [
+        "T8-Q21"
+      ]
+    },
+    {
+      "intent_id": "I08",
+      "intent": "Perceptual metric shift/resampling sensitivity",
+      "queries": [
+        "T8-Q22"
+      ]
+    },
+    {
+      "intent_id": "I09",
+      "intent": "Training duplication and memorization dependence",
+      "queries": [
+        "T8-Q23"
+      ]
+    },
+    {
+      "intent_id": "I10",
+      "intent": "Image-cohort geographical representation and collection selection",
+      "queries": [
+        "T8-Q28"
+      ]
+    },
+    {
+      "intent_id": "I11",
+      "intent": "Finite-precision diffusion arithmetic sensitivity",
+      "queries": [
+        "T8-Q29"
       ]
     }
   ],
-  "total_logged_requests": 23,
-  "distinct_discovery_search_requests": 19,
-  "known_content_inspections": 4,
-  "count_revision_note": "Historical 11/four-category author claim corrected: Q13-Q16 were inspections, leaving seven real queries/three categories. Six new searches, four conservatively counted, now yield 11/three categories. Q18/Q20 are peripheral/adjacent; their raw records are retained. Historical source files are in query-gap-history/.",
-  "new_query_gap_receipts": "query-gap-checks.json"
+  "new_intent_gap_receipts": "intent-gap-checks.json"
 }

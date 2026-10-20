@@ -2,7 +2,7 @@
 
 The original author claimed 11 successful substantive queries in four categories. A fresh strict audit found that Q13-Q16 retrieve already named model metadata and repository trees. They are inspections, not discovery searches, and are now excluded. The original records and receipts remain in [query-gap-history](query-gap-history/search-log.md.txt); the correction is not retroactively presented as the original check.
 
-Current total: **23 logged requests: 19 distinct discovery searches and four known-content inspections. Eleven successful substantive discovery queries across three categories (web, OpenAlex and arXiv API) count toward the floor.** Six searches were added for the gap; four count. Q18/Q20 remain conservatively peripheral or adjacent. Q10/Q12 and four ambiguous pooled historical web queries remain excluded.
+Historical first-gap total: **23 logged requests: 19 discovery searches plus four inspections; eleven countable searches but only nine conservative intents under B2.** Six searches were added for the gap; four count. Q18/Q20 remain conservatively peripheral or adjacent. Q10/Q12 and four ambiguous pooled historical web queries remain excluded.
 
 [Machine query manifest](query-manifest.json), [gap audit](query-gap-audit.md) and [gap receipts/checks](query-gap-checks.json) preserve exact requests, raw response locations and SHA-256 values. Search results are discovery-only; no new V2 paper credit follows from a title, abstract or snippet.
 
@@ -37,3 +37,18 @@ Current total: **23 logged requests: 19 distinct discovery searches and four kno
 Historical Q17 surfaced BrushOff, video Erase the Mark, taxonomy 2610.09755v1, LFM and FeatMark. BrushOff has an own V2 card; the others retain the qualifications recorded in the historical log. Fresh Q18-Q23 screen 48 ranked leads covering training dependence, filter selection, perceptual-metric sensitivity and adversarial attribution. Every returned lead has a screening decision in query-manifest.json. None establishes that this cohort overlaps any training set or that any particular safety checker or metric fails here.
 
 Query limits are eight results for new searches and five for the historical APIs. Ranking, indexing, ambiguous terminology and unavailable training histories remain limitations. No new method, baseline, metric, channel or scoring is added from discovery metadata. Existing V02/V25, V30, V39/V65 and V56 already retain the corresponding validity boundaries. The fourteen V2 papers and 68 threats are unchanged.
+
+## B2 intent correction (current)
+
+Current total: **29 distinct request specifications; 25 discovery searches plus four inspections. Thirteen countable successful queries collapse to eleven conservative intents in three categories.** The exact mapping and retained receipt limitations are in [intent-gap-audit.md](intent-gap-audit.md) and [intent-gap-checks.json](intent-gap-checks.json). First-gap audit/checks remain historical and unchanged.
+
+| ID | Backend | Exact discovery query | Counts | Screening |
+|---|---|---|---|---|
+| T8-Q24 | OpenAlex | image dataset decay link rot availability bias | no | successful HTTP200 discovery response; peripheral/adjacent yield, excluded |
+| T8-Q25 | OpenAlex | diffusion models numerical precision reproducibility hardware nondeterminism | no | successful HTTP200 discovery response; peripheral/adjacent yield, excluded |
+| T8-Q26 | web | image dataset decay availability bias disappearing images Flickr datasets | no | successful pooled web response; excluded |
+| T8-Q27 | web | diffusion image generation reproducibility hardware floating point precision seeds | no | successful pooled web response; excluded |
+| T8-Q28 | OpenAlex | image dataset geographic diversity bias | yes | successful HTTP200 discovery response; counted |
+| T8-Q29 | OpenAlex | diffusion floating point quantization | yes | successful HTTP200 discovery response; counted |
+
+Q24/Q25 have peripheral yield. Q26/Q27 share a three-times-invoked pooled batch and add no floor credit. Q28 searches cohort geographic selection; Q29 searches finite-precision diffusion arithmetic. The 32 new API leads and saved web leads have individual screening in the manifest. Repeated/duplicate sources add no V2 count.

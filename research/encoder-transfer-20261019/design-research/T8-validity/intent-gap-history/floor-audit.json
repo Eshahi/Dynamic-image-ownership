@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-20",
+  "status": "strict discovery gap corrected by fresh topic agent; parent acceptance and independent review pending",
+  "threat_floor": 25,
+  "distinct_threats": 68,
+  "own_distinct_primary_V2_papers": 14,
+  "official_implementation_references_not_papers": 4,
+  "local_snapshots_not_papers": 5,
+  "attempted_distinct_queries": 23,
+  "conservatively_counted_successful_substantive_queries": 11,
+  "successful_categories": [
+    "OpenAlex",
+    "arXiv API",
+    "web"
+  ],
+  "paper_card_count_exclusions": [
+    "official-and-local-contract.md",
+    "validity-evidence-map.md",
+    "discovery-only taxonomy/FeatMark/video leads",
+    "accepted sibling topic cards",
+    "generated skill paper JSON"
+  ],
+  "checksum_checks": 59,
+  "checksum_mismatches": 0,
+  "relative_markdown_links_checked": 102,
+  "broken_relative_links": 0,
+  "threat_ids_unique": true,
+  "skill_validation": {
+    "valid": true,
+    "errors": 0,
+    "warnings": 0,
+    "synthesis_export_successful": true,
+    "receipt": "skill-checks.json"
+  },
+  "independent_review": false,
+  "limitations": [
+    "No source venue/DOI independently reverified in this topic; versioned primary texts carry numerical evidence.",
+    "Queries bound discovery rather than establishing exhaustive coverage.",
+    "No model/server/weights/real-image scoring/outcomes/held-out access.",
+    "Raw historical local snapshots retain original hashes even if the live contract subsequently changes."
+  ],
+  "historical_author_query_count": 11,
+  "historical_author_categories": 4,
+  "corrected_pre_gap_discovery_count": 7,
+  "total_logged_requests": 23,
+  "distinct_discovery_search_requests": 19,
+  "known_content_inspections": 4,
+  "new_discovery_searches": 6,
+  "new_conservatively_counted_queries": 4,
+  "historical_check_scope_note": "Existing checksum/link/skill fields describe the historical author package, not the new query gap. Current gap checks are in query-gap-checks.json. Original author checks are retained in query-gap-history/floor-audit.json.",
+  "query_gap_receipts": "query-gap-checks.json"
+}

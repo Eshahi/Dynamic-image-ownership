@@ -1,0 +1,320 @@
+{
+  "date_utc": "2026-10-20T22:07:33.767281+00:00",
+  "status": "fresh gap-agent documentary checks passed; parent and independent acceptance pending",
+  "historical_claim": {
+    "count": 11,
+    "categories": 4,
+    "corrected_count_excluding_Q13_Q16": 7,
+    "corrected_categories": [
+      "web",
+      "OpenAlex",
+      "arXiv API"
+    ]
+  },
+  "total_logged_requests": 23,
+  "discovery_search_requests": 19,
+  "known_content_inspections": 4,
+  "counted_successful_substantive_queries": 11,
+  "counted_ids": [
+    "T8-Q01",
+    "T8-Q03",
+    "T8-Q04",
+    "T8-Q05",
+    "T8-Q09",
+    "T8-Q11",
+    "T8-Q17",
+    "T8-Q19",
+    "T8-Q21",
+    "T8-Q22",
+    "T8-Q23"
+  ],
+  "counted_categories": [
+    "OpenAlex",
+    "arXiv API",
+    "web"
+  ],
+  "new_discovery_searches": 6,
+  "new_counted_queries": 4,
+  "new_counted_ids": [
+    "T8-Q19",
+    "T8-Q21",
+    "T8-Q22",
+    "T8-Q23"
+  ],
+  "new_excluded_ids": [
+    "T8-Q18",
+    "T8-Q20"
+  ],
+  "new_returned_leads_screened": 48,
+  "new_V2_papers": 0,
+  "distinct_threats": 68,
+  "existing_V2_papers_unchanged": 14,
+  "checksum_or_receipt_checks": 29,
+  "mismatches": 0,
+  "checks": [
+    {
+      "id": "T8-Q01",
+      "kind": "raw response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\web-search-responses.json",
+      "expected_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
+      "observed_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
+      "match": true
+    },
+    {
+      "id": "T8-Q03",
+      "kind": "raw response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\web-search-responses.json",
+      "expected_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
+      "observed_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
+      "match": true
+    },
+    {
+      "id": "T8-Q04",
+      "kind": "raw response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\web-search-responses.json",
+      "expected_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
+      "observed_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
+      "match": true
+    },
+    {
+      "id": "T8-Q05",
+      "kind": "raw response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\web-search-responses.json",
+      "expected_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
+      "observed_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
+      "match": true
+    },
+    {
+      "id": "T8-Q09",
+      "kind": "raw response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-09.json",
+      "expected_sha256": "cc71778d7e8e2ed642abb8cb61da4e7a16f840a583e6a2be012d544235634b7a",
+      "observed_sha256": "cc71778d7e8e2ed642abb8cb61da4e7a16f840a583e6a2be012d544235634b7a",
+      "match": true
+    },
+    {
+      "id": "T8-Q11",
+      "kind": "raw response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-11.json",
+      "expected_sha256": "019d1316f2400408e04813e319a96d1db6546f7cdec38a6f4c17fc073ce7c356",
+      "observed_sha256": "019d1316f2400408e04813e319a96d1db6546f7cdec38a6f4c17fc073ce7c356",
+      "match": true
+    },
+    {
+      "id": "T8-Q13",
+      "kind": "raw response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-13.json",
+      "expected_sha256": "492f34528fba0d765522f43795d3fd2c04df623baa0ca7e700d3588c1c581eb8",
+      "observed_sha256": "492f34528fba0d765522f43795d3fd2c04df623baa0ca7e700d3588c1c581eb8",
+      "match": true
+    },
+    {
+      "id": "T8-Q14",
+      "kind": "raw response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-14.json",
+      "expected_sha256": "ba669a72a39484718d2584febd9b9773f3c58706fe55b959529b04748433544c",
+      "observed_sha256": "ba669a72a39484718d2584febd9b9773f3c58706fe55b959529b04748433544c",
+      "match": true
+    },
+    {
+      "id": "T8-Q15",
+      "kind": "raw response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-15.json",
+      "expected_sha256": "57a51f2b16de91d1a17192af1d9bb7f023648a9a0361d08b6acb478c2dae3996",
+      "observed_sha256": "57a51f2b16de91d1a17192af1d9bb7f023648a9a0361d08b6acb478c2dae3996",
+      "match": true
+    },
+    {
+      "id": "T8-Q16",
+      "kind": "raw response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-16.json",
+      "expected_sha256": "75061bb296b0196ecdd465156a57d19a36acf54b6adcf479d2b9c96955865c4e",
+      "observed_sha256": "75061bb296b0196ecdd465156a57d19a36acf54b6adcf479d2b9c96955865c4e",
+      "match": true
+    },
+    {
+      "id": "T8-Q17",
+      "kind": "raw response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-17.xml",
+      "expected_sha256": "f6b6fbf8d0a65d3def7514f983338d2b5c246ab38ee7643b47776956569b0172",
+      "observed_sha256": "f6b6fbf8d0a65d3def7514f983338d2b5c246ab38ee7643b47776956569b0172",
+      "match": true
+    },
+    {
+      "id": "T8-Q18",
+      "kind": "raw response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q18-response.json",
+      "expected_sha256": "716e4bf387d88b0d85546f48214bc5a84301bffc8f9dedbad3afece71bf829a2",
+      "observed_sha256": "716e4bf387d88b0d85546f48214bc5a84301bffc8f9dedbad3afece71bf829a2",
+      "match": true
+    },
+    {
+      "id": "T8-Q19",
+      "kind": "raw response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q19-response.json",
+      "expected_sha256": "ed0bf7f9298476774ad0dda456994eae6480881be96e9587edaa8cf7070caeb3",
+      "observed_sha256": "ed0bf7f9298476774ad0dda456994eae6480881be96e9587edaa8cf7070caeb3",
+      "match": true
+    },
+    {
+      "id": "T8-Q20",
+      "kind": "raw response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q20-response.json",
+      "expected_sha256": "9d9c5e5c3a062d2e551bbee2b0c89f8f21e50d8a6e6363ba9ad535ec3d098250",
+      "observed_sha256": "9d9c5e5c3a062d2e551bbee2b0c89f8f21e50d8a6e6363ba9ad535ec3d098250",
+      "match": true
+    },
+    {
+      "id": "T8-Q21",
+      "kind": "raw response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q21-response.json",
+      "expected_sha256": "d939f34097c2f45aa84b5b152ced5e61e06405259208339bcbe23fd958146fb3",
+      "observed_sha256": "d939f34097c2f45aa84b5b152ced5e61e06405259208339bcbe23fd958146fb3",
+      "match": true
+    },
+    {
+      "id": "T8-Q22",
+      "kind": "raw response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q22-response.xml",
+      "expected_sha256": "adc5179700e462dfc1a57d31b250c38d8431de11b39537d37f8e656e5dafbaf2",
+      "observed_sha256": "adc5179700e462dfc1a57d31b250c38d8431de11b39537d37f8e656e5dafbaf2",
+      "match": true
+    },
+    {
+      "id": "T8-Q23",
+      "kind": "raw response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q23-response.json",
+      "expected_sha256": "c4124039b4e7a34c9dd3acdac9b8b26775f2a2d8576a11b2914fe7aa049cefef",
+      "observed_sha256": "c4124039b4e7a34c9dd3acdac9b8b26775f2a2d8576a11b2914fe7aa049cefef",
+      "match": true
+    },
+    {
+      "id": "T8-Q18",
+      "kind": "exact request",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q18-request.json",
+      "expected_sha256": "bf19f478018ee6a813028346ece62c93fc1e7d03c08f2e195844208b4a65c990",
+      "observed_sha256": "bf19f478018ee6a813028346ece62c93fc1e7d03c08f2e195844208b4a65c990",
+      "match": true
+    },
+    {
+      "id": "T8-Q18",
+      "kind": "response metadata receipt",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q18-receipt.json",
+      "observed_sha256": "10a53877a451c1058937b832f0246a8d14e608a97a9ab614ca9ce0f9ea28cf20",
+      "match": true
+    },
+    {
+      "id": "T8-Q19",
+      "kind": "exact request",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q19-request.json",
+      "expected_sha256": "ee6f651d56d681d40db45df768ef0cfafff90ca9630fb3867d95d5c481ac6b31",
+      "observed_sha256": "ee6f651d56d681d40db45df768ef0cfafff90ca9630fb3867d95d5c481ac6b31",
+      "match": true
+    },
+    {
+      "id": "T8-Q19",
+      "kind": "response metadata receipt",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q19-receipt.json",
+      "observed_sha256": "997a3ed6602de137567166ac83bd14fa8b5166bb0b60e4d6175e9fcec63d7b90",
+      "match": true
+    },
+    {
+      "id": "T8-Q20",
+      "kind": "exact request",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q20-request.json",
+      "expected_sha256": "440e3e2427b3fa5c2f37d2f5bcf8692246b65d0ae3fbc84653e974ac5efe8703",
+      "observed_sha256": "440e3e2427b3fa5c2f37d2f5bcf8692246b65d0ae3fbc84653e974ac5efe8703",
+      "match": true
+    },
+    {
+      "id": "T8-Q20",
+      "kind": "response metadata receipt",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q20-receipt.json",
+      "observed_sha256": "95540db1c4bdfae9a31932ffc38c27415ba47450b9e0ab6ddd55cb726c75c70a",
+      "match": true
+    },
+    {
+      "id": "T8-Q21",
+      "kind": "exact request",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q21-request.json",
+      "expected_sha256": "433a5b73c1140a5ee0f282554bc9623b87ad2b81e2824ce6268069707cc6aed1",
+      "observed_sha256": "433a5b73c1140a5ee0f282554bc9623b87ad2b81e2824ce6268069707cc6aed1",
+      "match": true
+    },
+    {
+      "id": "T8-Q21",
+      "kind": "response metadata receipt",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q21-receipt.json",
+      "observed_sha256": "d5b085617b42aaed7538a2bf9143a3ea78b84270d45dc47f098f84de85517ece",
+      "match": true
+    },
+    {
+      "id": "T8-Q22",
+      "kind": "exact request",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q22-request.json",
+      "expected_sha256": "bfae772bbf543dd16b2fb8ad22e8fef693b5417cbec37aca1ff6d79d2d094d19",
+      "observed_sha256": "bfae772bbf543dd16b2fb8ad22e8fef693b5417cbec37aca1ff6d79d2d094d19",
+      "match": true
+    },
+    {
+      "id": "T8-Q22",
+      "kind": "response metadata receipt",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q22-receipt.json",
+      "observed_sha256": "af44c31645f9c00c5ac84672711cded6622bcb4281fe55ecf0a46c3faac31b3b",
+      "match": true
+    },
+    {
+      "id": "T8-Q23",
+      "kind": "exact request",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q23-request.json",
+      "expected_sha256": "97947381278911ba1aa6222b1b3b44f4618c62868ac92610751f46d462b5bcf0",
+      "observed_sha256": "97947381278911ba1aa6222b1b3b44f4618c62868ac92610751f46d462b5bcf0",
+      "match": true
+    },
+    {
+      "id": "T8-Q23",
+      "kind": "response metadata receipt",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q23-receipt.json",
+      "observed_sha256": "0911eaa2b2f94e885ad7439dddd07108116dde60210b4e6b84483837a6508f96",
+      "match": true
+    }
+  ],
+  "historical_author_artifacts_preserved": [
+    {
+      "path": "research\\encoder-transfer-20261019\\design-research\\T8-validity\\query-gap-history\\floor-audit.json",
+      "sha256": "1bf6f644d39a0cb3d832623facbfde2ce9db8272ae139e4e06f5ba9aa85130e4",
+      "bytes": 1509
+    },
+    {
+      "path": "research\\encoder-transfer-20261019\\design-research\\T8-validity\\query-gap-history\\PROGRESS.md.txt",
+      "sha256": "367812843582ea13f755932d1913b110ae43c7ae80fe7c38a5e290de20d25ec3",
+      "bytes": 1257
+    },
+    {
+      "path": "research\\encoder-transfer-20261019\\design-research\\T8-validity\\query-gap-history\\query-manifest.json",
+      "sha256": "a3ea321cb0f710f520b747cf7eb1c229c32ab8c53a1ef5b4bb5d4aa1874e2991",
+      "bytes": 19583
+    },
+    {
+      "path": "research\\encoder-transfer-20261019\\design-research\\T8-validity\\query-gap-history\\search-log.md.txt",
+      "sha256": "71d388bea3c672f82bdc0c5a24134b2e5c14f99e2168d2f2dc30caeabad5eb8d",
+      "bytes": 3948
+    },
+    {
+      "path": "research\\encoder-transfer-20261019\\design-research\\T8-validity\\query-gap-history\\synthesis.md.txt",
+      "sha256": "4f7ef2c9ce3a8bda30ca26b0d41079301e26e19fa44cfdfc0f19f319dd9c855d",
+      "bytes": 11045
+    }
+  ],
+  "independent_review": false,
+  "scientific_artifacts_sha256": {
+    "threat-register.csv": "62c30b91ea3279db4c2e2eb65bec184fca577ccce3a496c4cabdc148c8e4902a",
+    "threat-register.md": "b26f6bd3de7dd952bffdb50b157cffda38364f455fbc8e4c5a0f80b6a7f71ff1",
+    "source-manifest.json": "3022347ea5d650210e9436e0c68a273f68bf96a7adccd83471c9615b945caa7b",
+    "checksum-checks.json": "0da54ee31870d7465b10770c3217032677043077d0ca0487dea7ed28a2d935dc",
+    "skill-checks.json": "e4228cbc19b1a2008dea089b937942530e70197179f11d8266036b96e6b77148",
+    "literature-response.json": "c93696440f3453b3dea51c9980f75e8827bcbe59583757a40a0ff20ebd89dbc3"
+  },
+  "current_markdown_link_checks": 28,
+  "broken_current_markdown_links": 0
+}

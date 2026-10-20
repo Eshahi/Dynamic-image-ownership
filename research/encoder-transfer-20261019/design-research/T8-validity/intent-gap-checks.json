@@ -1,0 +1,322 @@
+{
+  "date_utc": "2026-10-20T22:25:38.705392+00:00",
+  "status": "documentary intent checks complete; parent checks and same independent reviewer acceptance pending",
+  "distinct_request_specifications": 29,
+  "discovery_search_specifications": 25,
+  "known_content_inspections": 4,
+  "countable_successful_queries": 13,
+  "countable_ids": [
+    "T8-Q01",
+    "T8-Q03",
+    "T8-Q04",
+    "T8-Q05",
+    "T8-Q09",
+    "T8-Q11",
+    "T8-Q17",
+    "T8-Q19",
+    "T8-Q21",
+    "T8-Q22",
+    "T8-Q23",
+    "T8-Q28",
+    "T8-Q29"
+  ],
+  "conservative_distinct_successful_intents": 11,
+  "conservative_intent_mapping": [
+    {
+      "intent_id": "I01",
+      "intent": "Evaluation, false positives and quality",
+      "queries": [
+        "T8-Q01",
+        "T8-Q09"
+      ]
+    },
+    {
+      "intent_id": "I02",
+      "intent": "VINE/W-Bench baseline-specific evaluation conventions",
+      "queries": [
+        "T8-Q03"
+      ]
+    },
+    {
+      "intent_id": "I03",
+      "intent": "WAM native detection/mask calibration conventions",
+      "queries": [
+        "T8-Q04"
+      ]
+    },
+    {
+      "intent_id": "I04",
+      "intent": "Removal and regeneration attacks",
+      "queries": [
+        "T8-Q05",
+        "T8-Q17"
+      ]
+    },
+    {
+      "intent_id": "I05",
+      "intent": "Error-controlled provenance and registry/retrieval side information",
+      "queries": [
+        "T8-Q11"
+      ]
+    },
+    {
+      "intent_id": "I06",
+      "intent": "Safety-filter missingness/content selection",
+      "queries": [
+        "T8-Q19"
+      ]
+    },
+    {
+      "intent_id": "I07",
+      "intent": "Forgery and false attribution",
+      "queries": [
+        "T8-Q21"
+      ]
+    },
+    {
+      "intent_id": "I08",
+      "intent": "Perceptual metric shift/resampling sensitivity",
+      "queries": [
+        "T8-Q22"
+      ]
+    },
+    {
+      "intent_id": "I09",
+      "intent": "Training duplication and memorization dependence",
+      "queries": [
+        "T8-Q23"
+      ]
+    },
+    {
+      "intent_id": "I10",
+      "intent": "Image-cohort geographical representation and collection selection",
+      "queries": [
+        "T8-Q28"
+      ]
+    },
+    {
+      "intent_id": "I11",
+      "intent": "Finite-precision diffusion arithmetic sensitivity",
+      "queries": [
+        "T8-Q29"
+      ]
+    }
+  ],
+  "successful_categories": [
+    "OpenAlex",
+    "arXiv API",
+    "web"
+  ],
+  "new_counted_queries": [
+    "T8-Q28",
+    "T8-Q29"
+  ],
+  "new_excluded_queries": [
+    "T8-Q24",
+    "T8-Q25",
+    "T8-Q26",
+    "T8-Q27"
+  ],
+  "new_openalex_leads_screened": 32,
+  "saved_pooled_web_leads_screened": 40,
+  "new_openalex_http200_responses": 4,
+  "raw_cache_checks": [
+    {
+      "id": "T8-Q24",
+      "kind": "request",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q24-request.json",
+      "expected_sha256": "a6bd37bd19127408d90c8122791b7bceec2fb3c7ba7031a8859fa696da1e19e8",
+      "observed_sha256": "a6bd37bd19127408d90c8122791b7bceec2fb3c7ba7031a8859fa696da1e19e8",
+      "match": true
+    },
+    {
+      "id": "T8-Q24",
+      "kind": "response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q24-response.json",
+      "expected_sha256": "26be67786a11de255516ea065954be5bf6ab56742c7e5a19b74d53086cf88eed",
+      "observed_sha256": "26be67786a11de255516ea065954be5bf6ab56742c7e5a19b74d53086cf88eed",
+      "match": true
+    },
+    {
+      "id": "T8-Q24",
+      "kind": "receipt",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q24-receipt.json",
+      "expected_sha256": "abb21070a293919e3a9f49143059d834ab280b78fd0b4324e6972240af10bf8c",
+      "observed_sha256": "abb21070a293919e3a9f49143059d834ab280b78fd0b4324e6972240af10bf8c",
+      "match": true
+    },
+    {
+      "id": "T8-Q25",
+      "kind": "request",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q25-request.json",
+      "expected_sha256": "ec0f8e8e295ee5e55024c6d71cbcf14afc640a72899a0ef5c7bb8fd7d8c78f0c",
+      "observed_sha256": "ec0f8e8e295ee5e55024c6d71cbcf14afc640a72899a0ef5c7bb8fd7d8c78f0c",
+      "match": true
+    },
+    {
+      "id": "T8-Q25",
+      "kind": "response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q25-response.json",
+      "expected_sha256": "332524825e1b2aa3b5f596ac7132a83913ae04fc356a58244ffe66ab92d5240c",
+      "observed_sha256": "332524825e1b2aa3b5f596ac7132a83913ae04fc356a58244ffe66ab92d5240c",
+      "match": true
+    },
+    {
+      "id": "T8-Q25",
+      "kind": "receipt",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q25-receipt.json",
+      "expected_sha256": "64e8015fa804b266ebf42c2ee2f8a205c4756ebb3fb6881a7288101203948462",
+      "observed_sha256": "64e8015fa804b266ebf42c2ee2f8a205c4756ebb3fb6881a7288101203948462",
+      "match": true
+    },
+    {
+      "id": "T8-Q28",
+      "kind": "request",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q28-request.json",
+      "expected_sha256": "2e13d42b3c80fc25bab6eeb9e80cc173f6e6d0773335a7194712c5e49759a2e2",
+      "observed_sha256": "2e13d42b3c80fc25bab6eeb9e80cc173f6e6d0773335a7194712c5e49759a2e2",
+      "match": true
+    },
+    {
+      "id": "T8-Q28",
+      "kind": "response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q28-response.json",
+      "expected_sha256": "31d959ba76f3e1402a6be6429940708da7693de40780ba68957308e32f1f63f6",
+      "observed_sha256": "31d959ba76f3e1402a6be6429940708da7693de40780ba68957308e32f1f63f6",
+      "match": true
+    },
+    {
+      "id": "T8-Q28",
+      "kind": "receipt",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q28-receipt.json",
+      "expected_sha256": "b658faa1c86536ae73a4b8ea4ae96ce83f86199a027b3a658b30b8f2eec41617",
+      "observed_sha256": "b658faa1c86536ae73a4b8ea4ae96ce83f86199a027b3a658b30b8f2eec41617",
+      "match": true
+    },
+    {
+      "id": "T8-Q29",
+      "kind": "request",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q29-request.json",
+      "expected_sha256": "d5bd64a4b1ae8a3c992d878a0665e01ebc2a4c67eb4f99ec68a01fdaa36a328f",
+      "observed_sha256": "d5bd64a4b1ae8a3c992d878a0665e01ebc2a4c67eb4f99ec68a01fdaa36a328f",
+      "match": true
+    },
+    {
+      "id": "T8-Q29",
+      "kind": "response",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q29-response.json",
+      "expected_sha256": "8f1f732a7646ef36afd7b30aa7bad0bda251dbb282fed408f1ab64631738d501",
+      "observed_sha256": "8f1f732a7646ef36afd7b30aa7bad0bda251dbb282fed408f1ab64631738d501",
+      "match": true
+    },
+    {
+      "id": "T8-Q29",
+      "kind": "receipt",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\T8-Q29-receipt.json",
+      "expected_sha256": "62087c23bd20136e6c6c7a39f65b77561209df1321d55e2d36b05259f6c54d0d",
+      "observed_sha256": "62087c23bd20136e6c6c7a39f65b77561209df1321d55e2d36b05259f6c54d0d",
+      "match": true
+    },
+    {
+      "id": "T8-Q26/Q27 pooled",
+      "kind": "web-Q26-Q27-response.json",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\web-Q26-Q27-response.json",
+      "expected_sha256": "40f5d2537f0a9a83fb8c9a3f43581b6a1ee38c72b8121dc38d473b6456a7f322",
+      "observed_sha256": "40f5d2537f0a9a83fb8c9a3f43581b6a1ee38c72b8121dc38d473b6456a7f322",
+      "match": true
+    },
+    {
+      "id": "T8-Q26/Q27 pooled",
+      "kind": "web-Q26-Q27-request.json",
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-intent-gap\\web-Q26-Q27-request.json",
+      "expected_sha256": "5c4d791491c9976dca36c34e311f5c134798f3b82a53a5673f2ecb13310ff6f8",
+      "observed_sha256": "5c4d791491c9976dca36c34e311f5c134798f3b82a53a5673f2ecb13310ff6f8",
+      "match": true
+    }
+  ],
+  "raw_cache_mismatches": 0,
+  "pre_B2_current_files_preserved": [
+    {
+      "path": "intent-gap-history\\floor-audit.json",
+      "sha256": "61dbe06f121047ca7b944051314cbc8439989775641fe774c22489f3177b077f",
+      "bytes": 2136
+    },
+    {
+      "path": "intent-gap-history\\PROGRESS.md",
+      "sha256": "8bb49f66f03e29609a049b459a2981dee47bcafc39fcb0eb888ce498bae54f59",
+      "bytes": 2007
+    },
+    {
+      "path": "intent-gap-history\\query-gap-audit.md",
+      "sha256": "3e9abce1da6a1418e9455aa9818ee23e6c363e7a4b53605fc45c06024ef977f3",
+      "bytes": 7098
+    },
+    {
+      "path": "intent-gap-history\\query-gap-checks.json",
+      "sha256": "8729c8589a76c72927c11b12c76c8d2fb52416fbee57bacdc8327792c58b87cd",
+      "bytes": 15177
+    },
+    {
+      "path": "intent-gap-history\\query-manifest.json",
+      "sha256": "4f9a408318be83a8b3950315718053ac5b74a7e6d652a83dbef3231302906ebb",
+      "bytes": 70574
+    },
+    {
+      "path": "intent-gap-history\\search-log.md",
+      "sha256": "27e60ca6721c6faadcfb87678d348b103b8d6d7b0b5b6095cea2fd30219aadf4",
+      "bytes": 5576
+    },
+    {
+      "path": "intent-gap-history\\synthesis.md",
+      "sha256": "6f4aefa0369f79937d7427c337c20a1a163bbf461d45ab6fd52375fe371314db",
+      "bytes": 11856
+    }
+  ],
+  "first_gap_audit_unchanged": true,
+  "first_gap_checks_unchanged": true,
+  "historical_scientific_checks": [
+    {
+      "path": "threat-register.csv",
+      "expected_sha256": "62c30b91ea3279db4c2e2eb65bec184fca577ccce3a496c4cabdc148c8e4902a",
+      "observed_sha256": "62c30b91ea3279db4c2e2eb65bec184fca577ccce3a496c4cabdc148c8e4902a",
+      "match": true
+    },
+    {
+      "path": "threat-register.md",
+      "expected_sha256": "b26f6bd3de7dd952bffdb50b157cffda38364f455fbc8e4c5a0f80b6a7f71ff1",
+      "observed_sha256": "b26f6bd3de7dd952bffdb50b157cffda38364f455fbc8e4c5a0f80b6a7f71ff1",
+      "match": true
+    },
+    {
+      "path": "source-manifest.json",
+      "expected_sha256": "3022347ea5d650210e9436e0c68a273f68bf96a7adccd83471c9615b945caa7b",
+      "observed_sha256": "3022347ea5d650210e9436e0c68a273f68bf96a7adccd83471c9615b945caa7b",
+      "match": true
+    },
+    {
+      "path": "checksum-checks.json",
+      "expected_sha256": "0da54ee31870d7465b10770c3217032677043077d0ca0487dea7ed28a2d935dc",
+      "observed_sha256": "0da54ee31870d7465b10770c3217032677043077d0ca0487dea7ed28a2d935dc",
+      "match": true
+    },
+    {
+      "path": "skill-checks.json",
+      "expected_sha256": "e4228cbc19b1a2008dea089b937942530e70197179f11d8266036b96e6b77148",
+      "observed_sha256": "e4228cbc19b1a2008dea089b937942530e70197179f11d8266036b96e6b77148",
+      "match": true
+    },
+    {
+      "path": "literature-response.json",
+      "expected_sha256": "c93696440f3453b3dea51c9980f75e8827bcbe59583757a40a0ff20ebd89dbc3",
+      "observed_sha256": "c93696440f3453b3dea51c9980f75e8827bcbe59583757a40a0ff20ebd89dbc3",
+      "match": true
+    }
+  ],
+  "threats": 68,
+  "V2_papers_unchanged": 14,
+  "independent_acceptance": false,
+  "web_receipt_limitation": "Exact batch invoked three times. First response delivered discovery; second raw-save failed at command-length limit; third returned response held in persistent store and subsequently saved after correcting a PowerShell quoting failure. Backend repetitions add no distinct query or intent credit. Both query strings excluded due pooled results; first/second responses retained only in task transcript. This raw file is third tool response.",
+  "current_markdown_links_checked": 28,
+  "broken_current_markdown_links": 0,
+  "query_id_unique_and_mapping_verified": true
+}
