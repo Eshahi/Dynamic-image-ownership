@@ -196,7 +196,7 @@
     "arxiv": "2401.04247v2",
     "title": "Attack-Resilient Image Watermarking Using Stable Diffusion",
     "version_date": "arXiv:2401.04247v2 [cs.CV] 28 Oct 2024",
-    "venue": "ACM Multimedia 2024; inspected revised arXiv v2.",
+    "venue": "NeurIPS 2024 main track; official proceedings verified; numerical evidence is inspected arXiv v2.",
     "sections": "§§3.2–3.3,4.1; Appendix B.6/Table 15,B.7/Table 16 and Appendix D timing/memory.",
     "mechanism": "Per-image optimization writes a Fourier-ring watermark into an image's diffusion latent using DDIM inversion and a structural-similarity constraint. Verification requires diffusion inversion and a keyed ring test; this is a zero-bit post-hoc method.",
     "native": "The default uses SD2.1-base at 512×512, ring radius 10 in the last latent channel, 100 Adam iterations, 50 denoising steps and target SSIM .92. The stated default detection condition is 1-p>.9. It is not a multi-bit payload, and the expected ring/key and generator are detector side information. The published thresholds have percent-level measured FPR, far above the study's analytic common-query target.",

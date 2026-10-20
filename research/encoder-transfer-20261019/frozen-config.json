@@ -239,7 +239,13 @@
     ],
     "carrier_state_priority": "read/content before found; raw fields required; descriptive source-grouped counts",
     "read_without_found_diagnostic": true,
-    "exact_Q_separate": true
+    "exact_Q_separate": true,
+    "statistical_interpretation": {
+      "planning_reference": "research/encoder-transfer-20261019/design-research/T6-statistics/planning-table-v2.json",
+      "operating_characteristics": "hypothetical conditional laws, not empirical outcomes; count-table transfer assumes complete passing negative gate",
+      "cohort_inference": "exploratory source-binomial assumptions on deterministic development cohort; no population-FPR certification",
+      "dependence": "seed marginals and pairwise ICC do not identify three-way majority; arm marginals do not identify external-maximum route"
+    }
   },
   "freeze_utc": "2026-10-20T08:01:29.605632+00:00",
   "design_review_file": "research/encoder-transfer-20261019/design-review.md",

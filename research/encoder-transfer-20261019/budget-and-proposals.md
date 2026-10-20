@@ -25,6 +25,8 @@ Download manifest: 53 immutable files,20,206,018,703 bytes. Plus 62 recorded dev
 
 If smoke predicts an overrun, apply only the brief's order: R2 (already disabled), D2 (already disabled), then .1 in R0/R1 and the dependent .1+.1 rinse. This removes 2,700 diffusion calls from the present full grid, leaving 4,800 planned units. Keep n = 60, R0/R1 .2/.4, diagnostics and native arms. If that still cannot fit, report a resource blocker. Never choose reductions by detection results. No n = 120 option is part of the core.
 
+Stage1b T6 retains n=60. Scaling the heterogeneous 125n units plus 250 smoke units from the 10-14h n60 allowance gives illustrative n90 14.84-20.77h and n120 19.68-27.55h. These are workload ratios, not measured timings; setup and unit costs are not linear in reality. At hypothetical source-majority p=.8 with independent sources and a certainly passing negative gate, the positive-threshold probabilities are .869379/.880492/.927878 for n60/90/120. This conditional gain does not justify automatically enlarging the core. Larger n is not enabled or separately recommended. The T6 table's three-hour combined non-unit allowance is an illustrative calculation, not a replacement for the frozen 30-minute retrieval/stop reserve.
+
 ## Ranked proposals, excluded from the core
 
 All costs below are **incremental**, at hypothetical p=$1/hour; at another rate multiply hours by p. They are not included in the $15 core authorization. Approving a scope extension requires a pre-outcome protocol amendment, its own exact settings and an explicit combined money/time ceiling. No proposal has been approved here. Evaluation counts include C0 where relevant; baseline additions reuse existing C0 images but add detector calls.

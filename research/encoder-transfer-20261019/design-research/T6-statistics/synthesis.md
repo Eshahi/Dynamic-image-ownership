@@ -100,7 +100,7 @@ Full abstract work is core 90n+rinse 15n+clean 5n+D1 5n+both X1/X2 controls 10n=
 | 90 | 11,250 | 11,500 | 14.84-20.77 |
 | 120 | 15,000 | 15,250 | 19.68-27.55 |
 
-The cap is min(15h,$15/hourly price), not authorization to buy compute. A three-hour reserve gives arithmetic average ceilings 5.57/3.76/2.83 seconds per unit under the 15h case, but unit costs differ and no timing was measured. Keep n=60; no resizing after outcomes. Larger n remains proposed only, with no hardware feasibility inferred.
+The cap is min(15h,$15/hourly price), not authorization to buy compute. An illustrative three-hour combined non-unit allowance (not the frozen 30-minute retrieval/stop reserve) gives arithmetic average ceilings 5.57/3.76/2.83 seconds per unit under the 15h case, but unit costs differ and no timing was measured. Keep n=60; no resizing after outcomes. Larger n remains proposed only, with no hardware feasibility inferred.
 
 `tools/plan_v2.py` uses stdlib finite sums, lgamma beta masses, root inversion, exact DP and assertions; no Monte Carlo or observations. It extracts only allowlisted pure rule functions from runner AST without importing execution machinery. Rerun with MAIN's bundled stdlib Python after current reporting config: 15 JSON/CSV tables, 5,154 rows, all 9 check groups passed. `planning-table-v2.json` records script/runner/config hashes. A later metadata-only refreeze can change the raw config hash; that is not an outcome-driven statistical amendment. Historical `synthesis-v1.md`, `planning-table.json` and `tools/plan.py` are superseded history, retained transparently.
 

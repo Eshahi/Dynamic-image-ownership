@@ -95,3 +95,7 @@ T3 passes with 24 distinct post-hoc V2 methods, 25 version-specific bibliography
 ## 2026-10-20T14:10:46.470909+00:00 - T6 accepted; T8 started
 
 T6 passes parent checks with eight paper V2 cards, five official references, twelve queries across three categories, and fifteen analytic tables/5,154 rows. Parent verified all forty card/source/query hashes and independently reran all nine analytical check groups. Retain n60 and every decision threshold; dependence, missingness, negative safety and route laws are now explicit. T7 and T8 run on sol/high within the two-agent cap. T3 push d9bd2362ae8416219cde1066e227c9e7e78b90b1 was verified. No server, GPU, real-data scoring or outcome; review2 and re-freeze remain required.
+
+## 2026-10-20T14:12:38.347650+00:00 - T6 push verified and source metadata corrected
+
+Origin confirms a0ff0a00fe0cbe0b5f1b13d6a1c445c5084a2fe1 after the T6 acceptance push. T7 cross-check found an incorrect ZoDiac venue in T3; the parent checked official proceedings and corrected it to NeurIPS2024, preserving the actual arXiv-v2 numerical evidence. VINE ICLR2025 is verified. No scientific settings changed. T7/T8 continue.

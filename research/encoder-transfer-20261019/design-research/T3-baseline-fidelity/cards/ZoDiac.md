@@ -4,7 +4,7 @@ Evidence level **V2**. Inspected 2026-10-20; post-hoc eligibility is established
 
 ## Source identity and inspected sections
 
-Exact title: **Attack-Resilient Image Watermarking Using Stable Diffusion**. Version/date: arXiv:2401.04247v2 [cs.CV] 28 Oct 2024. Venue: ACM Multimedia 2024; inspected revised arXiv v2.
+Exact title: **Attack-Resilient Image Watermarking Using Stable Diffusion**. Version/date: arXiv:2401.04247v2 [cs.CV] 28 Oct 2024. Venue: NeurIPS 2024 main track; official proceedings verified; numerical evidence is inspected arXiv v2.
 
 Authors: Lijun Zhang; Xiao Liu; Antoni Viros Martin; Cindy Xiong Bearfield; Yuriy Brun; Hui Guan. Year: 2024. DOI: not established for this inspected version.
 
@@ -44,3 +44,7 @@ Appendix D reports RTX8000 fp32 peak memory 15,552 MiB and model storage 5,308 M
 Useful counterevidence to sweeping removal claims, but its detector cost, side information, image quality and high FPR preclude a fair substitution into the cheap core.
 
 Disposition: **Literature coverage; excluded**
+
+## Parent bibliographic correction, 2026-10-20
+
+The official [NeurIPS 2024 proceedings](https://proceedings.neurips.cc/paper_files/paper/2024/hash/43d33182360378d5c8e69dd706c24f2f-Abstract.html) establishes the venue. The earlier ACM Multimedia label was incorrect. This metadata correction does not substitute final-paper numbers for the explicitly inspected arXiv v2 evaluation. Cache receipt: `venue-correction.json`.

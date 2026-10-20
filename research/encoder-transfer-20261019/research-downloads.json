@@ -5330,6 +5330,17 @@
       "source_manifest": "research/encoder-transfer-20261019/design-research/T6-statistics/source-manifest.json"
     },
     {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/43d33182360378d5c8e69dd706c24f2f-Abstract.html",
+      "cache_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T3b\\zodiac-official-venue.html",
+      "sha256": "817814b0acb954b9b13475d439650eda82ad426fe7ce0b7f0757c19239c06231",
+      "bytes": 9905,
+      "retrieved_utc": "2026-10-20T14:12:38.347650+00:00",
+      "purpose": "Official venue/title/authors only; no new method V2 or evaluation claims",
+      "license": "Publisher documentary local cache; no redistribution permission asserted",
+      "version_or_revision": "NeurIPS2024 official proceedings snapshot",
+      "source_manifest": "research/encoder-transfer-20261019/design-research/T3-baseline-fidelity/venue-correction.json"
+    },
+    {
       "url": "https://proceedings.neurips.cc/paper_files/paper/2025/file/15389039ccef67b6bed9b2df8414400f-Paper-Datasets_and_Benchmarks_Track.pdf",
       "sha256": "2e3a9ba346d706334b39a11bcc2045a572f4c67944b1ade41c010ca3c3edcebf",
       "bytes": 27435657,
@@ -6365,7 +6376,7 @@
       "source_manifest": "research/encoder-transfer-20261019/design-research/T2-encoder-landscape/manifest-receipts-1b.json"
     }
   ],
-  "indexed_bytes": 167743315,
+  "indexed_bytes": 167753220,
   "stage1b_accepted_topics_indexed": [
     "T1",
     "T2",
@@ -6374,6 +6385,6 @@
     "T5",
     "T6"
   ],
-  "updated_utc": "2026-10-20T14:10:46.470909+00:00",
-  "record_count": 707
+  "updated_utc": "2026-10-20T14:12:38.347650+00:00",
+  "record_count": 708
 }

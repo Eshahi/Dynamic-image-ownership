@@ -89,7 +89,7 @@ add("RoSteALS", "rosteals-reused.txt", "2304.03400v1", "CVPR2023 Workshops (CVPR
     "README training batch4 fits12GB; this is a training fit statement, not inference peak. Qualified estimate: oneVQ encoder/decoder plus small secret network andResNet50; no iterative denoising. Actual timing/VRAM unavailable.",
     "Relevant to latent post-hoc taxonomy and encoder bottleneck, but older generic-noise training and missing directT3 evidence make it lower priority than released robust baselines.")
 
-add("ZoDiac", "zodiac-reused.txt", "2401.04247v2", "ACM Multimedia2024; inspected revised arXiv v2.",
+add("ZoDiac", "zodiac-reused.txt", "2401.04247v2", "NeurIPS 2024 main track; official proceedings verified; numerical evidence is inspected arXiv v2.",
     "§§3.2–3.3,4.1; Appendix B.6/Table15,B.7/Table16 andD timing/memory.",
     "Per-image latent optimization through Stable Diffusion writes a Fourier-ring pattern in an inverted image latent, then adaptive blending meets an SSIM target. Detector inverts image and performs a noncentral-chi-square-based test against the watermark ring.",
     "Zero-bit detection, not a32/100-bit message baseline. SD2.1-base,512,DDIM inversion, ring radius10 in last latent channel,100Adam iterations and50 denoising steps by default, SSIM target.92. Native accepts when1-p>p*=.90 by default; p*=.95/.99 alternatives changeFPR. Ring key and inversion model are detector side information. Do not set .0001 and imply published performance.",
