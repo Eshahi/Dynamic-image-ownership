@@ -1,0 +1,380 @@
+{
+  "date": "2026-10-20",
+  "attempted_distinct_queries": 17,
+  "successful_substantive_queries": 11,
+  "successful_categories": [
+    "web",
+    "OpenAlex",
+    "official-repository-or-model-hub",
+    "arXiv API"
+  ],
+  "queries": [
+    {
+      "id": "T8-Q01",
+      "category": "web",
+      "query": "watermark evaluation validity regeneration false positive image public message WAVES benchmark",
+      "status": "successful search response",
+      "substantive_evidence_counted": true,
+      "receipt": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\web-search-responses.json",
+      "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
+      "result": "WAVES primary paper/project",
+      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on."
+    },
+    {
+      "id": "T8-Q02",
+      "category": "web",
+      "query": "SDXL independent autoencoder original autoencoder architecture trained scratch",
+      "status": "successful search response",
+      "substantive_evidence_counted": false,
+      "receipt": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\web-search-responses.json",
+      "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
+      "result": "Lineage lead; primary independently reread, pooled batch not uniquely attributed",
+      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on."
+    },
+    {
+      "id": "T8-Q03",
+      "category": "web",
+      "query": "VINE watermark W-Bench image quality regeneration evaluation 2025",
+      "status": "successful search response",
+      "substantive_evidence_counted": true,
+      "receipt": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\web-search-responses.json",
+      "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
+      "result": "VINE primary paper",
+      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on."
+    },
+    {
+      "id": "T8-Q04",
+      "category": "web",
+      "query": "Watermark Anything native detection threshold mask 0.07 SA1B",
+      "status": "successful search response",
+      "substantive_evidence_counted": true,
+      "receipt": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\web-search-responses.json",
+      "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
+      "result": "Official WAM repository",
+      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on."
+    },
+    {
+      "id": "T8-Q05",
+      "category": "web",
+      "query": "site.arxiv.org 2025 2026 image watermark UnMarker RAVEN MarkNull removal adaptive",
+      "status": "successful search response",
+      "substantive_evidence_counted": true,
+      "receipt": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\web-search-responses.json",
+      "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
+      "result": "MarkNull/RAVEN/UnMarker primary leads",
+      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on."
+    },
+    {
+      "id": "T8-Q06",
+      "category": "web",
+      "query": "site.arxiv.org DREW robust watermarking image embedding 2406.02836",
+      "status": "successful search response",
+      "substantive_evidence_counted": false,
+      "receipt": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\web-search-responses.json",
+      "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
+      "result": "No uniquely attributed substantive DREW result in pooled batch; OpenAlex Q11 supplies it",
+      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on."
+    },
+    {
+      "id": "T8-Q07",
+      "category": "web",
+      "query": "site.github.com diffusers 0.35.1 stable diffusion xl img2img upcast_vae retrieve_timesteps",
+      "status": "successful search response",
+      "substantive_evidence_counted": false,
+      "receipt": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\web-search-responses.json",
+      "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
+      "result": "Pooled official latest-source lead, exact pin independently rechecked; not discovery floor",
+      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on."
+    },
+    {
+      "id": "T8-Q08",
+      "category": "web",
+      "query": "site.pytorch.org reproducibility random seed CUDA determinism independent releases",
+      "status": "successful search response",
+      "substantive_evidence_counted": false,
+      "receipt": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\web-search-responses.json",
+      "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
+      "result": "Official reproducibility lead; excluded conservatively from floor",
+      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on."
+    },
+    {
+      "id": "T8-Q09",
+      "category": "OpenAlex",
+      "query": "watermark regeneration evaluation false positive quality",
+      "url": "https://api.openalex.org/works?search=watermark%20regeneration%20evaluation%20false%20positive%20quality&per-page=5",
+      "utc": "2026-10-20T14:11:04.070843+00:00",
+      "http_status": 200,
+      "final_url": "https://api.openalex.org/works?search=watermark%20regeneration%20evaluation%20false%20positive%20quality&per-page=5",
+      "status": "success",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-09.json",
+      "sha256": "cc71778d7e8e2ed642abb8cb61da4e7a16f840a583e6a2be012d544235634b7a",
+      "bytes": 85607,
+      "results": [
+        {
+          "title": "Image Watermarking using Chaotic Watermark Scrambling and Perceptual Quality Evaluation",
+          "url": "https://hal.science/hal-00861068",
+          "year": 2013
+        },
+        {
+          "title": "Image Watermarks are Removable Using Controllable Regeneration from Clean Noise",
+          "url": "http://arxiv.org/abs/2410.05470",
+          "year": 2024
+        },
+        {
+          "title": "Latent Watermark: Inject and Detect Watermarks in Latent Diffusion Space",
+          "url": "http://arxiv.org/abs/2404.00230",
+          "year": 2024
+        },
+        {
+          "title": "Invisible Image Watermarks Are Provably Removable Using Generative AI",
+          "url": "https://doi.org/10.52202/079017-0276",
+          "year": 2024
+        },
+        {
+          "title": "Watermarking for Large Language Models: A Survey",
+          "url": "https://doi.org/10.3390/math13091420",
+          "year": 2025
+        }
+      ],
+      "substantive_evidence_counted": true,
+      "limits": "Metadata/discovery evidence only, not V2 full-text inspection."
+    },
+    {
+      "id": "T8-Q10",
+      "category": "OpenAlex",
+      "query": "SDXL autoencoder trained from scratch",
+      "url": "https://api.openalex.org/works?search=SDXL%20autoencoder%20trained%20from%20scratch&per-page=5",
+      "utc": "2026-10-20T14:11:04.070843+00:00",
+      "http_status": 200,
+      "final_url": "https://api.openalex.org/works?search=SDXL%20autoencoder%20trained%20from%20scratch&per-page=5",
+      "status": "success",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-10.json",
+      "sha256": "6f21c5174c78cb102fbb7aa5cacd0eccf5a8350e1d313ba7bf56773987ec7deb",
+      "bytes": 83235,
+      "results": [
+        {
+          "title": "Distilling Drifting Transformers with Representation Autoencoders",
+          "url": "https://arxiv.org/abs/2606.15553",
+          "year": 2026
+        },
+        {
+          "title": "Distilling Latent Manifolds: Resolution Extrapolation by Variational Autoencoders",
+          "url": "http://arxiv.org/abs/2603.14536",
+          "year": 2026
+        },
+        {
+          "title": "PEAK: Precise and Persistent Concept Erasure via k-Sparse Autoencoders",
+          "url": "https://arxiv.org/abs/2608.10985",
+          "year": 2026
+        },
+        {
+          "title": "A Survey on Pre-Trained Diffusion Model Distillations",
+          "url": "http://arxiv.org/abs/2502.08364",
+          "year": 2025
+        },
+        {
+          "title": "SAR image synthesis using text conditioned pre-trained generative AI models",
+          "url": "https://hal.science/hal-04718866",
+          "year": 2024
+        }
+      ],
+      "substantive_evidence_counted": false,
+      "limits": "Peripheral recent autoencoder results, not direct SDXL lineage evidence; excluded from floor."
+    },
+    {
+      "id": "T8-Q11",
+      "category": "OpenAlex",
+      "query": "DREW error controlled watermarking provenance",
+      "url": "https://api.openalex.org/works?search=DREW%20error%20controlled%20watermarking%20provenance&per-page=5",
+      "utc": "2026-10-20T14:11:04.071842+00:00",
+      "http_status": 200,
+      "final_url": "https://api.openalex.org/works?search=DREW%20error%20controlled%20watermarking%20provenance&per-page=5",
+      "status": "success",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-11.json",
+      "sha256": "019d1316f2400408e04813e319a96d1db6546f7cdec38a6f4c17fc073ce7c356",
+      "bytes": 102276,
+      "results": [
+        {
+          "title": "DREW : Towards Robust Data Provenance by Leveraging Error-Controlled Watermarking",
+          "url": "http://arxiv.org/abs/2406.02836",
+          "year": 2024
+        },
+        {
+          "title": "Watermarks and Fingerprints as Soft Bindings for Content Provenance: An Open-Licence Benchmark for Images, Audio and Video",
+          "url": "https://arxiv.org/abs/2610.04151",
+          "year": 2026
+        },
+        {
+          "title": "Watermark under Fire: A Robustness Evaluation of LLM Watermarking",
+          "url": "https://doi.org/10.18653/v1/2025.findings-emnlp.1148",
+          "year": 2025
+        },
+        {
+          "title": "Function-preserving watermarking of AI-generated proteins",
+          "url": "https://doi.org/10.1038/s41586-026-10965-y",
+          "year": 2026
+        },
+        {
+          "title": "Tracing model-generated DNA with position-independent watermarking",
+          "url": "https://arxiv.org/abs/2610.04763",
+          "year": 2026
+        }
+      ],
+      "substantive_evidence_counted": true,
+      "limits": "Metadata/discovery evidence only, not V2 full-text inspection."
+    },
+    {
+      "id": "T8-Q12",
+      "category": "OpenAlex",
+      "query": "MarkNull RAVEN watermark removal",
+      "url": "https://api.openalex.org/works?search=MarkNull%20RAVEN%20watermark%20removal&per-page=5",
+      "utc": "2026-10-20T14:11:04.071842+00:00",
+      "http_status": 200,
+      "final_url": "https://api.openalex.org/works?search=MarkNull%20RAVEN%20watermark%20removal&per-page=5",
+      "status": "successful HTTP200, empty result; excluded from floor",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-12.json",
+      "sha256": "19878d6d7e6333d0ae6fbf21abedfc601605706cbca93d2a67130910b45f69c2",
+      "bytes": 1028,
+      "results": [],
+      "substantive_evidence_counted": false,
+      "limits": "Metadata/discovery evidence only, not V2 full-text inspection."
+    },
+    {
+      "id": "T8-Q13",
+      "category": "official-model-hub",
+      "query": "official SDXL model availability and ancestry",
+      "url": "https://huggingface.co/api/models/stabilityai/stable-diffusion-xl-base-1.0/revision/462165984030d82259a11f4367a4eed129e94a7b",
+      "utc": "2026-10-20T14:11:04.071842+00:00",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/api/models/stabilityai/stable-diffusion-xl-base-1.0/revision/462165984030d82259a11f4367a4eed129e94a7b",
+      "status": "success",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-13.json",
+      "sha256": "492f34528fba0d765522f43795d3fd2c04df623baa0ca7e700d3588c1c581eb8",
+      "bytes": 6424,
+      "results": {
+        "id": "stabilityai/stable-diffusion-xl-base-1.0",
+        "sha": "462165984030d82259a11f4367a4eed129e94a7b",
+        "gated": false,
+        "cardData": {
+          "license": "openrail++",
+          "tags": [
+            "text-to-image",
+            "stable-diffusion"
+          ]
+        }
+      },
+      "substantive_evidence_counted": true,
+      "limits": "Metadata/discovery evidence only, not V2 full-text inspection."
+    },
+    {
+      "id": "T8-Q14",
+      "category": "official-model-hub",
+      "query": "official FLUX.1 schnell gate and license",
+      "url": "https://huggingface.co/api/models/black-forest-labs/FLUX.1-schnell",
+      "utc": "2026-10-20T14:11:04.072842+00:00",
+      "http_status": 200,
+      "final_url": "https://huggingface.co/api/models/black-forest-labs/FLUX.1-schnell",
+      "status": "success",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-14.json",
+      "sha256": "ba669a72a39484718d2584febd9b9773f3c58706fe55b959529b04748433544c",
+      "bytes": 5146,
+      "results": {
+        "id": "black-forest-labs/FLUX.1-schnell",
+        "sha": "741f7c3ce8b383c54771c7003378a50191e9efe9",
+        "gated": "auto",
+        "cardData": {
+          "language": [
+            "en"
+          ],
+          "license": "apache-2.0",
+          "tags": [
+            "text-to-image",
+            "image-generation",
+            "flux"
+          ]
+        }
+      },
+      "substantive_evidence_counted": true,
+      "limits": "Metadata/discovery evidence only, not V2 full-text inspection."
+    },
+    {
+      "id": "T8-Q15",
+      "category": "official-repository",
+      "query": "WAM released evaluation and native mask rule file discovery",
+      "url": "https://api.github.com/repos/facebookresearch/watermark-anything/git/trees/2c08af04d037d5667c02f6ddebbda9ff04581c3e?recursive=1",
+      "utc": "2026-10-20T14:11:05.227154+00:00",
+      "http_status": 200,
+      "final_url": "https://api.github.com/repos/facebookresearch/watermark-anything/git/trees/2c08af04d037d5667c02f6ddebbda9ff04581c3e?recursive=1",
+      "status": "success",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-15.json",
+      "sha256": "57a51f2b16de91d1a17192af1d9bb7f023648a9a0361d08b6acb478c2dae3996",
+      "bytes": 17866,
+      "results": [
+        "LICENSE",
+        "LICENSE-COCO",
+        "README.md",
+        "notebooks/inference.ipynb",
+        "notebooks/inference_utils.py"
+      ],
+      "substantive_evidence_counted": true,
+      "limits": "Metadata/discovery evidence only, not V2 full-text inspection."
+    },
+    {
+      "id": "T8-Q16",
+      "category": "official-repository",
+      "query": "VINE native inference and model lineage file discovery",
+      "url": "https://api.github.com/repos/Shilin-LU/VINE/git/trees/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77?recursive=1",
+      "utc": "2026-10-20T14:11:05.536379+00:00",
+      "http_status": 200,
+      "final_url": "https://api.github.com/repos/Shilin-LU/VINE/git/trees/d72f11a93f8de9bc45ef61202b9c8dda2a70cc77?recursive=1",
+      "status": "success",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-16.json",
+      "sha256": "75061bb296b0196ecdd465156a57d19a36acf54b6adcf479d2b9c96955865c4e",
+      "bytes": 521115,
+      "results": [
+        "LICENSE",
+        "README.md",
+        "diffusers/LICENSE",
+        "diffusers/README.md",
+        "diffusers/docs/README.md",
+        "diffusers/docs/source/en/advanced_inference",
+        "diffusers/docs/source/en/advanced_inference/outpaint.md",
+        "diffusers/docs/source/en/api/pipelines/stable_diffusion/sdxl_turbo.md",
+        "diffusers/docs/source/en/conceptual/evaluation.md",
+        "diffusers/docs/source/en/training/distributed_inference.md",
+        "diffusers/docs/source/en/tutorials/using_peft_for_inference.md",
+        "diffusers/docs/source/en/using-diffusers/inference_with_lcm.md",
+        "diffusers/docs/source/en/using-diffusers/inference_with_tcd_lora.md",
+        "diffusers/docs/source/en/using-diffusers/sdxl_turbo.md",
+        "diffusers/docs/source/en/using-diffusers/textual_inversion_inference.md",
+        "diffusers/docs/source/ko/conceptual/evaluation.md",
+        "diffusers/docs/source/ko/training/distributed_inference.md",
+        "diffusers/docs/source/ko/using-diffusers/textual_inversion_inference.md",
+        "diffusers/examples/README.md",
+        "diffusers/examples/advanced_diffusion_training/README.md",
+        "diffusers/examples/amused/README.md",
+        "diffusers/examples/community/README.md",
+        "diffusers/examples/community/README_community_scripts.md",
+        "diffusers/examples/consistency_distillation/README.md",
+        "diffusers/examples/consistency_distillation/README_sdxl.md"
+      ],
+      "substantive_evidence_counted": true,
+      "limits": "Metadata/discovery evidence only, not V2 full-text inspection."
+    },
+    {
+      "id": "T8-Q17",
+      "category": "arXiv API",
+      "query": "recent regeneration watermark validity sources",
+      "url": "https://export.arxiv.org/api/query?search_query=all:watermark+AND+all:regeneration&start=0&max_results=5&sortBy=submittedDate&sortOrder=descending",
+      "utc": "2026-10-20T14:11:05.670483+00:00",
+      "http_status": 200,
+      "final_url": "https://export.arxiv.org/api/query?search_query=all:watermark+AND+all:regeneration&start=0&max_results=5&sortBy=submittedDate&sortOrder=descending",
+      "status": "success",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\query-17.xml",
+      "sha256": "f6b6fbf8d0a65d3def7514f983338d2b5c246ab38ee7643b47776956569b0172",
+      "bytes": 13903,
+      "substantive_evidence_counted": true,
+      "limits": "Metadata/discovery evidence only, not V2 full-text inspection."
+    }
+  ]
+}

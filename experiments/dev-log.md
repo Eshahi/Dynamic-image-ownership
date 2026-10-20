@@ -409,3 +409,8 @@
 2026-10-20 UTC | escalation | /root/stage1b_t7_query_gap gpt-6.1-sol high fork none | independent review2 strict discovery-query gap, preserving T7 source evidence; T8 follows sequentially under max-two-agent limit.
 
 2026-10-20 UTC | escalation | /root/stage1b_t8_query_gap gpt-6.1-sol high fork none | review2 strict discovery-query gap, sequential after T7 gap completion. T7 query addendum parent accepted; own-branch push planned from ece403e.
+
+2026-10-20 UTC | Codex agent push verified | codex/encoder-transfer-20261019 | ece403e..116f423a63a4af9732461656c47959c519b1fba8 | T7 strict discovery-query correction, original inspections retained uncounted.
+
+2026-10-20 UTC | escalation | /root/stage1b_t1_ran_gap gpt-6.1-sol high fork none | newly found2026 removal study RAN and adjacent lead scope screening; own T1 file deliverable, no outcomes.
+2026-10-20 UTC | Codex agent | T8 strict-query correction accepted; own-branch push planned from116f423 to this checkpoint.

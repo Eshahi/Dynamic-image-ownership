@@ -1,12 +1,11 @@
 {
   "date": "2026-10-20",
-  "attempted_distinct_queries": 17,
+  "attempted_distinct_queries": 23,
   "successful_substantive_queries": 11,
   "successful_categories": [
-    "web",
     "OpenAlex",
-    "official-repository-or-model-hub",
-    "arXiv API"
+    "arXiv API",
+    "web"
   ],
   "queries": [
     {
@@ -18,7 +17,8 @@
       "receipt": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\web-search-responses.json",
       "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
       "result": "WAVES primary paper/project",
-      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on."
+      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on.",
+      "request_kind": "discovery search"
     },
     {
       "id": "T8-Q02",
@@ -29,7 +29,8 @@
       "receipt": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\web-search-responses.json",
       "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
       "result": "Lineage lead; primary independently reread, pooled batch not uniquely attributed",
-      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on."
+      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on.",
+      "request_kind": "discovery search"
     },
     {
       "id": "T8-Q03",
@@ -40,7 +41,8 @@
       "receipt": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\web-search-responses.json",
       "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
       "result": "VINE primary paper",
-      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on."
+      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on.",
+      "request_kind": "discovery search"
     },
     {
       "id": "T8-Q04",
@@ -51,7 +53,8 @@
       "receipt": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\web-search-responses.json",
       "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
       "result": "Official WAM repository",
-      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on."
+      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on.",
+      "request_kind": "discovery search"
     },
     {
       "id": "T8-Q05",
@@ -62,7 +65,8 @@
       "receipt": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\web-search-responses.json",
       "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
       "result": "MarkNull/RAVEN/UnMarker primary leads",
-      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on."
+      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on.",
+      "request_kind": "discovery search"
     },
     {
       "id": "T8-Q06",
@@ -73,7 +77,8 @@
       "receipt": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\web-search-responses.json",
       "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
       "result": "No uniquely attributed substantive DREW result in pooled batch; OpenAlex Q11 supplies it",
-      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on."
+      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on.",
+      "request_kind": "discovery search"
     },
     {
       "id": "T8-Q07",
@@ -84,7 +89,8 @@
       "receipt": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\web-search-responses.json",
       "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
       "result": "Pooled official latest-source lead, exact pin independently rechecked; not discovery floor",
-      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on."
+      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on.",
+      "request_kind": "discovery search"
     },
     {
       "id": "T8-Q08",
@@ -95,7 +101,8 @@
       "receipt": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b\\web-search-responses.json",
       "receipt_sha256": "cfc45d4dd9f0e4dc6719c6863082ada49b7f2c220a36d149541e10dfd829a72c",
       "result": "Official reproducibility lead; excluded conservatively from floor",
-      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on."
+      "limits": "Four-query batched web responses preserved together; only clear primary-source discoveries counted. Secondary hits not relied on.",
+      "request_kind": "discovery search"
     },
     {
       "id": "T8-Q09",
@@ -137,7 +144,8 @@
         }
       ],
       "substantive_evidence_counted": true,
-      "limits": "Metadata/discovery evidence only, not V2 full-text inspection."
+      "limits": "Metadata/discovery evidence only, not V2 full-text inspection.",
+      "request_kind": "discovery search"
     },
     {
       "id": "T8-Q10",
@@ -179,7 +187,8 @@
         }
       ],
       "substantive_evidence_counted": false,
-      "limits": "Peripheral recent autoencoder results, not direct SDXL lineage evidence; excluded from floor."
+      "limits": "Peripheral recent autoencoder results, not direct SDXL lineage evidence; excluded from floor.",
+      "request_kind": "discovery search"
     },
     {
       "id": "T8-Q11",
@@ -221,7 +230,8 @@
         }
       ],
       "substantive_evidence_counted": true,
-      "limits": "Metadata/discovery evidence only, not V2 full-text inspection."
+      "limits": "Metadata/discovery evidence only, not V2 full-text inspection.",
+      "request_kind": "discovery search"
     },
     {
       "id": "T8-Q12",
@@ -237,7 +247,8 @@
       "bytes": 1028,
       "results": [],
       "substantive_evidence_counted": false,
-      "limits": "Metadata/discovery evidence only, not V2 full-text inspection."
+      "limits": "Metadata/discovery evidence only, not V2 full-text inspection.",
+      "request_kind": "discovery search"
     },
     {
       "id": "T8-Q13",
@@ -263,8 +274,11 @@
           ]
         }
       },
-      "substantive_evidence_counted": true,
-      "limits": "Metadata/discovery evidence only, not V2 full-text inspection."
+      "substantive_evidence_counted": false,
+      "limits": "Known-content inspection; not counted toward section 1b discovery floor. Not V2 scientific evidence.",
+      "request_kind": "known-content inspection",
+      "historical_author_substantive_evidence_counted": true,
+      "count_correction": "Fresh strict discovery audit, 2026-10-20: named model metadata and named repository tree retrieval are useful inspections, not discovery queries. Historical receipts retained."
     },
     {
       "id": "T8-Q14",
@@ -294,8 +308,11 @@
           ]
         }
       },
-      "substantive_evidence_counted": true,
-      "limits": "Metadata/discovery evidence only, not V2 full-text inspection."
+      "substantive_evidence_counted": false,
+      "limits": "Known-content inspection; not counted toward section 1b discovery floor. Not V2 scientific evidence.",
+      "request_kind": "known-content inspection",
+      "historical_author_substantive_evidence_counted": true,
+      "count_correction": "Fresh strict discovery audit, 2026-10-20: named model metadata and named repository tree retrieval are useful inspections, not discovery queries. Historical receipts retained."
     },
     {
       "id": "T8-Q15",
@@ -316,8 +333,11 @@
         "notebooks/inference.ipynb",
         "notebooks/inference_utils.py"
       ],
-      "substantive_evidence_counted": true,
-      "limits": "Metadata/discovery evidence only, not V2 full-text inspection."
+      "substantive_evidence_counted": false,
+      "limits": "Known-content inspection; not counted toward section 1b discovery floor. Not V2 scientific evidence.",
+      "request_kind": "known-content inspection",
+      "historical_author_substantive_evidence_counted": true,
+      "count_correction": "Fresh strict discovery audit, 2026-10-20: named model metadata and named repository tree retrieval are useful inspections, not discovery queries. Historical receipts retained."
     },
     {
       "id": "T8-Q16",
@@ -358,8 +378,11 @@
         "diffusers/examples/consistency_distillation/README.md",
         "diffusers/examples/consistency_distillation/README_sdxl.md"
       ],
-      "substantive_evidence_counted": true,
-      "limits": "Metadata/discovery evidence only, not V2 full-text inspection."
+      "substantive_evidence_counted": false,
+      "limits": "Known-content inspection; not counted toward section 1b discovery floor. Not V2 scientific evidence.",
+      "request_kind": "known-content inspection",
+      "historical_author_substantive_evidence_counted": true,
+      "count_correction": "Fresh strict discovery audit, 2026-10-20: named model metadata and named repository tree retrieval are useful inspections, not discovery queries. Historical receipts retained."
     },
     {
       "id": "T8-Q17",
@@ -374,7 +397,924 @@
       "sha256": "f6b6fbf8d0a65d3def7514f983338d2b5c246ab38ee7643b47776956569b0172",
       "bytes": 13903,
       "substantive_evidence_counted": true,
-      "limits": "Metadata/discovery evidence only, not V2 full-text inspection."
+      "limits": "Metadata/discovery evidence only, not V2 full-text inspection.",
+      "request_kind": "discovery search",
+      "exact_search_expression": "all:watermark AND all:regeneration"
+    },
+    {
+      "id": "T8-Q18",
+      "category": "OpenAlex",
+      "method": "GET",
+      "query": "diffusion image watermark training data overlap memorization",
+      "url": "https://api.openalex.org/works?search=diffusion+image+watermark+training+data+overlap+memorization&per-page=8",
+      "headers": {
+        "User-Agent": "ThesisDesignResearch/1.0 (documentary validity search)"
+      },
+      "requested_utc": "2026-10-20T22:04:26.832733+00:00",
+      "received_utc": "2026-10-20T22:04:41.198321+00:00",
+      "http_status": 200,
+      "final_url": "https://api.openalex.org/works?search=diffusion+image+watermark+training+data+overlap+memorization&per-page=8",
+      "response_headers": {
+        "Date": "Tue, 20 Oct 2026 22:04:38 GMT",
+        "Content-Type": "application/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "close",
+        "CF-Ray": "a4db51c5ff7b78bc-BOS",
+        "CF-Cache-Status": "DYNAMIC",
+        "Access-Control-Allow-Origin": "*",
+        "Server": "cloudflare",
+        "Via": "2.0 heroku-router",
+        "X-RateLimit-Cost-USD": "0.001",
+        "X-RateLimit-Credits-Used": "10",
+        "X-RateLimit-Limit": "1000",
+        "X-RateLimit-Limit-USD": "0.1",
+        "X-RateLimit-Onetime-Remaining": "0",
+        "X-RateLimit-Prepaid-Remaining-USD": "0",
+        "X-RateLimit-Remaining": "740",
+        "X-RateLimit-Remaining-USD": "0.074",
+        "X-RateLimit-Reset": "6922",
+        "access-control-allow-headers": "Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI, X-Impersonate-User",
+        "access-control-allow-methods": "GET, HEAD, POST, PATCH, DELETE, OPTIONS",
+        "access-control-expose-headers": "Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining, X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset, X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD, X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location, Content-Disposition, X-OpenAlex-UI-Token",
+        "nel": "{\"report_to\":\"heroku-nel\",\"response_headers\":[\"Via\"],\"max_age\":3600,\"success_fraction\":0.01,\"failure_fraction\":0.1}",
+        "report-to": "{\"group\":\"heroku-nel\",\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?s=oEAX7sV2mGLE7p8SHAfSaFU9xGpKPG2%2FHpjdI%2BSof7U%3D\\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\\u0026ts=1792533878\"}],\"max_age\":3600}",
+        "reporting-endpoints": "heroku-nel=\"https://nel.heroku.com/reports?s=oEAX7sV2mGLE7p8SHAfSaFU9xGpKPG2%2FHpjdI%2BSof7U%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1792533878\""
+      },
+      "request_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q18-request.json",
+      "request_sha256": "bf19f478018ee6a813028346ece62c93fc1e7d03c08f2e195844208b4a65c990",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q18-response.json",
+      "sha256": "716e4bf387d88b0d85546f48214bc5a84301bffc8f9dedbad3afece71bf829a2",
+      "bytes": 154088,
+      "total_results": 210,
+      "results": [
+        {
+          "id": "https://openalex.org/W4415799006",
+          "title": "ROBIN: Robust and Invisible Watermarks for Diffusion Models with Adversarial Optimization",
+          "year": 2024,
+          "doi": "https://doi.org/10.52202/079017-0129",
+          "primary_landing_page": "https://doi.org/10.52202/079017-0129",
+          "type": "conference-paper"
+        },
+        {
+          "id": "https://openalex.org/W7137859261",
+          "title": "MSAT-LDM: Toward Transferable High-Fidelity Watermarking for Latent Diffusion Model via Modular Self-Augmented Training",
+          "year": 2026,
+          "doi": "https://doi.org/10.1609/aaai.v40i42.40921",
+          "primary_landing_page": "https://doi.org/10.1609/aaai.v40i42.40921",
+          "type": "conference-paper"
+        },
+        {
+          "id": "https://openalex.org/W7104264246",
+          "title": "Provable Separations between Memorization and Generalization in Diffusion Models",
+          "year": 2025,
+          "doi": "https://doi.org/10.48550/arxiv.2511.03202",
+          "primary_landing_page": "http://arxiv.org/abs/2511.03202",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W4383605163",
+          "title": "DIAGNOSIS: Detecting Unauthorized Data Usages in Text-to-image Diffusion Models",
+          "year": 2023,
+          "doi": "https://doi.org/10.48550/arxiv.2307.03108",
+          "primary_landing_page": "http://arxiv.org/abs/2307.03108",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W4414809261",
+          "title": "Fast, Secure, and High-Capacity Image Watermarking with Autoencoded Text Vectors",
+          "year": 2025,
+          "doi": "https://doi.org/10.48550/arxiv.2510.00799",
+          "primary_landing_page": "http://arxiv.org/abs/2510.00799",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W7138173269",
+          "title": "TableMark: A Multi-bit Watermark for Synthetic Tabular Data",
+          "year": 2026,
+          "doi": "https://doi.org/10.48550/arxiv.2603.13722",
+          "primary_landing_page": "http://arxiv.org/abs/2603.13722",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W7118168534",
+          "title": "Watermarking techniques for large language models: a survey",
+          "year": 2026,
+          "doi": "https://doi.org/10.1007/s10462-025-11474-6",
+          "primary_landing_page": "https://doi.org/10.1007/s10462-025-11474-6",
+          "type": "article"
+        },
+        {
+          "id": "https://openalex.org/W7129652119",
+          "title": "DWBench: Holistic Evaluation of Watermark for Dataset Copyright Auditing",
+          "year": 2026,
+          "doi": "https://doi.org/10.48550/arxiv.2602.13541",
+          "primary_landing_page": "https://arxiv.org/abs/2602.13541",
+          "type": "preprint"
+        }
+      ],
+      "request_kind": "discovery search",
+      "substantive_evidence_counted": false,
+      "limits": "Discovery metadata only; no method/evaluation read, no V2 credit and no scientific result inferred.",
+      "screening": [
+        {
+          "rank": 1,
+          "title": "ROBIN: Robust and Invisible Watermarks for Diffusion Models with Adversarial Optimization",
+          "decision": "Adjacent latent-watermark method; training-overlap question not answered by metadata."
+        },
+        {
+          "rank": 2,
+          "title": "MSAT-LDM: Toward Transferable High-Fidelity Watermarking for Latent Diffusion Model via Modular Self-Augmented Training",
+          "decision": "Recent transferable latent-watermark training method lead; not read or added as a baseline."
+        },
+        {
+          "rank": 3,
+          "title": "Provable Separations between Memorization and Generalization in Diffusion Models",
+          "decision": "Direct memorization/generalization theory lead for hidden training dependence."
+        },
+        {
+          "rank": 4,
+          "title": "DIAGNOSIS: Detecting Unauthorized Data Usages in Text-to-image Diffusion Models",
+          "decision": "Dataset-use detection task; distinct from post-hoc transfer, retained as boundary lead."
+        },
+        {
+          "rank": 5,
+          "title": "Fast, Secure, and High-Capacity Image Watermarking with Autoencoded Text Vectors",
+          "decision": "Image watermark method lead; not evidence of actual overlap."
+        },
+        {
+          "rank": 6,
+          "title": "TableMark: A Multi-bit Watermark for Synthetic Tabular Data",
+          "decision": "Tabular watermark; out of static-image scope."
+        },
+        {
+          "rank": 7,
+          "title": "Watermarking techniques for large language models: a survey",
+          "decision": "LLM survey; out of scope and secondary."
+        },
+        {
+          "rank": 8,
+          "title": "DWBench: Holistic Evaluation of Watermark for Dataset Copyright Auditing",
+          "decision": "Dataset copyright-auditing benchmark; adjacent task, not the present transfer endpoint."
+        }
+      ],
+      "count_exclusion": "Conservatively excluded: results mostly concern watermark training/task boundaries, rather than directly resolving training-data overlap. Q23 supplies the more direct distinct memorization/duplication search."
+    },
+    {
+      "id": "T8-Q19",
+      "category": "OpenAlex",
+      "method": "GET",
+      "query": "stable diffusion safety checker false positive bias image",
+      "url": "https://api.openalex.org/works?search=stable+diffusion+safety+checker+false+positive+bias+image&per-page=8",
+      "headers": {
+        "User-Agent": "ThesisDesignResearch/1.0 (documentary validity search)"
+      },
+      "requested_utc": "2026-10-20T22:04:26.832733+00:00",
+      "received_utc": "2026-10-20T22:04:39.090932+00:00",
+      "http_status": 200,
+      "final_url": "https://api.openalex.org/works?search=stable+diffusion+safety+checker+false+positive+bias+image&per-page=8",
+      "response_headers": {
+        "Date": "Tue, 20 Oct 2026 22:04:35 GMT",
+        "Content-Type": "application/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "close",
+        "CF-Ray": "a4db51b14d8e7c17-BOS",
+        "CF-Cache-Status": "DYNAMIC",
+        "Access-Control-Allow-Origin": "*",
+        "Server": "cloudflare",
+        "Via": "2.0 heroku-router",
+        "X-RateLimit-Cost-USD": "0.001",
+        "X-RateLimit-Credits-Used": "10",
+        "X-RateLimit-Limit": "1000",
+        "X-RateLimit-Limit-USD": "0.1",
+        "X-RateLimit-Onetime-Remaining": "0",
+        "X-RateLimit-Prepaid-Remaining-USD": "0",
+        "X-RateLimit-Remaining": "760",
+        "X-RateLimit-Remaining-USD": "0.076",
+        "X-RateLimit-Reset": "6925",
+        "access-control-allow-headers": "Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI, X-Impersonate-User",
+        "access-control-allow-methods": "GET, HEAD, POST, PATCH, DELETE, OPTIONS",
+        "access-control-expose-headers": "Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining, X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset, X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD, X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location, Content-Disposition, X-OpenAlex-UI-Token",
+        "nel": "{\"report_to\":\"heroku-nel\",\"response_headers\":[\"Via\"],\"max_age\":3600,\"success_fraction\":0.01,\"failure_fraction\":0.1}",
+        "report-to": "{\"group\":\"heroku-nel\",\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?s=uEhib6%2FOxRCWsLVWvp0URNpI75QJU5HDkmB0Fqkl%2BZo%3D\\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\\u0026ts=1792533875\"}],\"max_age\":3600}",
+        "reporting-endpoints": "heroku-nel=\"https://nel.heroku.com/reports?s=uEhib6%2FOxRCWsLVWvp0URNpI75QJU5HDkmB0Fqkl%2BZo%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1792533875\""
+      },
+      "request_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q19-request.json",
+      "request_sha256": "ee6f651d56d681d40db45df768ef0cfafff90ca9630fb3867d95d5c481ac6b31",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q19-response.json",
+      "sha256": "ed0bf7f9298476774ad0dda456994eae6480881be96e9587edaa8cf7070caeb3",
+      "bytes": 159859,
+      "total_results": 183,
+      "results": [
+        {
+          "id": "https://openalex.org/W4405032489",
+          "title": "DiffGuard: Text-Based Safety Checker for Diffusion Models",
+          "year": 2024,
+          "doi": "https://doi.org/10.48550/arxiv.2412.00064",
+          "primary_landing_page": "http://arxiv.org/abs/2412.00064",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W4305001257",
+          "title": "Red-Teaming the Stable Diffusion Safety Filter",
+          "year": 2022,
+          "doi": "https://doi.org/10.48550/arxiv.2210.04610",
+          "primary_landing_page": "http://arxiv.org/abs/2210.04610",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W7160317505",
+          "title": "Disciplined Diffusion: Text-to-Image Diffusion Model against NSFW Generation",
+          "year": 2026,
+          "doi": "https://doi.org/10.48550/arxiv.2605.01113",
+          "primary_landing_page": "https://arxiv.org/abs/2605.01113",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W4393924367",
+          "title": "Survey of Bias In Text-to-Image Generation: Definition, Evaluation, and Mitigation",
+          "year": 2024,
+          "doi": "https://doi.org/10.48550/arxiv.2404.01030",
+          "primary_landing_page": "http://arxiv.org/abs/2404.01030",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W7203662861",
+          "title": "Explicit Content Generation in Text-to-Image Models: Training Mechanisms, Moderation Failures, and Safety Limits",
+          "year": 2026,
+          "doi": "https://doi.org/10.59256/indjcst.20260502111",
+          "primary_landing_page": "https://doi.org/10.59256/indjcst.20260502111",
+          "type": "article"
+        },
+        {
+          "id": "https://openalex.org/W7163705147",
+          "title": "RedEdit: Agentic Red-Teaming of Image Safety Classifiers via MCTS-Guided Photo-Editing",
+          "year": 2026,
+          "doi": "https://doi.org/10.48550/arxiv.2606.06140",
+          "primary_landing_page": "https://arxiv.org/abs/2606.06140",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W2563852449",
+          "title": "Social Data: Biases, Methodological Pitfalls, and Ethical Boundaries",
+          "year": 2019,
+          "doi": "https://doi.org/10.3389/fdata.2019.00013",
+          "primary_landing_page": "https://doi.org/10.3389/fdata.2019.00013",
+          "type": "article"
+        },
+        {
+          "id": "https://openalex.org/W4399151197",
+          "title": "FreezeAsGuard: Mitigating Illegal Adaptation of Diffusion Models via Selective Tensor Freezing",
+          "year": 2024,
+          "doi": "https://doi.org/10.48550/arxiv.2405.17472",
+          "primary_landing_page": "http://arxiv.org/abs/2405.17472",
+          "type": "preprint"
+        }
+      ],
+      "request_kind": "discovery search",
+      "substantive_evidence_counted": true,
+      "limits": "Discovery metadata only; no method/evaluation read, no V2 credit and no scientific result inferred.",
+      "screening": [
+        {
+          "rank": 1,
+          "title": "DiffGuard: Text-Based Safety Checker for Diffusion Models",
+          "decision": "Direct diffusion-safety checker evaluation lead for V30."
+        },
+        {
+          "rank": 2,
+          "title": "Red-Teaming the Stable Diffusion Safety Filter",
+          "decision": "Direct Stable Diffusion safety-filter study lead for V30."
+        },
+        {
+          "rank": 3,
+          "title": "Disciplined Diffusion: Text-to-Image Diffusion Model against NSFW Generation",
+          "decision": "Recent NSFW prevention lead; broader generation task."
+        },
+        {
+          "rank": 4,
+          "title": "Survey of Bias In Text-to-Image Generation: Definition, Evaluation, and Mitigation",
+          "decision": "Secondary bias survey; not primary evidence and not counted as V2."
+        },
+        {
+          "rank": 5,
+          "title": "Explicit Content Generation in Text-to-Image Models: Training Mechanisms, Moderation Failures, and Safety Limits",
+          "decision": "Broad moderation study; lower-priority metadata-only lead."
+        },
+        {
+          "rank": 6,
+          "title": "RedEdit: Agentic Red-Teaming of Image Safety Classifiers via MCTS-Guided Photo-Editing",
+          "decision": "Recent image safety-classifier red-teaming lead for filter-selection limitations."
+        },
+        {
+          "rank": 7,
+          "title": "Social Data: Biases, Methodological Pitfalls, and Ethical Boundaries",
+          "decision": "General social-data methodology; peripheral, not relied on."
+        },
+        {
+          "rank": 8,
+          "title": "FreezeAsGuard: Mitigating Illegal Adaptation of Diffusion Models via Selective Tensor Freezing",
+          "decision": "Illegal adaptation defense; not safety-filter missingness, excluded."
+        }
+      ]
+    },
+    {
+      "id": "T8-Q20",
+      "category": "OpenAlex",
+      "method": "GET",
+      "query": "image quality evaluation resizing interpolation LPIPS sensitivity",
+      "url": "https://api.openalex.org/works?search=image+quality+evaluation+resizing+interpolation+LPIPS+sensitivity&per-page=8",
+      "headers": {
+        "User-Agent": "ThesisDesignResearch/1.0 (documentary validity search)"
+      },
+      "requested_utc": "2026-10-20T22:04:26.832733+00:00",
+      "received_utc": "2026-10-20T22:04:41.094920+00:00",
+      "http_status": 200,
+      "final_url": "https://api.openalex.org/works?search=image+quality+evaluation+resizing+interpolation+LPIPS+sensitivity&per-page=8",
+      "response_headers": {
+        "Date": "Tue, 20 Oct 2026 22:04:38 GMT",
+        "Content-Type": "application/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "close",
+        "CF-Ray": "a4db51c168357207-BOS",
+        "CF-Cache-Status": "DYNAMIC",
+        "Access-Control-Allow-Origin": "*",
+        "Server": "cloudflare",
+        "Via": "2.0 heroku-router",
+        "X-RateLimit-Cost-USD": "0.001",
+        "X-RateLimit-Credits-Used": "10",
+        "X-RateLimit-Limit": "1000",
+        "X-RateLimit-Limit-USD": "0.1",
+        "X-RateLimit-Onetime-Remaining": "0",
+        "X-RateLimit-Prepaid-Remaining-USD": "0",
+        "X-RateLimit-Remaining": "750",
+        "X-RateLimit-Remaining-USD": "0.075",
+        "X-RateLimit-Reset": "6922",
+        "access-control-allow-headers": "Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI, X-Impersonate-User",
+        "access-control-allow-methods": "GET, HEAD, POST, PATCH, DELETE, OPTIONS",
+        "access-control-expose-headers": "Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining, X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset, X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD, X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location, Content-Disposition, X-OpenAlex-UI-Token",
+        "nel": "{\"report_to\":\"heroku-nel\",\"response_headers\":[\"Via\"],\"max_age\":3600,\"success_fraction\":0.01,\"failure_fraction\":0.1}",
+        "report-to": "{\"group\":\"heroku-nel\",\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?s=oEAX7sV2mGLE7p8SHAfSaFU9xGpKPG2%2FHpjdI%2BSof7U%3D\\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\\u0026ts=1792533878\"}],\"max_age\":3600}",
+        "reporting-endpoints": "heroku-nel=\"https://nel.heroku.com/reports?s=oEAX7sV2mGLE7p8SHAfSaFU9xGpKPG2%2FHpjdI%2BSof7U%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1792533878\""
+      },
+      "request_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q20-request.json",
+      "request_sha256": "440e3e2427b3fa5c2f37d2f5bcf8692246b65d0ae3fbc84653e974ac5efe8703",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q20-response.json",
+      "sha256": "9d9c5e5c3a062d2e551bbee2b0c89f8f21e50d8a6e6363ba9ad535ec3d098250",
+      "bytes": 170903,
+      "total_results": 226,
+      "results": [
+        {
+          "id": "https://openalex.org/W7161693347",
+          "title": "MSIQ: Moment-based Scale-Invariant Quality Measure for Single Image Super-Resolution",
+          "year": 2026,
+          "doi": "https://doi.org/10.48550/arxiv.2605.17588",
+          "primary_landing_page": "https://arxiv.org/abs/2605.17588",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W4393078930",
+          "title": "TOPIQ: A Top-Down Approach From Semantics to Distortions for Image Quality Assessment",
+          "year": 2024,
+          "doi": "https://doi.org/10.1109/tip.2024.3378466",
+          "primary_landing_page": "https://doi.org/10.1109/tip.2024.3378466",
+          "type": "article"
+        },
+        {
+          "id": "https://openalex.org/W7198345375",
+          "title": "SAR image quality metrics with respect to Super-Resolution",
+          "year": 2026,
+          "doi": null,
+          "primary_landing_page": "https://osuva.uwasa.fi/handle/11111/20694",
+          "type": "dissertation"
+        },
+        {
+          "id": "https://openalex.org/W4318617422",
+          "title": "Video Frame Interpolation: A Comprehensive Survey",
+          "year": 2023,
+          "doi": "https://doi.org/10.1145/3556544",
+          "primary_landing_page": "https://doi.org/10.1145/3556544",
+          "type": "article"
+        },
+        {
+          "id": "https://openalex.org/W4416193171",
+          "title": "Transformer-enhanced generative adversarial networks for improving MR image quality in prostate imaging",
+          "year": 2026,
+          "doi": "https://doi.org/10.1038/s41698-026-01677-7",
+          "primary_landing_page": "https://doi.org/10.1038/s41698-026-01677-7",
+          "type": "article"
+        },
+        {
+          "id": "https://openalex.org/W4414808181",
+          "title": "Arbitrary Generative Video Interpolation",
+          "year": 2025,
+          "doi": "https://doi.org/10.48550/arxiv.2510.00578",
+          "primary_landing_page": "http://arxiv.org/abs/2510.00578",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W7221819438",
+          "title": "Low-Cost Deep Learning for Automated Keyframe Interpolation in Sprite Animation",
+          "year": 2026,
+          "doi": "https://doi.org/10.48550/arxiv.2610.16423",
+          "primary_landing_page": "https://arxiv.org/abs/2610.16423",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W4414896283",
+          "title": "Ultra-High-Resolution Image Synthesis: Data, Method and Evaluation",
+          "year": 2025,
+          "doi": "https://doi.org/10.48550/arxiv.2506.01331",
+          "primary_landing_page": "http://arxiv.org/abs/2506.01331",
+          "type": "preprint"
+        }
+      ],
+      "request_kind": "discovery search",
+      "substantive_evidence_counted": false,
+      "limits": "Discovery metadata only; no method/evaluation read, no V2 credit and no scientific result inferred.",
+      "screening": [
+        {
+          "rank": 1,
+          "title": "MSIQ: Moment-based Scale-Invariant Quality Measure for Single Image Super-Resolution",
+          "decision": "Super-resolution metric lead; only indirect resizing relevance."
+        },
+        {
+          "rank": 2,
+          "title": "TOPIQ: A Top-Down Approach From Semantics to Distortions for Image Quality Assessment",
+          "decision": "General quality metric lead; metadata does not establish preprocessing sensitivity."
+        },
+        {
+          "rank": 3,
+          "title": "SAR image quality metrics with respect to Super-Resolution",
+          "decision": "SAR thesis; peripheral task and not primary experimental evidence here."
+        },
+        {
+          "rank": 4,
+          "title": "Video Frame Interpolation: A Comprehensive Survey",
+          "decision": "Video interpolation survey; out of static-image scope."
+        },
+        {
+          "rank": 5,
+          "title": "Transformer-enhanced generative adversarial networks for improving MR image quality in prostate imaging",
+          "decision": "Medical MRI synthesis study; peripheral."
+        },
+        {
+          "rank": 6,
+          "title": "Arbitrary Generative Video Interpolation",
+          "decision": "Video interpolation task; out of scope."
+        },
+        {
+          "rank": 7,
+          "title": "Low-Cost Deep Learning for Automated Keyframe Interpolation in Sprite Animation",
+          "decision": "Sprite-animation interpolation; out of scope."
+        },
+        {
+          "rank": 8,
+          "title": "Ultra-High-Resolution Image Synthesis: Data, Method and Evaluation",
+          "decision": "Broad high-resolution evaluation lead; not direct LPIPS sensitivity evidence."
+        }
+      ],
+      "count_exclusion": "Broad results are mostly peripheral; direct metric-sensitivity discovery is supplied separately by arXiv Q22."
+    },
+    {
+      "id": "T8-Q21",
+      "category": "OpenAlex",
+      "method": "GET",
+      "query": "image watermark forgery false attribution detection calibration",
+      "url": "https://api.openalex.org/works?search=image+watermark+forgery+false+attribution+detection+calibration&per-page=8",
+      "headers": {
+        "User-Agent": "ThesisDesignResearch/1.0 (documentary validity search)"
+      },
+      "requested_utc": "2026-10-20T22:04:26.833745+00:00",
+      "received_utc": "2026-10-20T22:04:38.779914+00:00",
+      "http_status": 200,
+      "final_url": "https://api.openalex.org/works?search=image+watermark+forgery+false+attribution+detection+calibration&per-page=8",
+      "response_headers": {
+        "Date": "Tue, 20 Oct 2026 22:04:35 GMT",
+        "Content-Type": "application/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "close",
+        "CF-Ray": "a4db51b14bd00bfd-BOS",
+        "CF-Cache-Status": "DYNAMIC",
+        "Access-Control-Allow-Origin": "*",
+        "Server": "cloudflare",
+        "Via": "2.0 heroku-router",
+        "X-RateLimit-Cost-USD": "0.001",
+        "X-RateLimit-Credits-Used": "10",
+        "X-RateLimit-Limit": "1000",
+        "X-RateLimit-Limit-USD": "0.1",
+        "X-RateLimit-Onetime-Remaining": "0",
+        "X-RateLimit-Prepaid-Remaining-USD": "0",
+        "X-RateLimit-Remaining": "770",
+        "X-RateLimit-Remaining-USD": "0.077",
+        "X-RateLimit-Reset": "6925",
+        "access-control-allow-headers": "Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI, X-Impersonate-User",
+        "access-control-allow-methods": "GET, HEAD, POST, PATCH, DELETE, OPTIONS",
+        "access-control-expose-headers": "Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining, X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset, X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD, X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location, Content-Disposition, X-OpenAlex-UI-Token",
+        "nel": "{\"report_to\":\"heroku-nel\",\"response_headers\":[\"Via\"],\"max_age\":3600,\"success_fraction\":0.01,\"failure_fraction\":0.1}",
+        "report-to": "{\"group\":\"heroku-nel\",\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?s=uEhib6%2FOxRCWsLVWvp0URNpI75QJU5HDkmB0Fqkl%2BZo%3D\\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\\u0026ts=1792533875\"}],\"max_age\":3600}",
+        "reporting-endpoints": "heroku-nel=\"https://nel.heroku.com/reports?s=uEhib6%2FOxRCWsLVWvp0URNpI75QJU5HDkmB0Fqkl%2BZo%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1792533875\""
+      },
+      "request_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q21-request.json",
+      "request_sha256": "433a5b73c1140a5ee0f282554bc9623b87ad2b81e2824ce6268069707cc6aed1",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q21-response.json",
+      "sha256": "d939f34097c2f45aa84b5b152ced5e61e06405259208339bcbe23fd958146fb3",
+      "bytes": 139856,
+      "total_results": 97,
+      "results": [
+        {
+          "id": "https://openalex.org/W4300963338",
+          "title": "Image forgery detection: a survey of recent deep-learning approaches",
+          "year": 2022,
+          "doi": "https://doi.org/10.1007/s11042-022-13797-w",
+          "primary_landing_page": "https://doi.org/10.1007/s11042-022-13797-w",
+          "type": "article"
+        },
+        {
+          "id": "https://openalex.org/W4415330365",
+          "title": "Mitigating Watermark Forgery in Generative Models via Randomized Key Selection",
+          "year": 2025,
+          "doi": "https://doi.org/10.48550/arxiv.2507.07871",
+          "primary_landing_page": "https://arxiv.org/abs/2507.07871",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W4402716358",
+          "title": "EditGuard: Versatile Image Watermarking for Tamper Localization and Copyright Protection",
+          "year": 2024,
+          "doi": "https://doi.org/10.1109/cvpr52733.2024.01137",
+          "primary_landing_page": "https://doi.org/10.1109/cvpr52733.2024.01137",
+          "type": "conference-paper"
+        },
+        {
+          "id": "https://openalex.org/W7212727917",
+          "title": "Forging Tree-Ring: Reproducing and Instrumenting Black-Box Semantic Watermark Forgery",
+          "year": 2026,
+          "doi": "https://doi.org/10.48550/arxiv.2609.12909",
+          "primary_landing_page": "https://arxiv.org/abs/2609.12909",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W7212259878",
+          "title": "Statistical Watermarking for Generative Images",
+          "year": 2026,
+          "doi": "https://doi.org/10.2139/ssrn.7415958",
+          "primary_landing_page": "https://doi.org/10.2139/ssrn.7415958",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W7214719291",
+          "title": "Residual Transferability in Neural Image Watermarking",
+          "year": 2026,
+          "doi": "https://doi.org/10.48550/arxiv.2609.32241",
+          "primary_landing_page": "https://arxiv.org/abs/2609.32241",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W4405380772",
+          "title": "Enhancing Deepfake Detection: Proactive Forensics Techniques Using Digital Watermarking",
+          "year": 2024,
+          "doi": "https://doi.org/10.32604/cmc.2024.059370",
+          "primary_landing_page": "https://doi.org/10.32604/cmc.2024.059370",
+          "type": "article"
+        },
+        {
+          "id": "https://openalex.org/W7220650979",
+          "title": "Watermarks and Fingerprints as Soft Bindings for Content Provenance: An Open-Licence Benchmark for Images, Audio and Video",
+          "year": 2026,
+          "doi": "https://doi.org/10.48550/arxiv.2610.04151",
+          "primary_landing_page": "https://arxiv.org/abs/2610.04151",
+          "type": "preprint"
+        }
+      ],
+      "request_kind": "discovery search",
+      "substantive_evidence_counted": true,
+      "limits": "Discovery metadata only; no method/evaluation read, no V2 credit and no scientific result inferred.",
+      "screening": [
+        {
+          "rank": 1,
+          "title": "Image forgery detection: a survey of recent deep-learning approaches",
+          "decision": "Forgery-detection survey; not watermark false-attribution calibration."
+        },
+        {
+          "rank": 2,
+          "title": "Mitigating Watermark Forgery in Generative Models via Randomized Key Selection",
+          "decision": "Direct watermark-forgery/key-selection lead for V39/V65."
+        },
+        {
+          "rank": 3,
+          "title": "EditGuard: Versatile Image Watermarking for Tamper Localization and Copyright Protection",
+          "decision": "Image tamper-localization watermark; adjacent endpoint."
+        },
+        {
+          "rank": 4,
+          "title": "Forging Tree-Ring: Reproducing and Instrumenting Black-Box Semantic Watermark Forgery",
+          "decision": "Recent semantic-watermark forgery lead for V39/V65; not V2."
+        },
+        {
+          "rank": 5,
+          "title": "Statistical Watermarking for Generative Images",
+          "decision": "Statistical generative-watermark lead; metadata insufficient for calibration claims."
+        },
+        {
+          "rank": 6,
+          "title": "Residual Transferability in Neural Image Watermarking",
+          "decision": "Recent residual-transferability lead; mechanism potentially relevant but not V2."
+        },
+        {
+          "rank": 7,
+          "title": "Enhancing Deepfake Detection: Proactive Forensics Techniques Using Digital Watermarking",
+          "decision": "Deepfake-forensics watermark; adjacent endpoint."
+        },
+        {
+          "rank": 8,
+          "title": "Watermarks and Fingerprints as Soft Bindings for Content Provenance: An Open-Licence Benchmark for Images, Audio and Video",
+          "decision": "Already has own T8 V2 card; duplicate source not recounted."
+        }
+      ]
+    },
+    {
+      "id": "T8-Q22",
+      "category": "arXiv API",
+      "method": "GET",
+      "query": "all:LPIPS AND (all:shift OR all:resizing OR all:resampling OR all:robustness)",
+      "url": "https://export.arxiv.org/api/query?search_query=all%3ALPIPS+AND+%28all%3Ashift+OR+all%3Aresizing+OR+all%3Aresampling+OR+all%3Arobustness%29&start=0&max_results=8&sortBy=relevance&sortOrder=descending",
+      "headers": {
+        "User-Agent": "ThesisDesignResearch/1.0 (documentary validity search)"
+      },
+      "requested_utc": "2026-10-20T22:05:14.559058+00:00",
+      "received_utc": "2026-10-20T22:05:21.688967+00:00",
+      "http_status": 200,
+      "final_url": "https://export.arxiv.org/api/query?search_query=all%3ALPIPS+AND+%28all%3Ashift+OR+all%3Aresizing+OR+all%3Aresampling+OR+all%3Arobustness%29&start=0&max_results=8&sortBy=relevance&sortOrder=descending",
+      "response_headers": {
+        "Connection": "close",
+        "Content-Length": "19603",
+        "x-cloud-trace-context": "b3a618a8309f17f3d43576f76661d34c;o=1",
+        "content-type": "application/atom+xml; charset=utf-8",
+        "via": "1.1 google, 1.1 varnish, 1.1 varnish, 1.1 varnish",
+        "server": "Google Frontend",
+        "Accept-Ranges": "bytes",
+        "Age": "0",
+        "Date": "Tue, 20 Oct 2026 22:05:19 GMT",
+        "X-Served-By": "cache-lga-kjfk8660054-LGA, cache-lga-kjfk8660054-LGA, cache-lga-kjfk8660054-LGA, cache-nyc-kteb1890043-NYC",
+        "X-Cache": "MISS, MISS, MISS",
+        "X-Cache-Hits": "0, 0, 0",
+        "X-Timer": "S1792533919.462050,VS0,VE501",
+        "Strict-Transport-Security": "max-age=300"
+      },
+      "request_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q22-request.json",
+      "request_sha256": "bfae772bbf543dd16b2fb8ad22e8fef693b5417cbec37aca1ff6d79d2d094d19",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q22-response.xml",
+      "sha256": "adc5179700e462dfc1a57d31b250c38d8431de11b39537d37f8e656e5dafbaf2",
+      "bytes": 19603,
+      "total_results": "152",
+      "results": [
+        {
+          "id": "http://arxiv.org/abs/2307.15157v2",
+          "title": "R-LPIPS: An Adversarially Robust Perceptual Similarity Metric",
+          "published": "2023-07-27T19:11:31Z"
+        },
+        {
+          "id": "http://arxiv.org/abs/2207.13686v1",
+          "title": "Shift-tolerant Perceptual Similarity Metric",
+          "published": "2022-07-27T17:55:04Z"
+        },
+        {
+          "id": "http://arxiv.org/abs/1906.03973v2",
+          "title": "E-LPIPS: Robust Perceptual Image Similarity via Random Transformation Ensembles",
+          "published": "2019-06-10T13:40:37Z"
+        },
+        {
+          "id": "http://arxiv.org/abs/2402.15469v1",
+          "title": "Benchmarking the Robustness of Panoptic Segmentation for Automated Driving",
+          "published": "2024-02-23T18:00:06Z"
+        },
+        {
+          "id": "http://arxiv.org/abs/2505.04116v2",
+          "title": "RFNNS: Robust Fixed Neural Network Steganography with Universal Text-to-Image Models",
+          "published": "2025-05-07T04:15:03Z"
+        },
+        {
+          "id": "http://arxiv.org/abs/2610.07110v1",
+          "title": "MoonGS: High-quality Representation of the Lunar Surface via Gaussian Splatting Using Robust Depth Features from Image Pairs",
+          "published": "2026-10-05T15:46:50Z"
+        },
+        {
+          "id": "http://arxiv.org/abs/2605.15906v1",
+          "title": "A Causally Grounded Taxonomy for Image Degradation Robustness Evaluation",
+          "published": "2026-05-15T12:44:02Z"
+        },
+        {
+          "id": "http://arxiv.org/abs/2207.07208v1",
+          "title": "Provably Adversarially Robust Nearest Prototype Classifiers",
+          "published": "2022-07-14T21:22:30Z"
+        }
+      ],
+      "request_kind": "discovery search",
+      "substantive_evidence_counted": true,
+      "limits": "Discovery metadata only; no method/evaluation read, no V2 credit and no scientific result inferred.",
+      "screening": [
+        {
+          "rank": 1,
+          "title": "R-LPIPS: An Adversarially Robust Perceptual Similarity Metric",
+          "decision": "Direct perceptual-metric adversarial robustness lead for V56."
+        },
+        {
+          "rank": 2,
+          "title": "Shift-tolerant Perceptual Similarity Metric",
+          "decision": "Direct small-shift metric sensitivity lead for V56 and resize-policy limitations."
+        },
+        {
+          "rank": 3,
+          "title": "E-LPIPS: Robust Perceptual Image Similarity via Random Transformation Ensembles",
+          "decision": "Direct transformation-ensemble perceptual-metric lead for V56."
+        },
+        {
+          "rank": 4,
+          "title": "Benchmarking the Robustness of Panoptic Segmentation for Automated Driving",
+          "decision": "Panoptic segmentation robustness; different task."
+        },
+        {
+          "rank": 5,
+          "title": "RFNNS: Robust Fixed Neural Network Steganography with Universal Text-to-Image Models",
+          "decision": "Text-to-image steganography; adjacent method, not direct metric limitation evidence."
+        },
+        {
+          "rank": 6,
+          "title": "MoonGS: High-quality Representation of the Lunar Surface via Gaussian Splatting Using Robust Depth Features from Image Pairs",
+          "decision": "Lunar reconstruction; different task."
+        },
+        {
+          "rank": 7,
+          "title": "A Causally Grounded Taxonomy for Image Degradation Robustness Evaluation",
+          "decision": "Recent image-degradation evaluation taxonomy; secondary/discovery-only."
+        },
+        {
+          "rank": 8,
+          "title": "Provably Adversarially Robust Nearest Prototype Classifiers",
+          "decision": "Prototype classification; different task."
+        }
+      ]
+    },
+    {
+      "id": "T8-Q23",
+      "category": "OpenAlex",
+      "method": "GET",
+      "query": "diffusion training data memorization duplication dataset overlap",
+      "url": "https://api.openalex.org/works?search=diffusion+training+data+memorization+duplication+dataset+overlap&per-page=8",
+      "headers": {
+        "User-Agent": "ThesisDesignResearch/1.0 (documentary validity search)"
+      },
+      "requested_utc": "2026-10-20T22:05:14.559058+00:00",
+      "received_utc": "2026-10-20T22:05:22.573341+00:00",
+      "http_status": 200,
+      "final_url": "https://api.openalex.org/works?search=diffusion+training+data+memorization+duplication+dataset+overlap&per-page=8",
+      "response_headers": {
+        "Date": "Tue, 20 Oct 2026 22:05:19 GMT",
+        "Content-Type": "application/json",
+        "Transfer-Encoding": "chunked",
+        "Connection": "close",
+        "CF-Ray": "a4db52c32dc17b13-BOS",
+        "CF-Cache-Status": "DYNAMIC",
+        "Access-Control-Allow-Origin": "*",
+        "Server": "cloudflare",
+        "Via": "2.0 heroku-router",
+        "X-RateLimit-Cost-USD": "0.001",
+        "X-RateLimit-Credits-Used": "10",
+        "X-RateLimit-Limit": "1000",
+        "X-RateLimit-Limit-USD": "0.1",
+        "X-RateLimit-Onetime-Remaining": "0",
+        "X-RateLimit-Prepaid-Remaining-USD": "0",
+        "X-RateLimit-Remaining": "730",
+        "X-RateLimit-Remaining-USD": "0.073",
+        "X-RateLimit-Reset": "6881",
+        "access-control-allow-headers": "Accept, Accept-Language, Accept-Encoding, Authorization, Content-Type, X-OpenAlex-UI, X-Impersonate-User",
+        "access-control-allow-methods": "GET, HEAD, POST, PATCH, DELETE, OPTIONS",
+        "access-control-expose-headers": "Cache-Control, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Onetime-Remaining, X-RateLimit-Credits-Used, X-RateLimit-Credits-Required, X-RateLimit-Reset, X-RateLimit-Limit-USD, X-RateLimit-Remaining-USD, X-RateLimit-Prepaid-Remaining-USD, X-RateLimit-Cost-USD, X-RateLimit-Cost-Required-USD, Retry-After, Location, Content-Disposition, X-OpenAlex-UI-Token",
+        "nel": "{\"report_to\":\"heroku-nel\",\"response_headers\":[\"Via\"],\"max_age\":3600,\"success_fraction\":0.01,\"failure_fraction\":0.1}",
+        "report-to": "{\"group\":\"heroku-nel\",\"endpoints\":[{\"url\":\"https://nel.heroku.com/reports?s=IEkyRKbia9HJzFnBGYxX%2F6prMdIv%2BwzOdpY%2FYHdhHaw%3D\\u0026sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d\\u0026ts=1792533919\"}],\"max_age\":3600}",
+        "reporting-endpoints": "heroku-nel=\"https://nel.heroku.com/reports?s=IEkyRKbia9HJzFnBGYxX%2F6prMdIv%2BwzOdpY%2FYHdhHaw%3D&sid=e11707d5-02a7-43ef-b45e-2cf4d2036f7d&ts=1792533919\""
+      },
+      "request_cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q23-request.json",
+      "request_sha256": "97947381278911ba1aa6222b1b3b44f4618c62868ac92610751f46d462b5bcf0",
+      "cache": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\q1-research-20261018\\cache\\T8-1b-query-gap\\T8-Q23-response.json",
+      "sha256": "c4124039b4e7a34c9dd3acdac9b8b26775f2a2d8576a11b2914fe7aa049cefef",
+      "bytes": 146190,
+      "total_results": 842,
+      "results": [
+        {
+          "id": "https://openalex.org/W4318719586",
+          "title": "Extracting Training Data from Diffusion Models",
+          "year": 2023,
+          "doi": "https://doi.org/10.48550/arxiv.2301.13188",
+          "primary_landing_page": "http://arxiv.org/abs/2301.13188",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W7164848538",
+          "title": "Local Coverage Governs Memorization in Diffusion Models",
+          "year": 2026,
+          "doi": "https://doi.org/10.48550/arxiv.2606.14390",
+          "primary_landing_page": "https://arxiv.org/abs/2606.14390",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W4415145279",
+          "title": "Memorization to Generalization: Emergence of Diffusion Models from Associative Memory",
+          "year": 2025,
+          "doi": "https://doi.org/10.48550/arxiv.2505.21777",
+          "primary_landing_page": "http://arxiv.org/abs/2505.21777",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W7163003182",
+          "title": "Diffusion Models Preferentially Memorize Prototypical Examples or: Why Does My Diffusion Model Love Slop?",
+          "year": 2026,
+          "doi": "https://doi.org/10.48550/arxiv.2605.30642",
+          "primary_landing_page": "https://arxiv.org/abs/2605.30642",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W7104264246",
+          "title": "Provable Separations between Memorization and Generalization in Diffusion Models",
+          "year": 2025,
+          "doi": "https://doi.org/10.48550/arxiv.2511.03202",
+          "primary_landing_page": "http://arxiv.org/abs/2511.03202",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W4403843289",
+          "title": "Unveiling and Mitigating Memorization in Text-to-Image Diffusion Models Through Cross Attention",
+          "year": 2024,
+          "doi": "https://doi.org/10.1007/978-3-031-72980-5_20",
+          "primary_landing_page": "https://doi.org/10.1007/978-3-031-72980-5_20",
+          "type": "conference-paper"
+        },
+        {
+          "id": "https://openalex.org/W4404340903",
+          "title": "Exploring Local Memorization in Diffusion Models via Bright Ending Attention",
+          "year": 2024,
+          "doi": "https://doi.org/10.48550/arxiv.2410.21665",
+          "primary_landing_page": "http://arxiv.org/abs/2410.21665",
+          "type": "preprint"
+        },
+        {
+          "id": "https://openalex.org/W7136110749",
+          "title": "Mitigating Memorization in Text-to-Image Diffusion via Region-Aware Prompt Augmentation and Multimodal Copy Detection",
+          "year": 2026,
+          "doi": "https://doi.org/10.48550/arxiv.2603.13070",
+          "primary_landing_page": "http://arxiv.org/abs/2603.13070",
+          "type": "preprint"
+        }
+      ],
+      "request_kind": "discovery search",
+      "substantive_evidence_counted": true,
+      "limits": "Discovery metadata only; no method/evaluation read, no V2 credit and no scientific result inferred.",
+      "screening": [
+        {
+          "rank": 1,
+          "title": "Extracting Training Data from Diffusion Models",
+          "decision": "Direct diffusion training-data extraction/memorization lead for V02/V25."
+        },
+        {
+          "rank": 2,
+          "title": "Local Coverage Governs Memorization in Diffusion Models",
+          "decision": "Recent diffusion local-coverage/memorization lead for V02/V25."
+        },
+        {
+          "rank": 3,
+          "title": "Memorization to Generalization: Emergence of Diffusion Models from Associative Memory",
+          "decision": "Diffusion associative-memory/generalization lead; no inferred empirical result."
+        },
+        {
+          "rank": 4,
+          "title": "Diffusion Models Preferentially Memorize Prototypical Examples or: Why Does My Diffusion Model Love Slop?",
+          "decision": "Recent prototypical-memorization lead for training-distribution limitations."
+        },
+        {
+          "rank": 5,
+          "title": "Provable Separations between Memorization and Generalization in Diffusion Models",
+          "decision": "Repeated Q18 theory lead; source duplicate not V2-counted."
+        },
+        {
+          "rank": 6,
+          "title": "Unveiling and Mitigating Memorization in Text-to-Image Diffusion Models Through Cross Attention",
+          "decision": "Direct memorization-mitigation evaluation lead; no inference of SDXL overlap."
+        },
+        {
+          "rank": 7,
+          "title": "Exploring Local Memorization in Diffusion Models via Bright Ending Attention",
+          "decision": "Local memorization lead; no inference of this study cohort contamination."
+        },
+        {
+          "rank": 8,
+          "title": "Mitigating Memorization in Text-to-Image Diffusion via Region-Aware Prompt Augmentation and Multimodal Copy Detection",
+          "decision": "Recent multimodal copy-detection/memorization lead; no new dataset inspection."
+        }
+      ]
     }
-  ]
+  ],
+  "total_logged_requests": 23,
+  "distinct_discovery_search_requests": 19,
+  "known_content_inspections": 4,
+  "count_revision_note": "Historical 11/four-category author claim corrected: Q13-Q16 were inspections, leaving seven real queries/three categories. Six new searches, four conservatively counted, now yield 11/three categories. Q18/Q20 are peripheral/adjacent; their raw records are retained. Historical source files are in query-gap-history/.",
+  "new_query_gap_receipts": "query-gap-checks.json"
 }
