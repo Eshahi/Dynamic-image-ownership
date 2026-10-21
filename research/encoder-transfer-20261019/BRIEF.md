@@ -164,6 +164,32 @@ After the stage-1b re-freeze (`e318757`, review 2 PASS), the user answered in ch
 - **Start:** stage 2 begins after the weekly Codex quota resets (2026-10-26 23:41 local), when the user rents the server and sends its SSH line.
 - **Cost settings:** the main thread runs at `high`; one-off reviews run at `gpt-6-astra` `xhigh`.
 
+## 1d. Lean two-stage execution (user decision, 2026-10-21)
+
+To reduce cost, the user approved in chat (answer "yes") Claude's proposal to split stage 2 into two parts. This section supersedes section 1c where they conflict. The ceiling of 35 instance-hours or USD 30 stays the total for both parts.
+
+### Stage 2a: always run; it decides the route
+
+- **Arms:** F5 r2, v5 r3, WAM, VINE-R, TrustMark (P1) and PixelSeal (P9), each with its frozen or approved native settings, plus unmarked C0 images.
+- **Channels:** R0 (SD1.5) and R1 (SDXL) at strength .2 only, seeds 12, 13 and 14, with the frozen pipeline settings.
+- **Diagnostics:**
+  - D1, the SDXL VAE-only round trip;
+  - P4 reduced to its AE-only option in `budget-and-proposals.md`: a deterministic Kandinsky 3 MoVQ encode/decode round trip for every arm and for C0, with no diffusion.
+- **Negatives and quality:** all frozen negative calls (C0 and wrong-owner) on the active cells, plus clean-quality metrics for every arm.
+- **Decision rule:** apply section 3 unchanged on stage 2a. The F5 false-detection gate covers the active R1 strength, .2. B is the best of WAM and VINE-R, as frozen. TrustMark and PixelSeal are reported next to them, but they do not enter B unless the frozen protocol already says so.
+- **If stage 2a overruns:** drop the MoVQ round trip first, then TrustMark and PixelSeal. Never drop F5, v5, WAM, VINE-R or C0 at R0 .2 and R1 .2.
+
+### Stage 2b: run only if stage 2a gives TRANSFERS (ROUTE A or ROUTE B)
+
+- **Cells:** R0 and R1 at strengths .1 and .4, the R1 rinse, full P4 (Kandinsky 3 diffusion regeneration exactly as specified) and P5 (encoder-aware smoothing exactly as specified), each across the arms its frozen specification names.
+- **Within the remaining budget:** if it does not fit, apply the drop order P5, then P4, then strength .1.
+- **The route label from stage 2a is final.** Stage 2b is descriptive only.
+- **If stage 2a gives FAILS or PARTIAL:** do not run stage 2b. Bring the results home, write `results.md` and `review.md`, stop the instance and report.
+
+### Before any server execution
+
+Record this staging as a pre-outcome amendment in `protocol.md` and `frozen-config.json`. Add runner support for executing a declared cell subset, with unit tests, and commit and push it. The analysis must label every missing 2b cell as "not run by design (stage 2a result)", never as a failure.
+
 ## 2. Fixed design
 
 Freeze all of this, as amended by stage 1 within its limits, in `research/encoder-transfer-20261019/protocol.md`, plus a machine-readable `frozen-config.json`. Commit and push both before any regeneration exists. Implementation details not fixed here are yours to fix in the protocol, before outputs.
