@@ -148,6 +148,22 @@ The weekly Codex quota fell from 6% to 45% used in under two hours, so the user 
 3. Re-freeze with a new commit and push.
 4. Stop and report in Persian, as in section 9 stage 1. Add the per-topic counts and what the deepening changed.
 
+## 1c. Stage 2 decisions (user, 2026-10-21)
+
+After the stage-1b re-freeze (`e318757`, review 2 PASS), the user answered in chat, verbatim:
+
+> Approve P1 TrustMark, P9 PixelSeal, P4 Kandinsky 3 and P5 smoothing; decline the rest; ceiling 35 instance-hours or USD 30.
+
+**What this means for stage 2:**
+- **Approved:** P1, P9, P4 and P5, each exactly as specified in `budget-and-proposals.md` at `e318757`. For P4 this is the full proposal, not the AE-only option.
+- **Declined:** P2, P3, P6, P7, P8 and P10.
+- **Ceiling:** 35 instance-hours or USD 30, whichever comes first, including setup and the return of results.
+- **Overrun order:** if the smoke projection overruns, drop P5 first, then P4, then P9, then P1. Only after that apply the core's own declared reductions.
+- **Unchanged:** the core question, the primary cell (F5, SDXL R1, strength .2) and the decision rule. The approved proposals are descriptive and never change the route label.
+- **Amendment first:** record these approvals, with exact settings, as a pre-outcome protocol amendment. Commit and push it before any server execution.
+- **Start:** stage 2 begins after the weekly Codex quota resets (2026-10-26 23:41 local), when the user rents the server and sends its SSH line.
+- **Cost settings:** the main thread runs at `high`; one-off reviews run at `gpt-6-astra` `xhigh`.
+
 ## 2. Fixed design
 
 Freeze all of this, as amended by stage 1 within its limits, in `research/encoder-transfer-20261019/protocol.md`, plus a machine-readable `frozen-config.json`. Commit and push both before any regeneration exists. Implementation details not fixed here are yours to fix in the protocol, before outputs.
