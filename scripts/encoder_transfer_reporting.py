@@ -1,7 +1,9 @@
 """Prespecified descriptive summaries; no imports of scientific model code."""
 import math
 from statistics import median
-from encoder_transfer_test import ALPHA,BETA,RULES,unit_id,call_value,plan
+from encoder_transfer_test import ALPHA,BETA,RULES,unit_id,call_value,plan,channel_arms,binomial_threshold
+
+INTERNAL=("f5-r2","v5-r3")
 
 METRICS=("psnr_db","ssim_rgb","lpips")
 BINS=(0,.05,.10,.20,.30,.50,math.inf)
@@ -105,9 +107,10 @@ def matched_grid(config,sources,rows,vectors):
     comparisons=[]
     for cid in ("R0","R1"):
         if cid in active:
-            comparisons.extend([(("f5-r2",cid),(arm,cid)) for arm in config["arms"] if arm!="f5-r2"])
+            comparisons.extend([(("f5-r2",cid),(arm,cid)) for arm in channel_arms(config,active[cid]) if arm!="f5-r2"])
     if "R0" in active and "R1" in active:
-        comparisons.extend([((arm,"R0"),(arm,"R1")) for arm in config["arms"]])
+        both=set(channel_arms(config,active["R0"]))&set(channel_arms(config,active["R1"]))
+        comparisons.extend([((arm,"R0"),(arm,"R1")) for arm in config["arms"] if arm in both])
     result={}
     ids=[s["source_id"] for s in sources["sources"]]
     for (left,lc),(right,rc) in comparisons:
@@ -159,7 +162,8 @@ def reporting(config,sources,rows,vectors):
         cid=spec["id"]
         for strength in spec.get("strengths",[None]):
             seeds=spec.get("seeds",[None])
-            for arm in ["unmarked",*config["arms"]]:
+            scoped=channel_arms(config,spec)
+            for arm in ["unmarked",*scoped]:
                 units=[rows.get(unit_id(sid,cid,strength,seed,arm),{}) for sid in ids for seed in seeds]
                 prefix=f"{arm}/{cid}/{strength}"
                 quality[prefix]={}
@@ -177,7 +181,7 @@ def reporting(config,sources,rows,vectors):
                                                             infinite_outputs=sum(r.get(field,{}).get("psnr_infinite") is True for r in units) if metric=="psnr_db" else 0)
                 if cid=="clean":
                     quality[prefix]["strict_quality"]=dict(pass_count=sum(r.get("strict_quality") is True for r in units),planned=len(ids))
-            for method in config["arms"]:
+            for method in scoped:
                 keys=RULES if method in ("f5-r2","v5-r3") else ["presence"]
                 if method in ("f5-r2","v5-r3"):
                     carrier[f"{method}/{cid}/{strength}"]=carrier_summary(ids,seeds,rows,method,cid,strength)
@@ -189,21 +193,27 @@ def reporting(config,sources,rows,vectors):
                         flat=[v for group in grouped for v in group]
                         negatives[f"{method}/{cid}/{strength}/{control}/{key}"]=dict(planned=len(flat),observed=sum(v is not None for v in flat),positives=sum(v is True for v in flat),unresolved=sum(v is None for v in flat),
                             source_any_positive=sum(any(v is True for v in group) for group in grouped),source_unresolved=sum(any(v is None for v in group) for group in grouped),planned_sources=len(ids))
-                if method not in ("wam","vine-r"):
+                if method in INTERNAL:
                     continue
+                # Frozen native lengths when a config predates explicit payload_bits (WAM 32, VINE-R 100).
+                bits=config.get("payload_bits",{}).get(method,{"wam":32,"vine-r":100}.get(method))
+                cutoff=binomial_threshold(bits)/bits
                 prefix=f"{method}/{cid}/{strength}"
                 calls=[rows.get(unit_id(sid,cid,strength,seed,method),{}).get("detections",{}).get(method,{}).get(ALPHA,{}) for sid in ids for seed in seeds]
                 accuracies=[c.get("presence",{}).get("accuracy") if c.get("status")=="ok" else None for c in calls]
                 external[prefix]=dict(bit_accuracy=quantiles(accuracies),exact_message=sum(v==1 for v in accuracies),
                     native_mask_present=sum(c.get("status")=="ok" and c.get("native",{}).get("present") is True for c in calls) if method=="wam" else None,planned=len(calls),
                     independent_wrong_message_present=sum(c.get("wrong_message_presence",{}).get("present") is True for c in calls),
-                    wrong_message_complement_present=sum(v is not None and 1-v>= (27/32 if method=="wam" else 69/100) for v in accuracies),
+                    wrong_message_complement_present=sum(v is not None and 1-v>=cutoff for v in accuracies),
                     empty_mask_abstentions=sum(c.get("status")=="ok" and c.get("presence",{}).get("accuracy") is None for c in calls))
                 source_points={}
                 predicates={"common_presence":lambda c:c.get("presence",{}).get("present"),
                             "exact_message":lambda c:c.get("presence",{}).get("accuracy")==1}
                 if method=="wam":
                     predicates["native_mask_presence"]=lambda c:c.get("native",{}).get("present")
+                elif method=="trustmark-q":
+                    predicates["native_bch_detected"]=lambda c:c.get("native",{}).get("present")
+                    predicates["native_exact_payload"]=lambda c:c.get("native",{}).get("exact_payload")
                 for endpoint,predicate in predicates.items():
                     values=[predicate(c) if c.get("status")=="ok" else None for c in calls]
                     groups=[values[i:i+len(seeds)] for i in range(0,len(values),len(seeds))]

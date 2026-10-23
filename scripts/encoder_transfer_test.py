@@ -169,6 +169,28 @@ def unit_id(source_id, channel, strength, seed, arm):
     return f"{channel}:{source_id}:{arm}:{strength}:{seed}"
 
 
+def channel_arms(config, channel):
+    """Arms evaluated on a channel; a channel without an `arms` list keeps every arm.
+
+    Amendment 1d (stage 2a) scopes the approved extra baselines to their proposal cells.
+    The frozen core config has no per-channel lists, so its schedule is unchanged.
+    """
+    if channel is None or channel.get("id") == "clean" or channel.get("arms") is None:
+        return list(config["arms"])
+    return [arm for arm in config["arms"] if arm in channel["arms"]]
+
+
+def channel_spec(config, cid):
+    if cid == "clean":
+        return {"id": "clean"}
+    return next(c for c in config["channels"] if c["id"] == cid)
+
+
+def read_methods(config, unit):
+    """Detectors that read a saved output: C0 is shared by every in-scope detector."""
+    return channel_arms(config, channel_spec(config, unit["channel"])) if unit["arm"] == "unmarked" else [unit["arm"]]
+
+
 def plan(config, sources, smoke=False):
     selected = sources["smoke" if smoke else "sources"]
     arms = ["unmarked", *config["arms"]]
@@ -180,6 +202,7 @@ def plan(config, sources, smoke=False):
     for channel in config["channels"]:
         if not channel.get("enabled", True):
             continue
+        arms = ["unmarked", *channel_arms(config, channel)]
         for strength in channel.get("strengths", [None]):
             for source in selected:
                 for seed in channel.get("seeds", [None]):
@@ -223,24 +246,69 @@ def call_value(row, method, owner, key):
     return call.get("endpoints", {}).get(key)
 
 
+LEGACY_REDUCTIONS = ("R2", "D2", "strength_0.1")
+
+
+def reduction_steps(config):
+    """Ordered, preregistered budget reductions (legacy core order unless amended)."""
+    return tuple(config.get("budget", {}).get("reduction_steps", LEGACY_REDUCTIONS))
+
+
+def apply_reduction(config, step):
+    """Apply one preregistered reduction in place; never chosen from outcomes."""
+    if step == "strength_0.1":
+        for channel in config["channels"]:
+            if channel.get("kind") == "rinse":
+                channel["enabled"] = False
+            if "strengths" in channel:
+                channel["strengths"] = [x for x in channel["strengths"] if x != .1]
+    elif step.startswith("arm:"):
+        arm = step[4:]
+        if arm in config.get("protected_arms", ()):
+            raise ValueError(f"Protected arm cannot be dropped: {arm}")
+        config["arms"] = [a for a in config["arms"] if a != arm]
+        for channel in config["channels"]:
+            if channel.get("arms") is not None:
+                channel["arms"] = [a for a in channel["arms"] if a != arm]
+    else:
+        cid = step[8:] if step.startswith("channel:") else step
+        if cid in config.get("protected_channels", ()):
+            raise ValueError(f"Protected channel cannot be dropped: {cid}")
+        for channel in config["channels"]:
+            if channel["id"] == cid:
+                channel["enabled"] = False
+    return config
+
+
 def validate_effective(original, effective):
-    """Only the preregistered, timing-driven channel reductions may differ."""
+    """Only the preregistered, timing-driven reductions, applied in order, may differ."""
     import copy
     candidate = copy.deepcopy(original)
     if candidate == effective:
         return
-    for stage in ("R2", "D2", "strength_0.1"):
-        for channel in candidate["channels"]:
-            if channel["id"] == stage:
-                channel["enabled"] = False
-            if stage == "strength_0.1":
-                if channel["id"] == "R1-rinse":
-                    channel["enabled"] = False
-                if "strengths" in channel:
-                    channel["strengths"] = [x for x in channel["strengths"] if x != .1]
+    for stage in reduction_steps(original):
+        apply_reduction(candidate, stage)
         if candidate == effective:
             return
     raise ValueError("Effective configuration is not a permitted frozen budget reduction")
+
+
+def contract_status(config):
+    """Execution gate: the reviewed freeze, or a recorded pre-outcome user amendment of it."""
+    status = config.get("status")
+    if status == "frozen-after-independent-review":
+        return status
+    if status == "user-amended-pre-outcome":
+        amendment = config.get("amendment") or {}
+        base = ROOT / amendment.get("base_config_file", "")
+        if not base.is_file() or digest(base) != amendment.get("base_config_sha256"):
+            raise ValueError("Amended contract does not match its recorded reviewed base")
+        if read(base).get("status") != "frozen-after-independent-review":
+            raise ValueError("Amendment base is not the independently reviewed freeze")
+        if amendment.get("pre_outcome") is not True:
+            raise ValueError("Only pre-outcome amendments may execute")
+        return status
+    raise ValueError("Scientific execution requires the reviewed freeze or a recorded pre-outcome amendment of it")
 
 
 def analyze(config, sources, rows):
@@ -257,7 +325,7 @@ def analyze(config, sources, rows):
         cid = channel["id"]
         for strength in channel.get("strengths", [None]):
             seeds = channel.get("seeds", [None])
-            for method in config["arms"]:
+            for method in channel_arms(config, channel):
                 keys = RULES if method in ("f5-r2", "v5-r3") else ("presence",)
                 for key in keys:
                     successful, optimistic, missing, observed_successes = [], [], 0, 0
@@ -276,7 +344,8 @@ def analyze(config, sources, rows):
                                     proportion=k/len(ids), cp95=cp_interval(k,len(ids)),
                                     interval_scope="hypothetical independent exchangeable sources; development convenience cohort")
     negatives = {}
-    for method in config["arms"]:
+    r1_arms = channel_arms(config, channel_spec(config, "R1"))
+    for method in r1_arms:
         endpoint = "A" if method in ("f5-r2", "v5-r3") else "presence"
         for control in ("C0", "wrong_owner"):
             if control == "wrong_owner" and method not in ("f5-r2", "v5-r3"):
@@ -286,30 +355,43 @@ def analyze(config, sources, rows):
             values=[call_value(rows.get(u["id"]),method,ALPHA if control=="C0" else BETA,endpoint) for u in selected]
             negatives[f"{method}/{control}"]=dict(planned=len(values), observed=sum(v is not None for v in values),
                                                  positives=sum(v is True for v in values), unresolved=sum(v is None for v in values))
-    external={m:cells[f"{m}/R1/0.2/presence"]["positive_sources"] for m in config["arms"] if m in ("wam", "vine-r")}
+    # The route maximum B uses only the frozen external arms (WAM, VINE-R); amendment-1d
+    # baselines are reported beside them and never enter the label.
+    decision_arms=config.get("decision_external_arms",["wam","vine-r"])
+    external={m:cells[f"{m}/R1/0.2/presence"]["positive_sources"] for m in r1_arms if m in decision_arms}
     c0, wrong = negatives["f5-r2/C0"], negatives["f5-r2/wrong_owner"]
     primary = cells["f5-r2/R1/0.2/C"]
     verdict = decision(config["n"], primary["positive_sources"],c0["positives"],wrong["positives"],c0["unresolved"]+wrong["unresolved"],external)
-    comparisons={}
-    for method in (m for m in config["arms"] if m != "f5-r2"):
+    def paired(method):
         name=f"{method}/R1/0.2/{'C' if method=='v5-r3' else 'presence'}"
         result=sign_test(vectors["f5-r2/R1/0.2/C"],vectors[name])
         result["observed_calls"]={"f5-r2":primary["planned_calls"]-primary["missing_calls"],
                                   method:cells[name]["planned_calls"]-cells[name]["missing_calls"]}
+        return result
+    holm_arms=[m for m in config.get("holm_arms",[m for m in config["arms"] if m!="f5-r2"]) if m in r1_arms]
+    comparisons={}
+    for method in holm_arms:
+        result=paired(method)
         available=all(result["observed_calls"].values())
         result["holm_internal_p"]=result["p_two_sided"] if available else 1.
         if not available:
             result.update(status="not_estimable_wholly_unavailable_comparison",p_two_sided=None)
         comparisons[method]=result
+    family=len(comparisons)
     previous=0.
     for rank,(method,result) in enumerate(sorted(comparisons.items(),key=lambda pair:pair[1]["holm_internal_p"])):
-        previous=max(previous,min(1.,(3-rank)*result["holm_internal_p"]))
+        previous=max(previous,min(1.,(family-rank)*result["holm_internal_p"]))
         result["holm_adjusted_p"]=previous if result["p_two_sided"] is not None else None
-        result["holm_family_size"]=3
+        result["holm_family_size"]=family
+    descriptive={m:{**paired(m),"status":"descriptive amendment-1d baseline; outside the Holm family and the route rule"}
+                 for m in r1_arms if m!="f5-r2" and m not in comparisons}
     from encoder_transfer_reporting import reporting
     return dict(schema="encoder-transfer-metrics-v1", decision=verdict, cells=cells, primary_negatives=negatives,
                 reporting=reporting(config,sources,rows,vectors),
-                paired_primary_comparisons=comparisons, planned_units=len(expected), observed_units=len(rows),
+                paired_primary_comparisons=comparisons, descriptive_comparisons=descriptive,
+                stage=config.get("amendment",{}).get("stage"),
+                not_run_by_design=config.get("amendment",{}).get("not_run_by_design",[]),
+                planned_units=len(expected), observed_units=len(rows),
                 missing_units=len(known-set(rows)),
                 terminal_status_counts={s:sum(r.get("status")==s for r in rows.values()) for s in ("ok","generated","error","safety_blocked","input_missing","running")})
 

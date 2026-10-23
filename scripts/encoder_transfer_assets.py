@@ -57,6 +57,31 @@ def patch_vine(root,plan):
     write(root/"vine/local-path-patch.json",dict(reason="Resolve native dependencies exclusively to pinned local assets",files=changes))
 
 
+def prepare_amendment_1d(root,asset_plan,budget):
+    """Pinned TrustMark and VideoSeal checkouts; TrustMark Q weights placed where its loader checks MD5."""
+    import shutil
+    extra=asset_plan.get("amendment_1d")
+    if not extra:
+        return
+    for name in ("trustmark","videoseal"):
+        repo=root/name/"source"
+        if not repo.exists():
+            budget.check()
+            subprocess.run(["git","clone","--filter=blob:none","--no-checkout",extra[name+"_repository"],str(repo)],check=True,timeout=300)
+            subprocess.run(["git","checkout","--detach",extra[name+"_revision"]],cwd=repo,check=True,timeout=180)
+        head=subprocess.check_output(["git","rev-parse","HEAD"],cwd=repo,text=True).strip()
+        if head!=extra[name+"_revision"]:
+            raise ValueError(f"Unexpected {name} repository revision")
+    models=root/"trustmark/source/python/trustmark/models"
+    for file_name,md5 in extra["trustmark_loader_md5"].items():
+        source=root/"trustmark/models"/file_name
+        target=models/file_name
+        if not target.exists() or digest(target)!=digest(source):
+            shutil.copyfile(source,target)
+        if hashlib.md5(target.read_bytes()).hexdigest()!=md5:
+            raise ValueError(f"TrustMark loader MD5 mismatch: {file_name}")
+
+
 def prepare(root,config,sources,budget):
     root=Path(root).resolve()
     root.mkdir(parents=True,exist_ok=True)
@@ -88,6 +113,7 @@ def prepare(root,config,sources,budget):
     if head!=asset_plan["vine_revision"]:
         raise ValueError("Unexpected VINE repository revision")
     patch_vine(root,asset_plan)
+    prepare_amendment_1d(root,asset_plan,budget)
     from m1b_canonical_source import canonicalize
     from PIL import Image
     for source in sources["sources"]+sources["smoke"]:

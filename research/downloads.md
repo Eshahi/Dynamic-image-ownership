@@ -439,3 +439,15 @@ The cumulative [receipt index](encoder-transfer-20261019/research-downloads.json
 2026-10-20: Accepted T7 documentary receipts add 27 URL/SHA records to encoder-transfer research-downloads.json: 747 cumulative indexed artifacts, 283,962,254 bytes (includes reused content, not network usage). Primary/venue versions, licenses and hashes are recorded; no weights/code installation.
 
 2026-10-20: Accepted T1 late-lead additions add 3 new URL/SHA receipts, with existing T7/T8 primary caches reused. Cumulative research index: 750 records, 285,424,706 bytes; documentary material only, no model weights or executable installation.
+
+## Encoder-transfer stage 2a, amendment 1d (Claude, 2026-10-23)
+
+| File | Source URL | Licence | SHA-256 |
+|---|---|---|---|
+| trustmark_Q.yaml (2,009 bytes) | https://cai-watermark.adobe.net/watermarking/trustmark-models/trustmark_Q.yaml | MIT | 43f37103f92efa8bd6b1c5902bb537cc12a981dc699fca19d9bb7de8c62d03d9 |
+| encoder_Q.ckpt (17,302,074 bytes) | https://cai-watermark.adobe.net/watermarking/trustmark-models/encoder_Q.ckpt | MIT | dc382c3f6b4fd568b27d6fbb763d6ffc2d2587126d84afe9d5ee95b4c5d99826 |
+| decoder_Q.ckpt (47,652,460 bytes) | https://cai-watermark.adobe.net/watermarking/trustmark-models/decoder_Q.ckpt | MIT | e3d9cea5406a26590735719f8f15cb10802b11852ae69047eaf4cf17214df781 |
+| adobe/trustmark checkout | https://github.com/adobe/trustmark @ 6df5a0a29b51cbec832695fdf02051a1937e37bd | MIT | git revision |
+| facebookresearch/videoseal checkout | https://github.com/facebookresearch/videoseal @ 870ca7fb33578b90f14c602016b6c2788096226e | MIT | git revision |
+
+The TrustMark files match the MD5 values hard-coded in the pinned loader. The Pixel Seal checkpoint (https://dl.fbaipublicfiles.com/videoseal/pixelseal/checkpoint.pth, 1,237,429,197 bytes, MIT) and the Kandinsky 3 MoVQ files (Apache-2.0, revision bf79e6c) are downloaded on the rented server, where their SHA-256 values are measured; they are recorded in `stage2a-asset-plan.json`.

@@ -19,17 +19,20 @@ import gc
 import types
 
 from encoder_transfer_test import (ALPHA, BETA, ROOT, Journal, analyze, digest,
-                                   endpoints, message, plan, presence, read, unit_id, write, validate_effective)
+                                   endpoints, message, plan, presence, read, unit_id, write, validate_effective,
+                                   read_methods, reduction_steps, apply_reduction, contract_status)
 
 
 class Budget:
-    def __init__(self, start_utc, hourly_usd, reserve_seconds=1800):
+    def __init__(self, start_utc, hourly_usd, reserve_seconds=1800, max_hours=15, max_usd=15):
         start=datetime.fromisoformat(start_utc.replace("Z","+00:00"))
         if start.tzinfo is None or hourly_usd <= 0:
             raise ValueError("Actual timezone-aware instance start and positive hourly cost required")
         self.start=start.timestamp()
         self.hourly=hourly_usd
-        self.deadline=self.start+min(15,15/hourly_usd)*3600
+        # Frozen core: 15 h or USD 15. Amendment 1d (user, 2026-10-21): 35 h or USD 30 in total.
+        self.max_hours,self.max_usd=max_hours,max_usd
+        self.deadline=self.start+min(max_hours,max_usd/hourly_usd)*3600
         self.compute_deadline=self.deadline-reserve_seconds
         if self.start>time.time()+60:
             raise ValueError("Instance start cannot be in the future")
@@ -41,7 +44,7 @@ class Budget:
     def record(self):
         elapsed=max(0,time.time()-self.start)
         return dict(instance_seconds=elapsed,projected_charged_usd=elapsed*self.hourly/3600,
-                    hourly_usd=self.hourly,instance_deadline_utc=datetime.fromtimestamp(self.deadline,timezone.utc).isoformat(),
+                    hourly_usd=self.hourly,max_instance_hours=self.max_hours,max_usd=self.max_usd,instance_deadline_utc=datetime.fromtimestamp(self.deadline,timezone.utc).isoformat(),
                     compute_deadline_utc=datetime.fromtimestamp(self.compute_deadline,timezone.utc).isoformat())
 
 
@@ -252,11 +255,165 @@ class Vine:
                     native=dict(rule="No published universal fixed cutoff; descriptive empirical ROC only"))
 
 
+def _rgb8(image):
+    import numpy as np
+    rgb=np.asarray(image.convert("RGB"),dtype=np.uint8).copy()
+    if rgb.shape!=(512,512,3):
+        raise ValueError("Native baseline output must stay RGB8 512 square")
+    return rgb
+
+
+class TrustMarkQ:
+    """Amendment 1d / P1: official TrustMark Q, use_ECC=True, BCH_5 (61 payload bits), native decode path.
+
+    The detector repeats the native decode() path for an unrotated image without the bbox
+    detector (get_the_image_for_processing, 245 bilinear resize, decoder > 0, BCH decode),
+    so the raw 100-bit decoder output can be reported next to the native result.
+    """
+    def __init__(self,assets):
+        import torch
+        sys.path.insert(0,str(assets/"trustmark/source/python"))
+        from trustmark import TrustMark
+        self.torch,self.TrustMark=torch,TrustMark
+        self.tm=TrustMark(use_ECC=True,verbose=False,secret_len=100,device="cuda",model_type="Q",
+                          encoding_type=TrustMark.Encoding.BCH_5,loadRemover=False,loadBBoxDetector=False)
+        if self.tm.encoder is None or self.tm.decoder is None:
+            raise RuntimeError("TrustMark Q weights did not load (MD5 check or download failed)")
+        if self.tm.schemaCapacity()!=61:
+            raise ValueError("TrustMark Q BCH_5 capacity must be 61 bits")
+
+    def embed(self,rgb,bits):
+        from PIL import Image
+        if len(bits)!=61:
+            raise ValueError("TrustMark Q payload must have 61 bits")
+        out=self.tm.encode(Image.fromarray(rgb),"".join(str(int(b)) for b in bits),MODE="binary",WM_STRENGTH=1.0,WM_MERGE="bilinear")
+        return _rgb8(out)
+
+    def detect(self,rgb,bits):
+        from PIL import Image
+        from torchvision import transforms
+        t,tm=self.torch,self.tm
+        image=tm.get_the_image_for_processing(Image.fromarray(rgb))
+        image=image.resize((tm.model_resolution_dec,tm.model_resolution_dec),Image.BILINEAR)
+        x=transforms.ToTensor()(image).unsqueeze(0).to(tm.decoder.device)*2.0-1.0
+        with t.no_grad():
+            raw=(tm.decoder.decoder(x)>0).cpu().numpy()
+        secret,detected,version=tm.ecc.decode_bitstream(raw,"binary")[0]
+        decoded=[int(c) for c in secret] if detected and len(secret)==61 and set(secret)<={"0","1"} else None
+        codeword=[int(round(float(v))) for v in tm.ecc.encode_binary(["".join(str(int(b)) for b in bits)])[0]]
+        raw_bits=[int(v) for v in raw[0]]
+        result=presence(decoded,bits)
+        # Common presence needs the native detected flag (BCH success) as well as the payload rule.
+        result["present"]=bool(detected) and bool(result["present"])
+        return dict(status="ok",presence=result,
+                    raw=dict(decoded_message=decoded,native_detected=bool(detected),schema_version=int(version),
+                             raw_bits=raw_bits,raw_codeword_agreement=sum(a==b for a,b in zip(raw_bits,codeword))/len(codeword)),
+                    native=dict(rule="BCH_5 decode success (native detected flag)",present=bool(detected),
+                                exact_payload=decoded==[int(b) for b in bits]))
+
+
+class PixelSeal:
+    """Amendment 1d / P9: official Pixel Seal card from VideoSeal, native 256 bits, image mode.
+
+    Mirrors videoseal.utils.cfg.setup_model without the training-data imports; the
+    augmenter is never used at inference, so a no-op module stands in for it.
+    """
+    def __init__(self,assets):
+        import torch
+        import omegaconf
+        repo=assets/"videoseal/source"
+        sys.path.insert(0,str(repo))
+        from videoseal.models import Videoseal,build_embedder,build_extractor
+        from videoseal.modules.jnd import JND
+        self.torch=torch
+        card=omegaconf.OmegaConf.load(repo/"videoseal/cards/pixelseal.yaml")
+        args=card.args
+        if int(args.nbits)!=256 or int(args.img_size_proc)!=256:
+            raise ValueError("Pixel Seal card must be the native 256-bit, 256-pixel release")
+        embedder=build_embedder(card.embedder.model,card.embedder.params,args.nbits,args.hidden_size_multiplier)
+        extractor=build_extractor(card.extractor.model,card.extractor.params,args.img_size_proc,args.nbits)
+        attenuation_cfg=omegaconf.OmegaConf.load(repo/args.attenuation_config)
+        attenuation=JND(**attenuation_cfg[args.attenuation])
+        model=Videoseal(embedder,extractor,torch.nn.Identity(),attenuation=attenuation,scaling_w=args.scaling_w,
+                        scaling_i=args.scaling_i,img_size=args.img_size_proc,blending_method=args.blending_method,
+                        chunk_size=args.videowam_chunk_size,step_size=args.videowam_step_size)
+        checkpoint=torch.load(assets/"videoseal/pixelseal-checkpoint.pth",map_location="cpu",weights_only=True)
+        missing=model.load_state_dict(checkpoint["model"],strict=False)
+        if missing.missing_keys:
+            raise ValueError(f"Pixel Seal checkpoint is missing model keys: {missing.missing_keys[:5]}")
+        self.load_report=dict(unexpected_keys=list(missing.unexpected_keys))
+        self.model=model.eval().to("cuda")
+
+    def tensor(self,rgb):
+        return self.torch.from_numpy(rgb).permute(2,0,1).unsqueeze(0).float().div(255.).to("cuda")
+
+    def embed(self,rgb,bits):
+        t=self.torch
+        if len(bits)!=256:
+            raise ValueError("Pixel Seal payload must have 256 bits")
+        with t.no_grad():
+            out=self.model.embed(self.tensor(rgb),msgs=t.tensor([bits],dtype=t.float32,device="cuda"),is_video=False)["imgs_w"]
+            require_finite(out,t,"Pixel Seal output")
+            # Native image saving: clamp to [0,1], then round half up to RGB8.
+            y=out[0].clamp(0,1).mul(255).add(.5).floor().clamp(0,255).permute(1,2,0)
+        rgb_out=y.to("cpu",t.uint8).numpy().copy()
+        if rgb_out.shape!=(512,512,3):
+            raise ValueError("Pixel Seal output must stay RGB8 512 square")
+        return rgb_out
+
+    def detect(self,rgb,bits):
+        t=self.torch
+        with t.no_grad():
+            preds=self.model.detect(self.tensor(rgb),is_video=False)["preds"]
+        preds=preds.float()
+        if preds.dim()>2:
+            preds=preds.mean(dim=tuple(range(2,preds.dim())))
+        logits=preds[0,1:].cpu()
+        if logits.numel()!=256 or not bool(t.isfinite(logits).all()):
+            raise ValueError("Invalid native Pixel Seal message logits")
+        decoded=[int(v) for v in (logits>0).tolist()]
+        return dict(status="ok",presence=presence(decoded,bits),
+                    raw=dict(decoded_message=decoded,detection_logit=float(preds[0,0]),
+                             mean_abs_logit=float(logits.abs().mean())),
+                    native=dict(rule="No universal fixed native presence cutoff; bit agreement only"))
+
+
+class MoVQ:
+    """Amendment 1d / P4 AE-only: Kandinsky 3 MoVQ encode/decode, as the img2img pipeline uses it.
+
+    Kandinsky3Img2ImgPipeline encodes with movq.encode(image).latents and decodes with
+    force_not_quantize=True; this diagnostic applies exactly that round trip, no diffusion.
+    """
+    def __init__(self,assets):
+        import torch
+        from diffusers import VQModel
+        self.torch=torch
+        self.movq=VQModel.from_pretrained(assets/"kandinsky3/movq",variant="fp16",torch_dtype=torch.float16,
+                                          use_safetensors=True,local_files_only=True)
+        self.movq=self.movq.to("cuda",dtype=torch.float32).eval().requires_grad_(False)
+
+    def roundtrip(self,rgb):
+        t=self.torch
+        x=t.from_numpy(rgb).permute(2,0,1).unsqueeze(0).float().div(127.5).sub(1.).to("cuda")
+        require_finite(x,t,"MoVQ input")
+        with t.no_grad():
+            z=self.movq.encode(x).latents
+            require_finite(z,t,"MoVQ latent")
+            y=self.movq.decode(z,force_not_quantize=True).sample
+            require_finite(y,t,"MoVQ decoded output")
+        y=y[0].clamp(-1,1).add(1).mul(127.5).round().clamp(0,255).permute(1,2,0)
+        return y.to("cpu",t.uint8).numpy().copy()
+
+
 class Regenerator:
     def __init__(self,assets,spec):
         import torch
         self.torch,self.spec=torch,spec
         family=spec["family"]
+        if family=="kandinsky3-movq":
+            self.movq=MoVQ(assets)
+            self.pipe=None
+            return
         if family=="sd15":
             from three_threat_models import load_regenerator
             self.pipe=load_regenerator(assets/"a6")
@@ -280,6 +437,8 @@ class Regenerator:
         import numpy as np
         from PIL import Image
         t=self.torch
+        if self.spec["family"]=="kandinsky3-movq":
+            return self.movq.roundtrip(rgb)
         if self.spec["family"]=="sdxl":
             vae=self.pipe.vae
             vae.to(dtype=t.float32)
@@ -335,7 +494,7 @@ def image_path(out,unit):
 
 
 def expected_methods(unit,config):
-    return config["arms"] if unit["arm"]=="unmarked" else [unit["arm"]]
+    return read_methods(config,unit)
 
 
 def clean_id(unit):
@@ -366,6 +525,10 @@ def produce_images(config,sources,out,assets,journal,budget,smoke,memory=None):
             adapter=Wam(assets)
         elif arm=="vine-r":
             adapter=Vine(assets,encoding=True)
+        elif arm=="trustmark-q":
+            adapter=TrustMarkQ(assets)
+        elif arm=="pixelseal":
+            adapter=PixelSeal(assets)
         for unit in pending:
             budget.check()
             start=time.monotonic()
@@ -452,7 +615,8 @@ def read_images(config,sources,out,assets,journal,budget,smoke,memory=None):
         budget.check()
         if memory:
             memory.begin("extraction/"+method)
-        adapter=Internal(assets,config) if method in ("f5-r2","v5-r3") else Wam(assets) if method=="wam" else Vine(assets)
+        adapter=(Internal(assets,config) if method in ("f5-r2","v5-r3") else Wam(assets) if method=="wam" else
+                 TrustMarkQ(assets) if method=="trustmark-q" else PixelSeal(assets) if method=="pixelseal" else Vine(assets))
         for unit in pending:
             budget.check()
             row=journal.latest[unit["id"]].copy()
@@ -519,7 +683,7 @@ def projected_seconds(config,sources,smoke_rows):
         if row is None:
             raise ValueError("Smoke is missing a planned unit")
         key=(row["channel"],row["strength"],row["arm"])
-        methods=config["arms"] if unit["control"]=="C0" else [unit["arm"]]
+        methods=read_methods(config,unit)
         required=[(m,o) for m in methods for o in ([ALPHA,BETA] if m in ("f5-r2","v5-r3") and unit["control"]=="C1" else [ALPHA])]
         if row.get("status")!="ok" or row.get("distortion",{}).get("status")!="ok" or any(row.get("detections",{}).get(m,{}).get(o,{}).get("status")!="ok" for m,o in required):
             raise ValueError("Smoke has failed units/calls; fix implementation before full run")
@@ -532,28 +696,22 @@ def budget_contract(config,sources,smoke_rows,available):
     import copy
     effective=copy.deepcopy(config)
     dropped=[]
-    for stage in (None,"R2","D2","strength_0.1"):
+    for stage in (None,*reduction_steps(config)):
         if stage:
-            for spec in effective["channels"]:
-                if spec["id"]==stage:
-                    spec["enabled"]=False
-                if stage=="strength_0.1":
-                    if spec["kind"]=="rinse":
-                        spec["enabled"]=False
-                    if .1 in spec.get("strengths",[]):
-                        spec["strengths"].remove(.1)
+            apply_reduction(effective,stage)
             dropped.append(stage)
         projection=projected_seconds(effective,sources,smoke_rows)
         if projection<=available:
             return effective,dict(projected_seconds=projection,available_seconds=available,dropped=dropped,
                                   rule="maximum timing per smoke source/cell +30% +900s model-loading reserve; no scores read")
-    raise TimeoutError("Protected R0/R1 .2/.4 schedule cannot fit budget after permitted reductions")
+    raise TimeoutError("Protected schedule cannot fit the budget after the permitted reductions")
 
 
 def execute(args,config,sources):
-    if config.get("status")!="frozen-after-independent-review":
-        raise ValueError("Scientific execution requires the completed independent design review and frozen package")
-    budget=Budget(args.instance_start_utc,args.hourly_usd)
+    contract_status(config)
+    limits=config.get("budget",{})
+    budget=Budget(args.instance_start_utc,args.hourly_usd,limits.get("retrieval_stop_reserve_seconds",1800),
+                  limits.get("max_instance_hours",15),limits.get("max_usd",15))
     budget.check()
     args.output_dir.mkdir(parents=True,exist_ok=True)
     if args.phase=="prepare":
