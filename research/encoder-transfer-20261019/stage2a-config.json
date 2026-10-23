@@ -1,0 +1,379 @@
+{
+  "schema": "encoder-transfer-v1",
+  "status": "user-amended-pre-outcome",
+  "data_split": "development",
+  "n": 60,
+  "sources_file": "research/encoder-transfer-20261019/source-list.json",
+  "sources_sha256": "490d3d04efcf6e02a61eeadeacb7494313d2a5607b84fd57a7a2c0e6faea8b72",
+  "asset_plan_file": "research/encoder-transfer-20261019/stage2a-asset-plan.json",
+  "asset_plan_sha256": "9550d6e0a10f9c88c7c62ee79a27d949f2ba8b8c74daeae88addbbf41db9f707",
+  "profile_file": "experiments/c4-v5-two-tier-regeneration-v1/profile.json",
+  "profile_sha256": "25f9cb188368be04cd8d2b95ea1066872d3ca70908bd554af01ff93a53b40723",
+  "arms": [
+    "f5-r2",
+    "v5-r3",
+    "wam",
+    "vine-r",
+    "trustmark-q",
+    "pixelseal"
+  ],
+  "seeds": [
+    12,
+    13,
+    14
+  ],
+  "message_seed": 20261019,
+  "wrong_message_seed": 20261020,
+  "implementation_seed": 42,
+  "payload_bits": {
+    "wam": 32,
+    "vine-r": 100,
+    "trustmark-q": 61,
+    "pixelseal": 256
+  },
+  "f5": {
+    "psnr_db": 52.0,
+    "steps": 150,
+    "target_margin": 4.0,
+    "mask_power": 0.0,
+    "band": [
+      4,
+      32
+    ],
+    "whitening": 1.0,
+    "refine_rounds": 1,
+    "binding": "soft",
+    "semantic_views": 7
+  },
+  "channels": [
+    {
+      "id": "R0",
+      "kind": "diffusion",
+      "family": "sd15",
+      "resolution": 512,
+      "steps": 20,
+      "prompt": "",
+      "guidance_scale": 1.0,
+      "strengths": [
+        0.2
+      ],
+      "seeds": [
+        12,
+        13,
+        14
+      ],
+      "scheduler_overrides": {
+        "num_train_timesteps": 1000,
+        "beta_start": 0.00085,
+        "beta_end": 0.012,
+        "beta_schedule": "scaled_linear",
+        "trained_betas": null,
+        "clip_sample": false,
+        "set_alpha_to_one": false,
+        "steps_offset": 1,
+        "prediction_type": "epsilon",
+        "thresholding": false,
+        "timestep_spacing": "leading",
+        "rescale_betas_zero_snr": false
+      },
+      "arms": [
+        "f5-r2",
+        "v5-r3",
+        "wam",
+        "vine-r"
+      ]
+    },
+    {
+      "id": "R1",
+      "kind": "diffusion",
+      "family": "sdxl",
+      "resolution": 1024,
+      "steps": 20,
+      "prompt": "",
+      "guidance_scale": 1.0,
+      "strengths": [
+        0.2
+      ],
+      "seeds": [
+        12,
+        13,
+        14
+      ],
+      "scheduler_overrides": {
+        "num_train_timesteps": 1000,
+        "beta_start": 0.00085,
+        "beta_end": 0.012,
+        "beta_schedule": "scaled_linear",
+        "trained_betas": null,
+        "clip_sample": false,
+        "set_alpha_to_one": false,
+        "steps_offset": 1,
+        "prediction_type": "epsilon",
+        "thresholding": false,
+        "timestep_spacing": "leading",
+        "rescale_betas_zero_snr": false
+      },
+      "arms": [
+        "f5-r2",
+        "v5-r3",
+        "wam",
+        "vine-r",
+        "trustmark-q",
+        "pixelseal"
+      ]
+    },
+    {
+      "id": "D1",
+      "kind": "vae",
+      "family": "sdxl",
+      "base_channel": "R1",
+      "resolution": 1024,
+      "arms": [
+        "f5-r2",
+        "v5-r3",
+        "wam",
+        "vine-r",
+        "trustmark-q"
+      ]
+    },
+    {
+      "id": "X1",
+      "kind": "resize",
+      "passes": 1,
+      "arms": [
+        "f5-r2",
+        "v5-r3",
+        "wam",
+        "vine-r"
+      ]
+    },
+    {
+      "id": "X2",
+      "kind": "resize",
+      "passes": 2,
+      "arms": [
+        "f5-r2",
+        "v5-r3",
+        "wam",
+        "vine-r"
+      ]
+    },
+    {
+      "id": "R1-rinse",
+      "kind": "rinse",
+      "family": "sdxl",
+      "base_channel": "R1",
+      "resolution": 1024,
+      "strengths": [
+        0.1
+      ],
+      "pass_strength": 0.1,
+      "seeds": [
+        12,
+        13,
+        14
+      ],
+      "seed_offset": 100,
+      "enabled": false,
+      "reason": "Stage 2b only (BRIEF 1d): runs only if stage 2a gives TRANSFERS"
+    },
+    {
+      "id": "D3",
+      "kind": "vae",
+      "family": "kandinsky3-movq",
+      "resolution": 1024,
+      "arms": [
+        "f5-r2",
+        "v5-r3",
+        "wam",
+        "vine-r"
+      ],
+      "semantics": "Kandinsky3Img2ImgPipeline round trip: movq.encode(x).latents, then movq.decode(z, force_not_quantize=True); fp32 compute from the fp16 weights; no diffusion"
+    },
+    {
+      "id": "R2",
+      "enabled": false,
+      "kind": "diffusion",
+      "family": "flux-schnell",
+      "reason": "Official repository gated=auto; anonymous download fails ungated condition"
+    },
+    {
+      "id": "D2",
+      "enabled": false,
+      "kind": "vae",
+      "family": "flux-schnell",
+      "reason": "R2 unavailable"
+    }
+  ],
+  "packages": {
+    "torch": "2.7.1+cu128",
+    "torchvision": "0.22.1+cu128",
+    "diffusers": "0.35.1",
+    "transformers": "4.53.3",
+    "huggingface-hub": "0.34.4",
+    "peft": "0.17.0",
+    "accelerate": "1.10.1",
+    "safetensors": "0.6.2",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "Pillow": "12.3.0",
+    "lpips": "0.1.4",
+    "omegaconf": "2.3.0",
+    "einops": "0.8.0",
+    "timm": "1.0.11",
+    "pycocotools": "2.0.8",
+    "opencv-python-headless": "4.10.0.84",
+    "scikit-image": "0.24.0",
+    "scikit-learn": "1.5.2",
+    "ftfy": "6.3.1",
+    "regex": "2025.7.34",
+    "tokenizers": "0.21.2",
+    "lightning": "2.5.6",
+    "torchmetrics": "1.8.2"
+  },
+  "primary": {
+    "channel": "R1",
+    "strength": 0.2,
+    "endpoint": "C",
+    "aggregation": "2 of 3 seeds per source",
+    "negative_endpoint": "A",
+    "negative_scope": "all active R1 outputs (stage 2a: strength 0.2), no majority",
+    "transfer_cut": 45,
+    "fail_below": 30,
+    "margin": 3
+  },
+  "budget": {
+    "max_instance_hours": 35,
+    "max_usd": 30,
+    "retrieval_stop_reserve_seconds": 1800,
+    "reduction_steps": [
+      "channel:D3",
+      "arm:trustmark-q",
+      "arm:pixelseal"
+    ],
+    "protected": [
+      "F5, v5, WAM, VINE-R and C0 at R0 0.2 and R1 0.2"
+    ],
+    "scope": "Total for stages 2a and 2b together (user, 2026-10-21)"
+  },
+  "reporting": {
+    "lpips_bins": [
+      0,
+      0.05,
+      0.1,
+      0.2,
+      0.3,
+      0.5,
+      null
+    ],
+    "attack_calipers": {
+      "psnr_db": 1,
+      "ssim_rgb": 0.02,
+      "lpips": 0.02
+    },
+    "embedding_calipers": {
+      "psnr_db": 1,
+      "ssim_rgb": 0.01,
+      "lpips": 0.01
+    },
+    "secondary_inference": "none",
+    "primary_sign_holm_family": 3,
+    "human_visual_assessment": "missing",
+    "internal_carrier_states": [
+      "missing_call",
+      "raw_unavailable",
+      "not_found",
+      "found_not_read",
+      "read_content_mismatch",
+      "C_success"
+    ],
+    "carrier_state_priority": "read/content before found; raw fields required; descriptive source-grouped counts",
+    "read_without_found_diagnostic": true,
+    "exact_Q_separate": true,
+    "statistical_interpretation": {
+      "planning_reference": "research/encoder-transfer-20261019/design-research/T6-statistics/planning-table-v2.json",
+      "operating_characteristics": "hypothetical conditional laws, not empirical outcomes; count-table transfer assumes complete passing negative gate",
+      "cohort_inference": "exploratory source-binomial assumptions on deterministic development cohort; no population-FPR certification",
+      "dependence": "seed marginals and pairwise ICC do not identify three-way majority; arm marginals do not identify external-maximum route"
+    },
+    "empirical_roc_contract": {
+      "score_comparison": "score >= cutoff",
+      "strict_fpr_targets": [
+        0.001,
+        0.01
+      ],
+      "cutoff_selection": "maximum TPR, fewest false positives, highest cutoff; reject-all sentinel retained",
+      "source_positive_missing": "minus infinity per missing seed before median",
+      "source_negative_missing": "any missing seed makes view not estimable",
+      "role": "descriptive; never replaces fixed endpoint or decision"
+    }
+  },
+  "freeze_utc": "2026-10-20T22:35:47.127666+00:00",
+  "design_review_file": "research/encoder-transfer-20261019/design-review-2.md",
+  "stage1b_reopened_utc": "2026-10-20T11:55:19.675479+00:00",
+  "prior_frozen_commit": "c2384e76b562d93c94d68b7093463eb96db44b21",
+  "prior_freeze_utc": "2026-10-20T08:01:29.605632+00:00",
+  "stage1b_reviewed_content_commit": "fc32ea8ca28f2eb613595e894292a95f751271bf",
+  "decision_external_arms": [
+    "wam",
+    "vine-r"
+  ],
+  "holm_arms": [
+    "v5-r3",
+    "wam",
+    "vine-r"
+  ],
+  "protected_arms": [
+    "f5-r2",
+    "v5-r3",
+    "wam",
+    "vine-r"
+  ],
+  "protected_channels": [
+    "R0",
+    "R1"
+  ],
+  "trustmark": {
+    "model_type": "Q",
+    "use_ECC": true,
+    "encoding": "BCH_5",
+    "payload_bits": 61,
+    "wm_strength": 1.0,
+    "wm_merge": "bilinear",
+    "decode": "native unrotated path without the bbox detector",
+    "common_presence": "native BCH detected AND binomial agreement on the 61 decoded payload bits",
+    "scope": "clean, D1, R1 0.2 (proposal P1)"
+  },
+  "pixelseal": {
+    "card": "videoseal/cards/pixelseal.yaml",
+    "nbits": 256,
+    "img_size_proc": 256,
+    "mode": "image (is_video=False)",
+    "common_presence": "binomial agreement on the 256 decoded bits",
+    "scope": "clean, R1 0.2 (proposal P9)"
+  },
+  "amendment": {
+    "id": "1d-stage2a",
+    "stage": "2a",
+    "pre_outcome": true,
+    "date_utc": "2026-10-23",
+    "author": "Claude Code (Opus 5.5), at the user's request; the user decided, Claude implemented",
+    "base_config_file": "research/encoder-transfer-20261019/frozen-config.json",
+    "base_config_sha256": "3dbb53c1463ef63fb004e8b66880404906b52941f80f6d3e76ad297e3c048e16",
+    "base_commit": "e318757",
+    "user_decisions": [
+      "2026-10-21, verbatim: Approve P1 TrustMark, P9 PixelSeal, P4 Kandinsky 3 and P5 smoothing; decline the rest; ceiling 35 instance-hours or USD 30.",
+      "2026-10-21: approved the lean two-stage plan (BRIEF section 1d).",
+      "2026-10-23: Claude is responsible for running stage 2, and the server work must continue if the SSH connection drops."
+    ],
+    "decision_rule": "Section 3 unchanged; applied on stage 2a; B = max(WAM, VINE-R) at R1 0.2; TrustMark and Pixel Seal are descriptive.",
+    "not_run_by_design": [
+      "R0 and R1 strengths 0.1 and 0.4",
+      "R1-rinse",
+      "full P4 Kandinsky 3 regeneration",
+      "P5 encoder-aware smoothing",
+      "TrustMark and Pixel Seal outside their proposal cells"
+    ],
+    "stage_2b_rule": "Run only if the stage-2a label is TRANSFERS (ROUTE A or B), with the settings frozen at e318757 and the remaining budget."
+  }
+}

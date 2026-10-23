@@ -451,3 +451,5 @@ The cumulative [receipt index](encoder-transfer-20261019/research-downloads.json
 | facebookresearch/videoseal checkout | https://github.com/facebookresearch/videoseal @ 870ca7fb33578b90f14c602016b6c2788096226e | MIT | git revision |
 
 The TrustMark files match the MD5 values hard-coded in the pinned loader. The Pixel Seal checkpoint (https://dl.fbaipublicfiles.com/videoseal/pixelseal/checkpoint.pth, 1,237,429,197 bytes, MIT) and the Kandinsky 3 MoVQ files (Apache-2.0, revision bf79e6c) are downloaded on the rented server, where their SHA-256 values are measured; they are recorded in `stage2a-asset-plan.json`.
+
+Server-measured (vast container 57402655, 2026-10-23): Pixel Seal checkpoint SHA-256 0c5665cff20eb6ce1b5aaa7d91c19dafb418bfee32d02dd3344e4ed60d9d75bd (1,237,429,197 bytes); Kandinsky 3 MoVQ fp16 weights match the stage-1b pin 8a4705625c160c49025e1f9b98776aaf5287240ca0d5ed39a1a235598fc39244. Contract: stage2a-config.json SHA-256 7de2f5e14494b33e7a95b473b0861ac05f217f5138141bf7072919ca5a8a8dda; stage2a-asset-plan.json SHA-256 9550d6e0a10f9c88c7c62ee79a27d949f2ba8b8c74daeae88addbbf41db9f707.
