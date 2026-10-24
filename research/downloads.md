@@ -453,3 +453,26 @@ The cumulative [receipt index](encoder-transfer-20261019/research-downloads.json
 The TrustMark files match the MD5 values hard-coded in the pinned loader. The Pixel Seal checkpoint (https://dl.fbaipublicfiles.com/videoseal/pixelseal/checkpoint.pth, 1,237,429,197 bytes, MIT) and the Kandinsky 3 MoVQ files (Apache-2.0, revision bf79e6c) are downloaded on the rented server, where their SHA-256 values are measured; they are recorded in `stage2a-asset-plan.json`.
 
 Server-measured (vast container 57402655, 2026-10-23): Pixel Seal checkpoint SHA-256 0c5665cff20eb6ce1b5aaa7d91c19dafb418bfee32d02dd3344e4ed60d9d75bd (1,237,429,197 bytes); Kandinsky 3 MoVQ fp16 weights match the stage-1b pin 8a4705625c160c49025e1f9b98776aaf5287240ca0d5ed39a1a235598fc39244. Contract: stage2a-config.json SHA-256 7de2f5e14494b33e7a95b473b0861ac05f217f5138141bf7072919ca5a8a8dda; stage2a-asset-plan.json SHA-256 9550d6e0a10f9c88c7c62ee79a27d949f2ba8b8c74daeae88addbbf41db9f707.
+
+## 2026-10-24: local reporting environment (Claude Code, Opus 5.5)
+
+These are installed from PyPI into MAIN `.thesis-build/report-venv` (Python 3.12.14), used only by `scripts/encoder_transfer_report.py` to render the stage-2a T7 tables and figures. No existing environment was changed, and the packages hold no model weights or data.
+
+| Package | Wheel URL | Licence | SHA-256 |
+|---|---|---|---|
+| contourpy 1.4.0 | https://files.pythonhosted.org/packages/50/a9/dab08786bb4d77ef9a046b3c1be923be4e73c5d07d91f5a54e8ea9b09e41/contourpy-1.4.0-cp312-cp312-win_amd64.whl | BSD-3-Clause | 6e697d94e69f499ff6bebb899cae97a58d5d14f0e1fe9568b43a0248d2f9af8c |
+| cycler 0.12.1 | https://files.pythonhosted.org/packages/e7/05/c19819d5e3d95294a6f5947fb9b9629efb316b96de511b418c53d245aae6/cycler-0.12.1-py3-none-any.whl | BSD-3-Clause | 85cef7cff222d8644161529808465972e51340599459b8ac3ccbac5a854e0d30 |
+| fonttools 4.67.0 | https://files.pythonhosted.org/packages/c1/3a/625a6dd0173e88dbea1826405b4bcbfa06c6ca095310ed720caba36b2e43/fonttools-4.67.0-cp312-cp312-win_amd64.whl | MIT | 2bfab2f5d1d255dec82f4bd082a1c10e77df808e42210890f50a9c30bf91570e |
+| kiwisolver 1.5.1 | https://files.pythonhosted.org/packages/6e/7c/7b210498f9f92e1cd7855f260fa69ef056881087b199ee20c208f0e4189a/kiwisolver-1.5.1-cp312-cp312-win_amd64.whl | BSD-3-Clause | 06a6917674de9e0fe3f66f5430787f59a9f2ddb64af9b714eaec547e29ef5c19 |
+| matplotlib 3.10.3 | https://files.pythonhosted.org/packages/b1/79/0d1c165eac44405a86478082e225fce87874f7198300bbebc55faaf6d28d/matplotlib-3.10.3-cp312-cp312-win_amd64.whl | Matplotlib License (PSF-based) | cf37d8c6ef1a48829443e8ba5227b44236d7fcaf7647caa3178a4ff9f7a5be05 |
+| numpy 2.2.6 | https://files.pythonhosted.org/packages/36/fa/8c9210162ca1b88529ab76b41ba02d433fd54fecaf6feb70ef9f124683f1/numpy-2.2.6-cp312-cp312-win_amd64.whl | BSD-3-Clause | c1f9540be57940698ed329904db803cf7a402f3fc200bfe599334c9bd84a40b2 |
+| packaging 26.3 | https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl | Apache-2.0 OR BSD-2-Clause | d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c |
+| pillow 13.0.0 | https://files.pythonhosted.org/packages/ff/cd/73a79ecdc822076002eb24b5e1e4a530b0bb5310fcb6d239abbec877110b/pillow-13.0.0-cp312-cp312-win_amd64.whl | MIT-CMU | ff3fe9eb621fbb9db4c4be33ab946f6bac5f98ab50ca8d3260503653656c961b |
+| pyparsing 3.3.3 | https://files.pythonhosted.org/packages/38/bb/d215ee7c73b61497b28a5503f9f53523f294fcc936762b7caf90e0c1c2b5/pyparsing-3.3.3-py3-none-any.whl | MIT | ece8c00a69cf01b45d0b1dedabb469c90d8caf996d4fda40f147627a122849a4 |
+| python-dateutil 3.0.0 | https://files.pythonhosted.org/packages/5a/17/cebee01d1c0c1441174cf0456ddc91b280d79acb65340c05e41d77866ee8/python_dateutil-3.0.0-py2.py3-none-any.whl | Apache-2.0 and BSD-3-Clause (dual) | 3c79630202e4152c6add678446984236efe4f57e84d8e892aab0637bab82e9fd |
+| six 1.17.0 | https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl | MIT | 4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274 |
+| tzdata 2026.5 | https://files.pythonhosted.org/packages/94/21/1e5995a1c920cce14e4bffae20c665ec10e7ed03ab25e006cd741092b718/tzdata-2026.5-py2.py3-none-any.whl | Apache-2.0 | b683bd1b6659ddcd810ff02ad09ba821d4bf1065072805063eb35c49617905ac |
+
+The SHA-256 values are PyPI's published digests for these wheel files. pip installed the same versions, but the local wheels were not kept.
+
+The CLIP package installed on the stage-2 server on 2026-10-24 also belongs here: openai/CLIP at d05afc436d78f1c48dc0dbf8e5980a9d471f35f6, MIT, `--no-deps`. `a6_clip_visual` verifies its `clip.py` and `model.py` bytes at every load. So does av 18.1.0 (PyAV, BSD-3-Clause; its wheel bundles LGPL FFmpeg libraries), installed from PyPI on the server.

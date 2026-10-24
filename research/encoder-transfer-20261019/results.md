@@ -217,16 +217,13 @@ Step 1's "unseen regenerator" result (`research/journal-upgrade-20261009/unseen-
 - calibrated false-positive rates for TrustMark or Pixel Seal;
 - that the image-domain F5 is the proposal's latent method (RQ-02/HYP-02 stay open).
 
-## Reporting items deferred
+## T7 tables and figures
 
-The protocol makes T7's eight-table, seven-figure reporting plan binding. This file covers the primary, anchor, diagnostic, negative, quality and step-1 tables. The items below are computed in `metrics.json` but not yet rendered here:
-- **Table 3**, the per-output k/180 grid: `cells` and `reporting.negatives`;
-- **Table 5**, the empirical ROC: `reporting.empirical_roc`;
-- **Table 6**, the matched distortion: `reporting.matched_distortion`. The within-arm R0-against-R1 comparison is not estimable, with 0 pairs;
-- **Table 7**, extraction time and memory per arm: `rows.jsonl` `detection_seconds` and `memory-phases.json`;
-- **Figures 1 to 7.**
+The protocol makes T7's eight-table, seven-figure reporting plan binding. All of it is rendered in `report/tables.md` and `report/figures/` by `scripts/encoder_transfer_report.py`, which reads only the saved outputs. Two items deviate by design:
+- the rinse panels are marked "not run by design";
+- the R0 empirical ROC is marked not estimable, because of 2 unresolved C0 negatives (safety blocks).
 
-They must be rendered before any article use.
+It adds Figure A1, the post-hoc margins. The Figure 7 previews use 144-pixel tiles; full-resolution panels are in the run folder (`report-full/figures/`). A skeleton of the ROUTE C article is in `article/route-c-skeleton.md`.
 
 ## Review
 
