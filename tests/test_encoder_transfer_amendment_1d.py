@@ -127,6 +127,44 @@ class DecisionIsolationTests(unittest.TestCase):
         self.assertIn("pixelseal/R1/0.2", result["reporting"]["external_operating_points"])
 
 
+@unittest.skipUnless(BUILT, "needs stage2a-config.json")
+class SmokeProjectionTests(unittest.TestCase):
+    def rows(self, config, sources):
+        rows = {}
+        for unit in et.plan(config, sources, True):
+            calls = {m: {et.ALPHA: dict(status="ok"), et.BETA: dict(status="ok")} for m in et.read_methods(config, unit)}
+            rows[unit["id"]] = dict(unit, status="ok", distortion=dict(status="ok"), detections=calls, generation_seconds=1.)
+        return rows
+
+    def block(self, rows, channel, status="safety_blocked", source=None, arm=None):
+        for row in rows.values():
+            if row["channel"] == channel and source in (None, row["source_id"]) and arm in (None, row["arm"]):
+                row["status"] = status
+
+    def test_sd15_safety_block_is_timed_from_the_other_smoke_source(self):
+        import encoder_transfer_runtime as runtime
+        config, sources = stage2a()
+        full = len(list(et.plan(config, sources)))
+        rows = self.rows(config, sources)
+        self.assertAlmostEqual(runtime.projected_seconds(config, sources, rows), 1.3 * full + 900)
+        first = sorted({r["source_id"] for r in rows.values()})[0]
+        self.block(rows, "R0", source=first)
+        self.assertAlmostEqual(runtime.projected_seconds(config, sources, rows), 1.3 * full + 900)
+
+    def test_untimed_cells_and_other_failures_are_still_refused(self):
+        import encoder_transfer_runtime as runtime
+        config, sources = stage2a()
+        rows = self.rows(config, sources)
+        self.block(rows, "R0", arm="wam")
+        with self.assertRaises(ValueError):
+            runtime.projected_seconds(config, sources, rows)
+        for channel, status in (("D1", "safety_blocked"), ("R0", "error")):
+            rows = self.rows(config, sources)
+            self.block(rows, channel, status=status, source=sorted({r["source_id"] for r in rows.values()})[0])
+            with self.assertRaises(ValueError):
+                runtime.projected_seconds(config, sources, rows)
+
+
 class BudgetTests(unittest.TestCase):
     def test_amended_ceiling_is_hours_or_dollars_whichever_first(self):
         import time

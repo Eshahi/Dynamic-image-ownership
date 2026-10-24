@@ -676,12 +676,19 @@ def read_images(config,sources,out,assets,journal,budget,smoke,memory=None):
 
 
 def projected_seconds(config,sources,smoke_rows):
-    """Timing only: use the slower smoke source in each arm/cell, plus 30%."""
+    """Timing only: use the slower smoke source in each arm/cell, plus 30%.
+
+    A block by R0's frozen SD1.5 safety checker is a terminal content outcome (protocol: blocked
+    inventories are retained), not an implementation failure; that cell is timed from the other
+    smoke source, and a cell with no timed unit is still refused.
+    """
     costs={}
     for unit in plan(config,sources,True):
         row=smoke_rows.get(unit["id"])
         if row is None:
             raise ValueError("Smoke is missing a planned unit")
+        if row.get("status")=="safety_blocked" and row["channel"]=="R0":
+            continue
         key=(row["channel"],row["strength"],row["arm"])
         methods=read_methods(config,unit)
         required=[(m,o) for m in methods for o in ([ALPHA,BETA] if m in ("f5-r2","v5-r3") and unit["control"]=="C1" else [ALPHA])]
@@ -689,6 +696,9 @@ def projected_seconds(config,sources,smoke_rows):
             raise ValueError("Smoke has failed units/calls; fix implementation before full run")
         elapsed=row.get("generation_seconds",0)+row.get("metrics_seconds",0)+sum(row.get("detection_seconds",{}).values())
         costs[key]=max(costs.get(key,0),elapsed)
+    untimed=sorted({(u["channel"],u["strength"],u["arm"]) for u in plan(config,sources)}-set(costs),key=str)
+    if untimed:
+        raise ValueError(f"Smoke has no timed unit for {untimed}")
     return 1.3*sum(costs[(u["channel"],u["strength"],u["arm"])] for u in plan(config,sources))+900
 
 
