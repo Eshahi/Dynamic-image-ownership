@@ -107,6 +107,26 @@ Some instance-tier signal therefore survives in about half of the sources, but w
   - WAM: .625 over only 44 calls; 136 of 180 had an empty mask and abstained. At R0 the WAM median is .8125 over 120 calls, with 58 abstentions.
   - TrustMark: decodes no BCH codeword at R1.
 
+## Signal margins by channel (post-hoc, descriptive)
+
+The table gives the median detector score/threshold ratio over each arm's own marked outputs, read with owner alpha; 1 is the detection threshold. Added on 2026-10-24 after the label was fixed. No setting is chosen from it, and it must not be used to tune any method on SDXL outputs.
+
+| Channel | F5 semantic | F5 instance | v5 semantic | C0 (F5 semantic) |
+|---|---|---|---|---|
+| clean | 1.85 | 2.13 | 2.01 | — |
+| X1 / X2 | 1.76 / 1.69 | — | 2.01 / 2.01 | −.09 / −.09 |
+| D1 (SDXL VAE) | 1.57 | 1.63 | 2.00 | −.09 |
+| D3 (MoVQ) | 1.64 | 1.70 | 1.97 | −.08 |
+| R0 SD1.5 .2 | 1.62 | .06 | 1.16 | −.08 |
+| R1 SDXL .2 | **.33** | 1.00 | 1.05 | −.04 |
+
+- **F5's semantic tier:** it loses about 12% of its clean margin under SD1.5 img2img and about 82% under SDXL img2img. The two autoencoder round trips cost 11–15%.
+- **F5's two tiers move in opposite directions:** the instance tier collapses under SD1.5 (.06) but sits at its threshold under SDXL (1.00). That is why A is 30/60 at R1 while C is 0/60.
+- **v5:** its margin falls by a similar amount under both regenerators (1.16 and 1.05), without the SD1.5 advantage.
+- **Same-channel C0:** it stays near 0 everywhere.
+
+These are descriptive regularities in one cohort and one setting; they are not tested mechanisms.
+
 ## Negatives
 
 Every negative call is observed except the R0 calls lost to safety blocks, which are unresolved:
