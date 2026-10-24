@@ -45,6 +45,7 @@ The new contract is `stage2a-config.json`, built by `scripts/encoder_transfer_am
   - If the smoke projection overruns, the declared reduction order is: drop D3, then TrustMark, then Pixel Seal.
   - F5, v5, WAM, VINE-R and C0 at R0 .2 and R1 .2 are protected.
 - **Packages:** `lightning` and `torchmetrics` are added, because the pinned TrustMark loader imports them. Their exact versions are those installed on the server, pinned in the contract before the run.
+  - `av` (PyAV) is added on 2026-10-24, still pre-outcome. The first adapter check failed because the pinned VideoSeal package imports it (`videoseal/augmentation/video.py`, listed unpinned in its `requirements.txt`). It is needed only at import, because Pixel Seal runs in image mode with a no-op augmenter. The contract was rebuilt with its installed version. No study source had been marked, regenerated or read at that point; the adapter check uses one reserved smoke source.
 - **Assets** (`stage2a-asset-plan.json`):
   - pinned checkouts: adobe/trustmark@6df5a0a29b51cbec832695fdf02051a1937e37bd and facebookresearch/videoseal@870ca7fb33578b90f14c602016b6c2788096226e;
   - TrustMark Q encoder, decoder and config, which match the loader's hard-coded MD5 values;

@@ -229,7 +229,8 @@
     "regex": "2025.7.34",
     "tokenizers": "0.21.2",
     "lightning": "2.5.6",
-    "torchmetrics": "1.8.2"
+    "torchmetrics": "1.8.2",
+    "av": "18.1.0"
   },
   "primary": {
     "channel": "R1",

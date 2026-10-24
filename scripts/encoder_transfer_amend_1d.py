@@ -118,7 +118,8 @@ def build_config(asset_plan_sha, extra_packages):
                                scope="clean, D1, R1 0.2 (proposal P1)")
     config["pixelseal"] = dict(card="videoseal/cards/pixelseal.yaml", nbits=256, img_size_proc=256, mode="image (is_video=False)",
                                common_presence="binomial agreement on the 256 decoded bits", scope="clean, R1 0.2 (proposal P9)")
-    # TrustMark imports lightning and torchmetrics; their versions are the ones installed on the server.
+    # TrustMark imports lightning and torchmetrics, and the Pixel Seal import chain (videoseal.augmentation.video)
+    # imports PyAV (av); their versions are the ones installed on the server.
     config["packages"] = {**base["packages"], **extra_packages}
     config["primary"] = {**base["primary"], "negative_scope": "all active R1 outputs (stage 2a: strength 0.2), no majority"}
     config["budget"] = dict(max_instance_hours=35, max_usd=30, retrieval_stop_reserve_seconds=1800,
@@ -145,11 +146,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--downloads", type=Path, required=True)
     parser.add_argument("--package", action="append", default=[], metavar="NAME=VERSION",
-                        help="Extra pinned package (lightning, torchmetrics), as installed on the server")
+                        help="Extra pinned package (lightning, torchmetrics, av), as installed on the server")
     args = parser.parse_args()
     extra = dict(item.split("=", 1) for item in args.package)
-    if set(extra) != {"lightning", "torchmetrics"}:
-        raise SystemExit("Pass exactly --package lightning=X --package torchmetrics=Y")
+    if set(extra) != {"lightning", "torchmetrics", "av"}:
+        raise SystemExit("Pass exactly --package lightning=X --package torchmetrics=Y --package av=Z")
     asset_plan = build_assets(args.downloads)
     write(STUDY / "stage2a-asset-plan.json", asset_plan)
     config = build_config(digest(STUDY / "stage2a-asset-plan.json"), extra)
