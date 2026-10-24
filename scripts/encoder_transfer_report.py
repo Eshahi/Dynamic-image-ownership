@@ -419,7 +419,8 @@ def setup_matplotlib():
 
 def save(fig, out, name):
     fig.savefig(out / f"{name}.png", bbox_inches="tight")
-    fig.savefig(out / f"{name}.pdf", bbox_inches="tight")
+    # No creation date, so that rerunning on the same outputs gives identical files.
+    fig.savefig(out / f"{name}.pdf", bbox_inches="tight", metadata={"CreationDate": None})
 
 
 def figure1(run, plt, out):
@@ -747,7 +748,8 @@ def main():
               "## Tables",
               ""]
     body = "\n\n".join(t(run) for t in (table1, table2, table3, table4, table5, table6, table7, table8))
-    (args.out / "tables.md").write_text("\n".join(header) + body + "\n", encoding="utf-8")
+    with open(args.out / "tables.md", "w", encoding="utf-8", newline="\n") as handle:
+        handle.write("\n".join(header) + body + "\n")
     print(f"wrote {args.out / 'tables.md'} and {len(list(figures.iterdir()))} figure files")
 
 
