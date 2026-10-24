@@ -428,3 +428,9 @@
 
 2026-10-20T22:36:27.932320+00:00 | Codex agent push verified | codex/encoder-transfer-20261019 | 4dd0c16..fc32ea8ca28f2eb613595e894292a95f751271bf | T8 conservative intent closure.
 2026-10-20T22:36:27.932320+00:00 | Codex agent final re-freeze push | codex/encoder-transfer-20261019 | fc32ea8..this release commit | Independent review2 PASS, all floors met, release metadata/hash and stage-1b stop; push will be verified by git ls-remote after this commit. No scientific execution.
+2026-10-24T14:10:00Z | Claude Code (Opus 5.5) push | claude/encoder-transfer-stage2 | 6bbcd2d..cb634d5 | Pin PyAV for the Pixel Seal import chain, pre-outcome (contract sha 87e4142f).
+2026-10-24T14:15:00Z | Claude Code (Opus 5.5) push | claude/encoder-transfer-stage2 | cb634d5..90f9888 | Python 3.11 is_junction fallback, implementation only.
+2026-10-24T14:30:30Z | Claude Code (Opus 5.5) push | claude/encoder-transfer-stage2 | 90f9888..b4b2810 | Smoke projection times R0 safety-checker blocks, implementation only.
+2026-10-24T19:19:26Z | Claude Code (Opus 5.5) dev run | .thesis-build/dev-runs/20261024-1431-encoder-transfer-stage2a | server 19b322c = b4b2810 | Stage 2a on vast RTX 4090, 4.8 h, 3,840 units, no reductions: FAILS, ROUTE C (F5 R1 .2 C 0/60; VINE-R 60/60).
+2026-10-24T19:45:00Z | Claude Code (Opus 5.5) escalation | independent review | fresh Claude Opus 5.5 general-purpose agent, default effort | Stage-2a review (BRIEF section 6; substitutes gpt-6-astra because the user had no Codex access): ACCEPT WITH CORRECTIONS.
+2026-10-24T20:16:00Z | Claude Code (Opus 5.5) | vast container 57402655 | FETCHED | All results and 3,830 images verified at home; the driver stopped (not destroyed) the instance.

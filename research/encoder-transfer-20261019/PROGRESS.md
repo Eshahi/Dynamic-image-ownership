@@ -143,3 +143,23 @@ Scientific content fc32ea8ca28f2eb613595e894292a95f751271bf is pushed and remote
 Final release changes only acceptance headers, status/time/review metadata and its dependent planning hash. All15 analytic tables are unchanged; nine stdlib checks pass. The26 CPU fixtures passed both parent and independent review; unchanged code does not need another run. Config SHA-256 3dbb53c1463ef63fb004e8b66880404906b52941f80f6d3e76ad297e3c048e16. Core n60, arms, channels and decision gates are unchanged. No server, GPU, weight download, real-mark scoring, held-out pixels or new outcome occurred. P1-P9 remain optional/unapproved and P10 rejected. MAIN STATE and continuation now record the stage-1 stop. This release is committed and pushed next; no automatic stage2. User/Claude review, the subsequent scope/budget decision and SSH message precede any paid execution.
 
 STAGE-1B STOP REACHED
+
+## 2026-10-24 - Stage 2a executed by Claude (Opus 5.5): FAILS, ROUTE C
+
+- **2026-10-23 18:18Z: the driver started** on vast container 57402655 (RTX 4090).
+  - Prepare passed after one DNS retry.
+  - At 18:29Z the adapter check failed: the Pixel Seal import chain needs `av`. The driver held, and no study image was generated.
+  - The laptop could not reach the server, because Hotspot Shield answers every TCP connection locally. The instance was later stopped from outside the driver.
+- **2026-10-24, after the restart, implementation-only fixes followed, all pre-outcome:**
+  - av 18.1.0 pinned, with the contract rebuilt (cb634d5, config sha 87e4142f);
+  - a Python 3.11 `is_junction` fallback (90f9888);
+  - the openai/CLIP package installed at d05afc4 with `--no-deps`;
+  - the smoke projection now skips R0 safety-checker blocks (b4b2810).
+- **Smoke:** completed at 14:31:22Z. The projection was 6.52 h with 13.4 h available, so no reduction was applied.
+- **Full run:** 14:31:22Z to 19:19:26Z, 4.80 h. All 3,840 units are terminal: 3,830 ok and 10 R0 safety blocks.
+- **Decision:**
+  - F5 R1 .2 source-majority C is 0/60, with C0 0/180 and wrong-owner 0/180, so FAILS and ROUTE C;
+  - B = 60 (VINE-R); the R0 anchor is F5 57/60;
+  - stage 2b is not run by design.
+- **Results and review:** in `results.md`; the independent review is in `review.md`.
+- **Budget clock at the end:** 25.9 h of wall time, which includes the stopped period, or USD 14.5 at the assumed USD 0.56/h. That is within 35 h / USD 30.
