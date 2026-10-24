@@ -51,7 +51,9 @@ def _entries(lock: object) -> list[dict[str, object]]:
 
 
 def _linklike(path: Path) -> bool:
-    return path.is_symlink() or path.is_junction()
+    # Path.is_junction is new in Python 3.12; junctions exist only on Windows, so the
+    # Python 3.11 Linux server has none to detect.
+    return path.is_symlink() or getattr(path, "is_junction", lambda: False)()
 
 
 def verify(asset_root: Path, lock: object) -> dict[str, object]:

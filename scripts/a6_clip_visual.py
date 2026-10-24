@@ -29,7 +29,8 @@ CHECKPOINT_SIZE_BYTES = 353_976_522
 
 
 def _regular_file(path: Path) -> None:
-    if not path.is_file() or path.is_symlink() or path.is_junction():
+    # Path.is_junction is new in Python 3.12; junctions exist only on Windows.
+    if not path.is_file() or path.is_symlink() or getattr(path, "is_junction", lambda: False)():
         raise RuntimeError(f"missing or linked CLIP file: {path.name}")
 
 

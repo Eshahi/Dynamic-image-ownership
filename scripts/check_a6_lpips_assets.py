@@ -11,7 +11,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from verify_science_assets import verify
+from verify_science_assets import _linklike, verify
 
 
 LOCK_SHA256 = "b8c2595857853ea5b7835bb71f12a34dde07b78623c5e638f692dc7eb220b27e"
@@ -32,14 +32,14 @@ def _file_digest(path: Path) -> str:
 
 
 def verify_package(package_root: Path) -> dict[str, str]:
-    if not package_root.is_dir() or package_root.is_symlink() or package_root.is_junction():
+    if not package_root.is_dir() or _linklike(package_root):
         raise ValueError("LPIPS package root must be an existing non-link directory")
     result = {}
     for relative, expected in PACKAGE_FILES.items():
         path = package_root
         for part in relative.split("/"):
             path = path / part
-            if path.is_symlink() or path.is_junction():
+            if _linklike(path):
                 raise ValueError(f"linked LPIPS path: {relative}")
         if not path.is_file():
             raise ValueError(f"missing LPIPS file: {relative}")
