@@ -9,7 +9,8 @@ import zipfile
 from encoder_transfer_test import ROOT, digest, read, write
 
 
-def fetch(spec,root,budget,ledger):
+def fetch(spec,root,budget,ledger,allowance=40_000_000_000):
+    # The frozen 40 GB asset allowance; amendment 2b raises it in its asset plan for full Kandinsky 3 (28.4 GB).
     target=root/spec["path"]
     target.parent.mkdir(parents=True,exist_ok=True)
     if target.exists():
@@ -25,7 +26,7 @@ def fetch(spec,root,budget,ledger):
                 budget.check(120)
                 received+=len(chunk)
                 ledger["bytes_received"]+=len(chunk)
-                if ledger["bytes_received"]>40_000_000_000 or received>spec["size_bytes"]:
+                if ledger["bytes_received"]>allowance or received>spec["size_bytes"]:
                     raise RuntimeError("Frozen asset download allowance exceeded")
                 handle.write(chunk)
         if received!=spec["size_bytes"] or digest(part)!=spec["sha256"]:
@@ -87,8 +88,9 @@ def prepare(root,config,sources,budget):
     root.mkdir(parents=True,exist_ok=True)
     asset_plan=read(ROOT/config["asset_plan_file"])
     ledger=read(root/"download-ledger.json") if (root/"download-ledger.json").exists() else dict(bytes_received=0,files=[])
+    allowance=asset_plan.get("download_allowance_bytes",40_000_000_000)
     for spec in asset_plan["files"]:
-        fetch(spec,root,budget,ledger)
+        fetch(spec,root,budget,ledger,allowance)
     archive=root/"wam/source.zip"
     if not (root/"wam/source").exists():
         with zipfile.ZipFile(archive) as z:
@@ -119,7 +121,7 @@ def prepare(root,config,sources,budget):
     for source in sources["sources"]+sources["smoke"]:
         spec=dict(path=f'sources/raw/{source["source_id"]}',url=source["url"],
                   sha256=source["raw_sha256"],size_bytes=source["raw_bytes"],license=source["license"])
-        raw=fetch(spec,root,budget,ledger)
+        raw=fetch(spec,root,budget,ledger,allowance)
         rgb,receipt=canonicalize(raw.read_bytes(),source["raw_sha256"])
         if receipt["rgb8_sha256"]!=source["rgb8_sha256"]:
             raise ValueError("Canonical development pixel hash mismatch")

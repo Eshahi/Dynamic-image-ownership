@@ -163,3 +163,14 @@ STAGE-1B STOP REACHED
   - stage 2b is not run by design.
 - **Results and review:** in `results.md`; the independent review is in `review.md`.
 - **Budget clock at the end:** 25.9 h of wall time, which includes the stopped period, or USD 14.5 at the assumed USD 0.56/h. That is within 35 h / USD 30.
+
+## 2026-10-24 - Amendment 2b prepared (Claude, Opus 5.5); not run
+
+- **User decision, verbatim:** "Prepare the stage-2b extension amendment (strength curve, rinse, full Kandinsky 3, smoothing) with its exact cost and the new server plan, without running it."
+- **Prepared:** `amendment-2b.md`, plus the builder, seeding, cost, setup, adapter-check and driver changes. There are 8 new CPU tests; all 44 pass.
+- **New work:** 7,200 units, inheriting the 3,840 stage-2a units. On the real stage-2a rows, the stage-2b analysis code reproduces FAILS, ROUTE C and all 131 stage-2a cells exactly.
+- **Cost projection from the measured stage-2a timings** (`stage2b-cost-projection.json`): 11.0–14.6 instance hours, about $5–10.
+- **Before any run, the user must give:**
+  - the go-ahead;
+  - the stage-2a billed hours and dollars;
+  - the new machine and its price.

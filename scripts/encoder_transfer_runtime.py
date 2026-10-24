@@ -5,6 +5,7 @@ are lazy; CPU unit tests use fake adapters. Upstream implementations are loaded
 from separately pinned stage-2 assets, never vendored into this repository.
 """
 from __future__ import annotations
+from collections import Counter
 from datetime import datetime, timezone
 import importlib.metadata
 import json
@@ -405,6 +406,17 @@ class MoVQ:
         return y.to("cpu",t.uint8).numpy().copy()
 
 
+def p5_perturbations(spec):
+    """Amendment 2b / P5: four fixed public Gaussian arrays (used with their negatives), shared by every source and arm."""
+    import hashlib
+    import numpy as np
+    rng=np.random.default_rng(spec["noise_seed"])
+    arrays=rng.standard_normal((spec["pairs"],*spec["shape"]),dtype=np.float32)*np.float32(spec["sigma"])
+    if hashlib.sha256(arrays.tobytes()).hexdigest()!=spec["noise_sha256"]:
+        raise ValueError("P5 perturbation arrays differ from the contract")
+    return arrays
+
+
 class Regenerator:
     def __init__(self,assets,spec):
         import torch
@@ -413,6 +425,26 @@ class Regenerator:
         if family=="kandinsky3-movq":
             self.movq=MoVQ(assets)
             self.pipe=None
+            return
+        if family=="kandinsky3":
+            # Amendment 2b / P4: full Kandinsky 3 img2img at revision bf79e6c, native scheduler, fp16 variant.
+            from diffusers import Kandinsky3Img2ImgPipeline
+            pipe=Kandinsky3Img2ImgPipeline.from_pretrained(assets/"kandinsky3",variant="fp16",torch_dtype=torch.float16,
+                                                           use_safetensors=True,local_files_only=True)
+            # The contract fixes the empty prompt without guidance, so the prompt embedding is computed
+            # once with the pinned text encoder, as the pipeline computes it on every call, and the
+            # 21.7 GB encoder then leaves the GPU before the U-Net and MoVQ load.
+            pipe.text_encoder.to("cuda")
+            with torch.no_grad():
+                embeds,_,mask,_=pipe.encode_prompt(spec["prompt"],do_classifier_free_guidance=False,device="cuda",_cut_context=True)
+            require_finite(embeds,torch,"Kandinsky 3 prompt embedding")
+            pipe.text_encoder.to("cpu")
+            pipe.text_encoder=None
+            release()
+            pipe.unet.to("cuda")
+            pipe.movq.to("cuda")
+            pipe.set_progress_bar_config(disable=True)
+            self.pipe,self.prompt=pipe,dict(prompt_embeds=embeds,attention_mask=mask)
             return
         if family=="sd15":
             from three_threat_models import load_regenerator
@@ -452,13 +484,54 @@ class Regenerator:
             raise ValueError("No unregistered diagnostic")
         return np.asarray(out,dtype=np.uint8).copy()
 
-    def __call__(self,rgb,strength,seed):
+    def posterior_mode(self,rgb,perturbations=None):
+        """Amendment 2b / P5: SDXL VAE posterior mode in full fp32, scaled for the img2img path.
+
+        With perturbations, the mean of the modes of clip(x ± g_k, 0, 1) over the antithetic pairs
+        (encoder-aware smoothing); without, the mode of x itself (the matched control).
+        """
+        from PIL import Image
+        t=self.torch
+        vae=self.pipe.vae
+        vae.to(dtype=t.float32)
+        x=self.pipe.image_processor.preprocess(Image.fromarray(rgb)).to("cuda",dtype=t.float32)
+        require_finite(x,t,"P5 VAE input")
+        with t.inference_mode():
+            if perturbations is None:
+                z=vae.encode(x).latent_dist.mode()
+            else:
+                x01=(x+1)/2
+                total=None
+                for g in perturbations:
+                    g=t.from_numpy(g).to("cuda").unsqueeze(0)
+                    for sign in (1.,-1.):
+                        mode=vae.encode((x01+sign*g).clamp(0,1)*2-1).latent_dist.mode()
+                        total=mode if total is None else total+mode
+                z=total/(2*len(perturbations))
+        require_finite(z,t,"P5 posterior mode")
+        vae.to(dtype=t.float16)
+        return z*vae.config.scaling_factor
+
+    def __call__(self,rgb,strength,seed,latent=None):
         import numpy as np
         from PIL import Image
         t=self.torch
-        kwargs=dict(prompt=self.spec["prompt"],image=Image.fromarray(rgb),strength=strength,
+        generator=t.Generator(device="cuda").manual_seed(seed)
+        if self.spec["family"]=="kandinsky3":
+            with t.inference_mode():
+                result=self.pipe(image=Image.fromarray(rgb),strength=strength,num_inference_steps=self.spec["steps"],
+                                 guidance_scale=self.spec["guidance_scale"],generator=generator,output_type="np",
+                                 return_dict=True,**self.prompt)
+            image=result.images[0]
+            if not np.isfinite(image).all():
+                raise FloatingPointError("Kandinsky 3 decoded output contains non-finite values")
+            # The quantization diffusers applies for PIL output (numpy_to_pil).
+            return (image*255).round().astype("uint8")
+        # A given latent (P5) replaces the pipeline's own VAE encoding; the pipeline still adds the
+        # seed's noise at the strength's timestep and denoises.
+        kwargs=dict(prompt=self.spec["prompt"],image=latent if latent is not None else Image.fromarray(rgb),strength=strength,
                     num_inference_steps=self.spec["steps"],guidance_scale=self.spec["guidance_scale"],
-                    generator=t.Generator(device="cuda").manual_seed(seed),output_type="pil",return_dict=True)
+                    generator=generator,output_type="pil",return_dict=True)
         if self.spec["family"] in ("sd15","sdxl"):
             kwargs.update(negative_prompt="",eta=0.)
         if self.spec["family"]=="sdxl":
@@ -569,6 +642,9 @@ def produce_images(config,sources,out,assets,journal,budget,smoke,memory=None):
             release()
             generator=Regenerator(assets,specs[spec.get("base_channel",spec["id"])] )
             loaded_family=family
+        # P5: one smoothed (or control) latent per marked input, reused by its three seeds.
+        perturbations=p5_perturbations(config["p5"]) if spec["kind"]=="smoothing" else None
+        latents={}
         for unit in pending:
             budget.check()
             start=time.monotonic()
@@ -586,6 +662,11 @@ def produce_images(config,sources,out,assets,journal,budget,smoke,memory=None):
                         rgb=resize_rgb(resize_rgb(rgb,1024),512)
                 elif spec["kind"]=="vae":
                     rgb=resize_rgb(generator.roundtrip(resize_rgb(rgb,1024)),512)
+                elif spec["kind"] in ("smoothing","mode"):
+                    key=dependency["output"]["sha256"]
+                    if key not in latents:
+                        latents[key]=generator.posterior_mode(resize_rgb(rgb,1024),perturbations)
+                    rgb=resize_rgb(generator(None,unit["strength"],unit["seed"],latent=latents[key]),512)
                 else:
                     size=spec["resolution"]
                     rgb=resize_rgb(rgb,size) if size!=512 else rgb
@@ -681,25 +762,30 @@ def projected_seconds(config,sources,smoke_rows):
     A block by R0's frozen SD1.5 safety checker is a terminal content outcome (protocol: blocked
     inventories are retained), not an implementation failure; that cell is timed from the other
     smoke source, and a cell with no timed unit is still refused.
+    Amendment 2b: cells inherited from stage 2a are already complete and are neither timed nor charged.
     """
+    inherited={tuple(cell) for cell in config.get("inherited_cells",[])}
+    needed=Counter((u["channel"],u["strength"],u["arm"]) for u in plan(config,sources) if (u["channel"],u["strength"],u["arm"]) not in inherited)
     costs={}
     for unit in plan(config,sources,True):
+        key=(unit["channel"],unit["strength"],unit["arm"])
+        if key not in needed:
+            continue
         row=smoke_rows.get(unit["id"])
         if row is None:
             raise ValueError("Smoke is missing a planned unit")
         if row.get("status")=="safety_blocked" and row["channel"]=="R0":
             continue
-        key=(row["channel"],row["strength"],row["arm"])
         methods=read_methods(config,unit)
         required=[(m,o) for m in methods for o in ([ALPHA,BETA] if m in ("f5-r2","v5-r3") and unit["control"]=="C1" else [ALPHA])]
         if row.get("status")!="ok" or row.get("distortion",{}).get("status")!="ok" or any(row.get("detections",{}).get(m,{}).get(o,{}).get("status")!="ok" for m,o in required):
             raise ValueError("Smoke has failed units/calls; fix implementation before full run")
         elapsed=row.get("generation_seconds",0)+row.get("metrics_seconds",0)+sum(row.get("detection_seconds",{}).values())
         costs[key]=max(costs.get(key,0),elapsed)
-    untimed=sorted({(u["channel"],u["strength"],u["arm"]) for u in plan(config,sources)}-set(costs),key=str)
+    untimed=sorted(set(needed)-set(costs),key=str)
     if untimed:
         raise ValueError(f"Smoke has no timed unit for {untimed}")
-    return 1.3*sum(costs[(u["channel"],u["strength"],u["arm"])] for u in plan(config,sources))+900
+    return 1.3*sum(count*costs[key] for key,count in needed.items())+900
 
 
 def budget_contract(config,sources,smoke_rows,available):
@@ -783,6 +869,12 @@ def execute(args,config,sources):
             write(effective_path,effective)
         config=effective
     journal=Journal(args.output_dir/"rows.jsonl")
+    # Amendment 2b: in the full run, stage-2a cells are inherited, never rerun; their verified rows
+    # must be seeded first (encoder_transfer_seed_2b.py). The smoke reruns its two reserved sources.
+    inherited={tuple(cell) for cell in config.get("inherited_cells",[])} if not smoke else set()
+    unseeded=[u["id"] for u in plan(config,sources) if (u["channel"],u["strength"],u["arm"]) in inherited and not journal.done(u["id"])]
+    if unseeded:
+        raise ValueError(f"Seed the stage-2a rows before stage 2b: {len(unseeded)} inherited units missing, e.g. {unseeded[0]}")
     memory=PhaseMemory(torch.cuda,args.output_dir/"memory-phases.json")
     start=time.monotonic()
     write(record_path,record)
@@ -796,6 +888,9 @@ def execute(args,config,sources):
         else:
             metrics=analyze(config,sources,journal.latest)
             write(args.output_dir/"metrics.json",metrics)
+            final=config.get("amendment",{}).get("stage2a_decision")
+            if final and (metrics["decision"]["label"],metrics["decision"]["route"])!=(final["label"],final["route"]):
+                raise ValueError("The stage-2b analysis does not reproduce the final stage-2a label")
             record["outcome"]="completed"
             record["decision"]=metrics["decision"]
     except BaseException:

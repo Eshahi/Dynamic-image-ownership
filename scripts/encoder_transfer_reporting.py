@@ -162,7 +162,7 @@ def reporting(config,sources,rows,vectors):
         cid=spec["id"]
         for strength in spec.get("strengths",[None]):
             seeds=spec.get("seeds",[None])
-            scoped=channel_arms(config,spec)
+            scoped=channel_arms(config,spec,strength)
             for arm in ["unmarked",*scoped]:
                 units=[rows.get(unit_id(sid,cid,strength,seed,arm),{}) for sid in ids for seed in seeds]
                 prefix=f"{arm}/{cid}/{strength}"

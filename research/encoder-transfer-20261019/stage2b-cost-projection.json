@@ -1,0 +1,63 @@
+{
+  "new_units": 7200,
+  "low": {
+    "raw_compute_hours": 7.21,
+    "runner_projection_hours": 9.63,
+    "overhead_hours": 1.4,
+    "instance_hours": 11.03,
+    "usd_at": {
+      "0.45/h": 4.96,
+      "0.65/h": 7.17
+    }
+  },
+  "high": {
+    "raw_compute_hours": 8.71,
+    "runner_projection_hours": 11.58,
+    "overhead_hours": 3.05,
+    "instance_hours": 14.63,
+    "usd_at": {
+      "0.45/h": 6.58,
+      "0.65/h": 9.51
+    }
+  },
+  "raw_compute_hours_by_cell_with_k3_at_5s": {
+    "R0 0.1": 0.58,
+    "R0 0.4": 0.68,
+    "R1 0.1": 0.81,
+    "R1 0.4": 1.13,
+    "R1-mode 0.2": 0.86,
+    "R1-rinse 0.1": 0.91,
+    "R1-smooth 0.2": 1.26,
+    "R3 0.2": 1.73
+  },
+  "overhead_hours_low_high": {
+    "environment_and_packages": [
+      0.15,
+      0.3
+    ],
+    "downloads_and_hashing_50GB": [
+      0.15,
+      0.4
+    ],
+    "upload_stage2a_inputs_180MB": [
+      0.05,
+      0.2
+    ],
+    "adapter_check": [
+      0.05,
+      0.1
+    ],
+    "smoke_368_units": [
+      0.35,
+      0.5
+    ],
+    "model_loads": [
+      0.15,
+      0.25
+    ],
+    "return_of_results_3GB": [
+      0.5,
+      1.3
+    ]
+  }
+}

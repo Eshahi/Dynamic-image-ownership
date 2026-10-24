@@ -169,15 +169,20 @@ def unit_id(source_id, channel, strength, seed, arm):
     return f"{channel}:{source_id}:{arm}:{strength}:{seed}"
 
 
-def channel_arms(config, channel):
+def channel_arms(config, channel, strength=None):
     """Arms evaluated on a channel; a channel without an `arms` list keeps every arm.
 
     Amendment 1d (stage 2a) scopes the approved extra baselines to their proposal cells.
     The frozen core config has no per-channel lists, so its schedule is unchanged.
+    Amendment 2b adds `arms_by_strength`, so that TrustMark and Pixel Seal stay at R1 .2 when R1
+    gains strengths .1 and .4; without a strength the channel's full `arms` list applies.
     """
     if channel is None or channel.get("id") == "clean" or channel.get("arms") is None:
         return list(config["arms"])
-    return [arm for arm in config["arms"] if arm in channel["arms"]]
+    scope = channel["arms"]
+    if strength is not None:
+        scope = channel.get("arms_by_strength", {}).get(str(strength), scope)
+    return [arm for arm in config["arms"] if arm in scope]
 
 
 def channel_spec(config, cid):
@@ -188,7 +193,8 @@ def channel_spec(config, cid):
 
 def read_methods(config, unit):
     """Detectors that read a saved output: C0 is shared by every in-scope detector."""
-    return channel_arms(config, channel_spec(config, unit["channel"])) if unit["arm"] == "unmarked" else [unit["arm"]]
+    spec = channel_spec(config, unit["channel"])
+    return channel_arms(config, spec, unit.get("strength")) if unit["arm"] == "unmarked" else [unit["arm"]]
 
 
 def plan(config, sources, smoke=False):
@@ -202,8 +208,8 @@ def plan(config, sources, smoke=False):
     for channel in config["channels"]:
         if not channel.get("enabled", True):
             continue
-        arms = ["unmarked", *channel_arms(config, channel)]
         for strength in channel.get("strengths", [None]):
+            arms = ["unmarked", *channel_arms(config, channel, strength)]
             for source in selected:
                 for seed in channel.get("seeds", [None]):
                     for arm in arms:
@@ -271,11 +277,13 @@ def apply_reduction(config, step):
             if channel.get("arms") is not None:
                 channel["arms"] = [a for a in channel["arms"] if a != arm]
     else:
-        cid = step[8:] if step.startswith("channel:") else step
-        if cid in config.get("protected_channels", ()):
-            raise ValueError(f"Protected channel cannot be dropped: {cid}")
+        # "channel:A,B" drops a declared group together (amendment 2b: P5's smoothed arm and its control).
+        cids = (step[8:] if step.startswith("channel:") else step).split(",")
+        for cid in cids:
+            if cid in config.get("protected_channels", ()):
+                raise ValueError(f"Protected channel cannot be dropped: {cid}")
         for channel in config["channels"]:
-            if channel["id"] == cid:
+            if channel["id"] in cids:
                 channel["enabled"] = False
     return config
 
@@ -325,7 +333,7 @@ def analyze(config, sources, rows):
         cid = channel["id"]
         for strength in channel.get("strengths", [None]):
             seeds = channel.get("seeds", [None])
-            for method in channel_arms(config, channel):
+            for method in channel_arms(config, channel, strength):
                 keys = RULES if method in ("f5-r2", "v5-r3") else ("presence",)
                 for key in keys:
                     successful, optimistic, missing, observed_successes = [], [], 0, 0
@@ -350,8 +358,10 @@ def analyze(config, sources, rows):
         for control in ("C0", "wrong_owner"):
             if control == "wrong_owner" and method not in ("f5-r2", "v5-r3"):
                 continue
+            # Only calls the plan makes: with per-strength scopes, a C0 output is read by an arm
+            # only at that arm's strengths.
             selected = [u for u in expected if u["channel"] == "R1" and
-                        u["arm"] == ("unmarked" if control == "C0" else method)]
+                        u["arm"] == ("unmarked" if control == "C0" else method) and method in read_methods(config, u)]
             values=[call_value(rows.get(u["id"]),method,ALPHA if control=="C0" else BETA,endpoint) for u in selected]
             negatives[f"{method}/{control}"]=dict(planned=len(values), observed=sum(v is not None for v in values),
                                                  positives=sum(v is True for v in values), unresolved=sum(v is None for v in values))
