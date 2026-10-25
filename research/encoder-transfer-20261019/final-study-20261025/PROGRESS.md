@@ -6,7 +6,7 @@ Desktop session began at the first requested Get-Date: 2026-10-25T05:14:53.96571
 
 ## Current status
 
-WP0 complete (commit/push `440c85c`); WP1 resumed in desktop. Research only. No experiment, image, detector, metric, encoder, training, timing, download of code/models/data, package installation, remote login, or paid service has been run. Saved development results may later be analysed using the permitted isolated stdlib interpreter only. Prior full-text extracts are being preserved in the allowed paper cache; cards and provenance, not full texts, will be committed.
+WP0 complete (commit/push `440c85c`); WP1 complete, package commit/push pending. Thirty primary method/experiment cards cover clusters 1–3; six more verified theory/transfer cards and one excluded bibliographic lead are retained. Research only. No experiment, image, detector, metric, encoder, training, timing, download of code/models/data, package installation, remote login, or paid service has been run. Saved development results will be analysed only after the WP2 hypotheses commit, using the permitted isolated stdlib interpreter. Full texts are in the allowed paper cache; only cards and provenance are committed.
 
 Branch: `codex/encoder-transfer-final-20261025`; initial commit `b18eae1`. Authoritative MAIN `STATE.md` read once at session start. Its existing verdict remains **FAILS, ROUTE C**. This session neither revises that verdict nor authorizes a server run.
 
@@ -18,6 +18,7 @@ Branch: `codex/encoder-transfer-final-20261025`; initial commit `b18eae1`. Autho
 | 2026-10-25 12:57 | WP1 | Supervisor restart shortened session to six hours; checked git status, retained initial literature work and push log. Read the brief's revised budget. | Resume disjoint literature workers; complete 20+ V2 cards, then synthesis. |
 | 2026-10-25 13:14:53 | Desktop / WP1 | First Get-Date fixes six-hour deadline. Read authoritative MAIN STATE once, BRIEF then PROGRESS and git status in order. Current branch correct; retained CLI edits and transfer-theory cards. Existing thread goal is already active; duplicate goal creation was refused without changing it. | Verify retained literature and resume three disjoint primary-source reviews. |
 | 2026-10-25 13:19 | WP1 | Attacks worker gpt-6.1-sol failed before work because model capacity was unavailable; retried with gpt-6-sol medium. Watermark and encoder workers use gpt-6.1-sol medium. | Root verifies transfer theory, integrates evidence and narrows positioning. |
+| 2026-10-25 13:35 | WP1 | Finished 10 attack, 12 watermark and 8 encoder V2 cards, plus transfer theory; integrated synthesis and positioning. Encoder worker also needed a gpt-6-sol retry after capacity failure. FLUX from-scratch evidence found; exact schnell checkpoint identity remains qualified. Close rank-ratio lead excluded from verified evidence because primary bibliographic status could not be resolved. | Commit/push WP1; check clock; write and commit hypotheses before journal analysis. |
 
 ## Execution plan and order
 
@@ -38,6 +39,7 @@ Branch: `codex/encoder-transfer-final-20261025`; initial commit `b18eae1`. Autho
 - Model forms will distinguish encoder gain, decoder/readout transport and denoiser response. High writer-encoder gain alone will not be asserted to explain failure: existing D1/D3 retention already challenges that shortcut.
 - Sub-agents will be short-lived and have disjoint file ownership. AGENTS explicitly authorizes parallel literature work and requires escalation for method derivation; WP6 explicitly requires an independent reviewer. No shared state writers.
 - No questions are sent during this detached session. Unavailable evidence stays unresolved; dependent compute becomes a server specification.
+- WP1 narrows the target contribution to signed, stage-resolved readable transport. A pure independent-encoder/norm-loss explanation is challenged by existing 55/60 round-trip retention. A family-indicator fit is descriptive, not a transfer law. The closest inspected attack is MarkNull; its shared-latent-parameterization assumption does not cover the desired independent-encoder theorem.
 
 ## Decisions for the user
 

@@ -1,0 +1,13 @@
+paper_id,writer_locus,training_or_optimization,detector_information,cross_autoencoder_evidence,independent_encoder_causal_test,primary_locators
+tree-ring,initial Gaussian noise Fourier pattern,no retraining,generator inversion plus reference pattern,additional generator instantiations,no,Sections 3-4 Table 1
+stable-signature,VAE decoder,fine-tune decoder for fixed signature,image neural extractor plus signature,same and other autoencoder reconstruction attacks; same AE stronger,no,Section 7.1 Figure 7
+gaussian-shading,initial Gaussian noise quantile sampling,no retraining,key nonce generator inversion plus message mapping,compression models and multiple generator instantiations,no,Section 4.5 Figure 7
+ringid,initial Gaussian noise Fourier channels,no retraining,generator inversion plus keybook,additional generator instantiations,no,Section 6 Tables 1-2 Appendix D
+zodiac,post-hoc latent Fourier ring,optimize latent through frozen diffusion generator plus image blend,generator inversion plus ring pattern,writer instantiated separately with SD1.4 SD2.1 SDXL,no,Sections 3-4 Figure 4
+robin,intermediate diffusion state,adversarial optimization of strength and hiding prompt,generator inversion insertion step plus pattern,learned-compression and diffusion reconstruction attacks,no,Section 3 Appendix C.2 Table 7
+wind,full initial noise plus group pattern,secret-salted candidate-noise construction,generator inversion secret salt and candidate search,private/public SDv2 checkpoint inversion comparison,no,Sections 4-5 Tables 1-2 and 4
+lawa,multi-stage decoder residual plugins,train embedding modules and image extractor,image neural extractor plus message,cross-AE reconstruction and same KL-f8 attack; separate per-AE training elsewhere,no,Section 4.7 Figure 7 Appendix A.4
+prc,initial Gaussian signs,private pseudorandom error-correcting code,generator exact inversion plus private code key,SD2.1 diffusion and learned-compression attack grids,no,Section 4.3 Figure 5 Appendix A.1
+seal,semantic-derived initial noise,proxy caption embedding hashing plus private salt,caption embedding generator inversion secret salt and patch test,regeneration removal experiment without isolated encoder contrast,no,Sections 3-4 and 13.3 Tables 1-2 and 6
+wmadapter,VAE decoder fusers,adapter training plus hybrid fine-tuning,image neural extractor plus message,explicit zero-shot SD2.1 adapter into SD1.5 VAE; SDXL adapter trained separately,no,Section 3 Appendix A.4 Table 6
+guidance,generation trajectory guided through VAE,no model training; per-generation detector-gradient optimization,image neural extractor plus feature or message,multi-generator embedding and original-VAE purification,no,Sections 4-5 Figure 4 Appendix C

@@ -1,0 +1,9 @@
+# Podell et al. 2023 — SDXL (V2)
+
+- **Exact source:** Dustin Podell, Zion English, Kyle Lacey, Andreas Blattmann, Tim Dockhorn, Jonas Müller, Joe Penna, Robin Rombach, *SDXL: Improving Latent Diffusion Models for High-Resolution Image Synthesis*, arXiv:2307.01952v1, 2023. https://arxiv.org/html/2307.01952v1. Accessed 2026-10-25 UTC.
+- **Method inspected:** §2.1, §2.4–2.5. SDXL retains the original SD-family autoencoder **architecture** but trains a new autoencoder **from scratch**, larger batch 256 versus 9 and EMA. The same SDXL AE is shared by SDXL base and refiner. SD2.x instead improves SD1.x's AE by fine-tuning its **decoder**; SD2.x is therefore not independent in the same sense.
+- **Experiment inspected:** §2.4/Table 3: COCO2017 validation, 256×256 reconstruction. SDXL VAE PSNR 24.7, SSIM .73, rFID 4.4; SD1.x 23.4/.69/5.0; SD2.x 24.5/.71/4.7. These assess reconstruction quality, not response to a watermark residual.
+- **Direct evidence:** Fresh SDXL AE weights despite same architecture; SD2.x lineage through SD1.x decoder. SDXL generation also changes model size, text encoders, training and resolution (§2.1, §2.5).
+- **Inference for this study:** SDXL versus SD1.5 is a useful weight-independence comparison, but img2img survival difference cannot be assigned to AE independence alone because denoiser and pipeline also change.
+- **Limits:** The paper does not disclose the precise AE training corpus or random initialization details beyond “from scratch”; does not provide cross-AE Jacobian alignment or watermarked-image tests. Table 3 LPIPS values appear nonstandard; avoid copying them into a cross-paper quantitative argument.
+- **Cached artifact:** `W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/cache-et-final/papers/enc-sdxl-v1.html`; SHA-256 `485983EA51BE9070EB1590A8EDEF03FCB864440C5A497994A1797F53F7FA105E`.

@@ -1,0 +1,93 @@
+{
+  "access_date": "2026-10-25",
+  "sources": [
+    {
+      "id": "ctrlregen",
+      "url": "https://arxiv.org/html/2410.05470v2",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\cache-et-final\\papers\\legacy-cli\\attacks\\read-ctrlregen.txt",
+      "artifact_kind": "legacy web full-text extract",
+      "sha256": "b0f016128cb57afb92afc27ec674c79aa59d410f07797072d8741f3b0113f208",
+      "bytes": 60815
+    },
+    {
+      "id": "demark",
+      "url": "https://arxiv.org/html/2601.16473v1",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\cache-et-final\\papers\\legacy-cli\\attacks\\read-demark.txt",
+      "artifact_kind": "legacy web full-text extract",
+      "sha256": "606f69892616fd39fe33dfce29ce652119ea1d4ed45324a04db4432dca0930bf",
+      "bytes": 99461
+    },
+    {
+      "id": "diffpure",
+      "url": "https://arxiv.org/html/2205.07460v1",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\cache-et-final\\papers\\nie-2022-diffpure.html",
+      "artifact_kind": "arxiv html",
+      "sha256": "17ab7e23ca7f120a85150c9f929b50882cc324f4d2fa753da05741bec0ba75b7",
+      "bytes": 590120
+    },
+    {
+      "id": "drift",
+      "url": "https://arxiv.org/html/2609.08213v1",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\cache-et-final\\papers\\legacy-cli\\attacks\\read-drift.txt",
+      "artifact_kind": "legacy web full-text extract",
+      "sha256": "26f2be2cb919845e541007b4745fb6114d6be1a1c0a31a64c3e5a0d5a2fc6a98",
+      "bytes": 73968
+    },
+    {
+      "id": "lfm",
+      "url": "https://arxiv.org/html/2610.02010v1",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\cache-et-final\\papers\\legacy-cli\\attacks\\read-lfm.txt",
+      "artifact_kind": "legacy web full-text extract",
+      "sha256": "a242ff1241bc62d5fb404c5ea5807ce29b5985d284ad2f7d266663432a54ee5f",
+      "bytes": 52675
+    },
+    {
+      "id": "marknull",
+      "url": "https://arxiv.org/html/2608.10166v1",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\cache-et-final\\papers\\marknull-2608.10166v1.html",
+      "artifact_kind": "arxiv html",
+      "sha256": "ebdd2e155d850be708ac7c85a9459f20b41e7e45ad7ca5c1e6c8c428dcb989e0",
+      "bytes": 617717
+    },
+    {
+      "id": "singleimage",
+      "url": "https://arxiv.org/html/2504.20111v1",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\cache-et-final\\papers\\legacy-cli\\attacks\\read-singleimage.txt",
+      "artifact_kind": "legacy web full-text extract",
+      "sha256": "58e85c4ee4a993b6d4121d94ee2e6cfa67cf3f52ffbbbf46ceff978ecca99503",
+      "bytes": 59791
+    },
+    {
+      "id": "unmarker",
+      "url": "https://arxiv.org/html/2405.08363v2",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\cache-et-final\\papers\\legacy-cli\\attacks\\read-unmarker.txt",
+      "artifact_kind": "legacy web full-text extract",
+      "sha256": "8fc5cdc6809ae53d821016f49ce48d728dc31478e3337540c05aa7abf80fefd2",
+      "bytes": 116366
+    },
+    {
+      "id": "vine",
+      "url": "https://arxiv.org/html/2410.18775v2",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\cache-et-final\\papers\\legacy-cli\\attacks\\read-vine.txt",
+      "artifact_kind": "legacy web full-text extract",
+      "sha256": "b0bec7196eebabef736bfb0bcb8e1e199f2ab6fbf8c51cac0a79fb1f9e1d500e",
+      "bytes": 105265
+    },
+    {
+      "id": "waves",
+      "url": "https://arxiv.org/html/2401.08573v3",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\cache-et-final\\papers\\legacy-cli\\attacks\\read-waves.txt",
+      "artifact_kind": "legacy web full-text extract",
+      "sha256": "9007873e1576a626ebf3398801f28e04e46321e511c39d53d73387fa698c8aca",
+      "bytes": 120945
+    },
+    {
+      "id": "zhao-provable",
+      "url": "https://arxiv.org/html/2306.01953v3",
+      "artifact": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\cache-et-final\\papers\\zhao-2023-provable.html",
+      "artifact_kind": "arxiv html",
+      "sha256": "c77d03aa665af63459595571ec1e45d566787e35d6665e5dd1e909888ec33ab3",
+      "bytes": 352560
+    }
+  ]
+}

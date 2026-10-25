@@ -1,0 +1,9 @@
+# Pernias et al. 2023 — Würstchen, precursor of Stable Cascade (V2)
+
+- **Exact source:** Pablo Pernias, Dominic Rampas, Mats L. Richter, Christopher J. Pal, Marc Aubreville, *Würstchen: An Efficient Architecture for Large-Scale Text-to-Image Diffusion Models*, arXiv:2306.00637v2, 2023. https://arxiv.org/html/2306.00637v2. Accessed 2026-10-25 UTC.
+- **Method inspected:** §3.1–3.4 and Appendix E. The three-stage pipeline trains Stage A f4 VQGAN first (8,192-entry codebook), Stage B diffusion in its unquantized latent, then Stage C text-conditioned diffusion in an approximately f42 compact semantic representation. Thus “the Stable Cascade autoencoder” is not a single SD-like VAE; the route from an input image through Stage A/B/C matters.
+- **Experiment inspected:** §4.1–4.3, Appendix E. Generation and human preference comparisons plus training efficiency are evaluated; Stage C training is reported as 24,602 A100 GPU hours. No watermark-transfer or matched-perturbation data are offered.
+- **Direct evidence:** Original Würstchen trains its own Stage A/B/C chain, qualitatively distinct from SD1.x's KL VAE. The paper is architectural antecedent to Stable Cascade, not proof of weight identity with its released checkpoints.
+- **Inference for this study:** Stable Cascade can probe a genuinely different compression path, but a usable, standardized image-to-image attack with a single `strength` is not established by the paper. For WP4, treat this as a fallback mechanism probe until implementation and budgets are verified.
+- **Limits:** Do not transfer the paper's training cost or weights to Stable Cascade. The released Stable Cascade model card reports large multi-stage files and a noncommercial license; both impose practical complications.
+- **Cached artifact:** `W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/cache-et-final/papers/enc-wurstchen-v2.html`; SHA-256 `785B933D564D2EBD751D2FE8FA7E550702DD1751566164E06BCAF1286D8186CA`.

@@ -1,0 +1,72 @@
+{
+  "access_date_utc": "2026-10-25",
+  "scope": "Primary papers and official model/documentation pages inspected for encoder landscape; cached paper HTML is pre-existing and no model files were downloaded.",
+  "cache_root": "W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/cache-et-final/papers/",
+  "papers": [
+    {
+      "card": "rombach-ldm.md",
+      "url": "https://arxiv.org/html/2112.10752v2",
+      "cache_file": "enc-ldm-v2.html",
+      "sha256": "F0D19A78867A200210C492226E59E85AA85BB5795B4FABC4FF4EEF50BEEC3D27"
+    },
+    {
+      "card": "podell-sdxl.md",
+      "url": "https://arxiv.org/html/2307.01952v1",
+      "cache_file": "enc-sdxl-v1.html",
+      "sha256": "485983EA51BE9070EB1590A8EDEF03FCB864440C5A497994A1797F53F7FA105E"
+    },
+    {
+      "card": "esser-sd3.md",
+      "url": "https://arxiv.org/html/2403.03206v1",
+      "cache_file": "enc-sd3-v1.html",
+      "sha256": "F82EF37115732EB873F96DBC7BB0BAAD3FD95B1E711AAC2868B2ED43801A6C91"
+    },
+    {
+      "card": "arkhipkin-kandinsky3.md",
+      "url": "https://arxiv.org/html/2312.03511v3",
+      "cache_file": "enc-kandinsky3-v3.html",
+      "sha256": "21F10761214D48B23656682C866270194EEF9F78F4AEDF708111FBC3C0E0BEEC"
+    },
+    {
+      "card": "xie-sana.md",
+      "url": "https://arxiv.org/html/2410.10629v1",
+      "cache_file": "enc-sana-v1.html",
+      "sha256": "47217A44906008305CB3CC836DE25501AAAAF0A9197A2CF322D6CCDEF01D211E"
+    },
+    {
+      "card": "chen-dcae.md",
+      "url": "https://arxiv.org/html/2410.10733v1",
+      "cache_file": "enc-dcae-v1.html",
+      "sha256": "379CB7CFF3040AFEA41FB34D8FB7D0785B1D5D3E84D867E0EF6C684F783EE993"
+    },
+    {
+      "card": "pernias-wurstchen.md",
+      "url": "https://arxiv.org/html/2306.00637v2",
+      "cache_file": "enc-wurstchen-v2.html",
+      "sha256": "785B933D564D2EBD751D2FE8FA7E550702DD1751566164E06BCAF1286D8186CA"
+    }
+  ],
+  "supporting_primary_sources": [
+    {
+      "url": "https://arxiv.org/html/2209.09002v1",
+      "cache_file": "encoder-2209.09002v1.html",
+      "sha256": "531CB8DA871BF920953FC962411DF6A311EC4924CFF23093BA2AEC7D892D36CE"
+    },
+    {
+      "url": "https://arxiv.org/html/2410.21061v1",
+      "cache_file": "encoder-2410.21061v1.html",
+      "sha256": "9E407574E39AC284186D9B5ABD2BFF834C02FA04C9DA39657C4EC99A0FAE62BC"
+    },
+    {"url": "https://arxiv.org/html/2506.15742v2", "card": "bfl-flux-schnell.md", "type": "primary paper", "cache_file":"root/bfl2025-kontext-v2.html", "sha256":"b059d04ca84dfb2a3a455ed0018572327ec7752811680f401e41d34ea89936f1"},
+    {"url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell", "card": "bfl-flux-schnell.md", "type": "official model card; live web only"},
+    {"url": "https://github.com/black-forest-labs/flux/blob/main/src/flux/util.py", "card": "bfl-flux-schnell.md", "type": "official inference source; live web only"},
+    {"url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-medium", "type": "official model card; live web only"},
+    {"url": "https://huggingface.co/kandinsky-community/kandinsky-3", "type": "official model page; live web only"},
+    {"url": "https://huggingface.co/stabilityai/stable-cascade", "type": "official model card; live web only"},
+    {"url": "https://huggingface.co/docs/diffusers/api/pipelines/flux", "type": "official pipeline documentation; live web only"},
+    {"url": "https://huggingface.co/docs/diffusers/api/pipelines/kandinsky3", "type": "official pipeline documentation; live web only"},
+    {"url": "https://huggingface.co/docs/diffusers/api/pipelines/stable_cascade", "type": "official pipeline documentation; live web only"},
+    {"url": "https://huggingface.co/docs/diffusers/api/pipelines/sana", "type": "official pipeline documentation; live web only"},
+    {"url": "https://github.com/huggingface/diffusers/blob/main/src/diffusers/pipelines/stable_diffusion_3/pipeline_stable_diffusion_3_img2img.py", "type": "official source; live web only"}
+  ]
+}

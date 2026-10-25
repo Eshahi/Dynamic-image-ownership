@@ -1,0 +1,9 @@
+# Chen et al. 2024 — DC-AE (V2)
+
+- **Exact source:** Junyu Chen, Han Cai, Junsong Chen, Enze Xie, Shang Yang, Haotian Tang, Muyang Li, Yao Lu, Song Han, *Deep Compression Autoencoder for Efficient High-Resolution Diffusion Models*, arXiv:2410.10733v1, 2024. https://arxiv.org/html/2410.10733v1. Accessed 2026-10-25 UTC.
+- **Method inspected:** §3.1–3.3. DC-AE adds nonparametric space-to-channel residual shortcuts and decoupled high-resolution adaptation. The model is structurally related to SD-VAE blocks but changes down/up sampling and attention. **Architecture descent does not establish weight descent.**
+- **Experiment inspected:** §4.1–4.3. The authors train AE variants on a mixture of ImageNet, SAM, MapillaryVistas, FFHQ; for ImageNet generation they use ImageNet train only. §4.2/Table 2 compares reconstruction and §4.3/Tables 3–4 compare generation speed/quality. The reported f32 representation and its larger spatial compression make equal `strength` incomparable to f8 systems.
+- **Direct evidence:** The study describes training DC-AE variants and gives their data; it does not explicitly state the initial checkpoint for every released DC-AE variant. It does not test residual survival between pretrained AEs.
+- **Inference for this study:** A DC-AE-only round trip is a useful architecture-change probe, followed by a Sana full-pipeline test only if a supported img2img implementation is found.
+- **Limits:** Reported H100 throughput is model/resolution-specific. Do not assume that the separately hosted Sana checkpoint corresponds exactly to a row in Table 2 without checkpoint mapping.
+- **Cached artifact:** `W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/cache-et-final/papers/enc-dcae-v1.html`; SHA-256 `379CB7CFF3040AFEA41FB34D8FB7D0785B1D5D3E84D867E0EF6C684F783EE993`.
