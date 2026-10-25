@@ -83,7 +83,9 @@ This is descriptive, like everything in stage 2b, and it tests no cause. R0 and 
 
 **F5's instance tier (A, "either tier found") under SDXL** falls with strength: 52/60 at .1, 30/60 at .2, 5/60 at .4. A is the conservative negative-gate endpoint, not an ownership claim.
 
-**Its semantic tier, which C needs,** is never read with a content match: C is 0/180 calls at each strength. It is found in 23 of 180 calls at .1 and in none at .2 or .4.
+**Its semantic tier, which C needs,** is never read with a content match: C is 0/180 calls at each strength.
+- **At .1:** it is found in 26 of 180 calls. 23 of those have a content match but are not read (the S endpoint), and 3 are read with a content mismatch.
+- **At .2 and .4:** it is found in none.
 
 **The pre-specified matched-distortion grid (T7) is almost empty for R0 against R1** (Table 6 of the report). Within source, the calipers (|ΔLPIPS| ≤ .02, |ΔPSNR| ≤ 1 dB, |ΔSSIM| ≤ .02) rarely hold across the two regenerators, because at equal LPIPS R1 keeps a higher PSNR and SSIM. In the reviewer's count, of 827 same-bin candidate pairs over the four arms, the SSIM caliper fails in 746 and the PSNR caliper in 666. The union replaces stage 2a's "0 matched pairs":
 - **F5:** 2/60 sources in the [.1, .2) bin; F5 succeeds on R0 in 2 of 2 and on R1 in 0 of 2.
