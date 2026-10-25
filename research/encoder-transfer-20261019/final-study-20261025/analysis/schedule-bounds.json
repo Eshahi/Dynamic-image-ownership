@@ -1,0 +1,94 @@
+{
+  "schedule": [
+    {
+      "family": "R0/R1",
+      "schedule": "scaled_linear",
+      "strength": 0.1,
+      "start_t": 51,
+      "reverse_updates": 2,
+      "alpha_bar": 0.950524321872952,
+      "a": 0.9749483688241917,
+      "b": 0.22243128855232577,
+      "a_over_b": 4.38314400446788,
+      "log_snr": 2.9555325522515243
+    },
+    {
+      "family": "R0/R1",
+      "schedule": "scaled_linear",
+      "strength": 0.2,
+      "start_t": 151,
+      "reverse_updates": 4,
+      "alpha_bar": 0.8263992481036679,
+      "a": 0.9090650406344245,
+      "b": 0.41665423542348884,
+      "a_over_b": 2.1818211921221624,
+      "log_snr": 1.5603198745425622
+    },
+    {
+      "family": "R0/R1",
+      "schedule": "scaled_linear",
+      "strength": 0.4,
+      "start_t": 351,
+      "reverse_updates": 8,
+      "alpha_bar": 0.5048185579295348,
+      "a": 0.7105058465132674,
+      "b": 0.7036912974241369,
+      "a_over_b": 1.0096840036448869,
+      "log_snr": 0.01927482844307052
+    },
+    {
+      "family": "R3",
+      "schedule": "squaredcos_cap_v2",
+      "strength": 0.2,
+      "start_t": 151,
+      "reverse_updates": 4,
+      "alpha_bar": 0.939256755637868,
+      "a": 0.9691525966729223,
+      "b": 0.24646144599537667,
+      "a_over_b": 3.932268565409222,
+      "log_snr": 2.7384330048942536
+    }
+  ],
+  "conditional_gaussian_shift": [
+    {
+      "fpr": 0.05,
+      "threshold_standard_normal": 1.6448536269514715,
+      "mu_required_for_tpr_90": 2.9264051924960723,
+      "tpr_upper_at_mu_2": 0.6387600313123355,
+      "tpr_upper_at_mu_4": 0.9907422946265046
+    },
+    {
+      "fpr": 0.001,
+      "threshold_standard_normal": 3.090232306167813,
+      "mu_required_for_tpr_90": 4.371783871712414,
+      "tpr_upper_at_mu_2": 0.13780541289830028,
+      "tpr_upper_at_mu_4": 0.8185274822749813
+    },
+    {
+      "fpr": 1e-06,
+      "threshold_standard_normal": 4.753424308817089,
+      "mu_required_for_tpr_90": 6.03497587436169,
+      "tpr_upper_at_mu_2": 0.0029487702865060306,
+      "tpr_upper_at_mu_4": 0.22559748985556016
+    }
+  ],
+  "zero_event_bounds": [
+    {
+      "independent_sources": 60,
+      "one_sided_95_upper": 0.04870291331009746
+    },
+    {
+      "independent_sources": 180,
+      "one_sided_95_upper": 0.01650522819566269
+    },
+    {
+      "independent_sources": 200,
+      "one_sided_95_upper": 0.014867039231272083
+    },
+    {
+      "independent_sources": 540,
+      "one_sided_95_upper": 0.005532292551836959
+    }
+  ],
+  "limitation": "Equal-covariance Gaussian location shift bound is conditional. No empirical F5 SNR is available. Seeds are not independent sources."
+}

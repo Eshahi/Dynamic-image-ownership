@@ -120,3 +120,9 @@ All times/dates UTC. Engine: `web.run` unless specified. Queries are discovery; 
 | TT04 | 2026-10-25 | PhotoGuard raising the cost malicious AI powered image editing encoder attack diffusion 2023 | ICML 2023 PMLR 202 PDF opened; arXiv:2302.06588 |
 
 Direct opens: USENIX Demontis page then PDF link; arXiv:1704.03453 PDF; NeurIPS final Ilyas paper; PMLR final PhotoGuard paper. No conclusions inferred from search-result snippets.
+
+## WP2 source-text retrievals and analytical use (2026-10-25 13:57–14:09 UTC)
+
+- Direct-opened the pinned diffusers v0.35.1 DDIM scheduler, DDPM scheduler and Stable Diffusion img2img pipeline as web text; inspected beta construction, leading timestep spacing/offset and strength slicing. URLs: https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/schedulers/scheduling_ddim.py ; https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/schedulers/scheduling_ddpm.py ; https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion/pipeline_stable_diffusion_img2img.py . No code downloaded or executed. Local frozen source selects scaled_linear for R0/R1 and squaredcos_cap_v2 for R3.
+- Theory contributor personally inspected DDIM https://arxiv.org/html/2010.02502v4, DiffPure https://arxiv.org/html/2205.07460v1, and the previously carded Zhao, PhotoGuard and Demontis sources; exact section/equation locators are in analysis/theory-design.md. These supply conditional mathematical structure, not observed F5 derivatives.
+- No new paper result was substituted for a missing mechanistic measurement. Current journals support continuous-score and source-cluster analysis, not encoder gains or full-chain transport fitting.

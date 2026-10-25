@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "checks": {
+    "union": true,
+    "status": true,
+    "f5_r0": true,
+    "f5_r1": true,
+    "rinse": true,
+    "calipers": true,
+    "correlations_bounded": true,
+    "no_read_without_found": true,
+    "all_64_original_fits_converged": true,
+    "schedule_matches_corrected_models": true
+  },
+  "scope": "Consistency of new descriptive summaries against retained milestone counts and analytical contracts; no image or metric recomputation."
+}

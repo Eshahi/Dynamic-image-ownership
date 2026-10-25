@@ -1,0 +1,340 @@
+{
+  "rinse_state_transitions": [
+    {
+      "arm": "f5-r2",
+      "unit": "paired source/base-seed calls, descriptive; not independent trials",
+      "transitions": [
+        {
+          "before": "found_not_read",
+          "after": "not_found",
+          "calls": 23
+        },
+        {
+          "before": "not_found",
+          "after": "not_found",
+          "calls": 154
+        },
+        {
+          "before": "read_content_mismatch",
+          "after": "not_found",
+          "calls": 3
+        }
+      ]
+    },
+    {
+      "arm": "v5-r3",
+      "unit": "paired source/base-seed calls, descriptive; not independent trials",
+      "transitions": [
+        {
+          "before": "C_success",
+          "after": "C_success",
+          "calls": 15
+        },
+        {
+          "before": "C_success",
+          "after": "found_not_read",
+          "calls": 54
+        },
+        {
+          "before": "C_success",
+          "after": "not_found",
+          "calls": 69
+        },
+        {
+          "before": "C_success",
+          "after": "read_content_mismatch",
+          "calls": 2
+        },
+        {
+          "before": "found_not_read",
+          "after": "found_not_read",
+          "calls": 3
+        },
+        {
+          "before": "found_not_read",
+          "after": "not_found",
+          "calls": 29
+        },
+        {
+          "before": "not_found",
+          "after": "not_found",
+          "calls": 2
+        },
+        {
+          "before": "read_content_mismatch",
+          "after": "found_not_read",
+          "calls": 2
+        },
+        {
+          "before": "read_content_mismatch",
+          "after": "not_found",
+          "calls": 4
+        }
+      ]
+    },
+    {
+      "arm": "wam",
+      "unit": "paired source/base-seed calls, descriptive; not independent trials",
+      "transitions": [
+        {
+          "before": "absent",
+          "after": "absent",
+          "calls": 36
+        },
+        {
+          "before": "present",
+          "after": "absent",
+          "calls": 86
+        },
+        {
+          "before": "present",
+          "after": "present",
+          "calls": 58
+        }
+      ]
+    },
+    {
+      "arm": "vine-r",
+      "unit": "paired source/base-seed calls, descriptive; not independent trials",
+      "transitions": [
+        {
+          "before": "present",
+          "after": "absent",
+          "calls": 4
+        },
+        {
+          "before": "present",
+          "after": "present",
+          "calls": 176
+        }
+      ]
+    }
+  ],
+  "paired_quality_reference_sensitivity": [
+    {
+      "arm": "f5-r2",
+      "left": "R0@0.2",
+      "right": "R1@0.1",
+      "quality_reference": "distortion",
+      "complete_sources": 58,
+      "right_milder_all_three": 58,
+      "left_positive_right_negative_among_milder": 56,
+      "median_paired_difference_right_minus_left": {
+        "lpips": -0.0804724171757698,
+        "psnr_db": 4.6008107350417,
+        "ssim_rgb": 0.16848516612120296
+      }
+    },
+    {
+      "arm": "f5-r2",
+      "left": "R0@0.2",
+      "right": "R1@0.1",
+      "quality_reference": "total_distortion",
+      "complete_sources": 58,
+      "right_milder_all_three": 58,
+      "left_positive_right_negative_among_milder": 56,
+      "median_paired_difference_right_minus_left": {
+        "lpips": -0.0880935788154602,
+        "psnr_db": 4.608014926695965,
+        "ssim_rgb": 0.16361610450906522
+      }
+    },
+    {
+      "arm": "f5-r2",
+      "left": "R0@0.4",
+      "right": "R1@0.1",
+      "quality_reference": "distortion",
+      "complete_sources": 58,
+      "right_milder_all_three": 58,
+      "left_positive_right_negative_among_milder": 39,
+      "median_paired_difference_right_minus_left": {
+        "lpips": -0.1891077235341072,
+        "psnr_db": 6.816095538362015,
+        "ssim_rgb": 0.2580629760985059
+      }
+    },
+    {
+      "arm": "f5-r2",
+      "left": "R0@0.4",
+      "right": "R1@0.1",
+      "quality_reference": "total_distortion",
+      "complete_sources": 58,
+      "right_milder_all_three": 58,
+      "left_positive_right_negative_among_milder": 39,
+      "median_paired_difference_right_minus_left": {
+        "lpips": -0.19373183697462082,
+        "psnr_db": 6.831296607874728,
+        "ssim_rgb": 0.25365103611561174
+      }
+    },
+    {
+      "arm": "v5-r3",
+      "left": "R0@0.2",
+      "right": "R1@0.1",
+      "quality_reference": "distortion",
+      "complete_sources": 59,
+      "right_milder_all_three": 58,
+      "left_positive_right_negative_among_milder": 0,
+      "median_paired_difference_right_minus_left": {
+        "lpips": -0.06924493610858917,
+        "psnr_db": 4.456165489536033,
+        "ssim_rgb": 0.16204464826434084
+      }
+    },
+    {
+      "arm": "v5-r3",
+      "left": "R0@0.2",
+      "right": "R1@0.1",
+      "quality_reference": "total_distortion",
+      "complete_sources": 59,
+      "right_milder_all_three": 57,
+      "left_positive_right_negative_among_milder": 0,
+      "median_paired_difference_right_minus_left": {
+        "lpips": -0.06220263987779617,
+        "psnr_db": 4.445375902820906,
+        "ssim_rgb": 0.1529671749458582
+      }
+    },
+    {
+      "arm": "v5-r3",
+      "left": "R0@0.4",
+      "right": "R1@0.1",
+      "quality_reference": "distortion",
+      "complete_sources": 58,
+      "right_milder_all_three": 58,
+      "left_positive_right_negative_among_milder": 0,
+      "median_paired_difference_right_minus_left": {
+        "lpips": -0.17274584993720055,
+        "psnr_db": 6.639841276436327,
+        "ssim_rgb": 0.24184082447500868
+      }
+    },
+    {
+      "arm": "v5-r3",
+      "left": "R0@0.4",
+      "right": "R1@0.1",
+      "quality_reference": "total_distortion",
+      "complete_sources": 58,
+      "right_milder_all_three": 58,
+      "left_positive_right_negative_among_milder": 0,
+      "median_paired_difference_right_minus_left": {
+        "lpips": -0.1649354062974453,
+        "psnr_db": 6.679324142712286,
+        "ssim_rgb": 0.23354775095532315
+      }
+    },
+    {
+      "arm": "wam",
+      "left": "R0@0.2",
+      "right": "R1@0.1",
+      "quality_reference": "distortion",
+      "complete_sources": 59,
+      "right_milder_all_three": 59,
+      "left_positive_right_negative_among_milder": 1,
+      "median_paired_difference_right_minus_left": {
+        "lpips": -0.06909357011318207,
+        "psnr_db": 4.3631596690547525,
+        "ssim_rgb": 0.15488260419259092
+      }
+    },
+    {
+      "arm": "wam",
+      "left": "R0@0.2",
+      "right": "R1@0.1",
+      "quality_reference": "total_distortion",
+      "complete_sources": 59,
+      "right_milder_all_three": 58,
+      "left_positive_right_negative_among_milder": 0,
+      "median_paired_difference_right_minus_left": {
+        "lpips": -0.060738056898117065,
+        "psnr_db": 4.404631593682794,
+        "ssim_rgb": 0.15534240269778132
+      }
+    },
+    {
+      "arm": "wam",
+      "left": "R0@0.4",
+      "right": "R1@0.1",
+      "quality_reference": "distortion",
+      "complete_sources": 59,
+      "right_milder_all_three": 59,
+      "left_positive_right_negative_among_milder": 0,
+      "median_paired_difference_right_minus_left": {
+        "lpips": -0.17549003660678864,
+        "psnr_db": 6.614882129423847,
+        "ssim_rgb": 0.23014227132213372
+      }
+    },
+    {
+      "arm": "wam",
+      "left": "R0@0.4",
+      "right": "R1@0.1",
+      "quality_reference": "total_distortion",
+      "complete_sources": 59,
+      "right_milder_all_three": 59,
+      "left_positive_right_negative_among_milder": 0,
+      "median_paired_difference_right_minus_left": {
+        "lpips": -0.15722911059856415,
+        "psnr_db": 6.690508290952103,
+        "ssim_rgb": 0.21899422564344384
+      }
+    },
+    {
+      "arm": "vine-r",
+      "left": "R0@0.2",
+      "right": "R1@0.1",
+      "quality_reference": "distortion",
+      "complete_sources": 58,
+      "right_milder_all_three": 58,
+      "left_positive_right_negative_among_milder": 0,
+      "median_paired_difference_right_minus_left": {
+        "lpips": -0.06946646794676781,
+        "psnr_db": 4.6259534101556135,
+        "ssim_rgb": 0.15497250230342802
+      }
+    },
+    {
+      "arm": "vine-r",
+      "left": "R0@0.2",
+      "right": "R1@0.1",
+      "quality_reference": "total_distortion",
+      "complete_sources": 58,
+      "right_milder_all_three": 57,
+      "left_positive_right_negative_among_milder": 0,
+      "median_paired_difference_right_minus_left": {
+        "lpips": -0.0640663169324398,
+        "psnr_db": 4.159908847387561,
+        "ssim_rgb": 0.15447681250623102
+      }
+    },
+    {
+      "arm": "vine-r",
+      "left": "R0@0.4",
+      "right": "R1@0.1",
+      "quality_reference": "distortion",
+      "complete_sources": 59,
+      "right_milder_all_three": 59,
+      "left_positive_right_negative_among_milder": 0,
+      "median_paired_difference_right_minus_left": {
+        "lpips": -0.17583099007606506,
+        "psnr_db": 6.881676018726466,
+        "ssim_rgb": 0.24921725384546467
+      }
+    },
+    {
+      "arm": "vine-r",
+      "left": "R0@0.4",
+      "right": "R1@0.1",
+      "quality_reference": "total_distortion",
+      "complete_sources": 59,
+      "right_milder_all_three": 59,
+      "left_positive_right_negative_among_milder": 0,
+      "median_paired_difference_right_minus_left": {
+        "lpips": -0.17287977039813995,
+        "psnr_db": 6.411270471270715,
+        "ssim_rgb": 0.24649695395111704
+      }
+    }
+  ],
+  "status": "Additional post-hoc descriptive sensitivity; not a new confirmatory hypothesis. No metrics recomputed."
+}
