@@ -1,0 +1,33 @@
+# ROAR (ICCV 2025): primary-source card
+
+Status: V2, official main methods/experiments and complete supplement inspected, 2026-10-25. Root's public-PDF reading supersedes initial indexed-only access. Research-only; no execution, baseline or protocol changes. Author addendum outside completed WP6/E3 reviews.
+
+## Source digest (under 200 words)
+
+ROAR improves extraction from inversion-based generative watermarks. Its RO component optimizes a DDIM-inverted initial latent through empty-prompt sampling and VAE decoding, minimizing MSE to the restored suspect; AR is a trained MoE restoration network. The recipe uses 50-step inversion/reconstruction and 20 Adam updates. Initialization is DDIM inversion, not necessarily 20 repeated inversions. Evaluation uses 1,000 SD-Prompt images and SD-v1.4/2.1. [Paper §§4.3–5.1,5.6; supplement §6]
+
+Table 2 evaluates Gaussian Shading: reconstruction columns Cheng/Bmshj/VQ-VAE/KL-VAE/SD-v1.4 report TPR 1.000 throughout and bit accuracy 1.000/.999/1.000/.998/1.000. Purification strength .3/.5/.7 yields TPR 1.000/.980/.663, bit accuracy .963/.855/.776 and PSNR 20.15/18.75/16.65 dB. Section 5.4 instead names SD-v2.1 for reconstruction and specifies 100 denoising steps for purification: checkpoint identity is internally ambiguous. The global evaluation denominator is 1,000; separate Table-2 attempt counts are not restated. Table 1 fixes nominal FPR at 1e-10; Table 2 does not repeat this calibration. [Paper, Tables 1–2, Section 5.4]
+
+The supplement defines multibit detection using the known embedded message and a binomial-tail threshold at nominal FPR 1e-10; it is analytical calibration, not empirical measurement of that rare false-positive probability. [Supplement, Section 3]
+
+## Author implications (analysis, not an empirical ROAR claim)
+
+- This is a generative latent-watermark extraction improvement, with learned restoration plus expensive model-based inversion/optimization. It does not establish a lightweight image-only extractor. Detection requires the generating diffusion/VAE pipeline, AR weights and the base scheme's key/message reference. The recovered latent is not itself proof of identity or ownership.
+- Distinguish RO's internal regeneration used to estimate a latent from an attacker's full regeneration channel. A lower self-reconstruction loss does not constrain the detector margin after a foreign channel: image reconstruction can have multiple latent preimages, and a foreign encoder/denoiser can remove the watermark direction while retaining visible content.
+- The paper supplies positive evidence under named reconstruction families and purification settings, including substantial weakening at stronger purification. It does not, in the inspected material, isolate a fixed marked-image pool transferred through independently trained SDXL/FLUX autoencoders with checkpoint provenance and matched full-regeneration controls. SD-v1.4 versus v2.1 in different writer evaluations would not by itself establish such transfer.
+- Treat the AE-family results as relevant prior evidence, not absence of prior reconstruction testing. Their checkpoint/training independence and the ambiguous diffusion-attack identifier limit direct comparison with the final study. No proposed baseline/protocol change follows from this card.
+
+## Access receipt and locators
+
+- [Official CVF landing page](https://openaccess.thecvf.com/content/ICCV2025/html/Wang_ROAR_Reducing_Inversion_Error_in_Generative_Image_Watermarking_ICCV_2025_paper.html): authors Hanyi Wang, Han Fang, Shi-Lin Wang, Ee-Chien Chang; ICCV 2025, pp. 19742–19751. Direct open returned HTTP 403; official indexed page text was accessible through web search.
+- [Official paper PDF](https://openaccess.thecvf.com/content/ICCV2025/papers/Wang_ROAR_Reducing_Inversion_Error_in_Generative_Image_Watermarking_ICCV_2025_paper.pdf): initial web-reader opens returned403; indexed methods/experiments were read first. Root then retrieved the public PDF with an ordinary unauthenticated HTTP request, using the brief's paper-cache exception. Text inspection covers PDF pages3–8 (printed19744–19749), including methods, experiments and Tables1–5. The SD-v1.4 table versus SD-v2.1 prose discrepancy is confirmed in the full PDF. No page pixels were rendered.
+- [Official supplement](https://openaccess.thecvf.com/content/ICCV2025/supplemental/Wang_ROAR_Reducing_Inversion_ICCV_2025_supplemental.pdf): initial indexed access was superseded by the same public-PDF retrieval; every page1–7 was text-inspected. Sections1–3 and5–6 supply theory, baseline capacities, nominal calibration and optimization details. Precise attack checkpoint hashes remain unverified; do not infer training independence from family labels.
+
+Cache root: MAIN `.thesis-build/cache-et-final/papers/`. `roar-iccv2025.pdf`: 1,194,609 bytes; SHA-256 `BD46449676E4F67DC67E8B027A813A8890115989E38D424DA2E3A0718ACC78A5`. `roar-iccv2025-supp.pdf`: 2,356,922 bytes; SHA-256 `AA1BDE1667F5E1A2351A559A0F369FF33C539DEA7C90E0673F2C8F7AF4A15EA8`. Bundled Node PDF.js extracted text in memory; no science interpreter, experimental pass, model/image/data/code download or install. PDFs/full texts are not committed.
+
+## Conditional theory boundaries (local author analysis)
+
+Supplement §1's local linearity alone does not preserve Euclidean norm ordering. For `J=diag(M,1)`, `a=(epsilon,0)`, `b=(0,1)`, choose `0<epsilon<1<M*epsilon`: `||a||<||b||` but `||Ja||>||Jb||`. The shared conditioning-drift vector in Eqs.1/3 also permits cancellation, so ordering only the two prediction-error norms does not order the full sums. This delimits the proposed explanation's mathematical sufficiency; it does not negate the observed reconstruction improvements. The final study's [finite-transport note](../analysis/finite-transport-boundary.md) similarly treats derivative transport as a conditional predictor.
+
+Supplement §§2–3 set RivaGAN to32bits and discuss nominal FPR1e-10, but mix `>=` acceptance with a `>` binomial tail and count/fraction threshold notation. Under a fixed-key, uniform32-bit null and deterministic nonempty accepted set, the smallest possible positive FPR is `2^-32 > 10^-10`. These particular assumptions cannot simultaneously justify a positive-TPR detector at that nominal bound without a different decision contract. This is not an empirical estimate of ROAR's FPR; actual code, randomization, continuous auxiliary evidence and null dependencies were not inspected. Do not import the threshold recipe into this study. The [finite-bit null derivation](../analysis/finite-bit-null-boundary.md) states the complete counting, key-search and ECC qualifications.
+

@@ -1,0 +1,15 @@
+# Saved-output quality dominance: post-hoc sensitivity plan
+
+Recorded before running this particular aggregation, 2026-10-25. Existing development outcomes and source-median contrasts are already known; this is not preregistration on unseen data or a new confirmatory hypothesis. No experiment, image, metric, model, detector or endpoint will be recomputed. The accepted protocol and reviewed article remain unchanged.
+
+Question: does the source-summary quality/retention contrast also contain individual-output violations of a deterministic coordinatewise-monotone mapping from the three saved quality metrics to the declared binary endpoint? Coordinatewise medians and majority endpoints cannot alone establish that finer claim.
+
+Input is the preserved stage2b-full rows.jsonl union journal, last record per ID. Scope is C1, R0 strength .2 versus R1 strength .1, seeds12/13/14, within the same source. Report all four existing arms separately; F5/v5 use compound C, WAM/VINE use known-message presence. No equal-endpoint ranking.
+
+For each of `distortion` (published marked input reference) and `total_distortion` (original reference), compare (a) equal numeric seed labels, (b) all nine source-local seed pairs. Seed labels across distinct pipelines do not imply equal noise arrays or a paired causal intervention. Require both outputs and detector calls to have status ok, a Boolean declared endpoint and three finite saved metric values. Missing outputs remain explicitly counted; no imputation or selected replacement.
+
+R1 strictly dominates quality if its LPIPS is lower and its PSNR and SSIM are higher. Count complete comparisons, quality-dominating comparisons, and contradictions where R0 is positive and the quality-dominating R1 is negative. Also report reverse dominance/contradiction, source-any counts, complete-six-output source subset, per-source counts and metric-gap minima/maxima among contradictions. All counts are descriptive, not independent tests or new p-values. Compare source identities only within each arm. No matching caliper is changed.
+
+Report all predeclared arms, references and pairing modes regardless of the outcome. An observed contradiction rules out a deterministic monotone function of these exact three metrics on these observations, even source-specific; it does not rule out nonmonotone functions, probabilistic quality models, other perceptual variables or metric uncertainty, establish visual preference, or identify a causal encoder effect. Zero contradictions would not prove such a model. The original n=58 median-quality statement stays at source-summary resolution.
+
+Code: quality-dominance.py. Outputs: quality-dominance.json, quality-dominance-sources.csv and an author interpretation quality-dominance.md. Only the designated isolated standard-library interpreter may run this saved-JSON aggregation. It must finish within15minutes and remain outside completed WP6/E3 review scope. Commit this plan/code before execution; preserve failures and any necessary repairs.

@@ -17,6 +17,10 @@ Author additions after the accepted WP6 dossier and E3 article review, 2026-10-2
 | [Shallow Diffuse](shallow-diffuse-primary.md) | Substantive derivative/subspace prior art, including post-generation DDIM-inversion insertion. | Inspected arXiv v5 is distinguished from the verified NeurIPS 2025 identity. Its PMP/one-step conditions do not certify a fixed F5 mark under a foreign full regeneration chain. |
 | [NullGuard access and dimensional audit](nullguard-primary.md) | Records an incomplete null-space construction lead and coordinate-space questions. | Indexed primary excerpts remain V1-plus, not full V2 evidence. Author-reported BMVC acceptance and the anonymous ICLR-review artifact are not interchangeable; no novelty exclusion follows. |
 | [Denoising/unsigning](denoising-unsigning-2026-boundary.md) | Separates a conceptual channel argument from actual experimental evidence; checks normalized SNR and contraction premises. | The source explicitly labels its numerical tables hypothetical. They establish no measured result and do not increase the empirical-source count. |
+| [AEON](aeon-2026-primary.md) | Learned semantic hash, reconstruction attacks and inverse-model verification. | Full PDF access closes the initial reading gap but leaves stored versus recomputed reference, cumulative attack order and exact null calibration unresolved. No independent-AE transfer guarantee. |
+| [ROAR](roar-2025-primary.md) | Inversion restoration/optimization and explicit reconstruction versus purification results. | Initial inversion and iterative forward optimization differ; attack checkpoint prose/table conflict and nominal finite-bit calibration cannot be silently repaired. |
+| [HSQR/HSTR](hsqr-2025-primary.md) | Real Fourier representation and actual QR carrier redundancy. | Evaluated candidate lookup is not demonstrated QR error correction or arbitrary payload recovery; checkpoint names do not establish AE training independence. |
+| [ISTS](ists-2026-primary.md) | Content-conditioned selection, two-orientation verification and explicit forgery/removal outcomes. | Null symmetry does not preserve a minimum-over-patterns distribution; label-permutation size is not a per-image security proof. Inspected arXiv and CVPR Findings metadata are distinguished. |
 
 The article drafts retain their reviewed bibliography and text. Any future integration must cite the actual inspected version and carry these qualifications. No universal negative literature conclusion follows from an unsuccessful search.
 
@@ -26,9 +30,15 @@ The [searched-verifier null note](../analysis/searched-detector-null.md) explain
 
 The [reader-stability note](../analysis/reader-stability-boundary.md) derives conditional chip-to-score, segment-gap and semantic-likelihood bounds for the actual reader. Equal scalar scores need not mean equal decoded words or compound C. No error radius is measured or certified, and the note introduces no new endpoint or computation requirement.
 
+The [finite-transport note](../analysis/finite-transport-boundary.md) separates finite curvature, paired numerical discrepancy and derivative error, then gives the weighted scalar-projection identity. No smoothness constant is certified. The [article integration bridge](../article-drafts/late-source-integration.md) supplies qualified draft insertions for later author work; it does not modify or extend acceptance of the reviewed sections.
+
+The [finite-bit null note](../analysis/finite-bit-null-boundary.md) gives exact acceptance-set counting, searched-key and ECC-basin distinctions. Its 32-bit boundary is conditional on a fixed-key uniform hard-word null and deterministic decisions, not an empirical allegation about an unseen implementation. The bibliography now has nineteen version-qualified entries.
+
 ## Paper-cache exception used
 
 The brief explicitly permits paper PDF/HTML storage in MAIN `.thesis-build/cache-et-final/papers/`, below 3 GB. Root downloaded the actual coauthor-linked GROW PDF after the web reader rejected its 13.15 MB size. The cache was checked below the cap. This was a paper-only transfer, not a model, research-image or dataset download. SHA-256 and version details are in its closure note. The bundled Node PDF.js reader extracted text in memory; no science interpreter, ML library, image rendering, package install or experimental pass was used. One initial module-path error was corrected to a Windows file URL, then the document read completed. No full text or PDF is committed.
+
+The same exception subsequently closed AEON/ROAR main and supplement access: four official public PDFs, 13,629,483 bytes combined, with exact hashes in their cards. Ordinary HTTP retrieval succeeded where the web text reader returned403. Main method/experiment pages and every supplement page were text-inspected; no visual-table inspection is claimed. No model, image, dataset or code archive was retrieved.
 
 ## Open leads, without evidentiary promotion
 
