@@ -124,7 +124,7 @@ Written by Claude (Opus 5.5) on 2026-10-24, after stage 2a gave FAILS, ROUTE C. 
    - **Counts:** v5 falls from 50 to 4, WAM from 48 to 21, F5 A from 52 to 34; VINE-R keeps 59.
    - **Distortion:** the rinse's LPIPS against the mark (about .14) is close to one .2 pass. It is not equated with .2.
 7. **P5 smoothing** (Table 3; descriptive):
-   - **Effect against its matched control:** F5's residual instance-tier A falls from 32 to 16, and v5 A from 52 to 42. No source gains.
+   - **Effect against its matched control:** F5's residual any-tier A (either tier found) falls from 32 to 16, and v5 A from 52 to 42. No source gains.
    - **Distortion:** smoothing also raises attack distortion, so the counts are not distortion-matched.
    - **F5's primary endpoint:** already at zero.
    - **R1-mode against sampled R1:** compound (precision, posterior mode and noise draw).

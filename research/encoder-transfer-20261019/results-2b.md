@@ -81,7 +81,7 @@ The intervals are model-based and exploratory (independent exchangeable sources 
 
 This is descriptive, like everything in stage 2b, and it tests no cause. R0 and R1 also differ in resolution, model family and pipeline, not only in the encoder (`results.md`, diagnostics).
 
-**F5's instance tier (A, "either tier found") under SDXL** falls with strength: 52/60 at .1, 30/60 at .2, 5/60 at .4. A is the conservative negative-gate endpoint, not an ownership claim.
+**F5's any-tier endpoint A ("either tier found") under SDXL** falls with strength: 52/60 at .1, 30/60 at .2, 5/60 at .4. A is the conservative negative-gate endpoint, not an ownership claim.
 
 **Its semantic tier, which C needs,** is never read with a content match: C is 0/180 calls at each strength.
 - **At .1:** it is found in 26 of 180 calls. 23 of those have a content match but are not read (the S endpoint), and 3 are read with a content mismatch.
@@ -169,7 +169,7 @@ Two qualifications:
 
 - **F5 C:** it is at the floor under plain R1 .2, so P5 cannot show any additional removal on the primary endpoint.
 - **Effect against the matched control:** smoothing removes part of what remains.
-  - F5's instance tier falls from 32 to 16 sources.
+  - F5's any-tier A (either tier found) falls from 32 to 16 sources.
   - v5's A falls from 52 to 42.
   - No source succeeds under smoothing that fails under the control.
 - **R1-mode against sampled R1:** R1-mode lowers v5 C from 12 to 6. Seven sources succeed only under R1, and one only under R1-mode.
@@ -253,7 +253,7 @@ The F5 count stays at zero false detections on every endpoint in every cell.
 - **Not accounted for by larger attack distortion.** Within the tested grid, the SDXL loss does not follow achieved distortion. In every complete source, F5's R1 .1 output is milder than its R0 .2 and R0 .4 outputs on all three metrics. Yet R1 .1 removes F5, while R0 .4 keeps 39/60. The pre-specified within-source matched comparison is too sparse (m = 2) to test this, so it stays descriptive.
 - **Second family.** F5 also largely fails full Kandinsky 3 img2img at .2 (5/60), where v5 (57/60) and WAM (44/60) survive. MoVQ's training independence is qualified, and R3's .2 noises less than SDXL's .2. The Kandinsky 3 MoVQ round trip alone does not remove F5 (55/60).
 - **Rinse.** A two-pass light SDXL rinse removes most v5 (4/60) and much WAM (21/60) signal that survives a single .1 pass. VINE-R keeps 59/60.
-- **P5.** Encoder-aware posterior smoothing lowers the residual F5 instance-tier and v5 signals against a matched posterior-mode control.
+- **P5.** Encoder-aware posterior smoothing lowers the residual F5 any-tier A and v5 signals against a matched posterior-mode control.
   - The control shares the pipeline and the seed's noise but not the achieved distortion, so the lower counts are not distortion-matched.
   - It cannot be assessed on F5's primary endpoint, which is already at zero.
 - **Allowed article frame (ROUTE C).** Bounded to the tested configuration:
@@ -272,7 +272,7 @@ The F5 count stays at zero false detections on every endpoint in every cell.
 - that the rinse equals a .2 pass, or that its second pass is an independent replicate;
 - that P5 is an optimal or certified smoothing attack;
 - that VINE-R dominates F5 at matched quality. Clean quality is unmatched, VINE-R passes the strict clean gate on 31/60, and it showed one false detection at its threshold;
-- that the instance-tier A signal gives ownership evidence;
+- that the any-tier A signal gives ownership evidence;
 - any population-level, held-out or calibrated false-positive result;
 - anything about FLUX (gated) or the declined proposals.
 
