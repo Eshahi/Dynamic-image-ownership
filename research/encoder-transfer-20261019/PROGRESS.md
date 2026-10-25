@@ -174,3 +174,17 @@ STAGE-1B STOP REACHED
   - the go-ahead;
   - the stage-2a billed hours and dollars;
   - the new machine and its price.
+
+## 2026-10-25 - Stage 2b executed by Claude (Opus 5.5): descriptive, label unchanged
+
+- **User decisions, verbatim:** "Approved: run stage 2b. I'll send the stage-2a billed hours and dollars from vast.ai and a new server's SSH line and price." Then, with the billing figures unavailable: "I can't find the billing figures; use the conservative stage-2a clock (25.9 h, $14.48) and the declared drop order."
+- **Server:** vast container 57583551 (RTX 4090, 64 GB RAM, 76 GB disk, USD 0.448/h). Contract 6217e495 (laptop 66d6944); the server code is the byte-identical archive of 0a1dc27.
+- **Run:** prepare held once on transient network failures and passed on release. The adapter check and smoke passed first time, and no code fix was needed.
+  - The full run took 4.02 h (01:28Z–05:29Z) with nothing dropped: 11,040 units, of which 7,200 are new and 23 R0 safety-blocked.
+- **Results** (`results-2b.md`):
+  - F5 C under SDXL is 0/60 at .1, .2 and .4, with 0/540 C0 and 0/540 wrong owner. Under SD1.5 it is 60, 57 and 39.
+  - Full Kandinsky 3 .2: F5 5/60, v5 57, WAM 44, VINE-R 60.
+  - The rinse cuts v5 from 50 to 4.
+  - P5 lowers only residual instance-tier signal.
+- **Report and review:** the T7 report is rerun on the union. An independent review (`review-2b.md`) gives ACCEPT WITH CORRECTIONS; all 17 corrections are applied.
+- **Cost:** about 6.4 instance-hours, USD 2.9. The total on the user-chosen basis is about 32.3 h / USD 17.4.

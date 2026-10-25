@@ -2,6 +2,8 @@
 
 Written by Claude (Opus 5.5) on 2026-10-24 from the completed stage-2a run. This is a development study on 60 development sources, not a confirmation. No held-out or test data were used.
 
+**Update, 2026-10-25:** stage 2b has since run (`results-2b.md`, reviewed in `review-2b.md`). It reproduces this label. Its cells (.1/.4, rinse, full Kandinsky 3, P5) supersede the "not run by design" statements below. With .1 and .4 in the grid, the R0/R1 matched-distortion overlap is no longer zero (F5 m = 2). The T7 report now renders the union.
+
 ## Decision
 
 **Label: FAILS. Route: ROUTE C**, the bounded empirical article (BRIEF section 3).
