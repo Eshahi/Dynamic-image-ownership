@@ -2,6 +2,28 @@
 
 This file is already in your context; never re-read it. At the start of a thread, or right after a context compaction, read `thesis-runs/d916749c/STATE.md` once; the copy in the main checkout `W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5` is the only authoritative one, also when you work in a worktree.
 
+## Current mode: research-only final-study session (user decision, 2026-10-25)
+
+The user asked, verbatim: "I have a pro 5x 100 codex session. Can you use it to strengthen the final expriment and add more deep analysis, also intelligence to it? I want you to plan it and start it." Then, verbatim: "I don't want the run on my local. I want a real deep resarch". Claude set up this session on branch `codex/encoder-transfer-final-20261025`. The brief is `research/encoder-transfer-20261019/final-study-20261025/BRIEF.md`.
+
+For this session, the brief overrides every section below that asks you to design, implement or run experiments: "Current direction: independent-encoder transfer test" (its stage 2 is finished), Operating mode, Current direction, Milestones, "Iterate fast", "Cheapest decisive test first", and Execution and provenance. Experiments are designed for a rented server and run later, only after the user approves.
+
+- **Nothing runs on this laptop:**
+  - no image generation, marking, regeneration, attack, detection, metric, encoder pass, training or timing;
+  - no GPU, and no `.thesis-build/a6-science-venv` or other interpreter with torch, diffusers, numpy, scipy, PIL or lpips;
+  - no dev runs or rehearsals;
+  - no downloads of images, datasets, model weights or code, and no package installs;
+  - no paid compute, no vast.ai, no SSH.
+- **Allowed:**
+  - reading files anywhere, including saved result files;
+  - web search and reading papers;
+  - stdlib Python (`.thesis-build/venv`) to analyse existing JSON and JSONL result files and compute bounds;
+  - writing inside `research/encoder-transfer-20261019/final-study-20261025/`;
+  - committing and pushing this branch.
+- **Guard.** The supervisor hides CUDA. It kills processes that use the science interpreter, import ML libraries, run experiment scripts, call vastai or ssh, or run Python for more than 15 minutes. Do not work around it; specify any needed computation for the server phase instead.
+- **Keep working until the session deadline** in the brief's `PROGRESS.md`. Nobody answers questions during the run: record decisions for the user and continue.
+- The integrity rules below still apply in full.
+
 ## Current direction: independent-encoder transfer test (user decision, 2026-10-19)
 
 The user reviewed the research-only Q1 dossier with Claude on 2026-10-19. They said they want a Q1 article for themselves (it is not required) and that a rented server is better. They chose to run the cheapest decisive experiment first. The brief is `research/encoder-transfer-20261019/BRIEF.md`. It overrides the Milestones and Current-direction text below where they conflict. The research-only restriction of 2026-10-18 no longer applies on this branch, except as the brief states.
