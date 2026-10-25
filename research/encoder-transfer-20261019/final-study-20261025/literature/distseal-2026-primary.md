@@ -20,4 +20,3 @@ Inspected 2026-10-25 by Codex agent. V2: full arXiv method and experimental text
 - Exact search: `"Learning to Watermark in the Latent Space of Generative Models" DistSeal arxiv version regeneration`.
 - Direct opens: `https://proceedings.mlr.press/v306/rebuffi26a.html`; linked raw PDF above (failed).
 - PMLR landing-page link9 OpenReview click failed. Search snippets and abstract-only material supplied no technical assertions in this card.
-

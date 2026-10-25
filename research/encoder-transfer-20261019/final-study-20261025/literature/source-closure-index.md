@@ -1,0 +1,30 @@
+# Late source closure and claim boundaries
+
+Author additions after the accepted WP6 dossier and E3 article review, 2026-10-25. These notes do not extend either review's scope, alter the frozen experiment, add baselines, or establish submission readiness. Their role is to constrain inherited claims and record source-access limits. No experiment was run.
+
+| Reading receipt | Research use | Boundary retained |
+|---|---|---|
+| [GROW accepted-paper excerpts](grow-2026-primary.md), [full submission-copy closure](grow-access-closure.md) | Direct-extraction generation-time work relevant to the proposal's unresolved extraction question. | The accepted paper and anonymous author-hosted submission are separate versions. Full submission text does not fill final-version gaps automatically. Cross-regenerator lineage and calibrated searched verification remain unresolved. |
+| [DistSeal](distseal-2026-primary.md) | Alternative learned latent insertion and detector resources. | No conversion of its message endpoint into F5's compound C; no inference from portability to independent-regenerator survival. |
+| [Semantic-watermark forgery](semantic-forgery-2025-primary.md) | Presence versus content binding and the need to inspect codec provenance. | This is not an F5 adaptive-forgery result. Use corrected arXiv v3 numbers only. |
+| [Forgery theory assumptions](../analysis/forgery-theory-boundary.md) | Original counterexamples delimit which theoretical premises could support a general mechanism argument. | The counterexamples test mathematical sufficiency, not operational diffusion attacks. Empirical performance and universal guarantees are separate. |
+| [LDPC-PRC concrete security](prc-concrete-security-2026.md) | Keep accidental acceptance, distinguishing and adversarial acceptance separate. | Concrete parameter or implementation findings do not become a refutation of every conditional PRC theorem or an F5 security result. |
+| [GhostVAE](ghostvae-2026-primary.md) | State the trusted-verifier assumption. | Compromising the verifier is a different access model from modifying only an image before a fixed detector. |
+| [TraceMark-LDM](tracemark-2026-primary.md) | Compare detector resources and the scope of distribution/quality claims. | Theoretical null calibration, average bits, whole-message recovery and authenticated attribution are distinct. |
+| [Original Semantic Imprinting access](semantic-imprinting-access-closure.md) | Verified identity and topic only. | Original remains V1; later taxonomy cannot substitute for inaccessible original methods and experiments. |
+| [Intrinsic limits](intrinsic-limits-2026-primary.md) | Component-level analysis and regeneration prior art; explicit checks of MMSE, directional and certificate assumptions. | Exact-MMSE PSD and conditional invertibility survive the critique. Universal contraction, directional amplification and operational failure ceilings do not follow from the stated premises alone. |
+| [Residual transferability](residual-transferability-2026-primary.md) | Separates transplanted residuals, detector presence and content binding. | Image-to-image residual transplantation is not transfer across independently trained regenerator encoders; an assumed-bit tail is not an empirical or adaptive-forgery guarantee. |
+
+The article drafts retain their reviewed bibliography and text. Any future integration must cite the actual inspected version and carry these qualifications. No universal negative literature conclusion follows from an unsuccessful search.
+
+The separate [late-source bibliography](late-sources.bib) preserves these reading versions without replacing the article's reviewed citation set. The theoretical notes are author-side derivations, not published refutations or new measured results. Useful conditional results are retained alongside unsupported extrapolations.
+
+The [searched-verifier null note](../analysis/searched-detector-null.md) explains selection, key conditioning, correlated bits and source-level negative bounds without assigning an unmeasured FPR to a named method. The [future-outcome atlas](../analysis/future-outcome-interpretation.md) maps the existing frozen hypotheses to allowable conclusions; it is interpretive shorthand and does not override their controlling contracts.
+
+## Paper-cache exception used
+
+The brief explicitly permits paper PDF/HTML storage in MAIN `.thesis-build/cache-et-final/papers/`, below 3 GB. Root downloaded the actual coauthor-linked GROW PDF after the web reader rejected its 13.15 MB size. The cache was checked below the cap. This was a paper-only transfer, not a model, research-image or dataset download. SHA-256 and version details are in its closure note. The bundled Node PDF.js reader extracted text in memory; no science interpreter, ML library, image rendering, package install or experimental pass was used. One initial module-path error was corrected to a Windows file URL, then the document read completed. No full text or PDF is committed.
+
+## Open leads, without evidentiary promotion
+
+Inherited DiffMark and BiSLW labels did not resolve to an exact primary source in the recorded bounded searches. They remain V0; this is not a nonexistence claim. Search results can misassociate titles and arXiv identifiers, as the GROW access note demonstrates. New source matches require opening and checking their own identity before any technical use.

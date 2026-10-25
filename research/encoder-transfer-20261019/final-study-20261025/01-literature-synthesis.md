@@ -42,3 +42,7 @@ The WP6 [PhaseMark/Semantic Imprinting source check](literature/watermarks/13-ph
 6. Keep failures, missing outputs, safety blocks and non-overlap visible. A tiny matched-distortion subset does not support a population-wide causal comparison.
 
 The [rank-ratio manuscript](literature/transfer-theory/rank-ratio-unverified.md) is close prior work on direction scrambling and VAE-specific co-design. WP6 verified its IEEE Access identity through Crossref, correcting the initial unresolved label. The inspected author text and inaccessible final publisher version are distinguished. Its isotropic rank premise does not establish a worst-case bound for optimized F5 residuals, and its round-trip model does not establish the full-regeneration mechanism proposed here. No numerical result from it becomes a fitted parameter. New search leads marked V0/V1 remain outside the substantive synthesis.
+
+## Later source closure, outside the completed reviews
+
+The [late-source index](literature/source-closure-index.md) links additional primary readings and original assumption checks after E3. They sharpen version, attack-access and endpoint boundaries without changing the frozen protocol or reviewed article text. Original SIH remains V1. GROW has partial accepted-version inspection plus a fully read, explicitly different submission copy. Source inspection does not certify a theorem: unsupported Gaussian, independence or invariance premises are retained as limitations rather than imported guarantees.
