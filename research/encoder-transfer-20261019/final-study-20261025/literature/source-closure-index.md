@@ -21,6 +21,8 @@ Author additions after the accepted WP6 dossier and E3 article review, 2026-10-2
 | [ROAR](roar-2025-primary.md) | Inversion restoration/optimization and explicit reconstruction versus purification results. | Initial inversion and iterative forward optimization differ; attack checkpoint prose/table conflict and nominal finite-bit calibration cannot be silently repaired. |
 | [HSQR/HSTR](hsqr-2025-primary.md) | Real Fourier representation and actual QR carrier redundancy. | Evaluated candidate lookup is not demonstrated QR error correction or arbitrary payload recovery; checkpoint names do not establish AE training independence. |
 | [ISTS](ists-2026-primary.md) | Content-conditioned selection, two-orientation verification and explicit forgery/removal outcomes. | Null symmetry does not preserve a minimum-over-patterns distribution; label-permutation size is not a per-image security proof. Inspected arXiv and CVPR Findings metadata are distinguished. |
+| [Drift Kernel](drift-kernel-2026-primary.md) | Close Jacobian-based image-drift prediction prior work, with fully inspected official methods and supplement. | Decoder trace is not a signed full-chain reader response; native strength, output covariance and curvature need separate assumptions. Aggregate fit is not per-source forecast evidence. |
+| [Early Semantic Commitment](early-semantic-commitment-primary.md) | Directional response analysis and the difference between cohort onset and individual prediction. | Indexed primary sections remain partial access to an anonymous under-review manuscript; the target is generation-class flips, not watermark survival. |
 
 The article drafts retain their reviewed bibliography and text. Any future integration must cite the actual inspected version and carry these qualifications. No universal negative literature conclusion follows from an unsuccessful search.
 
@@ -32,13 +34,15 @@ The [reader-stability note](../analysis/reader-stability-boundary.md) derives co
 
 The [finite-transport note](../analysis/finite-transport-boundary.md) separates finite curvature, paired numerical discrepancy and derivative error, then gives the weighted scalar-projection identity. No smoothness constant is certified. The [article integration bridge](../article-drafts/late-source-integration.md) supplies qualified draft insertions for later author work; it does not modify or extend acceptance of the reviewed sections.
 
-The [finite-bit null note](../analysis/finite-bit-null-boundary.md) gives exact acceptance-set counting, searched-key and ECC-basin distinctions. Its 32-bit boundary is conditional on a fixed-key uniform hard-word null and deterministic decisions, not an empirical allegation about an unseen implementation. The bibliography now has nineteen version-qualified entries.
+The [finite-bit null note](../analysis/finite-bit-null-boundary.md) gives exact acceptance-set counting, searched-key and ECC-basin distinctions. Its 32-bit boundary is conditional on a fixed-key uniform hard-word null and deterministic decisions, not an empirical allegation about an unseen implementation. The bibliography now has twenty-one version-qualified entries. The [close-prior-art map](../article-drafts/close-prior-art-map.md) compares five neighboring questions without claiming priority.
 
 ## Paper-cache exception used
 
 The brief explicitly permits paper PDF/HTML storage in MAIN `.thesis-build/cache-et-final/papers/`, below 3 GB. Root downloaded the actual coauthor-linked GROW PDF after the web reader rejected its 13.15 MB size. The cache was checked below the cap. This was a paper-only transfer, not a model, research-image or dataset download. SHA-256 and version details are in its closure note. The bundled Node PDF.js reader extracted text in memory; no science interpreter, ML library, image rendering, package install or experimental pass was used. One initial module-path error was corrected to a Windows file URL, then the document read completed. No full text or PDF is committed.
 
 The same exception subsequently closed AEON/ROAR main and supplement access: four official public PDFs, 13,629,483 bytes combined, with exact hashes in their cards. Ordinary HTTP retrieval succeeded where the web text reader returned403. Main method/experiment pages and every supplement page were text-inspected; no visual-table inspection is claimed. No model, image, dataset or code archive was retrieved.
+
+The Drift Kernel author subsequently retrieved its official main and supplement PDFs, 7,420,530 bytes combined, and inspected every page's extracted text. Hashes are in its card. At17:56UTC the entire paper cache contained52 files totaling85,122,829bytes, well below3GB. These paper-only reads do not authorize scientific asset acquisition.
 
 ## Open leads, without evidentiary promotion
 

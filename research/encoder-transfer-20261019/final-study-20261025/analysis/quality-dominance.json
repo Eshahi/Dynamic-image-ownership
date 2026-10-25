@@ -1,0 +1,1521 @@
+{
+  "analysis": "Post-hoc descriptive source-local strict all-three-metric dominance",
+  "contrast": {
+    "left": "C1 R0@0.2",
+    "right": "C1 R1@0.1",
+    "seeds": [
+      12,
+      13,
+      14
+    ],
+    "right_owner": "qim-pilot-owner-alpha",
+    "arms": [
+      "f5-r2",
+      "v5-r3",
+      "wam",
+      "vine-r"
+    ]
+  },
+  "interpretation": [
+    "No p-values; source-local pairs share outputs and are not independent trials.",
+    "Equal numeric seed labels do not assert equal regeneration randomness.",
+    "Complete pairs require row, quality and right-owner detector status ok, finite numeric quality and a Boolean endpoint.",
+    "Strictly milder means lower LPIPS and higher PSNR and SSIM; ties do not dominate.",
+    "Contradictions concern three recorded quality metrics, not all perceptual distortion or a causal encoder effect.",
+    "Gap bounds use positive metric improvements toward the strictly milder output, only among contradictions.",
+    "Missing pairs include absent records and unusable observations; scheduled pair counts always retain all 60 sources."
+  ],
+  "journal": {
+    "input_path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261025-0128-encoder-transfer-stage2b\\results\\stage2b-full\\rows.jsonl",
+    "input_sha256": "f3b95d3e727d421c29a2a2e42eb1ef5881f55b7d3eb848a237ab51095455fb82",
+    "journal_lines": 39896,
+    "unique_ids": 11040,
+    "overwritten_records": 28856,
+    "final_status_counts": {
+      "ok": 11017,
+      "safety_blocked": 23
+    },
+    "selected_records": 1440,
+    "selected_final_status_counts": {
+      "ok": 1432,
+      "safety_blocked": 8
+    },
+    "selected_unique_sources": 60
+  },
+  "unusable_output_counts": [
+    {
+      "arm": "f5-r2",
+      "quality_reference": "distortion",
+      "reason": "row_status_safety_blocked",
+      "count": 3
+    },
+    {
+      "arm": "f5-r2",
+      "quality_reference": "total_distortion",
+      "reason": "row_status_safety_blocked",
+      "count": 3
+    },
+    {
+      "arm": "v5-r3",
+      "quality_reference": "distortion",
+      "reason": "row_status_safety_blocked",
+      "count": 1
+    },
+    {
+      "arm": "v5-r3",
+      "quality_reference": "total_distortion",
+      "reason": "row_status_safety_blocked",
+      "count": 1
+    },
+    {
+      "arm": "vine-r",
+      "quality_reference": "distortion",
+      "reason": "row_status_safety_blocked",
+      "count": 2
+    },
+    {
+      "arm": "vine-r",
+      "quality_reference": "total_distortion",
+      "reason": "row_status_safety_blocked",
+      "count": 2
+    },
+    {
+      "arm": "wam",
+      "quality_reference": "distortion",
+      "reason": "row_status_safety_blocked",
+      "count": 2
+    },
+    {
+      "arm": "wam",
+      "quality_reference": "total_distortion",
+      "reason": "row_status_safety_blocked",
+      "count": 2
+    }
+  ],
+  "aggregates": [
+    {
+      "arm": "f5-r2",
+      "quality_reference": "distortion",
+      "pairing_mode": "same_numeric_seed_label",
+      "scheduled_sources": 60,
+      "scheduled_pairs": 180,
+      "observed_record_pairs": 180,
+      "complete_pairs": 177,
+      "missing_pairs": 3,
+      "r1_strictly_milder_pairs": 177,
+      "r0_positive_r1_negative_among_r1_milder_pairs": 170,
+      "r0_strictly_milder_pairs": 0,
+      "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "sources_any_complete_pairs": 60,
+      "sources_any_missing_pairs": 2,
+      "sources_any_r1_strictly_milder_pairs": 60,
+      "sources_any_r0_positive_r1_negative_among_r1_milder_pairs": 58,
+      "sources_any_r0_strictly_milder_pairs": 0,
+      "sources_any_r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "complete_six_output_subset": {
+        "sources": 58,
+        "scheduled_pairs": 174,
+        "observed_record_pairs": 174,
+        "complete_pairs": 174,
+        "missing_pairs": 0,
+        "r1_strictly_milder_pairs": 174,
+        "r0_positive_r1_negative_among_r1_milder_pairs": 168,
+        "r0_strictly_milder_pairs": 0,
+        "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+        "sources_any_r1_milder_contradiction": 57,
+        "sources_any_r0_milder_contradiction": 0,
+        "r1_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": 0.018122002482414246,
+            "max": 0.12113147974014282
+          },
+          "psnr_db": {
+            "min": 3.136527671345359,
+            "max": 6.161522156668767
+          },
+          "ssim_rgb": {
+            "min": 0.04440764766011707,
+            "max": 0.35324033298396634
+          }
+        },
+        "r0_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": null,
+            "max": null
+          },
+          "psnr_db": {
+            "min": null,
+            "max": null
+          },
+          "ssim_rgb": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "r1_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": 0.018122002482414246,
+          "max": 0.12113147974014282
+        },
+        "psnr_db": {
+          "min": 3.136527671345359,
+          "max": 6.161522156668767
+        },
+        "ssim_rgb": {
+          "min": 0.04440764766011707,
+          "max": 0.35324033298396634
+        }
+      },
+      "r0_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": null,
+          "max": null
+        },
+        "psnr_db": {
+          "min": null,
+          "max": null
+        },
+        "ssim_rgb": {
+          "min": null,
+          "max": null
+        }
+      }
+    },
+    {
+      "arm": "f5-r2",
+      "quality_reference": "distortion",
+      "pairing_mode": "all_source_local_pairs",
+      "scheduled_sources": 60,
+      "scheduled_pairs": 540,
+      "observed_record_pairs": 540,
+      "complete_pairs": 531,
+      "missing_pairs": 9,
+      "r1_strictly_milder_pairs": 531,
+      "r0_positive_r1_negative_among_r1_milder_pairs": 510,
+      "r0_strictly_milder_pairs": 0,
+      "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "sources_any_complete_pairs": 60,
+      "sources_any_missing_pairs": 2,
+      "sources_any_r1_strictly_milder_pairs": 60,
+      "sources_any_r0_positive_r1_negative_among_r1_milder_pairs": 58,
+      "sources_any_r0_strictly_milder_pairs": 0,
+      "sources_any_r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "complete_six_output_subset": {
+        "sources": 58,
+        "scheduled_pairs": 522,
+        "observed_record_pairs": 522,
+        "complete_pairs": 522,
+        "missing_pairs": 0,
+        "r1_strictly_milder_pairs": 522,
+        "r0_positive_r1_negative_among_r1_milder_pairs": 504,
+        "r0_strictly_milder_pairs": 0,
+        "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+        "sources_any_r1_milder_contradiction": 57,
+        "sources_any_r0_milder_contradiction": 0,
+        "r1_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": 0.018122002482414246,
+            "max": 0.12542498111724854
+          },
+          "psnr_db": {
+            "min": 3.0877043016253793,
+            "max": 6.161522156668767
+          },
+          "ssim_rgb": {
+            "min": 0.040955245441606114,
+            "max": 0.3534484831458214
+          }
+        },
+        "r0_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": null,
+            "max": null
+          },
+          "psnr_db": {
+            "min": null,
+            "max": null
+          },
+          "ssim_rgb": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "r1_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": 0.018122002482414246,
+          "max": 0.12542498111724854
+        },
+        "psnr_db": {
+          "min": 3.0877043016253793,
+          "max": 6.161522156668767
+        },
+        "ssim_rgb": {
+          "min": 0.040955245441606114,
+          "max": 0.3534484831458214
+        }
+      },
+      "r0_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": null,
+          "max": null
+        },
+        "psnr_db": {
+          "min": null,
+          "max": null
+        },
+        "ssim_rgb": {
+          "min": null,
+          "max": null
+        }
+      }
+    },
+    {
+      "arm": "f5-r2",
+      "quality_reference": "total_distortion",
+      "pairing_mode": "same_numeric_seed_label",
+      "scheduled_sources": 60,
+      "scheduled_pairs": 180,
+      "observed_record_pairs": 180,
+      "complete_pairs": 177,
+      "missing_pairs": 3,
+      "r1_strictly_milder_pairs": 177,
+      "r0_positive_r1_negative_among_r1_milder_pairs": 170,
+      "r0_strictly_milder_pairs": 0,
+      "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "sources_any_complete_pairs": 60,
+      "sources_any_missing_pairs": 2,
+      "sources_any_r1_strictly_milder_pairs": 60,
+      "sources_any_r0_positive_r1_negative_among_r1_milder_pairs": 58,
+      "sources_any_r0_strictly_milder_pairs": 0,
+      "sources_any_r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "complete_six_output_subset": {
+        "sources": 58,
+        "scheduled_pairs": 174,
+        "observed_record_pairs": 174,
+        "complete_pairs": 174,
+        "missing_pairs": 0,
+        "r1_strictly_milder_pairs": 174,
+        "r0_positive_r1_negative_among_r1_milder_pairs": 168,
+        "r0_strictly_milder_pairs": 0,
+        "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+        "sources_any_r1_milder_contradiction": 57,
+        "sources_any_r0_milder_contradiction": 0,
+        "r1_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": 0.038885921239852905,
+            "max": 0.12270685285329819
+          },
+          "psnr_db": {
+            "min": 3.1352786580342276,
+            "max": 6.183280214055102
+          },
+          "ssim_rgb": {
+            "min": 0.03392094408758339,
+            "max": 0.3512799961363615
+          }
+        },
+        "r0_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": null,
+            "max": null
+          },
+          "psnr_db": {
+            "min": null,
+            "max": null
+          },
+          "ssim_rgb": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "r1_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": 0.038885921239852905,
+          "max": 0.12270685285329819
+        },
+        "psnr_db": {
+          "min": 3.1352786580342276,
+          "max": 6.183280214055102
+        },
+        "ssim_rgb": {
+          "min": 0.03392094408758339,
+          "max": 0.3512799961363615
+        }
+      },
+      "r0_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": null,
+          "max": null
+        },
+        "psnr_db": {
+          "min": null,
+          "max": null
+        },
+        "ssim_rgb": {
+          "min": null,
+          "max": null
+        }
+      }
+    },
+    {
+      "arm": "f5-r2",
+      "quality_reference": "total_distortion",
+      "pairing_mode": "all_source_local_pairs",
+      "scheduled_sources": 60,
+      "scheduled_pairs": 540,
+      "observed_record_pairs": 540,
+      "complete_pairs": 531,
+      "missing_pairs": 9,
+      "r1_strictly_milder_pairs": 531,
+      "r0_positive_r1_negative_among_r1_milder_pairs": 510,
+      "r0_strictly_milder_pairs": 0,
+      "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "sources_any_complete_pairs": 60,
+      "sources_any_missing_pairs": 2,
+      "sources_any_r1_strictly_milder_pairs": 60,
+      "sources_any_r0_positive_r1_negative_among_r1_milder_pairs": 58,
+      "sources_any_r0_strictly_milder_pairs": 0,
+      "sources_any_r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "complete_six_output_subset": {
+        "sources": 58,
+        "scheduled_pairs": 522,
+        "observed_record_pairs": 522,
+        "complete_pairs": 522,
+        "missing_pairs": 0,
+        "r1_strictly_milder_pairs": 522,
+        "r0_positive_r1_negative_among_r1_milder_pairs": 504,
+        "r0_strictly_milder_pairs": 0,
+        "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+        "sources_any_r1_milder_contradiction": 57,
+        "sources_any_r0_milder_contradiction": 0,
+        "r1_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": 0.03714217245578766,
+            "max": 0.12423687428236008
+          },
+          "psnr_db": {
+            "min": 3.0833912550722573,
+            "max": 6.183280214055102
+          },
+          "ssim_rgb": {
+            "min": 0.03076403467774269,
+            "max": 0.35145237251415895
+          }
+        },
+        "r0_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": null,
+            "max": null
+          },
+          "psnr_db": {
+            "min": null,
+            "max": null
+          },
+          "ssim_rgb": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "r1_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": 0.03714217245578766,
+          "max": 0.12423687428236008
+        },
+        "psnr_db": {
+          "min": 3.0833912550722573,
+          "max": 6.183280214055102
+        },
+        "ssim_rgb": {
+          "min": 0.03076403467774269,
+          "max": 0.35145237251415895
+        }
+      },
+      "r0_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": null,
+          "max": null
+        },
+        "psnr_db": {
+          "min": null,
+          "max": null
+        },
+        "ssim_rgb": {
+          "min": null,
+          "max": null
+        }
+      }
+    },
+    {
+      "arm": "v5-r3",
+      "quality_reference": "distortion",
+      "pairing_mode": "same_numeric_seed_label",
+      "scheduled_sources": 60,
+      "scheduled_pairs": 180,
+      "observed_record_pairs": 180,
+      "complete_pairs": 179,
+      "missing_pairs": 1,
+      "r1_strictly_milder_pairs": 175,
+      "r0_positive_r1_negative_among_r1_milder_pairs": 7,
+      "r0_strictly_milder_pairs": 0,
+      "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "sources_any_complete_pairs": 60,
+      "sources_any_missing_pairs": 1,
+      "sources_any_r1_strictly_milder_pairs": 59,
+      "sources_any_r0_positive_r1_negative_among_r1_milder_pairs": 7,
+      "sources_any_r0_strictly_milder_pairs": 0,
+      "sources_any_r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "complete_six_output_subset": {
+        "sources": 59,
+        "scheduled_pairs": 177,
+        "observed_record_pairs": 177,
+        "complete_pairs": 177,
+        "missing_pairs": 0,
+        "r1_strictly_milder_pairs": 173,
+        "r0_positive_r1_negative_among_r1_milder_pairs": 6,
+        "r0_strictly_milder_pairs": 0,
+        "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+        "sources_any_r1_milder_contradiction": 6,
+        "sources_any_r0_milder_contradiction": 0,
+        "r1_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": 0.023694206029176712,
+            "max": 0.0847645252943039
+          },
+          "psnr_db": {
+            "min": 3.6090682096534046,
+            "max": 4.802630092038559
+          },
+          "ssim_rgb": {
+            "min": 0.03622780536663395,
+            "max": 0.2142528339235924
+          }
+        },
+        "r0_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": null,
+            "max": null
+          },
+          "psnr_db": {
+            "min": null,
+            "max": null
+          },
+          "ssim_rgb": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "r1_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": 0.023694206029176712,
+          "max": 0.0847645252943039
+        },
+        "psnr_db": {
+          "min": 3.6090682096534046,
+          "max": 4.802630092038559
+        },
+        "ssim_rgb": {
+          "min": 0.03622780536663395,
+          "max": 0.2142528339235924
+        }
+      },
+      "r0_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": null,
+          "max": null
+        },
+        "psnr_db": {
+          "min": null,
+          "max": null
+        },
+        "ssim_rgb": {
+          "min": null,
+          "max": null
+        }
+      }
+    },
+    {
+      "arm": "v5-r3",
+      "quality_reference": "distortion",
+      "pairing_mode": "all_source_local_pairs",
+      "scheduled_sources": 60,
+      "scheduled_pairs": 540,
+      "observed_record_pairs": 540,
+      "complete_pairs": 537,
+      "missing_pairs": 3,
+      "r1_strictly_milder_pairs": 525,
+      "r0_positive_r1_negative_among_r1_milder_pairs": 20,
+      "r0_strictly_milder_pairs": 0,
+      "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "sources_any_complete_pairs": 60,
+      "sources_any_missing_pairs": 1,
+      "sources_any_r1_strictly_milder_pairs": 59,
+      "sources_any_r0_positive_r1_negative_among_r1_milder_pairs": 8,
+      "sources_any_r0_strictly_milder_pairs": 0,
+      "sources_any_r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "complete_six_output_subset": {
+        "sources": 59,
+        "scheduled_pairs": 531,
+        "observed_record_pairs": 531,
+        "complete_pairs": 531,
+        "missing_pairs": 0,
+        "r1_strictly_milder_pairs": 519,
+        "r0_positive_r1_negative_among_r1_milder_pairs": 17,
+        "r0_strictly_milder_pairs": 0,
+        "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+        "sources_any_r1_milder_contradiction": 7,
+        "sources_any_r0_milder_contradiction": 0,
+        "r1_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": 0.023694206029176712,
+            "max": 0.095087930560112
+          },
+          "psnr_db": {
+            "min": 3.596932238286037,
+            "max": 4.828343446940252
+          },
+          "ssim_rgb": {
+            "min": 0.03513219702439274,
+            "max": 0.2392492353668928
+          }
+        },
+        "r0_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": null,
+            "max": null
+          },
+          "psnr_db": {
+            "min": null,
+            "max": null
+          },
+          "ssim_rgb": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "r1_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": 0.023694206029176712,
+          "max": 0.095087930560112
+        },
+        "psnr_db": {
+          "min": 3.596932238286037,
+          "max": 4.828343446940252
+        },
+        "ssim_rgb": {
+          "min": 0.03513219702439274,
+          "max": 0.2392492353668928
+        }
+      },
+      "r0_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": null,
+          "max": null
+        },
+        "psnr_db": {
+          "min": null,
+          "max": null
+        },
+        "ssim_rgb": {
+          "min": null,
+          "max": null
+        }
+      }
+    },
+    {
+      "arm": "v5-r3",
+      "quality_reference": "total_distortion",
+      "pairing_mode": "same_numeric_seed_label",
+      "scheduled_sources": 60,
+      "scheduled_pairs": 180,
+      "observed_record_pairs": 180,
+      "complete_pairs": 179,
+      "missing_pairs": 1,
+      "r1_strictly_milder_pairs": 171,
+      "r0_positive_r1_negative_among_r1_milder_pairs": 7,
+      "r0_strictly_milder_pairs": 0,
+      "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "sources_any_complete_pairs": 60,
+      "sources_any_missing_pairs": 1,
+      "sources_any_r1_strictly_milder_pairs": 58,
+      "sources_any_r0_positive_r1_negative_among_r1_milder_pairs": 7,
+      "sources_any_r0_strictly_milder_pairs": 0,
+      "sources_any_r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "complete_six_output_subset": {
+        "sources": 59,
+        "scheduled_pairs": 177,
+        "observed_record_pairs": 177,
+        "complete_pairs": 177,
+        "missing_pairs": 0,
+        "r1_strictly_milder_pairs": 169,
+        "r0_positive_r1_negative_among_r1_milder_pairs": 6,
+        "r0_strictly_milder_pairs": 0,
+        "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+        "sources_any_r1_milder_contradiction": 6,
+        "sources_any_r0_milder_contradiction": 0,
+        "r1_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": 0.007941648364067078,
+            "max": 0.0780777633190155
+          },
+          "psnr_db": {
+            "min": 3.6007275662050517,
+            "max": 4.855664039008744
+          },
+          "ssim_rgb": {
+            "min": 0.025164527577721252,
+            "max": 0.20709189196737687
+          }
+        },
+        "r0_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": null,
+            "max": null
+          },
+          "psnr_db": {
+            "min": null,
+            "max": null
+          },
+          "ssim_rgb": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "r1_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": 0.007941648364067078,
+          "max": 0.0780777633190155
+        },
+        "psnr_db": {
+          "min": 3.6007275662050517,
+          "max": 4.855664039008744
+        },
+        "ssim_rgb": {
+          "min": 0.025164527577721252,
+          "max": 0.20709189196737687
+        }
+      },
+      "r0_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": null,
+          "max": null
+        },
+        "psnr_db": {
+          "min": null,
+          "max": null
+        },
+        "ssim_rgb": {
+          "min": null,
+          "max": null
+        }
+      }
+    },
+    {
+      "arm": "v5-r3",
+      "quality_reference": "total_distortion",
+      "pairing_mode": "all_source_local_pairs",
+      "scheduled_sources": 60,
+      "scheduled_pairs": 540,
+      "observed_record_pairs": 540,
+      "complete_pairs": 537,
+      "missing_pairs": 3,
+      "r1_strictly_milder_pairs": 515,
+      "r0_positive_r1_negative_among_r1_milder_pairs": 20,
+      "r0_strictly_milder_pairs": 0,
+      "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "sources_any_complete_pairs": 60,
+      "sources_any_missing_pairs": 1,
+      "sources_any_r1_strictly_milder_pairs": 58,
+      "sources_any_r0_positive_r1_negative_among_r1_milder_pairs": 8,
+      "sources_any_r0_strictly_milder_pairs": 0,
+      "sources_any_r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "complete_six_output_subset": {
+        "sources": 59,
+        "scheduled_pairs": 531,
+        "observed_record_pairs": 531,
+        "complete_pairs": 531,
+        "missing_pairs": 0,
+        "r1_strictly_milder_pairs": 509,
+        "r0_positive_r1_negative_among_r1_milder_pairs": 17,
+        "r0_strictly_milder_pairs": 0,
+        "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+        "sources_any_r1_milder_contradiction": 7,
+        "sources_any_r0_milder_contradiction": 0,
+        "r1_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": 0.0009976103901863098,
+            "max": 0.08690837025642395
+          },
+          "psnr_db": {
+            "min": 3.585226580904923,
+            "max": 4.883236429396511
+          },
+          "ssim_rgb": {
+            "min": 0.0241061450714799,
+            "max": 0.23380026813321325
+          }
+        },
+        "r0_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": null,
+            "max": null
+          },
+          "psnr_db": {
+            "min": null,
+            "max": null
+          },
+          "ssim_rgb": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "r1_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": 0.0009976103901863098,
+          "max": 0.08690837025642395
+        },
+        "psnr_db": {
+          "min": 3.585226580904923,
+          "max": 4.883236429396511
+        },
+        "ssim_rgb": {
+          "min": 0.0241061450714799,
+          "max": 0.23380026813321325
+        }
+      },
+      "r0_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": null,
+          "max": null
+        },
+        "psnr_db": {
+          "min": null,
+          "max": null
+        },
+        "ssim_rgb": {
+          "min": null,
+          "max": null
+        }
+      }
+    },
+    {
+      "arm": "wam",
+      "quality_reference": "distortion",
+      "pairing_mode": "same_numeric_seed_label",
+      "scheduled_sources": 60,
+      "scheduled_pairs": 180,
+      "observed_record_pairs": 180,
+      "complete_pairs": 178,
+      "missing_pairs": 2,
+      "r1_strictly_milder_pairs": 178,
+      "r0_positive_r1_negative_among_r1_milder_pairs": 5,
+      "r0_strictly_milder_pairs": 0,
+      "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "sources_any_complete_pairs": 60,
+      "sources_any_missing_pairs": 1,
+      "sources_any_r1_strictly_milder_pairs": 60,
+      "sources_any_r0_positive_r1_negative_among_r1_milder_pairs": 3,
+      "sources_any_r0_strictly_milder_pairs": 0,
+      "sources_any_r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "complete_six_output_subset": {
+        "sources": 59,
+        "scheduled_pairs": 177,
+        "observed_record_pairs": 177,
+        "complete_pairs": 177,
+        "missing_pairs": 0,
+        "r1_strictly_milder_pairs": 177,
+        "r0_positive_r1_negative_among_r1_milder_pairs": 5,
+        "r0_strictly_milder_pairs": 0,
+        "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+        "sources_any_r1_milder_contradiction": 3,
+        "sources_any_r0_milder_contradiction": 0,
+        "r1_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": 0.004655517637729645,
+            "max": 0.03251500427722931
+          },
+          "psnr_db": {
+            "min": 3.1660610026440104,
+            "max": 4.056347718155095
+          },
+          "ssim_rgb": {
+            "min": 0.05266898630165118,
+            "max": 0.1873160382338076
+          }
+        },
+        "r0_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": null,
+            "max": null
+          },
+          "psnr_db": {
+            "min": null,
+            "max": null
+          },
+          "ssim_rgb": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "r1_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": 0.004655517637729645,
+          "max": 0.03251500427722931
+        },
+        "psnr_db": {
+          "min": 3.1660610026440104,
+          "max": 4.056347718155095
+        },
+        "ssim_rgb": {
+          "min": 0.05266898630165118,
+          "max": 0.1873160382338076
+        }
+      },
+      "r0_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": null,
+          "max": null
+        },
+        "psnr_db": {
+          "min": null,
+          "max": null
+        },
+        "ssim_rgb": {
+          "min": null,
+          "max": null
+        }
+      }
+    },
+    {
+      "arm": "wam",
+      "quality_reference": "distortion",
+      "pairing_mode": "all_source_local_pairs",
+      "scheduled_sources": 60,
+      "scheduled_pairs": 540,
+      "observed_record_pairs": 540,
+      "complete_pairs": 534,
+      "missing_pairs": 6,
+      "r1_strictly_milder_pairs": 534,
+      "r0_positive_r1_negative_among_r1_milder_pairs": 13,
+      "r0_strictly_milder_pairs": 0,
+      "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "sources_any_complete_pairs": 60,
+      "sources_any_missing_pairs": 1,
+      "sources_any_r1_strictly_milder_pairs": 60,
+      "sources_any_r0_positive_r1_negative_among_r1_milder_pairs": 3,
+      "sources_any_r0_strictly_milder_pairs": 0,
+      "sources_any_r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "complete_six_output_subset": {
+        "sources": 59,
+        "scheduled_pairs": 531,
+        "observed_record_pairs": 531,
+        "complete_pairs": 531,
+        "missing_pairs": 0,
+        "r1_strictly_milder_pairs": 531,
+        "r0_positive_r1_negative_among_r1_milder_pairs": 13,
+        "r0_strictly_milder_pairs": 0,
+        "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+        "sources_any_r1_milder_contradiction": 3,
+        "sources_any_r0_milder_contradiction": 0,
+        "r1_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": 0.0017101466655731201,
+            "max": 0.03595137596130371
+          },
+          "psnr_db": {
+            "min": 3.094086370994077,
+            "max": 4.086618121485408
+          },
+          "ssim_rgb": {
+            "min": 0.05266898630165118,
+            "max": 0.18842715651821196
+          }
+        },
+        "r0_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": null,
+            "max": null
+          },
+          "psnr_db": {
+            "min": null,
+            "max": null
+          },
+          "ssim_rgb": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "r1_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": 0.0017101466655731201,
+          "max": 0.03595137596130371
+        },
+        "psnr_db": {
+          "min": 3.094086370994077,
+          "max": 4.086618121485408
+        },
+        "ssim_rgb": {
+          "min": 0.05266898630165118,
+          "max": 0.18842715651821196
+        }
+      },
+      "r0_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": null,
+          "max": null
+        },
+        "psnr_db": {
+          "min": null,
+          "max": null
+        },
+        "ssim_rgb": {
+          "min": null,
+          "max": null
+        }
+      }
+    },
+    {
+      "arm": "wam",
+      "quality_reference": "total_distortion",
+      "pairing_mode": "same_numeric_seed_label",
+      "scheduled_sources": 60,
+      "scheduled_pairs": 180,
+      "observed_record_pairs": 180,
+      "complete_pairs": 178,
+      "missing_pairs": 2,
+      "r1_strictly_milder_pairs": 175,
+      "r0_positive_r1_negative_among_r1_milder_pairs": 2,
+      "r0_strictly_milder_pairs": 0,
+      "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "sources_any_complete_pairs": 60,
+      "sources_any_missing_pairs": 1,
+      "sources_any_r1_strictly_milder_pairs": 59,
+      "sources_any_r0_positive_r1_negative_among_r1_milder_pairs": 2,
+      "sources_any_r0_strictly_milder_pairs": 0,
+      "sources_any_r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "complete_six_output_subset": {
+        "sources": 59,
+        "scheduled_pairs": 177,
+        "observed_record_pairs": 177,
+        "complete_pairs": 177,
+        "missing_pairs": 0,
+        "r1_strictly_milder_pairs": 174,
+        "r0_positive_r1_negative_among_r1_milder_pairs": 2,
+        "r0_strictly_milder_pairs": 0,
+        "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+        "sources_any_r1_milder_contradiction": 2,
+        "sources_any_r0_milder_contradiction": 0,
+        "r1_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": 0.005530297756195068,
+            "max": 0.03523513674736023
+          },
+          "psnr_db": {
+            "min": 4.0175148459776615,
+            "max": 4.205468990346862
+          },
+          "ssim_rgb": {
+            "min": 0.05293043935226582,
+            "max": 0.18923980129210005
+          }
+        },
+        "r0_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": null,
+            "max": null
+          },
+          "psnr_db": {
+            "min": null,
+            "max": null
+          },
+          "ssim_rgb": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "r1_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": 0.005530297756195068,
+          "max": 0.03523513674736023
+        },
+        "psnr_db": {
+          "min": 4.0175148459776615,
+          "max": 4.205468990346862
+        },
+        "ssim_rgb": {
+          "min": 0.05293043935226582,
+          "max": 0.18923980129210005
+        }
+      },
+      "r0_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": null,
+          "max": null
+        },
+        "psnr_db": {
+          "min": null,
+          "max": null
+        },
+        "ssim_rgb": {
+          "min": null,
+          "max": null
+        }
+      }
+    },
+    {
+      "arm": "wam",
+      "quality_reference": "total_distortion",
+      "pairing_mode": "all_source_local_pairs",
+      "scheduled_sources": 60,
+      "scheduled_pairs": 540,
+      "observed_record_pairs": 540,
+      "complete_pairs": 534,
+      "missing_pairs": 6,
+      "r1_strictly_milder_pairs": 526,
+      "r0_positive_r1_negative_among_r1_milder_pairs": 5,
+      "r0_strictly_milder_pairs": 0,
+      "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "sources_any_complete_pairs": 60,
+      "sources_any_missing_pairs": 1,
+      "sources_any_r1_strictly_milder_pairs": 60,
+      "sources_any_r0_positive_r1_negative_among_r1_milder_pairs": 3,
+      "sources_any_r0_strictly_milder_pairs": 0,
+      "sources_any_r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "complete_six_output_subset": {
+        "sources": 59,
+        "scheduled_pairs": 531,
+        "observed_record_pairs": 531,
+        "complete_pairs": 531,
+        "missing_pairs": 0,
+        "r1_strictly_milder_pairs": 523,
+        "r0_positive_r1_negative_among_r1_milder_pairs": 5,
+        "r0_strictly_milder_pairs": 0,
+        "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+        "sources_any_r1_milder_contradiction": 3,
+        "sources_any_r0_milder_contradiction": 0,
+        "r1_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": 0.0003021359443664551,
+            "max": 0.04229598492383957
+          },
+          "psnr_db": {
+            "min": 3.609608405790272,
+            "max": 4.23277411669611
+          },
+          "ssim_rgb": {
+            "min": 0.05293043935226582,
+            "max": 0.19014478625595577
+          }
+        },
+        "r0_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": null,
+            "max": null
+          },
+          "psnr_db": {
+            "min": null,
+            "max": null
+          },
+          "ssim_rgb": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "r1_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": 0.0003021359443664551,
+          "max": 0.04229598492383957
+        },
+        "psnr_db": {
+          "min": 3.609608405790272,
+          "max": 4.23277411669611
+        },
+        "ssim_rgb": {
+          "min": 0.05293043935226582,
+          "max": 0.19014478625595577
+        }
+      },
+      "r0_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": null,
+          "max": null
+        },
+        "psnr_db": {
+          "min": null,
+          "max": null
+        },
+        "ssim_rgb": {
+          "min": null,
+          "max": null
+        }
+      }
+    },
+    {
+      "arm": "vine-r",
+      "quality_reference": "distortion",
+      "pairing_mode": "same_numeric_seed_label",
+      "scheduled_sources": 60,
+      "scheduled_pairs": 180,
+      "observed_record_pairs": 180,
+      "complete_pairs": 178,
+      "missing_pairs": 2,
+      "r1_strictly_milder_pairs": 176,
+      "r0_positive_r1_negative_among_r1_milder_pairs": 0,
+      "r0_strictly_milder_pairs": 0,
+      "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "sources_any_complete_pairs": 60,
+      "sources_any_missing_pairs": 2,
+      "sources_any_r1_strictly_milder_pairs": 60,
+      "sources_any_r0_positive_r1_negative_among_r1_milder_pairs": 0,
+      "sources_any_r0_strictly_milder_pairs": 0,
+      "sources_any_r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "complete_six_output_subset": {
+        "sources": 58,
+        "scheduled_pairs": 174,
+        "observed_record_pairs": 174,
+        "complete_pairs": 174,
+        "missing_pairs": 0,
+        "r1_strictly_milder_pairs": 172,
+        "r0_positive_r1_negative_among_r1_milder_pairs": 0,
+        "r0_strictly_milder_pairs": 0,
+        "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+        "sources_any_r1_milder_contradiction": 0,
+        "sources_any_r0_milder_contradiction": 0,
+        "r1_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": null,
+            "max": null
+          },
+          "psnr_db": {
+            "min": null,
+            "max": null
+          },
+          "ssim_rgb": {
+            "min": null,
+            "max": null
+          }
+        },
+        "r0_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": null,
+            "max": null
+          },
+          "psnr_db": {
+            "min": null,
+            "max": null
+          },
+          "ssim_rgb": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "r1_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": null,
+          "max": null
+        },
+        "psnr_db": {
+          "min": null,
+          "max": null
+        },
+        "ssim_rgb": {
+          "min": null,
+          "max": null
+        }
+      },
+      "r0_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": null,
+          "max": null
+        },
+        "psnr_db": {
+          "min": null,
+          "max": null
+        },
+        "ssim_rgb": {
+          "min": null,
+          "max": null
+        }
+      }
+    },
+    {
+      "arm": "vine-r",
+      "quality_reference": "distortion",
+      "pairing_mode": "all_source_local_pairs",
+      "scheduled_sources": 60,
+      "scheduled_pairs": 540,
+      "observed_record_pairs": 540,
+      "complete_pairs": 534,
+      "missing_pairs": 6,
+      "r1_strictly_milder_pairs": 531,
+      "r0_positive_r1_negative_among_r1_milder_pairs": 0,
+      "r0_strictly_milder_pairs": 0,
+      "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "sources_any_complete_pairs": 60,
+      "sources_any_missing_pairs": 2,
+      "sources_any_r1_strictly_milder_pairs": 60,
+      "sources_any_r0_positive_r1_negative_among_r1_milder_pairs": 0,
+      "sources_any_r0_strictly_milder_pairs": 0,
+      "sources_any_r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "complete_six_output_subset": {
+        "sources": 58,
+        "scheduled_pairs": 522,
+        "observed_record_pairs": 522,
+        "complete_pairs": 522,
+        "missing_pairs": 0,
+        "r1_strictly_milder_pairs": 519,
+        "r0_positive_r1_negative_among_r1_milder_pairs": 0,
+        "r0_strictly_milder_pairs": 0,
+        "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+        "sources_any_r1_milder_contradiction": 0,
+        "sources_any_r0_milder_contradiction": 0,
+        "r1_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": null,
+            "max": null
+          },
+          "psnr_db": {
+            "min": null,
+            "max": null
+          },
+          "ssim_rgb": {
+            "min": null,
+            "max": null
+          }
+        },
+        "r0_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": null,
+            "max": null
+          },
+          "psnr_db": {
+            "min": null,
+            "max": null
+          },
+          "ssim_rgb": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "r1_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": null,
+          "max": null
+        },
+        "psnr_db": {
+          "min": null,
+          "max": null
+        },
+        "ssim_rgb": {
+          "min": null,
+          "max": null
+        }
+      },
+      "r0_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": null,
+          "max": null
+        },
+        "psnr_db": {
+          "min": null,
+          "max": null
+        },
+        "ssim_rgb": {
+          "min": null,
+          "max": null
+        }
+      }
+    },
+    {
+      "arm": "vine-r",
+      "quality_reference": "total_distortion",
+      "pairing_mode": "same_numeric_seed_label",
+      "scheduled_sources": 60,
+      "scheduled_pairs": 180,
+      "observed_record_pairs": 180,
+      "complete_pairs": 178,
+      "missing_pairs": 2,
+      "r1_strictly_milder_pairs": 173,
+      "r0_positive_r1_negative_among_r1_milder_pairs": 0,
+      "r0_strictly_milder_pairs": 0,
+      "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "sources_any_complete_pairs": 60,
+      "sources_any_missing_pairs": 2,
+      "sources_any_r1_strictly_milder_pairs": 59,
+      "sources_any_r0_positive_r1_negative_among_r1_milder_pairs": 0,
+      "sources_any_r0_strictly_milder_pairs": 0,
+      "sources_any_r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "complete_six_output_subset": {
+        "sources": 58,
+        "scheduled_pairs": 174,
+        "observed_record_pairs": 174,
+        "complete_pairs": 174,
+        "missing_pairs": 0,
+        "r1_strictly_milder_pairs": 169,
+        "r0_positive_r1_negative_among_r1_milder_pairs": 0,
+        "r0_strictly_milder_pairs": 0,
+        "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+        "sources_any_r1_milder_contradiction": 0,
+        "sources_any_r0_milder_contradiction": 0,
+        "r1_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": null,
+            "max": null
+          },
+          "psnr_db": {
+            "min": null,
+            "max": null
+          },
+          "ssim_rgb": {
+            "min": null,
+            "max": null
+          }
+        },
+        "r0_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": null,
+            "max": null
+          },
+          "psnr_db": {
+            "min": null,
+            "max": null
+          },
+          "ssim_rgb": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "r1_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": null,
+          "max": null
+        },
+        "psnr_db": {
+          "min": null,
+          "max": null
+        },
+        "ssim_rgb": {
+          "min": null,
+          "max": null
+        }
+      },
+      "r0_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": null,
+          "max": null
+        },
+        "psnr_db": {
+          "min": null,
+          "max": null
+        },
+        "ssim_rgb": {
+          "min": null,
+          "max": null
+        }
+      }
+    },
+    {
+      "arm": "vine-r",
+      "quality_reference": "total_distortion",
+      "pairing_mode": "all_source_local_pairs",
+      "scheduled_sources": 60,
+      "scheduled_pairs": 540,
+      "observed_record_pairs": 540,
+      "complete_pairs": 534,
+      "missing_pairs": 6,
+      "r1_strictly_milder_pairs": 521,
+      "r0_positive_r1_negative_among_r1_milder_pairs": 0,
+      "r0_strictly_milder_pairs": 0,
+      "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "sources_any_complete_pairs": 60,
+      "sources_any_missing_pairs": 2,
+      "sources_any_r1_strictly_milder_pairs": 59,
+      "sources_any_r0_positive_r1_negative_among_r1_milder_pairs": 0,
+      "sources_any_r0_strictly_milder_pairs": 0,
+      "sources_any_r1_positive_r0_negative_among_r0_milder_pairs": 0,
+      "complete_six_output_subset": {
+        "sources": 58,
+        "scheduled_pairs": 522,
+        "observed_record_pairs": 522,
+        "complete_pairs": 522,
+        "missing_pairs": 0,
+        "r1_strictly_milder_pairs": 509,
+        "r0_positive_r1_negative_among_r1_milder_pairs": 0,
+        "r0_strictly_milder_pairs": 0,
+        "r1_positive_r0_negative_among_r0_milder_pairs": 0,
+        "sources_any_r1_milder_contradiction": 0,
+        "sources_any_r0_milder_contradiction": 0,
+        "r1_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": null,
+            "max": null
+          },
+          "psnr_db": {
+            "min": null,
+            "max": null
+          },
+          "ssim_rgb": {
+            "min": null,
+            "max": null
+          }
+        },
+        "r0_milder_contradiction_quality_gap_bounds": {
+          "lpips": {
+            "min": null,
+            "max": null
+          },
+          "psnr_db": {
+            "min": null,
+            "max": null
+          },
+          "ssim_rgb": {
+            "min": null,
+            "max": null
+          }
+        }
+      },
+      "r1_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": null,
+          "max": null
+        },
+        "psnr_db": {
+          "min": null,
+          "max": null
+        },
+        "ssim_rgb": {
+          "min": null,
+          "max": null
+        }
+      },
+      "r0_milder_contradiction_quality_gap_bounds": {
+        "lpips": {
+          "min": null,
+          "max": null
+        },
+        "psnr_db": {
+          "min": null,
+          "max": null
+        },
+        "ssim_rgb": {
+          "min": null,
+          "max": null
+        }
+      }
+    }
+  ]
+}

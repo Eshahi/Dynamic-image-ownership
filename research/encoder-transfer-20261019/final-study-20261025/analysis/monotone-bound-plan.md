@@ -1,0 +1,11 @@
+# Empirical monotone-loss bound: declared arithmetic check
+
+Post-hoc author supplement, 2026-10-25. This declaration precedes the new histogram/bound extraction, but the individual-output dominance results and historical outcomes are already known. No fresh-data preregistration or protocol amendment is claimed.
+
+Question: can the verified output-level dominance imply a finite-data loss lower bound for every coordinatewise-monotone quality probability mapping, beyond the particular logistic diagnostic fits? Derive the bound before computing its ingredients; do not fit a new classifier.
+
+Use only existing F5 C1 saved JSON records, R0 .2 versus R1 .1, seeds12/13/14, correct-owner compound C. For each quality reference separately retain and report the sources with all six outputs, valid detections and three finite saved qualities. Count incomplete sources without imputing their metrics. Verify that every R1 output is negative and every R1 quality vector strictly dominates every R0 vector within each complete source; if either premise fails, stop rather than selecting successful pairs/sources.
+
+For a complete source with k positive R0 outcomes, each output receives1/6 of its source's weight. The proposed bound on empirical Brier is `k/[2*(k+3)]`; for a hard monotone classifier the bound is `k/6`. Average these exact rational bounds over the complete-source subset, and report the k histogram, source IDs and input hash. This is an observed-subset descriptive bound; it supplies no confidence statement, population risk claim or prediction of future H4 performance. Additional partial-order constraints may make the true optimum worse, so do not call the bound sharp. Both references are reported even if their bounds differ.
+
+The prospective quality comparator uses pre-target C0/input qualities and different cells/weights. These bounds on realized marked-output qualities cannot replace its fitted risk or its confirmatory test. Write and commit this plan and `monotone-bound-check.py` before executing once through the approved isolated standard-library interpreter. Outputs stay in `analysis/monotone-bound-check.json`; no image, metric, model, detector or scientific experiment runs.

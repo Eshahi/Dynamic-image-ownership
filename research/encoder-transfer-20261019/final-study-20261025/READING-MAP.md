@@ -31,7 +31,9 @@ These additions came after the completed WP6/E3 scopes. They explain boundaries 
 - [Searched-verifier null](analysis/searched-detector-null.md): full-search calibration, fixed-key conditioning and correlated bits.
 - [Finite-bit null resolution](analysis/finite-bit-null-boundary.md): exact hard-word acceptance, key search, ECC basins and the distinction between analytical and measured extreme-tail rates.
 - [Future-outcome atlas](analysis/future-outcome-interpretation.md): permissible interpretation of the existing frozen outcomes.
+- [Quality aggregation boundary](analysis/quality-aggregation-boundary.md) and [saved-output sensitivity](analysis/quality-dominance.md): distinguish source medians from individual outputs, then report all planned dominance counts without new metrics or independent-pair claims.
 - [Late-source article bridge](article-drafts/late-source-integration.md): proposed insertions for later author development; the reviewed article sections themselves remain distinct.
+- [Close-prior-art map](article-drafts/close-prior-art-map.md): five neighboring studies and the precise remaining empirical question; no first-ever claim.
 
 ## Authority and provenance
 
