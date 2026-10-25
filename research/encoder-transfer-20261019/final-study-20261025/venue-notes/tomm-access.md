@@ -1,0 +1,82 @@
+# TOMM and IEEE Access: bounded venue-fit assessment
+
+E2 research note; inspected 2026-10-25 UTC. Scope is venue research, not submission advice, an editorial verdict, or approval to publish, pay, upload artifacts, or run the proposed study. All source access dates below are **2026-10-25**. No publisher challenge was bypassed. No new experiment accompanies this note.
+
+## Evidence boundary
+
+The [article-draft guardrails](../article-drafts/README.md) and [final report](../FINAL-REPORT.md) govern every framing below. Present evidence is reused development data: 60 sources, 11,040 final unit identities and 23 retained blocked outputs. F5 is an image-domain encoder-directed comparator, with historical SDXL C counts 0/60 at .1/.2/.4 despite SDXL and MoVQ codec-round-trip C of 55/60 each. Its authoritative verdict remains **FAILS, ROUTE C**. This supports a scoped failure case, not encoder-only causality, universal watermark removal, equal-quality method ranking, or a solved ownership problem. Three seeds do not create three independent sources. Human perceptual ratings are missing.
+
+The full-chain signed transport predictor, attacks and fresh confirmation are prospective. Their validation cannot be claimed in a manuscript based on current evidence. Its privileged target-model derivatives and C0 information must be disclosed; two fitted quantities do not make the overall system lightweight. A negative future predictor result still permits an honest empirical article, but does not establish the proposed mechanism.
+
+## Publisher evidence and practical implications
+
+| Venue / source | Verified evidence | Implication and verification limits |
+|---|---|---|
+| TOMM: [official ACM-hosted legacy author guide](https://tomccap.hosting.acm.org/guide.html) | Describes an archival multimedia research journal; lists media content security, processing and quality. Distinguishes regular technical contributions and surveys. Also warns against an isolated single-media algorithm contribution. | A security/measurement study has topical relevance. The available guide is visibly legacy and undated; it cannot certify the current policy or article taxonomy. Its warning strengthens the need for a transferable research lesson beyond one writer's failure. |
+| TOMM: same legacy guide | States 23 submission pages including references/figures, plus five online-appendix pages; surveys 28 pages. Encourages supplemental multimedia with explanatory README. | **Historical policy only, current length UNKNOWN.** Do not format a submission to these numbers without rechecking the current journal instructions. Supplemental multimedia is not evidence of a current mandatory code/data release or artifact-review scheme. |
+| TOMM: [current journal about page](https://dl.acm.org/journal/tomm/about), [current author guidelines](https://dl.acm.org/journal/tomm/author-guidelines), [journal site](https://tomm.acm.org/), [authors endpoint](https://tomm.acm.org/authors.cfm) | About/guidelines/journal site returned 403; authors endpoint inaccessible. [ACM artifact policy](https://www.acm.org/publications/policies/artifact-review-and-badging-current) also returned 403. | Current journal scope wording, manuscript limits, dedicated negative-result category and TOMM-specific reproducibility requirements remain **UNKNOWN**. No inference that ACM-wide badges necessarily operate at TOMM. No alternate route through a challenge was attempted. |
+| IEEE Access: [About](https://ieeeaccess.ieee.org/about/) | Broad IEEE scope explicitly includes applied engineering experiments/measurement and negative results, alongside traditional research. | Strong direct scope evidence for a rigorously delimited negative watermark case. The journal's own speed/acceptance marketing is not a probability or timeline for this manuscript. |
+| IEEE Access: [Submission Guidelines](https://ieeeaccess.ieee.org/authors/submission-guidelines/) | Explicit **Negative Result** category for a meaningful, rigorous, non-trivial null/negative study; Research Article also exists. Required double-column template, matching source/PDF, ORCID, biographies and relevant AI-text disclosure. No absolute page cap; under 20 recommended, with editorial treatment/possible justification for longer papers. The page separately mentions an advance inquiry for special over-20-page cases. | Negative Result is the most direct present framing. Keep a concise main paper and supplementary detail; recheck the overlapping overlength instructions before submission. Future validated prediction could justify Research Article. Neither category bypasses peer review. |
+| IEEE Access: [Reviewer Guidelines](https://ieeeaccess.ieee.org/reviewers/reviewer-guidelines/) | Original contribution, technical soundness, sufficiently detailed analyses and conclusions supported by data are required. Reviewers assess whether data support conclusions; high novelty is not always required, but distinctness from prior publications is. | A known regeneration failure re-demonstrated on one internal comparator is vulnerable. The distinct contribution must be the documented codec/full-chain distinction and carefully separated reader outcomes, with explicit prior-work overlap and limits. |
+| IEEE Access: [Reproducibility](https://ieeeaccess.ieee.org/authors/reproducibility/) | Encourages method/data/code transparency. Describes Code Available and Code Reviewed badges, and a pilot artifact process for accepted/published papers requiring versioned, persistent-DOI artifacts and sufficient materials/documentation to reproduce results. | This is a separate artifact review opportunity, not a pre-awarded badge or universal manuscript-acceptance requirement. A release should document checkpoints, settings, source groups, failures and expected outputs; future derivative computation has separate dependencies and costs. No upload is authorized by this note. |
+
+No exact APC amount is relied on. Publication arrangements and any later payment remain the user's decision.
+
+## Quartile verification ledger
+
+**SJR quartiles and JCR/JIF quartiles are different rankings. Neither journal is certified here as satisfying a user/institutional Q1 requirement.** The bibliometric year, category and metric must all be explicit before such a claim.
+
+| Journal / metric | Year and category supported by permitted source | Finding / URL / access limitation |
+|---|---|---|
+| IEEE Access, JCR/JIF quartile | **UNKNOWN** category/quartile. Publisher labels its bibliometrics “2025 JCR,” but supplies no category-quartile table. | [Official bibliometrics](https://ieeeaccess.ieee.org/about/bibliometrics/), accessed 2026-10-25. A reported impact factor does not establish Q1. |
+| IEEE Access, SJR quartile | **UNKNOWN** category/quartile for 2025. Official publisher reports 2025 SJR 0.884 without a quartile/category. | Same [publisher page](https://ieeeaccess.ieee.org/about/bibliometrics/). [SCImago journal profile](https://www.scimagojr.com/journalsearch.php?q=21100374601&tip=sid) returned 403 on 2026-10-25. A search-indexed SCImago 2024 all-journal table displayed Q1 but not its category basis; it is insufficient for an exact category claim and is not promoted to a verified entry. |
+| TOMM, JCR/JIF quartile | **UNKNOWN** year/category/quartile. | [Official journal about page](https://dl.acm.org/journal/tomm/about), accessed 2026-10-25, returned 403. No qualifying accessible category table was verified. |
+| TOMM, SJR quartile | **UNKNOWN** year/category/quartile. | No accessible first-party SCImago journal/category evidence verified in this search. Third-party Q1/SJR listings were excluded. |
+
+Rechecking a publisher or SCImago category-year table is a remaining information task, not a scientific experiment. A third-party aggregator, journal impact factor, indexing status or best quartile alone cannot fill these gaps.
+
+## Fit matrix: scientific judgment, not publisher promises
+
+Every judgment in this matrix and the ranking below is **inference** from the official policies and the local evidence boundary, not an editor's assessment.
+
+| Article state / venue | Strength | Main rejection risk | Minimum scientific delta or completion before a defensible submission |
+|---|---|---|---|
+| Current bounded negative case → IEEE Access | Explicit Negative Result category and engineering measurement scope align directly. Source-level accounting and codec/full-chain divergence provide a focused result. | Meaningful novelty beyond known regeneration fragility is unestablished; one selected writer and reused development sources limit generality. Endpoint/side-information inequivalence can undermine comparisons. | Identify precisely which belief the negative case tests, distinguish it from existing regeneration/codec studies, and finish an integrated manuscript with exact method/settings, denominators, uncertainty, failures, endpoint definitions and reproducibility materials. A new successful method is not necessary for this category. Fresh confirmation would strengthen external validity but is not a verified universal publisher prerequisite. |
+| Current bounded negative case → TOMM | Multimedia security and quality are relevant in the accessible legacy scope. The reader-state distinction could inform multimedia evaluation. | An isolated internal writer failure can appear too narrow; current policies are unverified. No dedicated negative-result category was established. | Establish a reusable evaluation or diagnostic lesson supported by the existing evidence, with convincing differentiation from close prior work. Mere extra tables or a speculative predictor do not supply it. Recheck current scope, format and article type before venue commitment. |
+| Future validated predictor → IEEE Access | Research Article can accommodate a tested model and empirical validation. | Privileged inputs may inflate apparent usefulness; fitted-development evidence, an easy comparator or failed feasibility cannot substantiate prediction. | Complete the separately approved frozen server study; report all gates and missingness; evaluate new-source prediction against the declared comparator, calibration and held-out-family conditions. Retain negative outcomes. Claims track actual supported hypotheses. |
+| Future validated predictor → TOMM | A transferable, stage-resolved account of multimedia signal readability could provide a stronger archival contribution. | Model-specific derivatives, narrow writer coverage and known direction/rank ideas could leave limited generality; conditional support is not universal causality. | Same frozen validation, plus a clear reusable insight beyond the evaluated pipeline; explicitly delimit where the law succeeds/fails and its computational/side-information costs. No added method/protocol change is proposed here. Current publisher requirements still need verification. |
+
+**Conditional ranking (inference):** For the present negative empirical article, **IEEE Access precedes TOMM on demonstrated article-type fit**, not on prestige, quartile or acceptance probability. For a later successfully validated predictive account, **TOMM becomes a stronger topical/archival target to investigate**, with IEEE Access still a plausible broad venue. Current evidence does not justify reversing the present ranking based on an unmeasured proposal. If Q1 means JCR Q1, neither is presently verified eligible; if it means SJR Q1, that too remains unresolved under this evidence standard. No submission-readiness or acceptance promise follows.
+
+## Search/access log
+
+All searches and page opens below occurred on **2026-10-25 UTC**, using the **web.run search/open engine**. Queries are reproduced verbatim, including awkward domain syntax. Some multi-query responses pooled hits rather than identifying which individual query generated each hit; where that occurred, the result column gives the batch's useful evidence or absence of an adequate hit. Searches were not rerun for this log. Third-party metric hits were excluded as evidence.
+
+| Batch | Exact query | Useful hit / outcome |
+|---|---|---|
+| 1 | `site.acm.org TOMM author guidelines scope reproducibility research articles length` | Official legacy ACM author guide and reviewer page surfaced; current status not established. |
+| 1 | `site.ieeeaccess.ieee.org author guidelines scope reproducibility negative results` | Official Access submission guidelines, author overview, reproducibility and reviewer pages surfaced. An unrelated GRSS checklist was excluded. |
+| 2 | `site.tomm.acm.org scope multimedia security watermarking authors 2026` | No accessible current TOMM scope statement established. |
+| 2 | `site.scimagojr.com "IEEE Access" "2025"` | Batch surfaced a SCImago 2024 all-journal table; no adequate 2025 category table. |
+| 2 | `site.scimagojr.com "ACM Transactions on Multimedia" "2025"` | No adequate first-party category-year table. |
+| 2 | `site.ieeeaccess.ieee.org bibliometrics quartile 2025 2024` | Official Access bibliometrics; metric values but no category/quartile table. |
+| 3 | `site.scimagojr.com/journalsearch.php "ACM Transactions on Multimedia Computing" ` | No qualifying accessible journal-category evidence; third-party profile excluded. |
+| 3 | `site.scimagojr.com/journalsearch.php "IEEE Access" ` | No qualifying category table; Access homepage and third-party metric hits did not establish quartile. |
+| 3 | `site.acm.org "TOMM" "reproducibility"` | No verified TOMM-specific artifact-review policy. |
+| 3 | `site.acm.org "TOMM" "Scope" "security"` | Legacy guide remains usable only with its historical qualification. |
+| 4 | `"ACM Transactions on Multimedia" "scimagojr.com" "q="` | No adequate official category-year result. |
+| 4 | `"TOMM" "site:acm.org" "24 pages"` | No current page-limit evidence; unrelated bibliography hits excluded. |
+| 4 | `"TOMM" "site:acm.org" "multimedia security"` | No additional verified current scope evidence. |
+| 5 | `"IEEE Access" "2025" "Computer Science (miscellaneous)"` with `domains:["scimagojr.com"]` | Pooled results returned SCImago 2024 all-journal table, not a 2025 category table. |
+| 5 | `"ACM Transactions on Multimedia" "2025" "Q1"` with `domains:["scimagojr.com"]` | No adequate TOMM category-year result. |
+| 5 | `"IEEE Access" "2024" "Quartiles"` with `domains:["scimagojr.com"]` | SCImago 2024/2022 all-journal tables and unrelated ranking page; category-specific eligibility unresolved. |
+
+Direct opens, in the order attempted (repeated opens shown explicitly):
+
+1. [TOMM current author guidelines](https://dl.acm.org/journal/tomm/author-guidelines): 403. [TOMM current about page](https://dl.acm.org/journal/tomm/about): 403. [Access About](https://ieeeaccess.ieee.org/about/): readable. [Access submission guidelines](https://ieeeaccess.ieee.org/authors/submission-guidelines/): readable, including article types. [Attempted separate article-types endpoint](https://ieeeaccess.ieee.org/authors/types-of-articles/): inaccessible.
+2. [Legacy ACM author guide](https://tomccap.hosting.acm.org/guide.html): readable. [Legacy journal homepage](https://tomccap.hosting.acm.org/): no extracted substantive text. [Access bibliometrics](https://ieeeaccess.ieee.org/about/bibliometrics/), [reviewer guidelines](https://ieeeaccess.ieee.org/reviewers/reviewer-guidelines/), and [reproducibility](https://ieeeaccess.ieee.org/authors/reproducibility/): readable.
+3. Legacy guide and legacy homepage were opened again alongside search batch 3; the guide initially returned only its heading in the displayed excerpt, and the homepage again had no substantive extracted text.
+4. Legacy guide was reopened at line 0, revealing scope and introductory instructions. [SCImago Access profile](https://www.scimagojr.com/journalsearch.php?q=21100374601&tip=sid): 403. [SCImago 2024 all-journal table](https://www.scimagojr.com/journalrank.php?country=&min=3&min_type=cd&ord=desc&order=titem&year=2024): 403 on direct open, despite indexed search text.
+5. Legacy guide was reopened at line 10, revealing the remaining article types, length and topics. [TOMM site](https://tomm.acm.org/): 403. [TOMM authors endpoint](https://tomm.acm.org/authors.cfm): inaccessible. [ACM artifact-review policy](https://www.acm.org/publications/policies/artifact-review-and-badging-current): 403.
+
+Only publicly returned search text and readable publisher pages were inspected. No challenge, login, alternate browser route or download was used to obtain blocked content.
