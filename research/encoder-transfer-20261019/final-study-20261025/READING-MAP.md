@@ -31,6 +31,8 @@ These additions came after the completed WP6/E3 scopes. They explain boundaries 
 - [Reader stability](analysis/reader-stability-boundary.md): chip error, searched score, decoded word and content binding require different conditions.
 - [Searched-verifier null](analysis/searched-detector-null.md): full-search calibration, fixed-key conditioning and correlated bits.
 - [Finite-bit null resolution](analysis/finite-bit-null-boundary.md): exact hard-word acceptance, key search, ECC basins and the distinction between analytical and measured extreme-tail rates.
+- [Uniform-bound scope](analysis/uniform-bound-scope.md): a fitted predictor needs a valid generalization argument; fixed-hypothesis concentration and population transport alone do not supply simultaneous coverage over an unrestricted fitted class.
+- [Distribution and paired fidelity](analysis/distribution-fidelity-boundary.md): preserve the fixed-pattern KL calculation while separating input/output divergence, paired content fidelity, key conditioning and signed reader response.
 - [Future-outcome atlas](analysis/future-outcome-interpretation.md): permissible interpretation of the existing frozen outcomes.
 - [Quality aggregation boundary](analysis/quality-aggregation-boundary.md) and [saved-output sensitivity](analysis/quality-dominance.md): distinguish source medians from individual outputs, then report all planned dominance counts without new metrics or independent-pair claims.
 - [Monotone-score loss bound](analysis/monotone-brier-bound.md): exact observed-subset lower bounds after a saved-record premise check; the unrestricted primary H4 comparator is outside this class.
