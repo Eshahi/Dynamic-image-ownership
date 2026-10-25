@@ -1,0 +1,7 @@
+{
+  "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&redirects=1&prop=imageinfo%7Crevisions&rvprop=ids&iiprop=url%7Csize%7Cmime%7Csha1%7Cextmetadata%7Ctimestamp&titles=File%3AZ%C3%BCrich%20view%20Quaibr%C3%BCcke%2020200702.jpg",
+  "timestamp_utc": "2026-10-25T15:00:36.0601565Z",
+  "status": 200,
+  "response": "files-plain-template-0283.json",
+  "sha256": "fb428ffe43487578585c0201ca0939d96a57b1f82934096306a559806d29fbe5"
+}

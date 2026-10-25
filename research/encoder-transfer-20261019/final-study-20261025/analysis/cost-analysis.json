@@ -1,0 +1,285 @@
+{
+  "source": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261025-0128-encoder-transfer-stage2b\\results\\stage2b-full\\rows.jsonl",
+  "raw_lines": 39896,
+  "unique_ids": 11040,
+  "statuses": {
+    "ok": 11017,
+    "safety_blocked": 23
+  },
+  "generation": {
+    "D1:None": {
+      "n": 360,
+      "mean": 0.6713993746881897,
+      "median": 0.6724948699848028,
+      "p90": 0.6954201229964383,
+      "total_hours": 0.06713993746881897
+    },
+    "D3:None": {
+      "n": 300,
+      "mean": 2.0584065262284517,
+      "median": 2.058897104987409,
+      "p90": 2.087892898998689,
+      "total_hours": 0.17153387718570431
+    },
+    "R0:0.1": {
+      "n": 900,
+      "mean": 0.2157073382022807,
+      "median": 0.21523160799915786,
+      "p90": 0.2351174040013575,
+      "total_hours": 0.05392683455057017
+    },
+    "R0:0.2": {
+      "n": 900,
+      "mean": 0.41063554734072466,
+      "median": 0.41248937450291123,
+      "p90": 0.43684968902380206,
+      "total_hours": 0.10265888683518117
+    },
+    "R0:0.4": {
+      "n": 900,
+      "mean": 0.37497722916801446,
+      "median": 0.375277619001281,
+      "p90": 0.3945041890037828,
+      "total_hours": 0.09374430729200361
+    },
+    "R1-mode:0.2": {
+      "n": 900,
+      "mean": 0.8336330660122218,
+      "median": 0.7779630645018187,
+      "p90": 0.9827318449970335,
+      "total_hours": 0.20840826650305544
+    },
+    "R1-rinse:0.1": {
+      "n": 900,
+      "mean": 0.8075840580642236,
+      "median": 0.8086861619995034,
+      "p90": 0.824069864997,
+      "total_hours": 0.2018960145160559
+    },
+    "R1-smooth:0.2": {
+      "n": 900,
+      "mean": 1.250152883582236,
+      "median": 0.781168292498478,
+      "p90": 2.224641556000279,
+      "total_hours": 0.312538220895559
+    },
+    "R1:0.1": {
+      "n": 900,
+      "mean": 0.8042315679677187,
+      "median": 0.8053982590026862,
+      "p90": 0.822687574000156,
+      "total_hours": 0.20105789199192967
+    },
+    "R1:0.2": {
+      "n": 1260,
+      "mean": 1.3000928421419793,
+      "median": 1.3002006194874411,
+      "p90": 1.3306041820032988,
+      "total_hours": 0.45503249474969276
+    },
+    "R1:0.4": {
+      "n": 900,
+      "mean": 1.3055654047010143,
+      "median": 1.307776729499892,
+      "p90": 1.3225090249979985,
+      "total_hours": 0.3263913511752536
+    },
+    "R3:0.2": {
+      "n": 900,
+      "mean": 1.2867832340409626,
+      "median": 1.288145769998664,
+      "p90": 1.3051183529969421,
+      "total_hours": 0.32169580851024066
+    },
+    "X1:None": {
+      "n": 300,
+      "mean": 0.12943146563552244,
+      "median": 0.12838324849144556,
+      "p90": 0.1601266539946664,
+      "total_hours": 0.010785955469626868
+    },
+    "X2:None": {
+      "n": 300,
+      "mean": 0.1639152369897541,
+      "median": 0.1633933735138271,
+      "p90": 0.19422946698614396,
+      "total_hours": 0.013659603082479509
+    },
+    "clean:f5-r2": {
+      "n": 60,
+      "mean": 118.84649876968372,
+      "median": 118.67912556399824,
+      "p90": 119.84641091100639,
+      "total_hours": 1.9807749794947287
+    },
+    "clean:pixelseal": {
+      "n": 60,
+      "mean": 0.10298495396806781,
+      "median": 0.10123125700920355,
+      "p90": 0.12837257201317698,
+      "total_hours": 0.001716415899467797
+    },
+    "clean:trustmark-q": {
+      "n": 60,
+      "mean": 0.10738059003488161,
+      "median": 0.10656112250580918,
+      "p90": 0.13352069500251673,
+      "total_hours": 0.00178967650058136
+    },
+    "clean:unmarked": {
+      "n": 60,
+      "mean": 0.08669324460012527,
+      "median": 0.08544446800078731,
+      "p90": 0.11140435698325746,
+      "total_hours": 0.001444887410002088
+    },
+    "clean:v5-r3": {
+      "n": 60,
+      "mean": 6.086372134570168,
+      "median": 6.001904229007778,
+      "p90": 6.592030903993873,
+      "total_hours": 0.10143953557616947
+    },
+    "clean:vine-r": {
+      "n": 60,
+      "mean": 0.17568225943202076,
+      "median": 0.17368293399340473,
+      "p90": 0.20054013299522921,
+      "total_hours": 0.002928037657200346
+    },
+    "clean:wam": {
+      "n": 60,
+      "mean": 0.11378137938251408,
+      "median": 0.1109114824939752,
+      "p90": 0.14018358799512498,
+      "total_hours": 0.0018963563230419015
+    }
+  },
+  "detection_batches": {
+    "f5-r2:C0": {
+      "n": 2094,
+      "mean": 1.1653845552262694,
+      "median": 1.0099808630002372,
+      "p90": 1.7344498140155338,
+      "total_hours": 0.67786534962328
+    },
+    "f5-r2:C1": {
+      "n": 2094,
+      "mean": 1.9207628321345342,
+      "median": 1.6231086345032963,
+      "p90": 2.8207487300096545,
+      "total_hours": 1.1172437140249207
+    },
+    "pixelseal:C0": {
+      "n": 240,
+      "mean": 0.22171900345468507,
+      "median": 0.2195829000120284,
+      "p90": 0.2376390309946146,
+      "total_hours": 0.014781266896979004
+    },
+    "pixelseal:C1": {
+      "n": 240,
+      "mean": 0.22185333579473082,
+      "median": 0.22020070749567822,
+      "p90": 0.2358113029913511,
+      "total_hours": 0.014790222386315388
+    },
+    "trustmark-q:C0": {
+      "n": 300,
+      "mean": 0.018332258079220384,
+      "median": 0.01814896998985205,
+      "p90": 0.019229514990001917,
+      "total_hours": 0.0015276881732683655
+    },
+    "trustmark-q:C1": {
+      "n": 300,
+      "mean": 0.018829874626826493,
+      "median": 0.01871721299539786,
+      "p90": 0.019727566017536446,
+      "total_hours": 0.001569156218902208
+    },
+    "v5-r3:C0": {
+      "n": 2094,
+      "mean": 0.7412432054691122,
+      "median": 0.6042906344955554,
+      "p90": 1.0499338209920097,
+      "total_hours": 0.4311564645145336
+    },
+    "v5-r3:C1": {
+      "n": 2097,
+      "mean": 1.4143172698425999,
+      "median": 1.1527886780022527,
+      "p90": 2.0081323419872206,
+      "total_hours": 0.8238398096833145
+    },
+    "vine-r:C0": {
+      "n": 2094,
+      "mean": 0.023541698055369917,
+      "median": 0.01981138050177833,
+      "p90": 0.03262905700830743,
+      "total_hours": 0.013693421035540167
+    },
+    "vine-r:C1": {
+      "n": 2097,
+      "mean": 0.023784409482828287,
+      "median": 0.02013283500127727,
+      "p90": 0.032733359024859965,
+      "total_hours": 0.013854418523747478
+    },
+    "wam:C0": {
+      "n": 2094,
+      "mean": 0.02453926536300242,
+      "median": 0.020724481000797823,
+      "p90": 0.034172840998508036,
+      "total_hours": 0.014273672686146406
+    },
+    "wam:C1": {
+      "n": 2095,
+      "mean": 0.025068002841271447,
+      "median": 0.02111017200513743,
+      "p90": 0.034837640007026494,
+      "total_hours": 0.014588184986795467
+    }
+  },
+  "metrics": {
+    "n": 11017,
+    "mean": 0.31188402700147566,
+    "median": 0.24733588298840914,
+    "p90": 0.4166895999806002,
+    "total_hours": 0.9544517570764603
+  },
+  "forecast": {
+    "phase_b_core_native_generation_hours": 4.748327636302245,
+    "phase_a_sixcell_native_generation_hours": 1.102802482380433,
+    "phase_b_clean_embedding_hours": 6.961612654870475,
+    "phase_b_core_assessment_hours": 8.430963900849557,
+    "phase_b_attack_and_firstpass_assessment_hours": 3.449030686711183,
+    "phase_a_native_assessment_hours": 2.0694184120267094,
+    "per_source_setting_assessment_seconds": 6.898061373422365
+  },
+  "prospective_unit_counts": {
+    "controlling_protocol": "07-final-experiment.md and analysis/mechanism-server-spec.md",
+    "phase_a_main_law_jvp": 1080,
+    "phase_a_additional_mode_encoder_jvp": 720,
+    "phase_a_additional_differential_full_chain_jvp": 540,
+    "phase_a_all_full_chain_jvp": 1620,
+    "phase_a_additional_stage_primal_outputs": 1620,
+    "phase_a_preprocess_outputs_per_unique_path": 60,
+    "phase_a_optional_flux_grid_marked_outputs": 2160,
+    "phase_a_optional_flux_selected_c0_outputs": 180,
+    "phase_a_optional_flux_codec_outputs": 300,
+    "phase_b_core_outputs": 31000,
+    "phase_b_core_detector_batches": 49600,
+    "phase_b_core_native_law_jvp": 4200,
+    "phase_b_optional_flux_native_outputs": 3000,
+    "phase_b_optional_flux_native_detector_batches": 4800,
+    "phase_b_optional_flux_law_jvp": 600,
+    "phase_b_optional_flux_codec_outputs": 1000,
+    "phase_b_optional_flux_codec_detector_batches": 1600,
+    "phase_b_with_flux_outputs": 35000,
+    "phase_b_with_flux_detector_batches": 56000,
+    "phase_b_with_flux_native_law_jvp": 4800,
+    "codec_only_law_jvp": 0,
+    "note": "720 encoder and 540 differential JVPs are distinct additional work; do not subtract 72 law tangents. All unknown paths require separate server-pilot time/memory accounting."
+  }
+}

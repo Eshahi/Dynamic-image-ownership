@@ -1,0 +1,10 @@
+{
+  "checked_at_utc": "2026-10-25T15:05:23.6214981Z",
+  "checks": "Counts, separate identity/creator uniqueness, exact date hashes and ranks, resource constraints, accepted CC URL versions, explicit PD status, acquisition flags, evaluated prefix",
+  "status": "PASS",
+  "failures": [],
+  "primary_count": 200,
+  "reserve_count": 40,
+  "cc_url_conflicts": [],
+  "no_pixels_accessed_in_this_validation": true
+}

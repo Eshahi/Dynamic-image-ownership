@@ -1,0 +1,377 @@
+{
+  "purpose": "analytical prospective design; no experiments or source outcomes",
+  "n": 200,
+  "family_alpha": 0.05,
+  "holm_slots": 13,
+  "worst_case_local_alpha": 0.0038461538461538464,
+  "exact_binomial": {
+    "H1_or_H4_mismatch": {
+      "null_boundary": 0.1,
+      "direction": "less",
+      "critical": 9,
+      "power": {
+        "0.0": 1.0,
+        "0.01": 0.9999598581911512,
+        "0.02": 0.9925207121346351,
+        "0.03": 0.9192206408723879,
+        "0.04": 0.7192000013358744,
+        "0.05": 0.45470980868081545,
+        "0.075": 0.06251223869846262,
+        "0.1": 0.0035285655429714686
+      },
+      "critical_tail": 0.0035285655429714686,
+      "next_failing_tail": 0.008071249955102727,
+      "confidence_bound_at_critical": 0.09932884986320695
+    },
+    "H2_H3_H5_quality": {
+      "null_boundary": 0.8,
+      "direction": "greater",
+      "critical": 175,
+      "power": {
+        "0.8": 0.003628754437323196,
+        "0.85": 0.18762113014888027,
+        "0.875": 0.5530396263349072,
+        "0.9": 0.8995427134871278,
+        "0.925": 0.9955596193799817,
+        "0.95": 0.9999909612686274
+      },
+      "critical_tail": 0.003628754437323196,
+      "next_failing_tail": 0.006432930860566354,
+      "confidence_bound_at_critical": 0.8005805227415506
+    },
+    "H6": {
+      "null_boundary": 0.9,
+      "direction": "greater",
+      "critical": 191,
+      "power": {
+        "0.9": 0.003528565542971461,
+        "0.925": 0.06251223869846236,
+        "0.95": 0.4547098086808182,
+        "0.97": 0.9192206408723925,
+        "0.98": 0.9925207121346384,
+        "0.99": 0.999959858191153,
+        "1.0": 1.0
+      },
+      "critical_tail": 0.003528565542971461,
+      "next_failing_tail": 0.008071249955102706,
+      "confidence_bound_at_critical": 0.900671150136793
+    },
+    "H5_removal": {
+      "null_boundary": 0.5,
+      "direction": "greater",
+      "critical": 120,
+      "power": {
+        "0.5": 0.0028425779983751523,
+        "0.55": 0.0880726830969829,
+        "0.6": 0.5306621576808424,
+        "0.65": 0.9391103112562559,
+        "0.7": 0.9989915889936627,
+        "0.8": 0.9999999999729852
+      },
+      "critical_tail": 0.0028425779983751523,
+      "next_failing_tail": 0.0043612506237235725,
+      "confidence_bound_at_critical": 0.5035471627221038
+    }
+  },
+  "negative_bounds": {
+    "zero_200_marginal_95_upper": 0.014867039231272083,
+    "zero_200_eight_bounds_simultaneous_95_upper": 0.025056607921207563,
+    "zero_200_at_Holm_first_alpha_upper": 0.027420450783906536,
+    "n_zero_needed_for_marginal_95_upper_at_most_1e_6": 2995731
+  },
+  "h4_eb": {
+    "range_width": 1.8,
+    "zero_variance_radius_first_alpha": 0.13199035682722102,
+    "radii_by_sample_sd": {
+      "0": 0.13199035682722102,
+      "0.05": 0.1444941850525841,
+      "0.1": 0.1569980132779472,
+      "0.2": 0.1820056697286734,
+      "0.3": 0.2070133261793996,
+      "0.5": 0.257028639080852
+    },
+    "hoeffding_radius_first_alpha": 0.21222987822459347
+  },
+  "h4_illustrative_perfectly_correlated_cells": {
+    "definition": "q=.5; identical Bernoulli worst-error (known error or ambiguous majority) across cells within source; iid sources",
+    "passing_error_counts": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "exact_power": {
+      "0.0": 1.0,
+      "0.005": 0.9994360563560036,
+      "0.01": 0.9839770930908207,
+      "0.02": 0.7867224657026638,
+      "0.03": 0.44322921232840556,
+      "0.04": 0.18564969483659233,
+      "0.05": 0.06234249504229471,
+      "0.075": 0.0021197083511156267
+    }
+  },
+  "h4_zero_variance_min_n": {
+    "0.25": 133,
+    "0.1": 330,
+    "0.04": 822,
+    "0.01": 3285
+  },
+  "missingness_completion_bounds": {
+    "abstract_status_patterns": 27,
+    "bound_checks": 400,
+    "all_bounds_valid": true,
+    "examples": [
+      {
+        "scheduled_call_states": [
+          0,
+          0,
+          null
+        ],
+        "feasible_majorities": [
+          0
+        ],
+        "forecast_a": 0,
+        "baseline_q": 0.5,
+        "bias_interval": [
+          0,
+          0
+        ],
+        "worst_mismatch": 0,
+        "lower_loss_contrast": 0.2
+      },
+      {
+        "scheduled_call_states": [
+          1,
+          0,
+          null
+        ],
+        "feasible_majorities": [
+          0,
+          1
+        ],
+        "forecast_a": 0,
+        "baseline_q": 0.5,
+        "bias_interval": [
+          -1,
+          0
+        ],
+        "worst_mismatch": 1,
+        "lower_loss_contrast": -0.8
+      },
+      {
+        "scheduled_call_states": [
+          1,
+          1,
+          null
+        ],
+        "feasible_majorities": [
+          1
+        ],
+        "forecast_a": 0,
+        "baseline_q": 0.5,
+        "bias_interval": [
+          -1,
+          -1
+        ],
+        "worst_mismatch": 1,
+        "lower_loss_contrast": -0.8
+      },
+      {
+        "scheduled_call_states": [
+          null,
+          null,
+          null
+        ],
+        "feasible_majorities": [
+          0,
+          1
+        ],
+        "forecast_a": 0,
+        "baseline_q": 0.5,
+        "bias_interval": [
+          -1,
+          0
+        ],
+        "worst_mismatch": 1,
+        "lower_loss_contrast": -0.8
+      }
+    ],
+    "scope": "finite algebra checks, not experiment/detector/image data"
+  },
+  "forecast_abstention_completion_bounds": {
+    "set_configurations": 54,
+    "completion_bound_checks": 416,
+    "continuous_Q_minimizer": "q=y for binary y; convex squared loss",
+    "all_bounds_valid": true,
+    "examples": [
+      {
+        "A": [
+          0
+        ],
+        "Q_singleton_or_null_interval": 0.5,
+        "S": [
+          0
+        ],
+        "bias_interval": [
+          0,
+          0
+        ],
+        "worst_mismatch": 0,
+        "lower_loss_contrast": 0.2,
+        "minimum_baseline_loss": 0.25
+      },
+      {
+        "A": [
+          0
+        ],
+        "Q_singleton_or_null_interval": null,
+        "S": [
+          0
+        ],
+        "bias_interval": [
+          0,
+          0
+        ],
+        "worst_mismatch": 0,
+        "lower_loss_contrast": 0.0,
+        "minimum_baseline_loss": 0.0
+      },
+      {
+        "A": [
+          0
+        ],
+        "Q_singleton_or_null_interval": 0.5,
+        "S": [
+          1
+        ],
+        "bias_interval": [
+          -1,
+          -1
+        ],
+        "worst_mismatch": 1,
+        "lower_loss_contrast": -0.8,
+        "minimum_baseline_loss": 0.25
+      },
+      {
+        "A": [
+          0
+        ],
+        "Q_singleton_or_null_interval": null,
+        "S": [
+          1
+        ],
+        "bias_interval": [
+          -1,
+          -1
+        ],
+        "worst_mismatch": 1,
+        "lower_loss_contrast": -1.0,
+        "minimum_baseline_loss": 0.0
+      },
+      {
+        "A": [
+          0,
+          1
+        ],
+        "Q_singleton_or_null_interval": 0.5,
+        "S": [
+          0
+        ],
+        "bias_interval": [
+          0,
+          1
+        ],
+        "worst_mismatch": 1,
+        "lower_loss_contrast": -0.8,
+        "minimum_baseline_loss": 0.25
+      },
+      {
+        "A": [
+          0,
+          1
+        ],
+        "Q_singleton_or_null_interval": null,
+        "S": [
+          0
+        ],
+        "bias_interval": [
+          0,
+          1
+        ],
+        "worst_mismatch": 1,
+        "lower_loss_contrast": -1.0,
+        "minimum_baseline_loss": 0.0
+      },
+      {
+        "A": [
+          0,
+          1
+        ],
+        "Q_singleton_or_null_interval": 0.5,
+        "S": [
+          0,
+          1
+        ],
+        "bias_interval": [
+          -1,
+          1
+        ],
+        "worst_mismatch": 1,
+        "lower_loss_contrast": -0.8,
+        "minimum_baseline_loss": 0.25
+      },
+      {
+        "A": [
+          0,
+          1
+        ],
+        "Q_singleton_or_null_interval": null,
+        "S": [
+          0,
+          1
+        ],
+        "bias_interval": [
+          -1,
+          1
+        ],
+        "worst_mismatch": 1,
+        "lower_loss_contrast": -1.0,
+        "minimum_baseline_loss": 0.0
+      }
+    ],
+    "abstract_radius_rank_checks": [
+      {
+        "incomplete_sources": 0,
+        "rank": 28,
+        "denominator": 30,
+        "q90": 28,
+        "kind": "finite"
+      },
+      {
+        "incomplete_sources": 1,
+        "rank": 28,
+        "denominator": 30,
+        "q90": 28,
+        "kind": "finite"
+      },
+      {
+        "incomplete_sources": 2,
+        "rank": 28,
+        "denominator": 30,
+        "q90": 28,
+        "kind": "finite"
+      },
+      {
+        "incomplete_sources": 3,
+        "rank": 28,
+        "denominator": 30,
+        "q90": null,
+        "kind": "positive_infinity"
+      }
+    ],
+    "scope": "abstract arithmetic only; no forecasts or calibration observations"
+  }
+}

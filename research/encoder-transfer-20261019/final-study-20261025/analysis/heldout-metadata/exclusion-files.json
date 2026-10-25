@@ -1,0 +1,397 @@
+[
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\development-sources.md",
+    "bytes": 5170,
+    "sha256": "263a06a5df969f6c001096cbfd4a403fef0e3e3582c83c5a48f497df07aed9ee"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\downloads.md",
+    "bytes": 92018,
+    "sha256": "6ab30d50c773b3d252fad48aa86207634696443b744a10e842937f64ac531c5f"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\encoder-transfer-20261019\\design-research\\T1-attack-standards\\source-manifest.json",
+    "bytes": 165486,
+    "sha256": "c065ea0c03d274f6845cd9f75d5582336cda1dde990ca7520032e233a67898f0"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\encoder-transfer-20261019\\design-research\\T1-attack-standards\\stage1-source-manifest.json",
+    "bytes": 12382,
+    "sha256": "ca67c72b0941b7247f8f35aaa3973404493413533e0d126a58c931f9d4f1a5c2"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\encoder-transfer-20261019\\design-research\\T2-encoder-landscape\\deepening-source-manifest.json",
+    "bytes": 166618,
+    "sha256": "6c485aed9304d17852739314fb53a776cc40bd9c104115666d1e94eeb58226d8"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\encoder-transfer-20261019\\design-research\\T3-baseline-fidelity\\reused-source-manifest.json",
+    "bytes": 4390,
+    "sha256": "9854ec890586d0123d67c2a867fd18a4389266aa0c420c107d3859d788de6989"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\encoder-transfer-20261019\\design-research\\T4-mechanism\\source-manifest.json",
+    "bytes": 17444,
+    "sha256": "553e0b4e5dc7ced5bc7a538bea8a57904dc565b3cb06714b802955b0cfd8d786"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\encoder-transfer-20261019\\design-research\\T5-pipeline\\source-index.md",
+    "bytes": 14597,
+    "sha256": "2a77f69fbd69c89088523d8386976dba9d519eb915161d9ec389cb4cf5383878"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\encoder-transfer-20261019\\design-research\\T5-pipeline\\source-manifest-1b.json",
+    "bytes": 79113,
+    "sha256": "566334addd35f120373be163d3c31765630dd836f0f8a4f2cd9fbd841038f796"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\encoder-transfer-20261019\\design-research\\T5-pipeline\\source-manifest.json",
+    "bytes": 14562,
+    "sha256": "3fae52b2c75f87a9c3bdf4764459769ec30e4c4ed40c2e6f01dabe03f1754977"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\encoder-transfer-20261019\\design-research\\T6-statistics\\source-manifest.json",
+    "bytes": 21239,
+    "sha256": "4848b5cd5931e93bc0a2e9401e47491cd7e28ab51706c424baedbfbecd97e4c9"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\encoder-transfer-20261019\\design-research\\T7-fair-reporting\\source-manifest.json",
+    "bytes": 22533,
+    "sha256": "6ece426f80cc2e92dbbd97a09d79029771cfabdbba3dac056cdbce832b04e663"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\encoder-transfer-20261019\\design-research\\T8-validity\\source-manifest.json",
+    "bytes": 29590,
+    "sha256": "f00df2b2f0b4b3e6d79b9137beea759f6f3bab3da71aa482099ebd43fdb46146"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\encoder-transfer-20261019\\research-downloads.json",
+    "bytes": 649087,
+    "sha256": "6ea44bef25b95351fc028d1faf48122ba0b91184f5cd71b9278c0bcca342ff22"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\encoder-transfer-20261019\\source-list.json",
+    "bytes": 56168,
+    "sha256": "490d3d04efcf6e02a61eeadeacb7494313d2a5607b84fd57a7a2c0e6faea8b72"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\journal-upgrade-20261009\\autoresearch-source\\source-manifest.json",
+    "bytes": 5090,
+    "sha256": "8dd54ad95cf1cda82da266ac93cb579b8f76d358ee3e49237d0c13bc00bbf631"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\journal-upgrade-20261009\\fresh-development-inputs.json",
+    "bytes": 55993,
+    "sha256": "8e2e1797408548ab25f21094e3ce616d3f92ab375e3f191f30149e5e1606be83"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\journal-upgrade-20261009\\fresh-development-selection.json",
+    "bytes": 548879,
+    "sha256": "18ecd43aabc5df2e2d9fff4f03e690011843ada834648af43b5b2803842668af"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\journal-upgrade-20261009\\fresh-development-selection.md",
+    "bytes": 5991,
+    "sha256": "81e94b27563e8c1f3013932db3ae8dd3057f8c2cceca74ff282f0f738e434ce4"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\journal-upgrade-20261009\\registry-fresh-development-selection.json",
+    "bytes": 1167693,
+    "sha256": "9cfb17a41011778bdc7efd1db40f0c98c225a1a8536e46fe818bdfcce4328cf6"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\journal-upgrade-20261009\\registry-near-duplicate-selection.json",
+    "bytes": 43389,
+    "sha256": "3da7ce17ba1f88b276847e67735be5e59e4b2de02dcffd6321ef45c189df0bb9"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\journal-upgrade-20261009\\round3-development-selection.json",
+    "bytes": 1165294,
+    "sha256": "d158fc72d33b38dbac40bb804e03b9f0289fad4a1b990f21f92e61a6388ff73d"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\journal-upgrade-20261009\\round3-near-duplicate-selection.json",
+    "bytes": 51091,
+    "sha256": "a14ffc079e5d82cd586cc9d27e2dff8547931c0b5a4d5ad88de4d240ecec59b4"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\m1-confirmatory-external-index.json",
+    "bytes": 488938,
+    "sha256": "8521b783324b62c9394081f0f7f0d8e5162b6592b9bf3256dddf0d400e28b88a"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\m1-confirmatory-external-index.md",
+    "bytes": 7719,
+    "sha256": "2ca680f5f2287423f4bfd0da7651854b0892783231ae82aba1d6dfd1931c253f"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\m1-confirmatory-planned-inventory.json",
+    "bytes": 13092067,
+    "sha256": "a43a95ac2db0774019a49182beb0171c44761017d55e120f8a85f902f5961657"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\m1-confirmatory-planned-inventory.md",
+    "bytes": 7042,
+    "sha256": "1d8f8dd99d51640dae6c960437edf0cc8292671f73984e757e02b904cfe0164d"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\m1-source-initialization-audit-interface.md",
+    "bytes": 7972,
+    "sha256": "eee7628638f5ad9a5222a71635996edf5c1d85e7c2c469e939e8a8a0c6376716"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\m1-source-initialization-audit-v1.json",
+    "bytes": 723,
+    "sha256": "3cfcfa3c781c8a484df44d947c066b4cb5dca86d6b81b64c9b4ccc34ab389aeb"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\m1-source-initialization-interface.md",
+    "bytes": 7284,
+    "sha256": "d4029ddcd6fd488f6eac5572180b92798ccdd3f7cb8cd6fa091042c21340fb20"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\model-selection-plan-addendum-20260930.md",
+    "bytes": 1678,
+    "sha256": "eecbd61c3473a5b633bc5dbd7eb8682be399e9a6fe3684c91cbbf65fad6f04db"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\q1-dossier-20261018\\01b-heldout-registry-m2-review.md",
+    "bytes": 15277,
+    "sha256": "0c4738f7537f5adcbce964c45975eff5971a079d9d5da81789d10c75e6216db3"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\q1-dossier-20261018\\01b-heldout-registry-recount.json",
+    "bytes": 25832,
+    "sha256": "96b76be30eb6d8732ce62a0cf2370e127d3790c1935c0faf210742f5f42457d7"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\q1-dossier-20261018\\04c-acm-and-exclusion.md",
+    "bytes": 8327,
+    "sha256": "78296e621674f6c49ff13db9a2907007b9283c2ea8b719d47c5b0eaa0835366e"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\q1-dossier-20261018\\20-fresh-data-plan\\source-policy.csv",
+    "bytes": 3437,
+    "sha256": "821d41c20ee3fecdc5cd0f19a02406ec06f57655310c7aff770f10f8b926e567"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\registry-confirmation\\development-frame-exposure-index.json",
+    "bytes": 100707,
+    "sha256": "25042f0e4c0d025c48b19f371b8cf605315fe2a6ecf009ae75999c1c10f2247d"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\registry-confirmation\\development-index.json",
+    "bytes": 16902,
+    "sha256": "d0b473b4715201c0a254de701843545e5667207114283686ef727e0a65fa751e"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\registry-confirmation\\development-near.json",
+    "bytes": 385638,
+    "sha256": "63fda5657718021c573fd2424c8a700e42ce1f272664d74ecd8ee55c066aa9e6"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\registry-confirmation\\div2k-exposure.json",
+    "bytes": 304796,
+    "sha256": "0cbc8e4d189c27692fd2bcda061a337f68f09b54522486c12967145b1ce1b1e9"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\registry-confirmation\\div2k-heldout-index.json",
+    "bytes": 330940,
+    "sha256": "114c09333053e52ac595d8de680d34f104cb03def4a997939c1a1068e40b52dc"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\registry-confirmation\\heldout-index.json",
+    "bytes": 342552,
+    "sha256": "7bf604009022fef7741761649344df31bcf3479161258082172c1bf4c2d406d3"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\registry-confirmation\\heldout-shots.json",
+    "bytes": 38567,
+    "sha256": "c60ad248164963870d32fac0e0e73750079819688454593d9b03f4ab1fe88c49"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\research\\registry-confirmation\\source-pins.json",
+    "bytes": 626,
+    "sha256": "9c0ec8b8a5f4062b89866895a2bf15210af7d3ed21b864a2a7b55cb628699fc4"
+  },
+  {
+    "path": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-et-final\\thesis-runs\\d916749c\\guide-plan-38.json",
+    "bytes": 130909,
+    "sha256": "f874350c24923095834bd02f31f39778c762ccfb9e59af41701f1937fde1a92e"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\analysis\\e3-s1-local-r3-20261013\\frozen-source-index.json",
+    "bytes": 142347,
+    "sha256": "091bad0fae4092ed8332ca64e44873cafcabd88ebfa8636957d5104be7a80a0f"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\registry-fresh-20261016\\m2-supplemental-exclusions.json",
+    "bytes": 75681,
+    "sha256": "88f577e323bb5eccb7258e84655fddd02e6ac0ded5a451f116c35d213efa9138"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\b4-admitted-staging-history-20260926\\holdout.json",
+    "bytes": 9278,
+    "sha256": "d0856a60cf187e119a80cd664fede26c24b0f52f4708352e0205b901c5bf975b"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\b4-admitted-staging-history-20260926\\splits.csv",
+    "bytes": 2875742,
+    "sha256": "470f803324817706b0b433fd972180acb675436f9cfe01b5bd17252e9364d774"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\b4-cf17ec7-contract-history-20260926\\holdout.json",
+    "bytes": 9278,
+    "sha256": "d0856a60cf187e119a80cd664fede26c24b0f52f4708352e0205b901c5bf975b"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\b4-cf17ec7-contract-history-20260926\\splits.csv",
+    "bytes": 2875742,
+    "sha256": "470f803324817706b0b433fd972180acb675436f9cfe01b5bd17252e9364d774"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\b4-provisional-v1-history-20260926\\holdout.json",
+    "bytes": 8511,
+    "sha256": "b520e3b9a2cf122f992edd0e549704d7c972dc2d1691c7f3eaa1f0395f82e96d"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\b4-provisional-v1-history-20260926\\splits.csv",
+    "bytes": 2875718,
+    "sha256": "d295814a40f6cde3b5255ba1a7cf28df53340cf00278652b8cff78e2a4a1630d"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\b4-review-cf17ec7-replay\\holdout.json",
+    "bytes": 9278,
+    "sha256": "d0856a60cf187e119a80cd664fede26c24b0f52f4708352e0205b901c5bf975b"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\b4-review-cf17ec7-replay\\splits.csv",
+    "bytes": 2875742,
+    "sha256": "470f803324817706b0b433fd972180acb675436f9cfe01b5bd17252e9364d774"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\b4-review-e7164da-replay\\holdout.json",
+    "bytes": 9339,
+    "sha256": "ec5d84ec30e127e02b04d133cd2020374f4bb3079cf2fdfe58f0b3d0c3dd08e4"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\b4-review-e7164da-replay\\splits.csv",
+    "bytes": 3646168,
+    "sha256": "60ff11ae5a81698446573c5f7fbd9d3067a5a2619abdf29ac2389931de1e1b9f"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\b4-review-e99f749-replay\\holdout.json",
+    "bytes": 8511,
+    "sha256": "88ac3c55cae7a5833457ede6db19aa8179cf3509f2c5f2bc1129d2627604c27b"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\b4-review-e99f749-replay\\splits.csv",
+    "bytes": 2875718,
+    "sha256": "d295814a40f6cde3b5255ba1a7cf28df53340cf00278652b8cff78e2a4a1630d"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\c4-analysis-20260926\\official-analysis-v2\\exclusions.json",
+    "bytes": 171,
+    "sha256": "d4634bd24387390510d155431b6ad6c7be4c4660948f44d0914fe12ef5fab9f5"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\c4-analysis-20260926\\official-analysis\\exclusions.json",
+    "bytes": 171,
+    "sha256": "d4634bd24387390510d155431b6ad6c7be4c4660948f44d0914fe12ef5fab9f5"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\c4-analysis-20260926\\official-residency-analysis-v1\\exclusions.json",
+    "bytes": 171,
+    "sha256": "11f0dddc9abf135d2dd34011b112b3077fc50aaa0b3e308df48993d3c23823c6"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\c4-analysis-20260926\\official-residency-analysis-v2\\exclusions.json",
+    "bytes": 171,
+    "sha256": "11f0dddc9abf135d2dd34011b112b3077fc50aaa0b3e308df48993d3c23823c6"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\c4-blind-survival-analysis-run003\\exclusions.json",
+    "bytes": 91,
+    "sha256": "2069e21bb03f1e6c467dfa2ddd3db48d504e1a3e702e0125eba4852aea68536c"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\c4-composed-v2-analysis-run001\\exclusions.json",
+    "bytes": 91,
+    "sha256": "2069e21bb03f1e6c467dfa2ddd3db48d504e1a3e702e0125eba4852aea68536c"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\c4-refinement-package-20260927\\analysis-retained-failure-v1\\exclusions.json",
+    "bytes": 176,
+    "sha256": "6a4578ef89b75f0cb4e0433b4e9262bdd9dbbf45aa3a6ea7c981a34428ffbb09"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\c4-ten-composition-package-20260928\\results-analysis-v1\\exclusions.json",
+    "bytes": 184,
+    "sha256": "43f10671ad64e520639c30a454d69415db51256a16f8bb224da502f5bf3a4e81"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\cloud-transfer-20261009\\exclusions.json",
+    "bytes": 18120,
+    "sha256": "5339d971ac868864052496da7ab7da535ca11d96a34fc14240475d202d0a5e7f"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\m1b-confirm\\execution-manifest.json",
+    "bytes": 2212,
+    "sha256": "782f5d1beb18e9d6a6f8390aa0e3c370ae552c4369a7d7989c8c7f798d1ded20"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\registry-package\\artifacts\\M1b-test\\registry-div2k300-confirm-01\\manifest.json",
+    "bytes": 15157,
+    "sha256": "0693784159e99113615703c3215ad6bae009510c083ba34c76ec0dd70c6b7100"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\registry-package\\registry-confirmation-manifest.json",
+    "bytes": 12917,
+    "sha256": "7aa120f8de6b411acd7953143c0b4a110d20fd44e492923d218318d0a853fd34"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\v5-semantic-geometry-20261003\\exclusions.json",
+    "bytes": 5761,
+    "sha256": "ab0a191ec6d9c7d0037bb1a52730f4b2579cc31dae1a91217bcc573c76f2d88e"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\v5-semantic-geometry-review-repro-20261003\\exclusions.json",
+    "bytes": 5761,
+    "sha256": "ab0a191ec6d9c7d0037bb1a52730f4b2579cc31dae1a91217bcc573c76f2d88e"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\v5-study-analysis-dev-001\\batch-analysis\\exclusions.json",
+    "bytes": 173,
+    "sha256": "2d13dff40c162e785b50b2091b19f0a03559b3da8b0350236f835c7e91285889"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\research\\development-sources.md",
+    "bytes": 1490,
+    "sha256": "befc1ca41bed6f7d2de55921bf927f8a839240518277eeaab8be003b8d52eb2c"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\research\\journal-upgrade-20261009\\fresh-development-inputs.json",
+    "bytes": 57181,
+    "sha256": "8fd6368cf85b303c4a43e9102fe99ff2e382b6760b330a734fabbe987104ef80"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\research\\journal-upgrade-20261009\\fresh-development-selection.json",
+    "bytes": 556712,
+    "sha256": "f0ef7c1e4e033b8056307f943210ce04b710e6dedbd0ff421ed2c59cc74be4e4"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\research\\journal-upgrade-20261009\\fresh-development-selection.md",
+    "bytes": 5991,
+    "sha256": "81e94b27563e8c1f3013932db3ae8dd3057f8c2cceca74ff282f0f738e434ce4"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\research\\model-selection-plan-addendum-20260930.md",
+    "bytes": 1678,
+    "sha256": "eecbd61c3473a5b633bc5dbd7eb8682be399e9a6fe3684c91cbbf65fad6f04db"
+  },
+  {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\thesis-runs\\d916749c\\guide-plan-38.json",
+    "bytes": 130909,
+    "sha256": "f874350c24923095834bd02f31f39778c762ccfb9e59af41701f1937fde1a92e"
+  }
+]

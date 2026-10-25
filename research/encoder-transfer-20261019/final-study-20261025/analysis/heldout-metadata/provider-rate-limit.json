@@ -1,0 +1,11 @@
+{
+  "timestamp_utc": "2026-10-25T14:49:25Z",
+  "timestamp_note": "Rounded from failed request receipt",
+  "http_status": 429,
+  "request_id": "58281b5c-3ce5-4051-833c-233454257b7e",
+  "provider_message": "You are making too many requests to the API. Please follow the best practices at https://www.mediawiki.org/wiki/Wikimedia_APIs/Rate_limits. If you are unsure how to get the access you need, contact bot-traffic@wikimedia.org.",
+  "failed_request_receipt": "template-requests.json",
+  "next_successful_request_timestamp_utc": "2026-10-25T14:51:25Z",
+  "subsequent_cadence": "At least six seconds between network queries, plus local text processing",
+  "workaround_used": false
+}

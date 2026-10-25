@@ -2,6 +2,8 @@
 
 Written before journal-level reanalysis, 2026-10-25. Ranked by damage to the proposed scientific claim, not by ease of repair. Existing aggregate results are known from `../results.md`, `../results-2b.md` and MAIN `STATE.md`; these objections are not blinded. TIFS is a rigor target, not an acceptance or quartile assertion.
 
+WP5 clarification: the initial objection 14 suggested finite-difference measurements generically. The final primary predictor uses exact AD tangents along C0 and expressly forbids marked-target finite differences. Its actual derivative/diagnostic design is in `07-final-experiment.md` and `analysis/mechanism-server-spec.md`; this initial objection table is not an alternative execution contract.
+
 | Rank / severity | Hostile reviewer's objection | Current evidence and limit | Required response / package |
 |---|---|---|---|
 | 1 / blocking for mechanism | You changed the encoder, decoder, diffusion model, resolution, precision and scheduler together. Why call this an encoder effect? | R0/R1/R3 are compound interventions. D1/D3 retain 55/60 F5 source-majority C, while full R1 .2 retains 0/60 and R3 5/60 (`../results-2b.md`, Full Kandinsky 3; `../results.md`, diagnostics). | WP2 derives a full encoder–denoiser–decoder–readout chain. WP5 isolates stage retention with precision-matched controls. Claim only family dependence until interventions identify more. |

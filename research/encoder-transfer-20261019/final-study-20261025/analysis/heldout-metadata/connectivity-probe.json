@@ -1,0 +1,11 @@
+{
+  "purpose": "Official text API connectivity probe before batched fixed traversal; did not determine date order or eligibility",
+  "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=revisions&rvprop=ids%7Ccontent&rvslots=main&titles=Template%3APotd%2F2020-01-01",
+  "timestamp_utc": null,
+  "timestamp_note": "Not captured in initial probe; occurred before templates-0000 request. Tool transcript retains call.",
+  "http_success": true,
+  "observed_page_id": 73361786,
+  "observed_revision_id": 322849035,
+  "observed_wikitext": "{{Potd filename|Red-billed oxpecker (Buphagus erythrorhynchus) on impala (Aepyceros melampus).jpg|2020|01|01}}",
+  "image_fetched": false
+}

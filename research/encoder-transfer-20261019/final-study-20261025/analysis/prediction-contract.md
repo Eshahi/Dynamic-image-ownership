@@ -1,5 +1,7 @@
 # H4 prediction and scoring contract: preserve the two-quantity law
 
+WP5 precedence note (2026-10-25): this preserves the earlier design reasoning. Its provisional section 4 one-feature comparator is superseded by [quality-baseline-contract.md](quality-baseline-contract.md), which fixes a stronger six-feature unconstrained comparator before any new experiment. Its section 7 candidate uncertainty procedures are superseded by [confirmatory-statistics.md](confirmatory-statistics.md), including the exact 13-slot family, conservative mismatch certificate, empirical-Bernstein contrast and missing-outcome bounds. The primary vector law, prediction-information restriction and original .10/20% criteria remain unchanged. Implement the final [07-final-experiment.md](../07-final-experiment.md) and its named authoritative contracts.
+
 Status: mathematical design refinement, 2026-10-25. This note resolves an incompatibility between the prospective H4 promise in `03-hypotheses.md` and the proposed margin criteria in `analysis/theory-design.md`. It does not amend either file or claim an approved protocol. The author read the authoritative MAIN STATE once, the two named design files, and no new result journals. No experiment, model, metric, interpreter or server was run.
 
 ## 1. Decision: a deterministic forecast is the minimal defensible primary law

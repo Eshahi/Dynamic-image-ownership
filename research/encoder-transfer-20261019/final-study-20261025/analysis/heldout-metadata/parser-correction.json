@@ -1,0 +1,10 @@
+{
+  "corrections": [
+    "Named 1= filename parameter and HTML comments are parsed as text before file queries. Initial erroneous title requests retained.",
+    "A plain filename in Template:Potd/2021-06-28 was unambiguous text and was resolved without viewing its file.",
+    "Complete stripped creator Unknown authorUnknown author is solely unknown and excluded; hidden labels are retained in attribution HTML."
+  ],
+  "rule_changed": false,
+  "date_order_changed": false,
+  "metadata_queries_only": true
+}

@@ -1,5 +1,7 @@
 # WP2 contributor: a falsifiable readable-transport model for F5
 
+WP5 integration note: the equations and derivation remain the theoretical support. The provisional continuous-margin acceptance suggestions in section 5 are diagnostics, not the primary H4 decision. [07-final-experiment.md](../07-final-experiment.md), [prediction-contract.md](prediction-contract.md), [quality-baseline-contract.md](quality-baseline-contract.md) and [confirmatory-statistics.md](confirmatory-statistics.md) fix compound C prediction, the stronger quality comparator and the original .10/20% criteria. q90 is measured in native decoded-score units, without threshold normalization.
+
 Status: research-only design, 2026-10-25. No model, image, detector, metric, timing or experiment was run. No raw result journal was opened or aggregated. The authoritative MAIN STATE was read once. This note uses the already reported development aggregates and inspected code; its equations and predictions precede this contributor's access to any new measurements. It does not claim that any mechanism below has been established.
 
 ## 1. What the writer actually optimizes

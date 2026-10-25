@@ -1,0 +1,79 @@
+{
+  "primary_count": 200,
+  "reserve_count": 40,
+  "last_rank": 819,
+  "last_date": "2020-05-04",
+  "manifest_sha256": "dc6cdcffebaf69f87bc9fa7fb65b94247210eb1a3246dc05182b39a73da7ae59",
+  "licence_groups": [
+    {
+      "Name": "CC BY 2.0",
+      "Count": 9
+    },
+    {
+      "Name": "CC BY 3.0",
+      "Count": 8
+    },
+    {
+      "Name": "CC BY 4.0",
+      "Count": 8
+    },
+    {
+      "Name": "CC BY-SA 2.0",
+      "Count": 2
+    },
+    {
+      "Name": "CC BY-SA 2.5",
+      "Count": 3
+    },
+    {
+      "Name": "CC BY-SA 3.0",
+      "Count": 33
+    },
+    {
+      "Name": "CC BY-SA 4.0",
+      "Count": 125
+    },
+    {
+      "Name": "CC0",
+      "Count": 9
+    },
+    {
+      "Name": "Public domain",
+      "Count": 43
+    }
+  ],
+  "rejection_counts_nonexclusive": [
+    {
+      "Name": "aspect outside 0.5..2",
+      "Count": 84
+    },
+    {
+      "Name": "creator already selected",
+      "Count": 442
+    },
+    {
+      "Name": "licence unsupported or conflicting",
+      "Count": 60
+    },
+    {
+      "Name": "no file metadata",
+      "Count": 2
+    },
+    {
+      "Name": "not JPEG",
+      "Count": 11
+    },
+    {
+      "Name": "over 20M bytes",
+      "Count": 112
+    },
+    {
+      "Name": "over 40M pixels",
+      "Count": 110
+    },
+    {
+      "Name": "unknown creator",
+      "Count": 8
+    }
+  ]
+}
