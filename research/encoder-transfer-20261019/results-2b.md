@@ -303,6 +303,7 @@ One independent review is in `review-2b.md`. It was written by a fresh Claude (O
   - C15: a blob-check receipt;
   - C16: report labels.
 - **Notes:** N1, N2, N4–N7 and N10 are reflected above.
+- **One deviation:** C8's evidence counts the SDXL .1 semantic tier as found in 23 calls. A recount gives 26: 23 with a content match, plus the 3 read with a mismatch. This version uses 26.
 
 ## Files
 
