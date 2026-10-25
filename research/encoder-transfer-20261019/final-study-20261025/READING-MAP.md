@@ -27,11 +27,13 @@ These additions came after the completed WP6/E3 scopes. They explain boundaries 
 
 - [Source-closure index](literature/source-closure-index.md) and [late bibliography](literature/late-sources.bib): inspected versions, inaccessible text and source-claim qualifications.
 - [Finite transport](analysis/finite-transport-boundary.md): conditional curvature/numerical error and what one fitted scalar can repair.
+- [Stage-attribution boundary](analysis/stage-attribution-boundary.md): native directional gains are useful measurements, while coordinate choices, interactions and off-support swaps prevent unique causal attribution.
 - [Reader stability](analysis/reader-stability-boundary.md): chip error, searched score, decoded word and content binding require different conditions.
 - [Searched-verifier null](analysis/searched-detector-null.md): full-search calibration, fixed-key conditioning and correlated bits.
 - [Finite-bit null resolution](analysis/finite-bit-null-boundary.md): exact hard-word acceptance, key search, ECC basins and the distinction between analytical and measured extreme-tail rates.
 - [Future-outcome atlas](analysis/future-outcome-interpretation.md): permissible interpretation of the existing frozen outcomes.
 - [Quality aggregation boundary](analysis/quality-aggregation-boundary.md) and [saved-output sensitivity](analysis/quality-dominance.md): distinguish source medians from individual outputs, then report all planned dominance counts without new metrics or independent-pair claims.
+- [Monotone-score loss bound](analysis/monotone-brier-bound.md): exact observed-subset lower bounds after a saved-record premise check; the unrestricted primary H4 comparator is outside this class.
 - [Late-source article bridge](article-drafts/late-source-integration.md): proposed insertions for later author development; the reviewed article sections themselves remain distinct.
 - [Close-prior-art map](article-drafts/close-prior-art-map.md): five neighboring studies and the precise remaining empirical question; no first-ever claim.
 

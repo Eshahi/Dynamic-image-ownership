@@ -43,6 +43,8 @@ The [aggregation note](quality-aggregation-boundary.md) proves that median-quali
 
 They do **not** rule out arbitrary nonmonotone quality functions, probabilistic monotone models, other unmeasured perceptual variables, detector-specific information or metric uncertainty. They do not identify encoder training as the cause, compare interventions at matched quality, establish a population rate, or create a confirmatory result. The caliper overlap remains only two F5 sources. No p-values are assigned to the overlapping pairs.
 
+A subsequent [exact empirical loss bound](monotone-brier-bound.md), with its own committed premise check, quantifies the complete-subset limitation: every monotone probability score has Brier loss at least 563/2320, and every monotone binary classifier has error at least 14/29, attained by always predicting non-detection. This bound concerns realized marked-output metrics and cannot be applied to the unrestricted, differently informed primary H4 comparator.
+
 ## Provenance and execution receipt
 
 - [Plan](quality-dominance-plan.md) and [stdlib-only code](quality-dominance.py) committed before this aggregation as `a2fb944`; existing outcomes were already known, so this ordering is not fresh-data preregistration.

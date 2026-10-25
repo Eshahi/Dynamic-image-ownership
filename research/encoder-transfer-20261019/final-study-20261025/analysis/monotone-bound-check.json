@@ -1,0 +1,517 @@
+{
+  "status": "Post-hoc empirical observed-subset bound; not a new fit, experiment or population test",
+  "input": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261025-0128-encoder-transfer-stage2b\\results\\stage2b-full\\rows.jsonl",
+  "input_sha256": "f3b95d3e727d421c29a2a2e42eb1ef5881f55b7d3eb848a237ab51095455fb82",
+  "journal_lines": 39896,
+  "final_ids": 11040,
+  "results": [
+    {
+      "quality_reference": "distortion",
+      "complete_sources": 58,
+      "incomplete_source_ids": [
+        72,
+        436
+      ],
+      "positive_r0_histogram": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 55
+      },
+      "sources": [
+        {
+          "source_id": 30,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 73,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 89,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 127,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 165,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 309,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 370,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 450,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 459,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 471,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 508,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 529,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 544,
+          "r0_positive_calls": 2
+        },
+        {
+          "source_id": 599,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 626,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 629,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 636,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 673,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 693,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 715,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 723,
+          "r0_positive_calls": 0
+        },
+        {
+          "source_id": 790,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 853,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 902,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 908,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 913,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 960,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1180,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1295,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1323,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1330,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1332,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1355,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1359,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1397,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1398,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1404,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1408,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1464,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1507,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1522,
+          "r0_positive_calls": 1
+        },
+        {
+          "source_id": 1536,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1548,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1596,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1637,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1639,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1647,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1655,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1670,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1682,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1712,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1720,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1737,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1774,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1777,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1779,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1785,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1786,
+          "r0_positive_calls": 3
+        }
+      ],
+      "complete_outputs": 348,
+      "verified_all_local_dominance_pairs": 522,
+      "brier_lower_bound_fraction": "563/2320",
+      "brier_lower_bound": 0.24267241379310345,
+      "hard_error_lower_bound_fraction": "14/29",
+      "hard_error_lower_bound": 0.4827586206896552
+    },
+    {
+      "quality_reference": "total_distortion",
+      "complete_sources": 58,
+      "incomplete_source_ids": [
+        72,
+        436
+      ],
+      "positive_r0_histogram": {
+        "0": 1,
+        "1": 1,
+        "2": 1,
+        "3": 55
+      },
+      "sources": [
+        {
+          "source_id": 30,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 73,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 89,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 127,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 165,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 309,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 370,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 450,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 459,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 471,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 508,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 529,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 544,
+          "r0_positive_calls": 2
+        },
+        {
+          "source_id": 599,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 626,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 629,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 636,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 673,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 693,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 715,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 723,
+          "r0_positive_calls": 0
+        },
+        {
+          "source_id": 790,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 853,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 902,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 908,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 913,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 960,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1180,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1295,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1323,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1330,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1332,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1355,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1359,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1397,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1398,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1404,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1408,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1464,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1507,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1522,
+          "r0_positive_calls": 1
+        },
+        {
+          "source_id": 1536,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1548,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1596,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1637,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1639,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1647,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1655,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1670,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1682,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1712,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1720,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1737,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1774,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1777,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1779,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1785,
+          "r0_positive_calls": 3
+        },
+        {
+          "source_id": 1786,
+          "r0_positive_calls": 3
+        }
+      ],
+      "complete_outputs": 348,
+      "verified_all_local_dominance_pairs": 522,
+      "brier_lower_bound_fraction": "563/2320",
+      "brier_lower_bound": 0.24267241379310345,
+      "hard_error_lower_bound_fraction": "14/29",
+      "hard_error_lower_bound": 0.4827586206896552
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # A finite empirical Brier floor for monotone quality scores
 
-Status: mathematical author extension, 2026-10-25; post-hoc and outside the completed independent reviews. This note proves a bound without fitting a model or introducing a criterion. Its numerical specialization is conditional on the supplied complete-source aggregates, not an independent verification of saved records.
+Status: mathematical author extension, 2026-10-25; post-hoc and outside the completed independent reviews. This note proves a bound without fitting a model or introducing a criterion. Its initial numerical specialization was conditional on supplied aggregates; the root author's subsequent saved-record premise check is recorded below. Neither step is an additional independent review.
 
 ## Assumptions and weighting
 
@@ -45,8 +45,26 @@ Indeed n₁ = 57 − 56 = 1, n₂ + n₃ = 56, and n₁ + 2n₂ + 3n₃ = 168. C
 
 These denominators concern the complete-source subset only. Neither incomplete sources nor overlapping pair counts are additional replicates.
 
+## Exact descriptive corollaries
+
+On these 348 complete outputs, the empirical positive prevalence is p = 14/29. The always-negative classifier attains error p and is monotone. Thus the binary lower bound is attained: no deterministic monotone classifier using these three quality metrics can outperform always predicting non-detection on this equally weighted two-cell subset, even if it receives source identity. This is an empirical optimization statement, not a proposed detector or population forecast.
+
+The hindsight-optimal constant probability p has Brier loss p(1−p) = 210/841 ≈ .249703. Dividing the lower bound by that constant loss shows that any allowed monotone score's relative Brier improvement over this oracle constant is at most
+
+\[
+1-\frac{563/2320}{210/841}=\frac{473}{16800}\approx 2.81548\%.
+\]
+
+This is an upper bound on improvement, not an achieved fit. The constant uses the same observed labels and is not an out-of-sample baseline. No forecast was trained or evaluated here.
+
+## Root execution receipt
+
+The [premise-check plan](monotone-bound-plan.md) and [stdlib code](monotone-bound-check.py) were committed in `b116918` before this raw-histogram extraction. Prior aggregate outcomes were already known; this is post-hoc ordering, not fresh-data preregistration. At approximately 18:02 UTC, the root author ran that code once with MAIN `.thesis-build/venv/Scripts/python.exe -I`, taking about three seconds. Only saved JSON parsing, hashing, comparisons and exact fractions were used.
+
+The [result](monotone-bound-check.json) independently of the supplied histogram construction confirms 39,896 journal lines and 11,040 final identities, with input SHA-256 `f3b95d3e727d421c29a2a2e42eb1ef5881f55b7d3eb848a237ab51095455fb82`. There are 58 complete sources and incomplete source IDs 72 and 436, retained as exclusions from this explicitly complete-subset bound. For each quality reference separately, all 522 within-source cross-cell dominance comparisons pass, all 174 R1 endpoints are negative, and the directly extracted R0-positive histogram is (1,1,1,55). The exact fractions are 563/2320 and 14/29. The 522 comparisons reuse 348 outputs and are not independent observations.
+
 ## Interpretation boundary
 
 The deterministic contradiction becomes a quantitative obstacle to empirical prediction: every monotone probability-valued quality mapping incurs at least this observed Brier loss, even with source-specific mappings. This restricts a much broader class than a specified monotone logistic form. It does **not** test or reject population monotonicity of retention probabilities: random outcomes can violate probability order, and the calculation supplies neither a null distribution nor a significance claim. Arbitrary nonmonotone quality functions remain unrestricted by this argument.
 
-This is not an H4 forecast result or implication. Realized marked-output quality is forbidden as an H4 forecast input, and the two-cell equal-weight loss here differs from H4's evaluation weights. No future performance, causal encoder attribution, new fit, protocol amendment or changed transfer verdict follows.
+This is not an H4 forecast result or implication. Realized marked-output quality is forbidden as an H4 forecast input, the primary [H4 quality comparator](quality-baseline-contract.md) has unrestricted coefficient signs and six permissible features, and the two-cell equal-weight loss here differs from H4's evaluation weights. The primary H4 comparator is therefore outside the monotone class bounded here. No future performance, causal encoder attribution, new fit, protocol amendment or changed transfer verdict follows.
