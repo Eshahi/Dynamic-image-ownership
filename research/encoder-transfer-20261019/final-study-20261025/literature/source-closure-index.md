@@ -14,12 +14,17 @@ Author additions after the accepted WP6 dossier and E3 article review, 2026-10-2
 | [Original Semantic Imprinting access](semantic-imprinting-access-closure.md) | Verified identity and topic only. | Original remains V1; later taxonomy cannot substitute for inaccessible original methods and experiments. |
 | [Intrinsic limits](intrinsic-limits-2026-primary.md) | Component-level analysis and regeneration prior art; explicit checks of MMSE, directional and certificate assumptions. | Exact-MMSE PSD and conditional invertibility survive the critique. Universal contraction, directional amplification and operational failure ceilings do not follow from the stated premises alone. |
 | [Residual transferability](residual-transferability-2026-primary.md) | Separates transplanted residuals, detector presence and content binding. | Image-to-image residual transplantation is not transfer across independently trained regenerator encoders; an assumed-bit tail is not an empirical or adaptive-forgery guarantee. |
+| [Shallow Diffuse](shallow-diffuse-primary.md) | Substantive derivative/subspace prior art, including post-generation DDIM-inversion insertion. | Inspected arXiv v5 is distinguished from the verified NeurIPS 2025 identity. Its PMP/one-step conditions do not certify a fixed F5 mark under a foreign full regeneration chain. |
+| [NullGuard access and dimensional audit](nullguard-primary.md) | Records an incomplete null-space construction lead and coordinate-space questions. | Indexed primary excerpts remain V1-plus, not full V2 evidence. Author-reported BMVC acceptance and the anonymous ICLR-review artifact are not interchangeable; no novelty exclusion follows. |
+| [Denoising/unsigning](denoising-unsigning-2026-boundary.md) | Separates a conceptual channel argument from actual experimental evidence; checks normalized SNR and contraction premises. | The source explicitly labels its numerical tables hypothetical. They establish no measured result and do not increase the empirical-source count. |
 
 The article drafts retain their reviewed bibliography and text. Any future integration must cite the actual inspected version and carry these qualifications. No universal negative literature conclusion follows from an unsuccessful search.
 
 The separate [late-source bibliography](late-sources.bib) preserves these reading versions without replacing the article's reviewed citation set. The theoretical notes are author-side derivations, not published refutations or new measured results. Useful conditional results are retained alongside unsupported extrapolations.
 
 The [searched-verifier null note](../analysis/searched-detector-null.md) explains selection, key conditioning, correlated bits and source-level negative bounds without assigning an unmeasured FPR to a named method. The [future-outcome atlas](../analysis/future-outcome-interpretation.md) maps the existing frozen hypotheses to allowable conclusions; it is interpretive shorthand and does not override their controlling contracts.
+
+The [reader-stability note](../analysis/reader-stability-boundary.md) derives conditional chip-to-score, segment-gap and semantic-likelihood bounds for the actual reader. Equal scalar scores need not mean equal decoded words or compound C. No error radius is measured or certified, and the note introduces no new endpoint or computation requirement.
 
 ## Paper-cache exception used
 

@@ -46,3 +46,5 @@ The [rank-ratio manuscript](literature/transfer-theory/rank-ratio-unverified.md)
 ## Later source closure, outside the completed reviews
 
 The [late-source index](literature/source-closure-index.md) links additional primary readings and original assumption checks after E3. They sharpen version, attack-access and endpoint boundaries without changing the frozen protocol or reviewed article text. Original SIH remains V1. GROW has partial accepted-version inspection plus a fully read, explicitly different submission copy. Source inspection does not certify a theorem: unsupported Gaussian, independence or invariance premises are retained as limitations rather than imported guarantees.
+
+The later Shallow Diffuse reading supplies direct derivative/subspace overlap and explicitly includes post-generation insertion. A first-ever Jacobian explanation or a generation-only dismissal is therefore excluded. NullGuard remains an incomplete primary lead. The denoising/unsigning manuscript's tables are hypothetical and contribute no empirical result. These distinctions affect future positioning, not the frozen scientific design or completed review verdicts.
