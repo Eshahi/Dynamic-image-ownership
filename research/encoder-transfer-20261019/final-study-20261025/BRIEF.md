@@ -23,6 +23,13 @@ and then, verbatim:
 
 The extension tier is dropped unless time is left.
 
+**Desktop mode (2026-10-25 05:05).** The user moved the session to a Codex desktop thread with `/goal`, and stopped the CLI supervisor. There is no supervisor in this mode:
+- **Deadline.** Run `Get-Date` first. The deadline is that time plus 6 hours, unless the goal says otherwise. Rewrite the deadline at the top of `PROGRESS.md`.
+- **Pace.** Check the clock at the start of every package and keep the 6-hour split above, scaled to the time left.
+- **Wrap-up.** Do WP7 when less than 40 minutes remain.
+- **Where to resume.** The CLI turns left WP0 committed (440c85c), plus uncommitted work: `PROGRESS.md`, `experiments/dev-log.md` and literature cards in `FS/literature/`. Run `git status`, keep and commit what is correct, and continue WP1 from those files.
+- **Guard.** A lighter desktop guard may run. It kills the thesis science interpreter, thesis experiment scripts, `vastai`, and SSH that uses the vast key, and it keeps the laptop awake. CUDA is not hidden in this mode, so the rules of section 1 rest on you. They apply in full.
+
 You (Codex) are the lead researcher for this session. A supervisor script started you, keeps you going until the session deadline and resumes you if a turn ends early. Nobody will answer questions during the run. When something needs the user, record it under "Decisions for the user" in `PROGRESS.md`, state the default you assumed, and continue.
 
 **How Claude reads the request.** This session is deep research, not experimentation. Every experiment it designs runs later on a rented server, only after the user approves it.
