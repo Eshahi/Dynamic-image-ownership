@@ -1,54 +1,55 @@
 # Current state
 
-Updated by Codex agent, 2026-10-20 UTC. MAIN copy is authoritative.
-F5 r2 remains the selected image-domain encoder-directed writer; no new M1a or transfer outcome exists.
-Prior unseen SD2.1 development C was 24/24 at strength .2; this did not establish independent-encoder transfer.
-Next experiment is the independent-encoder development study in research/encoder-transfer-20261019/BRIEF.md.
+Updated by Codex agent, 2026-10-25 16:22 UTC. MAIN copy is authoritative.
+F5 r2 remains the selected image-domain encoder-directed writer; independent-encoder transfer FAILS, ROUTE C.
+Its retained SD1.5 source-majority C counts are 60/60, 57/60 and 39/60 at strengths .1/.2/.4; SDXL gives 0/60 throughout.
+Next experiment is a proposed two-phase rented-server study, requiring new user approval; nothing is authorized to run now.
 
-## Stage 1b complete: re-freeze stop
+## Research-only final-study handoff
 
-Worktree: C:/Users/Soroush/.codex/worktrees/codex-encoder-transfer; branch codex/encoder-transfer-20261019.
-All eight topic floors pass parent checks and fresh independent Astra/xhigh design-review-2; B1-B4 are closed.
-Final reviewed scientific content is fc32ea8ca28f2eb613595e894292a95f751271bf; release metadata follows in the re-freeze commit.
-Prior freeze c2384e7 and reopened-review history remain preserved. The new config status is frozen-after-independent-review.
-T1: 40 V2 sources, 23 direct; T2: 18 families/30 cards; T3: 24 distinct post-hoc V2 methods.
-T4: 13 V2 sources/26 predictions; T5: six implementations/61 pinned setting rows/six paper V2.
-T6: eight paper V2 plus five official references, 15 tables/5,154 hypothetical rows and nine checks.
-T7: 15 eligible V2 evaluations; T8: 68 distinct threats/14 paper V2 plus four official references.
-Each topic passes ten distinct discovery intents across at least three categories; inspections are excluded.
-All 26 CPU fixture tests pass (parent 11.458s; independent reviewer 3.144s). Native GPU execution is unverified.
-N remains 60 development sources; smoke IDs 1790/1822 are disjoint, selected by metadata and hashes only.
-Core arms: F5 r2, v5 r3, WAM, VINE-R; no registry. R0 SD1.5 and R1 SDXL use .1/.2/.4, seeds 12/13/14.
-D1 is SDXL VAE-only, X1/X2 resize controls, and one .1+.1 rinse is secondary. Gated FLUX remains excluded.
-Primary F5 R1 .2 C majority: at least 45/60 plus complete zero R1 negatives transfers; below 30 fails; margin three.
-The 7,500-unit core plus 250 smoke units estimates 10-14 hours under the 15-hour/USD15 ceiling.
-Read-first carrier diagnostics and fidelity/statistical/reporting clarifications are pre-outcome amendments; gates unchanged.
-P1-P8 remain excluded/unapproved; P9 PixelSeal is an additional proposal, P10 Klein rejected. Costs are in budget-and-proposals.md.
-No server, paid compute, GPU science, weights, real-mark scoring, new outcome or held-out pixel access occurred.
-Stop after committing/pushing this release for Claude/user review of the protocol and proposals.
-No stage 2 until the user's subsequent scope/budget decision and SSH message; no automatic confirmation.
+Branch codex/encoder-transfer-final-20261025; dossier research/encoder-transfer-20261019/final-study-20261025/.
+WP1-WP6 are complete. WP6's fresh independent hostile review accepts the design with corrections, all applied.
+WP7 core report and state handoff are complete; FINAL-REPORT.md has STATUS: COMPLETE. Article/venue extensions precede the 19:14:53 UTC deadline.
+The dossier contains inspected primary literature, saved-result reanalysis, a proposed signed-transport law, two attack specifications and a final protocol.
+The law is unmeasured and uses privileged target-model derivatives and C0 side information; it is not a lightweight operational detector.
+Historical contrasts do not isolate the encoder. Round-trip survival, score transport, content binding and final detection are distinct quantities.
+No experiment, model/image/data/code download, science interpreter, install, remote login or paid service ran in this session.
+The isolated stdlib interpreter only analysed existing JSON/JSONL and analytical bounds; fresh-pool work inspected metadata only.
+Proposed Phase A uses 60 existing development sources, split 30 fit/30 calibration, with a six-source feasibility pilot.
+Proposed Phase B has 200 primary and 40 reserve identifiers, all NOT_DOWNLOADED; later authorized hash checks precede scientific use.
+The protocol fixes H1-H6, 13 Holm slots, source-level units, conservative missingness and a fixed betting-mixture H4 certificate.
+Seven native cells cover SD1.5/SDXL .1/.2/.4 and Kandinsky 3 .2; conditional FLUX adds an eighth before fitting.
+Two detector-free attacks and their fixed controls are design only; no new watermark, baseline or threshold is introduced.
+Core proposed ceiling: 100 instance-hours split 40/60, with two later approval gates; unknown derivative/attack cost may prevent completion.
+A 48 GB GPU is preferred, with 64 GB RAM and at least 150 GB disk; this is not a measured fit guarantee.
+Core assets total about 48.6 GB, or 82.3 GB with FLUX; both exceed the old 30 GB download cap and need explicit expansion.
+FLUX also needs the user's gated-access action. No licence acceptance, spending, confirmation or publication approval is assumed.
+
+## Retained development evidence
+
+Stage 2a/2b reports remain results.md, results-2b.md and review-2b.md under research/encoder-transfer-20261019/.
+Union: 11,040 units, 60 development sources, 23 safety blocks retained. Stage 2b adds 7,200 units and reproduces the old label.
+At SDXL .1, v5 retains 50/60, WAM 48/60 and VINE-R 60/60; at .4 VINE-R retains 45/60 and the other arms are near zero.
+Full Kandinsky 3 .2: F5 5/60, v5 57/60, WAM 44/60 and VINE-R 60/60; its native schedule differs from SDXL.
+SDXL VAE and MoVQ round trips each retain F5 55/60; resize controls retain 60/60.
+SDXL rinse retains v5 4/60, WAM 21/60 and VINE-R 59/60; F5 remains zero.
+P5 smoothing versus posterior-mode control lowers F5 any-carrier A from 32/60 to 16/60 and v5 A from 52/60 to 42/60.
+F5 matched-distortion overlap is only two sources. The stronger all-metric source-paired contrast remains descriptive.
+F5 has zero C0 and wrong-owner detections in 540 SDXL calls each; 60 independent zero-event sources give one-sided 95% upper bound .0487.
+One VINE-R C0 call reaches its inclusive 69/100 threshold. Strict clean quality: F5/v5 60/60, WAM 58/60, VINE-R 31/60.
+Historical stage 2a/2b run times are 4.8 h/4.0 h; conservative combined billing is about 32.3 h/USD 17.4; instance stopped, not destroyed.
 
 ## Preserved registry confirmation result
 
-The prior registry design uses trusted enrolled-record side information; this transfer study does not.
-Registry-div2k300-confirm-01 fails overall because E2 fails.
-E1 meets its fixed strength-.2 source-majority criterion: SD1.5 277/300, SD2.1-base 280/300.
-E2 accepts 3/45 operationally different look-alike pairs from 2/16 shots of one film; these are descriptor-only accepts, not demonstrated whole-pipeline forgeries.
-There are zero accepts among 3343081 observed unrelated comparisons, with 65519 planned comparisons missing.
-T4 has zero accepts among 594 observed transfers, six missing of 600, with 297 observed donor groups.
-Pair counts are not independent statistical trials. The strict E3 gate remains false because all banks are incomplete.
-The approved complete-case reading gives zero beta accepts in eight cells of 293-297 sources.
-At strength .4, original attribution is only 81/293 and 81/297; the rest abstain.
-Beta owner detection fails before q/content checks in every completed saved E3 query, so zero-beta does not isolate added record-code benefit.
-Strict clean quality is 291/297 available marks, or 291/300 attempts; human ratings are missing.
-No frozen result, threshold or retained output was changed.
+Registry-div2k300-confirm-01 uses trusted enrolled-record side information and fails overall because E2 fails.
+E1 .2 source-majority counts are SD1.5 277/300 and SD2.1-base 280/300; .4 original attribution is only 81/293 and 81/297.
+E2 accepts 3/45 operationally different look-alike pairs from 2/16 film shots; these are descriptor-only accepts.
+Unrelated comparisons: zero accepts in 3,343,081 observed, 65,519 missing. T4: zero in 594 observed, six missing; strict E3 remains false.
+Strict clean quality is 291/297 available marks or 291/300 attempts. Human ratings remain missing.
 
-## Scope and obligations
+## Scope
 
-T3 regeneration, T4 copy transfer and T5 content collision remain the thesis threat scope; this study tests T3 only.
-Ownership transfer, ledgers and rights management remain product scope. Neither enrollment nor detection proves lawful ownership.
-Original latent insertion, lightweight DCT extraction and CLIP+pHash hypotheses remain open.
-COCO and DIV2K test pools are consumed; future confirmation requires fresh preassigned source groups and a new user decision.
-The prior Q1 dossier is in research/q1-dossier-20261018/; it is not a claim of submission readiness.
-Proposal inputs, claim ledger, source plan, HTML guide and retained run outputs remain protected and unchanged.
-No publication, institutional decision or human approval was produced by this stage.
+T3 regeneration is this study's focus; T4/T5 are not resolved. Enrollment or detection does not establish lawful ownership.
+Original latent insertion, lightweight extraction and CLIP+pHash hypotheses remain open; F5 is a labelled image-domain comparator.
+COCO/DIV2K pools are consumed; fresh confirmation needs a separate user decision. Public-source freshness does not prove pretraining exclusion.
+Proposal, claim ledger, source plan, HTML guide and retained outputs remain protected. No thesis gate, chapter, submission or Q1 readiness is certified.
