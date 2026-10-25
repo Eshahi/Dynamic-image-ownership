@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">Observed codec retention and proposed full-chain prediction</title>
+  <desc id="desc">Panel A reports historical F5 content-compatible detection on sixty development sources. SDXL codec round trips retain fifty-five sources; full SDXL regeneration retains zero. These are compound pipeline comparisons, not an encoder-only causal effect. Panel B depicts an unmeasured predictor using permitted input displacement and privileged unmarked target trajectories. All predictions are frozen before marked target outputs are generated.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#405168"/></marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill:#182536; }
+      .title { font-size:25px; font-weight:700; }
+      .panel { font-size:20px; font-weight:700; }
+      .label { font-size:17px; }
+      .small { font-size:15px; }
+      .count { font-size:30px; font-weight:700; }
+      .box { fill:#f4f7fa; stroke:#8091a6; stroke-width:1.5; }
+      .proposal { fill:#f5f8fd; stroke:#416eab; stroke-width:1.5; stroke-dasharray:6 4; }
+      .arrow { fill:none; stroke:#405168; stroke-width:2; marker-end:url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1200" height="820" fill="#fff"/>
+  <text x="36" y="40" class="title">Codec retention is not full-regeneration retention</text>
+  <text x="36" y="68" class="label">One encoder-directed image watermark; observed development case and unmeasured prediction proposal</text>
+
+  <text x="36" y="111" class="panel">A. Observed F5 C endpoint</text>
+  <text x="36" y="137" class="small">C = readable semantic carrier AND content compatibility. Sixty development sources; fixed native settings.</text>
+  <rect x="36" y="159" width="270" height="135" rx="8" class="box"/>
+  <text x="171" y="190" text-anchor="middle" class="label">Clean marked input</text>
+  <text x="171" y="232" text-anchor="middle" class="count">60 / 60</text>
+  <text x="171" y="265" text-anchor="middle" class="small">image-domain writer</text>
+
+  <rect x="409" y="159" width="325" height="135" rx="8" class="box"/>
+  <text x="571" y="190" text-anchor="middle" class="label">SDXL codec round trip</text>
+  <text x="571" y="232" text-anchor="middle" class="count">55 / 60</text>
+  <text x="571" y="265" text-anchor="middle" class="small">deterministic control output</text>
+
+  <rect x="837" y="159" width="327" height="135" rx="8" class="box"/>
+  <text x="1000" y="190" text-anchor="middle" class="label">Full SDXL regeneration</text>
+  <text x="1000" y="232" text-anchor="middle" class="count">0 / 60</text>
+  <text x="1000" y="265" text-anchor="middle" class="small">at each strength .1, .2 and .4</text>
+
+  <path d="M306 205 L388 205" class="arrow"/>
+  <text x="347" y="190" text-anchor="middle" class="small">control</text>
+  <path d="M171 294 L171 319 L1000 319 L1000 300" class="arrow"/>
+  <text x="571" y="313" text-anchor="middle" class="small" fill="#fff"> </text>
+  <text x="36" y="350" class="small">The two branches have different programs; their contrast does not isolate encoder training as the cause.</text>
+  <text x="36" y="373" class="small">Full-path counts use three-seed source majority. Full SD1.5 at strength .2 retains C on 57 / 60 sources.</text>
+
+  <line x1="36" y1="398" x2="1164" y2="398" stroke="#c8d1dc"/>
+  <text x="36" y="435" class="panel">B. Proposed predictor — no accuracy or feasibility result yet</text>
+  <text x="36" y="461" class="small">Permitted: original + marked input, target internals, fixed random draws, and unmarked (C0) trajectories.</text>
+
+  <rect x="36" y="486" width="230" height="112" rx="8" class="proposal"/>
+  <text x="151" y="516" text-anchor="middle" class="label">Exact input-encoder</text>
+  <text x="151" y="541" text-anchor="middle" class="label">displacement d</text>
+  <text x="151" y="573" text-anchor="middle" class="small">native mode or paired draws</text>
+
+  <rect x="332" y="486" width="244" height="112" rx="8" class="proposal"/>
+  <text x="454" y="516" text-anchor="middle" class="label">Full downstream tangent</text>
+  <text x="454" y="541" text-anchor="middle" class="label">along C0: v</text>
+  <text x="454" y="573" text-anchor="middle" class="small">signed chip displacement</text>
+
+  <rect x="642" y="486" width="240" height="112" rx="8" class="proposal"/>
+  <text x="762" y="516" text-anchor="middle" class="label">Predicted chips</text>
+  <text x="762" y="546" text-anchor="middle" class="panel">p̂ = b(C0) + κ v</text>
+  <text x="762" y="573" text-anchor="middle" class="small">fitted on development only</text>
+
+  <rect x="948" y="486" width="216" height="112" rx="8" class="proposal"/>
+  <text x="1056" y="516" text-anchor="middle" class="label">Unchanged reader</text>
+  <text x="1056" y="541" text-anchor="middle" class="label">+ C0 content proxy</text>
+  <text x="1056" y="573" text-anchor="middle" class="small">three-seed C majority</text>
+
+  <path d="M266 542 L325 542" class="arrow"/>
+  <path d="M576 542 L635 542" class="arrow"/>
+  <path d="M882 542 L941 542" class="arrow"/>
+
+  <rect x="36" y="625" width="1128" height="80" rx="8" fill="#eef3f8" stroke="#8091a6"/>
+  <text x="56" y="654" class="label" font-weight="700">Freeze all Phase-B forecasts before any marked target output is generated or released.</text>
+  <text x="56" y="681" class="small">Then compare with observed C, the frozen quality comparator, missingness bounds and multiplicity-adjusted criteria.</text>
+  <text x="36" y="744" class="small">C0 derivatives and target-model internals are privileged scientific inputs; this is not an operational blind detector.</text>
+  <text x="36" y="768" class="small">Agreement would support bounded prediction under these resources, not encoder-only causality or universal erasure.</text>
+  <text x="36" y="799" class="small">Sources: retained stage-2b report; final-study 04-mechanism.md and 07-final-experiment.md. Research draft, 2026-10-25.</text>
+</svg>

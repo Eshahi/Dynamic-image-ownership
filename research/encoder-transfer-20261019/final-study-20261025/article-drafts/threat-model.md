@@ -12,7 +12,7 @@ The completed study addresses T3 regeneration on 60 development sources. The wid
 
 The proposed informed attacks receive the published \(u\) and pinned public proxy/quality-model weights. They do not receive \(x\), residual \(u-x\), owner/query identifiers, payloads, target-reader scores, detector gradients or an enrolled record. They make zero detector-feedback queries during construction or selection. One callable and globally selected setting apply to every arm, without a method-label argument. The selector may distinguish anonymized arms solely to require acceptable quality in each. These are restricted, detector-free stress tests motivated by previously observed development behavior, not an exhaustive search for the strongest attack against a fully public method. [TM03]
 
-The scientific transport predictor has substantially more information: original and marked inputs, an unmarked target-model trajectory, target-model/reader internals, and their derivatives under recorded randomness. The quality comparator also sees original-referenced clean-input and C0-output qualities. Neither is an attacker or a deployable reference-free verifier, and their computational costs are unequal. Two fitted quantities do not remove the capacity of the pretrained systems used by the law. Its obligation is to use only declared pre-outcome information and report the actual computation. [TM04]
+The scientific transport predictor has substantially more information: original and marked inputs, an unmarked target-model trajectory, target-model/reader internals, and their derivatives under recorded randomness. The quality comparator also sees original-referenced clean-input and C0-output qualities. Neither is an attacker or a deployable reference-free verifier, and their computational costs are unequal. Two fitted quantities do not remove the capacity of the pretrained systems used by the predictor. Its obligation is to use only declared pre-outcome information and report the actual computation. [TM04]
 
 | Role | Permitted information | Information withheld in this experiment |
 |---|---|---|
@@ -21,7 +21,7 @@ The scientific transport predictor has substantially more information: original 
 | Operational F5 verifier | Suspect, claimed owner/profile, semantic extractor and SD1.5 latent reader | Enrolled reference image for reported C |
 | Operational v5 verifier | Suspect, claimed owner/profile, semantic extractor and image-domain reader | Enrolled reference image for reported C |
 | WAM/VINE known-message evaluator | Suspect and candidate message | Message presence supplies no semantic binding or ownership assertion |
-| Scientific law / quality comparator | Original/marked inputs and declared C0 information; law additionally has model/reader derivatives | Marked-target pixels, quality, chips, scores, descriptors and target-path derivatives before forecast sealing |
+| Scientific predictor / quality comparator | Original/marked inputs and declared C0 information; predictor additionally has model/reader derivatives | Marked-target pixels, quality, chips, scores, descriptors and target-path derivatives before forecast sealing |
 
 ## Endpoints are not interchangeable
 

@@ -152,3 +152,11 @@ WP5 mechanism source-text access, 2026-10-25: the mechanism contributor directly
 ## E1/E2 article and venue research (2026-10-25 16:23–16:40 UTC)
 
 E1 section authors' inspected sources and version/section locators are recorded in article-drafts/related-work.md and its evidence ledger, with existing V2 cards retained as the reading receipts. E2 exact search strings, direct opens and failures are recorded in venue-notes/ieee-tifs-tmm.md, venue-notes/tomm-access.md and venue-notes/alternatives.md. The synthesis is venue-fit.md. Official policy and indexed SCImago evidence are kept separate; 2024 snippets never become current 2025 or JCR claims. Root's two post-compaction strict-domain queries are preserved verbatim; earlier root discovery topics are explicitly not presented as a complete verbatim log. No novelty-absence claim relies on an unrecorded query.
+
+## E3 verification and bounded lead closure (2026-10-25 16:40–17:00 UTC)
+
+- The E3 independent reviewer used direct opens and in-page find only, no search-engine queries. Exact primary URLs and inspected sections are in 09-review-article.md. Its correction verification used local prose/figure/bibliography text only.
+- Root discovery queries: `DiffMark diffusion watermark image latent watermark 2025 2026` and `BiSLW watermark latent diffusion`, each restricted to arxiv.org, openreview.net and openaccess.thecvf.com. No exact primary source for either inherited aggregator lead was established; both remain unverified, not disproved or exhaustively searched.
+- Root exact query: `"Black-Box Forgery Attacks on Semantic Watermarks" arxiv`, restricted to arxiv.org. CVF www and non-www HTML returned 403; arXiv metadata and v3 full text succeeded. Methods, experiment tables and Appendix F were read. Detailed receipt: literature/semantic-forgery-2025-primary.md. V2 was opened first but its superseded numerical values were not adopted.
+- Direct open of the newly discovered arXiv:2606.29807v1 inspected threat model, methods, experiments and Appendix B proofs. Its theory is under a separate assumption check; no purported guarantee is adopted into our protocol.
+- GROW and DistSeal primary-source contributors preserve exact searches, versions and access failures in their separate cards. These literature addenda do not amend the frozen study or automatically extend the article's citations.

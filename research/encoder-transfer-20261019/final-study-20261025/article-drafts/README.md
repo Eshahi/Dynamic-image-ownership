@@ -4,7 +4,7 @@ E1 research drafts, 2026-10-25. These are editable sections, not a completed man
 
 Working title: **From codec survival to regeneration failure: a case study of an encoder-directed image watermark**.
 
-Read [Related work](related-work.md), [Mechanism](mechanism.md) and [Threat model](threat-model.md) together. Each section contains a local claim/evidence ledger identifying author, evidence and claim kind. These records do not edit the protected thesis claim ledger. Primary citation keys in Related work are retained from the linked inspected bibliographies; the mathematical and implementation drafts link their exact derivations/contracts. They need journal-format bibliography integration before submission.
+Read [Related work](related-work.md), [Mechanism](mechanism.md) and [Threat model](threat-model.md) together. Each section contains a local claim/evidence ledger identifying author, evidence and claim kind. These records do not edit the protected thesis claim ledger. The standalone [bibliography](references.bib) and [integration audit](bibliography-audit.md) resolve Related work's twelve unique keys while preserving inspected versions; the mathematical and implementation drafts link their exact derivations/contracts. Journal-specific rendering and complete manuscript assembly remain future author work. [Figure captions and editorial-use limits](figure-captions.md) accompany the retained result plot and a new explanatory vector schematic.
 
 ## What this version can contain
 
@@ -14,7 +14,7 @@ Read [Related work](related-work.md), [Mechanism](mechanism.md) and [Threat mode
 | Post-hoc descriptive analysis | Reader states, signed score margins, source-paired quality comparisons, sparse fixed calipers and diagnostic regression. None becomes a blind preregistered mechanism test. |
 | Mathematical observation | Signed direction and the background matter in the normalized reader; rank alone cannot bound optimized directions; an information bound requires its stated channel/side-information assumptions. |
 | Prospective research proposal | Full-chain transport predictor, its information barrier, stage/direction controls, detector-free attacks and frozen confirmation design. None is written as an achieved contribution. |
-| Unresolved | Empirical law accuracy, new attack efficacy, derivative feasibility, family/checkpoint identity qualifications, fresh confirmation, human quality judgments and venue acceptance. |
+| Unresolved | Empirical predictor accuracy, new attack efficacy, derivative feasibility, family/checkpoint identity qualifications, fresh confirmation, human quality judgments and venue acceptance. |
 
 The prediction experiment and article are separate deliverables. The article can honestly retain the negative empirical case if the proposed model fails; it cannot promote that proposal to a validated explanation before server evidence exists. Existing summaries occasionally use “instance-tier A” loosely; these drafts use the exact **any-carrier A** union. Existing prose about “not explained by distortion” is narrowed to the observed three-metric ordering and does not claim exhaustive adjustment or equal quality.
 
@@ -29,4 +29,4 @@ The prediction experiment and article are separate deliverables. The article can
 - Keep the curated-source sampling assumption, missingness limits and unequal clean quality near relevant results.
 - The future H4 claim is usefulness against one frozen six-feature comparator under unequal resources; it is not proof that no quality-only explanation exists.
 
-E3 will review the article framing independently after the E2 venue-fit assessment. Its report and any author response will be linked here. Until then, the WP6 review applies to the research dossier and proposed study, not a publication verdict on these new prose sections.
+The independent [E3 article-frame review](../09-review-article.md) accepts the frame with targeted corrections **for author development only**, not submission. The [author response](review-response.md) records each correction and the same reviewer's verification status. WP6 separately covers the research dossier and proposed study. Neither review is a publication verdict or a human approval.
