@@ -1,6 +1,6 @@
 # Current state
 
-Updated by Codex agent, 2026-10-25 16:22 UTC. MAIN copy is authoritative.
+Updated by Codex agent, 2026-10-25 18:35 UTC. MAIN copy is authoritative.
 F5 r2 remains the selected image-domain encoder-directed writer; independent-encoder transfer FAILS, ROUTE C.
 Its retained SD1.5 source-majority C counts are 60/60, 57/60 and 39/60 at strengths .1/.2/.4; SDXL gives 0/60 throughout.
 Next experiment is a proposed two-phase rented-server study, requiring new user approval; nothing is authorized to run now.
@@ -8,10 +8,12 @@ Next experiment is a proposed two-phase rented-server study, requiring new user 
 ## Research-only final-study handoff
 
 Branch codex/encoder-transfer-final-20261025; dossier research/encoder-transfer-20261019/final-study-20261025/.
-WP1-WP6 are complete. WP6's fresh independent hostile review accepts the design with corrections, all applied.
-WP7 core report and state handoff are complete; FINAL-REPORT.md has STATUS: COMPLETE. Article/venue extensions precede the 19:14:53 UTC deadline.
-The dossier contains inspected primary literature, saved-result reanalysis, a proposed signed-transport law, two attack specifications and a final protocol.
-The law is unmeasured and uses privileged target-model derivatives and C0 side information; it is not a lightweight operational detector.
+WP1-WP7 and E1-E3 are complete. FINAL-REPORT.md has STATUS: COMPLETE and the final session refresh.
+WP6 accepts the research design with corrections, all applied. E3's article-frame corrections are closed for author development only.
+The dossier contains inspected primary literature, saved-result reanalysis, an unmeasured signed-transport predictor, two attack specifications and a final protocol.
+The predictor uses privileged target-model derivatives and C0 side information; it is not a lightweight operational detector.
+Later source cards, mathematical notes and saved-output sensitivity are author supplements outside WP6/E3 review scopes; the protocol is unchanged.
+Article sections and venue-fit notes are delivered. Current Q1 eligibility, novelty and submission readiness remain unresolved.
 Historical contrasts do not isolate the encoder. Round-trip survival, score transport, content binding and final detection are distinct quantities.
 No experiment, model/image/data/code download, science interpreter, install, remote login or paid service ran in this session.
 The isolated stdlib interpreter only analysed existing JSON/JSONL and analytical bounds; fresh-pool work inspected metadata only.
@@ -34,7 +36,8 @@ Full Kandinsky 3 .2: F5 5/60, v5 57/60, WAM 44/60 and VINE-R 60/60; its native s
 SDXL VAE and MoVQ round trips each retain F5 55/60; resize controls retain 60/60.
 SDXL rinse retains v5 4/60, WAM 21/60 and VINE-R 59/60; F5 remains zero.
 P5 smoothing versus posterior-mode control lowers F5 any-carrier A from 32/60 to 16/60 and v5 A from 52/60 to 42/60.
-F5 matched-distortion overlap is only two sources. The stronger all-metric source-paired contrast remains descriptive.
+F5 matched-distortion overlap is only two sources. All 177 available paired outputs have milder SDXL quality; 170 change from C-positive to negative.
+The 58 complete-source empirical monotone-score Brier floor is .24267; this is neither a population test nor a bound on the unrestricted H4 comparator.
 F5 has zero C0 and wrong-owner detections in 540 SDXL calls each; 60 independent zero-event sources give one-sided 95% upper bound .0487.
 One VINE-R C0 call reaches its inclusive 69/100 threshold. Strict clean quality: F5/v5 60/60, WAM 58/60, VINE-R 31/60.
 Historical stage 2a/2b run times are 4.8 h/4.0 h; conservative combined billing is about 32.3 h/USD 17.4; instance stopped, not destroyed.
