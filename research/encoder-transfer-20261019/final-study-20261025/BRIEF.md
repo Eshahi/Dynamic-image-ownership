@@ -8,6 +8,21 @@ and then, verbatim:
 
 > I don't want the run on my local. I want a real deep resarch
 
+**Update, 2026-10-25 04:58: the session is at most 6 hours.** The user asked, verbatim, "Could you do it in at most 6 hours?". The deadline is 10:49 local time (UTC-8), 6 hours after the 04:49 start; the hard stop is 30 minutes later. This plan replaces the 12-hour split in section 3: keep the order, compress each package, and do the work in full.
+
+| Package | Budget | Minimum that must be done |
+|---|---|---|
+| WP0 | done | — |
+| WP1 literature | 1 h 30 min | at least 20 V2 cards across clusters 1–3, the synthesis and the positioning (clusters 4–5 may be V1 notes) |
+| WP2 mechanism | 1 h 30 min | the derivation, the hypotheses committed first, the stdlib reading of `rows.jsonl`, and the transfer law with fixed predictions |
+| WP3 attacks | 20 min | one to two attacks specified |
+| WP4 third family | 20 min | recommendation and user action |
+| WP5 final experiment | 1 h 10 min | both phases, hypotheses H1–H6, n, cost, machine, and the implementation specification |
+| WP6 review | 30 min | one fresh astra-xhigh reviewer; corrections applied |
+| WP7 report | 30 min | `FINAL-REPORT.md`, STATE, the continuation entry, the Persian summary |
+
+The extension tier is dropped unless time is left.
+
 You (Codex) are the lead researcher for this session. A supervisor script started you, keeps you going until the session deadline and resumes you if a turn ends early. Nobody will answer questions during the run. When something needs the user, record it under "Decisions for the user" in `PROGRESS.md`, state the default you assumed, and continue.
 
 **How Claude reads the request.** This session is deep research, not experimentation. Every experiment it designs runs later on a rented server, only after the user approves it.
