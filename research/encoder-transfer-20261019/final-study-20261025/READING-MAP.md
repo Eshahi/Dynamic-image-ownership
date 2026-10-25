@@ -7,6 +7,7 @@ Research-only author navigation aid, 2026-10-25. It changes no protocol, result,
 1. [Final report](FINAL-REPORT.md): measured findings, proposed study, limitations and the user's later decisions. Its final session refresh is recorded in [PROGRESS.md](PROGRESS.md).
 2. [Final experiment](07-final-experiment.md): the controlling prospective protocol. Read its source assumptions, forecast barrier, exact H1–H6 definitions, missingness and budget stops before approving implementation.
 3. [WP6 hostile review](08-review.md) and [response](analysis/review-response.md): what was independently checked and corrected. Acceptance concerns the inspected research design, not an experimental success or a user's approval.
+4. [Original-objection dispositions](analysis/objection-disposition.md): fifteen ranked objections mapped to delivered analysis/design and the evidence still missing. This author navigation aid is not a new review.
 
 ## Follow a scientific claim to its evidence
 

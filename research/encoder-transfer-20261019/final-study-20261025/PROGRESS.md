@@ -48,10 +48,12 @@ Branch: `codex/encoder-transfer-final-20261025`; initial commit `b18eae1`. Autho
 
 | Decision | Default during this session |
 |---|---|
-| Approve the final, costed server study once reviewed? | **No execution approval assumed.** Design only; decision supplied at WP7. |
-| Accept any gated-model licence if the preferred extra family requires it? | **No.** Audit an ungated alternative and give the exact action if needed. |
-| Authorize fresh held-out confirmation after development freeze? | **No.** Identifier-only preparation is permitted; pixels and outcomes stay unseen. |
+| Approve later implementation and Phase A on a rented server, with a feasibility pilot and at most 40 core instance-hours? | **No execution approval assumed.** An actual hourly rate and dollar cap are still required; the plan is not a measured fit guarantee. |
+| Expand the old 30 GB asset allowance above the estimated 48.6 GB core, plus environment/output/storage reserve? | **No.** Acquisition cannot proceed under the old cap. No scientific assets go onto this laptop. |
+| Personally accept gated FLUX access and approve about 33.714 GB extra assets and at most 40 extra server-hours at an actual larger-device rate? | **No.** Retain the seven-cell core; no silent family substitution. |
+| Authorize fresh Phase B after development freeze, with 200 sources and at most 60 core instance-hours? | **No.** A separate later decision is required. Identifier-only preparation is permitted; pixels and outcomes stay unseen. |
 | Is a bounded empirical article acceptable if a transfer law fails prediction? | Retain the negative result and report the failure; do not change the law after confirmation. |
+| Treat a particular venue/quartile definition as chosen or verified for submission? | **No.** Metric, reporting year, category and final venue remain user decisions. TIFS is a subject-fit recommendation, not verified current Q1 eligibility or acceptance. |
 
 ## Package completion / push ledger
 
@@ -182,3 +184,7 @@ Push `b116918..5f8f982` succeeded before this integration. Three primary cards n
 A final bounded theoretical note checks conditional versus key-marginal distribution and the difference between latent KL, output distribution and paired fidelity. Its purpose is to delimit an inherited inference, not add a model, attack or experiment. Final report/state refresh remains after 18:35 UTC.
 
 Source integration closes at 2026-10-25 18:21 UTC. The distribution note preserves SERUM's exact fixed-pattern KL result and proves the narrower limits with elementary projection/coupling examples and the conditional-versus-mixture identity. The manuscript's normalized patterns are distinguished from ideal iid Gaussian keys. Root checked the algebra and source locator, not empirical outputs. A text-only navigation check finds 142 Markdown files, 464 local links and no missing targets; the 25-entry late bibliography has no duplicate keys. No new independent-review acceptance is claimed. Next: final handoff preparation and final refresh after 18:35 UTC.
+
+### Handoff navigation closure, 2026-10-25 18:24 UTC
+
+Push `5f8f982..b2152fb` succeeded. A compact author disposition map now covers the original fifteen objections: it distinguishes delivered bounds/design/reporting rules from unresolved causal identification, novelty, fresh confirmation, attack efficacy and server feasibility. Root clarified the exact independent-source assumption and checked the map against the accepted contracts. This is navigation, not another review. The top user-decision table now records the specific Phase A/B hour caps, required model-asset expansion, conditional FLUX access and unresolved venue/quartile definition. Defaults remain no execution or acquisition approval. Final refresh begins after 18:35 UTC.
