@@ -164,6 +164,13 @@ def main():
     first = alpha/slots
     out = {"purpose": "analytical prospective design; no experiments or source outcomes", "n": n,
            "family_alpha": alpha, "holm_slots": slots, "worst_case_local_alpha": first}
+    out["h4_mean_test_status"] = {
+        "primary": "uniform six-bet mixture, prospectively adopted during WP6",
+        "primary_exact_calculator": "betting-mean-bounds.py",
+        "primary_exact_output": "betting-mean-bounds.json",
+        "this_file_eb_results": "secondary sensitivity only; no minimum-p selection",
+        "unchanged_targets": "n=200, .10 every-cell bias tolerance, 20% Brier improvement, 13 Holm slots",
+    }
     rows = {}
     for name, p0, direction, alternatives in [
         ("H1_or_H4_mismatch", .1, "less", [.0, .01, .02, .03, .04, .05, .075, .1]),
@@ -187,6 +194,7 @@ def main():
         "n_zero_needed_for_marginal_95_upper_at_most_1e_6":math.ceil(math.log(.05)/math.log1p(-1e-6)),
     }
     out["h4_eb"] = {
+        "status":"secondary sensitivity after prospective WP6 betting amendment",
         "range_width":1.8,
         "zero_variance_radius_first_alpha":eb_radius(n,0,first),
         "radii_by_sample_sd":{str(s):eb_radius(n,s*s,first) for s in [0,.05,.1,.2,.3,.5]},
@@ -204,6 +212,7 @@ def main():
         if p<=first:
             passing.append(k)
     out["h4_illustrative_perfectly_correlated_cells"]={
+        "status":"secondary EB conjunction; primary betting scenario is in betting-mean-bounds.json",
         "definition":"q=.5; identical Bernoulli worst-error (known error or ambiguous majority) across cells within source; iid sources",
         "passing_error_counts":passing,
         "exact_power":{str(p):math.fsum(pmf(n,p)[k] for k in passing) for p in [.0,.005,.01,.02,.03,.04,.05,.075]},

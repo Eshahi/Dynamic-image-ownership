@@ -6,7 +6,7 @@ Prospective server-only design, 2026-10-25. No image, attack, metric, model, tim
 
 The attacker sees only published marked RGB8 image u and public proxy/quality-model weights. It never sees original x, residual u−x, owner, key, payload, reader, detector output, target gradient or registry. One callable and one globally selected setting apply to F5/v5/WAM/VINE-R. Arm labels are absent from the callable; the development selector can use anonymized arm labels solely to enforce quality in every arm. Originals and quality relative to originals are forbidden to selection. Historical detection knowledge motivated these prospective choices but no newly generated detection can tune them.
 
-Retain R0/R1, the existing R1 rinse and foreign-codec controls D1/D3. No new watermark baseline, trained attack network, writer, captioner or prompt search is introduced.
+Retain R0/R1 in the future native grid. Preserve the existing R1 rinse and foreign-codec D1/D3 results as **historical comparisons**; they are not additional scheduled Phase-B cells. The future attack controls are A's selected first pass and B's codec/fidelity controls, exactly as counted in `07-final-experiment.md`. No new watermark baseline, trained attack network, writer, captioner or prompt search is introduced.
 
 The joint output-quality target against u is **LPIPS≤.15, PSNR≥25 dB, SSIM≥.75**. This is an automated fidelity region, not imperceptibility or human approval. Use existing pinned RGB8 quality helpers (`m1_latent_reconstruction.py::quality`, `three_threat_models.py::load_lpips/lpips_score`), with code and weight hashes in the server contract. Never change LPIPS backbone or SSIM convention. All A quality is final output versus u, not versus its intermediate image.
 
@@ -52,7 +52,7 @@ ATTACK_A(u,s,seed):
 
 Each call gets its fresh native generator. Equal seed integers are not claimed equal noise tensors across families. Serial family batching is allowed with identical saved intermediate pixels. First-pass records remain detector-sealed until selection freezes.
 
-**Controls:** preserve R1 .1 and R1 rinse .1→.1. At selected s retain A's first-pass output as a paired control. At .1, existing rinse has equal pass count but a different second family and potentially different distortion. No efficiency superiority follows from greater removal at greater damage. Fixed quality-caliper comparisons must report sparse/non-estimable matching. Development candidates do not become multiple confirmatory winners.
+**Controls:** R1 .1 remains in the scheduled native grid; R1 rinse .1→.1 is a preserved historical comparison, not a new Phase-B cell. At selected s retain A's first-pass output as the scheduled paired control. At .1, historical rinse has equal pass count but a different second family and potentially different distortion. No efficiency superiority follows from greater removal at greater damage. Fixed quality-caliper comparisons must report sparse/non-estimable matching. Development candidates do not become multiple confirmatory winners.
 
 **Expected effects:** F5 C may be at floor after first SDXL near.1; report semantic margins and found/read/binding, not just another zero. Historical rinse suggests possible additional v5/WAM loss; a different second family could change that. VINE-R is the resistant comparator and biggest uncertainty. These are hypotheses, not rankings.
 

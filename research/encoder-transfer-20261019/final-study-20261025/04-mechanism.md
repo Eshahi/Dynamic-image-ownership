@@ -119,7 +119,11 @@ A useful factorization of a fixed signed read increment is
 
 The first factor alone is not a detector SNR. High norm can accompany negative alignment or a large off-pattern denominator. The conditional Gaussian input-channel ratio `a²||d||²/b²` also differs from the dimension-normalized latent energy ratio `a²||d||²/(b² d_latent)`. Neither by itself determines the nonlinear decoded word and content state.
 
+The [rank/direction note](analysis/rank-direction-limit.md) supplies explicit counterexamples: a rank-one projector can retain an optimized direction perfectly, and an equal-energy rotated response can be readable or unreadable depending on the fixed detector direction. A rank-ratio expectation requires a stated isotropic directional model; independent neural training does not supply that model. The planned two random directions per control class/source are coarse paired diagnostics, not estimates of an entire singular spectrum or extreme directional percentile.
+
 For equal-covariance Gaussian location shifts only, the optimal level-α detector has TPR `Phi(mu - Phi^-1(1-α))`, where μ is Mahalanobis displacement. A downstream detector cannot improve this bound without additional information under those assumptions. At α=1e-6, 90% TPR requires μ≥6.035; this is an analytical conditional requirement, not a measured F5 quantity. Sampled posteriors can change covariance, public content-dependent marks violate generic random-secret-code assumptions, and a fixed clean-source conditional comparison is not automatically the operational natural-image null. The [Zhao paper card](literature/attacks/zhao-provable.md) records the theorem's actual scope.
+
+The WP6 [conditional-information derivation](analysis/conditional-information-bound.md) makes that side-information limit explicit. For a fresh Gaussian bottleneck X=a(Z+Delta)+sigma*epsilon, conditional payload/host independence and no downstream access outside X,C give `I(M;Y|C)<=a² E||Delta||²/(2 sigma²)` nats. Delta may depend on the host; a pixel norm does not provide its latent energy. If M=h(C), conditional payload information is identically zero while content can still recover M perfectly. A separate marked-versus-unmarked comparison bounds carrier-detection advantage, with the same host/condition distribution and common downstream kernel. Neither argument ranks native pipelines or proves finite-strength erasure. The note identifies the assumptions rather than importing an unquantified information-continuity claim from a recent preprint.
 
 For the pinned scaled-linear SD schedule, strengths .1/.2/.4 execute 2/4/8 updates starting at timesteps51/151/351. The analytical a/b ratios are 4.383/2.182/1.010. Native Kandinsky3 .2 has cosine-schedule a/b≈3.932. Thus nominal .2 does not even match the forward-noise ratio across these chains. It still cannot rank readability, because d_c, scaling, posterior covariance and reverse response differ. Values and precision limits are in [schedule-bounds.md](analysis/schedule-bounds.md), derived from pinned [DDIM source](https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/schedulers/scheduling_ddim.py), [DDPM source](https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/schedulers/scheduling_ddpm.py) and [img2img timestep slicing](https://raw.githubusercontent.com/huggingface/diffusers/v0.35.1/src/diffusers/pipelines/stable_diffusion/pipeline_stable_diffusion_img2img.py).
 
@@ -128,6 +132,25 @@ For deterministic DDIM, each reverse-step Jacobian contains a multiple of the id
 ## The small law and the information boundary
 
 The primary candidate is `p_hat = p_C0 + κ v`, with one pooled scalar κ fitted on 30 designated development sources. A second global quantity q90 is the 28th order statistic of 30 separate sourcewise maximum absolute decoded-score errors over the frozen calibration grid. It is a margin radius, not a noise standard deviation or a probability model. No family intercept, learned covariance or confirmation residual library is hidden inside these two quantities.
+
+Two fitted scalars do not imply low total model complexity or low computation: the forecast embeds the full pretrained target model, reader, C0 trajectory and automatic derivatives. It is a privileged local-linearization surrogate with a small calibration layer, not a closed-form predictor from encoder identity and strength alone. Its value would be a useful, independently evaluated forecast under those resources; it would not establish equal-compute superiority over the quality comparator.
+
+```mermaid
+flowchart LR
+    X[Original source] --> C0[Unmarked target trajectory]
+    U[Stored marked input] --> DE[Exact paired input-encoder displacement]
+    X --> DE
+    C0 --> V[Derivative transport along C0]
+    DE --> V
+    C0 --> B[Background chips and descriptor proxy]
+    V --> P[Predicted chips: background plus kappa times transport]
+    B --> P
+    P --> C[Unchanged reader and three-seed majority]
+    C --> F[Seal every forecast and availability record]
+    F --> Y[Only then generate marked target outcomes]
+    Y --> E[Evaluate fixed criteria]
+    C --> E
+```
 
 Use predicted chips plus the unmarked target output's seven-view semantic descriptor as a declared proxy, then apply the unchanged reader and binding code. The forecasted source endpoint is the majority of the three predicted binary C values. Score it as deterministic 0/1 Brier loss; do not invent an independent-seed majority probability. The [prediction contract](analysis/prediction-contract.md) gives a simple counterexample showing that identical seed marginals can have different majority probabilities.
 
@@ -141,13 +164,15 @@ Theoretical distribution-free simultaneous rate-error bounds are expensive: a si
 
 Preserve the frozen writer and reader. For selected development sources, obtain exact final residuals; native mode and sampled encoder displacements; signal norm, noise scale and signed reader response; C0/C1 chip vectors and all branch scores; actual timestep coefficients; and the full-chain tangent along C0. Use explicit common random tensors for the clean/marked pair, not merely identical seed integers. A single JVP can propagate the 320-dimensional output direction; 320 separate passes are unnecessary, but its runtime and support are unmeasured and must be budgeted on the server.
 
-Matched stage controls are: preprocessing only, mode codec round trip, sampled codec round trip, mode-plus-noise direct decode, and the same mode-plus-noise-plus-native-reverse path. Directly decoding a noisy latent can be out of distribution and is a mechanism diagnostic, not a fair attack. Match precision and decode options where the comparison is intended to isolate the reverse path. Native pipelines remain the external-validity attacks. Blindly swapping a foreign encoder into an incompatible denoiser would introduce another confound.
+Matched stage controls are: preprocessing only, mode codec round trip, sampled codec round trip, **sampled-posterior-plus-noise direct decode**, and the same sampled-posterior-plus-noise-plus-native-reverse path. This pairs the same sampled latent and initial epsilon when isolating the reverse path. A separate mode-plus-noise-plus-reverse path tests posterior convention; it is not the sampled path's noise-only control. Directly decoding a noisy latent can be out of distribution and is a mechanism diagnostic, not a fair attack. Match precision and decode options where the comparison is intended to isolate the reverse path. Native pipelines remain the external-validity attacks. Blindly swapping a foreign encoder into an incompatible denoiser would introduce another confound. The exact inventory is in [mechanism-server-spec.md](analysis/mechanism-server-spec.md).
 
 Norm-matched random and spectrum-matched residual directions can test whether F5 occupies unusually readable directions. These are bounded scientific controls, not new writer variants or claimed practical watermarks. Do not tune F5 against the new family. Predeclare the controls and random seeds in Phase A and keep the family challenge excluded from law fitting.
 
 The decisive falsifiers are: encoder norm fails to predict signed transport; the tangent remainder is too large; content-proxy error dominates; the global κ fails on a new family; or the C forecast loses to the frozen quality comparator. Any of these produces a useful negative mechanism result without rescuing the old transfer verdict.
 
 ## Negative controls and claim ceiling
+
+The WP6 [post-hoc negative/background supplement](analysis/negative-background-analysis.md) uses saved scores only. F5's paired median over 60 complete source seed-medians of semantic decoded C1-minus-C0 score falls from 12.068 clean to 1.989/.919/.342 under R1 .1/.2/.4; the corresponding v5 values are 13.420 and 6.485/3.761/1.810. Both internal methods' negative margins stay below their fixed thresholds in both branches and tiers. These are descriptive native-score contrasts, not a common-pattern transported signal: decoded words and output-derived content patterns can differ between calls. Approaching the C0 score distribution is compatible with failed detection without proving complete signal erasure. The independent WP6 reviewer reproduced these headline contrasts and the sole VINE boundary crossing.
 
 F5 has no observed A event in the tested C0/wrong-owner calls. The R1 primary scope has 540 calls per negative kind, but only 60 independent source clusters. Zero source-any events gives a one-sided 95% upper bound of **4.8703%**, conditional on independent source sampling. It does not establish a 1e-6 operational FPR. Missing negative calls leave the corresponding gate unresolved; the 23 safety blocks are retained in coverage.
 

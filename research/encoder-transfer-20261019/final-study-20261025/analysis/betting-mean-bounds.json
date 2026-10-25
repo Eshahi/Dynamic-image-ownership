@@ -1,0 +1,229 @@
+{
+  "purpose": "prospective exact-rational analytical scenario, no experimental data",
+  "grid": [
+    "1/16",
+    "1/8",
+    "1/4",
+    "1/2",
+    "3/4",
+    "1"
+  ],
+  "weights": "1/6 each",
+  "n": 200,
+  "local_alpha": "1/260",
+  "e_rejection_threshold": 260,
+  "scenario": "q=.5; shared iid Bernoulli source error; t=.2-error",
+  "mean_only_passing_error_counts": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "calibration_passing_error_counts": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "joint_passing_error_counts": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "scenario_power": {
+    "0.0": {
+      "betting_mean": 1.0,
+      "betting_joint_H4": 1.0,
+      "prior_EB_joint_H4": 1.0
+    },
+    "0.005": {
+      "betting_mean": 1.0,
+      "betting_joint_H4": 0.9999999074409782,
+      "prior_EB_joint_H4": 0.9994360563560045
+    },
+    "0.01": {
+      "betting_mean": 0.9999999999999976,
+      "betting_joint_H4": 0.9999598581911529,
+      "prior_EB_joint_H4": 0.9839770930908225
+    },
+    "0.02": {
+      "betting_mean": 0.9999999990667603,
+      "betting_joint_H4": 0.9925207121346385,
+      "prior_EB_joint_H4": 0.7867224657026666
+    },
+    "0.03": {
+      "betting_mean": 0.999999175519012,
+      "betting_joint_H4": 0.9192206408723929,
+      "prior_EB_joint_H4": 0.443229212328408
+    },
+    "0.04": {
+      "betting_mean": 0.999938982474834,
+      "betting_joint_H4": 0.7192000013358795,
+      "prior_EB_joint_H4": 0.18564969483659366
+    },
+    "0.05": {
+      "betting_mean": 0.998840091749252,
+      "betting_joint_H4": 0.45470980868081934,
+      "prior_EB_joint_H4": 0.06234249504229526
+    },
+    "0.075": {
+      "betting_mean": 0.9251098512120688,
+      "betting_joint_H4": 0.06251223869846206,
+      "prior_EB_joint_H4": 0.002119708351115607
+    }
+  },
+  "p_values_at_counts": {
+    "0": {
+      "p_betting": 8.746105661340462e-16,
+      "p_calibration": 7.055079108655332e-10
+    },
+    "5": {
+      "p_betting": 6.748554018960981e-12,
+      "p_calibration": 3.871193246267603e-05
+    },
+    "9": {
+      "p_betting": 7.6514243126759e-09,
+      "p_calibration": 0.003528565542971451
+    },
+    "10": {
+      "p_betting": 4.0101839346590545e-08,
+      "p_calibration": 0.008071249955102685
+    },
+    "20": {
+      "p_betting": 0.0029279430237675653,
+      "p_calibration": 0.5591747822642019
+    },
+    "21": {
+      "p_betting": 0.006282832492221397,
+      "p_calibration": 0.6483522217292547
+    }
+  },
+  "perfect_law_constant_baseline": {
+    "0.25": {
+      "t": 0.2,
+      "minimum_n_betting_mean": 40,
+      "p_betting_at_200": 8.746105661340462e-16
+    },
+    "0.1": {
+      "t": 0.08,
+      "minimum_n_betting_mean": 94,
+      "p_betting_at_200": 1.210485528022798e-06
+    },
+    "0.04": {
+      "t": 0.032,
+      "minimum_n_betting_mean": 228,
+      "p_betting_at_200": 0.008673107545142462
+    },
+    "0.01": {
+      "t": 0.008,
+      "minimum_n_betting_mean": 900,
+      "p_betting_at_200": 0.42047783431628166
+    }
+  },
+  "no_universal_dominance_example": {
+    "distribution": "t=.8 with p=(1+.001)/1.8, otherwise t=-1; mean=.001",
+    "log_growth": {
+      "1/16": -0.0015151800307321855,
+      "1/8": -0.006270051512702442,
+      "1/4": -0.02630783196568018,
+      "1/2": -0.12056438244975673,
+      "3/4": -0.35398642314433953
+    },
+    "lambda_1": "bankrupts at first -1",
+    "scope": "asymptotic counterexample to universal dominance, not Phase-B forecast"
+  },
+  "checks": "exact rational rejection comparisons; null factor identity; zero-factor log handling; float log agrees with rational value",
+  "prospective_half_max_alternative": {
+    "weights_in_grid_order": [
+      "1/10",
+      "1/10",
+      "1/10",
+      "1/10",
+      "1/10",
+      "1/2"
+    ],
+    "mean_passing_error_counts": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "joint_passing_error_counts": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "perfect_law_constant_baseline": {
+      "0.25": {
+        "minimum_n": 34,
+        "p_at_200": 2.9158375233420906e-16
+      },
+      "0.1": {
+        "minimum_n": 81,
+        "p_at_200": 4.1131127238173997e-07
+      },
+      "0.04": {
+        "minimum_n": 197,
+        "p_at_200": 0.0034849269850170776
+      },
+      "0.01": {
+        "minimum_n": 779,
+        "p_at_200": 0.2944997623319233
+      }
+    },
+    "identity": "E_half=.6*E_uniform+.4*K_lambda1; therefore E_half>=.6*E_uniform pointwise"
+  }
+}

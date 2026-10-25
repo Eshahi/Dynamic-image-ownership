@@ -4,6 +4,13 @@
   "family_alpha": 0.05,
   "holm_slots": 13,
   "worst_case_local_alpha": 0.0038461538461538464,
+  "h4_mean_test_status": {
+    "primary": "uniform six-bet mixture, prospectively adopted during WP6",
+    "primary_exact_calculator": "betting-mean-bounds.py",
+    "primary_exact_output": "betting-mean-bounds.json",
+    "this_file_eb_results": "secondary sensitivity only; no minimum-p selection",
+    "unchanged_targets": "n=200, .10 every-cell bias tolerance, 20% Brier improvement, 13 Holm slots"
+  },
   "exact_binomial": {
     "H1_or_H4_mismatch": {
       "null_boundary": 0.1,
@@ -80,6 +87,7 @@
     "n_zero_needed_for_marginal_95_upper_at_most_1e_6": 2995731
   },
   "h4_eb": {
+    "status": "secondary sensitivity after prospective WP6 betting amendment",
     "range_width": 1.8,
     "zero_variance_radius_first_alpha": 0.13199035682722102,
     "radii_by_sample_sd": {
@@ -93,6 +101,7 @@
     "hoeffding_radius_first_alpha": 0.21222987822459347
   },
   "h4_illustrative_perfectly_correlated_cells": {
+    "status": "secondary EB conjunction; primary betting scenario is in betting-mean-bounds.json",
     "definition": "q=.5; identical Bernoulli worst-error (known error or ambiguous majority) across cells within source; iid sources",
     "passing_error_counts": [
       0,

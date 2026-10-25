@@ -1,0 +1,2957 @@
+{
+  "reviewed_commit": "3d66de863f570244df91809049d82b36088b7fd7",
+  "utc": "2026-10-25T16:07:39.650003+00:00",
+  "raw": {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261025-0128-encoder-transfer-stage2b\\results\\stage2b-full\\rows.jsonl",
+    "sha256": "f3b95d3e727d421c29a2a2e42eb1ef5881f55b7d3eb848a237ab51095455fb82",
+    "lines": 39896,
+    "unique_units": 11040,
+    "sources": 60,
+    "final_status": {
+      "ok": 11017,
+      "safety_blocked": 23
+    },
+    "history": {
+      "generated": 28856,
+      "safety_blocked": 23,
+      "ok": 11017
+    },
+    "transitions": {
+      "generated->generated": 17839,
+      "generated->ok": 11017
+    }
+  },
+  "cell_summaries": [
+    {
+      "arm": "f5-r2",
+      "cell": "D1",
+      "positive": 55,
+      "complete": 60,
+      "states": {
+        "C_success": 55,
+        "found_not_read": 5
+      },
+      "seed_counts": {
+        "None": 55
+      },
+      "semantic": {
+        "n": 60,
+        "median": 0.5684651008049166
+      },
+      "instance": {
+        "n": 60,
+        "median": 0.6256120890379497
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.0
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.0
+      },
+      "A": 60,
+      "S": 60,
+      "Q": 31,
+      "H": 17,
+      "semantic_found": 60,
+      "semantic_read": 55,
+      "instance_found": 60
+    },
+    {
+      "arm": "f5-r2",
+      "cell": "D3",
+      "positive": 55,
+      "complete": 60,
+      "states": {
+        "C_success": 55,
+        "found_not_read": 5
+      },
+      "seed_counts": {
+        "None": 55
+      },
+      "semantic": {
+        "n": 60,
+        "median": 0.637238716941287
+      },
+      "instance": {
+        "n": 60,
+        "median": 0.6993186211118849
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.0
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.0
+      },
+      "A": 60,
+      "S": 60,
+      "Q": 35,
+      "H": 20,
+      "semantic_found": 60,
+      "semantic_read": 55,
+      "instance_found": 60
+    },
+    {
+      "arm": "f5-r2",
+      "cell": "R0@0.1",
+      "positive": 60,
+      "complete": 59,
+      "states": {
+        "C_success": 179,
+        "missing_call": 1
+      },
+      "seed_counts": {
+        "12": 60,
+        "13": 59,
+        "14": 60
+      },
+      "semantic": {
+        "n": 59,
+        "median": 0.7543624079661526
+      },
+      "instance": {
+        "n": 59,
+        "median": -0.5983638961519311
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 59,
+        "median": 0.020975097187769354
+      },
+      "instance_range": {
+        "n": 59,
+        "median": 0.12067138565448293
+      },
+      "A": 60,
+      "S": 60,
+      "Q": 41,
+      "H": 0,
+      "semantic_found": 60,
+      "semantic_read": 60,
+      "instance_found": 0
+    },
+    {
+      "arm": "f5-r2",
+      "cell": "R0@0.2",
+      "positive": 57,
+      "complete": 58,
+      "states": {
+        "C_success": 170,
+        "missing_call": 3,
+        "read_content_mismatch": 3,
+        "found_not_read": 4
+      },
+      "seed_counts": {
+        "12": 56,
+        "13": 57,
+        "14": 57
+      },
+      "semantic": {
+        "n": 58,
+        "median": 0.6194231139010933
+      },
+      "instance": {
+        "n": 58,
+        "median": -0.6113596482985217
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 58,
+        "median": 0.04001556061086192
+      },
+      "instance_range": {
+        "n": 58,
+        "median": 0.14749158775248408
+      },
+      "A": 59,
+      "S": 58,
+      "Q": 38,
+      "H": 0,
+      "semantic_found": 59,
+      "semantic_read": 58,
+      "instance_found": 0
+    },
+    {
+      "arm": "f5-r2",
+      "cell": "R0@0.4",
+      "positive": 39,
+      "complete": 58,
+      "states": {
+        "C_success": 117,
+        "missing_call": 2,
+        "found_not_read": 26,
+        "read_content_mismatch": 25,
+        "not_found": 10
+      },
+      "seed_counts": {
+        "12": 35,
+        "13": 46,
+        "14": 36
+      },
+      "semantic": {
+        "n": 58,
+        "median": 0.2457382436989543
+      },
+      "instance": {
+        "n": 58,
+        "median": -0.6086959344575849
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 58,
+        "median": 0.08707127903350576
+      },
+      "instance_range": {
+        "n": 58,
+        "median": 0.16481129438398223
+      },
+      "A": 58,
+      "S": 51,
+      "Q": 16,
+      "H": 0,
+      "semantic_found": 58,
+      "semantic_read": 47,
+      "instance_found": 0
+    },
+    {
+      "arm": "f5-r2",
+      "cell": "R1-mode@0.2",
+      "positive": 0,
+      "complete": 60,
+      "states": {
+        "not_found": 180
+      },
+      "seed_counts": {
+        "12": 0,
+        "13": 0,
+        "14": 0
+      },
+      "semantic": {
+        "n": 60,
+        "median": -0.4773370239664792
+      },
+      "instance": {
+        "n": 60,
+        "median": -0.12190807450038671
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.08242981994537416
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.11869380835908756
+      },
+      "A": 32,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 32
+    },
+    {
+      "arm": "f5-r2",
+      "cell": "R1-rinse@0.1",
+      "positive": 0,
+      "complete": 60,
+      "states": {
+        "not_found": 180
+      },
+      "seed_counts": {
+        "12": 0,
+        "13": 0,
+        "14": 0
+      },
+      "semantic": {
+        "n": 60,
+        "median": -0.5116712510345228
+      },
+      "instance": {
+        "n": 60,
+        "median": -0.057931973017497335
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.06315455183794288
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.08792642941626336
+      },
+      "A": 34,
+      "S": 0,
+      "Q": 0,
+      "H": 1,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 34
+    },
+    {
+      "arm": "f5-r2",
+      "cell": "R1-smooth@0.2",
+      "positive": 0,
+      "complete": 60,
+      "states": {
+        "not_found": 180
+      },
+      "seed_counts": {
+        "12": 0,
+        "13": 0,
+        "14": 0
+      },
+      "semantic": {
+        "n": 60,
+        "median": -0.501612382976821
+      },
+      "instance": {
+        "n": 60,
+        "median": -0.21713347523789173
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.08671669190646719
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.10615164595377138
+      },
+      "A": 16,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 16
+    },
+    {
+      "arm": "f5-r2",
+      "cell": "R1@0.1",
+      "positive": 0,
+      "complete": 60,
+      "states": {
+        "not_found": 154,
+        "found_not_read": 23,
+        "read_content_mismatch": 3
+      },
+      "seed_counts": {
+        "12": 0,
+        "13": 0,
+        "14": 0
+      },
+      "semantic": {
+        "n": 60,
+        "median": -0.3230757414063353
+      },
+      "instance": {
+        "n": 60,
+        "median": 0.1126574980247252
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.06967053398040884
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.09026377437535736
+      },
+      "A": 52,
+      "S": 6,
+      "Q": 0,
+      "H": 3,
+      "semantic_found": 7,
+      "semantic_read": 1,
+      "instance_found": 52
+    },
+    {
+      "arm": "f5-r2",
+      "cell": "R1@0.2",
+      "positive": 0,
+      "complete": 60,
+      "states": {
+        "not_found": 180
+      },
+      "seed_counts": {
+        "12": 0,
+        "13": 0,
+        "14": 0
+      },
+      "semantic": {
+        "n": 60,
+        "median": -0.4707677759719314
+      },
+      "instance": {
+        "n": 60,
+        "median": -0.1378245950832715
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.07242336424173548
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.11385636467684668
+      },
+      "A": 30,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 30
+    },
+    {
+      "arm": "f5-r2",
+      "cell": "R1@0.4",
+      "positive": 0,
+      "complete": 60,
+      "states": {
+        "not_found": 180
+      },
+      "seed_counts": {
+        "12": 0,
+        "13": 0,
+        "14": 0
+      },
+      "semantic": {
+        "n": 60,
+        "median": -0.532081366913495
+      },
+      "instance": {
+        "n": 60,
+        "median": -0.3747165543285519
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.07176517285333692
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.13264695334745694
+      },
+      "A": 5,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 5
+    },
+    {
+      "arm": "f5-r2",
+      "cell": "R3@0.2",
+      "positive": 5,
+      "complete": 60,
+      "states": {
+        "found_not_read": 46,
+        "not_found": 112,
+        "read_content_mismatch": 6,
+        "C_success": 16
+      },
+      "seed_counts": {
+        "12": 7,
+        "13": 4,
+        "14": 5
+      },
+      "semantic": {
+        "n": 60,
+        "median": -0.2741323600645771
+      },
+      "instance": {
+        "n": 60,
+        "median": -0.29666261322935683
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.07630411478249986
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.10914843671400118
+      },
+      "A": 29,
+      "S": 21,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 23,
+      "semantic_read": 7,
+      "instance_found": 16
+    },
+    {
+      "arm": "f5-r2",
+      "cell": "X1",
+      "positive": 60,
+      "complete": 60,
+      "states": {
+        "C_success": 60
+      },
+      "seed_counts": {
+        "None": 60
+      },
+      "semantic": {
+        "n": 60,
+        "median": 0.7621451514967584
+      },
+      "instance": {
+        "n": 60,
+        "median": 1.1165405552678611
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.0
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.0
+      },
+      "A": 60,
+      "S": 60,
+      "Q": 46,
+      "H": 33,
+      "semantic_found": 60,
+      "semantic_read": 60,
+      "instance_found": 60
+    },
+    {
+      "arm": "f5-r2",
+      "cell": "X2",
+      "positive": 60,
+      "complete": 60,
+      "states": {
+        "C_success": 60
+      },
+      "seed_counts": {
+        "None": 60
+      },
+      "semantic": {
+        "n": 60,
+        "median": 0.6893982334674756
+      },
+      "instance": {
+        "n": 60,
+        "median": 1.1110825058643048
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.0
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.0
+      },
+      "A": 60,
+      "S": 60,
+      "Q": 41,
+      "H": 32,
+      "semantic_found": 60,
+      "semantic_read": 60,
+      "instance_found": 60
+    },
+    {
+      "arm": "f5-r2",
+      "cell": "clean",
+      "positive": 60,
+      "complete": 60,
+      "states": {
+        "C_success": 60
+      },
+      "seed_counts": {
+        "None": 60
+      },
+      "semantic": {
+        "n": 60,
+        "median": 0.8515465769844917
+      },
+      "instance": {
+        "n": 60,
+        "median": 1.134940333404339
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.0
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.0
+      },
+      "A": 60,
+      "S": 60,
+      "Q": 52,
+      "H": 34,
+      "semantic_found": 60,
+      "semantic_read": 60,
+      "instance_found": 60
+    },
+    {
+      "arm": "v5-r3",
+      "cell": "D1",
+      "positive": 60,
+      "complete": 60,
+      "states": {
+        "C_success": 60
+      },
+      "seed_counts": {
+        "None": 60
+      },
+      "semantic": {
+        "n": 60,
+        "median": 0.9971190587805645
+      },
+      "instance": {
+        "n": 60,
+        "median": 0.6636957244411057
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.0
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.0
+      },
+      "A": 60,
+      "S": 60,
+      "Q": 58,
+      "H": 11,
+      "semantic_found": 60,
+      "semantic_read": 60,
+      "instance_found": 59
+    },
+    {
+      "arm": "v5-r3",
+      "cell": "D3",
+      "positive": 60,
+      "complete": 60,
+      "states": {
+        "C_success": 60
+      },
+      "seed_counts": {
+        "None": 60
+      },
+      "semantic": {
+        "n": 60,
+        "median": 0.9731331860038013
+      },
+      "instance": {
+        "n": 60,
+        "median": 0.7594412816337563
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.0
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.0
+      },
+      "A": 60,
+      "S": 60,
+      "Q": 58,
+      "H": 11,
+      "semantic_found": 60,
+      "semantic_read": 60,
+      "instance_found": 59
+    },
+    {
+      "arm": "v5-r3",
+      "cell": "R0@0.1",
+      "positive": 47,
+      "complete": 60,
+      "states": {
+        "C_success": 144,
+        "found_not_read": 23,
+        "read_content_mismatch": 6,
+        "not_found": 7
+      },
+      "seed_counts": {
+        "12": 48,
+        "13": 50,
+        "14": 46
+      },
+      "semantic": {
+        "n": 60,
+        "median": 0.35100115117024366
+      },
+      "instance": {
+        "n": 60,
+        "median": -0.5974175656724885
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.061352913760439304
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.10236341229214024
+      },
+      "A": 58,
+      "S": 56,
+      "Q": 23,
+      "H": 0,
+      "semantic_found": 58,
+      "semantic_read": 49,
+      "instance_found": 0
+    },
+    {
+      "arm": "v5-r3",
+      "cell": "R0@0.2",
+      "positive": 27,
+      "complete": 59,
+      "states": {
+        "C_success": 82,
+        "found_not_read": 54,
+        "not_found": 35,
+        "missing_call": 1,
+        "read_content_mismatch": 8
+      },
+      "seed_counts": {
+        "12": 28,
+        "13": 30,
+        "14": 24
+      },
+      "semantic": {
+        "n": 59,
+        "median": 0.016442713826361477
+      },
+      "instance": {
+        "n": 59,
+        "median": -0.6001233096503686
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 59,
+        "median": 0.08941307134204363
+      },
+      "instance_range": {
+        "n": 59,
+        "median": 0.13000895514968186
+      },
+      "A": 47,
+      "S": 44,
+      "Q": 6,
+      "H": 0,
+      "semantic_found": 47,
+      "semantic_read": 30,
+      "instance_found": 0
+    },
+    {
+      "arm": "v5-r3",
+      "cell": "R0@0.4",
+      "positive": 3,
+      "complete": 58,
+      "states": {
+        "not_found": 140,
+        "missing_call": 2,
+        "found_not_read": 28,
+        "C_success": 7,
+        "read_content_mismatch": 3
+      },
+      "seed_counts": {
+        "12": 1,
+        "13": 3,
+        "14": 3
+      },
+      "semantic": {
+        "n": 58,
+        "median": -0.32083023370732877
+      },
+      "instance": {
+        "n": 58,
+        "median": -0.6033658411501055
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 58,
+        "median": 0.15908894280044827
+      },
+      "instance_range": {
+        "n": 58,
+        "median": 0.158008358273916
+      },
+      "A": 12,
+      "S": 12,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 12,
+      "semantic_read": 3,
+      "instance_found": 0
+    },
+    {
+      "arm": "v5-r3",
+      "cell": "R1-mode@0.2",
+      "positive": 6,
+      "complete": 60,
+      "states": {
+        "not_found": 56,
+        "found_not_read": 97,
+        "C_success": 24,
+        "read_content_mismatch": 3
+      },
+      "seed_counts": {
+        "12": 8,
+        "13": 3,
+        "14": 13
+      },
+      "semantic": {
+        "n": 60,
+        "median": -0.16236268749480604
+      },
+      "instance": {
+        "n": 60,
+        "median": -0.12497941856987328
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.15001249572686823
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.10208365254966406
+      },
+      "A": 52,
+      "S": 41,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 42,
+      "semantic_read": 6,
+      "instance_found": 31
+    },
+    {
+      "arm": "v5-r3",
+      "cell": "R1-rinse@0.1",
+      "positive": 4,
+      "complete": 60,
+      "states": {
+        "found_not_read": 59,
+        "not_found": 104,
+        "C_success": 15,
+        "read_content_mismatch": 2
+      },
+      "seed_counts": {
+        "12": 3,
+        "13": 6,
+        "14": 6
+      },
+      "semantic": {
+        "n": 60,
+        "median": -0.22628630638937347
+      },
+      "instance": {
+        "n": 60,
+        "median": -0.06936598525290036
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.09983809964685626
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.10327641288656964
+      },
+      "A": 48,
+      "S": 24,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 24,
+      "semantic_read": 5,
+      "instance_found": 35
+    },
+    {
+      "arm": "v5-r3",
+      "cell": "R1-smooth@0.2",
+      "positive": 4,
+      "complete": 60,
+      "states": {
+        "not_found": 75,
+        "found_not_read": 83,
+        "C_success": 19,
+        "read_content_mismatch": 3
+      },
+      "seed_counts": {
+        "12": 3,
+        "13": 3,
+        "14": 13
+      },
+      "semantic": {
+        "n": 60,
+        "median": -0.1776595295925693
+      },
+      "instance": {
+        "n": 60,
+        "median": -0.26339639381571067
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.15733580179539997
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.10797976647481432
+      },
+      "A": 42,
+      "S": 34,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 34,
+      "semantic_read": 4,
+      "instance_found": 18
+    },
+    {
+      "arm": "v5-r3",
+      "cell": "R1@0.1",
+      "positive": 50,
+      "complete": 60,
+      "states": {
+        "C_success": 140,
+        "found_not_read": 32,
+        "read_content_mismatch": 6,
+        "not_found": 2
+      },
+      "seed_counts": {
+        "12": 42,
+        "13": 47,
+        "14": 51
+      },
+      "semantic": {
+        "n": 60,
+        "median": 0.20467532116709647
+      },
+      "instance": {
+        "n": 60,
+        "median": 0.12735215824698926
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.08814924825186347
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.10521395933295573
+      },
+      "A": 60,
+      "S": 59,
+      "Q": 6,
+      "H": 1,
+      "semantic_found": 59,
+      "semantic_read": 50,
+      "instance_found": 43
+    },
+    {
+      "arm": "v5-r3",
+      "cell": "R1@0.2",
+      "positive": 12,
+      "complete": 60,
+      "states": {
+        "found_not_read": 74,
+        "C_success": 38,
+        "not_found": 64,
+        "read_content_mismatch": 4
+      },
+      "seed_counts": {
+        "12": 8,
+        "13": 15,
+        "14": 15
+      },
+      "semantic": {
+        "n": 60,
+        "median": -0.13645561757283894
+      },
+      "instance": {
+        "n": 60,
+        "median": -0.1505215986841078
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.1131876096262283
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.1096613790287249
+      },
+      "A": 52,
+      "S": 40,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 40,
+      "semantic_read": 14,
+      "instance_found": 28
+    },
+    {
+      "arm": "v5-r3",
+      "cell": "R1@0.4",
+      "positive": 0,
+      "complete": 60,
+      "states": {
+        "not_found": 169,
+        "found_not_read": 11
+      },
+      "seed_counts": {
+        "12": 0,
+        "13": 0,
+        "14": 0
+      },
+      "semantic": {
+        "n": 60,
+        "median": -0.37455801412566986
+      },
+      "instance": {
+        "n": 60,
+        "median": -0.37668074930762285
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.13485317699987817
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.13151701153952597
+      },
+      "A": 7,
+      "S": 2,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 2,
+      "semantic_read": 0,
+      "instance_found": 4
+    },
+    {
+      "arm": "v5-r3",
+      "cell": "R3@0.2",
+      "positive": 57,
+      "complete": 60,
+      "states": {
+        "C_success": 167,
+        "read_content_mismatch": 6,
+        "found_not_read": 6,
+        "not_found": 1
+      },
+      "seed_counts": {
+        "12": 55,
+        "13": 55,
+        "14": 57
+      },
+      "semantic": {
+        "n": 60,
+        "median": 0.5112689168150788
+      },
+      "instance": {
+        "n": 60,
+        "median": -0.3341936471917599
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.07291152145576636
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.10456108536489447
+      },
+      "A": 60,
+      "S": 59,
+      "Q": 32,
+      "H": 0,
+      "semantic_found": 60,
+      "semantic_read": 58,
+      "instance_found": 14
+    },
+    {
+      "arm": "v5-r3",
+      "cell": "X1",
+      "positive": 60,
+      "complete": 60,
+      "states": {
+        "C_success": 60
+      },
+      "seed_counts": {
+        "None": 60
+      },
+      "semantic": {
+        "n": 60,
+        "median": 1.0110034593988444
+      },
+      "instance": {
+        "n": 60,
+        "median": 1.0556686359149072
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.0
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.0
+      },
+      "A": 60,
+      "S": 60,
+      "Q": 60,
+      "H": 28,
+      "semantic_found": 60,
+      "semantic_read": 60,
+      "instance_found": 60
+    },
+    {
+      "arm": "v5-r3",
+      "cell": "X2",
+      "positive": 60,
+      "complete": 60,
+      "states": {
+        "C_success": 60
+      },
+      "seed_counts": {
+        "None": 60
+      },
+      "semantic": {
+        "n": 60,
+        "median": 1.0102023405739278
+      },
+      "instance": {
+        "n": 60,
+        "median": 1.0415542243024691
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.0
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.0
+      },
+      "A": 60,
+      "S": 60,
+      "Q": 60,
+      "H": 27,
+      "semantic_found": 60,
+      "semantic_read": 60,
+      "instance_found": 60
+    },
+    {
+      "arm": "v5-r3",
+      "cell": "clean",
+      "positive": 60,
+      "complete": 60,
+      "states": {
+        "C_success": 60
+      },
+      "seed_counts": {
+        "None": 60
+      },
+      "semantic": {
+        "n": 60,
+        "median": 1.0117593030827323
+      },
+      "instance": {
+        "n": 60,
+        "median": 1.0643000340276227
+      },
+      "bits": {
+        "n": 0,
+        "median": null
+      },
+      "semantic_range": {
+        "n": 60,
+        "median": 0.0
+      },
+      "instance_range": {
+        "n": 60,
+        "median": 0.0
+      },
+      "A": 60,
+      "S": 60,
+      "Q": 60,
+      "H": 28,
+      "semantic_found": 60,
+      "semantic_read": 60,
+      "instance_found": 60
+    },
+    {
+      "arm": "vine-r",
+      "cell": "D1",
+      "positive": 60,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "None": 60
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 60,
+        "median": 1.0
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "vine-r",
+      "cell": "D3",
+      "positive": 60,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "None": 60
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 60,
+        "median": 1.0
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "vine-r",
+      "cell": "R0@0.1",
+      "positive": 60,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "12": 60,
+        "13": 60,
+        "14": 60
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 60,
+        "median": 0.96
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "vine-r",
+      "cell": "R0@0.2",
+      "positive": 60,
+      "complete": 58,
+      "states": {},
+      "seed_counts": {
+        "12": 58,
+        "13": 59,
+        "14": 60
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 58,
+        "median": 0.885
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "vine-r",
+      "cell": "R0@0.4",
+      "positive": 47,
+      "complete": 59,
+      "states": {},
+      "seed_counts": {
+        "12": 39,
+        "13": 50,
+        "14": 47
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 59,
+        "median": 0.73
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "vine-r",
+      "cell": "R1-mode@0.2",
+      "positive": 60,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "12": 60,
+        "13": 60,
+        "14": 59
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 60,
+        "median": 0.9
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "vine-r",
+      "cell": "R1-rinse@0.1",
+      "positive": 59,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "12": 59,
+        "13": 58,
+        "14": 59
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 60,
+        "median": 0.93
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "vine-r",
+      "cell": "R1-smooth@0.2",
+      "positive": 60,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "12": 60,
+        "13": 60,
+        "14": 60
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 60,
+        "median": 0.9
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "vine-r",
+      "cell": "R1@0.1",
+      "positive": 60,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "12": 60,
+        "13": 60,
+        "14": 60
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 60,
+        "median": 0.98
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "vine-r",
+      "cell": "R1@0.2",
+      "positive": 60,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "12": 59,
+        "13": 60,
+        "14": 60
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 60,
+        "median": 0.9
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "vine-r",
+      "cell": "R1@0.4",
+      "positive": 45,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "12": 44,
+        "13": 42,
+        "14": 42
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 60,
+        "median": 0.73
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "vine-r",
+      "cell": "R3@0.2",
+      "positive": 60,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "12": 60,
+        "13": 60,
+        "14": 60
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 60,
+        "median": 0.99
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "vine-r",
+      "cell": "X1",
+      "positive": 60,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "None": 60
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 60,
+        "median": 1.0
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "vine-r",
+      "cell": "X2",
+      "positive": 60,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "None": 60
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 60,
+        "median": 1.0
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "vine-r",
+      "cell": "clean",
+      "positive": 60,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "None": 60
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 60,
+        "median": 1.0
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "wam",
+      "cell": "D1",
+      "positive": 60,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "None": 60
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 60,
+        "median": 1.0
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "wam",
+      "cell": "D3",
+      "positive": 60,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "None": 60
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 60,
+        "median": 1.0
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "wam",
+      "cell": "R0@0.1",
+      "positive": 42,
+      "complete": 59,
+      "states": {},
+      "seed_counts": {
+        "12": 39,
+        "13": 41,
+        "14": 39
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 50,
+        "median": 0.90625
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "wam",
+      "cell": "R0@0.2",
+      "positive": 18,
+      "complete": 59,
+      "states": {},
+      "seed_counts": {
+        "12": 16,
+        "13": 20,
+        "14": 16
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 30,
+        "median": 0.84375
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "wam",
+      "cell": "R0@0.4",
+      "positive": 1,
+      "complete": 59,
+      "states": {},
+      "seed_counts": {
+        "12": 1,
+        "13": 1,
+        "14": 0
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 2,
+        "median": 0.640625
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "wam",
+      "cell": "R1-mode@0.2",
+      "positive": 2,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "12": 2,
+        "13": 2,
+        "14": 2
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 4,
+        "median": 0.75
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "wam",
+      "cell": "R1-rinse@0.1",
+      "positive": 21,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "12": 21,
+        "13": 18,
+        "14": 19
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 20,
+        "median": 0.9375
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "wam",
+      "cell": "R1-smooth@0.2",
+      "positive": 0,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "12": 0,
+        "13": 0,
+        "14": 0
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 1,
+        "median": 0.59375
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "wam",
+      "cell": "R1@0.1",
+      "positive": 48,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "12": 50,
+        "13": 45,
+        "14": 49
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 54,
+        "median": 0.96875
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "wam",
+      "cell": "R1@0.2",
+      "positive": 2,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "12": 3,
+        "13": 2,
+        "14": 1
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 3,
+        "median": 0.875
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "wam",
+      "cell": "R1@0.4",
+      "positive": 0,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "12": 0,
+        "13": 0,
+        "14": 0
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 1,
+        "median": 0.46875
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "wam",
+      "cell": "R3@0.2",
+      "positive": 44,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "12": 47,
+        "13": 45,
+        "14": 46
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 53,
+        "median": 0.9375
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "wam",
+      "cell": "X1",
+      "positive": 60,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "None": 60
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 60,
+        "median": 1.0
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "wam",
+      "cell": "X2",
+      "positive": 60,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "None": 60
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 60,
+        "median": 1.0
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    },
+    {
+      "arm": "wam",
+      "cell": "clean",
+      "positive": 60,
+      "complete": 60,
+      "states": {},
+      "seed_counts": {
+        "None": 60
+      },
+      "semantic": {
+        "n": 0,
+        "median": null
+      },
+      "instance": {
+        "n": 0,
+        "median": null
+      },
+      "bits": {
+        "n": 60,
+        "median": 1.0
+      },
+      "semantic_range": {
+        "n": 0,
+        "median": null
+      },
+      "instance_range": {
+        "n": 0,
+        "median": null
+      },
+      "A": 0,
+      "S": 0,
+      "Q": 0,
+      "H": 0,
+      "semantic_found": 0,
+      "semantic_read": 0,
+      "instance_found": 0
+    }
+  ],
+  "quality": {
+    "attack": {
+      "complete": 58,
+      "dominance": 58,
+      "dominance_retain_lose": 56
+    },
+    "total": {
+      "complete": 58,
+      "dominance": 58,
+      "dominance_retain_lose": 56
+    },
+    "strict_clean": {
+      "f5-r2": 60,
+      "v5-r3": 60,
+      "wam": 58,
+      "vine-r": 31
+    },
+    "attack_R0.4": {
+      "complete": 58,
+      "dominance": 58
+    },
+    "total_R0.4": {
+      "complete": 58,
+      "dominance": 58
+    }
+  },
+  "correlations": {
+    "R0@0.1": {
+      "n": 59,
+      "pearson": 0.9925926570663801,
+      "spearman": 0.9935125657510228
+    },
+    "R0@0.2": {
+      "n": 58,
+      "pearson": 0.9834238112806651,
+      "spearman": 0.9884954935556307
+    },
+    "R0@0.4": {
+      "n": 58,
+      "pearson": 0.9373891945418114,
+      "spearman": 0.9715155803008397
+    },
+    "R1@0.1": {
+      "n": 60,
+      "pearson": 0.5200630620937816,
+      "spearman": 0.5503195332036677
+    },
+    "R1@0.2": {
+      "n": 60,
+      "pearson": 0.17559009654146968,
+      "spearman": 0.19360933592664628
+    },
+    "R1@0.4": {
+      "n": 60,
+      "pearson": 0.05372804597413235,
+      "spearman": 0.06629619338705196
+    },
+    "D1": {
+      "n": 60,
+      "pearson": 0.9727269839944417,
+      "spearman": 0.9808280077799388
+    },
+    "D3": {
+      "n": 60,
+      "pearson": 0.9822514195829635,
+      "spearman": 0.9814392886913031
+    },
+    "pooled_quality": {
+      "n": 355,
+      "pearson": -0.04922510168071364,
+      "spearman": -0.09696369035006075
+    },
+    "R0.4_quality": {
+      "n": 58,
+      "pearson": -0.5499373216752064,
+      "spearman": -0.5638130979113476
+    }
+  },
+  "paired_bootstraps": {
+    "R1@0.1 minus R0@0.2 semantic": {
+      "n": 58,
+      "mean": -0.912555443384552,
+      "lo": -0.9662976377594634,
+      "hi": -0.8517130325233354
+    },
+    "R1@0.1 minus R0@0.2 positive": {
+      "n": 60,
+      "mean": -0.95,
+      "lo": -1.0,
+      "hi": -0.8833333333333333
+    },
+    "R1-rinse@0.1 minus R1@0.1 semantic": {
+      "n": 60,
+      "mean": -0.16651703691958325,
+      "lo": -0.18515108487838625,
+      "hi": -0.1473381029413679
+    },
+    "R1-rinse@0.1 minus R1@0.1 positive": {
+      "n": 60,
+      "mean": 0,
+      "lo": 0.0,
+      "hi": 0.0
+    },
+    "R1-smooth@0.2 minus R1-mode@0.2 semantic": {
+      "n": 60,
+      "mean": -0.028061578289682237,
+      "lo": -0.036838308983558166,
+      "hi": -0.01906612324420818
+    },
+    "R1-smooth@0.2 minus R1-mode@0.2 positive": {
+      "n": 60,
+      "mean": 0,
+      "lo": 0.0,
+      "hi": 0.0
+    }
+  },
+  "rinse_transitions": {
+    "f5-r2": {
+      "not_found->not_found": 154,
+      "found_not_read->not_found": 23,
+      "read_content_mismatch->not_found": 3
+    },
+    "v5-r3": {
+      "C_success->found_not_read": 54,
+      "C_success->not_found": 69,
+      "C_success->C_success": 15,
+      "found_not_read->not_found": 29,
+      "found_not_read->found_not_read": 3,
+      "read_content_mismatch->found_not_read": 2,
+      "read_content_mismatch->not_found": 4,
+      "not_found->not_found": 2,
+      "C_success->read_content_mismatch": 2
+    },
+    "wam": {
+      "1->0": 86,
+      "1->1": 58,
+      "0->0": 36
+    },
+    "vine-r": {
+      "1->1": 176,
+      "1->0": 4
+    }
+  },
+  "negative_calls": {
+    "f5-r2 C0": {
+      "events": [],
+      "missing_calls": 6,
+      "planned_calls": 2100
+    },
+    "f5-r2 wrong": {
+      "events": [],
+      "missing_calls": 6,
+      "planned_calls": 2100
+    },
+    "v5-r3 C0": {
+      "events": [],
+      "missing_calls": 6,
+      "planned_calls": 2100
+    },
+    "v5-r3 wrong": {
+      "events": [],
+      "missing_calls": 3,
+      "planned_calls": 2100
+    },
+    "wam C0": {
+      "events": [],
+      "missing_calls": 6,
+      "planned_calls": 2100
+    },
+    "wam wrong": {
+      "events": [],
+      "missing_calls": 2100,
+      "planned_calls": 2100
+    },
+    "vine-r C0": {
+      "events": [
+        {
+          "id": "R1:1295:unmarked:0.1:14",
+          "source": 1295,
+          "presence": {
+            "matches": 69,
+            "bits": 100,
+            "accuracy": 0.69,
+            "threshold": 69,
+            "present": true
+          }
+        }
+      ],
+      "missing_calls": 6,
+      "planned_calls": 2100
+    },
+    "vine-r wrong": {
+      "events": [],
+      "missing_calls": 2100,
+      "planned_calls": 2100
+    }
+  },
+  "regression_saved_parameter_recalculation": {
+    "f5-r2": {
+      "cv": {
+        "D0": 0.24593082457020152,
+        "D1": 0.24593082457020152,
+        "D2": 0.24593082457020152,
+        "D3": 0.04329240766718554,
+        "D3M": 0.0431883123822345
+      },
+      "loso": {
+        "D0": 0.25295749742800633,
+        "D1": 0.25295749742800633,
+        "D2": 0.25295749742800633,
+        "D3": 0.06223200269389776,
+        "D3M": 0.05801201755413675
+      },
+      "D3_minus_D2_bootstrap": {
+        "n": 60,
+        "mean": -0.20263841690301598,
+        "lo": -0.21464142485108598,
+        "hi": -0.18766542503431277
+      },
+      "D3_minus_D2_exact_published_bootstrap_recipe": {
+        "mean": -0.20263841690301598,
+        "lo": -0.21507098991023263,
+        "hi": -0.18890933503140428
+      },
+      "D3M_minus_D2_exact_published_bootstrap_recipe": {
+        "mean": -0.20274251218796702,
+        "lo": -0.21520593838162114,
+        "hi": -0.1888819920520499
+      }
+    },
+    "v5-r3": {
+      "cv": {
+        "D0": 0.23726961727316778,
+        "D1": 0.1849604897965087,
+        "D2": 0.1876209013574927,
+        "D3": 0.13262506380877753,
+        "D3M": 0.13408955014801174
+      },
+      "loso": {
+        "D0": 0.3605256558642026,
+        "D1": 0.2748624969899138,
+        "D2": 0.28309988308979445,
+        "D3": 0.13862778588431263,
+        "D3M": 0.1354072693499406
+      },
+      "D3_minus_D2_bootstrap": {
+        "n": 60,
+        "mean": -0.05499583754871514,
+        "lo": -0.07253856891797009,
+        "hi": -0.03779135359213143
+      },
+      "D3_minus_D2_exact_published_bootstrap_recipe": {
+        "mean": -0.05499583754871514,
+        "lo": -0.07407555805334551,
+        "hi": -0.038238903944651785
+      },
+      "D3M_minus_D2_exact_published_bootstrap_recipe": {
+        "mean": -0.053531351209480944,
+        "lo": -0.07091272357565605,
+        "hi": -0.03853852330932159
+      }
+    },
+    "max_abs_saved_moment_error": 0.0,
+    "max_projected_kkt_gradient": 9.979751514435121e-09,
+    "number_original_fits_checked": 80
+  },
+  "analytic_statistics": {
+    "loss": {
+      "critical": 9,
+      "boundary_p": 0.0035285655429714686,
+      "adjacent_p": 0.008071249955102727,
+      "power": {
+        "0.01": 0.9999598581911512,
+        "0.02": 0.9925207121346351,
+        "0.03": 0.9192206408723879,
+        "0.05": 0.45470980868081545
+      }
+    },
+    "retain": {
+      "critical": 175,
+      "boundary_p": 0.003628754437323196,
+      "adjacent_p": 0.006432930860566354,
+      "power": {
+        "0.85": 0.18762113014888027,
+        "0.875": 0.5530396263349072,
+        "0.9": 0.8995427134871278,
+        "0.95": 0.9999909612686274
+      }
+    },
+    "control": {
+      "critical": 191,
+      "boundary_p": 0.003528565542971461,
+      "adjacent_p": 0.008071249955102706,
+      "power": {
+        "0.95": 0.4547098086808182,
+        "0.97": 0.9192206408723925,
+        "0.98": 0.9925207121346384,
+        "0.99": 0.999959858191153
+      }
+    },
+    "remove": {
+      "critical": 120,
+      "boundary_p": 0.0028425779983751523,
+      "adjacent_p": 0.0043612506237235725,
+      "power": {
+        "0.55": 0.0880726830969829,
+        "0.6": 0.5306621576808424,
+        "0.65": 0.9391103112562559,
+        "0.7": 0.9989915889936627
+      }
+    },
+    "eb_radii": {
+      "0": 0.13199035682722102,
+      "0.1": 0.1569980132779472,
+      "0.2": 0.1820056697286734
+    },
+    "zero_event_95": {
+      "60": 0.04870291331009746,
+      "200": 0.014867039231272083
+    },
+    "eight_negative_upper": 0.025056607921207563,
+    "zero_event_n_for_1e_6": 2995731,
+    "normal_mu90": 6.03497587436169,
+    "eb_min_n_zero_variance": {
+      "0.25": 133,
+      "0.1": 330,
+      "0.04": 822,
+      "0.01": 3285
+    },
+    "h4_scenario_passing_errors": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "h4_scenario_power": {
+      "0.01": 0.9839770930908207,
+      "0.02": 0.7867224657026638,
+      "0.03": 0.44322921232840556,
+      "0.05": 0.06234249504229471
+    }
+  },
+  "schedule": {
+    "scaled_linear": {
+      "51": {
+        "alpha_bar": 0.950524321872952,
+        "a_over_b": 4.38314400446788
+      },
+      "151": {
+        "alpha_bar": 0.8263992481036679,
+        "a_over_b": 2.1818211921221624
+      },
+      "351": {
+        "alpha_bar": 0.5048185579295348,
+        "a_over_b": 1.0096840036448869
+      }
+    },
+    "cosine_t151": {
+      "alpha_bar": 0.9392567556378678,
+      "a_over_b": 3.9322685654092147
+    }
+  },
+  "cost": {
+    "core_native_generation_hours": 4.748327636302245,
+    "clean_embedding_hours": 6.961612654870475,
+    "per_source_setting_assessment_seconds": 6.898061373422365,
+    "known_clean_native_hours": 20.140904192022276,
+    "attack_assessment_hours": 3.449030686711183,
+    "A_generation_at_0.2_analogy_hours": 1.4256069912355867,
+    "known_subtotal_hours": 25.015541869969045,
+    "known_subtotal_plus_30pct": 32.52020443095976,
+    "outputs": 31000,
+    "detector_batches": 49600,
+    "phaseA_law_JVP": 1080,
+    "phaseA_encoder_JVP": 720,
+    "phaseA_differential_JVP": 540,
+    "phaseA_stage_primal": 1620,
+    "phaseB_JVP": 4200,
+    "retrieval10GB_hours": 3.2679738562091507
+  },
+  "calipers": {
+    "f5-r2": {
+      "unique_sources": 2,
+      "matches": [
+        {
+          "source": 1647,
+          "bin": [
+            0.1,
+            0.2
+          ],
+          "pair": [
+            2.1040523815350394,
+            0.1,
+            0.2
+          ]
+        },
+        {
+          "source": 1670,
+          "bin": [
+            0.1,
+            0.2
+          ],
+          "pair": [
+            0.9421487557380442,
+            0.1,
+            0.2
+          ]
+        }
+      ]
+    },
+    "v5-r3": {
+      "unique_sources": 0,
+      "matches": []
+    },
+    "wam": {
+      "unique_sources": 1,
+      "matches": [
+        {
+          "source": 1647,
+          "bin": [
+            0.1,
+            0.2
+          ],
+          "pair": [
+            1.6368379272885465,
+            0.1,
+            0.2
+          ]
+        }
+      ]
+    },
+    "vine-r": {
+      "unique_sources": 3,
+      "matches": [
+        {
+          "source": 89,
+          "bin": [
+            0.05,
+            0.1
+          ],
+          "pair": [
+            1.9245145340797516,
+            0.1,
+            0.2
+          ]
+        },
+        {
+          "source": 723,
+          "bin": [
+            0.1,
+            0.2
+          ],
+          "pair": [
+            1.6916655849585482,
+            0.2,
+            0.4
+          ]
+        },
+        {
+          "source": 1647,
+          "bin": [
+            0.1,
+            0.2
+          ],
+          "pair": [
+            1.8609818851742417,
+            0.1,
+            0.2
+          ]
+        }
+      ]
+    }
+  },
+  "manifest_metadata": {
+    "date_count": 2922,
+    "evaluated": 819,
+    "accepted": 240,
+    "rejected": 579,
+    "last_date": "2020-05-04",
+    "licence_counts": {
+      "CC BY-SA 4.0": 125,
+      "CC BY-SA 3.0": 33,
+      "CC0": 9,
+      "Public domain": 43,
+      "CC BY 4.0": 8,
+      "CC BY 2.0": 9,
+      "CC BY 3.0": 8,
+      "CC BY-SA 2.5": 3,
+      "CC BY-SA 2.0": 2
+    },
+    "rejection_reasons": {
+      "over 40M pixels": 110,
+      "licence unsupported or conflicting": 60,
+      "over 20M bytes": 112,
+      "creator already selected": 442,
+      "aspect outside 0.5..2": 84,
+      "not JPEG": 11,
+      "unknown creator": 8,
+      "no file metadata": 2
+    },
+    "unique_counts": {
+      "commons_page_id": 240,
+      "canonical_file_title": 240,
+      "sha1": 240,
+      "original_file_url": 240,
+      "creator_group": 240
+    },
+    "raw_official_receipts_checked": 44,
+    "all_accepted_rows_checked_against_official_receipts": 240,
+    "errors": [],
+    "exclusion_receipts": {
+      "files_rehashed": 79,
+      "changed_files": [],
+      "independently_extracted_hash_tokens": 21350,
+      "saved_minus_independent": [
+        "6aa69a9c5d4a9e75df457fcca8dfc71b64a6b870"
+      ],
+      "independent_minus_saved": [],
+      "accepted_sha1_overlaps": [],
+      "limitation": "No cross-algorithm comparison or image/near-duplicate inspection; URL/title extraction not independently fully replayed.",
+      "token_parser_difference_explanation": "The one additional preserved token is a source-code revision written immediately after revision in research/downloads.md:61; the independent parser requires an alphanumeric boundary. It is not an accepted image identifier. The saved conservative exclusion inventory is larger, not missing this token."
+    }
+  },
+  "comparison_errors": []
+}

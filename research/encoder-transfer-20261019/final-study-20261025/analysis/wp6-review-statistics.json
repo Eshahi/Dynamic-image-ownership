@@ -1,0 +1,352 @@
+{
+  "purpose": "Independent WP6 finite arithmetic; no experimental data, simulations, author imports or fitting",
+  "fixed_grid": [
+    "1/16",
+    "1/8",
+    "1/4",
+    "1/2",
+    "3/4",
+    "1"
+  ],
+  "mean_cutoff": 20,
+  "calibration_and_joint_cutoff": 9,
+  "scenario_joint_power": {
+    "1/100": 0.9999598581911529,
+    "1/50": 0.9925207121346385,
+    "3/100": 0.9192206408723929,
+    "1/25": 0.7192000013358795,
+    "1/20": 0.45470980868081934,
+    "3/40": 0.06251223869846206
+  },
+  "boundary_p": {
+    "9": 7.6514243126759e-09,
+    "20": 0.0029279430237675653,
+    "21": 0.006282832492221397
+  },
+  "perfect_law_constant_baseline": {
+    "1/4": {
+      "minimum_n": 40,
+      "p_at_200": 8.746105661340462e-16
+    },
+    "1/10": {
+      "minimum_n": 94,
+      "p_at_200": 1.210485528022798e-06
+    },
+    "1/25": {
+      "minimum_n": 228,
+      "p_at_200": 0.008673107545142462
+    },
+    "1/100": {
+      "minimum_n": 900,
+      "p_at_200": 0.42047783431628166
+    }
+  },
+  "null_expected_mixture_checks": {
+    "1": "1",
+    "2": "1",
+    "10": "1",
+    "30": "1"
+  },
+  "majority_patterns": [
+    {
+      "pattern": [
+        0,
+        0,
+        0
+      ],
+      "majorities": [
+        0
+      ]
+    },
+    {
+      "pattern": [
+        0,
+        0,
+        1
+      ],
+      "majorities": [
+        0
+      ]
+    },
+    {
+      "pattern": [
+        0,
+        0,
+        null
+      ],
+      "majorities": [
+        0
+      ]
+    },
+    {
+      "pattern": [
+        0,
+        1,
+        0
+      ],
+      "majorities": [
+        0
+      ]
+    },
+    {
+      "pattern": [
+        0,
+        1,
+        1
+      ],
+      "majorities": [
+        1
+      ]
+    },
+    {
+      "pattern": [
+        0,
+        1,
+        null
+      ],
+      "majorities": [
+        0,
+        1
+      ]
+    },
+    {
+      "pattern": [
+        0,
+        null,
+        0
+      ],
+      "majorities": [
+        0
+      ]
+    },
+    {
+      "pattern": [
+        0,
+        null,
+        1
+      ],
+      "majorities": [
+        0,
+        1
+      ]
+    },
+    {
+      "pattern": [
+        0,
+        null,
+        null
+      ],
+      "majorities": [
+        0,
+        1
+      ]
+    },
+    {
+      "pattern": [
+        1,
+        0,
+        0
+      ],
+      "majorities": [
+        0
+      ]
+    },
+    {
+      "pattern": [
+        1,
+        0,
+        1
+      ],
+      "majorities": [
+        1
+      ]
+    },
+    {
+      "pattern": [
+        1,
+        0,
+        null
+      ],
+      "majorities": [
+        0,
+        1
+      ]
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        0
+      ],
+      "majorities": [
+        1
+      ]
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1
+      ],
+      "majorities": [
+        1
+      ]
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        null
+      ],
+      "majorities": [
+        1
+      ]
+    },
+    {
+      "pattern": [
+        1,
+        null,
+        0
+      ],
+      "majorities": [
+        0,
+        1
+      ]
+    },
+    {
+      "pattern": [
+        1,
+        null,
+        1
+      ],
+      "majorities": [
+        1
+      ]
+    },
+    {
+      "pattern": [
+        1,
+        null,
+        null
+      ],
+      "majorities": [
+        0,
+        1
+      ]
+    },
+    {
+      "pattern": [
+        null,
+        0,
+        0
+      ],
+      "majorities": [
+        0
+      ]
+    },
+    {
+      "pattern": [
+        null,
+        0,
+        1
+      ],
+      "majorities": [
+        0,
+        1
+      ]
+    },
+    {
+      "pattern": [
+        null,
+        0,
+        null
+      ],
+      "majorities": [
+        0,
+        1
+      ]
+    },
+    {
+      "pattern": [
+        null,
+        1,
+        0
+      ],
+      "majorities": [
+        0,
+        1
+      ]
+    },
+    {
+      "pattern": [
+        null,
+        1,
+        1
+      ],
+      "majorities": [
+        1
+      ]
+    },
+    {
+      "pattern": [
+        null,
+        1,
+        null
+      ],
+      "majorities": [
+        0,
+        1
+      ]
+    },
+    {
+      "pattern": [
+        null,
+        null,
+        0
+      ],
+      "majorities": [
+        0,
+        1
+      ]
+    },
+    {
+      "pattern": [
+        null,
+        null,
+        1
+      ],
+      "majorities": [
+        0,
+        1
+      ]
+    },
+    {
+      "pattern": [
+        null,
+        null,
+        null
+      ],
+      "majorities": [
+        0,
+        1
+      ]
+    }
+  ],
+  "completion_loss_comparisons": 400,
+  "cp_first_holm_limits": {
+    "mismatch_9_upper": 0.09932884986320695,
+    "quality_175_lower": 0.8005805227415506,
+    "control_191_lower": 0.900671150136793,
+    "removal_120_lower": 0.5035471627221039
+  },
+  "positive_mean_counterexample_mean": "1/1000",
+  "positive_mean_counterexample_log_growth": [
+    -0.0015151800307321855,
+    -0.006270051512702442,
+    -0.02630783196568018,
+    -0.12056438244975673,
+    -0.35398642314433953
+  ],
+  "zero_factor_and_permutation_checks": "passed",
+  "all_checks_passed": true
+}

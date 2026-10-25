@@ -1,6 +1,6 @@
 # Literature synthesis: the missing quantity is readable transport
 
-WP1, 2026-10-25. This is a bounded primary-source review, not a claim of exhaustive coverage or independent reproduction. Searches and versions are registered in [the search log](literature/search-log.md). Thirty primary papers in clusters 1–3 have method and experiment inspection: ten attack/benchmark cards, twelve watermark cards and eight encoder cards. Six further verified theory/transfer cards are retained; the rank-ratio lead is excluded because bibliographic identity remains unresolved. V2 means inspected, not necessarily peer reviewed or true.
+WP1, with WP6 provenance corrections, 2026-10-25. This is a bounded primary-source review, not a claim of exhaustive coverage or independent reproduction. Searches and versions are registered in [the search log](literature/search-log.md). The original thirty primary papers in clusters 1–3 have method and experiment inspection: ten attack/benchmark cards, twelve watermark cards and eight encoder cards. Six further theory/transfer cards are retained. WP6 resolved the rank-ratio article's identity through official Crossref metadata; its inspected author-manuscript/final-version distinction remains explicit. V2 means inspected, not necessarily peer reviewed or true.
 
 ## The question that survives the literature
 
@@ -32,6 +32,8 @@ The retained development evidence is a useful challenge to a simple explanation:
 
 ## Reporting requirements carried into WP2–WP5
 
+The WP6 [PhaseMark/Semantic Imprinting source check](literature/watermarks/13-phase-mark-and-imprinting.md) further narrows the comparison: named codec attacks do not establish independent diffusion-encoder transfer, and a semantic-carrier hypothesis remains different from an identified carrier. The original PhaseMark methods were inspected; the inaccessible original Semantic Imprinting paper remains V1.
+
 1. Preserve native operating points and disclose side information. F5/v5 C are compound semantic/content-binding predicates; WAM/VINE known-message detection is not the same task. Do not rank them as equal-payload, equal-quality or equal-FPR systems.
 2. Distinguish embedding quality, attack-to-mark quality and total-to-original quality. No metric replaces missing human judgments. Use source-level comparisons; the three seeds are repeated measurements.
 3. Report carrier evidence, decoded content consistency and final C separately. A zero final endpoint can conceal a readable but inconsistent carrier or a failed auxiliary condition.
@@ -39,4 +41,4 @@ The retained development evidence is a useful challenge to a simple explanation:
 5. Fit only what is observed. Family labels can diagnose unexplained structure but cannot stand in for measured mechanistic transport. Leave unmeasured gain/alignment parameters missing until the approved server phase.
 6. Keep failures, missing outputs, safety blocks and non-overlap visible. A tiny matched-distortion subset does not support a population-wide causal comparison.
 
-The unresolved [rank-ratio manuscript](literature/transfer-theory/rank-ratio-unverified.md) is a close discovery lead. It prevents an unqualified priority assertion while primary bibliographic verification is unavailable; its numbers and claims are not adopted as evidence. New search leads marked V0/V1 remain outside the substantive synthesis.
+The [rank-ratio manuscript](literature/transfer-theory/rank-ratio-unverified.md) is close prior work on direction scrambling and VAE-specific co-design. WP6 verified its IEEE Access identity through Crossref, correcting the initial unresolved label. The inspected author text and inaccessible final publisher version are distinguished. Its isotropic rank premise does not establish a worst-case bound for optimized F5 residuals, and its round-trip model does not establish the full-regeneration mechanism proposed here. No numerical result from it becomes a fitted parameter. New search leads marked V0/V1 remain outside the substantive synthesis.

@@ -1,0 +1,5 @@
+# Ni et al.: inspected theory, bounded use
+
+**V2, preprint version inspected.** Yunyi Ni, Ziyu Yang, Ze Niu, Emily Davis and Finn Carter, *On the Information-Theoretic Fragility of Robust Watermarking under Diffusion Editing*, [arXiv:2511.10933v1](https://arxiv.org/html/2511.10933v1), 14 November 2025. Root and the bounded theory contributor read the original methods and experiments; the independent reviewer checked the mathematical and implementation locators. No journal or conference acceptance is asserted.
+
+The precise paper-derived extraction, reproducibility qualifications and source links are in [conditional-information-bound.md, section 1](../../analysis/conditional-information-bound.md). They are deliberately not duplicated here. No empirical number from this paper supports an F5 result or supplies a fitted parameter. Our subsequent Gaussian-KL derivation is separately labelled as an original conditional argument, not a restatement of a universal practical-removal theorem. V2 records access, not endorsement of every claim.
