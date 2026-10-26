@@ -69,18 +69,36 @@ def clean_png(args, s, arm):
 
 # ---------------------------------------------------------------- acquire
 
-def http_get(url, retries=3):
+class InfrastructureError(RuntimeError):
+    """Network trouble on our side: never an acquisition failure of the file, so no reserve is consumed."""
+
+
+def http_get(url, retries=3, deadline=600, min_rate=50_000):
+    """GET with retries of the identical request; a transfer slower than min_rate bytes/s or longer than deadline
+    seconds counts as a network failure. Exhausted retries raise InfrastructureError (the stage stops, no row)."""
     import urllib.request
     last = None
     for attempt in range(retries):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": UA})
-            with urllib.request.urlopen(req, timeout=120) as resp:
-                return resp.read()
-        except Exception as exc:  # transient network errors only; the identical request is retried
+            start, chunks, size = time.monotonic(), [], 0
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                while True:
+                    block = resp.read(1 << 20)
+                    if not block:
+                        break
+                    chunks.append(block)
+                    size += len(block)
+                    spent = time.monotonic() - start
+                    if spent > deadline or (spent > 60 and size / spent < min_rate):
+                        raise TimeoutError(f"transfer too slow: {size} bytes in {spent:.0f} s")
+            return b"".join(chunks)
+        except Exception as exc:
+            if getattr(exc, "code", None) == 404:
+                raise  # the file is gone: an acquisition failure of this identifier
             last = exc
-            time.sleep(5 * (attempt + 1))
-    raise last
+            time.sleep(10 * (attempt + 1))
+    raise InfrastructureError(f"network failure after {retries} identical requests: {last!r}")
 
 
 def licence_now(titles):
@@ -132,8 +150,13 @@ def acquire(args):
                 raise ValueError(f"licence persistence failed: manifest {e['licence_label']!r}, now {now.get('licence')!r}")
             if now.get("sha1") != e["sha1"]:
                 raise ValueError("current Commons file SHA1 differs from the manifest (file revised since selection)")
-            raw = http_get(e["original_file_url"])
-            time.sleep(1.1)
+            local = args.out / "originals" / f"{e['commons_page_id']}.jpg"
+            if local.exists() and hashlib.sha1(local.read_bytes()).hexdigest() == e["sha1"]:
+                raw = local.read_bytes()  # an earlier, interrupted run already fetched these exact bytes
+                row["fetched"] = "reused verified bytes"
+            else:
+                raw = http_get(e["original_file_url"])
+                time.sleep(1.1)
             row["raw_bytes"] = len(raw)
             if len(raw) != e["size_bytes"] or hashlib.sha1(raw).hexdigest() != e["sha1"]:
                 raise ValueError("downloaded size/SHA1 differs from the manifest")
@@ -150,6 +173,8 @@ def acquire(args):
             seen[raw_sha] = seen[receipt["rgb8_sha256"]] = e["commons_page_id"]
             row.update(status="ok", raw_sha256=raw_sha, rgb8_sha256=receipt["rgb8_sha256"], canonical_png=saved, receipt=receipt,
                        licence_now=now["licence"])
+        except InfrastructureError:
+            raise SystemExit(f"stopping acquisition at {uid}: network failure on our side; rerun when the network works")
         except Exception as exc:
             row.update(status="error_terminal", reason=str(exc)[-500:], error=traceback.format_exc()[-1500:])
             source_png(args, e["commons_page_id"]).unlink(missing_ok=True)
