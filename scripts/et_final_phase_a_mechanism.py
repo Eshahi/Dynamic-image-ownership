@@ -21,6 +21,7 @@ Usage: python scripts/et_final_phase_a_mechanism.py --assets ... --images ... --
 from __future__ import annotations
 
 import argparse
+import contextlib
 import hashlib
 import json
 import math
@@ -102,6 +103,19 @@ class Encoders:
             return vae.encode(x.float()).latent_dist.mode() * vae.config.scaling_factor
         return vae.encode(x.to(vae.dtype)).latent_dist.mode() * vae.config.scaling_factor
 
+    @contextlib.contextmanager
+    def fp32(self):
+        """The official SDXL VAE encodes only in fp32 (the regenerator's checked encode); restore fp16 afterwards."""
+        import torch
+        if self.fam != "R1":
+            yield
+            return
+        self.regen.pipe.vae.to(dtype=torch.float32)
+        try:
+            yield
+        finally:
+            self.regen.pipe.vae.to(dtype=torch.float16)
+
     def gain(self, rgb01, u):
         import torch
         from torch.func import jvp
@@ -133,6 +147,7 @@ def main():
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--families", default="R0,R1,K3")
     parser.add_argument("--limit-sources", type=int, default=12)
+    parser.add_argument("--retry-errors", action="store_true", help="redo encoder-gain rows whose latest status is error_terminal")
     args = parser.parse_args()
     import numpy as np
     import torch
@@ -180,14 +195,15 @@ def main():
                 x01 = rgb[(s, "unmarked")].astype("float64") / 255
                 for arm in MARKS:
                     uid = f"gain:{fam}:{s}:{arm}"
-                    if journal.done(uid):
+                    if journal.done(uid) and not (args.retry_errors and journal.latest[uid]["status"] == "error_terminal"):
                         continue
                     row = dict(id=uid, kind="gain", family=fam, source=s, arm=arm)
                     try:
                         delta = (rgb[(s, arm)].astype("float64") - rgb[(s, "unmarked")].astype("float64")) / 255
                         dirs = directions(delta, s, arm)
-                        row["gains"] = {k: enc.gain(x01, u) for k, u in dirs.items()}
-                        with torch.no_grad():
+                        with enc.fp32():
+                            row["gains"] = {k: enc.gain(x01, u) for k, u in dirs.items()}
+                        with torch.no_grad(), enc.fp32():
                             z0 = enc.encode(enc.tensor(x01)).float()
                             z1 = enc.encode(enc.tensor(rgb[(s, arm)].astype("float64") / 255)).float()
                         row["finite_gain_actual"] = float((z1 - z0).norm() / math.sqrt((delta ** 2).sum()))
