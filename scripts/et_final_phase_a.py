@@ -101,8 +101,10 @@ def run_native(fam, regen, rgb512, strength, seed, tape=None, hooks=None):
     return rt.resize_rgb(out, 512) if fam in ("R1", "K3") else out
 
 
-def law_tangent(fam, regen, reader, layout, resize, calls, states, draws, in0, in1):
-    """F5 full-chain tangent around the traced C0 trajectory (pilot check_jvp_chain without its own capture)."""
+def law_tangent(fam, regen, reader, layout, resize, calls, states, draws, in0, in1, d_override=None):
+    """F5 full-chain tangent around the traced C0 trajectory (pilot check_jvp_chain without its own capture).
+    d_override: an explicit latent displacement (mechanism module's differential directions) instead of the exact
+    finite displacement of the marked input in1."""
     import numpy as np
     import torch
     from torch.func import jvp
@@ -114,14 +116,20 @@ def law_tangent(fam, regen, reader, layout, resize, calls, states, draws, in0, i
     timesteps = [int(a[1]) for a, _ in calls]
     if fam == "K3":
         t0 = pilot.encode_terms(fam, regen, in0)["z"]
-        z0, d = t0, pilot.encode_terms(fam, regen, in1)["z"] - t0
+        z0 = t0
+        d = d_override if d_override is not None else pilot.encode_terms(fam, regen, in1)["z"] - t0
         eps, step_draws = draws[0], draws[1:]
     else:
-        e0, e1 = pilot.encode_terms(fam, regen, in0), pilot.encode_terms(fam, regen, in1)
+        e0 = pilot.encode_terms(fam, regen, in0)
         eta, eps, step_draws = draws[0], draws[1], draws[2:]
         sf = pipe.vae.config.scaling_factor
         z0 = sf * (e0["mean"] + e0["std"] * eta).to(torch.float16)
-        d = sf * ((e1["mean"] - e0["mean"]) + (e1["std"] - e0["std"]) * eta).float()
+        if d_override is not None:
+            d = d_override
+        else:
+            e1 = pilot.encode_terms(fam, regen, in1)
+            d = sf * ((e1["mean"] - e0["mean"]) + (e1["std"] - e0["std"]) * eta).float()
+    d = d.float()
     first = calls[0][0][0]
     state = sched.add_noise(z0.to(first.dtype), eps.to(first.dtype), torch.tensor([timesteps[0]], device="cuda"))
     start_err = pilot.rel_err(state, first)
