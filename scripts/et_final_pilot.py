@@ -251,6 +251,49 @@ def detach_tree(x):
     return x
 
 
+class ClassicAttention:
+    """Swap every diffusers Attention processor to the classic bmm/softmax AttnProcessor, which supports forward-mode
+    AD in fp16 (PyTorch's flash kernel has no forward AD; its math kernel returns fp32 for fp16 inputs under forward AD,
+    found in the pilot's first debug run). Native generation keeps its own processors; the JVP path records the
+    resulting primal difference instead of hiding it."""
+
+    def __init__(self, *modules):
+        self.modules = [m for m in modules if m is not None]
+
+    def __exit__(self, *exc):
+        for sub, processor in self.saved:
+            sub.set_processor(processor)
+        for sub, forward in self.norms:
+            sub.forward = forward
+
+    def __enter__(self):
+        import torch
+        from diffusers.models.attention_processor import Attention, AttnProcessor
+        self.saved, self.norms = [], []
+        for m in self.modules:
+            for sub in m.modules():
+                if isinstance(sub, Attention):
+                    self.saved.append((sub, sub.processor))
+                    sub.set_processor(AttnProcessor())
+                elif isinstance(sub, torch.nn.LayerNorm):
+                    # fp16 nn.LayerNorm returns an fp32 tangent under forward AD (pilot debug run 2). This explicit
+                    # form computes in fp32 and casts back, as the native kernel does internally.
+                    def forward(x, sub=sub):
+                        dims = tuple(range(-len(sub.normalized_shape), 0))
+                        xf = x.float()
+                        mu = xf.mean(dims, keepdim=True)
+                        var = (xf - mu).pow(2).mean(dims, keepdim=True)
+                        y = (xf - mu) * torch.rsqrt(var + sub.eps)
+                        if sub.weight is not None:
+                            y = y * sub.weight.float()
+                        if sub.bias is not None:
+                            y = y + sub.bias.float()
+                        return y.to(x.dtype)
+                    self.norms.append((sub, sub.forward))
+                    sub.forward = forward
+        return self
+
+
 def rel_err(a, b):
     import torch
     a, b = a.float(), b.float()
@@ -389,7 +432,7 @@ def check_jvp_chain(fam, regen, reader, layout, resize, rgb_c0, rgb_f5, strength
             return sched.step(pred, t, z, return_dict=False, **extra)[0]
 
         tick = time.monotonic()
-        with sdpa_kernel([SDPBackend.MATH]), torch.no_grad(), tape_step.replay(start=k if fam == "K3" else 0,
+        with ClassicAttention(pipe.unet), sdpa_kernel([SDPBackend.MATH]), torch.no_grad(), tape_step.replay(start=k if fam == "K3" else 0,
                                                                                 stop=(k + 1) if fam == "K3" else 0):
             nxt, tangent = jvp(f, (state,), (tangent,))
         torch.cuda.synchronize()
@@ -419,9 +462,29 @@ def check_jvp_chain(fam, regen, reader, layout, resize, rgb_c0, rgb_f5, strength
             img = resize(img)
         return reader.encode(img)
 
+    # The JVP is linear in the tangent: propagate a unit-norm tangent and rescale in fp32, so the fp16 decoder's
+    # tangent cannot overflow (pilot debug run 3 gave non-finite chips with the raw tangent).
+    scale = tangent.float().norm()
+    unit = (tangent.float() / scale.clamp_min(1e-30)).to(tangent.dtype)
+    decode_precision = "native"
     tick = time.monotonic()
-    with sdpa_kernel([SDPBackend.MATH]), torch.no_grad():
-        zr, zr_t = jvp(chain, (state,), (tangent,))
+    with ClassicAttention(pipe.movq if fam == "K3" else pipe.vae, reader.vae), sdpa_kernel([SDPBackend.MATH]), torch.no_grad():
+        zr, zr_t = jvp(chain, (state,), (unit,))
+        if not bool(torch.isfinite(zr_t).all()) and fam != "R1":
+            # Declared surrogate: fp32 decoder for the tangent only (the native fp16 decode stays the primal reference).
+            decode_precision = "fp32_surrogate_after_nonfinite_native"
+            dec_module = pipe.movq if fam == "K3" else pipe.vae
+            dec_module.to(dtype=torch.float32)
+            try:
+                if fam == "K3":
+                    zr, zr_t = jvp(lambda z: reader.encode(resize((dec_module.decode(z.float(), force_not_quantize=True)["sample"] * .5 + .5).clamp(0, 1))),
+                                   (state,), (unit,))
+                else:
+                    zr, zr_t = jvp(lambda z: reader.encode((dec_module.decode(z.float() / dec_module.config.scaling_factor, return_dict=False)[0] / 2 + .5).clamp(0, 1)),
+                                   (state,), (unit,))
+            finally:
+                dec_module.to(dtype=torch.float16)
+    zr_t = zr_t.float() * scale
     torch.cuda.synchronize()
     decode_seconds = time.monotonic() - tick
     if fam == "R1":
@@ -433,19 +496,19 @@ def check_jvp_chain(fam, regen, reader, layout, resize, rgb_c0, rgb_f5, strength
     chips_rgb8 = np.asarray(layout.projections(reader.latent(native_c0)))
     return dict(family=fam, strength=strength, seed=seed, executed_steps=len(calls), timesteps=timesteps,
                 native_latent_call_seconds=native_seconds, start_state_rel_err=start_err, steps=step_rows,
-                decode_reader_jvp_seconds=decode_seconds, v_norm=float(np.linalg.norm(v)), v_finite=bool(np.isfinite(v).all()),
+                decode_reader_jvp_seconds=decode_seconds, decode_precision=decode_precision, v_norm=float(np.linalg.norm(v)), v_finite=bool(np.isfinite(v).all()),
                 chips_float_vs_rgb8=dict(max_abs=float(np.abs(chips_float - chips_rgb8).max()),
                                          rel=float(np.linalg.norm(chips_float - chips_rgb8) / max(np.linalg.norm(chips_rgb8), 1e-12))),
                 displacement_norm=float(d.float().norm()), draws=len(draws),
                 stored_bytes_estimate=int(sum(x.numel() * x.element_size() for x in draws) + sum(s.numel() * s.element_size() for s in states)))
 
 
-def check_encoder_jvp(name, encode, x, direction):
+def check_encoder_jvp(name, encode, x, direction, module=None):
     import torch
     from torch.func import jvp
     from torch.nn.attention import SDPBackend, sdpa_kernel
     tick = time.monotonic()
-    with sdpa_kernel([SDPBackend.MATH]), torch.no_grad():
+    with ClassicAttention(module), sdpa_kernel([SDPBackend.MATH]), torch.no_grad():
         z, zt = jvp(encode, (x,), (direction,))
     torch.cuda.synchronize()
     return dict(encoder=name, seconds=time.monotonic() - tick, gain=float(zt.float().norm() / direction.float().norm()),
@@ -640,7 +703,7 @@ def main():
                     vae = reader.vae
                     x = t.from_numpy(rgb[(s, "unmarked")].astype("float32") / 255).permute(2, 0, 1)[None].cuda() * 2 - 1
                     dvec = t.from_numpy(delta).permute(2, 0, 1)[None].cuda() * 2
-                    return check_encoder_jvp("sd15-fp32-512", lambda x: vae.encode(x).latent_dist.mode(), x, dvec)
+                    return check_encoder_jvp("sd15-fp32-512", lambda x: vae.encode(x).latent_dist.mode(), x, dvec, vae)
                 if fam == "R1":
                     vae = regens["R1"].pipe.vae
                     vae.to(dtype=t.float32)
@@ -649,7 +712,7 @@ def main():
                     x = t.from_numpy(big.astype("float32") / 255).permute(2, 0, 1)[None].cuda() * 2 - 1
                     dvec = t.from_numpy(dbig).permute(2, 0, 1)[None].cuda() * 2
                     try:
-                        return check_encoder_jvp("sdxl-fp32-1024", lambda x: vae.encode(x).latent_dist.mode(), x, dvec)
+                        return check_encoder_jvp("sdxl-fp32-1024", lambda x: vae.encode(x).latent_dist.mode(), x, dvec, vae)
                     finally:
                         vae.to(dtype=t.float16)
                 movq = regens["K3"].pipe.movq
@@ -657,7 +720,7 @@ def main():
                 dbig = rt.resize_rgb(rgb[(s, "f5-r2")], 1024).astype("float32") / 255 - big.astype("float32") / 255
                 x = t.from_numpy(big.astype("float32") / 255).permute(2, 0, 1)[None].cuda().to(movq.dtype) * 2 - 1
                 dvec = (t.from_numpy(dbig).permute(2, 0, 1)[None].cuda() * 2).to(movq.dtype)
-                return check_encoder_jvp(f"movq-{movq.dtype}-1024", lambda x: movq.encode(x)["latents"], x, dvec)
+                return check_encoder_jvp(f"movq-{movq.dtype}-1024", lambda x: movq.encode(x)["latents"], x, dvec, movq)
             p.run("encoder_jvp", enc, family=fam, source=s)
         if fam == "R1" and "R0" in regens:
             p.run("attack_a", lambda: check_attack_a(regens, rgb[(sources[0], "f5-r2")], 12), source=sources[0])
