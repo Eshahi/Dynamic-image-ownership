@@ -1,0 +1,75 @@
+{
+ "cell_full_chain_jvp_seconds": {
+  "R0 0.1": 1.0329247289337218,
+  "R0 0.2": 1.5985700348974206,
+  "R0 0.4": 2.729860646824818,
+  "R1 0.1": 3.1946604200056754,
+  "R1 0.2": 4.500007629976608,
+  "R1 0.4": 7.110702049918473,
+  "K3 0.2": 3.65411177102942
+ },
+ "cells_without_measurement": [],
+ "per_step_jvp_seconds_max": {
+  "R0": 0.2828226529818494,
+  "R1": 0.6526736049854662,
+  "K3": 0.26890916100819595
+ },
+ "decode_reader_jvp_seconds_max": {
+  "R0": 0.27398732799338177,
+  "R1": 1.1652192200126592,
+  "K3": 2.0963396450097207
+ },
+ "encoder_jvp_seconds_max": {
+  "R0": 0.12625648500397801,
+  "R1": 0.5572343629901297,
+  "K3": 0.7717800240206998
+ },
+ "attack_A_seconds_max": {
+  "0.05": 0.6842922219948377,
+  "0.1": 0.7588273540022783,
+  "0.15": 0.8385121230094228,
+  "0.2": 0.9215741220104974
+ },
+ "attack_B_seconds_max": {
+  "optimization": 2.6146256389911287,
+  "inversion": 0.4427574680012185
+ },
+ "components_hours": {
+  "phase_A": {
+   "historical_native_and_assessment": 5.8,
+   "law_jvps": 1.0083362755278358,
+   "mechanism_encoder_jvps": 0.0970180581343205,
+   "mechanism_chain_jvps": 0.48763447179517244,
+   "mechanism_stage_outputs": 0.585,
+   "attack_A_grid": 0.6406411642034072,
+   "attack_B_grid": 1.7726009238608336
+  },
+  "phase_B": {
+   "historical_native_clean_assessment": 23.59,
+   "law_jvps": 3.970139546931023,
+   "attack_A_selected": 0.7679784350087479,
+   "attack_B_selected_and_fidelity": 1.57555798499541
+  }
+ },
+ "fixed_hours_per_phase": {
+  "phase_A": {
+   "setup_downloads_loading": 1.5,
+   "retrieval": 2.0
+  },
+  "phase_B": {
+   "setup_downloads_loading": 1.5,
+   "retrieval": 4.5
+  }
+ },
+ "margin": 1.3,
+ "phase_A_projected_hours": {
+  "compute": 10.39123089352157,
+  "with_margin": 13.508600161578041,
+  "with_margin_and_fixed": 17.00860016157804
+ },
+ "phase_B_projected_hours": {
+  "compute": 29.90367596693518,
+  "with_margin": 38.87477875701573,
+  "with_margin_and_fixed": 44.87477875701573
+ }
+}
