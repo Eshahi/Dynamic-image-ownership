@@ -1,0 +1,219 @@
+{
+ "amendment": "B1",
+ "kappa_R0": {
+  "value": 0.9356228097983527,
+  "status": "FIT_QUALIFIED_INCOMPLETE",
+  "numerator": 2374.5831650228643,
+  "denominator": 2537.970579762414,
+  "vectors_per_cell": {
+   "R0-0.1": 88,
+   "R0-0.2": 87,
+   "R0-0.4": 88
+  },
+  "triplets_with_two_or_more": true
+ },
+ "q90_R0": {
+  "value": 8.656472669396045,
+  "infinite": false,
+  "complete_sources": 28,
+  "status": "RADIUS_CONSERVATIVE_FINITE",
+  "units": "native decoded score units",
+  "source_scores": [
+   {
+    "source": 1682,
+    "complete": true,
+    "score": 6.538185142016483
+   },
+   {
+    "source": 1398,
+    "complete": false,
+    "score": {
+     "kind": "positive_infinity",
+     "value": null
+    }
+   },
+   {
+    "source": 30,
+    "complete": true,
+    "score": 5.852038546952892
+   },
+   {
+    "source": 1777,
+    "complete": true,
+    "score": 2.2183991075681853
+   },
+   {
+    "source": 450,
+    "complete": true,
+    "score": 6.3807422345833755
+   },
+   {
+    "source": 1464,
+    "complete": true,
+    "score": 4.7798555189318
+   },
+   {
+    "source": 715,
+    "complete": true,
+    "score": 1.8494131404629908
+   },
+   {
+    "source": 1397,
+    "complete": true,
+    "score": 3.7575733838931047
+   },
+   {
+    "source": 1522,
+    "complete": true,
+    "score": 7.485279437749797
+   },
+   {
+    "source": 913,
+    "complete": true,
+    "score": 4.092651643242002
+   },
+   {
+    "source": 1737,
+    "complete": true,
+    "score": 1.8226595136453057
+   },
+   {
+    "source": 1359,
+    "complete": true,
+    "score": 6.437678065406823
+   },
+   {
+    "source": 599,
+    "complete": true,
+    "score": 4.12828357499707
+   },
+   {
+    "source": 1647,
+    "complete": true,
+    "score": 4.868588414808107
+   },
+   {
+    "source": 629,
+    "complete": true,
+    "score": 3.5007593378476036
+   },
+   {
+    "source": 1596,
+    "complete": true,
+    "score": 5.178069104785596
+   },
+   {
+    "source": 370,
+    "complete": true,
+    "score": 4.420648165106519
+   },
+   {
+    "source": 1720,
+    "complete": true,
+    "score": 3.246628470529095
+   },
+   {
+    "source": 165,
+    "complete": true,
+    "score": 4.1635865981258355
+   },
+   {
+    "source": 1779,
+    "complete": true,
+    "score": 6.028870656798182
+   },
+   {
+    "source": 1536,
+    "complete": false,
+    "score": {
+     "kind": "positive_infinity",
+     "value": null
+    }
+   },
+   {
+    "source": 1323,
+    "complete": true,
+    "score": 4.36150121663756
+   },
+   {
+    "source": 1670,
+    "complete": true,
+    "score": 3.6447850408444378
+   },
+   {
+    "source": 1330,
+    "complete": true,
+    "score": 3.8650737065169505
+   },
+   {
+    "source": 723,
+    "complete": true,
+    "score": 3.367759506134793
+   },
+   {
+    "source": 89,
+    "complete": true,
+    "score": 4.625264519402965
+   },
+   {
+    "source": 529,
+    "complete": true,
+    "score": 4.228998089057706
+   },
+   {
+    "source": 1639,
+    "complete": true,
+    "score": 6.2652384220644395
+   },
+   {
+    "source": 960,
+    "complete": true,
+    "score": 4.434905061460508
+   },
+   {
+    "source": 1655,
+    "complete": true,
+    "score": 8.656472669396045
+   }
+  ]
+ },
+ "development_majorities": {
+  "R0-0.1": {
+   "fit": {
+    "sources": 30,
+    "law_positive": 26,
+    "actual_positive": 30
+   },
+   "calibration": {
+    "sources": 30,
+    "law_positive": 28,
+    "actual_positive": 30
+   }
+  },
+  "R0-0.2": {
+   "fit": {
+    "sources": 30,
+    "law_positive": 21,
+    "actual_positive": 29
+   },
+   "calibration": {
+    "sources": 30,
+    "law_positive": 21,
+    "actual_positive": 28
+   }
+  },
+  "R0-0.4": {
+   "fit": {
+    "sources": 30,
+    "law_positive": 7,
+    "actual_positive": 17
+   },
+   "calibration": {
+    "sources": 30,
+    "law_positive": 5,
+    "actual_positive": 22
+   }
+  }
+ },
+ "note": "descriptive development agreement; the amended law is exploratory and outside the Holm family"
+}
