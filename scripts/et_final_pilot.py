@@ -294,6 +294,17 @@ class ClassicAttention:
         return self
 
 
+def cast_floats(x, dtype):
+    import torch
+    if isinstance(x, torch.Tensor):
+        return x.to(dtype) if x.is_floating_point() else x
+    if isinstance(x, dict):
+        return {k: cast_floats(v, dtype) for k, v in x.items()}
+    if isinstance(x, (list, tuple)):
+        return type(x)(cast_floats(v, dtype) for v in x)
+    return x
+
+
 def rel_err(a, b):
     import torch
     a, b = a.float(), b.float()
@@ -364,7 +375,9 @@ def encode_terms(fam, regen, rgb_in, dtype_override=None):
     if upcast:
         vae.to(dtype=torch.float32)
     with torch.no_grad():
-        post = vae.encode(x.to(dtype)).latent_dist
+        # Native SDXL img2img casts the preprocessed image to the pipeline dtype (fp16) before upcasting it.
+        x = x.to(torch.float16).float() if upcast else x.to(dtype)
+        post = vae.encode(x).latent_dist
     terms = dict(mean=post.mean.detach().clone(), std=post.std.detach().clone())
     if upcast:
         vae.to(dtype=torch.float16)
@@ -417,6 +430,7 @@ def check_jvp_chain(fam, regen, reader, layout, resize, rgb_c0, rgb_f5, strength
     start_err = rel_err(state, first)
     # 3. Denoiser steps with forward-mode JVP.
     step_rows = []
+    tangent32 = tangent.float()
     tape_step = Tape()
     tape_step.draws = step_draws
     for k, ((a, kw), t) in enumerate(zip(calls, timesteps)):
@@ -431,14 +445,32 @@ def check_jvp_chain(fam, regen, reader, layout, resize, rgb_c0, rgb_f5, strength
             pred = pred[0] if isinstance(pred, tuple) else pred.sample
             return sched.step(pred, t, z, return_dict=False, **extra)[0]
 
+        # Linear in the tangent: propagate a unit-norm fp16 tangent and keep the rescaled tangent in fp32
+        # (the first pilot run overflowed the fp16 SDXL UNet tangent at its first step).
+        scale_k = tangent32.norm().clamp_min(1e-30)
+        unit = (tangent32 / scale_k).to(state.dtype)
+        precision = "native"
         tick = time.monotonic()
         with ClassicAttention(pipe.unet), sdpa_kernel([SDPBackend.MATH]), torch.no_grad(), tape_step.replay(start=k if fam == "K3" else 0,
                                                                                 stop=(k + 1) if fam == "K3" else 0):
-            nxt, tangent = jvp(f, (state,), (tangent,))
+            nxt, out = jvp(f, (state,), (unit,))
+            if not bool(torch.isfinite(out).all()):
+                # Declared surrogate: this step's tangent in an fp32 denoiser (primal stays the native fp16 result).
+                precision = "fp32_surrogate_after_nonfinite_native"
+                pipe.unet.to(dtype=torch.float32)
+                cond32 = cast_floats(cond, torch.float32)
+                try:
+                    tape_step.replay(start=k if fam == "K3" else 0, stop=(k + 1) if fam == "K3" else 0)
+                    _, out = jvp(lambda z, t=t, cond=cond32, extra=extra: f(z, t, cond, extra),
+                                 (state.float(),), (unit.float(),))
+                finally:
+                    pipe.unet.to(dtype=torch.float16)
         torch.cuda.synchronize()
-        step_rows.append(dict(t=t, seconds=time.monotonic() - tick, primal_rel_err=rel_err(nxt, states[k]),
-                              tangent_norm=float(tangent.float().norm()), finite=bool(torch.isfinite(tangent).all())))
+        tangent32 = out.float() * scale_k
+        step_rows.append(dict(t=t, seconds=time.monotonic() - tick, precision=precision, primal_rel_err=rel_err(nxt, states[k]),
+                              tangent_norm=float(tangent32.norm()), finite=bool(torch.isfinite(tangent32).all())))
         state = nxt
+    tangent = tangent32.to(state.dtype) if bool(torch.isfinite(tangent32).all()) and tangent32.abs().max() < 6e4 else tangent32
     # 4. Decode, resize to 512, F5 reader encoder (fp32 SD1.5 posterior mode), as one JVP.
     if fam == "K3":
         def decode(z):
@@ -465,7 +497,7 @@ def check_jvp_chain(fam, regen, reader, layout, resize, rgb_c0, rgb_f5, strength
     # The JVP is linear in the tangent: propagate a unit-norm tangent and rescale in fp32, so the fp16 decoder's
     # tangent cannot overflow (pilot debug run 3 gave non-finite chips with the raw tangent).
     scale = tangent.float().norm()
-    unit = (tangent.float() / scale.clamp_min(1e-30)).to(tangent.dtype)
+    unit = (tangent.float() / scale.clamp_min(1e-30)).to(state.dtype)
     decode_precision = "native"
     tick = time.monotonic()
     with ClassicAttention(pipe.movq if fam == "K3" else pipe.vae, reader.vae), sdpa_kernel([SDPBackend.MATH]), torch.no_grad():
@@ -507,11 +539,12 @@ def check_encoder_jvp(name, encode, x, direction, module=None):
     import torch
     from torch.func import jvp
     from torch.nn.attention import SDPBackend, sdpa_kernel
+    unit = (direction.float() / direction.float().norm().clamp_min(1e-30)).to(direction.dtype)  # gain is scale-free
     tick = time.monotonic()
     with ClassicAttention(module), sdpa_kernel([SDPBackend.MATH]), torch.no_grad():
-        z, zt = jvp(encode, (x,), (direction,))
+        z, zt = jvp(encode, (x,), (unit,))
     torch.cuda.synchronize()
-    return dict(encoder=name, seconds=time.monotonic() - tick, gain=float(zt.float().norm() / direction.float().norm()),
+    return dict(encoder=name, seconds=time.monotonic() - tick, gain=float(zt.float().norm() / unit.float().norm()),
                 finite=bool(torch.isfinite(zt).all()), latent_shape=list(z.shape))
 
 
