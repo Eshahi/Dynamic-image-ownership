@@ -1,0 +1,52 @@
+{
+ "split": "fit (30 sources)",
+ "pooled_kappa": 0.02864678377709646,
+ "family": {
+  "R0": {
+   "kappa": 0.9356228097983527,
+   "denominator_share": 0.02961557597448442
+  },
+  "R1": {
+   "kappa": 0.000966395736405682,
+   "denominator_share": 0.9703844240255154
+  }
+ },
+ "cell": {
+  "R0-0.1": {
+   "kappa": 1.0825432407858433,
+   "n": 88,
+   "median_cos_v_actual": 0.8960392250630598,
+   "median_norm_ratio_v_over_actual": 0.8297212847637612
+  },
+  "R0-0.2": {
+   "kappa": 0.9799892350977076,
+   "n": 87,
+   "median_cos_v_actual": 0.8282565724652728,
+   "median_norm_ratio_v_over_actual": 0.7959705848034239
+  },
+  "R0-0.4": {
+   "kappa": 0.605491052872738,
+   "n": 88,
+   "median_cos_v_actual": 0.682109457860412,
+   "median_norm_ratio_v_over_actual": 0.9304228492355191
+  },
+  "R1-0.1": {
+   "kappa": 0.0046272042067232394,
+   "n": 90,
+   "median_cos_v_actual": 0.046924468916535664,
+   "median_norm_ratio_v_over_actual": 7.726180824374881
+  },
+  "R1-0.2": {
+   "kappa": 0.0009729114068084198,
+   "n": 90,
+   "median_cos_v_actual": 0.015615852725704042,
+   "median_norm_ratio_v_over_actual": 14.767794768474864
+  },
+  "R1-0.4": {
+   "kappa": 0.0001210879066634871,
+   "n": 90,
+   "median_cos_v_actual": 0.012848502709496291,
+   "median_norm_ratio_v_over_actual": 14.174373623642763
+  }
+ }
+}

@@ -1,0 +1,922 @@
+{
+ "record": "final-study Phase-A freeze",
+ "protocol": "07-final-experiment.md section 4; analysis/training-missingness-design.md; analysis/quality-baseline-contract.md; 05-informed-attacks.md",
+ "approval": "user, 2026-10-26: Phase A with option (a), total cap 22 instance-hours; development sources only",
+ "amendment_option_a": "native trajectories run inside the derivative path's kernels (classic attention processor, explicit fp32-internal LayerNorm), so the law's C0 primal equals the native output (max primal error 0.0); see pilot/PILOT-REPORT.md",
+ "machine": "vast.ai 57583551, RTX 4090 24 GB, Ryzen 9 5950X, 62 GB RAM; USD .448/h",
+ "timeline_utc": {
+  "instance_start": "2026-10-26T08:08Z",
+  "stage1_start": "2026-10-26T08:59Z",
+  "stage1_end": "2026-10-26T10:57Z",
+  "attack_freeze": "2026-10-26T13:33:03Z",
+  "detector_release_start": "2026-10-26T13:34Z",
+  "fit_freeze": "2026-10-26T15:01:25Z",
+  "instance_stop": "2026-10-26T15:26Z",
+  "instance_hours": 7.3
+ },
+ "code_sha256": {
+  "scripts/et_final_phase_a.py": "d07c041ba5a2b07520be34b80721c143a90780e53e711543395bb9926f4a8b3f",
+  "scripts/et_final_phase_a_attacks.py": "dadd278b527200b02b710ade2489cffe41774c3bcb4f4e18866f8a25e177e2f5",
+  "scripts/et_final_phase_a_fit.py": "01064deb9b16cd904336ae810bc4826260ed2a54bc75db52a11fda00de8faac0",
+  "scripts/et_final_phase_a_mechanism.py": "63634c079e7b9fa3fc7868f6eb3e5b224932b754e6ba544eb7cfddede11dfaca",
+  "scripts/et_final_phase_a_driver.sh": "cab990bf3257aad6889033f17fc1873a10e77282981708a1b6e5ce3dd0653f28",
+  "scripts/et_final_pilot.py": "4875064494b3a44b7d1e933f07eefe7d8169f8fcf1989b1767f3bbca4feab4b5",
+  "scripts/encoder_transfer_runtime.py": "5cd5038496c5f56df05e16bc7ad9c5fbdfa26475080c22b3c0baac5849cce460",
+  "scripts/encoder_transfer_test.py": "94526efe437d24717b04dc3d008d1ad867d3c4ac6e9e9d8eff8c7bde2594b6e6"
+ },
+ "config_sha256": {
+  "source-list.json": "490d3d04efcf6e02a61eeadeacb7494313d2a5607b84fd57a7a2c0e6faea8b72",
+  "stage2b-config.json": "6217e4955cb475f5ad19d1af0953c8be831bfb557d745e4f70d78827261dc60a"
+ },
+ "run_files_sha256": {
+  "native.jsonl": "849a254328cc0bc16c1c14f67f3895b210793336215c81f66e8c1ecd4a3ddf24",
+  "attacks.jsonl": "fe0b18c2cca52e31c65d579a4daf31f108390bbc666ad19853fd88c5688ebd9e",
+  "detect.jsonl": "08137a6b5b805a342266cd586d210ba8dc110ab8e6e49aac3dba97d96c0d1235",
+  "mechanism.jsonl": "9ca320d288a8fa120da50501895eb8d960922a2519e563cfe74b72cfab44892f",
+  "mechanism-e.json": "e0707ef939d2268969e56ec088ceb991d86c1b6d6792b3dee79784de363713b6",
+  "attack-freeze.json": "d4d0487932f433303f5517f646519358fc9fb16784f09e499eb25f2eb9772827",
+  "phase-a-fit.json": "192706a99d8321808310697f0bf14a14b894e99f024ff3be76f8b827ee45615a",
+  "phase-a-diagnostic-rows.json": "6319bfcc8e06904cec26cbe511313f6fad6c2e8ccb6070da1a10a3aecfcd6337"
+ },
+ "native_settings": "R0 SD1.5 and R1 SDXL img2img, DDIM 20 leading, eta 0, empty prompt, CFG 1, strengths .1/.2/.4, seeds 12/13/14; marked outputs replay the C0 trajectory's recorded noise (Tape) with seed label +1000",
+ "noise_convention": "pilot.Tape records every diffusers randn_tensor draw of the C0 call in call order and replays it for the four marks",
+ "cells": [
+  "R0-0.1",
+  "R0-0.2",
+  "R0-0.4",
+  "R1-0.1",
+  "R1-0.2",
+  "R1-0.4"
+ ],
+ "training_weight": "1/18 per seed vector (kappa); 1/6 per source-cell row (comparator)",
+ "fit_sources": [
+  127,
+  902,
+  73,
+  908,
+  1637,
+  471,
+  790,
+  1355,
+  1712,
+  459,
+  508,
+  72,
+  1295,
+  626,
+  1774,
+  1786,
+  1548,
+  1507,
+  636,
+  693,
+  853,
+  436,
+  544,
+  1404,
+  1180,
+  673,
+  1332,
+  1785,
+  309,
+  1408
+ ],
+ "calibration_sources": [
+  1682,
+  1398,
+  30,
+  1777,
+  450,
+  1464,
+  715,
+  1397,
+  1522,
+  913,
+  1737,
+  1359,
+  599,
+  1647,
+  629,
+  1596,
+  370,
+  1720,
+  165,
+  1779,
+  1536,
+  1323,
+  1670,
+  1330,
+  723,
+  89,
+  529,
+  1639,
+  960,
+  1655
+ ],
+ "kappa": {
+  "value": 0.02864678377709646,
+  "status": "FIT_QUALIFIED_INCOMPLETE",
+  "numerator": 2454.9478454758214,
+  "denominator": 85697.15415796833,
+  "vectors_per_cell": {
+   "R0-0.1": 88,
+   "R0-0.2": 87,
+   "R0-0.4": 88,
+   "R1-0.1": 90,
+   "R1-0.2": 90,
+   "R1-0.4": 90
+  },
+  "triplets_with_two_or_more": true,
+  "planned_vectors": 540,
+  "available_vectors": 533
+ },
+ "q90": {
+  "value": 15.098281782816844,
+  "status": "RADIUS_CONSERVATIVE_FINITE",
+  "complete_sources": 28,
+  "units": "native decoded score units",
+  "source_scores": [
+   {
+    "source": 1682,
+    "complete": true,
+    "score": 11.626374584868
+   },
+   {
+    "source": 1398,
+    "complete": false,
+    "score": {
+     "kind": "positive_infinity",
+     "value": null
+    }
+   },
+   {
+    "source": 30,
+    "complete": true,
+    "score": 12.435619131885057
+   },
+   {
+    "source": 1777,
+    "complete": true,
+    "score": 10.503138562948608
+   },
+   {
+    "source": 450,
+    "complete": true,
+    "score": 10.424532576073396
+   },
+   {
+    "source": 1464,
+    "complete": true,
+    "score": 15.098281782816844
+   },
+   {
+    "source": 715,
+    "complete": true,
+    "score": 6.533770148815808
+   },
+   {
+    "source": 1397,
+    "complete": true,
+    "score": 11.5157046477269
+   },
+   {
+    "source": 1522,
+    "complete": true,
+    "score": 9.474505859262077
+   },
+   {
+    "source": 913,
+    "complete": true,
+    "score": 11.477303969641676
+   },
+   {
+    "source": 1737,
+    "complete": true,
+    "score": 10.000702847892057
+   },
+   {
+    "source": 1359,
+    "complete": true,
+    "score": 12.222540573021154
+   },
+   {
+    "source": 599,
+    "complete": true,
+    "score": 11.455374102822047
+   },
+   {
+    "source": 1647,
+    "complete": true,
+    "score": 10.97534056116345
+   },
+   {
+    "source": 629,
+    "complete": true,
+    "score": 8.880103898195781
+   },
+   {
+    "source": 1596,
+    "complete": true,
+    "score": 14.20370801132645
+   },
+   {
+    "source": 370,
+    "complete": true,
+    "score": 10.590098798515738
+   },
+   {
+    "source": 1720,
+    "complete": true,
+    "score": 8.472419154572085
+   },
+   {
+    "source": 165,
+    "complete": true,
+    "score": 9.988664346897899
+   },
+   {
+    "source": 1779,
+    "complete": true,
+    "score": 12.309109629927836
+   },
+   {
+    "source": 1536,
+    "complete": false,
+    "score": {
+     "kind": "positive_infinity",
+     "value": null
+    }
+   },
+   {
+    "source": 1323,
+    "complete": true,
+    "score": 11.540655853898315
+   },
+   {
+    "source": 1670,
+    "complete": true,
+    "score": 13.719090628991093
+   },
+   {
+    "source": 1330,
+    "complete": true,
+    "score": 11.842163132585332
+   },
+   {
+    "source": 723,
+    "complete": true,
+    "score": 6.295124518502858
+   },
+   {
+    "source": 89,
+    "complete": true,
+    "score": 12.425475556453488
+   },
+   {
+    "source": 529,
+    "complete": true,
+    "score": 8.164715857142397
+   },
+   {
+    "source": 1639,
+    "complete": true,
+    "score": 14.01596247891591
+   },
+   {
+    "source": 960,
+    "complete": true,
+    "score": 11.6194681698578
+   },
+   {
+    "source": 1655,
+    "complete": true,
+    "score": 13.001888703548417
+   }
+  ]
+ },
+ "quality_comparator": {
+  "status": "BASELINE_UNAVAILABLE",
+  "features": [
+   "c0_lpips_median",
+   "c0_psnr_median",
+   "c0_ssim_median",
+   "input_lpips",
+   "input_psnr",
+   "input_ssim"
+  ],
+  "coefficients": [
+   -0.3756630733354235,
+   -1.0068868097708359,
+   -0.935517463213489,
+   -0.8579770672996782,
+   0.0693853333613063,
+   0.8458751640632223,
+   -0.3221912309509034
+  ],
+  "means": [
+   0.16370686245235522,
+   23.419753255687002,
+   0.6721273092416069,
+   0.025280937298454997,
+   44.40068527173303,
+   0.9827966484407837
+  ],
+  "scales": [
+   0.07382155109831251,
+   4.060134682472982,
+   0.1563919360433703,
+   0.02196750239177508,
+   0.9930181619605705,
+   0.004583979922102517
+  ],
+  "zero_variance": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ],
+  "rows": 176,
+  "positives": 73,
+  "diagnostics": {
+   "status": "converged",
+   "iterations": 5,
+   "gradient_inf": 8.520961713998076e-15,
+   "objective": 16.702829727914015
+  },
+  "rows_per_source": {
+   "127": 6,
+   "902": 6,
+   "73": 6,
+   "908": 6,
+   "1637": 6,
+   "471": 6,
+   "790": 6,
+   "1355": 6,
+   "1712": 6,
+   "459": 4,
+   "508": 6,
+   "72": 5,
+   "1295": 6,
+   "626": 6,
+   "1774": 6,
+   "1786": 6,
+   "1548": 6,
+   "1507": 6,
+   "636": 6,
+   "693": 6,
+   "853": 6,
+   "436": 5,
+   "544": 6,
+   "1404": 6,
+   "1180": 6,
+   "673": 6,
+   "1332": 6,
+   "1785": 6,
+   "309": 6,
+   "1408": 6
+  },
+  "rows_per_cell": {
+   "R0-0.1": 29,
+   "R0-0.2": 28,
+   "R0-0.4": 29,
+   "R1-0.1": 30,
+   "R1-0.2": 30,
+   "R1-0.4": 30
+  }
+ },
+ "attacks": {
+  "A": {
+   "status": "INACTIVE_QUALITY_INELIGIBLE",
+   "selected": null,
+   "candidates": [
+    {
+     "theta": [
+      0.05
+     ],
+     "eligible": false,
+     "score": 0.650539,
+     "cost": 0.05,
+     "arms": {
+      "f5-r2": {
+       "passing_sources": 24,
+       "passing_outputs": 72,
+       "scheduled_outputs": 180,
+       "mean_budget_use": 0.7203347090769696
+      },
+      "v5-r3": {
+       "passing_sources": 25,
+       "passing_outputs": 75,
+       "scheduled_outputs": 180,
+       "mean_budget_use": 0.6947669543601849
+      },
+      "wam": {
+       "passing_sources": 25,
+       "passing_outputs": 74,
+       "scheduled_outputs": 180,
+       "mean_budget_use": 0.7213923775487477
+      },
+      "vine-r": {
+       "passing_sources": 27,
+       "passing_outputs": 81,
+       "scheduled_outputs": 180,
+       "mean_budget_use": 0.6505390637450751
+      }
+     }
+    },
+    {
+     "theta": [
+      0.1
+     ],
+     "eligible": false,
+     "score": 0.866569,
+     "cost": 0.1,
+     "arms": {
+      "f5-r2": {
+       "passing_sources": 16,
+       "passing_outputs": 48,
+       "scheduled_outputs": 180,
+       "mean_budget_use": 0.9148242965340616
+      },
+      "v5-r3": {
+       "passing_sources": 16,
+       "passing_outputs": 48,
+       "scheduled_outputs": 180,
+       "mean_budget_use": 0.9057517223887973
+      },
+      "wam": {
+       "passing_sources": 16,
+       "passing_outputs": 48,
+       "scheduled_outputs": 180,
+       "mean_budget_use": 0.8897113851375048
+      },
+      "vine-r": {
+       "passing_sources": 16,
+       "passing_outputs": 48,
+       "scheduled_outputs": 180,
+       "mean_budget_use": 0.8665691147247951
+      }
+     }
+    },
+    {
+     "theta": [
+      0.15
+     ],
+     "eligible": false,
+     "score": 0.943908,
+     "cost": 0.15,
+     "arms": {
+      "f5-r2": {
+       "passing_sources": 7,
+       "passing_outputs": 21,
+       "scheduled_outputs": 180,
+       "mean_budget_use": 0.9691948997753637
+      },
+      "v5-r3": {
+       "passing_sources": 7,
+       "passing_outputs": 21,
+       "scheduled_outputs": 180,
+       "mean_budget_use": 0.9693230212838564
+      },
+      "wam": {
+       "passing_sources": 9,
+       "passing_outputs": 27,
+       "scheduled_outputs": 180,
+       "mean_budget_use": 0.948364236785306
+      },
+      "vine-r": {
+       "passing_sources": 9,
+       "passing_outputs": 29,
+       "scheduled_outputs": 180,
+       "mean_budget_use": 0.9439078877369563
+      }
+     }
+    },
+    {
+     "theta": [
+      0.2
+     ],
+     "eligible": false,
+     "score": 0.980369,
+     "cost": 0.2,
+     "arms": {
+      "f5-r2": {
+       "passing_sources": 2,
+       "passing_outputs": 6,
+       "scheduled_outputs": 180,
+       "mean_budget_use": 0.9803692862943366
+      },
+      "v5-r3": {
+       "passing_sources": 3,
+       "passing_outputs": 10,
+       "scheduled_outputs": 180,
+       "mean_budget_use": 0.9929736955850212
+      },
+      "wam": {
+       "passing_sources": 4,
+       "passing_outputs": 12,
+       "scheduled_outputs": 180,
+       "mean_budget_use": 0.9811961145864593
+      },
+      "vine-r": {
+       "passing_sources": 5,
+       "passing_outputs": 15,
+       "scheduled_outputs": 180,
+       "mean_budget_use": 0.9819126829504967
+      }
+     }
+    }
+   ],
+   "planned_grid_rows": 2880,
+   "observed_grid_rows": 2880
+  },
+  "B": {
+   "status": "INACTIVE_QUALITY_INELIGIBLE",
+   "selected": null,
+   "candidates": [
+    {
+     "theta": [
+      0.025,
+      0.1
+     ],
+     "eligible": false,
+     "score": 0.300796,
+     "cost": 0.0,
+     "arms": {
+      "f5-r2": {
+       "passing_sources": 25,
+       "passing_outputs": 25,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.3732766730503903
+      },
+      "v5-r3": {
+       "passing_sources": 26,
+       "passing_outputs": 26,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.3180686285098393
+      },
+      "wam": {
+       "passing_sources": 24,
+       "passing_outputs": 24,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.3589350107229418
+      },
+      "vine-r": {
+       "passing_sources": 28,
+       "passing_outputs": 28,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.30079614567673885
+      }
+     }
+    },
+    {
+     "theta": [
+      0.025,
+      1.0
+     ],
+     "eligible": false,
+     "score": 0.303444,
+     "cost": 0.0,
+     "arms": {
+      "f5-r2": {
+       "passing_sources": 25,
+       "passing_outputs": 25,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.3754469661249055
+      },
+      "v5-r3": {
+       "passing_sources": 26,
+       "passing_outputs": 26,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.32106941483087004
+      },
+      "wam": {
+       "passing_sources": 25,
+       "passing_outputs": 25,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.36157610722714
+      },
+      "vine-r": {
+       "passing_sources": 28,
+       "passing_outputs": 28,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.30344363198512114
+      }
+     }
+    },
+    {
+     "theta": [
+      0.025,
+      10.0
+     ],
+     "eligible": false,
+     "score": 0.352105,
+     "cost": 0.0,
+     "arms": {
+      "f5-r2": {
+       "passing_sources": 25,
+       "passing_outputs": 25,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.42889862010876356
+      },
+      "v5-r3": {
+       "passing_sources": 25,
+       "passing_outputs": 25,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.3745669759809972
+      },
+      "wam": {
+       "passing_sources": 24,
+       "passing_outputs": 24,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.410663872750269
+      },
+      "vine-r": {
+       "passing_sources": 28,
+       "passing_outputs": 28,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.35210454815791703
+      }
+     }
+    },
+    {
+     "theta": [
+      0.075,
+      0.1
+     ],
+     "eligible": false,
+     "score": 0.208096,
+     "cost": 0.0,
+     "arms": {
+      "f5-r2": {
+       "passing_sources": 27,
+       "passing_outputs": 27,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.24055199718309772
+      },
+      "v5-r3": {
+       "passing_sources": 29,
+       "passing_outputs": 29,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.21861995963586706
+      },
+      "wam": {
+       "passing_sources": 28,
+       "passing_outputs": 28,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.251405842602253
+      },
+      "vine-r": {
+       "passing_sources": 32,
+       "passing_outputs": 32,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.20809641532186
+      }
+     }
+    },
+    {
+     "theta": [
+      0.075,
+      1.0
+     ],
+     "eligible": false,
+     "score": 0.21309,
+     "cost": 0.0,
+     "arms": {
+      "f5-r2": {
+       "passing_sources": 27,
+       "passing_outputs": 27,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.24464109001888174
+      },
+      "v5-r3": {
+       "passing_sources": 29,
+       "passing_outputs": 29,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.2243897474060456
+      },
+      "wam": {
+       "passing_sources": 29,
+       "passing_outputs": 29,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.2565558496862649
+      },
+      "vine-r": {
+       "passing_sources": 32,
+       "passing_outputs": 32,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.21309004185928238
+      }
+     }
+    },
+    {
+     "theta": [
+      0.075,
+      10.0
+     ],
+     "eligible": false,
+     "score": 0.297791,
+     "cost": 0.0,
+     "arms": {
+      "f5-r2": {
+       "passing_sources": 25,
+       "passing_outputs": 25,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.33305165626936495
+      },
+      "v5-r3": {
+       "passing_sources": 27,
+       "passing_outputs": 27,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.3193034213036299
+      },
+      "wam": {
+       "passing_sources": 28,
+       "passing_outputs": 28,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.3433496832019754
+      },
+      "vine-r": {
+       "passing_sources": 30,
+       "passing_outputs": 30,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.2977905925363303
+      }
+     }
+    },
+    {
+     "theta": [
+      0.225,
+      0.1
+     ],
+     "eligible": false,
+     "score": 0.218505,
+     "cost": 0.0,
+     "arms": {
+      "f5-r2": {
+       "passing_sources": 31,
+       "passing_outputs": 31,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.2432885867440038
+      },
+      "v5-r3": {
+       "passing_sources": 31,
+       "passing_outputs": 31,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.22771319746971128
+      },
+      "wam": {
+       "passing_sources": 30,
+       "passing_outputs": 30,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.2564078040627969
+      },
+      "vine-r": {
+       "passing_sources": 37,
+       "passing_outputs": 37,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.2185051607795888
+      }
+     }
+    },
+    {
+     "theta": [
+      0.225,
+      1.0
+     ],
+     "eligible": false,
+     "score": 0.223569,
+     "cost": 0.0,
+     "arms": {
+      "f5-r2": {
+       "passing_sources": 31,
+       "passing_outputs": 31,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.24869067118399668
+      },
+      "v5-r3": {
+       "passing_sources": 31,
+       "passing_outputs": 31,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.2362974743462271
+      },
+      "wam": {
+       "passing_sources": 30,
+       "passing_outputs": 30,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.2632554156912697
+      },
+      "vine-r": {
+       "passing_sources": 37,
+       "passing_outputs": 37,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.22356917967812884
+      }
+     }
+    },
+    {
+     "theta": [
+      0.225,
+      10.0
+     ],
+     "eligible": false,
+     "score": 0.361016,
+     "cost": 0.0,
+     "arms": {
+      "f5-r2": {
+       "passing_sources": 23,
+       "passing_outputs": 23,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.38768583660324407
+      },
+      "v5-r3": {
+       "passing_sources": 26,
+       "passing_outputs": 26,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.386612900843223
+      },
+      "wam": {
+       "passing_sources": 25,
+       "passing_outputs": 25,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.404301739608248
+      },
+      "vine-r": {
+       "passing_sources": 28,
+       "passing_outputs": 28,
+       "scheduled_outputs": 60,
+       "mean_budget_use": 0.36101573374536305
+      }
+     }
+    }
+   ],
+   "planned_grid_rows": 2160,
+   "observed_grid_rows": 2160
+  }
+ },
+ "attack_rule": "05-informed-attacks.md: quality-only eligibility and budget-use score; no detector output exists at freeze",
+ "semantic_proxy": "predicted 320-chip vector b + kappa v read by the unchanged F5 soft-binding semantic reader with the C0 output's seven-view CLIP descriptor in place of the unknown marked-output descriptor; C = read and content match; three-seed majority",
+ "development_diagnostics": {
+  "note": "descriptive, reused development data; not an H4 test",
+  "by_cell": {
+   "R0-0.1": {
+    "actual_rate": 1.0,
+    "law_rate": 0.0,
+    "law_brier": 1.0,
+    "quality_brier": 0.20924037412180738,
+    "law_available": 60,
+    "quality_available": 59
+   },
+   "R0-0.2": {
+    "actual_rate": 0.95,
+    "law_rate": 0.0,
+    "law_brier": 0.95,
+    "quality_brier": 0.20829309929794898,
+    "law_available": 60,
+    "quality_available": 58
+   },
+   "R0-0.4": {
+    "actual_rate": 0.65,
+    "law_rate": 0.0,
+    "law_brier": 0.65,
+    "quality_brier": 0.25678196321116814,
+    "law_available": 60,
+    "quality_available": 57
+   },
+   "R1-0.1": {
+    "actual_rate": 0.0,
+    "law_rate": 0.0,
+    "law_brier": 0.0,
+    "quality_brier": 0.10240913907868383,
+    "law_available": 60,
+    "quality_available": 60
+   },
+   "R1-0.2": {
+    "actual_rate": 0.0,
+    "law_rate": 0.0,
+    "law_brier": 0.0,
+    "quality_brier": 0.13184363807649008,
+    "law_available": 60,
+    "quality_available": 60
+   },
+   "R1-0.4": {
+    "actual_rate": 0.0,
+    "law_rate": 0.0,
+    "law_brier": 0.0,
+    "quality_brier": 0.14082040283972636,
+    "law_available": 60,
+    "quality_available": 60
+   }
+  }
+ },
+ "missingness": "safety-checker blocks are recorded as safety_blocked, never retried or bypassed; an unavailable law vector keeps its weight in the ledger; unchanged rules of training-missingness-design.md",
+ "engineering_events": [
+  "mechanism R1 encoder gains first ended error_terminal (fp16 encode refused by the official SDXL VAE wrapper); fixed in 55f4159 and rerun with --retry-errors (48/48 ok); no stage-1, attack, detector or fit row was affected",
+  "the driver's mechanism process ran out of GPU memory loading K3 after SDXL (SDXL references kept); fixed in 5072221 and K3 ran in its own process (84/84 ok)",
+  "two R0 mechanism stage rows (stage:R0:459:12 and stage:R0:72:12, the same C0 safety blocks as stage 1 at R0 .2) are recorded as error_terminal by the mechanism script; they are descriptive only"
+ ],
+ "h4_consequence": "BASELINE_UNAVAILABLE prevents primary H4 evaluation (training-missingness-design.md); H4 keeps p=1 in Phase B",
+ "h5_consequence": "both attacks inactive: the four A and four B H5 slots keep p=1 (07 section 6)",
+ "phase_b_forecast": "phase-b-forecast.json"
+}
