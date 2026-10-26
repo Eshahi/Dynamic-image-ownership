@@ -333,7 +333,8 @@ def main():
                     journal.append(row)
                     print(f"[{time.strftime('%H:%M:%S')}] {uid} {row['status']} {row['seconds']:.1f}s", flush=True)
                     rt.release()
-        regen = None
+        # Drop every reference to this family's pipeline before the next one loads (SDXL then K3 ran out of memory).
+        regen = pipe = enc = modules = None
         rt.release()
 
 
