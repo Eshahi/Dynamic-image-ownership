@@ -19,7 +19,16 @@ if [ -z "$EXTRA" ] && [ ! -f "$OUT/phase-b-sources.json" ]; then
   $PY scripts/et_final_phase_b.py --stage acquire $A >> "$OUT/acquire.log" 2>&1; log "acquire exit $?"
 fi
 [ -f "$OUT/phase-b-sources.json" ] || [ -n "$EXTRA" ] || { log "no frozen source list; stop"; exit 1; }
-$PY scripts/et_final_phase_b.py --stage clean $A >> "$OUT/clean.log" 2>&1; log "clean exit $?"
+K=${CLEAN_SHARDS:-1}  # parallel marking on slow-core machines: K shards over sources[i::K], then a merge
+if [ "$K" -gt 1 ]; then
+  for i in $(seq 0 $((K - 1))); do
+    $PY scripts/et_final_phase_b.py --stage clean $A --shard $i/$K --threads ${SHARD_THREADS:-16} >> "$OUT/clean-$i.log" 2>&1 &
+  done
+  wait; log "clean shards done"
+  $PY scripts/et_final_phase_b.py --stage merge-clean $A >> "$OUT/clean.log" 2>&1; log "clean merge exit $?"
+else
+  $PY scripts/et_final_phase_b.py --stage clean $A >> "$OUT/clean.log" 2>&1; log "clean exit $?"
+fi
 if [ ! -f "$OUT/forecast-seal.json" ]; then
   $PY scripts/et_final_phase_b.py --stage forecast $A >> "$OUT/forecast.log" 2>&1; log "forecast exit $?"
 fi

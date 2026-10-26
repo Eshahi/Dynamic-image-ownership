@@ -231,8 +231,15 @@ def clean(args):
     torch.backends.cudnn.benchmark = False
     torch.use_deterministic_algorithms(True)
     config, _ = pilot.channel_specs()
-    journal = pa.Journal(args.out / "clean.jsonl")
     ids = sources(args)
+    if args.shard:
+        # Parallel marking: shard i of k embeds sources[i::k] into its own journal (merged by --stage merge-clean).
+        i, k = (int(x) for x in args.shard.split("/"))
+        ids = ids[i::k]
+        journal = pa.Journal(args.out / f"clean-shard{i}.jsonl")
+        torch.set_num_threads(max(1, args.threads))
+    else:
+        journal = pa.Journal(args.out / "clean.jsonl")
     for arm in ARMS:
         pending = [s for s in ids if not journal.done(f"clean:{s}:{arm}:None:None")]
         if not pending:
@@ -276,6 +283,22 @@ def clean(args):
             x, u = rt.load_rgb(source_png(args, s)), rt.load_rgb(r["output"]["path"])
             r = dict(r, distortion=dict(status="ok", **quality(x, u), lpips=models.lpips_score(lp, x, u)))
             journal.append(r)
+
+
+def merge_clean(args):
+    """Append every shard's latest clean rows to clean.jsonl (each source belongs to exactly one shard)."""
+    journal = pa.Journal(args.out / "clean.jsonl")
+    shards = sorted(args.out.glob("clean-shard*.jsonl"))
+    seen = {}
+    for path in shards:
+        for uid, row in pa.Journal(path).latest.items():
+            if uid in seen:
+                raise SystemExit(f"{uid} appears in two shards")
+            seen[uid] = row
+    for uid, row in seen.items():
+        if journal.latest.get(uid) != row:
+            journal.append(dict(row))
+    print(json.dumps(dict(shards=[p.name for p in shards], rows=len(seen))))
 
 
 # ---------------------------------------------------------------- forecast
@@ -493,10 +516,12 @@ def outcome(args):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--stage", choices=("acquire", "clean", "forecast", "outcome"), required=True)
+    parser.add_argument("--stage", choices=("acquire", "clean", "merge-clean", "forecast", "outcome"), required=True)
     parser.add_argument("--assets", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--rehearsal", default="", help="comma-separated development source IDs instead of acquisition")
+    parser.add_argument("--shard", default="", help="clean stage only: i/k embeds sources[i::k] into clean-shard{i}.jsonl")
+    parser.add_argument("--threads", type=int, default=16, help="CPU threads per clean shard")
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
     if args.rehearsal:
@@ -505,7 +530,7 @@ def main():
         rehearsal_sources(args, [int(x) for x in args.rehearsal.split(",")])
     elif args.stage != "acquire" and read(args.out / "phase-b-sources.json").get("rehearsal"):
         raise SystemExit("this output folder is a rehearsal folder")
-    dict(acquire=acquire, clean=clean, forecast=forecast, outcome=outcome)[args.stage](args)
+    dict(acquire=acquire, clean=clean, forecast=forecast, outcome=outcome)[args.stage](args) if args.stage != "merge-clean" else merge_clean(args)
 
 
 if __name__ == "__main__":
