@@ -40,6 +40,7 @@ MARKS = ARMS[1:]
 CELLS = [("R0", .1), ("R0", .2), ("R0", .4), ("R1", .1), ("R1", .2), ("R1", .4), ("K3", .2)]
 LAW_CELLS = {("R0", .1), ("R0", .2), ("R0", .4)}
 SEEDS = pa.SEEDS
+PACE = 20  # seconds between original-file downloads from upload.wikimedia.org
 UA = "ImageOwnershipThesisResearch/1.0 (academic watermark-robustness study; low-rate scripted download of POTD originals)"
 
 
@@ -76,9 +77,11 @@ class InfrastructureError(RuntimeError):
 def http_get(url, retries=3, deadline=600, min_rate=50_000):
     """GET with retries of the identical request; a transfer slower than min_rate bytes/s or longer than deadline
     seconds counts as a network failure. Exhausted retries raise InfrastructureError (the stage stops, no row)."""
+    import urllib.error
     import urllib.request
-    last = None
-    for attempt in range(retries):
+    last, waits, attempt = None, 0, 0
+    while attempt < retries:
+        attempt += 1
         try:
             req = urllib.request.Request(url, headers={"User-Agent": UA})
             start, chunks, size = time.monotonic(), [], 0
@@ -96,8 +99,16 @@ def http_get(url, retries=3, deadline=600, min_rate=50_000):
         except Exception as exc:
             if getattr(exc, "code", None) == 404:
                 raise  # the file is gone: an acquisition failure of this identifier
+            if isinstance(exc, urllib.error.HTTPError) and exc.code == 429 and waits < 12:
+                # Wikimedia's rate limit: honour Retry-After and repeat the identical request (not a retry).
+                pause = min(int(exc.headers.get("Retry-After") or 300), 900) + 5
+                print(f"[{time.strftime('%H:%M:%S')}] HTTP 429, waiting {pause} s as asked", flush=True)
+                waits += 1
+                attempt -= 1
+                time.sleep(pause)
+                continue
             last = exc
-            time.sleep(10 * (attempt + 1))
+            time.sleep(10 * attempt)
     raise InfrastructureError(f"network failure after {retries} identical requests: {last!r}")
 
 
@@ -156,7 +167,7 @@ def acquire(args):
                 row["fetched"] = "reused verified bytes"
             else:
                 raw = http_get(e["original_file_url"])
-                time.sleep(1.1)
+                time.sleep(PACE)  # about 0.4 MB/s on average; the first unpaced run met HTTP 429 after nine files
             row["raw_bytes"] = len(raw)
             if len(raw) != e["size_bytes"] or hashlib.sha1(raw).hexdigest() != e["sha1"]:
                 raise ValueError("downloaded size/SHA1 differs from the manifest")
