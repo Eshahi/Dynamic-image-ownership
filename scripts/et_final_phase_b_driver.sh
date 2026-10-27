@@ -37,14 +37,14 @@ $PY scripts/et_final_phase_b.py --stage outcome $A >> "$OUT/outcome.log" 2>&1 &
 OC=$!
 sleep 600
 while kill -0 $OC 2>/dev/null; do
-  $PY scripts/et_final_phase_b_read.py --stage detect $R --threads 8 >> "$OUT/detect.log" 2>&1
+  $PY scripts/et_final_phase_b_read.py --stage detect $R --threads ${DETECT_THREADS:-8} >> "$OUT/detect.log" 2>&1
   $PY scripts/et_final_phase_b_read.py --stage quality $R --threads 4 >> "$OUT/quality.log" 2>&1
   sleep 120
 done
 wait $OC; log "outcome exit $?"
 $PY scripts/et_final_phase_b_read.py --stage quality $R --threads 6 >> "$OUT/quality.log" 2>&1 &
 QP=$!
-$PY scripts/et_final_phase_b_read.py --stage detect $R --threads 10 >> "$OUT/detect.log" 2>&1; log "detect exit $?"
+$PY scripts/et_final_phase_b_read.py --stage detect $R --threads ${DETECT_THREADS_FINAL:-10} >> "$OUT/detect.log" 2>&1; log "detect exit $?"
 wait $QP; log "quality exit $?"
 $PY research/encoder-transfer-20261019/final-study-20261025/phase-b/analyze_phase_b.py "$OUT" \
     research/encoder-transfer-20261019/final-study-20261025/phase-b/amendment-b1.json "$OUT/phase-b-results.json" "$OUT/phase-b-tables.md" \
