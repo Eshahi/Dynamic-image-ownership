@@ -12,14 +12,24 @@ quality: T7 distortions with the Phase-A quality implementation (PSNR/SSIM, GPU 
     against the item's own input u and total distortion d(y,x) against the canonical source x.
 
 Usage: python scripts/et_final_phase_b_read.py --stage detect|quality --assets /workspace/assets --out /workspace/runs/et-phase-b
+
+Parallel readers (added 2026-10-27, during the outcome stage, after measuring one F5 reader at about 1.9 s per row
+on about 19 busy cores of 128): the F5 and v5 detectors run in WORKERS subprocesses, each on a fixed hash partition
+of the item ids, appending whole rows to the same journal in one write. A CUDA out-of-memory error is the transient
+infrastructure error of a shared GPU: it is journaled as "transient_retry" (not done) at most twice per id, then
+as error_terminal (AMENDMENT-B1 section 5). Detector code, thresholds and calls are unchanged.
 """
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
+import os
+import subprocess
 import sys
 import time
 import traceback
+from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -28,6 +38,24 @@ import et_final_pilot as pilot  # noqa: E402
 import et_final_phase_a as pa  # noqa: E402
 import et_final_phase_b as pb  # noqa: E402
 from encoder_transfer_test import ALPHA, message  # noqa: E402
+
+WORKERS = 4  # parallel F5/v5 readers; with the outcome model resident the GPU keeps a wide margin (about 1.5 GB each)
+WORKER_THREADS = 24
+TRANSIENT = "transient_retry"
+
+
+def append(path, row):
+    """One os.write per row on an O_APPEND descriptor, so concurrent writers never interleave lines."""
+    row["utc"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+    fd = os.open(path, os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o664)
+    try:
+        os.write(fd, (json.dumps(row, default=str) + "\n").encode("utf-8"))
+    finally:
+        os.close(fd)
+
+
+def part(uid, k):
+    return int(hashlib.sha256(uid.encode()).hexdigest()[:8], 16) % k
 
 
 def items(args):
@@ -49,22 +77,58 @@ def items(args):
     return out, clean
 
 
+def pending(args, method):
+    journal = pa.Journal(args.out / "detect.jsonl")
+    todo_all, clean = items(args)
+    todo = [it for it in todo_all if (it[2] == method or it[2] == "unmarked") and not journal.done(f"det:{method}:{it[0]}")]
+    if args.worker:
+        i, k = map(int, args.worker.split("/"))
+        todo = [it for it in todo if part(it[0], k) == i]
+    return todo, clean
+
+
+def spawn(args, method):
+    """WORKERS readers on disjoint hash partitions; up to three rounds, so a reader that died leaves nothing behind."""
+    for _ in range(3):
+        todo, _ = pending(args, method)
+        if not todo:
+            return
+        procs = [subprocess.Popen([sys.executable, str(Path(__file__).resolve()), "--stage", "detect", "--assets", str(args.assets),
+                                   "--out", str(args.out), "--threads", str(WORKER_THREADS), "--method", method, "--worker", f"{i}/{WORKERS}"])
+                 for i in range(WORKERS)]
+        codes = [p.wait() for p in procs]
+        print(f"[{time.strftime('%H:%M:%S')}] {method}: {len(todo)} items over {WORKERS} readers, exit codes {codes}", flush=True)
+
+
 def detect(args):
     import torch
     torch.set_num_threads(args.threads)
     config, _ = pilot.channel_specs()
-    journal = pa.Journal(args.out / "detect.jsonl")
-    todo_all, clean = items(args)
-    for method in pb.MARKS:
-        todo = [it for it in todo_all if (it[2] == method or it[2] == "unmarked") and not journal.done(f"det:{method}:{it[0]}")]
+    path = args.out / "detect.jsonl"
+    tries = Counter()
+    if path.exists():
+        with open(path, encoding="utf-8") as handle:
+            for line in handle:
+                if TRANSIENT in line:
+                    try:
+                        r = json.loads(line)
+                    except json.JSONDecodeError:
+                        continue
+                    tries[r["id"]] += r.get("status") == TRANSIENT
+    for method in [args.method] if args.method else pb.MARKS:
+        todo, clean = pending(args, method)
         if not todo:
             continue
+        if not args.worker and method in ("f5-r2", "v5-r3") and len(todo) >= 2 * WORKERS:
+            spawn(args, method)
+            continue
         adapter = rt.Internal(args.assets, config) if method in ("f5-r2", "v5-r3") else rt.Wam(args.assets) if method == "wam" else rt.Vine(args.assets)
-        for n, (uid, path, arm, control, source, _) in enumerate(todo):
+        tag = f"{method} reader {args.worker}" if args.worker else method
+        for n, (uid, path_, arm, control, source, _) in enumerate(todo):
             row = dict(id=f"det:{method}:{uid}", kind="detect", method=method, item=uid, arm=arm, control=control, source=source)
             tick = time.monotonic()
             try:
-                rgb = rt.load_rgb(path)
+                rgb = rt.load_rgb(path_)
                 if method in ("f5-r2", "v5-r3"):
                     payload = clean[f"clean:{source}:{method}:None:None"].get("payload") if control == "C1" else None
                     calls = adapter.detect(rgb, method, payload, control)
@@ -75,13 +139,17 @@ def detect(args):
                     calls[ALPHA]["wrong_message_presence"] = rt.presence(calls[ALPHA]["raw"].get("decoded_message"), wrong)
                 row["calls"] = calls
                 row["status"] = "ok"
+            except torch.cuda.OutOfMemoryError:
+                rt.release()
+                row["status"] = TRANSIENT if tries[row["id"]] < 2 else "error_terminal"
+                row["error"] = traceback.format_exc()[-2000:]
             except Exception:
                 row["status"] = "error_terminal"
                 row["error"] = traceback.format_exc()[-2000:]
             row["seconds"] = time.monotonic() - tick
-            journal.append(row)
+            append(path, row)
             if n % 500 == 0:
-                print(f"[{time.strftime('%H:%M:%S')}] {method} {n}/{len(todo)}", flush=True)
+                print(f"[{time.strftime('%H:%M:%S')}] {tag} {n}/{len(todo)}", flush=True)
         adapter = None
         rt.release()
 
@@ -118,6 +186,8 @@ def main():
     parser.add_argument("--assets", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--threads", type=int, default=12)
+    parser.add_argument("--method", choices=pb.MARKS, default=None, help="detect: one method only (used by the parallel readers)")
+    parser.add_argument("--worker", default="", help="detect: i/k reads the ids whose hash partition is i (set by spawn)")
     args = parser.parse_args()
     if not (args.out / "forecast-seal.json").exists():
         raise SystemExit("detector release and quality require the forecast seal")
