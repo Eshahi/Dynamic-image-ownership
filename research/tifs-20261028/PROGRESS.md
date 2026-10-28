@@ -3,7 +3,7 @@
 **Desktop deadline: 2026-10-28 11:56:06.7876054 UTC-08:00 (19:56:06.7876054 UTC).**
 Desktop start: 2026-10-28 05:56:06.7876054 UTC-08:00 (13:56:06.7876054 UTC), from the first `Get-Date`; exactly six hours. Branch: `codex/tifs-20261028`. Author: Codex agent. Earlier CLI work began at 12:43 UTC and is retained below as history.
 
-**Closed as PARTIAL after the deadline.** At 20:14 UTC the first clock check after a long required Git-metadata approval wait showed that the deadline had passed. No further research or feature completion was attempted; subsequent work only preserved drafts, added an execution lock and wrote the truthful handoff. `FINAL-REPORT.md` is authoritative for package readiness. Stage S is NOT server-ready; WP5 did not occur.
+**Historical first closure: PARTIAL after the deadline.** At 20:14 UTC the first clock check after a long required Git-metadata approval wait showed that the deadline had passed. No further research or feature completion was attempted; subsequent work only preserved drafts, added an execution lock and wrote the truthful handoff. That snapshot is preserved in Git. The continuation below completed the package; current `FINAL-REPORT.md` and `07-review.md` govern readiness.
 
 **User-authorized continuation, 20:30 UTC:** the user explicitly said "ادامه بده تا تموم بشه" (continue until it is finished). This supersedes the elapsed session deadline for completing the research/design/server-code package; all prohibitions on laptop science, downloads of scientific assets, spending and held-out execution remain. Three bounded medium-effort implementation/protocol agents now own disjoint files; the later final review will use a fresh xhigh reviewer. The first metadata-only selection attempt stopped before network access because Windows Git paths used backslashes; normalize the Git object path and commit before retrying. The rule/order/eligibility are unchanged.
 
@@ -11,19 +11,19 @@ Desktop start: 2026-10-28 05:56:06.7876054 UTC-08:00 (13:56:06.7876054 UTC), fro
 
 Research, derivation, saved-result analysis and server-code preparation only. No image/model execution, installation, asset acquisition, GPU, SSH or paid compute on this laptop. All scientific runs remain for Claude's later server stage. The authoritative MAIN STATE was read once at session start. The current brief overrides its older statement that only writing is authorized; it does not authorize a new held-out run.
 
-The desktop client uses fixed UTC-08:00. Check UTC against 19:56:06.7876054 UTC. Begin WP6 by 19:16:06 UTC, when 40 minutes remain. There is no active CLI supervisor; the thread goal maintains continuity.
+The desktop client uses fixed UTC-08:00. The initial deadline was 19:56:06.7876054 UTC; the explicit continuation superseded it for finishing this package. No automation or scientific execution was started.
 
 ## Package log
 
 | Package | Start UTC | Finish UTC | State / evidence | Commit and push |
 |---|---|---|---|---|
 | WP0 | 12:43 | 12:46 | Starting evidence and scope read; clean branch verified; evidence summary below | `ebd4465`, pushed with upstream set |
-| WP1 | 12:46 | 14:29 | Nine TIFS-linked studies inspected: seven direct image, video and image-to-3D explicitly adjacent. Final-version/access caveats retained; broad evidence survey delivered. Prior-art delta includes SemBind and Guidance Watermarking. | `7837862`, pushed |
+| WP1 | 12:46 | 20:41 continuation | COMPLETE: ten TIFS-linked studies, eight core image and two adjacent, with explicit indexed-text/final-version caveats; prior-art delta and gap table. | `7837862`, completion `78a85a2`, pushed |
 | WP2 | 14:03 | 14:49 research; 15:28 commit | Twelve candidates, three derivations and fresh hostile review; I01 selected with blocker dispositions, I03 sole separate backup. Prospective 16-source screen preserves all controls and exact-code J. | `510fe34`, pushed |
-| WP3 | 14:49 | deadline stop | PARTIAL: Stage S config/source manifest and Stage C power/family/selection-rule files; integrated protocols and fresh identifier manifest missing. | Selection rule `3cdbb11`; other drafts in partial closure commit |
-| WP4 | parallel with WP3 | deadline stop | PARTIAL: draft writer/runtime/reader/helpers; missing setup, driver, forecast seal, analysis and complete tests. Incomplete runbook and execution lock added only during closure. | Preserved in partial closure commit |
-| WP5 | not started | not performed | Fresh independent final protocol/code review missing; WP2 hostile review does not substitute. | none |
-| WP6 | 20:14 | partial closure after deadline | FINAL-REPORT, readiness lock and MAIN state note. Conditional research feasibility; no execution readiness. | Closure commit/push recorded by Git |
+| WP3 | 14:49 | 20:47 continuation | COMPLETE: reconciled Stage S and prospective Stage C protocols, frozen development configuration, exact power and 120+40 fresh identifier-only manifest. | `78a85a2`, pushed |
+| WP4 | parallel with WP3 | 20:52 continuation | COMPLETE preparation: setup, writer, producer/readers, serial driver, measured resumable forecast/launch and analysis; 67 pure tests, 18 Python files compiled. | final package commit |
+| WP5 | 20:42 continuation | 20:53 | COMPLETE: fresh independent gpt-6-astra/xhigh review, six blockers and missing-mode follow-on fixed; accepted for later authorized server rehearsal. | `07-review.md`, final package commit |
+| WP6 | 20:14 first closure | continuation completion | COMPLETE: final report, readiness release, runbook and eight-line MAIN section; scientific feasibility remains conditional. | final package commit |
 
 Desktop restart at 13:56:06 UTC: read authoritative MAIN STATE once; read amended BRIEF and this progress file; branch is ahead by Claude's two brief amendments, with prior CLI WP1 files uncommitted. Preserve these and audit before accepting them. Desktop allocation: WP1 to about 14:40; WP2 to 15:50; WP3 to 16:40; WP4 to 18:35; WP5 to 19:15; WP6 to 19:56. Package clock checks supersede these estimates.
 
@@ -89,3 +89,9 @@ Read MAIN STATE once, the current BRIEF, Phase A and Phase B reports, the Octobe
 - 20:41 UTC: eighth core-image TIFS inspection completed through substantive indexed primary method/experiment text. The live author PDF remains unavailable; the access/version caveat is preserved.
 - 20:42 UTC: WP5 commissioned a fresh gpt-6-astra / xhigh reviewer, no inherited context, using the evidence-audit skill. Early findings on negative-gate scope, verified assets, measured unit bounds and resumed timing are being corrected; no review acceptance is presumed.
 - 20:47 UTC: integrated Stage S/Stage C protocols and fresh identifier manifest are ready for the WP3 commit. Stage C remains specification-only, with all scientific execution unapproved.
+
+- 20:48 UTC push receipt: Codex agent successfully pushed branch `codex/tifs-20261028`, range `95193cb..78a85a2`, including `fd0b682` and completed protocols/metadata. No media or scientific assets were acquired.
+- 20:53 UTC WP5 final disposition: accepted as preparation for a later authorized server rehearsal. Six blockers closed: combined-mode scientific gate, primary threat negatives, setup/assets/software binding, measured operation bounds, resumed timing and constructor memory peaks. Missing diagnostic read modes also prevent incomplete inventory from yielding GO.
+- Final verification: 67 pure-logic tests and all 18 new Python compilations passed independently. Bash was inspected statically only. Source-manifest and parent asset-plan working bytes match committed bytes; additive Stage C portability mapping accounts for 25 CRLF-only text differences without altering the original metadata draw.
+- Completion: FINAL-REPORT STATUS COMPLETE / FEASIBILITY CONDITIONAL-GO; preparation READINESS COMPLETE with scientific_execution_authorized=false. MAIN received exactly the eight-line mirrored section, preserving every preceding byte. No protected scientific artifact was modified.
+- Final package push: Codex agent, branch `codex/tifs-20261028`, range `78a85a2..HEAD`; the subsequent Git push receipt records success or failure. Scientific execution remains for the later user-authorized server session.

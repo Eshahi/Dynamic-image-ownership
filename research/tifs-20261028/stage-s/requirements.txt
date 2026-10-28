@@ -1,0 +1,30 @@
+# Exact retained Stage2b direct pins. Transitive environment is recorded in setup receipt.
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.7.1+cu128
+torchvision==0.22.1+cu128
+diffusers==0.35.1
+transformers==4.53.3
+huggingface-hub==0.34.4
+peft==0.17.0
+accelerate==1.10.1
+safetensors==0.6.2
+numpy==2.2.6
+scipy==1.15.3
+Pillow==12.3.0
+lpips==0.1.4
+omegaconf==2.3.0
+einops==0.8.0
+timm==1.0.11
+pycocotools==2.0.8
+opencv-python-headless==4.10.0.84
+scikit-image==0.24.0
+scikit-learn==1.5.2
+ftfy==6.3.1
+regex==2025.7.34
+tokenizers==0.21.2
+lightning==2.5.6
+torchmetrics==1.8.2
+av==18.1.0
+sentencepiece==0.2.2
+protobuf==7.36.2
+clip @ git+https://github.com/openai/CLIP.git@d05afc436d78f1c48dc0dbf8e5980a9d471f35f6

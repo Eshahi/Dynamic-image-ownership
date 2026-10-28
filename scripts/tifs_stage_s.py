@@ -53,6 +53,148 @@ def c0(arm):
     return arm in ("C0", "unmarked", "c0")
 
 
+def screen_launch(args, identity, now=None):
+    """A direct screen invocation cannot bypass the complete rehearsal forecast."""
+    if args.rehearsal:
+        return
+    now = time.time() if now is None else now
+    launch = args.out / "launch.json"
+    if launch.exists():
+        if common.load_json(launch)["identity"] != identity:
+            raise ValueError("Screen launch identity changed")
+        return
+    if args.stage != "prepare":
+        raise ValueError("Screen must begin with a sealed prepare stage")
+    forecast_path = args.out.parent / "forecast.json"
+    forecast = common.load_json(forecast_path)
+    rehearsal = args.out.parent / "rehearsal" / "identity.json"
+    prior = common.load_json(rehearsal)
+    if (forecast.get("status") != "GO" or forecast.get("capacity", {}).get("status") != "GO"
+            or forecast.get("complete_inventory_required") is not True
+            or forecast.get("rehearsal_identity") != common.sha256_file(rehearsal)):
+        raise ValueError("Complete successful rehearsal and capacity forecast required")
+    expected = dict(identity, rehearsal=True)
+    if prior != expected or forecast.get("config_sha256") != identity["config_sha256"]:
+        raise ValueError("Forecast/rehearsal/code/config/assets identity mismatch")
+    start_epoch = datetime.fromisoformat(identity["instance_start_utc"]).timestamp()
+    elapsed = now - start_epoch
+    required = elapsed + forecast["measured_one_time_seconds"] + 1.5 * forecast["full_variable_seconds"] + forecast["retrieval_reserve_seconds"]
+    if required > min(54000, identity["max_hours"] * 3600):
+        raise common.ResourceStop("Forecast no longer fits the actual instance clock")
+    common.atomic_json(launch, dict(identity=identity, forecast=forecast,
+        forecast_sha256=common.sha256_file(forecast_path), launched_at_epoch=now))
+
+
+def package_pins(requirements, metadata=importlib.metadata):
+    versions = {}
+    for line in requirements.read_text(encoding="utf-8").splitlines():
+        if "==" in line and not line.startswith("#"):
+            name, pin = line.strip().split("==", 1)
+            actual = metadata.version(name)
+            if actual != pin:
+                raise ValueError("Installed package pin mismatch: " + name)
+            versions[name] = actual
+        elif line.startswith("clip @ "):
+            revision = line.rsplit("@", 1)[1].strip()
+            direct = json.loads(metadata.distribution("clip").read_text("direct_url.json"))
+            if direct.get("vcs_info", {}).get("commit_id") != revision:
+                raise ValueError("Installed CLIP revision mismatch")
+            versions["clip_revision"] = revision
+    return versions
+
+
+def setup_identity(args, config, instant):
+    """Bind setup and verify large assets once, then check cheap file identities.
+
+    A changed inode/size/mtime/ctime requires fresh setup/rehearsal. This is an
+    accidental-change guard, not protection against a malicious server admin.
+    """
+    import tifs_stage_s_setup as setup
+    here = ROOT / "research/tifs-20261028/stage-s"
+    ready = args.assets / "tifs-stage-s-setup-ready.json"
+    receipt = common.load_json(ready)
+    expected = dict(instance_start_utc=instant.astimezone(timezone.utc).isoformat(),
+        source_manifest_sha256=common.sha256_file(manifest_path(config)),
+        asset_plan_sha256=common.sha256_file(here / "asset-plan.json"),
+        requirements_sha256=common.sha256_file(here / "requirements.txt"),
+        setup_code_sha256={name: common.sha256_file(ROOT / name) for name in
+            ("scripts/tifs_stage_s_setup.py", "scripts/tifs_stage_s_setup.sh",
+             "scripts/encoder_transfer_assets.py", "scripts/tifs_common.py")})
+    if receipt.get("status") != "complete" or any(receipt.get(k) != v for k, v in expected.items()):
+        raise ValueError("Setup receipt/start/source/plan/requirements/code mismatch")
+    pins = package_pins(here / "requirements.txt")
+    plan = common.load_json(here / "asset-plan.json")
+    paths = [(setup.safe_path(args.assets, r["path"]), r) for r in plan["files"]]
+    # Also bind extracted baseline code, not merely the downloaded archive.
+    for prefix in ("wam/source", "vine/source"):
+        paths.extend((p, None) for p in sorted((args.assets / prefix).rglob("*"))
+                     if p.is_file() and ".git" not in p.parts and "__pycache__" not in p.parts and p.suffix != ".pyc")
+    ledger = args.assets / "tifs-stage-s-runtime-assets.json"
+    seal = dict(setup_receipt_sha256=common.sha256_file(ready), **expected)
+    prior = common.load_json(ledger) if ledger.exists() else None
+    if prior is not None and prior.get("identity") != seal:
+        raise ValueError("Runtime asset verification identity changed")
+    records = {}
+    for path, spec in paths:
+        stat = path.stat()
+        key = str(path.relative_to(args.assets))
+        info = dict(size=stat.st_size, mtime_ns=stat.st_mtime_ns, ctime_ns=stat.st_ctime_ns,
+                    inode=stat.st_ino, device=stat.st_dev)
+        if prior is None:
+            if spec is not None:
+                setup.verify_file(path, spec)
+            records[key] = dict(metadata=info, sha256=common.sha256_file(path) if spec is None else spec["sha256"])
+        else:
+            record = prior.get("files", {}).get(key, {})
+            if record.get("metadata") != info:
+                raise ValueError("Verified runtime asset changed: " + key)
+            records[key] = record
+    if prior is not None and set(records) != set(prior["files"]):
+        raise ValueError("Runtime asset inventory changed")
+    if prior is None:
+        if args.stage != "prepare" or not args.rehearsal:
+            raise ValueError("Initial asset verification must precede rehearsal prepare")
+        common.atomic_json(ledger, dict(identity=seal, files=records))
+    return dict(**seal, runtime_assets_sha256=common.sha256_file(ledger), packages=pins)
+
+
+def timing_event(args, event, **fields):
+    args.out.mkdir(parents=True, exist_ok=True)
+    row = dict(event=event, invocation=args.invocation, epoch=time.time(), stage=args.stage,
+               method=getattr(args, "method", None), **fields)
+    path = args.out / "invocations.jsonl"
+    partial = False
+    if path.exists() and path.stat().st_size:
+        with path.open("rb") as prior:
+            prior.seek(-1, 2)
+            partial = prior.read(1) != b"\n"
+    with path.open("a", encoding="utf-8") as handle:
+        if partial:
+            handle.write("\n")
+        handle.write(json.dumps(row, sort_keys=True) + "\n")
+        handle.flush()
+        os.fsync(handle.fileno())
+
+
+def model_ready(args, label, tick, torch):
+    duration = time.monotonic() - tick
+    timing_event(args, "MODEL_READY", label=label, load_seconds=duration, memory=telemetry(torch))
+    print(json.dumps(dict(event="MODEL_READY", label=label, load_seconds=duration, memory=telemetry(torch))), flush=True)
+
+
+class Invocation:
+    def __init__(self, args):
+        self.args = args
+    def __enter__(self):
+        self.args.invocation = str(time.time_ns()) + "-" + str(os.getpid())
+        self.tick = time.monotonic()
+        timing_event(self.args, "INVOCATION_START")
+    def __exit__(self, kind, value, trace):
+        timing_event(self.args, "INVOCATION_END", seconds=time.monotonic()-self.tick,
+                     status="ok" if kind is None else "interrupted_or_failed")
+
+
+
 def start(args):
     args.out = args.out.resolve()
     args.out.mkdir(parents=True, exist_ok=True)
@@ -66,18 +208,22 @@ def start(args):
     instant = datetime.fromisoformat(args.instance_start_utc.replace("Z", "+00:00"))
     if instant.tzinfo is None or instant.timestamp() > time.time():
         raise ValueError("Instance start must be a past timezone-aware UTC instant")
+    setup_seal = setup_identity(args, config, instant)
     import encoder_transfer_runtime as rt
     import et_final_pilot as pilot
     base, specs = pilot.channel_specs()
     identity = common.runtime_identity(args.config, manifest_path(config),
-        [ROOT / "scripts" / f for f in ("tifs_common.py", "tifs_stage_s.py", "tifs_stage_s_read.py", "tifs_writer.py",
+        [ROOT / "scripts" / f for f in ("tifs_common.py", "tifs_stage_s.py", "tifs_stage_s_read.py", "tifs_writer.py", "tifs_stage_s_forecast.py", "tifs_stage_s_driver.sh", "tifs_stage_s_analyze.py",
          "encoder_transfer_runtime.py", "encoder_transfer_test.py", "et_final_pilot.py", "et_final_phase_a.py", "et_final_phase_a_attacks.py",
-         "f5_latent_codec.py", "revised_watermark_v5.py", "f5_gate.py", "three_threat_models.py", "journal_vae_probe.py")]
+         "f5_latent_codec.py", "revised_watermark_v5.py", "f5_gate.py", "three_threat_models.py", "journal_vae_probe.py", "a6_clip_visual.py", "m1_latent_reconstruction.py", "journal_wam_probe.py")]
          + [ROOT / "research/encoder-transfer-20261019/stage2b-config.json"],
         [resolve_repo(base["profile_file"])])
-    identity["packages"] = {name: importlib.metadata.version(name) for name in ("torch","diffusers","transformers","numpy","Pillow","lpips")}
+    identity["setup"] = setup_seal
+    identity["packages"] = setup_seal["packages"]
+    identity["assets_root"] = str(args.assets.resolve())
     identity.update(instance_start_utc=instant.astimezone(timezone.utc).isoformat(), max_hours=args.max_hours,
                     hourly_usd=args.hourly_usd, rehearsal=args.rehearsal)
+    screen_launch(args, identity)
     seal = args.out / "identity.json"
     if seal.exists():
         if common.load_json(seal) != identity:
@@ -93,6 +239,12 @@ def start(args):
                 common.validate_output(row, args.out)
             elif row.get("tape"):
                 common.validate_output({"status": "ok", "output": row["tape"]}, args.out)
+    if args.stage != "prepare":
+        sealed = common.load_json(args.out / "prepared.json")
+        for row in sealed["sources"].values():
+            if common.sha256_file(row["path"]) != row["canonical_png_sha256"]:
+                raise ValueError("Prepared original hash changed")
+    config["_runtime_bounds"] = None if args.rehearsal else common.load_json(args.out / "launch.json")["forecast"]["operation_bounds_seconds"]
     return config, base, specs, budget, rt
 
 
@@ -104,6 +256,12 @@ def telemetry(torch):
 
 
 def estimate(config, label, fallback=600):
+    bounds = config.get("_runtime_bounds")
+    if bounds is not None:
+        value = bounds.get(label)
+        if type(value) not in (float, int) or not math.isfinite(value) or value <= 0:
+            raise ValueError("Missing sealed rehearsal operation bound: " + label)
+        return value
     return config.get("budget", {}).get("unit_estimates_seconds", {}).get(label, fallback)
 
 
@@ -133,6 +291,7 @@ def prepare(args, config, base, specs, budget, rt, torch):
     import three_threat_models as models
     from a6_clip_visual import load_visual_encoder
     from f5_gate import semantic_feature
+    budget.require(estimate(config, "prepare", 120))
     clip, transform = load_visual_encoder(args.assets / "a6/clip/ViT-B-32.pt", device="cpu")
     records, features = {}, {}
     for row in [*donors, *targets]:
@@ -172,6 +331,7 @@ def execute_unit(args, config, budget, rt, torch, journal, row, fn, label):
         return
     budget.require(estimate(config, label))
     tick = time.monotonic()
+    row.update(operation=label, invocation=args.invocation)
     torch.cuda.reset_peak_memory_stats()
     try:
         row.update(fn())
@@ -206,7 +366,7 @@ def clean(args, config, base, specs, budget, rt, torch):
             adapter = F6Writer(args.assets, base, config)
         else:
             adapter = None if c0(arm) else rt.Internal(args.assets, base) if arm in ("f5-r2", "v5-r3") else rt.Wam(args.assets) if arm == "wam" else rt.Vine(args.assets, encoding=True)
-        print(json.dumps(dict(event="MODEL_READY",arm=arm,load_seconds=time.monotonic()-loadtick,memory=telemetry(torch))),flush=True)
+        model_ready(args, "load_" + arm, loadtick, torch)
         try:
             for sid in todo:
                 if args.rehearsal and arm in NEW:
@@ -219,7 +379,7 @@ def clean(args, config, base, specs, budget, rt, torch):
                         return dict(output=dict(path=str(cp),sha256=common.sha256_file(cp)))
                     execute_unit(args,config,budget,rt,torch,checkj,dict(id=checkid,kind="writer-rehearsal",source=sid),check,"writer_rehearsal")
                     if checkj.latest[checkid].get("status")!="ok":
-                        raise RuntimeError("Writer rehearsal gradient/projection validation failed; cannot mark")
+                        raise SystemExit(4)
                 uid = f"clean:{sid}:{arm}"
                 def work(sid=sid, uid=uid):
                     rgb = rt.load_rgb(p["sources"][sid]["path"])
@@ -267,7 +427,7 @@ def native(args, config, base, specs, budget, rt, torch):
         regen = rt.Regenerator(args.assets, specs[family])
         modules = [regen.pipe.unet, regen.pipe.movq if family == "K3" else regen.pipe.vae]
         common.atomic_json(args.out / (family + "-ready.json"), dict(ready=True, memory=telemetry(torch), concurrency_authorized=False))
-        print(json.dumps(dict(event="MODEL_READY",family=family,load_seconds=time.monotonic()-loadtick,memory=telemetry(torch))),flush=True)
+        model_ready(args, "load_" + family, loadtick, torch)
         try:
             with pilot.ClassicAttention(*modules):
                 for cell in selected:
@@ -292,6 +452,13 @@ def native(args, config, base, specs, budget, rt, torch):
                                                 torch.save([d.cpu() for d in tape.draws], tp)
                                                 row["tape"] = dict(path=str(tp), sha256=common.sha256_file(tp))
                                                 row["tape_receipt"] = tape.receipt()
+                                        if args.rehearsal:
+                                            if not tape.draws:
+                                                raise RuntimeError("Native parity cannot verify an empty tape")
+                                            replayed = pa.run_native(family, regen, rgb, cell["strength"], seed, tape.replay())
+                                            if tape.cursor != len(tape.draws) or not (generated == replayed).all():
+                                                raise RuntimeError("Native C0 capture/replay RGB8 parity failed")
+                                            row["native_parity"] = dict(status="ok", exact_rgb8=True, draws=len(tape.draws))
                                     else:
                                         control = journal.latest.get(controlid, {})
                                         if not control.get("tape"):
@@ -415,7 +582,7 @@ def seal_manifest(args, config, *unused):
         if path.exists(): report["journals"][stage]=common.sha256_file(path)
     common.atomic_json(args.out / "producer-manifest.json", report)
     if report["status"] != "complete":
-        raise RuntimeError("INCOMPLETE: producer inventory contains missing/blocked/error outcomes")
+        raise SystemExit(4)
 
 
 def parser(stages):
@@ -434,33 +601,34 @@ def parser(stages):
 
 def main():
     args = parser(("prepare","clean","native","threats","secondary","manifest")).parse_args()
-    stage_tick=time.monotonic()
-    torch = environment_guard()
-    values = start(args)
-    print(json.dumps(dict(event="STAGE_START",stage=args.stage,memory=telemetry(torch))),flush=True)
-    try:
-        dict(prepare=prepare,clean=clean,native=native,threats=threats,secondary=secondary,manifest=seal_manifest)[args.stage](args,*values[:4],values[4],torch)
-    except common.ResourceStop as exc:
-        common.atomic_json(args.out / "RESOURCE_STOP.json",dict(status="RESOURCE_STOP",reason=str(exc),stage=args.stage,memory=telemetry(torch)))
-        raise SystemExit(3)
-    except torch.cuda.OutOfMemoryError:
-        common.atomic_json(args.out / "RESOURCE_STOP.json",dict(status="RESOURCE_STOP",reason="CUDA OOM during model load/stage",stage=args.stage,memory=telemetry(torch),error=traceback.format_exc()))
-        raise SystemExit(3)
-    if args.stage in ("clean","native","threats","secondary"):
-        p,_,_=prepared(args)
-        expected=expected_ids(values[0],p)[args.stage]
-        if args.stage=="native" and args.family:
-            cellids={c["id"] for c in values[0]["cells"] if c["family"]==args.family}
-            expected=[uid for uid in expected if uid.split(":")[1] in cellids]
-        rows=common.Journal(args.out/(args.stage+".jsonl")).latest
-        missing=[uid for uid in expected if rows.get(uid,{}).get("status")!="ok"]
-        if missing:
-            common.atomic_json(args.out/(args.stage+("-"+args.family if args.family else "")+"-incomplete.json"),dict(status="INCOMPLETE",unresolved=missing))
-            raise SystemExit(4)
-    elapsed=time.monotonic()-stage_tick
-    count=len(common.Journal(args.out/(args.stage+".jsonl")).latest) if args.stage in ("clean","native","threats","secondary") else None
-    print(json.dumps(dict(event="STAGE_DONE",stage=args.stage,seconds=elapsed,terminal_count=count,
-        units_per_second=count/elapsed if count is not None else None,memory=telemetry(torch))),flush=True)
+    with Invocation(args):
+        stage_tick=time.monotonic()
+        torch = environment_guard()
+        try:
+            values = start(args)
+            print(json.dumps(dict(event="STAGE_START",stage=args.stage,memory=telemetry(torch))),flush=True)
+            dict(prepare=prepare,clean=clean,native=native,threats=threats,secondary=secondary,manifest=seal_manifest)[args.stage](args,*values[:4],values[4],torch)
+        except common.ResourceStop as exc:
+            common.atomic_json(args.out / "RESOURCE_STOP.json",dict(status="RESOURCE_STOP",reason=str(exc),stage=args.stage,memory=telemetry(torch)))
+            raise SystemExit(3)
+        except torch.cuda.OutOfMemoryError:
+            common.atomic_json(args.out / "RESOURCE_STOP.json",dict(status="RESOURCE_STOP",reason="CUDA OOM during model load/stage",stage=args.stage,memory=telemetry(torch),error=traceback.format_exc()))
+            raise SystemExit(3)
+        if args.stage in ("clean","native","threats","secondary"):
+            p,_,_=prepared(args)
+            expected=expected_ids(values[0],p)[args.stage]
+            if args.stage=="native" and args.family:
+                cellids={c["id"] for c in values[0]["cells"] if c["family"]==args.family}
+                expected=[uid for uid in expected if uid.split(":")[1] in cellids]
+            rows=common.Journal(args.out/(args.stage+".jsonl")).latest
+            missing=[uid for uid in expected if rows.get(uid,{}).get("status")!="ok"]
+            if missing:
+                common.atomic_json(args.out/(args.stage+("-"+args.family if args.family else "")+"-incomplete.json"),dict(status="INCOMPLETE",unresolved=missing))
+                raise SystemExit(4)
+        elapsed=time.monotonic()-stage_tick
+        count=len(common.Journal(args.out/(args.stage+".jsonl")).latest) if args.stage in ("clean","native","threats","secondary") else None
+        print(json.dumps(dict(event="STAGE_DONE",stage=args.stage,seconds=elapsed,terminal_count=count,
+            units_per_second=count/elapsed if count is not None else None,memory=telemetry(torch))),flush=True)
 
 
 if __name__ == "__main__":

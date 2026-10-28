@@ -60,6 +60,28 @@ class CommonTests(unittest.TestCase):
             self.assertTrue(Journal(p).done("x"))
             self.assertTrue(p.read_bytes().endswith(b"\n"))
 
+    def test_read_only_never_repairs_or_commits_inflight_tail(self):
+        with tempfile.TemporaryDirectory() as t:
+            p = Path(t) / "absent" / "j"
+            self.assertEqual(Journal(p, read_only=True).latest, {})
+            self.assertFalse(p.parent.exists())
+            p.parent.mkdir()
+            head = b'{"id":"x","status":"ok"}\n'
+            for tail in (b'{"id":"partial', b'{"id":"y","status":"ok"}', b'\xff', b'{"id":"y","status":"ok","x":NaN}'):
+                p.write_bytes(head+tail)
+                j = Journal(p, read_only=True)
+                self.assertEqual(set(j.latest), {"x"})
+                self.assertEqual(j.incomplete_tail_bytes, len(tail))
+                self.assertEqual(p.read_bytes(), head+tail)
+                self.assertEqual(list(p.parent.glob("*.torn-*")), [])
+                with self.assertRaises(RuntimeError):
+                    j.append({"id":"z","status":"ok"})
+            for tail in (b'broken\n', b'{"id":"z","status":"ok","a":NaN}\n', b'{"id":"z","status":"ok","a":1,"a":2}\n'):
+                p.write_bytes(head+tail)
+                for mode in (True, False):
+                    with self.assertRaises(ValueError):
+                        Journal(p, read_only=mode)
+
     def test_output_hash_missing_corrupt_and_escape(self):
         with tempfile.TemporaryDirectory() as t:
             p = Path(t) / "artifact.bin"

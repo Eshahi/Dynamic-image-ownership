@@ -1,21 +1,83 @@
-# Stage S handoff — INCOMPLETE, DO NOT RUN
+# Stage S server runbook for Claude
 
-2026-10-28 partial-session snapshot. This is a completion checklist, not the server-ready runbook required by WP4. No setup or launch command is certified. `READINESS.json` blocks both scientific entrypoints before any torch import.
+This is a prepared server study, not a record of execution. Use only after the user authorizes the rented-server session and the committed `READINESS.json` says COMPLETE. Nothing in this preparation authorizes spending, SSH, licence acceptance or held-out execution. Stage C is a separate design and must not run through these commands.
 
-## Required work before renting or launching
+## Inputs and server
 
-1. Write `05-stage-s-protocol.md` and reconcile it with `frozen-config.json`, `source-manifest.json`, the selected rule and every producer/reader endpoint. Write `06-stage-c-design.md`; keep Stage C execution separately gated.
-2. Implement a read-only Journal path compatible with producer/reader calls. Preserve latest-row semantics; a concurrent reader must not truncate or repair an active producer's journal. Verify crash, torn-row, resume and missingness behavior with pure-logic tests.
-3. Complete pinned server setup and `scripts/tifs_stage_s_driver.sh`. Audit all retained adapter signatures, payload fields, hashing, canonical source paths, C0 replay and shard inventory. Release GPU objects between families; do not presume GPU concurrency fits 24 GB.
-4. Implement rehearsal timing aggregation and the frozen full-inventory forecast/launch seal, including paid setup/rehearsal/idle time and the one-hour retrieval reserve. Exit 3 denotes resource stop; exit 4 currently denotes incomplete scientific inventory. The driver must preserve missing/safety/error outcomes without calling them negatives or silently skipping them.
-5. Implement analysis applying every frozen C/J, clean quality, relative distortion, C0/wrong-owner and T4/T5 condition. Produce tables/JSON with denominators and lower/upper missing-outcome bounds. Keep the eight standard distortions in their separate secondary family.
-6. Compile every new Python file and finish all meaningful pure-logic tests. Prior syntax checks do not validate runtime behavior. The common-helper filesystem tests were not fully verified in this session.
-7. Obtain the fresh WP5 independent review of the complete protocol/code diff; record real findings and dispositions in `07-review.md`. No such review has occurred. Commit corrections before changing READINESS to COMPLETE.
+Use a Linux RTX 4090-class CUDA server with 24 GB GPU memory, Python 3.10+ (3.11 preferred), Git, and the committed `codex/tifs-20261028` checkout. Run from the repository root. Do not use a laptop or WSL. Keep the exact reviewed commit for the entire rehearsal and screen; save `git rev-parse HEAD` in the run folder. Direct dependency versions and baseline/model revisions are in `requirements.txt` and `asset-plan.json`; transitive package versions are recorded at setup.
 
-## First later server action
+The asset root must already contain the 36 original canonical PNGs at `sources/SOURCE_ID.png`, matching `source-manifest.json`. These are existing development sources only. Copy/reuse the retained canonical files; setup deliberately fails before installation if they are absent or changed. Do not reacquire or reencode images to make a hash match. The completed Phase-B pool, its reserves and all Stage C identifiers stay outside this run.
 
-After completion and a later authorized server session, run only the specified two-source rehearsal first. Verify gradient/projection parity, codec/native timestep and scaling agreement, saved-PNG reads, all arms and all native families, safety bookkeeping, output hashes, T4/T5, secondary distortions, 24 GB memory and complete-inventory runtime. A failed implementation check stops launch. Do not alter scientific thresholds to pass rehearsal.
+Selected model/checkpoint files total 48,597,702,199 bytes. Reuse the existing verified assets where available. Setup verifies sizes and SHA256, prepares pinned WAM/VINE code, and records its receipt. It rejects modified existing files and gated HTTP failures. It never accepts terms or obtains credentials. The old 76 GB disk is not presumed sufficient for packages, temporary files and outputs; retain at least 20% filesystem margin after the conservative projected screen. Do not delete previous runs to make space without separate authorization.
 
-The future full screen has 16 development donors, three seeds, four native cells and eight arms, plus clean, threats and secondary inventories. Rehearsal and full screen use different output folders but share the actual instance-start timestamp and the 15-hour paid ceiling. The required output collection includes code/config/source identities, every journal and shard, incomplete/resource-stop records, hashed producer inventory, forecasts, analysis tables/JSON and all outputs needed for provenance. Retrieval and stopping the rented instance must fit the reserved time; never destroy the instance on the user's behalf.
+## Establish the single paid clock and setup
 
-See `../FINAL-REPORT.md` for the proposed gates, budget arithmetic, scientific limitations and missing Stage C manifest. No metadata selection, scientific run, model download, package installation or rental was performed during this session.
+Set START to the actual provider-reported instance start in UTC, not the time this shell opens or setup finishes. Keep it unchanged through every resume. PRICE is the user-approved actual hourly price within the design's .45–.60 USD range; a different price needs a pre-run budget revision. These examples are commands for the later server only:
+
+```bash
+export ASSETS=/workspace/assets
+export VENV=/workspace/venv
+export RUN_ROOT=/workspace/runs/tifs-stage-s-20261028
+export START=REPLACE_WITH_ACTUAL_INSTANCE_START_UTC
+export PRICE=REPLACE_WITH_APPROVED_HOURLY_USD
+export TIFS_PYTHON="$VENV/bin/python"
+mkdir -p "$RUN_ROOT"
+git rev-parse HEAD > "$RUN_ROOT/code-commit.txt"
+bash scripts/tifs_stage_s_setup.sh "$ASSETS" "$VENV" "$START" > "$RUN_ROOT/setup.log" 2>&1
+```
+
+Setup creates or reuses the venv, installs retained direct package pins, verifies CLIP's exact commit, runs `pip check`, validates all selected assets and writes `ASSETS/tifs-stage-s-setup-ready.json` and `tifs-stage-s-download-ledger.json`. A failure is not a licence to relax pins or replace a baseline. Setup, idle time, rehearsal, screen and retrieval all count against 15 hours. Setup reserves one hour for retrieval and fails with code 3 at the shared deadline.
+
+Before GPU work inspect the setup-ready status, instance start, package list and plan/source/code hashes. The scientific entrypoints bind this receipt and the verified asset identities into their run identity. Set no network credentials for science; the driver forces Hugging Face/Transformers offline mode.
+
+## First scientific action: the complete two-source rehearsal
+
+```bash
+bash scripts/tifs_stage_s_driver.sh "$ASSETS" "$RUN_ROOT" "$START" "$PRICE" rehearsal
+```
+
+The default mode is also rehearsal. This command stops after the rehearsal and its forecast; it does not start the 16-source screen. Rehearsal uses the two frozen donors and two separate targets, every arm, all native cells/seeds, all seven threat conditions, all eight secondary transforms and every reader/quality pass. It includes six new F6 marks and 192 native attempts. GPU work is serial: one model family or reader at a time. `PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True` is set by the driver and runtime.
+
+Watch `driver.log` and the stage logs under `rehearsal/`. Producer and reader emit `STAGE_START`, `MODEL_READY`, `UNIT_DONE`, `STAGE_DONE`, counts, elapsed time and memory. A long F6 mark may not emit UNIT_DONE until it finishes; inspect process/GPU status rather than start a duplicate worker. Writer diagnostics must show finite nonzero input gradients, differentiable-projection agreement and the native schedule receipt. Native C0 capture/replay must be exact in saved RGB8, with complete random-tape consumption; the differentiable posterior-mode surrogate is intentionally not claimed identical to a sampled native trajectory.
+
+Every producer artifact is hashed before its journal row. Reader/quality results use the saved PNG, with explicit F6-to-F5 reader dispatch. Safety blocks retain the original identity and never receive a changed prompt/seed. Missing or failed dependencies stay unresolved. Do not disable a safety check to complete the rehearsal.
+
+## Forecast and screen launch
+
+The forecast requires complete rehearsal producer, detector and quality inventories, successful writer checks and native parity. It includes elapsed paid setup/rehearsal/idle time, measured loading overhead, 1.5 times the complete screen variable work and a one-hour retrieval reserve. Per-operation measured bounds protect later checkpoints. It also checks projected output/tape storage with margin and measured memory against 24 GB. Missing measurements are INCOMPLETE; a failed capacity bound is RESOURCE_STOP. Rehearsal survival/quality results do not tune any setting or select another arm.
+
+Inspect `forecast.json`, the complete producer manifest, rehearsal-check receipts and source assignment before proceeding. The 15-hour ceiling is not a measured forecast until this file exists. Existing Phase A/B totals (7.3/27.2 hours) are historical context, not estimates for F6. New writer time may dominate and may prevent the full screen. Do not shrink n, steps, cells, arms or controls after seeing outcomes.
+
+If all implementation checks and the intact resource forecast pass, continue the already-authorized Stage S session:
+
+```bash
+bash scripts/tifs_stage_s_driver.sh "$ASSETS" "$RUN_ROOT" "$START" "$PRICE" full
+```
+
+The driver first revalidates the rehearsal and current paid clock, then runs the screen. A direct screen invocation cannot bypass the matching forecast/launch seal. The screen contains 128 clean, 1,536 native, 896 threat and 1,024 secondary producer identities, 6,272 detector rows and 3,584 quality rows. No parallel GPU readers are launched on the 24 GB device.
+
+## Decision, failure and resume
+
+Exit codes are 0 (complete GO or successful rehearsal), 2 (SCIENTIFIC_KILL from screen analysis), 3 (RESOURCE_STOP), 4 (INCOMPLETE), and other nonzero values (implementation/setup failure). Exit 0 from an individual stage is not a scientific GO. The final authority is `screen/analysis/analysis.json`, with complete gates and inventory. Binding generalization remains separately unresolved when human operational-distinctness labels are missing.
+
+The analyzer uses both C and exact-code/content J, conservative three-seed majority bounds, strict clean quality/F and paired distortion limits. Primary candidate C0/wrong-owner C/F checks cover clean/native/threat queries. Eligible T4/T5 D AND F gates use combined binding; disabling binding is a diagnostic ablation. Secondary outcomes have zero selection weight, but their inventory must be complete. WAM/VINE known-message presence is reported separately from owner/content consistency.
+
+A completed terminal journal row is not rerun. Interrupted work without a terminal row can resume with the identical command/config/code/assets/start, preserving torn bytes and latest-row semantics. Do not remove error/safety rows to manufacture completeness. Resource-stop markers block automatic retries; retain the run and propose a separately reviewed remedy. Stop and repair implementation errors before further work; changes to sealed code invalidate same-run resume and need a new declared output folder, with the original paid clock still counting.
+
+Use a normal foreground interrupt to stop safely, allow the process to exit, and keep journals and partial files. Never run two producers against one output folder. The shell driver is intended for a foreground monitored terminal or explicitly managed server session; never leave it unobserved past the instance ceiling.
+
+## Retrieve and stop
+
+Reserve the final hour for collection and stopping the instance. Collect the whole RUN_ROOT, setup-ready/download ledger, exact repository commit/config/manifests/requirements, all original and output hashes, random tapes, writer diagnostics, launch/forecast receipts, logs, failed rows and every analysis JSON/CSV. Preserve outputs needed to inspect surprising or reported results. Do not selectively retrieve successful cases.
+
+The analysis script can be rerun over saved JSON without models:
+
+```bash
+"$TIFS_PYTHON" scripts/tifs_stage_s_analyze.py --out "$RUN_ROOT/screen" --config research/tifs-20261028/stage-s/frozen-config.json
+```
+
+After collection is verified, the authorized operator stops the rented instance using the provider's controls. Do not destroy it. A Stage S GO supports discussing Stage C; it does not authorize acquiring its held-out images, accepting SD3.5 terms, running confirmation, claiming TIFS acceptance or submitting the article.
+
+## Validation boundary
+
+Local verification consists of stdlib pure-logic tests and syntax compilation only; see `../07-review.md` and `../FINAL-REPORT.md` for the final counts and dispositions. Bash was statically inspected, not executed locally. The first server rehearsal must establish numerical compatibility, gradient behavior, package availability, GPU fit, timing and saved-image behavior. No such scientific outcome is asserted by this runbook.

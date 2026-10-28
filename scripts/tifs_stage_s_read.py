@@ -50,10 +50,16 @@ def detect(args, config, base, specs, budget, rt, torch):
         expected = [f"det:{method}:{r['id']}" for r in todo]
         pending = [r for r in todo if not journal.done(f"det:{method}:{r['id']}")]
         if not pending:
+            snapshot_args_method = args.method
+            args.method = method
+            snapshot(args,journal,expected)
+            args.method = snapshot_args_method
             continue
         budget.require(stage.estimate(config,"load_reader",300))
+        loadtick = time.monotonic()
         internal = method in (*stage.NEW,"f5-r2","v5-r3")
         adapter = rt.Internal(args.assets,base) if internal else rt.Wam(args.assets) if method=="wam" else rt.Vine(args.assets)
+        stage.model_ready(args, "load_reader", loadtick, torch)
         try:
             for item in pending:
                 uid = f"det:{method}:{item['id']}"
@@ -96,7 +102,8 @@ def detect(args, config, base, specs, budget, rt, torch):
                         payload_role="evaluator reference only; suspect supplies detector semantics")
                 stage.execute_unit(args,config,budget,rt,torch,journal,
                     dict(id=uid,kind="detect",method=method,item=item["id"],arm=item["arm"],source=item["source"],
-                         control=item["control"],producer_kind=item["kind"]),work,"detect_"+method)
+                         control=item["control"],producer_kind=item["kind"],
+                         **{k:item[k] for k in ("cell","family","strength","seed","target","condition","transform") if k in item}),work,"detect_"+method)
         finally:
             adapter=None
             rt.release()
@@ -111,7 +118,9 @@ def quality(args,config,base,specs,budget,rt,torch):
     rows=[r for r in items(args) if partition(r["id"],args.worker)]
     journal=common.Journal(shard_path(args))
     budget.require(stage.estimate(config,"load_quality",300))
+    loadtick=time.monotonic()
     metric=attacks.Quality(args.assets)
+    stage.model_ready(args,"load_quality",loadtick,torch)
     try:
         for item in rows:
             uid="quality:"+item["id"]
@@ -145,21 +154,27 @@ def main():
     parser.add_argument("--worker",default="",help="Explicit disjoint i/k shard; default one serial worker")
     parser.add_argument("--threads",type=int,default=12)
     args=parser.parse_args()
-    partition("validate",args.worker)
-    torch=stage.environment_guard(); torch.set_num_threads(args.threads)
-    values=stage.start(args)
-    print(json.dumps(dict(event="STAGE_START",stage=args.stage,worker=args.worker,memory=stage.telemetry(torch))),flush=True)
-    try:
-        dict(detect=detect,quality=quality)[args.stage](args,*values[:4],values[4],torch)
-    except common.ResourceStop as exc:
-        common.atomic_json(args.out/("RESOURCE_STOP-reader-"+args.stage+"-"+(args.method or "all")+"-"+args.worker.replace("/","-of-")+".json"),
-            dict(status="RESOURCE_STOP",reason=str(exc),stage=args.stage))
-        raise SystemExit(3)
-    except torch.cuda.OutOfMemoryError:
-        common.atomic_json(args.out/("RESOURCE_STOP-reader-"+args.stage+"-"+(args.method or "all")+"-"+args.worker.replace("/","-of-")+".json"),
-            dict(status="RESOURCE_STOP",reason="CUDA OOM during reader model load",stage=args.stage,memory=stage.telemetry(torch)))
-        raise SystemExit(3)
-    print(json.dumps(dict(event="READER_SNAPSHOT_DONE",stage=args.stage,memory=stage.telemetry(torch))),flush=True)
+    with stage.Invocation(args):
+        stage_tick=time.monotonic()
+        partition("validate",args.worker)
+        torch=stage.environment_guard(); torch.set_num_threads(args.threads)
+        try:
+            values=stage.start(args)
+            print(json.dumps(dict(event="STAGE_START",stage=args.stage,worker=args.worker,memory=stage.telemetry(torch))),flush=True)
+            dict(detect=detect,quality=quality)[args.stage](args,*values[:4],values[4],torch)
+        except common.ResourceStop as exc:
+            common.atomic_json(args.out/("RESOURCE_STOP-reader-"+args.stage+"-"+(args.method or "all")+"-"+args.worker.replace("/","-of-")+".json"),
+                dict(status="RESOURCE_STOP",reason=str(exc),stage=args.stage))
+            raise SystemExit(3)
+        except torch.cuda.OutOfMemoryError:
+            common.atomic_json(args.out/("RESOURCE_STOP-reader-"+args.stage+"-"+(args.method or "all")+"-"+args.worker.replace("/","-of-")+".json"),
+                dict(status="RESOURCE_STOP",reason="CUDA OOM during reader model load",stage=args.stage,memory=stage.telemetry(torch)))
+            raise SystemExit(3)
+        paths = [shard_path(args,m) for m in ([args.method] if args.method else [a for a in values[0]["arms"] if not stage.c0(a)])] if args.stage=="detect" else [shard_path(args)]
+        incomplete = any(common.load_json(path.with_suffix(".snapshot.json"))["status"] != "snapshot_complete" for path in paths)
+        print(json.dumps(dict(event="STAGE_DONE",stage=args.stage,method=args.method,seconds=time.monotonic()-stage_tick,memory=stage.telemetry(torch))),flush=True)
+        if incomplete:
+            raise SystemExit(4)
 
 
 if __name__=="__main__":

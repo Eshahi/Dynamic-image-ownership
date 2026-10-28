@@ -1,10 +1,10 @@
 # Stage S producer and reader implementation
 
-**Partial-session closure: INCOMPLETE, DO NOT RUN.** The driver and forecast enforcement described below are required future integration, not delivered behavior. `Journal(read_only=True)` remains incompatible with the common helper. Both scientific entrypoints are locked by `READINESS.json`; see `../FINAL-REPORT.md` and `RUNBOOK.md`.
+**Integration implemented; readiness lock remains INCOMPLETE pending root final review.** Driver and conservative forecast are now delivered. The common Journal read-only compatibility fix is owned and validated by the analysis integration task. Both scientific entrypoints remain locked by `READINESS.json` until the root review release; no server run is authorized by this note.
 
 Static implementation record, 2026-10-28. No images, scientific libraries,
 experiments, models, timing probes or GPU work were executed on the laptop.
-The only execution validation was `py_compile` using MAIN stdlib Python with `-I`.
+Validation comprises `py_compile` and seven pure-logic forecast tests using MAIN stdlib Python with `-I`. The installed `bash.exe` is a Windows WSL launcher; a `bash -n` request hung without output and was interrupted. Bash syntax validation remains unverified here.
 Actual gradients, PNG readback, replay, memory fit and complete runtime remain
 server rehearsal obligations; syntax success supplies no evidence for them.
 
@@ -64,3 +64,54 @@ never emits STAGE_DONE. Reader completion is explicitly only a snapshot of the
 currently available producer outputs. Final completeness requires the root
 driver to merge disjoint shards and check the full frozen inventory; an active
 producer snapshot is never a final scientific verdict.
+
+
+## Driver and measured launch gate
+
+`scripts/tifs_stage_s_driver.sh ASSETS RUN_ROOT INSTANCE_START_UTC HOURLY_USD [rehearsal|full]`
+requires setup to have been completed separately by the authorized server operator.
+It creates `RUN_ROOT/rehearsal` and `RUN_ROOT/screen`; no source acquisition or
+setup is embedded. It schedules one GPU process at a time: prepare, clean,
+native (internally K3/R0/R1), threats, secondary, manifest, each detector method,
+and quality. Rehearsal includes every arm, threat condition, native cell/seed,
+and secondary transform on the two fixed donors and two fixed targets. The default
+mode stops after rehearsal and forecast; `full` explicitly continues the screen.
+
+Every successful C0 native rehearsal unit replays its recorded random tape and
+requires exact RGB8 equality and complete draw consumption. This checks native
+capture/replay, not equality of the deliberately approximate writer surrogate
+with a full denoising trajectory. Each rehearsal donor also has a hashed writer
+receipt covering clean projection parity and every frozen surrogate gradient.
+Failed diagnostics cannot authorize a screen.
+
+`--instance-start-utc` must be the actual rental start, including paid setup,
+asset preparation, rehearsal and idle time. Forecast requires complete successful
+producer and reader inventories, source identity, original code hashes, writer
+receipts, native parity, and valid per-operation/invocation timing. Persistent
+START/END and MODEL_READY receipts account cumulative process/loading overhead
+across interruptions and resumes; the forecast scales variable
+work by 16/2, including preparation; then requires current elapsed instance time
++ measured one-time overhead + 1.5 times full variable work + 3600 seconds for
+retrieval <= 54000 seconds. A rerun rechecks current epoch time; a stale GO file
+never authorizes a later launch. Measured per-operation and load maxima, multiplied
+by 1.5, are sealed for screen checkpoint estimates. An interrupted invocation
+without an END receipt is conservatively charged through the next start or current
+time. Missing, failed or inconsistent timing is INCOMPLETE, never partial GO.
+
+Initial rehearsal setup binding rehashes the pinned asset inventory once and
+records baseline source hashes. Later invocations verify file identity metadata
+and the unchanged setup receipt, source/asset plans, requirements and exact direct
+package pins. This guards accidental changes, not a malicious administrator.
+The capacity gate includes constructor and stage memory peaks as well as per-unit
+telemetry, rejects measured demand above 24 GiB, and reserves a 20% filesystem
+margin beyond conservatively projected output/tape storage.
+
+Exit 3 stops immediately and preserves RESOURCE_STOP. Exit 4 retains incomplete
+science and allows remaining fixed stages to finish; no failed unit is silently
+retried. Other dependency/load errors stop the driver. The frozen analyzer is
+the sole final source of GO/SCIENTIFIC_KILL/INCOMPLETE; rehearsal does not apply
+the screen's scientific thresholds. Baseline failures remain visible and never
+cause arm removal. Runtime identity now also pins the asset root and the driver,
+forecast and analyzer code, alongside producer/reader/writer/common and retained
+adapters. Reader rows preserve producer cell/seed/family/target/condition metadata.
+No thresholds, selected arms or selected sources were changed.

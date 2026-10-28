@@ -86,12 +86,17 @@ class Journal:
     """Last row wins; only an invalid, unterminated final line is recoverable.
 
     Torn bytes are preserved in a unique sidecar before truncation. A valid
-    final row without a newline is retained and newline-terminated on opening.
+    final row without a newline is retained and newline-terminated by writable
+    recovery only. Read-only snapshots ignore all unterminated final bytes and
+    never create a directory, sidecar, or file.
     Malformed interior or newline-terminated records always raise.
     """
-    def __init__(self, path):
+    def __init__(self, path, *, read_only=False):
         self.path = Path(path)
-        self.path.parent.mkdir(parents=True, exist_ok=True)
+        self.read_only = read_only
+        self.incomplete_tail_bytes = 0
+        if not read_only:
+            self.path.parent.mkdir(parents=True, exist_ok=True)
         self.latest = {}
         if not self.path.exists():
             return
@@ -99,6 +104,11 @@ class Journal:
         lines = raw.splitlines(keepends=True)
         offset = 0
         for i, line in enumerate(lines):
+            # A newline commits a record. A concurrent reader must not accept
+            # even syntactically valid bytes before the writer commits them.
+            if read_only and i == len(lines) - 1 and not line.endswith(b"\n"):
+                self.incomplete_tail_bytes = len(line)
+                break
             try:
                 row = _loads(line.decode("utf-8"))
             except (json.JSONDecodeError, UnicodeDecodeError):
@@ -124,6 +134,8 @@ class Journal:
         return self.latest.get(output_id, {}).get("status") in TERMINAL_STATUSES
 
     def append(self, row):
+        if self.read_only:
+            raise RuntimeError("Cannot append through a read-only journal")
         key = _row_id(row)
         data = (json.dumps(row, sort_keys=True, allow_nan=False) + "\n").encode()
         with self.path.open("ab") as stream:
