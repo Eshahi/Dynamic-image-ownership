@@ -66,7 +66,7 @@ WP1: Codex agent, branch `codex/tifs-20261028`, pushed `ebd4465..7837862` succes
 
 WP2: Codex agent, branch `codex/tifs-20261028`, `7837862..510fe34`, pushed successfully; commit timestamp 15:28:07 UTC.
 
-Closure: `3cdbb11` (identifier rule, 20:13:35 UTC) and the following partial-handoff commit are to be pushed together on `codex/tifs-20261028`. The final tool result/Git remote, not this prospective entry, determines push success. MAIN STATE receives only the eight-line section mirrored in `MAIN-STATE-section.md`; MAIN's existing content and branch are preserved.
+Closure: Codex agent successfully pushed `510fe34..b96be87` on `codex/tifs-20261028` before the 20:23:46 UTC check, including identifier rule `3cdbb11` and the partial handoff. Local HEAD and origin both resolved to `b96be87a663c44b2492a4cc0723efeac2d2dcaf9`, with a clean worktree. MAIN STATE received only the eight-line section mirrored in `MAIN-STATE-section.md`; its existing content and branch were preserved. This log-only follow-up (`b96be87..HEAD`) is part of the final closure push; the Git tool receipt records its result.
 
 ## WP0 evidence baseline
 
