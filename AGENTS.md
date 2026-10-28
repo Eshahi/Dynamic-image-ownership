@@ -2,27 +2,27 @@
 
 This file is already in your context; never re-read it. At the start of a thread, or right after a context compaction, read `thesis-runs/d916749c/STATE.md` once; the copy in the main checkout `W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5` is the only authoritative one, also when you work in a worktree.
 
-## Current mode: research-only final-study session (user decision, 2026-10-25)
+## Current mode: TIFS research, design and server-code session (user decision, 2026-10-28)
 
-The user asked, verbatim: "I have a pro 5x 100 codex session. Can you use it to strengthen the final expriment and add more deep analysis, also intelligence to it? I want you to plan it and start it." Then, verbatim: "I don't want the run on my local. I want a real deep resarch". Claude set up this session on branch `codex/encoder-transfer-final-20261025`. The brief is `research/encoder-transfer-20261019/final-study-20261025/BRIEF.md`.
+The user asked, verbatim: "I have a full 100% session of codex pro 5x. Could you use it for the making the thesis acceptable for the TIFS journal? The research and experiment and also creativity. Then we run the code on vast ai with your observation. If you find it is possible or not." Claude set up this session on branch `codex/tifs-20261028`. The brief is `research/tifs-20261028/BRIEF.md`.
 
-For this session, the brief overrides every section below that asks you to design, implement or run experiments: "Current direction: independent-encoder transfer test" (its stage 2 is finished), Operating mode, Current direction, Milestones, "Iterate fast", "Cheapest decisive test first", and Execution and provenance. Experiments are designed for a rented server and run later, only after the user approves.
+For this session, the brief overrides every section below that asks you to run experiments or that limits what you may design or build: "Current direction: independent-encoder transfer test" and the older Current-direction sections, Operating mode, Milestones (including "build no confirmatory or execution infrastructure"), "Iterate fast", "Cheapest decisive test first", and Execution and provenance. You design experiments and write their server code; Claude runs them later on a rented server, and held-out runs need the user's approval.
 
 - **Nothing runs on this laptop:**
   - no image generation, marking, regeneration, attack, detection, metric, encoder pass, training or timing;
-  - no GPU, and no `.thesis-build/a6-science-venv` or other interpreter with torch, diffusers, numpy, scipy, PIL or lpips;
+  - no GPU, and no `.thesis-build/a6-science-venv` or other interpreter with torch, diffusers, numpy, scipy, PIL, lpips or open_clip;
   - no dev runs or rehearsals;
   - no downloads of images, datasets, model weights or code, and no package installs;
   - no paid compute, no vast.ai, no SSH.
 - **Allowed:**
   - reading files anywhere, including saved result files;
-  - web search and reading papers;
-  - stdlib Python (`.thesis-build/venv`) to analyse existing JSON and JSONL result files and compute bounds;
-  - writing inside `research/encoder-transfer-20261019/final-study-20261025/`;
-  - committing and pushing this branch.
-- **Guard.** The supervisor hides CUDA. It kills processes that use the science interpreter, import ML libraries, run experiment scripts, call vastai or ssh, or run Python for more than 15 minutes. Do not work around it; specify any needed computation for the server phase instead.
-- **Keep working until the session deadline** in the brief's `PROGRESS.md`. Nobody answers questions during the run: record decisions for the user and continue.
-- The integrity rules below still apply in full.
+  - web search and reading papers and code online;
+  - stdlib Python (`.thesis-build/venv`, with `-I`) to analyse saved results, compute bounds and costs, `py_compile` new code and unit-test its pure-logic modules;
+  - writing in `research/tifs-20261028/` and new server code in `scripts/tifs_*`;
+  - committing and pushing this branch, and a short final section in MAIN `thesis-runs/d916749c/STATE.md`.
+- **Guard.** The supervisor hides CUDA. It kills processes that use the science interpreter, import ML libraries on the command line, run experiment scripts, call vastai or ssh, or run Python for more than 15 minutes. Do not work around it; leave any computation it blocks to the server stage.
+- **Keep working until the session deadline** in `research/tifs-20261028/PROGRESS.md`. Nobody answers questions during the run: record decisions for the user and continue.
+- The threat-scope rule (T3/T4/T5 only) and the integrity rules below still apply in full.
 
 ## Current direction: independent-encoder transfer test (user decision, 2026-10-19)
 
