@@ -3,6 +3,8 @@
 **Desktop deadline: 2026-10-28 11:56:06.7876054 UTC-08:00 (19:56:06.7876054 UTC).**
 Desktop start: 2026-10-28 05:56:06.7876054 UTC-08:00 (13:56:06.7876054 UTC), from the first `Get-Date`; exactly six hours. Branch: `codex/tifs-20261028`. Author: Codex agent. Earlier CLI work began at 12:43 UTC and is retained below as history.
 
+**Closed as PARTIAL after the deadline.** At 20:14 UTC the first clock check after a long required Git-metadata approval wait showed that the deadline had passed. No further research or feature completion was attempted; subsequent work only preserved drafts, added an execution lock and wrote the truthful handoff. `FINAL-REPORT.md` is authoritative for package readiness. Stage S is NOT server-ready; WP5 did not occur.
+
 ## Session contract
 
 Research, derivation, saved-result analysis and server-code preparation only. No image/model execution, installation, asset acquisition, GPU, SSH or paid compute on this laptop. All scientific runs remain for Claude's later server stage. The authoritative MAIN STATE was read once at session start. The current brief overrides its older statement that only writing is authorized; it does not authorize a new held-out run.
@@ -15,11 +17,11 @@ The desktop client uses fixed UTC-08:00. Check UTC against 19:56:06.7876054 UTC.
 |---|---|---|---|---|
 | WP0 | 12:43 | 12:46 | Starting evidence and scope read; clean branch verified; evidence summary below | `ebd4465`, pushed with upstream set |
 | WP1 | 12:46 | 14:29 | Nine TIFS-linked studies inspected: seven direct image, video and image-to-3D explicitly adjacent. Final-version/access caveats retained; broad evidence survey delivered. Prior-art delta includes SemBind and Guidance Watermarking. | `7837862`, pushed |
-| WP2 | 14:03 | 14:49 | Twelve candidates, three derivations and fresh hostile review; I01 selected with all blocking findings applied in04-selection, I03 sole separate backup. Screen reduced prospectively to16 sources, preserving all controls and adding exact-code J. | committing |
-| WP3 | 14:49 | pending | Stage S freeze and Stage C design/power/identifier pool | pending |
-| WP4 | pending | pending | Server code, pure-logic tests, runbook | pending |
-| WP5 | pending | pending | Fresh independent protocol/code review | pending |
-| WP6 | pending | pending | Feasibility report and MAIN state note | pending |
+| WP2 | 14:03 | 14:49 research; 15:28 commit | Twelve candidates, three derivations and fresh hostile review; I01 selected with blocker dispositions, I03 sole separate backup. Prospective 16-source screen preserves all controls and exact-code J. | `510fe34`, pushed |
+| WP3 | 14:49 | deadline stop | PARTIAL: Stage S config/source manifest and Stage C power/family/selection-rule files; integrated protocols and fresh identifier manifest missing. | Selection rule `3cdbb11`; other drafts in partial closure commit |
+| WP4 | parallel with WP3 | deadline stop | PARTIAL: draft writer/runtime/reader/helpers; missing setup, driver, forecast seal, analysis and complete tests. Incomplete runbook and execution lock added only during closure. | Preserved in partial closure commit |
+| WP5 | not started | not performed | Fresh independent final protocol/code review missing; WP2 hostile review does not substitute. | none |
+| WP6 | 20:14 | partial closure after deadline | FINAL-REPORT, readiness lock and MAIN state note. Conditional research feasibility; no execution readiness. | Closure commit/push recorded by Git |
 
 Desktop restart at 13:56:06 UTC: read authoritative MAIN STATE once; read amended BRIEF and this progress file; branch is ahead by Claude's two brief amendments, with prior CLI WP1 files uncommitted. Preserve these and audit before accepting them. Desktop allocation: WP1 to about 14:40; WP2 to 15:50; WP3 to 16:40; WP4 to 18:35; WP5 to 19:15; WP6 to 19:56. Package clock checks supersede these estimates.
 
@@ -52,12 +54,19 @@ WP2 and WP5 require fresh `gpt-6-astra` / `xhigh` reviewers with no inherited co
 - Approximately 14:30 UTC: `wp2_hostile_review`, fresh `gpt-6-astra` / xhigh with no inherited context, independent hostile review of I01/I03/I05. Author candidates and derivations are complete; selection remains pending review.
 - 14:43 UTC: `stage_c_power_plan`, `gpt-6.1-sol` / medium, exact stdlib power and specificity planning for a prospective six-slot Holm family; no scientific execution.
 - 14:46 UTC: `fresh_identifiers`, `gpt-6.1-sol` / medium, cached metadata-only feasibility and a prospective selection rule for disjoint Stage C identifiers; selection may occur only after committing the rule.
+- During WP3/WP4: bounded `stage_s_logic`, `stage_s_writer` and `stage_s_runtime` author agents delivered separate draft files and static validation. All finished; no scientific execution or final independent review occurred. Their integration limitations are preserved in FINAL-REPORT.
+- Approximately 15:33–20:13 UTC: required Git-metadata approval remained pending outside the writable worktree. The identifier-rule commit completed at 20:13:35 UTC, after the 19:56:06 UTC deadline. This elapsed interval must not be described as uninterrupted active research. The rule was never used for a metadata draw.
+- 20:20 UTC closure: stdlib `-I` syntax compilation passed for all nine `scripts/tifs_*.py` files, including the final execution lock. Five common filesystem test cases remain unverified; no clean full-suite pass is claimed.
 
 ## Push log
 
 WP0: Codex agent, branch `codex/tifs-20261028`, `d5b41fc..ebd4465`, successfully pushed with `git push -u origin codex/tifs-20261028` at approximately 12:46 UTC. Claude's subsequent authorized brief amendment `333b413` is retained. Restart check at 12:54 UTC found only the in-progress literature directory untracked; no work was lost.
 
 WP1: Codex agent, branch `codex/tifs-20261028`, pushed `ebd4465..7837862` successfully before the 14:42 UTC clock check, including Claude's two brief amendments. The WP1 commit timestamp is 14:29:46 UTC. Sandbox denied the external worktree Git index and network; the same authorized Git actions succeeded after the required tool escalation. No protected project content was changed.
+
+WP2: Codex agent, branch `codex/tifs-20261028`, `7837862..510fe34`, pushed successfully; commit timestamp 15:28:07 UTC.
+
+Closure: `3cdbb11` (identifier rule, 20:13:35 UTC) and the following partial-handoff commit are to be pushed together on `codex/tifs-20261028`. The final tool result/Git remote, not this prospective entry, determines push success. MAIN STATE receives only the eight-line section mirrored in `MAIN-STATE-section.md`; MAIN's existing content and branch are preserved.
 
 ## WP0 evidence baseline
 

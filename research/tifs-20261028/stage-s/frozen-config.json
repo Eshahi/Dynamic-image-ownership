@@ -1,0 +1,349 @@
+{
+  "arms": [
+    "f6-noise",
+    "f6-codec",
+    "f6-generic",
+    "f5-r2",
+    "v5-r3",
+    "wam",
+    "vine-r",
+    "unmarked"
+  ],
+  "budget": {
+    "forecast_factor": 1.5,
+    "hardware": "one 24GB RTX4090-class device; actual free/device/reserved telemetry required",
+    "launch_condition": "measured one-time cost + 1.5*complete inventory variable cost + retrieval reserve <= 54000 seconds; paid rehearsal included",
+    "max_instance_hours": 15,
+    "max_seconds": 54000,
+    "partial_inventory_go": false,
+    "retrieval_reserve_seconds": 3600
+  },
+  "candidate": "f6-noise",
+  "cells": [
+    {
+      "family": "R0",
+      "id": "R0-0.2",
+      "strength": 0.2
+    },
+    {
+      "family": "R1",
+      "id": "R1-0.1",
+      "strength": 0.1
+    },
+    {
+      "family": "R1",
+      "id": "R1-0.2",
+      "strength": 0.2
+    },
+    {
+      "family": "K3",
+      "id": "K3-0.2",
+      "strength": 0.2
+    }
+  ],
+  "decision": {
+    "absolute_foreign_count_min": 12,
+    "candidate_false_events_max": 0,
+    "clean_F_count_min_each_new_writer": 15,
+    "foreign_cells": [
+      "R1-0.1",
+      "R1-0.2",
+      "K3-0.2"
+    ],
+    "gain_missingness": "candidate lower-majority count minus comparator upper-majority count",
+    "gain_over_each_ablation": {
+      "K3-0.2": 1,
+      "R1-0.1": 3,
+      "R1-0.2": 3
+    },
+    "gain_over_f5": {
+      "K3-0.2": 3,
+      "R1-0.1": 4,
+      "R1-0.2": 4
+    },
+    "go_scope": "proposal of fresh Stage C only; no execution/publication approval",
+    "max_retained_loss": 1,
+    "missing_negatives": "INCOMPLETE; absent files never zero events",
+    "negative_predicates": {
+      "c0": [
+        "C",
+        "F"
+      ],
+      "eligible_t4_t5": [
+        "D_and_F"
+      ],
+      "wrong_owner": [
+        "C",
+        "F"
+      ]
+    },
+    "paired_median_lpips_delta_max": 0.005,
+    "paired_median_psnr_delta_min": -1,
+    "retained_cell": "R0-0.2",
+    "rules": [
+      "C",
+      "J"
+    ],
+    "strict_quality": {
+      "all_sources_all_new_writers": true,
+      "lpips_lt": 0.1,
+      "psnr_db_gt": 35,
+      "ssim_rgb_gt": 0.9
+    },
+    "verdicts": [
+      "GO",
+      "SCIENTIFIC_KILL",
+      "RESOURCE_STOP",
+      "INCOMPLETE"
+    ]
+  },
+  "execution_authorized": false,
+  "frozen_before_outputs": true,
+  "inventory": {
+    "rehearsal_marked_clean": 14,
+    "rehearsal_native": 192,
+    "rehearsal_new_marks": 6,
+    "rehearsal_unmarked_clean": 2,
+    "screen_marked_clean": 112,
+    "screen_native": 1536,
+    "screen_new_marks": 48,
+    "screen_secondary": 1024,
+    "screen_unmarked_clean": 16
+  },
+  "native": {
+    "blocked": "terminal missing; no prompt or seed replacement",
+    "coupling": "record C0 native random tape then replay same draws across marked arms; full tape consumption required",
+    "k3_load": "no readers/writers/LPIPS GPU models resident",
+    "serial_families": true,
+    "settings": "unchanged encoder-transfer stage2b and Phase-A/B option-(a) classic kernels"
+  },
+  "new_writers": [
+    "f6-noise",
+    "f6-codec",
+    "f6-generic"
+  ],
+  "owners": {
+    "positive": "qim-pilot-owner-alpha",
+    "wrong": "qim-pilot-owner-beta"
+  },
+  "payload": {
+    "presence_null_tail_max": 0.0001,
+    "seed": 20261019,
+    "vine_bits": 100,
+    "vine_inclusive_threshold": 69,
+    "wam_bits": 32,
+    "wrong_seed": 20261020
+  },
+  "rehearsal_n": 2,
+  "schema": "tifs-stage-s-config-v1",
+  "screen_n": 16,
+  "secondary": {
+    "reference": "clean marked image; C0 original for unmarked",
+    "rounding": "PIL operations produce RGB8; floating Gaussian noise clip[0,255] then floor(x+0.5)",
+    "selection_weight": 0,
+    "transforms": [
+      {
+        "id": "jpeg90",
+        "kind": "jpeg",
+        "quality": 90,
+        "subsampling": 2
+      },
+      {
+        "id": "jpeg50",
+        "kind": "jpeg",
+        "quality": 50,
+        "subsampling": 2
+      },
+      {
+        "id": "resize384",
+        "kind": "resize",
+        "resample": "PIL.LANCZOS",
+        "sizes": [
+          512,
+          384,
+          512
+        ]
+      },
+      {
+        "area_fraction": 0.9,
+        "id": "crop90",
+        "kind": "center_crop",
+        "resample": "PIL.LANCZOS",
+        "resize_to": 512,
+        "side": 485,
+        "side_rule": "floor(512*sqrt(0.9))"
+      },
+      {
+        "id": "noise002",
+        "kind": "gaussian_noise",
+        "seed_rule": "stable_seed(secondary-noise,source_uid); same draw across arms",
+        "sigma": 0.02
+      },
+      {
+        "id": "blur1",
+        "implementation": "PIL.ImageFilter.GaussianBlur(radius=1); PIL extended-box approximation, nominal kernel_size=7 descriptive only; not a discrete 7x7 convolution",
+        "kernel_size": 7,
+        "kind": "gaussian_blur",
+        "sigma": 1
+      },
+      {
+        "factor": 1.2,
+        "id": "brightness12",
+        "implementation": "PIL.ImageEnhance.Brightness",
+        "kind": "brightness"
+      },
+      {
+        "factor": 1.2,
+        "id": "contrast12",
+        "implementation": "PIL.ImageEnhance.Contrast",
+        "kind": "contrast"
+      }
+    ]
+  },
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "source_manifest": "research/tifs-20261028/stage-s/source-manifest.json",
+  "source_manifest_sha256": "0271095638bdcf680d3ba0aac10c0be3468ef408450dd23164b643dea402f463",
+  "study": "I01 F6 finite noisy-codec writer",
+  "threats": {
+    "arms": "all seven marked arms plus unmarked shams",
+    "assignment": {
+      "algorithm": "greedy donor selection order from frozen donor list; nearest unused target; ties ascending numeric source_id",
+      "distinctness": "human labels missing until supplied; no security conclusion from metadata alone",
+      "features": "original-only CLIP cosine",
+      "when": "seal before marks; no detector feedback"
+    },
+    "false_instance_predicate": "D AND F; donor q/h evaluator references only",
+    "protected_unit": "whole recipient image; genuine donor component detection reported separately",
+    "quality_eligible": {
+      "lpips_lt": 0.15,
+      "psnr_db_gt": 25,
+      "reference": "original recipient",
+      "ssim_rgb_gt": 0.75
+    },
+    "read_modes": [
+      "combined",
+      "semantic_only",
+      "perceptual_only",
+      "none"
+    ],
+    "reported": [
+      "A",
+      "C",
+      "Q",
+      "J",
+      "H",
+      "D",
+      "F",
+      "donor_q_exact_and_read",
+      "delivery_conditioned_acceptance",
+      "unconditional_pair_success"
+    ],
+    "t4_primary": {
+      "access": "published donor,recipient,public owner label only",
+      "alpha": 1,
+      "conditions": [
+        "patch128",
+        "patch256",
+        "patch128-sham",
+        "patch256-sham"
+      ],
+      "geometry": "same centered donor and target square",
+      "patch_sides": [
+        128,
+        256
+      ],
+      "sham": "unmarked donor matching exact geometry"
+    },
+    "t4_stronger_access": {
+      "access": "known clean donor and marked donor residual",
+      "conditions": [
+        "residual0.5",
+        "residual1.0"
+      ],
+      "operation": "clip(target + scale*(marked_donor-original_donor)); RGB8 round once",
+      "scales": [
+        0.5,
+        1.0
+      ]
+    },
+    "t5": {
+      "kind": "unmodified target under donor claim"
+    },
+    "wrong_owner": "beta is true wrong owner; alpha-marked different content is not wrong-owner"
+  },
+  "writer": {
+    "band": [
+      4,
+      32
+    ],
+    "binding": "soft",
+    "codec_gradient_evaluations": 150,
+    "cycle": [
+      {
+        "family": "R0",
+        "strength": 0.2
+      },
+      {
+        "family": "R1",
+        "strength": 0.1
+      },
+      {
+        "family": "R1",
+        "strength": 0.2
+      }
+    ],
+    "fragile_writes": 2,
+    "generic_codec_gradient_evaluations": 0,
+    "generic_cycle": [
+      {
+        "kernel_size": 11,
+        "kind": "gaussian_blur",
+        "padding": "reflect",
+        "sigma": 1.5
+      },
+      {
+        "align_corners": false,
+        "antialias": true,
+        "kind": "bilinear_resize",
+        "sizes": [
+          512,
+          256,
+          512
+        ]
+      },
+      {
+        "clip": [
+          0,
+          1
+        ],
+        "kind": "gaussian_noise",
+        "sigma": 0.02
+      }
+    ],
+    "latent_scaling": "family codec scaling_factor, no normalization or division by alpha",
+    "loss": "positive sum clean + surrogate signed-margin loss; serial gradient accumulation",
+    "mask_power": 0,
+    "native_alpha": "sqrt(alpha_bar) and sqrt(1-alpha_bar) at actual first native DDIM timestep",
+    "new_detector": false,
+    "optimization_excluded": [
+      "K3"
+    ],
+    "posterior": "mode",
+    "psnr_db": 52,
+    "quantization": "no rounding inside surrogate; saved RGB8 final reads",
+    "random_streams": "disjoint optimization and diagnostic; fixed source/update-derived seeds",
+    "reader": "unchanged F5-r2 with explicit F6 dispatch",
+    "reader_gradient_evaluations": 350,
+    "refine_psnr_db": 58,
+    "refine_rounds": 1,
+    "refine_steps": 50,
+    "semantic_views": 7,
+    "steps": 150,
+    "target_margin": 4,
+    "whitening": 1
+  }
+}
