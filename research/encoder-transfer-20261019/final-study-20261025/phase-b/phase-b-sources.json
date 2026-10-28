@@ -1,0 +1,2012 @@
+{
+ "schema": "et-final-phase-b-sources-v1",
+ "frozen_utc": "2026-10-27T06:52:44Z",
+ "n": 200,
+ "complete": true,
+ "canonicalization": "m1b-canonical-rgb512-v2",
+ "replacements": [],
+ "failures": [],
+ "acquire_journal_sha256": "1c233a4b794d8a2ce6f1fd10dcdf12fac505211844e129b0dc562ad1d49e716a",
+ "sources": [
+  {
+   "source_id": 54082182,
+   "selection_index": 1,
+   "assignment": "primary",
+   "title": "File:Olive baboon (Papio anubis) with juvenile.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Charles J. Sharp",
+   "raw_sha256": "4442ef412b46c5d6ad748ed5763b756d0f0e463eaa1a2dfb397cf7ea692d4124",
+   "rgb8_sha256": "5276909bd3ea4b8bc04a5321c583903cd540ec898fb823a92023d6cf61b994e2"
+  },
+  {
+   "source_id": 152272575,
+   "selection_index": 2,
+   "assignment": "primary",
+   "title": "File:Echeveria A7CR 02866-90 zsp.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "This Photo was taken by Timothy A. Gonsalves. Feel free to use my photos, but please mention me as the author. I would much appreciate if you send me an email tagooty@yahoo.com or write on my talk page, for my information. Please contact me before commercial use. Please do not upload an edited image here without consulting me. I would like to make corrections only at my own source to ensure that the changes improve the image and are preserved.Otherwise you may upload an edited image with a new name. Please use one of the templates derivative or extract.",
+   "raw_sha256": "054fca5c4cd5950d5298d9c4c866b12a5fd48194e3d3f272e08c2e7acac023e4",
+   "rgb8_sha256": "f2433e8634656b36bb0893da0fe4629b0a59daff1be63a7f2291e664ab88677a"
+  },
+  {
+   "source_id": 92267637,
+   "selection_index": 3,
+   "assignment": "primary",
+   "title": "File:Baby Hamster - 2 Weeks Old.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "Augustus Binu : flickr : Instagram",
+   "raw_sha256": "c48d3179660420ac290e0ab65845c4254794bc8ba12ee96ee228566aac65f733",
+   "rgb8_sha256": "2ea3ebdd723780b8dd483f846b5af4b0a9f4e894052fee6ccd4fa852f1beb625"
+  },
+  {
+   "source_id": 31343711,
+   "selection_index": 4,
+   "assignment": "primary",
+   "title": "File:Golda Meir (1964).jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "Willem van de Poll",
+   "raw_sha256": "ee900d55055e64a063627c4634e6b44e8e86cfb25f6b24a68f65835301469cb1",
+   "rgb8_sha256": "1cf17a955463501b8ed54c55bb0644d745eb116d615cd939c84998c0987dcc88"
+  },
+  {
+   "source_id": 78595363,
+   "selection_index": 5,
+   "assignment": "primary",
+   "title": "File:Balaclava as suggested fashion piece for winter 2018 - modelled by ModelTanja.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "Tobias ToMar Maier",
+   "raw_sha256": "22cd53a29cbebaccb2eff20f182517a6cc6fc638bcbaf3cbdde8d0720e8730eb",
+   "rgb8_sha256": "5b360793fd28c394ce0cd07adf0170445886ee06aa200a1e647a46be5b672b7a"
+  },
+  {
+   "source_id": 73147803,
+   "selection_index": 6,
+   "assignment": "primary",
+   "title": "File:M\u00fcnster, Stadthaus 3, Stra\u00dfenbahn -- 2018 -- 0942.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Dietmar Rabich",
+   "raw_sha256": "7407093c57418638c98e4ea2933ed78d3e59efa2ebb152552ed8edf12b9c9d9f",
+   "rgb8_sha256": "713c44dd55dc5bb800acbb5afc41d986516e9257890335988f5a2071fe7841d0"
+  },
+  {
+   "source_id": 49221498,
+   "selection_index": 7,
+   "assignment": "primary",
+   "title": "File:Ariramba-de-cauda-ruiva (cropped).jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Jairmoreirafotografia",
+   "raw_sha256": "be3587d85bea0f0d1bf1b38dc6956088b404af454d1d331f3f0a5f50466ae0cf",
+   "rgb8_sha256": "0a784ba525430d86c994c69452f1d49801086514cb114c85bcbebd3f485ed267"
+  },
+  {
+   "source_id": 27124271,
+   "selection_index": 8,
+   "assignment": "primary",
+   "title": "File:Marmota monax UL 04.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "Cephas",
+   "raw_sha256": "40f270b55c232c7a2dc7f726b3b230fb0525abbfa009695af4338e1397405c35",
+   "rgb8_sha256": "2e280d880f0eecf566ce6ed0425bbc768a1fbe2ab74fd2b2698c3b5164aca38e"
+  },
+  {
+   "source_id": 91570431,
+   "selection_index": 9,
+   "assignment": "primary",
+   "title": "File:Philodromus aureolus, Hartelholz, M\u00fanich, Alemania, 2020-06-25, DD 30-65 FS.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Diego Delso",
+   "raw_sha256": "bcd6dbe0eca50ed0cb84cd1a89aa3e50ca62217ea8d33ef20fbef84c460b4cf2",
+   "rgb8_sha256": "7c8025f7205da93f547e38161c46943d7cb9c297066c96011a831f14f972da36"
+  },
+  {
+   "source_id": 36897069,
+   "selection_index": 10,
+   "assignment": "primary",
+   "title": "File:Apy\u00e3wa (Tapirape) Mask MHNT.ETH.AC.1732.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Didier Descouens",
+   "raw_sha256": "8d20baf71c341adc90f9b7d6a55a5ee393d8c405eb599cfc83e5a43712b4126a",
+   "rgb8_sha256": "3280b794473dd0bc5a51fe0dea2c8d62b8f3642bb0c5aa3a39fb6235f551834e"
+  },
+  {
+   "source_id": 79771196,
+   "selection_index": 11,
+   "assignment": "primary",
+   "title": "File:Beach, New Brighton, New Zealand 06.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Michal Klajban",
+   "raw_sha256": "5d18dbcefb708e3e1f452574c85ce2e7b7185cc0caf90a73300edfc448a9190f",
+   "rgb8_sha256": "acea6bf647820c47d2e7b34a67bfbe169c8887deba787131fc17d85c89192af0"
+  },
+  {
+   "source_id": 81835079,
+   "selection_index": 12,
+   "assignment": "primary",
+   "title": "File:St. Wolfgang kath. Pfarrkirche Pacher-Altar Versuchung 01.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Uoaei1",
+   "raw_sha256": "709a3509f195272f31face0d61181eb52473e80a43a3601ef98aa3ff274a3419",
+   "rgb8_sha256": "5db1fbcfc91ed503140fd1060a48f71685efcd7a4ebcad0c56772d905ca15767"
+  },
+  {
+   "source_id": 106275341,
+   "selection_index": 13,
+   "assignment": "primary",
+   "title": "File:\u0421\u0432\u0456\u0442\u043b\u043e \u0432 \u043a\u0430\u043f\u043b\u0438\u0447\u0446\u0456.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Serhii Zysko",
+   "raw_sha256": "3dd43936bd61524b8b897f50224914e6a24c7e64c3582acbcceb39ffb8e57b46",
+   "rgb8_sha256": "b6b55b2503f65c43802db9c8030cdd79626cf88986ed6800077eed9493341060"
+  },
+  {
+   "source_id": 50827445,
+   "selection_index": 14,
+   "assignment": "primary",
+   "title": "File:RUS-2016-Aerial-SPB-Krestovsky Stadium 01.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Godot13",
+   "raw_sha256": "cea89257602ab8223d9d576fa7f45bda4a762a6eb6c5461b5d878a34755e40a2",
+   "rgb8_sha256": "ab37e43b36a99773c8029ecfedcf2a1d4aa0d2ec9e5dd500f64a7951e5c52135"
+  },
+  {
+   "source_id": 11930345,
+   "selection_index": 15,
+   "assignment": "primary",
+   "title": "File:Carambola Starfruit.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "SMasters",
+   "raw_sha256": "f9ca14c66b37f48651cbcac566ef4773eff39a3645145dfaa16fb90eb6940f01",
+   "rgb8_sha256": "2f3dc9e8e18ee6a1067105b3f891ca979510e7461b4fc01e62f802aa64d78cf2"
+  },
+  {
+   "source_id": 104101424,
+   "selection_index": 16,
+   "assignment": "primary",
+   "title": "File:Piece of chocolate cake on a white plate decorated with chocolate sauce.jpg",
+   "licence": "CC0",
+   "attribution": "Daria YakovlevaMinor edits made by Subsidiary account",
+   "raw_sha256": "93106fc5e389c5d6cefef098a97d8ad87ab009a1e0890ae2f9f7dcd88f03c08c",
+   "rgb8_sha256": "33b0cdef83ccbb7bc491d3171f799497f1ae3fa6c483fde895e1fd167258ab52"
+  },
+  {
+   "source_id": 79812455,
+   "selection_index": 17,
+   "assignment": "primary",
+   "title": "File:Meissen B\u00f6ttger 1935.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Palauenc05",
+   "raw_sha256": "bee1d2a8b220cd0c85a81a008552f87c6871b867ad79febd1d76a7b85eddf2f3",
+   "rgb8_sha256": "218ea18dcf37c54f30a0702557276af2d0d03257d63d0e06b45d9489ea841dd6"
+  },
+  {
+   "source_id": 30581072,
+   "selection_index": 18,
+   "assignment": "primary",
+   "title": "File:Saint C\u00f4me & Saint Damien Grandes Heures Anne de Bretagne XVIe.jpg",
+   "licence": "Public domain",
+   "attribution": "Jean Bourdichon",
+   "raw_sha256": "7fcc75773d881a985befc1462f99f394a3371236125377539f3d02b269bff24a",
+   "rgb8_sha256": "fa828d28b38a20d3542a616a5ca4fbb51ec66c5e34087d3d919d374ae551e9dd"
+  },
+  {
+   "source_id": 80365547,
+   "selection_index": 19,
+   "assignment": "primary",
+   "title": "File:Gare - couloir nord (Strasbourg) (2).jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Gzen92",
+   "raw_sha256": "9b7de7e1f81c7f60c9b40ada0f342559562ceb7702efe80df1266ac8d6a04c74",
+   "rgb8_sha256": "ff4cbf8aa236dea614e8e881a321767a8241e4f133ab520f926af4f7e3522102"
+  },
+  {
+   "source_id": 65593685,
+   "selection_index": 20,
+   "assignment": "primary",
+   "title": "File:Shanghai recycling transport tricycle.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Ermell",
+   "raw_sha256": "f1aa1cda05065d4ebfdc3ca7c8d87f19836f1da331dc1b49e5bce9d2e0949583",
+   "rgb8_sha256": "5c873e8b5a1e68eb2ff30d04efddcc65676e870dffd6cca4c92e14b56e74bf13"
+  },
+  {
+   "source_id": 118156765,
+   "selection_index": 21,
+   "assignment": "primary",
+   "title": "File:Mating of Lampides boeticus (Linnaeus, 1767) - Pea Blue.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Atanu Bose Photography",
+   "raw_sha256": "fe6a8d018deb9e42bec5840cdc2f0cc457b9b52630449513ffe76a4fa2e89c75",
+   "rgb8_sha256": "eeb5203cf7d9809003c2acdfe9e17f168903182246932593781180f3c7f82e69"
+  },
+  {
+   "source_id": 59587645,
+   "selection_index": 22,
+   "assignment": "primary",
+   "title": "File:Kalidasa lanata-Kadavoor-2017-05-23-003.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Jeevan Jose, Kerala, India",
+   "raw_sha256": "30d81e950c424abf39249136c1e6b2ced2c2890df889a5cb37030ee2e814f880",
+   "rgb8_sha256": "102a0307ea798ab7a1a5cf9833d58224577250ddc072a8c9467f27b13987e3a2"
+  },
+  {
+   "source_id": 43951353,
+   "selection_index": 23,
+   "assignment": "primary",
+   "title": "File:Bergtocht van Gimillan (1805m.) naar Colle Tsa S\u00e8tse in Cogne Valley (Itali\u00eb). Waterval boven Gimillan gedeeltelijk in de mist 03.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Dominicus Johannes Bergsma",
+   "raw_sha256": "cc2adc2f977f7c1ddec29514425732aba202ad8c5909b78eabfd251c9b66c45f",
+   "rgb8_sha256": "eb11c936c038559a85e5a37268a8b1b2c995d0268af69335bd78dffff23ca4b0"
+  },
+  {
+   "source_id": 52960175,
+   "selection_index": 24,
+   "assignment": "primary",
+   "title": "File:Passion of Jesus (sculpture \"Crucifixion of Jesus\" observing \"Virgin Mary cradling the dead body of Jesus\").jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Petar Milo\u0161evi\u0107",
+   "raw_sha256": "ce14a93404adcb05a4efe2ea55d9d448b3f8bd9c7bb310381cb7c6b71adc82b9",
+   "rgb8_sha256": "047bcc6a26dfb4df7709597d21e3e4f79b9a404ce4279590e733eb93d5d06ac6"
+  },
+  {
+   "source_id": 52032109,
+   "selection_index": 25,
+   "assignment": "primary",
+   "title": "File:Pfarrkirche Ellmau, 160618, ako.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Ansgar Koreng",
+   "raw_sha256": "ec4246d656f5d3db7ea7f4ab88b0dd0818d53640165f1368d452358ed89db173",
+   "rgb8_sha256": "4e2c8e2b88ab7741632c6547f35cabfa4e9edfe88781764a4f94d1b34818607d"
+  },
+  {
+   "source_id": 132314305,
+   "selection_index": 26,
+   "assignment": "primary",
+   "title": "File:Sagarmatha Everest Zone, Nepal, Himalayas.jpg",
+   "licence": "CC BY 4.0",
+   "attribution": "Vyacheslav Argenberg",
+   "raw_sha256": "cb04427b5519a65d8be2e732f93f154c0e001d070bdc0122183c2e5b10fe6b30",
+   "rgb8_sha256": "f03b3f947d6fa8e4c0ef5c48ecaf910879d18195e70b20429983628c1da5a5e6"
+  },
+  {
+   "source_id": 141121289,
+   "selection_index": 27,
+   "assignment": "primary",
+   "title": "File:Sanderling Westkapelle 02.jpg",
+   "licence": "CC BY 4.0",
+   "attribution": "Stephan Sprinz",
+   "raw_sha256": "2bb353eb75227ff799e0461edf7dc6acf26f8104d140922921c97fae0ba6d92b",
+   "rgb8_sha256": "e969af64e1972c486e22cb4759df8c32c1513b89b0d70cee91150dc39ac7d43d"
+  },
+  {
+   "source_id": 71015469,
+   "selection_index": 28,
+   "assignment": "primary",
+   "title": "File:Olympic Roof Munich, July 2018 -02.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Martin Falbisoner",
+   "raw_sha256": "c5d9eb35f47a3e40d62e820c157b00fd86db882135dfb24a6d772079ceb51495",
+   "rgb8_sha256": "6a0ef2cdf292eaa7a036e883ed95e28e19c44c0f5719b013f77e810145673e3a"
+  },
+  {
+   "source_id": 11069885,
+   "selection_index": 29,
+   "assignment": "primary",
+   "title": "File:Common blackbird (Turdus merula) chicks 2 days old.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "Romate",
+   "raw_sha256": "d5144868664dbfa6ea561da36246cc5f3ab8cb3f3f83b9855dca7b7cf9fc962d",
+   "rgb8_sha256": "f1a53689a7f17224f6913f1a579d4f5a38382fec8492f35934774075d8201ddb"
+  },
+  {
+   "source_id": 51324034,
+   "selection_index": 30,
+   "assignment": "primary",
+   "title": "File:\u0425\u043e\u0442\u0438\u043d\u0441\u044c\u043a\u0430 \u0444\u043e\u0440\u0442\u0435\u0446\u044f \u0432 \u043c\u0456\u0441\u044f\u0447\u043d\u0443 \u043d\u0456\u0447.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Ryzhkov Sergey",
+   "raw_sha256": "7b3a57c6d8288ddff169dd1c09cd207501301c9773410dd061bc29270af963cb",
+   "rgb8_sha256": "1c07fe1ae1f28fa3b3d03e68de8d9870a616dafe427d0193accc6a4786c8cfc8"
+  },
+  {
+   "source_id": 14921563,
+   "selection_index": 31,
+   "assignment": "primary",
+   "title": "File:James Webb Primary Mirror.jpg",
+   "licence": "Public domain",
+   "attribution": "NASA/MSFC/David Higginbotham",
+   "raw_sha256": "4fc1d7f332039393c594fd7cf26c387ba4ba88affb8a8724fa43531b3945fc5c",
+   "rgb8_sha256": "ab09508761ca37e809274c2ed75c68b1196ba755a0fe4fae7e13b42113c0c7e5"
+  },
+  {
+   "source_id": 25992680,
+   "selection_index": 32,
+   "assignment": "primary",
+   "title": "File:Ara-Zoo-Muenster-2013-02.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "Tuxyso",
+   "raw_sha256": "a151f0dbef250e77d5aa4eb1d18e6661db94adeaf3012124fca532d1d8a1f8ab",
+   "rgb8_sha256": "dc14783ff1347f1e9f9813d9ed7558a00e60ed37b9983715d896794c024ac6a7"
+  },
+  {
+   "source_id": 42136509,
+   "selection_index": 33,
+   "assignment": "primary",
+   "title": "File:\u0420\u043e\u0441\u043e\u0447\u043a\u0430 \u0420\u0435\u043a\u0430 2.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Petrovskyz",
+   "raw_sha256": "c96bfa2d5a6fa1d7b4c1f670d91492cdcfd79758e6d58caebb358f57add912ea",
+   "rgb8_sha256": "56a8d9dd0e191f2357bd6ea92e33721310caca39542417e4d28835d54b75fa9e"
+  },
+  {
+   "source_id": 24520738,
+   "selection_index": 34,
+   "assignment": "primary",
+   "title": "File:Souk Al Milh, Sana, Yemen (4324865585).jpg",
+   "licence": "CC BY 2.0",
+   "attribution": "yeowatzup",
+   "raw_sha256": "5b989d07cae382f03f41029d6e8d7bd428e2b9c9bd7799559e1da5dcc7b70f20",
+   "rgb8_sha256": "e2e1c26108d136d0fb670c781b64db7efde0fa7f4e8041d71780cba5da2d0bab"
+  },
+  {
+   "source_id": 32968867,
+   "selection_index": 35,
+   "assignment": "primary",
+   "title": "File:La Joven Madre 1889 by Arturo Michelena.jpg",
+   "licence": "Public domain",
+   "attribution": "Arturo Michelena",
+   "raw_sha256": "a52125c439217645848c81606855cd1ef0a192f86aa78c09a8da8c8ca55ea805",
+   "rgb8_sha256": "415e94b11d9a26635f65f4f54ae6083707673641b74eea9116dc118f46942d3c"
+  },
+  {
+   "source_id": 70921195,
+   "selection_index": 36,
+   "assignment": "primary",
+   "title": "File:Aerial photographs of The Fullerton Hotel of Singapore at night.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Basile Morin",
+   "raw_sha256": "7f48c276f2eeb428288d106356ce7d6745f7ecb5263fc26b1e72d8bbbcefa24b",
+   "rgb8_sha256": "ce9a361eb2874ceca37abd9beeaf990a4ce608075489c9508da5c2ea10c13965"
+  },
+  {
+   "source_id": 33984331,
+   "selection_index": 37,
+   "assignment": "primary",
+   "title": "File:Germany and Argentina face off in the final of the World Cup 2014 -2014-07-13 (5).jpg",
+   "licence": "CC BY 3.0",
+   "attribution": "Danilo Borges/copa2014.gov.br Licen\u00e7a Creative Commons Atribui\u00e7\u00e3o 3.0 Brasil",
+   "raw_sha256": "2f2eb91449304286b7032134246ad88fa9099e736375163d0d23bc5aa223ac19",
+   "rgb8_sha256": "81e455cd1a5b973baa26c70e79af76f8a2ff99ad02367c4413af45e422f6ec9f"
+  },
+  {
+   "source_id": 80688448,
+   "selection_index": 38,
+   "assignment": "primary",
+   "title": "File:Clavulinopsis sulcata - Lane Cove River.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "JJ Harrison (https://www.jjharrison.com.au/)",
+   "raw_sha256": "42879dcd9266bae153afec00f919ffb98d77f8251ddbefe58f2951234b2d37b0",
+   "rgb8_sha256": "aabde1c5c5365a2c75a27add84c033a25e123eb8e49c899d2b16b3bd688d5480"
+  },
+  {
+   "source_id": 119524161,
+   "selection_index": 39,
+   "assignment": "primary",
+   "title": "File:Kaohsiung Music Center and Great Tiger Bridge during 2022 Taiwan Lantern Festival.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Tiouraren (Y.-C. Tsai)",
+   "raw_sha256": "f67398600cd86e91fb9cbd00d10983258b2b4a895809420a674fea0f9def9272",
+   "rgb8_sha256": "30d1a080c944f4aa140150f7378f73a070f66daf71f7c19f62690d30b65a72e7"
+  },
+  {
+   "source_id": 72795671,
+   "selection_index": 40,
+   "assignment": "primary",
+   "title": "File:Climbing World Championships 2018 Combined Final Klingler (BT0B0188).jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Simon Legner (User:simon04)",
+   "raw_sha256": "6a237c490e1e68c974e4ea5f86165f68b55ef5478109edce039b75c8c2f3193c",
+   "rgb8_sha256": "756bf51b70b387501560e9269f080e4b988616575c01a41a829da17fb136c45a"
+  },
+  {
+   "source_id": 68903581,
+   "selection_index": 41,
+   "assignment": "primary",
+   "title": "File:\u041c\u043e\u0440\u043e\u0437\u043d\u0438\u0439 \u0440\u0430\u043d\u043e\u043a \u043d\u0430\u0434 \u042f\u0440\u0435\u043c\u0447\u0435\u044e.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Vitalii Bashkatov",
+   "raw_sha256": "a1518281ead52ea1a26fae227990a92e7a264b83838bec3065eaa8d64ad6f53d",
+   "rgb8_sha256": "7500955ea65f97626c15be165c361607f59f33a0fbf9919d434d7978dbf6f6fb"
+  },
+  {
+   "source_id": 77542394,
+   "selection_index": 42,
+   "assignment": "primary",
+   "title": "File:Berlin 50 Pfennig 1921 Tiergarten.jpg",
+   "licence": "Public domain",
+   "attribution": "Issued by the City of Berlin, reproduced by Palauenc05",
+   "raw_sha256": "99c396ab486e22503d4e649672c5e164c1cd3cf76f2318a658ce11f440a71df2",
+   "rgb8_sha256": "9361675944600dde3b29e334371cd3b259f6a54905abb9504e3255538fd7f265"
+  },
+  {
+   "source_id": 80122138,
+   "selection_index": 43,
+   "assignment": "primary",
+   "title": "File:SMS Arcona NH 65764 - Restoration.jpg",
+   "licence": "Public domain",
+   "attribution": "Adam Cuerden",
+   "raw_sha256": "22bf8b35db1aa41b52771df2edb11cc3a22865933e60208ad5865f6919ba6dbb",
+   "rgb8_sha256": "c4927c5f3194af3a74662449be0eafc7ac85ac58a8a2335b679af37759528ea0"
+  },
+  {
+   "source_id": 106996387,
+   "selection_index": 44,
+   "assignment": "primary",
+   "title": "File:\u0417\u0438\u043c\u043d\u0438\u0439 \u0422\u0430\u0433\u0430\u043d\u0430\u0439.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "\u0415\u0432\u0433\u0435\u043d\u0438\u0439774",
+   "raw_sha256": "1072cecdd95397b052f708186dfe0dab4b322a525a2941c7ab93ec83a2012641",
+   "rgb8_sha256": "c36f4b0687f89cb25b40f225ba44a1e82034908832751ebdfe77e0340a76e4e3"
+  },
+  {
+   "source_id": 31973668,
+   "selection_index": 45,
+   "assignment": "primary",
+   "title": "File:William Bouguereau - Dante and Virgile - Google Art Project 2.jpg",
+   "licence": "Public domain",
+   "attribution": "William-Adolphe Bouguereau",
+   "raw_sha256": "70b20c79643b2854972f57b8a6831801f588236943e6e20aace7ef74dc3f618e",
+   "rgb8_sha256": "b60e359964d1dbdfcb02aa0cec403f1d722820bb3d37363225581bec84f7f987"
+  },
+  {
+   "source_id": 42752820,
+   "selection_index": 46,
+   "assignment": "primary",
+   "title": "File:2015.07.07.-07-Mulde Eilenburg--Duenen-Sandlaufkaefer.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Andreas Eichler",
+   "raw_sha256": "a17eefd0b74a3da976dd5f94975c042f2f1c9454173e79253dcab11114fa0119",
+   "rgb8_sha256": "8b7d5d66fe51c7acdd90ee349b2091a0296d94859fa053666bb8aa7fec252cdc"
+  },
+  {
+   "source_id": 115976971,
+   "selection_index": 47,
+   "assignment": "primary",
+   "title": "File:Childhood Joy.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Jubair Ahmed Arnob",
+   "raw_sha256": "d588475bbf97b0b8e20080c02c3eabc47717d11ee6e310d25cc5959283e38efc",
+   "rgb8_sha256": "c547a63af87caab6c94d93a725a4ba1cf565bba6d594130af08d741571622fd7"
+  },
+  {
+   "source_id": 25049744,
+   "selection_index": 48,
+   "assignment": "primary",
+   "title": "File:Quebec Sprint Cross-country Skiing World Cup 2012 (4) V2.jpg",
+   "licence": "CC BY 3.0",
+   "attribution": "Letartean",
+   "raw_sha256": "1ed256ffd7bb63614a1791b1b346f566806ef4eca878a0376577375aed8a2f3f",
+   "rgb8_sha256": "1018be973e02e6811f7ffecae5b68c424d0e412b9d13f30c0d2fc04fb3fd3b30"
+  },
+  {
+   "source_id": 135082763,
+   "selection_index": 49,
+   "assignment": "primary",
+   "title": "File:Zaadpluizen van een Clematis texensis 'Princess Diana'. 18-07-2023 (actm.) 02.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Agnes Monkelbaan",
+   "raw_sha256": "85c15461543e8380d3c54865b6c5c54eadf81f8ee3c87f819b962ba473acf984",
+   "rgb8_sha256": "917f1294d741c1e62be89f6b5776ab5e53c99ff64b19501db1330341ed28563c"
+  },
+  {
+   "source_id": 134036624,
+   "selection_index": 50,
+   "assignment": "primary",
+   "title": "File:Cheroot Smoking (edited).jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Original: Anton Gutmann Derivative work: Radomianin",
+   "raw_sha256": "d081a472b58b2a74e9d9849286a66e11335b21ba2e401de991d5f92f4aa1fd49",
+   "rgb8_sha256": "4414909ae7240dbe4a6cda2d2823f10165e4533f502dc2ca56b739d551106d59"
+  },
+  {
+   "source_id": 46031401,
+   "selection_index": 51,
+   "assignment": "primary",
+   "title": "File:Okshornan from Tungeneset, 2015 September - 3.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "Ximonic (Simo R\u00e4s\u00e4nen)",
+   "raw_sha256": "c1e2a40f57982f185c95e77255c2c09604b590aff8493ed1c93c20b40883dc7f",
+   "rgb8_sha256": "66a71207e5bb6b9dbe3a87b6f16698abf043f61d50a6a32538f5961ed94bb290"
+  },
+  {
+   "source_id": 54469472,
+   "selection_index": 52,
+   "assignment": "primary",
+   "title": "File:Cumulonimbus sunset panorama, Albury NSW Australia.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Thennicke",
+   "raw_sha256": "5eca0b41051e37abfd4061613f982965ea312d4fad9e58a52bbf17dc5585daca",
+   "rgb8_sha256": "69a8c37ea0843e91ebc20fd57bf53a719fd71877d314b5a621bc967120068498"
+  },
+  {
+   "source_id": 42052950,
+   "selection_index": 53,
+   "assignment": "primary",
+   "title": "File:Aspidimorpha miliaris 03034.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Vengolis",
+   "raw_sha256": "7422cdddbebdb94a8a9787b7b6fb38fe11f262f2259b43f00ab84b87b87c589a",
+   "rgb8_sha256": "dac06dd1d90fbc4da420ca0c51891282bd772ac2f63d0cb40ba7c469b692cad4"
+  },
+  {
+   "source_id": 43985321,
+   "selection_index": 54,
+   "assignment": "primary",
+   "title": "File:Acronicta auricoma - Betula pubescens - Niitv\u00e4lja bog.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Ivar Leidus",
+   "raw_sha256": "0958d2c38438345e4f14ed58732bc1fb9454379bfe0688a4771a60039f4aec97",
+   "rgb8_sha256": "d70cc390d9e8cc4535357313f01b609e560abe327423708bbd5dfb59d3eb6c46"
+  },
+  {
+   "source_id": 84109863,
+   "selection_index": 55,
+   "assignment": "primary",
+   "title": "File:Thin section scan crossed polarizers Siilinj\u00e4rvi R636-105.90 edit.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "kallerna",
+   "raw_sha256": "4a5bd61cdd7547e2cc7c7162ca50df57fc05f09f4af15fb094bd51471028543c",
+   "rgb8_sha256": "5fbe087ef35737e37fe7c5201d3e14d542c22023e7fcc15c4727a9111ba23aca"
+  },
+  {
+   "source_id": 51505733,
+   "selection_index": 56,
+   "assignment": "primary",
+   "title": "File:\u041f\u043b\u043e\u0441\u043a\u0430\u044f \u0411\u0430\u0448\u043d\u044f \u041f\u0441\u043a\u043e\u0432\u0441\u043a\u043e\u0433\u043e \u041a\u0440\u0435\u043c\u043b\u044f.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Sachkv",
+   "raw_sha256": "098c823ac079aa2aed7304f530143b8333420dadcafa2798c12637475398a0eb",
+   "rgb8_sha256": "1d5e1fd379554db234e5263ff3b9d0d04d8d038da7b3abfbf92dec1dd346ae7f"
+  },
+  {
+   "source_id": 69594253,
+   "selection_index": 57,
+   "assignment": "primary",
+   "title": "File:Tanguar haor, Bangladesh 01.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Abdul Momin",
+   "raw_sha256": "0fafd605ff884ebf41d0cf8b4e6615b28144e3483819395f4388fb578ce61850",
+   "rgb8_sha256": "34bb54c30d7f2ca1e005aa2c6ae12c16760eb09d8d485f0b6017a7d2122a18c1"
+  },
+  {
+   "source_id": 73224385,
+   "selection_index": 58,
+   "assignment": "primary",
+   "title": "File:20180929 UCI Road World Championships Innsbruck Women Elite Road Race Charlotte Becker 850 7872.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Granada",
+   "raw_sha256": "cb6e7f2f6cc4ea8c4f29b5d3346676e769cfb8d5a2ccf2f52555bc708812a035",
+   "rgb8_sha256": "47e3d1cd314facfba34184c2ed29c1a52e30f6155eecea33919f919e08590897"
+  },
+  {
+   "source_id": 3655144,
+   "selection_index": 59,
+   "assignment": "primary",
+   "title": "File:Physicist Stephen Hawking in Zero Gravity NASA.jpg",
+   "licence": "CC BY 3.0",
+   "attribution": "Jim Campbell/Aero-News Network",
+   "raw_sha256": "1ec6649a574d2a5453ec535dc0c34eae03137f09b5a169fcc2ec945690a23796",
+   "rgb8_sha256": "6fbcac3d5c878aa9eccde8ff8a7ab2ebe766bf35d5c2f4be858dc91ee3dfcabb"
+  },
+  {
+   "source_id": 117108198,
+   "selection_index": 60,
+   "assignment": "primary",
+   "title": "File:Apteeker Melchior - 1 - Autor Robert Lang - 4717.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Robert Lang",
+   "raw_sha256": "ca6a7179d327493bc0363fd4e8f510c0d9e08a772438eab3a1214ea3b1c032c5",
+   "rgb8_sha256": "b38c7992e8d7a08142639d3a99f5e7fa47a69c7a8ac5cd9bb3f66eaaddfa68d4"
+  },
+  {
+   "source_id": 25585821,
+   "selection_index": 61,
+   "assignment": "primary",
+   "title": "File:13-04-13-st-poelten-rathausplatz-704.jpg",
+   "licence": "CC BY 3.0",
+   "attribution": "Ralf Roletschek",
+   "raw_sha256": "df409eec76cfdcf8328ca50fbb1d841be11d813e569d59d34fa7059444e02e80",
+   "rgb8_sha256": "9519e21d1c0a5e1f7d747128eac244f54072ca29ce9b7db3ac11cd2f816b7ac9"
+  },
+  {
+   "source_id": 17473601,
+   "selection_index": 62,
+   "assignment": "primary",
+   "title": "File:Fontaine fleuves Concorde detail Gechter.jpg",
+   "licence": "CC0",
+   "attribution": "Jebulon",
+   "raw_sha256": "4748e5cddb862f1ce658b5995f24eb54af242aee1150f008a47f2f2a756b19b7",
+   "rgb8_sha256": "9cf6c85e2d85269e91f09b282eaefb70de4affe62efc0907be3dbf9018d9bae4"
+  },
+  {
+   "source_id": 10270026,
+   "selection_index": 63,
+   "assignment": "primary",
+   "title": "File:Chiang Kai-shek memorial 2 amk.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "AngMoKio",
+   "raw_sha256": "71e527ff7cb6c7632611e5218afe58cb510ce2d3edb9f67f94613692dedc486f",
+   "rgb8_sha256": "6e0a93e74fc04b03c95ae7cf25ce69a5b0a02c9ac36b7b6f545abface360d5ff"
+  },
+  {
+   "source_id": 81458449,
+   "selection_index": 64,
+   "assignment": "primary",
+   "title": "File:La horde - Surfers riding a wave in Paea, Tahiti.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Brigittebourger Brigitte Bourger",
+   "raw_sha256": "0023fd300180e5b5b506a85a3561aeb61f9e211619ff3329490931821f50f847",
+   "rgb8_sha256": "39532055f11c33650be0d519b8963777e0e4f5b1ef796fa9eef6ba638d2d3c38"
+  },
+  {
+   "source_id": 79367716,
+   "selection_index": 65,
+   "assignment": "primary",
+   "title": "File:Lutter 10 Pfg 1920.jpg",
+   "licence": "Public domain",
+   "attribution": "Designed by Franz J\u00fcttner, issued by the town of Lutter am Barenberge, reproduced by Palauenc05",
+   "raw_sha256": "67d38a2649e79aa851610a32f710b88cf308a917f104d4bb21f93d92199584f0",
+   "rgb8_sha256": "de6f624bf8e77e6d1c784a0289f8e0b746577371a7be22c4d6794a0b052d57ce"
+  },
+  {
+   "source_id": 38017582,
+   "selection_index": 66,
+   "assignment": "primary",
+   "title": "File:RhB ABe 8-12 Langwieser Viadukt.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Kabelleger / David Gubler",
+   "raw_sha256": "58fe91cc0c6301a6384f9aaad8fd13d00d5e485740519b838b50ca5d2307747b",
+   "rgb8_sha256": "5853f8d729adc43480d743cb1bc0be13de8b623a9c3bad4edd787ee2c1b5c3e6"
+  },
+  {
+   "source_id": 47799352,
+   "selection_index": 67,
+   "assignment": "primary",
+   "title": "File:2016 Yamaha XV1600 Wild Star.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Jacek Halicki",
+   "raw_sha256": "00523faa50d5dbb8c9fa0ad86580cbe9348bbc7048c6cc966caab6e8b816b293",
+   "rgb8_sha256": "384c054425dc6393e78b752cc6f2696ea15e74e3c1c01d43d71c73f96fc1ce82"
+  },
+  {
+   "source_id": 123270537,
+   "selection_index": 68,
+   "assignment": "primary",
+   "title": "File:Guarda-corpo da Avenida Portugal - Rio de Janeiro - 20220923024517.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Donatas Dabravolskas",
+   "raw_sha256": "fb3584ac7d00ce679a029de3d096adfee1c11fce0e4c20ac7e361a013ceaccb9",
+   "rgb8_sha256": "276e1472b1d118c823c7408a37171bdb67c11e98e47565e323b9b333492c0c0c"
+  },
+  {
+   "source_id": 23611369,
+   "selection_index": 69,
+   "assignment": "primary",
+   "title": "File:Edouard Manet - At the Caf\u00e9 - Google Art Project.jpg",
+   "licence": "Public domain",
+   "attribution": "\u00c9douard Manet",
+   "raw_sha256": "17e44450da718fc8fc2b7cb643fcf949e348891a97430ccbdd970249f53535bc",
+   "rgb8_sha256": "2f65009b8d2c39fec84b18f9bb1ad87e620e00582fedfb2316dd69f9cfd6e3f5"
+  },
+  {
+   "source_id": 120378249,
+   "selection_index": 70,
+   "assignment": "primary",
+   "title": "File:Wildlife Photographer Giles Laurent in a ghillie suit.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Giles Laurent",
+   "raw_sha256": "f1a32b4b9b93dfe0bc699c0bea9d5f719a54913569ef8163edb183fe5bdcfaf1",
+   "rgb8_sha256": "26881093a1764abd1705fb9801d5b0b1693bc8b52a67836aefa530e32bd05d8c"
+  },
+  {
+   "source_id": 56705899,
+   "selection_index": 71,
+   "assignment": "primary",
+   "title": "File:30+68 German Air Force Eurofighter Typhoon EF2000 ILA Berlin 2016 06.jpg",
+   "licence": "CC BY 4.0",
+   "attribution": "Julian Herzog (Website)",
+   "raw_sha256": "7956ae87b1a4e80780dece880e9f10b25642194f36e88f2db18f81674de68265",
+   "rgb8_sha256": "9e40e775c7f3ca8264488e4af405676ade80a095c3343c5ef100fe365552bf18"
+  },
+  {
+   "source_id": 69960952,
+   "selection_index": 72,
+   "assignment": "primary",
+   "title": "File:Iceland's Mid-Atlantic Ridge during snow.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "This work taken by Bar Harel. If you want to reuse it outside Wikimedia Foundation projects, please credit me as photographer: place the notice\u00ab\u00a9 Bar Harel, CC BY-SA 4.0, Wikimedia Commons\u00bbeither below the photo, or the way it is visible after clicking on the photo.",
+   "raw_sha256": "dd32c4285b122be0c9dd615b90c6b942fa363da8b0f1c5539b7890ddee9e6bff",
+   "rgb8_sha256": "b33fa87679eb9561a7fa5c35e099e4a7b85ea8219d0fd0085a3b6b2fb6fd5217"
+  },
+  {
+   "source_id": 40541036,
+   "selection_index": 73,
+   "assignment": "primary",
+   "title": "File:Monrepos 0550.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Pavlikhin",
+   "raw_sha256": "4746fabf0ac5027e79476ada71e8d349ca3aba90eea1aa0000b4fe3e11cc41cd",
+   "rgb8_sha256": "de4c02d5efbc86478871fdb6c86fd3af6e6946833a7ecc9cda717a971451caf0"
+  },
+  {
+   "source_id": 20869069,
+   "selection_index": 74,
+   "assignment": "primary",
+   "title": "File:Sony A77.jpg",
+   "licence": "CC BY 3.0",
+   "attribution": "SkywalkerPL",
+   "raw_sha256": "bbdf75c6add2d15ad7007fcf3327aac343048e8162111bcd6093ac03967632bd",
+   "rgb8_sha256": "6a98fb08db778014d93490bcd946b0ae42af746c3159e430d5d4c9c2cb63f267"
+  },
+  {
+   "source_id": 5191977,
+   "selection_index": 75,
+   "assignment": "primary",
+   "title": "File:Phobos colour 2008.jpg",
+   "licence": "Public domain",
+   "attribution": "NASA / JPL-Caltech / University of Arizona",
+   "raw_sha256": "871c9028fdda5d695512a1b4041cc05f95a5813b5c7ade72ef42ef4143f9177b",
+   "rgb8_sha256": "e42703e95a6e92b69701a8b2e4dbad694d6302857ef1884cc167a18be35f350b"
+  },
+  {
+   "source_id": 32100363,
+   "selection_index": 76,
+   "assignment": "primary",
+   "title": "File:Sidney Hall - Urania's Mirror - Scorpio.jpg",
+   "licence": "Public domain",
+   "attribution": "Sidney Hall / Adam Cuerden",
+   "raw_sha256": "5716c5dbb91794147034e0020462629047b2e16b51501f96957d8304631f893d",
+   "rgb8_sha256": "f32705a6649c430c64c49750191b36c7ea20e92089febf1661b139044220861b"
+  },
+  {
+   "source_id": 101937926,
+   "selection_index": 77,
+   "assignment": "primary",
+   "title": "File:Northern shoveler pair in Marine Park (33233).jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Rhododendrites",
+   "raw_sha256": "268b83a7499d1431882e8923b0aac2c554b5a5a4d1af30f4d0d9d11386eaa0a3",
+   "rgb8_sha256": "f8c68a273d20580517be6172cd68e5affda23ab030a3525be1b9ceb055630e10"
+  },
+  {
+   "source_id": 4567105,
+   "selection_index": 78,
+   "assignment": "primary",
+   "title": "File:Flehmendes Pferd 32 c.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "Waugsberg",
+   "raw_sha256": "460fe1af37d232f16e95fa44e3075b4328dcbd65bb16b15b69f01c5821dca235",
+   "rgb8_sha256": "4a2295f82c1cb5c3a6ac710fb899ed3e7d8b692949c6c632cf8bc726692e4072"
+  },
+  {
+   "source_id": 50423958,
+   "selection_index": 79,
+   "assignment": "primary",
+   "title": "File:Desenka meadow 2016 G1.jpg",
+   "licence": "Public domain",
+   "attribution": "George Chernilevsky",
+   "raw_sha256": "21028284fcbca4e3355c9975256ed6ba8305bae00655babf7ac3b5f3e3df49fd",
+   "rgb8_sha256": "9444a9247a7ff84bb9566fd28133138b2bd64361f2c405aca1e169818cae5d95"
+  },
+  {
+   "source_id": 43659488,
+   "selection_index": 80,
+   "assignment": "primary",
+   "title": "File:\u0417\u0438\u043c\u043e\u0432\u0430 \u0444\u043e\u0440\u0442\u0435\u0446\u044f.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Moahim",
+   "raw_sha256": "096130a820829c57561f1648fac9debf03c4898448c1a483d8d5e6bc4b20f06d",
+   "rgb8_sha256": "fec6b95df2c59a377e2246115c2211ea10b782de5004b9a818805efccdc5be03"
+  },
+  {
+   "source_id": 61974471,
+   "selection_index": 81,
+   "assignment": "primary",
+   "title": "File:Qu\u00e9bec city at night, view from L\u00e9vis city.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Wilfredor",
+   "raw_sha256": "7b42e41df360bfb3874d269bab75b6802a692b0b194ed4cbe433aa4e3227e2de",
+   "rgb8_sha256": "dfdb7ea07bef1432253a1f94dc3d357b97eeccccf9eac899c2f0cbfbf7bbb919"
+  },
+  {
+   "source_id": 61356004,
+   "selection_index": 82,
+   "assignment": "primary",
+   "title": "File:Plectranthus scutellarioides NBG LR.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "PumpkinSky",
+   "raw_sha256": "a5299c7db1e09b38726b31fc80161ed65b4fc2ebe9d1979980a8a673fbe71e8a",
+   "rgb8_sha256": "400d4427a8ed81c7ea7b4c641ef88932f0a0008045196a96e91928f67ec65b84"
+  },
+  {
+   "source_id": 70322608,
+   "selection_index": 83,
+   "assignment": "primary",
+   "title": "File:Len\u00e7\u00f3is Maranhenses 2018.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Julius Dadalti",
+   "raw_sha256": "23e42944e247c94edbf766af59d9882efed551cbfcd2f685e959c4ec68a4f13a",
+   "rgb8_sha256": "ae7a9e68c453fb97a811f2f652f1bb301223dc7962e80d66d6ccfa0052b70904"
+  },
+  {
+   "source_id": 114412240,
+   "selection_index": 84,
+   "assignment": "primary",
+   "title": "File:Newly eclosed individual of Pachliopta aristolochiae \u2013 Common Rose.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Sarpitabose",
+   "raw_sha256": "d2d39a0a8a9cec6a265ff37de54be975c66c3633c68f815c6a7679cc607d2bca",
+   "rgb8_sha256": "2fc096193fce00536757b333bbb8fca7050255ff51458ef0660f10a233298380"
+  },
+  {
+   "source_id": 62296160,
+   "selection_index": 85,
+   "assignment": "primary",
+   "title": "File:Slovyansk Voskresenska church.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Dmytro Balkhovitin",
+   "raw_sha256": "93de4a2976730d54267bd52c03a92e21b1ca31d64f8abf91a586389e28317339",
+   "rgb8_sha256": "b0626fcf27dac9acc5a7651e59024d911f1c141cca2f47538bd3249a554b8be8"
+  },
+  {
+   "source_id": 14503960,
+   "selection_index": 86,
+   "assignment": "primary",
+   "title": "File:Nacreous clouds Antarctica.jpg",
+   "licence": "CC BY 2.0",
+   "attribution": "Alan Light from Charlotte, USA. At Commons: Alan R Light (talk \u00b7 contribs)",
+   "raw_sha256": "1b506b883e550161603416b39b592d9f63e5877ca86a6df83e1683446a168c58",
+   "rgb8_sha256": "49ad51b1d173448637adffdbd45f725b06e57993da15d0d3bfea0d34fd29078e"
+  },
+  {
+   "source_id": 18821123,
+   "selection_index": 87,
+   "assignment": "primary",
+   "title": "File:Lob \u0416\u0430\u0432\u043e\u0440\u043e\u043d\u043a\u0438 95.jpg",
+   "licence": "CC0",
+   "attribution": "\u041b\u043e\u0431\u0430\u0447\u0435\u0432 \u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440",
+   "raw_sha256": "5c1f2fd8e0382628a87548bd40af6693723dcfc5f7bb23f2c370f422e0ec658b",
+   "rgb8_sha256": "d12541e144613e739f416773a0c8fed3dfffd07fea2f2fd334205e6e6aefef6f"
+  },
+  {
+   "source_id": 18497275,
+   "selection_index": 88,
+   "assignment": "primary",
+   "title": "File:\u2642 Geb\u00e4nderte Prachtlibelle Calopteryx splendens 4.JPG",
+   "licence": "CC BY-SA 2.5",
+   "attribution": "B\u00f6hringer Friedrich",
+   "raw_sha256": "3f7e55724cbcb4baef56c66be4a12ab4855f07d8375221026073be54bef84c5e",
+   "rgb8_sha256": "0119aa924812dcf011931ce4475c908fa62d897539b09d77c1e1d7e9656999fd"
+  },
+  {
+   "source_id": 442598,
+   "selection_index": 89,
+   "assignment": "primary",
+   "title": "File:Dampfturbine Laeufer01.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "Siemens Pressebild, http://www.siemens.com",
+   "raw_sha256": "935857ab2f41d6fb7beb0c2c2c6c06d2388a13865c90bd3b8c221ae8a9ff2da4",
+   "rgb8_sha256": "057651104745a61a9510e7f67acf9273c8c13337772e0b5442a1cc517274e649"
+  },
+  {
+   "source_id": 21856227,
+   "selection_index": 90,
+   "assignment": "primary",
+   "title": "File:Vincent van Gogh - Starry Night - Google Art Project.jpg",
+   "licence": "Public domain",
+   "attribution": "Vincent van Gogh",
+   "raw_sha256": "64d0573d7c72bef00a7a1380e3e3873825c69acb897ab664e2b81a90072aba97",
+   "rgb8_sha256": "55199b5b70c3d8f820229ea2d2fbf57c55d84a898cd952e04faf5aced63b980d"
+  },
+  {
+   "source_id": 63958584,
+   "selection_index": 91,
+   "assignment": "primary",
+   "title": "File:2017-04 Circumpolar trails sunset at La Hague lighthouse.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Antoine Lamielle",
+   "raw_sha256": "30e76a0b847fc3fa7b89cc4994dd9c39b268244d2a3e6f3d622d0dea3eb10301",
+   "rgb8_sha256": "e1000f5c4eaec49de5f0f291aa73409d3f3bc9ee5a51633fc47e0f09241b9c6c"
+  },
+  {
+   "source_id": 18748369,
+   "selection_index": 92,
+   "assignment": "primary",
+   "title": "File:Eiffel Tower and Pont Alexandre III at night.jpg",
+   "licence": "CC BY 2.0",
+   "attribution": "Getfunky Paris",
+   "raw_sha256": "736bebe640e1501e6bedddfc1e99d792ecdab4b2dcd2a8623f2743d4e1c3a930",
+   "rgb8_sha256": "c791903d58761764602abf99c8d2d5d5464988e23ba094f17b117ff03b42a4ca"
+  },
+  {
+   "source_id": 37826378,
+   "selection_index": 93,
+   "assignment": "primary",
+   "title": "File:Universitetet metro station January 2015 04.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Arild V\u00e5gen",
+   "raw_sha256": "2fc252b33c0105a4bc931910db06242586588024f32f804243e0032f5248e4bd",
+   "rgb8_sha256": "643902be9278831f3c09a1d8fd65600f0975712fbcea4f852beef1a2a4ef768b"
+  },
+  {
+   "source_id": 117609105,
+   "selection_index": 94,
+   "assignment": "primary",
+   "title": "File:10-04-2010 in Warsaw.jpg",
+   "licence": "CC BY 2.0",
+   "attribution": "Kuba Bo\u017canowski from Warsaw, Poland",
+   "raw_sha256": "4e1dffb48da9f75baa7f5564c399057d7faa808faee18a7dc552a3edc04bacb1",
+   "rgb8_sha256": "827409c5ee01d0cf4843889cbf6a6b14647a876659f26e53170ddd40cc506e37"
+  },
+  {
+   "source_id": 137218599,
+   "selection_index": 95,
+   "assignment": "primary",
+   "title": "File:Centro Hist\u00f3rico, 16.9 -- 2023 -- C\u00f3rdoba, Espa\u00f1a.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Jose Mar\u00eda Ligero Loarte",
+   "raw_sha256": "a84af08fd32ee402c735974b375c25ba67379f4863f0b8e7cd2050b788287028",
+   "rgb8_sha256": "29ab2f92426d1d089e313d4dcc1a71b78fc52333602dd79c4b08b68767d6fdc0"
+  },
+  {
+   "source_id": 29214384,
+   "selection_index": 96,
+   "assignment": "primary",
+   "title": "File:Larus californicus Palo Alto May 2011 001.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "King of Hearts",
+   "raw_sha256": "0df50e5ccafcca8c87ad7f452b09dc223d0ba7e3a0dd7515d7ae35b8ed15c9b7",
+   "rgb8_sha256": "759d7a8eb14be0869cb8295156d428588dd116bd8bc9cc3ed1002fd105066611"
+  },
+  {
+   "source_id": 51373257,
+   "selection_index": 97,
+   "assignment": "primary",
+   "title": "File:\u0427\u0435\u0440\u043d\u0456\u0433\u0456\u0432 \u0426\u0435\u0440\u043a\u0432\u0430 \u041c\u0438\u0445\u0430\u0439\u043b\u0430 \u0442\u0430 \u0424\u0435\u0434\u043e\u0440\u0430 \u0412\u0435\u0441\u043d\u0430 2016.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Nomad0212",
+   "raw_sha256": "4249309a36d9acc3164a2a89aa183341bc8b2884f3c1212df94820cef29546b8",
+   "rgb8_sha256": "331e919a1599235adc86019f01107de39ed38c77d4411931d211317356aab3c9"
+  },
+  {
+   "source_id": 128353413,
+   "selection_index": 98,
+   "assignment": "primary",
+   "title": "File:Alice-in-Wonderland by-David-Revoy 2010-07-21.jpg",
+   "licence": "CC BY 4.0",
+   "attribution": "David Revoy",
+   "raw_sha256": "87d4bf628a381eaabb26a7d780db0ed28733530b4736638a5ae8c53c4731ee29",
+   "rgb8_sha256": "98838840618f3ec2990e1f4886d51d1c52c110d53ac3b548357606f27c4a1654"
+  },
+  {
+   "source_id": 16886172,
+   "selection_index": 99,
+   "assignment": "primary",
+   "title": "File:C-17 test sortie.jpg",
+   "licence": "Public domain",
+   "attribution": "U.S. Air Force",
+   "raw_sha256": "06397ccfedcc0e502a92e03734e55e8d0f47571605792b585226e2f4f9cdaadb",
+   "rgb8_sha256": "92163443608f98325e0cfb17f976f4a525cc96a34ef3edf801a2ef25b6e66bd2"
+  },
+  {
+   "source_id": 85860113,
+   "selection_index": 100,
+   "assignment": "primary",
+   "title": "File:Kimono Forest at night, Arashiyama Station, Arashiyama, Kyoto, Japan.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Yasumichi Morita (designer) Basile Morin (photographer)",
+   "raw_sha256": "30bfbc3af98a870dbca742f93bdd83a16799e87a564ec4648985366e4c01bc0a",
+   "rgb8_sha256": "0d63fafabc7a980a68eec702d24b544e08fb97543da5867b3ed51c4b75a361f9"
+  },
+  {
+   "source_id": 46531492,
+   "selection_index": 101,
+   "assignment": "primary",
+   "title": "File:Dragon 2 hover test (24159153709).jpg",
+   "licence": "CC0",
+   "attribution": "SpaceX Photos",
+   "raw_sha256": "968c70299b59acc561889aad948412fed20833400eedf7b3f61e15fe954e6b7a",
+   "rgb8_sha256": "e0c27d13b40161b59e913494e74adb54558b00b451bc08f3ef4a7d7a1cd527a6"
+  },
+  {
+   "source_id": 45310459,
+   "selection_index": 102,
+   "assignment": "primary",
+   "title": "File:\u0415\u0441\u0441\u0435\u043d\u0442\u0443\u043a\u0438 4.JPG",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "\u041b\u0430\u0431\u043e\u0440\u0430\u0442\u043e\u0440\u0438\u044f \"\u041c\u0438\u043a\u0440\u043e\u043a\u043e\u0441\u043c\u043e\u0441\"",
+   "raw_sha256": "caa207439908f3d699a39f258b7613c4716d97e1840cd58d09a797526eebec4c",
+   "rgb8_sha256": "ac6e1139ceb6568695e50d9d5b997250994de5f53c5e7798b28b543cea499cea"
+  },
+  {
+   "source_id": 117608568,
+   "selection_index": 103,
+   "assignment": "primary",
+   "title": "File:Staircase of the BGK Building (26620981474).jpg",
+   "licence": "CC0",
+   "attribution": "Bart Lumber",
+   "raw_sha256": "648d1796c96a95a60c1b56263ecd2a567cf5465f74dfdc1bf2d7d99baa837d4a",
+   "rgb8_sha256": "22c906ca75d3bfc0600be6f9f0cb24e11bfb7d1f44fd22b3ccd07cbbd4383d96"
+  },
+  {
+   "source_id": 34609158,
+   "selection_index": 104,
+   "assignment": "primary",
+   "title": "File:Lahad-Datu Sabah Mount-Silam-Red-Crab-Geosesarma-aurantium-02.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "CEphoto, Uwe Aranas",
+   "raw_sha256": "5ab12159e8312bc94f2a06ecb685ede02ad3c94343997f8fe9cced6974b4901b",
+   "rgb8_sha256": "5891a1fdd413bc418d97191cd5d4c7792e37f8d30e50c17a09d506d4a5ea72a5"
+  },
+  {
+   "source_id": 92668687,
+   "selection_index": 105,
+   "assignment": "primary",
+   "title": "File:\u041a\u0440\u0438\u0448\u0442\u0430\u043b\u0435\u0432\u0456 \u043a\u0440\u0438\u043b\u0430.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "\u0421\u0435\u0440\u0433\u0456\u0439 \u041c\u0456\u0440\u043e\u0448\u043d\u0438\u043a",
+   "raw_sha256": "4bd288a78ca8e4f88e9071faed38f15a7cbaf780cbe7690e8e0621c494b1b17f",
+   "rgb8_sha256": "671f44596a4062dbebdab1e797c2d355cc17a104f5c0ecd172b9b3a68d212c50"
+  },
+  {
+   "source_id": 73170777,
+   "selection_index": 106,
+   "assignment": "primary",
+   "title": "File:Lauffen a.N. - Dorf - Regiswindiskirche - Ansicht von SO \u00fcber den Neckar (2).jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Roman Eisele",
+   "raw_sha256": "8528681f1ec689e98de101143ce3d54977249815bea4bd7a4980f1fe61fb24c6",
+   "rgb8_sha256": "d09bca38ee4ccf64f2c9b4aeafdd8493abb43fc6e07ebfb23df6936d9f1dacad"
+  },
+  {
+   "source_id": 114412197,
+   "selection_index": 107,
+   "assignment": "primary",
+   "title": "File:Nevin-aladag-villa-stuck-tusch.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Nevin Alada\u011f",
+   "raw_sha256": "eeda4f74bc441768d8c739b22905b27aab7366ef4932672f2acb131f24abc980",
+   "rgb8_sha256": "ae158d43fb91f9aca394d5d497696231c373a9a2762e860ed966ffc98ef987da"
+  },
+  {
+   "source_id": 39828171,
+   "selection_index": 108,
+   "assignment": "primary",
+   "title": "File:Falcon 9 rollout with TurkmenAlem52E-MonacoSAT to SLC-40 (17108097439).jpg",
+   "licence": "CC0",
+   "attribution": "SpaceX",
+   "raw_sha256": "f22cb289280a4d5c9b79cc36024d2124c5269a5b8d6d41c024ed08178939964a",
+   "rgb8_sha256": "f7f6824a809e3cbb88822a2bb2f1a6bcdfbd1fae8b5852f6fda61923672bcf2a"
+  },
+  {
+   "source_id": 128843848,
+   "selection_index": 109,
+   "assignment": "primary",
+   "title": "File:Close wing Basking of Athyma perius (Linnaeus, 1758) - Common Sergeant (4) WLB.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Anitava Roy",
+   "raw_sha256": "aa2e5d68da03fc62fef7027f4dcd9e6ab27086356211c297c7cac43f6e567442",
+   "rgb8_sha256": "89ad09d93c75f9d2c12bf9983654580c87735516429dd6e4ad236023e12f7705"
+  },
+  {
+   "source_id": 35474290,
+   "selection_index": 110,
+   "assignment": "primary",
+   "title": "File:View from Volcano Pacaya, Guatemala.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Christopher Crouzet",
+   "raw_sha256": "f3ab466e93498f491c050233d0d500d3931d63c9fe4154b37c6f0db8a4d5a282",
+   "rgb8_sha256": "15371d5f34b96582a322f8fc504aedd075edb23b01df15dcbcc3c40ab1705f22"
+  },
+  {
+   "source_id": 19777170,
+   "selection_index": 111,
+   "assignment": "primary",
+   "title": "File:L'Umbracle, Valencia, Spain - Jan 2007.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "Diliff",
+   "raw_sha256": "23e71be936424967bd3db5d1ccbc6aa999e366ea63ce4d60da9b422f62873d85",
+   "rgb8_sha256": "f8b212e3e6143cbcb0a6e69367fabc6b1694d793b00fb860173c778080746ef8"
+  },
+  {
+   "source_id": 57183922,
+   "selection_index": 112,
+   "assignment": "primary",
+   "title": "File:Photoelasticity - TDK Head Cleaner - White background.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Colin",
+   "raw_sha256": "4fdfedf0cec01231a8cf8b42e2c9420c4fb4246c0eff8f6ff4afef4f66574e6c",
+   "rgb8_sha256": "ef9ee2c3a999337ef66b6ba69f8ea19e10de151437741290a9b907bf2096abc4"
+  },
+  {
+   "source_id": 69811297,
+   "selection_index": 113,
+   "assignment": "primary",
+   "title": "File:Chirk Castle gates.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "DeFacto",
+   "raw_sha256": "b5fa0fd3345a3c7f417a2fc091aad889c5db50d314e2513dc947022d8f54fe36",
+   "rgb8_sha256": "2c4462ce9775c28f5f4da4f8386c796ad629d94853214be29b401573dfb4286a"
+  },
+  {
+   "source_id": 46854733,
+   "selection_index": 114,
+   "assignment": "primary",
+   "title": "File:Kamchatka Brown Bear near Dvuhyurtochnoe on 2015-07-23.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Robert F. Tobler",
+   "raw_sha256": "f949e70b3a008b62ce07946447e109d1fdd9972d0391c01aa32aae8d058fae6a",
+   "rgb8_sha256": "8c2c0998e9a73224b4bba6810430f0a9888b45ce5b6eda2b68912291e76ed026"
+  },
+  {
+   "source_id": 58655855,
+   "selection_index": 115,
+   "assignment": "primary",
+   "title": "File:\u041e\u043a\u043e\u043b\u043e \u0414\u0443\u0440\u043c\u0430\u043d-\u0433\u043e\u0440\u044b.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "\u041e\u0415\u043b\u0438\u0441\u0435\u0435\u0432\u0430",
+   "raw_sha256": "c06a0d50cff9a82c579af52edb28d249e37892feff3c92220513dbce9bc7a8ee",
+   "rgb8_sha256": "56472b50cdeb174f26eed60ad0f9878afe2efefdc1cfe55d9cb835c3a18934af"
+  },
+  {
+   "source_id": 123596414,
+   "selection_index": 116,
+   "assignment": "primary",
+   "title": "File:Half-timbered mansion, Zirkel, East view.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Radomianin",
+   "raw_sha256": "0b42d3778ef5a5e0483568ed37774c9a3e7682769df17fc19350f1d3c5a568c5",
+   "rgb8_sha256": "b2c33ad2a5b20d0fa88e4e358c895c1acc56690c36033dfec9cabb22df585152"
+  },
+  {
+   "source_id": 36527092,
+   "selection_index": 117,
+   "assignment": "primary",
+   "title": "File:\u0421\u0432. \u041d\u0438\u043a\u043e\u043b\u0430 \u041c\u0430\u0432\u0440\u043e\u0432\u043e.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Daniela Stefanoska",
+   "raw_sha256": "ef4077fd31c94f4a7736f3f19a954fe8d0c43fa7b246d6920a9267c127245d51",
+   "rgb8_sha256": "944b92aa35708e4219f4f67819773a2e4a61a317434157837f26ae1ec1e9631e"
+  },
+  {
+   "source_id": 64176566,
+   "selection_index": 118,
+   "assignment": "primary",
+   "title": "File:\u0422\u0440\u0430\u0434\u0438\u0446\u0438\u043e\u043d\u0430\u043b\u043d\u043e \u0441\u0435\u0440\u0432\u0438\u0440\u0430\u043d \u0430\u0458\u0432\u0430\u0440.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Mila Atkovska",
+   "raw_sha256": "fab643294da1aff50f4ddad24d0287d113cc833f00b2cffcbcbb5725d20c305b",
+   "rgb8_sha256": "c382f78353dcf8d703b69045946ef41983faa398d153276ee9cbd5a4de02d9db"
+  },
+  {
+   "source_id": 53660226,
+   "selection_index": 119,
+   "assignment": "primary",
+   "title": "File:Virmalised 18.03.15 (4).jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Kristian Pikner",
+   "raw_sha256": "4fabd1eb71664f503b4ce2b63d1a190ddac5947dd257ea5fd13838d723a1eafe",
+   "rgb8_sha256": "295b3e64432e0d799c8bb3488117c26ac7f43786d46b576db966b8058dbd33a1"
+  },
+  {
+   "source_id": 80459243,
+   "selection_index": 120,
+   "assignment": "primary",
+   "title": "File:Sally Ride (1984).jpg",
+   "licence": "Public domain",
+   "attribution": "NASA; retouched by Coffeeandcrumbs",
+   "raw_sha256": "ea25b741c25978a84efbd5c0c333c61e59486768178799c7f32b05d07e851cef",
+   "rgb8_sha256": "a033f9abb96aa8fe424b772ec98e0bc78c96d1317bafb5798cf2ab9c0b331a87"
+  },
+  {
+   "source_id": 43538655,
+   "selection_index": 121,
+   "assignment": "primary",
+   "title": "File:Sunsets of Umm al-Fahm6.JPG",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "Moataz Egbaria",
+   "raw_sha256": "5654ad8f6a8dbb41798703a2cae25e424fdc7d49a5fb8091d94eeab51bc7ca17",
+   "rgb8_sha256": "881afb2a02bc605fc5e1539993775fc35cc12518507f736117b22d27a3331d3c"
+  },
+  {
+   "source_id": 9083013,
+   "selection_index": 122,
+   "assignment": "primary",
+   "title": "File:Balaklava sick 2.jpg",
+   "licence": "Public domain",
+   "attribution": "Edmond Morin (lithographer), after William Simpson (artist), 1823-1899, artist., Paul & Dominic Colnaghi & Co., publishers",
+   "raw_sha256": "3c22b29321eb63be5f42decab014f32af1bd1b01fa13e67ac60b93452b3cbd0a",
+   "rgb8_sha256": "1fae79b1a2ce5a3c296324e4201a0a93ac20852a0bbb559ea78585a402cebcd0"
+  },
+  {
+   "source_id": 82067689,
+   "selection_index": 123,
+   "assignment": "primary",
+   "title": "File:Tour Saint-Jacques au cr\u00e9puscule.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Fabien Barrau",
+   "raw_sha256": "82521fba03c5b3f9c898e99f2e0ca8c90943bd52658ebc1037d476ea702f26ef",
+   "rgb8_sha256": "3e47ece34114bc8e47f8b06a85a1de7c34486237d6700e3a9647e368022385e8"
+  },
+  {
+   "source_id": 36236931,
+   "selection_index": 124,
+   "assignment": "primary",
+   "title": "File:Bubo bubo sibiricus - 01.JPG",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Carlos Delgado",
+   "raw_sha256": "4be2323faf7381947acf0d3018cf490e7a95dc5d5cd47425d74798e3ea4679c1",
+   "rgb8_sha256": "ba256cdef45caa71689c7a62ec6a66c6242ceda7c8cdb12958eaebf16725c534"
+  },
+  {
+   "source_id": 80015140,
+   "selection_index": 125,
+   "assignment": "primary",
+   "title": "File:Ratargul-02.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Abdulmominbd",
+   "raw_sha256": "077860d1a7ca5a90589de105ddf0d2a9355ad575a4bbaf311ccdf4c57c466038",
+   "rgb8_sha256": "b183931bb0bd49f4d73ebacae232bd668817c742a8ec0434a98c8d623cfa8ef5"
+  },
+  {
+   "source_id": 94525029,
+   "selection_index": 126,
+   "assignment": "primary",
+   "title": "File:Kaplica grobowa rodziny Potockich P1680784 Peczera.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Posterrr",
+   "raw_sha256": "25681a7340903748674ee0a8585bfc8dd2a0cea3b25a1af9a75197ff39f21c79",
+   "rgb8_sha256": "7e5ea25c2de46688b884da409b7e1dabea4eba14254526214f19dade39c1e0e5"
+  },
+  {
+   "source_id": 77622673,
+   "selection_index": 127,
+   "assignment": "primary",
+   "title": "File:1580 Lucas Janszoon Waghenaer Carte de l'ouest de la bretagne.jpg",
+   "licence": "Public domain",
+   "attribution": "Lucas Janszoon Waghenaer",
+   "raw_sha256": "e7fcf5ea9a6661e4768709cf3b635b787a044705aedb5db8cd0286785d2e4425",
+   "rgb8_sha256": "28707edfc1cabdc422b8c5408480115c48891970feb2f31ce5bff9c7387b5a64"
+  },
+  {
+   "source_id": 78055805,
+   "selection_index": 128,
+   "assignment": "primary",
+   "title": "File:Masque eharo MHNT ETH AC NB9.jpg",
+   "licence": "CC0",
+   "attribution": "Ruthven",
+   "raw_sha256": "66a1271b147ef8ff1d8bfb8e8473460b9a9758a549b5cc811228b0f823dc2bb5",
+   "rgb8_sha256": "79f20943a817d06133aab06ca3f1d42ad9e134f4f65e9628bd70b5f4dc24fac5"
+  },
+  {
+   "source_id": 75190624,
+   "selection_index": 129,
+   "assignment": "primary",
+   "title": "File:Mont Blanc from Les Arcs 1950.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Dmitry A. Mottl",
+   "raw_sha256": "091123eac4fbd07e8f9f09b618ae1e3fb6027d5b353d2d88c23af2caee34bec4",
+   "rgb8_sha256": "74554081bb578ed8bfaf2764facd5308bcee270d1eaeada59b64c336f18c51f8"
+  },
+  {
+   "source_id": 75048602,
+   "selection_index": 130,
+   "assignment": "primary",
+   "title": "File:004 2018 05 14 Extremes Wetter.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Friedrich Haag",
+   "raw_sha256": "edc6a13d9222ccf857eb7e49414a99d1a1f44294e712b34b1726d12b372a848f",
+   "rgb8_sha256": "2be78e4796ccc3a8388dc372e0396e4b0ca70c892597da965c53f322e9f1037a"
+  },
+  {
+   "source_id": 70553851,
+   "selection_index": 131,
+   "assignment": "primary",
+   "title": "File:Esztergom by night 01 - Simor J\u00e1nos utca.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Pudelek",
+   "raw_sha256": "b8befb74f5181f176dceb22b5d754dd189785a9200f73dd4d0ff7237df2ed8fc",
+   "rgb8_sha256": "7d4e0ec52aea683f7123adea611f581360fedc4b6a19c6f393f44ff9d569bb2f"
+  },
+  {
+   "source_id": 7991254,
+   "selection_index": 132,
+   "assignment": "primary",
+   "title": "File:Zoe Lyons Cigar Wink High Res.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "Steve Ullathorne",
+   "raw_sha256": "48757913cbf067ba7b85bfc05f87e0a55d1a3670566075702ce4e9dde2ef4c97",
+   "rgb8_sha256": "3df06d116a5e8ade980250225e6d51b4124d565e79ab22fbe3cd7af10d94012b"
+  },
+  {
+   "source_id": 8107641,
+   "selection_index": 133,
+   "assignment": "primary",
+   "title": "File:NSB Di 4 Saltfjell.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "Kabelleger / David Gubler (https://www.bahnbilder.ch)",
+   "raw_sha256": "9035e0fabdd9e5b616b9ff87592ea62a9a94c953b7da5bd44320dc4974d814e6",
+   "rgb8_sha256": "9f593f0c30cb913396820913aec9666dbb28cb799fb867ca03cde09bbdd678e1"
+  },
+  {
+   "source_id": 4898275,
+   "selection_index": 134,
+   "assignment": "primary",
+   "title": "File:Stained glass in Nysa cathedral.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Pudelek (Marcin Szala)",
+   "raw_sha256": "955a3835b8364bcb9327ccf620e51ce294bb8c6220d991b47997fde5cd4bf886",
+   "rgb8_sha256": "4ac69f874da0d0f472e75263b409d4d58c8199d12c784709cbbcf6fa151a3266"
+  },
+  {
+   "source_id": 162932146,
+   "selection_index": 135,
+   "assignment": "primary",
+   "title": "File:A Koch woman.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Nayeem01771031233",
+   "raw_sha256": "45115d3f952e665eff7e4779ea6bd94ee47130a422b583b0dd0a12c93d2b4768",
+   "rgb8_sha256": "dab7cc4606f9e50d7146a418fcc932292ee2a92dfbc66fd55784db5207f39f75"
+  },
+  {
+   "source_id": 51030540,
+   "selection_index": 136,
+   "assignment": "primary",
+   "title": "File:\u041f\u0456\u0434\u0433\u043e\u0440\u044f\u043d\u0441\u044c\u043a\u0438\u0439 \u043c\u043e\u043d\u0430\u0441\u0442\u0438\u0440.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "\u041a\u0430\u0442\u0435\u0440\u0438\u043d\u0430 \u0411\u0430\u0439\u0434\u0443\u0436\u0430",
+   "raw_sha256": "549c73561c3f7f8e47e4ed7a3036c33d4a7222250d9e483620b64d2892f26f23",
+   "rgb8_sha256": "88ae6ffcd3e8603ded1df6cc33883a9bf5161381135d0704d0b702a1673e90e8"
+  },
+  {
+   "source_id": 33610919,
+   "selection_index": 137,
+   "assignment": "primary",
+   "title": "File:L'assassinat de l'Archiduc h\u00e9ritier d'Autriche et de la Duchesse sa femme \u00e0 Sarajevo suppl\u00e9ment illustr\u00e9 du Petit Journal du 12 juillet 1914.jpg",
+   "licence": "Public domain",
+   "attribution": "Le Petit Journal",
+   "raw_sha256": "a6793e2b6f3043d5387be53ad2381048a3ed1df743a7eb4d969095440ecdcf83",
+   "rgb8_sha256": "e3b36eadbbbb77cb2c6bdae5eca1a7b0e3392b3a7db2c83acb098d45b3bc6b81"
+  },
+  {
+   "source_id": 3168204,
+   "selection_index": 138,
+   "assignment": "primary",
+   "title": "File:Grape worker.jpg",
+   "licence": "CC BY 3.0",
+   "attribution": "Tomas Castelazo",
+   "raw_sha256": "96e37520797644fb0a95bde8384454a6768433a473ee35db12485fdb45ead000",
+   "rgb8_sha256": "2802d6d22b2b6aff9a7db87a172c13c573a1016d97b9f0adc8b54656fbcd2506"
+  },
+  {
+   "source_id": 26908766,
+   "selection_index": 139,
+   "assignment": "primary",
+   "title": "File:Garzweiler Tagebau-1230.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Raimond Spekking",
+   "raw_sha256": "aecad69a02270eba35b5c2b93e5496570d9d935a5a9c6c24a812b74518d1b2f8",
+   "rgb8_sha256": "d2f2ec278788f944da6f1304beb9b4c3c656946fa20ddae86cd9fcc8fa6be2c1"
+  },
+  {
+   "source_id": 90590515,
+   "selection_index": 140,
+   "assignment": "primary",
+   "title": "File:Covid-19 San Salvatore 02.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Alberto Giuliani",
+   "raw_sha256": "12c21b04c9db437fa17e33d468865450d1dd6c9f2a9f93519015dd78d76f74e1",
+   "rgb8_sha256": "f64fc84c8c8c542df1b5e95c388056bc399c0abc4cecdc0e2622402c351f3655"
+  },
+  {
+   "source_id": 44143237,
+   "selection_index": 141,
+   "assignment": "primary",
+   "title": "File:Santa Maria del Popolo September 2015-3.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Alvesgaspar",
+   "raw_sha256": "ba6af685cd1c8a020aeb8708f0c5d391e4cad4855e73566021cd818391868e4e",
+   "rgb8_sha256": "c4f6815c4582c6d6e1c3dd02477807793511c0dfcd098fd850ab72907a8603ff"
+  },
+  {
+   "source_id": 21320719,
+   "selection_index": 142,
+   "assignment": "primary",
+   "title": "File:ISS-32 American EVA b3 Aki Hoshide.jpg",
+   "licence": "Public domain",
+   "attribution": "NASA",
+   "raw_sha256": "913e8eb62c911a2ee6000aeb0b314f6bdbf45c5337ef46a85f20a47ad0843562",
+   "rgb8_sha256": "784237b0b759c9ab802cee6054d78717ca542cc47868a1534b31fcd027e59424"
+  },
+  {
+   "source_id": 49179423,
+   "selection_index": 143,
+   "assignment": "primary",
+   "title": "File:Broke, baby sick, and car trouble! - Dorothea Langes photo of a Missouri family of five in the vicinity of Tracy, California.jpg",
+   "licence": "Public domain",
+   "attribution": "Dorothea Lange / Adam Cuerden",
+   "raw_sha256": "559010981f9d00c28a26a8ea91142987d51ca71121886dd2044f370d2d6f83be",
+   "rgb8_sha256": "15de1269516c1735160d218dbee4024a30ff9ec6569b220b14ae7a0f54675b42"
+  },
+  {
+   "source_id": 82398175,
+   "selection_index": 144,
+   "assignment": "primary",
+   "title": "File:Rani ki vav - Patan - Gujarat - Wall Decorations.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Snehrashmi",
+   "raw_sha256": "2a88f8f6d64f25c1f0a6d2fac28cd59a6ceb75dc58665717833b057f399a0094",
+   "rgb8_sha256": "3bbb53d15a5ba0439b5b2438e2ead39e1000fd2b00ef0ef2d37a745773d1fbd0"
+  },
+  {
+   "source_id": 78344241,
+   "selection_index": 145,
+   "assignment": "primary",
+   "title": "File:Reftinsky reservoir of Sverdlovsk region.jpg",
+   "licence": "CC BY 4.0",
+   "attribution": "Vasily Iakovlev",
+   "raw_sha256": "9a99b48b559872e11871508bdfc789f84117ec46efae1dd5c72c643b4d3663f9",
+   "rgb8_sha256": "dee55ef05deb8a0892f8d849b94cffbb2633a78e5fb0b00cc7f3ccd97d2eb14a"
+  },
+  {
+   "source_id": 67064606,
+   "selection_index": 146,
+   "assignment": "primary",
+   "title": "File:Gymnopilus viridans (Murrill) Hesler 363906.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "This image was created by user Caleb Brown (Caleb Brown) at Mushroom Observer, a source for mycological images.You can contact this user here.",
+   "raw_sha256": "cabe32e857be1fa4e85fef1ab6407a27b8ef6f3f214f0b2aef5ef91e9fab3fad",
+   "rgb8_sha256": "00bb38609b0026d6bfdc1371c2774d3225009248071f2e69d84ec2fabfbe48dd"
+  },
+  {
+   "source_id": 17546193,
+   "selection_index": 147,
+   "assignment": "primary",
+   "title": "File:Aix galericulata (Linnaeus 1758).jpg",
+   "licence": "CC BY 3.0",
+   "attribution": "Michael G\u00e4bler",
+   "raw_sha256": "b1abb900906f2c2ec8157dfc5e23aa7e743560bf222b32f8bcc60838d363840f",
+   "rgb8_sha256": "a196b1dd4b1723020f49721b219e704eceb00e09921d2e8abd9ec143814ebc23"
+  },
+  {
+   "source_id": 17092495,
+   "selection_index": 148,
+   "assignment": "primary",
+   "title": "File:\u0426\u0430\u0440\u0441\u043a\u043e\u0435-\u0441\u0435\u043b\u043e,-\u0415\u043a\u0430\u0442\u0435\u0440\u0438\u043d\u0438\u043d\u0441\u043a\u0438\u0439-\u0434\u0432\u043e\u0440\u0435\u0446.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "Aleks G",
+   "raw_sha256": "68c100fc9cf2c1820bcaaae54c3a57e1f3cea4a329d6200fef1c84ee9a4d25d0",
+   "rgb8_sha256": "4d7c2939dc331738c77c60b109cbca272f379655e4ff36e2f5b12d6ca11c15f1"
+  },
+  {
+   "source_id": 136805517,
+   "selection_index": 149,
+   "assignment": "primary",
+   "title": "File:Katharine Hepburn publicity photograph.jpg",
+   "licence": "Public domain",
+   "attribution": "Metro-Goldwyn-Mayer Studios; Restored by Adam Cuerden",
+   "raw_sha256": "c0ab35d44634bbf5648065e23a1df1bd53bf5fc9b2f4d6a3a0cda896ec525d1c",
+   "rgb8_sha256": "a4500c15f07bbfc3ab145b84903ecab79b1c7f8c9028c813a405bf36ad4ec6fd"
+  },
+  {
+   "source_id": 97210232,
+   "selection_index": 150,
+   "assignment": "primary",
+   "title": "File:Beckum 2 Mark Kuh.jpg",
+   "licence": "Public domain",
+   "attribution": "Issued by the Town of Beckum, reproduced from an original banknote by Palauenc05",
+   "raw_sha256": "34491e089d57f159bcc38e25182346616b5f659dbeae4f58ce6cd456a2fb8c91",
+   "rgb8_sha256": "c51bd41c42d904c49880de4d888b22db377f2d357c21b650cf8d897ae80fb1ee"
+  },
+  {
+   "source_id": 6343103,
+   "selection_index": 151,
+   "assignment": "primary",
+   "title": "File:Soyuz TMA-13 Edit.jpg",
+   "licence": "Public domain",
+   "attribution": "Bill Ingalls",
+   "raw_sha256": "0da52d4c1d8e2e7870e3b2a9fafa11c4afe5b10ed608c757d469e28b4e9d44de",
+   "rgb8_sha256": "49fc47e7d4e8cc8531844ea1748bfc04a7e0331cbbae5021a605f3283708954c"
+  },
+  {
+   "source_id": 121506193,
+   "selection_index": 152,
+   "assignment": "primary",
+   "title": "File:Parque Nacional Marinho de Fernando de Noronha - Jo\u00e3o Paulo Marques DAndretta 12.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Jo\u00e3o D'Andretta",
+   "raw_sha256": "6fb9ebaa1f42119b90cc51fc3f41df322607f45acc033fd9f88ca58eb86a0c80",
+   "rgb8_sha256": "cfbb780efc2e8e84c811a9d04ef119e3e9c0d0d32df92ed76a9c4da7f9a645a4"
+  },
+  {
+   "source_id": 41916590,
+   "selection_index": 153,
+   "assignment": "primary",
+   "title": "File:Lagopus muta japonica Mount Tsubakuro.jpg",
+   "licence": "CC BY-SA 2.0",
+   "attribution": "Daisuke Tashiro",
+   "raw_sha256": "19c375450d9e705c6ef8731aa0bddf44d555acd84dbf1c9e61bb938f916282ea",
+   "rgb8_sha256": "2ff7f75536bdfed4734b8ba307a48f50e5d00843f5c2a44d1480fb7063334f46"
+  },
+  {
+   "source_id": 75345628,
+   "selection_index": 154,
+   "assignment": "primary",
+   "title": "File:Gabrielle Aplin 03 10 2018 -1 (27078864258).jpg",
+   "licence": "CC BY 2.0",
+   "attribution": "Justin Higuchi from Los Angeles, CA, USA",
+   "raw_sha256": "8e52b99bfbc8d57b10e75c0e3b5248e60b73616cb7fd586ea278efe5c4094953",
+   "rgb8_sha256": "9201c519366f2aa82a4e46a87be5b38924c6c7e7689aae878426405fdd198162"
+  },
+  {
+   "source_id": 54726543,
+   "selection_index": 155,
+   "assignment": "primary",
+   "title": "File:Aleksander Gierymski - Jewish woman selling oranges - Google Art Project.jpg",
+   "licence": "Public domain",
+   "attribution": "Aleksander Gierymski",
+   "raw_sha256": "a117a8f5d67e6b68242ca5cf87da6840bf4704376efef81de07aed0724a065ba",
+   "rgb8_sha256": "c5f7602072953eea153b5c970632b3584c8b2041e3083928139ce16fe6941cd7"
+  },
+  {
+   "source_id": 71204710,
+   "selection_index": 156,
+   "assignment": "primary",
+   "title": "File:Stubai - Tiroler Bergschaf -BT- 01.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Basotxerri",
+   "raw_sha256": "b7463f29cd4e188d7b59223ad8bb667c7c2424382867cc136143df2f74f5555c",
+   "rgb8_sha256": "990b5c626bcaae764fba1c156b3c3ca23a9c180766af619c4299825df7f19369"
+  },
+  {
+   "source_id": 82659688,
+   "selection_index": 157,
+   "assignment": "primary",
+   "title": "File:\u0421\u0435\u043b\u0435\u043d\u0438\u0435 \u041d\u0438\u0439.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Altushkin",
+   "raw_sha256": "d9cdf119be69c136086821a906037c64b3b729b2055bcea772d0f1f05d33fae0",
+   "rgb8_sha256": "10b2012c34fdfc2ee06ea61313c93511942f5ae52038c9cb8f0753102aa56408"
+  },
+  {
+   "source_id": 21000361,
+   "selection_index": 158,
+   "assignment": "primary",
+   "title": "File:\u0420\u043e\u0437\u0430 \u041b\u044b\u0433\u0434\u0435\u043d\u043e\u0432\u0430.JPG",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "\u0410\u0440\u043a\u0430\u0434\u0438\u0439 \u0417\u0430\u0440\u0443\u0431\u0438\u043d",
+   "raw_sha256": "808d37b6464eac925c99a314b83a043e0cad3ccd17df2cba41f80d479776b67c",
+   "rgb8_sha256": "018cc50de7e2972c339fe18efd645278daa28cd7bc576aad33940afc2c3e63e8"
+  },
+  {
+   "source_id": 69219810,
+   "selection_index": 159,
+   "assignment": "primary",
+   "title": "File:\u041b\u0435\u0434\u044f\u043d\u044b\u0435 \u043f\u0430\u0440\u0443\u0441\u043d\u0438\u043a\u0438.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Discoverynn",
+   "raw_sha256": "c4e8737660ab84c645d1797bd09572884464e50b339fbb60c5f91ebabe05fbde",
+   "rgb8_sha256": "ea581d9c2a7bb6c9358fe3a20029528073e2d299d6e8eaaf8dfa3ad858a45453"
+  },
+  {
+   "source_id": 57411745,
+   "selection_index": 160,
+   "assignment": "primary",
+   "title": "File:San Francisco Bay Bridge Western Span at night.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Dllu",
+   "raw_sha256": "04f6417910fc1f297ee6c45f6b14aac619e41448fa55e6db66d844587be6a92f",
+   "rgb8_sha256": "cf06e3dea334301ea71567cdcd300067a9224ee56aba0f8c5ed225df78d00d28"
+  },
+  {
+   "source_id": 79364921,
+   "selection_index": 161,
+   "assignment": "primary",
+   "title": "File:\u0420\u0430\u043d\u043a\u043e\u0432\u0456 \u043a\u043e\u043b\u044c\u043e\u0440\u0438 \u0443 \u0437\u0430\u043a\u0430\u0437\u043d\u0438\u043a\u0443 \u0411\u043e\u0431\u0440\u043e\u0432\u043d\u044f.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Alex Arendar",
+   "raw_sha256": "98b170a59c6087f650bc4046fa4e28a3de2d8c6df3bad2110486f92f068817ae",
+   "rgb8_sha256": "13ead16f81720d447605a95c0818fc0fe68f33400d48b26cda7257932de7f80b"
+  },
+  {
+   "source_id": 72731754,
+   "selection_index": 162,
+   "assignment": "primary",
+   "title": "File:N\u00fcrnberg St. Lorenz Dreik\u00f6nigsaltar Kindermord 01.jpg",
+   "licence": "Public domain",
+   "attribution": "Hans Pleydenwurff",
+   "raw_sha256": "944d5efb5a6fafb55620507a23778390ff99e87c3c2097e0ac6ba4ed4043deb7",
+   "rgb8_sha256": "630f3718d62ed981f5bcf1773ffafe6de8d976e14fafff0f9548c85c66750d10"
+  },
+  {
+   "source_id": 41228295,
+   "selection_index": 163,
+   "assignment": "primary",
+   "title": "File:Our Lady of Mount Carmel and St Pauls Pro-Cathedral.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "This photo was taken by Anton Zelenov. Please credit this with : Photo : Anton Zelenov in the immediate vicinity of the image. If you use one of my photos, please email me (account needed) or leave me a short message on my discussion page. It would be greatly appreciated. Do not copy this image illegally by ignoring the terms of the license below, as it is not in the public domain. If you would like special permission to use, license, or purchase the image please contact me to negotiate terms.",
+   "raw_sha256": "508c494b5592f19880d1a1e2ef536e2611687c33c7658cc095209de0eab61f06",
+   "rgb8_sha256": "582011dbeb69a7fec597ab8892b3bd5a5ddc21287c7ebdf923afdb8d4a1f4d7e"
+  },
+  {
+   "source_id": 28039885,
+   "selection_index": 164,
+   "assignment": "primary",
+   "title": "File:Louis Pasteur, foto av Paul Nadar, Crisco edit.jpg",
+   "licence": "Public domain",
+   "attribution": "Paul Nadar",
+   "raw_sha256": "ea34672c0fde378893c572d908da96c7b97957f49ace5beb7b77085614452ffd",
+   "rgb8_sha256": "631a7f643bc4b844a86dd91c0172aa7009ea81742fb694fdbd583ae227fe7db8"
+  },
+  {
+   "source_id": 126294372,
+   "selection_index": 165,
+   "assignment": "primary",
+   "title": "File:Saint John church in Caselles (8).jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Krzysztof Golik",
+   "raw_sha256": "e87c28665dfc317a3815f7600fca73e38d3ee6f83574bcc602f95fa941c66773",
+   "rgb8_sha256": "a90a33702db74dbb2c08744e20f09d65ad00b209c83ff151abfb07f290646be1"
+  },
+  {
+   "source_id": 159089493,
+   "selection_index": 166,
+   "assignment": "primary",
+   "title": "File:HH30 Webb investigates a dusty and dynamic disc (potm2501a).jpg",
+   "licence": "CC BY 4.0",
+   "attribution": "ESA/Webb, NASA & CSA, Tazaki et al.",
+   "raw_sha256": "a41fe59b574fccdb76cab05bed8c4208de89faeaf217c1f3b1ed3085eb2fb8f6",
+   "rgb8_sha256": "ea9252f1573989d70bd49010f8495acf5f19f8151b193a7136bf9fa67137d8e7"
+  },
+  {
+   "source_id": 78202930,
+   "selection_index": 167,
+   "assignment": "primary",
+   "title": "File:Mongoose pile.jpg",
+   "licence": "CC0",
+   "attribution": "Mathias Appel",
+   "raw_sha256": "a3f411abc3bdc1d23964b92ac7169249a9e0962b8c44f49c814ed7892eb447d0",
+   "rgb8_sha256": "9c2aa8e0fb2ae2c0c808cd37d6e48668a433bd800aaa8c251cdc99a67f163d5a"
+  },
+  {
+   "source_id": 2514048,
+   "selection_index": 168,
+   "assignment": "primary",
+   "title": "File:Three wheeler in Pingyao.jpg",
+   "licence": "CC BY 2.0",
+   "attribution": "Luo Shaoyang from Beijing, China",
+   "raw_sha256": "5b83aef4b5eb61cbd71c5d07ad550cd5a89e8c01535a5a14964c584c9d3b8c8a",
+   "rgb8_sha256": "1b0d5f7f0eba0fa762fec9138c9287559b6e92218e821c1d04e97564f5bfefd8"
+  },
+  {
+   "source_id": 84550989,
+   "selection_index": 169,
+   "assignment": "primary",
+   "title": "File:Baffled LIGO Scientists.jpg",
+   "licence": "CC BY 4.0",
+   "attribution": "Nkij",
+   "raw_sha256": "c515fa40c3c8b95b5f6d44b9bf186f91ec8cc4c57c5939919b1c8d918b0b6466",
+   "rgb8_sha256": "364888884466e6f7313c4762c1058294a99e9fa9c6350e53d2a74f3886c9a4f7"
+  },
+  {
+   "source_id": 40551851,
+   "selection_index": 170,
+   "assignment": "primary",
+   "title": "File:Carnavalesco.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "Gabriel Castaldini",
+   "raw_sha256": "a1c8533d6c626c5f6f179fe395abb3885a08517c72ef7e66f8dfb114b0ed7332",
+   "rgb8_sha256": "f4753b6107695ebc907fc9221aab190d201fc20d26c17f90c51483e1f26288f3"
+  },
+  {
+   "source_id": 1477026,
+   "selection_index": 171,
+   "assignment": "primary",
+   "title": "File:EmissionNebula NGC6357.jpg",
+   "licence": "Public domain",
+   "attribution": "NASA, ESA and Jes\u0153s Maz Apell\u00ffniz (Instituto de astrof\u00edsica de Andalucia, Spain). Acknowledgement: Davide De Martin (ESA/Hubble)",
+   "raw_sha256": "5612281e0679409cf2a6993e8e19a1ff89e8f350503ad483471942be3ed86bd7",
+   "rgb8_sha256": "93506ef84a85c8bcea622ffc286dec2ad10f3cb328514fe975b7108667e589e1"
+  },
+  {
+   "source_id": 8483546,
+   "selection_index": 172,
+   "assignment": "primary",
+   "title": "File:Apophysis 3D fractal ball.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "Garden",
+   "raw_sha256": "ee0c335589f51a5ad6113361503e703f1d3abe511e1b953c48e28804171631d6",
+   "rgb8_sha256": "7907d1512a4ffa3c04238ea3d2b193fdad0e8d003a9eb9a8a560d3d39e182e77"
+  },
+  {
+   "source_id": 61442486,
+   "selection_index": 173,
+   "assignment": "primary",
+   "title": "File:Play with a wheel.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Arjit Chowdhury",
+   "raw_sha256": "2b18031c3d4d236f55160c808eb57d55e62699779ce0c7eb85a66f0df614323b",
+   "rgb8_sha256": "29e192cf3cadbc4438a581669e4089be8b5629bec5a514ef839b59447c46bdec"
+  },
+  {
+   "source_id": 45704541,
+   "selection_index": 174,
+   "assignment": "primary",
+   "title": "File:Cath\u00e9drale Notre Dame, Paris 30 September 2015.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Antonin Subtil",
+   "raw_sha256": "216130579b39c42607a12a791033d3cd93bf27ad4f850a348e2de4a1b4540dfb",
+   "rgb8_sha256": "e3a3ce9bf960a5b7e2cd42cbd6564154fe8eb40a87618d5951dfd3ceb0398fb6"
+  },
+  {
+   "source_id": 8391098,
+   "selection_index": 175,
+   "assignment": "primary",
+   "title": "File:Surfer in Santa cruz 11-8-9 -1.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "Brocken Inaglory",
+   "raw_sha256": "6b6a501fc7b7fbc07e1df1751d62442624f569fa1a1b1df24b5b64ec66221a0c",
+   "rgb8_sha256": "28c08cca49952c8ad92c665c8aaf48fe8cb98b425ca1187a2c3b43c8ad964131"
+  },
+  {
+   "source_id": 138928832,
+   "selection_index": 176,
+   "assignment": "primary",
+   "title": "File:Silhuetas no Forte de Santo Ant\u00f4nio da Barra (cropped).jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Railson Nascimento",
+   "raw_sha256": "54115268588a3bad381a02d44e03ea72373a5f392f5aac702e2d8c9ff95c7b25",
+   "rgb8_sha256": "afce1adfb136696b0d124f05ee50276d9c4bf4712959cf148ec7550147cb1c9f"
+  },
+  {
+   "source_id": 75872866,
+   "selection_index": 177,
+   "assignment": "primary",
+   "title": "File:Trier Quant 1 Milliarde.jpg",
+   "licence": "Public domain",
+   "attribution": "Fritz Quant",
+   "raw_sha256": "35362c8d6c273838b0887e5bf0570579ba9b0514808ff56a05d868591149306a",
+   "rgb8_sha256": "1d6a9ab1dfa8d2919b76463c3b6d08d954ae6de0875d0a44a8d09f75967d0433"
+  },
+  {
+   "source_id": 66985233,
+   "selection_index": 178,
+   "assignment": "primary",
+   "title": "File:Warriors of Lapland.jpg",
+   "licence": "Public domain",
+   "attribution": "Sot.virk. Oswald Hedenstr\u00f6m",
+   "raw_sha256": "4223f507770e66682bd9266654de68b097229afc1b447765e1cfc549709b0669",
+   "rgb8_sha256": "85d25ca12c13a43b5452826800b143e0107bde11c62f2fd1bfda55d1fdee03ca"
+  },
+  {
+   "source_id": 58577909,
+   "selection_index": 179,
+   "assignment": "primary",
+   "title": "File:2016 Phnom Penh, Pa\u0142ac Kr\u00f3lewski, Preah Tineang Phhochani (14).jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Marcin Konsek",
+   "raw_sha256": "79bd400e3de5b3cea2ab94222081102d0d146d1744b837ffc5a1a320179f92f3",
+   "rgb8_sha256": "c78627a335c8cefc607bb70cba1502f21d08fc0e9a86bb4f37b2c7e40af3288a"
+  },
+  {
+   "source_id": 64193880,
+   "selection_index": 180,
+   "assignment": "primary",
+   "title": "File:Fuyu persimmon fruits, one cut open.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Frank Schulenburg",
+   "raw_sha256": "51682928db2999442baca727621b9b341ccc7f5946353296a93330708c8fac82",
+   "rgb8_sha256": "e0c364edc14140270afef8420f90a2eb8888089e34bfc8dfb551154de9a93a22"
+  },
+  {
+   "source_id": 50887442,
+   "selection_index": 181,
+   "assignment": "primary",
+   "title": "File:20160803 - Meiktila, Myanmar - Phaung Daw U Pagoda - 7321.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Jakub Ha\u0142un",
+   "raw_sha256": "fdfb3ca6bed49e6c82b1bfd5ecb1d5a091c6fcab376e28a49b6bc74a16f41466",
+   "rgb8_sha256": "851046d55f3e158df6dca7f86fd865e598a2a532d8c18327d3a8af85914997a0"
+  },
+  {
+   "source_id": 121661550,
+   "selection_index": 182,
+   "assignment": "primary",
+   "title": "File:F-35 Heritage Flight Team performs in Bell Fort Worth Alliance AirShow.jpg",
+   "licence": "Public domain",
+   "attribution": "Airman 1st Class Alexander Cook",
+   "raw_sha256": "9302c20574d381f32f8ed186fa712f26c897e9bf293d1c76055e1bf984793b9f",
+   "rgb8_sha256": "19cdf703a7f1e37e5ab32cca6c8badca77d0fe51885988c97b5521f8f4a9005c"
+  },
+  {
+   "source_id": 56717420,
+   "selection_index": 183,
+   "assignment": "primary",
+   "title": "File:Katscha February 2017 06.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "ArildV",
+   "raw_sha256": "80ed64a5d3defe61e81a8a2dec391cfd35762710a8ac359946c8942d6397250c",
+   "rgb8_sha256": "c23bc4a1ada7dc0046d996c9b9e7d2cb5ed70acac82fd8a2bd3bb1a874562932"
+  },
+  {
+   "source_id": 17479653,
+   "selection_index": 184,
+   "assignment": "primary",
+   "title": "File:Grand bassin octogonal Jardin des Tuileries 003.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "Moonik",
+   "raw_sha256": "14ad4c0771d3a0d6566c278e77897b48c2d02b3a0cd7dbfc283504af5fe554fd",
+   "rgb8_sha256": "e701e7afa06a486ca04208a6a3f83bee75e9feb6c71eee1f9d38b0e540decf81"
+  },
+  {
+   "source_id": 45341180,
+   "selection_index": 185,
+   "assignment": "primary",
+   "title": "File:Fluorescence in calcite.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Jan Pavelka",
+   "raw_sha256": "476950aeb7659146970c61aabc86338e9d935dd39b27b996df6e0c522315e4da",
+   "rgb8_sha256": "37f25c1ece78adf50da62d4c6ee49fe32e0efe4bdac62c26978606b171b96f5b"
+  },
+  {
+   "source_id": 32494596,
+   "selection_index": 186,
+   "assignment": "primary",
+   "title": "File:01-01-2014 - Messeturm - trade fair tower - Frankfurt- Germany - 01.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "Norbert Nagel",
+   "raw_sha256": "ff82c8225a7560199c50efdb2d242bc582ee53bdcdaae4b80274cc8763928aae",
+   "rgb8_sha256": "1ab0d0e015c1ea3917685577262c2b307a93acdfb57218a3bd970e3112aff020"
+  },
+  {
+   "source_id": 113850651,
+   "selection_index": 187,
+   "assignment": "primary",
+   "title": "File:Maestro Batik Tulis di Imogiri.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Aconkyeah",
+   "raw_sha256": "29a16237991443979f65f175294f2336ab594b5920386fe116882ca7d47c5fac",
+   "rgb8_sha256": "43040dfdf6178d8e0a85eccdee9e331d41339f6ca539ea0509307b01745e6e27"
+  },
+  {
+   "source_id": 97250879,
+   "selection_index": 188,
+   "assignment": "primary",
+   "title": "File:\u0423\u0442\u043a\u0438 \u043d\u0430 \u041d\u0430\u0431\u0435\u0440\u0435\u0436\u043d\u043e\u0439 - 2.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Alexander Novikov",
+   "raw_sha256": "4994ed4c1b1a7c5a4c6d38a2ee7bdf4340ca3136bf89e75190c8a29e5285c0e6",
+   "rgb8_sha256": "19f3c93f8906b4e77d723a9be4fc1743d71ffa3d17a154286b7f64f3032acd28"
+  },
+  {
+   "source_id": 94978514,
+   "selection_index": 189,
+   "assignment": "primary",
+   "title": "File:\u05d2\u05dc\u05d9\u05e9\u05ea \u05e2\u05e0\u05e0\u05d9\u05dd \u05dc\u05de\u05db\u05ea\u05e9 \u05e8\u05de\u05d5\u05df.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Giladtop",
+   "raw_sha256": "516bb4d0f2a107dfcd7649dc9909b2619dc362947f15e691a9a1895e6abc328e",
+   "rgb8_sha256": "a383b74f4e513ee05c0afa40c079011bff4477b0f316e6822427709c1912e46a"
+  },
+  {
+   "source_id": 47325007,
+   "selection_index": 190,
+   "assignment": "primary",
+   "title": "File:Topless female model.jpg",
+   "licence": "CC BY 2.0",
+   "attribution": "This file comes from the official Flickr account of Patrick Subotkiewiez, Category:Bazi\u00e8ge, France This tag does not indicate the copyright status of the attached work. A normal copyright tag is still required. See Commons:Licensing.",
+   "raw_sha256": "674354f96a3b435803c169e380299e81d24dc9994415e73b2158cf1c964a5e7f",
+   "rgb8_sha256": "8a03bf59abae20595088e344bacd760f1bbbe8e2aba8ec86b5e7bad805f02871"
+  },
+  {
+   "source_id": 75959467,
+   "selection_index": 191,
+   "assignment": "primary",
+   "title": "File:Flensburg 50 Pfg 1920.jpg",
+   "licence": "Public domain",
+   "attribution": "Issued by the City of Flensburg, designed by Johann Holtz (1875-1944), reproduced and uploaded by Palauenc05",
+   "raw_sha256": "1f46b4acc0cdd6155e97a4ae1d814a5dcc48b4119ac5b9d3181823168bf393be",
+   "rgb8_sha256": "44f56984a75e23f49c095beb41b7006752205720c2b044136f8d128ee82c2024"
+  },
+  {
+   "source_id": 53204089,
+   "selection_index": 192,
+   "assignment": "primary",
+   "title": "File:Cappuchin Bridge (30706076020).jpg",
+   "licence": "CC BY 2.0",
+   "attribution": "Bernd Thaller from Graz, Austria",
+   "raw_sha256": "cc1bdaa4672a45da2cc3ada4c2f02713c69543017d51fa8713430b4f7c1a1495",
+   "rgb8_sha256": "819ffd24e84b2ca03a0a9ba5fd28a86b4d8a0c99a937abfa9778be8cdf365603"
+  },
+  {
+   "source_id": 69729501,
+   "selection_index": 193,
+   "assignment": "primary",
+   "title": "File:2018 FIM Ice Speedway Gladiators World Championship - GP 7 Niedermaier-5563.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Isiwal",
+   "raw_sha256": "df6ce4fd51c8c98541e8939502bcee2996754beda48db02bda2de18fa32eac91",
+   "rgb8_sha256": "edc09c75c2369066984bc8012910e75d6b0818ee60d5053d1c2d247e2e4e741f"
+  },
+  {
+   "source_id": 73446474,
+   "selection_index": 194,
+   "assignment": "primary",
+   "title": "File:Boy in Dar ul-Ihsan Mosque.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Salar Arkan - \u0633\u0627\u0644\u0627\u0631 \u0627\u0631\u06a9\u0627\u0646",
+   "raw_sha256": "529796c71df0bec38e4233e0c9616a2a14283d1bcb4a65f5115936e8c02ca8cc",
+   "rgb8_sha256": "d126e56f5d70c6afa2005ee200922cd0e8012cc81a1f78ca971f93f47ae23a7d"
+  },
+  {
+   "source_id": 69961168,
+   "selection_index": 195,
+   "assignment": "primary",
+   "title": "File:\u041b\u0435\u0436\u043a\u0430 \u043c\u043e\u0440\u0436\u0435\u0439 \u043d\u0430 \u043e\u0441\u0442\u0440\u043e\u0432\u0435 \u041d\u043e\u0440\u0442\u0431\u0440\u0443\u043a.jpg",
+   "licence": "CC BY-SA 4.0",
+   "attribution": "Timinilya",
+   "raw_sha256": "7aef2be706fe80af583b8a788b45e0f1142d6736aabbedc8132fbcbba0b1d3fe",
+   "rgb8_sha256": "671db60a20ebd8ef54134776070727b0e9f99017ac2e09c51f6129a271be0343"
+  },
+  {
+   "source_id": 81874853,
+   "selection_index": 196,
+   "assignment": "primary",
+   "title": "File:Osteolaemus tetraspis - Karlsruhe Zoo 01.jpg",
+   "licence": "CC BY-SA 3.0",
+   "attribution": "H. Zell",
+   "raw_sha256": "7544399ed9cf423bd8cd63018aec3821b965f43e454e4929fc8e360f8c934248",
+   "rgb8_sha256": "c6652176dd13860e40fffb2a0af1eba08a95b92b8395f71a2bb531c27af4f6d2"
+  },
+  {
+   "source_id": 74979174,
+   "selection_index": 197,
+   "assignment": "primary",
+   "title": "File:Mainz 50 Pfg 1921.jpg",
+   "licence": "Public domain",
+   "attribution": "Oskar Roick",
+   "raw_sha256": "4f86a973dfe42c85dec26f8ba9c21af6522a622d07e1d4d7cb8bcae913df7197",
+   "rgb8_sha256": "fe21e7ef32eb3b66ee0c621b9409281ced33391cc76bac4c1a89ec83840dd0fe"
+  },
+  {
+   "source_id": 15979500,
+   "selection_index": 198,
+   "assignment": "primary",
+   "title": "File:Actinostola.jpg",
+   "licence": "Public domain",
+   "attribution": "Expedition to the Deep Slope 2007, NOAA-OE",
+   "raw_sha256": "3875b22cce756c74601db573b2d921a009d0237703bf5158c9b4fbfb29194c7c",
+   "rgb8_sha256": "b1e3dcaf6955e0d5ac0d041e8643a36543c2d74d3b8c76a11a979d147b54c560"
+  },
+  {
+   "source_id": 83065220,
+   "selection_index": 199,
+   "assignment": "primary",
+   "title": "File:Jules Verne by \u00c9tienne Carjat.jpg",
+   "licence": "Public domain",
+   "attribution": "\u00c9tienne Carjat / Adam Cuerden",
+   "raw_sha256": "064d290ae702c2a0c03c836da7959bc718393e1c584e054036fbc5c10f52b1ed",
+   "rgb8_sha256": "807876fb25dd1dd7b7bd51fd390a075d32df45844509a1bce3725926767450ba"
+  },
+  {
+   "source_id": 22420273,
+   "selection_index": 200,
+   "assignment": "primary",
+   "title": "File:Flickr - DVIDSHUB - Giant standing Buddhas of Bamiyan still cast shadows (Image 2 of 8).jpg",
+   "licence": "Public domain",
+   "attribution": "Sgt. Ken Scar",
+   "raw_sha256": "4868779d2f2c1487f34962afc4216370738d34f86809e2b43e162124fea5d59a",
+   "rgb8_sha256": "64e4c51a0ec0121eb9097b0ee2c5c5246f0ac9b71c3cb1883aa77c0a4fce7a0e"
+  }
+ ]
+}
