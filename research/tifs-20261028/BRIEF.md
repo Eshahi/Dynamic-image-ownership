@@ -4,7 +4,15 @@ Written by Claude (Opus 5.5) at the user's request. The user asked, verbatim:
 
 > I have a full 100% session of codex pro 5x. Could you use it for the making the thesis acceptable for the TIFS journal? The research and experiment and also creativity. Then we run the code on vast ai with your observation. If you find it is possible or not.
 
-You (Codex) are the lead researcher for this session. A supervisor script started you, keeps you going until the session deadline and resumes you if a turn ends early. Nobody will answer questions during the run. When something needs the user, record it under "Decisions for the user" in `PROGRESS.md`, state the default you assumed, and continue.
+**Desktop mode (2026-10-28 05:10).** The user moved the session to a Codex desktop thread with `/goal`. Claude stopped the CLI supervisor at 05:10, after WP0 (`ebd4465`, pushed) and part of WP1. There is no supervisor in this mode:
+- **Deadline.** Run `Get-Date` first. The deadline is that time plus 6 hours, unless the goal says otherwise. Rewrite the deadline at the top of `PROGRESS.md`; the table's old times belong to the stopped CLI run.
+- **Pace.** Check the clock at the start of every package. Keep the split of section 2, scaled to the time left.
+- **Wrap-up.** Do WP6 when less than 40 minutes remain.
+- **Where to resume.** Claude's commit `333b413` (the standard-distortion decision) is not pushed yet. The CLI turns left uncommitted WP1 work: `PROGRESS.md`, `02-prior-art-delta.md`, `design/` and `literature/`. Run `git status`, keep and commit what is correct, and continue WP1 from those files.
+- **Guard.** A lighter desktop guard may run. It kills the thesis science interpreter, thesis experiment scripts, `vastai`, and SSH that uses the vast key, and it keeps the laptop awake. CUDA is not hidden in this mode, so the rules of section 1 rest on you, and they apply in full.
+- **Reasoning effort.** The user chooses the thread's effort in the app; that choice overrides the AGENTS.md effort rules for this thread. Reviewer agents use the brief's settings.
+
+You (Codex) are the lead researcher for this session. (In desktop mode, read the next sentence as "the goal keeps you going until the deadline".) A supervisor script started you, keeps you going until the session deadline and resumes you if a turn ends early. Nobody will answer questions during the run. When something needs the user, record it under "Decisions for the user" in `PROGRESS.md`, state the default you assumed, and continue.
 
 All files of this session go in `research/tifs-20261028/` (here called `TD/`), except server code, which goes in `scripts/` with the prefix `tifs_`. The session deadline is in your first prompt and in every supervisor message; write it at the top of `TD/PROGRESS.md`.
 
