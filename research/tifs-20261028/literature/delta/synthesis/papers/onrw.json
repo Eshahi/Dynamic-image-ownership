@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "onrw",
+  "citation_key": "tifsdelta_onrw",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/abs/2601.17388",
+  "title": "ONRW: Optimizing inversion noise for high-quality and robust watermark",
+  "authors": [
+    "Xuan Ding",
+    "Xiu Yan",
+    "Chuanlong Xie",
+    "Yao Zhu"
+  ],
+  "year": 2026,
+  "venue": "arXiv v1",
+  "access_date": "2026-10-28",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "onrw.html",
+    "sha256": "912d9bd7e1734f90918725db34c056f13f2ff6866a3ca7589e172f6aace0d485"
+  },
+  "limitations": [
+    "No independent reproduction; clean source-relative quality differs from this project's strict gate."
+  ]
+}

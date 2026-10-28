@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "tifs-b-lvmark",
+  "citation_key": "tifsb_lvmark",
+  "doi": "10.1109/TIFS.2026.3688194",
+  "canonical_url": "https://doi.org/10.1109/TIFS.2026.3688194",
+  "title": "LVMark: Robust Watermark for Latent Video Diffusion Models",
+  "authors": [
+    "MinHyuk Jang",
+    "Youngdong Jang",
+    "JaeHyeok Lee",
+    "Feng Yang",
+    "Gyeongrok Oh",
+    "Jongheon Jeong",
+    "Sangpil Kim"
+  ],
+  "year": 2026,
+  "venue": "IEEE Transactions on Information Forensics and Security",
+  "access_date": "2026-10-28",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "lvmark-v4.html",
+    "sha256": "f5cd1652295ac93b7e0cfad3fdf59add8b25cfb79b1979961e45a59f5ab72e1b"
+  },
+  "limitations": [
+    "Adjacent VIDEO; inspected arXiv v4, not final typeset article. Journal 21:4908-4923 (16 pp). Author order differs between repository citation and preprint; preprint order retained.",
+    "Verification means inspected cached version only; does not establish identity to final journal version."
+  ]
+}

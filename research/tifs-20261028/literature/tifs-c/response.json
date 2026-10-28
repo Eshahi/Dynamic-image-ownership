@@ -1,0 +1,54 @@
+{
+  "request_id": "tifs-bar-c-20261028",
+  "papers": [
+    {
+      "schema_version": "1.0",
+      "paper_id": "tang2024rrw",
+      "citation_key": "Tang2024RRW",
+      "doi": "10.1109/TIFS.2024.3372811",
+      "canonical_url": "https://doi.org/10.1109/TIFS.2024.3372811",
+      "title": "A Robust Reversible Watermarking Scheme Using Attack-Simulation-Based Adaptive Normalization and Embedding",
+      "authors": ["Yichao Tang", "Chuntao Wang", "Shijun Xiang", "Yiu-Ming Cheung"],
+      "year": 2024,
+      "venue": "IEEE Transactions on Information Forensics and Security",
+      "access_date": "2026-10-28",
+      "source_type": "paper",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "tang2024.pdf",
+        "sha256": "8754bbf26eb919a0cb1eda28c80754852468f8121dee3dad7932c78ada854cf9"
+      },
+      "limitations": ["Final TIFS 19 (2024), pages 4114-4129; no diffusion regeneration evaluation.", "No operational false-attribution calibration or human study identified.", "Author notes iterative embedding cost and imperfect transfer to unknown attacks."]
+    },
+    {
+      "schema_version": "1.0",
+      "paper_id": "chen2026instance",
+      "citation_key": "Chen2026Instance",
+      "doi": "10.1109/TIFS.2026.3744611",
+      "canonical_url": "https://doi.org/10.1109/TIFS.2026.3744611",
+      "title": "Instance-Level Multi-Watermark Embedding with Mask-gated Adapter against Partial Screen-shooting",
+      "authors": ["Mingyue Chen", "Xin Liao", "Zhen Xia", "Chengyu Wang", "Xiaoshuai Wu", "Yufeng Wu"],
+      "year": 2026,
+      "venue": "IEEE Transactions on Information Forensics and Security",
+      "access_date": "2026-10-28",
+      "source_type": "paper",
+      "verification": "verified",
+      "inspected_content": "full-text",
+      "inspection": {
+        "artifact": "chen2026.pdf",
+        "sha256": "fbc544268e8efd8752740e8a8dce56b6a72ba488ff0c4914e9b693f9bb8f1353"
+      },
+      "limitations": ["Inspected 16-page accepted author version; final volume and page range unknown.", "Detector uses pretrained instance segmentation and capture comparisons use manual perspective correction.", "No operational false-attribution calibration, human study or diffusion regeneration evidence identified.", "Disjoint instance masks; partial fragments and background-only captures can fail."]
+    }
+  ],
+  "evidence": [
+    {"claim_id":"TC01","claim":"Tang compares five external RRW methods using separate 1000-image BOWS2 comparison data and 256/512-bit payloads.","source_id":"tang2024rrw","kind":"direct-evidence","stance":"supporting","locator":"IV-A, IV-E; pp.4121-4127, Tables I-II, X-XV","confidence":"high","limitations":["Image selection random seeds not established; not a diffusion test."],"assumptions":[]},
+    {"claim_id":"TC02","claim":"Tang reports mean RRW-PCET PSNR40.25dB before reversible embedding and39.09dB final.","source_id":"tang2024rrw","kind":"direct-evidence","stance":"supporting","locator":"IV-D, p.4125, Table IX","confidence":"high","limitations":["Mean image quality is not an all-source quality guarantee."],"assumptions":[]},
+    {"claim_id":"TC03","claim":"Chen evaluates four external named methods and an adapted FPSMark variant on real screen captures, COCO groups and LVIS transfer.","source_id":"chen2026instance","kind":"direct-evidence","stance":"supporting","locator":"IV-A-F, pp.8-12","confidence":"high","limitations":["100 images per COCO group,50 per LVIS instance-count subset; unique aggregate and subset overlaps unknown.","Image-level methods are mask-adapted; capture images manually perspective corrected."],"assumptions":[]},
+    {"claim_id":"TC04","claim":"Chen reports five-instance quality36.00dB PSNR and.964 SSIM and explicitly acknowledges failures on fragments and absence of object instances.","source_id":"chen2026instance","kind":"direct-evidence","stance":"supporting","locator":"IV-B, p.9; V, pp.13-14","confidence":"high","limitations":["Bit extraction ACC does not establish false-attribution probability."],"assumptions":[]},
+    {"claim_id":"TC05","claim":"These TIFS precedents support task-specific operating conditions, meaningful component ablations and quality/payload-matched comparisons as useful design targets.","source_id":"tang2024rrw","kind":"agent-inference","stance":"supporting","locator":"II-V, especially IV-C/E; synthesis also compares Chen2026Instance IV","confidence":"medium","limitations":["Observed precedents cannot establish necessary or sufficient journal acceptance criteria."],"assumptions":["These two distinct image-watermark studies are useful but incomplete publication-bar samples."]}
+  ],
+  "assumptions": [],
+  "open_questions": ["Whether code releases exist outside inspected author records remains unknown.", "Current TIFS acceptance cannot be predicted from the sampled precedents."]
+}

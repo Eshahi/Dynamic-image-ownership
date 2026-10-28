@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "tang2024rrw",
+  "citation_key": "Tang2024RRW",
+  "doi": "10.1109/TIFS.2024.3372811",
+  "canonical_url": "https://doi.org/10.1109/TIFS.2024.3372811",
+  "title": "A Robust Reversible Watermarking Scheme Using Attack-Simulation-Based Adaptive Normalization and Embedding",
+  "authors": [
+    "Yichao Tang",
+    "Chuntao Wang",
+    "Shijun Xiang",
+    "Yiu-Ming Cheung"
+  ],
+  "year": 2024,
+  "venue": "IEEE Transactions on Information Forensics and Security",
+  "access_date": "2026-10-28",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "tang2024.pdf",
+    "sha256": "8754bbf26eb919a0cb1eda28c80754852468f8121dee3dad7932c78ada854cf9"
+  },
+  "limitations": [
+    "Final TIFS 19 (2024), pages 4114-4129; no diffusion regeneration evaluation.",
+    "No operational false-attribution calibration or human study identified.",
+    "Author notes iterative embedding cost and imperfect transfer to unknown attacks."
+  ]
+}

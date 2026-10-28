@@ -1,31 +1,33 @@
 # TIFS session progress
 
-**Deadline: 2026-10-28 10:43 at the supervisor's fixed UTC-08:00 offset (18:43 UTC).**
-Start: 2026-10-28 04:43 UTC-08:00 (12:43 UTC). Branch: `codex/tifs-20261028`. Author: Codex agent.
+**Desktop deadline: 2026-10-28 11:56:06.7876054 UTC-08:00 (19:56:06.7876054 UTC).**
+Desktop start: 2026-10-28 05:56:06.7876054 UTC-08:00 (13:56:06.7876054 UTC), from the first `Get-Date`; exactly six hours. Branch: `codex/tifs-20261028`. Author: Codex agent. Earlier CLI work began at 12:43 UTC and is retained below as history.
 
 ## Session contract
 
 Research, derivation, saved-result analysis and server-code preparation only. No image/model execution, installation, asset acquisition, GPU, SSH or paid compute on this laptop. All scientific runs remain for Claude's later server stage. The authoritative MAIN STATE was read once at session start. The current brief overrides its older statement that only writing is authorized; it does not authorize a new held-out run.
 
-The supervisor supplies a fixed UTC-08:00 offset; this file follows that offset rather than interpreting the operating-system timezone's daylight-saving rules. Check UTC against 18:43 UTC. If less than 40 minutes remain, proceed to WP6.
+The desktop client uses fixed UTC-08:00. Check UTC against 19:56:06.7876054 UTC. Begin WP6 by 19:16:06 UTC, when 40 minutes remain. There is no active CLI supervisor; the thread goal maintains continuity.
 
 ## Package log
 
 | Package | Start UTC | Finish UTC | State / evidence | Commit and push |
 |---|---|---|---|---|
-| WP0 | 12:43 | 12:46 | Starting evidence and scope read; clean branch verified; evidence summary below | commit accompanying this update |
-| WP1 | 12:46 | pending | TIFS bar and prior art | pending |
-| WP2 | pending | pending | Ideas, derivations, hostile review, selection | pending |
+| WP0 | 12:43 | 12:46 | Starting evidence and scope read; clean branch verified; evidence summary below | `ebd4465`, pushed with upstream set |
+| WP1 | 12:46 | 14:20 | Nine TIFS-linked studies inspected: seven direct image, video and image-to-3D explicitly adjacent. Final-version/access caveats retained; broad evidence survey delivered. Prior-art delta includes SemBind and Guidance Watermarking. | committing |
+| WP2 | 14:03 | pending | Author assistance underway; hostile review follows top-three draft | pending |
 | WP3 | pending | pending | Frozen Stage S and Stage C design | pending |
 | WP4 | pending | pending | Server code, pure-logic tests, runbook | pending |
 | WP5 | pending | pending | Fresh independent protocol/code review | pending |
 | WP6 | pending | pending | Feasibility report and MAIN state note | pending |
 
+Desktop restart at 13:56:06 UTC: read authoritative MAIN STATE once; read amended BRIEF and this progress file; branch is ahead by Claude's two brief amendments, with prior CLI WP1 files uncommitted. Preserve these and audit before accepting them. Desktop allocation: WP1 to about 14:40; WP2 to 15:50; WP3 to 16:40; WP4 to 18:35; WP5 to 19:15; WP6 to 19:56. Package clock checks supersede these estimates.
+
 ## Decisions for the user
 
 1. Stage S uses the 60 existing development sources only. The 200 completed Phase-B sources remain consumed confirmation, not newly authorized development data. The 40 reserve identifiers remain untouched.
 2. No Stage C execution is authorized here. Its fresh-pool acquisition and paid execution require a later user decision.
-3. T3/T4/T5 remain the experiment scope. Record any TIFS concern about standard distortions as an explicit later choice, without adding a T1/T2 campaign.
+3. User decision relayed at 12:53 UTC and preserved in Claude's `333b413`: add a fixed, inexpensive standard-distortion grid to Stage S and Stage C as a separate article-only secondary family. Apply to clean marked images of every arm, without diffusion; Stage C target is at most 1–2 extra instance-hours. T3/T4/T5 remain the thesis gates and primary article claim. Secondary results must not choose the primary contribution.
 
 ## Working decisions and integrity notes
 
@@ -37,9 +39,18 @@ The supervisor supplies a fixed UTC-08:00 offset; this file follows that offset 
 
 WP2 and WP5 require fresh `gpt-6-astra` / `xhigh` reviewers with no inherited context. WP1 will use bounded literature assistants under the AGENTS parallel-work authorization.
 
+- 12:46 UTC: `tifs_bar_a` and `tifs_bar_b`, `gpt-6.1-sol` / medium, bounded primary-source TIFS paper inspection and evidence files; no shared-file writes or commits.
+- 12:51 UTC: `candidate_derivation`, `gpt-6-astra` / high, three candidate mechanisms, capacity and falsifiability derivations. This is author assistance, not the independent hostile review.
+- 13:58 UTC desktop: `wp1_tifs_bar` and `wp1_prior_art`, `gpt-6.1-sol` / medium, bounded primary-source audits and completion of the retained CLI evidence. Separate file ownership; no shared-state edits.
+- 14:02 UTC: `reuse_feasibility`, `gpt-6.1-sol` / medium, static audit of retained adapters, server memory and time constraints; delivered `design/reuse-feasibility.md`.
+- 14:03 UTC: `wp2_ideas_author`, `gpt-6-astra` / high, distinct contribution candidates and top-three derivations; author assistance, not the hostile reviewer.
+- 14:13 UTC: `fresh_family_plan`, `gpt-6.1-sol` / medium, primary-source audit of a future Stage C family, access, disk and 24 GB constraints; no model acquisition or execution.
+- 14:13 UTC: bounded follow-up to `wp1_tifs_bar` for one additional direct image-watermark TIFS full text. The current survey already has nine distinct relevant works, of which seven are direct image studies; adjacent video and image-to-3D studies remain explicitly labelled.
+- 14:20 UTC: eighth-direct-image follow-up closed with an access ledger, not a fabricated inspection. WP1 satisfies a broad nine-study relevant-venue survey, with a remaining strict eight-direct-image/final-journal-version limitation clearly stated in `01-tifs-bar.md` and `literature/tifs-eighth.md`.
+
 ## Push log
 
-WP0: Codex agent, branch `codex/tifs-20261028`, base `d5b41fc`; first push of the commit containing this entry sets upstream. Exact push receipt will be recorded in the next package commit.
+WP0: Codex agent, branch `codex/tifs-20261028`, `d5b41fc..ebd4465`, successfully pushed with `git push -u origin codex/tifs-20261028` at approximately 12:46 UTC. Claude's subsequent authorized brief amendment `333b413` is retained. Restart check at 12:54 UTC found only the in-progress literature directory untracked; no work was lost.
 
 ## WP0 evidence baseline
 

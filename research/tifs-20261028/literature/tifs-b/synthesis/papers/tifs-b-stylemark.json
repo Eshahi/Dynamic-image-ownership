@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "tifs-b-stylemark",
+  "citation_key": "tifsb_stylemark",
+  "doi": "10.1109/TIFS.2025.3592521",
+  "canonical_url": "https://doi.org/10.1109/TIFS.2025.3592521",
+  "title": "StyleMark: Robust Style Watermarking for Artworks Against Black-Box Zero-Shot Style Transfer",
+  "authors": [
+    "Yunming Zhang",
+    "Dengpan Ye",
+    "Sipeng Shen",
+    "Jun Wang",
+    "Caiyun Xie"
+  ],
+  "year": 2025,
+  "venue": "IEEE Transactions on Information Forensics and Security",
+  "access_date": "2026-10-28",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "stylemark-v1.html",
+    "sha256": "fb1b274614b19bfabd72a4a0a0735362c47405f23e403049525dde986e966674"
+  },
+  "limitations": [
+    "Inspected related author preprint arXiv v1 (2024), DIFFERENT title and four authors (without Caiyun Xie); final TIFS 20:7867-7880 (14 pp) inaccessible behind IEEE robot gate. Journal metadata corroborated by DBLP; final-version experiment changes UNKNOWN. Do not count as final-journal fulltext inspection.",
+    "Verification means inspected cached version only; does not establish identity to final journal version."
+  ]
+}

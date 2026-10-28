@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "tifs-b-wfm",
+  "citation_key": "tifsb_wfm",
+  "doi": "10.1109/TIFS.2024.3443650",
+  "canonical_url": "https://doi.org/10.1109/TIFS.2024.3443650",
+  "title": "Wide Flat Minimum Watermarking for Robust Ownership Verification of GANs",
+  "authors": [
+    "Jianwei Fei",
+    "Zhihua Xia",
+    "Benedetta Tondi",
+    "Mauro Barni"
+  ],
+  "year": 2024,
+  "venue": "IEEE Transactions on Information Forensics and Security",
+  "access_date": "2026-10-28",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "wfm-v1.pdf",
+    "sha256": "c194d68a884ab84a7825b38488e0aeb38aeb2bdc15cc79c9b63abc021e03b9e8"
+  },
+  "limitations": [
+    "Inspected arXiv v1 (2023;13 pp), not 16-page final TIFS 19:8322-8337. Venue verified from author publication list. Later article changes UNKNOWN; VOC2012 count has typographic ambiguity.",
+    "Verification means inspected cached version only; does not establish identity to final journal version."
+  ]
+}

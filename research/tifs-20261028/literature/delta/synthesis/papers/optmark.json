@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "optmark",
+  "citation_key": "tifsdelta_optmark",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/abs/2508.21727",
+  "title": "OptMark: Robust Multi-bit Diffusion Watermarking via Inference Time Optimization",
+  "authors": [
+    "Jiazheng Xing",
+    "Hai Ci",
+    "Hongbin Xu",
+    "Hangjie Yuan",
+    "Yong Liu",
+    "Mike Zheng Shou"
+  ],
+  "year": 2025,
+  "venue": "arXiv v1; later AAAI 2026",
+  "access_date": "2026-10-28",
+  "source_type": "preprint",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "optmark.html",
+    "sha256": "6b7471638481c52a941b859c5ed48e208039075f3a7bbb68846ee965b340ef80"
+  },
+  "limitations": [
+    "Inspected v1; final conference version may differ."
+  ]
+}

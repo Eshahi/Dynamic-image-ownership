@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "vine",
+  "citation_key": "tifsdelta_vine",
+  "doi": null,
+  "canonical_url": "https://arxiv.org/abs/2410.18775",
+  "title": "Robust Watermarking Using Generative Priors Against Image Editing: From Benchmarking to Advances",
+  "authors": [
+    "Shilin Lu",
+    "Zihan Zhou",
+    "Jiayou Lu",
+    "Yuanzhi Zhu",
+    "Adams Wai-Kin Kong"
+  ],
+  "year": 2025,
+  "venue": "ICLR 2025",
+  "access_date": "2026-10-28",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "vine.html",
+    "sha256": "f6fb25d7b27ec0e95f883674e2e08a41a9075f5929e76287f02330e339e049dd"
+  },
+  "limitations": [
+    "Inspected arXiv v2. This project's VINE endpoint is presence/expected-message verification, not ownership."
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "tifs-guidance",
+  "citation_key": "tifsdelta_tifs_guidance",
+  "doi": null,
+  "canonical_url": "https://signalprocessingsociety.org/sites/default/files/uploads/publications_resources/docs/Guidelines__deep_learning_submissions.pdf",
+  "title": "Guidelines for Deep Learning Submissions",
+  "authors": [
+    "IEEE Signal Processing Society"
+  ],
+  "year": 2026,
+  "venue": "IEEE Signal Processing Society",
+  "access_date": "2026-10-28",
+  "source_type": "report",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "tifs-dl-guidance.pdf",
+    "sha256": "5c534a6fd647f3e8d1f11022874e14a310682d6f7a05387b50f26cb69adfeed5"
+  },
+  "limitations": [
+    "Publication year not stated; 2026 is access year, not asserted release year."
+  ]
+}

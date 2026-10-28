@@ -1,0 +1,266 @@
+﻿{
+    "request_id":  "tifs-delta-20261028",
+    "papers":  [
+                   {
+                       "schema_version":  "1.0",
+                       "paper_id":  "optmark",
+                       "citation_key":  "tifsdelta_optmark",
+                       "doi":  null,
+                       "canonical_url":  "https://arxiv.org/abs/2508.21727",
+                       "title":  "OptMark: Robust Multi-bit Diffusion Watermarking via Inference Time Optimization",
+                       "authors":  [
+                                       "Jiazheng Xing",
+                                       "Hai Ci",
+                                       "Hongbin Xu",
+                                       "Hangjie Yuan",
+                                       "Yong Liu",
+                                       "Mike Zheng Shou"
+                                   ],
+                       "year":  2025,
+                       "venue":  "arXiv v1; later AAAI 2026",
+                       "access_date":  "2026-10-28",
+                       "source_type":  "preprint",
+                       "verification":  "verified",
+                       "inspected_content":  "full-text",
+                       "inspection":  {
+                                          "artifact":  "optmark.html",
+                                          "sha256":  "6b7471638481c52a941b859c5ed48e208039075f3a7bbb68846ee965b340ef80"
+                                      },
+                       "limitations":  [
+                                           "Inspected v1; final conference version may differ."
+                                       ]
+                   },
+                   {
+                       "schema_version":  "1.0",
+                       "paper_id":  "onrw",
+                       "citation_key":  "tifsdelta_onrw",
+                       "doi":  null,
+                       "canonical_url":  "https://arxiv.org/abs/2601.17388",
+                       "title":  "ONRW: Optimizing inversion noise for high-quality and robust watermark",
+                       "authors":  [
+                                       "Xuan Ding",
+                                       "Xiu Yan",
+                                       "Chuanlong Xie",
+                                       "Yao Zhu"
+                                   ],
+                       "year":  2026,
+                       "venue":  "arXiv v1",
+                       "access_date":  "2026-10-28",
+                       "source_type":  "preprint",
+                       "verification":  "verified",
+                       "inspected_content":  "full-text",
+                       "inspection":  {
+                                          "artifact":  "onrw.html",
+                                          "sha256":  "912d9bd7e1734f90918725db34c056f13f2ff6866a3ca7589e172f6aace0d485"
+                                      },
+                       "limitations":  [
+                                           "No independent reproduction; clean source-relative quality differs from this project\u0027s strict gate."
+                                       ]
+                   },
+                   {
+                       "schema_version":  "1.0",
+                       "paper_id":  "drawmark",
+                       "citation_key":  "tifsdelta_drawmark",
+                       "doi":  "10.1109/ICASSP55912.2026.11464504",
+                       "canonical_url":  "https://doi.org/10.1109/ICASSP55912.2026.11464504",
+                       "title":  "DrawMark: Defeating Regeneration Attacks by Embedding Watermark into Predicted Noise of Diffusion Models",
+                       "authors":  [
+                                       "Zixuan Cao",
+                                       "Xin Liao",
+                                       "Yufeng Wu",
+                                       "Junjie Wang",
+                                       "Xiaoshuai Wu"
+                                   ],
+                       "year":  2026,
+                       "venue":  "ICASSP",
+                       "access_date":  "2026-10-28",
+                       "source_type":  "paper",
+                       "verification":  "verified",
+                       "inspected_content":  "full-text",
+                       "inspection":  {
+                                          "artifact":  "drawmark.pdf",
+                                          "sha256":  "daef40590c0c6808826827e8097cd28fef9343dee4478c78f57dc711751d556d"
+                                      },
+                       "limitations":  [
+                                           "Author-hosted five-page IEEE paper; no code/reproduction checked."
+                                       ]
+                   },
+                   {
+                       "schema_version":  "1.0",
+                       "paper_id":  "softbinding",
+                       "citation_key":  "tifsdelta_softbinding",
+                       "doi":  null,
+                       "canonical_url":  "https://arxiv.org/abs/2610.04151",
+                       "title":  "Watermarks and Fingerprints as Soft Bindings for Content Provenance: An Open-Licence Benchmark for Images, Audio and Video",
+                       "authors":  [
+                                       "Seyedmahdi Kazempourradi",
+                                       "Ramtin Mojtahedi",
+                                       "Behrang Mohseni"
+                                   ],
+                       "year":  2026,
+                       "venue":  "arXiv v1",
+                       "access_date":  "2026-10-28",
+                       "source_type":  "preprint",
+                       "verification":  "verified",
+                       "inspected_content":  "full-text",
+                       "inspection":  {
+                                          "artifact":  "softbinding.html",
+                                          "sha256":  "41b32e9930ccf14bbe3d1efdcbcf7ba96782177029238f6e96eaebf280c250a9"
+                                      },
+                       "limitations":  [
+                                           "Preprint; security and calibration claims are limited to its tested pipelines."
+                                       ]
+                   },
+                   {
+                       "schema_version":  "1.0",
+                       "paper_id":  "vine",
+                       "citation_key":  "tifsdelta_vine",
+                       "doi":  null,
+                       "canonical_url":  "https://arxiv.org/abs/2410.18775",
+                       "title":  "Robust Watermarking Using Generative Priors Against Image Editing: From Benchmarking to Advances",
+                       "authors":  [
+                                       "Shilin Lu",
+                                       "Zihan Zhou",
+                                       "Jiayou Lu",
+                                       "Yuanzhi Zhu",
+                                       "Adams Wai-Kin Kong"
+                                   ],
+                       "year":  2025,
+                       "venue":  "ICLR 2025",
+                       "access_date":  "2026-10-28",
+                       "source_type":  "paper",
+                       "verification":  "verified",
+                       "inspected_content":  "full-text",
+                       "inspection":  {
+                                          "artifact":  "vine.html",
+                                          "sha256":  "f6fb25d7b27ec0e95f883674e2e08a41a9075f5929e76287f02330e339e049dd"
+                                      },
+                       "limitations":  [
+                                           "Inspected arXiv v2. This project\u0027s VINE endpoint is presence/expected-message verification, not ownership."
+                                       ]
+                   },
+                   {
+                       "schema_version":  "1.0",
+                       "paper_id":  "tifs-guidance",
+                       "citation_key":  "tifsdelta_tifs_guidance",
+                       "doi":  null,
+                       "canonical_url":  "https://signalprocessingsociety.org/sites/default/files/uploads/publications_resources/docs/Guidelines__deep_learning_submissions.pdf",
+                       "title":  "Guidelines for Deep Learning Submissions",
+                       "authors":  [
+                                       "IEEE Signal Processing Society"
+                                   ],
+                       "year":  2026,
+                       "venue":  "IEEE Signal Processing Society",
+                       "access_date":  "2026-10-28",
+                       "source_type":  "report",
+                       "verification":  "verified",
+                       "inspected_content":  "full-text",
+                       "inspection":  {
+                                          "artifact":  "tifs-dl-guidance.pdf",
+                                          "sha256":  "5c534a6fd647f3e8d1f11022874e14a310682d6f7a05387b50f26cb69adfeed5"
+                                      },
+                       "limitations":  [
+                                           "Publication year not stated; 2026 is access year, not asserted release year."
+                                       ]
+                   }
+               ],
+    "evidence":  [
+                     {
+                         "claim_id":  "delta-optmark",
+                         "claim":  "Inference-time initial and intermediate latent optimization uses a fixed DINO reader, adjoint gradients and quality regularizers. Experiments use SD2.1, 1,000 generated images, 48-bit messages and 1,200 optimization rounds; regeneration TPR is .872 at a stated 10^-6 FPR operating point. This pre-empts generic latent insertion, dual-scale robustness and gradient-efficient diffusion optimization.",
+                         "source_id":  "optmark",
+                         "kind":  "agent-inference",
+                         "stance":  "supporting",
+                         "locator":  "Sections 3.2â€“3.5; 4.1; Table 1",
+                         "confidence":  "medium",
+                         "limitations":  [
+                                             "Inspected v1; final conference version may differ."
+                                         ],
+                         "assumptions":  [
+                                             "The inspected version represents the stated mechanism; novelty judgments are bounded comparisons, not an exhaustive priority proof."
+                                         ]
+                     },
+                     {
+                         "claim_id":  "delta-onrw",
+                         "claim":  "Null-text inversion followed by latent optimization combines decoder loss, self-attention preservation and attention-derived foreground masks. A fixed HiDDeN reader extracts 48 bits. COCO/ImageNet experiments report approximately one minute/image on RTX4090; COCO PSNR27.11 and SSIM.88 do not meet our strict clean gate. This pre-empts generic inversion-noise embedding with a cheap fixed extractor.",
+                         "source_id":  "onrw",
+                         "kind":  "agent-inference",
+                         "stance":  "supporting",
+                         "locator":  "Sections 3.1â€“3.2, 4.1â€“4.3; Table 1",
+                         "confidence":  "medium",
+                         "limitations":  [
+                                             "No independent reproduction; clean source-relative quality differs from this project\u0027s strict gate."
+                                         ],
+                         "assumptions":  [
+                                             "The inspected version represents the stated mechanism; novelty judgments are bounded comparisons, not an exhaustive priority proof."
+                                         ]
+                     },
+                     {
+                         "claim_id":  "delta-drawmark",
+                         "claim":  "Trainable adapters modulate a frozen SD2.1 U-Net\u0027s predicted noise; a latent decoder extracts 48/64 bits. Training uses 10,000 DiffusionDB images for ten epochs; evaluation uses 5,000 COCO/LAION prompts and four baselines. Table1 reports .975 diffusion-attack bit accuracy for 48 bits, without establishing our compound ownership endpoint. Generic noise-aware generative watermarking is occupied; a fixed-reader post-hoc multi-family objective needs a narrower distinction.",
+                         "source_id":  "drawmark",
+                         "kind":  "agent-inference",
+                         "stance":  "supporting",
+                         "locator":  "Pages 2â€“4, sections 2â€“3; Tables 1â€“2",
+                         "confidence":  "medium",
+                         "limitations":  [
+                                             "Author-hosted five-page IEEE paper; no code/reproduction checked."
+                                         ],
+                         "assumptions":  [
+                                             "The inspected version represents the stated mechanism; novelty judgments are bounded comparisons, not an exhaustive priority proof."
+                                         ]
+                     },
+                     {
+                         "claim_id":  "delta-softbinding",
+                         "claim":  "Watermark payload lookup, fingerprint lookup and second-stage content verification are compared under source-level evaluation and a controlled false-match budget. Near-copy catalogue variants and adversarial descriptor forgery expose limits. This pre-empts generic registry-pointer-plus-fingerprint novelty and requires separation of payload validity, record retrieval and visual binding.",
+                         "source_id":  "softbinding",
+                         "kind":  "agent-inference",
+                         "stance":  "supporting",
+                         "locator":  "Sections 3.3.6â€“3.3.8, 5.2, 5.6, 6â€“7",
+                         "confidence":  "medium",
+                         "limitations":  [
+                                             "Preprint; security and calibration claims are limited to its tested pipelines."
+                                         ],
+                         "assumptions":  [
+                                             "The inspected version represents the stated mechanism; novelty judgments are bounded comparisons, not an exhaustive priority proof."
+                                         ]
+                     },
+                     {
+                         "claim_id":  "delta-vine",
+                         "claim":  "VINE uses blurring as a generative-edit surrogate and adapts SDXL-Turbo for 100-bit watermark embedding, decoded by ConvNeXt-B. W-Bench evaluates eleven watermark methods. A mechanism-inspired surrogate and pretrained generative prior are prior art; a new writer must demonstrate a distinct controlled effect beyond this strong baseline.",
+                         "source_id":  "vine",
+                         "kind":  "agent-inference",
+                         "stance":  "supporting",
+                         "locator":  "Sections 3.1â€“3.3, 4.2â€“4.4; Table 1",
+                         "confidence":  "medium",
+                         "limitations":  [
+                                             "Inspected arXiv v2. This project\u0027s VINE endpoint is presence/expected-message verification, not ownership."
+                                         ],
+                         "assumptions":  [
+                                             "The inspected version represents the stated mechanism; novelty judgments are bounded comparisons, not an exhaustive priority proof."
+                                         ]
+                     },
+                     {
+                         "claim_id":  "delta-tifs-guidance",
+                         "claim":  "Official guidance asks for enough architecture, loss, preprocessing, split, optimization, stopping and hardware/software detail for reproducibility. Code and data release are encouraged; this is not a fixed eight-baseline or mandatory human-study rule. Negative findings need scientific significance and rigorous reproducibility.",
+                         "source_id":  "tifs-guidance",
+                         "kind":  "agent-inference",
+                         "stance":  "supporting",
+                         "locator":  "Pages 1â€“2",
+                         "confidence":  "medium",
+                         "limitations":  [
+                                             "Publication year not stated; 2026 is access year, not asserted release year."
+                                         ],
+                         "assumptions":  [
+                                             "The inspected version represents the stated mechanism; novelty judgments are bounded comparisons, not an exhaustive priority proof."
+                                         ]
+                     }
+                 ],
+    "assumptions":  [
+
+                    ],
+    "open_questions":  [
+                           "ForenMark full text remains inaccessible; novelty overlap not cleared.",
+                           "Metadata year for undated official guidance is the access year only."
+                       ]
+}

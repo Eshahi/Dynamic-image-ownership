@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "drawmark",
+  "citation_key": "tifsdelta_drawmark",
+  "doi": "10.1109/ICASSP55912.2026.11464504",
+  "canonical_url": "https://doi.org/10.1109/ICASSP55912.2026.11464504",
+  "title": "DrawMark: Defeating Regeneration Attacks by Embedding Watermark into Predicted Noise of Diffusion Models",
+  "authors": [
+    "Zixuan Cao",
+    "Xin Liao",
+    "Yufeng Wu",
+    "Junjie Wang",
+    "Xiaoshuai Wu"
+  ],
+  "year": 2026,
+  "venue": "ICASSP",
+  "access_date": "2026-10-28",
+  "source_type": "paper",
+  "verification": "verified",
+  "inspected_content": "full-text",
+  "inspection": {
+    "artifact": "drawmark.pdf",
+    "sha256": "daef40590c0c6808826827e8097cd28fef9343dee4478c78f57dc711751d556d"
+  },
+  "limitations": [
+    "Author-hosted five-page IEEE paper; no code/reproduction checked."
+  ]
+}
