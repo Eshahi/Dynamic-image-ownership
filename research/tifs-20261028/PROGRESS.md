@@ -5,6 +5,8 @@ Desktop start: 2026-10-28 05:56:06.7876054 UTC-08:00 (13:56:06.7876054 UTC), fro
 
 **Closed as PARTIAL after the deadline.** At 20:14 UTC the first clock check after a long required Git-metadata approval wait showed that the deadline had passed. No further research or feature completion was attempted; subsequent work only preserved drafts, added an execution lock and wrote the truthful handoff. `FINAL-REPORT.md` is authoritative for package readiness. Stage S is NOT server-ready; WP5 did not occur.
 
+**User-authorized continuation, 20:30 UTC:** the user explicitly said "ادامه بده تا تموم بشه" (continue until it is finished). This supersedes the elapsed session deadline for completing the research/design/server-code package; all prohibitions on laptop science, downloads of scientific assets, spending and held-out execution remain. Three bounded medium-effort implementation/protocol agents now own disjoint files; the later final review will use a fresh xhigh reviewer. The first metadata-only selection attempt stopped before network access because Windows Git paths used backslashes; normalize the Git object path and commit before retrying. The rule/order/eligibility are unchanged.
+
 ## Session contract
 
 Research, derivation, saved-result analysis and server-code preparation only. No image/model execution, installation, asset acquisition, GPU, SSH or paid compute on this laptop. All scientific runs remain for Claude's later server stage. The authoritative MAIN STATE was read once at session start. The current brief overrides its older statement that only writing is authorized; it does not authorize a new held-out run.

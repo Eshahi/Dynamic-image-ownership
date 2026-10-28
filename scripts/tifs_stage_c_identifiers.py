@@ -364,7 +364,7 @@ def main():
     root = args.repo.resolve()
     if not args.rule_commit or not re.fullmatch(r"[a-f0-9]{40}", args.rule_commit):
         parser.error("exact 40-character committed rule revision required")
-    for name in [str(OUT/"selection-rule.md"), "scripts/tifs_stage_c_identifiers.py"]:
+    for name in [(OUT/"selection-rule.md").as_posix(), "scripts/tifs_stage_c_identifiers.py"]:
         frozen = subprocess.check_output(["git", "show", args.rule_commit+":"+name], cwd=root)
         if frozen.replace(b"\r\n", b"\n") != (root/name).read_bytes().replace(b"\r\n", b"\n"):
             parser.error("rule/script differ from requested committed revision: "+name)
