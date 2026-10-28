@@ -1,0 +1,7 @@
+{
+  "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&titles=Template%3APotd%2F2019-06-09%7CTemplate%3APotd%2F2023-10-12%7CTemplate%3APotd%2F2020-02-11%7CTemplate%3APotd%2F2022-03-13%7CTemplate%3APotd%2F2025-03-03%7CTemplate%3APotd%2F2023-03-11%7CTemplate%3APotd%2F2025-08-08%7CTemplate%3APotd%2F2025-11-12%7CTemplate%3APotd%2F2024-03-15%7CTemplate%3APotd%2F2019-09-14%7CTemplate%3APotd%2F2022-08-20%7CTemplate%3APotd%2F2021-09-05%7CTemplate%3APotd%2F2025-03-18%7CTemplate%3APotd%2F2023-03-03%7CTemplate%3APotd%2F2018-03-03%7CTemplate%3APotd%2F2022-06-09%7CTemplate%3APotd%2F2022-06-04%7CTemplate%3APotd%2F2021-06-14%7CTemplate%3APotd%2F2025-03-07%7CTemplate%3APotd%2F2022-01-28%7CTemplate%3APotd%2F2025-01-08%7CTemplate%3APotd%2F2019-07-16%7CTemplate%3APotd%2F2018-10-10%7CTemplate%3APotd%2F2022-02-07%7CTemplate%3APotd%2F2020-07-25%7CTemplate%3APotd%2F2021-05-13%7CTemplate%3APotd%2F2023-04-12&prop=revisions&rvprop=ids%7Ccontent&rvslots=main",
+  "response": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-tifs\\research\\tifs-20261028\\stage-c\\metadata\\template-03ce419bbb5509c960ee82eed67481d51e419b08a18d8283b16d587ec6660402.json",
+  "status": 200,
+  "timestamp_utc": "2026-10-28T20:33:18.342484+00:00",
+  "sha256": "c0bee94b68b2959c66c1fb0e62afc6050118bed320b4e1befecc8b22dbd7e8f1"
+}

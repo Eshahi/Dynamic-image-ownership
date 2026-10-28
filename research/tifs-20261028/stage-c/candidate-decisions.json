@@ -1,0 +1,4120 @@
+[
+  {
+    "date": "2020-01-10",
+    "rank": 1,
+    "reasons": []
+  },
+  {
+    "date": "2022-03-31",
+    "rank": 2,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2019-08-05",
+    "rank": 3,
+    "reasons": []
+  },
+  {
+    "date": "2018-03-08",
+    "rank": 4,
+    "reasons": []
+  },
+  {
+    "date": "2023-01-17",
+    "rank": 5,
+    "reasons": []
+  },
+  {
+    "date": "2025-02-01",
+    "rank": 6,
+    "reasons": []
+  },
+  {
+    "date": "2024-07-01",
+    "rank": 7,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-08-02",
+    "rank": 8,
+    "reasons": []
+  },
+  {
+    "date": "2020-10-07",
+    "rank": 9,
+    "reasons": []
+  },
+  {
+    "date": "2023-01-27",
+    "rank": 10,
+    "reasons": []
+  },
+  {
+    "date": "2025-05-15",
+    "rank": 11,
+    "reasons": []
+  },
+  {
+    "date": "2025-11-21",
+    "rank": 12,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2022-12-13",
+    "rank": 13,
+    "reasons": []
+  },
+  {
+    "date": "2020-11-28",
+    "rank": 14,
+    "reasons": []
+  },
+  {
+    "date": "2019-11-12",
+    "rank": 15,
+    "reasons": []
+  },
+  {
+    "date": "2022-09-14",
+    "rank": 16,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2025-04-08",
+    "rank": 17,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-09-26",
+    "rank": 18,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2019-05-26",
+    "rank": 19,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-09-16",
+    "rank": 20,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-03-29",
+    "rank": 21,
+    "reasons": []
+  },
+  {
+    "date": "2024-09-23",
+    "rank": 22,
+    "reasons": [
+      "missing_file_metadata",
+      "ambiguous_template"
+    ]
+  },
+  {
+    "date": "2024-06-24",
+    "rank": 23,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2022-05-19",
+    "rank": 24,
+    "reasons": []
+  },
+  {
+    "date": "2022-10-26",
+    "rank": 25,
+    "reasons": []
+  },
+  {
+    "date": "2025-04-09",
+    "rank": 26,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2023-02-11",
+    "rank": 27,
+    "reasons": []
+  },
+  {
+    "date": "2018-05-05",
+    "rank": 28,
+    "reasons": []
+  },
+  {
+    "date": "2024-07-31",
+    "rank": 29,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2022-12-30",
+    "rank": 30,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2024-05-29",
+    "rank": 31,
+    "reasons": []
+  },
+  {
+    "date": "2024-03-10",
+    "rank": 32,
+    "reasons": []
+  },
+  {
+    "date": "2020-02-07",
+    "rank": 33,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2024-04-12",
+    "rank": 34,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-08-23",
+    "rank": 35,
+    "reasons": []
+  },
+  {
+    "date": "2023-06-03",
+    "rank": 36,
+    "reasons": []
+  },
+  {
+    "date": "2018-07-23",
+    "rank": 37,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2021-12-08",
+    "rank": 38,
+    "reasons": []
+  },
+  {
+    "date": "2020-08-26",
+    "rank": 39,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-09-09",
+    "rank": 40,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2021-04-05",
+    "rank": 41,
+    "reasons": [
+      "unknown_creator"
+    ]
+  },
+  {
+    "date": "2025-10-04",
+    "rank": 42,
+    "reasons": []
+  },
+  {
+    "date": "2019-02-15",
+    "rank": 43,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-05-12",
+    "rank": 44,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-11-28",
+    "rank": 45,
+    "reasons": [
+      "missing_file_metadata"
+    ]
+  },
+  {
+    "date": "2023-02-20",
+    "rank": 46,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2024-06-02",
+    "rank": 47,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-01-13",
+    "rank": 48,
+    "reasons": []
+  },
+  {
+    "date": "2022-07-19",
+    "rank": 49,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2022-08-19",
+    "rank": 50,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-09-30",
+    "rank": 51,
+    "reasons": []
+  },
+  {
+    "date": "2022-02-28",
+    "rank": 52,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2023-12-07",
+    "rank": 53,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2020-07-19",
+    "rank": 54,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2021-01-18",
+    "rank": 55,
+    "reasons": []
+  },
+  {
+    "date": "2022-05-28",
+    "rank": 56,
+    "reasons": []
+  },
+  {
+    "date": "2019-11-23",
+    "rank": 57,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-12-01",
+    "rank": 58,
+    "reasons": [
+      "repeated_new_creator",
+      "repeated_new_url"
+    ]
+  },
+  {
+    "date": "2020-09-27",
+    "rank": 59,
+    "reasons": []
+  },
+  {
+    "date": "2022-10-01",
+    "rank": 60,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-06-06",
+    "rank": 61,
+    "reasons": []
+  },
+  {
+    "date": "2019-07-28",
+    "rank": 62,
+    "reasons": []
+  },
+  {
+    "date": "2023-05-14",
+    "rank": 63,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-07-02",
+    "rank": 64,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-03-04",
+    "rank": 65,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-04-05",
+    "rank": 66,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-02-03",
+    "rank": 67,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-01-24",
+    "rank": 68,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2022-01-16",
+    "rank": 69,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-05-02",
+    "rank": 70,
+    "reasons": []
+  },
+  {
+    "date": "2024-09-03",
+    "rank": 71,
+    "reasons": []
+  },
+  {
+    "date": "2020-04-24",
+    "rank": 72,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2024-05-03",
+    "rank": 73,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-01-13",
+    "rank": 74,
+    "reasons": []
+  },
+  {
+    "date": "2020-09-17",
+    "rank": 75,
+    "reasons": []
+  },
+  {
+    "date": "2024-01-11",
+    "rank": 76,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2021-08-17",
+    "rank": 77,
+    "reasons": []
+  },
+  {
+    "date": "2021-12-11",
+    "rank": 78,
+    "reasons": []
+  },
+  {
+    "date": "2025-04-25",
+    "rank": 79,
+    "reasons": []
+  },
+  {
+    "date": "2019-06-20",
+    "rank": 80,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-04-09",
+    "rank": 81,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2022-01-05",
+    "rank": 82,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2022-06-08",
+    "rank": 83,
+    "reasons": []
+  },
+  {
+    "date": "2021-12-21",
+    "rank": 84,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-09-28",
+    "rank": 85,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2018-12-27",
+    "rank": 86,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-06-26",
+    "rank": 87,
+    "reasons": [
+      "repeated_new_creator",
+      "repeated_new_url"
+    ]
+  },
+  {
+    "date": "2022-02-09",
+    "rank": 88,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2022-12-17",
+    "rank": 89,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-04-21",
+    "rank": 90,
+    "reasons": []
+  },
+  {
+    "date": "2023-02-18",
+    "rank": 91,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2019-10-13",
+    "rank": 92,
+    "reasons": []
+  },
+  {
+    "date": "2024-09-01",
+    "rank": 93,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-06-28",
+    "rank": 94,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-04-24",
+    "rank": 95,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2024-07-12",
+    "rank": 96,
+    "reasons": []
+  },
+  {
+    "date": "2018-02-24",
+    "rank": 97,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_url"
+    ]
+  },
+  {
+    "date": "2019-12-15",
+    "rank": 98,
+    "reasons": []
+  },
+  {
+    "date": "2021-04-29",
+    "rank": 99,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2018-06-10",
+    "rank": 100,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_url"
+    ]
+  },
+  {
+    "date": "2019-06-09",
+    "rank": 101,
+    "reasons": []
+  },
+  {
+    "date": "2023-10-12",
+    "rank": 102,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-02-11",
+    "rank": 103,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-08-03",
+    "rank": 104,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-03-13",
+    "rank": 105,
+    "reasons": [
+      "file_constraints",
+      "licence"
+    ]
+  },
+  {
+    "date": "2022-04-26",
+    "rank": 106,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-09-30",
+    "rank": 107,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2025-03-03",
+    "rank": 108,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-03-11",
+    "rank": 109,
+    "reasons": [
+      "file_constraints",
+      "prior_url"
+    ]
+  },
+  {
+    "date": "2018-11-01",
+    "rank": 110,
+    "reasons": []
+  },
+  {
+    "date": "2025-08-08",
+    "rank": 111,
+    "reasons": []
+  },
+  {
+    "date": "2019-03-31",
+    "rank": 112,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-12-28",
+    "rank": 113,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2025-11-12",
+    "rank": 114,
+    "reasons": []
+  },
+  {
+    "date": "2024-03-15",
+    "rank": 115,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-09-14",
+    "rank": 116,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2022-08-20",
+    "rank": 117,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-06-11",
+    "rank": 118,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2025-08-25",
+    "rank": 119,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2020-09-28",
+    "rank": 120,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2021-09-05",
+    "rank": 121,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-03-18",
+    "rank": 122,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-03-03",
+    "rank": 123,
+    "reasons": []
+  },
+  {
+    "date": "2018-03-03",
+    "rank": 124,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-08-31",
+    "rank": 125,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2019-03-10",
+    "rank": 126,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2022-06-09",
+    "rank": 127,
+    "reasons": [
+      "file_constraints",
+      "prior_url"
+    ]
+  },
+  {
+    "date": "2022-06-04",
+    "rank": 128,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-04-17",
+    "rank": 129,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2023-02-21",
+    "rank": 130,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2020-05-11",
+    "rank": 131,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-06-29",
+    "rank": 132,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2021-06-01",
+    "rank": 133,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-06-14",
+    "rank": 134,
+    "reasons": [
+      "repeated_new_creator",
+      "repeated_new_url"
+    ]
+  },
+  {
+    "date": "2025-03-07",
+    "rank": 135,
+    "reasons": [
+      "repeated_new_creator",
+      "repeated_new_url"
+    ]
+  },
+  {
+    "date": "2022-01-28",
+    "rank": 136,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2018-06-18",
+    "rank": 137,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2018-12-05",
+    "rank": 138,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-05-01",
+    "rank": 139,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2022-02-17",
+    "rank": 140,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2025-01-08",
+    "rank": 141,
+    "reasons": []
+  },
+  {
+    "date": "2021-08-03",
+    "rank": 142,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-07-16",
+    "rank": 143,
+    "reasons": []
+  },
+  {
+    "date": "2018-10-10",
+    "rank": 144,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-02-07",
+    "rank": 145,
+    "reasons": []
+  },
+  {
+    "date": "2020-07-25",
+    "rank": 146,
+    "reasons": [
+      "file_constraints",
+      "licence"
+    ]
+  },
+  {
+    "date": "2025-04-20",
+    "rank": 147,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-10-08",
+    "rank": 148,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2021-05-13",
+    "rank": 149,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2023-04-12",
+    "rank": 150,
+    "reasons": []
+  },
+  {
+    "date": "2021-09-26",
+    "rank": 151,
+    "reasons": []
+  },
+  {
+    "date": "2021-02-28",
+    "rank": 152,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-05-02",
+    "rank": 153,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-08-28",
+    "rank": 154,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-09-23",
+    "rank": 155,
+    "reasons": []
+  },
+  {
+    "date": "2024-04-07",
+    "rank": 156,
+    "reasons": []
+  },
+  {
+    "date": "2021-04-04",
+    "rank": 157,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2022-07-24",
+    "rank": 158,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-01-23",
+    "rank": 159,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_url"
+    ]
+  },
+  {
+    "date": "2018-09-27",
+    "rank": 160,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2023-12-17",
+    "rank": 161,
+    "reasons": []
+  },
+  {
+    "date": "2025-09-23",
+    "rank": 162,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2019-08-22",
+    "rank": 163,
+    "reasons": []
+  },
+  {
+    "date": "2024-03-04",
+    "rank": 164,
+    "reasons": []
+  },
+  {
+    "date": "2020-02-20",
+    "rank": 165,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2024-06-16",
+    "rank": 166,
+    "reasons": [
+      "file_constraints",
+      "licence"
+    ]
+  },
+  {
+    "date": "2022-09-13",
+    "rank": 167,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2020-08-14",
+    "rank": 168,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-05-29",
+    "rank": 169,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2024-02-20",
+    "rank": 170,
+    "reasons": []
+  },
+  {
+    "date": "2020-03-20",
+    "rank": 171,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-07-07",
+    "rank": 172,
+    "reasons": [
+      "prior_url"
+    ]
+  },
+  {
+    "date": "2019-08-03",
+    "rank": 173,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2024-08-21",
+    "rank": 174,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-07-29",
+    "rank": 175,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-05-01",
+    "rank": 176,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-03-07",
+    "rank": 177,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-11-11",
+    "rank": 178,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2023-10-04",
+    "rank": 179,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2020-12-27",
+    "rank": 180,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-06-14",
+    "rank": 181,
+    "reasons": []
+  },
+  {
+    "date": "2020-06-22",
+    "rank": 182,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-02-08",
+    "rank": 183,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2022-05-26",
+    "rank": 184,
+    "reasons": []
+  },
+  {
+    "date": "2019-11-18",
+    "rank": 185,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-11-26",
+    "rank": 186,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-06-29",
+    "rank": 187,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2018-04-28",
+    "rank": 188,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2021-01-28",
+    "rank": 189,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2019-03-27",
+    "rank": 190,
+    "reasons": []
+  },
+  {
+    "date": "2025-10-27",
+    "rank": 191,
+    "reasons": []
+  },
+  {
+    "date": "2019-09-25",
+    "rank": 192,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-01-23",
+    "rank": 193,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2023-04-10",
+    "rank": 194,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2020-12-22",
+    "rank": 195,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-01-14",
+    "rank": 196,
+    "reasons": []
+  },
+  {
+    "date": "2020-01-22",
+    "rank": 197,
+    "reasons": []
+  },
+  {
+    "date": "2019-04-28",
+    "rank": 198,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-06-28",
+    "rank": 199,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2023-12-09",
+    "rank": 200,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-06-02",
+    "rank": 201,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-01-25",
+    "rank": 202,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-08-29",
+    "rank": 203,
+    "reasons": []
+  },
+  {
+    "date": "2020-05-24",
+    "rank": 204,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-12-16",
+    "rank": 205,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-01-31",
+    "rank": 206,
+    "reasons": []
+  },
+  {
+    "date": "2025-04-12",
+    "rank": 207,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-03-24",
+    "rank": 208,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-09-19",
+    "rank": 209,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-12-13",
+    "rank": 210,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-02-27",
+    "rank": 211,
+    "reasons": []
+  },
+  {
+    "date": "2022-03-08",
+    "rank": 212,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-02-06",
+    "rank": 213,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2025-01-11",
+    "rank": 214,
+    "reasons": []
+  },
+  {
+    "date": "2020-09-14",
+    "rank": 215,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-05-23",
+    "rank": 216,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2021-07-18",
+    "rank": 217,
+    "reasons": []
+  },
+  {
+    "date": "2019-05-02",
+    "rank": 218,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-08-23",
+    "rank": 219,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2018-03-26",
+    "rank": 220,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2021-11-10",
+    "rank": 221,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-10-10",
+    "rank": 222,
+    "reasons": []
+  },
+  {
+    "date": "2021-10-10",
+    "rank": 223,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-07-29",
+    "rank": 224,
+    "reasons": [
+      "repeated_new_creator",
+      "repeated_new_url"
+    ]
+  },
+  {
+    "date": "2024-05-06",
+    "rank": 225,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2022-07-17",
+    "rank": 226,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-11-12",
+    "rank": 227,
+    "reasons": []
+  },
+  {
+    "date": "2020-04-07",
+    "rank": 228,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2025-08-15",
+    "rank": 229,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2020-06-24",
+    "rank": 230,
+    "reasons": []
+  },
+  {
+    "date": "2024-06-22",
+    "rank": 231,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2019-06-28",
+    "rank": 232,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-10-28",
+    "rank": 233,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-11-27",
+    "rank": 234,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2022-01-20",
+    "rank": 235,
+    "reasons": []
+  },
+  {
+    "date": "2023-09-26",
+    "rank": 236,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2021-07-10",
+    "rank": 237,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-02-16",
+    "rank": 238,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2024-01-10",
+    "rank": 239,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2018-03-24",
+    "rank": 240,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-05-30",
+    "rank": 241,
+    "reasons": []
+  },
+  {
+    "date": "2024-02-06",
+    "rank": 242,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2025-02-15",
+    "rank": 243,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-01-02",
+    "rank": 244,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-02-27",
+    "rank": 245,
+    "reasons": []
+  },
+  {
+    "date": "2020-08-20",
+    "rank": 246,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-10-10",
+    "rank": 247,
+    "reasons": []
+  },
+  {
+    "date": "2021-11-25",
+    "rank": 248,
+    "reasons": []
+  },
+  {
+    "date": "2024-06-12",
+    "rank": 249,
+    "reasons": [
+      "file_constraints",
+      "prior_url"
+    ]
+  },
+  {
+    "date": "2024-10-12",
+    "rank": 250,
+    "reasons": [
+      "missing_file_metadata"
+    ]
+  },
+  {
+    "date": "2020-05-23",
+    "rank": 251,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-05-24",
+    "rank": 252,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-06-14",
+    "rank": 253,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-11-08",
+    "rank": 254,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-05-07",
+    "rank": 255,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-08-02",
+    "rank": 256,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-03-01",
+    "rank": 257,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-07-27",
+    "rank": 258,
+    "reasons": []
+  },
+  {
+    "date": "2024-01-23",
+    "rank": 259,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2021-12-25",
+    "rank": 260,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2019-08-19",
+    "rank": 261,
+    "reasons": [
+      "repeated_new_creator",
+      "repeated_new_url"
+    ]
+  },
+  {
+    "date": "2020-01-14",
+    "rank": 262,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-03-11",
+    "rank": 263,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-07-14",
+    "rank": 264,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2024-08-03",
+    "rank": 265,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-04-22",
+    "rank": 266,
+    "reasons": [
+      "file_constraints",
+      "licence"
+    ]
+  },
+  {
+    "date": "2019-01-09",
+    "rank": 267,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2023-01-09",
+    "rank": 268,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-08-17",
+    "rank": 269,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-05-28",
+    "rank": 270,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-09-18",
+    "rank": 271,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-05-03",
+    "rank": 272,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator",
+      "repeated_new_url"
+    ]
+  },
+  {
+    "date": "2024-12-31",
+    "rank": 273,
+    "reasons": []
+  },
+  {
+    "date": "2020-11-15",
+    "rank": 274,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-10-29",
+    "rank": 275,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2024-04-09",
+    "rank": 276,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-02-18",
+    "rank": 277,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-04-16",
+    "rank": 278,
+    "reasons": []
+  },
+  {
+    "date": "2019-04-29",
+    "rank": 279,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-12-18",
+    "rank": 280,
+    "reasons": [
+      "missing_file_metadata",
+      "ambiguous_template"
+    ]
+  },
+  {
+    "date": "2024-09-02",
+    "rank": 281,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-11-19",
+    "rank": 282,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-06-10",
+    "rank": 283,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-11-03",
+    "rank": 284,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-11-13",
+    "rank": 285,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-05-20",
+    "rank": 286,
+    "reasons": []
+  },
+  {
+    "date": "2019-09-01",
+    "rank": 287,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-08-23",
+    "rank": 288,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-07-17",
+    "rank": 289,
+    "reasons": [
+      "missing_file_metadata"
+    ]
+  },
+  {
+    "date": "2020-05-12",
+    "rank": 290,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator",
+      "prior_url"
+    ]
+  },
+  {
+    "date": "2019-06-06",
+    "rank": 291,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-06-08",
+    "rank": 292,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2023-03-04",
+    "rank": 293,
+    "reasons": []
+  },
+  {
+    "date": "2023-07-25",
+    "rank": 294,
+    "reasons": []
+  },
+  {
+    "date": "2018-05-06",
+    "rank": 295,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2020-12-14",
+    "rank": 296,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-12-15",
+    "rank": 297,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-04-26",
+    "rank": 298,
+    "reasons": []
+  },
+  {
+    "date": "2023-11-08",
+    "rank": 299,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-01-30",
+    "rank": 300,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-01-23",
+    "rank": 301,
+    "reasons": []
+  },
+  {
+    "date": "2022-01-13",
+    "rank": 302,
+    "reasons": [
+      "repeated_new_creator",
+      "repeated_new_url"
+    ]
+  },
+  {
+    "date": "2020-12-12",
+    "rank": 303,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2019-11-04",
+    "rank": 304,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2020-02-15",
+    "rank": 305,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-10-16",
+    "rank": 306,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-01-17",
+    "rank": 307,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-12-13",
+    "rank": 308,
+    "reasons": []
+  },
+  {
+    "date": "2019-05-31",
+    "rank": 309,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-07-27",
+    "rank": 310,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2022-11-07",
+    "rank": 311,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-04-18",
+    "rank": 312,
+    "reasons": []
+  },
+  {
+    "date": "2018-06-02",
+    "rank": 313,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-08-28",
+    "rank": 314,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-11-23",
+    "rank": 315,
+    "reasons": []
+  },
+  {
+    "date": "2021-07-27",
+    "rank": 316,
+    "reasons": []
+  },
+  {
+    "date": "2020-05-01",
+    "rank": 317,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-10-13",
+    "rank": 318,
+    "reasons": []
+  },
+  {
+    "date": "2021-01-21",
+    "rank": 319,
+    "reasons": []
+  },
+  {
+    "date": "2019-05-25",
+    "rank": 320,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-02-21",
+    "rank": 321,
+    "reasons": []
+  },
+  {
+    "date": "2019-01-23",
+    "rank": 322,
+    "reasons": []
+  },
+  {
+    "date": "2022-10-19",
+    "rank": 323,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-04-01",
+    "rank": 324,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2024-04-04",
+    "rank": 325,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2019-01-19",
+    "rank": 326,
+    "reasons": []
+  },
+  {
+    "date": "2024-09-27",
+    "rank": 327,
+    "reasons": []
+  },
+  {
+    "date": "2022-10-17",
+    "rank": 328,
+    "reasons": []
+  },
+  {
+    "date": "2024-01-07",
+    "rank": 329,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2020-01-06",
+    "rank": 330,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-02-22",
+    "rank": 331,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-10-23",
+    "rank": 332,
+    "reasons": [
+      "repeated_new_creator",
+      "repeated_new_url"
+    ]
+  },
+  {
+    "date": "2019-03-09",
+    "rank": 333,
+    "reasons": [
+      "file_constraints",
+      "licence"
+    ]
+  },
+  {
+    "date": "2021-03-14",
+    "rank": 334,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-10-08",
+    "rank": 335,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-09-19",
+    "rank": 336,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-12-14",
+    "rank": 337,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-03-20",
+    "rank": 338,
+    "reasons": []
+  },
+  {
+    "date": "2018-02-19",
+    "rank": 339,
+    "reasons": []
+  },
+  {
+    "date": "2024-03-09",
+    "rank": 340,
+    "reasons": []
+  },
+  {
+    "date": "2024-08-08",
+    "rank": 341,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2025-11-08",
+    "rank": 342,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-11-07",
+    "rank": 343,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-11-17",
+    "rank": 344,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-05-11",
+    "rank": 345,
+    "reasons": []
+  },
+  {
+    "date": "2019-09-29",
+    "rank": 346,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-11-03",
+    "rank": 347,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-06-18",
+    "rank": 348,
+    "reasons": []
+  },
+  {
+    "date": "2023-11-29",
+    "rank": 349,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2025-05-07",
+    "rank": 350,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2024-07-06",
+    "rank": 351,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-07-14",
+    "rank": 352,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-05-08",
+    "rank": 353,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-05-17",
+    "rank": 354,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-02-28",
+    "rank": 355,
+    "reasons": []
+  },
+  {
+    "date": "2019-11-28",
+    "rank": 356,
+    "reasons": []
+  },
+  {
+    "date": "2022-11-25",
+    "rank": 357,
+    "reasons": []
+  },
+  {
+    "date": "2020-01-19",
+    "rank": 358,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-05-18",
+    "rank": 359,
+    "reasons": [
+      "file_constraints",
+      "licence"
+    ]
+  },
+  {
+    "date": "2018-08-27",
+    "rank": 360,
+    "reasons": [
+      "file_constraints",
+      "licence"
+    ]
+  },
+  {
+    "date": "2023-10-09",
+    "rank": 361,
+    "reasons": []
+  },
+  {
+    "date": "2021-08-20",
+    "rank": 362,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-07-04",
+    "rank": 363,
+    "reasons": [
+      "repeated_new_creator",
+      "repeated_new_url"
+    ]
+  },
+  {
+    "date": "2024-01-31",
+    "rank": 364,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2024-09-05",
+    "rank": 365,
+    "reasons": []
+  },
+  {
+    "date": "2025-02-12",
+    "rank": 366,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-01-30",
+    "rank": 367,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2018-09-25",
+    "rank": 368,
+    "reasons": []
+  },
+  {
+    "date": "2024-08-11",
+    "rank": 369,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-06-04",
+    "rank": 370,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-02-02",
+    "rank": 371,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-07-19",
+    "rank": 372,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-03-05",
+    "rank": 373,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-01-13",
+    "rank": 374,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2024-06-30",
+    "rank": 375,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2022-07-23",
+    "rank": 376,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-03-29",
+    "rank": 377,
+    "reasons": []
+  },
+  {
+    "date": "2018-05-21",
+    "rank": 378,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-01-17",
+    "rank": 379,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-11-30",
+    "rank": 380,
+    "reasons": []
+  },
+  {
+    "date": "2025-12-31",
+    "rank": 381,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-10-20",
+    "rank": 382,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-05-07",
+    "rank": 383,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2022-08-03",
+    "rank": 384,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2024-06-08",
+    "rank": 385,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-04-04",
+    "rank": 386,
+    "reasons": [
+      "repeated_new_creator",
+      "repeated_new_url"
+    ]
+  },
+  {
+    "date": "2019-11-21",
+    "rank": 387,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-08-01",
+    "rank": 388,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_url"
+    ]
+  },
+  {
+    "date": "2018-05-24",
+    "rank": 389,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-07-28",
+    "rank": 390,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2024-12-24",
+    "rank": 391,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2020-08-03",
+    "rank": 392,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-03-12",
+    "rank": 393,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-05-23",
+    "rank": 394,
+    "reasons": []
+  },
+  {
+    "date": "2023-12-20",
+    "rank": 395,
+    "reasons": []
+  },
+  {
+    "date": "2020-04-06",
+    "rank": 396,
+    "reasons": []
+  },
+  {
+    "date": "2019-08-02",
+    "rank": 397,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-06-13",
+    "rank": 398,
+    "reasons": []
+  },
+  {
+    "date": "2019-04-22",
+    "rank": 399,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-12-17",
+    "rank": 400,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-07-29",
+    "rank": 401,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-09-18",
+    "rank": 402,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-03-13",
+    "rank": 403,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2018-03-25",
+    "rank": 404,
+    "reasons": []
+  },
+  {
+    "date": "2020-05-13",
+    "rank": 405,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-09-18",
+    "rank": 406,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-08-19",
+    "rank": 407,
+    "reasons": []
+  },
+  {
+    "date": "2020-03-21",
+    "rank": 408,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-08-02",
+    "rank": 409,
+    "reasons": []
+  },
+  {
+    "date": "2025-08-22",
+    "rank": 410,
+    "reasons": []
+  },
+  {
+    "date": "2018-06-21",
+    "rank": 411,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_url"
+    ]
+  },
+  {
+    "date": "2024-01-08",
+    "rank": 412,
+    "reasons": [
+      "repeated_new_creator",
+      "repeated_new_url"
+    ]
+  },
+  {
+    "date": "2021-07-19",
+    "rank": 413,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-12-05",
+    "rank": 414,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-03-03",
+    "rank": 415,
+    "reasons": [
+      "repeated_new_creator",
+      "repeated_new_url"
+    ]
+  },
+  {
+    "date": "2024-08-04",
+    "rank": 416,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2019-09-18",
+    "rank": 417,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-05-01",
+    "rank": 418,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_url"
+    ]
+  },
+  {
+    "date": "2024-02-26",
+    "rank": 419,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-12-25",
+    "rank": 420,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-12-13",
+    "rank": 421,
+    "reasons": []
+  },
+  {
+    "date": "2021-01-03",
+    "rank": 422,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-06-01",
+    "rank": 423,
+    "reasons": []
+  },
+  {
+    "date": "2023-07-01",
+    "rank": 424,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-08-13",
+    "rank": 425,
+    "reasons": []
+  },
+  {
+    "date": "2025-03-21",
+    "rank": 426,
+    "reasons": []
+  },
+  {
+    "date": "2019-09-12",
+    "rank": 427,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-10-18",
+    "rank": 428,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-07-25",
+    "rank": 429,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-05-28",
+    "rank": 430,
+    "reasons": []
+  },
+  {
+    "date": "2022-09-15",
+    "rank": 431,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-07-07",
+    "rank": 432,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-11-04",
+    "rank": 433,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-11-29",
+    "rank": 434,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-04-15",
+    "rank": 435,
+    "reasons": []
+  },
+  {
+    "date": "2022-04-10",
+    "rank": 436,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-07-30",
+    "rank": 437,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_url"
+    ]
+  },
+  {
+    "date": "2020-04-01",
+    "rank": 438,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2024-02-01",
+    "rank": 439,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-08-20",
+    "rank": 440,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-06-20",
+    "rank": 441,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-03-16",
+    "rank": 442,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-10-07",
+    "rank": 443,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-03-22",
+    "rank": 444,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2023-02-01",
+    "rank": 445,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-01-07",
+    "rank": 446,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-10-17",
+    "rank": 447,
+    "reasons": []
+  },
+  {
+    "date": "2023-01-26",
+    "rank": 448,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2021-07-30",
+    "rank": 449,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-02-08",
+    "rank": 450,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-05-17",
+    "rank": 451,
+    "reasons": []
+  },
+  {
+    "date": "2018-05-13",
+    "rank": 452,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-02-02",
+    "rank": 453,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-09-28",
+    "rank": 454,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2020-07-16",
+    "rank": 455,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-05-03",
+    "rank": 456,
+    "reasons": []
+  },
+  {
+    "date": "2019-11-22",
+    "rank": 457,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-09-06",
+    "rank": 458,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-09-26",
+    "rank": 459,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-11-24",
+    "rank": 460,
+    "reasons": []
+  },
+  {
+    "date": "2023-03-31",
+    "rank": 461,
+    "reasons": []
+  },
+  {
+    "date": "2020-03-12",
+    "rank": 462,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-02-20",
+    "rank": 463,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_url"
+    ]
+  },
+  {
+    "date": "2018-12-16",
+    "rank": 464,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2023-08-24",
+    "rank": 465,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2021-03-16",
+    "rank": 466,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-02-03",
+    "rank": 467,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-06-28",
+    "rank": 468,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-02-09",
+    "rank": 469,
+    "reasons": []
+  },
+  {
+    "date": "2025-03-14",
+    "rank": 470,
+    "reasons": []
+  },
+  {
+    "date": "2022-12-21",
+    "rank": 471,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2019-06-07",
+    "rank": 472,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-10-22",
+    "rank": 473,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-12-30",
+    "rank": 474,
+    "reasons": []
+  },
+  {
+    "date": "2025-05-31",
+    "rank": 475,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2019-08-17",
+    "rank": 476,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2018-03-14",
+    "rank": 477,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2021-11-07",
+    "rank": 478,
+    "reasons": []
+  },
+  {
+    "date": "2021-12-23",
+    "rank": 479,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-06-18",
+    "rank": 480,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-04-24",
+    "rank": 481,
+    "reasons": []
+  },
+  {
+    "date": "2019-01-26",
+    "rank": 482,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2019-04-08",
+    "rank": 483,
+    "reasons": []
+  },
+  {
+    "date": "2018-08-30",
+    "rank": 484,
+    "reasons": []
+  },
+  {
+    "date": "2022-08-28",
+    "rank": 485,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-09-12",
+    "rank": 486,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-04-12",
+    "rank": 487,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2019-11-24",
+    "rank": 488,
+    "reasons": []
+  },
+  {
+    "date": "2018-03-31",
+    "rank": 489,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2018-05-04",
+    "rank": 490,
+    "reasons": []
+  },
+  {
+    "date": "2021-11-17",
+    "rank": 491,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-05-22",
+    "rank": 492,
+    "reasons": [
+      "prior_url"
+    ]
+  },
+  {
+    "date": "2020-10-20",
+    "rank": 493,
+    "reasons": []
+  },
+  {
+    "date": "2022-07-07",
+    "rank": 494,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-02-19",
+    "rank": 495,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2023-03-05",
+    "rank": 496,
+    "reasons": []
+  },
+  {
+    "date": "2020-12-09",
+    "rank": 497,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2019-06-02",
+    "rank": 498,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-10-08",
+    "rank": 499,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-03-08",
+    "rank": 500,
+    "reasons": []
+  },
+  {
+    "date": "2021-05-23",
+    "rank": 501,
+    "reasons": [
+      "repeated_new_creator",
+      "repeated_new_url"
+    ]
+  },
+  {
+    "date": "2022-07-16",
+    "rank": 502,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-02-06",
+    "rank": 503,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-03-31",
+    "rank": 504,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-10-15",
+    "rank": 505,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_url"
+    ]
+  },
+  {
+    "date": "2025-07-28",
+    "rank": 506,
+    "reasons": []
+  },
+  {
+    "date": "2022-07-04",
+    "rank": 507,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2023-05-12",
+    "rank": 508,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2022-10-18",
+    "rank": 509,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-11-28",
+    "rank": 510,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-10-22",
+    "rank": 511,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-08-24",
+    "rank": 512,
+    "reasons": [
+      "licence",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-03-21",
+    "rank": 513,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2024-03-17",
+    "rank": 514,
+    "reasons": []
+  },
+  {
+    "date": "2025-05-16",
+    "rank": 515,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2024-04-22",
+    "rank": 516,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-04-15",
+    "rank": 517,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-06-11",
+    "rank": 518,
+    "reasons": []
+  },
+  {
+    "date": "2023-04-07",
+    "rank": 519,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-05-22",
+    "rank": 520,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-02-29",
+    "rank": 521,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2024-09-29",
+    "rank": 522,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-01-05",
+    "rank": 523,
+    "reasons": [
+      "file_constraints",
+      "licence"
+    ]
+  },
+  {
+    "date": "2025-05-21",
+    "rank": 524,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2025-07-05",
+    "rank": 525,
+    "reasons": [
+      "repeated_new_creator",
+      "repeated_new_url"
+    ]
+  },
+  {
+    "date": "2021-08-11",
+    "rank": 526,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-03-08",
+    "rank": 527,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-10-30",
+    "rank": 528,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-01-18",
+    "rank": 529,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-09-10",
+    "rank": 530,
+    "reasons": []
+  },
+  {
+    "date": "2019-05-04",
+    "rank": 531,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-10-13",
+    "rank": 532,
+    "reasons": []
+  },
+  {
+    "date": "2024-04-30",
+    "rank": 533,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2019-10-09",
+    "rank": 534,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-09-08",
+    "rank": 535,
+    "reasons": []
+  },
+  {
+    "date": "2021-04-11",
+    "rank": 536,
+    "reasons": []
+  },
+  {
+    "date": "2023-03-07",
+    "rank": 537,
+    "reasons": []
+  },
+  {
+    "date": "2025-03-20",
+    "rank": 538,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-07-23",
+    "rank": 539,
+    "reasons": [
+      "repeated_new_creator",
+      "repeated_new_url"
+    ]
+  },
+  {
+    "date": "2018-02-12",
+    "rank": 540,
+    "reasons": []
+  },
+  {
+    "date": "2021-06-13",
+    "rank": 541,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-11-26",
+    "rank": 542,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2021-04-07",
+    "rank": 543,
+    "reasons": []
+  },
+  {
+    "date": "2020-03-15",
+    "rank": 544,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-05-29",
+    "rank": 545,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2023-04-13",
+    "rank": 546,
+    "reasons": []
+  },
+  {
+    "date": "2023-06-14",
+    "rank": 547,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-09-28",
+    "rank": 548,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2018-10-24",
+    "rank": 549,
+    "reasons": []
+  },
+  {
+    "date": "2025-09-08",
+    "rank": 550,
+    "reasons": []
+  },
+  {
+    "date": "2024-03-28",
+    "rank": 551,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-12-15",
+    "rank": 552,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-10-21",
+    "rank": 553,
+    "reasons": [
+      "repeated_new_creator",
+      "repeated_new_url"
+    ]
+  },
+  {
+    "date": "2018-09-01",
+    "rank": 554,
+    "reasons": []
+  },
+  {
+    "date": "2023-07-11",
+    "rank": 555,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2025-01-22",
+    "rank": 556,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-11-15",
+    "rank": 557,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-02-17",
+    "rank": 558,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2020-07-05",
+    "rank": 559,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2019-12-23",
+    "rank": 560,
+    "reasons": [
+      "missing_file_metadata",
+      "ambiguous_template"
+    ]
+  },
+  {
+    "date": "2020-01-07",
+    "rank": 561,
+    "reasons": [
+      "file_constraints"
+    ]
+  },
+  {
+    "date": "2021-07-12",
+    "rank": 562,
+    "reasons": []
+  },
+  {
+    "date": "2023-09-08",
+    "rank": 563,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_url"
+    ]
+  },
+  {
+    "date": "2025-05-19",
+    "rank": 564,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-10-04",
+    "rank": 565,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2018-09-04",
+    "rank": 566,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-07-30",
+    "rank": 567,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-05-05",
+    "rank": 568,
+    "reasons": [
+      "repeated_new_creator",
+      "repeated_new_url"
+    ]
+  },
+  {
+    "date": "2022-02-15",
+    "rank": 569,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-08-15",
+    "rank": 570,
+    "reasons": [
+      "file_constraints",
+      "unknown_creator"
+    ]
+  },
+  {
+    "date": "2021-01-13",
+    "rank": 571,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2022-09-21",
+    "rank": 572,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-01-01",
+    "rank": 573,
+    "reasons": []
+  },
+  {
+    "date": "2018-08-29",
+    "rank": 574,
+    "reasons": []
+  },
+  {
+    "date": "2020-09-23",
+    "rank": 575,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2024-12-21",
+    "rank": 576,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-07-05",
+    "rank": 577,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-11-30",
+    "rank": 578,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2018-12-29",
+    "rank": 579,
+    "reasons": []
+  },
+  {
+    "date": "2021-06-17",
+    "rank": 580,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-01-21",
+    "rank": 581,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-12-10",
+    "rank": 582,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2018-06-26",
+    "rank": 583,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-10-10",
+    "rank": 584,
+    "reasons": [
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2023-04-14",
+    "rank": 585,
+    "reasons": []
+  },
+  {
+    "date": "2019-03-06",
+    "rank": 586,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-11-25",
+    "rank": 587,
+    "reasons": [
+      "repeated_new_creator",
+      "prior_page",
+      "prior_title",
+      "prior_url",
+      "prior_hash"
+    ]
+  },
+  {
+    "date": "2025-05-27",
+    "rank": 588,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-10-03",
+    "rank": 589,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2019-09-20",
+    "rank": 590,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-10-16",
+    "rank": 591,
+    "reasons": [
+      "file_constraints",
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2021-02-04",
+    "rank": 592,
+    "reasons": [
+      "licence"
+    ]
+  },
+  {
+    "date": "2024-04-18",
+    "rank": 593,
+    "reasons": [
+      "repeated_new_creator"
+    ]
+  },
+  {
+    "date": "2025-08-30",
+    "rank": 594,
+    "reasons": []
+  }
+]

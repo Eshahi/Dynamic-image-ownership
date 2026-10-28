@@ -1,0 +1,7 @@
+{
+  "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&titles=Template%3APotd%2F2024-03-28%7CTemplate%3APotd%2F2024-10-21%7CTemplate%3APotd%2F2018-09-01%7CTemplate%3APotd%2F2019-11-15%7CTemplate%3APotd%2F2021-07-12%7CTemplate%3APotd%2F2023-09-08%7CTemplate%3APotd%2F2025-05-19%7CTemplate%3APotd%2F2018-09-04%7CTemplate%3APotd%2F2024-07-30%7CTemplate%3APotd%2F2025-05-05%7CTemplate%3APotd%2F2022-02-15%7CTemplate%3APotd%2F2021-01-13%7CTemplate%3APotd%2F2022-09-21%7CTemplate%3APotd%2F2018-01-01%7CTemplate%3APotd%2F2018-08-29%7CTemplate%3APotd%2F2024-12-21%7CTemplate%3APotd%2F2021-07-05%7CTemplate%3APotd%2F2018-12-29%7CTemplate%3APotd%2F2021-06-17%7CTemplate%3APotd%2F2018-01-21%7CTemplate%3APotd%2F2025-12-10%7CTemplate%3APotd%2F2018-06-26%7CTemplate%3APotd%2F2023-04-14%7CTemplate%3APotd%2F2025-05-27%7CTemplate%3APotd%2F2025-10-03%7CTemplate%3APotd%2F2019-09-20%7CTemplate%3APotd%2F2021-02-04%7CTemplate%3APotd%2F2025-08-30%7CTemplate%3APotd%2F2018-05-03%7CTemplate%3APotd%2F2022-11-04%7CTemplate%3APotd%2F2021-03-24&prop=revisions&rvprop=ids%7Ccontent&rvslots=main",
+  "response": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-tifs\\research\\tifs-20261028\\stage-c\\metadata\\template-635d6c2c46cdc76cf5bda935ad1b6836151704572a2ada4dd7002ef611e1e33b.json",
+  "status": 200,
+  "timestamp_utc": "2026-10-28T20:35:06.667025+00:00",
+  "sha256": "e6c3f09e6aeef659ac0e70aeb5a37f8a9014b147049b720c16ad3c371029b718"
+}

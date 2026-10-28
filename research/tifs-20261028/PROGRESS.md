@@ -80,3 +80,12 @@ Read MAIN STATE once, the current BRIEF, Phase A and Phase B reports, the Octobe
 - Zero observed F5/v5/WAM false events coexist with incomplete source-level negative gates. Missing safety outputs are not negatives. Human ratings for this new study do not exist.
 - Prior reviews reject novelty of a generic registry pointer/content check, a generic encoder-directed pixel writer, or another regeneration failure table. DREW, 2026 soft binding, VINE, Shallow Diffuse and MarkNull must be treated as close prior art.
 - New designs remain separately named comparators or explicitly declared alternatives; RQ-02 latent insertion and lightweight extraction are not satisfied by renaming F5.
+
+## Continuation completion log
+
+- 20:30 UTC: user resumed the package explicitly until finished. The old deadline is historical; no laptop-science or paid-execution prohibition changed.
+- 20:30–20:40 UTC: bounded medium-effort agents completed protocol, analysis, runtime/driver and setup files. Root integrated launch, disk/memory and pure writer/launch checks. All 60 pure-logic tests passed after the first WP5 decision-scope corrections; this count will be superseded by final validation.
+- 20:39 UTC: metadata-only selection completed after 594 ordered dates: 120 primary plus 40 reserve identifiers, NOT_DOWNLOADED. The unchanged rule and Windows Git-path correction were committed as fd0b682 before queries. Forty-eight text metadata/receipt files total about 2.23 MB; no media URL was downloaded.
+- 20:41 UTC: eighth core-image TIFS inspection completed through substantive indexed primary method/experiment text. The live author PDF remains unavailable; the access/version caveat is preserved.
+- 20:42 UTC: WP5 commissioned a fresh gpt-6-astra / xhigh reviewer, no inherited context, using the evidence-audit skill. Early findings on negative-gate scope, verified assets, measured unit bounds and resumed timing are being corrected; no review acceptance is presumed.
+- 20:47 UTC: integrated Stage S/Stage C protocols and fresh identifier manifest are ready for the WP3 commit. Stage C remains specification-only, with all scientific execution unapproved.

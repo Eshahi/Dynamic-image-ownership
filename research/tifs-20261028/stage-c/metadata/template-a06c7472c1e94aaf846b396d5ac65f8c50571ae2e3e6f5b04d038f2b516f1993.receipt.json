@@ -1,0 +1,7 @@
+{
+  "url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&formatversion=2&titles=Template%3APotd%2F2022-06-02%7CTemplate%3APotd%2F2019-01-25%7CTemplate%3APotd%2F2020-05-24%7CTemplate%3APotd%2F2020-12-16%7CTemplate%3APotd%2F2025-01-31%7CTemplate%3APotd%2F2025-04-12%7CTemplate%3APotd%2F2020-03-24%7CTemplate%3APotd%2F2020-09-19%7CTemplate%3APotd%2F2018-12-13%7CTemplate%3APotd%2F2025-02-27%7CTemplate%3APotd%2F2022-03-08%7CTemplate%3APotd%2F2025-01-11%7CTemplate%3APotd%2F2018-05-23%7CTemplate%3APotd%2F2021-07-18%7CTemplate%3APotd%2F2019-05-02%7CTemplate%3APotd%2F2021-11-10%7CTemplate%3APotd%2F2019-10-10%7CTemplate%3APotd%2F2022-07-17%7CTemplate%3APotd%2F2021-11-12%7CTemplate%3APotd%2F2025-08-15%7CTemplate%3APotd%2F2020-06-24%7CTemplate%3APotd%2F2019-06-28%7CTemplate%3APotd%2F2019-10-28%7CTemplate%3APotd%2F2021-07-10%7CTemplate%3APotd%2F2018-03-24%7CTemplate%3APotd%2F2022-05-30%7CTemplate%3APotd%2F2024-02-06%7CTemplate%3APotd%2F2021-01-02%7CTemplate%3APotd%2F2020-08-20%7CTemplate%3APotd%2F2022-10-10%7CTemplate%3APotd%2F2021-11-25%7CTemplate%3APotd%2F2024-06-12%7CTemplate%3APotd%2F2024-10-12&prop=revisions&rvprop=ids%7Ccontent&rvslots=main",
+  "response": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-tifs\\research\\tifs-20261028\\stage-c\\metadata\\template-a06c7472c1e94aaf846b396d5ac65f8c50571ae2e3e6f5b04d038f2b516f1993.json",
+  "status": 200,
+  "timestamp_utc": "2026-10-28T20:33:42.360539+00:00",
+  "sha256": "3bdbda72114a354d885ef20ed8e87b73e2be7b0906c54786ba16b7cd94161e1c"
+}
