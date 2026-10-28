@@ -14,9 +14,9 @@ The desktop client uses fixed UTC-08:00. Check UTC against 19:56:06.7876054 UTC.
 | Package | Start UTC | Finish UTC | State / evidence | Commit and push |
 |---|---|---|---|---|
 | WP0 | 12:43 | 12:46 | Starting evidence and scope read; clean branch verified; evidence summary below | `ebd4465`, pushed with upstream set |
-| WP1 | 12:46 | 14:20 | Nine TIFS-linked studies inspected: seven direct image, video and image-to-3D explicitly adjacent. Final-version/access caveats retained; broad evidence survey delivered. Prior-art delta includes SemBind and Guidance Watermarking. | committing |
-| WP2 | 14:03 | pending | Author assistance underway; hostile review follows top-three draft | pending |
-| WP3 | pending | pending | Frozen Stage S and Stage C design | pending |
+| WP1 | 12:46 | 14:29 | Nine TIFS-linked studies inspected: seven direct image, video and image-to-3D explicitly adjacent. Final-version/access caveats retained; broad evidence survey delivered. Prior-art delta includes SemBind and Guidance Watermarking. | `7837862`, pushed |
+| WP2 | 14:03 | 14:49 | Twelve candidates, three derivations and fresh hostile review; I01 selected with all blocking findings applied in04-selection, I03 sole separate backup. Screen reduced prospectively to16 sources, preserving all controls and adding exact-code J. | committing |
+| WP3 | 14:49 | pending | Stage S freeze and Stage C design/power/identifier pool | pending |
 | WP4 | pending | pending | Server code, pure-logic tests, runbook | pending |
 | WP5 | pending | pending | Fresh independent protocol/code review | pending |
 | WP6 | pending | pending | Feasibility report and MAIN state note | pending |
@@ -28,6 +28,8 @@ Desktop restart at 13:56:06 UTC: read authoritative MAIN STATE once; read amende
 1. Stage S uses the 60 existing development sources only. The 200 completed Phase-B sources remain consumed confirmation, not newly authorized development data. The 40 reserve identifiers remain untouched.
 2. No Stage C execution is authorized here. Its fresh-pool acquisition and paid execution require a later user decision.
 3. User decision relayed at 12:53 UTC and preserved in Claude's `333b413`: add a fixed, inexpensive standard-distortion grid to Stage S and Stage C as a separate article-only secondary family. Apply to clean marked images of every arm, without diffusion; Stage C target is at most 1–2 extra instance-hours. T3/T4/T5 remain the thesis gates and primary article claim. Secondary results must not choose the primary contribution.
+4. Future Stage C proposes SD3.5 Medium as a prospectively excluded family. Its gate/licence action and exact model revision remain user/server-stage prerequisites; no access is accepted here. Architectural difference is not proof of independently initialized released weights. Plan a larger disk than the old76GB volume.
+5. WP2 adopts the review's16-source development screen before any output, preserving eight arms, both codec and generic controls, and co-required C/J endpoints. This is a cheaper falsifier, not confirmation. I03 receives no automatic second compute budget if I01 fails.
 
 ## Working decisions and integrity notes
 
@@ -47,10 +49,15 @@ WP2 and WP5 require fresh `gpt-6-astra` / `xhigh` reviewers with no inherited co
 - 14:13 UTC: `fresh_family_plan`, `gpt-6.1-sol` / medium, primary-source audit of a future Stage C family, access, disk and 24 GB constraints; no model acquisition or execution.
 - 14:13 UTC: bounded follow-up to `wp1_tifs_bar` for one additional direct image-watermark TIFS full text. The current survey already has nine distinct relevant works, of which seven are direct image studies; adjacent video and image-to-3D studies remain explicitly labelled.
 - 14:20 UTC: eighth-direct-image follow-up closed with an access ledger, not a fabricated inspection. WP1 satisfies a broad nine-study relevant-venue survey, with a remaining strict eight-direct-image/final-journal-version limitation clearly stated in `01-tifs-bar.md` and `literature/tifs-eighth.md`.
+- Approximately 14:30 UTC: `wp2_hostile_review`, fresh `gpt-6-astra` / xhigh with no inherited context, independent hostile review of I01/I03/I05. Author candidates and derivations are complete; selection remains pending review.
+- 14:43 UTC: `stage_c_power_plan`, `gpt-6.1-sol` / medium, exact stdlib power and specificity planning for a prospective six-slot Holm family; no scientific execution.
+- 14:46 UTC: `fresh_identifiers`, `gpt-6.1-sol` / medium, cached metadata-only feasibility and a prospective selection rule for disjoint Stage C identifiers; selection may occur only after committing the rule.
 
 ## Push log
 
 WP0: Codex agent, branch `codex/tifs-20261028`, `d5b41fc..ebd4465`, successfully pushed with `git push -u origin codex/tifs-20261028` at approximately 12:46 UTC. Claude's subsequent authorized brief amendment `333b413` is retained. Restart check at 12:54 UTC found only the in-progress literature directory untracked; no work was lost.
+
+WP1: Codex agent, branch `codex/tifs-20261028`, pushed `ebd4465..7837862` successfully before the 14:42 UTC clock check, including Claude's two brief amendments. The WP1 commit timestamp is 14:29:46 UTC. Sandbox denied the external worktree Git index and network; the same authorized Git actions succeeded after the required tool escalation. No protected project content was changed.
 
 ## WP0 evidence baseline
 
