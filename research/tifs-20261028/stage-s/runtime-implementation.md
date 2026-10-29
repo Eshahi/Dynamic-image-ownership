@@ -1,10 +1,10 @@
 # Stage S producer and reader implementation
 
-**Integration implemented; readiness lock remains INCOMPLETE pending root final review.** Driver and conservative forecast are now delivered. The common Journal read-only compatibility fix is owned and validated by the analysis integration task. Both scientific entrypoints remain locked by `READINESS.json` until the root review release; no server run is authorized by this note.
+**Integration complete and accepted as preparation after Round 2 independent review.** Driver, conservative forecast, VINE-B and the separate article decision are delivered. The common Journal read-only compatibility fix is validated. `READINESS.json` records preparation COMPLETE; a later user-authorized server session and the complete rehearsal are still required. No server run is authorized by this note.
 
-Static implementation record, 2026-10-28. No images, scientific libraries,
+Static implementation record, updated 2026-10-29. No images, scientific libraries,
 experiments, models, timing probes or GPU work were executed on the laptop.
-Validation comprises `py_compile` and seven pure-logic forecast tests using MAIN stdlib Python with `-I`. The installed `bash.exe` is a Windows WSL launcher; a `bash -n` request hung without output and was interrupted. Bash syntax validation remains unverified here.
+Final validation comprises 100 pure-logic tests and 22 Python compilations using MAIN stdlib Python with `-I`, with bounded independent correction checks recorded in `../07-review.md`. The earlier installed `bash.exe` was a Windows WSL launcher; its `bash -n` request hung without output and was interrupted. Bash received static inspection only; executable shell validation remains unverified here.
 Actual gradients, PNG readback, replay, memory fit and complete runtime remain
 server rehearsal obligations; syntax success supplies no evidence for them.
 
@@ -47,7 +47,9 @@ F6 reads explicitly dispatch as `f5-r2`. Internal reads report ALPHA/BETA,
 frozen C/Q/J/H/D/F/A and D_and_F, raw thresholds, and donor-carrier Q. Threat
 reads additionally report the fixed binding modes. Donor payloads are evaluator
 references only; the detector derives semantics from the suspect. External
-arms preserve their original known-message and wrong-message presence rules.
+presence arms preserve their original known-message and wrong-message presence rules.
+VINE-B instead performs blind q/tag recovery and raw h recovery, with both owner
+queries, original-reference completeness and explicit decode/delivery diagnostics.
 T4 uses centered published donor patches and geometry-matched unmarked shams;
 known-clean residual transfer remains separately labelled. T5 reads the untouched
 recipient under the donor claim. Recipient-relative quality governs eligibility.

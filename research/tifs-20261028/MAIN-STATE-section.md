@@ -1,8 +1,8 @@
-## TIFS session (Codex, 2026-10-28)
-Branch codex/tifs-20261028; report research/tifs-20261028/FINAL-REPORT.md: STATUS COMPLETE, FEASIBILITY CONDITIONAL-GO for research.
-F6-noise is an untested image-domain codec/noise writer with matched ablations and the unchanged F5 reader; retained F5 findings are unchanged.
-Eight core image TIFS studies, twelve ideas, hostile review, Stage S/C protocols and complete Stage S server code are delivered with source caveats.
-Independent WP5 accepted preparation after six fixes; 67 pure-logic tests and compilation of 18 Python files passed. No scientific run occurred.
-Stage S uses 16 development donors plus two rehearsal donors and distinct targets; later authorized server rehearsal must qualify the 15-hour screen.
-Stage C has 120 fresh primary plus 40 reserve identifiers, metadata only and NOT_DOWNLOADED; 50-hour confirmation needs new approval and preflight.
-User resumed beyond the old deadline to finish preparation. No ML execution, asset downloads, installs, SSH, paid compute or publication approval occurred.
+## TIFS Round 2 (Codex, 2026-10-29)
+Branch codex/tifs-20261028; research/tifs-20261028/FINAL-REPORT.md: STATUS COMPLETE, FEASIBILITY CONDITIONAL-GO for preparation only.
+F6-noise remains untested; nine Stage S arms include blind content-bound VINE-B, unchanged F6 thesis gates and a separate article comparison.
+Seven primary methods were re-inspected; generic binding is pre-empted. ForenMark was missing at the cutoff and remains full-text UNINSPECTED.
+Independent Round 2 review accepted preparation after fixes; 100 pure-logic tests and 22 Python compilations passed. No scientific run occurred.
+Writer checkpointing and measured GPU total minus 1.5 GiB are implemented; the intact 15-hour screen still needs a measured server forecast.
+Stage S uses 16 development donors plus two separate rehearsal donors and distinct targets; paid server work needs later user authorization.
+Stage C keeps 120+40 NOT_DOWNLOADED identifiers; a new comparative/power/cost amendment and approval are required. No submission readiness is claimed.

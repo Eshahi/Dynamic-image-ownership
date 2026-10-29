@@ -2,6 +2,8 @@
 
 This is a prepared server study, not a record of execution. Use only after the user authorizes the rented-server session and the committed `READINESS.json` says COMPLETE. Nothing in this preparation authorizes spending, SSH, licence acceptance or held-out execution. Stage C is a separate design and must not run through these commands.
 
+Round 2 preparation is complete as of 2026-10-29: the independent review's corrections are closed, with 100 pure-logic tests and 22 Python compilations passing. Use the final Round 2 commit, including VINE-B and the separate article report. ForenMark was missing at the brief's 13:18 UTC cutoff and remains full-text uninspected; preparation readiness does not clear article novelty against it. The [amendment](../08-round2-amendment.md) and [review](../07-review.md) define the reviewed scope. The older Stage C six-hypothesis design needs a prospective comparative/power/cost amendment before approval.
+
 ## Inputs and server
 
 Use a Linux CUDA server with at least 24 GB class GPU capacity, Python 3.10+ (3.11 preferred), Git, and the committed `codex/tifs-20261028` checkout. A 24 GB device is not guaranteed to fit. The forecast uses measured total capacity minus 1.5 GiB; the planned retained instance reports about 49,140 MiB, which must be remeasured. Run from the repository root. Do not use a laptop or WSL. Keep the exact reviewed commit for the entire rehearsal and screen; save `git rev-parse HEAD` in the run folder. Direct dependency versions and baseline/model revisions are in `requirements.txt` and `asset-plan.json`; transitive package versions are recorded at setup.

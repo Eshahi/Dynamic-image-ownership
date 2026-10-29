@@ -1,6 +1,6 @@
 # R2 pre-output design: VINE-B as a content-bound carrier comparator
 
-Status: DESIGN RECOMMENDATION, fixed before Stage S outputs; implementation and independent review remain required. Author: Codex design agent, 2026-10-29. No image, scientific model, metric, timing or experiment was run. Stdlib arithmetic verified the code-volume counts below. This document is one scoped design deliverable for R2-2, not an amendment to retained F5 or a claim of novelty. The final architecture is q32 + q-tag36 + masked-h32, with radius4 decoding of q+tag only.
+Status: IMPLEMENTED AND ACCEPTED AS PREPARATION after Round 2 independent review, fixed before Stage S outputs. Original author: Codex design agent, 2026-10-29; status updated by the session lead. No image, scientific model, metric, timing or experiment was run. Stdlib arithmetic verified the code-volume counts below. This document is one scoped design deliverable for R2-2, not an amendment to retained F5 or a claim of novelty. The final architecture is q32 + q-tag36 + masked-h32, with radius4 decoding of q+tag only. Runtime scientific compatibility remains a later server-rehearsal obligation; see `r2-independent-review.md` for the bounded preparation verdict.
 
 ## Decision and inspected implementation
 
