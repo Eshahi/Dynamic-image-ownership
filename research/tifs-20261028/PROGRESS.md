@@ -153,6 +153,14 @@ Implemented immutable Stage P plans,8/4/2/1 successive allocation, source-prefix
 
 R3-2 push receipt: Codex agent pushed origin/codex/tifs-20261028, 49db2fa..7afb21f, after the item completed at 16:58 UTC.
 
-### R3-3 completed - 2026-10-29 17:18 UTC
+### R3-3 completed - 2026-10-29 17:15 UTC
 
 Exact finite-sum probability grids, dependence/paired-comparator sensitivity, explicit claim losses and two selectable gate profiles are complete. The analyzer reports both while keeping round1 effective by default; no approval receipt exists. K3-in has a precise deferred native design, including its unsupported generic checkpointing limitation; K3-out remains recommended and selection-seen. Subjective complete-execution thesis probabilities are 15% current and 35% recommended, not calibrated predictions or acceptance probabilities. Focused validation passed 56 pure-logic analyzer/profile/selection/article tests; mathematical identities and compilation are checked separately. Cost forecasting and independent review follow before preparation can be declared complete.
+
+R3-3 push receipt: Codex agent pushed origin/codex/tifs-20261028, 7afb21f..4c673d6. Analytical identity checks agree exactly with the committed probability artifact; five affected modules compiled.
+
+### R3-4 cost and integration - 2026-10-29 17:17 UTC
+
+The complete allocation has 316 marked source-units, 9,080 saved producer images and 13,616 detector rows, including Stage P and Stage S rehearsal/screen. Explicit unmeasured timing scenarios require 62/126/265 whole instance-hours; 126 hours is a planning proposal, never a measured minimum or approved cap. The default remains 15 hours. Stage P and Stage S each require their own measured continuation forecast on the same paid clock. The runtime deliberately over-reserves full P again after calibration and does not refresh after each rung; this can require more than the nominal scenario. Twelve new metadata-only integration tests and sixteen existing forecast tests passed, detecting five binding/receipt gaps that were corrected. A further pure test confirms observed scientific failure cannot hide missing evidence or a resource stop during selection. No model, image, metric or timing experiment ran.
+
+R3-4 verification: the cumulative isolated suite passed 173 pure-logic tests (172.6 seconds); 34 Python modules compiled and the saved cost JSON exactly matched its calculator. Adjacent final forecast checks now retain writer-diagnostic memory peaks and enforce chosen-cap/device consistency; dedicated integration coverage follows in the review interval. No empirical fit or scientific pass is implied.

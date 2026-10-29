@@ -102,11 +102,14 @@ def invocation_measurements(path, now, rows):
     ends = {r["invocation"]: r for r in events if r.get("event") == "INVOCATION_END"}
     if not starts:
         raise ValueError("Missing invocation timing receipts")
+    start_ids = {r.get("invocation") for r in starts}
+    if None in start_ids or len(start_ids) != len(starts):
+        raise ValueError("Missing or duplicate invocation timing identity")
     units = {}
     bounds = {}
     for row in rows:
         duration = row.get("seconds")
-        if not finite(duration) or duration <= 0 or not row.get("operation") or not row.get("invocation"):
+        if not finite(duration) or duration <= 0 or not row.get("operation") or row.get("invocation") not in start_ids:
             raise ValueError("Missing measured operation timing/identity")
         units[row["invocation"]] = units.get(row["invocation"], 0) + duration
         label = row["operation"]
@@ -115,7 +118,7 @@ def invocation_measurements(path, now, rows):
     for row in events:
         if row.get("event") == "MODEL_READY":
             value = row.get("load_seconds")
-            if not finite(value) or value <= 0:
+            if not finite(value) or value <= 0 or row.get("invocation") not in start_ids:
                 raise ValueError("Missing measured model-load time")
             loads[row["label"]] = max(loads.get(row["label"], 0), value)
     overhead = 0
@@ -149,13 +152,16 @@ def forecast(out, config, instance_start, now, *, receipt_path=None, selection_p
         raise ValueError("Rehearsal identity/start mismatch")
     if identity.get("config_sha256") != common.sha256_file(config):
         raise ValueError("Rehearsal config mismatch")
-    for path, digest in identity.get("code",{}).items():
+    for path, digest in {**identity.get("code", {}), **identity.get("profiles", {})}.items():
         if common.sha256_file(path)!=digest:
             raise ValueError("Rehearsal code changed: "+path)
     config=profiles.load_execution_config(config, receipt_path=receipt_path, selection_path=selection_path)
     import tifs_stage_p as stage_p
     if identity.get("effective_config_sha256") != stage_p.digest(config):
         raise ValueError("Rehearsal effective profile/selection/choice mismatch")
+    hours = identity.get("max_hours")
+    if not finite(hours) or hours <= 0 or hours > config["budget"]["max_instance_hours"]:
+        raise ValueError("Rehearsal hour ceiling exceeds the prospectively chosen cap")
     manifest=common.load_json(stage.manifest_path(config))
     if common.sha256_file(stage.manifest_path(config))!=identity["source_manifest_sha256"]:
         raise ValueError("Rehearsal source manifest mismatch")
@@ -178,7 +184,8 @@ def forecast(out, config, instance_start, now, *, receipt_path=None, selection_p
         if row.get("status")!="ok": raise ValueError("Missing writer gradient/projection checks")
         common.validate_output(row,out)
         receipt=common.load_json(row["output"]["path"])
-        if receipt.get("status")!="ok" or not receipt.get("gradient_checks") or not receipt.get("clean_input_gradient_norm",0)>0:
+        gradient = receipt.get("clean_input_gradient_norm")
+        if receipt.get("status")!="ok" or not receipt.get("gradient_checks") or not finite(gradient) or gradient <= 0:
             raise ValueError("Invalid writer gradient receipt")
     for row in groups["native"].values():
         if stage.c0(row["arm"]) and row.get("native_parity",{}).get("exact_rgb8") is not True:
@@ -215,6 +222,10 @@ def forecast(out, config, instance_start, now, *, receipt_path=None, selection_p
     usage=shutil.disk_usage(out)
     artifact_bytes=sum(p.stat().st_size for p in out.rglob("*") if p.is_file())
     memory_rows = [r["memory"] for rows in groups.values() for r in rows.values()]
+    # execute_unit resets allocator peaks per operation. A diagnostic's double
+    # backward graph can peak above later embeds, so its validated telemetry
+    # must survive even though diagnostics are not screen producer identities.
+    memory_rows.extend(checks["writer-check:" + sid]["memory"] for sid in p["donors"])
     for path in [out/"invocations.jsonl", *out.glob("*.log")]:
         for line in path.read_text(encoding="utf-8").splitlines():
             try: event = json.loads(line)
@@ -224,8 +235,10 @@ def forecast(out, config, instance_start, now, *, receipt_path=None, selection_p
     peaks = [measured_peak(memory) for memory in memory_rows]
     if not peaks or min(peaks) <= 0:
         raise ValueError("Missing rehearsal memory telemetry")
-    result["capacity"]=capacity(artifact_bytes,ratio,usage.free,usage.total,max(peaks),
-                                measured_device_total(memory_rows))
+    device_total = measured_device_total(memory_rows)
+    if identity.get("device", {}).get("total_bytes") != device_total:
+        raise ValueError("Rehearsal device identity differs from measured capacity")
+    result["capacity"]=capacity(artifact_bytes,ratio,usage.free,usage.total,max(peaks),device_total)
     if result["capacity"]["status"]!="GO": result["status"]="RESOURCE_STOP"
     return result
 
@@ -296,6 +309,8 @@ def forecast_stage_p(root, config_path, receipt_path, instance_start, now):
         if summary["missing"] or summary["status"] in ("INCOMPLETE", "RESOURCE_STOP"):
             raise ValueError("Incomplete calibration inventory: " + trial)
         identity = common.load_json(out / "identity.json")
+        if identity.get("effective_config_sha256") != stage_p.digest(config):
+            raise ValueError("Calibration effective configuration mismatch")
         if (identity["instance_start_utc"] != canonical or identity["rehearsal"]
                 or identity["max_hours"] != receipt["max_instance_hours"]):
             raise ValueError("Calibration clock/cap identity mismatch")
@@ -303,9 +318,9 @@ def forecast_stage_p(root, config_path, receipt_path, instance_start, now):
         if identity_reference is not None and shared != identity_reference:
             raise ValueError("Calibration code/profile/package/device differs")
         identity_reference = shared
-        for path, digest in identity["code"].items():
+        for path, digest in {**identity["code"], **identity["profiles"]}.items():
             if common.sha256_file(path) != digest:
-                raise ValueError("Calibration code changed: " + path)
+                raise ValueError("Calibration code/profile changed: " + path)
         identities[trial] = common.sha256_file(out / "identity.json")
         rows = []
         for path in (out / "clean.jsonl", out / "native.jsonl", *out.glob("detect-*-0-of-1.jsonl"), out / "quality-0-of-1.jsonl"):
@@ -317,9 +332,11 @@ def forecast_stage_p(root, config_path, receipt_path, instance_start, now):
         if trial != "retained-f5":
             for sid in summary["sources"]:
                 check = checks.get("writer-check:" + sid, {})
-                common.validate_output(check, out)
+                if check.get("status") != "ok" or not common.validate_output(check, out):
+                    raise ValueError("Missing successful Stage P writer check")
                 value = common.load_json(check["output"]["path"])
-                if value.get("status") != "ok" or not value.get("gradient_checks") or not value.get("clean_input_gradient_norm", 0) > 0:
+                gradient = value.get("clean_input_gradient_norm")
+                if value.get("status") != "ok" or not value.get("gradient_checks") or not finite(gradient) or gradient <= 0:
                     raise ValueError("Missing Stage P calibrated writer gradients")
             rows.extend(checks.values())
         for row in rows:
@@ -346,8 +363,11 @@ def forecast_stage_p(root, config_path, receipt_path, instance_start, now):
     ceiling = receipt["max_instance_hours"]*3600
     total = now-instant.timestamp()+projected+reserve
     usage = shutil.disk_usage(root)
+    device_total = measured_device_total(memory_rows)
+    if identity_reference["device"].get("total_bytes") != device_total:
+        raise ValueError("Stage P device identity differs from measured capacity")
     cap = capacity(artifact_bytes, 136/6, usage.free, usage.total,
-                   max(measured_peak(m) for m in memory_rows), measured_device_total(memory_rows))
+                   max(measured_peak(m) for m in memory_rows), device_total)
     return dict(schema="tifs-stage-p-forecast-v1", status="GO" if total <= ceiling and cap["status"] == "GO" else "RESOURCE_STOP",
                 stage_p_root=str(root), config_sha256=common.sha256_file(config_path),
                 source_manifest_sha256=meta["source_manifest_sha256"], user_choice_sha256=common.sha256_file(receipt_path),

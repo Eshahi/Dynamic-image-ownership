@@ -206,6 +206,24 @@ class StagePJournalTests(unittest.TestCase):
             self.assertEqual(result["status"],"INCOMPLETE")
             self.assertEqual(result["compute"]["native_attempts"],97)
 
+    def test_observed_failure_cannot_hide_missingness_or_resource_stop(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); config,journals=journal_fixture(root)
+            bad=copy.deepcopy(next(r for r in journals["quality"].latest.values() if r["arm"]=="f6-noise"))
+            bad["total"]["psnr_db"]=35
+            journals["quality"].append(bad)
+            missing=copy.deepcopy(next(iter(journals["native"].latest.values())))
+            missing["status"]="error_terminal"
+            journals["native"].append(missing)
+            result=p.summarize_trial(root,config,count=4)
+            self.assertEqual(result["status"],"INCOMPLETE")
+            self.assertTrue(result["rejection_reasons"])
+            self.assertEqual(p.eligibility(result,None,None,4,"round1")["status"],"INCOMPLETE")
+            (root/"RESOURCE_STOP-test.json").write_text("{}\n")
+            result=p.summarize_trial(root,config,count=4)
+            self.assertEqual(result["status"],"RESOURCE_STOP")
+            self.assertTrue(result["rejection_reasons"])
+
     def test_quality_missing_and_strict_boundary(self):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory); config,journals=journal_fixture(root)

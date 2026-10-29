@@ -326,7 +326,9 @@ def summarize_trial(out, config, source_rows=None, count=None, calibration=False
     # threshold. Their strict quality/F/false-event diagnostics stay visible.
     if control_diagnostics:
         rejection = []
-    status = "REJECTED" if rejection else "RESOURCE_STOP" if resource else "INCOMPLETE" if missing else "COMPLETE"
+    # An observed failure does not excuse missing trials or hide a resource
+    # stop. Keep its rejection reasons, but do not rank the contender away.
+    status = "RESOURCE_STOP" if resource else "INCOMPLETE" if missing else "REJECTED" if rejection else "COMPLETE"
     return dict(configuration_id=meta["configuration_id"], parameters=meta["parameters"], parameter_sha256=meta["parameter_sha256"],
         partition=meta["partition"], sources=sources, source_uids=[r["source_uid"] for r in rows],
         status=status, rejection_reasons=sorted(set(rejection)), missing=sorted(set(missing)),
