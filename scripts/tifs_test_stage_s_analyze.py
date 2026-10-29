@@ -17,6 +17,20 @@ def call(positive, exact=True):
         instance=dict(read=positive,found=positive,decoded_code="f"),outcome="both_match" if positive else "neither_match"))
 
 
+def bound_call(positive, exact=True):
+    """Structurally complete synthetic bound-reader receipt, not neural data."""
+    result = call(positive, exact)
+    result["raw"]["native"] = dict(raw=dict(decoded_message=[0]*100, probabilities=[.1]*100))
+    result["raw"]["carrier_decode"] = dict(unique=positive, candidates=int(positive), candidates_examined=41449,
+        radius=4, status="unique" if positive else "no_codeword", q=("a" if exact else "b") if positive else None,
+        h="f" if positive else None, distance=0 if positive else None)
+    result["delivery"] = dict(raw_payload_exact=positive, corrected_payload_exact=positive and exact,
+        decoded_h_bit_errors=0 if positive else None)
+    for field,width in (("raw_payload",100),("raw_q",32),("raw_tag",36),("raw_masked_h",32)):
+        result["delivery"].update({field+"_bit_errors":0 if positive else width//2, field+"_accuracy":1.0 if positive else .5})
+    return result
+
+
 def fixture():
     config = common.load_json(TD/"frozen-config.json")
     manifest = common.load_json(TD/"source-manifest.json")
@@ -32,6 +46,7 @@ def fixture():
             arm = fields[-2] if stage == "threats" else fields[-1]
             sid = fields[2] if stage in ("native","secondary","threats") else fields[1]
             row = dict(id=uid,status="ok",arm=arm,source=sid,output=dict(sha256="a"*64),payload=dict(q="a",h="f"))
+            if arm == "vine-b": row["payload"]["bits"] = [0]*100
             producers[stage][uid] = row
             qualities["quality:"+uid] = dict(id="quality:"+uid,status="ok",input_sha256="a"*64,
                 total=dict(psnr_db=40,ssim_rgb=.99,lpips=.01))
@@ -43,8 +58,9 @@ def fixture():
                     positive = arm == method == "f6-noise"
                 uid_det = f"det:{method}:{uid}"
                 if method in analysis.INTERNAL:
-                    calls = {config["owners"]["positive"]:call(positive),config["owners"]["wrong"]:call(False)}
-                    modes = {mode:call(False) for mode in analysis.read_modes(config,method)} if stage=="threats" else {}
+                    make_call = bound_call if method == "vine-b" else call
+                    calls = {config["owners"]["positive"]:make_call(positive),config["owners"]["wrong"]:make_call(False)}
+                    modes = {mode:make_call(False) for mode in analysis.read_modes(config,method)} if stage=="threats" else {}
                 else:
                     calls = {config["owners"]["positive"]:dict(status="ok",presence=dict(present=positive),wrong_message_presence=dict(present=False))}
                     modes = {}

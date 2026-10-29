@@ -22,6 +22,12 @@ Generic bound-carrier novelty is pre-empted by inspected primary methods. A VINE
 
 Keep the 15-instance-hour cap. The added carrier raises the full screen to 4,032 producer identities, 7,168 detector rows and 4,032 quality rows; its 1,792 owner queries require up to 74,276,608 candidate checks. Remove cross-item decode caching because rehearsal working sets could fit the cache while full-screen sets evict, biasing linear timing forecasts. Within-item shared network/features remain. No scientific timing or speed claim is made. `stage-s/round2-cost.md` and its JSON give exact counts and the unchanged conservative paid-time inequality. A failed measured forecast must return RESOURCE_STOP and the measured required cap, without reducing the design or increasing spending. Stage C needs a subsequent comparative amendment and new budget before approval.
 
-## Pending items
+## R2-1: inspected prior art
 
-R2-1 full prior-art conclusion (including ForenMark if delivered) and R2-5 independent review will be recorded here before readiness is restored. The Round 1 numerical F6 thesis gates are not amended.
+Seven primary-method checks are recorded in `literature/r2-prior-art-check.md`, with claim-specific pre-emption in `02-prior-art-delta.md` and `04-selection.md`. Generic semantic binding and optimization through fixed readers are not novel. The narrow F6 construction remains untested and does not have a firstness certificate. ForenMark full text remains pending delivery; no preview is substituted for inspection.
+
+## R2-5: bounded review corrections
+
+The independent review found missing exact-code references could leave the VINE-B article result falsely complete. Require original marked q/h/100-bit references even after a valid no-read, all applicable positive-owner endpoints, and decode/delivery metadata. Preserve target-free C0/wrong-owner queries. Delivery receipts explicitly identify missing/invalid records. Also close the adjacent missing-run-identity path so it cannot leave an article GO after the package becomes INCOMPLETE. These are evidence-completeness corrections, not changes to a scientific threshold or decode rule.
+
+Expose the original F6 `numerical_thesis_gate_status` separately from package status, and export the promised baseline quality/security, numerical parity and human-quality fields. No partial package can become GO. The review and closure status are recorded in `07-review.md` and `design/r2-independent-review.md`. The Round 1 numerical F6 thesis gates are not amended.

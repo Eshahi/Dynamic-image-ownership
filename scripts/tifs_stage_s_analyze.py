@@ -137,6 +137,62 @@ def _valid_metrics(metrics):
             0 <= metrics["ssim_rgb"] <= 1 and metrics["lpips"] >= 0)
 
 
+def _bound_word(value):
+    word = common._word(value)
+    return word is not None and 0 <= word < 2**32
+
+
+def _bound_bits(value):
+    return isinstance(value, list) and len(value) == 100 and all(type(v) is int and v in (0, 1) for v in value)
+
+
+def bound_evidence_complete(row, payload, owners, marked):
+    """Required VINE-B observations, including references even after no-read.
+
+    This validates saved-field availability, not neural correctness or a new
+    scientific threshold. Exact references are inapplicable to C0/beta calls.
+    """
+    if marked and (not isinstance(payload, dict) or not all(_bound_word(payload.get(k)) for k in ("q", "h"))
+                   or not _bound_bits(payload.get("bits"))):
+        return False
+    for owner in owners.values():
+        call = observed((row or {}).get("calls", {}).get(owner))
+        raw = (call or {}).get("raw", {})
+        if not isinstance(raw, dict) or not isinstance(raw.get("native"), dict):
+            return False
+        decoded = raw.get("carrier_decode")
+        native = raw["native"].get("raw")
+        if not isinstance(decoded, dict) or not isinstance(native, dict) or not _bound_bits(native.get("decoded_message")):
+            return False
+        probs = native.get("probabilities")
+        if not isinstance(probs, list) or len(probs) != 100 or not all(common._finite(v) and 0 <= v <= 1 for v in probs):
+            return False
+        status, count = decoded.get("status"), decoded.get("candidates")
+        if (status not in ("unique", "no_codeword", "ambiguous") or type(count) is not int or not 0 <= count <= 41449
+                or decoded.get("candidates_examined") != 41449 or decoded.get("radius") != 4
+                or type(decoded.get("unique")) is not bool
+                or decoded["unique"] != (count == 1)
+                or status != ("unique" if count == 1 else "no_codeword" if count == 0 else "ambiguous")):
+            return False
+        if decoded["unique"] and (not all(_bound_word(decoded.get(k)) for k in ("q", "h"))
+                                  or type(decoded.get("distance")) is not int or not 0 <= decoded["distance"] <= 4):
+            return False
+        if marked and owner == owners["positive"]:
+            delivery = call.get("delivery")
+            if not isinstance(delivery, dict):
+                return False
+            for field, width in (("raw_payload", 100), ("raw_q", 32), ("raw_tag", 36), ("raw_masked_h", 32)):
+                errors, accuracy = delivery.get(field+"_bit_errors"), delivery.get(field+"_accuracy")
+                if type(errors) is not int or not 0 <= errors <= width or not common._finite(accuracy) or not 0 <= accuracy <= 1:
+                    return False
+            if any(type(delivery.get(k)) is not bool for k in ("raw_payload_exact", "corrected_payload_exact")):
+                return False
+            h_errors = delivery.get("decoded_h_bit_errors")
+            if decoded["unique"] and (type(h_errors) is not int or not 0 <= h_errors <= 32):
+                return False
+    return True
+
+
 def analyze(config, manifest, prepared, producers, detections, qualities, *, resource_stop=False, tails=()):
     sources = [str(r["source_id"]) for r in manifest["screen_donors"]]
     targets = {str(r["source_id"]) for r in manifest["screen_targets"]}
@@ -379,6 +435,11 @@ def analyze(config, manifest, prepared, producers, detections, qualities, *, res
             row = detection(uid, method)
             if method in INTERNAL:
                 usable = row and all(outcome(uid,method,r,owner) is not None for owner in config["owners"].values() for r in ("C","F"))
+                if method == "vine-b":
+                    payload = (all_producers.get(uid) or {}).get("payload")
+                    usable = usable and bound_evidence_complete(row, payload, config["owners"], arm == method)
+                    if arm == method:
+                        usable = usable and all(outcome(uid,method,r) is not None for r in RULES)
                 if uid.startswith("threat:"):
                     # Ablation values have zero selection weight, but every
                     # frozen read mode must still have usable observations.
@@ -391,23 +452,30 @@ def analyze(config, manifest, prepared, producers, detections, qualities, *, res
                 evidence_issues.append(f"det:{method}:{uid}")
     inventory_complete = selection_ok and not tails and not evidence_issues and all(r["complete"] for r in inventory)
     label = verdict(gates, inventory_complete, resource_stop)
+    numerical_thesis_status = article.conjunction(gates)
     article_report = article.evaluate(config, native, clean, negatives, threats,
         {arm: [metrics(f"clean:{sid}:{arm}") for sid in sources] for arm in (candidate, "vine-b")},
         label, inventory_complete)
+    article_report["numerical_thesis_gate_status"] = numerical_thesis_status
     bound_delivery = []
+    issue_set = set(evidence_issues)
     for uid, arm in item_arms.items():
         if arm not in ("vine-b", "unmarked"):
             continue
         row = detection(uid, "vine-b")
         call = observed((row or {}).get("calls", {}).get(config["owners"]["positive"]))
-        raw = (call or {}).get("raw", {})
-        decoded = raw.get("carrier_decode", {})
-        bound_delivery.append(dict(item=uid, arm=arm, status="ok" if call else "missing",
+        raw = (call or {}).get("raw")
+        decoded = raw.get("carrier_decode") if isinstance(raw, dict) else None
+        decoded = decoded if isinstance(decoded, dict) else {}
+        delivery_status = "missing" if call is None else "invalid" if f"det:vine-b:{uid}" in issue_set else "ok"
+        bound_delivery.append(dict(item=uid, arm=arm, status=delivery_status,
             semantic_codeword_status=decoded.get("status"), candidates=decoded.get("candidates"),
             semantic_correction_distance=decoded.get("distance"),
             evaluator_delivery=(call or {}).get("delivery"),
             raw_h_role="conditional unmasked field; no error correction or independent presence test"))
     return dict(schema="tifs-stage-s-analysis-v1", verdict=label, gates=gates, inventory=inventory,
+                numerical_thesis_gate_status=numerical_thesis_status,
+                numerical_thesis_gate_scope="Fixed F6 numeric gates only; pass does not waive complete inventory or authorize GO.",
                 article=article_report, bound_carrier_delivery=bound_delivery,
                 inventory_complete=inventory_complete, prepared_selection_available=selection_ok,
                 incomplete_journal_tails=list(tails), resource_stop=bool(resource_stop), native=native, native_sources=native_sources, gains=gains,
@@ -426,6 +494,18 @@ def analyze(config, manifest, prepared, producers, detections, qualities, *, res
                     "Zero events do not establish rare-event security; sources, not calls, are independent units.",
                     "Eight distortions and unbound WAM/VINE-R have zero selection weight; VINE-B affects only the separate article screen."],
                 zero_event_source_upper_95=1-math.pow(.05, 1/len(sources)))
+
+
+def mark_provenance_missing(report):
+    """Keep numerical results but never export article GO without a run seal."""
+    report["inventory_complete"] = False
+    report["verdict"] = verdict(report["gates"], False, report["resource_stop"])
+    article_report = report["article"]
+    article_report["thesis_verdict"] = report["verdict"]
+    article_report["verdict"] = "RESOURCE_STOP" if report["verdict"] == "RESOURCE_STOP" else "INCOMPLETE"
+    article_report["numerical_parity"] = False
+    article_report["numerical_parity_status"] = "unknown"
+    article_report["flags"] = [f for f in article_report["flags"] if f != "NUMERICAL_PARITY"]
 
 
 def write_report(report, destination):
@@ -479,8 +559,7 @@ def main(argv=None):
             raise ValueError("Analyzer code does not match run identity")
         report["identity_sha256"] = common.sha256_file(seal_path)
     else:
-        report["inventory_complete"] = False
-        report["verdict"] = verdict(report["gates"],False,resource)
+        mark_provenance_missing(report)
     write_report(report, args.destination or args.out/"analysis")
     print(report["verdict"])
     return {"GO":0,"SCIENTIFIC_KILL":2,"RESOURCE_STOP":3,"INCOMPLETE":4}[report["verdict"]]

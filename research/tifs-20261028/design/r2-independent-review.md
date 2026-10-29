@@ -1,0 +1,93 @@
+# Round 2 independent review
+
+Verdict: **CHANGES REQUIRED BEFORE PREPARATION SIGNOFF**. One incomplete-evidence acceptance defect must be fixed (R2-R1). Two reporting discrepancies should be closed in the same pre-output freeze (R2-R2/R3). No defect was found in the implemented VINE-B wire format, blind bounded-distance search, content-function dispatch, prospective numerical comparison, or checkpoint/capacity changes. This is a preparation review, not a human scientific verdict, execution authorization, novelty clearance or journal-readiness assessment.
+
+Reviewer: fresh independent Codex reviewer, separate from the implementation/design authors. Date: 2026-10-29. Reviewed branch: `codex/tifs-20261028`; diff base `071c8ec` to `749ee7005528c7115576c09d53c7622775a039d2`. The authoritative MAIN STATE was read once. Scope is this Round 2 diff and the retained helper source needed to assess its integration. Retained methods and run outputs were not modified or replayed. The only review deliverable is this file.
+
+## Required correction
+
+### R2-R1 — incomplete VINE-B exact-code evidence can still produce article GO
+
+Severity: **blocking for preparation signoff**, bounded analyzer correction; no method redesign is requested.
+
+Locators: `scripts/tifs_stage_s_analyze.py:370-409`, especially lines 381/386; `scripts/tifs_article_decision.py:106-110`; `scripts/tifs_test_article_decision.py:test_missing_vine_reference_or_call_never_article_go`. Prospective contract: `05-stage-s-protocol.md:105-107`, `design/r2-binding-design.md:120,141,150`.
+
+The full-inventory usability check validates only C/F outcomes for internal arms, now including VINE-B. It does not require its declared original q/h references or the applicable exact-code endpoints. Conservative majority bounds can remain numerically decisive when such an endpoint is missing, so the global completeness flag does not prevent article GO. In addition, the newly required VINE-B `carrier_decode` and evaluator-delivery records can be absent while `bound_carrier_delivery` marks the row `status="ok"` solely because a call exists.
+
+A pure-JSON reproduction using the existing fixture was run:
+
+1. `v = fixture()` from `tifs_test_stage_s_analyze`; the intact fixture gives thesis GO and `F6_GO_ARTICLE_CONDITIONAL_GO`.
+2. Delete `v[3]['native']['native:R0-0.2:471:0:vine-b']['payload']['q']`.
+3. `analyze(*v)` still returns `inventory_complete=true` and `F6_GO_ARTICLE_CONDITIONAL_GO`, while the VINE-B R0/J row reports `missing_seed_outcomes=1`.
+
+This does not imply that the current writer normally omits q. It demonstrates that the declared missing-evidence contract is not enforced by the analyzer. Complete artifacts/statuses and a numerically resolved majority are different from complete required evidence. The existing test named “missing_vine_reference_or_call” removes a detector row or a quality value, not an actual q/h reference, so it misses this case.
+
+Correction: before declaring VINE-B evidence complete, validate the marked producer's frozen original q/h reference fields, all applicable positive-owner C/Q/J/H/D/F/A outcomes, and the promised carrier-decode/delivery record. Exact-target outcomes on C0 and target-free wrong-owner diagnostics remain inapplicable; do not require an unavailable original there. Observed `no_codeword`/`ambiguous` reads remain valid negative observations, with legitimate null decoded fields. Missing/malformed evidence must produce explicit unusable-evidence entries and article INCOMPLETE, not an all-false decode. Give `bound_carrier_delivery` a missing/invalid status when its required fields are absent. Add regression tests for a missing q reference, missing h reference, a read=true channel with absent decoded code, and absent delivery/decode metadata, while preserving valid no-read and C0 cases. Keep all numerical thresholds unchanged.
+
+## Reporting corrections
+
+### R2-R2 — expose the unchanged F6 numerical result separately from package completeness
+
+Severity: **medium reporting-contract discrepancy**; this is not a recommendation to permit a partial-package GO.
+
+Locators: `scripts/tifs_stage_s_analyze.py:392-396,410-414`; `scripts/tifs_article_decision.py:123`; `design/r2-binding-design.md:114,141`; `08-round2-amendment.md:17`.
+
+Adding VINE-B to global inventory means one missing VINE-B detector row changes top-level `verdict` from GO to INCOMPLETE and exports that value as `article.thesis_verdict`, even when every original F6 numerical gate passes. I reproduced this with the fixture by deleting one `det:vine-b:native:*:vine-b` row: all F6 gate statuses remained `pass`, but both reported verdicts were INCOMPLETE. Global package incompleteness is correct. The design's promise to retain an established F6 numerical result separately is currently expressed only indirectly through the gate list.
+
+Correction: export an explicit F6 numerical-gate status, distinct from overall package/inventory/resource status, and use accurate field names in `article-decision.json`. Retain top-level package INCOMPLETE and article INCOMPLETE whenever required VINE-B evidence is absent. A field saying all F6 numerical gates pass must not be described as an approved thesis lifecycle GO or a complete screen. Preserve conclusive F6 failure and resource/missingness flags concurrently. Add the fixture regression above. This resolves the ambiguity without weakening the existing full-inventory requirement.
+
+### R2-R3 — design promises named flags/parity that the output does not export
+
+Severity: **low**, documentation/API consistency; it does not alter the numerical verdicts.
+
+Locators: `design/r2-binding-design.md:127-144`; `scripts/tifs_article_decision.py:123-127`.
+
+The design promises `BOUND_CARRIER_ONLY_NOT_NOVEL`, `VINE_B_QUALITY_INELIGIBLE`, `VINE_B_SECURITY_SCREEN_FAIL`, and a numerical-parity distinction. The implementation supplies detailed baseline gates, comparison components, a generic pre-emption string and the broad `F6_GO_NO_ARTICLE_EDGE` label. Those contain much of the underlying information, but the promised named flags/parity field do not exist. Human-quality status is also promised as a separate field but is not present in this article object.
+
+Correction: either export these descriptive flags with explicit pass/fail/unknown handling and distinguish parity from mixed tradeoffs, or amend the design note to specify the exact existing output fields from which the descriptions are obtained. Prefer explicit fields for the final handoff. Do not add new winning dimensions or change any threshold. The generic bound-carrier novelty exclusion should remain explicit regardless of numerical winner; absence of human evidence remains missing/unresolved, never a fabricated verdict.
+
+## Accepted implementation findings
+
+- **Blind payload and capacity.** `scripts/tifs_vine_b.py:36-119` implements length-framed owner/config/q domains, MSB-first q32/tag36/masked-h32, exhaustive 41,449-candidate radius-four search on the first 68 bits, unique-only acceptance and conditional raw h unmasking. H errors do not contaminate the C/J decoding decision. There is no donor-derived search list, target-message oracle, nearest-word fallback or cross-item decode cache. The stated ideal uniform-null union bound, `866848 / 2**36`, is correctly limited to that null; it is neither an empirical photograph FPR nor an adaptive public-key security guarantee. A random code may have ambiguous neighborhoods; unique-only rejection handles them rather than guaranteeing correction of every radius-four error pattern.
+- **Content functions and side information.** `tifs_vine_b.py:149-216` resolves the retained public-derived profile, computes seven-view q and original h before embedding, uses the retained VINE embed once, discards dummy known-message presence, and calls the unchanged F5 soft semantic status and retained instance/max-status decision table. The original h target intentionally differs from F5's retained clean-decoded target and F6's post-robust-tier intended h; the docs disclose this. The instance found/read flag is conditional on q recovery, with no independent h-presence test, correction or authentication. It must never be interpreted as reproducing F5 carrier statistics or proving ownership.
+- **Queries and endpoints.** `tifs_stage_s.py:385-415`, `tifs_stage_s_read.py:97-113,173`, and analysis `read_modes` integrate VINE-B into own-arm/C0 reading, both alpha/beta owner calls, all native cells and distortions, and combined-only T4/T5. Original q/h enter evaluator diagnostics after operational reading. C/Q/J/H/D/F definitions are retained under the explicitly different carrier conventions. The numerical negative gates do not resolve human operational distinctness. WAM-B omission is justified for the stated q32+h32+owner-redundancy task; it is not a claim that WAM cannot support any different binding design.
+- **Prospective article screen.** `tifs_article_decision.py:35-122` implements both C and J, all four-cell loss limits, all sixteen paired clean metrics, the same-foreign-cell three-source gain route, and the joint LPIPS .002/PSNR 1 dB quality route. The reverse dominance requires VINE-B viability. Baseline quality/security failure alone is not an F6 advantage. No fallback to cost or threat results as a winning dimension was introduced. These are descriptive development margins, not statistical noninferiority. The original numerical thesis thresholds in `decision` are unchanged; R2-R2 concerns reporting/completeness separation.
+- **Checkpoint implementation.** `tifs_writer.py:39-73,204-210,244-250,285` enables both encoder/decoder flags only within writer-gradient scopes, including lazy SDXL, and clears them through normal/exceptional exit. The graph finishes before codec offload. I independently opened the pinned upstream [VAE encoder/decoder source](https://github.com/huggingface/diffusers/blob/v0.35.1/src/diffusers/models/autoencoders/vae.py#L143) and [ModelMixin checkpoint implementation](https://github.com/huggingface/diffusers/blob/v0.35.1/src/diffusers/models/modeling_utils.py#L258): eval mode does not disable the autograd-gated path, and the modern-torch default is non-reentrant. This supports the implementation choice, not a demonstrated memory saving or numerical-equivalence result on the actual server.
+- **Measured capacity.** `tifs_stage_s_forecast.py:30-63` replaces the 24 GiB ceiling with measured total less 1.5 GiB, retains a 24 GB-class minimum, and rejects absent/inconsistent totals. `tifs_stage_s.py:56-86,244` checks the current total on initial launch and resume. A larger card is no longer incorrectly excluded. Peak accounting remains an engineering estimate from allocator high-water plus endpoint device telemetry, not proof of a continuously sampled device-wide maximum. Full rehearsal/OOM handling remains necessary.
+- **Cost and inventories.** The nine-arm counts reconcile: 4,032 screen producers, 7,168 detector rows, 4,032 quality rows; 504/896/504 for rehearsal. The VINE-B component adds 1,792 screen owner queries and 74,276,608 candidate checks. Removing cross-item caching avoids an obvious rehearsal/full-screen scaling mismatch. The complete variable-work forecast includes both owner decodes inside each measured reader row. The 15-hour clock, 1.5 factor and retrieval reserve are retained; no measured fit or minimal larger budget can be inferred from these counts. The 64.62-minute best-case rehearsal ceiling is an algebraic bound, not a runtime forecast.
+
+## Novelty and remaining limitations
+
+The Round 2 literature diff and `literature/r2-prior-art-check.md` appropriately restrict the candidate contribution: generic semantic binding, trained robust carriers, training-free fixed-reader optimization and noise-aware insertion are prior art. A VINE-B win is not an automatic novel-protocol article. The narrowed F6 construction remains an empirical hypothesis, not certified firstness. I reviewed that audit and its effect on the prospective rules; I did not independently repeat its complete seven-paper method search during this bounded code review.
+
+ForenMark remains **full-text uninspected** in this reviewed snapshot; the exact MAIN cache path was still absent at my final local check. I did not inspect a ForenMark PDF or infer its contents. The lead must retain the pending-delivery/conditional novelty status or add a separately documented inspection if it arrives before freeze. This known access limitation does not justify inventing a novelty verdict. The new Stage C dependency paragraph correctly prevents the old six-hypothesis proposal from silently confirming the new F6-versus-VINE-B claim.
+
+Server rehearsal still must establish real adapter interoperability, saved-image reads, finite/nonzero checkpointed gradients, numerical behavior, memory, timing and disk fit. No image operation, model/metric/encoder pass, timing experiment, download, install, SSH, paid compute or held-out access occurred in this review. Nothing here authorizes such execution.
+
+## Validation and closure criteria
+
+The permitted MAIN stdlib interpreter was used with `-I`. `-m unittest discover -s scripts -p 'tifs_test_*.py' -q` passed **95 tests**. The targeted JSON-only reproductions above were additional review checks. `git diff --check 071c8ec 749ee70` was clean. The existing passing suite does not cover R2-R1.
+
+The author can close this review by fixing R2-R1, recording R2-R2/R3 dispositions, adding the stated focused pure-logic regressions, and rerunning the appropriate stdlib suite before committing the final freeze. Record these dispositions in `07-review.md`; do not erase this reviewed-snapshot finding or claim that I approved uninspected subsequent code. A second design family, new numerical threshold, new scientific execution or additional reviewer is not required to resolve these bounded corrections.
+
+## Bounded correction verification and closure
+
+**Current review verdict: ACCEPTED FOR PREPARATION after the bounded corrections below. R2-R1, R2-R2 and R2-R3 are closed; no remaining blocker was found in this correction diff.** This supersedes the initial snapshot verdict for the inspected corrected files while preserving the original findings above. Acceptance remains conditional on the already stated server rehearsal and novelty limitations; it is not execution authorization, a scientific pass, ForenMark clearance or submission readiness.
+
+The same independent reviewer inspected the working diff on top of `749ee70` on 2026-10-29, limited to the two analyzer/decision modules, their two changed test files, and the aligned protocol/amendment/runbook changes. No second reviewer or broader re-audit was introduced. The reviewed source-file SHA-256 values are:
+
+| File | SHA-256 |
+|---|---|
+| `scripts/tifs_stage_s_analyze.py` | `b0d5d0fdd0dae1b505072e0730c599d9465180b81f7ed78c799c0254d1dbbb6b` |
+| `scripts/tifs_article_decision.py` | `b83202fa7ff667319258a7060833e1a84383a9cfe695265677e9f1243f1eed76` |
+| `scripts/tifs_test_article_decision.py` | `7608d8b00f7d66b326e430f77f05cb3339a0d901996d376e8864cbd5c6bef96f` |
+| `scripts/tifs_test_stage_s_analyze.py` | `50a5fad586730f734c08f9524873fe809294abfd21a05ab6ae85d88f13d35ba2` |
+
+- **R2-R1 closed.** `bound_evidence_complete` now requires marked q/h/100-bit references even when decoding returns a valid no-read; checks saved blind/decode/delivery field availability; and the analysis completeness loop requires applicable marked positive-owner exact endpoints. Invalid evidence cannot retain the complete-package/article-GO path, and delivery receipts now distinguish missing/invalid records. C0 and wrong-owner calls do not acquire an original-reference requirement. The added regressions remove q, h and bits in both readable and no-read native cases, remove decoder/native/delivery records, and remove decoded semantic/instance codes. They exercise the original failure mode rather than only deleting entire rows.
+- **R2-R2 closed.** Both report objects export `numerical_thesis_gate_status`; package and article remain INCOMPLETE when a VINE-B call is missing even if the unchanged F6 numeric gates pass. The explicit scope statement and runbook prevent interpreting numeric pass as a complete-screen or lifecycle approval. No original F6 threshold or package-completeness rule was relaxed.
+- **R2-R3 closed.** The article object now exports the promised novelty/quality/security flags, quality/security statuses, three-state parity and `human_quality_status=MISSING`. Parity requires complete evidence, both directed practical-noninferiority conditions and neither strict edge. A broad no-edge result is no longer the only representation of parity versus mixed tradeoffs. Protocol wording matches these fields.
+- **Adjacent missing-seal correction accepted.** `mark_provenance_missing` now invalidates article GO and parity as well as package completeness when the run identity is absent, while retaining numeric gates and resource/scientific status information. The direct helper regression covers the previously inconsistent report state, and the CLI missing-identity branch calls that helper. The final one-line follow-up was inspected directly: absent provenance yields article `RESOURCE_STOP` only when the package verdict is `RESOURCE_STOP`; a conclusive scientific kill retains article `INCOMPLETE`, matching the evaluator's ordering. The analyzer hash above includes that follow-up.
+
+Independent focused validation: **13 article-decision tests passed** using the allowed MAIN stdlib interpreter with `-I`. I also exercised the actual `VineB.read` and `delivery_diagnostics` return schemas with pure mock content helpers and fixed decoder records for unique, no-codeword and ambiguous results, each as marked and C0 evidence: all six valid schema combinations passed the new validator. No VINE/CLIP/torch constructor or scientific import was executed. `git diff --check` reported no whitespace errors; only ordinary CRLF normalization notices appeared. The author's reported 100-test full-suite pass and 22-file compilation are author validation, not repeated independent measurements in this closure turn.
+
+ForenMark remains uninspected in the supplied correction package. The prior source/claim limits, public-key non-authentication caveat, conditional raw-h interpretation, missing human evidence, unmeasured GPU/time feasibility, and separate Stage C amendment requirement remain unchanged. Record this closure and the original correction dispositions in `07-review.md`, then freeze the corrected package without representing preparation acceptance as permission to run it.

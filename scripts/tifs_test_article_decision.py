@@ -6,7 +6,7 @@ import unittest
 
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 import tifs_stage_s_analyze as analysis
-from tifs_test_stage_s_analyze import fixture, call
+from tifs_test_stage_s_analyze import fixture, bound_call as call
 
 
 class ArticleTests(unittest.TestCase):
@@ -36,6 +36,9 @@ class ArticleTests(unittest.TestCase):
         self.assertEqual(result['verdict'],'GO')
         self.assertEqual(result['article']['baseline_viability'],'pass')
         self.assertEqual(result['article']['verdict'],'F6_GO_NO_ARTICLE_EDGE')
+        self.assertIn('NUMERICAL_PARITY',result['article']['flags'])
+        self.assertEqual(result['article']['numerical_parity_status'],'pass')
+        self.assertEqual(result['article']['human_quality_status'],'MISSING')
 
     def test_quality_superiority_requires_both_metrics(self):
         vals=self.values(True)
@@ -64,6 +67,7 @@ class ArticleTests(unittest.TestCase):
         self.assertEqual(result['verdict'],'GO')
         self.assertEqual(result['article']['baseline_viability'],'fail')
         self.assertEqual(result['article']['verdict'],'F6_GO_NO_ARTICLE_EDGE')
+        self.assertIn('VINE_B_SECURITY_SCREEN_FAIL',result['article']['flags'])
 
     def test_kill_labels_do_not_rescue_thesis(self):
         for vine_pass,label in ((True,'F6_KILL_VINE_B_VIABLE_NOT_NOVEL'),(False,'BOTH_FAIL')):
@@ -80,12 +84,63 @@ class ArticleTests(unittest.TestCase):
         del vals[4][uid]
         result=self.result(vals)
         self.assertEqual(result['article']['verdict'],'INCOMPLETE')
+        self.assertEqual(result['numerical_thesis_gate_status'],'pass')
         vals=self.values()
         uid=next(u for u in vals[5] if u.startswith('quality:clean:') and u.endswith(':vine-b'))
         vals[5][uid]['total']['lpips']=None
         result=self.result(vals)
         self.assertEqual(result['article']['verdict'],'INCOMPLETE')
         self.assertEqual(result['article']['f6_over_vine_b']['quality_noninferiority'][0]['status'],'unknown')
+
+    def test_missing_bound_reference_never_hidden_by_majority_or_no_read(self):
+        for field in ('q','h','bits'):
+            for cell in ('R0-0.2','R1-0.1'):
+                vals=self.values()
+                uid=next(u for u in vals[3]['native'] if u.startswith('native:'+cell+':') and u.endswith(':vine-b'))
+                del vals[3]['native'][uid]['payload'][field]
+                result=self.result(vals)
+                self.assertFalse(result['inventory_complete'],(cell,field))
+                self.assertEqual(result['article']['verdict'],'INCOMPLETE')
+                receipt=next(r for r in result['bound_carrier_delivery'] if r['item']==uid)
+                self.assertEqual(receipt['status'],'invalid')
+
+    def test_missing_bound_decode_or_delivery_metadata_is_incomplete(self):
+        for field in ('carrier_decode','native','delivery'):
+            vals=self.values()
+            uid=next(u for u in vals[4] if u.startswith('det:vine-b:clean:') and u.endswith(':vine-b'))
+            own=vals[4][uid]['calls'][vals[0]['owners']['positive']]
+            del (own if field=='delivery' else own['raw'])[field]
+            result=self.result(vals)
+            self.assertFalse(result['inventory_complete'])
+            self.assertEqual(result['article']['verdict'],'INCOMPLETE')
+
+    def test_read_without_decoded_code_is_incomplete(self):
+        for channel in ('semantic','instance'):
+            vals=self.values()
+            uid=next(u for u in vals[4] if u.startswith('det:vine-b:clean:') and u.endswith(':vine-b'))
+            own=vals[4][uid]['calls'][vals[0]['owners']['positive']]
+            del own['raw'][channel]['decoded_code']
+            result=self.result(vals)
+            self.assertFalse(result['inventory_complete'])
+            self.assertEqual(result['article']['verdict'],'INCOMPLETE')
+
+    def test_missing_run_seal_invalidates_article_without_losing_numeric_result(self):
+        result=self.result(self.values(True))
+        analysis.mark_provenance_missing(result)
+        self.assertEqual(result['verdict'],'INCOMPLETE')
+        self.assertEqual(result['article']['verdict'],'INCOMPLETE')
+        self.assertEqual(result['article']['thesis_verdict'],'INCOMPLETE')
+        self.assertEqual(result['numerical_thesis_gate_status'],'pass')
+        self.assertEqual(result['article']['numerical_parity_status'],'unknown')
+        self.assertNotIn('NUMERICAL_PARITY',result['article']['flags'])
+
+    def test_quality_failure_is_explicit_without_automatic_article_edge(self):
+        vals=self.values(True)
+        uid=next(u for u in vals[5] if u.startswith('quality:clean:') and u.endswith(':vine-b'))
+        vals[5][uid]['total']['psnr_db']=35
+        result=self.result(vals)
+        self.assertIn('VINE_B_QUALITY_INELIGIBLE',result['article']['flags'])
+        self.assertEqual(result['article']['verdict'],'F6_GO_NO_ARTICLE_EDGE')
 
     def test_vine_combined_mode_required_without_extra_ablations(self):
         vals=self.values(True)

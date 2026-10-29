@@ -95,12 +95,26 @@ def evaluate(config, native, clean, negatives, threats, paired_metrics, thesis_v
         edge_status = disjunction([retention_edge, quality_edge_status])
         status = conjunction(retention + quality + [gate("prespecified_edge", edge_status)])
         return dict(left=left, right=right, status=status, retention=retention, quality_noninferiority=quality,
+                    noninferiority_status=conjunction(retention+quality), strict_edge_status=edge_status,
                     retention_edge=retention_edge, gain_by_foreign_cell=superior_by_cell,
                     quality_edge=quality_edge_status, quality_superiority=quality_edge,
                     margin_role="fixed development thresholds; no inferential noninferiority claim")
 
     forward, reverse = comparison(candidate, baseline), comparison(baseline, candidate)
     viable = conjunction(viability)
+    baseline_quality = conjunction([g for g in viability if g["name"] == "strict_quality"])
+    baseline_security = conjunction([g for g in viability if g["name"].startswith(("negative:", "threat:", "security_inventory"))])
+    parity_gates = [gate("inventory", "pass" if inventory_complete else "unknown")]
+    for side in (forward, reverse):
+        parity_gates.append(gate("noninferiority", side["noninferiority_status"]))
+        edge = side["strict_edge_status"]
+        parity_gates.append(gate("no_strict_edge", "unknown" if edge == "unknown" else "pass" if edge == "fail" else "fail"))
+    parity_status = conjunction(parity_gates)
+    parity = parity_status == "pass"
+    flags = ["BOUND_CARRIER_ONLY_NOT_NOVEL"]
+    if baseline_quality == "fail": flags.append("VINE_B_QUALITY_INELIGIBLE")
+    if baseline_security == "fail": flags.append("VINE_B_SECURITY_SCREEN_FAIL")
+    if parity: flags.append("NUMERICAL_PARITY")
     if thesis_verdict == "RESOURCE_STOP":
         label = "RESOURCE_STOP"
     elif not inventory_complete or thesis_verdict == "INCOMPLETE":
@@ -121,7 +135,10 @@ def evaluate(config, native, clean, negatives, threats, paired_metrics, thesis_v
     else:
         label = "INCOMPLETE"
     return dict(verdict=label, thesis_verdict=thesis_verdict, baseline_viability=viable,
+                flags=flags, baseline_quality_status=baseline_quality, baseline_security_status=baseline_security,
+                numerical_parity=parity, numerical_parity_status=parity_status,
                 baseline_gates=viability, f6_over_vine_b=forward, vine_b_over_f6=reverse,
-                novelty_status=spec["novelty_status"], binding_generalization="UNRESOLVED_WITHOUT_HUMAN_LABELS",
+                novelty_status=spec["novelty_status"], human_quality_status="MISSING",
+                binding_generalization="UNRESOLVED_WITHOUT_HUMAN_LABELS",
                 scope="development comparative screen only; no fresh confirmation, security or publication approval",
                 generic_bound_carrier_novelty="PREEMPTED; a VINE-B win is not an automatic article contribution")

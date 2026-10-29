@@ -70,6 +70,8 @@ A completed terminal journal row is not rerun. Interrupted work without a termin
 
 Read `article-decision.json` separately from the unchanged F6 thesis verdict. It applies the predeclared VINE-B retention/quality comparison and reports baseline viability. Neither a thesis GO without comparative edge nor a VINE-B win automatically supports article novelty. Human binding labels, fresh confirmation and ForenMark/prior-art disposition remain separate. Stage C needs a later prospective comparative-design amendment and approval.
 
+`numerical_thesis_gate_status` reports the original F6 numeric gates independently of package completeness. A `pass` there does not waive missing VINE-B evidence, a missing run identity or a resource stop. Inspect `bound_carrier_delivery.csv` statuses and `unusable_evidence`; invalid q/h/100-bit references, positive-owner exact endpoints or delivery/decode metadata make the article INCOMPLETE even if a source majority is numerically resolved. Valid no-reads remain observations. Named baseline quality/security flags, three-state numerical parity and `human_quality_status=MISSING` prevent these limitations being hidden in a broad verdict.
+
 Use a normal foreground interrupt to stop safely, allow the process to exit, and keep journals and partial files. Never run two producers against one output folder. The shell driver is intended for a foreground monitored terminal or explicitly managed server session; never leave it unobserved past the instance ceiling.
 
 ## Retrieve and stop
