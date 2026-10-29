@@ -2,6 +2,20 @@
 
 Decision frozen before any new scientific output, 2026-10-28. Primary: **I01, F6 finite noisy-codec writer**. Sole backup: **I03, finite reader-response forecasting**, as a separate study and budget. The [independent WP2 review](design/wp2-hostile-review.md) recommends this choice conditionally. This document is the author's decision, not a human verdict or execution approval.
 
+**Round 3 reading note, 2026-10-29:** the historical Round 1/2 selection and
+review table below are preserved. The prospective [Round 3 amendment](09-round3-amendment.md)
+adds bounded Stage P selection, the denoiser-aware alternative, eleven Stage S
+arms and an inactive proposed profile. Round 1 stays effective until a real
+pre-output user choice. Under the proposed profile, a complete empirical pass
+would not automatically establish superiority over each mechanism control or
+quality parity to retained F5. The current subjective thesis estimates are
+15% for the original untuned package and 35% for the recommended package,
+conditional on complete execution; they supersede the older 25% judgment
+below without adding empirical evidence. The [Round 3 source check](design/r3-surrogate-prior-art.md)
+also excludes treating predicted-clean reconstruction or denoiser-gradient
+watermarking as novel ingredients. None of these preparations clears TIFS
+novelty or approves execution.
+
 The selected claim is deliberately narrow: *a constrained post-hoc pixel writer, optimized through finite native-noise codec surrogates, improves original semantic-code retention with the unchanged F5 content-consistency reader over codec exposure and a specified generic augmentation control, including an optimization-excluded regenerator*. K3 is historically observed and excluded only from optimization. Fresh confirmation must add a prospectively excluded family. Neither semantic q nor the public owner label authenticates a person, uniquely identifies an image, or establishes lawful ownership. F6 remains an image-domain comparator; RQ-02/HYP-02 stay open.
 
 ## Why this candidate

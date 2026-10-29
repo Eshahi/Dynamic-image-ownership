@@ -182,3 +182,22 @@ tests in 200.8 seconds and compiled 35 tifs modules, with no scientific library
 loaded. Native numerical behavior and feasibility remain unmeasured. No real
 approval receipt, selected winner or scientific output exists. R3-6 is reserved
 for the brief's final 25-minute window, starting after 20:00 UTC.
+
+R3-5 push receipt: 2026-10-29 17:41 UTC, Codex agent pushed
+origin/codex/tifs-20261028, 551afc5..8584dfa. The sole review and its correction
+are committed; no scientific code change follows from the source interpretation.
+
+- Post-review author research: three primary methods narrow the predicted-clean
+  and denoiser-gradient novelty claim; locators, source ambiguity and bibliography
+  are recorded in design/r3-surrogate-prior-art.md. No new baseline or design
+  variant is added. A bounded r3_budget_bounds author agent (gpt-6-astra/high)
+  derives only scalar distortion bounds from the existing writer source, with
+  no image, model, metric or scientific execution. R3-6 still waits for its
+  prescribed final window.
+
+- 17:50 UTC: the scalar distortion note is complete and its projection/fragile
+  source reasoning inspected by the lead. It derives an intentionally loose
+  worst-case bound, distinguishes the intermediate refinement center and all
+  RGB8 roundings, and leaves final PSNR/SSIM/LPIPS unmeasured. No scientific
+  code or threshold changed after the accepted review; the remaining work is
+  final documentation in the specified handoff window.

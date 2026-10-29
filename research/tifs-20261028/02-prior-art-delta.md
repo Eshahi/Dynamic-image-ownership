@@ -1,6 +1,6 @@
 # Prior-art delta and claim exclusions
 
-Research snapshot: 2026-10-28, with the Round 2 method/venue recheck on 2026-10-29 below. This updates the [October 25 map](../encoder-transfer-20261019/final-study-20261025/article-drafts/close-prior-art-map.md); it does not erase that dossier or convert its proposed law into a supported result. New means newly found in this search unless a publication date is explicitly given. A three-day search window is too short to assume that every relevant older paper was already covered.
+Research snapshot: 2026-10-28, with the Round 2 and Round 3 method rechecks on 2026-10-29 below. This updates the [October 25 map](../encoder-transfer-20261019/final-study-20261025/article-drafts/close-prior-art-map.md); it does not erase that dossier or convert its proposed law into a supported result. New means newly found in this search unless a publication date is explicitly given. A three-day search window is too short to assume that every relevant older paper was already covered.
 
 ## Newly inspected close work
 
@@ -50,6 +50,21 @@ The [seven-paper primary-method audit](literature/r2-prior-art-check.md) reopens
 The prospective claim is now: *finite native-noise codec exposure improves original semantic-code retention beyond matched codec/augmentation writers and a content-bound published robust carrier under a fixed content rule and source-preserving quality constraints*. Stage S fixes the quantitative comparative edge before outputs, separately from unchanged thesis gates. It cannot establish unique-instance binding, an operational rare-error rate, or a complete prior-art search.
 
 **ForenMark final access status, 2026-10-29 13:18 UTC:** the exact MAIN cache path remained absent at the forty-minutes-remaining cutoff; the latest Downloads scan also found no PDF. The full text is **UNINSPECTED**, as BRIEF-R2 explicitly permits for this missing-delivery case. Repeated public title/DOI/author searches exposed the publisher preview and section snippets but no accessible complete method/results. No preview numbers are used. No claim clears F6 or VINE-B against ForenMark; its preview alone cannot determine whether the narrower F6 construction is pre-empted. Full-text inspection remains a prerequisite to manuscript novelty clearance, not an invented completed task. See the [access receipt](literature/r2-prior-art-check.md#forenmark-access-receipt).
+
+## Round 3 predicted-clean and denoiser-gradient boundary
+
+The [bounded three-paper method assessment](design/r3-surrogate-prior-art.md)
+and its [bibliography](literature/r3-surrogate-references.bib) narrow the new x0
+claim. DrawMark, Robust-Wide and Guidance Watermarking occupy central pieces
+of the proposed surrogate and fixed-reader machinery. Their different tasks,
+optimization variables and readers prevent transplanting their reported
+performance into our C/J or quality gates. The exact F6-x0 combination remains
+an unverified distinction, not an established priority claim. A measured package
+gain would still have to justify its contribution; the present comparison also
+changes timestep exposure and is not a denoiser-only causal experiment.
+
+No new arm, citation-derived pass estimate or execution permission follows.
+ForenMark remains uninspected and is skipped in Round 3 as instructed.
 
 ## Retained close-work boundaries
 

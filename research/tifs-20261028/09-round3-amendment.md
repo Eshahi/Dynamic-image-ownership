@@ -65,3 +65,14 @@ create new measurements or claims. In particular, forward first-step parity
 does not validate the complete attack gradient, all 60 images retain historical
 development exposure, K3 is selection-seen, and matched declared budgets do
 not establish equal achieved quality or compute.
+
+The additional [three-paper source assessment](design/r3-surrogate-prior-art.md)
+narrows the new operator's novelty boundary: its ingredients already have close
+precedents, and the exact combination has not received a priority clearance.
+This is a claim clarification only; no code, gate or baseline changes follow.
+
+The [distortion-bound note](design/r3-distortion-budget-bounds.md) supplies
+source-inspected scalar bounds for the existing robust/refinement/fragile
+sequence. The nominal targets alone do not certify final strict quality;
+the intentionally loose worst-case bounds are not performance predictions.
+This does not change the four budget choices or saved-image quality gates.

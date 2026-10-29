@@ -54,6 +54,12 @@ The registered robust PSNR choices are 52, 46, 42 and 38 dB. Refinement stays fi
 
 This is a **matched declared budget** control. Final achieved PSNR/LPIPS must be reported; matching the input radius alone does not establish equal achieved perceptual quality. Each F6 writer uses 350 reader-gradient evaluations and 150 surrogate evaluations; x0 adds 150 native UNet forward/backward graphs. `f5-budget` uses 200 reader gradients and no surrogate. Rehearsal x0 adds three epsilon-gradient probes per source, plus native first-step epsilon replays.
 
+The [scalar budget derivation](r3-distortion-budget-bounds.md) follows both
+fragile writes, all four RGB8 roundings and the refinement's intermediate
+center. Even ideal-arithmetic worst-case bounds do not certify final PSNR35;
+this is a limitation of what nominal budgets prove, not a prediction of poor
+quality. SSIM/LPIPS and final strict quality remain measured server outcomes.
+
 Checkpointing recomputes activations and cannot establish fit. The existing measured-total-minus-1.5-GiB capacity rule applies to **the new x0 rehearsal peaks**, not a previous codec-only peak. No 24-GB fit guarantee is made. Native classic attention, saved UNet checkpoint inputs, the active fp32 VAE and the reader all contribute to peak memory. The server forecast must include model/CPU-to-GPU transfer time; moving fp16 UNets each update can materially increase wall time. Do not start Stage P/S if x0 rehearsal lacks positive capacity, complete receipts, finite gradients or enough budget.
 
 ## Local validation and limits
