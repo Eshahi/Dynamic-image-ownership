@@ -11,12 +11,33 @@ f=importlib.util.module_from_spec(spec); spec.loader.exec_module(f)
 
 
 class ForecastTests(unittest.TestCase):
-    def test_storage_margin_and_24gb_ceiling(self):
+    def test_storage_margin_and_measured_device_ceiling(self):
         gib=1024**3
-        self.assertEqual(f.capacity(gib,8,40*gib,100*gib,23*gib)["status"],"GO")
-        self.assertEqual(f.capacity(gib,8,31*gib,100*gib,23*gib)["status"],"RESOURCE_STOP")
-        self.assertEqual(f.capacity(gib,8,40*gib,100*gib,25*gib)["status"],"RESOURCE_STOP")
-        with self.assertRaises(ValueError): f.capacity(gib,8,40*gib,100*gib,0)
+        self.assertEqual(f.capacity(gib,8,40*gib,100*gib,22*gib,24*gib)["status"],"GO")
+        self.assertEqual(f.capacity(gib,8,31*gib,100*gib,22*gib,24*gib)["status"],"RESOURCE_STOP")
+        self.assertEqual(f.capacity(gib,8,40*gib,100*gib,23*gib,24*gib)["status"],"RESOURCE_STOP")
+        result=f.capacity(gib,8,40*gib,100*gib,35*gib,48*gib)
+        self.assertEqual(result["status"],"GO")
+        self.assertEqual(result["gpu_limit_bytes"],46.5*gib)
+        self.assertEqual(result["gpu_margin_bytes"],1.5*gib)
+        self.assertNotIn("tested_24gb_fit",result)
+        with self.assertRaises(ValueError): f.capacity(gib,8,40*gib,100*gib,0,48*gib)
+
+    def test_gpu_boundary_minimum_and_invalid_total(self):
+        gib=1024**3
+        limit=48*gib-f.GPU_MARGIN_BYTES
+        self.assertEqual(f.capacity(gib,8,40*gib,100*gib,limit,48*gib)["status"],"GO")
+        self.assertEqual(f.capacity(gib,8,40*gib,100*gib,limit+1,48*gib)["status"],"RESOURCE_STOP")
+        self.assertEqual(f.capacity(gib,8,40*gib,100*gib,gib,16*gib)["status"],"RESOURCE_STOP")
+        for value in (None, True, math.nan, math.inf, -1):
+            with self.assertRaises(ValueError): f.capacity(gib,8,40*gib,100*gib,gib,value)
+
+    def test_measured_gpu_total_must_be_present_and_constant(self):
+        rows=[dict(device_total_bytes=48*1024**3)]*2
+        self.assertEqual(f.measured_device_total(rows),48*1024**3)
+        for rows in ([],[{}],[dict(device_total_bytes=0)],
+                     [dict(device_total_bytes=24*1024**3),dict(device_total_bytes=48*1024**3)]):
+            with self.assertRaises(ValueError): f.measured_device_total(rows)
 
     def test_full_clock_includes_prior_elapsed(self):
         self.assertEqual(f.calculate(1000,200,1000)["forecast_seconds"],6300)
@@ -65,7 +86,8 @@ class ForecastTests(unittest.TestCase):
         gib=1024**3
         peak=f.measured_peak(dict(device_used_bytes=10*gib,reserved_bytes=8*gib,max_reserved_bytes=23*gib))
         self.assertEqual(peak,25*gib)
-        self.assertEqual(f.capacity(gib,8,40*gib,100*gib,peak)["status"],"RESOURCE_STOP")
+        self.assertEqual(f.capacity(gib,8,40*gib,100*gib,peak,24*gib)["status"],"RESOURCE_STOP")
+        self.assertEqual(f.capacity(gib,8,40*gib,100*gib,peak,48*gib)["status"],"GO")
 
     def test_screen_requires_measured_operation_bounds(self):
         self.assertEqual(f.stage.estimate({"_runtime_bounds":{"native_K3":1234}},"native_K3"),1234)

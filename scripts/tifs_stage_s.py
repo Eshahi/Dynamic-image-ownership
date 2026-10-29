@@ -53,20 +53,37 @@ def c0(arm):
     return arm in ("C0", "unmarked", "c0")
 
 
-def screen_launch(args, identity, now=None):
+def validate_device_capacity(forecast, device_total_bytes):
+    """Use the rehearsed device capacity, including every resumed invocation."""
+    cap = forecast.get("capacity", {})
+    margin = 1536 * 1024**2
+    total, peak = cap.get("device_total_bytes"), cap.get("peak_device_bytes")
+    if (type(total) not in (int, float) or not math.isfinite(total) or total < 24_000_000_000
+            or type(peak) not in (int, float) or not math.isfinite(peak) or peak <= 0
+            or total != device_total_bytes or cap.get("gpu_margin_bytes") != margin
+            or cap.get("gpu_policy") != "measured-total-minus-1.5GiB-v1"
+            or cap.get("gpu_limit_bytes") != total-margin or peak > total-margin
+            or cap.get("status") != "GO" or cap.get("gpu_ok") is not True):
+        raise ValueError("Measured device capacity must match the successful rehearsal and reserve policy")
+
+
+def screen_launch(args, identity, now=None, device_total_bytes=None):
     """A direct screen invocation cannot bypass the complete rehearsal forecast."""
     if args.rehearsal:
         return
     now = time.time() if now is None else now
     launch = args.out / "launch.json"
     if launch.exists():
-        if common.load_json(launch)["identity"] != identity:
+        prior_launch = common.load_json(launch)
+        if prior_launch["identity"] != identity:
             raise ValueError("Screen launch identity changed")
+        validate_device_capacity(prior_launch["forecast"], device_total_bytes)
         return
     if args.stage != "prepare":
         raise ValueError("Screen must begin with a sealed prepare stage")
     forecast_path = args.out.parent / "forecast.json"
     forecast = common.load_json(forecast_path)
+    validate_device_capacity(forecast, device_total_bytes)
     rehearsal = args.out.parent / "rehearsal" / "identity.json"
     prior = common.load_json(rehearsal)
     if (forecast.get("status") != "GO" or forecast.get("capacity", {}).get("status") != "GO"
@@ -223,7 +240,8 @@ def start(args):
     identity["assets_root"] = str(args.assets.resolve())
     identity.update(instance_start_utc=instant.astimezone(timezone.utc).isoformat(), max_hours=args.max_hours,
                     hourly_usd=args.hourly_usd, rehearsal=args.rehearsal)
-    screen_launch(args, identity)
+    import torch
+    screen_launch(args, identity, device_total_bytes=torch.cuda.mem_get_info()[1])
     seal = args.out / "identity.json"
     if seal.exists():
         if common.load_json(seal) != identity:

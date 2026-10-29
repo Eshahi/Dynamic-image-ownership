@@ -4,7 +4,7 @@ This is a prepared server study, not a record of execution. Use only after the u
 
 ## Inputs and server
 
-Use a Linux RTX 4090-class CUDA server with 24 GB GPU memory, Python 3.10+ (3.11 preferred), Git, and the committed `codex/tifs-20261028` checkout. Run from the repository root. Do not use a laptop or WSL. Keep the exact reviewed commit for the entire rehearsal and screen; save `git rev-parse HEAD` in the run folder. Direct dependency versions and baseline/model revisions are in `requirements.txt` and `asset-plan.json`; transitive package versions are recorded at setup.
+Use a Linux CUDA server with at least 24 GB class GPU capacity, Python 3.10+ (3.11 preferred), Git, and the committed `codex/tifs-20261028` checkout. A 24 GB device is not guaranteed to fit. The forecast uses measured total capacity minus 1.5 GiB; the planned retained instance reports about 49,140 MiB, which must be remeasured. Run from the repository root. Do not use a laptop or WSL. Keep the exact reviewed commit for the entire rehearsal and screen; save `git rev-parse HEAD` in the run folder. Direct dependency versions and baseline/model revisions are in `requirements.txt` and `asset-plan.json`; transitive package versions are recorded at setup.
 
 The asset root must already contain the 36 original canonical PNGs at `sources/SOURCE_ID.png`, matching `source-manifest.json`. These are existing development sources only. Copy/reuse the retained canonical files; setup deliberately fails before installation if they are absent or changed. Do not reacquire or reencode images to make a hash match. The completed Phase-B pool, its reserves and all Stage C identifiers stay outside this run.
 
@@ -44,7 +44,9 @@ Every producer artifact is hashed before its journal row. Reader/quality results
 
 ## Forecast and screen launch
 
-The forecast requires complete rehearsal producer, detector and quality inventories, successful writer checks and native parity. It includes elapsed paid setup/rehearsal/idle time, measured loading overhead, 1.5 times the complete screen variable work and a one-hour retrieval reserve. Per-operation measured bounds protect later checkpoints. It also checks projected output/tape storage with margin and measured memory against 24 GB. Missing measurements are INCOMPLETE; a failed capacity bound is RESOURCE_STOP. Rehearsal survival/quality results do not tune any setting or select another arm.
+The forecast requires complete rehearsal producer, detector and quality inventories, successful writer checks and native parity. It includes elapsed paid setup/rehearsal/idle time, measured loading overhead, 1.5 times the complete screen variable work and a one-hour retrieval reserve. Per-operation measured bounds protect later checkpoints. It checks projected output/tape storage with margin and peak device memory against the measured total minus 1.5 GiB. Every screen invocation/resume must match that device total and policy. Missing measurements are INCOMPLETE; a failed capacity bound is RESOURCE_STOP. Rehearsal survival/quality results do not tune any setting or select another arm.
+
+F6 uses non-reentrant gradient checkpointing only within its gradient scopes, including encoder and decoder blocks under eval mode. Native regeneration, saved-image readers and quality passes keep checkpointing off. The mathematical objective is unchanged; recomputation time must be measured in rehearsal. An OOM remains RESOURCE_STOP, never permission to shrink the screen.
 
 Inspect `forecast.json`, the complete producer manifest, rehearsal-check receipts and source assignment before proceeding. The 15-hour ceiling is not a measured forecast until this file exists. Existing Phase A/B totals (7.3/27.2 hours) are historical context, not estimates for F6. New writer time may dominate and may prevent the full screen. Do not shrink n, steps, cells, arms or controls after seeing outcomes.
 

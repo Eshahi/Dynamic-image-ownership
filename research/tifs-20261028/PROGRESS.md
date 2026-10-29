@@ -97,3 +97,13 @@ Read MAIN STATE once, the current BRIEF, Phase A and Phase B reports, the Octobe
 - Final package push: Codex agent, branch `codex/tifs-20261028`, range `78a85a2..HEAD`; the subsequent Git push receipt records success or failure. Scientific execution remains for the later user-authorized server session.
 
 Final implementation push confirmed at 2026-10-28 20:54:47 UTC: Codex agent, branch codex/tifs-20261028, 78a85a2..f476df4. This log-only receipt is the subsequent f476df4..HEAD push on the same branch; its Git tool receipt confirms delivery. No code or scientific decision changes follow the independent review.
+
+## Round 2
+
+Session start: 2026-10-29 02:58 UTC-08:00 (10:58 UTC). Deadline: **2026-10-29 05:58 UTC-08:00 (13:58 UTC)**, from the supervisor; this supersedes the Round 1 deadline only for this round. Research, design and server code only; no scientific execution or spending authorized.
+
+- 10:58 UTC: MAIN STATE read once; Round 2 brief, original rules, report, selection and Stage S protocol inspected. HEAD 071c8ec includes two unpushed Claude brief commits, which will travel with the first item push.
+- 11:02 UTC: ForenMark absent at the exact MAIN cache path and no PDF present in Downloads. Follow the specified fallback order: R2-3 and R2-2 first; check at each item. No invented inspection.
+- Author delegation: `r2_memory`, gpt-6.1-sol/medium, R2-3 checkpointing and measured capacity; `r2_binding_design`, gpt-6-astra/high, exact 100-bit binding design and article gates; `r2_prior_art`, gpt-6.1-sol/medium, seven primary-source method checks. Bounded deliverables, no scientific execution. This log is kept here because Round 2 restricts writes to TD and new tifs server code.
+- Decisions for the user: no answers expected; all method changes are prospective and will be recorded in `08-round2-amendment.md`. Paid execution and held-out confirmation remain later user decisions.
+- R2-3 complete: writer-only checkpointing, measured GPU total minus 1.5 GiB and matching screen/resume capacity checks implemented. Twenty-eight focused pure-logic tests passed (21 writer/forecast, seven launch); changed Python files compiled. No GPU fit or scientific equivalence is inferred. ForenMark still absent at the item boundary. Preparation is temporarily locked pending the full amendment/review.

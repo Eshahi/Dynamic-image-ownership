@@ -7,6 +7,7 @@ provided deliberately. Retained F5/v5 sources are never modified or patched.
 from __future__ import annotations
 
 import gc
+from functools import wraps
 import hashlib
 import json
 import math
@@ -27,6 +28,41 @@ EXPECTED_WRITER = dict(EXPECTED_F5, refine_steps=50, refine_psnr_db=58.0,
         dict(kind="bilinear_resize", sizes=[512, 256, 512], antialias=True, align_corners=False),
         dict(kind="gaussian_noise", sigma=.02, clip=[0, 1])],
     reader_gradient_evaluations=350, codec_gradient_evaluations=150, fragile_writes=2)
+
+
+def enable_writer_checkpointing(vae):
+    """SERVER ONLY with real VAEs; pure mocks can test this control logic.
+
+    diffusers 0.35.1 checkpoints Encoder/Decoder in eval when grad is enabled.
+    Its default non-reentrant checkpoint supports our autograd.grad calls.
+    """
+    if vae.training or any(p.requires_grad for p in vae.parameters()):
+        raise ValueError("Writer checkpointing requires frozen eval VAE")
+    vae.enable_gradient_checkpointing()
+    if not all(getattr(getattr(vae, name), "gradient_checkpointing", False)
+               for name in ("encoder", "decoder")):
+        vae.disable_gradient_checkpointing()
+        raise ValueError("Writer encoder and decoder checkpointing required")
+
+
+def writer_gradient_scope(function):
+    """Keep checkpoint flags through backward; clear even after writer closes."""
+    @wraps(function)
+    def scoped(self, *args, **kwargs):
+        if getattr(self, "_checkpoint_vaes", None) is not None:
+            raise RuntimeError("Nested writer gradient scope")
+        vaes = self._checkpoint_vaes = []
+        try:
+            self._checkpoint_vae(self.reader.vae)
+            if self.sdxl is not None:
+                self._checkpoint_vae(self.sdxl)
+            return function(self, *args, **kwargs)
+        finally:
+            # Local references survive close() clearing self.reader/self.sdxl.
+            for vae in vaes:
+                vae.disable_gradient_checkpointing()
+            self._checkpoint_vaes = None
+    return scoped
 
 
 def validate_writer_config(base_config, frozen_config):
@@ -144,6 +180,14 @@ class F6Writer:
         self.chip = t.from_numpy(l.chip).cuda()
         self.norms = t.from_numpy(l.norms.astype(n.float32)).cuda()
 
+    def _checkpoint_vae(self, vae):
+        if self._checkpoint_vaes is None:
+            raise RuntimeError("VAE checkpointing outside writer gradient scope")
+        if not any(item is vae for item in self._checkpoint_vaes):
+            # Register before enabling, so even a partial failure is cleaned up.
+            self._checkpoint_vaes.append(vae)
+            enable_writer_checkpointing(vae)
+
     def _finite(self, value, label):
         if not bool(self.torch.isfinite(value).all()):
             raise FloatingPointError("Nonfinite F6 " + label)
@@ -174,6 +218,7 @@ class F6Writer:
             if self.sdxl is None:
                 self.sdxl = self._AutoencoderKL.from_pretrained(self.assets / "sdxl/vae", variant="fp16",
                     torch_dtype=t.float32, use_safetensors=True, local_files_only=True).eval().requires_grad_(False)
+                self._checkpoint_vae(self.sdxl)
             vae = self.sdxl
             vae.to(device=image.device, dtype=t.float32)
             image = self.resize_up(image)
@@ -220,6 +265,7 @@ class F6Writer:
                      applied_b=row["b"] if variant == "f6-noise" else 0.0,
                      codec_used=variant != "f6-generic") for row in self._schedule.values()]
 
+    @writer_gradient_scope
     def _optimize(self, rgb01, w, source_id, variant, *, refine=False):
         t = self.torch
         x = self.reader.tensor(rgb01)
@@ -314,6 +360,7 @@ class F6Writer:
                 preprocessing="differentiable Lanczos float approximation; R1 normalized RGB cast fp16 then fp32",
                 quantization="RGB8 only after robust, fragile, refinement, final fragile",
                 random_seed_domain="f6-stage-s-v1; optimization distinct from diagnostic",
+                gradient_checkpointing="writer VAEs only; diffusers non-reentrant; disabled before native verification",
                 frozen_config=self.frozen_config)
             return output, payload, report
         except BaseException:
@@ -323,6 +370,7 @@ class F6Writer:
         finally:
             self._offload_codec()
 
+    @writer_gradient_scope
     def validate_rehearsal(self, rgb, source_id):
         """SERVER ONLY: graph/parity/finite checks, with no scientific selection.
 
@@ -378,6 +426,7 @@ class F6Writer:
             return dict(status="ok", source_id=str(source_id), q=f"{q:08x}",
                 clean_input_gradient_norm=clean_norm, projection_max_abs_error=error,
                 schedule=list(self._schedule.values()), gradient_checks=rows,
+                gradient_checkpointing="writer encoder/decoder eval; non-reentrant; scope cleared on return",
                 note="No native-noise/primal equality is claimed; mode and float resize are intentional approximations")
         except BaseException:
             self.close()

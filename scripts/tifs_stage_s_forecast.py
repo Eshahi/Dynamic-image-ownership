@@ -27,19 +27,37 @@ def calculate(elapsed, one_time, variable, ceiling=54000, reserve=3600):
                 factor=1.5, retrieval_reserve_seconds=reserve, forecast_seconds=total, ceiling_seconds=ceiling)
 
 
-def capacity(rehearsal_bytes, ratio, free_bytes, total_bytes, peak_device_bytes):
-    """Keep 20% of the filesystem free and bound the tested GPU footprint."""
-    if not all(finite(x) for x in (rehearsal_bytes, ratio, free_bytes, total_bytes, peak_device_bytes)):
+GPU_MARGIN_BYTES = 1536 * 1024**2  # 1.5 GiB, independent of advertised card class.
+MINIMUM_GPU_BYTES = 24_000_000_000  # 24 GB class minimum; not a tested-fit claim.
+
+
+def capacity(rehearsal_bytes, ratio, free_bytes, total_bytes, peak_device_bytes, device_total_bytes):
+    """Keep 20% disk free and 1.5 GiB below measured device capacity."""
+    if not all(finite(x) for x in (rehearsal_bytes, ratio, free_bytes, total_bytes, peak_device_bytes, device_total_bytes)):
         raise ValueError("Invalid capacity measurement")
     if not total_bytes or ratio < 1 or not peak_device_bytes:
         raise ValueError("Missing capacity measurement")
     projected = 1.5 * rehearsal_bytes * ratio
     disk_ok = projected + .2 * total_bytes <= free_bytes
-    gpu_ok = peak_device_bytes <= 24 * 1024**3
+    gpu_limit = device_total_bytes - GPU_MARGIN_BYTES
+    gpu_ok = device_total_bytes >= MINIMUM_GPU_BYTES and peak_device_bytes <= gpu_limit
     return dict(status="GO" if disk_ok and gpu_ok else "RESOURCE_STOP",
                 rehearsal_bytes=rehearsal_bytes, full_artifact_bytes_with_margin=projected,
                 free_bytes=free_bytes, total_bytes=total_bytes, disk_ok=disk_ok,
-                peak_device_bytes=peak_device_bytes, tested_24gb_fit=gpu_ok)
+                peak_device_bytes=peak_device_bytes, device_total_bytes=device_total_bytes,
+                gpu_margin_bytes=GPU_MARGIN_BYTES, gpu_limit_bytes=gpu_limit,
+                gpu_ok=gpu_ok, minimum_gpu_bytes=MINIMUM_GPU_BYTES,
+                gpu_policy="measured-total-minus-1.5GiB-v1")
+
+
+def measured_device_total(memory_rows):
+    """Fail closed on missing telemetry or mixed-device rehearsal receipts."""
+    totals = [row.get("device_total_bytes") for row in memory_rows]
+    if not totals or any(not finite(value) or value <= 0 for value in totals):
+        raise ValueError("Missing measured GPU total capacity")
+    if len(set(totals)) != 1:
+        raise ValueError("Rehearsal GPU total capacity changed")
+    return totals[0]
 
 
 def measured_peak(memory):
@@ -197,7 +215,8 @@ def forecast(out, config, instance_start, now):
     peaks = [measured_peak(memory) for memory in memory_rows]
     if not peaks or min(peaks) <= 0:
         raise ValueError("Missing rehearsal memory telemetry")
-    result["capacity"]=capacity(artifact_bytes,ratio,usage.free,usage.total,max(peaks))
+    result["capacity"]=capacity(artifact_bytes,ratio,usage.free,usage.total,max(peaks),
+                                measured_device_total(memory_rows))
     if result["capacity"]["status"]!="GO": result["status"]="RESOURCE_STOP"
     return result
 

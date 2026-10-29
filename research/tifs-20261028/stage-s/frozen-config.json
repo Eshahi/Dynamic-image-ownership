@@ -11,7 +11,8 @@
   ],
   "budget": {
     "forecast_factor": 1.5,
-    "hardware": "one 24GB RTX4090-class device; actual free/device/reserved telemetry required",
+    "hardware": "one CUDA device at least 24GB class; peak <= measured total minus 1.5 GiB; same measured total at rehearsal and screen/resume",
+    "gpu_margin_bytes": 1610612736,
     "launch_condition": "measured one-time cost + 1.5*complete inventory variable cost + retrieval reserve <= 54000 seconds; paid rehearsal included",
     "max_instance_hours": 15,
     "max_seconds": 54000,
@@ -297,6 +298,7 @@
       }
     ],
     "fragile_writes": 2,
+    "gradient_checkpointing": "writer gradient scopes only; frozen eval VAEs; native diffusers 0.35.1 non-reentrant encoder and decoder checkpoints",
     "generic_codec_gradient_evaluations": 0,
     "generic_cycle": [
       {
