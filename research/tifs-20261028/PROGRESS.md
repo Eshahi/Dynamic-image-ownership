@@ -233,3 +233,18 @@ No protected proposal, claims, source plan, retained output or other MAIN sectio
 was changed. R3-1 through R3-6 are complete as preparation only. The final item
 is ready to commit and push from 3f15e6c on Codex's own branch; actual receipt
 will follow. Pending user decisions are recommendations, not effective changes.
+
+R3-6 push receipt: 2026-10-29 20:09 UTC, Codex agent pushed
+origin/codex/tifs-20261028, 3f15e6c..74d654e. At 20:10 UTC local HEAD and origin
+both resolved to 74d654ea76194c79afb3cc050a5eaa5f73d3acf2 and the worktree was
+clean. Final brief-to-deliverable reconciliation confirms all six items,
+including the actual frozen-config round1/15-hour defaults and false execution
+authorization. The cumulative Round 3 tracked diff stays entirely within TD
+and scripts/tifs_*; the separately permitted MAIN update is described above.
+
+At 20:11 UTC a final wording clarification names F5-budget explicitly in the
+amendment's proposed quality/F eligibility, matching the unchanged config,
+analyzer and runbook; no gate or code changed. This receipt/wording follow-up
+is committed and pushed separately. Preparation is complete. The remaining
+interval to the 20:25 UTC deadline is waiting for supervisor input, not active
+research or scientific execution; no process, experiment or automation runs.
