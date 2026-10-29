@@ -19,6 +19,7 @@ Three risks remain. The second is the most important, because it decides whether
 - **ForenMark** (Knowledge-Based Systems, DOI 10.1016/j.knosys.2026.117084, listed 25 October 2026). The user downloaded the full text.
   - Look for it at MAIN `.thesis-build/cache-tifs/papers/forenmark.pdf`, then in `C:/Users/Soroush/Downloads/`.
   - If it is in neither place, record it as still not full-text inspected and continue.
+  - **Where the PDF comes from (CLI run).** The user is away from the laptop and is sending the PDF to Claude, who puts it at the cache path above. If it is not there when you start, do R2-3 and R2-2 first. Check for the file at the start of every item, and do the ForenMark part of R2-1 as soon as it appears. If it is still missing when 40 minutes remain, record ForenMark as uninspected.
   - If found, write a card: claim, mechanism, threat model, what it reads, side information, robustness and regeneration results, limits.
   - Say exactly what it pre-empts for F6 and for R2-2's bound-carrier arm.
 - **The other papers.** Re-check F6's exact claim and the bound-carrier arm against SemBind (2601.20310), MetaSeal (2509.10766), Dual-Guard (2604.19090), Guidance Watermarking (2509.22126), DrawMark, OptMark (2508.21727) and ONRW (2601.17388). Read the method sections relevant to these two claims only. Claude verified that Guidance Watermarking and SemBind exist as described. The venue labels in round 1 (ICLR 2026, ICML 2026) were not visible on their arXiv pages, so confirm or drop them.
