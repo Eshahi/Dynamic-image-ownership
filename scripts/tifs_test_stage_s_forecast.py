@@ -11,6 +11,30 @@ f=importlib.util.module_from_spec(spec); spec.loader.exec_module(f)
 
 
 class ForecastTests(unittest.TestCase):
+    def test_stage_p_full_allocation_uses_upper_candidate_and_budget_cost(self):
+        keys=("clean_f6-noise","clean_f6-x0","clean_f5-r2","clean_unmarked",
+              "native_R0","native_R1","native_K3","detect_f6-noise","detect_f6-x0",
+              "detect_f5-r2","quality","prepare","load_f6-noise","load_f6-x0",
+              "load_f5-r2","load_R0","load_R1","load_K3","load_reader","load_quality")
+        bounds={k:1 for k in keys}
+        bounds["clean_f6-noise"]=10
+        bounds["clean_f6-x0"]=30
+        counts,costs,expanded=f.stage_p_allocation(bounds)
+        self.assertEqual(sum(counts[k] for k in ("candidate_clean","retained_clean","budget_clean")),136)
+        self.assertEqual(sum(counts[k] for k in ("native_R0","native_R1","native_K3")),3264)
+        self.assertEqual(counts["detect"],3536)
+        self.assertEqual(costs["candidate_clean"],2160)
+        self.assertEqual(costs["budget_clean"],1200)
+        self.assertEqual(expanded["clean_f5-budget"],30)
+        self.assertEqual(costs["model_loads"],24*8)
+        for key in keys:
+            incomplete=dict(bounds);incomplete.pop(key)
+            with self.assertRaises(ValueError):f.stage_p_allocation(incomplete)
+
+    def test_explicit_later_cap_does_not_change_default(self):
+        self.assertEqual(f.calculate(0,0,40000)["status"],"RESOURCE_STOP")
+        self.assertEqual(f.calculate(0,0,40000,ceiling=126*3600)["status"],"GO")
+
     def test_storage_margin_and_measured_device_ceiling(self):
         gib=1024**3
         self.assertEqual(f.capacity(gib,8,40*gib,100*gib,22*gib,24*gib)["status"],"GO")

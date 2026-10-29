@@ -12,6 +12,7 @@ import time
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import tifs_common as common
 import tifs_stage_s as stage
+import tifs_gate_profiles as profiles
 
 
 def finite(value):
@@ -135,7 +136,7 @@ def invocation_measurements(path, now, rows):
     return prepare_seconds, overhead + 1.5 * sum(loads.values()), bounds
 
 
-def forecast(out, config, instance_start, now):
+def forecast(out, config, instance_start, now, *, receipt_path=None, selection_path=None):
     out=Path(out)
     if list(out.glob("RESOURCE_STOP*.json")):
         return dict(status="RESOURCE_STOP",reason="Rehearsal resource stop retained")
@@ -151,7 +152,10 @@ def forecast(out, config, instance_start, now):
     for path, digest in identity.get("code",{}).items():
         if common.sha256_file(path)!=digest:
             raise ValueError("Rehearsal code changed: "+path)
-    config=common.load_json(config)
+    config=profiles.load_execution_config(config, receipt_path=receipt_path, selection_path=selection_path)
+    import tifs_stage_p as stage_p
+    if identity.get("effective_config_sha256") != stage_p.digest(config):
+        raise ValueError("Rehearsal effective profile/selection/choice mismatch")
     manifest=common.load_json(stage.manifest_path(config))
     if common.sha256_file(stage.manifest_path(config))!=identity["source_manifest_sha256"]:
         raise ValueError("Rehearsal source manifest mismatch")
@@ -203,7 +207,7 @@ def forecast(out, config, instance_start, now):
     variable += sum(r["seconds"] for r in measured_rows)
     ratio=config["screen_n"]/config["rehearsal_n"]
     result=calculate(now-instant.timestamp(),overhead,variable*ratio,
-        min(54000,identity["max_hours"]*3600),config["budget"]["retrieval_reserve_seconds"])
+        identity["max_hours"]*3600,config["budget"]["retrieval_reserve_seconds"])
     result.update(schema="tifs-stage-s-forecast-v1", config_sha256=identity["config_sha256"],
                   instance_start_utc=canonical, rehearsal_identity=common.sha256_file(out/"identity.json"),
                   operation_bounds_seconds=bounds, timing_accounting="cumulative-invocations-paid-clock-v1",
@@ -226,14 +230,155 @@ def forecast(out, config, instance_start, now):
     return result
 
 
+def stage_p_allocation(bounds):
+    """Upper allocation for all eight trials, including maximum finalist controls.
+
+    Bounds already carry the 1.5 timing factor. Use the slower measured candidate
+    for all 72 candidate writes and the slower of that and F5 for all 40 budget
+    controls. The latter has 200 reader gradients versus candidates' 350; its
+    exact wall time is still unmeasured. Nothing is silently treated as free.
+    """
+    required = ("clean_f6-noise", "clean_f6-x0", "clean_f5-r2", "clean_unmarked",
+                "native_R0", "native_R1", "native_K3", "detect_f6-noise",
+                "detect_f6-x0", "detect_f5-r2", "quality", "prepare")
+    if any(not finite(bounds.get(k)) or bounds[k] <= 0 for k in required):
+        raise ValueError("Incomplete positive Stage P operation timing bounds")
+    candidate = max(bounds["clean_f6-noise"], bounds["clean_f6-x0"])
+    budget = max(candidate, bounds["clean_f5-r2"])
+    reader = max(bounds["detect_" + a] for a in ("f6-noise", "f6-x0", "f5-r2"))
+    counts = dict(candidate_clean=72, retained_clean=24, budget_clean=40, c0_clean=136,
+                  native_R0=816, native_R1=1632, native_K3=816, detect=3536, quality=3536,
+                  prepare_invocations=24, model_load_cycles=24)
+    costs = dict(candidate_clean=72*candidate, retained_clean=24*bounds["clean_f5-r2"],
+                 budget_clean=40*budget, c0_clean=136*bounds["clean_unmarked"],
+                 detect=3536*reader, quality=3536*bounds["quality"],
+                 prepare=24*bounds["prepare"])
+    for label in ("native_R0", "native_R1", "native_K3"):
+        costs[label] = counts[label]*bounds[label]
+    load_keys = ("load_f6-noise", "load_f6-x0", "load_f5-r2", "load_R0", "load_R1", "load_K3", "load_reader", "load_quality")
+    if any(not finite(bounds.get(k)) or bounds[k] <= 0 for k in load_keys):
+        raise ValueError("Incomplete Stage P model-load timing bounds")
+    # Twenty-four full cycles exceed the 23 post-calibration trial invocations.
+    # A cycle includes every candidate type's load, a conservative overcount.
+    costs["model_loads"] = 24*sum(bounds[k] for k in load_keys)
+    expanded = dict(bounds, **{"clean_f5-budget": budget, "detect_f5-budget": reader,
+                               "load_f5-budget": max(bounds[k] for k in load_keys[:3])})
+    return counts, costs, expanded
+
+
+def forecast_stage_p(root, config_path, receipt_path, instance_start, now):
+    """Forecast P alone from its first two tuning sources; S needs its own test."""
+    import tifs_stage_p as stage_p
+    root = Path(root).resolve()
+    if any(root.rglob("RESOURCE_STOP*.json")):
+        return dict(status="RESOURCE_STOP", reason="Stage P resource stop retained")
+    config_path = Path(config_path)
+    receipt = common.load_json(receipt_path)
+    profiles.validate_decision_receipt(receipt, common.sha256_file(config_path))
+    if receipt["stage_p"] != "run":
+        raise ValueError("Stage P was not chosen")
+    instant = datetime.fromisoformat(instance_start.replace("Z", "+00:00"))
+    if instant.tzinfo is None or instant.timestamp() > now:
+        raise ValueError("Actual past timezone-aware instance start required")
+    canonical = instant.astimezone(timezone.utc).isoformat()
+    bounds, identities, memory_rows = {}, {}, []
+    identity_reference = None
+    excess_overhead = 0
+    artifact_bytes = 0
+    for trial in ("retained-f5", "f6-noise-p52", "f6-x0-p52"):
+        out = root / "tune" / trial
+        config = common.load_json(out / "config.json")
+        meta = config["stage_p"]
+        if (meta["base_config_sha256"] != common.sha256_file(config_path)
+                or meta["user_choice_sha256"] != common.sha256_file(receipt_path)):
+            raise ValueError("Calibration base/choice mismatch")
+        summary = stage_p.summarize_trial(out, config, count=2, calibration=True)
+        if summary["missing"] or summary["status"] in ("INCOMPLETE", "RESOURCE_STOP"):
+            raise ValueError("Incomplete calibration inventory: " + trial)
+        identity = common.load_json(out / "identity.json")
+        if (identity["instance_start_utc"] != canonical or identity["rehearsal"]
+                or identity["max_hours"] != receipt["max_instance_hours"]):
+            raise ValueError("Calibration clock/cap identity mismatch")
+        shared = {k:identity[k] for k in ("code", "profiles", "packages", "device")}
+        if identity_reference is not None and shared != identity_reference:
+            raise ValueError("Calibration code/profile/package/device differs")
+        identity_reference = shared
+        for path, digest in identity["code"].items():
+            if common.sha256_file(path) != digest:
+                raise ValueError("Calibration code changed: " + path)
+        identities[trial] = common.sha256_file(out / "identity.json")
+        rows = []
+        for path in (out / "clean.jsonl", out / "native.jsonl", *out.glob("detect-*-0-of-1.jsonl"), out / "quality-0-of-1.jsonl"):
+            group = common.Journal(path, read_only=True).latest
+            if not group or any(r.get("status") != "ok" for r in group.values()):
+                raise ValueError("Calibration has unresolved producer/reader/quality row")
+            rows.extend(group.values())
+        checks = common.Journal(out / "rehearsal-checks.jsonl", read_only=True).latest
+        if trial != "retained-f5":
+            for sid in summary["sources"]:
+                check = checks.get("writer-check:" + sid, {})
+                common.validate_output(check, out)
+                value = common.load_json(check["output"]["path"])
+                if value.get("status") != "ok" or not value.get("gradient_checks") or not value.get("clean_input_gradient_norm", 0) > 0:
+                    raise ValueError("Missing Stage P calibrated writer gradients")
+            rows.extend(checks.values())
+        for row in rows:
+            if row.get("kind") == "native" and stage.c0(row["arm"]):
+                if row.get("native_parity", {}).get("exact_rgb8") is not True:
+                    raise ValueError("Missing Stage P exact native replay")
+                if row["family"] in ("R0", "R1") and row["seed"] == 0:
+                    parity = row.get("x0_native_first_step_parity", {})
+                    if parity.get("status") != "ok" or parity.get("exact_conditioning") is not True:
+                        raise ValueError("Missing Stage P native x0 parity")
+        _, overhead, measured = invocation_measurements(out / "invocations.jsonl", now, rows)
+        excess_overhead = max(excess_overhead, overhead)
+        for key, value in measured.items(): bounds[key] = max(bounds.get(key, 0), value)
+        memory_rows.extend(r["memory"] for r in rows)
+        for line in (out / "invocations.jsonl").read_text().splitlines():
+            event = json.loads(line)
+            if "memory" in event: memory_rows.append(event["memory"])
+        artifact_bytes += sum(p.stat().st_size for p in out.rglob("*") if p.is_file())
+    counts, costs, bounds = stage_p_allocation(bounds)
+    # Entire P allocation, including calibration again, is deliberately charged
+    # in addition to actual elapsed. Each upper operation bound includes 1.5.
+    projected = sum(costs.values()) + 24*excess_overhead
+    reserve = common.load_json(config_path)["budget"]["retrieval_reserve_seconds"]
+    ceiling = receipt["max_instance_hours"]*3600
+    total = now-instant.timestamp()+projected+reserve
+    usage = shutil.disk_usage(root)
+    cap = capacity(artifact_bytes, 136/6, usage.free, usage.total,
+                   max(measured_peak(m) for m in memory_rows), measured_device_total(memory_rows))
+    return dict(schema="tifs-stage-p-forecast-v1", status="GO" if total <= ceiling and cap["status"] == "GO" else "RESOURCE_STOP",
+                stage_p_root=str(root), config_sha256=common.sha256_file(config_path),
+                source_manifest_sha256=meta["source_manifest_sha256"], user_choice_sha256=common.sha256_file(receipt_path),
+                identity_profiles=identity_reference["profiles"], identity_code=identity_reference["code"],
+                identity_packages=identity_reference["packages"], device=identity_reference["device"],
+                instance_start_utc=canonical, ceiling_seconds=ceiling, forecast_seconds=total,
+                elapsed_instance_seconds=now-instant.timestamp(), projected_stage_p_seconds=projected,
+                operation_bounds_seconds=bounds, calibration_identity_sha256=identities, capacity=cap,
+                upper_inventory=counts, upper_cost_seconds=costs, factor_in_operation_bounds=1.5,
+                overhead_cycles=24, retrieval_reserve_seconds=reserve,
+                scope="Stage P only; Stage S requires complete separate rehearsal and forecast on the same paid clock",
+                conservative_overcounts="Full P charged after calibration; slower writer used for all candidate/budget marks; full load cycles and overhead both reserved")
+
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--rehearsal-out",required=True,type=Path)
+    group=parser.add_mutually_exclusive_group(required=True)
+    group.add_argument("--rehearsal-out",type=Path)
+    group.add_argument("--stage-p-root",type=Path)
+    parser.add_argument("--user-choice",type=Path)
+    parser.add_argument("--selection",type=Path)
     parser.add_argument("--config",type=Path,default=stage.ROOT/"research/tifs-20261028/stage-s/frozen-config.json")
     parser.add_argument("--instance-start-utc",required=True)
     parser.add_argument("--destination",required=True,type=Path)
     args=parser.parse_args()
-    try: result=forecast(args.rehearsal_out,args.config,args.instance_start_utc,time.time())
+    try:
+        if args.stage_p_root:
+            if args.user_choice is None: raise ValueError("Stage P requires the external pre-output choice")
+            result=forecast_stage_p(args.stage_p_root,args.config,args.user_choice,args.instance_start_utc,time.time())
+        else:
+            result=forecast(args.rehearsal_out,args.config,args.instance_start_utc,time.time(),receipt_path=args.user_choice,selection_path=args.selection)
     except (ValueError,KeyError,OSError) as exc: result=dict(status="INCOMPLETE",reason=str(exc))
     common.atomic_json(args.destination,result)
     print(json.dumps(result,sort_keys=True))

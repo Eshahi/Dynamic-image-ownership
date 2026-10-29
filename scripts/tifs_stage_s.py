@@ -53,6 +53,146 @@ def c0(arm):
     return arm in ("C0", "unmarked", "c0")
 
 
+def execution_config(args):
+    """Resolve prospective choices before any source or model work."""
+    import tifs_gate_profiles as gates
+    config = gates.load_execution_config(args.config,
+        selection_path=getattr(args, "selection", None), receipt_path=getattr(args, "user_choice", None))
+    if config.get("stage_p"):
+        import tifs_stage_p as stage_p
+        meta = config["stage_p"]
+        receipt = getattr(args, "user_choice", None)
+        if receipt is None or common.sha256_file(receipt) != meta["user_choice_sha256"]:
+            raise ValueError("Stage P needs its identical externally recorded pre-output choice")
+        if args.rehearsal or args.stage in ("threats", "secondary"):
+            raise ValueError("Stage P forbids Stage S rehearsal, threats and secondary stages")
+        if getattr(args,"stage_p_count",None) is None:
+            raise ValueError("Stage P requires its explicit fixed cumulative source count")
+        stage_p.active_sources(config, getattr(args, "stage_p_count", None),
+                               calibration=getattr(args, "stage_p_calibration", False))
+        if getattr(args, "selection", None) is not None:
+            raise ValueError("Stage P cannot consume a Stage S writer selection")
+        nomination = None
+        if meta["partition"] == "check":
+            root = args.out.resolve().parents[1]
+            nomination = common.load_json(root / "selection/nomination.json")
+            progression = common.load_json(root / "selection/rung-16.json")
+            if (progression.get("status") != "ADVANCE" or progression.get("survivors") != [nomination.get("candidate_id")]
+                    or nomination.get("tuning_progression_sha256") != stage_p.digest(progression)
+                    or nomination.get("full_tuning_config_sha256") != common.sha256_file(root / "tune" / nomination["candidate_id"] / "config.json")
+                    or meta.get("nomination_sha256") != stage_p.digest(nomination)):
+                raise ValueError("Stage P check is not bound to a successful frozen tuning nomination")
+        expected = stage_p.materialize(stage_p.BASE, manifest_path(config), receipt,
+            meta["configuration_id"], meta["partition"], nomination)
+        if config != expected:
+            raise ValueError("Stage P immutable source/config/parameter/choice identity changed")
+        validate_stage_p_allocation(args,config)
+    elif getattr(args, "stage_p_count", None) is not None or getattr(args, "stage_p_calibration", False):
+        raise ValueError("Stage P source flags require an immutable Stage P configuration")
+    args._execution_config = config
+    return config
+
+
+def validate_stage_p_allocation(args, config):
+    """A direct invocation cannot enlarge a rung or revive an eliminated arm."""
+    import tifs_stage_p as stage_p
+    meta = config["stage_p"]
+    out = args.out.resolve()
+    trial, partition, count = meta["configuration_id"], meta["partition"], args.stage_p_count
+    if out.name != trial or out.parent.name != partition or args.config.resolve() != out / "config.json":
+        raise ValueError("Stage P output/config directory does not match its frozen trial partition")
+    if partition == "check" or calibration_mode(args):
+        return
+    role = meta["parameters"]["role"]
+    if role == "budget-f5" and count != 16:
+        raise ValueError("Stage P budget controls run only after two finalists are frozen")
+    if count in (8,16):
+        root = out.parents[1]
+        previous = common.load_json(root / "selection" / f"rung-{4 if count==8 else 8}.json")
+        expected = {k:meta[k] for k in ("base_config_sha256","source_manifest_sha256","protocol_sha256","search_config_sha256","user_choice_sha256","gate_profile")}
+        if previous.get("status") != "ADVANCE" or any(previous.get(k) != v for k,v in expected.items()):
+            raise ValueError("Stage P prefix enlargement lacks a matching successful previous rung")
+        if role == "candidate" and trial not in previous["survivors"]:
+            raise ValueError("An eliminated Stage P candidate cannot run a later rung")
+        if role == "budget-f5":
+            budgets = {stage_p.trial_parameters(i)["writer_psnr_db"] for i in previous["survivors"]}
+            if meta["parameters"]["writer_psnr_db"] not in budgets:
+                raise ValueError("Stage P budget control is not one of the fixed finalist budgets")
+
+
+def active_source_ids(args, config=None):
+    config = config if config is not None else getattr(args, "_execution_config", None)
+    if config and config.get("stage_p"):
+        import tifs_stage_p as stage_p
+        return [str(r["source_id"]) for r in stage_p.active_sources(config,
+            getattr(args, "stage_p_count", None), calibration=getattr(args, "stage_p_calibration", False))]
+    return None
+
+
+def calibration_mode(args):
+    return bool(getattr(args, "stage_p_calibration", False))
+
+
+def parity_mode(args):
+    return bool(args.rehearsal or calibration_mode(args))
+
+
+def install_deadline(args, config, instant, now=None):
+    """Linux process alarm shares the instance clock, including calibration."""
+    import signal
+    now = time.time() if now is None else now
+    reserve = config.get("budget", {}).get("retrieval_reserve_seconds", 3600)
+    seconds = instant.timestamp() + args.max_hours * 3600 - reserve - now
+    if seconds <= 0:
+        raise common.ResourceStop("Instance ceiling/collection reserve exhausted")
+    def stop(signum, frame):
+        raise common.ResourceStop("Shared instance clock reached the collection reserve")
+    signal.signal(signal.SIGALRM, stop)
+    signal.setitimer(signal.ITIMER_REAL, seconds)
+    return seconds
+
+
+def stage_p_launch(args, identity, now=None, device_total_bytes=None):
+    """Validate the one frozen full Stage P forecast without Stage S images."""
+    config = args._execution_config
+    meta = config["stage_p"]
+    now = time.time() if now is None else now
+    start_epoch = datetime.fromisoformat(identity["instance_start_utc"]).timestamp()
+    reserve = config["budget"].get("retrieval_reserve_seconds", 3600)
+    if now + reserve >= start_epoch + identity["max_hours"] * 3600:
+        raise common.ResourceStop("Stage P instance ceiling/collection reserve exhausted")
+    if calibration_mode(args):
+        # execution_config has already checked first2, fixed trial and tuning.
+        return
+    root = args.out.resolve().parents[1]
+    path = root / "forecast.json"
+    forecast = common.load_json(path)
+    validate_device_capacity(forecast, device_total_bytes)
+    expected = dict(schema="tifs-stage-p-forecast-v1", status="GO", stage_p_root=str(root),
+        config_sha256=meta["base_config_sha256"], source_manifest_sha256=meta["source_manifest_sha256"],
+        user_choice_sha256=meta["user_choice_sha256"], identity_profiles=identity["profiles"],
+        identity_code=identity["code"], identity_packages=identity["packages"], device=identity["device"],
+        instance_start_utc=identity["instance_start_utc"], ceiling_seconds=identity["max_hours"] * 3600)
+    if any(forecast.get(k) != v for k, v in expected.items()):
+        raise ValueError("Stage P forecast source/code/profile/package/device/choice/clock identity mismatch")
+    for trial in ("retained-f5", "f6-noise-p52", "f6-x0-p52"):
+        calibration_identity = root / "tune" / trial / "identity.json"
+        if (forecast.get("calibration_identity_sha256", {}).get(trial) != common.sha256_file(calibration_identity)):
+            raise ValueError("Stage P calibration identity changed")
+    if (not common._finite(forecast.get("forecast_seconds"))
+            or forecast["forecast_seconds"] > forecast["ceiling_seconds"]
+            or not isinstance(forecast.get("operation_bounds_seconds"), dict)):
+        raise ValueError("Stage P full allocation has no complete finite time forecast")
+    launch = args.out / "launch.json"
+    record = dict(identity=identity, forecast=forecast, forecast_sha256=common.sha256_file(path))
+    if launch.exists():
+        prior = common.load_json(launch)
+        if any(prior.get(k) != v for k, v in record.items()):
+            raise ValueError("Stage P launch identity or forecast changed")
+    else:
+        common.atomic_json(launch, dict(**record, launched_at_epoch=now))
+
+
 def validate_device_capacity(forecast, device_total_bytes):
     """Use the rehearsed device capacity, including every resumed invocation."""
     cap = forecast.get("capacity", {})
@@ -69,6 +209,8 @@ def validate_device_capacity(forecast, device_total_bytes):
 
 def screen_launch(args, identity, now=None, device_total_bytes=None):
     """A direct screen invocation cannot bypass the complete rehearsal forecast."""
+    if getattr(args, "_execution_config", {}).get("stage_p"):
+        return stage_p_launch(args, identity, now, device_total_bytes)
     if args.rehearsal:
         return
     now = time.time() if now is None else now
@@ -96,7 +238,7 @@ def screen_launch(args, identity, now=None, device_total_bytes=None):
     start_epoch = datetime.fromisoformat(identity["instance_start_utc"]).timestamp()
     elapsed = now - start_epoch
     required = elapsed + forecast["measured_one_time_seconds"] + 1.5 * forecast["full_variable_seconds"] + forecast["retrieval_reserve_seconds"]
-    if required > min(54000, identity["max_hours"] * 3600):
+    if required > identity["max_hours"] * 3600:
         raise common.ResourceStop("Forecast no longer fits the actual instance clock")
     common.atomic_json(launch, dict(identity=identity, forecast=forecast,
         forecast_sha256=common.sha256_file(forecast_path), launched_at_epoch=now))
@@ -131,12 +273,23 @@ def setup_identity(args, config, instant):
     ready = args.assets / "tifs-stage-s-setup-ready.json"
     receipt = common.load_json(ready)
     expected = dict(instance_start_utc=instant.astimezone(timezone.utc).isoformat(),
-        source_manifest_sha256=common.sha256_file(manifest_path(config)),
+        source_manifest_sha256=common.sha256_file(here / "source-manifest.json") if config.get("stage_p") else common.sha256_file(manifest_path(config)),
         asset_plan_sha256=common.sha256_file(here / "asset-plan.json"),
         requirements_sha256=common.sha256_file(here / "requirements.txt"),
         setup_code_sha256={name: common.sha256_file(ROOT / name) for name in
             ("scripts/tifs_stage_s_setup.py", "scripts/tifs_stage_s_setup.sh",
-             "scripts/encoder_transfer_assets.py", "scripts/tifs_common.py")})
+             "scripts/encoder_transfer_assets.py", "scripts/tifs_common.py",
+             "scripts/tifs_gate_profiles.py", "scripts/tifs_stage_p.py")})
+    choice_path = getattr(args, "user_choice", None)
+    choice = common.load_json(choice_path) if choice_path else None
+    expected.update(
+        base_config_sha256=config.get("stage_p", {}).get("base_config_sha256", common.sha256_file(args.config)),
+        max_instance_hours=config["budget"]["max_instance_hours"],
+        user_choice_sha256=common.sha256_file(choice_path) if choice_path else None,
+        stage_p_source_manifest_sha256=(common.sha256_file(here.parent / "stage-p/source-manifest.json")
+            if choice and choice["stage_p"] == "run" else None))
+    if config.get("stage_p") and receipt.get("stage_p_source_manifest_sha256") != config["source_manifest_sha256"]:
+        raise ValueError("Setup receipt lacks the exact Stage P source-manifest identity")
     if receipt.get("status") != "complete" or any(receipt.get(k) != v for k, v in expected.items()):
         raise ValueError("Setup receipt/start/source/plan/requirements/code mismatch")
     pins = package_pins(here / "requirements.txt")
@@ -169,7 +322,7 @@ def setup_identity(args, config, instant):
     if prior is not None and set(records) != set(prior["files"]):
         raise ValueError("Runtime asset inventory changed")
     if prior is None:
-        if args.stage != "prepare" or not args.rehearsal:
+        if args.stage != "prepare" or not (args.rehearsal or calibration_mode(args)):
             raise ValueError("Initial asset verification must precede rehearsal prepare")
         common.atomic_json(ledger, dict(identity=seal, files=records))
     return dict(**seal, runtime_assets_sha256=common.sha256_file(ledger), packages=pins)
@@ -215,16 +368,19 @@ class Invocation:
 def start(args):
     args.out = args.out.resolve()
     args.out.mkdir(parents=True, exist_ok=True)
-    config = common.load_json(args.config)
+    config = execution_config(args)
     if args.stage != "manifest" and list(args.out.glob("RESOURCE_STOP*.json")):
         raise common.ResourceStop("A resource stop already exists; intact run requires user review")
     if common.sha256_file(manifest_path(config)) != config["source_manifest_sha256"]:
         raise ValueError("Frozen source manifest digest mismatch")
-    if args.max_hours > 15 or args.max_hours <= 0 or not .45 <= args.hourly_usd <= .60:
-        raise ValueError("Stage S ceiling is 15 hours at USD .45-.60/hour")
+    ceiling = config.get("budget", {}).get("max_instance_hours", 15)
+    if (not common._finite(args.max_hours) or args.max_hours > ceiling or args.max_hours <= 0
+            or not common._finite(args.hourly_usd) or not .45 <= args.hourly_usd <= .60):
+        raise ValueError("Run exceeds the prospectively chosen hour ceiling or USD .45-.60/hour price range")
     instant = datetime.fromisoformat(args.instance_start_utc.replace("Z", "+00:00"))
     if instant.tzinfo is None or instant.timestamp() > time.time():
         raise ValueError("Instance start must be a past timezone-aware UTC instant")
+    install_deadline(args, config, instant)
     setup_seal = setup_identity(args, config, instant)
     import encoder_transfer_runtime as rt
     import et_final_pilot as pilot
@@ -232,15 +388,22 @@ def start(args):
     identity = common.runtime_identity(args.config, manifest_path(config),
         [ROOT / "scripts" / f for f in ("tifs_common.py", "tifs_stage_s.py", "tifs_stage_s_read.py", "tifs_writer.py", "tifs_denoiser.py", "tifs_vine_b.py", "tifs_article_decision.py", "tifs_stage_s_forecast.py", "tifs_stage_s_driver.sh", "tifs_stage_s_analyze.py",
          "encoder_transfer_runtime.py", "encoder_transfer_test.py", "et_final_pilot.py", "et_final_phase_a.py", "et_final_phase_a_attacks.py",
-         "f5_latent_codec.py", "revised_watermark_v5.py", "f5_gate.py", "three_threat_models.py", "journal_vae_probe.py", "a6_clip_visual.py", "m1_latent_reconstruction.py", "journal_wam_probe.py")]
+         "f5_latent_codec.py", "revised_watermark_v5.py", "f5_gate.py", "three_threat_models.py", "journal_vae_probe.py", "a6_clip_visual.py", "m1_latent_reconstruction.py", "journal_wam_probe.py",
+         "tifs_gate_profiles.py", "tifs_stage_p.py", "tifs_stage_p_select.py", "tifs_stage_p_driver.sh")]
          + [ROOT / "research/encoder-transfer-20261019/stage2b-config.json"],
         [resolve_repo(base["profile_file"])])
     identity["setup"] = setup_seal
     identity["packages"] = setup_seal["packages"]
     identity["assets_root"] = str(args.assets.resolve())
+    import tifs_stage_p as stage_p
+    identity["effective_config_sha256"] = stage_p.digest(config)
+    identity["execution_choices"] = config.get("execution_choices", dict(gate_profile=config.get("gate_profile", "round1"),
+        user_choice_sha256=config.get("stage_p", {}).get("user_choice_sha256")))
     identity.update(instance_start_utc=instant.astimezone(timezone.utc).isoformat(), max_hours=args.max_hours,
                     hourly_usd=args.hourly_usd, rehearsal=args.rehearsal)
     import torch
+    identity["device"] = dict(name=torch.cuda.get_device_name(0), capability=list(torch.cuda.get_device_capability(0)),
+                              total_bytes=torch.cuda.mem_get_info()[1])
     screen_launch(args, identity, device_total_bytes=torch.cuda.mem_get_info()[1])
     seal = args.out / "identity.json"
     if seal.exists():
@@ -259,10 +422,13 @@ def start(args):
                 common.validate_output({"status": "ok", "output": row["tape"]}, args.out)
     if args.stage != "prepare":
         sealed = common.load_json(args.out / "prepared.json")
-        for row in sealed["sources"].values():
+        active = active_source_ids(args, config)
+        for sid, row in sealed["sources"].items():
+            if active is not None and sid not in active:
+                continue
             if common.sha256_file(row["path"]) != row["canonical_png_sha256"]:
                 raise ValueError("Prepared original hash changed")
-    config["_runtime_bounds"] = None if args.rehearsal else common.load_json(args.out / "launch.json")["forecast"]["operation_bounds_seconds"]
+    config["_runtime_bounds"] = None if parity_mode(args) else common.load_json(args.out / "launch.json")["forecast"]["operation_bounds_seconds"]
     return config, base, specs, budget, rt
 
 
@@ -285,7 +451,13 @@ def estimate(config, label, fallback=600):
 
 def prepared(args):
     p = common.load_json(args.out / "prepared.json")
-    return p, p["donors"], p["targets"]
+    active = active_source_ids(args)
+    if active is None:
+        return p, p["donors"], p["targets"]
+    if p.get("targets") or p.get("pairs"):
+        raise ValueError("Stage P cannot have Stage S targets or threat assignment")
+    result = dict(p, donors=active)
+    return result, active, []
 
 
 def source_path(row, assets):
@@ -295,7 +467,36 @@ def source_path(row, assets):
     return assets / "sources" / (str(row["source_id"])+".png")
 
 
+def prepare_stage_p(args, config, budget, rt):
+    """Seal full partition metadata; only the active prefix opens images."""
+    import tifs_stage_p as stage_p
+    manifest = stage_p.load_manifest(manifest_path(config))
+    meta = config["stage_p"]
+    rows = manifest[meta["partition"] + "_sources"]
+    if rows != meta["sources"]:
+        raise ValueError("Stage P source partition changed")
+    records = {str(row["source_id"]): {**row, "path":str(source_path(row,args.assets))} for row in rows}
+    sealed = dict(sources=records, donors=[str(r["source_id"]) for r in rows], targets=[], pairs=[],
+        original_features={}, selection="Stage P immutable partition; no CLIP assignment; active prefix only",
+        stage_p_partition=meta["partition"], nomination_sha256=meta.get("nomination_sha256"))
+    seal = args.out / "prepared.json"
+    if seal.exists() and common.load_json(seal) != sealed:
+        raise ValueError("Prepared Stage P full-partition metadata changed")
+    for sid in active_source_ids(args,config):
+        row = records[sid]
+        budget.require(estimate(config,"prepare",120))
+        if common.sha256_file(row["path"]) != row["canonical_png_sha256"]:
+            raise ValueError("Canonical PNG hash mismatch: " + sid)
+        rgb = rt.load_rgb(row["path"])
+        if hashlib.sha256(rgb.tobytes()).hexdigest() != row["rgb8_sha256"]:
+            raise ValueError("Canonical RGB8 pixel hash mismatch: " + sid)
+    if not seal.exists():
+        common.atomic_json(seal,sealed)
+
+
 def prepare(args, config, base, specs, budget, rt, torch):
+    if config.get("stage_p"):
+        return prepare_stage_p(args,config,budget,rt)
     seal = args.out / "prepared.json"
     if seal.exists():
         for row in common.load_json(seal)["sources"].values():
@@ -354,12 +555,12 @@ def execute_unit(args, config, budget, rt, torch, journal, row, fn, label):
     try:
         row.update(fn())
         row["status"] = "ok"
-    except torch.cuda.OutOfMemoryError:
+    except (torch.cuda.OutOfMemoryError, common.ResourceStop) as exc:
         row.update(status="resource_stop", error=traceback.format_exc())
         row["seconds"] = time.monotonic()-tick
         row["memory"] = telemetry(torch)
         journal.append(row)
-        raise common.ResourceStop("CUDA OOM: serial design does not fit; no reduced run or retry")
+        raise common.ResourceStop(str(exc) if isinstance(exc,common.ResourceStop) else "CUDA OOM: serial design does not fit; no reduced run or retry")
     except Exception as exc:
         row.update(status="safety_blocked" if str(exc) == "safety_checker_blocked_output" else "error_terminal",
                    error=traceback.format_exc())
@@ -390,11 +591,12 @@ def clean(args, config, base, specs, budget, rt, torch):
         model_ready(args, "load_" + arm, loadtick, torch)
         try:
             for sid in todo:
-                if args.rehearsal and arm in NEW:
+                if parity_mode(args) and arm in NEW:
                     checkj=common.Journal(args.out / "rehearsal-checks.jsonl")
                     checkid="writer-check:"+sid
                     def check():
-                        receipt=adapter.validate_rehearsal(rt.load_rgb(p["sources"][sid]["path"]),sid)
+                        variants = (arm,) if calibration_mode(args) else None
+                        receipt=adapter.validate_rehearsal(rt.load_rgb(p["sources"][sid]["path"]),sid,variants=variants)
                         cp=args.out/"rehearsal-checks"/(sid+".json")
                         common.atomic_json(cp,receipt)
                         return dict(output=dict(path=str(cp),sha256=common.sha256_file(cp)))
@@ -467,7 +669,7 @@ def native(args, config, base, specs, budget, rt, torch):
                                     tape = pilot.Tape()
                                     if arm == unmarked:
                                         try:
-                                            if args.rehearsal and family in ("R0", "R1") and seed == config["seeds"][0]:
+                                            if parity_mode(args) and family in ("R0", "R1") and seed == config["seeds"][0]:
                                                 from tifs_denoiser import native_first_step_parity
                                                 generated, parity = native_first_step_parity(
                                                     regen.pipe, family, specs[family],
@@ -482,7 +684,7 @@ def native(args, config, base, specs, budget, rt, torch):
                                                 torch.save([d.cpu() for d in tape.draws], tp)
                                                 row["tape"] = dict(path=str(tp), sha256=common.sha256_file(tp))
                                                 row["tape_receipt"] = tape.receipt()
-                                        if args.rehearsal:
+                                        if parity_mode(args):
                                             if not tape.draws:
                                                 raise RuntimeError("Native parity cannot verify an empty tape")
                                             replayed = pa.run_native(family, regen, rgb, cell["strength"], seed, tape.replay())
@@ -498,6 +700,8 @@ def native(args, config, base, specs, budget, rt, torch):
                                         generated = pa.run_native(family, regen, rgb, cell["strength"], seed, tape.replay())
                                         if tape.cursor != len(tape.draws):
                                             raise RuntimeError("Native noise tape not fully consumed")
+                                        row["replay_tape_receipt"] = tape.receipt()
+                                        row["replay_tape_consumed"] = True
                                     return dict(output=output(args, rt, uid, generated), payload=cr.get("payload"), input=cr["output"])
                                 row = dict(id=uid, kind="native", source=sid, arm=arm, cell=cell["id"], family=family,
                                     strength=cell["strength"], seed=seed, control="C0" if c0(arm) else "C1")
@@ -508,6 +712,8 @@ def native(args, config, base, specs, budget, rt, torch):
 
 
 def threats(args, config, base, specs, budget, rt, torch):
+    if config.get("stage_p"):
+        raise ValueError("Stage P has no threat stage")
     import numpy as np
     p, _, _ = prepared(args)
     cleanj = common.Journal(args.out / "clean.jsonl")
@@ -569,6 +775,8 @@ def transform(rgb, name, seed):
 
 
 def secondary(args, config, base, specs, budget, rt, torch):
+    if config.get("stage_p"):
+        raise ValueError("Stage P has no secondary stage")
     _, donors, _ = prepared(args)
     cleanj = common.Journal(args.out / "clean.jsonl")
     journal = common.Journal(args.out / "secondary.jsonl")
@@ -594,7 +802,7 @@ def expected_ids(config, p):
         secondary=[f"secondary:{t}:{s}:{a}" for t in TRANSFORMS for s in donors for a in config["arms"]])
     result["threats"] = [f"threat:{'T5' if t=='unmodified' else 'T4'}:{pair['donor']}:{pair['target']}:{a}:{t}"
         for pair in p["pairs"] for a in config["arms"] for t in ("patch128","patch256","patch128-sham","patch256-sham","residual0.5","residual1.0","unmodified")]
-    return result
+    return {k:v for k,v in result.items() if k in ("clean","native")} if config.get("stage_p") else result
 
 
 def seal_manifest(args, config, *unused):
@@ -621,6 +829,10 @@ def parser(stages):
     p.add_argument("--assets", required=True, type=Path)
     p.add_argument("--out", required=True, type=Path)
     p.add_argument("--config", type=Path, default=ROOT/"research/tifs-20261028/stage-s/frozen-config.json")
+    p.add_argument("--user-choice",type=Path)
+    p.add_argument("--selection",type=Path)
+    p.add_argument("--stage-p-count",type=int,choices=(2,4,8,16))
+    p.add_argument("--stage-p-calibration",action="store_true")
     p.add_argument("--rehearsal", action="store_true")
     p.add_argument("--family", choices=("K3","R0","R1"))
     p.add_argument("--instance-start-utc", required=True)

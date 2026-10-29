@@ -142,3 +142,11 @@ Session start: 2026-10-29 08:25 at the supervisor's fixed UTC-08:00 offset (16:2
 ### R3-1 completed ? 2026-10-29 16:50 UTC
 
 Native denoiser-aware f6-x0 and its conditioning/checkpoint/parity contracts are implemented; f6-noise and all original numerical gates remain effective defaults. Stage S inventory now includes the x0 diagnostic arm. The extra F5 budget-control writer is implemented for R3-2 integration. Isolated stdlib verification: 110 tests passed in the cumulative suite, including writer/denoiser mocks; nine affected Python files compiled. These are preparation checks only; no model, image, tensor, scientific metric or GPU pass ran. Server precision, gradients, memory and native parity remain unmeasured. Intermediate readiness is INCOMPLETE pending R3-2 through R3-5.
+
+R3-1 push receipt: 2026-10-29 16:50 UTC, Codex agent pushed origin/codex/tifs-20261028, 2c41d5f..49db2fa; includes Claude brief commit01bf24f.
+
+R3-2 integration decision: use the first two Stage P tuning sources for calibrated noise/x0/F5 timing, gradients and native parity; reuse these outputs in rung1. No Stage S rehearsal image is opened to decide Stage P. The first forecast covers P only; Stage S still requires its own full rehearsal on the same paid clock. Initial calibration is bounded by the chosen hard deadline and one-hour retrieval reserve. Default15-hour cap is unchanged; all expanded caps remain proposals.
+
+### R3-2 completed ? 2026-10-29 16:58 UTC
+
+Implemented immutable Stage P plans,8/4/2/1 successive allocation, source-prefix guards, shared-control evidence comparison, nomination-bound veto-only check, successful selection consumption, calibrated forecast and one paid clock. Added the F5 budget arm and exact11-arm Stage S inventory. Setup verifies60 development-source hashes without mixing scientific partitions. Cumulative isolated suite:146 pure-logic tests passed; all tifs Python modules compiled. Focused setup binding rechecked after six-file receipt integration:2 passed; shell entrypoints passed Bash syntax checks. No numerical experiment, image/model pass, download, setup or server command ran. Profile report integration remains R3-3, so readiness remains INCOMPLETE.

@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 import hashlib
 import importlib.metadata
 import json
+import math
 import os
 from pathlib import Path, PurePosixPath
 import platform
@@ -20,7 +21,10 @@ import zipfile
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 import tifs_common as common
+import tifs_gate_profiles as gate_profiles
 HERE=ROOT/'research/tifs-20261028/stage-s'
+BASE_CONFIG=HERE/'frozen-config.json'
+STAGE_P_MANIFEST=HERE.parent/'stage-p/source-manifest.json'
 PREFIXES=('sdxl/','a6/','vine/','wam/','kandinsky3/')
 CLIP_REVISION='d05afc436d78f1c48dc0dbf8e5980a9d471f35f6'
 
@@ -59,16 +63,41 @@ def verify_file(path,spec):
 
 
 class Deadline:
-    def __init__(self,start,clock=time.time):
+    def __init__(self,start,clock=time.time,max_hours=15):
+        if type(max_hours) not in (int,float) or not math.isfinite(max_hours) or not max_hours>0:
+            raise ValueError('Invalid paid-session ceiling')
         instant=datetime.fromisoformat(start.replace('Z','+00:00'))
         if instant.tzinfo is None or instant.timestamp()>clock(): raise ValueError('Actual past instance-start UTC required')
         self.start=instant.astimezone(timezone.utc).isoformat()
-        self.end=instant.timestamp()+54000-3600-30 # Bound one final network read within reserve.
+        self.max_hours=max_hours
+        self.end=instant.timestamp()+max_hours*3600-3600-30 # Bound one final network read within reserve.
         self.clock=clock
     def timeout(self,cap=None):
         remaining=self.end-self.clock()
-        if remaining<=0: raise common.ResourceStop('Setup exhausted 15h instance budget with 1h retrieval reserve')
+        if remaining<=0: raise common.ResourceStop('Setup exhausted '+str(self.max_hours)+'h instance budget with 1h retrieval reserve')
         return remaining if cap is None else min(remaining,cap)
+
+
+def setup_choices(config_path=BASE_CONFIG,receipt_path=None):
+    """Read an external pre-output decision without requiring a P selection.
+
+    Setup precedes tuning. load_execution_config would incorrectly require the
+    selection that tuning has not produced yet, so validate the receipt itself.
+    This helper reads only and never emits an authorization/approval artifact.
+    """
+    config_path=Path(config_path)
+    config=common.load_json(config_path)
+    if config.get('stage_p') or config.get('gate_profile','round1')!='round1':
+        raise ValueError('Setup requires the committed default Stage S base config')
+    digest=common.sha256_file(config_path)
+    result=dict(base_config_sha256=digest,max_instance_hours=15,
+                user_choice_sha256=None,stage_p='decline')
+    if receipt_path:
+        receipt=common.load_json(receipt_path)
+        gate_profiles.validate_decision_receipt(receipt,digest)
+        result.update(max_instance_hours=receipt['max_instance_hours'],stage_p=receipt['stage_p'],
+                      user_choice_sha256=common.sha256_file(receipt_path))
+    return result
 
 
 def command(argv,deadline,**kwargs):
@@ -124,6 +153,24 @@ def verify_sources(root,manifest):
             if not p.is_file() or common.sha256_file(p)!=row['canonical_png_sha256']:
                 raise ValueError('Supply unchanged canonical source PNG before setup: '+str(p))
             records.append(dict(source_id=row['source_id'],path=str(p),sha256=row['canonical_png_sha256']))
+    return records
+
+
+def verify_stage_p_sources(root,manifest_path,stage_s_manifest):
+    """Verify all 24 predeclared P PNGs before downloads, without decoding them."""
+    from tifs_stage_p import load_manifest
+    manifest=load_manifest(manifest_path)  # sidecar, development tags and 16/8 split
+    rows=manifest['tune_sources']+manifest['check_sources']
+    stage_s_rows=[r for group in common.SOURCE_GROUPS for r in stage_s_manifest[group]]
+    for key in ('source_id','source_uid','raw_sha256','canonical_png_sha256','rgb8_sha256'):
+        if {str(r[key]) for r in rows}&{str(r[key]) for r in stage_s_rows}:
+            raise ValueError('Stage P and Stage S sources overlap: '+key)
+    records=[]
+    for row in rows:
+        path=safe_path(root,'sources/'+str(row['source_id'])+'.png')
+        if not path.is_file() or common.sha256_file(path)!=row['canonical_png_sha256']:
+            raise ValueError('Supply unchanged canonical Stage P source PNG before setup: '+str(path))
+        records.append(dict(source_id=row['source_id'],path=str(path),sha256=row['canonical_png_sha256']))
     return records
 
 
@@ -215,13 +262,18 @@ def main():
     parser.add_argument('--assets',required=True,type=Path)
     parser.add_argument('--venv',required=True,type=Path)
     parser.add_argument('--instance-start-utc',required=True)
+    parser.add_argument('--config',type=Path,default=BASE_CONFIG,
+                        help='Committed Stage S base config, before Stage P selection')
+    parser.add_argument('--user-choice',type=Path,
+                        help='Externally recorded pre-output user choice; never created by setup')
     args=parser.parse_args()
     if platform.system()!='Linux' or Path('/mnt/c/Users').exists(): raise RuntimeError('Setup is Linux server only; laptop execution prohibited')
     if common.load_json(HERE/'READINESS.json').get('status')!='COMPLETE': raise RuntimeError('Stage S readiness is INCOMPLETE')
     root=args.assets.resolve(); root.mkdir(parents=True,exist_ok=True)
     if (root/'RESOURCE_STOP-setup.json').exists():
         raise SystemExit(3)
-    try: deadline=Deadline(args.instance_start_utc)
+    choices=setup_choices(args.config,args.user_choice)
+    try: deadline=Deadline(args.instance_start_utc,max_hours=choices['max_instance_hours'])
     except common.ResourceStop as exc:
         common.atomic_json(root/'RESOURCE_STOP-setup.json',dict(status='RESOURCE_STOP',reason=str(exc)))
         raise SystemExit(3)
@@ -236,14 +288,21 @@ def main():
     ledger_path=root/'tifs-stage-s-download-ledger.json'
     seal=dict(schema='tifs-stage-s-setup-v1',instance_start_utc=deadline.start,asset_plan_sha256=common.sha256_file(HERE/'asset-plan.json'),
               requirements_sha256=common.sha256_file(HERE/'requirements.txt'),source_manifest_sha256=common.sha256_file(HERE/'source-manifest.json'))
+    seal.update(base_config_sha256=choices['base_config_sha256'],max_instance_hours=choices['max_instance_hours'],
+                user_choice_sha256=choices['user_choice_sha256'],
+                stage_p_source_manifest_sha256=common.sha256_file(STAGE_P_MANIFEST) if choices['stage_p']=='run' else None)
     seal['setup_code_sha256']={name:common.sha256_file(ROOT/name) for name in
-        ('scripts/tifs_stage_s_setup.py','scripts/tifs_stage_s_setup.sh','scripts/encoder_transfer_assets.py','scripts/tifs_common.py')}
+        ('scripts/tifs_stage_s_setup.py','scripts/tifs_stage_s_setup.sh','scripts/encoder_transfer_assets.py',
+         'scripts/tifs_common.py','scripts/tifs_gate_profiles.py','scripts/tifs_stage_p.py')}
     ledger=common.load_json(ledger_path) if ledger_path.exists() else dict(identity=seal,events=[])
     if ledger['identity']!=seal: raise ValueError('Setup resume identity mismatch')
     (root/'tifs-stage-s-setup-ready.json').unlink(missing_ok=True)
     try:
         # Verify preexisting canonical sources before any install/download; never silently reacquire.
-        sources=verify_sources(root,common.load_json(HERE/'source-manifest.json'))
+        stage_s_manifest=common.load_json(HERE/'source-manifest.json')
+        sources=verify_sources(root,stage_s_manifest)
+        stage_p_sources=(verify_stage_p_sources(root,STAGE_P_MANIFEST,stage_s_manifest)
+                         if choices['stage_p']=='run' else [])
         packages=install(args.venv.resolve(),HERE/'requirements.txt',config,deadline)
         for spec in selected_files(plan):
             fetch(spec,root,deadline,ledger['events'])
@@ -251,7 +310,8 @@ def main():
         extract_wam(root,plan,deadline)
         prepare_vine(root,plan,deadline)
         deadline.timeout()
-        common.atomic_json(root/'tifs-stage-s-setup-ready.json',dict(**seal,status='complete',sources=sources,packages=packages,
+        common.atomic_json(root/'tifs-stage-s-setup-ready.json',dict(**seal,status='complete',sources=sources,
+            stage_p_sources=stage_p_sources,packages=packages,
             setup_finished_utc=datetime.now(timezone.utc).isoformat(),remaining_compute_seconds=deadline.timeout()))
     except common.ResourceStop as exc:
         common.atomic_json(root/'RESOURCE_STOP-setup.json',dict(status='RESOURCE_STOP',reason=str(exc)))

@@ -24,8 +24,12 @@ def partition(uid, worker):
 
 def items(args):
     rows = []
+    active = stage.active_source_ids(args)
     for name in ("clean", "native", "threats", "secondary"):
-        rows.extend(r for r in common.Journal(args.out/(name+".jsonl"),read_only=True).latest.values() if r.get("status")=="ok")
+        if active is not None and name in ("threats","secondary"):
+            continue
+        rows.extend(r for r in common.Journal(args.out/(name+".jsonl"),read_only=True).latest.values()
+                    if r.get("status")=="ok" and (active is None or r.get("source") in active))
     return sorted(rows,key=lambda r:r["id"])
 
 
@@ -44,6 +48,8 @@ def snapshot(args, journal, expected):
 def detect(args, config, base, specs, budget, rt, torch):
     from encoder_transfer_test import ALPHA, BETA, message, presence
     rows = items(args)
+    if config.get("stage_p") and args.method is not None and args.method != config["candidate"]:
+        raise ValueError("Stage P reader must be its frozen candidate/control F5 dispatch")
     for method in ([args.method] if args.method else [a for a in config["arms"] if not stage.c0(a)]):
         journal = common.Journal(shard_path(args,method))
         todo = [r for r in rows if (r["arm"]==method or stage.c0(r["arm"])) and partition(r["id"],args.worker)]

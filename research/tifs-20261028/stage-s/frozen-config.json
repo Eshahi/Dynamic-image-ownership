@@ -4,6 +4,7 @@
     "f6-x0",
     "f6-codec",
     "f6-generic",
+    "f5-budget",
     "f5-r2",
     "v5-r3",
     "wam",
@@ -53,7 +54,7 @@
     "forecast_factor": 1.5,
     "hardware": "one CUDA device at least 24GB class; peak <= measured total minus 1.5 GiB; same measured total at rehearsal and screen/resume",
     "gpu_margin_bytes": 1610612736,
-    "launch_condition": "measured one-time cost + 1.5*complete inventory variable cost + retrieval reserve <= 54000 seconds; paid rehearsal included",
+    "launch_condition": "measured paid elapsed + forecast remaining work + retrieval reserve <= externally approved ceiling; default remains 54000 seconds",
     "max_instance_hours": 15,
     "max_seconds": 54000,
     "partial_inventory_go": false,
@@ -141,22 +142,22 @@
   "execution_authorized": false,
   "frozen_before_outputs": true,
   "inventory": {
-    "screen_marked_clean": 144,
+    "screen_marked_clean": 160,
     "screen_unmarked_clean": 16,
-    "screen_native": 1920,
-    "screen_new_marks": 64,
-    "screen_secondary": 1280,
-    "screen_threats": 1120,
-    "screen_detect": 8064,
-    "screen_quality": 4480,
-    "rehearsal_marked_clean": 18,
+    "screen_native": 2112,
+    "screen_new_marks": 80,
+    "screen_secondary": 1408,
+    "screen_threats": 1232,
+    "screen_detect": 8960,
+    "screen_quality": 4928,
+    "rehearsal_marked_clean": 20,
     "rehearsal_unmarked_clean": 2,
-    "rehearsal_native": 240,
-    "rehearsal_new_marks": 8,
-    "rehearsal_secondary": 160,
-    "rehearsal_threats": 140,
-    "rehearsal_detect": 1008,
-    "rehearsal_quality": 560
+    "rehearsal_native": 264,
+    "rehearsal_new_marks": 10,
+    "rehearsal_secondary": 176,
+    "rehearsal_threats": 154,
+    "rehearsal_detect": 1120,
+    "rehearsal_quality": 616
   },
   "native": {
     "blocked": "terminal missing; no prompt or seed replacement",
@@ -413,5 +414,22 @@
     "f6-codec",
     "f6-generic",
     "f5-budget"
-  ]
+  ],
+  "gate_profile": "round1",
+  "stage_p_selection": {
+    "optional": true,
+    "path": "research/tifs-20261028/stage-p/selected-config.json",
+    "candidate_variants": [
+      "f6-noise",
+      "f6-x0"
+    ],
+    "writer_psnr_grid_db": [
+      52,
+      46,
+      42,
+      38
+    ],
+    "fallback": "frozen f6-noise at52 only if Stage P declined before outputs; never after a failed/missing selected run",
+    "choice_before_any_server_output": true
+  }
 }

@@ -18,20 +18,23 @@ class RuntimeTests(unittest.TestCase):
             root=Path(tmp); here=root/'research/tifs-20261028/stage-s';here.mkdir(parents=True)
             assets=root/'assets';assets.mkdir();(assets/'a6').mkdir()
             asset=assets/'a6/test.bin';asset.write_bytes(b'fixed')
-            for name in ('tifs_stage_s_setup.py','tifs_stage_s_setup.sh','encoder_transfer_assets.py','tifs_common.py'):
+            for name in ('tifs_stage_s_setup.py','tifs_stage_s_setup.sh','encoder_transfer_assets.py','tifs_common.py','tifs_gate_profiles.py','tifs_stage_p.py'):
                 target=root/'scripts'/name;target.parent.mkdir(exist_ok=True);target.write_text('fixture')
             (here/'source-manifest.json').write_text('{}')
             (here/'requirements.txt').write_text('')
+            config_path=here/'frozen-config.json'
+            config=dict(source_manifest=str(here/'source-manifest.json'),budget=dict(max_instance_hours=15))
+            c.atomic_json(config_path,config)
             c.atomic_json(here/'asset-plan.json',dict(files=[dict(path='a6/test.bin',size_bytes=5,sha256=c.sha256_file(asset))]))
             instant=datetime(2026,1,1,tzinfo=timezone.utc)
             receipt=dict(status='complete',instance_start_utc=instant.isoformat(),
+                base_config_sha256=c.sha256_file(config_path),max_instance_hours=15,user_choice_sha256=None,stage_p_source_manifest_sha256=None,
                 source_manifest_sha256=c.sha256_file(here/'source-manifest.json'),
                 asset_plan_sha256=c.sha256_file(here/'asset-plan.json'),
                 requirements_sha256=c.sha256_file(here/'requirements.txt'),
                 setup_code_sha256={str(p.relative_to(root)).replace('\\','/'):c.sha256_file(p) for p in (root/'scripts').iterdir()})
             ready=assets/'tifs-stage-s-setup-ready.json';c.atomic_json(ready,receipt)
-            args=SimpleNamespace(assets=assets,stage='prepare',rehearsal=True)
-            config=dict(source_manifest=str(here/'source-manifest.json'))
+            args=SimpleNamespace(assets=assets,stage='prepare',rehearsal=True,config=config_path)
             with patch.object(s,'ROOT',root):
                 first=s.setup_identity(args,config,instant)
                 args.rehearsal=False
