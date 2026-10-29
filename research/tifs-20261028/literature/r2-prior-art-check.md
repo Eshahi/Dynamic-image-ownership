@@ -66,3 +66,11 @@ Suggested selection wording: “We test whether finite native-noise codec exposu
 | Dual-Guard; ONRW | Versioned arXiv full texts above; no accepted venue was independently established in this bounded check | arXiv preprint |
 
 All seven relevant primary methods were inspected, rather than relying on abstracts. DrawMark direct URL initially failed in the browser tool; following PDF link 47 from the [authors' publications page](https://msf-hnu.github.io/publications/) succeeded and yielded five pages/492 text lines. OpenReview challenge pages were not bypassed. No quantitative performance claim here is independently reproduced. No evidence in this check clears ForenMark or establishes a complete prior-art search.
+
+## ForenMark access receipt
+
+Lead-agent checks, 2026-10-29: the exact expected file was `W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/cache-tifs/papers/forenmark.pdf`. It was absent at the start, each item boundary, subsequent manual checks, and the final 13:18:10 UTC check. The 13:17:58 UTC Downloads scan also found no PDF. No file was supplied for inspection during this window.
+
+The [publisher page](https://www.sciencedirect.com/science/article/pii/S0950705126018101), DOI 10.1016/j.knosys.2026.117084, was the only primary paper route returned by public title, DOI and author searches. Direct full-text opening returned HTTP 403; indexed results provided a preview and section snippets only. Searches included `ForenMark pdf`, the exact title plus `pdf`, the DOI plus `full text`, and the title with the listed authors. No complete method/results or accessible author manuscript was located. No access restriction was bypassed, no abstract performance number is treated as inspected evidence, and no full-text claim is made.
+
+**Disposition: FULL-TEXT UNINSPECTED.** BRIEF-R2 directs this disposition if the file is still absent with forty minutes remaining. The seven-paper inspection is complete; the ForenMark overlap remains an explicit unresolved novelty limitation. This access disposition permits finishing the requested preparation package, not asserting publication novelty or submission readiness.

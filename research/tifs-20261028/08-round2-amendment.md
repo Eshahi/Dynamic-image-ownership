@@ -24,7 +24,7 @@ Keep the 15-instance-hour cap. The added carrier raises the full screen to 4,032
 
 ## R2-1: inspected prior art
 
-Seven primary-method checks are recorded in `literature/r2-prior-art-check.md`, with claim-specific pre-emption in `02-prior-art-delta.md` and `04-selection.md`. Generic semantic binding and optimization through fixed readers are not novel. The narrow F6 construction remains untested and does not have a firstness certificate. ForenMark full text remains pending delivery; no preview is substituted for inspection.
+Seven primary-method checks are recorded in `literature/r2-prior-art-check.md`, with claim-specific pre-emption in `02-prior-art-delta.md` and `04-selection.md`. Generic semantic binding and optimization through fixed readers are not novel. The narrow F6 construction remains untested and does not have a firstness certificate. ForenMark was still missing at the 13:18 UTC cutoff on 2026-10-29 and is recorded as full-text UNINSPECTED under BRIEF-R2. No preview is substituted for inspection; novelty clearance against that paper remains unresolved.
 
 ## R2-5: bounded review corrections
 

@@ -28,6 +28,8 @@ Known-message presence then has probability B(100,31,p). The true semantic codew
 
 These are analytical examples, not predictions for VINE. Correlated errors, unequal bit reliability, image-dependent biases and changes to the suspect descriptors can change every relationship. The examples do not justify changing the radius, threshold, payload or article rule after outputs.
 
+VINE-B is one prospectively specified content-bound instantiation of the published carrier, not a proof of the best achievable coding scheme for its 100-bit output. A gain over this arm supports the stated comparator claim, not architecture-wide superiority over VINE or an information-theoretic capacity limit. Any later coding alternative must be named and frozen before new data; it cannot silently replace this baseline after its outcomes are known.
+
 ## What the ideal null bound does and does not say
 
 There are 2^32 possible semantic codewords in 68 bits. Each radius-four ball contains
