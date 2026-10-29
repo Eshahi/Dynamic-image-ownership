@@ -1,7 +1,7 @@
 # Stage S frozen screen analysis
 
 Implemented in `scripts/tifs_stage_s_analyze.py`; all imports are Python standard
-library or `tifs_common`. It reads saved JSON/JSONL only. It never opens an
+library, `tifs_common` or the pure `tifs_article_decision` module. It reads saved JSON/JSONL only. It never opens an
 image, runs an encoder/reader/metric, downloads assets, or imports scientific
 packages. No scientific result is asserted by this implementation note.
 
@@ -17,10 +17,10 @@ producer's saved artifact hash.
 
 ## Evidence and decisions
 
-The independent full planned inventory contains 128 clean, 1536 native, 896
-threat, and 1024 secondary producer identities; 6272 detector identities and
-3584 quality identities. Detection inventory includes the unmarked output under
-each of the seven method readers. Required detection/quality rows are planned
+The Round 2 full planned inventory contains 144 clean, 1,728 native, 1,008
+threat and 1,152 secondary producer identities; 7,168 detector identities and
+4,032 quality identities. Detection inventory includes the unmarked output under
+each of the eight method readers. Required detection/quality rows are planned
 even for failed or blocked producer outputs. Missing producer selection leaves
 the threat inventory unenumerated and incomplete. Prepared pairs must have the
 frozen donor order and exactly the sixteen disjoint target identifiers. Extra
@@ -48,7 +48,7 @@ and suspect-derived semantics remain operational detector side information.
 
 C0 and true wrong-owner C/F checks cover clean, native and threat outputs. Baseline
 events are descriptive and do not kill F6. For all seven frozen T4/T5 conditions
-and four frozen read modes, valid recipient-relative metrics determine
+and the four frozen read modes for the original internal arms (combined only for VINE-B), valid recipient-relative metrics determine
 eligibility; eligible whole-recipient D AND F events are counted separately
 from donor Q delivery, unconditional pair events and acceptance among observed
 Q-delivered pairs. Only combined-mode events enter the scientific gate; the
@@ -77,6 +77,22 @@ is explicitly illustrative under hypothetical exchangeable source sampling,
 not a population or cryptographic security guarantee.
 
 ## Outputs and validation
+
+Round 2 adds `article-decision.json`, the article object within `analysis.json`,
+and `bound_carrier_delivery.csv`. The original F6 numerical gate status is
+exported separately from the whole-package verdict. The fixed VINE-B comparison
+uses both C and J, paired quality, its separate viability and the predeclared
+strict edge; it never rescues a failed F6 gate. Quality/security flags and
+three-state parity distinguish baseline defects and mixed tradeoffs. Human
+quality remains MISSING and binding generalization unresolved without labels.
+
+All marked VINE-B rows require original q/h/100-bit evaluator references, valid
+blind and decoder records, delivery diagnostics and applicable positive-owner
+exact endpoints, even when a majority is numerically resolved. A legitimate
+no-codeword or ambiguous decode is an observed no-read; missing fields are not.
+C0 and wrong-owner calls do not require unavailable exact references. Delivery
+receipts report ok/missing/invalid. Missing run identity invalidates the article
+result as well as package completeness while preserving numerical evidence.
 
 `analysis.json` contains complete structured results, side-information statements,
 inventory missing IDs, unusable evidence, lower/upper bounds and limitations.

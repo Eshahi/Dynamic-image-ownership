@@ -72,6 +72,8 @@ Read `article-decision.json` separately from the unchanged F6 thesis verdict. It
 
 `numerical_thesis_gate_status` reports the original F6 numeric gates independently of package completeness. A `pass` there does not waive missing VINE-B evidence, a missing run identity or a resource stop. Inspect `bound_carrier_delivery.csv` statuses and `unusable_evidence`; invalid q/h/100-bit references, positive-owner exact endpoints or delivery/decode metadata make the article INCOMPLETE even if a source majority is numerically resolved. Valid no-reads remain observations. Named baseline quality/security flags, three-state numerical parity and `human_quality_status=MISSING` prevent these limitations being hidden in a broad verdict.
 
+For interpretation, [the payload note](../design/r2-payload-interpretation.md) distinguishes known-message presence, blind q recovery, semantic consistency and raw h delivery. Its binomial examples are analytical illustrations with hypothetical independent bit errors, not forecasts or empirical results; they do not alter any decision rule.
+
 Use a normal foreground interrupt to stop safely, allow the process to exit, and keep journals and partial files. Never run two producers against one output folder. The shell driver is intended for a foreground monitored terminal or explicitly managed server session; never leave it unobserved past the instance ceiling.
 
 ## Retrieve and stop
