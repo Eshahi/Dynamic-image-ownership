@@ -8,6 +8,16 @@ Enable native diffusers 0.35.1 non-reentrant gradient checkpointing only for the
 
 Replace the hard 24 GiB peak ceiling with the measured device total minus **1.5 GiB**. Minimum hardware is 24 GB class; fit remains unproven until rehearsal. Forecast receipts require identical device totals. Initial screen launch and every resume validate the measured total and reserve policy. Larger cards may qualify when the measured peak exceeds 24 GiB. Disk margin, 15-hour cap, complete-inventory forecast and OOM RESOURCE_STOP remain unchanged. Checkpoint recomputation cost is included in the later measured forecast.
 
+## R2-2: bound-carrier control and separate article rule
+
+Add `vine-b` to the full Stage S grid, retaining all previous arms. Its 100 bits are q32, owner/q public tag36 and q-conditioned masked h32. Radius-four unique decoding acts on q/tag68 only; h is raw after unmasking, so h errors cannot erase C/J. All targets are original pre-embed values; no oracle message or registry reaches the operational reader. Reuse the retained VINE adapter, seven-view F5 semantic functions, soft/h-distance status functions and decision table without changing retained files. Public-derived keys provide check redundancy, not owner authentication. The changed carrier statistics, conditional h read and target basis are explicit. Full rationale, capacity bound and rejected joint-code alternative are in `design/r2-binding-design.md`.
+
+VINE-B gets both owner/C0 queries, all native cells, combined T4/T5 and all eight secondary transforms. WAM-B is omitted because its native 32 bits cannot retain q32+h32 plus owner check; WAM presence stays. Report C/Q/J/H/D/F/A and raw payload/field delivery separately. The full screen now has 1,728 native, 144 clean, 1,008 threat and 1,152 secondary producers, 7,168 reader rows and 4,032 quality rows. Rehearsal has one eighth of each; F6 marks remain 48+6.
+
+Keep every F6 numerical thesis gate. Freeze a separate article comparison: both C/J lower-minus-comparator-upper ≥−1 in all four cells, paired median LPIPS delta ≤.005 and PSNR delta ≥−1 dB, plus either C/J gains ≥3 in the same foreign cell or LPIPS improvement ≥.002 AND PSNR improvement ≥1 dB. All sixteen paired values and complete inventory are required. VINE-B viability and reverse comparison are reported separately; a baseline failure does not automatically give F6 an edge. Thresholds are development margins, not inferential noninferiority. `scripts/tifs_article_decision.py` implements the config labels and never overrides the thesis verdict.
+
+Generic bound-carrier novelty is pre-empted by inspected primary methods. A VINE-B win therefore becomes `F6_KILL_VINE_B_VIABLE_NOT_NOVEL` or the applicable F6-GO baseline-dominance label, not an automatic article pivot. Any conditional F6 article GO still requires prior-art clearance, fresh confirmation and human evidence where claimed.
+
 ## Pending items
 
-R2-1 prior-art conclusion (including ForenMark if delivered), R2-2 bound-carrier protocol and article comparison, R2-4 inventory/cost, and R2-5 independent review will be recorded here before readiness is restored. The Round 1 numerical F6 thesis gates are not amended.
+R2-1 full prior-art conclusion (including ForenMark if delivered), R2-4 conservative cost accounting, and R2-5 independent review will be recorded here before readiness is restored. The Round 1 numerical F6 thesis gates are not amended.

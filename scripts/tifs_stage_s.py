@@ -230,7 +230,7 @@ def start(args):
     import et_final_pilot as pilot
     base, specs = pilot.channel_specs()
     identity = common.runtime_identity(args.config, manifest_path(config),
-        [ROOT / "scripts" / f for f in ("tifs_common.py", "tifs_stage_s.py", "tifs_stage_s_read.py", "tifs_writer.py", "tifs_stage_s_forecast.py", "tifs_stage_s_driver.sh", "tifs_stage_s_analyze.py",
+        [ROOT / "scripts" / f for f in ("tifs_common.py", "tifs_stage_s.py", "tifs_stage_s_read.py", "tifs_writer.py", "tifs_vine_b.py", "tifs_article_decision.py", "tifs_stage_s_forecast.py", "tifs_stage_s_driver.sh", "tifs_stage_s_analyze.py",
          "encoder_transfer_runtime.py", "encoder_transfer_test.py", "et_final_pilot.py", "et_final_phase_a.py", "et_final_phase_a_attacks.py",
          "f5_latent_codec.py", "revised_watermark_v5.py", "f5_gate.py", "three_threat_models.py", "journal_vae_probe.py", "a6_clip_visual.py", "m1_latent_reconstruction.py", "journal_wam_probe.py")]
          + [ROOT / "research/encoder-transfer-20261019/stage2b-config.json"],
@@ -382,6 +382,9 @@ def clean(args, config, base, specs, budget, rt, torch):
         if arm in NEW:
             from tifs_writer import F6Writer
             adapter = F6Writer(args.assets, base, config)
+        elif arm == "vine-b":
+            from tifs_vine_b import VineB
+            adapter = VineB(args.assets, base, encoding=True)
         else:
             adapter = None if c0(arm) else rt.Internal(args.assets, base) if arm in ("f5-r2", "v5-r3") else rt.Wam(args.assets) if arm == "wam" else rt.Vine(args.assets, encoding=True)
         model_ready(args, "load_" + arm, loadtick, torch)
@@ -408,6 +411,8 @@ def clean(args, config, base, specs, budget, rt, torch):
                         marked, payload, report = adapter.embed(rgb, arm, sid)
                     elif arm in ("f5-r2", "v5-r3"):
                         marked, payload, report = adapter.embed(rgb, arm)
+                    elif arm == "vine-b":
+                        marked, payload, report = adapter.embed(rgb, config["owners"]["positive"])
                     else:
                         bits = message(sid, base["payload_bits"][arm], base["message_seed"])
                         marked = adapter.embed(rgb, bits)

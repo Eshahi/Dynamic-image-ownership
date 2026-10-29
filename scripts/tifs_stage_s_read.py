@@ -58,7 +58,11 @@ def detect(args, config, base, specs, budget, rt, torch):
         budget.require(stage.estimate(config,"load_reader",300))
         loadtick = time.monotonic()
         internal = method in (*stage.NEW,"f5-r2","v5-r3")
-        adapter = rt.Internal(args.assets,base) if internal else rt.Wam(args.assets) if method=="wam" else rt.Vine(args.assets)
+        if method == "vine-b":
+            from tifs_vine_b import VineB
+            adapter = VineB(args.assets,base)
+        else:
+            adapter = rt.Internal(args.assets,base) if internal else rt.Wam(args.assets) if method=="wam" else rt.Vine(args.assets)
         stage.model_ready(args, "load_reader", loadtick, torch)
         try:
             for item in pending:
@@ -91,6 +95,22 @@ def detect(args, config, base, specs, budget, rt, torch):
                                 endpoints=common.predicates(raw,payload)
                                 endpoints["D_and_F"] = endpoints["D"] and endpoints["F"]
                                 modes[mode]=dict(status="ok",raw=raw,endpoints=endpoints,donor_carrier_Q=endpoints["Q"])
+                    elif method == "vine-b":
+                        from tifs_vine_b import delivery_diagnostics
+                        # One native network pass and suspect-only feature extraction
+                        # serve both claimed owners, including unmarked queries.
+                        blind=adapter.blind(rgb)
+                        features=adapter.features(rgb)
+                        calls={}
+                        for owner in (ALPHA,BETA):
+                            tick=time.monotonic()
+                            raw=adapter.read(rgb,owner,blind=blind,features=features)
+                            endpoints=common.predicates(raw,payload if owner==ALPHA else None)
+                            endpoints["D_and_F"]=endpoints["D"] and endpoints["F"]
+                            calls[owner]=dict(status="ok",raw=raw,endpoints=endpoints,
+                                seconds=time.monotonic()-tick,donor_carrier_Q=endpoints["Q"] if payload is not None else None,
+                                delivery=delivery_diagnostics(blind["raw"]["decoded_message"],raw["carrier_decode"],payload) if owner==ALPHA else None)
+                        modes={"combined":calls[ALPHA]} if item["kind"] in ("T4","T5") else {}
                     else:
                         bits=message(item["source"],base["payload_bits"][method],base["message_seed"])
                         own=adapter.detect(rgb,bits)
@@ -150,7 +170,7 @@ def quality(args,config,base,specs,budget,rt,torch):
 
 def main():
     parser=stage.parser(("detect","quality"))
-    parser.add_argument("--method",choices=(*stage.NEW,"f5-r2","v5-r3","wam","vine-r"))
+    parser.add_argument("--method",choices=(*stage.NEW,"f5-r2","v5-r3","wam","vine-r","vine-b"))
     parser.add_argument("--worker",default="",help="Explicit disjoint i/k shard; default one serial worker")
     parser.add_argument("--threads",type=int,default=12)
     args=parser.parse_args()

@@ -7,8 +7,37 @@
     "v5-r3",
     "wam",
     "vine-r",
+    "vine-b",
     "unmarked"
   ],
+  "bound_carrier": {
+    "arm": "vine-b",
+    "layout": "q32 || tag36(owner,q) || xor(h32, mask32(owner,q)); MSB first",
+    "semantic_decode": "unique codeword in 68-bit q/tag frame within Hamming radius 4; exhaust 41449 q candidates; raw h has no error correction",
+    "q_domain": "tifs-vine-b/v1/q-tag",
+    "h_domain": "tifs-vine-b/v1/h-mask",
+    "key": "same retained public-derived profile key; check redundancy, NOT cryptographic authentication",
+    "target": "original seven-view F5 q and original h; frozen before single retained VINE embed; no post-output h replacement",
+    "binding": "unchanged F5 soft semantic status, h Hamming status and decision table; changed carrier statistics disclosed",
+    "read_modes": ["combined"],
+    "wam_b": "omitted: 32-bit native message cannot hold q32 plus h32 and owner check without changing the task"
+  },
+  "article_decision": {
+    "baseline": "vine-b",
+    "baseline_absolute_min": 12,
+    "baseline_clean_F_min": 15,
+    "max_retention_loss": 1,
+    "retention_gain_min": 3,
+    "lpips_delta_max": 0.005,
+    "psnr_loss_max_db": 1,
+    "lpips_improvement_min": 0.002,
+    "psnr_improvement_min_db": 1,
+    "edge": "both C and J gain >=3 in the same foreign cell OR paired clean median LPIPS improvement >=.002 AND PSNR improvement >=1 dB",
+    "requirements": "unchanged F6 thesis GO; both C/J net loss <=1 in every cell; paired quality noninferiority; complete inventory",
+    "novelty_status": "narrow F6 construction not found in seven inspected methods; ForenMark full-text pending; generic bound-carrier novelty preempted",
+    "inferential_status": "fixed development screen, not statistical noninferiority or confirmation",
+    "verdicts": ["F6_GO_ARTICLE_CONDITIONAL_GO", "F6_GO_VINE_B_DOMINATES_ARTICLE_NO_GO", "F6_GO_NO_ARTICLE_EDGE", "F6_KILL_VINE_B_VIABLE_NOT_NOVEL", "BOTH_FAIL", "INCOMPLETE", "RESOURCE_STOP"]
+  },
   "budget": {
     "forecast_factor": 1.5,
     "hardware": "one CUDA device at least 24GB class; peak <= measured total minus 1.5 GiB; same measured total at rehearsal and screen/resume",
@@ -101,14 +130,21 @@
   "execution_authorized": false,
   "frozen_before_outputs": true,
   "inventory": {
-    "rehearsal_marked_clean": 14,
-    "rehearsal_native": 192,
+    "rehearsal_marked_clean": 16,
+    "rehearsal_native": 216,
     "rehearsal_new_marks": 6,
     "rehearsal_unmarked_clean": 2,
-    "screen_marked_clean": 112,
-    "screen_native": 1536,
+    "screen_marked_clean": 128,
+    "screen_native": 1728,
     "screen_new_marks": 48,
-    "screen_secondary": 1024,
+    "screen_secondary": 1152,
+    "screen_threats": 1008,
+    "screen_detect": 7168,
+    "screen_quality": 4032,
+    "rehearsal_secondary": 144,
+    "rehearsal_threats": 126,
+    "rehearsal_detect": 896,
+    "rehearsal_quality": 504,
     "screen_unmarked_clean": 16
   },
   "native": {
@@ -210,7 +246,7 @@
   "source_manifest_sha256": "0271095638bdcf680d3ba0aac10c0be3468ef408450dd23164b643dea402f463",
   "study": "I01 F6 finite noisy-codec writer",
   "threats": {
-    "arms": "all seven marked arms plus unmarked shams",
+    "arms": "all eight marked arms plus unmarked shams",
     "assignment": {
       "algorithm": "greedy donor selection order from frozen donor list; nearest unused target; ties ascending numeric source_id",
       "distinctness": "human labels missing until supplied; no security conclusion from metadata alone",

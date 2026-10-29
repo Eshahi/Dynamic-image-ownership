@@ -14,12 +14,17 @@ from pathlib import Path
 import statistics
 
 import tifs_common as common
+import tifs_article_decision as article
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CONFIG = ROOT / "research/tifs-20261028/stage-s/frozen-config.json"
 RULES = ("A", "C", "Q", "J", "H", "D", "F", "D_and_F")
 CONDITIONS = ("patch128", "patch256", "patch128-sham", "patch256-sham", "residual0.5", "residual1.0", "unmodified")
-INTERNAL = ("f6-noise", "f6-codec", "f6-generic", "f5-r2", "v5-r3")
+INTERNAL = ("f6-noise", "f6-codec", "f6-generic", "f5-r2", "v5-r3", "vine-b")
+
+
+def read_modes(config, method):
+    return ("combined",) if method == "vine-b" else config["threats"]["read_modes"]
 
 
 def merge_journals(paths):
@@ -274,7 +279,7 @@ def analyze(config, manifest, prepared, producers, detections, qualities, *, res
     threats = []
     for method in INTERNAL:
         for condition in CONDITIONS:
-            for mode in config["threats"]["read_modes"]:
+            for mode in read_modes(config, method):
                 eligible, unknown_quality, values, delivery, joint, raw_values = 0, 0, [], [], [], []
                 source_status = []
                 for p in pairs:
@@ -378,7 +383,7 @@ def analyze(config, manifest, prepared, producers, detections, qualities, *, res
                     # Ablation values have zero selection weight, but every
                     # frozen read mode must still have usable observations.
                     usable = usable and all(outcome(uid,method,r,mode=mode) is not None
-                        for mode in config["threats"]["read_modes"] for r in ("C","F"))
+                        for mode in read_modes(config, method) for r in ("C","F"))
             else:
                 call = observed((row or {}).get("calls",{}).get(config["owners"]["positive"]))
                 usable = call and all(type(call.get(k,{}).get("present")) is bool for k in ("presence","wrong_message_presence"))
@@ -386,7 +391,24 @@ def analyze(config, manifest, prepared, producers, detections, qualities, *, res
                 evidence_issues.append(f"det:{method}:{uid}")
     inventory_complete = selection_ok and not tails and not evidence_issues and all(r["complete"] for r in inventory)
     label = verdict(gates, inventory_complete, resource_stop)
+    article_report = article.evaluate(config, native, clean, negatives, threats,
+        {arm: [metrics(f"clean:{sid}:{arm}") for sid in sources] for arm in (candidate, "vine-b")},
+        label, inventory_complete)
+    bound_delivery = []
+    for uid, arm in item_arms.items():
+        if arm not in ("vine-b", "unmarked"):
+            continue
+        row = detection(uid, "vine-b")
+        call = observed((row or {}).get("calls", {}).get(config["owners"]["positive"]))
+        raw = (call or {}).get("raw", {})
+        decoded = raw.get("carrier_decode", {})
+        bound_delivery.append(dict(item=uid, arm=arm, status="ok" if call else "missing",
+            semantic_codeword_status=decoded.get("status"), candidates=decoded.get("candidates"),
+            semantic_correction_distance=decoded.get("distance"),
+            evaluator_delivery=(call or {}).get("delivery"),
+            raw_h_role="conditional unmasked field; no error correction or independent presence test"))
     return dict(schema="tifs-stage-s-analysis-v1", verdict=label, gates=gates, inventory=inventory,
+                article=article_report, bound_carrier_delivery=bound_delivery,
                 inventory_complete=inventory_complete, prepared_selection_available=selection_ok,
                 incomplete_journal_tails=list(tails), resource_stop=bool(resource_stop), native=native, native_sources=native_sources, gains=gains,
                 unusable_evidence=evidence_issues,
@@ -395,20 +417,22 @@ def analyze(config, manifest, prepared, producers, detections, qualities, *, res
                 go_scope=d["go_scope"], source_units=len(sources),
                 threat_distinctness_labels=dict(Counter(p.get("distinctness","human_label_missing") for p in pairs)),
                 side_information=dict(internal="Public owner label; suspect-derived features; original q/h evaluator references only; unchanged F5 reader for F6.",
+                    vine_b="Suspect plus claimed owner and same public-derived profile key, CPU seven-view CLIP, VINE decoder; no original or registry. Public tag is redundancy, not authentication. Raw h field is conditional on semantic read.",
                     external="Known per-source public deterministic payload; wrong-message presence is distinct from a wrong owner.",
                     threats="Donor q/h evaluator reference; whole recipient protected; published patch and known-clean residual access reported separately.",
                     quality="Original donor or recipient reference; not supplied to operational detector."),
                 limitations=["Fixed development cohort; no held-out or population security conclusion.",
                     "Human operational-distinctness labels remain missing unless separately supplied; no binding generalization conclusion.",
                     "Zero events do not establish rare-event security; sources, not calls, are independent units.",
-                    "Eight distortions and external baselines carry zero scientific selection weight."],
+                    "Eight distortions and unbound WAM/VINE-R have zero selection weight; VINE-B affects only the separate article screen."],
                 zero_event_source_upper_95=1-math.pow(.05, 1/len(sources)))
 
 
 def write_report(report, destination):
     destination = Path(destination)
     common.atomic_json(destination/"analysis.json", report)
-    for name in ("gates", "inventory", "native", "native_sources", "gains", "clean", "paired_medians", "negatives", "threats", "secondary", "external_baselines"):
+    common.atomic_json(destination/"article-decision.json", report["article"])
+    for name in ("gates", "inventory", "native", "native_sources", "gains", "clean", "paired_medians", "negatives", "threats", "secondary", "external_baselines", "bound_carrier_delivery"):
         rows = report[name]
         if not rows:
             continue

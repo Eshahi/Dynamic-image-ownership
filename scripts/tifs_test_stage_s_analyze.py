@@ -44,7 +44,7 @@ def fixture():
                 uid_det = f"det:{method}:{uid}"
                 if method in analysis.INTERNAL:
                     calls = {config["owners"]["positive"]:call(positive),config["owners"]["wrong"]:call(False)}
-                    modes = {mode:call(False) for mode in config["threats"]["read_modes"]} if stage=="threats" else {}
+                    modes = {mode:call(False) for mode in analysis.read_modes(config,method)} if stage=="threats" else {}
                 else:
                     calls = {config["owners"]["positive"]:dict(status="ok",presence=dict(present=positive),wrong_message_presence=dict(present=False))}
                     modes = {}
@@ -65,7 +65,7 @@ class AnalysisTests(unittest.TestCase):
         self.assertEqual(r["verdict"],"GO")
         self.assertTrue(r["inventory_complete"])
         self.assertEqual({x["stage"]:x["expected"] for x in r["inventory"]},
-                         dict(clean=128,native=1536,secondary=1024,threats=896,detect=6272,quality=3584))
+                         dict(clean=144,native=1728,secondary=1152,threats=1008,detect=7168,quality=4032))
         self.assertTrue(all(x["status"]=="pass" for x in r["gates"]))
         self.assertAlmostEqual(r["zero_event_source_upper_95"],.1707497229824809)
         with tempfile.TemporaryDirectory() as tmp:
