@@ -1,6 +1,7 @@
 {
   "arms": [
     "f6-noise",
+    "f6-x0",
     "f6-codec",
     "f6-generic",
     "f5-r2",
@@ -19,7 +20,9 @@
     "key": "same retained public-derived profile key; check redundancy, NOT cryptographic authentication",
     "target": "original seven-view F5 q and original h; frozen before single retained VINE embed; no post-output h replacement",
     "binding": "unchanged F5 soft semantic status, h Hamming status and decision table; changed carrier statistics disclosed",
-    "read_modes": ["combined"],
+    "read_modes": [
+      "combined"
+    ],
     "wam_b": "omitted: 32-bit native message cannot hold q32 plus h32 and owner check without changing the task"
   },
   "article_decision": {
@@ -36,7 +39,15 @@
     "requirements": "unchanged F6 thesis GO; both C/J net loss <=1 in every cell; paired quality noninferiority; complete inventory",
     "novelty_status": "narrow F6 construction not found in seven inspected methods; ForenMark full-text pending; generic bound-carrier novelty preempted",
     "inferential_status": "fixed development screen, not statistical noninferiority or confirmation",
-    "verdicts": ["F6_GO_ARTICLE_CONDITIONAL_GO", "F6_GO_VINE_B_DOMINATES_ARTICLE_NO_GO", "F6_GO_NO_ARTICLE_EDGE", "F6_KILL_VINE_B_VIABLE_NOT_NOVEL", "BOTH_FAIL", "INCOMPLETE", "RESOURCE_STOP"]
+    "verdicts": [
+      "F6_GO_ARTICLE_CONDITIONAL_GO",
+      "F6_GO_VINE_B_DOMINATES_ARTICLE_NO_GO",
+      "F6_GO_NO_ARTICLE_EDGE",
+      "F6_KILL_VINE_B_VIABLE_NOT_NOVEL",
+      "BOTH_FAIL",
+      "INCOMPLETE",
+      "RESOURCE_STOP"
+    ]
   },
   "budget": {
     "forecast_factor": 1.5,
@@ -130,22 +141,22 @@
   "execution_authorized": false,
   "frozen_before_outputs": true,
   "inventory": {
-    "rehearsal_marked_clean": 16,
-    "rehearsal_native": 216,
-    "rehearsal_new_marks": 6,
+    "screen_marked_clean": 144,
+    "screen_unmarked_clean": 16,
+    "screen_native": 1920,
+    "screen_new_marks": 64,
+    "screen_secondary": 1280,
+    "screen_threats": 1120,
+    "screen_detect": 8064,
+    "screen_quality": 4480,
+    "rehearsal_marked_clean": 18,
     "rehearsal_unmarked_clean": 2,
-    "screen_marked_clean": 128,
-    "screen_native": 1728,
-    "screen_new_marks": 48,
-    "screen_secondary": 1152,
-    "screen_threats": 1008,
-    "screen_detect": 7168,
-    "screen_quality": 4032,
-    "rehearsal_secondary": 144,
-    "rehearsal_threats": 126,
-    "rehearsal_detect": 896,
-    "rehearsal_quality": 504,
-    "screen_unmarked_clean": 16
+    "rehearsal_native": 240,
+    "rehearsal_new_marks": 8,
+    "rehearsal_secondary": 160,
+    "rehearsal_threats": 140,
+    "rehearsal_detect": 1008,
+    "rehearsal_quality": 560
   },
   "native": {
     "blocked": "terminal missing; no prompt or seed replacement",
@@ -244,9 +255,9 @@
   ],
   "source_manifest": "research/tifs-20261028/stage-s/source-manifest.json",
   "source_manifest_sha256": "0271095638bdcf680d3ba0aac10c0be3468ef408450dd23164b643dea402f463",
-  "study": "I01 F6 finite noisy-codec writer",
+  "study": "I01 F6 finite surrogate writers; Round 3 x0 alternative, round1 effective gates",
   "threats": {
-    "arms": "all eight marked arms plus unmarked shams",
+    "arms": "all declared marked arms plus unmarked shams",
     "assignment": {
       "algorithm": "greedy donor selection order from frozen donor list; nearest unused target; ties ascending numeric source_id",
       "distinctness": "human labels missing until supplied; no security conclusion from metadata alone",
@@ -382,6 +393,25 @@
     "semantic_views": 7,
     "steps": 150,
     "target_margin": 4,
-    "whitening": 1
-  }
+    "whitening": 1,
+    "x0": {
+      "families": [
+        "R0",
+        "R1"
+      ],
+      "timestep": "deterministic uniform index in native img2img DDIM window per source/cell/update",
+      "denoiser": "native frozen epsilon UNet; exact native guidance and conditioning",
+      "unet_dtype": "float16; autocast disabled; x0 arithmetic float32",
+      "gradient_checkpointing": "frozen eval UNet and VAEs only inside writer gradient scopes",
+      "native_first_step_parity": "required for both rehearsal donors and each optimized cell; same captured noisy latent, independently rebuilt conditioning",
+      "k_step": "not included; single x0 estimate is not a full denoising attack"
+    }
+  },
+  "available_writer_variants": [
+    "f6-noise",
+    "f6-x0",
+    "f6-codec",
+    "f6-generic",
+    "f5-budget"
+  ]
 }

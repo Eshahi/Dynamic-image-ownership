@@ -179,6 +179,11 @@ def forecast(out, config, instance_start, now):
     for row in groups["native"].values():
         if stage.c0(row["arm"]) and row.get("native_parity",{}).get("exact_rgb8") is not True:
             raise ValueError("Missing exact native capture/replay parity")
+        if (stage.c0(row["arm"]) and row["family"] in ("R0", "R1")
+                and row["seed"] == config["seeds"][0]):
+            parity = row.get("x0_native_first_step_parity", {})
+            if parity.get("status") != "ok" or parity.get("exact_conditioning") is not True:
+                raise ValueError("Missing x0 native first-step conditioning/epsilon parity")
     producers=[r for rows in groups.values() for r in rows.values()]
     for method in (a for a in config["arms"] if not stage.c0(a)):
         name="detect-"+method

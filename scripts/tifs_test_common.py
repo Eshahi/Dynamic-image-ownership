@@ -149,9 +149,9 @@ class CommonTests(unittest.TestCase):
         self.assertEqual(sha256_file(ROOT / manifest["source_file"]), manifest["source_file_sha256"])
         self.assertEqual(sha256_file(TD / "source-manifest.json"), config["source_manifest_sha256"])
         ids = [r["source_id"] for r in manifest["screen_donors"]]
-        self.assertEqual(len(set(planned_output_ids(config, ids))), 1728)
-        self.assertEqual(len(clean_ids(config, ids)), 144)
-        self.assertEqual(len(secondary_ids(config, ids)), 1152)
+        self.assertEqual(len(set(planned_output_ids(config, ids))), config["inventory"]["screen_native"])
+        self.assertEqual(len(clean_ids(config, ids)), config["inventory"]["screen_marked_clean"] + config["inventory"]["screen_unmarked_clean"])
+        self.assertEqual(len(secondary_ids(config, ids)), config["inventory"]["screen_secondary"])
         self.assertIn(f"native:R0-0.2:{ids[0]}:0:f6-noise", planned_output_ids(config, ids))
         bad = copy.deepcopy(manifest)
         bad["screen_targets"][0] = bad["screen_donors"][0]

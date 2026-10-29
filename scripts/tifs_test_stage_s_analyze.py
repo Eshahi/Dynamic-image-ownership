@@ -81,7 +81,7 @@ class AnalysisTests(unittest.TestCase):
         self.assertEqual(r["verdict"],"GO")
         self.assertTrue(r["inventory_complete"])
         self.assertEqual({x["stage"]:x["expected"] for x in r["inventory"]},
-                         dict(clean=144,native=1728,secondary=1152,threats=1008,detect=7168,quality=4032))
+                         dict(clean=160,native=1920,secondary=1280,threats=1120,detect=8064,quality=4480))
         self.assertTrue(all(x["status"]=="pass" for x in r["gates"]))
         self.assertAlmostEqual(r["zero_event_source_upper_95"],.1707497229824809)
         with tempfile.TemporaryDirectory() as tmp:

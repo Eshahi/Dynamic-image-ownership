@@ -22,7 +22,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import tifs_common as common
 
 C0 = "unmarked"
-NEW = ("f6-noise", "f6-codec", "f6-generic")
+NEW = ("f6-noise", "f6-x0", "f6-codec", "f6-generic", "f5-budget")
 TRANSFORMS = ("jpeg90", "jpeg50", "resize384", "crop90", "noise002", "blur1", "brightness12", "contrast12")
 
 
@@ -230,7 +230,7 @@ def start(args):
     import et_final_pilot as pilot
     base, specs = pilot.channel_specs()
     identity = common.runtime_identity(args.config, manifest_path(config),
-        [ROOT / "scripts" / f for f in ("tifs_common.py", "tifs_stage_s.py", "tifs_stage_s_read.py", "tifs_writer.py", "tifs_vine_b.py", "tifs_article_decision.py", "tifs_stage_s_forecast.py", "tifs_stage_s_driver.sh", "tifs_stage_s_analyze.py",
+        [ROOT / "scripts" / f for f in ("tifs_common.py", "tifs_stage_s.py", "tifs_stage_s_read.py", "tifs_writer.py", "tifs_denoiser.py", "tifs_vine_b.py", "tifs_article_decision.py", "tifs_stage_s_forecast.py", "tifs_stage_s_driver.sh", "tifs_stage_s_analyze.py",
          "encoder_transfer_runtime.py", "encoder_transfer_test.py", "et_final_pilot.py", "et_final_phase_a.py", "et_final_phase_a_attacks.py",
          "f5_latent_codec.py", "revised_watermark_v5.py", "f5_gate.py", "three_threat_models.py", "journal_vae_probe.py", "a6_clip_visual.py", "m1_latent_reconstruction.py", "journal_wam_probe.py")]
          + [ROOT / "research/encoder-transfer-20261019/stage2b-config.json"],
@@ -467,7 +467,14 @@ def native(args, config, base, specs, budget, rt, torch):
                                     tape = pilot.Tape()
                                     if arm == unmarked:
                                         try:
-                                            generated = pa.run_native(family, regen, rgb, cell["strength"], seed, tape.record())
+                                            if args.rehearsal and family in ("R0", "R1") and seed == config["seeds"][0]:
+                                                from tifs_denoiser import native_first_step_parity
+                                                generated, parity = native_first_step_parity(
+                                                    regen.pipe, family, specs[family],
+                                                    lambda: pa.run_native(family, regen, rgb, cell["strength"], seed, tape.record()))
+                                                row["x0_native_first_step_parity"] = parity
+                                            else:
+                                                generated = pa.run_native(family, regen, rgb, cell["strength"], seed, tape.record())
                                         finally:
                                             if tape.draws:
                                                 tp = args.out / "tapes" / (hashlib.sha256(controlid.encode()).hexdigest()+".pt")

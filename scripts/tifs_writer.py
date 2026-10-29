@@ -14,10 +14,10 @@ import math
 from pathlib import Path
 import sys
 import time
-from types import SimpleNamespace
 
 
-VARIANTS = ("f6-noise", "f6-codec", "f6-generic")
+VARIANTS = ("f6-noise", "f6-codec", "f6-generic", "f6-x0", "f5-budget")
+ROBUST_PSNR_CHOICES = (52.0, 46.0, 42.0, 38.0)
 CYCLE = (("R0", .2), ("R1", .1), ("R1", .2))
 EXPECTED_F5 = dict(psnr_db=52.0, steps=150, target_margin=4.0,
                    mask_power=0.0, band=[4, 32], whitening=1.0,
@@ -52,6 +52,7 @@ def writer_gradient_scope(function):
         if getattr(self, "_checkpoint_vaes", None) is not None:
             raise RuntimeError("Nested writer gradient scope")
         vaes = self._checkpoint_vaes = []
+        unets = self._checkpoint_unets = []
         try:
             self._checkpoint_vae(self.reader.vae)
             if self.sdxl is not None:
@@ -61,7 +62,10 @@ def writer_gradient_scope(function):
             # Local references survive close() clearing self.reader/self.sdxl.
             for vae in vaes:
                 vae.disable_gradient_checkpointing()
+            for unet in unets:
+                unet.disable_gradient_checkpointing()
             self._checkpoint_vaes = None
+            self._checkpoint_unets = None
     return scoped
 
 
@@ -71,8 +75,17 @@ def validate_writer_config(base_config, frozen_config):
         raise ValueError("F6 requires the exact retained F5-r2 configuration")
     writer = frozen_config.get("writer", {})
     for name, value in EXPECTED_WRITER.items():
+        if name == "psnr_db":
+            if writer.get(name) not in ROBUST_PSNR_CHOICES:
+                raise ValueError("Unregistered robust PSNR budget")
+            continue
         if writer.get(name) != value:
             raise ValueError("F6 frozen writer mismatch: " + name)
+    # These native parameters are inherited, not tunable writer shortcuts.
+    channels = {row["id"]: row for row in base_config["channels"]}
+    for family in ("R0", "R1"):
+        if channels[family]["prompt"] != "" or channels[family]["guidance_scale"] != 1.0:
+            raise ValueError("Native prompt/guidance changed outside the frozen contract")
 
 
 def draw_seed(source_id, variant, step, stream="optimization"):
@@ -89,7 +102,7 @@ class F6Writer:
 
     assets is the retained stage-2 asset root (containing a6/ and sdxl/).
     base_config is unchanged stage2b-config.json. frozen_config is retained in
-    reports; only the fixed algorithm below is implemented, with no tuning API.
+    reports; robust PSNR is one of the preregistered Stage-P values only.
     internal, when provided, must have reader, profile and features(rgb,views).
     close() offloads the shared reader too: finish using the writer before K3.
     """
@@ -116,6 +129,8 @@ class F6Writer:
         self.owner_id = ALPHA
         self.internal = internal
         self.reader = self.clip = self.sdxl = None
+        self._denoisers = {}
+        self._denoiser_gradient_checks = []
         self._closed = False
         self._owns_reader = internal is None
         self._schedule = {}
@@ -147,6 +162,8 @@ class F6Writer:
                 raise ValueError("Retained SDXL VAE must have force_upcast=True")
             self.resize_up, self.resize_down = pilot.Resize(512, 1024, torch), pilot.Resize(1024, 512, torch)
             specs = {row["id"]: row for row in base_config["channels"]}
+            self._specs = specs
+            from tifs_denoiser import native_window
             for family, strength in CYCLE:
                 spec = specs[family]
                 if spec["steps"] != 20:
@@ -154,16 +171,12 @@ class F6Writer:
                 folder = self.assets / ("a6/sd15-fp16" if family == "R0" else "sdxl")
                 sched = DDIMScheduler.from_pretrained(folder, subfolder="scheduler", local_files_only=True,
                                                        **spec["scheduler_overrides"])
-                sched.set_timesteps(20, device="cpu")
-                # Invoke native get_timesteps without constructing/loading a pipeline.
                 cls = StableDiffusionImg2ImgPipeline if family == "R0" else StableDiffusionXLImg2ImgPipeline
-                timesteps, executed = cls.get_timesteps(SimpleNamespace(scheduler=sched), 20, strength, "cpu")
-                if len(timesteps) != executed or not len(timesteps):
-                    raise ValueError("Unexpected native DDIM first timestep")
-                first = int(timesteps[0])
-                alpha = float(sched.alphas_cumprod[first])
+                window = native_window(sched, cls, spec["steps"], strength)
+                first, alpha = window[0]["timestep"], window[0]["alpha_bar"]
                 self._schedule[(family, strength)] = dict(family=family, strength=strength,
-                    timestep=first, timesteps=[int(t) for t in timesteps], executed_steps=executed,
+                    timestep=first, timesteps=[r["timestep"] for r in window], executed_steps=len(window),
+                    window=window,
                     alpha_bar=alpha, a=math.sqrt(alpha), b=math.sqrt(1 - alpha),
                     scaling_factor=float(self.reader.vae.config.scaling_factor if family == "R0" else self._sdxl_config["scaling_factor"]))
             if abs(float(self.reader.vae.config.scaling_factor) - f5.SCALE) > 1e-12:
@@ -187,6 +200,42 @@ class F6Writer:
             # Register before enabling, so even a partial failure is cleaned up.
             self._checkpoint_vaes.append(vae)
             enable_writer_checkpointing(vae)
+
+    def _checkpoint_unet(self, unet):
+        from tifs_denoiser import enable_unet_checkpointing
+        if self._checkpoint_unets is None:
+            raise RuntimeError("UNet checkpointing outside writer gradient scope")
+        if not any(item is unet for item in self._checkpoint_unets):
+            self._checkpoint_unets.append(unet)
+            enable_unet_checkpointing(unet)
+
+    def _denoise_x0(self, noisy, family, vae, row, *, check_gradient=False):
+        from tifs_denoiser import load_native_denoiser, predict_epsilon, x0_from_epsilon
+        t = self.torch
+        if family not in self._denoisers:
+            self._denoisers[family] = load_native_denoiser(
+                self.assets, family, self._specs[family], vae, t)
+        model = self._denoisers[family]
+        model.unet.to(device=noisy.device, dtype=t.float16)
+        self._checkpoint_unet(model.unet)
+        with t.autocast(device_type="cuda", enabled=False):
+            epsilon = predict_epsilon(model.unet, model.scheduler, noisy,
+                row["timestep"], model.conditioning, t)
+            self._finite(epsilon, "UNet epsilon")
+            if check_gradient:
+                # The x0 identity term alone could mask an accidentally detached
+                # UNet. Probe epsilon -> noisy separately during rehearsal only.
+                probe, = t.autograd.grad(epsilon.float().square().mean(), noisy, retain_graph=True)
+                self._finite(probe, "UNet epsilon input gradient")
+                norm = float(probe.norm())
+                if not norm > 0:
+                    raise ValueError("Zero denoiser epsilon input gradient")
+                self._denoiser_gradient_checks.append(dict(family=family,
+                    timestep=row["timestep"], epsilon_input_gradient_norm=norm))
+                del probe
+            # The explicit fp16 input cast is differentiable; x0 arithmetic and
+            # decode remain fp32. Do not detach the denoiser's input or output.
+            return self._finite(x0_from_epsilon(noisy, epsilon.float(), row["alpha_bar"]), "x0")
 
     def _finite(self, value, label):
         if not bool(self.torch.isfinite(value).all()):
@@ -214,6 +263,9 @@ class F6Writer:
     def _codec(self, image, family, strength, variant, source_id, step, stream):
         t = self.torch
         row = self._schedule[(family, strength)]
+        if variant == "f6-x0":
+            from tifs_denoiser import sample_window
+            row = dict(row, **sample_window(row["window"], source_id, family, strength, step, stream))
         if family == "R1":
             if self.sdxl is None:
                 self.sdxl = self._AutoencoderKL.from_pretrained(self.assets / "sdxl/vae", variant="fp16",
@@ -230,12 +282,14 @@ class F6Writer:
             encoded_input = encoded_input.to(t.float16).to(t.float32)
         z = vae.encode(encoded_input).latent_dist.mode() * row["scaling_factor"]
         self._finite(z, "codec posterior mode")
-        if variant == "f6-noise":
+        if variant in ("f6-noise", "f6-x0"):
             epsilon = self._random(z.shape, source_id, variant, step, stream, z.device)
             z = row["a"] * z + row["b"] * epsilon
+            if variant == "f6-x0":
+                z = self._denoise_x0(z, family, vae, row, check_gradient=stream == "diagnostic")
         elif variant != "f6-codec":
             raise ValueError(variant)
-        # No division by a, latent normalization, denoiser, or RGB8 rounding.
+        # x0 uses one native epsilon prediction; other codec arms keep R1 behavior.
         decoded = vae.decode(z / row["scaling_factor"], return_dict=False)[0]
         self._finite(decoded, "codec decoded output")
         out = (decoded / 2 + .5).clamp(0, 1)
@@ -259,17 +313,43 @@ class F6Writer:
     def _offload_codec(self):
         if self.sdxl is not None:
             self.sdxl.to("cpu")
+        for model in getattr(self, "_denoisers", {}).values():
+            model.unet.to("cpu")
+
+    def _surrogate(self, image, family, strength, variant, source_id, step, stream):
+        if variant == "f6-generic":
+            return self._generic(image, source_id, step, stream)
+        if variant in ("f6-codec", "f6-noise", "f6-x0"):
+            return self._codec(image, family, strength, variant, source_id, step, stream)
+        raise ValueError("Surrogate disabled or unknown variant: " + variant)
 
     def _schedule_receipt(self, variant):
-        return [dict(row, applied_a=row["a"] if variant == "f6-noise" else 1.0,
-                     applied_b=row["b"] if variant == "f6-noise" else 0.0,
-                     codec_used=variant != "f6-generic") for row in self._schedule.values()]
+        return [dict(row, applied_a="sampled window" if variant == "f6-x0" else row["a"] if variant == "f6-noise" else 1.0,
+                     applied_b="sampled window" if variant == "f6-x0" else row["b"] if variant == "f6-noise" else 0.0,
+                     codec_used=variant not in ("f6-generic", "f5-budget"), denoiser=variant == "f6-x0")
+                for row in self._schedule.values()]
+
+    def _x0_draw_receipt(self, source_id, stream="optimization"):
+        from tifs_denoiser import sample_window
+        rows = []
+        for step in range(150):
+            family, strength = CYCLE[step % len(CYCLE)]
+            selected = sample_window(self._schedule[(family, strength)]["window"],
+                                     source_id, family, strength, step, stream)
+            rows.append(dict(step=step, family=family, strength=strength, **selected,
+                             noise_seed=draw_seed(source_id, "f6-x0", step, stream)))
+        return rows
 
     @writer_gradient_scope
     def _optimize(self, rgb01, w, source_id, variant, *, refine=False):
+        steps, psnr = ((50, 58.0) if refine else
+                       (150, float(self.frozen_config["writer"]["psnr_db"])))
+        if variant == "f5-budget":
+            # Exact retained implementation, including update/projection order.
+            # At 52 dB both stages are identical calls to F5-r2 robust_pgd.
+            return self.f5.robust_pgd(self.reader, rgb01, self.layout, w, psnr, steps, 4.0, 0.0)
         t = self.torch
         x = self.reader.tensor(rgb01)
-        steps, psnr = (50, 58.0) if refine else (150, 52.0)
         budget = 10 ** (-psnr / 20) * math.sqrt(rgb01.size)
         eta = t.zeros_like(x, requires_grad=True)
         for step in range(steps):
@@ -281,14 +361,13 @@ class F6Writer:
             if not refine:
                 family, strength = CYCLE[step % 3]
                 image = (x + eta).clamp(0, 1)
-                surrogate = (self._generic(image, source_id, step, "optimization") if variant == "f6-generic" else
-                             self._codec(image, family, strength, variant, source_id, step, "optimization"))
+                surrogate = self._surrogate(image, family, strength, variant, source_id, step, "optimization")
                 surrogate_loss = self._loss(surrogate, w)
                 added, = t.autograd.grad(surrogate_loss, eta)
                 gradient = gradient + added
                 del surrogate_loss, surrogate, image, added
                 # No graph remains when offloading the inactive VAE.
-                if variant != "f6-generic" and family == "R1":
+                if variant == "f6-x0" or (variant != "f6-generic" and family == "R1"):
                     self._offload_codec()
             self._finite(gradient, "input gradient")
             with t.no_grad():
@@ -332,7 +411,7 @@ class F6Writer:
             features = self.features(source, 7)
             luma = f5.v5.luminance_from_rgb(source.tolist())
             q, ws = f5._semantic_pattern(self.checked, self.key, self.config, self.owner, features, luma)
-            w = t.as_tensor(n.asarray(ws, n.float32), device="cuda")
+            w = ws if variant == "f5-budget" else t.as_tensor(n.asarray(ws, n.float32), device="cuda")
             robust = self._optimize(source.astype(n.float64) / 255, w, source_id, variant)
             current = n.clip(n.rint(robust * 255), 0, 255)
             current, _, _ = self._fragile(current, q)
@@ -352,15 +431,25 @@ class F6Writer:
                 source_id=str(source_id), semantic_code=payload["q"], intended_h=payload["intended_h"],
                 payload=payload, verification=verification, verified=verification["outcome"] == "both_match",
                 instance_channel=fragile_report, seconds=time.monotonic() - tick,
-                reader_gradient_evaluations=350, codec_gradient_evaluations=0 if variant == "f6-generic" else 150,
-                surrogate_gradient_evaluations=150, robust_updates=150, clean_refinement_updates=50,
-                fragile_writes=2, initial_psnr_budget_db=52.0, refinement_psnr_budget_db=58.0,
+                reader_gradient_evaluations=200 if variant == "f5-budget" else 350,
+                codec_gradient_evaluations=0 if variant in ("f6-generic", "f5-budget") else 150,
+                surrogate_gradient_evaluations=0 if variant == "f5-budget" else 150,
+                unet_gradient_evaluations=150 if variant == "f6-x0" else 0,
+                robust_updates=150, clean_refinement_updates=50,
+                fragile_writes=2, initial_psnr_budget_db=self.frozen_config["writer"]["psnr_db"], refinement_psnr_budget_db=58.0,
                 target_margin=4.0, mask_power=0.0, reader_dispatch="f5-r2", binding="soft", semantic_views=7,
-                schedule=self._schedule_receipt(variant), posterior="mode", denoiser=False,
+                schedule=self._schedule_receipt(variant), posterior="mode", denoiser=variant == "f6-x0",
+                sampled_windows=self._x0_draw_receipt(source_id) if variant == "f6-x0" else None,
+                denoiser_precision="frozen eval fp16; explicit cast; autocast disabled; x0 fp32" if variant == "f6-x0" else None,
+                denoiser_attention="retained ClassicAttention" if variant == "f6-x0" else None,
+                conditioning={f: dict(prompt=self._specs[f]["prompt"], negative_prompt="", guidance_scale=self._specs[f]["guidance_scale"],
+                    prompt_2="" if f == "R1" else None, original_size=[1024,1024] if f == "R1" else None,
+                    target_size=[1024,1024] if f == "R1" else None, crops_coords_top_left=[0,0] if f == "R1" else None)
+                    for f in ("R0", "R1")} if variant == "f6-x0" else None,
                 preprocessing="differentiable Lanczos float approximation; R1 normalized RGB cast fp16 then fp32",
                 quantization="RGB8 only after robust, fragile, refinement, final fragile",
                 random_seed_domain="f6-stage-s-v1; optimization distinct from diagnostic",
-                gradient_checkpointing="writer VAEs only; diffusers non-reentrant; disabled before native verification",
+                gradient_checkpointing="writer VAE/UNet gradient scopes; diffusers non-reentrant; disabled before native verification",
                 frozen_config=self.frozen_config)
             return output, payload, report
         except BaseException:
@@ -371,7 +460,7 @@ class F6Writer:
             self._offload_codec()
 
     @writer_gradient_scope
-    def validate_rehearsal(self, rgb, source_id):
+    def validate_rehearsal(self, rgb, source_id, variants=None):
         """SERVER ONLY: graph/parity/finite checks, with no scientific selection.
 
         Run once on each prespecified rehearsal source before full embedding.
@@ -385,6 +474,7 @@ class F6Writer:
         if source.dtype != n.uint8 or source.shape != (512, 512, 3):
             raise ValueError("Rehearsal requires RGB8 512x512")
         try:
+            self._denoiser_gradient_checks = []
             features = self.features(source, 7)
             q, ws = self.f5._semantic_pattern(self.checked, self.key, self.config, self.owner, features,
                                              self.f5.v5.luminance_from_rgb(source.tolist()))
@@ -404,10 +494,14 @@ class F6Writer:
             del loss, grad
             if not clean_norm > 0:
                 raise ValueError("Zero clean input gradient")
-            for variant in VARIANTS:
+            selected = tuple(variants) if variants is not None else VARIANTS
+            if any(v not in VARIANTS for v in selected):
+                raise ValueError("Unknown rehearsal variant")
+            for variant in selected:
+                if variant == "f5-budget":
+                    continue  # same clean objective, checked above; exact dispatch tested locally
                 for step, (family, strength) in enumerate(CYCLE):
-                    surrogate = (self._generic(x, source_id, step, "diagnostic") if variant == "f6-generic" else
-                                 self._codec(x, family, strength, variant, source_id, step, "diagnostic"))
+                    surrogate = self._surrogate(x, family, strength, variant, source_id, step, "diagnostic")
                     loss = self._loss(surrogate, w)
                     grad, = t.autograd.grad(loss, x)
                     self._finite(grad, "rehearsal surrogate gradient")
@@ -420,14 +514,17 @@ class F6Writer:
                         generic_operation=step if variant == "f6-generic" else None,
                         loss=value, input_gradient_norm=norm,
                         diagnostic_seed=draw_seed(source_id, variant, step, "diagnostic")))
-            if any(p.grad is not None or p.requires_grad for vae in (self.reader.vae, self.sdxl)
-                   if vae is not None for p in vae.parameters()):
-                raise ValueError("Frozen VAE unexpectedly accumulates parameter gradients")
+            models = [self.reader.vae, self.sdxl] + [m.unet for m in self._denoisers.values()]
+            if any(p.grad is not None or p.requires_grad for model in models
+                   if model is not None for p in model.parameters()):
+                raise ValueError("Frozen model unexpectedly accumulates parameter gradients")
             return dict(status="ok", source_id=str(source_id), q=f"{q:08x}",
                 clean_input_gradient_norm=clean_norm, projection_max_abs_error=error,
                 schedule=list(self._schedule.values()), gradient_checks=rows,
-                gradient_checkpointing="writer encoder/decoder eval; non-reentrant; scope cleared on return",
-                note="No native-noise/primal equality is claimed; mode and float resize are intentional approximations")
+                denoiser_gradient_checks=list(self._denoiser_gradient_checks),
+                gradient_checkpointing="writer VAE/UNet eval; non-reentrant; scope cleared on return",
+                native_first_step_parity_required="R0/R1 via tifs_denoiser.native_first_step_parity in native rehearsal",
+                note="Mode and float resize remain intentional approximations; x0 first-step parity is checked separately")
         except BaseException:
             self.close()
             raise
@@ -438,6 +535,13 @@ class F6Writer:
         """Best-effort release, preserving any original OOM; returns cleanup errors."""
         errors = []
         self._closed = True
+        for family, model in getattr(self, "_denoisers", {}).items():
+            try:
+                model.attention_scope.__exit__(None, None, None)
+                model.unet.to("cpu")
+            except Exception as exc:
+                errors.append(family + " UNet offload: " + str(exc))
+        self._denoisers = {}
         if getattr(self, "sdxl", None) is not None:
             try:
                 self.sdxl.to("cpu")

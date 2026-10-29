@@ -38,9 +38,7 @@ run_inventory() {
     invoke "$out/$action.log" "$PY" scripts/tifs_stage_s.py --stage "$action" "${opts[@]}"
   done
   invoke "$out/manifest.log" "$PY" scripts/tifs_stage_s.py --stage manifest "${opts[@]}"
-  for method in f6-noise f6-codec f6-generic f5-r2 v5-r3 wam vine-r vine-b; do
-    invoke "$out/detect-$method.log" "$PY" scripts/tifs_stage_s_read.py --stage detect --method "$method" "${opts[@]}"
-  done
+  invoke "$out/detect.log" "$PY" scripts/tifs_stage_s_read.py --stage detect "${opts[@]}"
   invoke "$out/quality.log" "$PY" scripts/tifs_stage_s_read.py --stage quality "${opts[@]}"
 }
 # Every invocation revalidates rehearsal and the time remaining on the ACTUAL instance

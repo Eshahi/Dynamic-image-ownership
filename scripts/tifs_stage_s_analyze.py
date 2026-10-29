@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CONFIG = ROOT / "research/tifs-20261028/stage-s/frozen-config.json"
 RULES = ("A", "C", "Q", "J", "H", "D", "F", "D_and_F")
 CONDITIONS = ("patch128", "patch256", "patch128-sham", "patch256-sham", "residual0.5", "residual1.0", "unmodified")
-INTERNAL = ("f6-noise", "f6-codec", "f6-generic", "f5-r2", "v5-r3", "vine-b")
+INTERNAL = ("f6-noise", "f6-x0", "f6-codec", "f6-generic", "f5-budget", "f5-r2", "v5-r3", "vine-b")
 
 
 def read_modes(config, method):
@@ -257,7 +257,7 @@ def analyze(config, manifest, prepared, producers, detections, qualities, *, res
         return q if _valid_metrics(q) else None
     native, native_sources = [], []
     native_index = {}
-    for arm in INTERNAL:
+    for arm in (a for a in INTERNAL if a in config["arms"]):
         for cell in config["cells"]:
             for rule in RULES:
                 values = [[outcome(f"native:{cell['id']}:{s}:{seed}:{arm}", arm, rule) for seed in config["seeds"]] for s in sources]
@@ -289,7 +289,7 @@ def analyze(config, manifest, prepared, producers, detections, qualities, *, res
         gains.append(dict(rule=rule, cell=cell, candidate=candidate, comparator="f5-r2", lower=lower, upper=upper, denominator=len(sources)))
         gates.append(minimum_gate(f"{rule}:{cell}:retained", lower, upper, -d["max_retained_loss"]))
     clean = []
-    for arm in INTERNAL:
+    for arm in (a for a in INTERNAL if a in config["arms"]):
         f = count_bounds(outcome(f"clean:{s}:{arm}", arm, "F") for s in sources)
         qvals = [metrics(f"clean:{s}:{arm}") for s in sources]
         q = count_bounds(common.strict_quality(v) if v is not None else None for v in qvals)
@@ -318,7 +318,7 @@ def analyze(config, manifest, prepared, producers, detections, qualities, *, res
     # C0/wrong-owner checks cover the whole declared inventory. Secondary
     # outcomes are descriptive and never change the scientific decision.
     primary_uids = expected["clean"] + expected["native"] + expected["threats"]
-    for method in INTERNAL:
+    for method in (a for a in INTERNAL if a in config["arms"]):
         for kind, arm, owner in (("C0", "unmarked", config["owners"]["positive"]),
                                  ("wrong_owner", method, config["owners"]["wrong"])):
             ids = [uid for uid in primary_uids if item_arms[uid] == arm]
@@ -333,7 +333,7 @@ def analyze(config, manifest, prepared, producers, detections, qualities, *, res
                 if method == candidate:
                     gates.append(dict(name=f"negative:{kind}:{rule}", status="fail" if counts["lower"] else "unknown" if counts["missing"] else "pass"))
     threats = []
-    for method in INTERNAL:
+    for method in (a for a in INTERNAL if a in config["arms"]):
         for condition in CONDITIONS:
             for mode in read_modes(config, method):
                 eligible, unknown_quality, values, delivery, joint, raw_values = 0, 0, [], [], [], []
@@ -369,7 +369,7 @@ def analyze(config, manifest, prepared, producers, detections, qualities, *, res
                                       "unknown" if unknown_quality or counts["missing"] or len(pairs)!=len(sources) else "pass"))
     # Every standard distortion and external comparator remains descriptive.
     secondary = []
-    for arm in INTERNAL:
+    for arm in (a for a in INTERNAL if a in config["arms"]):
         for t in config["secondary"]["transforms"]:
             for rule in RULES:
                 secondary.append(dict(arm=arm, transform=t["id"], control="C1", owner="positive", rule=rule, selection_weight=0,
