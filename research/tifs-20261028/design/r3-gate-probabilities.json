@@ -1,0 +1,3532 @@
+{
+  "schema": "tifs-r3-analytical-gate-sensitivity-v1",
+  "status": "ANALYTICAL_ASSUMPTIONS_ONLY_NOT_SCIENTIFIC_OUTPUT",
+  "experimental_outputs_read": false,
+  "random_simulation": false,
+  "n_sources": 16,
+  "seeds_per_source": 3,
+  "note": "Finite sums, float arithmetic. No posterior, empirical power or publication probability. Grids are hypothetical.",
+  "source_rate_grid": [
+    {
+      "per_source_majority_p": 0.3,
+      "by_required_count": {
+        "10": 0.007129522436836495,
+        "11": 0.0015663201513956989,
+        "12": 0.00026583130544849984,
+        "13": 3.360115438649997e-05
+      },
+      "three_cells_12": {
+        "lower": 0.0,
+        "independent": 1.878531024950714e-11,
+        "upper": 0.00026583130544849984
+      }
+    },
+    {
+      "per_source_majority_p": 0.4,
+      "by_required_count": {
+        "10": 0.058318944993280025,
+        "11": 0.019141917618995207,
+        "12": 0.004895725846528003,
+        "13": 0.0009384503541760006
+      },
+      "three_cells_12": {
+        "lower": 0.0,
+        "independent": 1.1734140119263233e-07,
+        "upper": 0.004895725846528003
+      }
+    },
+    {
+      "per_source_majority_p": 0.5,
+      "by_required_count": {
+        "10": 0.2272491455078125,
+        "11": 0.1050567626953125,
+        "12": 0.0384063720703125,
+        "13": 0.0106353759765625
+      },
+      "three_cells_12": {
+        "lower": 0.0,
+        "independent": 5.665129667775659e-05,
+        "upper": 0.0384063720703125
+      }
+    },
+    {
+      "per_source_majority_p": 0.6,
+      "by_required_count": {
+        "10": 0.527174113591296,
+        "11": 0.3288404125089791,
+        "12": 0.16656738435071997,
+        "13": 0.06514674175180797
+      },
+      "three_cells_12": {
+        "lower": 0.0,
+        "independent": 0.004621361030811244,
+        "upper": 0.16656738435071997
+      }
+    },
+    {
+      "per_source_majority_p": 0.65,
+      "by_required_count": {
+        "10": 0.6881463432989903,
+        "11": 0.48996357204349045,
+        "12": 0.28920699856389326,
+        "13": 0.13385965003801442
+      },
+      "three_cells_12": {
+        "lower": 0.0,
+        "independent": 0.02418947233960187,
+        "upper": 0.28920699856389326
+      }
+    },
+    {
+      "per_source_majority_p": 0.7,
+      "by_required_count": {
+        "10": 0.8246866306931244,
+        "11": 0.6597823259111075,
+        "12": 0.44990411982490436,
+        "13": 0.2458558639077624
+      },
+      "three_cells_12": {
+        "lower": 0.0,
+        "independent": 0.09106676520330874,
+        "upper": 0.44990411982490436
+      }
+    },
+    {
+      "per_source_majority_p": 0.75,
+      "by_required_count": {
+        "10": 0.9204427481163293,
+        "11": 0.8103454273659736,
+        "12": 0.6301861752290279,
+        "13": 0.4049871100578457
+      },
+      "three_cells_12": {
+        "lower": 0.0,
+        "independent": 0.2502687443613546,
+        "upper": 0.6301861752290279
+      }
+    },
+    {
+      "per_source_majority_p": 0.8,
+      "by_required_count": {
+        "10": 0.973342668488704,
+        "11": 0.9183121115185152,
+        "12": 0.7982454417653762,
+        "13": 0.5981343255101441
+      },
+      "three_cells_12": {
+        "lower": 0.3947363252961287,
+        "independent": 0.5086386311271961,
+        "upper": 0.7982454417653762
+      }
+    },
+    {
+      "per_source_majority_p": 0.85,
+      "by_required_count": {
+        "10": 0.9944137391243274,
+        "11": 0.9764556188486835,
+        "12": 0.9209487016330569,
+        "13": 0.7898907026517162
+      },
+      "three_cells_12": {
+        "lower": 0.7628461048991708,
+        "independent": 0.781099428136539,
+        "upper": 0.9209487016330569
+      }
+    },
+    {
+      "per_source_majority_p": 0.9,
+      "by_required_count": {
+        "10": 0.9994954655076524,
+        "11": 0.9967032485593317,
+        "12": 0.9829960017221205,
+        "13": 0.9315938260825786
+      },
+      "three_cells_12": {
+        "lower": 0.9489880051663615,
+        "independent": 0.9498504965713417,
+        "upper": 0.9829960017221205
+      }
+    },
+    {
+      "per_source_majority_p": 0.95,
+      "by_required_count": {
+        "10": 0.9999940174264348,
+        "11": 0.9999191004669126,
+        "12": 0.9991426883409552,
+        "13": 0.9929960923437927
+      },
+      "three_cells_12": {
+        "lower": 0.9974280650228655,
+        "independent": 0.997430269342598,
+        "upper": 0.9991426883409552
+      }
+    }
+  ],
+  "seed_correlation_grid": [
+    {
+      "per_seed_p": 0.5,
+      "seed_icc": 0.0,
+      "per_source_majority_p": 0.5,
+      "one_cell_12": 0.0384063720703125,
+      "three_independent_cells_12": 5.665129667775659e-05
+    },
+    {
+      "per_seed_p": 0.5,
+      "seed_icc": 0.2,
+      "per_source_majority_p": 0.5,
+      "one_cell_12": 0.0384063720703125,
+      "three_independent_cells_12": 5.665129667775659e-05
+    },
+    {
+      "per_seed_p": 0.5,
+      "seed_icc": 0.5,
+      "per_source_majority_p": 0.5,
+      "one_cell_12": 0.0384063720703125,
+      "three_independent_cells_12": 5.665129667775659e-05
+    },
+    {
+      "per_seed_p": 0.5,
+      "seed_icc": 1.0,
+      "per_source_majority_p": 0.5,
+      "one_cell_12": 0.0384063720703125,
+      "three_independent_cells_12": 5.665129667775659e-05
+    },
+    {
+      "per_seed_p": 0.6,
+      "seed_icc": 0.0,
+      "per_source_majority_p": 0.648,
+      "one_cell_12": 0.2835027196550969,
+      "three_independent_cells_12": 0.022786188635688844
+    },
+    {
+      "per_seed_p": 0.6,
+      "seed_icc": 0.2,
+      "per_source_majority_p": 0.6256000000000002,
+      "one_cell_12": 0.22408013806958588,
+      "three_independent_cells_12": 0.011251491339511331
+    },
+    {
+      "per_seed_p": 0.6,
+      "seed_icc": 0.5,
+      "per_source_majority_p": 0.608,
+      "one_cell_12": 0.18333770659780363,
+      "three_independent_cells_12": 0.0061624780183902024
+    },
+    {
+      "per_seed_p": 0.6,
+      "seed_icc": 1.0,
+      "per_source_majority_p": 0.6,
+      "one_cell_12": 0.16656738435071997,
+      "three_independent_cells_12": 0.004621361030811244
+    },
+    {
+      "per_seed_p": 0.65,
+      "seed_icc": 0.0,
+      "per_source_majority_p": 0.71825,
+      "one_cell_12": 0.5149011873327611,
+      "three_independent_cells_12": 0.13651226731532218
+    },
+    {
+      "per_seed_p": 0.65,
+      "seed_icc": 0.2,
+      "per_source_majority_p": 0.6864000000000001,
+      "one_cell_12": 0.40318818794445577,
+      "three_independent_cells_12": 0.06554256007065322
+    },
+    {
+      "per_seed_p": 0.65,
+      "seed_icc": 0.5,
+      "per_source_majority_p": 0.661375,
+      "one_cell_12": 0.32282752717704205,
+      "three_independent_cells_12": 0.033644314068151875
+    },
+    {
+      "per_seed_p": 0.65,
+      "seed_icc": 1.0,
+      "per_source_majority_p": 0.65,
+      "one_cell_12": 0.28920699856389326,
+      "three_independent_cells_12": 0.024189472339601874
+    },
+    {
+      "per_seed_p": 0.7,
+      "seed_icc": 0.0,
+      "per_source_majority_p": 0.7839999999999999,
+      "one_cell_12": 0.7479850590457026,
+      "three_independent_cells_12": 0.41848391392984985
+    },
+    {
+      "per_seed_p": 0.7,
+      "seed_icc": 0.2,
+      "per_source_majority_p": 0.7448,
+      "one_cell_12": 0.6113915489840425,
+      "three_independent_cells_12": 0.2285379324531862
+    },
+    {
+      "per_seed_p": 0.7,
+      "seed_icc": 0.5,
+      "per_source_majority_p": 0.714,
+      "one_cell_12": 0.49959014937559887,
+      "three_independent_cells_12": 0.12469286392915493
+    },
+    {
+      "per_seed_p": 0.7,
+      "seed_icc": 1.0,
+      "per_source_majority_p": 0.7,
+      "one_cell_12": 0.44990411982490436,
+      "three_independent_cells_12": 0.09106676520330874
+    },
+    {
+      "per_seed_p": 0.75,
+      "seed_icc": 0.0,
+      "per_source_majority_p": 0.84375,
+      "one_cell_12": 0.9088894599896962,
+      "three_independent_cells_12": 0.7508154509893568
+    },
+    {
+      "per_seed_p": 0.75,
+      "seed_icc": 0.2,
+      "per_source_majority_p": 0.8,
+      "one_cell_12": 0.7982454417653762,
+      "three_independent_cells_12": 0.5086386311271961
+    },
+    {
+      "per_seed_p": 0.75,
+      "seed_icc": 0.5,
+      "per_source_majority_p": 0.765625,
+      "one_cell_12": 0.6857114648521353,
+      "three_independent_cells_12": 0.32242167685035505
+    },
+    {
+      "per_seed_p": 0.75,
+      "seed_icc": 1.0,
+      "per_source_majority_p": 0.75,
+      "one_cell_12": 0.6301861752290279,
+      "three_independent_cells_12": 0.2502687443613546
+    },
+    {
+      "per_seed_p": 0.8,
+      "seed_icc": 0.0,
+      "per_source_majority_p": 0.8960000000000001,
+      "one_cell_12": 0.9800996701899032,
+      "three_independent_cells_12": 0.9414791989585306
+    },
+    {
+      "per_seed_p": 0.8,
+      "seed_icc": 0.2,
+      "per_source_majority_p": 0.8512,
+      "one_cell_12": 0.9231506917159338,
+      "three_independent_cells_12": 0.7867156658104465
+    },
+    {
+      "per_seed_p": 0.8,
+      "seed_icc": 0.5,
+      "per_source_majority_p": 0.8160000000000001,
+      "one_cell_12": 0.8437194742887952,
+      "three_independent_cells_12": 0.6006122975437901
+    },
+    {
+      "per_seed_p": 0.8,
+      "seed_icc": 1.0,
+      "per_source_majority_p": 0.8,
+      "one_cell_12": 0.7982454417653762,
+      "three_independent_cells_12": 0.5086386311271961
+    },
+    {
+      "per_seed_p": 0.85,
+      "seed_icc": 0.0,
+      "per_source_majority_p": 0.9392499999999999,
+      "one_cell_12": 0.9979496315489008,
+      "three_independent_cells_12": 0.9938614980592871
+    },
+    {
+      "per_seed_p": 0.85,
+      "seed_icc": 0.2,
+      "per_source_majority_p": 0.8976000000000001,
+      "one_cell_12": 0.981295742634627,
+      "three_independent_cells_12": 0.9449302319643602
+    },
+    {
+      "per_seed_p": 0.85,
+      "seed_icc": 0.5,
+      "per_source_majority_p": 0.8648750000000001,
+      "one_cell_12": 0.9456681460867717,
+      "three_independent_cells_12": 0.8456999043741041
+    },
+    {
+      "per_seed_p": 0.85,
+      "seed_icc": 1.0,
+      "per_source_majority_p": 0.85,
+      "one_cell_12": 0.9209487016330569,
+      "three_independent_cells_12": 0.7810994281365389
+    },
+    {
+      "per_seed_p": 0.9,
+      "seed_icc": 0.0,
+      "per_source_majority_p": 0.9720000000000001,
+      "one_cell_12": 0.9999419666148933,
+      "three_independent_cells_12": 0.9998259099481058
+    },
+    {
+      "per_seed_p": 0.9,
+      "seed_icc": 0.2,
+      "per_source_majority_p": 0.9383999999999999,
+      "one_cell_12": 0.9978197874856288,
+      "three_independent_cells_12": 0.9934736120734478
+    },
+    {
+      "per_seed_p": 0.9,
+      "seed_icc": 0.5,
+      "per_source_majority_p": 0.9119999999999999,
+      "one_cell_12": 0.9899230514097587,
+      "three_independent_cells_12": 0.9700727656452819
+    },
+    {
+      "per_seed_p": 0.9,
+      "seed_icc": 1.0,
+      "per_source_majority_p": 0.9,
+      "one_cell_12": 0.9829960017221205,
+      "three_independent_cells_12": 0.9498504965713417
+    },
+    {
+      "per_seed_p": 0.95,
+      "seed_icc": 0.0,
+      "per_source_majority_p": 0.99275,
+      "one_cell_12": 0.999999918144486,
+      "three_independent_cells_12": 0.999999754433478
+    },
+    {
+      "per_seed_p": 0.95,
+      "seed_icc": 0.2,
+      "per_source_majority_p": 0.9728,
+      "one_cell_12": 0.9999494211263876,
+      "three_independent_cells_12": 0.9998482710537009
+    },
+    {
+      "per_seed_p": 0.95,
+      "seed_icc": 0.5,
+      "per_source_majority_p": 0.957125,
+      "one_cell_12": 0.9995749399127906,
+      "three_independent_cells_12": 0.9987253616898067
+    },
+    {
+      "per_seed_p": 0.95,
+      "seed_icc": 1.0,
+      "per_source_majority_p": 0.95,
+      "one_cell_12": 0.9991426883409552,
+      "three_independent_cells_12": 0.997430269342598
+    }
+  ],
+  "source_correlation_grid": [
+    {
+      "per_source_majority_p": 0.6,
+      "source_icc": 0.0,
+      "one_cell_12": 0.16656738435071997
+    },
+    {
+      "per_source_majority_p": 0.6,
+      "source_icc": 0.05,
+      "one_cell_12": 0.24455675079300127
+    },
+    {
+      "per_source_majority_p": 0.6,
+      "source_icc": 0.15,
+      "one_cell_12": 0.33213809409609024
+    },
+    {
+      "per_source_majority_p": 0.6,
+      "source_icc": 0.3,
+      "one_cell_12": 0.40755158287839865
+    },
+    {
+      "per_source_majority_p": 0.75,
+      "source_icc": 0.0,
+      "one_cell_12": 0.6301861752290279
+    },
+    {
+      "per_source_majority_p": 0.75,
+      "source_icc": 0.05,
+      "one_cell_12": 0.6187626374595497
+    },
+    {
+      "per_source_majority_p": 0.75,
+      "source_icc": 0.15,
+      "one_cell_12": 0.6199473439943272
+    },
+    {
+      "per_source_majority_p": 0.75,
+      "source_icc": 0.3,
+      "one_cell_12": 0.6362113455448482
+    },
+    {
+      "per_source_majority_p": 0.9,
+      "source_icc": 0.0,
+      "one_cell_12": 0.9829960017221205
+    },
+    {
+      "per_source_majority_p": 0.9,
+      "source_icc": 0.05,
+      "one_cell_12": 0.942249284313146
+    },
+    {
+      "per_source_majority_p": 0.9,
+      "source_icc": 0.15,
+      "one_cell_12": 0.8945093991026849
+    },
+    {
+      "per_source_majority_p": 0.9,
+      "source_icc": 0.3,
+      "one_cell_12": 0.8696505928295551
+    }
+  ],
+  "profile_scenarios": [
+    {
+      "candidate_p": 0.6,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.5,
+      "f5_budget_p": 0.3,
+      "association": 0.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.11334767182668737,
+            "ablations_secondary_only": 0.16360545271777968,
+            "round3_proposed": 0.16071278694625285
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.11334767182668737,
+            "ablations_secondary_only": 0.16360545271777968,
+            "round3_proposed": 0.16071278694625285
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.15712734051505825,
+            "ablations_secondary_only": 0.165766883269348,
+            "round3_proposed": 0.164971653315591
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.002018724101300771,
+          "upper": 0.11334767182668737
+        },
+        "ablations_secondary_only": {
+          "lower": 0.0,
+          "independent": 0.004437039754503738,
+          "upper": 0.16360545271777968
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.0042609868263554715,
+          "upper": 0.16071278694625285
+        }
+      }
+    },
+    {
+      "candidate_p": 0.6,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.5,
+      "f5_budget_p": 0.3,
+      "association": 0.5,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.07085872723426571,
+            "ablations_secondary_only": 0.16048422640164536,
+            "round3_proposed": 0.1546640275743036
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.07085872723426571,
+            "ablations_secondary_only": 0.16048422640164536,
+            "round3_proposed": 0.1546640275743036
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.14414049690045397,
+            "ablations_secondary_only": 0.16479264559469106,
+            "round3_proposed": 0.16304119904024245
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.0007237235576459048,
+          "upper": 0.07085872723426571
+        },
+        "ablations_secondary_only": {
+          "lower": 0.0,
+          "independent": 0.004244265390948012,
+          "upper": 0.16048422640164536
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.003900102233009713,
+          "upper": 0.1546640275743036
+        }
+      }
+    },
+    {
+      "candidate_p": 0.6,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.5,
+      "f5_budget_p": 0.3,
+      "association": 1.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.019263859914583317,
+            "ablations_secondary_only": 0.15651645196551747,
+            "round3_proposed": 0.1471189684415984
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.019263859914583317,
+            "ablations_secondary_only": 0.15651645196551747,
+            "round3_proposed": 0.1471189684415984
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.13202498580178107,
+            "ablations_secondary_only": 0.16397653587114147,
+            "round3_proposed": 0.16142999094398267
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 4.8993983581310796e-05,
+          "upper": 0.019263859914583317
+        },
+        "ablations_secondary_only": {
+          "lower": 0.0,
+          "independent": 0.004016998746539257,
+          "upper": 0.15651645196551747
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.0034939892509945557,
+          "upper": 0.1471189684415984
+        }
+      }
+    },
+    {
+      "candidate_p": 0.6,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.7,
+      "f5_budget_p": 0.5,
+      "association": 0.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.014902238660309082,
+            "ablations_secondary_only": 0.16360545271777968,
+            "round3_proposed": 0.11164157155170008
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.014902238660309082,
+            "ablations_secondary_only": 0.16360545271777968,
+            "round3_proposed": 0.11164157155170008
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.07238760253786858,
+            "ablations_secondary_only": 0.165766883269348,
+            "round3_proposed": 0.13736319556785478
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 1.607560112953951e-05,
+          "upper": 0.014902238660309082
+        },
+        "ablations_secondary_only": {
+          "lower": 0.0,
+          "independent": 0.004437039754503738,
+          "upper": 0.16360545271777968
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.001712072959926588,
+          "upper": 0.11164157155170008
+        }
+      }
+    },
+    {
+      "candidate_p": 0.6,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.7,
+      "f5_budget_p": 0.5,
+      "association": 0.5,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.0015874247995490576,
+            "ablations_secondary_only": 0.16048422640164536,
+            "round3_proposed": 0.07271121347153671
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.0015874247995490576,
+            "ablations_secondary_only": 0.16048422640164536,
+            "round3_proposed": 0.07271121347153671
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.030923669779166125,
+            "ablations_secondary_only": 0.16479264559469106,
+            "round3_proposed": 0.10858287415175953
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 7.792509646210713e-08,
+          "upper": 0.0015874247995490576
+        },
+        "ablations_secondary_only": {
+          "lower": 0.0,
+          "independent": 0.004244265390948012,
+          "upper": 0.16048422640164536
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.0005740690303058201,
+          "upper": 0.07271121347153671
+        }
+      }
+    },
+    {
+      "candidate_p": 0.6,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.7,
+      "f5_budget_p": 0.5,
+      "association": 1.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.0,
+            "ablations_secondary_only": 0.15651645196551747,
+            "round3_proposed": 0.022418084577641564
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.0,
+            "ablations_secondary_only": 0.15651645196551747,
+            "round3_proposed": 0.022418084577641564
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.0,
+            "ablations_secondary_only": 0.16397653587114147,
+            "round3_proposed": 0.057131799881943376
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.0,
+          "upper": 0.0
+        },
+        "ablations_secondary_only": {
+          "lower": 0.0,
+          "independent": 0.004016998746539257,
+          "upper": 0.15651645196551747
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 2.8712758154120757e-05,
+          "upper": 0.022418084577641564
+        }
+      }
+    },
+    {
+      "candidate_p": 0.6,
+      "retained_f5_p": 0.5,
+      "each_ablation_p": 0.8,
+      "f5_budget_p": 0.7,
+      "association": 0.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.0014171497859962392,
+            "ablations_secondary_only": 0.11347891426599747,
+            "round3_proposed": 0.017235643505607946
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.0014171497859962392,
+            "ablations_secondary_only": 0.11347891426599747,
+            "round3_proposed": 0.017235643505607946
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.018497701665542852,
+            "ablations_secondary_only": 0.13799151985126945,
+            "round3_proposed": 0.038449762335818025
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 3.714918426890548e-08,
+          "upper": 0.0014171497859962392
+        },
+        "ablations_secondary_only": {
+          "lower": 0.0,
+          "independent": 0.0017769808268427174,
+          "upper": 0.11347891426599747
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 1.1422171198882699e-05,
+          "upper": 0.017235643505607946
+        }
+      }
+    },
+    {
+      "candidate_p": 0.6,
+      "retained_f5_p": 0.5,
+      "each_ablation_p": 0.8,
+      "f5_budget_p": 0.7,
+      "association": 0.5,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 5.9279698249020926e-05,
+            "ablations_secondary_only": 0.07523087617228794,
+            "round3_proposed": 0.002357539784635557
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 5.9279698249020926e-05,
+            "ablations_secondary_only": 0.07523087617228794,
+            "round3_proposed": 0.002357539784635557
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.004311946104483685,
+            "ablations_secondary_only": 0.10968614610534391,
+            "round3_proposed": 0.00996904231480547
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 1.515253488352491e-11,
+          "upper": 5.9279698249020926e-05
+        },
+        "ablations_secondary_only": {
+          "lower": 0.0,
+          "independent": 0.0006207890061665869,
+          "upper": 0.07523087617228794
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 5.540787573790235e-08,
+          "upper": 0.002357539784635557
+        }
+      }
+    },
+    {
+      "candidate_p": 0.6,
+      "retained_f5_p": 0.5,
+      "each_ablation_p": 0.8,
+      "f5_budget_p": 0.7,
+      "association": 1.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.0,
+            "ablations_secondary_only": 0.02378294587415748,
+            "round3_proposed": 0.0
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.0,
+            "ablations_secondary_only": 0.02378294587415748,
+            "round3_proposed": 0.0
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.0,
+            "ablations_secondary_only": 0.058004742749157456,
+            "round3_proposed": 0.0
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.0,
+          "upper": 0.0
+        },
+        "ablations_secondary_only": {
+          "lower": 0.0,
+          "independent": 3.28091364724404e-05,
+          "upper": 0.02378294587415748
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.0,
+          "upper": 0.0
+        }
+      }
+    },
+    {
+      "candidate_p": 0.7,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.5,
+      "f5_budget_p": 0.3,
+      "association": 0.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.32844682921530655,
+            "ablations_secondary_only": 0.44350013349399686,
+            "round3_proposed": 0.43723826925189585
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.32844682921530655,
+            "ablations_secondary_only": 0.44350013349399686,
+            "round3_proposed": 0.43723826925189585
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.42952429663631086,
+            "ablations_secondary_only": 0.44819964603778173,
+            "round3_proposed": 0.4465059086515406
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.046335929833473406,
+          "upper": 0.32844682921530655
+        },
+        "ablations_secondary_only": {
+          "lower": 0.0,
+          "independent": 0.08815744989933329,
+          "upper": 0.44350013349399686
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.08536179588000503,
+          "upper": 0.43723826925189585
+        }
+      }
+    },
+    {
+      "candidate_p": 0.7,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.5,
+      "f5_budget_p": 0.3,
+      "association": 0.5,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.29215435561807696,
+            "ablations_secondary_only": 0.44196775922046955,
+            "round3_proposed": 0.43422434343807925
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.29215435561807696,
+            "ablations_secondary_only": 0.44196775922046955,
+            "round3_proposed": 0.43422434343807925
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.4245828723595417,
+            "ablations_secondary_only": 0.44784171329042055,
+            "round3_proposed": 0.44579318170876825
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.03623991760781554,
+          "upper": 0.29215435561807696
+        },
+        "ablations_secondary_only": {
+          "lower": 0.0,
+          "independent": 0.08747938507169341,
+          "upper": 0.44196775922046955
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.08405465232344721,
+          "upper": 0.43422434343807925
+        }
+      }
+    },
+    {
+      "candidate_p": 0.7,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.5,
+      "f5_budget_p": 0.3,
+      "association": 1.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.2516495232920049,
+            "ablations_secondary_only": 0.4421187129825278,
+            "round3_proposed": 0.43449466420094396
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.2516495232920049,
+            "ablations_secondary_only": 0.4421187129825278,
+            "round3_proposed": 0.43449466420094396
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.43597450857468434,
+            "ablations_secondary_only": 0.44836417360230385,
+            "round3_proposed": 0.44683076257358084
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.027609168094076243,
+          "upper": 0.2516495232920049
+        },
+        "ablations_secondary_only": {
+          "lower": 0.0,
+          "independent": 0.08764127708743799,
+          "upper": 0.4421187129825278
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.08435521951760754,
+          "upper": 0.43449466420094396
+        }
+      }
+    },
+    {
+      "candidate_p": 0.7,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.7,
+      "f5_budget_p": 0.5,
+      "association": 0.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.060729309661567164,
+            "ablations_secondary_only": 0.44350013349399686,
+            "round3_proposed": 0.3219692391761108
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.060729309661567164,
+            "ablations_secondary_only": 0.44350013349399686,
+            "round3_proposed": 0.3219692391761108
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.22880654201970627,
+            "ablations_secondary_only": 0.44819964603778173,
+            "round3_proposed": 0.38373239346576277
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.0008438497503804295,
+          "upper": 0.060729309661567164
+        },
+        "ablations_secondary_only": {
+          "lower": 0.0,
+          "independent": 0.08815744989933329,
+          "upper": 0.44350013349399686
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.03977930811977566,
+          "upper": 0.3219692391761108
+        }
+      }
+    },
+    {
+      "candidate_p": 0.7,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.7,
+      "f5_budget_p": 0.5,
+      "association": 0.5,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.011215431253953847,
+            "ablations_secondary_only": 0.44196775922046955,
+            "round3_proposed": 0.2841516577470752
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.011215431253953847,
+            "ablations_secondary_only": 0.44196775922046955,
+            "round3_proposed": 0.2841516577470752
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.14915558637967133,
+            "ablations_secondary_only": 0.44784171329042055,
+            "round3_proposed": 0.3623915145874595
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 1.876166940612909e-05,
+          "upper": 0.011215431253953847
+        },
+        "ablations_secondary_only": {
+          "lower": 0.0,
+          "independent": 0.08747938507169341,
+          "upper": 0.44196775922046955
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.02926027532061288,
+          "upper": 0.2841516577470752
+        }
+      }
+    },
+    {
+      "candidate_p": 0.7,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.7,
+      "f5_budget_p": 0.5,
+      "association": 1.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.0,
+            "ablations_secondary_only": 0.4421187129825278,
+            "round3_proposed": 0.23023516007985131
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.0,
+            "ablations_secondary_only": 0.4421187129825278,
+            "round3_proposed": 0.23023516007985131
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.0,
+            "ablations_secondary_only": 0.44836417360230385,
+            "round3_proposed": 0.3375772939780728
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.0,
+          "upper": 0.0
+        },
+        "ablations_secondary_only": {
+          "lower": 0.0,
+          "independent": 0.08764127708743799,
+          "upper": 0.4421187129825278
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.017894374483120864,
+          "upper": 0.23023516007985131
+        }
+      }
+    },
+    {
+      "candidate_p": 0.7,
+      "retained_f5_p": 0.5,
+      "each_ablation_p": 0.8,
+      "f5_budget_p": 0.7,
+      "association": 0.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.008430632118831716,
+            "ablations_secondary_only": 0.3260186526870647,
+            "round3_proposed": 0.06575781779912569
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.008430632118831716,
+            "ablations_secondary_only": 0.3260186526870647,
+            "round3_proposed": 0.06575781779912569
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.07696017437161189,
+            "ablations_secondary_only": 0.38508141046578015,
+            "round3_proposed": 0.13098330809025002
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 5.469987331319602e-06,
+          "upper": 0.008430632118831716
+        },
+        "ablations_secondary_only": {
+          "lower": 0.0,
+          "independent": 0.04092959530022442,
+          "upper": 0.3260186526870647
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.0005663836914930202,
+          "upper": 0.06575781779912569
+        }
+      }
+    },
+    {
+      "candidate_p": 0.7,
+      "retained_f5_p": 0.5,
+      "each_ablation_p": 0.8,
+      "f5_budget_p": 0.7,
+      "association": 0.5,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.0006217768908773557,
+            "ablations_secondary_only": 0.2887494969666585,
+            "round3_proposed": 0.01603900530454182
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.0006217768908773557,
+            "ablations_secondary_only": 0.2887494969666585,
+            "round3_proposed": 0.01603900530454182
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.03062865020146598,
+            "ablations_secondary_only": 0.3639599147214872,
+            "round3_proposed": 0.05442327025125125
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 1.1841235316261991e-08,
+          "upper": 0.0006217768908773557
+        },
+        "ablations_secondary_only": {
+          "lower": 0.0,
+          "independent": 0.03034562084636898,
+          "upper": 0.2887494969666585
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 1.4000369464003745e-05,
+          "upper": 0.01603900530454182
+        }
+      }
+    },
+    {
+      "candidate_p": 0.7,
+      "retained_f5_p": 0.5,
+      "each_ablation_p": 0.8,
+      "f5_budget_p": 0.7,
+      "association": 1.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.0,
+            "ablations_secondary_only": 0.2340761852545919,
+            "round3_proposed": 0.0
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.0,
+            "ablations_secondary_only": 0.2340761852545919,
+            "round3_proposed": 0.0
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.0,
+            "ablations_secondary_only": 0.33870431025459186,
+            "round3_proposed": 0.0
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.0,
+          "upper": 0.0
+        },
+        "ablations_secondary_only": {
+          "lower": 0.0,
+          "independent": 0.018558171578488224,
+          "upper": 0.2340761852545919
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.0,
+          "upper": 0.0
+        }
+      }
+    },
+    {
+      "candidate_p": 0.8,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.5,
+      "f5_budget_p": 0.3,
+      "association": 0.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.6453845852300267,
+            "ablations_secondary_only": 0.7909904129375089,
+            "round3_proposed": 0.7838803282598873
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.6453845852300267,
+            "ablations_secondary_only": 0.7909904129375089,
+            "round3_proposed": 0.7838803282598873
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.7752610773709115,
+            "ablations_secondary_only": 0.796372989529704,
+            "round3_proposed": 0.7945113282448036
+          }
+        ],
+        "round1": {
+          "lower": 0.06603024783096512,
+          "independent": 0.3229127229869479,
+          "upper": 0.6453845852300267
+        },
+        "ablations_secondary_only": {
+          "lower": 0.3783538154047221,
+          "independent": 0.498263370158741,
+          "upper": 0.7909904129375089
+        },
+        "round3_proposed": {
+          "lower": 0.3622719847645781,
+          "independent": 0.48820208004469084,
+          "upper": 0.7838803282598873
+        }
+      }
+    },
+    {
+      "candidate_p": 0.8,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.5,
+      "f5_budget_p": 0.3,
+      "association": 0.5,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.6525936500245074,
+            "ablations_secondary_only": 0.7922704507514573,
+            "round3_proposed": 0.7863794085119193
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.6525936500245074,
+            "ablations_secondary_only": 0.7922704507514573,
+            "round3_proposed": 0.7863794085119193
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.781552835649457,
+            "ablations_secondary_only": 0.7968535415769336,
+            "round3_proposed": 0.7954667180561201
+          }
+        ],
+        "round1": {
+          "lower": 0.08674013569847183,
+          "independent": 0.33284652747454035,
+          "upper": 0.6525936500245074
+        },
+        "ablations_secondary_only": {
+          "lower": 0.38139444307984816,
+          "independent": 0.500178965456825,
+          "upper": 0.7922704507514573
+        },
+        "round3_proposed": {
+          "lower": 0.3682255350799588,
+          "independent": 0.49191071141470494,
+          "upper": 0.7863794085119193
+        }
+      }
+    },
+    {
+      "candidate_p": 0.8,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.5,
+      "f5_budget_p": 0.3,
+      "association": 1.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.6790136530086821,
+            "ablations_secondary_only": 0.794661804023437,
+            "round3_proposed": 0.7911022029874872
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.6790136530086821,
+            "ablations_secondary_only": 0.794661804023437,
+            "round3_proposed": 0.7911022029874872
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.7943585706647976,
+            "ablations_secondary_only": 0.797678519018437,
+            "round3_proposed": 0.7971122357588731
+          }
+        ],
+        "round1": {
+          "lower": 0.15238587668216175,
+          "independent": 0.3662465979580405,
+          "upper": 0.6790136530086821
+        },
+        "ablations_secondary_only": {
+          "lower": 0.387002127065311,
+          "independent": 0.5037239202698204,
+          "upper": 0.794661804023437
+        },
+        "round3_proposed": {
+          "lower": 0.3793166417338476,
+          "independent": 0.49886687030048216,
+          "upper": 0.7911022029874872
+        }
+      }
+    },
+    {
+      "candidate_p": 0.8,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.7,
+      "f5_budget_p": 0.5,
+      "association": 0.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.1849265499243086,
+            "ablations_secondary_only": 0.7909904129375089,
+            "round3_proposed": 0.6303120808737374
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.1849265499243086,
+            "ablations_secondary_only": 0.7909904129375089,
+            "round3_proposed": 0.6303120808737374
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.5059152125634931,
+            "ablations_secondary_only": 0.796372989529704,
+            "round3_proposed": 0.7160262523723414
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.017301201860411623,
+          "upper": 0.1849265499243086
+        },
+        "ablations_secondary_only": {
+          "lower": 0.3783538154047221,
+          "independent": 0.498263370158741,
+          "upper": 0.7909904129375089
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.28447244650763953,
+          "upper": 0.6303120808737374
+        }
+      }
+    },
+    {
+      "candidate_p": 0.8,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.7,
+      "f5_budget_p": 0.5,
+      "association": 0.5,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.11971300151868756,
+            "ablations_secondary_only": 0.7922704507514573,
+            "round3_proposed": 0.6292164259816858
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.11971300151868756,
+            "ablations_secondary_only": 0.7922704507514573,
+            "round3_proposed": 0.6292164259816858
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.5035536643019428,
+            "ablations_secondary_only": 0.7968535415769336,
+            "round3_proposed": 0.7214988189348791
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.007216529649861438,
+          "upper": 0.11971300151868756
+        },
+        "ablations_secondary_only": {
+          "lower": 0.38139444307984816,
+          "independent": 0.500178965456825,
+          "upper": 0.7922704507514573
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.2856509860888053,
+          "upper": 0.6292164259816858
+        }
+      }
+    },
+    {
+      "candidate_p": 0.8,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.7,
+      "f5_budget_p": 0.5,
+      "association": 1.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.04344888094260709,
+            "ablations_secondary_only": 0.794661804023437,
+            "round3_proposed": 0.6327556102039729
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.04344888094260709,
+            "ablations_secondary_only": 0.794661804023437,
+            "round3_proposed": 0.6327556102039729
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.5515363297204355,
+            "ablations_secondary_only": 0.797678519018437,
+            "round3_proposed": 0.7370020283377353
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.0010411931816605693,
+          "upper": 0.04344888094260709
+        },
+        "ablations_secondary_only": {
+          "lower": 0.387002127065311,
+          "independent": 0.5037239202698204,
+          "upper": 0.794661804023437
+        },
+        "round3_proposed": {
+          "lower": 0.0025132487456809294,
+          "independent": 0.29508062317944905,
+          "upper": 0.6327556102039729
+        }
+      }
+    },
+    {
+      "candidate_p": 0.8,
+      "retained_f5_p": 0.5,
+      "each_ablation_p": 0.8,
+      "f5_budget_p": 0.7,
+      "association": 0.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.03822904453210888,
+            "ablations_secondary_only": 0.6350678565847041,
+            "round3_proposed": 0.1871008490194165
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.03822904453210888,
+            "ablations_secondary_only": 0.6350678565847041,
+            "round3_proposed": 0.1871008490194165
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.23594608682668647,
+            "ablations_secondary_only": 0.7175317655388161,
+            "round3_proposed": 0.32307162699270736
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.0003448257316798001,
+          "upper": 0.03822904453210888
+        },
+        "ablations_secondary_only": {
+          "lower": 0.0,
+          "independent": 0.28938858481715896,
+          "upper": 0.6350678565847041
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.011309680474952984,
+          "upper": 0.1871008490194165
+        }
+      }
+    },
+    {
+      "candidate_p": 0.8,
+      "retained_f5_p": 0.5,
+      "each_ablation_p": 0.8,
+      "f5_budget_p": 0.7,
+      "association": 0.5,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.0046706484206183825,
+            "ablations_secondary_only": 0.6334203848117061,
+            "round3_proposed": 0.12603802727403177
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.0046706484206183825,
+            "ablations_secondary_only": 0.6334203848117061,
+            "round3_proposed": 0.12603802727403177
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.15646222586621006,
+            "ablations_secondary_only": 0.7226773222948261,
+            "round3_proposed": 0.26957085429878397
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 3.4132166776105736e-06,
+          "upper": 0.0046706484206183825
+        },
+        "ablations_secondary_only": {
+          "lower": 0.0,
+          "independent": 0.28995359536067017,
+          "upper": 0.6334203848117061
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.004282290535943126,
+          "upper": 0.12603802727403177
+        }
+      }
+    },
+    {
+      "candidate_p": 0.8,
+      "retained_f5_p": 0.5,
+      "each_ablation_p": 0.8,
+      "f5_budget_p": 0.7,
+      "association": 1.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.0,
+            "ablations_secondary_only": 0.6354694407888136,
+            "round3_proposed": 0.05010708978601756
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.0,
+            "ablations_secondary_only": 0.6354694407888136,
+            "round3_proposed": 0.05010708978601756
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.0,
+            "ablations_secondary_only": 0.7375146751638136,
+            "round3_proposed": 0.17076450879268346
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.0,
+          "upper": 0.0
+        },
+        "ablations_secondary_only": {
+          "lower": 0.00845355674144077,
+          "independent": 0.29782421615047583,
+          "upper": 0.6354694407888136
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.0004287419438176514,
+          "upper": 0.05010708978601756
+        }
+      }
+    },
+    {
+      "candidate_p": 0.9,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.5,
+      "f5_budget_p": 0.3,
+      "association": 0.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.9034348874058155,
+            "ablations_secondary_only": 0.9801376915840123,
+            "round3_proposed": 0.9773211945407669
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.9034348874058155,
+            "ablations_secondary_only": 0.9801376915840123,
+            "round3_proposed": 0.9773211945407669
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.9741473285481896,
+            "ablations_secondary_only": 0.9823219745034508,
+            "round3_proposed": 0.9816509290570964
+          }
+        ],
+        "round1": {
+          "lower": 0.7810171033598206,
+          "independent": 0.7950937850564643,
+          "upper": 0.9034348874058155
+        },
+        "ablations_secondary_only": {
+          "lower": 0.9425973576714757,
+          "independent": 0.9436871475755411,
+          "upper": 0.9801376915840123
+        },
+        "round3_proposed": {
+          "lower": 0.9362933181386301,
+          "independent": 0.9376304789312888,
+          "upper": 0.9773211945407669
+        }
+      }
+    },
+    {
+      "candidate_p": 0.9,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.5,
+      "f5_budget_p": 0.3,
+      "association": 0.5,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.9236873374448987,
+            "ablations_secondary_only": 0.9812455252013117,
+            "round3_proposed": 0.9795070912166284
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.9236873374448987,
+            "ablations_secondary_only": 0.9812455252013117,
+            "round3_proposed": 0.9795070912166284
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.978709033530074,
+            "ablations_secondary_only": 0.9826461244062876,
+            "round3_proposed": 0.9822968586991843
+          }
+        ],
+        "round1": {
+          "lower": 0.8260837084198713,
+          "independent": 0.8350328810148407,
+          "upper": 0.9236873374448987
+        },
+        "ablations_secondary_only": {
+          "lower": 0.9451371748089112,
+          "independent": 0.9461337268945472,
+          "upper": 0.9812455252013117
+        },
+        "round3_proposed": {
+          "lower": 0.9413110411324412,
+          "independent": 0.9424491435635455,
+          "upper": 0.9795070912166284
+        }
+      }
+    },
+    {
+      "candidate_p": 0.9,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.5,
+      "f5_budget_p": 0.3,
+      "association": 1.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.9486889573039382,
+            "ablations_secondary_only": 0.9822581657781128,
+            "round3_proposed": 0.9815216407536655
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.9486889573039382,
+            "ablations_secondary_only": 0.9822581657781128,
+            "round3_proposed": 0.9815216407536655
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.9824026113798303,
+            "ablations_secondary_only": 0.9829026634106888,
+            "round3_proposed": 0.9828093489408015
+          }
+        ],
+        "round1": {
+          "lower": 0.879780525987707,
+          "independent": 0.8841728989966174,
+          "upper": 0.9486889573039382
+        },
+        "ablations_secondary_only": {
+          "lower": 0.9474189949669141,
+          "independent": 0.9483350620967922,
+          "upper": 0.9822581657781128
+        },
+        "round3_proposed": {
+          "lower": 0.9458526304481327,
+          "independent": 0.9468235205167838,
+          "upper": 0.9815216407536655
+        }
+      }
+    },
+    {
+      "candidate_p": 0.9,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.7,
+      "f5_budget_p": 0.5,
+      "association": 0.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.43844838717065243,
+            "ablations_secondary_only": 0.9801376915840123,
+            "round3_proposed": 0.884482472762346
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.43844838717065243,
+            "ablations_secondary_only": 0.9801376915840123,
+            "round3_proposed": 0.884482472762346
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.8154008371053069,
+            "ablations_secondary_only": 0.9823219745034508,
+            "round3_proposed": 0.9413619405747854
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.1567502011111133,
+          "upper": 0.43844838717065243
+        },
+        "ablations_secondary_only": {
+          "lower": 0.9425973576714757,
+          "independent": 0.9436871475755411,
+          "upper": 0.9801376915840123
+        },
+        "round3_proposed": {
+          "lower": 0.7103268860994776,
+          "independent": 0.7364361486486495,
+          "upper": 0.884482472762346
+        }
+      }
+    },
+    {
+      "candidate_p": 0.9,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.7,
+      "f5_budget_p": 0.5,
+      "association": 0.5,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.42628747309705955,
+            "ablations_secondary_only": 0.9812455252013117,
+            "round3_proposed": 0.9009371374948054
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.42628747309705955,
+            "ablations_secondary_only": 0.9812455252013117,
+            "round3_proposed": 0.9009371374948054
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.8582277998528104,
+            "ablations_secondary_only": 0.9826461244062876,
+            "round3_proposed": 0.9528302676621573
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.1559580223585773,
+          "upper": 0.42628747309705955
+        },
+        "ablations_secondary_only": {
+          "lower": 0.9451371748089112,
+          "independent": 0.9461337268945472,
+          "upper": 0.9812455252013117
+        },
+        "round3_proposed": {
+          "lower": 0.7547045426517682,
+          "independent": 0.773400632953335,
+          "upper": 0.9009371374948054
+        }
+      }
+    },
+    {
+      "candidate_p": 0.9,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.7,
+      "f5_budget_p": 0.5,
+      "association": 1.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.42033258526099426,
+            "ablations_secondary_only": 0.9822581657781128,
+            "round3_proposed": 0.9209156306402592
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.42033258526099426,
+            "ablations_secondary_only": 0.9822581657781128,
+            "round3_proposed": 0.9209156306402592
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.929709848327556,
+            "ablations_secondary_only": 0.9829026634106888,
+            "round3_proposed": 0.9659080853937012
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.16426065462868142,
+          "upper": 0.42033258526099426
+        },
+        "ablations_secondary_only": {
+          "lower": 0.9474189949669141,
+          "independent": 0.9483350620967922,
+          "upper": 0.9822581657781128
+        },
+        "round3_proposed": {
+          "lower": 0.8077393466742198,
+          "independent": 0.8191727369458721,
+          "upper": 0.9209156306402592
+        }
+      }
+    },
+    {
+      "candidate_p": 0.9,
+      "retained_f5_p": 0.5,
+      "each_ablation_p": 0.8,
+      "f5_budget_p": 0.7,
+      "association": 0.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.13893264506808323,
+            "ablations_secondary_only": 0.8865312984470886,
+            "round3_proposed": 0.4176693092331989
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.13893264506808323,
+            "ablations_secondary_only": 0.8865312984470886,
+            "round3_proposed": 0.4176693092331989
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.5483790364971997,
+            "ablations_secondary_only": 0.9419263423443878,
+            "round3_proposed": 0.6078512710352125
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.010584965634904698,
+          "upper": 0.13893264506808323
+        },
+        "ablations_secondary_only": {
+          "lower": 0.7149889392385651,
+          "independent": 0.7402954636933406,
+          "upper": 0.8865312984470886
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.1060382269215322,
+          "upper": 0.4176693092331989
+        }
+      }
+    },
+    {
+      "candidate_p": 0.9,
+      "retained_f5_p": 0.5,
+      "each_ablation_p": 0.8,
+      "f5_budget_p": 0.7,
+      "association": 0.5,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.08816811750779258,
+            "ablations_secondary_only": 0.9023647211690162,
+            "round3_proposed": 0.4000514374079511
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.08816811750779258,
+            "ablations_secondary_only": 0.9023647211690162,
+            "round3_proposed": 0.4000514374079511
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.5692606609775139,
+            "ablations_secondary_only": 0.9531490763242737,
+            "round3_proposed": 0.6175811156350863
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.0044252143202215145,
+          "upper": 0.08816811750779258
+        },
+        "ablations_secondary_only": {
+          "lower": 0.7578785186623063,
+          "independent": 0.77611315897932,
+          "upper": 0.9023647211690162
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.09883839355304448,
+          "upper": 0.4000514374079511
+        }
+      }
+    },
+    {
+      "candidate_p": 0.9,
+      "retained_f5_p": 0.5,
+      "each_ablation_p": 0.8,
+      "f5_budget_p": 0.7,
+      "association": 1.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.04300657526327229,
+            "ablations_secondary_only": 0.921583692151808,
+            "round3_proposed": 0.37523746538495983
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.04300657526327229,
+            "ablations_secondary_only": 0.921583692151808,
+            "round3_proposed": 0.37523746538495983
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.6447435145936262,
+            "ablations_secondary_only": 0.965998692151808,
+            "round3_proposed": 0.6300945451317177
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.0011924953711767458,
+          "upper": 0.04300657526327229
+        },
+        "ablations_secondary_only": {
+          "lower": 0.809166076455424,
+          "independent": 0.820438629807342,
+          "upper": 0.921583692151808
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.08871930017284947,
+          "upper": 0.37523746538495983
+        }
+      }
+    },
+    {
+      "candidate_p": 0.95,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.5,
+      "f5_budget_p": 0.3,
+      "association": 0.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.9681883857960457,
+            "ablations_secondary_only": 0.9983862204925574,
+            "round3_proposed": 0.9976360161972683
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.9681883857960457,
+            "ablations_secondary_only": 0.9983862204925574,
+            "round3_proposed": 0.9976360161972683
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.9969545109543236,
+            "ablations_secondary_only": 0.998989926072038,
+            "round3_proposed": 0.998837575155026
+          }
+        ],
+        "round1": {
+          "lower": 0.9333312825464151,
+          "independent": 0.9345339432194986,
+          "upper": 0.9681883857960457
+        },
+        "ablations_secondary_only": {
+          "lower": 0.9957623670571527,
+          "independent": 0.9957682287841437,
+          "upper": 0.9983862204925574
+        },
+        "round3_proposed": {
+          "lower": 0.9941096075495626,
+          "independent": 0.9941206853798754,
+          "upper": 0.9976360161972683
+        }
+      }
+    },
+    {
+      "candidate_p": 0.95,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.5,
+      "f5_budget_p": 0.3,
+      "association": 0.5,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.9768938610427313,
+            "ablations_secondary_only": 0.9986956185544785,
+            "round3_proposed": 0.9982499383387071
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.9768938610427313,
+            "ablations_secondary_only": 0.9986956185544785,
+            "round3_proposed": 0.9982499383387071
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.9981639002286318,
+            "ablations_secondary_only": 0.9990678262609224,
+            "round3_proposed": 0.9989930251191438
+          }
+        ],
+        "round1": {
+          "lower": 0.9519516223140947,
+          "independent": 0.952569386042498,
+          "upper": 0.9768938610427313
+        },
+        "ablations_secondary_only": {
+          "lower": 0.9964590633698793,
+          "independent": 0.9964631950150828,
+          "upper": 0.9986956185544785
+        },
+        "round3_proposed": {
+          "lower": 0.9954929017965579,
+          "independent": 0.9954994859645642,
+          "upper": 0.9982499383387071
+        }
+      }
+    },
+    {
+      "candidate_p": 0.95,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.5,
+      "f5_budget_p": 0.3,
+      "association": 1.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.9858521900331424,
+            "ablations_secondary_only": 0.9989442787211562,
+            "round3_proposed": 0.9987459818313364
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.9858521900331424,
+            "ablations_secondary_only": 0.9989442787211562,
+            "round3_proposed": 0.9987459818313364
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.998982442873519,
+            "ablations_secondary_only": 0.9991210394385907,
+            "round3_proposed": 0.9990993921619912
+          }
+        ],
+        "round1": {
+          "lower": 0.970686822939804,
+          "independent": 0.9709155722016033,
+          "upper": 0.9858521900331424
+        },
+        "ablations_secondary_only": {
+          "lower": 0.9970095968809032,
+          "independent": 0.9970125663234143,
+          "upper": 0.9989442787211562
+        },
+        "round3_proposed": {
+          "lower": 0.996591355824664,
+          "independent": 0.9965951857271536,
+          "upper": 0.9987459818313364
+        }
+      }
+    },
+    {
+      "candidate_p": 0.95,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.7,
+      "f5_budget_p": 0.5,
+      "association": 0.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.6162496666443407,
+            "ablations_secondary_only": 0.9983862204925574,
+            "round3_proposed": 0.9536144955452976
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.6162496666443407,
+            "ablations_secondary_only": 0.9983862204925574,
+            "round3_proposed": 0.9536144955452976
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.9296168456035643,
+            "ablations_secondary_only": 0.998989926072038,
+            "round3_proposed": 0.9833546801015912
+          }
+        ],
+        "round1": {
+          "lower": 0.1621161788922456,
+          "independent": 0.35303468791178066,
+          "upper": 0.6162496666443407
+        },
+        "ablations_secondary_only": {
+          "lower": 0.9957623670571527,
+          "independent": 0.9957682287841437,
+          "upper": 0.9983862204925574
+        },
+        "round3_proposed": {
+          "lower": 0.8905836711921866,
+          "independent": 0.8942436750159343,
+          "upper": 0.9536144955452976
+        }
+      }
+    },
+    {
+      "candidate_p": 0.95,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.7,
+      "f5_budget_p": 0.5,
+      "association": 0.5,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.6258992182647507,
+            "ablations_secondary_only": 0.9986956185544785,
+            "round3_proposed": 0.9620162953229835
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.6258992182647507,
+            "ablations_secondary_only": 0.9986956185544785,
+            "round3_proposed": 0.9620162953229835
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.9522329859437234,
+            "ablations_secondary_only": 0.9990678262609224,
+            "round3_proposed": 0.9879922501998462
+          }
+        ],
+        "round1": {
+          "lower": 0.20403142247322492,
+          "independent": 0.3730371117202315,
+          "upper": 0.6258992182647507
+        },
+        "ablations_secondary_only": {
+          "lower": 0.9964590633698793,
+          "independent": 0.9964631950150828,
+          "upper": 0.9986956185544785
+        },
+        "round3_proposed": {
+          "lower": 0.9120248408458131,
+          "independent": 0.9143624759883253,
+          "upper": 0.9620162953229835
+        }
+      }
+    },
+    {
+      "candidate_p": 0.95,
+      "retained_f5_p": 0.3,
+      "each_ablation_p": 0.7,
+      "f5_budget_p": 0.5,
+      "association": 1.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.6455203795128608,
+            "ablations_secondary_only": 0.9989442787211562,
+            "round3_proposed": 0.9709632485870996
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.6455203795128608,
+            "ablations_secondary_only": 0.9989442787211562,
+            "round3_proposed": 0.9709632485870996
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.9792474370504174,
+            "ablations_secondary_only": 0.9991210394385907,
+            "round3_proposed": 0.9925444250625115
+          }
+        ],
+        "round1": {
+          "lower": 0.2702881960761392,
+          "independent": 0.40804903876654897,
+          "upper": 0.6455203795128608
+        },
+        "ablations_secondary_only": {
+          "lower": 0.9970095968809032,
+          "independent": 0.9970125663234143,
+          "upper": 0.9989442787211562
+        },
+        "round3_proposed": {
+          "lower": 0.9344709222367107,
+          "independent": 0.9357407404807642,
+          "upper": 0.9709632485870996
+        }
+      }
+    },
+    {
+      "candidate_p": 0.95,
+      "retained_f5_p": 0.5,
+      "each_ablation_p": 0.8,
+      "f5_budget_p": 0.7,
+      "association": 0.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.24600802695380963,
+            "ablations_secondary_only": 0.9542213207552604,
+            "round3_proposed": 0.5741291123985007
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.24600802695380963,
+            "ablations_secondary_only": 0.9542213207552604,
+            "round3_proposed": 0.5741291123985007
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.750058234180033,
+            "ablations_secondary_only": 0.9834899418887029,
+            "round3_proposed": 0.7612683131619217
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.045393486323904365,
+          "upper": 0.24600802695380963
+        },
+        "ablations_secondary_only": {
+          "lower": 0.8919325833992238,
+          "independent": 0.8955052882598258,
+          "upper": 0.9542213207552604
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.25093248741382035,
+          "upper": 0.5741291123985007
+        }
+      }
+    },
+    {
+      "candidate_p": 0.95,
+      "retained_f5_p": 0.5,
+      "each_ablation_p": 0.8,
+      "f5_budget_p": 0.7,
+      "association": 0.5,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.2152232041995589,
+            "ablations_secondary_only": 0.9624141581081107,
+            "round3_proposed": 0.5758485385783906
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.2152232041995589,
+            "ablations_secondary_only": 0.9624141581081107,
+            "round3_proposed": 0.5758485385783906
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.7861951508598654,
+            "ablations_secondary_only": 0.9880632895553481,
+            "round3_proposed": 0.7773442309136775
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.03641736730234812,
+          "upper": 0.2152232041995589
+        },
+        "ablations_secondary_only": {
+          "lower": 0.9128916057715695,
+          "independent": 0.9151847409679975,
+          "upper": 0.9624141581081107
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.25776854360136725,
+          "upper": 0.5758485385783906
+        }
+      }
+    },
+    {
+      "candidate_p": 0.95,
+      "retained_f5_p": 0.5,
+      "each_ablation_p": 0.8,
+      "f5_budget_p": 0.7,
+      "association": 1.0,
+      "foreign_efficacy_other_gates_fixed_pass": {
+        "cells": [
+          {
+            "cell": "R1-0.1",
+            "round1": 0.18886180668905858,
+            "ablations_secondary_only": 0.9711527725694707,
+            "round3_proposed": 0.5787346649484334
+          },
+          {
+            "cell": "R1-0.2",
+            "round1": 0.18886180668905858,
+            "ablations_secondary_only": 0.9711527725694707,
+            "round3_proposed": 0.5787346649484334
+          },
+          {
+            "cell": "K3-0.2",
+            "round1": 0.8509846216512805,
+            "ablations_secondary_only": 0.9925658127306037,
+            "round3_proposed": 0.7972404411901054
+          }
+        ],
+        "round1": {
+          "lower": 0.0,
+          "independent": 0.030353584977034498,
+          "upper": 0.18886180668905858
+        },
+        "ablations_secondary_only": {
+          "lower": 0.9348713578695453,
+          "independent": 0.936126245329727,
+          "upper": 0.9711527725694707
+        },
+        "round3_proposed": {
+          "lower": 0.0,
+          "independent": 0.2670227803776046,
+          "upper": 0.5787346649484334
+        }
+      }
+    }
+  ],
+  "paired_gain_grid": [
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.1,
+      "gain": 0,
+      "association": 0.0,
+      "pass_probability": 0.4499041198162274
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.1,
+      "gain": 0,
+      "association": 1.0,
+      "pass_probability": 0.4499041198249042
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.1,
+      "gain": 1,
+      "association": 0.0,
+      "pass_probability": 0.4499041195665209
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.1,
+      "gain": 1,
+      "association": 1.0,
+      "pass_probability": 0.4499041198085373
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.1,
+      "gain": 3,
+      "association": 0.0,
+      "pass_probability": 0.4499040234202851
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.1,
+      "gain": 3,
+      "association": 1.0,
+      "pass_probability": 0.44990407897459167
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.1,
+      "gain": 4,
+      "association": 0.0,
+      "pass_probability": 0.44990284266391695
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.1,
+      "gain": 4,
+      "association": 1.0,
+      "pass_probability": 0.4499032760542077
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.3,
+      "gain": 0,
+      "association": 0.0,
+      "pass_probability": 0.44989681520553876
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.3,
+      "gain": 0,
+      "association": 1.0,
+      "pass_probability": 0.4499041198249043
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.3,
+      "gain": 1,
+      "association": 0.0,
+      "pass_probability": 0.4498447331063777
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.3,
+      "gain": 1,
+      "association": 1.0,
+      "pass_probability": 0.4498932849652287
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.3,
+      "gain": 3,
+      "association": 0.0,
+      "pass_probability": 0.44819964603778173
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.3,
+      "gain": 3,
+      "association": 1.0,
+      "pass_probability": 0.44836417360230385
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.3,
+      "gain": 4,
+      "association": 0.0,
+      "pass_probability": 0.44350013349399686
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.3,
+      "gain": 4,
+      "association": 1.0,
+      "pass_probability": 0.4421187129825278
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.5,
+      "gain": 0,
+      "association": 0.0,
+      "pass_probability": 0.44740839812380884
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.5,
+      "gain": 0,
+      "association": 1.0,
+      "pass_probability": 0.44990411982490436
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.5,
+      "gain": 1,
+      "association": 0.0,
+      "pass_probability": 0.4403502408407559
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.5,
+      "gain": 1,
+      "association": 1.0,
+      "pass_probability": 0.4436383727545919
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.5,
+      "gain": 3,
+      "association": 0.0,
+      "pass_probability": 0.38508141046578015
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.5,
+      "gain": 3,
+      "association": 1.0,
+      "pass_probability": 0.33870431025459186
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.5,
+      "gain": 4,
+      "association": 0.0,
+      "pass_probability": 0.3260186526870647
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.5,
+      "gain": 4,
+      "association": 1.0,
+      "pass_probability": 0.2340761852545919
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.7,
+      "gain": 0,
+      "association": 0.0,
+      "pass_probability": 0.3831934894227717
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.7,
+      "gain": 0,
+      "association": 1.0,
+      "pass_probability": 0.44990411982490436
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.7,
+      "gain": 1,
+      "association": 0.0,
+      "pass_probability": 0.3142010331916151
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.7,
+      "gain": 1,
+      "association": 1.0,
+      "pass_probability": 0.0
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.7,
+      "gain": 3,
+      "association": 0.0,
+      "pass_probability": 0.1460852026607943
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.7,
+      "gain": 3,
+      "association": 1.0,
+      "pass_probability": 0.0
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.7,
+      "gain": 4,
+      "association": 0.0,
+      "pass_probability": 0.08081632842430038
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.7,
+      "gain": 4,
+      "association": 1.0,
+      "pass_probability": 0.0
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.9,
+      "gain": 0,
+      "association": 0.0,
+      "pass_probability": 0.1022664595960334
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.9,
+      "gain": 0,
+      "association": 1.0,
+      "pass_probability": 0.027002967200430873
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.9,
+      "gain": 1,
+      "association": 0.0,
+      "pass_probability": 0.04269396896640434
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.9,
+      "gain": 1,
+      "association": 1.0,
+      "pass_probability": 0.0
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.9,
+      "gain": 3,
+      "association": 0.0,
+      "pass_probability": 0.004090667610106822
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.9,
+      "gain": 3,
+      "association": 1.0,
+      "pass_probability": 0.0
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.9,
+      "gain": 4,
+      "association": 0.0,
+      "pass_probability": 0.0009427323777779172
+    },
+    {
+      "candidate_p": 0.7,
+      "comparator_p": 0.9,
+      "gain": 4,
+      "association": 1.0,
+      "pass_probability": 0.0
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.1,
+      "gain": 0,
+      "association": 0.0,
+      "pass_probability": 0.7982454417567638
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.1,
+      "gain": 0,
+      "association": 1.0,
+      "pass_probability": 0.7982454417653762
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.1,
+      "gain": 1,
+      "association": 0.0,
+      "pass_probability": 0.7982454415075493
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.1,
+      "gain": 1,
+      "association": 1.0,
+      "pass_probability": 0.7982454417619648
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.1,
+      "gain": 3,
+      "association": 0.0,
+      "pass_probability": 0.7982453442712775
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.1,
+      "gain": 3,
+      "association": 1.0,
+      "pass_probability": 0.7982454301107896
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.1,
+      "gain": 4,
+      "association": 0.0,
+      "pass_probability": 0.79824413892355
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.1,
+      "gain": 4,
+      "association": 1.0,
+      "pass_probability": 0.7982451599118536
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.3,
+      "gain": 0,
+      "association": 0.0,
+      "pass_probability": 0.7982379491758449
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.3,
+      "gain": 0,
+      "association": 1.0,
+      "pass_probability": 0.7982454417653755
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.3,
+      "gain": 1,
+      "association": 0.0,
+      "pass_probability": 0.7981833230702458
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.3,
+      "gain": 1,
+      "association": 1.0,
+      "pass_probability": 0.798242900148793
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.3,
+      "gain": 3,
+      "association": 0.0,
+      "pass_probability": 0.796372989529704
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.3,
+      "gain": 3,
+      "association": 1.0,
+      "pass_probability": 0.797678519018437
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.3,
+      "gain": 4,
+      "association": 0.0,
+      "pass_probability": 0.7909904129375089
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.3,
+      "gain": 4,
+      "association": 1.0,
+      "pass_probability": 0.794661804023437
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.5,
+      "gain": 0,
+      "association": 0.0,
+      "pass_probability": 0.7955458467823617
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.5,
+      "gain": 0,
+      "association": 1.0,
+      "pass_probability": 0.7982454417653762
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.5,
+      "gain": 1,
+      "association": 0.0,
+      "pass_probability": 0.7874695634354177
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.5,
+      "gain": 1,
+      "association": 1.0,
+      "pass_probability": 0.7965817454763136
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.5,
+      "gain": 3,
+      "association": 0.0,
+      "pass_probability": 0.7175317655388161
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.5,
+      "gain": 3,
+      "association": 1.0,
+      "pass_probability": 0.7375146751638136
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.5,
+      "gain": 4,
+      "association": 0.0,
+      "pass_probability": 0.6350678565847041
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.5,
+      "gain": 4,
+      "association": 1.0,
+      "pass_probability": 0.6354694407888136
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.7,
+      "gain": 0,
+      "association": 0.0,
+      "pass_probability": 0.7186891061294342
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.7,
+      "gain": 0,
+      "association": 1.0,
+      "pass_probability": 0.7982454417653762
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.7,
+      "gain": 1,
+      "association": 0.0,
+      "pass_probability": 0.6236537431532925
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.7,
+      "gain": 1,
+      "association": 1.0,
+      "pass_probability": 0.6634631393881986
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.7,
+      "gain": 3,
+      "association": 0.0,
+      "pass_probability": 0.34526309203856537
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.7,
+      "gain": 3,
+      "association": 1.0,
+      "pass_probability": 0.18395824048790985
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.7,
+      "gain": 4,
+      "association": 0.0,
+      "pass_probability": 0.21304123915792078
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.7,
+      "gain": 4,
+      "association": 1.0,
+      "pass_probability": 0.06178656539441368
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.9,
+      "gain": 0,
+      "association": 0.0,
+      "pass_probability": 0.2879130586591748
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.9,
+      "gain": 0,
+      "association": 1.0,
+      "pass_probability": 0.18051232149012486
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.9,
+      "gain": 1,
+      "association": 0.0,
+      "pass_probability": 0.14230976350980276
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.9,
+      "gain": 1,
+      "association": 1.0,
+      "pass_probability": 0.0
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.9,
+      "gain": 3,
+      "association": 0.0,
+      "pass_probability": 0.018136526084690168
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.9,
+      "gain": 3,
+      "association": 1.0,
+      "pass_probability": 0.0
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.9,
+      "gain": 4,
+      "association": 0.0,
+      "pass_probability": 0.004672441414979807
+    },
+    {
+      "candidate_p": 0.8,
+      "comparator_p": 0.9,
+      "gain": 4,
+      "association": 1.0,
+      "pass_probability": 0.0
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.1,
+      "gain": 0,
+      "association": 0.0,
+      "pass_probability": 0.9829960017198273
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.1,
+      "gain": 0,
+      "association": 1.0,
+      "pass_probability": 0.9829960017221201
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.1,
+      "gain": 1,
+      "association": 0.0,
+      "pass_probability": 0.9829960016523652
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.1,
+      "gain": 1,
+      "association": 1.0,
+      "pass_probability": 0.9829960017218683
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.1,
+      "gain": 3,
+      "association": 0.0,
+      "pass_probability": 0.9829959742565627
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.1,
+      "gain": 3,
+      "association": 1.0,
+      "pass_probability": 0.9829960005672955
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.1,
+      "gain": 4,
+      "association": 0.0,
+      "pass_probability": 0.9829956249381961
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.1,
+      "gain": 4,
+      "association": 1.0,
+      "pass_probability": 0.9829959692287994
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.3,
+      "gain": 0,
+      "association": 0.0,
+      "pass_probability": 0.9829938040159308
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.3,
+      "gain": 0,
+      "association": 1.0,
+      "pass_probability": 0.982996001722121
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.3,
+      "gain": 1,
+      "association": 0.0,
+      "pass_probability": 0.9829766819587363
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.3,
+      "gain": 1,
+      "association": 1.0,
+      "pass_probability": 0.98299573105922
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.3,
+      "gain": 3,
+      "association": 0.0,
+      "pass_probability": 0.9823219745034508
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.3,
+      "gain": 3,
+      "association": 1.0,
+      "pass_probability": 0.9829026634106888
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.3,
+      "gain": 4,
+      "association": 0.0,
+      "pass_probability": 0.9801376915840123
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.3,
+      "gain": 4,
+      "association": 1.0,
+      "pass_probability": 0.9822581657781128
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.5,
+      "gain": 0,
+      "association": 0.0,
+      "pass_probability": 0.9820755182851109
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.5,
+      "gain": 0,
+      "association": 1.0,
+      "pass_probability": 0.9829960017221205
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.5,
+      "gain": 1,
+      "association": 0.0,
+      "pass_probability": 0.9788457885460969
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.5,
+      "gain": 1,
+      "association": 1.0,
+      "pass_probability": 0.982745879651808
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.5,
+      "gain": 3,
+      "association": 0.0,
+      "pass_probability": 0.9419263423443878
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.5,
+      "gain": 3,
+      "association": 1.0,
+      "pass_probability": 0.965998692151808
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.5,
+      "gain": 4,
+      "association": 0.0,
+      "pass_probability": 0.8865312984470886
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.5,
+      "gain": 4,
+      "association": 1.0,
+      "pass_probability": 0.921583692151808
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.7,
+      "gain": 0,
+      "association": 0.0,
+      "pass_probability": 0.9479522016344298
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.7,
+      "gain": 0,
+      "association": 1.0,
+      "pass_probability": 0.9829960017221205
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.7,
+      "gain": 1,
+      "association": 0.0,
+      "pass_probability": 0.8883797110048007
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.7,
+      "gain": 1,
+      "association": 1.0,
+      "pass_probability": 0.9559930345216897
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.7,
+      "gain": 3,
+      "association": 0.0,
+      "pass_probability": 0.6237777635135475
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.7,
+      "gain": 3,
+      "association": 1.0,
+      "pass_probability": 0.6406584567164164
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.7,
+      "gain": 4,
+      "association": 0.0,
+      "pass_probability": 0.44313400497730876
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.7,
+      "gain": 4,
+      "association": 1.0,
+      "pass_probability": 0.39842576158995235
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.9,
+      "gain": 0,
+      "association": 0.0,
+      "pass_probability": 0.6204176315255389
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.9,
+      "gain": 0,
+      "association": 1.0,
+      "pass_probability": 0.9829960017221205
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.9,
+      "gain": 1,
+      "association": 0.0,
+      "pass_probability": 0.37929323251702707
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.9,
+      "gain": 1,
+      "association": 1.0,
+      "pass_probability": 0.0
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.9,
+      "gain": 3,
+      "association": 0.0,
+      "pass_probability": 0.06675045401513062
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.9,
+      "gain": 3,
+      "association": 1.0,
+      "pass_probability": 0.0
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.9,
+      "gain": 4,
+      "association": 0.0,
+      "pass_probability": 0.019257357206703483
+    },
+    {
+      "candidate_p": 0.9,
+      "comparator_p": 0.9,
+      "gain": 4,
+      "association": 1.0,
+      "pass_probability": 0.0
+    }
+  ],
+  "article_comparison_grid": [
+    {
+      "candidate_p": 0.7,
+      "vine_p": 0.5,
+      "association": 0.0,
+      "comparison_block": {
+        "if_quality_edge_absent": 0.08665043469290838,
+        "if_quality_edge_present": 0.08690560211928734
+      }
+    },
+    {
+      "candidate_p": 0.7,
+      "vine_p": 0.5,
+      "association": 1.0,
+      "comparison_block": {
+        "if_quality_edge_absent": 0.08969173533953727,
+        "if_quality_edge_present": 0.09106676520330874
+      }
+    },
+    {
+      "candidate_p": 0.7,
+      "vine_p": 0.7,
+      "association": 0.0,
+      "comparison_block": {
+        "if_quality_edge_absent": 0.039716576616752736,
+        "if_quality_edge_present": 0.0554109101082593
+      }
+    },
+    {
+      "candidate_p": 0.7,
+      "vine_p": 0.7,
+      "association": 1.0,
+      "comparison_block": {
+        "if_quality_edge_absent": 0.0,
+        "if_quality_edge_present": 0.09106676520330874
+      }
+    },
+    {
+      "candidate_p": 0.7,
+      "vine_p": 0.9,
+      "association": 0.0,
+      "comparison_block": {
+        "if_quality_edge_absent": 0.00010442332209065433,
+        "if_quality_edge_present": 0.0017360844780197426
+      }
+    },
+    {
+      "candidate_p": 0.7,
+      "vine_p": 0.9,
+      "association": 1.0,
+      "comparison_block": {
+        "if_quality_edge_absent": 0.0,
+        "if_quality_edge_present": 0.0002914109817546652
+      }
+    },
+    {
+      "candidate_p": 0.8,
+      "vine_p": 0.5,
+      "association": 0.0,
+      "comparison_block": {
+        "if_quality_edge_absent": 0.5032161149101111,
+        "if_quality_edge_present": 0.5037284588047735
+      }
+    },
+    {
+      "candidate_p": 0.8,
+      "vine_p": 0.5,
+      "association": 1.0,
+      "comparison_block": {
+        "if_quality_edge_absent": 0.5084146423340867,
+        "if_quality_edge_present": 0.5086386311271961
+      }
+    },
+    {
+      "candidate_p": 0.8,
+      "vine_p": 0.7,
+      "association": 0.0,
+      "comparison_block": {
+        "if_quality_edge_absent": 0.34321457953403245,
+        "if_quality_edge_present": 0.41276090759829553
+      }
+    },
+    {
+      "candidate_p": 0.8,
+      "vine_p": 0.7,
+      "association": 1.0,
+      "comparison_block": {
+        "if_quality_edge_absent": 0.2768381139685225,
+        "if_quality_edge_present": 0.5086386311271961
+      }
+    },
+    {
+      "candidate_p": 0.8,
+      "vine_p": 0.9,
+      "association": 0.0,
+      "comparison_block": {
+        "if_quality_edge_absent": 0.0056990636845256825,
+        "if_quality_edge_present": 0.05164124281388833
+      }
+    },
+    {
+      "candidate_p": 0.8,
+      "vine_p": 0.9,
+      "association": 1.0,
+      "comparison_block": {
+        "if_quality_edge_absent": 0.0,
+        "if_quality_edge_present": 0.058630493264637575
+      }
+    },
+    {
+      "candidate_p": 0.9,
+      "vine_p": 0.5,
+      "association": 0.0,
+      "comparison_block": {
+        "if_quality_edge_absent": 0.9489116133320423,
+        "if_quality_edge_present": 0.9489801054259337
+      }
+    },
+    {
+      "candidate_p": 0.9,
+      "vine_p": 0.5,
+      "association": 1.0,
+      "comparison_block": {
+        "if_quality_edge_absent": 0.949845585903575,
+        "if_quality_edge_present": 0.9498504965713417
+      }
+    },
+    {
+      "candidate_p": 0.9,
+      "vine_p": 0.7,
+      "association": 0.0,
+      "comparison_block": {
+        "if_quality_edge_absent": 0.866289743787254,
+        "if_quality_edge_present": 0.9083468426441176
+      }
+    },
+    {
+      "candidate_p": 0.9,
+      "vine_p": 0.7,
+      "association": 1.0,
+      "comparison_block": {
+        "if_quality_edge_absent": 0.9097302497917581,
+        "if_quality_edge_present": 0.9498504965713417
+      }
+    },
+    {
+      "candidate_p": 0.9,
+      "vine_p": 0.9,
+      "association": 0.0,
+      "comparison_block": {
+        "if_quality_edge_absent": 0.10113716203495424,
+        "if_quality_edge_present": 0.44890017220904715
+      }
+    },
+    {
+      "candidate_p": 0.9,
+      "vine_p": 0.9,
+      "association": 1.0,
+      "comparison_block": {
+        "if_quality_edge_absent": 0.0,
+        "if_quality_edge_present": 0.9498504965713417
+      }
+    }
+  ],
+  "auxiliary_gate_grid": [
+    {
+      "per_source_probability": 0.001,
+      "all_16_strict_quality": 1.0000000000000003e-48,
+      "clean_F_at_least_15": 1.5985000000000005e-44,
+      "zero_16_independent_source_any_event_clusters": 0.9841194418156399
+    },
+    {
+      "per_source_probability": 0.01,
+      "all_16_strict_quality": 1.0000000000000003e-32,
+      "clean_F_at_least_15": 1.5850000000000006e-29,
+      "zero_16_independent_source_any_event_clusters": 0.8514577710948755
+    },
+    {
+      "per_source_probability": 0.02,
+      "all_16_strict_quality": 6.553600000000002e-28,
+      "clean_F_at_least_15": 5.144576000000001e-25,
+      "zero_16_independent_source_any_event_clusters": 0.7237977205924956
+    },
+    {
+      "per_source_probability": 0.05,
+      "all_16_strict_quality": 1.5258789062500013e-21,
+      "clean_F_at_least_15": 4.653930664062504e-19,
+      "zero_16_independent_source_any_event_clusters": 0.44012666865176536
+    },
+    {
+      "per_source_probability": 0.9,
+      "all_16_strict_quality": 0.18530201888518416,
+      "clean_F_at_least_15": 0.5147278302366226,
+      "zero_16_independent_source_any_event_clusters": 9.999999999999964e-17
+    },
+    {
+      "per_source_probability": 0.95,
+      "all_16_strict_quality": 0.44012666865176536,
+      "clean_F_at_least_15": 0.8107596527795682,
+      "zero_16_independent_source_any_event_clusters": 1.5258789062500216e-21
+    },
+    {
+      "per_source_probability": 0.98,
+      "all_16_strict_quality": 0.7237977205924956,
+      "clean_F_at_least_15": 0.960139833439025,
+      "zero_16_independent_source_any_event_clusters": 6.553600000000093e-28
+    },
+    {
+      "per_source_probability": 0.99,
+      "all_16_strict_quality": 0.8514577710948755,
+      "clean_F_at_least_15": 0.9890671078374818,
+      "zero_16_independent_source_any_event_clusters": 1.0000000000000142e-32
+    },
+    {
+      "per_source_probability": 0.995,
+      "all_16_strict_quality": 0.9229311239742362,
+      "clean_F_at_least_15": 0.9971366414797025,
+      "zero_16_independent_source_any_event_clusters": 1.5258789062500216e-37
+    }
+  ],
+  "omissions": [
+    "Quality, clean F, negative events, R0 retention and inventory are set to pass deterministically in profile_scenarios; their joint distributions are not inferred.",
+    "C and J coincide in profile_scenarios. Real J implies C, but paired C gains can still fail independently of J gains.",
+    "Across-cell product is a model illustration; Frechet bounds retain arbitrary across-cell dependence.",
+    "Quality and method rates are not known. A unique unconditional whole-gate probability is unidentified."
+  ],
+  "full_gate_identity": "P(GO)=P(foreign efficacy)*P(all remaining conditions | foreign efficacy), with exact joint dependence retained."
+}

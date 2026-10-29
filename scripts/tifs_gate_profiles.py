@@ -10,6 +10,12 @@ import tifs_common as common
 
 PROFILES = ("round1", "round3-proposed")
 
+FIXED_THRESHOLDS = dict(absolute_foreign_count_min=12,
+    clean_F_count_min_each_new_writer=15, max_retained_loss=1,
+    gain_over_f5={"R1-0.1":4,"R1-0.2":4,"K3-0.2":3},
+    gain_over_each_ablation={"R1-0.1":3,"R1-0.2":3,"K3-0.2":1},
+    paired_median_lpips_delta_max=.005, paired_median_psnr_delta_min=-1)
+
 
 def profile_config(config, name):
     if name not in PROFILES:
@@ -17,16 +23,23 @@ def profile_config(config, name):
     result = copy.deepcopy(config)
     candidate = result["candidate"]
     decision = result["decision"]
+    if any(decision.get(k) != v for k,v in FIXED_THRESHOLDS.items()):
+        raise ValueError("Unregistered numerical gate threshold change")
+    registry = result.get("gate_profiles", {})
+    registered = registry.get(name, {})
+    overrides = dict(ablation_gains_primary=name == "round1",
+        gain_comparators=["f5-r2"] if name == "round1" else ["f5-r2","f5-budget"],
+        quality_comparator="f5-r2" if name == "round1" else "f5-budget")
+    if registered.get("decision_overrides") != overrides:
+        raise ValueError("Gate profile registry differs from the preregistered comparison")
     result["gate_profile"] = name
-    decision["ablation_arms"] = ["f6-codec", "f6-generic"]
-    decision["ablation_gains_primary"] = name == "round1"
-    decision["gain_comparators"] = ["f5-r2"]
-    decision["quality_comparator"] = "f5-r2"
-    decision["quality_writers"] = list(dict.fromkeys(["f6-noise", "f6-codec", "f6-generic", candidate]))
+    decision.update(copy.deepcopy(overrides))
+    decision["ablation_arms"] = [a for a in config["new_writers"] if a != candidate]
+    decision["quality_writers"] = list(dict.fromkeys([*config["new_writers"], candidate]))
     if name == "round3-proposed":
-        decision["gain_comparators"].append("f5-budget")
-        decision["quality_comparator"] = "f5-budget"
         decision["quality_writers"] = [candidate, "f5-budget"]
+        decision["ablation_arms"] = [a for a in ("f6-noise","f6-x0","f6-codec","f6-generic")
+                                    if a != candidate and a in config["arms"]]
     return result
 
 

@@ -89,6 +89,50 @@ class AnalysisTests(unittest.TestCase):
             self.assertEqual(common.load_json(Path(tmp)/"analysis.json")["verdict"],"GO")
             self.assertTrue((Path(tmp)/"native.csv").read_text().startswith("arm,cell,rule"))
 
+    def test_proposed_profile_is_reported_without_switching_effective_default(self):
+        vals=copy.deepcopy(self.base)
+        c,m,p,pro,det,q=vals
+        # Codec ties the successful candidate in every foreign cell. This is
+        # complete evidence against a unique surrogate advantage, not missing.
+        for uid,row in det.items():
+            if uid.startswith("det:f6-codec:native:") and uid.endswith(":f6-codec"):
+                row["calls"][c["owners"]["positive"]]=call(True)
+        report=self.run_analysis(vals)
+        self.assertEqual(report["gate_profile"],"round1")
+        self.assertEqual(report["verdict"],"SCIENTIFIC_KILL")
+        self.assertEqual(report["gate_profiles"]["round3-proposed"]["verdict"],"GO")
+        self.assertTrue(all(g["selection_weight"]==0 for g in report["gate_profiles"]["round3-proposed"]["gains"]
+                            if g["comparator"]=="f6-codec"))
+        c["gate_profile"]="round3-proposed"  # Pure API fixture; CLI requires the external receipt.
+        self.assertEqual(self.run_analysis(vals)["verdict"],"GO")
+
+    def test_proposed_requires_gain_and_achieved_quality_against_budget_control(self):
+        vals=copy.deepcopy(self.base)
+        c,m,p,pro,det,q=vals
+        c["gate_profile"]="round3-proposed"
+        # Giving F5 the same native performance correctly kills attribution.
+        for uid,row in det.items():
+            if uid.startswith("det:f5-budget:native:") and uid.endswith(":f5-budget"):
+                row["calls"][c["owners"]["positive"]]=call(True)
+        r=self.run_analysis(vals)
+        self.assertEqual(r["verdict"],"SCIENTIFIC_KILL")
+        self.assertTrue(any(g["name"].endswith(":gain:f5-budget") and g["status"]=="fail" for g in r["gates"]))
+        vals=copy.deepcopy(self.base); vals[0]["gate_profile"]="round3-proposed"
+        for uid,row in vals[5].items():
+            if uid.startswith("quality:clean:") and uid.endswith(":f5-budget"):
+                row["total"]["psnr_db"]=45
+        r=self.run_analysis(vals)
+        self.assertEqual(r["verdict"],"SCIENTIFIC_KILL")
+        self.assertEqual({r["comparator"] for r in r["paired_medians"]},{"f5-budget"})
+
+    def test_provenance_missing_invalidates_both_profile_exports(self):
+        r=self.run_analysis()
+        analysis.mark_provenance_missing(r)
+        for profile in r["gate_profiles"].values():
+            self.assertFalse(profile["inventory_complete"])
+            self.assertEqual(profile["verdict"],"INCOMPLETE")
+            self.assertEqual(profile["article"]["verdict"],"INCOMPLETE")
+
     def test_missing_absent_and_failed_outputs_are_not_negative(self):
         vals = copy.deepcopy(self.base)
         c,m,p,pro,det,q = vals

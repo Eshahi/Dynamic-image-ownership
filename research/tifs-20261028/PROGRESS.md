@@ -150,3 +150,9 @@ R3-2 integration decision: use the first two Stage P tuning sources for calibrat
 ### R3-2 completed ? 2026-10-29 16:58 UTC
 
 Implemented immutable Stage P plans,8/4/2/1 successive allocation, source-prefix guards, shared-control evidence comparison, nomination-bound veto-only check, successful selection consumption, calibrated forecast and one paid clock. Added the F5 budget arm and exact11-arm Stage S inventory. Setup verifies60 development-source hashes without mixing scientific partitions. Cumulative isolated suite:146 pure-logic tests passed; all tifs Python modules compiled. Focused setup binding rechecked after six-file receipt integration:2 passed; shell entrypoints passed Bash syntax checks. No numerical experiment, image/model pass, download, setup or server command ran. Profile report integration remains R3-3, so readiness remains INCOMPLETE.
+
+R3-2 push receipt: Codex agent pushed origin/codex/tifs-20261028, 49db2fa..7afb21f, after the item completed at 16:58 UTC.
+
+### R3-3 completed - 2026-10-29 17:18 UTC
+
+Exact finite-sum probability grids, dependence/paired-comparator sensitivity, explicit claim losses and two selectable gate profiles are complete. The analyzer reports both while keeping round1 effective by default; no approval receipt exists. K3-in has a precise deferred native design, including its unsupported generic checkpointing limitation; K3-out remains recommended and selection-seen. Subjective complete-execution thesis probabilities are 15% current and 35% recommended, not calibrated predictions or acceptance probabilities. Focused validation passed 56 pure-logic analyzer/profile/selection/article tests; mathematical identities and compilation are checked separately. Cost forecasting and independent review follow before preparation can be declared complete.

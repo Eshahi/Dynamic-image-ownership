@@ -37,7 +37,7 @@
     "lpips_improvement_min": 0.002,
     "psnr_improvement_min_db": 1,
     "edge": "both C and J gain >=3 in the same foreign cell OR paired clean median LPIPS improvement >=.002 AND PSNR improvement >=1 dB",
-    "requirements": "unchanged F6 thesis GO; both C/J net loss <=1 in every cell; paired quality noninferiority; complete inventory",
+    "requirements": "effective pre-output chosen F6 thesis GO; both C/J net loss <=1 in every cell; paired quality noninferiority; complete inventory",
     "novelty_status": "narrow F6 construction not found in seven inspected methods; ForenMark full-text pending; generic bound-carrier novelty preempted",
     "inferential_status": "fixed development screen, not statistical noninferiority or confirmation",
     "verdicts": [
@@ -431,5 +431,35 @@
     ],
     "fallback": "frozen f6-noise at52 only if Stage P declined before outputs; never after a failed/missing selected run",
     "choice_before_any_server_output": true
+  },
+  "gate_profiles": {
+    "round1": {
+      "status": "DEFAULT_EFFECTIVE",
+      "decision_overrides": {
+        "ablation_gains_primary": true,
+        "gain_comparators": [
+          "f5-r2"
+        ],
+        "quality_comparator": "f5-r2"
+      },
+      "quality_writers": "original_new_writers_plus_candidate",
+      "ablation_arms": "original_new_writers_except_candidate",
+      "numerical_thresholds": "unchanged decision object"
+    },
+    "round3-proposed": {
+      "status": "PROPOSAL_ONLY_REQUIRES_PRE_OUTPUT_USER_CHOICE",
+      "decision_overrides": {
+        "ablation_gains_primary": false,
+        "gain_comparators": [
+          "f5-r2",
+          "f5-budget"
+        ],
+        "quality_comparator": "f5-budget"
+      },
+      "quality_writers": "candidate_and_budget_f5",
+      "ablation_arms": "all_other_f6",
+      "numerical_thresholds": "same absolute12/16, F5 and budget gains4/4/3, R0loss1, strictquality, cleanF15/16, qualityNI .005LPIPS/-1dB, negatives unchanged",
+      "claim_limit": "ablation results are mechanism diagnostics, not mandatory evidence of surrogate-specific superiority"
+    }
   }
 }

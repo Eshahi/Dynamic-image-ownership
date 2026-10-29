@@ -193,7 +193,7 @@ def bound_evidence_complete(row, payload, owners, marked):
     return True
 
 
-def analyze(config, manifest, prepared, producers, detections, qualities, *, resource_stop=False, tails=()):
+def _analyze_profile(config, manifest, prepared, producers, detections, qualities, *, resource_stop=False, tails=()):
     sources = [str(r["source_id"]) for r in manifest["screen_donors"]]
     targets = {str(r["source_id"]) for r in manifest["screen_targets"]}
     if len(sources) != config["screen_n"] or len(set(sources)) != len(sources):
@@ -276,13 +276,17 @@ def analyze(config, manifest, prepared, producers, detections, qualities, *, res
         for cell in d["foreign_cells"]:
             c = native_index[candidate, cell, rule]
             gates.append(minimum_gate(f"{rule}:{cell}:absolute", c["lower"], c["upper"], d["absolute_foreign_count_min"]))
-            for comparator in ("f5-r2", *[a for a in config["new_writers"] if a != candidate]):
+            for comparator in (*d["gain_comparators"], *d["ablation_arms"]):
                 b = native_index[comparator, cell, rule]
                 lower, upper = c["lower"]-b["upper"], c["upper"]-b["lower"]
-                required = d["gain_over_f5" if comparator == "f5-r2" else "gain_over_each_ablation"][cell]
+                is_ablation = comparator in d["ablation_arms"]
+                required = d["gain_over_each_ablation" if is_ablation else "gain_over_f5"][cell]
+                primary = not is_ablation or d["ablation_gains_primary"]
+                gate = minimum_gate(f"{rule}:{cell}:gain:{comparator}", lower, upper, required)
                 gains.append(dict(rule=rule, cell=cell, candidate=candidate, comparator=comparator,
-                                  lower=lower, upper=upper, denominator=len(sources)))
-                gates.append(minimum_gate(f"{rule}:{cell}:gain:{comparator}", lower, upper, required))
+                                  lower=lower, upper=upper, denominator=len(sources), required=required,
+                                  selection_weight=int(primary), status=gate["status"]))
+                if primary: gates.append(gate)
         cell = d["retained_cell"]
         c, b = native_index[candidate, cell, rule], native_index["f5-r2", cell, rule]
         lower, upper = c["lower"]-b["upper"], c["upper"]-b["lower"]
@@ -294,14 +298,14 @@ def analyze(config, manifest, prepared, producers, detections, qualities, *, res
         qvals = [metrics(f"clean:{s}:{arm}") for s in sources]
         q = count_bounds(common.strict_quality(v) if v is not None else None for v in qvals)
         clean.append(dict(arm=arm, clean_F=f, strict_quality=q))
-        if arm in config["new_writers"]:
+        if arm in d["quality_writers"]:
             gates.append(minimum_gate(f"clean_F:{arm}", f["lower"], f["upper"], d["clean_F_count_min_each_new_writer"]))
             gates.append(minimum_gate(f"strict_quality:{arm}", q["lower"], q["upper"], len(sources)))
     paired = []
     for metric in ("psnr_db", "lpips"):
         values = []
         for sid in sources:
-            a, b = metrics(f"clean:{sid}:{candidate}"), metrics(f"clean:{sid}:f5-r2")
+            a, b = metrics(f"clean:{sid}:{candidate}"), metrics(f"clean:{sid}:{d['quality_comparator']}")
             # Infinite PSNR identity comparisons cannot yield an unambiguous
             # finite paired delta; retain as unresolved, never invent zero.
             if a and b and common._finite(a.get(metric)) and common._finite(b.get(metric)):
@@ -311,7 +315,7 @@ def analyze(config, manifest, prepared, producers, detections, qualities, *, res
         if len(values) == len(sources):
             passed = median >= d["paired_median_psnr_delta_min"] if metric == "psnr_db" else median <= d["paired_median_lpips_delta_max"]
             status = "pass" if passed else "fail"
-        paired.append(dict(metric=metric, candidate=candidate, comparator="f5-r2", median_observed_delta=median,
+        paired.append(dict(metric=metric, candidate=candidate, comparator=d["quality_comparator"], median_observed_delta=median,
                            observed=len(values), denominator=len(sources), status=status))
         gates.append(dict(name="paired_median:"+metric, status=status))
     negatives = []
@@ -473,7 +477,7 @@ def analyze(config, manifest, prepared, producers, detections, qualities, *, res
             semantic_correction_distance=decoded.get("distance"),
             evaluator_delivery=(call or {}).get("delivery"),
             raw_h_role="conditional unmasked field; no error correction or independent presence test"))
-    return dict(schema="tifs-stage-s-analysis-v1", verdict=label, gates=gates, inventory=inventory,
+    return dict(schema="tifs-stage-s-analysis-v1", gate_profile=config["gate_profile"], verdict=label, gates=gates, inventory=inventory,
                 numerical_thesis_gate_status=numerical_thesis_status,
                 numerical_thesis_gate_scope="Fixed F6 numeric gates only; pass does not waive complete inventory or authorize GO.",
                 article=article_report, bound_carrier_delivery=bound_delivery,
@@ -496,6 +500,25 @@ def analyze(config, manifest, prepared, producers, detections, qualities, *, res
                 zero_event_source_upper_95=1-math.pow(.05, 1/len(sources)))
 
 
+def analyze(config, manifest, prepared, producers, detections, qualities, *, resource_stop=False, tails=()):
+    """Report both prospective profiles; only the pre-output choice is effective."""
+    import tifs_gate_profiles as profiles
+    effective = config.get("gate_profile", "round1")
+    if effective not in profiles.PROFILES:
+        raise ValueError("Unknown effective gate profile")
+    reports = {name:_analyze_profile(profiles.profile_config(config,name), manifest, prepared,
+        producers, detections, qualities, resource_stop=resource_stop, tails=tails) for name in profiles.PROFILES}
+    result = reports[effective]
+    result["gate_profiles"] = {name:{key:report[key] for key in (
+        "gate_profile","verdict","gates","gains","paired_medians","article",
+        "numerical_thesis_gate_status","inventory_complete","resource_stop")} for name,report in reports.items()}
+    for name, report in result["gate_profiles"].items():
+        report["role"] = "effective_pre_output_choice" if name == effective else "counterfactual_diagnostic_only"
+    result["execution_choices"] = config.get("execution_choices", {})
+    result["profile_policy"] = "Both reported; no outcome-dependent profile switch. Default round1; proposed requires external pre-output choice."
+    return result
+
+
 def mark_provenance_missing(report):
     """Keep numerical results but never export article GO without a run seal."""
     report["inventory_complete"] = False
@@ -506,12 +529,15 @@ def mark_provenance_missing(report):
     article_report["numerical_parity"] = False
     article_report["numerical_parity_status"] = "unknown"
     article_report["flags"] = [f for f in article_report["flags"] if f != "NUMERICAL_PARITY"]
+    for profile in report.get("gate_profiles", {}).values():
+        mark_provenance_missing(profile)
 
 
 def write_report(report, destination):
     destination = Path(destination)
     common.atomic_json(destination/"analysis.json", report)
     common.atomic_json(destination/"article-decision.json", report["article"])
+    common.atomic_json(destination/"gate-profile-decisions.json", report["gate_profiles"])
     for name in ("gates", "inventory", "native", "native_sources", "gains", "clean", "paired_medians", "negatives", "threats", "secondary", "external_baselines", "bound_carrier_delivery"):
         rows = report[name]
         if not rows:
@@ -529,8 +555,14 @@ def main(argv=None):
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
     parser.add_argument("--destination", type=Path)
+    parser.add_argument("--user-choice", type=Path)
+    parser.add_argument("--selection", type=Path)
     args = parser.parse_args(argv)
-    config = common.load_json(args.config)
+    import tifs_gate_profiles as profiles
+    import tifs_stage_p as stage_p
+    config = profiles.load_execution_config(args.config,receipt_path=args.user_choice,selection_path=args.selection)
+    if config.get("stage_p"):
+        raise ValueError("Use the Stage P selector for Stage P outputs")
     manifest_path = Path(config["source_manifest"])
     if not manifest_path.is_absolute():
         manifest_path = ROOT/manifest_path
@@ -551,6 +583,8 @@ def main(argv=None):
     if seal_path.is_file():
         seal = common.load_json(seal_path)
         if (seal.get("config_sha256") != common.sha256_file(args.config) or
+            seal.get("effective_config_sha256") != stage_p.digest(config) or
+            seal.get("execution_choices") != config["execution_choices"] or
             seal.get("source_manifest_sha256") != common.sha256_file(manifest_path) or seal.get("rehearsal") is not False):
             raise ValueError("Run provenance does not match frozen screen config/sources")
         pinned = seal.get("code", {})
