@@ -23,6 +23,9 @@ For this session, the brief overrides every section below that asks you to run e
 - **Guard.** The supervisor hides CUDA. It kills processes that use the science interpreter, import ML libraries on the command line, run experiment scripts, call vastai or ssh, or run Python for more than 15 minutes. Do not work around it; leave any computation it blocks to the server stage.
 - **Keep working until the session deadline** in `research/tifs-20261028/PROGRESS.md`. Nobody answers questions during the run: record decisions for the user and continue.
 - The threat-scope rule (T3/T4/T5 only) and the integrity rules below still apply in full.
+- **Round 3 (2026-10-29):**
+  - The brief is `research/tifs-20261028/BRIEF-R3.md`.
+  - The user allowed ultra for this session, verbatim: "از سطح thinking در ultra میشه استفاده کرد اگر بخوای." So the session runs at `ultra`, overriding "Never use max or ultra" below for the session itself only. Agents you spawn stay at `xhigh` or below.
 
 ## Current direction: independent-encoder transfer test (user decision, 2026-10-19)
 
