@@ -201,3 +201,35 @@ are committed; no scientific code change follows from the source interpretation.
   RGB8 roundings, and leaves final PSNR/SSIM/LPIPS unmeasured. No scientific
   code or threshold changed after the accepted review; the remaining work is
   final documentation in the specified handoff window.
+
+Post-review documentation push confirmed: Codex agent,
+origin/codex/tifs-20261028, 8584dfa..3f15e6c. At 18:02 UTC local HEAD and origin
+both resolved to 3f15e6cafd351f82c5af8142f29207615a18e70e, with a clean worktree.
+By 18:41 UTC, the interval since approximately 17:51 was waiting for the
+specified R3-6 window, not additional research or scientific execution. No
+background job, watcher, heartbeat, automation or experiment was started.
+
+### R3-6 final handoff - 2026-10-29 20:00 UTC
+
+Entered the required final-25-minute window at 20:00:27 UTC. The interval from
+approximately 17:51 until this window was waiting, not uninterrupted research.
+The final report and readiness are refreshed to Stage P plus eleven-arm S,
+both gate profiles with round1 still effective, the 185-test/35-compilation
+author validation and conditional 126-hour planning scenario. A bounded
+r3_runbook_handoff author agent (gpt-6.1-sol/medium) updates only the runbook
+against the actual CLIs; this is documentation assistance, not another review.
+
+R3-6 final metadata verification passed at 20:09 UTC: report status lines,
+readiness defaults and false authorization flags, 33 local handoff links,
+review references and absence of a selected configuration all agree. Scientific
+code is unchanged since the reviewed correction in 8584dfa; no repeat scientific
+test or full-suite rerun was needed for these documentation changes. The runbook
+commands and output paths were checked against their actual source interfaces.
+
+The authoritative MAIN TIFS section was replaced with exactly eight lines and
+matches MAIN-STATE-section.md. All preceding bytes were preserved; their SHA256
+remains 5fc1886a2d1a7b4b6ad0c5b81c7d07ba13983193ac0c93bb73ffe02f48251702.
+No protected proposal, claims, source plan, retained output or other MAIN section
+was changed. R3-1 through R3-6 are complete as preparation only. The final item
+is ready to commit and push from 3f15e6c on Codex's own branch; actual receipt
+will follow. Pending user decisions are recommendations, not effective changes.
