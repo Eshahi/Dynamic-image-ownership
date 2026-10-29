@@ -164,3 +164,21 @@ R3-3 push receipt: Codex agent pushed origin/codex/tifs-20261028, 7afb21f..4c673
 The complete allocation has 316 marked source-units, 9,080 saved producer images and 13,616 detector rows, including Stage P and Stage S rehearsal/screen. Explicit unmeasured timing scenarios require 62/126/265 whole instance-hours; 126 hours is a planning proposal, never a measured minimum or approved cap. The default remains 15 hours. Stage P and Stage S each require their own measured continuation forecast on the same paid clock. The runtime deliberately over-reserves full P again after calibration and does not refresh after each rung; this can require more than the nominal scenario. Twelve new metadata-only integration tests and sixteen existing forecast tests passed, detecting five binding/receipt gaps that were corrected. A further pure test confirms observed scientific failure cannot hide missing evidence or a resource stop during selection. No model, image, metric or timing experiment ran.
 
 R3-4 verification: the cumulative isolated suite passed 173 pure-logic tests (172.6 seconds); 34 Python modules compiled and the saved cost JSON exactly matched its calculator. Adjacent final forecast checks now retain writer-diagnostic memory peaks and enforce chosen-cap/device consistency; dedicated integration coverage follows in the review interval. No empirical fit or scientific pass is implied.
+
+R3-4 push receipt: Codex agent pushed origin/codex/tifs-20261028, 4c673d6..551afc5. Eight additional Stage S forecast integration tests passed, covering the complete eleven-arm rehearsal, proposed x0/46 selection, paid cap/device consistency and the diagnostic-only memory peak.
+
+### R3-5 independent review commissioned - 2026-10-29 17:22 UTC
+
+Fresh reviewer r3_independent_review, gpt-6-astra/xhigh with no inherited context, reviews only 01bf24f..551afc5 for native surrogate correctness, P/S/C isolation, frozen selection, default/effective gate profiles and cost arithmetic. Deliverable: design/r3-independent-review.md. Author QA is distinct from this review; the latest metadata-only S forecast test will be included in its closure scope. No scientific validation or human verdict is delegated.
+
+- 17:30 UTC review correction: required Stage P control resource stops now propagate before candidate rejection; missing required controls also prevent scientific exhaustion. Four regression tests cover retained and budget controls, both profiles and the veto-only check. All 22 Stage P tests passed. The same reviewer independently verified closure with 42 focused tests and the three original failure reproductions. No numerical gate changed.
+- Author interpretation assistance produced design/r3-result-interpretation.md; the Stage S analysis note now reflects eleven arms and both profiles. A separate bounded primary-literature search by r3_surrogate_context, gpt-6.1-sol/medium, checks whether denoiser-gradient/x0 watermark surrogates are already established; it is author research, not another independent review or a new experimental arm.
+
+### R3-5 completed - 2026-10-29 17:37 UTC
+
+The sole independent reviewer accepted preparation after closing R3-IR-1;
+dispositions are in 07-review.md. Author verification passed all 185 pure-logic
+tests in 200.8 seconds and compiled 35 tifs modules, with no scientific library
+loaded. Native numerical behavior and feasibility remain unmeasured. No real
+approval receipt, selected winner or scientific output exists. R3-6 is reserved
+for the brief's final 25-minute window, starting after 20:00 UTC.

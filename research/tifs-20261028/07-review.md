@@ -55,3 +55,38 @@ Author validation passed **100 pure-logic tests** and compiled **22 Python files
 The reviewer accepted the q/tag/h layout, blind unique decoding, retained content functions, side-information disclosures, full inventory, writer-only checkpointing and measured-total-minus-1.5-GiB capacity policy. Real gradients, saved-image behavior, time/memory/disk fit and scientific results remain server-rehearsal obligations. Generic bound-carrier novelty is pre-empted; ForenMark remains full-text uninspected pending delivery. Stage C needs a new prospective comparative/power/cost amendment before any approval.
 
 Lead handoff note, 2026-10-29: ForenMark was still absent at the specified 13:18 UTC cutoff and is now recorded as full-text UNINSPECTED under BRIEF-R2. This closes the delivery wait with an explicit source limitation, not a new reviewer novelty verdict. Subsequent changes are interpretation and handoff documentation only; scientific code has not changed since the reviewed correction commit `201f757`.
+
+## Round 3
+
+Fresh reviewer `r3_independent_review`, `gpt-6-astra` at xhigh with no inherited
+context, reviewed `01bf24f..551afc5` and the bounded correction below. Original
+evidence, closure hashes and limitations are preserved in
+[the independent report](design/r3-independent-review.md).
+**Verdict: ACCEPTED FOR PREPARATION after closure of R3-IR-1.** No open
+preparation blocker remains. This is neither a scientific result nor approval
+of spending, execution, proposed gates, human quality or publication.
+
+| Finding | Correction and disposition |
+|---|---|
+| R3-IR-1, blocking: required retained-F5 or budget-F5 RESOURCE_STOP could become INCOMPLETE or be hidden by a candidate rejection as SCIENTIFIC_STOP | Closed. Comparison preserves resource status, and eligibility inspects every allocated candidate and required control before scientific rejection. Stage P precedence is RESOURCE_STOP, INCOMPLETE, then rejection, preserving observed failure reasons and per-control diagnostics. Early budget controls remain optional; finalist/check controls remain mandatory. Four regression tests cover both profiles, rejected candidates and the veto check. The Stage S decisive-failure policy is unchanged. |
+
+Independent validation passed 181 tests before correction and 42 affected tests
+plus the three original reproductions afterward. The author then passed the
+complete resulting **185-test suite** and compiled **35 Python modules** in the
+isolated MAIN stdlib interpreter; the loaded-module check found no scientific
+library. Test artifacts were dictionaries, JSON and opaque bytes, not images or
+scientific results. The reviewer independently reproduced source isolation,
+exact cost/probability artifacts and unchanged article numerical rules.
+
+The accepted scope includes the native x0 operator/conditioning/checkpoint
+design, P's 24-source isolation and fixed nomination/veto, selectable but
+inactive proposed gates, complete inventory and explicit cost arithmetic.
+All 60 originals retain historical development exposure; K3 is selection-seen.
+Forward parity does not validate the full attack gradient. Real numerical
+behavior, achieved quality, survival, resource fit and the scientific value of
+the construction remain server obligations. The 126-hour middle scenario is
+neither a measured minimum nor an approved cap; 15 hours remains effective.
+
+The separate author prior-art note and final handoff documentation do not
+expand this review into a novelty verdict. Firstness, rare-error security,
+human acceptance and TIFS readiness remain unestablished.

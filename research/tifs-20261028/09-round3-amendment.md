@@ -47,3 +47,21 @@ Claude records the actual combined choice and its evidence reference in a commit
 The [cost inventory](stage-p/round3-cost.md) prices the complete 136-mark Stage P allocation and 180 marks across Stage S rehearsal/screen, including native replay, diagnostics, UNet backward/checkpoint recomputation, transfers, readers and metrics. Fast/middle/stress assumptions yield 61.9951/125.8175/264.9849 hours after allowances, rounded to 62/126/265 hours. These are hypothetical timing scenarios, not measured GPU performance. The middle 126-hour planning proposal is USD 56.70-75.60 at the inherited USD .45-.60/hour assumptions; no live offer or spending authorization is asserted. The smallest empirically defensible cap remains unknown until server calibration.
 
 Recommend considering 126 hours only as a prospective maximum under the declared middle assumptions, with a separately committed actual user ceiling and mandatory measured Stage P and Stage S qualification. The runtime forecast is deliberately more conservative than the nonduplicating scenario: it charges full P after calibration and slower measured writer proxies. It may stop even under the proposed cap. No automatic extension, smaller inventory or reinterpretation as scientific failure is permitted. Setup, P, freeze, S rehearsal/screen and retrieval share the actual instance start. The profile choice is committed before any P output; post-P freeze records only the selected configuration under that choice.
+
+## R3-5: review correction and interpretation
+
+The independent review identified a Stage P reporting defect: a resource-stopped
+required control could be reduced to INCOMPLETE or hidden by a candidate's
+scientific rejection. Corrected aggregation checks every allocated candidate
+and required control first, with RESOURCE_STOP before INCOMPLETE before
+scientific rejection, while preserving all observed failure reasons. This
+changes neither a scientific threshold nor the existing Stage S decisive-failure
+policy. The protocol and pure regression tests state the distinction explicitly.
+
+The [prospective interpretation guide](design/r3-result-interpretation.md)
+separates implementation qualification, resource feasibility, package success,
+mechanism attribution and the unchanged VINE-B article screen. It does not
+create new measurements or claims. In particular, forward first-step parity
+does not validate the complete attack gradient, all 60 images retain historical
+development exposure, K3 is selection-seen, and matched declared budgets do
+not establish equal achieved quality or compute.

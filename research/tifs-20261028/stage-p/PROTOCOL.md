@@ -75,6 +75,14 @@ Compute effective-round1 compatibility at each rung using complete paired source
 
 Rungs 1 and 2 allocate the search; their small counts do not themselves establish efficacy or futility. If no complete absolutely eligible candidate remains, stop with SCIENTIFIC_STOP when observed disqualifications exhaust the set, or INCOMPLETE when a missing required result could alter the survivor set. Do not move to Stage S. Resource exhaustion is RESOURCE_STOP and cannot become an efficacy result.
 
+For the allocated rung or veto check, status precedence is RESOURCE_STOP,
+then INCOMPLETE, then observed scientific rejection. It includes the retained
+control at every rung and the required budget control at final nomination/check,
+even if every candidate already has an observed failure. Preserve those failure
+reasons and each control's diagnostics; do not report incomplete paid work as
+scientific exhaustion. The Stage S analyzer's existing decisive-failure policy
+is separate and unchanged.
+
 At rung 3 apply the chosen profile's full finalist eligibility conditions, then nominate exactly one winner by the ranking above, then freeze its full configuration, configuration hash, nomination time and tuning-row digest before any check read. No check image is marked or evaluated before this nomination. If the winner has either C or J below 12/16 in any foreign cell, stop before the check and Stage S. A minimum <=9/16 is labelled CLEARLY_BELOW_STAGE_S_BAR; 10/16 or 11/16 is BELOW_SCREEN_BAR. For context, under independent Bernoulli source majorities with p=.75, P[X<=9; n=16]=.0795573. This is a descriptive futility calibration, not a valid selection-adjusted p-value or a guarantee of future Stage S performance. All six endpoints and their dependence remain reported.
 
 Also stop if either R0 C or J is below 12/16, or violates the retained-F5 R0 loss rule. These retention requirements protect the home-family capability; they do not replace the later Stage S rule. A failed required quality/control condition rejects a finalist before nomination or vetoes the nominated winner at check; it cannot trigger a post-check replacement or profile switch.

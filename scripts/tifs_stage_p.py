@@ -344,6 +344,8 @@ def summarize_trial(out, config, source_rows=None, count=None, calibration=False
 
 def comparison(candidate, comparator):
     """Source-paired achieved quality and fixed native gaps; no nominal match."""
+    if any(item is not None and item["status"] == "RESOURCE_STOP" for item in (candidate, comparator)):
+        return dict(status="RESOURCE_STOP")
     if candidate["status"] != "COMPLETE" or comparator is None or comparator["status"] != "COMPLETE":
         return dict(status="INCOMPLETE")
     if candidate["pairing"] != comparator["pairing"]:
@@ -372,6 +374,23 @@ def eligibility(summary, retained, budget, n, profile, final=False):
     status = summary["status"]
     reports = dict(round1=comparison(summary, retained), proposed=comparison(summary, budget) if final else dict(status="NOT_REQUIRED_AT_RUNG"))
     reasons = list(summary["rejection_reasons"])
+    # Required controls remain part of the allocated experiment even when a
+    # candidate has already failed a scientific criterion. A resource stop or
+    # missing control cannot turn into a scientific rejection through filtering.
+    evidence = [("candidate", summary), ("retained_f5_control", retained)]
+    if final:
+        evidence.append(("budget_f5_control", budget))
+    resource = [name for name, item in evidence if item is not None and item["status"] == "RESOURCE_STOP"]
+    unresolved = [name for name, item in evidence if item is None or item["status"] == "INCOMPLETE"
+                  or (name != "candidate" and item["status"] not in ("COMPLETE", "RESOURCE_STOP"))]
+    if resource or unresolved:
+        details = {name: dict(status=item["status"], missing=item.get("missing", []),
+                             rejection_reasons=item.get("rejection_reasons", []),
+                             control_diagnostics=item.get("control_diagnostics", []))
+                   if item is not None else dict(status="MISSING") for name, item in evidence}
+        return dict(status="RESOURCE_STOP" if resource else "INCOMPLETE",
+                    reasons=list(dict.fromkeys(reasons + summary["missing"] + resource + unresolved)),
+                    evidence_status=details, compatibility=reports)
     if status == "REJECTED":
         return dict(status="REJECTED", reasons=reasons, compatibility=reports)
     if status != "COMPLETE":

@@ -1,13 +1,16 @@
 # Stage S frozen screen analysis
 
 Implemented in `scripts/tifs_stage_s_analyze.py`; all imports are Python standard
-library, `tifs_common` or the pure `tifs_article_decision` module. It reads saved JSON/JSONL only. It never opens an
+library or the pure common, article, gate-profile and Stage P helpers. It reads saved JSON/JSONL only. It never opens an
 image, runs an encoder/reader/metric, downloads assets, or imports scientific
 packages. No scientific result is asserted by this implementation note.
 
 CLI: `python scripts/tifs_stage_s_analyze.py --out RUN_ROOT/screen --config research/tifs-20261028/stage-s/frozen-config.json`.
 Optional `--destination` changes the default `RUN_ROOT/screen/analysis` output
-folder. Exit codes are 0 GO, 2 SCIENTIFIC_KILL, 3 RESOURCE_STOP, 4 INCOMPLETE.
+folder. Supply the same `--user-choice` and `--selection` used by the runtime
+when applicable. A chosen Stage P run without a successful selection cannot
+fall back to the frozen writer. Exit codes are 0 GO, 2 SCIENTIFIC_KILL,
+3 RESOURCE_STOP, 4 INCOMPLETE.
 GO permits proposing fresh Stage C only; it is not execution or publication
 approval. The analyzer rejects rehearsal identity, source/config hash mismatch,
 and analyzer code differing from the run's identity. A missing identity cannot
@@ -17,10 +20,10 @@ producer's saved artifact hash.
 
 ## Evidence and decisions
 
-The Round 2 full planned inventory contains 144 clean, 1,728 native, 1,008
-threat and 1,152 secondary producer identities; 7,168 detector identities and
-4,032 quality identities. Detection inventory includes the unmarked output under
-each of the eight method readers. Required detection/quality rows are planned
+The Round 3 full eleven-arm inventory contains 176 clean, 2,112 native, 1,232
+threat and 1,408 secondary producer identities; 8,960 detector identities and
+4,928 quality identities. Detection inventory includes the unmarked output under
+each of the ten method readers. Required detection/quality rows are planned
 even for failed or blocked producer outputs. Missing producer selection leaves
 the threat inventory unenumerated and incomplete. Prepared pairs must have the
 frozen donor order and exactly the sixteen disjoint target identifiers. Extra
@@ -31,9 +34,15 @@ For C and J separately, the analyzer emits source-by-source three-seed majority
 bounds, aggregate lower/upper source counts, and conservative candidate-minus-
 comparator gains. The lower gain is candidate lower minus comparator upper;
 the upper gain is candidate upper minus comparator lower. The foreign absolute
-bar, both ablation gains, F5 gains and retained R0 loss bar are independent.
-Every new writer has the clean F and strict clean quality gates. Candidate/F5
-paired LPIPS and PSNR median gates require all sixteen valid pairs. Missing or
+bar, profile-specific gains and retained R0 loss bar are distinct conjuncts.
+The default round1 profile retains the original new-writer clean F/strict-quality
+gates and also applies them to the selected candidate. Its primary comparisons
+are retained F5 and the original ablation arms other than that candidate.
+The inactive round3-proposed profile instead gates candidate and budget-F5
+clean F/quality, requires gains over both F5 arms, and reports the other F6
+ablation gains with zero selection weight. Candidate/comparator
+paired LPIPS and PSNR median gates require all sixteen valid pairs; the
+comparator is retained F5 in round1 and budget F5 in round3-proposed. Missing or
 invalid metrics cannot pass; an infinite-PSNR pair with undefined finite delta
 stays unresolved. Clean identity PSNR is valid only as JSON null with the
 explicit `psnr_infinite` flag.
@@ -93,6 +102,17 @@ no-codeword or ambiguous decode is an observed no-read; missing fields are not.
 C0 and wrong-owner calls do not require unavailable exact references. Delivery
 receipts report ok/missing/invalid. Missing run identity invalidates the article
 result as well as package completeness while preserving numerical evidence.
+
+Round 3 adds `gate-profile-decisions.json` and nested `gate_profiles` in
+`analysis.json`. Both profiles are calculated on the same evidence, each with
+its own numeric gates, gains, quality comparisons and unchanged article rule.
+Exactly one is marked `effective_pre_output_choice`; the other is
+`counterfactual_diagnostic_only`. The main verdict and CSV tables use the
+effective profile. Missing provenance invalidates both profiles. The committed
+default remains round1, and the alternative requires Claude's record of the
+actual user choice committed before any server output, including Stage P.
+Analysis checks the base and effective config hashes and execution-choice seal;
+it cannot authenticate consent or grant execution permission.
 
 `analysis.json` contains complete structured results, side-information statements,
 inventory missing IDs, unusable evidence, lower/upper bounds and limitations.

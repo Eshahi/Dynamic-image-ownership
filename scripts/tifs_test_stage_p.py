@@ -93,6 +93,57 @@ class StagePLogic(unittest.TestCase):
         self.assertEqual(p.eligibility(candidate,retained,budget,16,"round3-proposed",True)["status"],"ELIGIBLE")
         self.assertEqual(p.eligibility(candidate,retained,None,16,"round1",True)["status"],"INCOMPLETE")
 
+    def test_retained_resource_stop_precedes_rung_scientific_failure(self):
+        for candidate_status in ("COMPLETE", "REJECTED", "INCOMPLETE"):
+            with self.subTest(candidate_status=candidate_status):
+                ids=list(p.CANDIDATES)
+                summaries={i:synthetic_summary(i,4) for i in ids}
+                for summary in summaries.values():
+                    summary.update(status=candidate_status, rejection_reasons=["strict_quality:0"])
+                retained=synthetic_summary(n=4)
+                retained.update(status="RESOURCE_STOP", missing=["deadline"])
+                result=p.select_rung(summaries,retained,{},4,"round1",ids)
+                self.assertEqual(result["status"],"RESOURCE_STOP")
+                self.assertEqual(result["survivors"],[])
+                detail=result["assessed"][ids[0]]
+                self.assertIn("strict_quality:0",detail["reasons"])
+                self.assertEqual(detail["evidence_status"]["retained_f5_control"]["missing"],["deadline"])
+                self.assertEqual(detail["compatibility"]["round1"]["status"],"RESOURCE_STOP")
+
+    def test_budget_resource_stop_precedes_finalist_rejection_in_both_profiles(self):
+        for profile in ("round1", "round3-proposed"):
+            for candidate_status in ("COMPLETE", "REJECTED"):
+                with self.subTest(profile=profile,candidate_status=candidate_status):
+                    candidate=synthetic_summary()
+                    candidate.update(status=candidate_status,rejection_reasons=["clean_F"])
+                    retained=synthetic_summary(counts=8)
+                    budget=synthetic_summary(counts=8)
+                    budget.update(status="RESOURCE_STOP",missing=["memory"])
+                    result=p.select_rung({p.CANDIDATES[0]:candidate},retained,{52:budget},16,profile,[p.CANDIDATES[0]])
+                    self.assertEqual(result["status"],"RESOURCE_STOP")
+                    self.assertEqual(result["survivors"],[])
+                    self.assertIn("clean_F",result["assessed"][p.CANDIDATES[0]]["reasons"])
+
+    def test_check_required_control_resource_stop_is_never_scientific_fail(self):
+        for control in ("retained", "budget"):
+            for candidate_status in ("COMPLETE", "REJECTED"):
+                with self.subTest(control=control,candidate_status=candidate_status):
+                    candidate=synthetic_summary(n=8,partition="check")
+                    candidate.update(status=candidate_status,rejection_reasons=["negative_event"])
+                    retained=synthetic_summary(n=8,counts=4,partition="check")
+                    budget=copy.deepcopy(retained)
+                    (retained if control=="retained" else budget)["status"]="RESOURCE_STOP"
+                    result=p.check_winner(candidate,retained,budget,"round3-proposed")
+                    self.assertEqual(result["check_status"],"RESOURCE_STOP")
+                    self.assertIn("negative_event",result["reasons"])
+
+    def test_missing_required_control_precedes_rejection_but_early_budget_is_optional(self):
+        candidate=synthetic_summary(n=4)
+        candidate.update(status="REJECTED",rejection_reasons=["clean_F"])
+        retained=synthetic_summary(n=4)
+        self.assertEqual(p.eligibility(candidate,None,None,4,"round1")["status"],"INCOMPLETE")
+        self.assertEqual(p.eligibility(candidate,retained,None,4,"round1")["status"],"REJECTED")
+
     def test_rung3_and_check_futility_no_fallback(self):
         candidate=synthetic_summary(counts=11)
         controls=synthetic_summary(counts=10)
