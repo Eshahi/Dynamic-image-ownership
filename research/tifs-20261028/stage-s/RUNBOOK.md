@@ -36,7 +36,7 @@ Before GPU work inspect the setup-ready status, instance start, package list and
 bash scripts/tifs_stage_s_driver.sh "$ASSETS" "$RUN_ROOT" "$START" "$PRICE" rehearsal
 ```
 
-The default mode is also rehearsal. This command stops after the rehearsal and its forecast; it does not start the 16-source screen. Rehearsal uses the two frozen donors and two separate targets, every arm, all native cells/seeds, all seven threat conditions, all eight secondary transforms and every reader/quality pass. It includes six new F6 marks and 192 native attempts. GPU work is serial: one model family or reader at a time. `PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True` is set by the driver and runtime.
+The default mode is also rehearsal. This command stops after the rehearsal and its forecast; it does not start the 16-source screen. Rehearsal uses the two frozen donors and two separate targets, every arm, all native cells/seeds, all seven threat conditions, all eight secondary transforms and every reader/quality pass. Round 2 includes six F6 marks, two VINE-B marks and 216 native attempts across nine arms. GPU work is serial: one model family or reader at a time. `PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True` is set by the driver and runtime.
 
 Watch `driver.log` and the stage logs under `rehearsal/`. Producer and reader emit `STAGE_START`, `MODEL_READY`, `UNIT_DONE`, `STAGE_DONE`, counts, elapsed time and memory. A long F6 mark may not emit UNIT_DONE until it finishes; inspect process/GPU status rather than start a duplicate worker. Writer diagnostics must show finite nonzero input gradients, differentiable-projection agreement and the native schedule receipt. Native C0 capture/replay must be exact in saved RGB8, with complete random-tape consumption; the differentiable posterior-mode surrogate is intentionally not claimed identical to a sampled native trajectory.
 
@@ -56,7 +56,9 @@ If all implementation checks and the intact resource forecast pass, continue the
 bash scripts/tifs_stage_s_driver.sh "$ASSETS" "$RUN_ROOT" "$START" "$PRICE" full
 ```
 
-The driver first revalidates the rehearsal and current paid clock, then runs the screen. A direct screen invocation cannot bypass the matching forecast/launch seal. The screen contains 128 clean, 1,536 native, 896 threat and 1,024 secondary producer identities, 6,272 detector rows and 3,584 quality rows. No parallel GPU readers are launched on the 24 GB device.
+The driver first revalidates the rehearsal and current paid clock, then runs the screen. A direct screen invocation cannot bypass the matching forecast/launch seal. The screen contains 144 clean, 1,728 native, 1,008 threat and 1,152 secondary producer identities, 7,168 detector rows and 4,032 quality rows. No parallel GPU readers are launched. See `round2-cost.md` for the exact counts and unchanged 15-hour inequality; decoder CPU work is included in measured reader time.
+
+VINE-B reads the suspect without the original message: q32/tag36 unique radius-four recovery, then raw masked-h32 recovery and unchanged F5 content-status functions. Inspect raw-bit delivery, correction distance, ambiguous/no-codeword counts and both owner calls. A VINE-R 69/100 known-message hit does not imply VINE-B payload recovery. VINE-B uses public check redundancy, not a secret ownership key or a registry. Its h flag is conditional on q recovery, not an independent carrier test. Do not change payload/radius after rehearsal outputs.
 
 ## Decision, failure and resume
 
@@ -65,6 +67,8 @@ Exit codes are 0 (complete GO or successful rehearsal), 2 (SCIENTIFIC_KILL from 
 The analyzer uses both C and exact-code/content J, conservative three-seed majority bounds, strict clean quality/F and paired distortion limits. Primary candidate C0/wrong-owner C/F checks cover clean/native/threat queries. Eligible T4/T5 D AND F gates use combined binding; disabling binding is a diagnostic ablation. Secondary outcomes have zero selection weight, but their inventory must be complete. WAM/VINE known-message presence is reported separately from owner/content consistency.
 
 A completed terminal journal row is not rerun. Interrupted work without a terminal row can resume with the identical command/config/code/assets/start, preserving torn bytes and latest-row semantics. Do not remove error/safety rows to manufacture completeness. Resource-stop markers block automatic retries; retain the run and propose a separately reviewed remedy. Stop and repair implementation errors before further work; changes to sealed code invalidate same-run resume and need a new declared output folder, with the original paid clock still counting.
+
+Read `article-decision.json` separately from the unchanged F6 thesis verdict. It applies the predeclared VINE-B retention/quality comparison and reports baseline viability. Neither a thesis GO without comparative edge nor a VINE-B win automatically supports article novelty. Human binding labels, fresh confirmation and ForenMark/prior-art disposition remain separate. Stage C needs a later prospective comparative-design amendment and approval.
 
 Use a normal foreground interrupt to stop safely, allow the process to exit, and keep journals and partial files. Never run two producers against one output folder. The shell driver is intended for a foreground monitored terminal or explicitly managed server session; never leave it unobserved past the instance ceiling.
 

@@ -2,6 +2,8 @@
 
 STATUS: DESIGN COMPLETE; execution requires a new user decision after Stage S and the unresolved preflight conditions below.
 
+**Round 2 dependency, 2026-10-29:** the specification below preserves the Round 1 six-hypothesis proposal. It does not yet confirm the new F6-versus-VINE-B article claim. Before approval, a prospective amendment must include VINE-B and the successful Stage S comparative route, revisit multiplicity/power and recompute inventory/cost under the proposed 50-hour ceiling. No fresh identifier has been scientifically used, and no additional confirmation is authorized. The new Stage S article label alone cannot activate this older design.
+
 This specification adopts the fixed **n=120 primary sources plus 40 ordered acquisition reserves**, six-hypothesis design in [design/stage-c-power.md](design/stage-c-power.md), the prospective [selection rule](stage-c/selection-rule.md), and conditional SD3.5 Medium family recommendation in [design/stage-c-family-feasibility.md](design/stage-c-family-feasibility.md). It is not a claim that 120 sources fit 50 hours. No held-out science, licence acceptance or paid execution is authorized. Stage C code is an extension item; Stage S software does not silently become a confirmatory runner.
 
 ## Claim, dependencies and prospective exclusion

@@ -103,7 +103,8 @@ records baseline source hashes. Later invocations verify file identity metadata
 and the unchanged setup receipt, source/asset plans, requirements and exact direct
 package pins. This guards accidental changes, not a malicious administrator.
 The capacity gate includes constructor and stage memory peaks as well as per-unit
-telemetry, rejects measured demand above 24 GiB, and reserves a 20% filesystem
+telemetry, requires measured demand below the actual device total minus 1.5 GiB,
+checks the same device total at screen launch/resume, and reserves a 20% filesystem
 margin beyond conservatively projected output/tape storage.
 
 Exit 3 stops immediately and preserves RESOURCE_STOP. Exit 4 retains incomplete

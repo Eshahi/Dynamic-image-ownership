@@ -90,7 +90,12 @@ class PayloadTests(unittest.TestCase):
         for k,c,o in ((b"",CONFIG,OWNER),(KEY,b"short",OWNER),(KEY,CONFIG,b"")):
             with self.assertRaises(ValueError): vb.encode_payload(Q,H,k,c,o)
         self.assertEqual(len(vb.encode_payload(0,2**32-1,KEY,CONFIG,OWNER)),100)
-        self.assertEqual(vb._cached_decode.cache_info().maxsize,256)
+
+    def test_repeated_items_retain_full_decode_work_for_forecast(self):
+        with patch.object(vb,"_decode_uncached",return_value={}) as decode:
+            vb.decode_payload([0]*100,KEY,CONFIG,OWNER)
+            vb.decode_payload([0]*100,KEY,CONFIG,OWNER)
+            self.assertEqual(decode.call_count,2)
 
     def test_evaluator_delivery_is_separate(self):
         bits=vb.encode_payload(Q,H,KEY,CONFIG,OWNER)

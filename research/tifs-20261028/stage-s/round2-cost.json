@@ -1,0 +1,49 @@
+{
+  "schema": "tifs-r2-cost-design-v1",
+  "scientific_measurements": false,
+  "screen": {
+    "clean": 144,
+    "native": 1728,
+    "threats": 1008,
+    "secondary": 1152,
+    "detect": 7168,
+    "quality": 4032
+  },
+  "rehearsal": {
+    "clean": 18,
+    "native": 216,
+    "threats": 126,
+    "secondary": 144,
+    "detect": 896,
+    "quality": 504
+  },
+  "screen_producer_images": 4032,
+  "rehearsal_producer_images": 504,
+  "screen_raw_rgb8_bytes": 3170893824,
+  "combined_raw_rgb8_bytes": 3567255552,
+  "additional_screen_units": {
+    "producer": 448,
+    "detect": 896,
+    "quality": 448,
+    "native": 192
+  },
+  "vine_b_owner_queries": {
+    "screen": 1792,
+    "rehearsal": 224
+  },
+  "q_candidates_per_query": 41449,
+  "q_uniform_null_union_bound": 1.2614298611879349e-05,
+  "budget": {
+    "max_seconds": 54000,
+    "retrieval_reserve_seconds": 3600,
+    "ratio": 8,
+    "factor": 1.5,
+    "forecast": "E + O + 12*W + 3600 <= 54000",
+    "absolute_best_case_rehearsal_variable_seconds": 3876.923076923077,
+    "usd_at_assumed_rate": [
+      6.75,
+      9
+    ],
+    "qualified": false
+  }
+}

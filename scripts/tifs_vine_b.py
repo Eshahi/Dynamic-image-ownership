@@ -6,7 +6,6 @@ references and are never inputs to the operational reader.
 """
 from __future__ import annotations
 
-from functools import lru_cache
 import hashlib
 import hmac
 from itertools import combinations
@@ -114,13 +113,10 @@ def _decode_uncached(bits, key, config, owner, *, tagger=tag36):
     return result
 
 
-@lru_cache(maxsize=256)
-def _cached_decode(bits, key, config, owner):
-    return tuple(_decode_uncached(bits,key,config,owner).items())
-
-
 def decode_payload(bits, key, config, owner):
-    return dict(_cached_decode(_bits(bits),key,config,owner))
+    # No cross-item result cache: the two-source rehearsal must not enjoy a
+    # small-working-set speedup that disappears in the sixteen-source screen.
+    return _decode_uncached(_bits(bits),key,config,owner)
 
 
 def delivery_diagnostics(raw_bits, decoding, payload):

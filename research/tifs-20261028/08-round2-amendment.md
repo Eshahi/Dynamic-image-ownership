@@ -18,6 +18,10 @@ Keep every F6 numerical thesis gate. Freeze a separate article comparison: both 
 
 Generic bound-carrier novelty is pre-empted by inspected primary methods. A VINE-B win therefore becomes `F6_KILL_VINE_B_VIABLE_NOT_NOVEL` or the applicable F6-GO baseline-dominance label, not an automatic article pivot. Any conditional F6 article GO still requires prior-art clearance, fresh confirmation and human evidence where claimed.
 
+## R2-4: full-inventory resource accounting
+
+Keep the 15-instance-hour cap. The added carrier raises the full screen to 4,032 producer identities, 7,168 detector rows and 4,032 quality rows; its 1,792 owner queries require up to 74,276,608 candidate checks. Remove cross-item decode caching because rehearsal working sets could fit the cache while full-screen sets evict, biasing linear timing forecasts. Within-item shared network/features remain. No scientific timing or speed claim is made. `stage-s/round2-cost.md` and its JSON give exact counts and the unchanged conservative paid-time inequality. A failed measured forecast must return RESOURCE_STOP and the measured required cap, without reducing the design or increasing spending. Stage C needs a subsequent comparative amendment and new budget before approval.
+
 ## Pending items
 
-R2-1 full prior-art conclusion (including ForenMark if delivered), R2-4 conservative cost accounting, and R2-5 independent review will be recorded here before readiness is restored. The Round 1 numerical F6 thesis gates are not amended.
+R2-1 full prior-art conclusion (including ForenMark if delivered) and R2-5 independent review will be recorded here before readiness is restored. The Round 1 numerical F6 thesis gates are not amended.
