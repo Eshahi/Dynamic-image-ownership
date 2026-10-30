@@ -2,7 +2,19 @@
 
 This file is already in your context; never re-read it. At the start of a thread, or right after a context compaction, read `thesis-runs/d916749c/STATE.md` once; the copy in the main checkout `W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5` is the only authoritative one, also when you work in a worktree.
 
-## Current mode: TIFS research, design and server-code session (user decision, 2026-10-28)
+## Current mode: RL research session (user decision, 2026-10-30)
+
+The user asked, verbatim: "I want to examine the probelity of using RL algoriths in two sides : 1- improving the experiment and 2- use it as a creativity for article publishing. I have many gpt 6 astra credit so you can have as much as time you want, and I want you to set up this research and then give me the prompt to start it in codex". Claude set up this session on branch `codex/rl-research-20261030`. The brief is `research/rl-20261030/BRIEF.md`.
+
+For this session, the brief overrides every section below that asks you to run experiments, design or build something else, or follow a session clock, including the TIFS "Current mode" section, the older Current-direction sections, Operating mode, Milestones, "Iterate fast", "Cheapest decisive test first" and Execution and provenance. The threat-scope rule (T3/T4/T5 only) and the integrity rules below still apply in full.
+
+- **Research only.** Nothing runs on this laptop except stdlib analysis of saved results and toy simulations, as the brief defines. No GPU, no science interpreter, no downloads other than paper PDFs, no installs, no paid compute, no vast.ai, no SSH.
+- **Write only in `research/rl-20261030/`.** Do not edit `scripts/`, `research/tifs-20261028/` or MAIN `thesis-runs/d916749c/STATE.md`. The approved F6 run stays frozen, and you stay blind to its outcome.
+- **No clock.** There is no deadline. The floors in the brief define when you are done. Never wait for time to pass, never stop early while a floor is unmet, and do not pad once the floors and reviews pass.
+- **Effort.** The thread runs at the effort the user selected, which may be `ultra`; the user offered it on 2026-10-29 and said on 2026-10-30 that credits are plentiful. That lifts "Never use max or ultra" below for the thread itself only. Agents you spawn stay on `gpt-6-astra` at `xhigh` or below. The "main thread runs at medium" note below does not apply.
+- **Guard.** Claude runs a light guard that kills Codex-started processes using the science interpreter, experiment scripts, vastai or the vast SSH key. Do not work around it.
+
+## Earlier mode, not active in this session: TIFS research, design and server-code session (user decision, 2026-10-28)
 
 The user asked, verbatim: "I have a full 100% session of codex pro 5x. Could you use it for the making the thesis acceptable for the TIFS journal? The research and experiment and also creativity. Then we run the code on vast ai with your observation. If you find it is possible or not." Claude set up this session on branch `codex/tifs-20261028`. The brief is `research/tifs-20261028/BRIEF.md`.
 
