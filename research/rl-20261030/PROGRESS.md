@@ -19,7 +19,7 @@ Started 2026-10-30 12:30 UTC (2026-10-30 04:30 at client UTC-08). No deadline or
 |---|---|---|
 | 0 | Read all 17 starting files, create this log | COMPLETE: root read the four FS reports and the two specs; code reader read two scripts + Stage P; dossier reader read eight TD files. Overlapping readings are not counted twice. Context notes in context/. |
 | 1 | >=12 code-grounded decision points, all required fields | COMPLETE:22 points, eight necessary conditions, P1/P2/P3 separated;01-decision-map.md and reader/code notes. |
-| 2 | >=80 queries, >=5 indexes; C1..C12 full-text card floors 15/15/10/15/12/8/8/10/8/10/8/15, or explicit valid exhaustion | NOT STARTED |
+| 2 | >=80 queries, >=5 indexes; C1..C12 full-text card floors 15/15/10/15/12/8/8/10/8/10/8/15, or explicit valid exhaustion | COMPLETE:133 inspected cards;335 exact-distinct queries;10 valid indirect scholarly host families. C1=12/15 invokes documented69-query/six-index retrieval exhaustion; all other floors met. 02-prior-art.md and literature/search-log.md. |
 | 3 | Six saved-results questions, limits from journals=off explicit | NOT STARTED |
 | 4 | Estimator variance, short-horizon regret, unseen families, fixed-reader limits | NOT STARTED |
 | 5 | >=40 raw ideas from >=3 fresh framings; rule committed before scores; >=20 sheets, >=7 policy points, all 3 classes, P1-P3, >=4 outside analogies; shortlist <=6 | NOT STARTED |
@@ -36,8 +36,11 @@ Started 2026-10-30 12:30 UTC (2026-10-30 04:30 at client UTC-08). No deadline or
 - WP0 environment: MAIN stdlib venv exists, Python 3.12.14, system site packages disabled. No Python process has been run. Root's retained-results reading flags VINE-R's PSNR median 34.7 (outside the strict >35 bar) despite strong retention; no equal-quality dominance is inferred.
 - WP1 escalation: fresh gpt-6-astra/high reader-code inspector; one60-line memo. Critical finding: generic raw score/threshold switches decoded/recomputed branches; a positive generic margin need not imply C. WP3 will report decoded margin and binding separately. J requires exact original q, not exact fragile h.
 - WP1 decision: existing gradients defeat an automatic case for pixel policy gradients, but do not rule out discrete sequential control. No candidate has been scored. All per-action gradient costs remain explicitly unmeasured.
+- WP2 escalations: fresh gpt-6-astra/high cluster readers for C1-C8/C11 and C10 security supplement, each one file; fresh high recovery agent for SPAR-RL/SMER; fresh high ledger consolidator. Root inspected C9/C12 and five C10 methodology sources and integrated the dossier. No science or Python execution occurred.
+- WP2 finding: DRIFT is direct inspected RL image-regeneration attack prior art. Generic RL attack novelty is occupied. No verified full-text demonstration settles fixed-reader, content-bound, strict-quality image writing against an independent regenerator versus the strongest equal-total-budget non-RL method. This is a bounded search result, not an absence proof.
+- WP2 integrity corrections: malformed site.domain terms in C4/C5/C8 are retained as historical general-web queries, not counted as restricted-index coverage. C1 inaccessible leads remain UNINSPECTED; SPAR-RL12-query and SMER8-query recovery did not obtain full text. Attack-output fidelity is distinguished from the clean writer quality bar. STATE was reread only when context-compaction instructions required it; it still contained no F6 output.
 
 ## Push log
 
 - WP0:2026-10-30, repository identity,861291c..2708d17 pushed to origin/codex/rl-research-20261030 successfully.
-- WP1: commit/push prepared; receipt follows in next package log.
+- WP1:2026-10-30,2708d17..bceb6bf pushed successfully to the same branch.
