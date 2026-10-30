@@ -1,0 +1,23 @@
+{
+  "schema": "tifs-round3-user-choice-v1",
+  "decision": "approve",
+  "recorded_by": "Claude",
+  "recorded_utc": "2026-10-29",
+  "config_path": "research/tifs-20261028/stage-s/frozen-config.json",
+  "config_sha256": "3227d96bb9c4f78e557486ec15f0b6aae9b6c35b5d2d866d67cdbeabd36b95b4",
+  "config_sha256_basis": "committed LF bytes at 59d5f39, as a Linux checkout reads them",
+  "gate_profile": "round3-proposed",
+  "stage_p": "run",
+  "k3_optimization": "excluded",
+  "before_server_outputs": true,
+  "max_instance_hours": 75,
+  "unchanged_rules": [
+    "12/16 absolute bar per foreign cell and all other round1 absolute thresholds",
+    "VINE-B article rule",
+    "no automatic extension, reduction or outcome-dependent budget change",
+    "Stage C (held-out) not authorized by this receipt"
+  ],
+  "price_basis": "the actual hourly price of the user-started vast.ai instance 57877693 (previously USD 0.551/h), as the user reports it with the SSH line; at that rate 75 h is about USD 41",
+  "user_decision_reference": "User chat message in Claude Code session 98acc1f7-a88e-4b1d-b3b0-fd575faa6d6c on 2026-10-29: 'Approve the package', answering Claude's option 1 = run Stage P, gate profile round3-proposed, K3 excluded from optimization, keep the 12/16 bar and the VINE-B rule, cap 75 instance hours",
+  "server_outputs_before_recording": "none; instance 57877693 stopped, no Stage P or Stage S setup or output exists"
+}
