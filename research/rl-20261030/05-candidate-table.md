@@ -16,7 +16,7 @@ Every score below is JUDGMENT. E/M/N/F/V mean project evidence, mechanism need, 
 | [C06 counterexample curriculum](05-candidates/C06.md) | R-game / P3/P8 | 2/2/2/1/3 | 10 | 22.00 even at F5 anchor, before teacher fitting | WATCHLIST; EXPENSIVE |
 | [C07 true latent pulse control](05-candidates/C07.md) | R-full / P2/P3 | 1/2/1/1/3 | 8 | 3.1767 + .030556 g, g unmeasured seconds | WATCHLIST; EXPENSIVE/unresolved |
 | [C08 T3 probe/regeneration chain](05-candidates/C08.md) | R-full / P6 | 2/2/1/2/3 | 10 | 12.00–16.80; cap 20 | WATCHLIST; close DRIFT precedent |
-| [C09 T4 binding-conditioned probes](05-candidates/C09.md) | R-full / P6 | 2/2/2/2/3 | 11 | 10.36–14.36; cap 20 | SHORTLIST-CONDITIONAL, rank 4; security only |
+| [C09 T4 binding-conditioned probes](05-candidates/C09.md) | R-full / P6 | 2/2/2/2/3 | 11 | 11.21–15.77 after WP7 seven-slot correction; cap 20 | SHORTLIST-CONDITIONAL, rank 4; security only |
 | [C10 unmodified T5 search](05-candidates/C10.md) | R-bandit / P6/P10 | 1/1/2/2/2 | 8 | 9.80 conditional envelope; cap 20 | WATCHLIST; M<2 |
 | [C11 removal/forgery population game](05-candidates/C11.md) | R-game / P7/P2/P3 | 2/2/2/1/3 | 10 | 35.68–38.08; 26.03 in writes alone | WATCHLIST; EXPENSIVE |
 | [C12 randomized writer commitments](05-candidates/C12.md) | R-game / P1/P7 | 1/1/1/2/2 | 7 | 15.37–18.57; cap 20 | COMPARATOR/ARTICLE-ONLY |
@@ -31,6 +31,8 @@ Every score below is JUDGMENT. E/M/N/F/V mean project evidence, mechanism need, 
 | [C21 joint sender/reader](05-candidates/C21.md) | R-game / P1/P2/P9/P5 | 1/2/1/1/3 | 8 | >=24.794–35.978 proxy hours before major unknowns | WATCHLIST; G4/G5 unknown; EXPENSIVE |
 
 All dollar conversions use the historical supplied rate $0.551/hour, not a current quote. Twenty hours converts to $11.02. Conditional caps allow RESOURCE_STOP; they are not measured completion forecasts. Most first tests can falsify a necessary finite-action premise but cannot establish learned-policy superiority. Full training, strong-comparator tuning, independent policy seeds, an excluded family and fresh confirmation require substantially more evidence and cost, explicitly separated in each sheet.
+
+**WP7 bookkeeping amendment:** C09's original six-slot arithmetic omitted a distinct slot when all named controls are enumerated; its row now uses seven slots and11,400 feedback units, with extra fitting still unknown. C14's three adaptive-search slots also do not separately fund every named search; add0.608–1.008h plus fitting per extra1,000-query procedure unless paid observations can legitimately be reused. The dated sheet addenda preserve the original inventories. Scores, rule,20h resource cap and shortlist order are unchanged. The earlier WP6 packet/forecasts are retained with their information-set correction disclosed in06-probabilities.md.
 
 ## Selection and integration audit
 

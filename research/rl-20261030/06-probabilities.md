@@ -114,6 +114,8 @@ Across the panel, the main unresolved quantities are controllable action advanta
 
 ## Boundaries of use
 
+**Visible post-elicitation cost correction (WP7):** enumerating C09's named controls separately requires seven rather than six procedure slots. Its conditional first-screen inventory becomes 11,400 feedback units and 11.21–15.77 hours, before extra fitting; independent final policy seeds cost more. The larger study inherits the correction. See [C09's dated clarification](05-candidates/C09.md). C14's three search slots likewise do not fund every named method separately. The original packet, hashes and raw forecasts remain unchanged; no forecaster was silently given the corrected inventory. These are therefore estimates under the original campaign-level information set, with an additional known cost caveat, not exact predictions for the corrected designs. The 200-hour C09 ceiling was never a claim of sufficient funding; the correction reinforces that risk.
+
 These are decision aids under explicit event/budget conventions, not empirical probabilities that RL works, journal acceptance statistics, guarantees of Q1 eligibility, or approval to run anything. Publication probabilities concern TIFS for C03/C04/C09 and PRL for C18; a change of venue requires a new interpretation. Current JCR/SJR requirements are unresolved at elicitation and will be verified or marked UNKNOWN in WP7. An informative attacker, allocation or null-result paper can be plausible even when defensive improvement is unlikely. Conversely, a scientifically useful result can fail novelty or editorial review.
 
 
