@@ -29,6 +29,8 @@ Metrics remain C (content-compatible detection), J (exact original q plus conten
 
 The protocols distinguish a finite-screen falsification rule, a positive comparative result, a precision-supported null, and RESOURCE_STOP. A failure to reject zero gain is not equivalence. Conservative sufficient sample-size bounds are not impossibility lower bounds. Selecting favorable sources, cells, policies or failed seeds after inspection cannot satisfy any positive gate.
 
+WP9 clarification: C03's 2/8 and opposing-order thresholds are conservative continuation priorities for its order-reversal program. They are not logical necessities for every useful two-block policy or statistical tests excluding a population gain. Both protocols' exact binomial inference now explicitly requires a justified source sampling model conditional on the frozen policies and seeds; deterministic ordering and exchangeability alone do not establish it. Without that model only finite-cohort results are reported and inferential success/null gates remain unavailable.
+
 ## Decision tree, without observing F6
 
 | Hypothetical F6 outcome | Direct experiment decision | Article decision | New spending proposed now |

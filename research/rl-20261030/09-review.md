@@ -1,0 +1,57 @@
+# WP9 — Independent review and dispositions
+
+STATUS: IN PROGRESS
+
+Three fresh gpt-6-astra/xhigh reviewers, each with no inherited conversation or authoring role, were commissioned after WP8 commit `abe83f1` was pushed. They receive the research brief and file-based dossier, not instructions to endorse a preferred verdict. Each writes one separate review. This is review of a research assessment and prospective designs; it does not certify completed experiments, publication readiness or Q1 eligibility.
+
+| Round 1 role | Assigned record | Required work | Status |
+|---|---|---|---|
+| Floor auditor | [floor-r1.md](reviews/floor-r1.md) | Count delivered WP0–WP8 floors, inspect exhaustion evidence, independently verify at least 15 paper cards online; distinguish later WP10 closeout | PASS delivered floors; 15 substantive checks across all 12 clusters |
+| Hostile scientist | [hostile-r1.md](reviews/hostile-r1.md) | Challenge claims, comparisons, leakage, inference, cost and bias in both directions | FAIL: two documentation blockers, corrections below await fresh review |
+| Steelman reviewer | [steelman-r1.md](reviews/steelman-r1.md) | Attempt rescues and check at least three missed ideas against existing ideas and inspected primary literature | FAIL: SB1 duplicates the DRIFT scope blocker; four rescues and three checked missed mechanisms delivered |
+
+Research restrictions remain unchanged during review: no F6 outcomes, protected identities, Phase B journals, images or scientific execution. Only paper inspection and permitted numeric/stdlib checks may be used. A transient out-of-directory placeholder write, immediately removed, is disclosed in PROGRESS for the audit; it changed no pre-existing file and supplied no evidence.
+
+Every numbered finding will receive a disposition with the changed file or reason for no change. Any blocker or unmet delivered floor triggers correction and new fresh reviewers before completion. Author self-checks cannot substitute for that rerun. The final report and push/summary requirements belong to WP10 and will receive a structural closeout after that report exists.
+
+## Round 1 dispositions
+
+| Finding | Author action and evidence | Closure status |
+|---|---|---|
+| H-B1: DRIFT target-stage error | Reopened primary §§1/3/5. Corrected [WP2](02-prior-art.md)'s direct answer and novelty map: generation-time target marks, non-RL removal/ladder, optional RL fidelity refinement. Added C08, security-bundle and article-scope clarifications; regenerated canonical WP7. The exact post-hoc-embedding question remains unverified. [WP6](06-probabilities.md) discloses the correction without altering frozen forecasts. | Corrected; fresh review required |
+| H-B2: binomial coverage premise | Both [C03](designs/C03-protocol.md) and [C18](designs/C18-protocol.md) now require a justified iid source-indicator model, conditional on frozen policies and seeds, or a separately valid sampling design. Deterministic hash ordering and exchangeability alone do not suffice. Without the premise, only finite-cohort results are reported; inferential success/null gates remain unavailable. | Corrected; fresh review required |
+| H-W1: order triage is not logically necessary | C03 explicitly calls the 2/8/opposite-order rules conservative continuation priorities; AA/BB heterogeneity or smaller benefits may exist after failure. WP8 repeats this boundary. | Addressed |
+| H-W2: deployment/numerical semantics | C03 deploys deterministic argmax softmax with A tie-break, one path per source. C18's priors/covariance/acquisition formula require a pre-outcome numerical freeze; otherwise DESIGN_NOT_READY. No server code written. | Addressed as readiness conditions |
+| H-W3: old small cost display | C03 sheet and candidate table now show 8.71–14.74 h plus ancillary allowance. Article route gives a dated update; WP8's full 623.02–1,107.69 h inventory is authoritative. Original forecast-era values remain identifiable. | Addressed |
+| H-W4: narrow algorithmic novelty | Retained explicit finite-class, supervised-control and classical-design boundaries. A positive experiment would establish bounded mechanism/efficiency evidence, not automatically a new RL algorithm. | Accepted limitation |
+| H-W5: visually precise forecasts | Preserve one-model-family, subjective/uncalibrated, broad-campaign caveats; no numerical uplift or exact-screen reinterpretation. Final report must retain them. | Accepted limitation; final check pending |
+| F-W1: inaccessible close prior art | C1 exception and all unresolved leads remain explicit; no first-use or cleared-novelty assertion. | Accepted limitation |
+| F-W2: indirect index searches | Keep 335 exact strings/10 host families distinct from native API retrieval or independent concepts; malformed restrictions remain excluded. | Accepted limitation |
+| F-W3: bounded 15-card sample | Report the audit as 15 successful checks, not all 133 independently certified or experiments reproduced. | Accepted limitation |
+| F-W4: forecast/cost scope | Preserve defensive versus utility events and the exact WP8 budget mismatch; no screen-success probability is invented. | Accepted limitation |
+| F-W5: ranking/full-cost unknowns | Current JCR/SJR remain UNKNOWN; R10 full cost/compatibility remain UNKNOWN. No publication or spending certificate. | Accepted limitation |
+| F-W6: transient directory violation | Preserve the PROGRESS disclosure. Current git has no surviving out-of-RD modification; no claim that deletion erases the historical deviation. | Disclosed; no scientific remediation indicated |
+
+The steelman reviewer independently confirmed the DRIFT correction and found C08's original E2/M2/N1/F2/V3=10 judgment defensible: target insertion stage alone is an application distinction, while the substantive informative-probe mechanism already appears in the sheet. No rule, score or shortlist is changed. Its primary-source inspections and hypothetical falsifier inventories remain in the review, with dispositions below.
+
+| Steelman finding | Disposition under the unchanged rule | Consequence |
+|---|---|---|
+| SB1: DRIFT insertion stage and RL role | Same correction as H-B1; propagated to WP2, C08, security routes and WP6 correction record. | Corrected; fresh review required |
+| S1: informative-probe C08 rescue | Retain WATCHLIST, N1/total10. Conditional later action from a first probe remains a mechanism to compare with beam search/MPC and history shuffling; changing the target embedding stage alone is insufficient novelty. | No score or shortlist change |
+| S2: exact-decision C15 stopping | Defer a proof question: stop only when every possible completion of the same seven views gives the unchanged reader decision. Normalization, zero norms, rounding, reader branches and angle search all need a valid certificate. Fixed/greedy/DP controls remain mandatory. | Potential inference efficiency, not stronger defense; no established nontrivial certificate or score promotion |
+| S3: D7 batch scheduling | Retain as a deferred question distinct from within-image stopping. Charge all unfinished sources as failures and distinguish saved-prefix replay bounds from real online savings; compare classical index, DP and supervised schedulers. | No changed denominator, fabricated prefix or new design |
+| S4: C06/C11 expense and C21 reader freedom | Preserve EXPENSIVE/uncertain rather than calling unrun ideas empirical failures. New-reader freedom remains a legitimate challenge, but its payload, calibration, strict quality and total-cost obligations are unresolved. | No weakened controls to fit 20 h; no promotion |
+| M1: adaptive coupling of native randomness | Retain as an evaluation safeguard/comparator question. The reviewer checked the raw pool and TD03's fixed common tape and inspected OSCC §§3.1–3.8/4.2–4.3/5: generic coupling plus RL is occupied. First prove unchanged native marginals; compare common random numbers, antithetics, fixed search and supervised coupling. | Potential variance reduction, not a defensive A2 candidate; hypothetical 9.59 h diagnostic is not an authorized or third WP8 design |
+| M2: trajectory change of measure | Defer until a mathematically valid nominal/proposal density, support and weight contract exists. Corso et al. already occupy generic RL importance sampling. Deterministic DDIM suffixes cannot acquire invented randomness; classical cross-entropy/tilting/splitting are required controls. | Efficiency of a fixed-distribution estimate, not worst-case security; hypothetical 16.62 h diagnostic cannot certify rare-error risk |
+| M3: goal-valid hindsight reuse | Reject relabeling accidental F5 payloads: source-derived required content and goal-dependent transitions cannot be renamed. Defer the narrower absolute-action, fixed-donor-library attack case pending transition invariance and stochastic-bias proof. HER/USHER occupy generic reuse and correction. Charge extra owner reads and changed access/multiplicity. | No C09 promotion; hypothetical 14.89 h diagnostic is neither an attack-efficacy result nor a third WP8 design |
+| SW1: estimator assumptions | Preserve independent-noise/local-reward scope for score-function calculations; coupling, control variates, replay and low-dimensional actions can change costs. | No universal RL sample-complexity lower bound |
+| SW2: mechanism versus RL contribution | Classify every rescue and missed idea above without claiming three novel algorithms or new defenses. | Scientific utility can favor non-RL implementations |
+| SW3: VINE and representation limits | Retain the different reader/carrier/payload and failed all-source strict-quality qualifications. F5/F6-specific failure does not disprove other representations. | Final report must retain both boundaries |
+| SW4: forecast provenance | Preserve frozen packet and raw answers, document later cost and source-scope corrections, and make no arbitrary numerical uplift. | Final probabilities remain historical subjective campaign forecasts |
+| SW5: first screens versus full evidence | Keep cheap falsifiers, full comparisons and RESOURCE_STOP distinct. | No positive policy, security or article conclusion from a diagnostic |
+
+The three missed mechanisms satisfy the steelman review floor through explicit pool comparisons, inspected primary methods and distinct falsifiers. They are not three automatically novel or shortlisted candidates. Additional sources the reviewer could not fully inspect (the coupling survey and Pigeon et al.) remain UNINSPECTED for substantive reliance. No new search floor, simulation, execution design or forecast elicitation is warranted by these dispositions.
+
+## Fresh rerun
+
+After committing the corrections and round 1 evidence, three new reviewers with no inherited context will independently check the revised package. The floor reviewer will again verify at least 15 cards online; the hostile reviewer will check blocker closure and new scientific concerns; the steelman reviewer will check the rescue/missed-idea dispositions and the DRIFT consequence. The required three checked missed ideas already exist; inventing additional ideas is not a completion condition.

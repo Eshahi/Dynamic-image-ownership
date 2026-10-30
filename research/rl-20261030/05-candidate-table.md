@@ -10,7 +10,7 @@ Every score below is JUDGMENT. E/M/N/F/V mean project evidence, mechanism need, 
 |---|---|---|---:|---|---|
 | [C01 new writer-menu selector](05-candidates/C01.md) | R-bandit / P1 | 1/2/1/3/2 | 9 | 12.75; F6-cost variant 28.68–52.82 EXPENSIVE | WATCHLIST |
 | [C02 spatial/frequency allocation](05-candidates/C02.md) | R-full / P2 | 1/2/2/2/2 | 9 | 14.64 + <=2 extra; cap 20 | WATCHLIST |
-| [C03 surrogate/constraint order](05-candidates/C03.md) | R-full / P3 | 2/2/2/2/3 | 11 | 8.69–14.72 + <=2 extra; cap 20 | SHORTLIST-CONDITIONAL, rank 2 |
+| [C03 surrogate/constraint order](05-candidates/C03.md) | R-full / P3 | 2/2/2/2/3 | 11 | 8.71–14.74 after WP8 C0-read addition + <=2 extra; cap 20 | SHORTLIST-CONDITIONAL, rank 2 |
 | [C04 adaptive paid probes](05-candidates/C04.md) | R-full / P1/P3 | 2/2/2/2/3 | 11 | 8.69–14.72 + <=2 extra; cap 20 | SHORTLIST-CONDITIONAL, rank 3 |
 | [C05 residual/stop control](05-candidates/C05.md) | R-full / P4 | 1/2/2/2/2 | 9 | 10.98 plus unmeasured extras; cap 20 | WATCHLIST |
 | [C06 counterexample curriculum](05-candidates/C06.md) | R-game / P3/P8 | 2/2/2/1/3 | 10 | 22.00 even at F5 anchor, before teacher fitting | WATCHLIST; EXPENSIVE |
@@ -45,6 +45,8 @@ The 21 individual sheets are the counted deliverables. The three linked author b
 For security screens, a multi-seed training-call allowance is not three independently evaluated final policies: the small first inventory permits selecting one policy using selection-only data before locked evaluation. Preserve every training seed and failure. A later efficacy claim requires independent policy-seed evaluation with its multiplied cost. Aggregate control allowances in those screens are ceilings to be itemized in a future protocol; missing controls prevent the relevant endpoint from passing. C09 still needs a modern external binding comparator before a broad publication claim; a known local registry failure alone is insufficient. These limitations do not count as completed evidence.
 
 ## Coverage and benefit distinctions
+
+WP9 reassessment: DRIFT is an adjacent optional-refinement mechanism on generation-time targets, not direct evidence of RL attacking post-hoc-embedded marks. Fresh steelman review retains C08's N=1/total10 because a different insertion stage alone is an application distinction and its substantive probe/beam comparison was already acknowledged. The unchanged rule, scores and shortlist remain visible; C08's dated addendum supplies the corrected rationale.
 
 Coverage is **21 full sheets, all ten P1–P10 points and all three R-full/R-bandit/R-game classes**. P1 chooses a writer before marking, P2 allocates signal before the encoder, and P3 schedules operations before successive encoder calls. These are distinct interpretations of the user's proposal. Additional sheets cover optimizer control, verification, attackers, games, experiment allocation, coding and registry access. Outside analogies include compiler ordering (C03), robotics dual control (C04), chip placement (C02), active sensing (C15), database query planning (C16), treatment-effect experiments (C18), communication coding (C17/C19) and robotic assembly (C20). Analogies motivate mechanisms; they do not predict effect sizes.
 

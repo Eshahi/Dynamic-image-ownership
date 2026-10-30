@@ -28,6 +28,8 @@ Research-only route assessment, 2026-10-30. No new experiment, timing, image acq
 
 ## R01 — A positive state/order mechanism, with C03
 
+**WP8/WP9 price update:** C03's later protocol adds C0 wrong-owner reads: its screen evaluator is 8.71–14.74 h plus ≤2 h ancillary work inside the unchanged 20 h cap. Its full fixed fit/check/confirmation inventory is 623.02–1,107.69 h. These protocol figures supersede the older C03 illustration below for decisions; the older numbers remain the original forecast-era inventory.
+
 **JUDGMENT — one-sentence prospective claim.** In a fixed-reader, fixed-payload post-hoc writer, state-dependent ordering of robustness and constraint-repair blocks yields delayed constraint recovery and at least a 10 pp primary-cell C improvement over the strongest equally funded non-RL controller, while preserving the registered J, quality and negative-rate gates.
 
 **JUDGMENT — reader relevance.** This would identify a specific optimization failure that matters for secure attribution: average surrogate exposure can be insufficient when an early update changes the feasibility of a later one. The claimed object is the joint native-survival/security endpoint, not a better surrogate loss or a novel use of PPO.

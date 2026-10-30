@@ -8,6 +8,8 @@ This file develops [C09](../05-candidates/C09.md), [C11](../05-candidates/C11.md
 **Source IDs.** C2/C05/C08/C9/C10/C12 identify existing RL-session cards. `TD02:SemBind` and `TD02:Soft-binding` are named rows of the inherited [TD02 prior-art map](../../tifs-20261028/02-prior-art-delta.md), not newly counted WP2 cards.
 SemBind method/forgery/Appendix D.2 and soft-binding security/second-stage-verification sections were also reopened online for this route synthesis. Paper results remain SOURCE evidence, not project measurements.
 
+**WP9 scope correction:** DRIFT targets generation-time diffusion marks. Its removal/strength ladder is non-RL; optional DPPO refines fidelity after rejection. References below to generic RL-removal prior art mean this adjacent refinement mechanism, not verified RL attacks on post-hoc-embedded marks. The narrower requested setting remains unverified, not automatically novel.
+
 **Shared cost basis.** MEASURED anchors in the [frozen packet](../forecasts/evidence-packet.md): approximately 122 device-equivalent seconds per F5 write from six concurrent shards, 2.19–3.63 seconds per native/read/quality unit, and about 1.4 seconds per reader-only call.
 The 122-second quantity is not measured isolated latency; new backward passes, policy fitting, composition, registry operations and throughput remain unmeasured.
 DERIVED dollars use the historical $0.551/hour anchor, not a current rental quote. Staff time, labels, storage and implementation costs are not silently priced at zero.

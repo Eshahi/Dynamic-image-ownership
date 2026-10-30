@@ -66,6 +66,7 @@ The first screen evaluates all eight entries below, with three disclosed acquisi
 | H: halving | Four global configurations, fixed 4/8/16/24-source rungs; halve by mean `(C+J)/2`, then continue the survivor. Evaluate its global-arm objective separately. |
 
 B/E/G use posterior noise floors {.05,.2}; B/I/G use epsilon in {.1,.25}, retaining an epsilon-uniform component over every remaining admissible purchase.
+Before any new outcome, a numerical readiness freeze must specify posterior priors, C/J scalarization and covariance, the exact disagreement/variance-reduction acquisition calculation, and all ties and RNG mappings identically where shared across B/E/G. These unresolved implementation details are not free tuning on the screen. Without that freeze the stage is DESIGN_NOT_READY; this dossier does not supply an executable algorithm or server code.
 For N use an epsilon-uniform floor .1; deterministic controls record exact selection rules, not fictitious positive propensities.
 The first acquisition is four hash-first sources × all four actions. Each purchased bundle returns both known cells × three seeds plus clean/negative rows; cache that mark within that allocator only.
 Thus this narrow implementation allocates source/configuration bundles, not arbitrary individual cheap rows. Changing bundle granularity requires a separately priced design.
@@ -135,7 +136,7 @@ Four co-primary regret contrasts are fixed: C-known, J-known, C-K3, J-K3, compar
 For each check source and endpoint, let `D_s=1` if B has greater regret than the champion in **any** of the three frozen trajectories, else 0; since utilities lie in [0,1], each trajectory's mean harmful regret difference is bounded above by `P(D=1)`.
 Use a one-sided Clopper–Pearson upper bound with alpha=.05/4=.0125 for each endpoint. Success needs all four upper bounds ≤.05; no check-based champion selection is allowed.
 DERIVED: with n=86 and zero harmful groups, the upper bound is `1-.0125^(1/86)=.04968`; with n=12 it is `.30592`. At n=86, one or more harmful groups cannot pass this fixed conservative rule.
-This bound assumes independent/exchangeable eligible source groups under the declared sampling model, conditional on all frozen fitted policies. If that population model is unjustified, give finite-cohort results only.
+This bound requires independent, identically distributed source-level Bernoulli indicators with a common endpoint probability under a justified source sampling model, conditional on all frozen fitted policies (or a separately justified valid sampling design). Exchangeability alone is insufficient. If that model is unjustified, give finite-cohort results only and do not award the inferential regret gate.
 The deterministic acquisition ordering supplies reproducibility, not a proof of iid sampling; record this assumption and the eligible finite population before claiming population coverage.
 Report absolute oracle regret, per-cell utilities, all three seeds and random/fixed references descriptively with source-level intervals. They are not additional uncorrected superiority tests.
 The max-over-three construction addresses these three particular trained policies; it does not estimate general training-seed variance or make three runs a large replication sample.
