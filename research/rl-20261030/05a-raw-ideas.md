@@ -66,4 +66,3 @@ The pool covers P1/P2/P3, all three classes and more than four outside-field ana
 | RO18 | Allocate a batch budget like an inventory controller | [raw-outsider](ideas/raw-outsider.md) |
 | RO19 | Learn the verifier's behavioral abstraction before forging | [raw-outsider](ideas/raw-outsider.md) |
 | RO20 | Counterexample-guided refinement of the surrogate contract | [raw-outsider](ideas/raw-outsider.md) |
-
