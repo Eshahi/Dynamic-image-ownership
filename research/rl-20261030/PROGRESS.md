@@ -28,7 +28,7 @@ Started 2026-10-30 12:30 UTC. No deadline or waiting to fill time. Branch: codex
 | 7 | >=10 routes with specified diversity, verified venue/ranking limits, decoration tests | COMPLETE: ten routes, 50 objections, all required frames, primary venue checks with current quartiles UNKNOWN. |
 | 8 | <=2 prospective designs or evidence that would change a no-go; no server code | COMPLETE: two linked prospective protocols, exact cells/seeds/splits/controls/stop rules and full inventories; only readiness-gated <=20h screens recommended. |
 | 9 | Fresh floor audit incl. >=15 online card checks; hostile and steelman reviews; all blockers closed with fresh reruns after blockers | COMPLETE: all three fresh round2 reviewers PASS; 15 primary-card checks across12clusters, H-B1/H-B2/SB1 closed, every warning/rescue/missed-idea disposition recorded in09-review.md. |
-| 10 | Required final header, both sides/probabilities/costs/decisions/limits/map; commit, push, Persian summary | NOT STARTED |
+| 10 | Required final header, both sides/probabilities/costs/decisions/limits/map; commit, push, Persian summary | CONTENT COMPLETE: final report COMPLETE/CONDITIONAL/CONDITIONAL, fresh final-closeout PASS with no blocker; authorized final commit/push and Persian summary are the remaining closing actions. |
 
 ## Work log
 
@@ -86,3 +86,7 @@ Started 2026-10-30 12:30 UTC. No deadline or waiting to fill time. Branch: codex
 - WP9 correction checkpoint:2026-10-30,abe83f1..db00b73 pushed successfully. Three new fresh gpt-6-astra/xhigh reviewers commissioned for floor, hostile-science and steelman reruns of that snapshot, each one separate file. No inherited reviewer context; no predetermined verdict. WP10 remains pending their decisions.
 
 - WP9 complete: all three fresh round2 reviews PASS with no blocker. The floor reviewer made15 substantive online checks spanning12clusters; one failed retrieval was not counted. Root read all reviews and accepted every warning/disposition, including the clarification that known input-noise likelihood ratios may suffice for M2 without an output-image density. Counts are133 card occurrences, not necessarily133 unique papers; the two15-card audits overlap. Original scores, rule, forecasts and two-design scope remain unchanged. No new science or F6 observation occurred. WP10 may now begin after this package is committed and pushed.
+
+- WP9 push:2026-10-30,db00b73..0a149cd pushed successfully. WP10 drafted with CONDITIONAL on both sides, scenario-specific historical probabilities, corrected full costs, no-RL alternatives, user decisions and all review boundaries. Temporary PARTIAL labels only remaining report/check/push closeout; no research blocker remains. A fresh bounded final-content reviewer will check the report against the passed package before the status is finalized.
+
+- WP10 closeout: fresh gpt-6-astra/high reviewer returned PASS, no blockers. Root read the full review and applied W1 by defining C/J and the image-domain versus latent-method distinction. C18's price explicitly excludes an additional confirmation cohort. FINAL now begins COMPLETE/CONDITIONAL/CONDITIONAL. Root checked all19 original report links (none missing) and git whitespace; the added review link exists. No further scientific work is required; final commit/push and branch verification follow, then the short Persian summary.
