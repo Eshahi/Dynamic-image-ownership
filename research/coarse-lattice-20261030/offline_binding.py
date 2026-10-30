@@ -14,10 +14,12 @@ from pathlib import Path
 
 import numpy as np
 from PIL import Image
+from scipy.ndimage import uniform_filter
 
 from coarse_lattice import MULTS, Lattice, embed, psnr, score_values, threshold, to_coefs
 from measure_channel import DIRS
 from simulate_lattice import PRIMARY, gains, load
+from visual_check import ssim
 
 
 def img(name):
@@ -47,6 +49,8 @@ def main():
     ap.add_argument("--floor", type=float, default=38.0)
     ap.add_argument("--keys", type=int, default=2)
     ap.add_argument("--samples", default="30,1180,1786")
+    ap.add_argument("--layout", default="lattice-layout.json")
+    ap.add_argument("--tag", default="")
     args = ap.parse_args()
     run = Path(args.run)
     meta, bands, clean, regen = load(run)
@@ -56,7 +60,7 @@ def main():
     edges = np.array(meta["edges"])
     _, vine_gain = gains(meta, bands, "vine-r")
     _, v5_gain = gains(meta, bands, "v5-r3")
-    lat = Lattice.load(run / "lattice-layout.json")
+    lat = Lattice.load(run / args.layout)
     ch, vv, uu = lat.ch, lat.vv, lat.uu
     v, u = np.meshgrid(np.arange(128), np.arange(128), indexing="ij")
     band = np.digitize(np.hypot(u, v), edges) - 1
@@ -178,7 +182,7 @@ def main():
             line[c] = ok / tot
         table[name] = line
         print(f"  {name:13} " + " ".join(f"{line[c]:7.2f}" for c in cells))
-    (run / "offline-binding.json").write_text(json.dumps({
+    (run / f"offline-binding{args.tag}.json").write_text(json.dumps({
         "bits": args.bits, "radius": args.radius, "tau": tau,
         "psnr_median": float(np.median(ps)), "psnr_min": float(ps.min()),
         "t4": {k: {"n": len(v), "accepted": int((np.array(v) >= tau).sum()), "max": float(np.max(v))} for k, v in t4.items()},
@@ -191,9 +195,18 @@ def main():
     out.mkdir(exist_ok=True)
     for s in [int(i) for i in args.samples.split(",")]:
         Image.fromarray(pix[s]).save(out / f"{s}-original.png")
-        Image.fromarray(marked[(s, 0)]).save(out / f"{s}-marked.png")
+        Image.fromarray(marked[(s, 0)]).save(out / f"{s}-marked{args.tag}.png")
         diff = np.clip(128 + 12 * (marked[(s, 0)].astype(np.float64) - pix[s]), 0, 255).astype(np.uint8)
-        Image.fromarray(diff).save(out / f"{s}-difference-x12.png")
+        Image.fromarray(diff).save(out / f"{s}-difference-x12{args.tag}.png")
+        gray = pix[s].mean(axis=2)
+        var = uniform_filter(gray ** 2, 180) - uniform_filter(gray, 180) ** 2
+        inner = var[90:-90, 90:-90]
+        yy, xx = np.unravel_index(np.argmin(inner), inner.shape)
+        a, b = pix[s][yy:yy + 180, xx:xx + 180], marked[(s, 0)][yy:yy + 180, xx:xx + 180]
+        pair = np.concatenate([a, np.full((180, 6, 3), 255, dtype=np.uint8), b], axis=1)
+        Image.fromarray(pair).resize((pair.shape[1] * 3, 540), Image.NEAREST).save(out / f"{s}-flat-crop{args.tag}.png")
+    ssims = [ssim(marked[(s, 0)], pix[s]) for s in sources]
+    print(f"\nSSIM median {np.median(ssims):.4f}, min {np.min(ssims):.4f}")
 
     try:
         import lpips
