@@ -21,7 +21,7 @@ Started 2026-10-30 12:30 UTC (2026-10-30 04:30 at client UTC-08). No deadline or
 | 1 | >=12 code-grounded decision points, all required fields | COMPLETE:22 points, eight necessary conditions, P1/P2/P3 separated;01-decision-map.md and reader/code notes. |
 | 2 | >=80 queries, >=5 indexes; C1..C12 full-text card floors 15/15/10/15/12/8/8/10/8/10/8/15, or explicit valid exhaustion | COMPLETE:133 inspected cards;335 exact-distinct queries;10 valid indirect scholarly host families. C1=12/15 invokes documented69-query/six-index retrieval exhaustion; all other floors met. 02-prior-art.md and literature/search-log.md. |
 | 3 | Six saved-results questions, limits from journals=off explicit | COMPLETE:11,760 normalized development records;68 reward summaries;128 decompositions;96 oracle analyses;LOSO prediction;K8/64/1024 and conditional gradient costs;attacker spread. 03-logged-analysis.md and analysis/. |
-| 4 | Estimator variance, short-horizon regret, unseen families, fixed-reader limits | NOT STARTED |
+| 4 | Estimator variance, short-horizon regret, unseen families, fixed-reader limits | COMPLETE:04-theory.md and three theory/ notes derive score/pathwise variance and bias/cost crossover, regret and20h inventory, few-family non-identifiability and reader/carrier/quality distinctions. |
 | 5 | >=40 raw ideas from >=3 fresh framings; rule committed before scores; >=20 sheets, >=7 policy points, all 3 classes, P1-P3, >=4 outside analogies; shortlist <=6 | NOT STARTED |
 | 6 | >=5 independent fresh xhigh forecasters, same neutral packet, historical reference class; A1-A4/B1-B3 quantiles and conditional F6 scenarios | NOT STARTED |
 | 7 | >=10 routes with specified diversity, verified venue/ranking limits, decoration tests | NOT STARTED |
@@ -48,3 +48,6 @@ Started 2026-10-30 12:30 UTC (2026-10-30 04:30 at client UTC-08). No deadline or
 - WP0:2026-10-30, repository identity,861291c..2708d17 pushed to origin/codex/rl-research-20261030 successfully.
 - WP1:2026-10-30,2708d17..bceb6bf pushed successfully to the same branch.
 - WP2:2026-10-30,bceb6bf..15db5d3 pushed successfully to the same branch.
+- WP3:2026-10-30,15db5d3..c725f56 pushed successfully to the same branch.
+- WP4 escalations: fresh gpt-6-astra/xhigh estimator-variance theorist and short-horizon bandit theorist, one note each; root derives excluded-family identifiability and fixed-reader limits. No candidate scoring or experiment execution.
+- WP4 decision: retain possible low-dimensional/discrete/feedback-adaptive and amortized-policy benefits without treating source variance as controllability. Native gradient signal, surrogate bias and backward costs remain unidentified. Three/four families support finite stress tests, not arbitrary unseen-family guarantees. Exact algebra and scalar stdlib arithmetic only; no new simulation or science.
