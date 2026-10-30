@@ -2,7 +2,7 @@ PHASE_B_JOURNALS=off
 
 # RL research progress
 
-Started 2026-10-30 12:30 UTC (2026-10-30 04:30 at client UTC-08). No deadline or waiting to fill time. Branch: codex/rl-research-20261030. Authoritative MAIN STATE read once at start; no F6 outcome was present in it. This session remains blind to F6 outcomes.
+Started 2026-10-30 12:30 UTC. No deadline or waiting to fill time. Branch: codex/rl-research-20261030. Authoritative MAIN STATE read once at start; no F6 outcome was present in it. This session remains blind to F6 outcomes.
 
 ## Decisions and boundaries
 
@@ -25,7 +25,7 @@ Started 2026-10-30 12:30 UTC (2026-10-30 04:30 at client UTC-08). No deadline or
 | 5 | >=40 raw ideas from >=3 fresh framings; rule committed before scores; >=20 sheets, >=7 policy points, all 3 classes, P1-P3, >=4 outside analogies; shortlist <=6 | COMPLETE:60 raw ideas,21 full sheets,all10 policy points,all3 classes,P1/P2/P3 and8+ named outside analogies. Unchanged rule frozen at dbf4dcd; four conditional shortlist entries C18/C03/C04/C09. 05-candidate-table.md and05-candidates/. |
 | 6 | >=5 independent fresh xhigh forecasters, same neutral packet, historical reference class; A1-A4/B1-B3 quantiles and conditional F6 scenarios | COMPLETE: five fresh xhigh forecasts, identical four-file frozen packet,186 triples and21 structural N/A per forecaster; gate-specific history, three F6 scenarios, conditional chains and no-RL comparisons in06-probabilities.md. |
 | 7 | >=10 routes with specified diversity, verified venue/ranking limits, decoration tests | COMPLETE: ten routes, 50 objections, all required frames, primary venue checks with current quartiles UNKNOWN. |
-| 8 | <=2 prospective designs or evidence that would change a no-go; no server code | NOT STARTED |
+| 8 | <=2 prospective designs or evidence that would change a no-go; no server code | COMPLETE: two linked prospective protocols, exact cells/seeds/splits/controls/stop rules and full inventories; only readiness-gated <=20h screens recommended. |
 | 9 | Fresh floor audit incl. >=15 online card checks; hostile and steelman reviews; all blockers closed with fresh reruns after blockers | NOT STARTED |
 | 10 | Required final header, both sides/probabilities/costs/decisions/limits/map; commit, push, Persian summary | NOT STARTED |
 
@@ -66,3 +66,11 @@ Started 2026-10-30 12:30 UTC (2026-10-30 04:30 at client UTC-08). No deadline or
 - WP7 cost correction: route author identified under-enumerated control slots in C09/C14. Root records a visible C09 seven-slot correction (11,400 calls;11.21–15.77h before extra fitting) and C14 extra-search charges. Original WP6 packet/raw forecasts remain frozen;06-probabilities.md discloses their older information set. No score or screening rule changed, and no full-study funding sufficiency is inferred.
 
 - WP7 complete: root read all three route bundles and assembled ten canonical sections with shared contracts preserved and local links checked. R02 specifies precision-based noninferiority; R10 has symbolic inventory and explicitly UNKNOWN full cost/compatibility. Primary TIFS/PRL/Access scope was reopened; current exact JCR/SJR tables could not be verified after logged searches and 403 responses. No Q1 certificate is inferred. No science or F6 outcome used.
+
+- WP7 push:2026-10-30,c1379bd..3ad8f2d pushed successfully. Canonical dossier contains10 routes and50 objections.
+- WP8 escalations: two fresh gpt-6-astra/xhigh prospective-design authors, one file each for C03 and C18. Root selects these as direct-writer and experiment-efficiency questions, respectively; C09 is security discovery and C04 adds costly probe access. Only cheap necessary-condition screens are under consideration; full campaign affordability remains unestablished.
+
+- WP8 arithmetic check: root independently recomputed hypothetical exact binomial-component bounds in analysis/prospective_bounds.py using the permitted stdlib interpreter with -I (<1s). n86 zero-harm upper=.049677 at alpha=.0125; n200 paired20/0 lower=.036150 and20/20 upper=.099942. These are design illustrations, not new watermark results or sample-size lower bounds.
+- WP8 process deviation: one root apply_patch mistakenly created a one-line analysis-placeholder.txt at the worktree root, outside RD. It was immediately removed in the next tool call; no pre-existing file or protected data was changed, no code ran from it, and git shows no remaining out-of-scope modification. This transient write breached the directory-only rule and has no evidentiary influence.
+
+- WP8 complete: root read both protocols, checked precision examples and reconciled the finite-comparator scope. C03 requires point non-regression as well as its bounds; broader best-non-RL claims require any stronger completed F6/external control and extra funding. Complete C03 planning cost623.02–1,107.69h; C18 conservative maximum201.853h with fullsharedvalidationcost. Neither fullprogram is recommended or represented as guaranteed affordable. No science or F6 output used.
