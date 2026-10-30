@@ -1,0 +1,3 @@
+# Regenerable uncompressed numeric cache; deterministic gzip is versioned.
+dev-records.jsonl
+__pycache__/

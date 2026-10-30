@@ -1,0 +1,6921 @@
+{
+  "rewards": [
+    {
+      "cohort": "phase_a",
+      "cell": "R0-0.1",
+      "arm": "f5-r2",
+      "attempts": 180,
+      "observed": 179,
+      "missing": 1,
+      "sources": 60,
+      "seed_successes": 179,
+      "source_successes_conservative": 60,
+      "source_successes_optimistic": 60,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": 41,
+      "semantic_decoded_margin": {
+        "n": 179,
+        "mean": 5.8141196622715325,
+        "sd": 2.0205327534247806,
+        "q10": 2.564161602093301,
+        "median": 6.279927847788164,
+        "q90": 8.104787902879405,
+        "below_zero": 0,
+        "nonnegative": 179
+      },
+      "semantic_generic_margin": {
+        "n": 179,
+        "mean": 5.8141196622715325,
+        "sd": 2.0205327534247806,
+        "q10": 2.564161602093301,
+        "median": 6.279927847788164,
+        "q90": 8.104787902879405,
+        "below_zero": 0,
+        "nonnegative": 179
+      },
+      "semantic_recomputed_margin": {
+        "n": 179,
+        "mean": 8.002709287602597,
+        "sd": 1.9124104635647554,
+        "q10": 5.362089542005068,
+        "median": 8.349462975924817,
+        "q90": 10.304903421954613,
+        "below_zero": 0,
+        "nonnegative": 179
+      },
+      "instance_decoded_margin": {
+        "n": 179,
+        "mean": -4.858162034355155,
+        "sd": 0.8725776431099459,
+        "q10": -5.9919143987135115,
+        "median": -4.971209125260492,
+        "q90": -3.671075249124959,
+        "below_zero": 179,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R0-0.1",
+      "arm": "v5-r3",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 144,
+      "source_successes_conservative": 47,
+      "source_successes_optimistic": 47,
+      "sources_with_mixed_observed_binary_rewards": 9,
+      "source_J_conservative": 23,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": 2.7549703664447414,
+        "sd": 2.633991221615451,
+        "q10": -0.845272114670188,
+        "median": 2.887240492768079,
+        "q90": 5.994344553971284,
+        "below_zero": 30,
+        "nonnegative": 150
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": 3.0946056961138053,
+        "sd": 2.234260821052395,
+        "q10": 0.6017545657834888,
+        "median": 2.9041324625706366,
+        "q90": 5.994344553971284,
+        "below_zero": 6,
+        "nonnegative": 174
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": 4.958727108644685,
+        "sd": 2.675366766488557,
+        "q10": 1.337252329346021,
+        "median": 4.920917560493312,
+        "q90": 8.372210804915875,
+        "below_zero": 6,
+        "nonnegative": 174
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": -4.869454018375102,
+        "sd": 0.8760031042316327,
+        "q10": -5.937263286517534,
+        "median": -4.874196781801328,
+        "q90": -3.680913437819153,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 30,
+      "decoded_positive_but_C_false": 6,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R0-0.1",
+      "arm": "vine-r",
+      "attempts": 180,
+      "observed": 179,
+      "missing": 1,
+      "sources": 60,
+      "seed_successes": 179,
+      "source_successes_conservative": 60,
+      "source_successes_optimistic": 60,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 179,
+        "mean": 25.737430167597765,
+        "sd": 4.689612725605757,
+        "q10": 18.8,
+        "median": 28.0,
+        "q90": 31.0,
+        "below_zero": 0,
+        "nonnegative": 179
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R0-0.1",
+      "arm": "wam",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 120,
+      "source_successes_conservative": 42,
+      "source_successes_optimistic": 42,
+      "sources_with_mixed_observed_binary_rewards": 14,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 166,
+        "mean": 0.7168674698795181,
+        "sd": 3.631255539679152,
+        "q10": -4.0,
+        "median": 1.0,
+        "q90": 5.0,
+        "below_zero": 46,
+        "nonnegative": 120
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R0-0.2",
+      "arm": "f5-r2",
+      "attempts": 180,
+      "observed": 178,
+      "missing": 2,
+      "sources": 60,
+      "seed_successes": 171,
+      "source_successes_conservative": 57,
+      "source_successes_optimistic": 58,
+      "sources_with_mixed_observed_binary_rewards": 3,
+      "source_J_conservative": 38,
+      "semantic_decoded_margin": {
+        "n": 178,
+        "mean": 4.738727142770051,
+        "sd": 2.227464757295448,
+        "q10": 1.2022859086178994,
+        "median": 5.149726117127627,
+        "q90": 7.383531111355797,
+        "below_zero": 4,
+        "nonnegative": 174
+      },
+      "semantic_generic_margin": {
+        "n": 178,
+        "mean": 4.777379320552741,
+        "sd": 2.1547011988176124,
+        "q10": 1.3300755289635264,
+        "median": 5.149726117127627,
+        "q90": 7.383531111355797,
+        "below_zero": 0,
+        "nonnegative": 178
+      },
+      "semantic_recomputed_margin": {
+        "n": 178,
+        "mean": 6.714239603135416,
+        "sd": 2.224966367504179,
+        "q10": 3.6006133501592266,
+        "median": 6.800256218278138,
+        "q90": 9.302532341272068,
+        "below_zero": 0,
+        "nonnegative": 178
+      },
+      "instance_decoded_margin": {
+        "n": 178,
+        "mean": -4.984805488473314,
+        "sd": 0.8283175170680603,
+        "q10": -5.9354707780988445,
+        "median": -5.008641796259887,
+        "q90": -3.9550544360380093,
+        "below_zero": 178,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 7,
+      "decoded_positive_but_C_false": 3,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R0-0.2",
+      "arm": "v5-r3",
+      "attempts": 180,
+      "observed": 179,
+      "missing": 1,
+      "sources": 60,
+      "seed_successes": 82,
+      "source_successes_conservative": 27,
+      "source_successes_optimistic": 28,
+      "sources_with_mixed_observed_binary_rewards": 9,
+      "source_J_conservative": 6,
+      "semantic_decoded_margin": {
+        "n": 179,
+        "mean": 0.2852515580697037,
+        "sd": 2.305265501981007,
+        "q10": -2.6628676375871607,
+        "median": -0.00454465472156329,
+        "q90": 2.8684026113398144,
+        "below_zero": 90,
+        "nonnegative": 89
+      },
+      "semantic_generic_margin": {
+        "n": 179,
+        "mean": 1.1830775003735787,
+        "sd": 1.801090410555601,
+        "q10": -0.8227554043845909,
+        "median": 1.0726358224833437,
+        "q90": 2.8684026113398144,
+        "below_zero": 36,
+        "nonnegative": 143
+      },
+      "semantic_recomputed_margin": {
+        "n": 179,
+        "mean": 2.1876390681571505,
+        "sd": 2.5049071916353487,
+        "q10": -0.8227554043845909,
+        "median": 1.902716965802659,
+        "q90": 5.383913889513044,
+        "below_zero": 37,
+        "nonnegative": 142
+      },
+      "instance_decoded_margin": {
+        "n": 179,
+        "mean": -4.982485422424559,
+        "sd": 0.8642599290281452,
+        "q10": -5.987940289399855,
+        "median": -5.000680452271936,
+        "q90": -3.8031621594329628,
+        "below_zero": 179,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 61,
+      "decoded_positive_but_C_false": 7,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R0-0.2",
+      "arm": "vine-r",
+      "attempts": 180,
+      "observed": 178,
+      "missing": 2,
+      "sources": 60,
+      "seed_successes": 177,
+      "source_successes_conservative": 60,
+      "source_successes_optimistic": 60,
+      "sources_with_mixed_observed_binary_rewards": 1,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 178,
+        "mean": 18.213483146067414,
+        "sd": 6.862609590966065,
+        "q10": 9.0,
+        "median": 19.0,
+        "q90": 26.0,
+        "below_zero": 1,
+        "nonnegative": 177
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R0-0.2",
+      "arm": "wam",
+      "attempts": 180,
+      "observed": 178,
+      "missing": 2,
+      "sources": 60,
+      "seed_successes": 53,
+      "source_successes_conservative": 18,
+      "source_successes_optimistic": 19,
+      "sources_with_mixed_observed_binary_rewards": 17,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 121,
+        "mean": -1.7851239669421488,
+        "sd": 4.169745419027897,
+        "q10": -7.0,
+        "median": -1.0,
+        "q90": 3.0,
+        "below_zero": 68,
+        "nonnegative": 53
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R0-0.4",
+      "arm": "f5-r2",
+      "attempts": 180,
+      "observed": 178,
+      "missing": 2,
+      "sources": 60,
+      "seed_successes": 116,
+      "source_successes_conservative": 39,
+      "source_successes_optimistic": 40,
+      "sources_with_mixed_observed_binary_rewards": 17,
+      "source_J_conservative": 14,
+      "semantic_decoded_margin": {
+        "n": 178,
+        "mean": 2.1378314109031193,
+        "sd": 2.2599369773331035,
+        "q10": -1.0010075951905573,
+        "median": 2.2678479856562967,
+        "q90": 5.0078421320598885,
+        "below_zero": 36,
+        "nonnegative": 142
+      },
+      "semantic_generic_margin": {
+        "n": 178,
+        "mean": 2.4474249062437217,
+        "sd": 1.8982549740599204,
+        "q10": 0.352494628336513,
+        "median": 2.2678479856562967,
+        "q90": 5.0078421320598885,
+        "below_zero": 10,
+        "nonnegative": 168
+      },
+      "semantic_recomputed_margin": {
+        "n": 178,
+        "mean": 3.7142056562818477,
+        "sd": 2.4804638123672147,
+        "q10": 0.5911372841882557,
+        "median": 3.7691283603231733,
+        "q90": 7.281735719553736,
+        "below_zero": 11,
+        "nonnegative": 167
+      },
+      "instance_decoded_margin": {
+        "n": 178,
+        "mean": -5.052389071441424,
+        "sd": 0.8520671946627686,
+        "q10": -6.1636876222930175,
+        "median": -5.013242824120706,
+        "q90": -4.001818964039108,
+        "below_zero": 178,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 52,
+      "decoded_positive_but_C_false": 26,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R0-0.4",
+      "arm": "v5-r3",
+      "attempts": 180,
+      "observed": 178,
+      "missing": 2,
+      "sources": 60,
+      "seed_successes": 7,
+      "source_successes_conservative": 3,
+      "source_successes_optimistic": 3,
+      "sources_with_mixed_observed_binary_rewards": 4,
+      "source_J_conservative": 0,
+      "semantic_decoded_margin": {
+        "n": 178,
+        "mean": -2.4936049963917544,
+        "sd": 1.3624328652367248,
+        "q10": -4.145721535313321,
+        "median": -2.6240867052996144,
+        "q90": -0.6108161152834396,
+        "below_zero": 168,
+        "nonnegative": 10
+      },
+      "semantic_generic_margin": {
+        "n": 178,
+        "mean": -1.3744641944670548,
+        "sd": 1.5601250659974981,
+        "q10": -3.4846213154207226,
+        "median": -1.3392577971120034,
+        "q90": 0.5361623040117156,
+        "below_zero": 140,
+        "nonnegative": 38
+      },
+      "semantic_recomputed_margin": {
+        "n": 178,
+        "mean": -1.279116401939959,
+        "sd": 1.7487970267125146,
+        "q10": -3.4846213154207226,
+        "median": -1.3392577971120034,
+        "q90": 0.8327335123291156,
+        "below_zero": 140,
+        "nonnegative": 38
+      },
+      "instance_decoded_margin": {
+        "n": 178,
+        "mean": -4.962606022265473,
+        "sd": 0.8583304964647501,
+        "q10": -6.019094286424516,
+        "median": -4.97582940491168,
+        "q90": -3.865385127729254,
+        "below_zero": 178,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 31,
+      "decoded_positive_but_C_false": 3,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R0-0.4",
+      "arm": "vine-r",
+      "attempts": 180,
+      "observed": 179,
+      "missing": 1,
+      "sources": 60,
+      "seed_successes": 138,
+      "source_successes_conservative": 47,
+      "source_successes_optimistic": 47,
+      "sources_with_mixed_observed_binary_rewards": 18,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 179,
+        "mean": 4.201117318435754,
+        "sd": 6.578292432604049,
+        "q10": -3.1999999999999993,
+        "median": 4.0,
+        "q90": 12.0,
+        "below_zero": 41,
+        "nonnegative": 138
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R0-0.4",
+      "arm": "wam",
+      "attempts": 180,
+      "observed": 178,
+      "missing": 2,
+      "sources": 60,
+      "seed_successes": 2,
+      "source_successes_conservative": 1,
+      "source_successes_optimistic": 2,
+      "sources_with_mixed_observed_binary_rewards": 1,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 34,
+        "mean": -8.205882352941176,
+        "sd": 4.276641359650477,
+        "q10": -13.0,
+        "median": -9.0,
+        "q90": -1.3000000000000007,
+        "below_zero": 32,
+        "nonnegative": 2
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R1-0.1",
+      "arm": "f5-r2",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 0,
+      "source_successes_conservative": 0,
+      "source_successes_optimistic": 0,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": 0,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": -2.7536766961324055,
+        "sd": 1.0648381384366445,
+        "q10": -4.121161195137728,
+        "median": -2.768742154121938,
+        "q90": -1.449319952483939,
+        "below_zero": 177,
+        "nonnegative": 3
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": -1.4469508408963871,
+        "sd": 1.3007995749157435,
+        "q10": -3.259292403296383,
+        "median": -1.4588030490738253,
+        "q90": 0.29255514583477293,
+        "below_zero": 156,
+        "nonnegative": 24
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": -1.4043050552245557,
+        "sd": 1.4076490804683242,
+        "q10": -3.259292403296383,
+        "median": -1.4588030490738253,
+        "q90": 0.2937628085783273,
+        "below_zero": 156,
+        "nonnegative": 24
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": 1.1620902003285878,
+        "sd": 2.3122860436538653,
+        "q10": -1.4079264288780433,
+        "median": 0.7291849328560778,
+        "q90": 4.566342149079624,
+        "below_zero": 71,
+        "nonnegative": 109
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 24,
+      "decoded_positive_but_C_false": 3,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R1-0.1",
+      "arm": "v5-r3",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 138,
+      "source_successes_conservative": 50,
+      "source_successes_optimistic": 50,
+      "sources_with_mixed_observed_binary_rewards": 18,
+      "source_J_conservative": 6,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": 1.5833324305731402,
+        "sd": 1.571211018766155,
+        "q10": -0.46619032050050685,
+        "median": 1.5993732860988974,
+        "q90": 3.6970502055206937,
+        "below_zero": 34,
+        "nonnegative": 146
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": 1.9917585801395505,
+        "sd": 1.2145841052419968,
+        "q10": 0.37274884655933155,
+        "median": 1.8887741508376612,
+        "q90": 3.6970502055206937,
+        "below_zero": 2,
+        "nonnegative": 178
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": 3.786242231562946,
+        "sd": 1.6847785312492845,
+        "q10": 1.7043020889014655,
+        "median": 3.93642719938442,
+        "q90": 6.031081146173535,
+        "below_zero": 2,
+        "nonnegative": 178
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": 0.9706276059702174,
+        "sd": 2.8630645115776034,
+        "q10": -2.7064524663794627,
+        "median": 0.937795866467801,
+        "q90": 4.843414441113645,
+        "below_zero": 72,
+        "nonnegative": 108
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 40,
+      "decoded_positive_but_C_false": 8,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R1-0.1",
+      "arm": "vine-r",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 180,
+      "source_successes_conservative": 60,
+      "source_successes_optimistic": 60,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 180,
+        "mean": 27.733333333333334,
+        "sd": 3.624251030313195,
+        "q10": 22.0,
+        "median": 29.0,
+        "q90": 31.0,
+        "below_zero": 0,
+        "nonnegative": 180
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R1-0.1",
+      "arm": "wam",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 146,
+      "source_successes_conservative": 49,
+      "source_successes_optimistic": 49,
+      "sources_with_mixed_observed_binary_rewards": 9,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 168,
+        "mean": 2.5476190476190474,
+        "sd": 3.116134415957959,
+        "q10": -2.0,
+        "median": 4.0,
+        "q90": 5.0,
+        "below_zero": 22,
+        "nonnegative": 146
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R1-0.2",
+      "arm": "f5-r2",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 0,
+      "source_successes_conservative": 0,
+      "source_successes_optimistic": 0,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": 0,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": -3.9089508050164206,
+        "sd": 0.8708134968148383,
+        "q10": -4.976969402439417,
+        "median": -3.878579881418397,
+        "q90": -2.920830237947918,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": -3.301009879772405,
+        "sd": 1.1134513665540757,
+        "q10": -4.678656574578571,
+        "median": -3.316969999803633,
+        "q90": -1.9084283893659288,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": -3.301009879772405,
+        "sd": 1.1134513665540757,
+        "q10": -4.678656574578571,
+        "median": -3.316969999803633,
+        "q90": -1.9084283893659288,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": -0.6794672576029295,
+        "sd": 1.8109792305026122,
+        "q10": -2.7675545579210814,
+        "median": -1.1774936081297378,
+        "q90": 2.1539251226269474,
+        "below_zero": 120,
+        "nonnegative": 60
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R1-0.2",
+      "arm": "v5-r3",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 37,
+      "source_successes_conservative": 11,
+      "source_successes_optimistic": 11,
+      "sources_with_mixed_observed_binary_rewards": 14,
+      "source_J_conservative": 0,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": -1.0586412917412793,
+        "sd": 1.2225148127737553,
+        "q10": -2.5731457003038587,
+        "median": -1.0935261749281318,
+        "q90": 0.5976787148840913,
+        "below_zero": 138,
+        "nonnegative": 42
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": 0.26852235093644977,
+        "sd": 1.026239894276729,
+        "q10": -1.033541249908508,
+        "median": 0.3405767891547713,
+        "q90": 1.5670440319672436,
+        "below_zero": 63,
+        "nonnegative": 117
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": 0.7510191061849779,
+        "sd": 1.4951036581496857,
+        "q10": -1.033541249908508,
+        "median": 0.5860478790011974,
+        "q90": 2.7330520452932414,
+        "below_zero": 63,
+        "nonnegative": 117
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": -0.8324286136333765,
+        "sd": 2.1541893892368966,
+        "q10": -3.4381095999866957,
+        "median": -1.1645951603783469,
+        "q90": 2.3675729969222816,
+        "below_zero": 122,
+        "nonnegative": 58
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 80,
+      "decoded_positive_but_C_false": 5,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R1-0.2",
+      "arm": "vine-r",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 179,
+      "source_successes_conservative": 60,
+      "source_successes_optimistic": 60,
+      "sources_with_mixed_observed_binary_rewards": 1,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 180,
+        "mean": 19.72222222222222,
+        "sd": 7.548025422027304,
+        "q10": 8.900000000000002,
+        "median": 21.0,
+        "q90": 29.0,
+        "below_zero": 1,
+        "nonnegative": 179
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R1-0.2",
+      "arm": "wam",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 7,
+      "source_successes_conservative": 2,
+      "source_successes_optimistic": 2,
+      "sources_with_mixed_observed_binary_rewards": 3,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 44,
+        "mean": -7.068181818181818,
+        "sd": 5.041214911122799,
+        "q10": -13.0,
+        "median": -7.5,
+        "q90": 0.0,
+        "below_zero": 37,
+        "nonnegative": 7
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R1-0.4",
+      "arm": "f5-r2",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 0,
+      "source_successes_conservative": 0,
+      "source_successes_optimistic": 0,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": 0,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": -4.412725883536411,
+        "sd": 0.8040580429052753,
+        "q10": -5.36057182774528,
+        "median": -4.340561830256515,
+        "q90": -3.38917545276787,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": -4.248156027968231,
+        "sd": 0.9894673789131359,
+        "q10": -5.4454027523106046,
+        "median": -4.229755108416404,
+        "q90": -2.996797261955505,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": -4.248156027968231,
+        "sd": 0.9894673789131359,
+        "q10": -5.4454027523106046,
+        "median": -4.229755108416404,
+        "q90": -2.996797261955505,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": -2.817328148855174,
+        "sd": 1.236898415093913,
+        "q10": -4.347593925885714,
+        "median": -3.010949819162739,
+        "q90": -1.1489627909880404,
+        "below_zero": 175,
+        "nonnegative": 5
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R1-0.4",
+      "arm": "v5-r3",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 0,
+      "source_successes_conservative": 0,
+      "source_successes_optimistic": 0,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": 0,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": -3.07739263659077,
+        "sd": 0.8172624681149262,
+        "q10": -4.051850807048348,
+        "median": -3.110342463125997,
+        "q90": -2.0222622647086133,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": -1.8500676159372687,
+        "sd": 1.177941579398233,
+        "q10": -3.191870479619415,
+        "median": -1.8019031012482063,
+        "q90": -0.4224333208692261,
+        "below_zero": 169,
+        "nonnegative": 11
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": -1.8500676159372687,
+        "sd": 1.177941579398233,
+        "q10": -3.191870479619415,
+        "median": -1.8019031012482063,
+        "q90": -0.4224333208692261,
+        "below_zero": 169,
+        "nonnegative": 11
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": -2.964437811673094,
+        "sd": 1.35026375527886,
+        "q10": -4.500343917138611,
+        "median": -3.1182202606045277,
+        "q90": -1.1683578607199887,
+        "below_zero": 175,
+        "nonnegative": 5
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 11,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R1-0.4",
+      "arm": "vine-r",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 127,
+      "source_successes_conservative": 45,
+      "source_successes_optimistic": 45,
+      "sources_with_mixed_observed_binary_rewards": 18,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 180,
+        "mean": 4.2444444444444445,
+        "sd": 7.806759871395672,
+        "q10": -6.099999999999998,
+        "median": 4.5,
+        "q90": 14.099999999999994,
+        "below_zero": 53,
+        "nonnegative": 127
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "phase_a",
+      "cell": "R1-0.4",
+      "arm": "wam",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 0,
+      "source_successes_conservative": 0,
+      "source_successes_optimistic": 0,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 14,
+        "mean": -11.5,
+        "sd": 4.164871408117404,
+        "q10": -16.0,
+        "median": -11.5,
+        "q90": -5.599999999999998,
+        "below_zero": 14,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "ssim_rgb": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        },
+        "lpips": {
+          "n": 0,
+          "mean": null,
+          "sd": null,
+          "q10": null,
+          "median": null,
+          "q90": null,
+          "below_zero": 0,
+          "nonnegative": 0
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R0-0.1",
+      "arm": "f5-r2",
+      "attempts": 180,
+      "observed": 179,
+      "missing": 1,
+      "sources": 60,
+      "seed_successes": 179,
+      "source_successes_conservative": 60,
+      "source_successes_optimistic": 60,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": 41,
+      "semantic_decoded_margin": {
+        "n": 179,
+        "mean": 5.814163690730282,
+        "sd": 2.020842369462372,
+        "q10": 2.566219981687665,
+        "median": 6.27855016678012,
+        "q90": 8.107687967497323,
+        "below_zero": 0,
+        "nonnegative": 179
+      },
+      "semantic_generic_margin": {
+        "n": 179,
+        "mean": 5.814163690730282,
+        "sd": 2.020842369462372,
+        "q10": 2.566219981687665,
+        "median": 6.27855016678012,
+        "q90": 8.107687967497323,
+        "below_zero": 0,
+        "nonnegative": 179
+      },
+      "semantic_recomputed_margin": {
+        "n": 179,
+        "mean": 8.000442725514095,
+        "sd": 1.913933254422819,
+        "q10": 5.364275708443051,
+        "median": 8.350780345454474,
+        "q90": 10.301966990101707,
+        "below_zero": 0,
+        "nonnegative": 179
+      },
+      "instance_decoded_margin": {
+        "n": 179,
+        "mean": -4.858198346428335,
+        "sd": 0.8731832584307476,
+        "q10": -5.992354426163627,
+        "median": -4.968895365726893,
+        "q90": -3.6611535662012984,
+        "below_zero": 179,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 179,
+          "mean": 23.697088221302756,
+          "sd": 3.3624141218101715,
+          "q10": 19.050204295047887,
+          "median": 24.182938569592842,
+          "q90": 27.72564635758734,
+          "below_zero": 0,
+          "nonnegative": 179
+        },
+        "ssim_rgb": {
+          "n": 179,
+          "mean": 0.6501708463458618,
+          "sd": 0.1336297940199273,
+          "q10": 0.42552978787274653,
+          "median": 0.6727696336648876,
+          "q90": 0.8062538145359666,
+          "below_zero": 0,
+          "nonnegative": 179
+        },
+        "lpips": {
+          "n": 179,
+          "mean": 0.13419489088005193,
+          "sd": 0.030514367538569065,
+          "q10": 0.09702064394950867,
+          "median": 0.12818393111228943,
+          "q90": 0.1789445221424103,
+          "below_zero": 0,
+          "nonnegative": 179
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R0-0.1",
+      "arm": "v5-r3",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 144,
+      "source_successes_conservative": 47,
+      "source_successes_optimistic": 47,
+      "sources_with_mixed_observed_binary_rewards": 9,
+      "source_J_conservative": 23,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": 2.7563262882875197,
+        "sd": 2.6326995589230675,
+        "q10": -0.8505098568907552,
+        "median": 2.8815241265651235,
+        "q90": 5.990473959239105,
+        "below_zero": 30,
+        "nonnegative": 150
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": 3.0937270551900338,
+        "sd": 2.236563697440437,
+        "q10": 0.6810239061848425,
+        "median": 2.8918784121048384,
+        "q90": 5.990473959239105,
+        "below_zero": 7,
+        "nonnegative": 173
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": 4.954829646240092,
+        "sd": 2.673503615954443,
+        "q10": 1.3401913926279638,
+        "median": 4.918345136584594,
+        "q90": 8.387242328860111,
+        "below_zero": 7,
+        "nonnegative": 173
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": -4.86814023698899,
+        "sd": 0.8711761834270925,
+        "q10": -5.938981478630315,
+        "median": -4.881610943936796,
+        "q90": -3.6904706835183476,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 29,
+      "decoded_positive_but_C_false": 6,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 23.72161432800816,
+          "sd": 3.424118124417783,
+          "q10": 19.13953614993231,
+          "median": 24.09671194574446,
+          "q90": 27.832024120173962,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.6630337506668049,
+          "sd": 0.13457852566165093,
+          "q10": 0.4329862642863836,
+          "median": 0.6900335040080602,
+          "q90": 0.8212685123432711,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.11807951341486639,
+          "sd": 0.033632433566135274,
+          "q10": 0.08209592029452324,
+          "median": 0.11096952483057976,
+          "q90": 0.1652968108654022,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R0-0.1",
+      "arm": "vine-r",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 180,
+      "source_successes_conservative": 60,
+      "source_successes_optimistic": 60,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 180,
+        "mean": 25.783333333333335,
+        "sd": 4.680012175890192,
+        "q10": 19.0,
+        "median": 27.5,
+        "q90": 31.0,
+        "below_zero": 0,
+        "nonnegative": 180
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 23.71503674280294,
+          "sd": 3.4187104374781767,
+          "q10": 19.12763833125478,
+          "median": 24.05129055804425,
+          "q90": 27.745651462222543,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.6779723430540983,
+          "sd": 0.14065822813601422,
+          "q10": 0.43789078650064567,
+          "median": 0.7026510964555308,
+          "q90": 0.847047778041242,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.11283739563077688,
+          "sd": 0.03513555702916733,
+          "q10": 0.07603662461042404,
+          "median": 0.10516616702079773,
+          "q90": 0.16031489968299867,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R0-0.1",
+      "arm": "wam",
+      "attempts": 180,
+      "observed": 179,
+      "missing": 1,
+      "sources": 60,
+      "seed_successes": 119,
+      "source_successes_conservative": 42,
+      "source_successes_optimistic": 42,
+      "sources_with_mixed_observed_binary_rewards": 14,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 165,
+        "mean": 0.6909090909090909,
+        "sd": 3.6486184853230736,
+        "q10": -4.0,
+        "median": 1.0,
+        "q90": 5.0,
+        "below_zero": 46,
+        "nonnegative": 119
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 179,
+          "mean": 23.632095940886817,
+          "sd": 3.392696561186231,
+          "q10": 19.025632081535413,
+          "median": 24.020273875701854,
+          "q90": 27.687884670372707,
+          "below_zero": 0,
+          "nonnegative": 179
+        },
+        "ssim_rgb": {
+          "n": 179,
+          "mean": 0.6626617735214961,
+          "sd": 0.13893116946967593,
+          "q10": 0.42818252102299137,
+          "median": 0.6812371365394949,
+          "q90": 0.8277870714514441,
+          "below_zero": 0,
+          "nonnegative": 179
+        },
+        "lpips": {
+          "n": 179,
+          "mean": 0.12227309470236634,
+          "sd": 0.03781797192276792,
+          "q10": 0.0818751484155655,
+          "median": 0.11679878830909729,
+          "q90": 0.1699488699436188,
+          "below_zero": 0,
+          "nonnegative": 179
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R0-0.2",
+      "arm": "f5-r2",
+      "attempts": 180,
+      "observed": 177,
+      "missing": 3,
+      "sources": 60,
+      "seed_successes": 170,
+      "source_successes_conservative": 57,
+      "source_successes_optimistic": 58,
+      "sources_with_mixed_observed_binary_rewards": 2,
+      "source_J_conservative": 38,
+      "semantic_decoded_margin": {
+        "n": 177,
+        "mean": 4.727676765450816,
+        "sd": 2.228626554073478,
+        "q10": 1.1976393752236019,
+        "median": 5.149977467852482,
+        "q90": 7.386790011406737,
+        "below_zero": 4,
+        "nonnegative": 173
+      },
+      "semantic_generic_margin": {
+        "n": 177,
+        "mean": 4.771536535518163,
+        "sd": 2.148034578716107,
+        "q10": 1.4824166602370958,
+        "median": 5.149977467852482,
+        "q90": 7.386790011406737,
+        "below_zero": 0,
+        "nonnegative": 177
+      },
+      "semantic_recomputed_margin": {
+        "n": 177,
+        "mean": 6.7093216198928625,
+        "sd": 2.2202945256644213,
+        "q10": 3.6515809730662045,
+        "median": 6.814860766833373,
+        "q90": 9.329487700269777,
+        "below_zero": 0,
+        "nonnegative": 177
+      },
+      "instance_decoded_margin": {
+        "n": 177,
+        "mean": -4.974355287596121,
+        "sd": 0.8300622023013515,
+        "q10": -5.915354994606835,
+        "median": -5.011192297718142,
+        "q90": -3.933682496434756,
+        "below_zero": 177,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 7,
+      "decoded_positive_but_C_false": 3,
+      "qualities": {
+        "psnr_db": {
+          "n": 177,
+          "mean": 22.233824831801176,
+          "sd": 3.103526541985001,
+          "q10": 17.81966445070663,
+          "median": 22.33052932757571,
+          "q90": 26.083621448023838,
+          "below_zero": 0,
+          "nonnegative": 177
+        },
+        "ssim_rgb": {
+          "n": 177,
+          "mean": 0.5985258230493025,
+          "sd": 0.1433727408961629,
+          "q10": 0.3569097667956082,
+          "median": 0.6117787374472793,
+          "q90": 0.7639030607885079,
+          "below_zero": 0,
+          "nonnegative": 177
+        },
+        "lpips": {
+          "n": 177,
+          "mean": 0.18627516394954616,
+          "sd": 0.0364652028958168,
+          "q10": 0.14199872314929962,
+          "median": 0.1826610118150711,
+          "q90": 0.2370920240879059,
+          "below_zero": 0,
+          "nonnegative": 177
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R0-0.2",
+      "arm": "v5-r3",
+      "attempts": 180,
+      "observed": 179,
+      "missing": 1,
+      "sources": 60,
+      "seed_successes": 82,
+      "source_successes_conservative": 27,
+      "source_successes_optimistic": 28,
+      "sources_with_mixed_observed_binary_rewards": 9,
+      "source_J_conservative": 6,
+      "semantic_decoded_margin": {
+        "n": 179,
+        "mean": 0.2850805062338082,
+        "sd": 2.3057281088553556,
+        "q10": -2.666301414762269,
+        "median": 0.003417759621553884,
+        "q90": 2.8822224748165577,
+        "below_zero": 89,
+        "nonnegative": 90
+      },
+      "semantic_generic_margin": {
+        "n": 179,
+        "mean": 1.18533735050023,
+        "sd": 1.8010891978447283,
+        "q10": -0.8137414278737912,
+        "median": 1.0729364790649818,
+        "q90": 2.8822224748165577,
+        "below_zero": 35,
+        "nonnegative": 144
+      },
+      "semantic_recomputed_margin": {
+        "n": 179,
+        "mean": 2.1876538150453606,
+        "sd": 2.510861086529768,
+        "q10": -0.8137414278737912,
+        "median": 1.8477845518929277,
+        "q90": 5.381560333916737,
+        "below_zero": 37,
+        "nonnegative": 142
+      },
+      "instance_decoded_margin": {
+        "n": 179,
+        "mean": -4.983620957499156,
+        "sd": 0.8574018933995945,
+        "q10": -5.9853432194346805,
+        "median": -4.953987945254016,
+        "q90": -3.8273937135442875,
+        "below_zero": 179,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 62,
+      "decoded_positive_but_C_false": 8,
+      "qualities": {
+        "psnr_db": {
+          "n": 179,
+          "mean": 22.261527078957748,
+          "sd": 3.1818726306595897,
+          "q10": 17.98212680211071,
+          "median": 22.334565694748996,
+          "q90": 26.193792913530697,
+          "below_zero": 0,
+          "nonnegative": 179
+        },
+        "ssim_rgb": {
+          "n": 179,
+          "mean": 0.6111600551318838,
+          "sd": 0.1463124049255118,
+          "q10": 0.3662853016673303,
+          "median": 0.6263847789280396,
+          "q90": 0.7770523064529025,
+          "below_zero": 0,
+          "nonnegative": 179
+        },
+        "lpips": {
+          "n": 179,
+          "mean": 0.167633130563704,
+          "sd": 0.04243150545425415,
+          "q10": 0.11927196681499481,
+          "median": 0.16060231626033783,
+          "q90": 0.22509886622428896,
+          "below_zero": 0,
+          "nonnegative": 179
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R0-0.2",
+      "arm": "vine-r",
+      "attempts": 180,
+      "observed": 178,
+      "missing": 2,
+      "sources": 60,
+      "seed_successes": 177,
+      "source_successes_conservative": 60,
+      "source_successes_optimistic": 60,
+      "sources_with_mixed_observed_binary_rewards": 1,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 178,
+        "mean": 18.235955056179776,
+        "sd": 6.798176013116553,
+        "q10": 9.0,
+        "median": 19.0,
+        "q90": 26.0,
+        "below_zero": 1,
+        "nonnegative": 177
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 178,
+          "mean": 22.218470074463404,
+          "sd": 3.134726825757924,
+          "q10": 17.881551685940767,
+          "median": 22.24040808937128,
+          "q90": 26.100432210228067,
+          "below_zero": 0,
+          "nonnegative": 178
+        },
+        "ssim_rgb": {
+          "n": 178,
+          "mean": 0.6265116550853674,
+          "sd": 0.15132499650428594,
+          "q10": 0.37172131892807136,
+          "median": 0.6414085154306939,
+          "q90": 0.8014849135855174,
+          "below_zero": 0,
+          "nonnegative": 178
+        },
+        "lpips": {
+          "n": 178,
+          "mean": 0.16159576914283666,
+          "sd": 0.0440194431558371,
+          "q10": 0.10781167298555375,
+          "median": 0.15505385398864746,
+          "q90": 0.22248559147119523,
+          "below_zero": 0,
+          "nonnegative": 178
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R0-0.2",
+      "arm": "wam",
+      "attempts": 180,
+      "observed": 178,
+      "missing": 2,
+      "sources": 60,
+      "seed_successes": 52,
+      "source_successes_conservative": 18,
+      "source_successes_optimistic": 19,
+      "sources_with_mixed_observed_binary_rewards": 18,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 120,
+        "mean": -1.7583333333333333,
+        "sd": 4.1525446958437895,
+        "q10": -7.0,
+        "median": -1.0,
+        "q90": 3.0,
+        "below_zero": 68,
+        "nonnegative": 52
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 178,
+          "mean": 22.24145177004548,
+          "sd": 3.1743371213441756,
+          "q10": 17.928750301108064,
+          "median": 22.314864793419417,
+          "q90": 26.09132303518443,
+          "below_zero": 0,
+          "nonnegative": 178
+        },
+        "ssim_rgb": {
+          "n": 178,
+          "mean": 0.6142674210319673,
+          "sd": 0.15052079239659133,
+          "q10": 0.3558105206516005,
+          "median": 0.6312450090161756,
+          "q90": 0.7882821961198736,
+          "below_zero": 0,
+          "nonnegative": 178
+        },
+        "lpips": {
+          "n": 178,
+          "mean": 0.1708403772182679,
+          "sd": 0.048454284561039604,
+          "q10": 0.11406146958470344,
+          "median": 0.1642484962940216,
+          "q90": 0.22915013283491134,
+          "below_zero": 0,
+          "nonnegative": 178
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R0-0.4",
+      "arm": "f5-r2",
+      "attempts": 180,
+      "observed": 178,
+      "missing": 2,
+      "sources": 60,
+      "seed_successes": 117,
+      "source_successes_conservative": 39,
+      "source_successes_optimistic": 40,
+      "sources_with_mixed_observed_binary_rewards": 18,
+      "source_J_conservative": 14,
+      "semantic_decoded_margin": {
+        "n": 178,
+        "mean": 2.138242089527202,
+        "sd": 2.260425313040207,
+        "q10": -0.9963050200379506,
+        "median": 2.2708285707950866,
+        "q90": 5.007303445745021,
+        "below_zero": 36,
+        "nonnegative": 142
+      },
+      "semantic_generic_margin": {
+        "n": 178,
+        "mean": 2.445762236337824,
+        "sd": 1.9025118259153069,
+        "q10": 0.3163125668561369,
+        "median": 2.2708285707950866,
+        "q90": 5.007303445745021,
+        "below_zero": 10,
+        "nonnegative": 168
+      },
+      "semantic_recomputed_margin": {
+        "n": 178,
+        "mean": 3.718075525425332,
+        "sd": 2.4844384944747397,
+        "q10": 0.6095398311469931,
+        "median": 3.7712722128728764,
+        "q90": 7.217770827476765,
+        "below_zero": 11,
+        "nonnegative": 167
+      },
+      "instance_decoded_margin": {
+        "n": 178,
+        "mean": -5.045048482689335,
+        "sd": 0.8435768991699816,
+        "q10": -6.120639513895186,
+        "median": -5.008116776707089,
+        "q90": -3.9996655065873195,
+        "below_zero": 178,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 51,
+      "decoded_positive_but_C_false": 25,
+      "qualities": {
+        "psnr_db": {
+          "n": 178,
+          "mean": 20.06018553660125,
+          "sd": 2.8256968557220743,
+          "q10": 16.213871743074602,
+          "median": 19.97058133061573,
+          "q90": 23.76545999569035,
+          "below_zero": 0,
+          "nonnegative": 178
+        },
+        "ssim_rgb": {
+          "n": 178,
+          "mean": 0.5180035666561078,
+          "sd": 0.15572841114363897,
+          "q10": 0.2868444678850988,
+          "median": 0.540077679186715,
+          "q90": 0.6937997225976769,
+          "below_zero": 0,
+          "nonnegative": 178
+        },
+        "lpips": {
+          "n": 178,
+          "mean": 0.29459283283252397,
+          "sd": 0.05093672826074384,
+          "q10": 0.22655680030584335,
+          "median": 0.2918907105922699,
+          "q90": 0.3605072408914566,
+          "below_zero": 0,
+          "nonnegative": 178
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R0-0.4",
+      "arm": "v5-r3",
+      "attempts": 180,
+      "observed": 178,
+      "missing": 2,
+      "sources": 60,
+      "seed_successes": 7,
+      "source_successes_conservative": 3,
+      "source_successes_optimistic": 3,
+      "sources_with_mixed_observed_binary_rewards": 4,
+      "source_J_conservative": 0,
+      "semantic_decoded_margin": {
+        "n": 178,
+        "mean": -2.492792428763246,
+        "sd": 1.3617054466594911,
+        "q10": -4.142044427370455,
+        "median": -2.629802683442718,
+        "q90": -0.5787591851879181,
+        "below_zero": 168,
+        "nonnegative": 10
+      },
+      "semantic_generic_margin": {
+        "n": 178,
+        "mean": -1.3864375001059108,
+        "sd": 1.5470263173809562,
+        "q10": -3.5158636018485923,
+        "median": -1.36335147832152,
+        "q90": 0.5405213273394385,
+        "below_zero": 140,
+        "nonnegative": 38
+      },
+      "semantic_recomputed_margin": {
+        "n": 178,
+        "mean": -1.2922620792082429,
+        "sd": 1.7351181858800961,
+        "q10": -3.5158636018485923,
+        "median": -1.36335147832152,
+        "q90": 0.8103650376934874,
+        "below_zero": 140,
+        "nonnegative": 38
+      },
+      "instance_decoded_margin": {
+        "n": 178,
+        "mean": -4.955791428385865,
+        "sd": 0.8692477480860521,
+        "q10": -6.031359166326788,
+        "median": -4.9223464744797525,
+        "q90": -3.851099287637596,
+        "below_zero": 178,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 31,
+      "decoded_positive_but_C_false": 3,
+      "qualities": {
+        "psnr_db": {
+          "n": 178,
+          "mean": 20.13371846504886,
+          "sd": 2.8887046859616627,
+          "q10": 16.195400470549668,
+          "median": 20.05362053318222,
+          "q90": 24.0196712584602,
+          "below_zero": 0,
+          "nonnegative": 178
+        },
+        "ssim_rgb": {
+          "n": 178,
+          "mean": 0.5319150444544005,
+          "sd": 0.15989031518124153,
+          "q10": 0.29648144628959444,
+          "median": 0.55111315709321,
+          "q90": 0.7186863395123295,
+          "below_zero": 0,
+          "nonnegative": 178
+        },
+        "lpips": {
+          "n": 178,
+          "mean": 0.2675268973192472,
+          "sd": 0.060966269749262766,
+          "q10": 0.1787262201309204,
+          "median": 0.26376351714134216,
+          "q90": 0.3488045334815979,
+          "below_zero": 0,
+          "nonnegative": 178
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R0-0.4",
+      "arm": "vine-r",
+      "attempts": 180,
+      "observed": 179,
+      "missing": 1,
+      "sources": 60,
+      "seed_successes": 136,
+      "source_successes_conservative": 47,
+      "source_successes_optimistic": 47,
+      "sources_with_mixed_observed_binary_rewards": 20,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 179,
+        "mean": 4.173184357541899,
+        "sd": 6.690438962487079,
+        "q10": -4.0,
+        "median": 4.0,
+        "q90": 12.200000000000017,
+        "below_zero": 43,
+        "nonnegative": 136
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 179,
+          "mean": 20.02037936103636,
+          "sd": 2.843333387086473,
+          "q10": 16.194003431531897,
+          "median": 20.017673258500647,
+          "q90": 23.765071045411734,
+          "below_zero": 0,
+          "nonnegative": 179
+        },
+        "ssim_rgb": {
+          "n": 179,
+          "mean": 0.5416456155144675,
+          "sd": 0.16639923635163162,
+          "q10": 0.29095984731033175,
+          "median": 0.5570029706574641,
+          "q90": 0.7319239151637152,
+          "below_zero": 0,
+          "nonnegative": 179
+        },
+        "lpips": {
+          "n": 179,
+          "mean": 0.2634914374218307,
+          "sd": 0.06304607026787051,
+          "q10": 0.1650945246219635,
+          "median": 0.2613289952278137,
+          "q90": 0.34577766656875614,
+          "below_zero": 0,
+          "nonnegative": 179
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R0-0.4",
+      "arm": "wam",
+      "attempts": 180,
+      "observed": 178,
+      "missing": 2,
+      "sources": 60,
+      "seed_successes": 2,
+      "source_successes_conservative": 1,
+      "source_successes_optimistic": 2,
+      "sources_with_mixed_observed_binary_rewards": 1,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 35,
+        "mean": -8.428571428571429,
+        "sd": 4.326972275810218,
+        "q10": -13.0,
+        "median": -9.0,
+        "q90": -1.3999999999999986,
+        "below_zero": 33,
+        "nonnegative": 2
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 178,
+          "mean": 20.192523439873767,
+          "sd": 2.833210660666575,
+          "q10": 16.44899755339773,
+          "median": 20.145703008961235,
+          "q90": 23.916530187443023,
+          "below_zero": 0,
+          "nonnegative": 178
+        },
+        "ssim_rgb": {
+          "n": 178,
+          "mean": 0.5412689310317761,
+          "sd": 0.16289434232690736,
+          "q10": 0.3005783691054915,
+          "median": 0.5613639079963135,
+          "q90": 0.724511311466536,
+          "below_zero": 0,
+          "nonnegative": 178
+        },
+        "lpips": {
+          "n": 178,
+          "mean": 0.2719194661365466,
+          "sd": 0.06894393930298573,
+          "q10": 0.16806048899888992,
+          "median": 0.26990175247192383,
+          "q90": 0.35777894854545594,
+          "below_zero": 0,
+          "nonnegative": 178
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-0.1",
+      "arm": "f5-r2",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 0,
+      "source_successes_conservative": 0,
+      "source_successes_optimistic": 0,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": 0,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": -2.7531281203884177,
+        "sd": 1.06723629529837,
+        "q10": -4.100188634406368,
+        "median": -2.7493284260730957,
+        "q90": -1.4564850784625967,
+        "below_zero": 177,
+        "nonnegative": 3
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": -1.4507560438433267,
+        "sd": 1.3154019406730768,
+        "q10": -3.3112739512717373,
+        "median": -1.4654249797034005,
+        "q90": 0.29584535304531717,
+        "below_zero": 154,
+        "nonnegative": 26
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": -1.4083412403507793,
+        "sd": 1.420344414586677,
+        "q10": -3.3112739512717373,
+        "median": -1.4654249797034005,
+        "q90": 0.29584535304531717,
+        "below_zero": 154,
+        "nonnegative": 26
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": 1.1536204501884575,
+        "sd": 2.2997559890911647,
+        "q10": -1.4195813613215384,
+        "median": 0.822373130412621,
+        "q90": 4.56675671922505,
+        "below_zero": 72,
+        "nonnegative": 108
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 26,
+      "decoded_positive_but_C_false": 3,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 26.883738179076587,
+          "sd": 3.209410513372755,
+          "q10": 22.327508356426193,
+          "median": 27.441826141100435,
+          "q90": 30.57480084466096,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7788698614653922,
+          "sd": 0.07969493353232217,
+          "q10": 0.664643187396297,
+          "median": 0.7861149677516049,
+          "q90": 0.8686295718159124,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.10534433923247788,
+          "sd": 0.03427696833327068,
+          "q10": 0.06859659403562546,
+          "median": 0.09727860987186432,
+          "q90": 0.15196868926286697,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-0.1",
+      "arm": "v5-r3",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 140,
+      "source_successes_conservative": 50,
+      "source_successes_optimistic": 50,
+      "sources_with_mixed_observed_binary_rewards": 16,
+      "source_J_conservative": 6,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": 1.5844616937566192,
+        "sd": 1.5699289961111187,
+        "q10": -0.4845153609954178,
+        "median": 1.5886535001043027,
+        "q90": 3.6772172778089365,
+        "below_zero": 34,
+        "nonnegative": 146
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": 1.9928536840747126,
+        "sd": 1.2188149493139087,
+        "q10": 0.39837553538270787,
+        "median": 1.9133977221788578,
+        "q90": 3.6772172778089365,
+        "below_zero": 2,
+        "nonnegative": 178
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": 3.7820031931810005,
+        "sd": 1.6998803186297677,
+        "q10": 1.6074258869656721,
+        "median": 3.935502048734431,
+        "q90": 5.988764866613644,
+        "below_zero": 2,
+        "nonnegative": 178
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": 0.9603710708400556,
+        "sd": 2.862730802650154,
+        "q10": -2.756954788393661,
+        "median": 0.9734406955400923,
+        "q90": 4.833219721967511,
+        "below_zero": 73,
+        "nonnegative": 107
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 38,
+      "decoded_positive_but_C_false": 6,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 26.77445735200023,
+          "sd": 3.183580834664011,
+          "q10": 22.2950067067294,
+          "median": 27.27450905393331,
+          "q90": 30.604312664569765,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7808970458274896,
+          "sd": 0.07948042245653635,
+          "q10": 0.6706361774026316,
+          "median": 0.7841603113572941,
+          "q90": 0.8703685379561801,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.10358489840808842,
+          "sd": 0.03497492032303615,
+          "q10": 0.06648894175887109,
+          "median": 0.09509403258562088,
+          "q90": 0.1533036082983017,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-0.1",
+      "arm": "vine-r",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 180,
+      "source_successes_conservative": 60,
+      "source_successes_optimistic": 60,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 180,
+        "mean": 27.7,
+        "sd": 3.6462271003105533,
+        "q10": 22.0,
+        "median": 29.0,
+        "q90": 31.0,
+        "below_zero": 0,
+        "nonnegative": 180
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 26.890218430331647,
+          "sd": 3.2251276232481523,
+          "q10": 22.29298749322803,
+          "median": 27.466630251492976,
+          "q90": 30.649912061864647,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7935981542882448,
+          "sd": 0.08294635783156931,
+          "q10": 0.6756535320124086,
+          "median": 0.801589639837015,
+          "q90": 0.8890607836464138,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.0970299340163668,
+          "sd": 0.034395856169257735,
+          "q10": 0.05875798687338829,
+          "median": 0.08945678919553757,
+          "q90": 0.14658931642770767,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-0.1",
+      "arm": "wam",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 144,
+      "source_successes_conservative": 48,
+      "source_successes_optimistic": 48,
+      "sources_with_mixed_observed_binary_rewards": 8,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 169,
+        "mean": 2.502958579881657,
+        "sd": 3.2073655194965096,
+        "q10": -2.0,
+        "median": 4.0,
+        "q90": 5.0,
+        "below_zero": 25,
+        "nonnegative": 144
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 26.691117979163486,
+          "sd": 3.1523079040628352,
+          "q10": 22.213407051290748,
+          "median": 27.227013060155336,
+          "q90": 30.498657539169365,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7795914102903765,
+          "sd": 0.08215764181120279,
+          "q10": 0.663954475409263,
+          "median": 0.7875741021059282,
+          "q90": 0.8727228709696391,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.103331252021922,
+          "sd": 0.03496757854548858,
+          "q10": 0.06493640244007111,
+          "median": 0.09519179537892342,
+          "q90": 0.15045929849147796,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-0.2",
+      "arm": "f5-r2",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 0,
+      "source_successes_conservative": 0,
+      "source_successes_optimistic": 0,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": 0,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": -3.9108864209777794,
+        "sd": 0.8744249903430636,
+        "q10": -5.025860422094091,
+        "median": -3.945783861790545,
+        "q90": -2.951708801253966,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": -3.3012718295972285,
+        "sd": 1.1192319854205446,
+        "q10": -4.67272257426268,
+        "median": -3.3432239250413742,
+        "q90": -1.892343412055718,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": -3.3012718295972285,
+        "sd": 1.1192319854205446,
+        "q10": -4.67272257426268,
+        "median": -3.3432239250413742,
+        "q90": -1.892343412055718,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": -0.6812997203894894,
+        "sd": 1.816018473043767,
+        "q10": -2.7765622624998088,
+        "median": -1.1816986115712242,
+        "q90": 2.183190501778693,
+        "below_zero": 120,
+        "nonnegative": 60
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 24.72307374475789,
+          "sd": 3.0534329650676044,
+          "q10": 20.308145581334614,
+          "median": 24.900110921314784,
+          "q90": 28.18659722871587,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7117884098713606,
+          "sd": 0.09931951929362755,
+          "q10": 0.5539752007489886,
+          "median": 0.7173018793428456,
+          "q90": 0.8257876685218742,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.1585883987446626,
+          "sd": 0.04362269372683417,
+          "q10": 0.10785710290074349,
+          "median": 0.15110298991203308,
+          "q90": 0.2162351682782173,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-0.2",
+      "arm": "v5-r3",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 38,
+      "source_successes_conservative": 12,
+      "source_successes_optimistic": 12,
+      "sources_with_mixed_observed_binary_rewards": 14,
+      "source_J_conservative": 0,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": -1.0658316711016986,
+        "sd": 1.2246154210498856,
+        "q10": -2.578454606958468,
+        "median": -1.078649366609926,
+        "q90": 0.609017623591377,
+        "below_zero": 138,
+        "nonnegative": 42
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": 0.2581651211738543,
+        "sd": 1.0230073826922943,
+        "q10": -1.013844288563156,
+        "median": 0.30700749828599205,
+        "q90": 1.5193820041288204,
+        "below_zero": 64,
+        "nonnegative": 116
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": 0.7450664627714897,
+        "sd": 1.5011486660577986,
+        "q10": -1.013844288563156,
+        "median": 0.6028079156521446,
+        "q90": 2.7551648761493386,
+        "below_zero": 64,
+        "nonnegative": 116
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": -0.838813971131737,
+        "sd": 2.1576541789992927,
+        "q10": -3.433651083199691,
+        "median": -1.1702145048130541,
+        "q90": 2.3562197174556823,
+        "below_zero": 122,
+        "nonnegative": 58
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 78,
+      "decoded_positive_but_C_false": 4,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 24.62903921233924,
+          "sd": 3.0365131876224685,
+          "q10": 20.274770420917207,
+          "median": 24.795897411063002,
+          "q90": 28.14607462144764,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7134650416878059,
+          "sd": 0.09928756436329193,
+          "q10": 0.5568746758928157,
+          "median": 0.7193697706657143,
+          "q90": 0.8280433575240905,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.15514175362057156,
+          "sd": 0.04535778276012641,
+          "q10": 0.10461800992488861,
+          "median": 0.14552821218967438,
+          "q90": 0.21380268186330795,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-0.2",
+      "arm": "vine-r",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 179,
+      "source_successes_conservative": 60,
+      "source_successes_optimistic": 60,
+      "sources_with_mixed_observed_binary_rewards": 1,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 180,
+        "mean": 19.711111111111112,
+        "sd": 7.545385129160863,
+        "q10": 9.0,
+        "median": 21.0,
+        "q90": 28.099999999999994,
+        "below_zero": 1,
+        "nonnegative": 179
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 24.657899849910997,
+          "sd": 3.0306298223745407,
+          "q10": 20.262519569993735,
+          "median": 24.845393397227618,
+          "q90": 28.138645377752827,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7279612732194742,
+          "sd": 0.1034644802831026,
+          "q10": 0.56087010471793,
+          "median": 0.7362543972262632,
+          "q90": 0.8464856893808617,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.14711959585547446,
+          "sd": 0.044139921420265474,
+          "q10": 0.09756328612565994,
+          "median": 0.1350337490439415,
+          "q90": 0.20605323165655134,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-0.2",
+      "arm": "wam",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 6,
+      "source_successes_conservative": 2,
+      "source_successes_optimistic": 2,
+      "sources_with_mixed_observed_binary_rewards": 2,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 44,
+        "mean": -7.0227272727272725,
+        "sd": 5.050851350589377,
+        "q10": -13.7,
+        "median": -7.0,
+        "q90": 0.7000000000000028,
+        "below_zero": 38,
+        "nonnegative": 6
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 24.59612744108587,
+          "sd": 3.013775382749759,
+          "q10": 20.215332801733396,
+          "median": 24.810993646789854,
+          "q90": 28.083694516457097,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.715455844812581,
+          "sd": 0.10239755720988492,
+          "q10": 0.5519079478806512,
+          "median": 0.7247542881049625,
+          "q90": 0.8345146500742411,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.15237037551899751,
+          "sd": 0.04436538203685064,
+          "q10": 0.10424076542258262,
+          "median": 0.14144522696733475,
+          "q90": 0.21443672031164168,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-0.4",
+      "arm": "f5-r2",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 0,
+      "source_successes_conservative": 0,
+      "source_successes_optimistic": 0,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": 0,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": -4.4112163574837435,
+        "sd": 0.8089080279633203,
+        "q10": -5.381091733942043,
+        "median": -4.342329542402565,
+        "q90": -3.3803270306566677,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": -4.2603477428781495,
+        "sd": 0.9946522528529524,
+        "q10": -5.420823809464094,
+        "median": -4.269046702970095,
+        "q90": -3.009782967467548,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": -4.2603477428781495,
+        "sd": 0.9946522528529524,
+        "q10": -5.420823809464094,
+        "median": -4.269046702970095,
+        "q90": -3.009782967467548,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": -2.8102984041551995,
+        "sd": 1.2373463082655063,
+        "q10": -4.313372577361722,
+        "median": -3.008095423992495,
+        "q90": -1.141820133975471,
+        "below_zero": 175,
+        "nonnegative": 5
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 22.20812713466579,
+          "sd": 2.848453330238689,
+          "q10": 18.124941439200217,
+          "median": 22.34904867122077,
+          "q90": 25.566227357573343,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.6214854434386873,
+          "sd": 0.12644621573137163,
+          "q10": 0.4170472059489198,
+          "median": 0.6311552841878275,
+          "q90": 0.7821381154424184,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.24083857379025883,
+          "sd": 0.04893645911615681,
+          "q10": 0.1795793503522873,
+          "median": 0.23745498806238174,
+          "q90": 0.31289590895175934,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-0.4",
+      "arm": "v5-r3",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 0,
+      "source_successes_conservative": 0,
+      "source_successes_optimistic": 0,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": 0,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": -3.078595642406057,
+        "sd": 0.8179472430088535,
+        "q10": -4.0651295994318435,
+        "median": -3.110703291404044,
+        "q90": -2.0174374831531763,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": -1.8542004656252882,
+        "sd": 1.1793591293944086,
+        "q10": -3.2012374952525646,
+        "median": -1.8104009020332847,
+        "q90": -0.4394337976159926,
+        "below_zero": 169,
+        "nonnegative": 11
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": -1.8542004656252882,
+        "sd": 1.1793591293944086,
+        "q10": -3.2012374952525646,
+        "median": -1.8104009020332847,
+        "q90": -0.4394337976159926,
+        "below_zero": 169,
+        "nonnegative": 11
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": -2.956682644982786,
+        "sd": 1.3376075384882338,
+        "q10": -4.499821394655364,
+        "median": -3.0768086469115126,
+        "q90": -1.1787347271594546,
+        "below_zero": 174,
+        "nonnegative": 6
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 11,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 22.140989757540737,
+          "sd": 2.8392100153648157,
+          "q10": 18.10732193111032,
+          "median": 22.16943224681694,
+          "q90": 25.561591971669813,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.6223785314404304,
+          "sd": 0.12631289809549948,
+          "q10": 0.4155957071850082,
+          "median": 0.634221708917522,
+          "q90": 0.7847362574117164,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.23472009466754065,
+          "sd": 0.05169336480955425,
+          "q10": 0.17030234336853028,
+          "median": 0.2267351672053337,
+          "q90": 0.3093218505382538,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-0.4",
+      "arm": "vine-r",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 128,
+      "source_successes_conservative": 45,
+      "source_successes_optimistic": 45,
+      "sources_with_mixed_observed_binary_rewards": 17,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 180,
+        "mean": 4.133333333333334,
+        "sd": 7.801589868050854,
+        "q10": -6.0,
+        "median": 4.5,
+        "q90": 14.0,
+        "below_zero": 52,
+        "nonnegative": 128
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 22.081132056224842,
+          "sd": 2.7861452646863154,
+          "q10": 18.06402276464352,
+          "median": 22.13032028551147,
+          "q90": 25.329491907447053,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.6361793980741492,
+          "sd": 0.13082857389999245,
+          "q10": 0.421126379008616,
+          "median": 0.6458226522383481,
+          "q90": 0.7999523080791159,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.22675538212060928,
+          "sd": 0.05276084366629062,
+          "q10": 0.1618869885802269,
+          "median": 0.2232302948832512,
+          "q90": 0.29854770600795744,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-0.4",
+      "arm": "wam",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 0,
+      "source_successes_conservative": 0,
+      "source_successes_optimistic": 0,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 14,
+        "mean": -11.0,
+        "sd": 3.902661813527945,
+        "q10": -15.4,
+        "median": -11.0,
+        "q90": -5.599999999999998,
+        "below_zero": 14,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 22.141829020727414,
+          "sd": 2.833892262050086,
+          "q10": 18.05192865609193,
+          "median": 22.243167708161874,
+          "q90": 25.540499298204114,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.6283331780796294,
+          "sd": 0.12981552700042995,
+          "q10": 0.4150030338503814,
+          "median": 0.6393222984461095,
+          "q90": 0.7786207508990106,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.2286761468069421,
+          "sd": 0.05620967208262481,
+          "q10": 0.1623129054903984,
+          "median": 0.22698132693767548,
+          "q90": 0.30071527063846587,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-mode-0.2",
+      "arm": "f5-r2",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 0,
+      "source_successes_conservative": 0,
+      "source_successes_optimistic": 0,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": 0,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": -3.9179304616411006,
+        "sd": 0.8217744941292614,
+        "q10": -5.094362171517347,
+        "median": -3.876522040233105,
+        "q90": -2.926965629666037,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": -3.2108386388626395,
+        "sd": 1.1186710338349874,
+        "q10": -4.7336125434593725,
+        "median": -3.214825238570169,
+        "q90": -1.6159592418456696,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": -3.2108386388626395,
+        "sd": 1.1186710338349874,
+        "q10": -4.7336125434593725,
+        "median": -3.214825238570169,
+        "q90": -1.6159592418456696,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": -0.5637547664209274,
+        "sd": 1.8106335176690784,
+        "q10": -2.5389393279224155,
+        "median": -0.8742938389962673,
+        "q90": 2.1084167214899443,
+        "below_zero": 119,
+        "nonnegative": 61
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 24.72372037395156,
+          "sd": 3.0492284412990163,
+          "q10": 20.286358744283426,
+          "median": 24.89794407482482,
+          "q90": 28.2188664946859,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7119064721993869,
+          "sd": 0.09951590687375786,
+          "q10": 0.5541132010341898,
+          "median": 0.71979778664996,
+          "q90": 0.8262466513315361,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.15853871997031901,
+          "sd": 0.041894507974040936,
+          "q10": 0.10890355259180069,
+          "median": 0.15442754328250885,
+          "q90": 0.2162611037492752,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-mode-0.2",
+      "arm": "v5-r3",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 24,
+      "source_successes_conservative": 6,
+      "source_successes_optimistic": 6,
+      "sources_with_mixed_observed_binary_rewards": 12,
+      "source_J_conservative": 0,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": -1.1934956476156,
+        "sd": 1.2021740239461105,
+        "q10": -2.7010310973078897,
+        "median": -1.2167644864546459,
+        "q90": 0.30638475091101747,
+        "below_zero": 153,
+        "nonnegative": 27
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": 0.4353933219521804,
+        "sd": 1.1518602398271593,
+        "q10": -1.2302517610856942,
+        "median": 0.46108362753331056,
+        "q90": 1.8529499832757717,
+        "below_zero": 56,
+        "nonnegative": 124
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": 0.7252989931924905,
+        "sd": 1.4386904321035037,
+        "q10": -1.2302517610856942,
+        "median": 0.7143803787856524,
+        "q90": 2.5070332919005742,
+        "below_zero": 56,
+        "nonnegative": 124
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": -0.7246436829276954,
+        "sd": 2.1429446679442865,
+        "q10": -3.3159551416343525,
+        "median": -0.9695445421653806,
+        "q90": 2.550038577657111,
+        "below_zero": 117,
+        "nonnegative": 63
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 100,
+      "decoded_positive_but_C_false": 3,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 24.629361822172367,
+          "sd": 3.0334906229596457,
+          "q10": 20.248610722274453,
+          "median": 24.79734095404747,
+          "q90": 28.17225240015746,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7134031736588579,
+          "sd": 0.0992594987788326,
+          "q10": 0.5580995054994905,
+          "median": 0.7204513389386789,
+          "q90": 0.8272283301630872,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.15550632344351875,
+          "sd": 0.04380072096045404,
+          "q10": 0.10484943240880967,
+          "median": 0.15149812400341034,
+          "q90": 0.21174454391002653,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-mode-0.2",
+      "arm": "vine-r",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 179,
+      "source_successes_conservative": 60,
+      "source_successes_optimistic": 60,
+      "sources_with_mixed_observed_binary_rewards": 1,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 180,
+        "mean": 20.133333333333333,
+        "sd": 7.291534848502568,
+        "q10": 9.0,
+        "median": 21.0,
+        "q90": 28.0,
+        "below_zero": 1,
+        "nonnegative": 179
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 24.656497963212146,
+          "sd": 3.0286159940220148,
+          "q10": 20.256433359957295,
+          "median": 24.836059914859757,
+          "q90": 28.125314495791734,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7280556866560286,
+          "sd": 0.10353975283183499,
+          "q10": 0.5630475478788596,
+          "median": 0.7338168228707778,
+          "q90": 0.8461596307047862,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.14687709394428466,
+          "sd": 0.04272808785877692,
+          "q10": 0.09815697148442269,
+          "median": 0.13805904984474182,
+          "q90": 0.2073743462562561,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-mode-0.2",
+      "arm": "wam",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 6,
+      "source_successes_conservative": 2,
+      "source_successes_optimistic": 2,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 42,
+        "mean": -6.857142857142857,
+        "sd": 5.44404543166393,
+        "q10": -12.0,
+        "median": -8.0,
+        "q90": 0.8999999999999986,
+        "below_zero": 36,
+        "nonnegative": 6
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 24.59573111103327,
+          "sd": 3.0133872812870557,
+          "q10": 20.161418587155858,
+          "median": 24.798247140150117,
+          "q90": 28.108408378893127,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7155973473177594,
+          "sd": 0.10255521781358962,
+          "q10": 0.5534100057155665,
+          "median": 0.7230780035954659,
+          "q90": 0.8340454718678655,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.15233008882237806,
+          "sd": 0.043656465696879955,
+          "q10": 0.10484847947955132,
+          "median": 0.14166777580976486,
+          "q90": 0.2111918494105339,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-rinse-0.1",
+      "arm": "f5-r2",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 0,
+      "source_successes_conservative": 0,
+      "source_successes_optimistic": 0,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": 0,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": -4.155033380970138,
+        "sd": 0.8475875039329189,
+        "q10": -5.272864174447367,
+        "median": -4.1768452432451575,
+        "q90": -3.2133399373063414,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": -3.7486074527413,
+        "sd": 1.2206482654989355,
+        "q10": -5.111706823655238,
+        "median": -3.836110415436175,
+        "q90": -2.106363438335952,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": -3.7486074527413,
+        "sd": 1.2206482654989355,
+        "q10": -5.111706823655238,
+        "median": -3.836110415436175,
+        "q90": -2.106363438335952,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": -0.08598278369925635,
+        "sd": 2.166245809104071,
+        "q10": -2.6031994560098,
+        "median": -0.4156555524164851,
+        "q90": 3.2095042754361165,
+        "below_zero": 104,
+        "nonnegative": 76
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 25.69976125404071,
+          "sd": 2.955945394864466,
+          "q10": 21.48600018862946,
+          "median": 25.927555889418148,
+          "q90": 29.11067791029292,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7366332121603628,
+          "sd": 0.09357744799050108,
+          "q10": 0.6050930963157577,
+          "median": 0.7446438071311514,
+          "q90": 0.8425066935238548,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.15716298636462953,
+          "sd": 0.04845132958119535,
+          "q10": 0.1034649319946766,
+          "median": 0.14481154084205627,
+          "q90": 0.22470535933971406,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-rinse-0.1",
+      "arm": "v5-r3",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 15,
+      "source_successes_conservative": 4,
+      "source_successes_optimistic": 4,
+      "sources_with_mixed_observed_binary_rewards": 5,
+      "source_J_conservative": 0,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": -1.8234903324683265,
+        "sd": 1.300734236047239,
+        "q10": -3.3549421327921167,
+        "median": -1.8689725607492003,
+        "q90": -0.04945869516995841,
+        "below_zero": 163,
+        "nonnegative": 17
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": -0.4000102216822299,
+        "sd": 1.3651956117651054,
+        "q10": -2.1234601678659715,
+        "median": -0.28214735170765604,
+        "q90": 1.3033895675421203,
+        "below_zero": 104,
+        "nonnegative": 76
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": -0.18752855616703665,
+        "sd": 1.6953292554521435,
+        "q10": -2.1234601678659715,
+        "median": -0.28214735170765604,
+        "q90": 2.112027298373138,
+        "below_zero": 104,
+        "nonnegative": 76
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": -0.2332085539094186,
+        "sd": 2.6081240201594587,
+        "q10": -3.3153704405945277,
+        "median": -0.5691859831762649,
+        "q90": 3.4666447970744954,
+        "below_zero": 102,
+        "nonnegative": 78
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 61,
+      "decoded_positive_but_C_false": 2,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 25.582593185442203,
+          "sd": 2.933022327356703,
+          "q10": 21.429915984224763,
+          "median": 25.73632143769099,
+          "q90": 29.058833683054697,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7371640868158736,
+          "sd": 0.09334147087576747,
+          "q10": 0.6089996966297256,
+          "median": 0.7453237254735816,
+          "q90": 0.8427521807225614,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.15398590448829863,
+          "sd": 0.04986428038077023,
+          "q10": 0.0992352582514286,
+          "median": 0.14110428094863892,
+          "q90": 0.2189276337623596,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-rinse-0.1",
+      "arm": "vine-r",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 176,
+      "source_successes_conservative": 59,
+      "source_successes_optimistic": 59,
+      "sources_with_mixed_observed_binary_rewards": 1,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 180,
+        "mean": 21.477777777777778,
+        "sd": 8.074690132287698,
+        "q10": 10.0,
+        "median": 24.0,
+        "q90": 30.0,
+        "below_zero": 4,
+        "nonnegative": 176
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 25.658086928033637,
+          "sd": 2.9555959606391426,
+          "q10": 21.436592122801958,
+          "median": 25.90663888763408,
+          "q90": 29.101465845461036,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7509266109365929,
+          "sd": 0.09673575296755714,
+          "q10": 0.6139317355588871,
+          "median": 0.7555741560151259,
+          "q90": 0.8620775420052038,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.14448409531679418,
+          "sd": 0.04970500558836542,
+          "q10": 0.08892737478017806,
+          "median": 0.13406873494386673,
+          "q90": 0.21271412074565887,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-rinse-0.1",
+      "arm": "wam",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 58,
+      "source_successes_conservative": 21,
+      "source_successes_optimistic": 21,
+      "sources_with_mixed_observed_binary_rewards": 11,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 84,
+        "mean": 0.011904761904761904,
+        "sd": 4.997575430505427,
+        "q10": -8.7,
+        "median": 1.5,
+        "q90": 5.0,
+        "below_zero": 26,
+        "nonnegative": 58
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 25.54544608117113,
+          "sd": 2.9161024256408417,
+          "q10": 21.368889489832412,
+          "median": 25.761811808010613,
+          "q90": 29.004553471409086,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7384263716491178,
+          "sd": 0.09556322314866435,
+          "q10": 0.6039085050106207,
+          "median": 0.7465480758415712,
+          "q90": 0.8485600011252002,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.15026035275724198,
+          "sd": 0.05029241398904229,
+          "q10": 0.09579689726233483,
+          "median": 0.1381187066435814,
+          "q90": 0.2189055413007736,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-smooth-0.2",
+      "arm": "f5-r2",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 0,
+      "source_successes_conservative": 0,
+      "source_successes_optimistic": 0,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": 0,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": -4.168069595908209,
+        "sd": 0.838513587138692,
+        "q10": -5.314288427538963,
+        "median": -4.130467065882966,
+        "q90": -3.155450093525779,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": -3.6509324927832867,
+        "sd": 1.123380368352964,
+        "q10": -5.117342044006562,
+        "median": -3.6681289065837936,
+        "q90": -1.9948428790969455,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": -3.6509324927832867,
+        "sd": 1.123380368352964,
+        "q10": -5.117342044006562,
+        "median": -3.6681289065837936,
+        "q90": -1.9948428790969455,
+        "below_zero": 180,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": -1.7782843751649846,
+        "sd": 1.372578482070701,
+        "q10": -3.4601175794473096,
+        "median": -1.8500614855508997,
+        "q90": 0.08650237663874107,
+        "below_zero": 159,
+        "nonnegative": 21
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 24.71818068054928,
+          "sd": 3.0270263417002004,
+          "q10": 20.330715772612077,
+          "median": 24.894558148694458,
+          "q90": 28.17064606462741,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7129542830211878,
+          "sd": 0.10166665758323715,
+          "q10": 0.5509184703027734,
+          "median": 0.7173247990995255,
+          "q90": 0.8307665162839613,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.17478568185534743,
+          "sd": 0.04183559338847936,
+          "q10": 0.12382026389241219,
+          "median": 0.17109213769435883,
+          "q90": 0.22246134728193281,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-smooth-0.2",
+      "arm": "v5-r3",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 19,
+      "source_successes_conservative": 4,
+      "source_successes_optimistic": 4,
+      "sources_with_mixed_observed_binary_rewards": 11,
+      "source_J_conservative": 0,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": -1.4003574290267564,
+        "sd": 1.2047803936847008,
+        "q10": -2.9389917281672644,
+        "median": -1.378430885601834,
+        "q90": 0.1232195922441869,
+        "below_zero": 158,
+        "nonnegative": 22
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": 0.22759606485382539,
+        "sd": 1.235076024484543,
+        "q10": -1.5382858433880156,
+        "median": 0.14407972213921116,
+        "q90": 1.815278233730512,
+        "below_zero": 75,
+        "nonnegative": 105
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": 0.45897744784361033,
+        "sd": 1.4829019131031251,
+        "q10": -1.5382858433880156,
+        "median": 0.25246526123087776,
+        "q90": 2.3396925986945387,
+        "below_zero": 75,
+        "nonnegative": 105
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": -1.969196366389054,
+        "sd": 1.5661838300829003,
+        "q10": -3.836996641226439,
+        "median": -2.2054376316743913,
+        "q90": 0.28469122817522186,
+        "below_zero": 157,
+        "nonnegative": 23
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 86,
+      "decoded_positive_but_C_false": 3,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 24.61583394845811,
+          "sd": 3.0073326325642746,
+          "q10": 20.294715842204695,
+          "median": 24.78165873197273,
+          "q90": 28.166233367025956,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7130813297127331,
+          "sd": 0.10101971710955684,
+          "q10": 0.5546075968920094,
+          "median": 0.7173258538313166,
+          "q90": 0.8303580532411685,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.17048288898335562,
+          "sd": 0.0422403107120422,
+          "q10": 0.12145635858178139,
+          "median": 0.16538449376821518,
+          "q90": 0.22127824127674103,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-smooth-0.2",
+      "arm": "vine-r",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 180,
+      "source_successes_conservative": 60,
+      "source_successes_optimistic": 60,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 180,
+        "mean": 19.9,
+        "sd": 6.912138137456811,
+        "q10": 9.900000000000002,
+        "median": 21.0,
+        "q90": 28.0,
+        "below_zero": 0,
+        "nonnegative": 180
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 24.625191168230835,
+          "sd": 2.997003394827085,
+          "q10": 20.291314764237363,
+          "median": 24.79957878313008,
+          "q90": 27.98483057020197,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.729404812178192,
+          "sd": 0.10632618882615344,
+          "q10": 0.5583817048305257,
+          "median": 0.7313145586530039,
+          "q90": 0.8528049523832164,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.15675829802122382,
+          "sd": 0.043021989214711176,
+          "q10": 0.10279668644070626,
+          "median": 0.15045525878667831,
+          "q90": 0.2138250306248665,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R1-smooth-0.2",
+      "arm": "wam",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 0,
+      "source_successes_conservative": 0,
+      "source_successes_optimistic": 0,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 25,
+        "mean": -9.72,
+        "sd": 3.994996871087636,
+        "q10": -15.0,
+        "median": -10.0,
+        "q90": -4.0,
+        "below_zero": 25,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 24.578903932431313,
+          "sd": 2.989665043146543,
+          "q10": 20.213318041387158,
+          "median": 24.761973567147116,
+          "q90": 28.03724377070764,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7178767923403708,
+          "sd": 0.10553519868012658,
+          "q10": 0.5504173448331131,
+          "median": 0.7261311393919632,
+          "q90": 0.8401923241945187,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.1627546139475372,
+          "sd": 0.04321491481441123,
+          "q10": 0.11208741441369056,
+          "median": 0.1547495722770691,
+          "q90": 0.2232448011636734,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R3-0.2",
+      "arm": "f5-r2",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 16,
+      "source_successes_conservative": 5,
+      "source_successes_optimistic": 5,
+      "sources_with_mixed_observed_binary_rewards": 7,
+      "source_J_conservative": 0,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": -2.049512628421432,
+        "sd": 1.6799310258894904,
+        "q10": -4.039105170253062,
+        "median": -2.212070263325401,
+        "q90": 0.29993992619800963,
+        "below_zero": 158,
+        "nonnegative": 22
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": -0.7909176930079032,
+        "sd": 1.7645896511917534,
+        "q10": -2.973258437943729,
+        "median": -0.9562855313705163,
+        "q90": 1.6678318708522233,
+        "below_zero": 112,
+        "nonnegative": 68
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": -0.5320078781834755,
+        "sd": 2.1521198697405945,
+        "q10": -2.973258437943729,
+        "median": -0.9562855313705163,
+        "q90": 2.5071206112993067,
+        "below_zero": 112,
+        "nonnegative": 68
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": -2.4855107883208216,
+        "sd": 1.4033703011103948,
+        "q10": -4.360134479191148,
+        "median": -2.4834411630156312,
+        "q90": -0.5317347683020558,
+        "below_zero": 173,
+        "nonnegative": 7
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 52,
+      "decoded_positive_but_C_false": 6,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 25.718027916602068,
+          "sd": 2.815195596448396,
+          "q10": 21.715560800810046,
+          "median": 25.9198018069873,
+          "q90": 28.83814238756471,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7691098921135743,
+          "sd": 0.08770379672726789,
+          "q10": 0.639296597443601,
+          "median": 0.771789433241205,
+          "q90": 0.8678845942482367,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.11860104993813568,
+          "sd": 0.030329387906255386,
+          "q10": 0.08311788365244865,
+          "median": 0.11452598869800568,
+          "q90": 0.16145062297582627,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R3-0.2",
+      "arm": "v5-r3",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 167,
+      "source_successes_conservative": 57,
+      "source_successes_optimistic": 57,
+      "sources_with_mixed_observed_binary_rewards": 4,
+      "source_J_conservative": 31,
+      "semantic_decoded_margin": {
+        "n": 180,
+        "mean": 4.01936294198152,
+        "sd": 2.307740988864478,
+        "q10": 0.7998697886201035,
+        "median": 4.141061580853435,
+        "q90": 6.786464080853698,
+        "below_zero": 7,
+        "nonnegative": 173
+      },
+      "semantic_generic_margin": {
+        "n": 180,
+        "mean": 4.0889266197270935,
+        "sd": 2.1875492497784887,
+        "q10": 0.9712114399389454,
+        "median": 4.141061580853435,
+        "q90": 6.786464080853698,
+        "below_zero": 1,
+        "nonnegative": 179
+      },
+      "semantic_recomputed_margin": {
+        "n": 180,
+        "mean": 6.102326706588798,
+        "sd": 2.329985212833092,
+        "q10": 3.12026658340508,
+        "median": 6.21702661918825,
+        "q90": 9.036633604430165,
+        "below_zero": 1,
+        "nonnegative": 179
+      },
+      "instance_decoded_margin": {
+        "n": 180,
+        "mean": -2.495503166250346,
+        "sd": 1.5903738648567036,
+        "q10": -4.623726898806251,
+        "median": -2.6183444776691234,
+        "q90": -0.1471406147630893,
+        "below_zero": 168,
+        "nonnegative": 12
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 12,
+      "decoded_positive_but_C_false": 6,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 25.610243814347513,
+          "sd": 2.7827829421743213,
+          "q10": 21.6759894105094,
+          "median": 25.75056182668942,
+          "q90": 28.770997093004464,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7716086261671223,
+          "sd": 0.08728125701095919,
+          "q10": 0.6429477116912753,
+          "median": 0.777821121101408,
+          "q90": 0.8710255192655867,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.11897886974944008,
+          "sd": 0.029063686271039012,
+          "q10": 0.08426803946495057,
+          "median": 0.11699359863996506,
+          "q90": 0.15561428070068356,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R3-0.2",
+      "arm": "vine-r",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 180,
+      "source_successes_conservative": 60,
+      "source_successes_optimistic": 60,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 180,
+        "mean": 29.22222222222222,
+        "sd": 1.7514736191588953,
+        "q10": 26.0,
+        "median": 30.0,
+        "q90": 31.0,
+        "below_zero": 0,
+        "nonnegative": 180
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 25.652619151360213,
+          "sd": 2.7799780860790015,
+          "q10": 21.680466120297147,
+          "median": 25.847848414794313,
+          "q90": 28.803061411305894,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.784175549547873,
+          "sd": 0.09158030698220224,
+          "q10": 0.6474091069383808,
+          "median": 0.7893085886305242,
+          "q90": 0.8870079458090075,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.11079137379096614,
+          "sd": 0.031163125940394807,
+          "q10": 0.07579396665096283,
+          "median": 0.10908599570393562,
+          "q90": 0.1528008252382278,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "R3-0.2",
+      "arm": "wam",
+      "attempts": 180,
+      "observed": 180,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 138,
+      "source_successes_conservative": 44,
+      "source_successes_optimistic": 44,
+      "sources_with_mixed_observed_binary_rewards": 10,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 166,
+        "mean": 2.355421686746988,
+        "sd": 3.3539033076193725,
+        "q10": -2.0,
+        "median": 3.5,
+        "q90": 5.0,
+        "below_zero": 28,
+        "nonnegative": 138
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 180,
+          "mean": 25.55684423151446,
+          "sd": 2.7648635224690703,
+          "q10": 21.59387792998541,
+          "median": 25.78175572466617,
+          "q90": 28.667698723398143,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "ssim_rgb": {
+          "n": 180,
+          "mean": 0.7710209094739002,
+          "sd": 0.09207535554087304,
+          "q10": 0.6348649099866213,
+          "median": 0.7791047773183724,
+          "q90": 0.87970940852156,
+          "below_zero": 0,
+          "nonnegative": 180
+        },
+        "lpips": {
+          "n": 180,
+          "mean": 0.1211543229719003,
+          "sd": 0.033876164412177286,
+          "q10": 0.08304911628365516,
+          "median": 0.11499455198645592,
+          "q90": 0.1683832362294197,
+          "below_zero": 0,
+          "nonnegative": 180
+        }
+      },
+      "strict_clean_passes": null
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "clean",
+      "arm": "f5-r2",
+      "attempts": 60,
+      "observed": 60,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 60,
+      "source_successes_conservative": 60,
+      "source_successes_optimistic": 60,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 60,
+        "mean": 6.708327824811661,
+        "sd": 1.7358473848514313,
+        "q10": 4.149903610027823,
+        "median": 7.033201486993117,
+        "q90": 8.60211474466986,
+        "below_zero": 0,
+        "nonnegative": 60
+      },
+      "semantic_generic_margin": {
+        "n": 60,
+        "mean": 6.708327824811661,
+        "sd": 1.7358473848514313,
+        "q10": 4.149903610027823,
+        "median": 7.033201486993117,
+        "q90": 8.60211474466986,
+        "below_zero": 0,
+        "nonnegative": 60
+      },
+      "semantic_recomputed_margin": {
+        "n": 60,
+        "mean": 9.515541208845342,
+        "sd": 1.6599264245958452,
+        "q10": 6.9536806597512255,
+        "median": 10.007400339108873,
+        "q90": 11.213586881177903,
+        "below_zero": 0,
+        "nonnegative": 60
+      },
+      "instance_decoded_margin": {
+        "n": 60,
+        "mean": 9.180429815659352,
+        "sd": 0.46306650333793664,
+        "q10": 8.400763402372409,
+        "median": 9.373843141751285,
+        "q90": 9.582647507528524,
+        "below_zero": 0,
+        "nonnegative": 60
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 60,
+          "mean": 44.47504860417771,
+          "sd": 0.9032761491572993,
+          "q10": 43.02226032132978,
+          "median": 44.96196788526534,
+          "q90": 45.27930015297472,
+          "below_zero": 0,
+          "nonnegative": 60
+        },
+        "ssim_rgb": {
+          "n": 60,
+          "mean": 0.9828232927531061,
+          "sd": 0.0049659019581984425,
+          "q10": 0.9772648610357451,
+          "median": 0.9828010523927595,
+          "q90": 0.9902315342565295,
+          "below_zero": 0,
+          "nonnegative": 60
+        },
+        "lpips": {
+          "n": 60,
+          "mean": 0.026699959160760046,
+          "sd": 0.021610231287806893,
+          "q10": 0.005867275316268206,
+          "median": 0.019765835255384445,
+          "q90": 0.06226276084780693,
+          "below_zero": 0,
+          "nonnegative": 60
+        }
+      },
+      "strict_clean_passes": 60
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "clean",
+      "arm": "v5-r3",
+      "attempts": 60,
+      "observed": 60,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 60,
+      "source_successes_conservative": 60,
+      "source_successes_optimistic": 60,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 60,
+        "mean": 8.085867487215426,
+        "sd": 0.8496906146009925,
+        "q10": 6.8966476306797455,
+        "median": 8.356450753544848,
+        "q90": 8.968960987260362,
+        "below_zero": 0,
+        "nonnegative": 60
+      },
+      "semantic_generic_margin": {
+        "n": 60,
+        "mean": 8.085867487215426,
+        "sd": 0.8496906146009925,
+        "q10": 6.8966476306797455,
+        "median": 8.356450753544848,
+        "q90": 8.968960987260362,
+        "below_zero": 0,
+        "nonnegative": 60
+      },
+      "semantic_recomputed_margin": {
+        "n": 60,
+        "mean": 10.694741178130851,
+        "sd": 0.9932239475212771,
+        "q10": 9.264623416903865,
+        "median": 10.7947671128207,
+        "q90": 12.012288779332456,
+        "below_zero": 0,
+        "nonnegative": 60
+      },
+      "instance_decoded_margin": {
+        "n": 60,
+        "mean": 8.466629942837235,
+        "sd": 1.2562351601102142,
+        "q10": 6.840216291145855,
+        "median": 8.790401822102826,
+        "q90": 9.565118491594772,
+        "below_zero": 0,
+        "nonnegative": 60
+      },
+      "presence_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 60,
+          "mean": 37.30853794588629,
+          "sd": 2.1751377108638232,
+          "q10": 35.221633935002814,
+          "median": 36.85057946828168,
+          "q90": 40.199903553350275,
+          "below_zero": 0,
+          "nonnegative": 60
+        },
+        "ssim_rgb": {
+          "n": 60,
+          "mean": 0.9777511950669565,
+          "sd": 0.004809476454092647,
+          "q10": 0.9724014492633504,
+          "median": 0.9779272370918302,
+          "q90": 0.9838769802682374,
+          "below_zero": 0,
+          "nonnegative": 60
+        },
+        "lpips": {
+          "n": 60,
+          "mean": 0.024781590700149535,
+          "sd": 0.013901818925805817,
+          "q10": 0.011947386153042317,
+          "median": 0.01933048665523529,
+          "q90": 0.04319976978003979,
+          "below_zero": 0,
+          "nonnegative": 60
+        }
+      },
+      "strict_clean_passes": 60
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "clean",
+      "arm": "vine-r",
+      "attempts": 60,
+      "observed": 60,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 60,
+      "source_successes_conservative": 60,
+      "source_successes_optimistic": 60,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 60,
+        "mean": 30.933333333333334,
+        "sd": 0.2515488742932317,
+        "q10": 31.0,
+        "median": 31.0,
+        "q90": 31.0,
+        "below_zero": 0,
+        "nonnegative": 60
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 60,
+          "mean": 35.75390818492054,
+          "sd": 3.1466592970419693,
+          "q10": 32.49135957862636,
+          "median": 35.14463607020128,
+          "q90": 40.48726148749275,
+          "below_zero": 0,
+          "nonnegative": 60
+        },
+        "ssim_rgb": {
+          "n": 60,
+          "mean": 0.9942084734660833,
+          "sd": 0.006655759818770658,
+          "q10": 0.9886614863475834,
+          "median": 0.9960771576100228,
+          "q90": 0.9980123665109653,
+          "below_zero": 0,
+          "nonnegative": 60
+        },
+        "lpips": {
+          "n": 60,
+          "mean": 0.009479908813955263,
+          "sd": 0.008903156630648851,
+          "q10": 0.0025543269934132696,
+          "median": 0.006398891564458609,
+          "q90": 0.02091680858284235,
+          "below_zero": 0,
+          "nonnegative": 60
+        }
+      },
+      "strict_clean_passes": 31
+    },
+    {
+      "cohort": "stage2_union",
+      "cell": "clean",
+      "arm": "wam",
+      "attempts": 60,
+      "observed": 60,
+      "missing": 0,
+      "sources": 60,
+      "seed_successes": 60,
+      "source_successes_conservative": 60,
+      "source_successes_optimistic": 60,
+      "sources_with_mixed_observed_binary_rewards": 0,
+      "source_J_conservative": null,
+      "semantic_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_generic_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "semantic_recomputed_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "instance_decoded_margin": {
+        "n": 0,
+        "mean": null,
+        "sd": null,
+        "q10": null,
+        "median": null,
+        "q90": null,
+        "below_zero": 0,
+        "nonnegative": 0
+      },
+      "presence_margin": {
+        "n": 60,
+        "mean": 5.0,
+        "sd": 0.0,
+        "q10": 5.0,
+        "median": 5.0,
+        "q90": 5.0,
+        "below_zero": 0,
+        "nonnegative": 60
+      },
+      "generic_positive_but_C_false": 0,
+      "decoded_positive_but_C_false": 0,
+      "qualities": {
+        "psnr_db": {
+          "n": 60,
+          "mean": 38.43772313855246,
+          "sd": 1.5600237409890814,
+          "q10": 36.27510636146709,
+          "median": 38.44182852104239,
+          "q90": 40.50855782746317,
+          "below_zero": 0,
+          "nonnegative": 60
+        },
+        "ssim_rgb": {
+          "n": 60,
+          "mean": 0.9787684359665182,
+          "sd": 0.017252459167497847,
+          "q10": 0.9649835632883922,
+          "median": 0.9849583540390338,
+          "q90": 0.990493806949964,
+          "below_zero": 0,
+          "nonnegative": 60
+        },
+        "lpips": {
+          "n": 60,
+          "mean": 0.03643037270133694,
+          "sd": 0.018725546029599742,
+          "q10": 0.01870038527995348,
+          "median": 0.033735817298293114,
+          "q90": 0.05467066317796709,
+          "below_zero": 0,
+          "nonnegative": 60
+        }
+      },
+      "strict_clean_passes": 58
+    }
+  ],
+  "attacker_spread": [
+    {
+      "cohort": "stage2_union",
+      "arm": "f5-r2",
+      "n_sources": 60,
+      "fixed_source_survival_by_cell": {
+        "R0-0.1": 60,
+        "R0-0.2": 57,
+        "R0-0.4": 39,
+        "R1-0.1": 0,
+        "R1-0.2": 0,
+        "R1-0.4": 0,
+        "R1-mode-0.2": 0,
+        "R1-rinse-0.1": 0,
+        "R1-smooth-0.2": 0,
+        "R3-0.2": 5
+      },
+      "best_fixed_attack_survivors": 0,
+      "oracle_attack_survivors_lo": 0,
+      "oracle_attack_survivors_hi": 0,
+      "complete_all_cell_sources": 58,
+      "complete_oracle_survivors": 0,
+      "complete_fixed_survivors": 0,
+      "interpretation": "unconstrained-fidelity hindsight lower survival bound; no learnable policy demonstrated"
+    },
+    {
+      "cohort": "stage2_union",
+      "arm": "v5-r3",
+      "n_sources": 60,
+      "fixed_source_survival_by_cell": {
+        "R0-0.1": 47,
+        "R0-0.2": 27,
+        "R0-0.4": 3,
+        "R1-0.1": 50,
+        "R1-0.2": 12,
+        "R1-0.4": 0,
+        "R1-mode-0.2": 6,
+        "R1-rinse-0.1": 4,
+        "R1-smooth-0.2": 4,
+        "R3-0.2": 57
+      },
+      "best_fixed_attack_survivors": 0,
+      "oracle_attack_survivors_lo": 0,
+      "oracle_attack_survivors_hi": 0,
+      "complete_all_cell_sources": 58,
+      "complete_oracle_survivors": 0,
+      "complete_fixed_survivors": 0,
+      "interpretation": "unconstrained-fidelity hindsight lower survival bound; no learnable policy demonstrated"
+    },
+    {
+      "cohort": "stage2_union",
+      "arm": "wam",
+      "n_sources": 60,
+      "fixed_source_survival_by_cell": {
+        "R0-0.1": 42,
+        "R0-0.2": 18,
+        "R0-0.4": 1,
+        "R1-0.1": 48,
+        "R1-0.2": 2,
+        "R1-0.4": 0,
+        "R1-mode-0.2": 2,
+        "R1-rinse-0.1": 21,
+        "R1-smooth-0.2": 0,
+        "R3-0.2": 44
+      },
+      "best_fixed_attack_survivors": 0,
+      "oracle_attack_survivors_lo": 0,
+      "oracle_attack_survivors_hi": 0,
+      "complete_all_cell_sources": 57,
+      "complete_oracle_survivors": 0,
+      "complete_fixed_survivors": 0,
+      "interpretation": "unconstrained-fidelity hindsight lower survival bound; no learnable policy demonstrated"
+    },
+    {
+      "cohort": "stage2_union",
+      "arm": "vine-r",
+      "n_sources": 60,
+      "fixed_source_survival_by_cell": {
+        "R0-0.1": 60,
+        "R0-0.2": 60,
+        "R0-0.4": 47,
+        "R1-0.1": 60,
+        "R1-0.2": 60,
+        "R1-0.4": 45,
+        "R1-mode-0.2": 60,
+        "R1-rinse-0.1": 59,
+        "R1-smooth-0.2": 60,
+        "R3-0.2": 60
+      },
+      "best_fixed_attack_survivors": 45,
+      "oracle_attack_survivors_lo": 40,
+      "oracle_attack_survivors_hi": 40,
+      "complete_all_cell_sources": 57,
+      "complete_oracle_survivors": 37,
+      "complete_fixed_survivors": 42,
+      "interpretation": "unconstrained-fidelity hindsight lower survival bound; no learnable policy demonstrated"
+    },
+    {
+      "cohort": "phase_a",
+      "arm": "f5-r2",
+      "n_sources": 60,
+      "fixed_source_survival_by_cell": {
+        "R0-0.1": 60,
+        "R0-0.2": 57,
+        "R0-0.4": 39,
+        "R1-0.1": 0,
+        "R1-0.2": 0,
+        "R1-0.4": 0
+      },
+      "best_fixed_attack_survivors": 0,
+      "oracle_attack_survivors_lo": 0,
+      "oracle_attack_survivors_hi": 0,
+      "complete_all_cell_sources": 58,
+      "complete_oracle_survivors": 0,
+      "complete_fixed_survivors": 0,
+      "interpretation": "unconstrained-fidelity hindsight lower survival bound; no learnable policy demonstrated"
+    },
+    {
+      "cohort": "phase_a",
+      "arm": "v5-r3",
+      "n_sources": 60,
+      "fixed_source_survival_by_cell": {
+        "R0-0.1": 47,
+        "R0-0.2": 27,
+        "R0-0.4": 3,
+        "R1-0.1": 50,
+        "R1-0.2": 11,
+        "R1-0.4": 0
+      },
+      "best_fixed_attack_survivors": 0,
+      "oracle_attack_survivors_lo": 0,
+      "oracle_attack_survivors_hi": 0,
+      "complete_all_cell_sources": 58,
+      "complete_oracle_survivors": 0,
+      "complete_fixed_survivors": 0,
+      "interpretation": "unconstrained-fidelity hindsight lower survival bound; no learnable policy demonstrated"
+    },
+    {
+      "cohort": "phase_a",
+      "arm": "wam",
+      "n_sources": 60,
+      "fixed_source_survival_by_cell": {
+        "R0-0.1": 42,
+        "R0-0.2": 18,
+        "R0-0.4": 1,
+        "R1-0.1": 49,
+        "R1-0.2": 2,
+        "R1-0.4": 0
+      },
+      "best_fixed_attack_survivors": 0,
+      "oracle_attack_survivors_lo": 0,
+      "oracle_attack_survivors_hi": 0,
+      "complete_all_cell_sources": 58,
+      "complete_oracle_survivors": 0,
+      "complete_fixed_survivors": 0,
+      "interpretation": "unconstrained-fidelity hindsight lower survival bound; no learnable policy demonstrated"
+    },
+    {
+      "cohort": "phase_a",
+      "arm": "vine-r",
+      "n_sources": 60,
+      "fixed_source_survival_by_cell": {
+        "R0-0.1": 60,
+        "R0-0.2": 60,
+        "R0-0.4": 47,
+        "R1-0.1": 60,
+        "R1-0.2": 60,
+        "R1-0.4": 45
+      },
+      "best_fixed_attack_survivors": 45,
+      "oracle_attack_survivors_lo": 40,
+      "oracle_attack_survivors_hi": 40,
+      "complete_all_cell_sources": 57,
+      "complete_oracle_survivors": 37,
+      "complete_fixed_survivors": 42,
+      "interpretation": "unconstrained-fidelity hindsight lower survival bound; no learnable policy demonstrated"
+    }
+  ],
+  "definitions": {
+    "success": "C for F5/v5; message presence P for WAM/VINE, not common binding",
+    "nonfloor": "positive binary reward among observed rows; also mixed observed seeds per source. These are descriptive, not policy-gradient estimates.",
+    "margins": "not pooled between arms; external margins have bit-count units",
+    "missing": "conservative non-success versus optimistic success; soft margins unavailable",
+    "attacker": "same fixed clean marks; oracle sees future outcomes and all cell evaluations; no fidelity constraint"
+  }
+}

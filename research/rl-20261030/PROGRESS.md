@@ -20,7 +20,7 @@ Started 2026-10-30 12:30 UTC (2026-10-30 04:30 at client UTC-08). No deadline or
 | 0 | Read all 17 starting files, create this log | COMPLETE: root read the four FS reports and the two specs; code reader read two scripts + Stage P; dossier reader read eight TD files. Overlapping readings are not counted twice. Context notes in context/. |
 | 1 | >=12 code-grounded decision points, all required fields | COMPLETE:22 points, eight necessary conditions, P1/P2/P3 separated;01-decision-map.md and reader/code notes. |
 | 2 | >=80 queries, >=5 indexes; C1..C12 full-text card floors 15/15/10/15/12/8/8/10/8/10/8/15, or explicit valid exhaustion | COMPLETE:133 inspected cards;335 exact-distinct queries;10 valid indirect scholarly host families. C1=12/15 invokes documented69-query/six-index retrieval exhaustion; all other floors met. 02-prior-art.md and literature/search-log.md. |
-| 3 | Six saved-results questions, limits from journals=off explicit | NOT STARTED |
+| 3 | Six saved-results questions, limits from journals=off explicit | COMPLETE:11,760 normalized development records;68 reward summaries;128 decompositions;96 oracle analyses;LOSO prediction;K8/64/1024 and conditional gradient costs;attacker spread. 03-logged-analysis.md and analysis/. |
 | 4 | Estimator variance, short-horizon regret, unseen families, fixed-reader limits | NOT STARTED |
 | 5 | >=40 raw ideas from >=3 fresh framings; rule committed before scores; >=20 sheets, >=7 policy points, all 3 classes, P1-P3, >=4 outside analogies; shortlist <=6 | NOT STARTED |
 | 6 | >=5 independent fresh xhigh forecasters, same neutral packet, historical reference class; A1-A4/B1-B3 quantiles and conditional F6 scenarios | NOT STARTED |
@@ -42,5 +42,9 @@ Started 2026-10-30 12:30 UTC (2026-10-30 04:30 at client UTC-08). No deadline or
 
 ## Push log
 
+- WP3 escalations: fresh gpt-6-astra/xhigh variance/cost analysis; fresh high oracle and predictability analysts, each one bounded package. Root integrated and checked semantic/missingness distinctions. All computation used MAIN stdlib Python with -I, under10 minutes per run; no science execution. Numeric gzip snapshot and provenance retained. Constant-label prediction wording corrected without changing estimates. F6 remains blind.
+- WP3 decision: source variance and predictable survival do not demonstrate action-dependent gains. Within-cell retained-arm C oracle adds only1/420; richer actions require a prospective equal-budget comparison. All six WP3 questions remain unanswerable at per-source/seed level for Phase B under journals=off.
+
 - WP0:2026-10-30, repository identity,861291c..2708d17 pushed to origin/codex/rl-research-20261030 successfully.
 - WP1:2026-10-30,2708d17..bceb6bf pushed successfully to the same branch.
+- WP2:2026-10-30,bceb6bf..15db5d3 pushed successfully to the same branch.

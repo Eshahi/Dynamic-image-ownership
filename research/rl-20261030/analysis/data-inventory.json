@@ -1,0 +1,93 @@
+{
+  "stage2_union": {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261025-0128-encoder-transfer-stage2b\\results\\stage2b-full\\rows.jsonl",
+    "sha256": "f3b95d3e727d421c29a2a2e42eb1ef5881f55b7d3eb848a237ab51095455fb82",
+    "bytes": 140219438,
+    "events": {
+      "generated": 28856,
+      "safety_blocked": 23,
+      "ok": 11017
+    },
+    "last_state_ids": 11040,
+    "last_statuses": {
+      "ok": 11017,
+      "safety_blocked": 23
+    }
+  },
+  "phase_a_native": {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261026-0855-et-final-phase-a\\results\\native.jsonl",
+    "sha256": "849a254328cc0bc16c1c14f67f3895b210793336215c81f66e8c1ecd4a3ddf24",
+    "bytes": 25509456,
+    "events": {
+      "ok": 6449,
+      "safety_blocked": 22,
+      "unavailable": 9
+    },
+    "last_state_ids": 6480,
+    "last_statuses": {
+      "ok": 6449,
+      "safety_blocked": 22,
+      "unavailable": 9
+    }
+  },
+  "phase_a_detect": {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261026-0855-et-final-phase-a\\results\\detect.jsonl",
+    "sha256": "08137a6b5b805a342266cd586d210ba8dc110ab8e6e49aac3dba97d96c0d1235",
+    "bytes": 35999038,
+    "events": {
+      "ok": 9080
+    },
+    "last_state_ids": 9080,
+    "last_statuses": {
+      "ok": 9080
+    }
+  },
+  "output": {
+    "records": 11760,
+    "cohorts": {
+      "phase_a": 4320,
+      "stage2_union": 7440
+    },
+    "normalized_sha256": "61cd39060c8ffc70c2f7d13fd1a3289b25c7ad1a3d4d473e8a0453f2bcfcab55",
+    "cells": [
+      "R0-0.1",
+      "R0-0.2",
+      "R0-0.4",
+      "R1-0.1",
+      "R1-0.2",
+      "R1-0.4",
+      "R1-mode-0.2",
+      "R1-rinse-0.1",
+      "R1-smooth-0.2",
+      "R3-0.2",
+      "clean"
+    ],
+    "seeds": {
+      "stage2_union": [
+        12,
+        13,
+        14
+      ],
+      "phase_a": [
+        12,
+        13,
+        14
+      ]
+    },
+    "sources_per_cohort": {
+      "stage2_union": 60,
+      "phase_a": 60
+    },
+    "missing_by_cohort": {
+      "phase_a": 16,
+      "stage2_union": 17
+    }
+  },
+  "limitations": [
+    "PHASE_B_JOURNALS=off; no Phase B journal accessed",
+    "No image, TIFS run, reserve identifier or Stage C identifier opened",
+    "Last-state development journals; earlier event statuses retained in inventory, no failed run deleted",
+    "WAM/VINE presence is not C/J; across-arm oracle has heterogeneous endpoints",
+    "Phase A and stage2 are separate cohorts of repeated development sources with different kernel/seed conditions"
+  ]
+}
