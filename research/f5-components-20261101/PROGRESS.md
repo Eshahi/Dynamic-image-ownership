@@ -60,3 +60,8 @@ PHASE_B_JOURNALS=off
 
 - WP0 setup: 2a42502 pushed successfully to origin/codex/f5-components-20261101 on 2026-11-01 using repository identity and no attribution trailer.
 - WP1 package: 06f7fa3f265a43154ac18ba3d8858bd5dd30a8c9 pushed successfully on 2026-11-01 to origin/codex/f5-components-20261101, range 2a42502..06f7fa3. This includes GATE-1-REQUEST.md, all three committed analyses and their outputs, twelve component dossiers, the synthesis and WP2 query plan. Repository identity Soroush was used, without attribution trailers. This receipt is the final documentation update; no WP2 work follows in this turn.
+
+## Gate 2 ruling resumed
+SOURCE: git pull --ff-only found branch current at 244a54b. Read authoritative STATE once and Gate-2-RULING plus verify_gate2_c. R1-R5 binding; PHASE_B_JOURNALS=off. Ordered work: floor corrections, precommitted fixed G2-A/B/C, document revisions, unexecuted server runners with plan/logic tests, three fresh WP6 reviews with blocker closure, WP7. No experiment outcome has been computed in this continuation yet.
+
+- R1 corrections complete: TrustMark main-only count, 48 unique/68 assignments, 32/56 Q1J and 36/36 TOP. Nine exhaustions accepted access-limited, not floors met; each journal assignment labels SJR/JCR. Fourteen identified unread/partially unread leads ranked with K03 first and zero floor credit. Seven B pure-logic checks passed; no B EVALUATE outcomes computed. Test code is not included in this floor checkpoint.

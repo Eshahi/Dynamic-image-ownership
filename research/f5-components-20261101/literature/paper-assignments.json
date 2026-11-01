@@ -511,6 +511,17 @@
       "cards": [
         "cards/K12.md"
       ]
+    },
+    {
+      "paper": "TrustMark",
+      "class": "TOP",
+      "components": [
+        "K03"
+      ],
+      "cards": [
+        "cards/K03.md"
+      ],
+      "scope": "Gate 2 R1: inspected final main only; supplement unread, no dependent claims"
     }
   ],
   "floors": [
