@@ -74,3 +74,29 @@ SOURCE/JUDGMENT: The Phase-A pilot/law/mechanism records and inactive attack gri
 ### Ranking and next literature work
 
 JUDGMENT — PROPOSED: See the [joint loss/cost ranking](../WP1-SYNTHESIS.md#ranking-by-conditional-loss-opportunity-and-cost-to-change) for this component's role and interactions. Changes to this component cannot be credited with a count improvement until the necessary intervention and safety checks exist. The [K12 WP2 query plan](../literature/WP2-QUERY-PLAN.md) lists 15 exact planned queries across five indexes; none has been executed or counted as literature evidence in WP1. Gate 1 precedes that work.
+
+## C. Literature since 2024
+
+SOURCE: [Six inspected K12 cards and 36-query audit](../literature/intake/K12.md): three Q1J and three TOP; 32 substantive searches with four successful scholarly domains. Two journal cards concern statistical protocol validity rather than watermark performance. Published identities and inspected author-version caveats are recorded separately.
+
+SOURCE: WAVES (ICML 2024, Table 3/Appendix F) shows attack and quality dependence but does not isolate independently trained encoders by checkpoint name. Erasing the Invisible (NeurIPS 2025, Table 1/Appendix A) reports superposition results without matched watermark strength/quality; its main and Appendix E score definitions conflict. MarkDiffusion (JMLR 2026, Table 3/Appendix D) standardizes implementations, not the missing family-by-resolution experiment. Black-Box Forgery (CVPR 2025, Tables 1–3/Appendix F) shows why public reference access, key/nonce policy and encoder lineage matter; high detection/attribution can coexist with content forgery. Safe testing and focal selection coverage require their stated null/selection assumptions.
+
+JUDGMENT: Make N2 a primary factorial question. Compare the same existing marks under crossed resolutions, preserving seeds, noise schedules, resizing and quality endpoints. Calibrate or bound the complete reader decision, keep the evaluation half untouched by selection, and treat repeated attack attempts as one declared attack budget. Existing reused development halves support exploration only. No literature result licenses a causal percentage for scale, a new ownership claim, or tuning from Phase-B reports. A fresh disjoint confirmation design belongs after the judge's decision and separate user authorization.
+
+## D. Improvement options
+JUDGMENT: [OPTIONS](../OPTIONS.md) applies. Evaluation changes yield delta C/J0..0; they alter what can be inferred, not image quality.
+
+### O1. Cross family and working resolution
+SOURCE: Gate-1 N2, WAVES attack-quality accounting and Black-Box Forgery's encoder-lineage warning. Q-RES uses existing F5/v5/VINE-R marks, SD1.5 at1024 and SDXL at512, with existing opposite-scale baselines. Targets the family/scale attribution gap. Physical improvement ceiling UNKNOWN; causal scale fraction unidentifiable in saved native cells.
+JUDGMENT: New regeneration/reader cost only, no writing or new detector side information. T4/T5 unchanged and unresolved; output quality must be compared, not assumed equal from nominal strength. Simpler alternative saved resize/control T3, which cannot separate family from scale.
+JUDGMENT: T3 precommitted response-order rule is the current screen. Q-RES has a future fixed scale-explanation kill in SERVER-QUEUE. No closed line reopened and no held-out sources are used.
+
+### O2. Separate descriptive fusion from calibrated acceptance
+SOURCE: Safe Testing, Jin/Ren selective inference and the Erasing metric-direction inconsistency. Preserve original C/J, publish all missing cells, source halves and joint test counts, and do not select a union/radius after EVALUATE. Targets endpoint/multiplicity bias.
+JUDGMENT: No writer/quality change; bookkeeping and per-route reader outputs cost storage. Source-level dependence and fixed public keys limit T4/T5/security inference. Same side information. Strongest simpler alternative a single fixed original endpoint.
+JUDGMENT: T1/T2 validate complete route and panel accounting; kill a proposed success claim if it drops failed/missing seeds, selects radius on EVALUATE, counts overlapping Phase A/Stage2 sources as independent, or substitutes a new endpoint for C/J. No closed line reopened.
+
+### O3. Stage-resolved equal-quality ablation
+SOURCE: Gate-1 R5 and K06/K07 literature. Q-STAGE compares full writer traces with robust-only at matched total final quality, then checks system endpoints. Targets causal budget attribution and optimizer damage, not merely predictive correlation.
+JUDGMENT: Additional writes, regeneration and two-owner reads; exact anchor costs in SERVER-QUEUE. No deployed side-information change. Removing h may worsen T4/T5; all-image quality and flat-region human checks mandatory. Simpler alternative T4 final-margin association.
+JUDGMENT: T4's precommitted rule can kill a simple predictive story but cannot approve this causal one. Q-STAGE kills robust-only promotion if no useful equal-quality T3 gain or any quality/safety regression. A stage diagnosis without safety panels is not a completed method comparison. No closed line reopened.

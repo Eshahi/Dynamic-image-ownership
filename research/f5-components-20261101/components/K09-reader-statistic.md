@@ -70,3 +70,29 @@ SOURCE/JUDGMENT: The Phase-A pilot/law/mechanism records and inactive attack gri
 ### Ranking and next literature work
 
 JUDGMENT — PROPOSED: See the [joint loss/cost ranking](../WP1-SYNTHESIS.md#ranking-by-conditional-loss-opportunity-and-cost-to-change) for this component's role and interactions. Changes to this component cannot be credited with a count improvement until the necessary intervention and safety checks exist. The [K09 WP2 query plan](../literature/WP2-QUERY-PLAN.md) lists 15 exact planned queries across five indexes; none has been executed or counted as literature evidence in WP1. Gate 1 precedes that work.
+
+## C. Literature since 2024
+
+SOURCE: [Inspected K09 cards, venue evidence and exact queries](../literature/intake/K09.md): five Q1 statistical papers and three TOP watermark papers, 33 conservatively substantive queries plus follow-ups, including ten ruling additions. The statistical cards supply null, dependence and selection tools; none is watermark efficacy evidence.
+
+SOURCE: Wang's admissible e-merging theorem (Biometrika 2025, Theorem 1) does not turn uncalibrated correlations into valid e-values. Safe testing (JRSSB 2024, Propositions 1–2) requires conditional null validity; two channels on one image are not independent sequential samples. Jin and Ren's focal coverage (JRSSB 2025) handles an explicitly specified selection mechanism under exchangeability, not public adaptive watermark forgery. Gaussian Shading, WAM and PRC (CVPR 2024/ICLR 2025) expose different secret-key, distribution and calibration assumptions. PRC's random-KeyGen theorem cannot be read as fixed-public-key security against an image chosen after seeing that key.
+
+DERIVED/JUDGMENT: Exact constrained decoding is computationally cheap because segment scores separate, but its radius-dependent multiplicity and content interpretation must be declared. Combining tier tests requires the budget of the complete rejection event. Frozen C uses decoded semantic reading; O adds two instance routes, so O's conditional union is three tests, not automatically one or four. O_U and the stronger q-enumerated envelope are distinct exploratory endpoints. Lower thresholds, heavy-tailed fusion, or e-values cannot manufacture an adaptive null from the same public keys and finite development negatives. Prioritize the exact-ball test and explicit union accounting before any learned fusion or threshold tuning.
+
+## D. Improvement options
+JUDGMENT: [OPTIONS](../OPTIONS.md) applies. Conditional stochastic null bounds do not become public-adaptive security.
+
+### O1. Exact Hamming-ball maximizer at r=3
+SOURCE/DERIVED: The segment-separable code in section A and the corrected Gate-1 R4 permit exact top-positive-gain decoding. Search size is sum(C(32,j),j=0..3), not two candidates. Targets found-but-unread and subthreshold constrained words; restricted current-found caps are+19 SD1.5 .4,+0 SDXL .2,+18 K3, but a changed test can exceed that envelope.
+JUDGMENT: Planning extra new-endpoint successes/60 over the two-candidate bound:0..+8 SD1.5 .4,0..+5 SDXL .2,0..+8 K3; frozen C/J unchanged. Small 32-element sort, same reader projections and q side information, no writer/quality change. Content tolerance can accept T4/T5 collisions, so a detection gain alone is inadequate. Simpler alternative corrected two-candidate bound.
+JUDGMENT: T2 fixes r3 and kills if no EVALUATE extra acceptance or any new negative; score replication and synthetic exactness are required. No radius selection after outcomes. No closed line reopened.
+
+### O2. Familywise-budgeted union
+SOURCE: Safe Testing and e-value merging cards clarify assumptions; Gaussian Shading and WAM empirical nulls show why nominal formulas and observed zeros differ. Use the T1 O_U budget with a conservative all-q O_Q sensitivity. Targets evidence discarded by C; current union opportunities and ceilings in K08 O1, not additive to O1 here.
+JUDGMENT: New endpoint gains/60 SDXL .1 0..+32,.2 0..+12,.4 0..+3,K3 0..+11, C/J unchanged; all-q enumeration can erase much of the apparent gain. Negligible fusion arithmetic, unchanged writer/quality, existing detector side information. T4/T5 and public-key adaptivity remain open. Simpler alternative report separate tests without an acceptance union.
+JUDGMENT: T1 and existing negative panels are decisive available checks. Kill on any new evaluated negative or lost SD1.5 .1/.2 C source, and never choose O_U versus O_Q by better outcomes. Judge must rule on q-selection assumptions. No closed line reopened.
+
+### O3. Calibrated evidence averaging with explicit nulls
+SOURCE: Wang Biometrika2025 shows valid e-values may be averaged under arbitrary dependence; it does not make a correlation score or 1/p an e-value. Construct per-tier valid evidence only with an explicit null/key-randomness model, then fixed weights; no empirical EVALUATE fitting.
+JUDGMENT: New endpoint gain0..+10/60 SDXL .2 and0..+10 K3 is only a planning range, unrestricted ceiling UNKNOWN. No quality/writer change; calibration data and reference null distributions are additional side information/cost. Fixed-public adaptive T4/T5 is not covered. Simpler alternative O2 Bonferroni union.
+JUDGMENT: Cheapest test is the null-assumption audit in T1: without independent valid per-tier e-values, the option is blocked before a performance test. Kill any purported bound based on 1/p or data-selected weights. A future fresh development calibration panel and separate safety test are required; no current sample is large enough to empirically certify1e-6. No closed line reopened.

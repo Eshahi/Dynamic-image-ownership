@@ -72,3 +72,25 @@ SOURCE/JUDGMENT: The Phase-A pilot/law/mechanism records and inactive attack gri
 ### Ranking and next literature work
 
 JUDGMENT — PROPOSED: See the [joint loss/cost ranking](../WP1-SYNTHESIS.md#ranking-by-conditional-loss-opportunity-and-cost-to-change) for this component's role and interactions. Changes to this component cannot be credited with a count improvement until the necessary intervention and safety checks exist. The [K10 WP2 query plan](../literature/WP2-QUERY-PLAN.md) lists 15 exact planned queries across five indexes; none has been executed or counted as literature evidence in WP1. Gate 1 precedes that work.
+
+## C. Literature since 2024
+SOURCE: [K10 intake](../literature/intake/K10.md):4 Q1J +3 TOP, one journal slot exhausted after30 substantive queries. EditGuard/OmniGuard local tamper recovery differs from whole-image T3. WAM localizes marks but its DiffPure ablation loses message bits. Padhi, Ozkaya and Li supply different authentication/recovery contracts, not adaptive ownership proofs. Vaidya is withheld because raster algorithms were not inspected. MetaSeal is an uncounted TMLR lead; its signature verifies recovered content and does not, by itself, bind the current image to that content.
+JUDGMENT: A valid cryptographic signature, a robust detector hit and current-image consistency are three different predicates. Existing public F5 evidence cannot be silently upgraded to instance ownership.
+
+## D. Improvement options
+JUDGMENT: Forecasts follow [OPTIONS](../OPTIONS.md).
+
+### O1. Explicit unresolved/conflicting evidence states
+SOURCE: K10 intake contrasts differing verification contracts. Preserve C/J and report semantic-consistent, instance-consistent, conflicting and unchecked states instead of collapsing missing semantic evidence into a stronger identity assertion. Targets interpretation/false attribution, not carrier loss; delta C/J0..0 in every cell.
+JUDGMENT: No writer, quality or material reader cost; side information unchanged. This can reduce claims/accepts, not prove T4/T5 safety. Simpler alternative retain the current table but show all flags. No flat-region test needed for a reporting-only change.
+JUDGMENT: T1 verifies that semantic-absent instance successes are identified; kill any proposed mapping that labels unchecked semantic evidence exact original identity or changes frozen C/J. No closed line reopened.
+
+### O2. Union with content semantics stated and budgeted
+SOURCE: Wang's valid-evidence conditions, WAM domain-shifted null rates and N1. Keep the existing q/h definitions and expose O_U/O_Q as new endpoints. Targets omitted second-tier evidence; conditional opportunity is K08 O1, all-safe ceiling UNKNOWN.
+JUDGMENT: New endpoint gains/60 SDXL .1 0..+32,.2 0..+12,.4 0..+3,K3 0..+11; frozen C/J0..0. No quality/writer cost; small fusion cost; no reference beyond existing CLIP/VAE/profile. T4/T5 is the central price, especially unchecked semantic cases. Simpler alternative O1 reporting.
+JUDGMENT: T1 and existing T4/T5 diagnostics apply with fixed kills. Judge must choose null interpretation before future deployment; empirical convenience is not grounds to select a budget. No closed descriptor line reopened.
+
+### O3. Contradiction veto using existing evidence
+SOURCE: EditGuard/OmniGuard recovery contracts motivate refusing an ownership statement when two available descriptors disagree. Use existing q/h consistency only, no new descriptor, and abstain when meaningful evidence conflicts. Targets false attribution, not lost transport.
+JUDGMENT: Delta new-endpoint successes -10..0/60 on foreign cells; C/J remain frozen. No write/quality cost, negligible reader logic, same side information. Veto can lose true positives and still miss T5 collisions; absent evidence is not a contradiction. Simpler alternative O1 labels without acceptance change.
+JUDGMENT: T1's route/content tables are the cheapest descriptive screen; a future fixed veto must beat the same T4/T5 panel without unacceptable T3 loss, otherwise kill. No fitted veto threshold is authorized now. Signed records/new instance descriptors would be REOPENS-CLOSED-LINE or new detector side information and are not part of this option.

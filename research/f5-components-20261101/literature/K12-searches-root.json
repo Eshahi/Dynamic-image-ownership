@@ -1,0 +1,190 @@
+[
+  {
+    "id": 1,
+    "q": "site.ieeexplore.ieee.org 2024 2025 image watermarking diffusion regeneration benchmark evaluation",
+    "surface": "IEEE Xplore via site-scoped web search",
+    "outcome": "Black-box forgery CVPR2025 metadata; inspect separate full text."
+  },
+  {
+    "id": 2,
+    "q": "site.dl.acm.org 2024 2025 watermark regeneration evaluation benchmark",
+    "surface": "ACM DL via site-scoped web search",
+    "outcome": "No clearly attributable ACM result; no successful index coverage claimed."
+  },
+  {
+    "id": 3,
+    "q": "site.openalex.org watermarking diffusion robustness benchmark",
+    "surface": "OpenAlex via site-scoped web search",
+    "outcome": "No identifiable OpenAlex record returned; no successful index coverage claimed."
+  },
+  {
+    "id": 4,
+    "q": "site.semanticscholar.org diffusion watermark robustness benchmark evaluation 2024 2025",
+    "surface": "Semantic Scholar via site-scoped web search",
+    "outcome": "No identifiable Semantic Scholar record returned; generic fallback leads excluded from index-coverage count."
+  },
+  {
+    "id": 5,
+    "q": "image watermark evaluation benchmark regeneration",
+    "domains": [
+      "openaccess.thecvf.com"
+    ],
+    "outcome": "Primary scholarly records returned; inspect K12 handoff."
+  },
+  {
+    "id": 6,
+    "q": "WAVES Benchmarking Robustness Image Watermarks",
+    "domains": [
+      "openreview.net"
+    ],
+    "outcome": "Primary scholarly records returned; inspect K12 handoff."
+  },
+  {
+    "id": 7,
+    "q": "image watermarking evaluation benchmark regeneration",
+    "domains": [
+      "arxiv.org"
+    ],
+    "outcome": "Primary scholarly records returned; inspect K12 handoff."
+  },
+  {
+    "id": 8,
+    "q": "watermark evaluation benchmark robustness",
+    "domains": [
+      "jmlr.org"
+    ],
+    "outcome": "Primary scholarly records returned; inspect K12 handoff."
+  },
+  {
+    "id": 9,
+    "q": "watermarking diffusion benchmark evaluation \"Transactions\" 2024 2025 2026",
+    "domains": [
+      "ieeexplore.ieee.org"
+    ],
+    "outcome": "No new attributable IEEE paper."
+  },
+  {
+    "id": 10,
+    "q": "image watermarking evaluation benchmark survey 2024 2025",
+    "domains": [
+      "sciencedirect.com"
+    ],
+    "outcome": "Hosny CSReview2024, Hu ESWA2024 and Melman JVCIR2024 previews; no complete text yet."
+  },
+  {
+    "id": 11,
+    "q": "image watermarking benchmark evaluation 2024 2025 journal",
+    "domains": [
+      "link.springer.com"
+    ],
+    "outcome": "Mostly medical/out-of-scope and old leads; not counted."
+  },
+  {
+    "id": 12,
+    "q": "watermark evaluation benchmark statistical 2024 2025",
+    "domains": [
+      "dl.acm.org"
+    ],
+    "outcome": "LLM survey and unrelated results; no counted card."
+  },
+  {
+    "id": 13,
+    "q": "\"Digital image watermarking using deep learning\" \"100662\" pdf",
+    "outcome": "Publisher previews and unrelated references; no accessible complete image-survey PDF. AOS statistical LLM watermark framework is adjacent lead only."
+  },
+  {
+    "id": 14,
+    "q": "\"Methods for countering attacks on image watermarking schemes\" pdf",
+    "outcome": "Publisher previews and unrelated references; no accessible complete image-survey PDF. AOS statistical LLM watermark framework is adjacent lead only."
+  },
+  {
+    "id": 15,
+    "q": "\"image watermarking\" \"evaluation\" \"2025\" \"Journal of Machine Learning\"",
+    "outcome": "Publisher previews and unrelated references; no accessible complete image-survey PDF. AOS statistical LLM watermark framework is adjacent lead only."
+  },
+  {
+    "id": 16,
+    "q": "\"Learning-based image steganography and watermarking\" Hu Wang pdf",
+    "outcome": "Publisher previews and unrelated references; no accessible complete image-survey PDF. AOS statistical LLM watermark framework is adjacent lead only."
+  },
+  {
+    "id": 17,
+    "q": "\"watermark\" \"benchmark\" \"resolution\" \"2024\" \"2025\" \"journal\"",
+    "outcome": "Mostly non-journal, old or out-of-scope; WARP PRE and resolution-aware leads retained."
+  },
+  {
+    "id": 18,
+    "q": "\"watermarking\" \"regeneration\" \"evaluation\" \"Transactions on Information Forensics\" 2025 2026",
+    "outcome": "Mostly non-journal, old or out-of-scope; WARP PRE and resolution-aware leads retained."
+  },
+  {
+    "id": 19,
+    "q": "\"watermark\" \"false positive\" \"benchmark\" \"Pattern Recognition\" 2024 2025",
+    "outcome": "Mostly non-journal, old or out-of-scope; WARP PRE and resolution-aware leads retained."
+  },
+  {
+    "id": 20,
+    "q": "\"watermark\" \"benchmark\" \"cross-model\" \"Transactions on Multimedia\"",
+    "outcome": "Mostly non-journal, old or out-of-scope; WARP PRE and resolution-aware leads retained."
+  },
+  {
+    "id": 21,
+    "q": "\"watermarking\" \"benchmark\" \"2024\" \"Information Sciences\"",
+    "outcome": "ForenMark KBS2026 preview and Sensors region-aware study found; no count."
+  },
+  {
+    "id": 22,
+    "q": "\"watermark\" \"evaluation protocol\" \"2025\" \"journal\"",
+    "outcome": "ForenMark KBS2026 preview and Sensors region-aware study found; no count."
+  },
+  {
+    "id": 23,
+    "q": "\"watermark\" \"cross-resolution\" \"diffusion\" journal",
+    "outcome": "ForenMark KBS2026 preview and Sensors region-aware study found; no count."
+  },
+  {
+    "id": 24,
+    "q": "\"watermark\" \"independent encoder\" \"journal\"",
+    "outcome": "ForenMark KBS2026 preview and Sensors region-aware study found; no count."
+  },
+  {
+    "id": 25,
+    "q": "\"W-Bench\" watermark venue journal",
+    "outcome": "Dual Defense TIFS2024 adjacent lead; WARP/local watermark PRE; Sensors open PDF."
+  },
+  {
+    "id": 26,
+    "q": "\"watermark\" \"evaluation\" \"IEEE Transactions on Information Forensics and Security\" \"2024\" diffusion",
+    "outcome": "Dual Defense TIFS2024 adjacent lead; WARP/local watermark PRE; Sensors open PDF."
+  },
+  {
+    "id": 27,
+    "q": "\"image watermarking\" \"benchmark\" \"2026\" journal resolution",
+    "outcome": "Dual Defense TIFS2024 adjacent lead; WARP/local watermark PRE; Sensors open PDF."
+  },
+  {
+    "id": 28,
+    "q": "\"Mutual Effects of Face-Swap Deepfakes\" pdf SJR Sensors Q1",
+    "outcome": "Dual Defense TIFS2024 adjacent lead; WARP/local watermark PRE; Sensors open PDF."
+  },
+  {
+    "id": 29,
+    "q": "\"Black-Box Forgery Attacks on Semantic Watermarks\" pdf",
+    "outcome": "Black-Box CVPR2025 main+supp found; JMLR JCR2024Q1 evidence. Two venue queries excluded from scientific query count; ForenMark preview only."
+  },
+  {
+    "id": 30,
+    "q": "\"Sensors\" \"2024\" \"Q1\" \"Instrumentation\"",
+    "outcome": "Black-Box CVPR2025 main+supp found; JMLR JCR2024Q1 evidence. Two venue queries excluded from scientific query count; ForenMark preview only."
+  },
+  {
+    "id": 31,
+    "q": "\"Journal of Machine Learning Research\" \"2024\" \"Q1\" \"Artificial Intelligence\"",
+    "outcome": "Black-Box CVPR2025 main+supp found; JMLR JCR2024Q1 evidence. Two venue queries excluded from scientific query count; ForenMark preview only."
+  },
+  {
+    "id": 32,
+    "q": "\"ForenMark\" \"117084\" pdf full text",
+    "outcome": "Black-Box CVPR2025 main+supp found; JMLR JCR2024Q1 evidence. Two venue queries excluded from scientific query count; ForenMark preview only."
+  }
+]

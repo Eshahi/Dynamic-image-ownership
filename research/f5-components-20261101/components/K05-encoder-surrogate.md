@@ -63,3 +63,33 @@ SOURCE/JUDGMENT: The Phase-A pilot/law/mechanism records and inactive attack gri
 ### Ranking and next literature work
 
 JUDGMENT — PROPOSED: See the [joint loss/cost ranking](../WP1-SYNTHESIS.md#ranking-by-conditional-loss-opportunity-and-cost-to-change) for this component's role and interactions. Changes to this component cannot be credited with a count improvement until the necessary intervention and safety checks exist. The [K05 WP2 query plan](../literature/WP2-QUERY-PLAN.md) lists 15 exact planned queries across five indexes; none has been executed or counted as literature evidence in WP1. Gate 1 precedes that work.
+
+## C. Literature since 2024
+
+SOURCE: [Inspected K05 cards and search audit](../literature/intake/K05.md). Two proposed Q1J and three TOP cards; journal floor exhausted after 48 logged searches, including explicit domain-filtered follow-ups. Latent Watermark is an inspected author version linked to its final TMM publication, not a verified byte-identical final paper.
+
+SOURCE: VINE (ICLR 2025, methods/ablations and supplement) uses learned robustness and a blur-like proxy within a complete trained system; ROBIN (NeurIPS 2024) exploits latent reconstruction, without a clean isolated foreign-encoder-lineage test. ZoDiac's denoising ablation improves detection within its own machinery while failing this project's clean PSNR condition. DiffMark (Information Fusion 2026, §§4.1.2/4.4.1, Table 5) trains through a noise pipeline for deepfake use; its two stated recovery-weight schedules conflict. Latent Watermark's channel ablation is relevant to allocation, not proof that a different attacker VAE preserves the same code.
+
+JUDGMENT: First retain the pinned reader and test writer-side robustness against the actual noise/reconstruction intervention, then consider changing the reader. A surrogate ensemble that only reconstructs images can optimize the wrong channel. F6 is a related unrun proposal, with no efficacy to inherit. Q-RES must separate scale from model; Q-STAGE must separate underfilled optimization from stage interference. Replacing the public pretrained model or adding a robust VAE would require unavailable weights/training and new marks, and cannot be evaluated by replaying saved endpoints. No closed external-baseline or FreqMark line is reopened.
+
+## D. Improvement options — PROPOSED
+
+JUDGMENT: [OPTIONS](../OPTIONS.md) defines forecast, visibility and scope conventions. All model/writer replacements have UNKNOWN physical ceilings; changing an encoder can change every reader route, not only the currently failed calls.
+
+### K05-O1 — Optimize through the noise/reconstruction channel with the pinned reader retained
+
+SOURCE/JUDGMENT: VINE/ROBIN motivate channel-aware objectives; Phase A and the approved, unrun F6 package identify noise/reconstruction as a distinct intervention from codec reconstruction. Targets foreign no-found/read losses. Planning ΔC at .2: SDXL 0 to +20/60, K3 −5 to +20, SD1.5 −5 to +3; .4 foreign 0 to +5. Low-confidence ranges reflect residual signal but no demonstrated foreign survival of a new writer. This is not a prediction that F6 passes.
+
+JUDGMENT: No detector side-information change if the reader stays pinned; writer gradients through noise/denoising cost materially more than 119 s and require GPU. Quality and flat-region constraints use OPTIONS; h interference and T4/T5 remain mandatory. Simpler alternative: fix stage underfill without a new surrogate. Cheapest saved tests T3/T4; decisive objective comparison remains the existing F6 study, unchanged, after Q-RES/Q-STAGE diagnosis. Kill under F6's approved rule, not a new easier endpoint. No closed line reopened and no approved F6 artifact amended.
+
+### K05-O2 — Use a writer-only ensemble of genuinely independent codec surrogates
+
+SOURCE/JUDGMENT: Latent Watermark and DiffMark support explicit channel modeling but do not prove this ensemble. Penalize the same original payload across distinct codec paths; record lineage and working scale. Targets foreign transport; all physical ceilings UNKNOWN. Planning ΔC foreign .2 0 to +10/60, SD1.5 .2 −5 to +3, with low confidence because codec-only F5 already retains 55/60 on foreign round trips and noise is the larger remaining intervention.
+
+JUDGMENT: Requires additional model assets, new marks and several encoder gradients per step; no reader change or secret required. Competing gradients can increase distortion and hurt both tiers/T4/T5. Flat-region/human checks apply. Simpler alternative is O1 with one actual noise channel. Cheapest saved test T3 compares codec-only versus regeneration response; no ensemble gradient or outcome is recoverable from current outputs. Queue Q-DIVERSITY only after diagnosis. Kill if codec gains do not transfer to native foreign EVALUATE cells at matched strict quality, or if any required safety/SD1.5 preservation gate fails. No closed line reopened.
+
+### K05-O3 — Replace the reader only after a matched-reader ablation
+
+SOURCE/JUDGMENT: ROBIN and ZoDiac motivate reconstruction-aware extraction, but their extra computation and access are not lightweight F5 extraction. Targets the distinction between surviving carrier and a mismatched observation model. Planning gain in a new reader endpoint: 0 to +10/60 on foreign .2; frozen C/J remain unchanged. Physical ceiling UNKNOWN; old found/read ceilings do not constrain another reader.
+
+JUDGMENT: Additional encoders or inversion become detector side information and can multiply latency/memory and tested hypotheses. A learned robust VAE would require training; neither is permitted now. T4/T5 calibration and public adaptive attacks must be repeated; no writer means no new flat-region artifact. Simpler alternative is current-reader exact constrained decoding. Cheapest current evidence T2/T3; no old latent permits a foreign trained-reader evaluation. Rank low and queue only if a predeclared observed-response mismatch remains. Kill if improvement disappears after total-test-budget calibration, or if extra safety accepts occur. No new external baseline or training is authorized.

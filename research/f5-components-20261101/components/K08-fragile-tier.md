@@ -1,4 +1,6 @@
-# K08 — Fragile tier and write order
+# K08 — Second carrier, instance code and write order
+
+SOURCE: Gate-1 ruling R1 requires this name: fragile is a hypothesis to test, not an assumed property. Historical filenames and quoted experimental labels remain unchanged for traceability (gates/GATE-1-RULING.md, R1).
 
 JUDGMENT — PROPOSED WP1 dossier, not a ruling. Scope: structure, prior evidence and conditional ceilings only. No WP2 literature result or WP3–WP5 improvement verdict is implied. Source: [BRIEF](../BRIEF.md), WP1.
 
@@ -67,3 +69,29 @@ SOURCE/JUDGMENT: The Phase-A pilot/law/mechanism records and inactive attack gri
 ### Ranking and next literature work
 
 JUDGMENT — PROPOSED: See the [joint loss/cost ranking](../WP1-SYNTHESIS.md#ranking-by-conditional-loss-opportunity-and-cost-to-change) for this component's role and interactions. Changes to this component cannot be credited with a count improvement until the necessary intervention and safety checks exist. The [K08 WP2 query plan](../literature/WP2-QUERY-PLAN.md) lists 15 exact planned queries across five indexes; none has been executed or counted as literature evidence in WP1. Gate 1 precedes that work.
+
+## C. Literature since 2024
+
+SOURCE: [Inspected K08 cards and query audit](../literature/intake/K08.md) contains five journal candidates and three TOP papers, with38 substantive queries including ten ruling-specific additions. JUDGMENT: Root counts3 Q1J +3 TOP. Singh et al.'s medical-fusion dual-domain paper is withheld because sequential architecture alone is too weak a transfer to the scoped T3/T4/T5 question. Vaidya is withheld because K10's independent access check could not inspect raster Algorithms1–3, so complete method inspection is unestablished. Both remain visible, with no floor credit. The two-journal shortfall meets the documented exhaustion condition; it is not called a met floor.
+
+SOURCE: EditGuard (CVPR 2024, supplement §9.3/Table 11) reports sequential versus parallel robustness differences under its local-editing pipeline. TAG-WM (ICCV 2025, Table 3) jointly encodes copyright/localization in generation noise and tests SDXL inpainting; that is not global regeneration of an arbitrary F5 mark. GaussMarker (ICML 2025) offers dual-domain complementarity, with its own quality/calibration conditions. Padhi, Ozkaya, Vaidya and Li's journal cards describe authentication/recovery mechanisms: their standard-distortion or collage results do not certify foreign regeneration, exact instance binding, or the project's all-image quality gate. Ozkaya's reported PSNR 33.97 dB fails that gate.
+
+JUDGMENT: Replace the descriptive word fragile with second carrier. N1 is evidence against discarding that carrier as wasted distortion. Its content-ok state when the semantic tier is absent is weaker than independently decoded semantic agreement. Neither tier union nor repeated watermark writing establishes ownership. Compare the current order with controlled stage traces and a matched-quality robust-only arm before reallocating distortion. Preserve the current h descriptor for now; improving it would reopen a closed reference-free instance-descriptor line. Human visibility remains MISSING.
+
+## D. Improvement options
+JUDGMENT: [OPTIONS](../OPTIONS.md) applies; the second tier is not assumed fragile.
+
+### O1. Expose a separately budgeted two-tier endpoint
+SOURCE: Gate-1 N1; EditGuard, TAG-WM and GaussMarker cards show distinct recovery/identity semantics and fusion costs. Keep existing marks and h. Define O_U as in T1, never rename it C/J. Targets frozen-C omissions on SDXL/K3; current observed O opportunity is32/12/3 on SDXL .1/.2/.4 and+11 on K3, not a safe new-method ceiling.
+JUDGMENT: Planning new-endpoint gains/60: SDXL .1 +15..+32, .2 +3..+12, .4 0..+3, K3 0..+11; C/J delta0..0. Higher null thresholds and T4/T5 may erase all gains. Quality/writer cost unchanged; reader already computes both tiers, so fusion arithmetic is negligible. Same public key/CLIP/VAE side information; absent semantic evidence is explicitly weaker content checking. Simpler alternative retain C/J plus descriptive tier reports.
+JUDGMENT: T1's precommitted gains/no-SD1.5-loss/no-negative rule applies, followed by available T4 and T5 diagnostics. Any new T4/T5 event kills promotion, and missing adversarial panels keep safety UNKNOWN. No descriptor line reopened.
+
+### O2. Reverse or jointly refine write order
+SOURCE: EditGuard's sequential/parallel ablation and N1 motivate measuring order, not importing an inpainting result as global regeneration. Preserve q/h and compare current order with a declared alternative after Q-STAGE. Targets cross-tier damage in every cell, physical ceiling UNKNOWN.
+JUDGMENT: Delta C/60 SDXL .2 0..+10, K3 -5..+10, SD1.5 .2 -5..+3; h exact-match may improve or worsen independently. Writer cost at least the same stages, additional refinement unknown; detector unchanged. Flat-region/all-image strict quality and T4/T5 are required. No new side information. Simpler alternative O1.
+JUDGMENT: T4/Q-STAGE first; final metadata alone cannot establish order damage. Kill the future order ablation if no EVALUATE useful endpoint gains survive equal quality and budget, or any T4/T5/quality gate fails. No closed descriptor line reopened.
+
+### O3. Protect both tiers without changing the instance descriptor
+SOURCE: GaussMarker diversity and its interference ablation motivate a joint constraint preventing a later stage from erasing the earlier tier. Targets physical transport/interference, ceilings UNKNOWN. This is an alternative to deleting the second carrier.
+JUDGMENT: Delta C/60 SDXL .1/.2 0..+15, .4 0..+5, K3 -5..+15, SD1.5 .2 -5..+3; there may be no feasible shared-quality solution. Reader unchanged, more writer gradients/constraints, no added reference. h ambiguity and public-copy attacks remain. Mandatory flat-region/all-image/human checks apply. Simpler alternative frozen independent stages.
+JUDGMENT: T3 tests complementarity and T4 tests margin prerequisite; Q-STAGE decides whether there is stage interference to constrain. Kill if the joint feasible set cannot preserve current strict quality and SD1.5 behavior, or gains fail real T4/T5. Changing h itself is REOPENS-CLOSED-LINE and remains excluded.

@@ -71,3 +71,25 @@ SOURCE/JUDGMENT: The Phase-A pilot/law/mechanism records and inactive attack gri
 ### Ranking and next literature work
 
 JUDGMENT — PROPOSED: See the [joint loss/cost ranking](../WP1-SYNTHESIS.md#ranking-by-conditional-loss-opportunity-and-cost-to-change) for this component's role and interactions. Changes to this component cannot be credited with a count improvement until the necessary intervention and safety checks exist. The [K07 WP2 query plan](../literature/WP2-QUERY-PLAN.md) lists 15 exact planned queries across five indexes; none has been executed or counted as literature evidence in WP1. Gate 1 precedes that work.
+
+## C. Literature since 2024
+SOURCE: [K07 intake](../literature/intake/K07.md): 1 Q1J + 3 TOP after35 substantive queries, four journal slots explicitly exhausted. Tang et al. TIFS2024 inspect the strength of each layer under conventional attacks; VINE and WAVES require attack-quality accounting; ROAR is a reader-cost contrast. Pixel Seal is PRE, with an explicit flat-region residual-spill mechanism, not a qualifying journal. None establishes F5's actual 52/47/58dB stage shares or human invisibility.
+JUDGMENT: Global PSNR is insufficient for local flaws, and allocation should follow measured stage cost rather than the nominal radius. The failed H3 mask remains stronger evidence for F5 than a generic JND success elsewhere.
+
+## D. Improvement options
+JUDGMENT: Forecasts and checks follow [OPTIONS](../OPTIONS.md).
+
+### O1. Allocate by measured stage cost
+SOURCE: Tang layer accounting and Gate-1 R5. Measure residual norms and cross terms through Q-STAGE before reallocating any allowance. Targets interference and distortion inefficiency in all cells; ceiling UNKNOWN; diagnostic delta C/J=0..0.
+JUDGMENT: Future allocation could yield delta C/60 SDXL .2 0..+10 and K3 .2 -5..+10, with no linear amplitude forecast. Writer/read costs unchanged unless another iteration is introduced; trace costs are explicit. Removing h can harm T4/T5. No added deployed side information. Flat-region checks plus human judgment remain mandatory. Simpler alternative: keep the allocation and change the reader.
+JUDGMENT: T4 is the available association test; Q-STAGE kills the claim that nominal stage budget is freely spendable if measured removal releases no quality slack, or the matched-quality alternative gains no valid T3/safety. No closed line reopened.
+
+### O2. Local caps alongside the global ball
+SOURCE: Pixel Seal PRE residual spill, Tang adaptive strength and the old H3 negative. Use fixed original-image flat/textured masks and local residual caps, preserving the same total quality budget. Targets concentrated visible distortion, not direct missing carrier transport. The C recovery ceiling is UNKNOWN; delta C/60 -10..+3 per native cell, with a deliberate risk of reduced carrier support.
+JUDGMENT: Additional mask arithmetic is small but writer constraints can hinder convergence; reader/side information unchanged. T4/T5 and full per-image quality must survive. Evaluate fixed native-resolution flat patches, local RMS/max, and later blinded human ratings; metrics alone do not certify no flaw. Simpler alternative: O1 stage diagnosis without a new mask.
+JUDGMENT: The prospective TQ diagnostic in the test plan tests whether current residuals concentrate enough to motivate this option. It cannot test a new mask. A later writer pilot is killed by no local-quality improvement at equal valid T3, any strict-quality/T4/T5 failure, or merely reproducing H3's survival loss. No closed line reopened.
+
+### O3. Channel-aware strength allocation
+SOURCE: Tang adaptive strength and VINE's channel-shaped objectives, with N2 confounding explicitly unresolved. Allocate strength to reproducibly surviving carriers/segments at fixed total quality, using DESIGN sources only. Targets no-read/incorrect-read losses; physical ceiling UNKNOWN.
+JUDGMENT: Delta C/60 SDXL .2 0..+10, K3 .2 -5..+10, SD1.5 .2 -5..+3; unknown cross-family transfer and small sample preclude a point forecast. Writer calibration and perhaps gradients increase; detector unchanged. No new reference. Public allocation does not protect T4/T5. Flat-region constraints from OPTIONS apply. Simpler alternative uniform current allocation.
+JUDGMENT: T3 checks response prerequisites; Q-RES must separate scale before choosing a physical allocation. Kill future pilot if gains exist only on the DESIGN family, vanish at equal final quality, or introduce safety/visibility failures. No closed line reopened.

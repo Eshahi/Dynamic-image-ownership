@@ -1,0 +1,652 @@
+{
+  "access_date": "2026-11-01",
+  "count_basis": "unique work, max two component assignments; full-text provenance in card bundles",
+  "papers": [
+    {
+      "paper": "HOLISTIC25",
+      "class": "Q1J",
+      "components": [
+        "K01"
+      ],
+      "cards": [
+        "cards/K01.md"
+      ]
+    },
+    {
+      "paper": "CLIP Surgery",
+      "class": "Q1J",
+      "components": [
+        "K01"
+      ],
+      "cards": [
+        "cards/K01.md"
+      ]
+    },
+    {
+      "paper": "Intra-modal CLIP",
+      "class": "Q1J",
+      "components": [
+        "K01"
+      ],
+      "cards": [
+        "cards/K01.md"
+      ]
+    },
+    {
+      "paper": "AlignCLIP",
+      "class": "Q1J",
+      "components": [
+        "K01"
+      ],
+      "cards": [
+        "cards/K01.md"
+      ]
+    },
+    {
+      "paper": "ClearCLIP",
+      "class": "TOP",
+      "components": [
+        "K01"
+      ],
+      "cards": [
+        "cards/K01.md"
+      ]
+    },
+    {
+      "paper": "Sober Look at CLIP",
+      "class": "TOP",
+      "components": [
+        "K01"
+      ],
+      "cards": [
+        "cards/K01.md"
+      ]
+    },
+    {
+      "paper": "Image Copy Detection for Diffusion Models",
+      "class": "TOP",
+      "components": [
+        "K01"
+      ],
+      "cards": [
+        "cards/K01.md"
+      ]
+    },
+    {
+      "paper": "CSDH",
+      "class": "Q1J",
+      "components": [
+        "K02"
+      ],
+      "cards": [
+        "cards/K02.md"
+      ]
+    },
+    {
+      "paper": "HIP",
+      "class": "Q1J",
+      "components": [
+        "K02"
+      ],
+      "cards": [
+        "cards/K02.md"
+      ]
+    },
+    {
+      "paper": "DBpHash",
+      "class": "Q1J",
+      "components": [
+        "K02"
+      ],
+      "cards": [
+        "cards/K02.md"
+      ]
+    },
+    {
+      "paper": "CertPHash",
+      "class": "TOP",
+      "components": [
+        "K02"
+      ],
+      "cards": [
+        "cards/K02.md"
+      ]
+    },
+    {
+      "paper": "CMBH",
+      "class": "TOP",
+      "components": [
+        "K02"
+      ],
+      "cards": [
+        "cards/K02.md"
+      ]
+    },
+    {
+      "paper": "Fuzzy Extractors are Practical",
+      "class": "TOP",
+      "components": [
+        "K02",
+        "K11"
+      ],
+      "cards": [
+        "cards/K02.md",
+        "cards/K11.md"
+      ]
+    },
+    {
+      "paper": "PRC image watermark",
+      "class": "TOP",
+      "components": [
+        "K03",
+        "K09"
+      ],
+      "cards": [
+        "cards/K03.md",
+        "cards/K09.md"
+      ]
+    },
+    {
+      "paper": "RingID",
+      "class": "TOP",
+      "components": [
+        "K03"
+      ],
+      "cards": [
+        "cards/K03.md"
+      ]
+    },
+    {
+      "paper": "MarkPlugger",
+      "class": "Q1J",
+      "components": [
+        "K04",
+        "K06"
+      ],
+      "cards": [
+        "cards/K04.md",
+        "cards/K06.md"
+      ]
+    },
+    {
+      "paper": "Latent Watermark",
+      "class": "Q1J",
+      "components": [
+        "K04",
+        "K05"
+      ],
+      "cards": [
+        "cards/K04.md",
+        "cards/K05.md"
+      ]
+    },
+    {
+      "paper": "GaussMarker",
+      "class": "TOP",
+      "components": [
+        "K04",
+        "K08"
+      ],
+      "cards": [
+        "cards/K04.md",
+        "cards/K08.md"
+      ]
+    },
+    {
+      "paper": "Fourier Integrity",
+      "class": "TOP",
+      "components": [
+        "K04"
+      ],
+      "cards": [
+        "cards/K04.md"
+      ]
+    },
+    {
+      "paper": "ZoDiac",
+      "class": "TOP",
+      "components": [
+        "K04",
+        "K05"
+      ],
+      "cards": [
+        "cards/K04.md",
+        "cards/K05.md"
+      ]
+    },
+    {
+      "paper": "DiffMark",
+      "class": "Q1J",
+      "components": [
+        "K05",
+        "K06"
+      ],
+      "cards": [
+        "cards/K05.md",
+        "cards/K06.md"
+      ]
+    },
+    {
+      "paper": "VINE",
+      "class": "TOP",
+      "components": [
+        "K05",
+        "K07"
+      ],
+      "cards": [
+        "cards/K05.md",
+        "cards/K07.md"
+      ]
+    },
+    {
+      "paper": "ROBIN",
+      "class": "TOP",
+      "components": [
+        "K05"
+      ],
+      "cards": [
+        "cards/K05.md"
+      ]
+    },
+    {
+      "paper": "FreqMark",
+      "class": "TOP",
+      "components": [
+        "K06"
+      ],
+      "cards": [
+        "cards/K06.md"
+      ]
+    },
+    {
+      "paper": "END2",
+      "class": "TOP",
+      "components": [
+        "K06"
+      ],
+      "cards": [
+        "cards/K06.md"
+      ]
+    },
+    {
+      "paper": "ROAR",
+      "class": "TOP",
+      "components": [
+        "K06",
+        "K07"
+      ],
+      "cards": [
+        "cards/K06.md",
+        "cards/K07.md"
+      ]
+    },
+    {
+      "paper": "Attack-Simulation-Based Adaptive Normalization and Embedding",
+      "class": "Q1J",
+      "components": [
+        "K07"
+      ],
+      "cards": [
+        "cards/K07.md"
+      ]
+    },
+    {
+      "paper": "WAVES",
+      "class": "TOP",
+      "components": [
+        "K07",
+        "K12"
+      ],
+      "cards": [
+        "cards/K07.md",
+        "cards/K12.md"
+      ]
+    },
+    {
+      "paper": "Padhi dual watermark TAI",
+      "class": "Q1J",
+      "components": [
+        "K08",
+        "K10"
+      ],
+      "cards": [
+        "cards/K08.md",
+        "cards/K10.md"
+      ]
+    },
+    {
+      "paper": "Ozkaya self-embedded dual watermark",
+      "class": "Q1J",
+      "components": [
+        "K08",
+        "K10"
+      ],
+      "cards": [
+        "cards/K08.md",
+        "cards/K10.md"
+      ]
+    },
+    {
+      "paper": "Li self-recovery PLOS",
+      "class": "Q1J",
+      "components": [
+        "K08",
+        "K10"
+      ],
+      "cards": [
+        "cards/K08.md",
+        "cards/K10.md"
+      ]
+    },
+    {
+      "paper": "EditGuard",
+      "class": "TOP",
+      "components": [
+        "K08",
+        "K10"
+      ],
+      "cards": [
+        "cards/K08.md",
+        "cards/K10.md"
+      ]
+    },
+    {
+      "paper": "TAG-WM",
+      "class": "TOP",
+      "components": [
+        "K08"
+      ],
+      "cards": [
+        "cards/K08.md"
+      ]
+    },
+    {
+      "paper": "Safe Testing",
+      "class": "Q1J",
+      "components": [
+        "K09",
+        "K12"
+      ],
+      "cards": [
+        "cards/K09.md",
+        "cards/K12.md"
+      ]
+    },
+    {
+      "paper": "Emerging e-values",
+      "class": "Q1J",
+      "components": [
+        "K09",
+        "K10"
+      ],
+      "cards": [
+        "cards/K09.md",
+        "cards/K10.md"
+      ]
+    },
+    {
+      "paper": "Mean-variance e-processes",
+      "class": "Q1J",
+      "components": [
+        "K09"
+      ],
+      "cards": [
+        "cards/K09.md"
+      ]
+    },
+    {
+      "paper": "Heavy-tailed aggregation",
+      "class": "Q1J",
+      "components": [
+        "K09"
+      ],
+      "cards": [
+        "cards/K09.md"
+      ]
+    },
+    {
+      "paper": "Confidence on the focal",
+      "class": "Q1J",
+      "components": [
+        "K09",
+        "K12"
+      ],
+      "cards": [
+        "cards/K09.md",
+        "cards/K12.md"
+      ]
+    },
+    {
+      "paper": "Gaussian Shading",
+      "class": "TOP",
+      "components": [
+        "K09",
+        "K11"
+      ],
+      "cards": [
+        "cards/K09.md",
+        "cards/K11.md"
+      ]
+    },
+    {
+      "paper": "Watermark Anything",
+      "class": "TOP",
+      "components": [
+        "K09",
+        "K10"
+      ],
+      "cards": [
+        "cards/K09.md",
+        "cards/K10.md"
+      ]
+    },
+    {
+      "paper": "OmniGuard",
+      "class": "TOP",
+      "components": [
+        "K10"
+      ],
+      "cards": [
+        "cards/K10.md"
+      ]
+    },
+    {
+      "paper": "Remote secure object authentication",
+      "class": "Q1J",
+      "components": [
+        "K11"
+      ],
+      "cards": [
+        "cards/K11.md"
+      ]
+    },
+    {
+      "paper": "Two-Stage Watermark Removal",
+      "class": "Q1J",
+      "components": [
+        "K11"
+      ],
+      "cards": [
+        "cards/K11.md"
+      ]
+    },
+    {
+      "paper": "Zero-watermarking and signcryption",
+      "class": "Q1J",
+      "components": [
+        "K11"
+      ],
+      "cards": [
+        "cards/K11.md"
+      ]
+    },
+    {
+      "paper": "Black-Box Forgery",
+      "class": "TOP",
+      "components": [
+        "K11",
+        "K12"
+      ],
+      "cards": [
+        "cards/K11.md",
+        "cards/K12.md"
+      ]
+    },
+    {
+      "paper": "MarkDiffusion",
+      "class": "Q1J",
+      "components": [
+        "K12"
+      ],
+      "cards": [
+        "cards/K12.md"
+      ]
+    },
+    {
+      "paper": "Erasing Invisible",
+      "class": "TOP",
+      "components": [
+        "K12"
+      ],
+      "cards": [
+        "cards/K12.md"
+      ]
+    }
+  ],
+  "floors": [
+    {
+      "component": "K01",
+      "Q1J": 4,
+      "Q1J_required": 5,
+      "TOP": 3,
+      "TOP_required": 3,
+      "substantive_queries": 42,
+      "successful_surfaces_minimum": 4,
+      "status": "EXHAUSTION DOCUMENTED (judge acceptance pending)",
+      "notes": "One journal slot exhausted. Accepted/author versions distinguished; dense/local CLIP improvements do not automatically improve global q."
+    },
+    {
+      "component": "K02",
+      "Q1J": 3,
+      "Q1J_required": 5,
+      "TOP": 3,
+      "TOP_required": 3,
+      "substantive_queries": 31,
+      "successful_surfaces_minimum": 4,
+      "status": "EXHAUSTION DOCUMENTED (judge acceptance pending)",
+      "notes": "Two journal slots exhausted. Fifteen malformed site filters excluded; 31 remain. Extended FEAP version conditional; CMBH has no identified omitted appendix. Root correction: six distance-two owner-segment pairs."
+    },
+    {
+      "component": "K03",
+      "Q1J": 0,
+      "Q1J_required": 5,
+      "TOP": 2,
+      "TOP_required": 3,
+      "substantive_queries": 35,
+      "successful_surfaces_minimum": 4,
+      "status": "EXHAUSTION DOCUMENTED (judge acceptance pending)",
+      "notes": "Five journal and one TOP slots exhausted. CoPaD-Mark/Access polar paper lack complete tables; TrustMark known final ZIP supplement unread. No ZIP download permitted."
+    },
+    {
+      "component": "K04",
+      "Q1J": 2,
+      "Q1J_required": 5,
+      "TOP": 3,
+      "TOP_required": 3,
+      "substantive_queries": 45,
+      "successful_surfaces_minimum": 4,
+      "status": "EXHAUSTION DOCUMENTED (judge acceptance pending)",
+      "notes": "Three journal slots exhausted. Conservative45 excludes Q27,29,33,39,40,49-52,55 from55 exact queries. Added ruling queries Q16-Q26. Author-version identity caveats remain."
+    },
+    {
+      "component": "K05",
+      "Q1J": 2,
+      "Q1J_required": 5,
+      "TOP": 3,
+      "TOP_required": 3,
+      "substantive_queries": 38,
+      "successful_surfaces_minimum": 4,
+      "status": "EXHAUSTION DOCUMENTED (judge acceptance pending)",
+      "notes": "Three journal slots exhausted. Codec/deepfake training differs from independent-encoder T3; no quality guarantee transferred."
+    },
+    {
+      "component": "K06",
+      "Q1J": 2,
+      "Q1J_required": 5,
+      "TOP": 3,
+      "TOP_required": 3,
+      "substantive_queries": 36,
+      "successful_surfaces_minimum": 4,
+      "status": "EXHAUSTION DOCUMENTED (judge acceptance pending)",
+      "notes": "Three journal slots exhausted. ROAR is detector optimization, explicitly adjacent, not a writer result. FreqMark remains closed."
+    },
+    {
+      "component": "K07",
+      "Q1J": 1,
+      "Q1J_required": 5,
+      "TOP": 3,
+      "TOP_required": 3,
+      "substantive_queries": 35,
+      "successful_surfaces_minimum": 4,
+      "status": "EXHAUSTION DOCUMENTED (judge acceptance pending)",
+      "notes": "Four journal slots exhausted. PixelSeal is PRE, not a journal slot. Human visibility missing."
+    },
+    {
+      "component": "K08",
+      "Q1J": 3,
+      "Q1J_required": 5,
+      "TOP": 3,
+      "TOP_required": 3,
+      "substantive_queries": 38,
+      "successful_surfaces_minimum": 4,
+      "status": "EXHAUSTION DOCUMENTED (judge acceptance pending)",
+      "notes": "Two journal slots exhausted after root downgrades: Vaidya algorithms1-3 raster material unread; Singh medical fusion weakly relevant and excluded. Ten added queries Q17-Q26. Do not use the intake original5/5 claim."
+    },
+    {
+      "component": "K09",
+      "Q1J": 5,
+      "Q1J_required": 5,
+      "TOP": 3,
+      "TOP_required": 3,
+      "substantive_queries": 33,
+      "successful_surfaces_minimum": 4,
+      "status": "PAPER FLOORS MET (proposed)",
+      "notes": "Paper floors met. Ten added queries Q09-Q18. Statistical foundations count for reader calibration, not watermark efficacy."
+    },
+    {
+      "component": "K10",
+      "Q1J": 4,
+      "Q1J_required": 5,
+      "TOP": 3,
+      "TOP_required": 3,
+      "substantive_queries": 30,
+      "successful_surfaces_minimum": 4,
+      "status": "EXHAUSTION DOCUMENTED (judge acceptance pending)",
+      "notes": "One journal slot exhausted. Vaidya unread algorithms and MetaSeal unverified quartile excluded."
+    },
+    {
+      "component": "K11",
+      "Q1J": 3,
+      "Q1J_required": 3,
+      "TOP": 3,
+      "TOP_required": 3,
+      "substantive_queries": 23,
+      "successful_surfaces_minimum": 4,
+      "status": "PAPER FLOORS MET (proposed)",
+      "notes": "Paper floors met conditional on relevant key/trust-accounting scope and extended FEAP. Two full-text-web PDFs have no local hash.23 queries is not a30-query exhaustion if judge rejects a slot."
+    },
+    {
+      "component": "K12",
+      "Q1J": 3,
+      "Q1J_required": 3,
+      "TOP": 3,
+      "TOP_required": 3,
+      "substantive_queries": 32,
+      "successful_surfaces_minimum": 4,
+      "status": "PAPER FLOORS MET (proposed)",
+      "notes": "Paper floors met. Statistical sources count for evaluation validity; attack papers do not establish strict-quality F5 vulnerability."
+    }
+  ],
+  "unique_papers": 47,
+  "assignments": 67
+}
