@@ -1,5 +1,12 @@
 PHASE_B_JOURNALS=off
 
+## WP7 completion
+
+- JUDGMENT: FINAL-REPORT.md is complete for Claude's final ruling. No safe efficacy winner; retained C/J and F6 unchanged. Proposed priorities K04/K05/K08 joint diagnosis, K10 reporting and K12 evaluation; Q-RES then Q-STAGE remain unexecuted and need the user's server/scheduling decision. STATUS COMPLETE includes nine accepted access-limited journal exhaustions, not full journal coverage.
+- SOURCE: WP6 closure59dbcfc..5781ce0 pushed successfully before WP7 writing. All three initial reviews and the fresh affected-floor rerun are retained; FLOOR-B1 closed, zero remaining blockers, every warning/missed option disposition recorded. Final report separates measured failures, conditional derivations, source claims and untested predictions, and states the stronger T4 access, reference-assisted T5, dependence, human-visibility and honest-null limits.
+- SOURCE: WP7's enclosing Git commit is its completion receipt; this report and progress update are committed/pushed on codex/f5-components-20261101 after final document checks. No additional scientific execution, threshold selection, held-out access or F6 change is part of WP7.
+- MEASURED: Final document check passed: exact three opening lines, twelve component rows, all local evidence-link targets present, first progress line preserved and fresh FLOOR-B1 closure present. The tracked diff since244a54b remains entirely inside RD outside judge/RULING; git diff --check passed. No new scientific tests were needed for this reporting-only step.
+
 ## Gate 1 resumed: WP2-WP5
 
 - SOURCE: On 2026-11-01, git pull --ff-only reported up to date at 90301f8. Read gates/GATE-1-RULING.md and judge/two_tiers.py. WP1 is accepted; R1-R6 and required T1-T4/Q-RES/Q-STAGE bind the continuation. No change to compute, held-out exclusions or F6 is authorized.
