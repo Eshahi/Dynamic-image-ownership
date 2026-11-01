@@ -1,0 +1,95 @@
+{
+  "schema": "f5c-g2b-provenance-v1",
+  "commit": "f37ca3b1c26bab5c34fe9127b0dff7db4da6bd70",
+  "command": [
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\a6-science-venv\\Scripts\\python.exe",
+    "research/f5-components-20261101/analysis/gate2_transfer_panel.py",
+    "--start",
+    "456",
+    "--count",
+    "8"
+  ],
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "seconds": 53.796999999904074,
+  "dependencies_sha256": {
+    "research\\f5-components-20261101\\analysis\\gate2_transfer_panel.py": "5c5ea066c28384a96eeb5a67d080702199bec0c43b5f5f25ef87599bac6979f5",
+    "research\\f5-components-20261101\\analysis\\account_saved_development.py": "b49aeae3657ad916b7e722c17d1f439cb3f527d88d9d6c8bfb37d568d38483f6",
+    "research\\f5-components-20261101\\analysis\\gate2_reader.py": "e9e1c49de96908d2f4d3a9856918cc28b8e577e784fa458d399fd928813f02ae",
+    "research\\f5-components-20261101\\analysis\\GATE2-TEST-PLAN.md": "13e8ce0f1646c9ccc522a521e237c486ceae6b47e41209d469e8616e7f2b8602",
+    "research\\f5-components-20261101\\gates\\GATE-2-RULING.md": "2a8cb0e2725210ec948d4cae12e3b51a98f3062f33e87f69ff4d714279bdf659",
+    "experiments\\c4-v5-two-tier-regeneration-v1\\profile.json": "25f9cb188368be04cd8d2b95ea1066872d3ca70908bd554af01ff93a53b40723",
+    "scripts\\f5_latent_codec.py": "d8a960e5e1f2fc200af9d66a8eaca59f26244ff98702019daafe204fd7a5721b",
+    "scripts\\f5_gate.py": "8beed425772a2616aab2be9d703767707bff25a1bb01e05cf007f4cf644b5555",
+    "scripts\\three_threat_protocol.py": "7fad2f0f0eea778f8cd04f02678eed78da8b4be4abdda485de0717f3dc809fb7",
+    "scripts\\three_threat_models.py": "448d79927df22d9559efa69af8991863001078059d7b8e3fa1d60b2f9a750881",
+    "scripts\\m1_latent_reconstruction.py": "c46b3e538da672b47c40cff9f53272dc97ad68869c9eaba9a36bdef74b5c2924",
+    "scripts\\revised_watermark_v5.py": "3bbfeef3655854f2ecc15b530ecab8c63b5432d9e64bf0324d5d955889ff5999",
+    "scripts\\revised_watermark_v4.py": "7498f2dd72057b99d96e94897494614e22cc1f67ad33905e2325968329eddbf4",
+    "scripts\\a6_clip_visual.py": "94babea14a9946607d38216fc187751bf5683c26e1fa25d0df1d7cc068680eae",
+    "scripts\\check_a6_lpips_assets.py": "5053a14a4f0f8fc71bdbe7b444c1a8500aefdcda8f2311fe080eedd047eb425d"
+  },
+  "cuda_visible_devices": "-1",
+  "phase_b_journals": "off",
+  "data_split": "development",
+  "threads": 4,
+  "workers": 1,
+  "human_visual_verdict": "MISSING",
+  "inventory_sha256": "da29e68e1f39f55725c106776cefcef0b00074b35083c6747e2e481727aa2b92",
+  "batch": "batch-0456-08",
+  "selected_indices": [
+    456,
+    457,
+    458,
+    459,
+    460,
+    461,
+    462,
+    463
+  ],
+  "selected": 8,
+  "reader": {
+    "band": [
+      4,
+      32
+    ],
+    "whitening": 1.0,
+    "binding": "soft",
+    "semantic_views": 7,
+    "device": "cpu",
+    "owner": "qim-pilot-owner-alpha",
+    "roster_size": 1
+  },
+  "lpips": {
+    "status": "available",
+    "weights_sha256": {
+      "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\a6\\alexnet\\alexnet-owt-7be5be79.pth": "7be5be791159472b1fbf3c69796f7cb30dca7ad8466c2df70058c37116cdee02",
+      "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\a6-science-venv\\Lib\\site-packages\\lpips\\weights\\v0.1\\alex.pth": "df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0"
+    },
+    "verified_package": {
+      "lpips.py": "780d09b907cb9b661e0ae28b2d163ddfba92f9e870d7feba34d4790cc6590658",
+      "pretrained_networks.py": "6a27f714c51796db466e86bebba6a617c1bfc4d566f3a1756497629c1248686e",
+      "__init__.py": "36ee004a45e2cc2c5ab47fa3955f00c0e41f6a151ef0249fb6f362533ed58b22",
+      "weights/v0.1/alex.pth": "df73285e35b22355a2df87cdb6b70b343713b667eddbda73e1977e0c860835c0"
+    }
+  },
+  "model_assets_sha256": {
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\a6\\sd15-fp16\\vae\\config.json": "786a7d21647ddea6a04b9675c03d3cb45e90a2f3c6da5fbda2c54ade040036de",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\a6\\sd15-fp16\\vae\\diffusion_pytorch_model.fp16.safetensors": "4fbcf0ebe55a0984f5a5e00d8c4521d52359af7229bb4d81890039d2aa16dd7c",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\assets\\a6\\clip\\ViT-B-32.pt": "40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af"
+  },
+  "status": "complete",
+  "completed": 8,
+  "failure": null,
+  "output_sha256": "661738981f8f337dfe2446e7b4f6a9e3e27bbd27005df87da4241ea015dc0c5a",
+  "per_image_seconds": [
+    5.781000000075437,
+    5.75,
+    5.686999999918044,
+    5.719000000040978,
+    5.60999999998603,
+    5.827999999979511,
+    5.702999999979511,
+    5.75
+  ],
+  "under_540_seconds": true
+}

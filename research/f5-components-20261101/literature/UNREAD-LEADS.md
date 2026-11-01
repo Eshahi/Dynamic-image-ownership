@@ -2,7 +2,7 @@
 
 Date: 2026-11-01. Codex proposal; Claude remains the judge. This is a PDF-acquisition queue, not an evidence synthesis or a change to any component verdict.
 
-**Fourteen distinct journal leads; zero additional floor credits.** Twelve lack inspected complete methods and experiments. Two IEEE Access papers have substantial inspected prose but missing experimental table cells; their unread scope is stated separately. The Gate 2 count remains **32/56 journal slots and 35/36 conference slots**, with access-limited dispositions rather than completed floors. An empty slot means a paper was not read, never that relevant literature does not exist.
+**Fourteen distinct journal leads; zero additional floor credits.** Twelve lack inspected complete methods and experiments. Two IEEE Access papers have substantial inspected prose but missing experimental table cells; their unread scope is stated separately. After applying Gate 2's acceptance of TrustMark's final main paper, the count is **32/56 journal slots and 36/36 conference slots**. The journal deficits remain access-limited dispositions rather than completed floors. An empty slot means a paper was not read, never that relevant literature does not exist.
 
 ## Ranked acquisition queue
 
