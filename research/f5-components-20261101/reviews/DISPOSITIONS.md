@@ -4,7 +4,7 @@ SOURCE: Initial independent reviews inspect commit 8458e157. Review files are re
 
 | Finding | Author disposition | Evidence / change | Independent closure |
 |---|---|---|---|
-| FLOOR-B1: assignment manifest summary/status fields stale | FIXED, awaiting fresh floor rerun | Recomputed all twelve floor counts, unique works and assignments from the existing papers array; 48 works/68 assignments, 32 Q1J/36 TOP. K03 TOP=3 with TrustMark main-only restriction; nine accepted access-limited statuses and three met-floor statuses now match Gate 2 R1. No new work was counted. | PENDING |
+| FLOOR-B1: assignment manifest summary/status fields stale | FIXED in 811f880; independently CLOSED | Recomputed all twelve floor counts, unique works and assignments from the existing papers array; 48 works/68 assignments, 32 Q1J/36 TOP. K03 TOP=3 with TrustMark main-only restriction; nine accepted access-limited statuses and three met-floor statuses now match Gate 2 R1. No new work was counted. | Fresh [floor-rerun.md](floor-rerun.md), reviewed 59dbcfc: PASS, FLOOR-B1 CLOSED, zero remaining blockers. |
 
 SOURCE: [floor.md](floor.md) completed exactly twenty distinct counted-work online full-text checks (eleven journals/nine TOP), covering all twelve components, plus the required K11 PDF reopen and TQ/TK2/T0 source-input checks. It preserves FLOOR-B1 against the original snapshot and identifies no additional blocker.
 
@@ -45,3 +45,9 @@ SOURCE: [steelman.md](steelman.md) checks the option register and actual project
 | STEELMAN-O03: within-tier host-covariance normalization | DEFER pending identifiability and null proof | Current radial weighting is not chip-covariance normalization. A bounded transform might remove host variability, but calibration must be independent of tested table randomness and sparse data cannot justify an unconstrained covariance fit. Raw vectors, fresh disjoint data, full error budget and T4/T5 tests are missing. |
 
 JUDGMENT: The author's prioritization remains Q-RES then Q-STAGE as unexecuted mechanism diagnostics, subject to the user's scheduling and paid-compute decision. The three missed hypotheses do not establish a better method or displace F6. Both existing integrated designs remain unchanged. No blocker or affected rerun is required by the steelman review; the author has recorded every requested disposition.
+
+## WP6 closure
+
+SOURCE: The fresh affected-floor reviewer independently reduced the baseline, correction and review-checkpoint manifests, verified identical paper arrays, every count/status/ledger row and the original review's required sample coverage. The rerun performs no new online paper audit or pixel test; those unaffected materials and their original twenty-work audit remain explicit. It closes FLOOR-B1 against 59dbcfc, with all access/version/inference warnings preserved. See [closure evidence and exact assertions](floor-rerun.md).
+
+JUDGMENT: WP6 is complete: three fresh initial reviews, one blocker corrected and independently rerun, zero remaining blockers, and a recorded disposition for every warning and missed option. This is a package-completion proposal for Claude, not a scientific promotion or compute authorization. WP7 may now summarize the completed evidence.
