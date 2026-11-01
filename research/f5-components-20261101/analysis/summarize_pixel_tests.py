@@ -60,11 +60,15 @@ def main():
             key=method,item['id'];r=rows.get(key)
             expected.append(dict(method=method,id=item['id'],panel=item['panel'],split=item['split'],
                                  status=r['result_status'] if r else 'unprocessed',exists=item.get('exists',False)))
-    detail=[];responses=[];negatives=[]
+    detail=[];responses=[];negatives=[];supplemental=[]
     checked,key,config=v5._resolve(inv['profile'],None)
     owner=v5.canonical_owner(API['API']['ALPHA'])
     for r in rows.values():
         if r['result_status']!='ok':continue
+        if r['id'].startswith('v5-old:clean-') and r['id'].endswith('-C2'):
+            # Inventory prefix also captured ten historical other-owner marks.
+            # Preserve, but never replace the predeclared C1 images or roles.
+            supplemental.append(r);continue
         for c in r['calls']:
             if c['status']!='ok':continue
             raw=c['raw'];s,i=raw['semantic'],raw['instance']
@@ -96,7 +100,7 @@ def main():
             **{m+'_sources':sum(sum(bool(r[m]) for r in rs)>=req for rs in ss.values()) for m in ('C','O','O_U','exact_accept','lower_accept')},
             'new_exact_sources':sum(sum(r['exact_accept'] for r in rs)>=req and sum(r['lower_accept'] for r in rs)<req for rs in ss.values())})
     # Wrong-content center diagnostic, same fixed owner and actual stored scores.
-    oldclean={(r['method'],r['source'],r['arm']):r for r in rows.values() if r['panel']=='T5' and r['result_status']=='ok'}
+    oldclean={(r['method'],r['source'],r['arm']):r for r in rows.values() if r['panel']=='T5' and r['result_status']=='ok' and not r['id'].endswith('-C2')}
     t5=[]
     for pair in inv['t5_pairs']:
         for left,right in ((pair['left'],pair['right']),(pair['right'],pair['left'])):
@@ -173,7 +177,8 @@ def main():
     out.mkdir()
     for name,rs in [('inventory-status.csv',expected),('T2-calls.csv',detail),('T2-cells.csv',cells),('negative-calls.csv',negatives),('T5-pairs.csv',t5),('T3-pairs.csv',paired),('T3-source-responses.csv',source_response),('T3-cell-responses.csv',response_cells),('batch-runs.csv',runmeta)]:savecsv(out,name,rs)
     (out/'failures.json').write_text(json.dumps(failures,indent=2)+'\n',encoding='utf-8')
-    summary={'inventory':dict(Counter(r['status'] for r in expected)), 'error_attempts':len(failures),'T3_order':order,
+    (out/'supplemental-C2.json').write_text(json.dumps(supplemental,indent=2)+'\n',encoding='utf-8')
+    summary={'inventory':dict(Counter(r['status'] for r in expected)), 'error_attempts':len(failures),'supplemental_C2_images':len(supplemental),'T3_order':order,
              'T2_rule':'Read EVALUATE radius3 gains and all negative panels; reference-assisted T5 is separate from blind verification.',
              'T3_causality':'Family and working resolution are aliased. No causal scale fraction is identifiable.',
              'runtime':{'batches':len(runmeta),'total_seconds':sum(r['seconds'] for r in runmeta),'max_seconds':max((r['seconds'] for r in runmeta),default=0)}}
