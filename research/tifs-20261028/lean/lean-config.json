@@ -7,7 +7,8 @@
     "max_usd": 18.7,
     "max_instance_hours": 34,
     "retrieval_reserve_seconds": 3600,
-    "max_hourly_usd": 1.0
+    "max_hourly_usd": 1.0,
+    "min_free_disk_bytes": 10000000000
   },
   "arms": {
     "unmarked": {"kind": "unmarked"},
@@ -69,7 +70,7 @@
     }
   },
   "fit": {"margin": 1.25},
-  "read_modes": ["combined", "semantic_only"],
+  "read_modes": ["combined"],
   "unit_estimates_seconds": {
     "prepare": 20,
     "clean_unmarked": 5,

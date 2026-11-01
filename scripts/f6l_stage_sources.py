@@ -16,13 +16,11 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 import tifs_common as common
 
-GROUPS = ("screen_donors", "screen_targets", "rehearsal_donors", "rehearsal_targets")
-
 
 def rows():
     stage_s = common.load_json(ROOT / "research/tifs-20261028/stage-s/source-manifest.json")
     stage_p = common.load_json(ROOT / "research/tifs-20261028/stage-p/source-manifest.json")
-    result = [row for group in GROUPS for row in stage_s[group]] + stage_p["tune_sources"] + stage_p["check_sources"]
+    result = [row for group in common.SOURCE_GROUPS for row in stage_s[group]] + stage_p["tune_sources"] + stage_p["check_sources"]
     if len({row["source_id"] for row in result}) != 60:
         raise ValueError("Expected 60 distinct development sources")
     if any(row["data_split"] != "development" for row in result):

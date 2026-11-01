@@ -8,6 +8,7 @@ import argparse
 from datetime import datetime, timezone
 import json
 from pathlib import Path
+import shutil
 import sys
 import time
 import traceback
@@ -49,10 +50,7 @@ def plan(args):
 
 def active_config(args, config):
     """Arms removed by the clean quality gate get no regeneration or reads."""
-    gate = args.out / "arm-gate.json"
-    if not gate.exists():
-        return config
-    return dict(config, arms=common.load_json(gate)["active"])
+    return dict(config, arms=lean_common.active_arms(args.out, config))
 
 
 def start(args):
@@ -65,6 +63,8 @@ def start(args):
         raise ValueError("Instance start must be a past timezone-aware UTC instant")
     if list(args.out.glob("RESOURCE_STOP*.json")):
         raise common.ResourceStop("A resource stop already exists; the phase needs a person to review it")
+    if not lean_common.disk_ok(lean, shutil.disk_usage(args.out).free):
+        raise common.ResourceStop("Free disk is below the fixed floor; no output is deleted to make room")
     stage.install_deadline(args, config, instant)
     ready = common.load_json(args.assets / "f6l-setup-ready.json")
     if ready.get("status") != "complete" or ready.get("instance_start_utc") != instant.astimezone(timezone.utc).isoformat():
@@ -185,7 +185,6 @@ def clean(args, lean, config, base, specs, budget, rt, torch):
 
 def probe(args, lean, config, base, specs, budget, rt, torch):
     """Timing, memory and gradient agreement fix the writer policy before any mark is read."""
-    from f6l_writer import LeanWriter
     p, donors, _ = stage.prepared(args)
     writer = build_writer(args, lean, config, base, dict(checkpoint=True))
     try:
@@ -275,9 +274,16 @@ def main(argv=None):
             common.atomic_json(args.out / f"RESOURCE_STOP-{args.stage}.json",
                                dict(status="RESOURCE_STOP", reason="CUDA OOM outside a unit", stage=args.stage, error=traceback.format_exc()))
             raise SystemExit(3)
+        # A failed unit stays terminal. Exit 4 lets the driver finish the fixed inventory and know about it.
         if args.stage in ("clean", "native", "threats", "secondary"):
-            rows = common.Journal(args.out / (args.stage + ".jsonl"), read_only=True).latest
-            if any(row.get("status") == "error_terminal" for row in rows.values()):
+            paths = [args.out / (args.stage + ".jsonl")]
+        elif args.stage in ("detect", "quality"):
+            suffix = "-" + args.worker.replace("/", "-of-") if args.worker else ""
+            paths = list(args.out.glob(f"{args.stage}-*{suffix}.jsonl"))
+        else:
+            paths = []
+        for path in paths:
+            if any(row.get("status") == "error_terminal" for row in common.Journal(path, read_only=True).latest.values()):
                 raise SystemExit(4)
 
 

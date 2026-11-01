@@ -141,12 +141,13 @@ def _complete_scores(arm, cells, minimum):
     return all(arm["cells"][cell]["calls"] - arm["cells"][cell]["missing_calls"] >= minimum for cell in cells)
 
 
-def decide_stage1(summaries, c0, config):
+def decide_stage1(summaries, c0, config, missing=()):
     """Rank by the weakest foreign cell. Advance at most two finalists."""
     cells, gates = config["lean"]["cells"], config["lean"]["gates"]
     threshold, rule1 = gates["decoded_threshold"], gates["stage1"]
     foreign, home = cells["foreign"], cells["home"]
-    result = dict(schema="f6-lean-stage1-v1", arms={}, c0=c0, finalists=[], rejected={}, incomplete={})
+    result = dict(schema="f6-lean-stage1-v1", arms={}, c0=c0, finalists=[], rejected={},
+                  incomplete={name: "clean write or quality row missing" for name in missing})
     for name, arm in summaries.items():
         result["arms"][name] = arm
         if name == "f5-r2":
@@ -264,8 +265,7 @@ def decide_stage2(summaries, c0, config):
     return result
 
 
-def gate(name, lower, upper, required, **extra):
-    return analyze.minimum_gate(name, lower, upper, required, **extra)
+gate = analyze.minimum_gate
 
 
 def zero_gate(name, events, unresolved):
@@ -396,34 +396,32 @@ def secondary_table(config, data, arms):
     return table
 
 
-def active_arms(out, config):
-    path = Path(out) / "arm-gate.json"
-    if not path.exists():
-        return list(config["arms"])
-    return common.load_json(path)["active"]
-
-
 def clean_gate(out, config):
     """An arm that fails strict clean quality gets no regeneration. Controls always continue."""
     data = load_phase(out)
     prepared = common.load_json(Path(out) / "prepared.json")
-    active, removed = [], {}
+    active, removed, missing = [], {}, {}
     for arm in config["arms"]:
         spec = config["lean"]["arms"][arm]
         if spec["kind"] != "lean":
             active.append(arm)
             continue
-        failed = []
+        failed, absent = [], []
         for sid in prepared["donors"]:
             row = data["qualities"].get(f"quality:clean:{sid}:{arm}")
             total = row.get("total") if row and row.get("status") == "ok" else None
-            if total is None or not common.strict_quality(total):
+            if total is None:
+                absent.append(sid)
+            elif not common.strict_quality(total):
                 failed.append(sid)
+        # An observed failure removes the arm. An absent image cannot regenerate either, but it stays missing.
         if failed:
             removed[arm] = failed
+        elif absent:
+            missing[arm] = absent
         else:
             active.append(arm)
-    report = dict(active=active, removed=removed)
+    report = dict(active=active, removed=removed, missing=missing)
     common.atomic_json(Path(out) / "arm-gate.json", report)
     return report
 
@@ -433,7 +431,7 @@ def seconds(rows):
     return statistics.median(values) if values else None
 
 
-def fit(args, config):
+def fit(args):
     """Before each paid phase: does the rest fit, from measured unit times?"""
     root = Path(args.root)
     lean = lean_common.load_lean()
@@ -488,33 +486,39 @@ def main(argv=None):
     parser.add_argument("--hourly-usd", type=float)
     args = parser.parse_args(argv)
     if args.action == "fit":
-        report = fit(args, None)
+        report = fit(args)
         print(json.dumps(report, sort_keys=True))
         return 0 if report["fits"] else 3
     config = common.load_json(args.out / "config.json")
     if args.action == "clean-gate":
         print(json.dumps(clean_gate(args.out, config), sort_keys=True))
         return 0
+    if (config["owners"]["positive"], config["owners"]["wrong"]) != (ALPHA, BETA):
+        raise ValueError("Config owners differ from the owners these rules read")
     data = load_phase(args.out)
     prepared = common.load_json(args.out / "prepared.json")
     data["sources"] = prepared["donors"]
-    arms = active_arms(args.out, config)
+    arms = lean_common.active_arms(args.out, config)
+    gate_path = args.out / "arm-gate.json"
+    gate_report = common.load_json(gate_path) if gate_path.exists() else {}
+    stopped = bool(glob.glob(str(args.out / "RESOURCE_STOP*.json")))
     summaries = phase_summaries(config, data, arms)
     cells = [c["id"] for c in config["cells"]]
     c0 = c0_events(data, "f5-r2", cells, config["seeds"], data["sources"])
     if args.phase == "stage1":
-        result = decide_stage1(summaries, c0, config)
+        result = decide_stage1(summaries, c0, config, gate_report.get("missing", {}))
     elif args.phase == "stage2":
         result = decide_stage2(summaries, c0, config)
     else:
         pairs = prepared["pairs"]
         threats = threat_summary(data, config["lean"]["winner"], config["lean"]["winner"], pairs)
-        result = verdict_stage3(summaries, threats, c0, config, resource_stop=bool(glob.glob(str(args.out / "RESOURCE_STOP*.json"))))
+        result = verdict_stage3(summaries, threats, c0, config, resource_stop=stopped)
         result["vine_r_presence"] = presence_table(config, data)
         result["threats_by_arm"] = {arm: threat_summary(data, arm, arm, pairs) for arm in summaries}
         result["secondary"] = secondary_table(config, data, list(summaries))
-    gate_path = args.out / "arm-gate.json"
-    result["removed_by_clean_gate"] = common.load_json(gate_path)["removed"] if gate_path.exists() else {}
+    if args.phase != "stage3" and stopped and result["status"] in ("ADVANCE", "INCOMPLETE"):
+        result["status"] = "RESOURCE_STOP"
+    result["removed_by_clean_gate"] = gate_report.get("removed", {})
     result["digest"] = digest({k: v for k, v in result.items() if k != "digest"})
     common.atomic_json(args.out / "decision.json", result)
     print(json.dumps({k: result.get(k) for k in ("status", "reason", "finalists", "winner", "ranking")}, sort_keys=True))

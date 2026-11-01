@@ -124,6 +124,18 @@ class Stage1Rules(unittest.TestCase):
         self.assertEqual(result["status"], "INCOMPLETE")
         self.assertIn("noise-46", result["incomplete"])
 
+    def test_a_missing_arm_makes_a_stop_incomplete_not_scientific(self):
+        b = self.build()
+        result = self.decide_with_missing(b, dict({"noise-46": ["1"]}))
+        self.assertEqual(result["status"], "INCOMPLETE")
+        self.assertIn("noise-46", result["incomplete"])
+
+    def decide_with_missing(self, b, missing):
+        config = config_for("stage1")
+        summaries = select.phase_summaries(config, b.data(), ["f5-r2"])
+        c0 = select.c0_events(b.data(), "f5-r2", list(CELLS), config["seeds"], b.sources)
+        return select.decide_stage1(summaries, c0, config, missing)
+
     def test_c0_event_stops_for_review(self):
         b = self.build()
         b.c0(event=True)
@@ -349,14 +361,30 @@ class CommonRules(unittest.TestCase):
             for arm in config["arms"]:
                 for sid in ("1", "2"):
                     uid = f"quality:clean:{sid}:{arm}"
-                    good = not (arm == "gen-38" and sid == "2") and arm != "x0-46"
+                    good = not (arm == "gen-38" and sid == "2")
                     if arm == "x0-46" and sid == "2":
                         continue
                     stream.write(json.dumps(dict(id=uid, status="ok", total=GOOD if good else BAD)) + "\n")
         report = select.clean_gate(folder, config)
-        self.assertEqual(sorted(report["removed"]), ["gen-38", "x0-46"])
+        self.assertEqual(sorted(report["removed"]), ["gen-38"])
+        self.assertEqual(report["missing"], dict({"x0-46": ["2"]}))
+        self.assertNotIn("x0-46", report["active"])
         self.assertIn("f5-r2", report["active"])
-        self.assertEqual(select.active_arms(folder, config), report["active"])
+        self.assertEqual(lean_common.active_arms(folder, config), report["active"])
+
+    def test_every_lean_arm_has_a_reader_time_estimate(self):
+        config = config_for("stage1")
+        estimates = config["budget"]["unit_estimates_seconds"]
+        for arm in config["arms"]:
+            if config["lean"]["arms"][arm]["kind"] == "lean":
+                self.assertEqual(estimates["detect_" + arm], estimates["detect_f5-r2"])
+
+    def test_disk_floor(self):
+        self.assertFalse(lean_common.disk_ok(self.lean, 9 * 10 ** 9))
+        self.assertTrue(lean_common.disk_ok(self.lean, 10 ** 10))
+
+    def test_only_combined_threat_reads_are_paid_for(self):
+        self.assertEqual(config_for("stage1")["threats"]["read_modes"], ["combined"])
 
 
 if __name__ == "__main__":

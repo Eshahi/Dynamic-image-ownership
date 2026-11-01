@@ -76,9 +76,12 @@ def stage_config(lean, base, phase, *, previous=None):
     config.update(arms=names, seeds=lean["phases"][phase]["seeds"], study="F6 lean " + phase,
                   candidate=None, new_writers=[n for n in names if specs[n]["kind"] == "lean"],
                   execution_authorized=False, gate_profile="lean-c-primary")
+    estimates = dict(lean["unit_estimates_seconds"])
+    # Every lean arm is read by the F5 reader, so it has the F5 row time.
+    estimates.update({"detect_" + name: estimates["detect_f5-r2"] for name in names if specs[name]["kind"] == "lean"})
     config["budget"] = dict(max_instance_hours=lean["caps"]["max_instance_hours"],
                             retrieval_reserve_seconds=lean["caps"]["retrieval_reserve_seconds"],
-                            unit_estimates_seconds=lean["unit_estimates_seconds"])
+                            unit_estimates_seconds=estimates)
     config["threats"] = dict(config["threats"], read_modes=lean["read_modes"])
     config["lean"] = dict(phase=phase, arms=specs, writer=lean["writer"], cells=lean["cells"],
                           gates=lean["gates"], primary_endpoint=lean["primary_endpoint"],
@@ -93,13 +96,19 @@ def stage_config(lean, base, phase, *, previous=None):
     return config
 
 
+def disk_ok(lean, free_bytes):
+    return free_bytes >= lean["caps"]["min_free_disk_bytes"]
+
+
+def active_arms(out, config):
+    """The arm list after the clean gate, or the whole list before it has run."""
+    path = Path(out) / "arm-gate.json"
+    return common.load_json(path)["active"] if path.exists() else list(config["arms"])
+
+
 def within_cushion(lean, metrics):
     limit = lean["writer"]["quality_cushion"]
     return common.quality_eligible(metrics, limit["psnr_db_gt"], limit["ssim_rgb_gt"], limit["lpips_lt"])
-
-
-def median_pairwise_cos(values):
-    return statistics.median(values) if values else None
 
 
 def decide_policy(rules, measures):

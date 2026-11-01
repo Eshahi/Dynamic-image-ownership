@@ -43,7 +43,7 @@ Native cells are SD1.5 .2, SDXL .1, SDXL .2 and K3 .2 throughout. Stage P's eigh
 - bf16 on the surrogate path: on if time ratio is at most .7 and gradient cosine at least .95.
 - No checkpointing: only if it fits with 6 GiB free and time ratio is at most .8.
 
-**Clean gate.** A lean arm that fails strict quality on any source gets no regeneration in Stage 1. It stays listed as removed.
+**Clean gate.** A lean arm that fails strict quality on any source gets no regeneration in Stage 1. It stays listed as removed. An arm whose image or quality row is missing cannot regenerate either, but it is listed as incomplete, not failed.
 
 **Stage 1.** An arm is eligible with strict quality on 4/4, clean F on 4/4, no wrong-owner C or F event, and mean decoded score at or above the read threshold 8.2593 on SD1.5 .2, SDXL .1 and K3. Rank by the lowest mean decoded score across the three foreign cells, then their sum, then SD1.5 .2, then lower median LPIPS, higher PSNR, higher SSIM, then arm name. Keep the top 2. Stop if none is eligible.
 
@@ -76,7 +76,7 @@ The T4 and T5 gate is stricter than round 3, which counted only D and F. With C 
 
 ## Money
 
-Cap: the smaller of 34 instance-hours and USD 18.7 at the actual price, on one clock from the instance start. The last hour is reserved for retrieval, and each unit checks the clock first. Before Stage 2 and again before Stage 3, measured unit times must show the remaining work times 1.25 fits; otherwise the study stops with RESOURCE_STOP and keeps what it has. There is no extension, and no source, seed or arm is cut to fit.
+Cap: the smaller of 34 instance-hours and USD 18.7 at the actual price, on one clock from the instance start. The last hour is reserved for retrieval, and each unit checks the clock first. Before Stage 2 and again before Stage 3, measured unit times must show the remaining work times 1.25 fits; otherwise the study stops with RESOURCE_STOP and keeps what it has. There is no extension, and no source, seed or arm is cut to fit. Every stage also checks for at least 10 GB of free disk and stops with RESOURCE_STOP below that; no output is deleted to make room. A stop still writes the phase's decision file from what exists.
 
 ## What this cannot claim
 

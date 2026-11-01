@@ -503,3 +503,5 @@
 2026-10-26T07:32:00Z | Claude Code (Opus 5.5) dev run | .thesis-build/dev-runs/20261026-0705-et-final-pilot | claude/et-final-pilot 2d1df82 | Final-study Phase-A feasibility pilot on vast 57583551 (RTX 4090), six development sources, detector-sealed: replay exact 18/18, full-chain JVPs feasible for SD1.5/SDXL/K3 in native fp16 with declared attention/LayerNorm/unit-tangent changes, per-step primal gap 3e-4 to 1.5e-3 above the 1e-4 tolerance; projection A ~17 h, B ~45 h; instance stopped.
 
 - 2026-11-01 Claude: F6 deep analysis, CPU only on saved development images and journals; no server, no marks. Report research/tifs-20261028/lean/F6-DEEP-ANALYSIS.md. Pushed to claude/f6-lean-20261101.
+
+- 2026-11-01 Claude: lean F6 package on claude/f6-lean-20261101; no server run. Rule, flow and CPU writer tests pass.

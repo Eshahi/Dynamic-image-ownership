@@ -15,7 +15,17 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 HF_DATASETS_OFFLINE=1
 export PYTHONPATH="$PWD/scripts${PYTHONPATH:+:$PYTHONPATH}"
 INCOMPLETE=0
+CURRENT_PHASE=
+CURRENT_OUT=
 note() { printf '%s %s\n' "$(date -u +%FT%TZ)" "$*" | tee -a "$RUN_ROOT/driver.log"; }
+# Record what the phase has before leaving, so a stop still has a report. A rehearsal has no verdict of its own.
+resource_stop() {
+  note RESOURCE_STOP
+  if [ "$CURRENT_PHASE" != probe ] && [ -n "$CURRENT_OUT" ] && [ "$(basename "$CURRENT_OUT")" != rehearsal ] && [ -f "$CURRENT_OUT/prepared.json" ]; then
+    "$PY" scripts/f6l_select.py --action decide --phase "$CURRENT_PHASE" --out "$CURRENT_OUT" >> "$CURRENT_OUT/decide.log" 2>&1 || true
+  fi
+  exit 3
+}
 # A missing unit stays missing and the rest of the fixed inventory still runs.
 invoke() {
   local logfile=$1; shift
@@ -25,12 +35,13 @@ invoke() {
   case "$rc" in
     0) ;;
     4) INCOMPLETE=1 ;;
-    3) note RESOURCE_STOP; exit 3 ;;
+    3) resource_stop ;;
     *) note "IMPLEMENTATION_STOP rc=$rc"; exit "$rc" ;;
   esac
 }
 stage_run() {
   local phase=$1 out=$2 action=$3; shift 3
+  CURRENT_PHASE=$phase; CURRENT_OUT=$out
   invoke "$out/$action.log" "$PY" scripts/f6l_run.py --phase "$phase" --stage "$action" --out "$out" \
     --assets "$ASSETS" --instance-start-utc "$START" --hourly-usd "$PRICE" "$@"
 }
@@ -54,7 +65,7 @@ read_all() {
     esac
   done
   if [ "$fatal" -ne 0 ]; then note "IMPLEMENTATION_STOP rc=$fatal"; exit "$fatal"; fi
-  if [ "$resource" -ne 0 ]; then note RESOURCE_STOP; exit 3; fi
+  if [ "$resource" -ne 0 ]; then resource_stop; fi
   stage_run "$phase" "$out" quality "$@"
 }
 decide() {
@@ -82,6 +93,7 @@ plan probe "$P"
 stage_run probe "$P" prepare
 stage_run probe "$P" clean
 stage_run probe "$P" native --rehearsal
+[ "$INCOMPLETE" -eq 0 ] || { note 'probe replay incomplete'; exit 4; }
 stage_run probe "$P" probe
 [ "$INCOMPLETE" -eq 0 ] || { note 'probe incomplete'; exit 4; }
 
