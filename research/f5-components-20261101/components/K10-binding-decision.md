@@ -94,3 +94,10 @@ JUDGMENT: T1 and existing T4/T5 diagnostics apply with fixed kills. Judge must c
 SOURCE: EditGuard/OmniGuard recovery contracts motivate refusing an ownership statement when two available descriptors disagree. Use existing q/h consistency only, no new descriptor, and abstain when meaningful evidence conflicts. Targets false attribution, not lost transport.
 JUDGMENT: Delta new-endpoint successes -10..0/60 on foreign cells; C/J remain frozen. No write/quality cost, negligible reader logic, same side information. Veto can lose true positives and still miss T5 collisions; absent evidence is not a contradiction. Simpler alternative O1 labels without acceptance change.
 JUDGMENT: T1's route/content tables are the cheapest descriptive screen; a future fixed veto must beat the same T4/T5 panel without unacceptable T3 loss, otherwise kill. No fitted veto threshold is authorized now. Signed records/new instance descriptors would be REOPENS-CLOSED-LINE or new detector side information and are not part of this option.
+
+## E. Offline tests and dispositions
+
+SOURCE: Commands, exact commits, input/output hashes, split/missingness, all numbers and inherited prospective kill rules are in [WP4 results ledger](../results/LEDGER.md) and its linked raw outputs. These are exploratory development results; each option below has the test or specific unavailable intervention identified in [OPTIONS](../OPTIONS.md).
+
+MEASURED: O1 route/status accounting is complete and preserves C/J. Semantic-absent instance-content successes are separately identified; unchecked is not exact-q agreement. O2 inherits the new EVALUATE T4 accept and is killed as safe promotion.
+DERIVED: O3 defined as a contradiction veto cannot remove the observed T4 counterexample because semantic evidence is absent; absent evidence is not a contradiction. This is a decisive logical failure of that proposed sufficient repair, without tuning a veto after the attack. Rejecting all unchecked events would remove valuable N1 successes and requires a new declared tradeoff, not a favorable reinterpretation here.

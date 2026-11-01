@@ -1,0 +1,41 @@
+{
+  "inventory": {
+    "ok": 911,
+    "missing-image-or-terminal": 3
+  },
+  "error_attempts": 0,
+  "supplemental_C2_images": 10,
+  "T3_order": [
+    {
+      "method": "v5-r3",
+      "split": "DESIGN",
+      "matched": true,
+      "rule": "KILL_SIMPLE_RESPONSE_ORDER"
+    },
+    {
+      "method": "v5-r3",
+      "split": "EVALUATE",
+      "matched": true,
+      "rule": "ORDER_COMPATIBLE_CAUSE_UNIDENTIFIED"
+    },
+    {
+      "method": "f5-r2",
+      "split": "DESIGN",
+      "matched": true,
+      "rule": "ORDER_COMPATIBLE_CAUSE_UNIDENTIFIED"
+    },
+    {
+      "method": "f5-r2",
+      "split": "EVALUATE",
+      "matched": true,
+      "rule": "ORDER_COMPATIBLE_CAUSE_UNIDENTIFIED"
+    }
+  ],
+  "T2_rule": "Read EVALUATE radius3 gains and all negative panels; reference-assisted T5 is separate from blind verification.",
+  "T3_causality": "Family and working resolution are aliased. No causal scale fraction is identifiable.",
+  "runtime": {
+    "batches": 79,
+    "total_seconds": 2265.022999999812,
+    "max_seconds": 68.26600000006147
+  }
+}

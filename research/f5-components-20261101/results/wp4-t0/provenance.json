@@ -1,0 +1,66 @@
+{
+  "command": [
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\venv\\Scripts\\python.exe",
+    "-I",
+    "research/f5-components-20261101/analysis/offline_code_diagnostics.py",
+    "--out",
+    "wp4-t0"
+  ],
+  "commit": "6fcde02dea8f6af0b8fff24fb87355d0c20a5d59",
+  "seconds": 2.062999999965541,
+  "inputs": {
+    "stage2": {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261025-0128-encoder-transfer-stage2b\\results\\stage2b-full\\rows.jsonl",
+      "sha256": "f3b95d3e727d421c29a2a2e42eb1ef5881f55b7d3eb848a237ab51095455fb82",
+      "inventory": {
+        "lines": 39896,
+        "status:generated": 28856,
+        "status:safety_blocked": 23,
+        "status:ok": 11017
+      },
+      "retained_ids": 11040,
+      "nonidentical_replacements": []
+    },
+    "native": {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261026-0855-et-final-phase-a\\results\\native.jsonl",
+      "sha256": "849a254328cc0bc16c1c14f67f3895b210793336215c81f66e8c1ecd4a3ddf24",
+      "inventory": {
+        "lines": 6480,
+        "status:ok": 6449,
+        "status:safety_blocked": 22,
+        "status:unavailable": 9
+      },
+      "retained_ids": 6480,
+      "nonidentical_replacements": []
+    },
+    "detect": {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261026-0855-et-final-phase-a\\results\\detect.jsonl",
+      "sha256": "08137a6b5b805a342266cd586d210ba8dc110ab8e6e49aac3dba97d96c0d1235",
+      "inventory": {
+        "lines": 9080,
+        "status:ok": 9080
+      },
+      "retained_ids": 9080,
+      "nonidentical_replacements": []
+    },
+    "attacks": {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261026-0855-et-final-phase-a\\results\\attacks.jsonl",
+      "sha256": "fe0b18c2cca52e31c65d579a4daf31f108390bbc666ad19853fd88c5688ebd9e",
+      "inventory": {
+        "lines": 5340,
+        "status:ok": 5330,
+        "status:safety_blocked": 10
+      },
+      "retained_ids": 5340,
+      "nonidentical_replacements": []
+    }
+  },
+  "script_sha256": "188b9f8ba70cdb462268808b84e15b9e140385498ac73129e4d2f18fd5b64baf",
+  "plan_sha256": "842890e9e6059b500273ca5018f534c575a14da763f09e3bc4053ccfa411136d",
+  "outputs": {
+    "calls.csv": "c44223ed7657a9b0b1bf54a766cce6ecb04b30f543d39ee5a52d80afd637281e",
+    "cells.csv": "51aed516b66006b79cc2462d0cfb342128f43727e7e348176eaeeec269160436",
+    "codebook.csv": "a4598fc898e7df29bb2f0a7cdb0c4cd1b3b26b52d73489cd6ce1cf3bad1c24c2",
+    "summary.json": "fb02cbc9062688cc6f893a76e35dbcbc44efbf436610068574c5f47e523ee653"
+  }
+}

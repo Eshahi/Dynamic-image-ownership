@@ -100,3 +100,10 @@ JUDGMENT: T1/T2 validate complete route and panel accounting; kill a proposed su
 SOURCE: Gate-1 R5 and K06/K07 literature. Q-STAGE compares full writer traces with robust-only at matched total final quality, then checks system endpoints. Targets causal budget attribution and optimizer damage, not merely predictive correlation.
 JUDGMENT: Additional writes, regeneration and two-owner reads; exact anchor costs in SERVER-QUEUE. No deployed side-information change. Removing h may worsen T4/T5; all-image quality and flat-region human checks mandatory. Simpler alternative T4 final-margin association.
 JUDGMENT: T4's precommitted rule can kill a simple predictive story but cannot approve this causal one. Q-STAGE kills robust-only promotion if no useful equal-quality T3 gain or any quality/safety regression. A stage diagnosis without safety panels is not a completed method comparison. No closed line reopened.
+
+## E. Offline tests and dispositions
+
+SOURCE: Commands, exact commits, input/output hashes, split/missingness, all numbers and inherited prospective kill rules are in [WP4 results ledger](../results/LEDGER.md) and its linked raw outputs. These are exploratory development results; each option below has the test or specific unavailable intervention identified in [OPTIONS](../OPTIONS.md).
+
+MEASURED/DERIVED: O1 T3 leaves family/scale nonidentifiable; Q-RES is mandatory to settle the strong scale account. O2 T1 distinguishes C/J/O/O_U/O_Q and complete error budgets, while T2 demonstrates that reader detection gains can be binding negatives. All missing and failed units are retained; reused seeds/pairs/studies are not counted as independent sources.
+MEASURED/JUDGMENT: O3 T4 retains predictive association but no causal stage claim, so Q-STAGE is required. New evaluation reporting itself changes frozen C/J by0. No held-out journals or pixels, Phase-B tuning, diffusion/writer run or automatic lifecycle verdict was used. No later study can claim fresh confirmation from these consumed development sources.

@@ -1,0 +1,45 @@
+{
+  "nominal_alpha": 1e-06,
+  "old_tier_union_upper": 2e-06,
+  "old_either_found_union_upper": 4e-06,
+  "old_O_three_route_union_upper_conditional_q": 3e-06,
+  "O_U_three_route_union_upper_conditional_q": 7.5e-07,
+  "four_route_thresholds": {
+    "recomputed": 5.243804105290349,
+    "decoded": 8.423231196698145
+  },
+  "instance_q_enumerated_decoded_threshold": 10.71638415312602,
+  "qualification": "Conditional random-sign model; public fixed-key adaptive forgery is not controlled. Q envelope covers q selection, not arbitrary image adaptation.",
+  "judge_cells_reproduced": [
+    "f5-r2|R0-0.1",
+    "v5-r3|R0-0.1",
+    "f5-r2|R0-0.2",
+    "v5-r3|R0-0.2",
+    "f5-r2|R0-0.4",
+    "v5-r3|R0-0.4",
+    "f5-r2|R1-0.1",
+    "v5-r3|R1-0.1",
+    "f5-r2|R1-0.2",
+    "v5-r3|R1-0.2",
+    "f5-r2|R1-0.4",
+    "v5-r3|R1-0.4",
+    "f5-r2|R3-0.2",
+    "v5-r3|R3-0.2"
+  ],
+  "decisions": {
+    "f5-r2": {
+      "foreign_source_cell_gains_not_unique_sources": 57,
+      "sd15_low_strength_source_cell_losses": 0,
+      "negative_calls": 0,
+      "necessary_lead_rule": "RETAIN_LEAD_T4_T5_UNKNOWN",
+      "note": "Stage2/PhaseA overlap; aggregate source-cell counts are not independent evidence."
+    },
+    "v5-r3": {
+      "foreign_source_cell_gains_not_unique_sources": 15,
+      "sd15_low_strength_source_cell_losses": 4,
+      "negative_calls": 0,
+      "necessary_lead_rule": "KILL",
+      "note": "Stage2/PhaseA overlap; aggregate source-cell counts are not independent evidence."
+    }
+  }
+}

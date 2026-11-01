@@ -1,0 +1,34 @@
+{
+  "schema": "TK2-content-calibration-v1",
+  "status": "complete",
+  "start_utc": "2026-11-01T13:29:42.636530+00:00",
+  "command": "\"W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\venv\\Scripts\\python.exe\" research/f5-components-20261101/analysis/content_calibration.py --out research/f5-components-20261101/results/wp4-tk2",
+  "argv": [
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\venv\\Scripts\\python.exe",
+    "research/f5-components-20261101/analysis/content_calibration.py",
+    "--out",
+    "research/f5-components-20261101/results/wp4-tk2"
+  ],
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "git_commit": "e029ff3c4e913ee67e6c13226367a41ceae09ecb",
+  "script": "C:\\Users\\Soroush\\.codex\\worktrees\\codex-f5-components\\research\\f5-components-20261101\\analysis\\content_calibration.py",
+  "script_sha256": "12a329ce44a9a377195f0fa874f178418d8065a27eb41297d2c7bd6a5277bf4e",
+  "input": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\v5-study-runs\\C4-v5-two-tier-development\\c4-v5-two-tier-dev-001\\outputs\\results.json",
+  "input_sha256": "58766c579377f344770887e6cad8bf4ed779ee207c2b6872b4a24ac4a90b9b4d",
+  "profile_sha256": "25f9cb188368be04cd8d2b95ea1066872d3ca70908bd554af01ff93a53b40723",
+  "cuda_visible_devices": "-1",
+  "maximum_seconds": 540,
+  "read_scope": "One saved development JSON, existing profile and stdlib codec source; no images or models.",
+  "codec_sha256": {
+    "revised_watermark_v5.py": "3bbfeef3655854f2ecc15b530ecab8c63b5432d9e64bf0324d5d955889ff5999",
+    "revised_watermark_v4.py": "7498f2dd72057b99d96e94897494614e22cc1f67ad33905e2325968329eddbf4",
+    "revised_watermark_v3.py": "49b35d1683f40ba7d98dd917ea052adfc9fbc5276535d450e0bfa421a3e452d1"
+  },
+  "proposal": "KILL_CALIBRATION_PRIORITY",
+  "outputs_sha256": {
+    "rows.json": "d28ddb58d32ae62877ae593f8155ae29a1b439352a059e01a4e9d737d1510439",
+    "summary.json": "e37dbd6ab51f30b5765fa1166e942c0e4b27cf6d3329068a1dba37ff0b4ebd25"
+  },
+  "duration_seconds": 0.38362730003427714,
+  "end_utc": "2026-11-01T13:29:42.927229+00:00"
+}

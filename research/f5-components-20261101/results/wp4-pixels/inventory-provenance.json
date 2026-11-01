@@ -1,0 +1,13 @@
+{
+  "commit": "6fcde02dea8f6af0b8fff24fb87355d0c20a5d59",
+  "command": [
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\venv\\Scripts\\python.exe",
+    "research/f5-components-20261101/analysis/offline_pixel_tests.py",
+    "inventory"
+  ],
+  "seconds": 1.2650000000139698,
+  "cuda_visible_devices": "-1",
+  "phase_b_journals": "off",
+  "script_sha256": "59fc20e84a0b46a2cc1c04e6882f595ecbe632b833e70dbfec574d06ba79e14e",
+  "plan_sha256": "842890e9e6059b500273ca5018f534c575a14da763f09e3bc4053ccfa411136d"
+}

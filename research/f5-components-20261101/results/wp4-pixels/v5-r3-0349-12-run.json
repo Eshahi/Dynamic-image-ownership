@@ -1,0 +1,30 @@
+{
+  "commit": "9c607f85016f3f187cffb3b0b67d0bdd056e335c",
+  "command": [
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\a6-science-venv\\Scripts\\python.exe",
+    "research/f5-components-20261101/analysis/offline_pixel_tests.py",
+    "batch",
+    "--method",
+    "v5-r3",
+    "--start",
+    "349",
+    "--count",
+    "12"
+  ],
+  "seconds": 5.686999999918044,
+  "cuda_visible_devices": "-1",
+  "phase_b_journals": "off",
+  "script_sha256": "59fc20e84a0b46a2cc1c04e6882f595ecbe632b833e70dbfec574d06ba79e14e",
+  "plan_sha256": "7b158193ead96134ae6bc5c58bd5f3765c448e290537bc4d217ece792d717ae1",
+  "method": "v5-r3",
+  "inventory_sha256": "a14294f587f4923756291840e34099bb23c4905b2ed1a5a257a4c502c387a229",
+  "selected": 12,
+  "completed": 12,
+  "total_items": 482,
+  "status": "complete",
+  "failure": null,
+  "synthetic_checks": 880,
+  "output_sha256": "81cbccd2ba6669cf98e6842f1d408a567573c2acd29ccf541026890f2e043f9f",
+  "threads": 4,
+  "workers": 1
+}

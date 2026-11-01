@@ -86,3 +86,10 @@ JUDGMENT: T4 is the cheapest saved-data prerequisite. No iteration traces exist 
 SOURCE: DiffMark annealing ablation and N1 complementary tiers motivate a fixed alternating/joint loss schedule for the two existing targets. Targets interference/weak margins, not a claim that the current robust-only loss is globally wrong. All physical caps UNKNOWN.
 JUDGMENT: Delta C/60 SDXL .2 0..+10, K3 .2 -5..+10, SD1.5 .2 -5..+3; the schedule could trade one carrier for another. Writer gradients/steps and CPU/GPU memory increase by an unmeasured amount; reader unchanged. No new side information. A valid second-tier endpoint needs multiplicity and T4/T5 checks. Every writer visibility constraint in OPTIONS applies. Simpler alternative: measured stage order or O2.
 JUDGMENT: T3/T4 plus Q-STAGE are prerequisites; no optimizer can be run offline. Kill a later same-budget comparison if either carrier's prespecified useful-cell contribution falls without a compensating valid system gain, or strict quality/T4/T5 fails. No closed line reopened; unrelated E3 changes remain excluded.
+
+## E. Offline tests and dispositions
+
+SOURCE: Commands, exact commits, input/output hashes, split/missingness, all numbers and inherited prospective kill rules are in [WP4 results ledger](../results/LEDGER.md) and its linked raw outputs. These are exploratory development results; each option below has the test or specific unavailable intervention identified in [OPTIONS](../OPTIONS.md).
+
+MEASURED: T4 freezes DESIGN median clean margin1.0033376911. EVALUATE rho=.6315906563 and high-minus-low foreign decoded-score gap+.7768209856 pass the .30/positive rules. This retains O1's predictive lead; all60 final medians being below target4 does not distinguish optimization failure from later damage.
+JUDGMENT: O1's causal part awaits Q-STAGE. O2 lacks a retained per-iteration feasible-image series; O3 lacks alternate schedule outputs, so neither can be honestly replayed from a final image. Stage attribution and equal-quality robust-only marks remain unavailable under the writer ban. No amplitude multiplier is used as a performance forecast.

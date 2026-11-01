@@ -1,0 +1,21 @@
+{
+  "command": [
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\venv\\Scripts\\python.exe",
+    "-I",
+    "research/f5-components-20261101/analysis/summarize_wp4_findings.py",
+    "--out",
+    "wp4-findings"
+  ],
+  "commit": "61f29357be5e609990829639a63899ffbe2473d0",
+  "seconds": 0.06199999991804361,
+  "script_sha256": "3275d80a6e2a37370c75a72e8d3267a7551b52771061fd67a8c776154c08f4db",
+  "inputs": {
+    "research\\f5-components-20261101\\results\\wp4-pixel-summary\\T2-calls.csv": "0d79d4bf6a2a992ad0ba1a66674504615a2c9a9388cc67861bfdfa89f2b28c39",
+    "research\\f5-components-20261101\\results\\wp4-pixel-summary\\T2-cells.csv": "8b35d8e2d9eb3598ad4d9b5226428f63a9ad72461472f08c628c1020c2645628",
+    "research\\f5-components-20261101\\results\\wp4-pixel-summary\\negative-calls.csv": "66daaa0261ddd1f408358f9b2d8be98390dab259e57ae2be4da474dacc2c028c",
+    "research\\f5-components-20261101\\results\\wp4-pixel-summary\\T5-pairs.csv": "ac73cecbef7a6e899f56ae06ec96b4438212835b10110899be2ec0733dc2d331",
+    "research\\f5-components-20261101\\results\\wp4-pixel-summary\\T3-cell-responses.csv": "9dd84864a896483b8b835a965ce61a035d1ee7b2b2110a8aeafc49c5aad7134b",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261005-0700-f5r2-t4\\run.json": "cee4411a42f6ead69b66f33a3ac7af6db4641c3de0ef9952c2161cbac06acfa8"
+  },
+  "output_sha256": "e666e484339e08f10780056756ce562c246f6506f53ac08c0e16faf745fa4ece"
+}

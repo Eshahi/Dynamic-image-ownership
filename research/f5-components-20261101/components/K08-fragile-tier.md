@@ -95,3 +95,10 @@ JUDGMENT: T4/Q-STAGE first; final metadata alone cannot establish order damage. 
 SOURCE: GaussMarker diversity and its interference ablation motivate a joint constraint preventing a later stage from erasing the earlier tier. Targets physical transport/interference, ceilings UNKNOWN. This is an alternative to deleting the second carrier.
 JUDGMENT: Delta C/60 SDXL .1/.2 0..+15, .4 0..+5, K3 -5..+15, SD1.5 .2 -5..+3; there may be no feasible shared-quality solution. Reader unchanged, more writer gradients/constraints, no added reference. h ambiguity and public-copy attacks remain. Mandatory flat-region/all-image/human checks apply. Simpler alternative frozen independent stages.
 JUDGMENT: T3 tests complementarity and T4 tests margin prerequisite; Q-STAGE decides whether there is stage interference to constrain. Kill if the joint feasible set cannot preserve current strict quality and SD1.5 behavior, or gains fail real T4/T5. Changing h itself is REOPENS-CLOSED-LINE and remains excluded.
+
+## E. Offline tests and dispositions
+
+SOURCE: Commands, exact commits, input/output hashes, split/missingness, all numbers and inherited prospective kill rules are in [WP4 results ledger](../results/LEDGER.md) and its linked raw outputs. These are exploratory development results; each option below has the test or specific unavailable intervention identified in [OPTIONS](../OPTIONS.md).
+
+MEASURED: T1 reproduces complementarity across every development cell. On Stage2 EVALUATE, O_U source counts are19/7/1 on SDXL .1/.2/.4 and6 on K3 .2 versus frozen C0/0/0/3. But one of20 evaluated saved F5 residual-transfer attacks accepts O_U while C rejects all20: O1 safe-union promotion KILLED. Its semantic evidence is absent, not independently agreeing.
+JUDGMENT: O2/O3 alternate order/joint constraints require intermediate and rewritten images absent here. T3's physical ordering and T4's margin association motivate Q-RES/Q-STAGE, not a new writer verdict. Retain the second carrier as useful evidence while refusing to relabel it semantic exact identity. Existing h fragility and the closed descriptor line remain constraints.

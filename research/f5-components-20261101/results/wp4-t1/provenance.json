@@ -1,0 +1,136 @@
+{
+  "test": "T1",
+  "commit": "6fcde02dea8f6af0b8fff24fb87355d0c20a5d59",
+  "command": [
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\venv\\Scripts\\python.exe",
+    "-I",
+    "C:\\Users\\Soroush\\.codex\\worktrees\\codex-f5-components\\research\\f5-components-20261101\\analysis\\offline_metadata_tests.py",
+    "T1",
+    "--out",
+    "wp4-t1"
+  ],
+  "inputs": {
+    "stage2": {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261025-0128-encoder-transfer-stage2b\\results\\stage2b-full\\rows.jsonl",
+      "sha256": "f3b95d3e727d421c29a2a2e42eb1ef5881f55b7d3eb848a237ab51095455fb82",
+      "inventory": {
+        "lines": 39896,
+        "status:generated": 28856,
+        "status:safety_blocked": 23,
+        "status:ok": 11017
+      },
+      "retained_ids": 11040,
+      "nonidentical_replacements": []
+    },
+    "native": {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261026-0855-et-final-phase-a\\results\\native.jsonl",
+      "sha256": "849a254328cc0bc16c1c14f67f3895b210793336215c81f66e8c1ecd4a3ddf24",
+      "inventory": {
+        "lines": 6480,
+        "status:ok": 6449,
+        "status:safety_blocked": 22,
+        "status:unavailable": 9
+      },
+      "retained_ids": 6480,
+      "nonidentical_replacements": []
+    },
+    "detect": {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261026-0855-et-final-phase-a\\results\\detect.jsonl",
+      "sha256": "08137a6b5b805a342266cd586d210ba8dc110ab8e6e49aac3dba97d96c0d1235",
+      "inventory": {
+        "lines": 9080,
+        "status:ok": 9080
+      },
+      "retained_ids": 9080,
+      "nonidentical_replacements": []
+    },
+    "attacks": {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261026-0855-et-final-phase-a\\results\\attacks.jsonl",
+      "sha256": "fe0b18c2cca52e31c65d579a4daf31f108390bbc666ad19853fd88c5688ebd9e",
+      "inventory": {
+        "lines": 5340,
+        "status:ok": 5330,
+        "status:safety_blocked": 10
+      },
+      "retained_ids": 5340,
+      "nonidentical_replacements": []
+    }
+  },
+  "script_sha256": "2ab23cb86dee8df2124b55e262831dcc064f0135a6dd26a6ed841623c4eba5cc",
+  "plan_sha256": "842890e9e6059b500273ca5018f534c575a14da763f09e3bc4053ccfa411136d",
+  "phase_b_journals": "off",
+  "seconds": 2.937999999965541,
+  "split": {
+    "DESIGN": [
+      30,
+      73,
+      127,
+      309,
+      436,
+      459,
+      508,
+      544,
+      626,
+      636,
+      693,
+      723,
+      853,
+      908,
+      960,
+      1295,
+      1330,
+      1355,
+      1397,
+      1404,
+      1464,
+      1522,
+      1548,
+      1637,
+      1647,
+      1670,
+      1712,
+      1737,
+      1777,
+      1785
+    ],
+    "EVALUATE": [
+      72,
+      89,
+      165,
+      370,
+      450,
+      471,
+      529,
+      599,
+      629,
+      673,
+      715,
+      790,
+      902,
+      913,
+      1180,
+      1323,
+      1332,
+      1359,
+      1398,
+      1408,
+      1507,
+      1536,
+      1596,
+      1639,
+      1655,
+      1682,
+      1720,
+      1774,
+      1779,
+      1786
+    ]
+  },
+  "outputs_sha256": {
+    "calls.csv": "0fc8a531ecf8a4aa6be390cc193c4603e965c4c3e40c4a3fc8d4076832c15891",
+    "cells.csv": "3aff147be750245d4711ecc4f67aa2c802f83604d1eb9824ef9702d320e6128a",
+    "REPORT.md": "7354075a2dd0df7fc56bf877092c511f1f1dc486405dbdf3663d7d2da76f1b36",
+    "sources.csv": "20615f4e7808eabdd6ed4d8405c95f1ae2f933a9df1148368e88901b6794cc00",
+    "summary.json": "7c1f46409152e726aa7f960463fd893b443810dfa0e2496983b003371d2f00d8"
+  }
+}

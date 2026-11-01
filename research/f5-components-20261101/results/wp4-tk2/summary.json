@@ -1,0 +1,631 @@
+{
+  "fit": {
+    "additive_bias": 0.14481089868851066,
+    "source_weighted_residual": {
+      "value": 0.14481089868851066,
+      "n_sources": 5,
+      "n_rows": 60,
+      "per_source": {
+        "6012": 0.9956425655364647,
+        "80932": -1.0985463602266543,
+        "134882": 0.8089651897923811,
+        "177015": 0.054302406081888584,
+        "468505": -0.036309307741526665
+      }
+    }
+  },
+  "split": {
+    "rule": "Numeric ascending 12 clean C0 source IDs; zero-based even DESIGN, odd EVALUATE",
+    "DESIGN": [
+      1675,
+      6012,
+      80932,
+      134882,
+      177015,
+      468505
+    ],
+    "EVALUATE": [
+      4795,
+      25394,
+      109798,
+      147498,
+      190676,
+      499768
+    ]
+  },
+  "summary": {
+    "DESIGN": {
+      "uncalibrated_mae": {
+        "value": 1.1109239969503235,
+        "n_sources": 5,
+        "n_rows": 60,
+        "per_source": {
+          "6012": 1.050597627953036,
+          "80932": 1.200643371706667,
+          "134882": 1.7406017505578206,
+          "177015": 0.5185919867341202,
+          "468505": 1.044185247799974
+        }
+      },
+      "calibrated_mae": {
+        "value": 1.115936681904926,
+        "n_sources": 5,
+        "n_rows": 60,
+        "per_source": {
+          "6012": 0.941989453936653,
+          "80932": 1.3008970707987129,
+          "134882": 1.6849052510622395,
+          "177015": 0.5297312866332364,
+          "468505": 1.1221603470937875
+        }
+      },
+      "n_retained_or_missing_units": 65,
+      "n_unavailable_units": 5,
+      "assigned_sources": [
+        1675,
+        6012,
+        80932,
+        134882,
+        177015,
+        468505
+      ],
+      "clean_only_not_planned_for_T3": [
+        1675
+      ],
+      "planned_T3_sources_with_no_available_rows": []
+    },
+    "EVALUATE": {
+      "uncalibrated_mae": {
+        "value": 1.5253129061216903,
+        "n_sources": 5,
+        "n_rows": 65,
+        "per_source": {
+          "25394": 2.515670858481777,
+          "109798": 1.0742773513596728,
+          "147498": 2.154340203056951,
+          "190676": 0.9327484583751124,
+          "499768": 0.9495276593349378
+        }
+      },
+      "calibrated_mae": {
+        "value": 1.4595936595067924,
+        "n_sources": 5,
+        "n_rows": 65,
+        "per_source": {
+          "25394": 2.436618471643723,
+          "109798": 0.9740236522676269,
+          "147498": 2.0311640453677926,
+          "190676": 0.9400523686172302,
+          "499768": 0.9161097596375891
+        }
+      },
+      "n_retained_or_missing_units": 65,
+      "n_unavailable_units": 0,
+      "assigned_sources": [
+        4795,
+        25394,
+        109798,
+        147498,
+        190676,
+        499768
+      ],
+      "clean_only_not_planned_for_T3": [
+        4795
+      ],
+      "planned_T3_sources_with_no_available_rows": []
+    }
+  },
+  "T3_cells": {
+    "vae_mode:None": {
+      "DESIGN": {
+        "uncalibrated_mae": {
+          "value": 1.0647722384940972,
+          "n_sources": 5,
+          "n_rows": 5,
+          "per_source": {
+            "6012": 1.380223935011095,
+            "80932": 0.7054875788886705,
+            "134882": 2.61000704273749,
+            "177015": 0.26756279008402717,
+            "468505": 0.3605798457492031
+          }
+        },
+        "calibrated_mae": {
+          "value": 1.0937344182317994,
+          "n_sources": 5,
+          "n_rows": 5,
+          "per_source": {
+            "6012": 1.2354130363225844,
+            "80932": 0.8502984775771814,
+            "134882": 2.465196144048979,
+            "177015": 0.41237368877253777,
+            "468505": 0.5053907444377139
+          }
+        },
+        "n_retained_or_missing_units": 5,
+        "n_unavailable_units": 0,
+        "assigned_sources": [
+          1675,
+          6012,
+          80932,
+          134882,
+          177015,
+          468505
+        ],
+        "clean_only_not_planned_for_T3": [
+          1675
+        ],
+        "planned_T3_sources_with_no_available_rows": []
+      },
+      "EVALUATE": {
+        "uncalibrated_mae": {
+          "value": 0.9119528944052522,
+          "n_sources": 5,
+          "n_rows": 5,
+          "per_source": {
+            "25394": 0.03497849433296407,
+            "109798": 0.7000599080255205,
+            "147498": 1.8719331155431864,
+            "190676": 1.7072789535379296,
+            "499768": 0.2455140005866605
+          }
+        },
+        "calibrated_mae": {
+          "value": 0.8829907146675501,
+          "n_sources": 5,
+          "n_rows": 5,
+          "per_source": {
+            "25394": 0.1797893930214749,
+            "109798": 0.5552490093370097,
+            "147498": 1.7271222168546756,
+            "190676": 1.5624680548494188,
+            "499768": 0.39032489927517133
+          }
+        },
+        "n_retained_or_missing_units": 5,
+        "n_unavailable_units": 0,
+        "assigned_sources": [
+          4795,
+          25394,
+          109798,
+          147498,
+          190676,
+          499768
+        ],
+        "clean_only_not_planned_for_T3": [
+          4795
+        ],
+        "planned_T3_sources_with_no_available_rows": []
+      }
+    },
+    "diffusion:0.05": {
+      "DESIGN": {
+        "uncalibrated_mae": {
+          "value": 1.0135128473467718,
+          "n_sources": 5,
+          "n_rows": 15,
+          "per_source": {
+            "6012": 1.0263705451678244,
+            "80932": 0.4390141546146067,
+            "134882": 2.5949252834972865,
+            "177015": 0.7116831562258051,
+            "468505": 0.29557109722833647
+          }
+        },
+        "calibrated_mae": {
+          "value": 0.9845506676090696,
+          "n_sources": 5,
+          "n_rows": 15,
+          "per_source": {
+            "6012": 0.8815596464793138,
+            "80932": 0.39074385505176973,
+            "134882": 2.4501143848087756,
+            "177015": 0.7599534557886422,
+            "468505": 0.4403819959168473
+          }
+        },
+        "n_retained_or_missing_units": 15,
+        "n_unavailable_units": 0,
+        "assigned_sources": [
+          1675,
+          6012,
+          80932,
+          134882,
+          177015,
+          468505
+        ],
+        "clean_only_not_planned_for_T3": [
+          1675
+        ],
+        "planned_T3_sources_with_no_available_rows": []
+      },
+      "EVALUATE": {
+        "uncalibrated_mae": {
+          "value": 0.9029903663331739,
+          "n_sources": 5,
+          "n_rows": 15,
+          "per_source": {
+            "25394": 0.3953119480435896,
+            "109798": 1.0214271275649434,
+            "147498": 1.5643034338785196,
+            "190676": 0.6069723330451682,
+            "499768": 0.9269369891336487
+          }
+        },
+        "calibrated_mae": {
+          "value": 0.8537864175653287,
+          "n_sources": 5,
+          "n_rows": 15,
+          "per_source": {
+            "25394": 0.43891400158138455,
+            "109798": 0.9731568280021065,
+            "147498": 1.419492535190009,
+            "190676": 0.5587020334823313,
+            "499768": 0.8786666895708118
+          }
+        },
+        "n_retained_or_missing_units": 15,
+        "n_unavailable_units": 0,
+        "assigned_sources": [
+          4795,
+          25394,
+          109798,
+          147498,
+          190676,
+          499768
+        ],
+        "clean_only_not_planned_for_T3": [
+          4795
+        ],
+        "planned_T3_sources_with_no_available_rows": []
+      }
+    },
+    "diffusion:0.1": {
+      "DESIGN": {
+        "uncalibrated_mae": {
+          "value": 1.0014615416867136,
+          "n_sources": 5,
+          "n_rows": 14,
+          "per_source": {
+            "6012": 0.767943177502875,
+            "80932": 1.4899066980158606,
+            "134882": 1.583773892533048,
+            "177015": 0.47661587338448586,
+            "468505": 0.6890680669972983
+          }
+        },
+        "calibrated_mae": {
+          "value": 1.0593859011621178,
+          "n_sources": 5,
+          "n_rows": 14,
+          "per_source": {
+            "6012": 0.7679431775028751,
+            "80932": 1.6347175967043714,
+            "134882": 1.5355035929702112,
+            "177015": 0.5248861729473228,
+            "468505": 0.8338789656858091
+          }
+        },
+        "n_retained_or_missing_units": 15,
+        "n_unavailable_units": 1,
+        "assigned_sources": [
+          1675,
+          6012,
+          80932,
+          134882,
+          177015,
+          468505
+        ],
+        "clean_only_not_planned_for_T3": [
+          1675
+        ],
+        "planned_T3_sources_with_no_available_rows": []
+      },
+      "EVALUATE": {
+        "uncalibrated_mae": {
+          "value": 1.71314106033525,
+          "n_sources": 5,
+          "n_rows": 15,
+          "per_source": {
+            "25394": 2.5861645802453608,
+            "109798": 0.6692148708446549,
+            "147498": 3.2486325189360628,
+            "190676": 0.6801157319008625,
+            "499768": 1.381577599749308
+          }
+        },
+        "calibrated_mae": {
+          "value": 1.6262545211221433,
+          "n_sources": 5,
+          "n_rows": 15,
+          "per_source": {
+            "25394": 2.44135368155685,
+            "109798": 0.620944571281818,
+            "147498": 3.1038216202475524,
+            "190676": 0.7283860314636995,
+            "499768": 1.2367667010607972
+          }
+        },
+        "n_retained_or_missing_units": 15,
+        "n_unavailable_units": 0,
+        "assigned_sources": [
+          4795,
+          25394,
+          109798,
+          147498,
+          190676,
+          499768
+        ],
+        "clean_only_not_planned_for_T3": [
+          4795
+        ],
+        "planned_T3_sources_with_no_available_rows": []
+      }
+    },
+    "diffusion:0.2": {
+      "DESIGN": {
+        "uncalibrated_mae": {
+          "value": 1.3665282121499942,
+          "n_sources": 5,
+          "n_rows": 13,
+          "per_source": {
+            "6012": 1.3281472166994237,
+            "80932": 1.9124084776999632,
+            "134882": 1.2822614313753482,
+            "177015": 0.29531830824761923,
+            "468505": 2.0145056267276167
+          }
+        },
+        "calibrated_mae": {
+          "value": 1.3568741522374268,
+          "n_sources": 5,
+          "n_rows": 13,
+          "per_source": {
+            "6012": 1.1833363180109129,
+            "80932": 2.057219376388474,
+            "134882": 1.2339911318125114,
+            "177015": 0.2470480086847823,
+            "468505": 2.0627759262904535
+          }
+        },
+        "n_retained_or_missing_units": 15,
+        "n_unavailable_units": 2,
+        "assigned_sources": [
+          1675,
+          6012,
+          80932,
+          134882,
+          177015,
+          468505
+        ],
+        "clean_only_not_planned_for_T3": [
+          1675
+        ],
+        "planned_T3_sources_with_no_available_rows": []
+      },
+      "EVALUATE": {
+        "uncalibrated_mae": {
+          "value": 1.7819143542610565,
+          "n_sources": 5,
+          "n_rows": 15,
+          "per_source": {
+            "25394": 3.3116651396748242,
+            "109798": 1.5154102221573271,
+            "147498": 2.1036283583941673,
+            "190676": 1.1417548883973636,
+            "499768": 0.8371131626816006
+          }
+        },
+        "calibrated_mae": {
+          "value": 1.7336440546982197,
+          "n_sources": 5,
+          "n_rows": 15,
+          "per_source": {
+            "25394": 3.166854240986313,
+            "109798": 1.3705993234688163,
+            "147498": 1.9588174597056565,
+            "190676": 1.2865657870858744,
+            "499768": 0.8853834622444375
+          }
+        },
+        "n_retained_or_missing_units": 15,
+        "n_unavailable_units": 0,
+        "assigned_sources": [
+          4795,
+          25394,
+          109798,
+          147498,
+          190676,
+          499768
+        ],
+        "clean_only_not_planned_for_T3": [
+          4795
+        ],
+        "planned_T3_sources_with_no_available_rows": []
+      }
+    },
+    "diffusion:0.4": {
+      "DESIGN": {
+        "uncalibrated_mae": {
+          "value": 1.0998488550329324,
+          "n_sources": 5,
+          "n_rows": 13,
+          "per_source": {
+            "6012": 1.081411881404546,
+            "80932": 1.1262960874355696,
+            "134882": 1.2116446307657096,
+            "177015": 0.6744270079619351,
+            "468505": 1.4054646675969018
+          }
+        },
+        "calibrated_mae": {
+          "value": 1.090194795120365,
+          "n_sources": 5,
+          "n_rows": 13,
+          "per_source": {
+            "6012": 0.9366009827160351,
+            "80932": 1.2711069861240805,
+            "134882": 1.2599149303285466,
+            "177015": 0.6261567083990981,
+            "468505": 1.357194368034065
+          }
+        },
+        "n_retained_or_missing_units": 15,
+        "n_unavailable_units": 2,
+        "assigned_sources": [
+          1675,
+          6012,
+          80932,
+          134882,
+          177015,
+          468505
+        ],
+        "clean_only_not_planned_for_T3": [
+          1675
+        ],
+        "planned_T3_sources_with_no_available_rows": []
+      },
+      "EVALUATE": {
+        "uncalibrated_mae": {
+          "value": 1.9076591807960934,
+          "n_sources": 5,
+          "n_rows": 15,
+          "per_source": {
+            "25394": 4.596439220679604,
+            "109798": 1.2157963326498171,
+            "147498": 1.7949321968569774,
+            "190676": 1.0439740484361169,
+            "499768": 0.8871541053579527
+          }
+        },
+        "calibrated_mae": {
+          "value": 1.8168906262545588,
+          "n_sources": 5,
+          "n_rows": 15,
+          "per_source": {
+            "25394": 4.451628321991093,
+            "109798": 1.0709854339613063,
+            "147498": 1.743871842498992,
+            "190676": 0.9790837270262861,
+            "499768": 0.8388838057951157
+          }
+        },
+        "n_retained_or_missing_units": 15,
+        "n_unavailable_units": 0,
+        "assigned_sources": [
+          4795,
+          25394,
+          109798,
+          147498,
+          190676,
+          499768
+        ],
+        "clean_only_not_planned_for_T3": [
+          4795
+        ],
+        "planned_T3_sources_with_no_available_rows": []
+      }
+    }
+  },
+  "relative_evaluation_mae_reduction": 0.04308574742345673,
+  "proposal": "KILL_CALIBRATION_PRIORITY",
+  "proposal_scope": "OBSERVED_SUBSET_DIAGNOSTIC_ONLY",
+  "criterion": "KILL calibration priority if EVALUATE relative source-weighted MAE reduction < 0.10",
+  "undefined_reason": null,
+  "clean_source_inventory": [
+    {
+      "source_id": 1675,
+      "split": "DESIGN",
+      "planned_for_T3": false,
+      "saved_clean_rows": 1,
+      "availability": "available"
+    },
+    {
+      "source_id": 4795,
+      "split": "EVALUATE",
+      "planned_for_T3": false,
+      "saved_clean_rows": 1,
+      "availability": "available"
+    },
+    {
+      "source_id": 6012,
+      "split": "DESIGN",
+      "planned_for_T3": true,
+      "saved_clean_rows": 1,
+      "availability": "available"
+    },
+    {
+      "source_id": 25394,
+      "split": "EVALUATE",
+      "planned_for_T3": true,
+      "saved_clean_rows": 1,
+      "availability": "available"
+    },
+    {
+      "source_id": 80932,
+      "split": "DESIGN",
+      "planned_for_T3": true,
+      "saved_clean_rows": 1,
+      "availability": "available"
+    },
+    {
+      "source_id": 109798,
+      "split": "EVALUATE",
+      "planned_for_T3": true,
+      "saved_clean_rows": 1,
+      "availability": "available"
+    },
+    {
+      "source_id": 134882,
+      "split": "DESIGN",
+      "planned_for_T3": true,
+      "saved_clean_rows": 1,
+      "availability": "available"
+    },
+    {
+      "source_id": 147498,
+      "split": "EVALUATE",
+      "planned_for_T3": true,
+      "saved_clean_rows": 1,
+      "availability": "available"
+    },
+    {
+      "source_id": 177015,
+      "split": "DESIGN",
+      "planned_for_T3": true,
+      "saved_clean_rows": 1,
+      "availability": "available"
+    },
+    {
+      "source_id": 190676,
+      "split": "EVALUATE",
+      "planned_for_T3": true,
+      "saved_clean_rows": 1,
+      "availability": "available"
+    },
+    {
+      "source_id": 468505,
+      "split": "DESIGN",
+      "planned_for_T3": true,
+      "saved_clean_rows": 1,
+      "availability": "available"
+    },
+    {
+      "source_id": 499768,
+      "split": "EVALUATE",
+      "planned_for_T3": true,
+      "saved_clean_rows": 1,
+      "availability": "available"
+    }
+  ],
+  "limitations": [
+    "Exploratory observed-subset necessary screen; no C/J endpoint or detector threshold changes.",
+    "Actual q32 is recomputed with the unchanged v5 profile from existing single-view features; this is not an F5 seven-view claim.",
+    "The angular prediction is a theoretical random-hyperplane expectation, not an interval for this fixed projection.",
+    "Repeated seeds/doses are correlated within source; equal source weights do not make rows independent.",
+    "Missing/failed rows remain in rows.json; available vectors are used regardless of saved embedding/detection status.",
+    "Means condition on available rows. Missing units can bias this diagnostic and are not performance failures or successes.",
+    "The two clean-only sources set split parity but had no planned T3 attempts; they are not fictional failed attempts.",
+    "No held-out pixels/journals, regeneration, encoder, new descriptor, writer optimization, training, or uncertainty calibration."
+  ]
+}

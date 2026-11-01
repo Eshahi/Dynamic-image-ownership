@@ -93,3 +93,10 @@ JUDGMENT: The prospective TQ diagnostic in the test plan tests whether current r
 SOURCE: Tang adaptive strength and VINE's channel-shaped objectives, with N2 confounding explicitly unresolved. Allocate strength to reproducibly surviving carriers/segments at fixed total quality, using DESIGN sources only. Targets no-read/incorrect-read losses; physical ceiling UNKNOWN.
 JUDGMENT: Delta C/60 SDXL .2 0..+10, K3 .2 -5..+10, SD1.5 .2 -5..+3; unknown cross-family transfer and small sample preclude a point forecast. Writer calibration and perhaps gradients increase; detector unchanged. No new reference. Public allocation does not protect T4/T5. Flat-region constraints from OPTIONS apply. Simpler alternative uniform current allocation.
 JUDGMENT: T3 checks response prerequisites; Q-RES must separate scale before choosing a physical allocation. Kill future pilot if gains exist only on the DESIGN family, vanish at equal final quality, or introduce safety/visibility failures. No closed line reopened.
+
+## E. Offline tests and dispositions
+
+SOURCE: Commands, exact commits, input/output hashes, split/missingness, all numbers and inherited prospective kill rules are in [WP4 results ledger](../results/LEDGER.md) and its linked raw outputs. These are exploratory development results; each option below has the test or specific unavailable intervention identified in [OPTIONS](../OPTIONS.md).
+
+MEASURED: TQ fixed C0 texture masks give F5 EVALUATE max-patch/global RMS1.3092 and flat/textured RMS1.1619, below2/1.5: O2 local-concentration priority KILLED for F5. v5's2.8886/.3283 retains only a comparator diagnostic. No human visibility conclusion follows.
+JUDGMENT: O1/O3 are constrained by T4's predictive margin result but final-only metadata cannot measure marginal distortion shares or realizable extra strength. Q-STAGE must measure increments/cross terms and match actual final quality. No mask, amplitude or quality-selector writer was run. Nominal dB shares are not spendable measured budget.

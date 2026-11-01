@@ -1,0 +1,38 @@
+{
+  "command": [
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\a6-science-venv\\Scripts\\python.exe",
+    "research/f5-components-20261101/analysis/quality_concentration.py"
+  ],
+  "commit": "65bb95a616e9f84c85cac003352bc46f74b7adc2",
+  "seconds": 0.48499999998603016,
+  "cuda_visible_devices": "-1",
+  "phase_b_journals": "off",
+  "inputs": {
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_30_unmarked_None_None.png": "612719105bd37b86e23b35aaa2e9e4b35ce7aa6112678e2e879899952702c0c7",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_30_v5-r3_None_None.png": "747436ee395b276ae81b54d3177e0ff694a23e7200e4f1d46bbd06435c19b56c",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_30_f5-r2_None_None.png": "7370fe7fad8d98f54939c43039ad9f00de43ecff8ad6de23f78644631cf0b5c4",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_72_unmarked_None_None.png": "4baa0f49233954ccd79666b983186ea028076e9b50d5ca702c6f485609dd80b0",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_72_v5-r3_None_None.png": "b982f32acf5e6c8de3d79b3c34fbac5341bef51d3d5ee5d795350b2694acaf2b",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_72_f5-r2_None_None.png": "dbd5261950be7aa4b4cde8f8afe8bcc11fbc98760fef2b9d15a4638c1597bfce",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_73_unmarked_None_None.png": "12912c1597d021a891a9a692759d4f0d98990e8b7c0b12963f3cf393de7b1d8f",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_73_v5-r3_None_None.png": "3873658865b14705882da7a16826aa52cc17b21a9eee0468f989f03bd9806963",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_73_f5-r2_None_None.png": "a58ad6ab39d0f4fb2456b65534030d4b759269bb468a098bfe39d580d1ffd9f3",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_89_unmarked_None_None.png": "5e24669eb05dad0dd3091d61d1d32764f1191f3535f05d1c49625c2b8a63dd39",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_89_v5-r3_None_None.png": "98c195c8ed8c2f184b1387a837668fc0d91145d64b9dfddf415e44932bfbe224",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_89_f5-r2_None_None.png": "4773e7d0c378f6358d30684cf63fbeb904eb8f55119ffdd29d07336c18ac9c66",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_127_unmarked_None_None.png": "a726c7244156fe0f7a68d44c53df31f41208dd9cdfa98e41554512a2903bd34f",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_127_v5-r3_None_None.png": "439b72916aee4b61efb0ecfd7fd72853dc97f6828ff21d314cad68599dcb3ff1",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_127_f5-r2_None_None.png": "74582d7a56758f1ae249a675fdbfd786f23582d991eda22422b257a874b89cc9",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_165_unmarked_None_None.png": "d2c742a8789d629faa85c3cc050e7389e1addd6558135a2f849e5ae0a806ea27",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_165_v5-r3_None_None.png": "58c05e8a657ad41e418f4e70d718d4e8f420540b49c30d00c16015671c18e20a",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_165_f5-r2_None_None.png": "fd3853b5fb99c8303e94d3a6686681db7dcf9dbb635ee58d9d73e14f631ba471",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_309_unmarked_None_None.png": "019e69d3ef2a0dd9dcf9c14f21f90de753e53fb964f2d5f8002cdcb1f26b9a41",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_309_v5-r3_None_None.png": "b0e2ba2272a9688a2dc83d1bf5a5b438c7f259f7b3490401e19fcf0e09f18c31",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_309_f5-r2_None_None.png": "a21de2c8998382134ce993637bbf29642df5d9fa045b3718e5a4392e96a4a7de",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_370_unmarked_None_None.png": "e5b34bf72172d21653036d0cc097b8c7bd8bbd776bae835f927ca7e26e86a05a",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_370_v5-r3_None_None.png": "efc8236cde0f8de8708b77a92ae6d924cec6ee39174fffa0c76d6b463f56d8b4",
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261024-1431-encoder-transfer-stage2a\\results\\stage2a-full\\images\\clean_370_f5-r2_None_None.png": "2c8b3a7a54781b717eb73b0f47d4f8f930080bef8c9f8a6e3627325d5674dccc"
+  },
+  "script_sha256": "cf6f23a3d3cc0c9a46dcb0d53218317267d44071db20e34d43fcc826db182461",
+  "plan_sha256": "88baa6eab92bcb535db0958eda1dd5412d6ade663c9b0538bfcc4b0a77aaf802"
+}

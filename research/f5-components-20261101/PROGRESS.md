@@ -41,6 +41,10 @@ PHASE_B_JOURNALS=off
 
 ## Pushes
 
+- WP3 pushed successfully:e029ff3..61f29357be5e609990829639a63899ffbe2473d0 to origin/codex/f5-components-20261101 on2026-11-01.
+- WP4 checkpoint: all requiredT1-T4 plusT0,TQ,TK2 complete;12 section-E dispositions and results/LEDGER.md link committed scripts/raw outputs. Main negative: F5 O_U accepts1/20 saved EVALUATE T4 images versus C0/20; promotion killed. Exactr3 adds0/91 F5 marked report-half calls, two extra reference-assisted T5 negatives; v5 adds1/92 call but0 source-cells and one extra T4 negative. No threshold/radius rescue follows. Positive diagnostic: margin rho.6316; family/scale causality still UNKNOWN. TK2 simple calibration4.31%<10% and F5 local concentration screen fail. No unprocessed reader units or error attempts;3 method/image missing records retained,10 unplanned C2 images supplemental only. T5 has66 unordered pairs including2 uncertain, all retained.
+- SOURCE: WP4 quantitative aggregation and checks are reproducible from scripts/provenance. Every reader batch passed880 exactness checks;1100 matched-score calls passed tolerance,312 lacked a matched reference and are not reported as validated. Original outputs, negative results and missingness are preserved. No child process remains running. WP4 push receipt follows at the next checkpoint.
+
 - WP2 pushed successfully:90301f8..e029ff3c4e913ee67e6c13226367a41ceae09ecb to origin/codex/f5-components-20261101 on2026-11-01. Full floors/exhaustions remain PROPOSED to Claude, not waived by Codex.
 - WP3 checkpoint:36 options across12 section-D dossiers; complete test/feasibility map in OPTIONS.md. Each states mechanism/source, loss/cells/conditional ceiling, forecast rationale, costs/safety/side information, simpler alternative and prospective inherited/new kill. Missing writer interventions are explicitly unavailable, not simulated as improvements. TK2 executed from e029ff3 after its rule/script commit; results reserved for WP4. A reporting-only reducer is added before its execution; it applies existing kills, no revised selector.
 

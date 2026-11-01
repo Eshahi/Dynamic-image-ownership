@@ -1,0 +1,29 @@
+{
+  "decisions": {
+    "f5-r2": {
+      "foreign_source_cell_headroom": 1,
+      "foreign_source_cell_losses": 207,
+      "ratio": 0.004830917874396135,
+      "rule": "KILL_PRIMARY_BINDING_ONLY_ACCOUNT",
+      "qualification": "Overlapping Stage2 and PhaseA source-cells are descriptive, not independent trials."
+    },
+    "v5-r3": {
+      "foreign_source_cell_headroom": 2,
+      "foreign_source_cell_losses": 121,
+      "ratio": 0.01652892561983471,
+      "rule": "KILL_PRIMARY_BINDING_ONLY_ACCOUNT",
+      "qualification": "Overlapping Stage2 and PhaseA source-cells are descriptive, not independent trials."
+    }
+  },
+  "codebook_distance_histogram": {
+    "4": 11,
+    "7": 10,
+    "6": 10,
+    "2": 6,
+    "8": 4,
+    "5": 14,
+    "3": 9
+  },
+  "one_chip_guarantee": "KILL",
+  "codebook_scope": "Public deterministic two-owner audit; no ECC transport experiment and no adaptive security guarantee."
+}

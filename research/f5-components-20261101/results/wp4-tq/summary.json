@@ -1,0 +1,34 @@
+[
+  {
+    "method": "v5-r3",
+    "split": "DESIGN",
+    "sources": 4,
+    "median_max_patch_to_global": 2.297511518101529,
+    "median_flat_to_textured": 0.4673655420838141,
+    "rule": "RETAIN_CONCENTRATION_DIAGNOSTIC_ONLY"
+  },
+  {
+    "method": "v5-r3",
+    "split": "EVALUATE",
+    "sources": 4,
+    "median_max_patch_to_global": 2.888598625606627,
+    "median_flat_to_textured": 0.3283130130695444,
+    "rule": "RETAIN_CONCENTRATION_DIAGNOSTIC_ONLY"
+  },
+  {
+    "method": "f5-r2",
+    "split": "DESIGN",
+    "sources": 4,
+    "median_max_patch_to_global": 1.2968986251988701,
+    "median_flat_to_textured": 1.107777942445833,
+    "rule": "KILL_LOCAL_CONCENTRATION_PRIORITY"
+  },
+  {
+    "method": "f5-r2",
+    "split": "EVALUATE",
+    "sources": 4,
+    "median_max_patch_to_global": 1.3092234216641998,
+    "median_flat_to_textured": 1.1618871789758514,
+    "rule": "KILL_LOCAL_CONCENTRATION_PRIORITY"
+  }
+]
