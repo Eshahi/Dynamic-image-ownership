@@ -533,7 +533,7 @@
       "TOP_required": 3,
       "substantive_queries": 42,
       "successful_surfaces_minimum": 4,
-      "status": "EXHAUSTION DOCUMENTED (judge acceptance pending)",
+      "status": "ACCEPTED ACCESS-LIMITED (Gate 2 R1); journal floor unmet",
       "notes": "One journal slot exhausted. Accepted/author versions distinguished; dense/local CLIP improvements do not automatically improve global q."
     },
     {
@@ -544,19 +544,19 @@
       "TOP_required": 3,
       "substantive_queries": 31,
       "successful_surfaces_minimum": 4,
-      "status": "EXHAUSTION DOCUMENTED (judge acceptance pending)",
+      "status": "ACCEPTED ACCESS-LIMITED (Gate 2 R1); journal floor unmet",
       "notes": "Two journal slots exhausted. Fifteen malformed site filters excluded; 31 remain. Extended FEAP version conditional; CMBH has no identified omitted appendix. Root correction: six distance-two owner-segment pairs."
     },
     {
       "component": "K03",
       "Q1J": 0,
       "Q1J_required": 5,
-      "TOP": 2,
+      "TOP": 3,
       "TOP_required": 3,
       "substantive_queries": 35,
       "successful_surfaces_minimum": 4,
-      "status": "EXHAUSTION DOCUMENTED (judge acceptance pending)",
-      "notes": "Five journal and one TOP slots exhausted. CoPaD-Mark/Access polar paper lack complete tables; TrustMark known final ZIP supplement unread. No ZIP download permitted."
+      "status": "ACCEPTED ACCESS-LIMITED (Gate 2 R1); journal floor unmet",
+      "notes": "Five journal slots unfilled, accepted access-limited. CoPaD-Mark and Access polar paper lack complete inspected tables. TrustMark final main paper counted TOP by Gate 2 R1; final ZIP supplement unread, no supplement-dependent claim and no ZIP download."
     },
     {
       "component": "K04",
@@ -566,7 +566,7 @@
       "TOP_required": 3,
       "substantive_queries": 45,
       "successful_surfaces_minimum": 4,
-      "status": "EXHAUSTION DOCUMENTED (judge acceptance pending)",
+      "status": "ACCEPTED ACCESS-LIMITED (Gate 2 R1); journal floor unmet",
       "notes": "Three journal slots exhausted. Conservative45 excludes Q27,29,33,39,40,49-52,55 from55 exact queries. Added ruling queries Q16-Q26. Author-version identity caveats remain."
     },
     {
@@ -577,7 +577,7 @@
       "TOP_required": 3,
       "substantive_queries": 38,
       "successful_surfaces_minimum": 4,
-      "status": "EXHAUSTION DOCUMENTED (judge acceptance pending)",
+      "status": "ACCEPTED ACCESS-LIMITED (Gate 2 R1); journal floor unmet",
       "notes": "Three journal slots exhausted. Codec/deepfake training differs from independent-encoder T3; no quality guarantee transferred."
     },
     {
@@ -588,7 +588,7 @@
       "TOP_required": 3,
       "substantive_queries": 36,
       "successful_surfaces_minimum": 4,
-      "status": "EXHAUSTION DOCUMENTED (judge acceptance pending)",
+      "status": "ACCEPTED ACCESS-LIMITED (Gate 2 R1); journal floor unmet",
       "notes": "Three journal slots exhausted. ROAR is detector optimization, explicitly adjacent, not a writer result. FreqMark remains closed."
     },
     {
@@ -599,7 +599,7 @@
       "TOP_required": 3,
       "substantive_queries": 35,
       "successful_surfaces_minimum": 4,
-      "status": "EXHAUSTION DOCUMENTED (judge acceptance pending)",
+      "status": "ACCEPTED ACCESS-LIMITED (Gate 2 R1); journal floor unmet",
       "notes": "Four journal slots exhausted. PixelSeal is PRE, not a journal slot. Human visibility missing."
     },
     {
@@ -610,8 +610,8 @@
       "TOP_required": 3,
       "substantive_queries": 38,
       "successful_surfaces_minimum": 4,
-      "status": "EXHAUSTION DOCUMENTED (judge acceptance pending)",
-      "notes": "Two journal slots exhausted after root downgrades: Vaidya algorithms1-3 raster material unread; Singh medical fusion weakly relevant and excluded. Ten added queries Q17-Q26. Do not use the intake original5/5 claim."
+      "status": "ACCEPTED ACCESS-LIMITED (Gate 2 R1); journal floor unmet",
+      "notes": "Two journal slots exhausted after root downgrades: Vaidya algorithms1-3 raster material unread; Singh medical fusion weakly relevant and excluded. Ten added queries Q17-Q26. Do not use the intake original5/5 claim. The three counted journals concern tamper recovery; none bears on T3."
     },
     {
       "component": "K09",
@@ -621,8 +621,8 @@
       "TOP_required": 3,
       "substantive_queries": 33,
       "successful_surfaces_minimum": 4,
-      "status": "PAPER FLOORS MET (proposed)",
-      "notes": "Paper floors met. Ten added queries Q09-Q18. Statistical foundations count for reader calibration, not watermark efficacy."
+      "status": "PAPER FLOORS MET (Gate 2 R1 accepted scope/caveats)",
+      "notes": "Paper floors met. Ten added queries Q09-Q18. Statistical foundations count for reader calibration, not watermark efficacy. All five counted journals are statistical foundations; no Q1 watermark-reader journal was read."
     },
     {
       "component": "K10",
@@ -632,7 +632,7 @@
       "TOP_required": 3,
       "substantive_queries": 30,
       "successful_surfaces_minimum": 4,
-      "status": "EXHAUSTION DOCUMENTED (judge acceptance pending)",
+      "status": "ACCEPTED ACCESS-LIMITED (Gate 2 R1); journal floor unmet",
       "notes": "One journal slot exhausted. Vaidya unread algorithms and MetaSeal unverified quartile excluded."
     },
     {
@@ -643,7 +643,7 @@
       "TOP_required": 3,
       "substantive_queries": 23,
       "successful_surfaces_minimum": 4,
-      "status": "PAPER FLOORS MET (proposed)",
+      "status": "PAPER FLOORS MET (Gate 2 R1 accepted scope/caveats)",
       "notes": "Paper floors met conditional on relevant key/trust-accounting scope and extended FEAP. Two full-text-web PDFs have no local hash.23 queries is not a30-query exhaustion if judge rejects a slot."
     },
     {
@@ -654,10 +654,11 @@
       "TOP_required": 3,
       "substantive_queries": 32,
       "successful_surfaces_minimum": 4,
-      "status": "PAPER FLOORS MET (proposed)",
+      "status": "PAPER FLOORS MET (Gate 2 R1 accepted scope/caveats)",
       "notes": "Paper floors met. Statistical sources count for evaluation validity; attack papers do not establish strict-quality F5 vulnerability."
     }
   ],
-  "unique_papers": 47,
-  "assignments": 67
+  "unique_papers": 48,
+  "assignments": 68,
+  "ruling": "gates/GATE-2-RULING.md R1, including TrustMark main-only acceptance; no new card added by metadata correction"
 }

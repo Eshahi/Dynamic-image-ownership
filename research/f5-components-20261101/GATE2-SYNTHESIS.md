@@ -4,7 +4,7 @@ JUDGMENT: The proposed disposition is **KEEP K09, with no rescue**. B fails two 
 
 ## G2-A: decoded-word evidence and a hard-binding cost
 
-SOURCE: Rules and implementations were committed at `dde7280`, before any B EVALUATE outcome. [Plan](analysis/GATE2-TEST-PLAN.md), [reader](analysis/gate2_reader.py:15), [results](results/g2-a/summary.json), [loss trace](results/g2-a/DIAGNOSIS.md). The exact threshold is 7.779133080172838, from alpha/2 and the 43,081,973-word radius-9 ball. B uses corrected hard distance <=6, semantic OR instance with the fixed semantic contradiction veto; no recomputed route is admitted. C OR B is separate.
+SOURCE: Rules and implementations were committed at `dde7280`, before any B EVALUATE outcome. [Plan](analysis/GATE2-TEST-PLAN.md), [reader](analysis/gate2_reader.py#L15), [results](results/g2-a/summary.json), [loss trace](results/g2-a/DIAGNOSIS.md). The exact threshold is 7.779133080172838, from alpha/2 and the 43,081,973-word radius-9 ball. B uses corrected hard distance <=6, semantic OR instance with the fixed semantic contradiction veto; no recomputed route is admitted. C OR B is separate.
 
 MEASURED: F5 Stage-2 EVALUATE source majorities, denominator 30 per cell ([cells](results/g2-a/cells.csv), filter study=stage2-union, arm=f5-r2, split=EVALUATE, role=marked):
 
@@ -33,7 +33,7 @@ MEASURED: The fixed 8 DESIGN donors x 30 EVALUATE recipients x 2 scales yields 4
 | 544→1359, scale .5 |7.811984902|9 / 5.593171325|47.831397|.989417504|.013517014|
 | 544→1359, scale 1 |8.894064897|8 / 5.653505340|42.346683|.963925469|.071865894|
 
-SOURCE: Exact raw rows are [batch-0448-08.jsonl](results/g2-b-transfer/batch-0448-08.jsonl:7), lines 7 and 8. Both have Bs=false, Bi=true, veto=false and B=true. PNGs are retained for any of the six reported acceptances; all metrics/raw calls are retained, including negatives.
+SOURCE: Exact raw rows are [batch-0448-08.jsonl](results/g2-b-transfer/batch-0448-08.jsonl#L7), lines 7 and 8. Both have Bs=false, Bi=true, veto=false and B=true. PNGs are retained for any of the six reported acceptances; all metrics/raw calls are retained, including negatives.
 
 JUDGMENT: **G2-B KILL.** These are two scales of one donor-recipient pair, not independent attack successes. The scale-1 decoded score also exceeds the old 8.2593 threshold, so this new failure is not confined to the old recomputed-only threshold gap. It does not establish a general attack rate or which code mismatch dominates. Metrics do not provide a human invisibility verdict; that remains MISSING.
 
@@ -66,7 +66,7 @@ JUDGMENT: A cross-tier semantic-only veto cannot remove that semantic-absent eve
 
 SOURCE/MEASURED: Gate-1 values 32 and 12 for “C or second tier content-ok” on SDXL .1/.2 included the unsafe recomputed route and are withdrawn as gains. Physical second-tier found counts 52/60 and 30/60 remain descriptive evidence. Exact r3 accepts all 114 different-content F5 T5 directions (22 DESIGN, 30 EVALUATE, 62 CROSS), not only 30/30 EVALUATE; it permits a nearby candidate despite a contradictory best decoded word ([ruling R2](gates/GATE-2-RULING.md), [T2 ledger](results/LEDGER.md#t2--exact-maximization-adds-little-and-exposes-binding-failure)).
 
-DERIVED: Conditional-q remains the primary honest-null model statement: domain-separated instance patterns are independent of the honest image/semantic-table-selected q under the PRF model. The accepted hard-distance set is contained in the radius-9 ball because 6+20e(s)<=9.3072300435<10 for s>=threshold. Union bounding gives B<=alpha and separately C OR B<=2alpha under the stated premises; it does not require independent tier events. O_Q is labelled sensitivity only. A same-owner residual transfer contains pattern signal, and a public adaptive image may depend on the patterns, so neither is covered. No empirical 1e-6 guarantee follows from development zeros ([reader proof](analysis/gate2_reader.py:50), [assumptions](results/g2-a/DIAGNOSIS.md#derived-conditional-null-argument-and-its-limits)).
+DERIVED: Conditional-q remains the primary honest-null model statement: domain-separated instance patterns are independent of the honest image/semantic-table-selected q under the PRF model. The accepted hard-distance set is contained in the radius-9 ball because 6+20e(s)<=9.3072300435<10 for s>=threshold. Union bounding gives B<=alpha and separately C OR B<=2alpha under the stated premises; it does not require independent tier events. O_Q is labelled sensitivity only. A same-owner residual transfer contains pattern signal, and a public adaptive image may depend on the patterns, so neither is covered. No empirical 1e-6 guarantee follows from development zeros ([reader proof](analysis/gate2_reader.py#L50), [assumptions](results/g2-a/DIAGNOSIS.md#derived-conditional-null-argument-and-its-limits)).
 
 ## What remains untested
 

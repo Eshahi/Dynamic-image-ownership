@@ -107,7 +107,7 @@ JUDGMENT: O2/O3 alternate order/joint constraints require intermediate and rewri
 
 MEASURED/JUDGMENT: G2-C on clean C0 EVALUATE codes gives q mean10.85747/min3 and28/95/143 of435 pairs at distance<=6/8/9, versus h mean16.02299/min7 and0/1/3. Uniform32-bit reference shares are.000267526/.003500183/.010030804. This dependent cohort concentration limits semantic specificity; it is not a population entropy estimate or transplant probability. No new descriptor is tested. [Exact split/cross table](../results/g2-c/summary.csv), [interpretation](../GATE2-SYNTHESIS.md#g2-c-q-is-concentrated-h-is-more-separated-on-these-sources).
 
-MEASURED/JUDGMENT: G2-B has Bi=B=2/480 versus C=0, both scales of544?1359, at strict PSNR/SSIM; decoder-only evidence is not sufficient for safe transplantation. Clean h separation supports keeping its information, not promoting the tested union. [Raw events](../results/g2-b-transfer/batch-0448-08.jsonl:7). No counted K08 journal bears on independent-encoder T3; the three journals are tamper-recovery evidence only (Gate-2 R1).
+MEASURED/JUDGMENT: G2-B has Bi=B=2/480 versus C=0, both scales of544 to 1359, at strict PSNR/SSIM; decoder-only evidence is not sufficient for safe transplantation. Clean h separation supports keeping its information, not promoting the tested union. [Raw events](../results/g2-b-transfer/batch-0448-08.jsonl#L7). No counted K08 journal bears on independent-encoder T3; the three journals are tamper-recovery evidence only (Gate-2 R1).
 
 ## F. Proposed verdict
 
