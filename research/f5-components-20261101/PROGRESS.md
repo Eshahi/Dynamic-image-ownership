@@ -1,5 +1,15 @@
 PHASE_B_JOURNALS=off
 
+## Gate 1 resumed: WP2-WP5
+
+- SOURCE: On 2026-11-01, git pull --ff-only reported up to date at 90301f8. Read gates/GATE-1-RULING.md and judge/two_tiers.py. WP1 is accepted; R1-R6 and required T1-T4/Q-RES/Q-STAGE bind the continuation. No change to compute, held-out exclusions or F6 is authorized.
+- JUDGMENT: Rename K8 to second carrier, instance code and write order. Investigate complementarity and family-resolution confounding without calling a new composite endpoint C or inferring causality from the saved system comparison.
+- SOURCE: Fresh gpt-6-astra/xhigh agents lit_k04, lit_k08 and lit_k09 each research one component and write one intake file. The added ten queries per component are required in addition to the original fifteen; exhaustion requires at least thirty meaningful queries. All original paper floors remain.
+- JUDGMENT: Apply literature-synthesis source/locator/checksum discipline and experiment-design prospective kill rules within the brief's RD output layout. No generic workflow helper may write protected shared ledgers or lifecycle gates. Literature version matches will be recorded rather than silently treating preprint and publication as different papers.
+- JUDGMENT: WP2, WP3, WP4 and WP5 will each have a commit/push checkpoint. Required tests are specified before running, using even sorted-source positions for design and odd positions for evaluation. Prior WP1 outcomes are known, so these are exploratory development tests, not independent confirmation.
+- JUDGMENT: Required T1-T4 and the T0 diagnostic are preregistered in analysis/WP4-TEST-PLAN.md and committed before execution. Their fixed analyses can overlap the remaining WP2 intake; later WP3 options must inherit these rules, never invent a favorable retrospective kill rule. Each full work package still receives its own completion commit/push. This is an execution-order overlap, not a floor waiver.
+- SOURCE: Further fresh gpt-6-astra/xhigh literature delegations: K03, K05, K12, then K06, K10 and K07, one intake file each. K03 conservatively withholds two incomplete journal transcripts and TrustMark's inaccessible final supplement; K08's weak medical-fusion card is retained as adjacent reading but withheld from the floor by root.
+
 # WP0 setup and WP1 progress
 
 - SOURCE: Scope is BRIEF.md sections 1 and 4 and the user's 2026-11-01 instruction: WP0 setup and WP1 only, then Gate 1. All judgments below are PROPOSED until Claude rules.
@@ -14,7 +24,7 @@ PHASE_B_JOURNALS=off
 
 - WP0: complete; scope, data exclusion, source units, accounting specification and three bounded delegations recorded; setup pushed as 2a42502.
 - WP1: complete; twelve component A/B files, 44 marked and 88 negative development study/cells, 264 component/cell ceiling rows, four findings challenged, joint loss/cost ranking and 180 planned queries delivered. See gates/GATE-1-REQUEST.md for the requested rulings.
-- WP2-WP7: not authorized by this turn; waiting for later gate rulings.
+- SOURCE: The original Gate-1 turn authorized WP0/WP1 only. The resumed user instruction and Gate-1 ruling now authorize WP2-WP5; WP6/WP7 remain gated.
 
 ## Results and limitations
 
