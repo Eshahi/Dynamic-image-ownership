@@ -236,6 +236,10 @@ class LeanWriter(F6Writer):
             cosines = [float(t.nn.functional.cosine_similarity(a, b, dim=0)) for a, b in zip(noise, fast)]
             result["bf16"] = dict(time_ratio=statistics.median(seconds[1:]) / result["f6-noise"]["seconds_r1"],
                                   gradient_cos_median=statistics.median(cosines))
+        except RuntimeError as exc:
+            # These two trials only look for savings. If one fails, the slower fp32 checkpointed path stays.
+            t.cuda.empty_cache()
+            result["bf16"] = dict(failed=str(exc)[:300])
         finally:
             self.policy = dict(saved)
         try:
@@ -244,9 +248,9 @@ class LeanWriter(F6Writer):
             total = t.cuda.mem_get_info()[1] if t.cuda.is_available() else 0
             result["no_checkpoint"] = dict(fits=True, peak_reserved_bytes=peak, free_bytes_at_peak=total - peak,
                 time_ratio=statistics.median(seconds[1:]) / result["f6-x0"]["seconds_r1"])
-        except t.cuda.OutOfMemoryError:
+        except RuntimeError as exc:
             t.cuda.empty_cache()
-            result["no_checkpoint"] = dict(fits=False)
+            result["no_checkpoint"] = dict(fits=False, failed=str(exc)[:300])
         finally:
             self.policy = dict(saved)
         return result

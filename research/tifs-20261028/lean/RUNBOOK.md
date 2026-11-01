@@ -11,7 +11,7 @@ The SSH line, the hourly price and the instance start time in UTC. Vast 57877693
 The repository is private, so the code travels as an archive. Check that Hotspot Shield is off, because it blocks SSH.
 
 ```bash
-git -C "C:/Users/Soroush/.codex/worktrees/claude-f6-lean" -c core.autocrlf=false -c core.eol=lf archive -o "C:/Users/Soroush/AppData/Local/Temp/f6l-code.tar" HEAD scripts research/tifs-20261028 research/encoder-transfer-20261019 experiments/c4-v5-two-tier-regeneration-v1 AGENTS.md
+git -C "C:/Users/Soroush/.codex/worktrees/claude-f6-lean" -c core.autocrlf=false -c core.eol=lf archive -o "C:/Users/Soroush/AppData/Local/Temp/f6l-code.tar" HEAD scripts research/tifs-20261028 research/encoder-transfer-20261019/stage2b-config.json research/encoder-transfer-20261019/source-list.json experiments/c4-v5-two-tier-regeneration-v1 AGENTS.md
 ```
 
 ```bash
@@ -62,4 +62,4 @@ Then report: the status label, C and J tables, quality, T4 and T5 events, spend,
 
 ## Validation boundary
 
-Local checks are the rule tests, a CPU run of the writer on real SD1.5 and SDXL VAEs with very few steps, and syntax checks. These do not cover UNet gradients, Kandinsky 3, native replay, VINE adapters, GPU memory or any scientific outcome. The probe and the Stage 3 rehearsal are the first real tests of those paths.
+Local checks are the rule tests, a flow test of every stage with stubbed models, a CPU run of the writer on real SD1.5 weights with very few steps, a real SDXL VAE gradient at 256 px, and syntax checks. These do not cover the SDXL graph at 1024 px (it crashes the laptop process on CPU, probably from memory), bf16 backward, UNet gradients, Kandinsky 3, native replay, VINE adapters, setup, GPU memory or any scientific outcome. The probe and the Stage 3 rehearsal are the first real tests of those paths.
