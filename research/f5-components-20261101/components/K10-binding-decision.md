@@ -101,3 +101,9 @@ SOURCE: Commands, exact commits, input/output hashes, split/missingness, all num
 
 MEASURED: O1 route/status accounting is complete and preserves C/J. Semantic-absent instance-content successes are separately identified; unchecked is not exact-q agreement. O2 inherits the new EVALUATE T4 accept and is killed as safe promotion.
 DERIVED: O3 defined as a contradiction veto cannot remove the observed T4 counterexample because semantic evidence is absent; absent evidence is not a contradiction. This is a decisive logical failure of that proposed sufficient repair, without tuning a veto after the attack. Rejecting all unchecked events would remove valuable N1 successes and requires a new declared tradeoff, not a favorable reinterpretation here.
+
+## F. Proposed verdict
+
+JUDGMENT ? PROPOSED IMPROVE. Confidence: High for reporting only. Explicit unchecked/conflict states prevent stronger claims; union and contradiction-only repair fail.
+
+JUDGMENT: Evidence that would change this verdict: A complete binding policy passes both transfer and near-negative tests at declared budget. This is a proposal to Claude, not approval to replace the method or run a writer. The [joint verdict table](../VERDICTS.md), [interactions](../INTERACTIONS.md), [two integrated designs](../CANDIDATE-DESIGNS.md) and [server queue](../SERVER-QUEUE.md) state the combined assumptions and scope.

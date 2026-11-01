@@ -103,3 +103,9 @@ SOURCE: Commands, exact commits, input/output hashes, split/missingness, all num
 
 MEASURED: O1 exactr3 is algebraically validated by880 exhaustive checks per batch, but F5 has0 extra EVALUATE marked calls/91 and two extra negative wrong-content T5 comparisons; v5 has1/92 extra call,0 extra source-cells and one new T4 negative. Both are killed for promotion under the fixed rule.1100 matched historical scores pass tolerance;312 old-panel calls have no matched reference, not a pass.
 MEASURED/DERIVED: O2's O<=3e-6 and O_U<=.75e-6 are conditional union bounds, not public-adaptive security. O_U's new saved F5 T4 accept kills promotion despite zero C0/wrong events. O_Q is sensitivity, not a chosen rescue. O3 has no valid calibrated per-tier e-values; T1 null audit blocks performance claims. No relaxed threshold or learned fusion was selected.
+
+## F. Proposed verdict
+
+JUDGMENT ? PROPOSED KEEP. Confidence: High within tested panel. Exactr3 and simple union fail fixed negative rules; no valid e-value construction exists.
+
+JUDGMENT: Evidence that would change this verdict: Predeclared valid-null reader gains on disjoint development with real T4/T5 and no low-strength regression. This is a proposal to Claude, not approval to replace the method or run a writer. The [joint verdict table](../VERDICTS.md), [interactions](../INTERACTIONS.md), [two integrated designs](../CANDIDATE-DESIGNS.md) and [server queue](../SERVER-QUEUE.md) state the combined assumptions and scope.

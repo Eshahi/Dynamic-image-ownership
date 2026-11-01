@@ -104,3 +104,9 @@ SOURCE: Commands, exact commits, input/output hashes, split/missingness, all num
 
 MEASURED: T3 F5 EVALUATE robust/second alignment retention is.726189/.005154 on SD1.5 .2 and.093426/.269442 on SDXL .2; K3 .2 is.161632/.143618. The prespecified order is compatible on both F5 halves. Six DCT-position energies, robust bands, host norms and matched differences are retained, not inferred from detector score alone. Resize-only second retention near.984/.983 does not reproduce native SD1.5 loss.
 JUDGMENT: O1 remains causally unidentified: working resolution and family are aliased, so Q-RES is necessary. O2 has a real complementary response prerequisite but T1's direct union fails a saved T4 attack; joint carrier design is not automatically safe. O3's new band targets require new writing and remain unmeasured, with prior H1 retained. No causal carrier-erasure or scale percentage is claimed.
+
+## F. Proposed verdict
+
+JUDGMENT ? PROPOSED IMPROVE. Confidence: Medium for diagnosis, low for a rewrite. Complementary physical responses justify joint carrier/scale study; direct union is unsafe.
+
+JUDGMENT: Evidence that would change this verdict: Q-RES crosses scale; a joint carrier rewrite must then improve complete endpoint safely. This is a proposal to Claude, not approval to replace the method or run a writer. The [joint verdict table](../VERDICTS.md), [interactions](../INTERACTIONS.md), [two integrated designs](../CANDIDATE-DESIGNS.md) and [server queue](../SERVER-QUEUE.md) state the combined assumptions and scope.

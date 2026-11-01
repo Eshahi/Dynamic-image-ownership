@@ -100,3 +100,9 @@ SOURCE: Commands, exact commits, input/output hashes, split/missingness, all num
 
 MEASURED: TQ fixed C0 texture masks give F5 EVALUATE max-patch/global RMS1.3092 and flat/textured RMS1.1619, below2/1.5: O2 local-concentration priority KILLED for F5. v5's2.8886/.3283 retains only a comparator diagnostic. No human visibility conclusion follows.
 JUDGMENT: O1/O3 are constrained by T4's predictive margin result but final-only metadata cannot measure marginal distortion shares or realizable extra strength. Q-STAGE must measure increments/cross terms and match actual final quality. No mask, amplitude or quality-selector writer was run. Nominal dB shares are not spendable measured budget.
+
+## F. Proposed verdict
+
+JUDGMENT ? PROPOSED KEEP. Confidence: Medium. No measured spendable stage budget; F5 local concentration screen fails.
+
+JUDGMENT: Evidence that would change this verdict: Q-STAGE demonstrates real slack and an equal-quality improvement with flat-region/human checks. This is a proposal to Claude, not approval to replace the method or run a writer. The [joint verdict table](../VERDICTS.md), [interactions](../INTERACTIONS.md), [two integrated designs](../CANDIDATE-DESIGNS.md) and [server queue](../SERVER-QUEUE.md) state the combined assumptions and scope.

@@ -92,3 +92,9 @@ SOURCE: Commands, exact commits, input/output hashes, split/missingness, all num
 
 MEASURED: T0 finds minimum within-segment option distance2, including six of64 pairs, so a guaranteed one-chip correction claim is false. T2 finds no extra F5 Stage2 EVALUATE radius3 acceptance beyond the lower bound (0/91 calls); v5 gains1/92 calls but no source-cells and introduces a T4 negative. Reference-assisted T5 adds two F5 negative comparisons. These disfavor a reader-only ambiguity rescue, not new antipodal/ECC marks.
 JUDGMENT: O1/O2 require freshly written targets and remain physically UNKNOWN; the fixed320-chip budget must account for transport/quality, not only code distance. O3 is constrained by T1/T3 complementarity but cannot inherit the unsafe O_U union. Duplicating semantic payload needs an explicit h/instance-binding tradeoff; no such rewrite was executed.
+
+## F. Proposed verdict
+
+JUDGMENT ? PROPOSED UNKNOWN. Confidence: Medium. Distance2 refutes one-chip guarantee, but exact-ball negatives do not measure a new code's transport.
+
+JUDGMENT: Evidence that would change this verdict: Fixed320-chip antipodal/parity comparison with equal final quality and real T4/T5. This is a proposal to Claude, not approval to replace the method or run a writer. The [joint verdict table](../VERDICTS.md), [interactions](../INTERACTIONS.md), [two integrated designs](../CANDIDATE-DESIGNS.md) and [server queue](../SERVER-QUEUE.md) state the combined assumptions and scope.

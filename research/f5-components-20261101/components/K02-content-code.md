@@ -92,3 +92,9 @@ SOURCE: Commands, exact commits, input/output hashes, split/missingness, all num
 
 MEASURED: TK2's single fitted bias+.1448109 bits reduces source-weighted EVALUATE MAE from1.5253129 to1.4595937 (4.3086%, below10%): O1 simple-calibration priority KILLED. Five DESIGN feature rows remain unavailable; all65 EVALUATE planned rows are present. This is v5 single-view saved-feature evidence, not F5 seven-view likelihood calibration. T0's small binding-only budget independently ranks repair low.
 DERIVED/JUDGMENT: O2 cannot claim universal angular/Rademacher coverage because the explicit2D counterexample falsifies it. No independent repeated feature sample or coverage model exists for a meaningful interval test. O3 Gaussian rows require new q and written marks, forbidden here; no performance is inferred. None reopens a closed descriptor line.
+
+## F. Proposed verdict
+
+JUDGMENT ? PROPOSED KEEP. Confidence: Medium. Universal Rademacher angle model is false, but the tested simple calibration improves MAE only4.31%; no native improvement demonstrated.
+
+JUDGMENT: Evidence that would change this verdict: A valid likelihood or new code beats current at fixed near-negative budget and matched written quality. This is a proposal to Claude, not approval to replace the method or run a writer. The [joint verdict table](../VERDICTS.md), [interactions](../INTERACTIONS.md), [two integrated designs](../CANDIDATE-DESIGNS.md) and [server queue](../SERVER-QUEUE.md) state the combined assumptions and scope.

@@ -64,7 +64,7 @@ def main():
     assert max(len(p['components']) for p in papers.values())<=2
     result={'access_date':'2026-11-01','count_basis':'unique work, max two component assignments; full-text provenance in card bundles','papers':list(papers.values()),'floors':floor,'unique_papers':len(papers),'assignments':sum(len(v) for v in ASSIGNMENTS.values())}
     (HERE/'paper-assignments.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
-    (HERE/'search-log.md').write_text('\n'.join(search).rstrip()+'\n',encoding='utf-8')
+    (HERE/'search-log.md').write_text('\n'.join(search).replace('../../components/','../components/').rstrip()+'\n',encoding='utf-8')
     md=['# WP2 floor accounting — proposed to Claude','',
       'JUDGMENT: Missing paper slots are not passes. The brief permits documented exhaustion after at least30 substantive searches and meaningful surface coverage. Every short component uses that route; judge acceptance remains pending. Full citations and inspected artifacts are in [cards](cards/), metric evidence in [venues](venues.md). No PRE/OLD paper counts. Every conference is on the TOP whitelist. All twelve components have at least four successfully opened scholarly surfaces, explicitly distinguished from blocked searches.','',
       '| Component | Q1J / floor | TOP / floor | Conservative substantive queries | Disposition |','|---|---:|---:|---:|---|']

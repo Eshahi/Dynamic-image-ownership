@@ -1,0 +1,20 @@
+# WP5 proposed component verdicts
+
+JUDGMENT: Claude is the judge. KEEP retains the present component within its limited claim; IMPROVE identifies a justified research or reporting change, not a demonstrated better writer; UNKNOWN means the saved evidence cannot choose a replacement. No REPLACE verdict is supported by these data. Confidence concerns the stated decision, not the chance of a future positive experiment. All physical and joint-safe ceilings remain as qualified in sections B/D.
+
+| Component | PROPOSED verdict | Confidence | Reason | Evidence that would change it |
+|---|---|---|---|---|
+| K01 semantic descriptor | KEEP | Medium | Binding-only foreign headroom1/207 is too small for primary priority; class invariance can worsen T5 | New matched-code marks improve fixed-specificity T3/T5 jointly; no closed-line shortcut |
+| K02 content code | KEEP | Medium | Universal Rademacher angle model is false, but the tested simple calibration improves MAE only4.31%; no native improvement demonstrated | A valid likelihood or new code beats current at fixed near-negative budget and matched written quality |
+| K03 payload/channel code | UNKNOWN | Medium | Distance2 refutes one-chip guarantee, but exact-ball negatives do not measure a new code's transport | Fixed320-chip antipodal/parity comparison with equal final quality and real T4/T5 |
+| K04 carrier space | IMPROVE | Medium for diagnosis, low for a rewrite | Complementary physical responses justify joint carrier/scale study; direct union is unsafe | Q-RES crosses scale; a joint carrier rewrite must then improve complete endpoint safely |
+| K05 encoder surrogate | IMPROVE | Medium for channel modeling | Current reader/writer surrogate misses the full foreign channel; codec roundtrip and native family/scale comparisons cannot select a replacement | Approved F6 and Q-RES separate useful objective/model evidence; matched-reader/encoder intervention if still needed |
+| K06 optimizer | UNKNOWN | Medium | Final margin predicts survival, but convergence versus later damage remains unidentified | Q-STAGE stage residuals/margins and matched-quality robust-only arm |
+| K07 quality allocation | KEEP | Medium | No measured spendable stage budget; F5 local concentration screen fails | Q-STAGE demonstrates real slack and an equal-quality improvement with flat-region/human checks |
+| K08 second carrier/code/order | IMPROVE | Medium for joint diagnosis | Second carrier is useful but O_U fails T4; preserve it while testing interference and binding | Q-STAGE plus fresh safe joint-order/payload comparison; no reopened descriptor line |
+| K09 reader statistic | KEEP | High within tested panel | Exactr3 and simple union fail fixed negative rules; no valid e-value construction exists | Predeclared valid-null reader gains on disjoint development with real T4/T5 and no low-strength regression |
+| K10 binding decision | IMPROVE | High for reporting only | Explicit unchecked/conflict states prevent stronger claims; union and contradiction-only repair fail | A complete binding policy passes both transfer and near-negative tests at declared budget |
+| K11 keys/side information | KEEP | High for current narrow scope | Public verification is statistical, not unforgeability; adding secrets/records changes assumptions without proven T3 gain | An explicitly authorized trust model, authenticated mapping and matched-reference attack evidence |
+| K12 evaluation protocol | IMPROVE | High | Family/resolution aliasing and reused dependent units limit attribution; endpoint budgets must be separate | Crossed Q-RES and stage Q-STAGE results may remove the diagnostic priority; fresh disjoint confirmation still required |
+
+SOURCE: Each component F repeats its proposed disposition and falsifier. Evidence is in [WP4 ledger](results/LEDGER.md), [floor accounting](literature/floor-accounting.md), [interactions](INTERACTIONS.md) and [server queue](SERVER-QUEUE.md). No journal-floor exhaustion is hidden behind a confident method verdict.

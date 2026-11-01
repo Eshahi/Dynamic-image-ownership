@@ -90,3 +90,9 @@ SOURCE: Commands, exact commits, input/output hashes, split/missingness, all num
 
 MEASURED: T0 gives only1/207 F5 foreign EVALUATE source-cell losses available to an already-read binding-only repair (.483%, studies overlapping), below the10% priority rule. K01-O1 is killed as the principal foreign repair; abstention remains a possible narrower claim/specificity policy, not a gain. T0 cannot bound a physically rewritten descriptor.
 JUDGMENT: O2/O3 have no saved alternate feature/payload marks and cannot run without new feature extraction/rewriting or training; their physical gain is UNKNOWN and any reference-free instance variant remains closed. No unexecuted representation is assigned a zero ceiling. The prior noiseless and r3-256 negatives in B still constrain enthusiasm.
+
+## F. Proposed verdict
+
+JUDGMENT ? PROPOSED KEEP. Confidence: Medium. Binding-only foreign headroom1/207 is too small for primary priority; class invariance can worsen T5.
+
+JUDGMENT: Evidence that would change this verdict: New matched-code marks improve fixed-specificity T3/T5 jointly; no closed-line shortcut. This is a proposal to Claude, not approval to replace the method or run a writer. The [joint verdict table](../VERDICTS.md), [interactions](../INTERACTIONS.md), [two integrated designs](../CANDIDATE-DESIGNS.md) and [server queue](../SERVER-QUEUE.md) state the combined assumptions and scope.

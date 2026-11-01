@@ -92,3 +92,9 @@ SOURCE: Commands, exact commits, input/output hashes, split/missingness, all num
 
 SOURCE/DERIVED: The public profile and deterministic derivation support O1's narrow claim; T1 confirms that conditional statistical error accounting does not establish public adaptive unforgeability. Documentation-only intervention changes C/J by0 in every cell. Public deterministic features contain no private entropy conditioned on the image, killing a fuzzy-extractor-as-new-secret claim.
 DERIVED/JUDGMENT: O2's actual secret-key marks/marked-reference attacks do not exist, so physical/security effects remain UNKNOWN. For O3, a valid signature under a newly supplied arbitrary public key cannot authenticate that key's owner; the tuple-substitution counterexample kills any specification omitting an independently trusted mapping. No new key infrastructure, enrollment implementation or descriptor was built/tested; neither cryptographic claims nor rights management are inferred.
+
+## F. Proposed verdict
+
+JUDGMENT ? PROPOSED KEEP. Confidence: High for current narrow scope. Public verification is statistical, not unforgeability; adding secrets/records changes assumptions without proven T3 gain.
+
+JUDGMENT: Evidence that would change this verdict: An explicitly authorized trust model, authenticated mapping and matched-reference attack evidence. This is a proposal to Claude, not approval to replace the method or run a writer. The [joint verdict table](../VERDICTS.md), [interactions](../INTERACTIONS.md), [two integrated designs](../CANDIDATE-DESIGNS.md) and [server queue](../SERVER-QUEUE.md) state the combined assumptions and scope.

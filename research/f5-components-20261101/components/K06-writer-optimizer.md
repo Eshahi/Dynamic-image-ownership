@@ -93,3 +93,9 @@ SOURCE: Commands, exact commits, input/output hashes, split/missingness, all num
 
 MEASURED: T4 freezes DESIGN median clean margin1.0033376911. EVALUATE rho=.6315906563 and high-minus-low foreign decoded-score gap+.7768209856 pass the .30/positive rules. This retains O1's predictive lead; all60 final medians being below target4 does not distinguish optimization failure from later damage.
 JUDGMENT: O1's causal part awaits Q-STAGE. O2 lacks a retained per-iteration feasible-image series; O3 lacks alternate schedule outputs, so neither can be honestly replayed from a final image. Stage attribution and equal-quality robust-only marks remain unavailable under the writer ban. No amplitude multiplier is used as a performance forecast.
+
+## F. Proposed verdict
+
+JUDGMENT ? PROPOSED UNKNOWN. Confidence: Medium. Final margin predicts survival, but convergence versus later damage remains unidentified.
+
+JUDGMENT: Evidence that would change this verdict: Q-STAGE stage residuals/margins and matched-quality robust-only arm. This is a proposal to Claude, not approval to replace the method or run a writer. The [joint verdict table](../VERDICTS.md), [interactions](../INTERACTIONS.md), [two integrated designs](../CANDIDATE-DESIGNS.md) and [server queue](../SERVER-QUEUE.md) state the combined assumptions and scope.

@@ -100,3 +100,9 @@ SOURCE: Commands, exact commits, input/output hashes, split/missingness, all num
 
 MEASURED: T3 reads pinned SD1.5 VAE latents on CPU only; no alternate encoder, diffusion or writer runs. F5 foreign robust alignment is lower than its SD1.5 alignment while the second carrier reverses this order. Saved mode/smooth/rinse controls do not isolate model family from working resolution or separate noise from nonlinear host effects.
 JUDGMENT: O1/O2 writer-surrogate hypotheses need new optimization or diffusion and cannot run here. F6 remains untouched/unrun. O3 has no specified compatible alternative reader or saved payload mapping; T2 validates the existing reader arithmetic, not a replacement. The available necessary tests support diagnostic priority but no demonstrated gain for any K05 option.
+
+## F. Proposed verdict
+
+JUDGMENT ? PROPOSED IMPROVE. Confidence: Medium for channel modeling. Current reader/writer surrogate misses the full foreign channel; codec roundtrip and native family/scale comparisons cannot select a replacement.
+
+JUDGMENT: Evidence that would change this verdict: Approved F6 and Q-RES separate useful objective/model evidence; matched-reader/encoder intervention if still needed. This is a proposal to Claude, not approval to replace the method or run a writer. The [joint verdict table](../VERDICTS.md), [interactions](../INTERACTIONS.md), [two integrated designs](../CANDIDATE-DESIGNS.md) and [server queue](../SERVER-QUEUE.md) state the combined assumptions and scope.

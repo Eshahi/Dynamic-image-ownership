@@ -83,7 +83,7 @@ Conservative substantive queries: **31**. [Full search/access/exhaustion context
 | Fifteen exact queries; four scholarly surfaces | 46 substantive queries plus four venue checks; successful primary material on CVF, USENIX, publisher archives, arXiv, and IACR | Search was through one web search engine, with subsequent primary-source opens; these are distinct scholarly surfaces, not five independent search engines or direct API searches |
 | Exhaustion route if paper floor missing | 46 substantive queries; access and relevance exclusions recorded below | Evidence of bounded exhaustion, not a waiver or a claim that no other relevant paper exists |
 
-SOURCE — Read the intake protocol, BRIEF WP2/rules, Gate-1 ruling and [K02 dossier](../../components/K02-content-code.md). Root reserved these six papers: K02 alone for the first five; FEAP shared with K11, within the two-component limit. PRC and Safe Testing were not reassigned from their already full allocations. Full methods, experiments and available relevant appendices were inspected for every counted paper. Abstract-only leads count zero. All online access dates below are **2026-11-01**.
+SOURCE — Read the intake protocol, BRIEF WP2/rules, Gate-1 ruling and [K02 dossier](../components/K02-content-code.md). Root reserved these six papers: K02 alone for the first five; FEAP shared with K11, within the two-component limit. PRC and Safe Testing were not reassigned from their already full allocations. Full methods, experiments and available relevant appendices were inspected for every counted paper. Abstract-only leads count zero. All online access dates below are **2026-11-01**.
 
 
 ## Executed search ledger

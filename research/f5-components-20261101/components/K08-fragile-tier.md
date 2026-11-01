@@ -102,3 +102,9 @@ SOURCE: Commands, exact commits, input/output hashes, split/missingness, all num
 
 MEASURED: T1 reproduces complementarity across every development cell. On Stage2 EVALUATE, O_U source counts are19/7/1 on SDXL .1/.2/.4 and6 on K3 .2 versus frozen C0/0/0/3. But one of20 evaluated saved F5 residual-transfer attacks accepts O_U while C rejects all20: O1 safe-union promotion KILLED. Its semantic evidence is absent, not independently agreeing.
 JUDGMENT: O2/O3 alternate order/joint constraints require intermediate and rewritten images absent here. T3's physical ordering and T4's margin association motivate Q-RES/Q-STAGE, not a new writer verdict. Retain the second carrier as useful evidence while refusing to relabel it semantic exact identity. Existing h fragility and the closed descriptor line remain constraints.
+
+## F. Proposed verdict
+
+JUDGMENT ? PROPOSED IMPROVE. Confidence: Medium for joint diagnosis. Second carrier is useful but O_U fails T4; preserve it while testing interference and binding.
+
+JUDGMENT: Evidence that would change this verdict: Q-STAGE plus fresh safe joint-order/payload comparison; no reopened descriptor line. This is a proposal to Claude, not approval to replace the method or run a writer. The [joint verdict table](../VERDICTS.md), [interactions](../INTERACTIONS.md), [two integrated designs](../CANDIDATE-DESIGNS.md) and [server queue](../SERVER-QUEUE.md) state the combined assumptions and scope.
