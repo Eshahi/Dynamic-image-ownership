@@ -1,0 +1,29 @@
+{
+  "label": "MEASURED aggregation of saved writer metadata; no new writing",
+  "input": {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261025-0128-encoder-transfer-stage2b\\results\\stage2b-full\\rows.jsonl",
+    "sha256": "f3b95d3e727d421c29a2a2e42eb1ef5881f55b7d3eb848a237ab51095455fb82",
+    "inventory": {
+      "lines": 39896,
+      "status:generated": 28856,
+      "status:safety_blocked": 23,
+      "status:ok": 11017
+    },
+    "retained_ids": 11040,
+    "nonidentical_replacements": []
+  },
+  "command": [
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\venv\\Scripts\\python.exe",
+    "-I",
+    "C:\\Users\\Soroush\\.codex\\worktrees\\codex-f5-components\\research\\f5-components-20261101\\analysis\\writer_metadata.py"
+  ],
+  "commit": "f9c04a8e9adec2ffb905118c51e0dd9510325e7e",
+  "script_sha256": "8c124e5447585afc2d35b832f09d4ddb30b05642d81f0cf0fbc7c8878580230b",
+  "helper_sha256": "b49aeae3657ad916b7e722c17d1f439cb3f527d88d9d6c8bfb37d568d38483f6",
+  "phase_b_journals": "off",
+  "seconds": 0.9529999999795109,
+  "outputs_sha256": {
+    "sources.csv": "59e96b908dc2f2aafde34df634a16f708e521734a8784dc1e94ff3d884036904",
+    "summary.json": "22b824cb9ff593f6f78e20472dceccce09cc5c7b26d964aed5be2db082f75420"
+  }
+}

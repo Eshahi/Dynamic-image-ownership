@@ -1,0 +1,42 @@
+{
+  "label": "MEASURED descriptive fragile supplement",
+  "inputs": {
+    "stage2": {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261025-0128-encoder-transfer-stage2b\\results\\stage2b-full\\rows.jsonl",
+      "sha256": "f3b95d3e727d421c29a2a2e42eb1ef5881f55b7d3eb848a237ab51095455fb82",
+      "inventory": {
+        "lines": 39896,
+        "status:generated": 28856,
+        "status:safety_blocked": 23,
+        "status:ok": 11017
+      },
+      "retained_ids": 11040,
+      "nonidentical_replacements": []
+    },
+    "detect": {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261026-0855-et-final-phase-a\\results\\detect.jsonl",
+      "sha256": "08137a6b5b805a342266cd586d210ba8dc110ab8e6e49aac3dba97d96c0d1235",
+      "inventory": {
+        "lines": 9080,
+        "status:ok": 9080
+      },
+      "retained_ids": 9080,
+      "nonidentical_replacements": []
+    }
+  },
+  "command": [
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\venv\\Scripts\\python.exe",
+    "-I",
+    "C:\\Users\\Soroush\\.codex\\worktrees\\codex-f5-components\\research\\f5-components-20261101\\analysis\\account_fragile.py"
+  ],
+  "commit": "1066f4830fde5958c808b1f8dc9d5b08e632656f",
+  "script_sha256": "4334b4e3e1e811400d1c511909f9875e10f6e6db80fe7e796064c3457214c566",
+  "helper_sha256": "b49aeae3657ad916b7e722c17d1f439cb3f527d88d9d6c8bfb37d568d38483f6",
+  "phase_b_journals": "off",
+  "seconds": 1.4849999999860302,
+  "outputs_sha256": {
+    "fragile-cells.csv": "06c5fb47821b093124a82e95359b061c7a198ae715e6bc2d0b7e33f717951713",
+    "fragile-sources.csv": "a9275d47366a4147f60876fe070ce228cd73036db1acb8bdb223bd96e0a7be48",
+    "REPORT.md": "30977a5fa120e3cef04d24fe55a50c3c113131a7d34350deeb554be12cbd49c2"
+  }
+}

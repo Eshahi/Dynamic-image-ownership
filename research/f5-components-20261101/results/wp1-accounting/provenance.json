@@ -1,0 +1,97 @@
+{
+  "label": "MEASURED exploratory saved-development accounting",
+  "inputs": {
+    "stage2": {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261025-0128-encoder-transfer-stage2b\\results\\stage2b-full\\rows.jsonl",
+      "sha256": "f3b95d3e727d421c29a2a2e42eb1ef5881f55b7d3eb848a237ab51095455fb82",
+      "inventory": {
+        "lines": 39896,
+        "status:generated": 28856,
+        "status:safety_blocked": 23,
+        "status:ok": 11017
+      },
+      "retained_ids": 11040,
+      "nonidentical_replacements": []
+    },
+    "native": {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261026-0855-et-final-phase-a\\results\\native.jsonl",
+      "sha256": "849a254328cc0bc16c1c14f67f3895b210793336215c81f66e8c1ecd4a3ddf24",
+      "inventory": {
+        "lines": 6480,
+        "status:ok": 6449,
+        "status:safety_blocked": 22,
+        "status:unavailable": 9
+      },
+      "retained_ids": 6480,
+      "nonidentical_replacements": []
+    },
+    "detect": {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261026-0855-et-final-phase-a\\results\\detect.jsonl",
+      "sha256": "08137a6b5b805a342266cd586d210ba8dc110ab8e6e49aac3dba97d96c0d1235",
+      "inventory": {
+        "lines": 9080,
+        "status:ok": 9080
+      },
+      "retained_ids": 9080,
+      "nonidentical_replacements": []
+    },
+    "attacks": {
+      "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261026-0855-et-final-phase-a\\results\\attacks.jsonl",
+      "sha256": "fe0b18c2cca52e31c65d579a4daf31f108390bbc666ad19853fd88c5688ebd9e",
+      "inventory": {
+        "lines": 5340,
+        "status:ok": 5330,
+        "status:safety_blocked": 10
+      },
+      "retained_ids": 5340,
+      "nonidentical_replacements": []
+    }
+  },
+  "command": [
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\venv\\Scripts\\python.exe",
+    "-I",
+    "C:\\Users\\Soroush\\.codex\\worktrees\\codex-f5-components\\research\\f5-components-20261101\\analysis\\account_saved_development.py"
+  ],
+  "commit": "9c8d1b421d0aa7a60897c80c05329228b64812af",
+  "script_sha256": "b49aeae3657ad916b7e722c17d1f439cb3f527d88d9d6c8bfb37d568d38483f6",
+  "protocol_sha256": "d532a145b5513ca58369131fa7b0c40feafe520d20c4c81e64d088520a05ee7c",
+  "cuda_visible_devices": "-1",
+  "workers": 1,
+  "phase_b_journals": "off",
+  "seconds": 2.0929999999934807,
+  "thresholds": {
+    "0": 4.982033056390042,
+    "1": 5.620264157882009,
+    "2": 6.08166510646997,
+    "3": 6.446280165826135,
+    "4": 6.7461685752624865,
+    "6": 7.212932471000657
+  },
+  "judge_cells_reproduced": [
+    "f5-r2|R0-0.1",
+    "v5-r3|R0-0.1",
+    "f5-r2|R0-0.2",
+    "v5-r3|R0-0.2",
+    "f5-r2|R0-0.4",
+    "v5-r3|R0-0.4",
+    "f5-r2|R1-0.1",
+    "v5-r3|R1-0.1",
+    "f5-r2|R1-0.2",
+    "v5-r3|R1-0.2",
+    "f5-r2|R1-0.4",
+    "v5-r3|R1-0.4",
+    "f5-r2|R3-0.2",
+    "v5-r3|R3-0.2"
+  ],
+  "source_overlap": 60,
+  "marked_cells": 44,
+  "outputs_sha256": {
+    "loss-cells.csv": "14644f5e5a90cfedd8480d639de33e6ca864d1f1c21c99c88ef6addf3638a883",
+    "missing-calls.csv": "640feba68efc161f46dc03cc73c4342b28e6e56f52e8f209ce8e79a85fc1b40f",
+    "negative-cells.csv": "6cf7a085b30514e821f7510ab489515d76a7bcce65ef8285c3addc04c8c67c52",
+    "phase-a-coverage.csv": "68b17924b59382844b5e9073d5df18e2235615ff1351583136f9fe397539e7c4",
+    "REPORT.md": "fde8502d555d7439eb6f432d33f545cdf745b7e2dde8f4ba57dd7ecc013743fa",
+    "score-statistics.csv": "f42b1b642fae9232c6c16a344d972976836d85c621d6547a570bdb5537d31e7a",
+    "source-accounting.csv": "13c3f9e98be685dd1689c0e28b36deea4acd806f67e97008d718ce24c9552478"
+  }
+}

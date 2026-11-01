@@ -1,0 +1,42 @@
+{
+  "rgb_psnr_db": {
+    "n": 60,
+    "mean": 44.47504860417771,
+    "median": 44.96196788526534,
+    "sd": 0.9032761491572993,
+    "min": 42.157332106178764,
+    "max": 45.39669597926773
+  },
+  "margin_median": {
+    "n": 60,
+    "mean": 1.0390986708777845,
+    "median": 1.0362844720996285,
+    "sd": 0.31838026772827477,
+    "min": 0.5150326246617656,
+    "max": 1.7644478465255347
+  },
+  "margin_min": {
+    "n": 60,
+    "mean": -0.6990092068234888,
+    "median": -0.7034068746122042,
+    "sd": 0.5549178792082313,
+    "min": -1.983744779207583,
+    "max": 0.4518941067432792
+  },
+  "negative_chips": {
+    "n": 60,
+    "mean": 21.233333333333334,
+    "median": 17.0,
+    "sd": 20.830524104382896,
+    "min": 0,
+    "max": 72
+  },
+  "median_margin_below_target_sources": 60,
+  "negative_chip_sources": 56,
+  "nominal_not_measured_tier_MSE_rgb8": {
+    "47": 1.2974193203085134,
+    "52": 0.4102800132482455,
+    "58": 0.10305767983978395
+  },
+  "interpretation": "Final post-fragile margins, not convergence traces or isolated stage residuals. Neither measured distortion shares nor recoverable-source forecasts follow."
+}
