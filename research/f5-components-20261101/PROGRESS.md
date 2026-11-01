@@ -31,4 +31,4 @@ PHASE_B_JOURNALS=off
 ## Pushes
 
 - WP0 setup: 2a42502 pushed successfully to origin/codex/f5-components-20261101 on 2026-11-01 using repository identity and no attribution trailer.
-- WP1: package ready for commit/push. The successful package push receipt will be recorded before the final Gate-1 handoff; no WP2 work follows in this turn.
+- WP1 package: 06f7fa3f265a43154ac18ba3d8858bd5dd30a8c9 pushed successfully on 2026-11-01 to origin/codex/f5-components-20261101, range 2a42502..06f7fa3. This includes GATE-1-REQUEST.md, all three committed analyses and their outputs, twelve component dossiers, the synthesis and WP2 query plan. Repository identity Soroush was used, without attribution trailers. This receipt is the final documentation update; no WP2 work follows in this turn.
