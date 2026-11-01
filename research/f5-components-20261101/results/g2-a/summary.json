@@ -1,0 +1,32 @@
+{
+  "bound": {
+    "threshold": 7.779133080172838,
+    "ball": 43081973,
+    "radius": 9,
+    "effective_radius_upper": 9.307230043498443,
+    "per_tier_alpha": 5e-07,
+    "B_conditional_union": 1e-06,
+    "C_or_B_conditional_union": 2e-06
+  },
+  "foreign_gains_over_C": 19,
+  "foreign_denominator": 120,
+  "sd15_low_losses": 6,
+  "negative_accepts": 0,
+  "pixel_negative_accepts": 0,
+  "new_F5_T4": 0,
+  "new_T5": 0,
+  "T5_category_directions": {
+    "same": 28,
+    "different": 228,
+    "uncertain": 8
+  },
+  "kills": {
+    "fewer_than_5_F5_foreign_gains": false,
+    "any_F5_SD15_low_C_loss": true,
+    "any_saved_negative_accept": false,
+    "any_new_F5_T4_EVALUATE": false,
+    "any_new_different_T5_EVALUATE": false
+  },
+  "outcome": "KILL",
+  "T5_scope": "reference-assisted fixed-table scores; not operational blind transplantation"
+}
