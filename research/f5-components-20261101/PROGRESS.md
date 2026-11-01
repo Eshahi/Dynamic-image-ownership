@@ -41,6 +41,8 @@ PHASE_B_JOURNALS=off
 
 ## Pushes
 
+- WP5 pushed successfully:1edbb7c..8a0050d to origin/codex/f5-components-20261101 on2026-11-01. Gate2 request now summarizes exact floors/exhaustions,12 verdicts, adverse reader tests and required Q-RES/Q-STAGE decisions. Final receipt commit/push contains the request and this log; its enclosing Git commit is the receipt identity. No WP6 work follows until Claude's ruling and resumption.
+
 - WP4 pushed successfully:61f2935..1edbb7c to origin/codex/f5-components-20261101 on2026-11-01; retained raw analyses occupy about36MB before Git compression. No science process remains active.
 - WP5 checkpoint:12 proposed F verdicts, INTERACTIONS.md, two CANDIDATE-DESIGNS and fully counted Q-RES/Q-STAGE in SERVER-QUEUE.md. Recommendation is diagnostic Q-RES then Q-STAGE before coarse-lattice/new F5 rewriting; F6 package/receipt unchanged and any scheduling change belongs to Claude/user. Q-RES area-scaled1.844h/USD1.016 and Q-STAGE1.156h/USD.637 are anchor scenarios before unknown overhead, not spending approvals. No writer replacement is demonstrated; unsafe union/r3 are not promoted.
 - MEASURED: Package check found12 A-F dossiers and36 options. One generated search-log relative component link was corrected; canonical card bundle paths were already valid. Gate2 will ask for floor/exhaustion/version judgments, dispositions, null interpretation, diagnostic ordering and Q-STAGE reuse scope. WP6 reviews remain unstarted until the ruling.
