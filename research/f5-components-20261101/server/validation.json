@@ -1,0 +1,82 @@
+{
+  "scope": "Stdlib plans, pure logic synthetic tests, syntax only. No scientific execution.",
+  "before_commit": "86c90dd91a3bafa1d6dd639febba6c95648719c7",
+  "code_sha256": {
+    "common.py": "2433015acaae2eddfb729e31bdc31bfdb1dddffc715e9ea4c9966f2e7f3a61e5",
+    "q_res.py": "82ae6e63bf48ca6a7d96ef15ebd953c3ef7123a2318c444dfa19d1e365d12612",
+    "q_stage.py": "0a9b126286aba9ea27f5b93c88a316102971a6ada68338f223c4addfe125effe",
+    "test_runners.py": "8cac57930e87d60c87b354e0ca39f71453d86b4fe60f740322a6ad7db024f68f"
+  },
+  "commands": [
+    {
+      "command": [
+        "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\venv\\Scripts\\python.exe",
+        "-I",
+        "-B",
+        "C:\\Users\\Soroush\\.codex\\worktrees\\codex-f5-components\\research\\f5-components-20261101\\server\\q_res.py",
+        "--plan"
+      ],
+      "seconds": 0.1410000000614673,
+      "returncode": 0,
+      "stdout": "Saved in q-res-plan.json",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\venv\\Scripts\\python.exe",
+        "-I",
+        "-B",
+        "C:\\Users\\Soroush\\.codex\\worktrees\\codex-f5-components\\research\\f5-components-20261101\\server\\q_stage.py",
+        "--plan"
+      ],
+      "seconds": 0.14099999994505197,
+      "returncode": 0,
+      "stdout": "Saved in q-stage-plan.json",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\venv\\Scripts\\python.exe",
+        "-I",
+        "-B",
+        "C:\\Users\\Soroush\\.codex\\worktrees\\codex-f5-components\\research\\f5-components-20261101\\server\\q_res.py",
+        "--self-test"
+      ],
+      "seconds": 0.29599999997299165,
+      "returncode": 0,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"scope\": \"stdlib plan, exact inventory, missing bounds, native VINE N/A, scale kill, safety/geometry, resume integrity/no-retry, full-slot pilot projection; no science execution\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\venv\\Scripts\\python.exe",
+        "-I",
+        "-B",
+        "C:\\Users\\Soroush\\.codex\\worktrees\\codex-f5-components\\research\\f5-components-20261101\\server\\q_stage.py",
+        "--self-test"
+      ],
+      "seconds": 0.125,
+      "returncode": 0,
+      "stdout": "{\"status\": \"PASS\", \"scope\": \"stdlib plan, source-checked instrumentation syntax, missingness and kill logic; no science execution\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\venv\\Scripts\\python.exe",
+        "-I",
+        "-B",
+        "C:\\Users\\Soroush\\.codex\\worktrees\\codex-f5-components\\research\\f5-components-20261101\\server\\test_runners.py"
+      ],
+      "seconds": 0.4220000000204891,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_crossed_grid_and_calls (__main__.Contracts.test_crossed_grid_and_calls) ... ok\ntest_empty_inventory_cannot_claim_survival (__main__.Contracts.test_empty_inventory_cannot_claim_survival) ... ok\ntest_fixed_development_ids (__main__.Contracts.test_fixed_development_ids) ... ok\ntest_guard_rejects_before_heavy_import (__main__.Contracts.test_guard_rejects_before_heavy_import) ... ok\ntest_journal_latest_and_torn_fail_closed (__main__.Contracts.test_journal_latest_and_torn_fail_closed) ... ok\ntest_missing_seeds_are_failures_and_upper_separate (__main__.Contracts.test_missing_seeds_are_failures_and_upper_separate) ... ok\ntest_no_paid_defaults (__main__.Contracts.test_no_paid_defaults) ... ok\ntest_no_science_imports (__main__.Contracts.test_no_science_imports) ... ok\ntest_q_res_self_test (__main__.Contracts.test_q_res_self_test) ... ok\ntest_q_stage_self_test (__main__.Contracts.test_q_stage_self_test) ... ok\ntest_reader_preserves_native_endpoints_and_rejects_recomputed_rescue (__main__.Contracts.test_reader_preserves_native_endpoints_and_rejects_recomputed_rescue) ... ok\ntest_saved_clean_resolver_uses_hash_and_retains_failure (__main__.Contracts.test_saved_clean_resolver_uses_hash_and_retains_failure) ... ok\ntest_started_failure_is_not_success (__main__.Contracts.test_started_failure_is_not_success) ... ok\ntest_vine_not_semantic (__main__.Contracts.test_vine_not_semantic) ... ok\n\n----------------------------------------------------------------------\nRan 14 tests in 0.196s\n\nOK\n"
+    }
+  ],
+  "compiled": [
+    "common.py",
+    "q_res.py",
+    "q_stage.py",
+    "test_runners.py"
+  ]
+}
