@@ -1,0 +1,36 @@
+{
+  "commit": "db98c6f7a1d79ae148c777577e157f403ea27cc2",
+  "command": [
+    "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\venv\\Scripts\\python.exe",
+    "research/f5-components-20261101/analysis/gate2_saved_tests.py",
+    "G2-C"
+  ],
+  "seconds": 0.9529999999795109,
+  "inputs": {
+    "path": "W:\\Prrojects\\image ownership\\THESIS_GUIDE_OFFLINE_v5\\.thesis-build\\dev-runs\\20261025-0128-encoder-transfer-stage2b\\results\\stage2b-full\\rows.jsonl",
+    "sha256": "f3b95d3e727d421c29a2a2e42eb1ef5881f55b7d3eb848a237ab51095455fb82",
+    "inventory": {
+      "lines": 39896,
+      "status:generated": 28856,
+      "status:safety_blocked": 23,
+      "status:ok": 11017
+    },
+    "retained_ids": 11040,
+    "nonidentical_replacements": []
+  },
+  "scripts": {
+    "gate2_saved_tests.py": "fb5bcd8f6f1300f5549ea69e1bfdf8eb51f4f8d31b9031f851ca55f39dd26aff",
+    "gate2_reader.py": "e9e1c49de96908d2f4d3a9856918cc28b8e577e784fa458d399fd928813f02ae",
+    "offline_metadata_tests.py": "2ab23cb86dee8df2124b55e262831dcc064f0135a6dd26a6ed841623c4eba5cc"
+  },
+  "plan_sha256": "13e8ce0f1646c9ccc522a521e237c486ceae6b47e41209d469e8616e7f2b8602",
+  "phase_b_journals": "off",
+  "cuda_visible_devices": "-1",
+  "outputs": {
+    "codes.json": "166aeb17eec839a73bfc81b8117d2e6e8645d857676de2f18e998fb856563cdd",
+    "pairs.csv": "ae22d9fa5b869b6a3fb6a4bdd7150d4d560de8dd077464878d80cd007c1eac6c",
+    "REPORT.md": "776977e87a2ee1469054e8995a57eb15b9cf01c11887c8fcb7d50cf4957719ad",
+    "summary.csv": "075fd29e7c161bdca79dec47b470b3879e2e32df94ecb9c7fc0afdd3c7ea2adc",
+    "summary.json": "ee51c688774bc4c283a92f2e0373199e1cf9e17d5a7bc33fe02f6082f3d60e63"
+  }
+}
