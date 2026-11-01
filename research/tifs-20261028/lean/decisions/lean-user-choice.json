@@ -1,0 +1,31 @@
+{
+  "schema": "f6-lean-user-choice-v1",
+  "recorded_by": "Claude",
+  "recorded_utc": "2026-11-01",
+  "before_server_outputs": true,
+  "decision": "build the lean F6 package",
+  "primary_endpoint": "C",
+  "j_role": "reported separately for every arm and cell; never part of a pass, stop or ranking rule",
+  "budget_usd_from_user": 20,
+  "planned_ceiling": {
+    "max_usd": 18.7,
+    "max_instance_hours": 34,
+    "rule": "hours cap is the smaller of 34 and 18.7 divided by the actual hourly price",
+    "reason": "leaves about USD 1.30 of the user's USD 20 for storage and network charges"
+  },
+  "unchanged_rules": [
+    "12/16 absolute bar per foreign cell",
+    "F5 reader, thresholds, keys and decision table",
+    "strict clean quality on every source: PSNR above 35 dB, SSIM above .9, LPIPS below .1",
+    "no automatic extension, and no outcome-dependent budget change",
+    "Stage C (held-out) not authorized"
+  ],
+  "stricter_than_round3": [
+    "with C as the bar, the T4 and T5 negative gate counts C events in combined mode, not only D and F"
+  ],
+  "supersedes_for_lean_runs": "research/tifs-20261028/decisions/round3-user-choice.json (f32a322), which stays on file unchanged",
+  "run_authorized": false,
+  "run_authorization_needed": "the user starts the instance and sends the SSH line, the actual hourly price and the instance start time",
+  "user_decision_reference": "User chat messages in Claude Code session 98acc1f7-a88e-4b1d-b3b0-fd575faa6d6c on 2026-11-01: 'I want you to do a deep analysis on the F6, and the findout if we can optimize the F6 and also make it more accurate with the the budget of 20$?', then 'Yes, C as the bar', answering Claude's question 'Should I build the lean F6 package with C as the pass bar and J reported separately?'",
+  "server_outputs_before_recording": "none; no F6 mark or regeneration has ever been produced"
+}

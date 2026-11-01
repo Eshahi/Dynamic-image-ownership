@@ -75,7 +75,7 @@ J per attempt is already .87 on clean F5 marks, .63 at SD1.5 .2 and .52 after th
 
 **J is about 3x harder than C in signal amplitude** (derived). In a simple error model ([jmodel.py](analysis/jmodel.py)), rebalancing the writer toward weak segments saves about .9 dB at 80% exact recovery, so it does not rescue the bar. A code with all segments at distance 10 saves about 3.7 dB, but it changes the reader.
 
-C is the endpoint used in Phase B and M2. **Decision for the user before any output:** make C the pass bar and report J separately, or keep both and accept that the likely result is a J failure. Changing it narrows the claim to a content-bound read, without exact recovery of the original code.
+C is the endpoint used in Phase B and M2. **User decision, 2026-11-01, before any output: C is the pass bar and J is reported separately** ([receipt](decisions/lean-user-choice.json)). This narrows the claim to a content-bound read, without exact recovery of the original code. To keep that honest, the T4 and T5 negative gate now counts C events, which is stricter than round 3.
 
 ## 4. Quality budget
 
@@ -173,7 +173,9 @@ Hardware and price assumed: vast 57877693, RTX 4090, USD .5512/h, which is the l
 | Retrieval | Journals, marks and a sample of images only | 1.0 | .55 |
 | **Total** | | **13.9-26.9** | **7.65-14.83** |
 
-**Stage 1 arms:** F5 r2; F5-budget 46 and 42; generic 46, 42 and 38; F5 plus render 38 and 36; noise 52, 46 and 42; x0 46. Cheap arms run first. An arm that fails strict clean quality gets no native run. Generic is included as a candidate because it needs no SDXL graph.
+**Stage 1 arms:** F5 r2; F5-budget 46 and 42; generic 46, 42 and 38; F5 plus render 38 and 36; noise 46 and 42; noise 46 plus render 38; x0 46. Cheap arms run first. An arm that fails strict clean quality gets no native run. Generic is included as a candidate because it needs no SDXL graph. The noise-plus-render arm replaces noise 52, because the forecast below shows that C on SDXL .2 needs the levers together, and noise 46 against F5-budget 46 already measures the surrogate's own gain.
+
+**Fixed protocol:** [PROTOCOL.md](PROTOCOL.md) and [lean-config.json](lean-config.json) supersede this section where they differ.
 
 **Rules to fix before any output:**
 

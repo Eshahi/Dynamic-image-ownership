@@ -1,0 +1,96 @@
+{
+  "schema": "f6-lean-config-v1",
+  "base_config": "research/tifs-20261028/stage-s/frozen-config.json",
+  "user_choice": "research/tifs-20261028/lean/decisions/lean-user-choice.json",
+  "primary_endpoint": "C",
+  "caps": {
+    "max_usd": 18.7,
+    "max_instance_hours": 34,
+    "retrieval_reserve_seconds": 3600,
+    "max_hourly_usd": 1.0
+  },
+  "arms": {
+    "unmarked": {"kind": "unmarked"},
+    "f5-r2": {"kind": "retained"},
+    "v5-r3": {"kind": "retained"},
+    "vine-r": {"kind": "vine-r"},
+    "vine-b": {"kind": "vine-b"},
+    "f5b-46": {"kind": "lean", "variant": "f5-budget", "robust_psnr_db": 46, "render_db": null},
+    "f5b-42": {"kind": "lean", "variant": "f5-budget", "robust_psnr_db": 42, "render_db": null},
+    "ren-38": {"kind": "lean", "variant": "f5-budget", "robust_psnr_db": 52, "render_db": 38},
+    "ren-36": {"kind": "lean", "variant": "f5-budget", "robust_psnr_db": 52, "render_db": 36},
+    "gen-46": {"kind": "lean", "variant": "f6-generic", "robust_psnr_db": 46, "render_db": null},
+    "gen-42": {"kind": "lean", "variant": "f6-generic", "robust_psnr_db": 42, "render_db": null},
+    "gen-38": {"kind": "lean", "variant": "f6-generic", "robust_psnr_db": 38, "render_db": null},
+    "noise-46": {"kind": "lean", "variant": "f6-noise", "robust_psnr_db": 46, "render_db": null},
+    "noise-42": {"kind": "lean", "variant": "f6-noise", "robust_psnr_db": 42, "render_db": null},
+    "noise-46-ren38": {"kind": "lean", "variant": "f6-noise", "robust_psnr_db": 46, "render_db": 38},
+    "x0-46": {"kind": "lean", "variant": "f6-x0", "robust_psnr_db": 46, "render_db": null}
+  },
+  "phases": {
+    "probe": {"sources": {"partition": "tune", "start": 0, "stop": 2}, "seeds": [0], "arms": ["unmarked"]},
+    "stage1": {
+      "sources": {"partition": "tune", "start": 0, "stop": 4},
+      "seeds": [0],
+      "arms": ["unmarked", "f5-r2", "f5b-46", "f5b-42", "ren-38", "ren-36", "gen-46", "gen-42", "gen-38", "noise-46", "noise-42", "noise-46-ren38", "x0-46"]
+    },
+    "stage2": {"sources": {"partition": "tune", "start": 4, "stop": 16}, "seeds": [0, 1, 2]},
+    "stage3": {"seeds": [0, 1, 2], "baselines": ["v5-r3", "vine-r", "vine-b"]}
+  },
+  "cells": {"foreign": ["R1-0.1", "R1-0.2", "K3-0.2"], "core_foreign": ["R1-0.1", "K3-0.2"], "home": "R0-0.2"},
+  "writer": {
+    "cycle": [["R0", 0.2], ["R1", 0.2], ["R1", 0.2]],
+    "robust_steps": 150,
+    "refine_steps": 50,
+    "refine_psnr_db": 58,
+    "momentum": 0.9,
+    "gradient_combination": "unit(clean) + unit(surrogate)",
+    "quality_cushion": {"psnr_db_gt": 35.5, "ssim_rgb_gt": 0.905, "lpips_lt": 0.09},
+    "residual_scales": [1.0, 0.8, 0.64, 0.5]
+  },
+  "probe_rules": {
+    "momentum_if_median_pairwise_cos_below": 0.1,
+    "bf16_if_time_ratio_at_most": 0.7,
+    "bf16_if_gradient_cos_at_least": 0.95,
+    "no_checkpoint_if_time_ratio_at_most": 0.8,
+    "no_checkpoint_free_margin_bytes": 6442450944
+  },
+  "gates": {
+    "decoded_threshold": 8.259326826136963,
+    "stage1": {"advance_mean_decoded_on": ["R1-0.1", "K3-0.2"], "home_mean_decoded_min": 8.259326826136963, "finalists": 2},
+    "stage2": {"n": 12, "c_min": 9, "core_cells": ["R1-0.1", "K3-0.2"], "home_c_min": 9, "home_loss_max": 1, "clean_f_min": 11},
+    "stage3": {
+      "n": 16,
+      "c_min": 12,
+      "gains": {"R1-0.1": 4, "R1-0.2": 4, "K3-0.2": 3},
+      "home_c_min": 12,
+      "home_loss_max": 1,
+      "clean_f_min": 15
+    }
+  },
+  "fit": {"margin": 1.25},
+  "read_modes": ["combined", "semantic_only"],
+  "unit_estimates_seconds": {
+    "prepare": 20,
+    "clean_unmarked": 5,
+    "clean_retained": 180,
+    "clean_lean": 1300,
+    "clean_vine-r": 10,
+    "clean_vine-b": 30,
+    "native_K3": 15,
+    "native_R0": 10,
+    "native_R1": 15,
+    "threat": 5,
+    "secondary": 5,
+    "detect_f5-r2": 15,
+    "detect_v5-r3": 15,
+    "detect_vine-r": 5,
+    "detect_vine-b": 15,
+    "quality": 5,
+    "load_R0": 120,
+    "load_R1": 120,
+    "load_K3": 300,
+    "load_reader": 120,
+    "load_quality": 60
+  }
+}
