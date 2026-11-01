@@ -1,4 +1,4 @@
-# Two integrated designs proposed at Gate2
+# Two integrated designs after the Gate-2 fixed tests
 
 JUDGMENT: Neither is a new approved method or a server job. DesignA is the retained operational reference with clearer reporting. DesignB is a conditional mechanism blueprint, not an executable frozen protocol. Its unchosen implementation details require a later fresh-development design; it must not be run by filling those details after seeing outcomes. Physical performance forecasts are planning ranges, not confidence intervals, measured gains or sums of component ceilings.
 
@@ -34,3 +34,5 @@ JUDGMENT: DesignB ranges deliberately allow SD1.5/K3 regression. They are subjec
 JUDGMENT: DesignB's cheapest prerequisite is Q-STAGE. If it shows no meaningful late robust-score loss or no feasible matched-quality allocation, do not spend on this blueprint. A later concrete implementation must fix iteration/gradient budget, standardized joint loss, feasible-image selection and quality criteria before any new output. It is killed by no EVALUATE foreign C gain, any SD1.5 .1/.2 source loss, strict-quality failure or new T4/T5 acceptance. Stage-specific gain cannot be promoted by hiding a damaged second carrier or averaging away a failed cell. Runtime/quality of the new optimizer remain UNKNOWN;119s/mark is only the current reference, not its cost estimate.
 
 JUDGMENT: Both designs require the existing heavy VAE+CLIP reader and remain image-domain comparators. They cannot claim the proposal's latent-insertion/lightweight-extraction method, cryptographic ownership, legal provenance, universally independent-encoder robustness, confirmed T4/T5 safety, human invisibility or Q1 submission readiness. DesignB is not F6 and does not amend it. Other options remain alternatives in component D, not extra integrated candidates or covert queue entries.
+
+SOURCE/JUDGMENT: Gate-2 follow-up leaves exactly these two designs. Fixed B is NOT substituted into DesignA or B: G2-A loses3 distinct low-strength sources, G2-B admits2/480 transfers from one pair. DesignA reporting delta remains0; DesignB remains an unexecuted blueprint. Neither tested stage damage, crossed resolution, a new safe binding rule, T4/T5 of rewritten images or human visibility. [Current synthesis](GATE2-SYNTHESIS.md).

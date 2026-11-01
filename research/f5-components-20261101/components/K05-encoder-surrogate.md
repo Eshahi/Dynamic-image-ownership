@@ -1,6 +1,6 @@
 # K05 — Reader encoder and writer surrogate
 
-JUDGMENT — PROPOSED WP1 dossier, not a ruling. Scope: structure, prior evidence and conditional ceilings only. No WP2 literature result or WP3–WP5 improvement verdict is implied. Source: [BRIEF](../BRIEF.md), WP1.
+SOURCE/JUDGMENT: Sections A/B preserve WP1 structure and historical evidence; C-F contain literature, options, tests and the current proposed verdict. Gate-2 corrections and fixed results are in [GATE2-SYNTHESIS](../GATE2-SYNTHESIS.md). Claude remains the judge.
 
 ## A. Structure
 
@@ -103,6 +103,6 @@ JUDGMENT: O1/O2 writer-surrogate hypotheses need new optimization or diffusion a
 
 ## F. Proposed verdict
 
-JUDGMENT ? PROPOSED IMPROVE. Confidence: Medium for channel modeling. Current reader/writer surrogate misses the full foreign channel; codec roundtrip and native family/scale comparisons cannot select a replacement.
+JUDGMENT: PROPOSED IMPROVE. Confidence: Medium for channel modeling. Current reader/writer surrogate misses the full foreign channel; codec roundtrip and native family/scale comparisons cannot select a replacement.
 
 JUDGMENT: Evidence that would change this verdict: Approved F6 and Q-RES separate useful objective/model evidence; matched-reader/encoder intervention if still needed. This is a proposal to Claude, not approval to replace the method or run a writer. The [joint verdict table](../VERDICTS.md), [interactions](../INTERACTIONS.md), [two integrated designs](../CANDIDATE-DESIGNS.md) and [server queue](../SERVER-QUEUE.md) state the combined assumptions and scope.

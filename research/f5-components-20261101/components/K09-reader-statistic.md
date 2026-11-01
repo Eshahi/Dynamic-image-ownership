@@ -1,6 +1,6 @@
 # K09 — Reader statistic and thresholds
 
-JUDGMENT — PROPOSED WP1 dossier, not a ruling. Scope: structure, prior evidence and conditional ceilings only. No WP2 literature result or WP3–WP5 improvement verdict is implied. Source: [BRIEF](../BRIEF.md), WP1.
+SOURCE/JUDGMENT: Sections A/B preserve WP1 structure and historical evidence; C-F contain literature, options, tests and the current proposed verdict. Gate-2 corrections and fixed results are in [GATE2-SYNTHESIS](../GATE2-SYNTHESIS.md). Claude remains the judge.
 
 ## A. Structure
 
@@ -80,6 +80,8 @@ SOURCE: Wang's admissible e-merging theorem (Biometrika 2025, Theorem 1) does no
 DERIVED/JUDGMENT: Exact constrained decoding is computationally cheap because segment scores separate, but its radius-dependent multiplicity and content interpretation must be declared. Combining tier tests requires the budget of the complete rejection event. Frozen C uses decoded semantic reading; O adds two instance routes, so O's conditional union is three tests, not automatically one or four. O_U and the stronger q-enumerated envelope are distinct exploratory endpoints. Lower thresholds, heavy-tailed fusion, or e-values cannot manufacture an adaptive null from the same public keys and finite development negatives. Prioritize the exact-ball test and explicit union accounting before any learned fusion or threshold tuning.
 
 ## D. Improvement options
+
+SOURCE/JUDGMENT: Gate-2 R2 withdraws the old 32/12 SDXL recomputed-inclusive values as gains. O1/O2 planning ranges below are historical, unvalidated option records, superseded by the fixed failed-reader results in section E and [GATE2-SYNTHESIS](../GATE2-SYNTHESIS.md). They are not current performance forecasts.
 JUDGMENT: [OPTIONS](../OPTIONS.md) applies. Conditional stochastic null bounds do not become public-adaptive security.
 
 ### O1. Exact Hamming-ball maximizer at r=3
@@ -104,8 +106,16 @@ SOURCE: Commands, exact commits, input/output hashes, split/missingness, all num
 MEASURED: O1 exactr3 is algebraically validated by880 exhaustive checks per batch, but F5 has0 extra EVALUATE marked calls/91 and two extra negative wrong-content T5 comparisons; v5 has1/92 extra call,0 extra source-cells and one new T4 negative. Both are killed for promotion under the fixed rule.1100 matched historical scores pass tolerance;312 old-panel calls have no matched reference, not a pass.
 MEASURED/DERIVED: O2's O<=3e-6 and O_U<=.75e-6 are conditional union bounds, not public-adaptive security. O_U's new saved F5 T4 accept kills promotion despite zero C0/wrong events. O_Q is sensitivity, not a chosen rescue. O3 has no valid calibrated per-tier e-values; T1 null audit blocks performance claims. No relaxed threshold or learned fusion was selected.
 
+### Gate-2 option O4: fixed decoded-word reader B
+
+SOURCE: R5 fixes alpha/2, radius9 multiplicity, corrected hard distance<=6, exact computed score threshold7.7791330802 and frozen semantic veto. Code/kill rules committed dde7280 before EVALUATE. No recomputed route, no retuning. This adds one judge-required option to the original three.
+
+MEASURED: G2-A gains19/120 foreign EVALUATE source-cells but loses3 distinct SD1.5 .2 sources repeated in both studies; scores pass while hard binding fails frozen soft-compatible calls. G2-B adds2 strict-quality B-not-C transfers/480 from one pair. Both independently KILL promotion. G2-A has no new saved negative/old-T4/reference-assisted T5 event. All22study/cells and both methods remain in raw tables. [Synthesis and locators](../GATE2-SYNTHESIS.md).
+
+DERIVED/JUDGMENT: Conditional-q is primary under domain-separated PRF honest-null assumptions; O_Q is sensitivity, not a requirement selected by outcomes. Neither bound applies to same-owner transplants or adaptive public-key image choice. B hard binding changes F5's frozen soft statistic, contrary to a literal reading of R2's unchanged-binding phrase. The rule was run as written; no soft rescue follows. Five counted K09 journals are statistical foundations only; no Q1 watermark-reader journal was read.
+
 ## F. Proposed verdict
 
-JUDGMENT ? PROPOSED KEEP. Confidence: High within tested panel. Exactr3 and simple union fail fixed negative rules; no valid e-value construction exists.
+JUDGMENT: PROPOSED KEEP, as Gate-2 R5 requires when B dies. Confidence: High for refusing promotion of these tested readers, not for optimality of the retained statistic. Exact r3, O/O_U and fixed B fail their predeclared rules. B's larger residual-transfer failure is independent of its hard-versus-soft SD1.5 regression. No rescue or replacement is selected.
 
-JUDGMENT: Evidence that would change this verdict: Predeclared valid-null reader gains on disjoint development with real T4/T5 and no low-strength regression. This is a proposal to Claude, not approval to replace the method or run a writer. The [joint verdict table](../VERDICTS.md), [interactions](../INTERACTIONS.md), [two integrated designs](../CANDIDATE-DESIGNS.md) and [server queue](../SERVER-QUEUE.md) state the combined assumptions and scope.
+JUDGMENT: A later explicitly authorized, fixed-null reader on fresh disjoint development would need safe T3/T4/T5 gains and no retained low-strength regression. This research run neither designs nor tests another B variant. See [VERDICTS](../VERDICTS.md), [synthesis](../GATE2-SYNTHESIS.md), and [two unchanged-reader designs](../CANDIDATE-DESIGNS.md).

@@ -12,7 +12,7 @@ JUDGMENT: Any option replacing the instance descriptor, retrying FreqMark, modif
 
 ## Complete option-to-test register
 
-SOURCE/JUDGMENT: Each component section D has exactly three options, named Kxx-O1/O2/O3 here (local headings O1/O2/O3 inherit their component). This gives36 options. The table specifies what can actually be falsified with saved data. A prerequisite screen is not a measurement of an unexecuted writer intervention. No server intervention runs now; their kills remain prospective. Required tests began from the committed plan before these narrative options were complete; that overlap is disclosed rather than called a blind WP3 preregistration.
+SOURCE/JUDGMENT: Each component section D has exactly three options, named Kxx-O1/O2/O3 here (local headings O1/O2/O3 inherit their component). This gives36 original options; Gate-2 R5 adds K09-O4 (fixed B), making37 documented options. The table specifies what can actually be falsified with saved data. A prerequisite screen is not a measurement of an unexecuted writer intervention. No server intervention runs now; their kills remain prospective. Required tests began from the committed plan before these narrative options were complete; that overlap is disclosed rather than called a blind WP3 preregistration.
 
 | Component | O1 / cheapest allowed test | O2 / cheapest allowed test | O3 / cheapest allowed test |
 |---|---|---|---|
@@ -25,10 +25,12 @@ SOURCE/JUDGMENT: Each component section D has exactly three options, named Kxx-O
 | K07 | Measured allocation: T4 final margin; per-stage shares missing,Q-STAGE | Local caps: TQ concentration screen; equal-quality new marks unavailable | Channel-aware budget: T3/T4; strength perturbation requires writer |
 | K08 | Existing payload union: T1 and saved T4/T5 panels,T2 | Write order: T4 final; stage/alternate-order marks unavailable | Joint constraints retaining h: T1/T3/T4; new optimization unavailable |
 | K09 | Exact ball: T2 fixedr3 with negatives and reference-assisted T5 | Union: T1 budgets and saved T4/T5 diagnostics | Valid evidence averaging: T1 null audit; absent valid e-values blocks performance test |
-| K10 | Explicit states: T1 route/content accounting, frozen C/J unchanged | Budgeted union: same T1/pixel panels as K08/K09 | Contradiction veto: T1/pixel event flags; logical counterexample if failed attack has no semantic contradiction |
+| K10 | Explicit states: T1 route/content accounting, frozen C/J unchanged | Budgeted union: same T1/pixel panels as K08/K09 | Contradiction veto: T1/pixel event flags; cross-tier-only veto cannot reject N3, but intra-tier contradiction exists; fixed B tests and fails a specified decoded-word repair |
 | K11 | Public claims: profile/code inspection and T1 conditional-null derivation | Secret per-record key: public entropy counterexample; new-key marks/attacks unavailable | Authenticated records: tuple-substitution counterexample; new implementation/mapping absent |
 | K12 | Family/scale intervention: T3 identifiability,Q-RES | Separate endpoints/multiplicity: T1,T2 frozen split and negative panels | Stage diagnostic: T4,Q-STAGE |
 
 JUDGMENT: Early decisive negatives remove a need to expand favorable-case searches. In particular a reader option killed by a new negative on the fixed EVALUATE panel is not retuned or extended to stronger cells to seek a rescue. Small pixel sample results do not establish impossibility on untested strengths. Logical counterexamples to an exact model or claimed guarantee are valid negative tests; they do not require synthetic runs that merely restate the proof.
 
 JUDGMENT: Priority after literature remains jointK04/K05/K08, thenK09/K03/K10, thenK06, thenK01/K02, with fullK11/K12 treatment. The measured reader negatives may change which particular option survives, not the integrity of the original ranking. WP5 will make that disposition explicit. No closed line is reopened and no experiment budget is authorized by an option listing.
+
+SOURCE/JUDGMENT: K09-O4 is fixed by Gate-2 R5 and tested in G2-A/G2-B from dde7280. Both promotion kills fire; no rescue. G2-C is a required no-kill code-separation diagnostic bearing on K01/K02/K08. See [GATE2-SYNTHESIS](GATE2-SYNTHESIS.md).

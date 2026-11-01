@@ -1,6 +1,6 @@
 # K10 — Binding decision and endpoints
 
-JUDGMENT — PROPOSED WP1 dossier, not a ruling. Scope: structure, prior evidence and conditional ceilings only. No WP2 literature result or WP3–WP5 improvement verdict is implied. Source: [BRIEF](../BRIEF.md), WP1.
+SOURCE/JUDGMENT: Sections A/B preserve WP1 structure and historical evidence; C-F contain literature, options, tests and the current proposed verdict. Gate-2 corrections and fixed results are in [GATE2-SYNTHESIS](../GATE2-SYNTHESIS.md). Claude remains the judge.
 
 ## A. Structure
 
@@ -78,6 +78,8 @@ SOURCE: [K10 intake](../literature/intake/K10.md):4 Q1J +3 TOP, one journal slot
 JUDGMENT: A valid cryptographic signature, a robust detector hit and current-image consistency are three different predicates. Existing public F5 evidence cannot be silently upgraded to instance ownership.
 
 ## D. Improvement options
+
+SOURCE/JUDGMENT: Gate-2 R2 withdraws the old 32/12 SDXL recomputed-inclusive values as gains. O1/O2 planning ranges below are historical, unvalidated option records, superseded by the fixed failed-reader results in section E and [GATE2-SYNTHESIS](../GATE2-SYNTHESIS.md). They are not current performance forecasts.
 JUDGMENT: Forecasts follow [OPTIONS](../OPTIONS.md).
 
 ### O1. Explicit unresolved/conflicting evidence states
@@ -100,10 +102,12 @@ JUDGMENT: T1's route/content tables are the cheapest descriptive screen; a futur
 SOURCE: Commands, exact commits, input/output hashes, split/missingness, all numbers and inherited prospective kill rules are in [WP4 results ledger](../results/LEDGER.md) and its linked raw outputs. These are exploratory development results; each option below has the test or specific unavailable intervention identified in [OPTIONS](../OPTIONS.md).
 
 MEASURED: O1 route/status accounting is complete and preserves C/J. Semantic-absent instance-content successes are separately identified; unchecked is not exact-q agreement. O2 inherits the new EVALUATE T4 accept and is killed as safe promotion.
-DERIVED: O3 defined as a contradiction veto cannot remove the observed T4 counterexample because semantic evidence is absent; absent evidence is not a contradiction. This is a decisive logical failure of that proposed sufficient repair, without tuning a veto after the attack. Rejecting all unchecked events would remove valuable N1 successes and requires a new declared tradeoff, not a favorable reinterpretation here.
+SOURCE/DERIVED: Gate-2 N3 corrects O3: a cross-tier semantic-only veto cannot remove the old semantic-absent event, but an intra-tier contradiction IS available: the best decoded instance word is12 bits from recipient h. The recomputed route ignores it just below the decoded threshold. B tests decoded-word consistency as fixed by R5; its separate G2-A and G2-B kills now reject that specified repair too. No claim that every contradiction policy fails follows, and no new policy is tuned here.
+
+MEASURED/JUDGMENT: The larger fixed G2-B panel admits2/480 under B and0 under C, both544?1359 at.5/1.0. The scale1 decoded instance score8.8941 exceeds even the old threshold; recomputation alone cannot explain all binding failures. G2-A separately exposes soft/hard semantic differences. Report unchecked, contradictory and decoded-consistent states explicitly; none is lawful ownership. [Synthesis](../GATE2-SYNTHESIS.md), [events](../results/g2-b-transfer/batch-0448-08.jsonl:7).
 
 ## F. Proposed verdict
 
-JUDGMENT ? PROPOSED IMPROVE. Confidence: High for reporting only. Explicit unchecked/conflict states prevent stronger claims; union and contradiction-only repair fail.
+JUDGMENT: PROPOSED IMPROVE. Confidence: High for reporting only. Explicit unchecked/conflict states prevent stronger claims; the recomputed-only route and cross-tier-only veto fail; fixed B also fails, without rejecting every intra-tier policy.
 
 JUDGMENT: Evidence that would change this verdict: A complete binding policy passes both transfer and near-negative tests at declared budget. This is a proposal to Claude, not approval to replace the method or run a writer. The [joint verdict table](../VERDICTS.md), [interactions](../INTERACTIONS.md), [two integrated designs](../CANDIDATE-DESIGNS.md) and [server queue](../SERVER-QUEUE.md) state the combined assumptions and scope.

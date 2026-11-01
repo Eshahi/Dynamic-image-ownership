@@ -1,6 +1,6 @@
 # K12 — Evaluation protocol
 
-JUDGMENT — PROPOSED WP1 dossier, not a ruling. Scope: structure, prior evidence and conditional ceilings only. No WP2 literature result or WP3–WP5 improvement verdict is implied. Source: [BRIEF](../BRIEF.md), WP1.
+SOURCE/JUDGMENT: Sections A/B preserve WP1 structure and historical evidence; C-F contain literature, options, tests and the current proposed verdict. Gate-2 corrections and fixed results are in [GATE2-SYNTHESIS](../GATE2-SYNTHESIS.md). Claude remains the judge.
 
 ## A. Structure
 
@@ -108,8 +108,10 @@ SOURCE: Commands, exact commits, input/output hashes, split/missingness, all num
 MEASURED/DERIVED: O1 T3 leaves family/scale nonidentifiable; Q-RES is mandatory to settle the strong scale account. O2 T1 distinguishes C/J/O/O_U/O_Q and complete error budgets, while T2 demonstrates that reader detection gains can be binding negatives. All missing and failed units are retained; reused seeds/pairs/studies are not counted as independent sources.
 MEASURED/JUDGMENT: O3 T4 retains predictive association but no causal stage claim, so Q-STAGE is required. New evaluation reporting itself changes frozen C/J by0. No held-out journals or pixels, Phase-B tuning, diffusion/writer run or automatic lifecycle verdict was used. No later study can claim fresh confirmation from these consumed development sources.
 
+SOURCE/JUDGMENT: Gate-2 R3 adds a constraint: no recomputed-only route counts as owner evidence in a new endpoint without a transplant test. G2-B is a fixed480-case dependent development panel, and its2 events kill B; it does not certify a population rate. G2-A/PhaseA overlap and G2-C shared-source pairs remain explicit. Q-RES/Q-STAGE report Bs,Bi,B from saved raw scores alongside frozen C/J, never in their place.
+
 ## F. Proposed verdict
 
-JUDGMENT ? PROPOSED IMPROVE. Confidence: High. Family/resolution aliasing and reused dependent units limit attribution; endpoint budgets must be separate.
+JUDGMENT: PROPOSED IMPROVE. Confidence: High. Family/resolution aliasing and reused dependent units limit attribution; endpoint budgets must be separate.
 
 JUDGMENT: Evidence that would change this verdict: Crossed Q-RES and stage Q-STAGE results may remove the diagnostic priority; fresh disjoint confirmation still required. This is a proposal to Claude, not approval to replace the method or run a writer. The [joint verdict table](../VERDICTS.md), [interactions](../INTERACTIONS.md), [two integrated designs](../CANDIDATE-DESIGNS.md) and [server queue](../SERVER-QUEUE.md) state the combined assumptions and scope.

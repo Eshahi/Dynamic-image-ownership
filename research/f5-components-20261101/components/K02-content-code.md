@@ -1,6 +1,6 @@
 # K02 — Content code and semantic compatibility
 
-JUDGMENT — PROPOSED WP1 dossier, not a ruling. Scope: structure, prior evidence and conditional ceilings only. No WP2 literature result or WP3–WP5 improvement verdict is implied. Source: [BRIEF](../BRIEF.md), WP1.
+SOURCE/JUDGMENT: Sections A/B preserve WP1 structure and historical evidence; C-F contain literature, options, tests and the current proposed verdict. Gate-2 corrections and fixed results are in [GATE2-SYNTHESIS](../GATE2-SYNTHESIS.md). Claude remains the judge.
 
 ## A. Structure
 
@@ -93,8 +93,10 @@ SOURCE: Commands, exact commits, input/output hashes, split/missingness, all num
 MEASURED: TK2's single fitted bias+.1448109 bits reduces source-weighted EVALUATE MAE from1.5253129 to1.4595937 (4.3086%, below10%): O1 simple-calibration priority KILLED. Five DESIGN feature rows remain unavailable; all65 EVALUATE planned rows are present. This is v5 single-view saved-feature evidence, not F5 seven-view likelihood calibration. T0's small binding-only budget independently ranks repair low.
 DERIVED/JUDGMENT: O2 cannot claim universal angular/Rademacher coverage because the explicit2D counterexample falsifies it. No independent repeated feature sample or coverage model exists for a meaningful interval test. O3 Gaussian rows require new q and written marks, forbidden here; no performance is inferred. None reopens a closed descriptor line.
 
+MEASURED/JUDGMENT: G2-C on clean C0 EVALUATE codes gives q mean10.85747/min3 and28/95/143 of435 pairs at distance<=6/8/9, versus h mean16.02299/min7 and0/1/3. Uniform32-bit reference shares are.000267526/.003500183/.010030804. This dependent cohort concentration limits semantic specificity; it is not a population entropy estimate or transplant probability. No new descriptor is tested. [Exact split/cross table](../results/g2-c/summary.csv), [interpretation](../GATE2-SYNTHESIS.md#g2-c-q-is-concentrated-h-is-more-separated-on-these-sources).
+
 ## F. Proposed verdict
 
-JUDGMENT ? PROPOSED KEEP. Confidence: Medium. Universal Rademacher angle model is false, but the tested simple calibration improves MAE only4.31%; no native improvement demonstrated.
+JUDGMENT: PROPOSED KEEP. Confidence: Medium. Universal Rademacher angle model is false, but the tested simple calibration improves MAE only4.31%; no native improvement demonstrated.
 
 JUDGMENT: Evidence that would change this verdict: A valid likelihood or new code beats current at fixed near-negative budget and matched written quality. This is a proposal to Claude, not approval to replace the method or run a writer. The [joint verdict table](../VERDICTS.md), [interactions](../INTERACTIONS.md), [two integrated designs](../CANDIDATE-DESIGNS.md) and [server queue](../SERVER-QUEUE.md) state the combined assumptions and scope.

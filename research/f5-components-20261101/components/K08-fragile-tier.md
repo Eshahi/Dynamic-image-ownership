@@ -79,10 +79,12 @@ SOURCE: EditGuard (CVPR 2024, supplement §9.3/Table 11) reports sequential vers
 JUDGMENT: Replace the descriptive word fragile with second carrier. N1 is evidence against discarding that carrier as wasted distortion. Its content-ok state when the semantic tier is absent is weaker than independently decoded semantic agreement. Neither tier union nor repeated watermark writing establishes ownership. Compare the current order with controlled stage traces and a matched-quality robust-only arm before reallocating distortion. Preserve the current h descriptor for now; improving it would reopen a closed reference-free instance-descriptor line. Human visibility remains MISSING.
 
 ## D. Improvement options
+
+SOURCE/JUDGMENT: Gate-2 R2 withdraws the old 32/12 SDXL recomputed-inclusive values as gains. O1/O2 planning ranges below are historical, unvalidated option records, superseded by the fixed failed-reader results in section E and [GATE2-SYNTHESIS](../GATE2-SYNTHESIS.md). They are not current performance forecasts.
 JUDGMENT: [OPTIONS](../OPTIONS.md) applies; the second tier is not assumed fragile.
 
 ### O1. Expose a separately budgeted two-tier endpoint
-SOURCE: Gate-1 N1; EditGuard, TAG-WM and GaussMarker cards show distinct recovery/identity semantics and fusion costs. Keep existing marks and h. Define O_U as in T1, never rename it C/J. Targets frozen-C omissions on SDXL/K3; current observed O opportunity is32/12/3 on SDXL .1/.2/.4 and+11 on K3, not a safe new-method ceiling.
+SOURCE: Gate-1 N1; EditGuard, TAG-WM and GaussMarker cards show distinct recovery/identity semantics and fusion costs. Keep existing marks and h. Define O_U as in T1, never rename it C/J. Targets frozen-C omissions on SDXL/K3; the old recomputed-inclusive O counts are not admissible gains. Physical second-tier found remains52/60 and30/60 on SDXL .1/.2; safe recoverable success is UNKNOWN (Gate-2 R2).
 JUDGMENT: Planning new-endpoint gains/60: SDXL .1 +15..+32, .2 +3..+12, .4 0..+3, K3 0..+11; C/J delta0..0. Higher null thresholds and T4/T5 may erase all gains. Quality/writer cost unchanged; reader already computes both tiers, so fusion arithmetic is negligible. Same public key/CLIP/VAE side information; absent semantic evidence is explicitly weaker content checking. Simpler alternative retain C/J plus descriptive tier reports.
 JUDGMENT: T1's precommitted gains/no-SD1.5-loss/no-negative rule applies, followed by available T4 and T5 diagnostics. Any new T4/T5 event kills promotion, and missing adversarial panels keep safety UNKNOWN. No descriptor line reopened.
 
@@ -103,8 +105,12 @@ SOURCE: Commands, exact commits, input/output hashes, split/missingness, all num
 MEASURED: T1 reproduces complementarity across every development cell. On Stage2 EVALUATE, O_U source counts are19/7/1 on SDXL .1/.2/.4 and6 on K3 .2 versus frozen C0/0/0/3. But one of20 evaluated saved F5 residual-transfer attacks accepts O_U while C rejects all20: O1 safe-union promotion KILLED. Its semantic evidence is absent, not independently agreeing.
 JUDGMENT: O2/O3 alternate order/joint constraints require intermediate and rewritten images absent here. T3's physical ordering and T4's margin association motivate Q-RES/Q-STAGE, not a new writer verdict. Retain the second carrier as useful evidence while refusing to relabel it semantic exact identity. Existing h fragility and the closed descriptor line remain constraints.
 
+MEASURED/JUDGMENT: G2-C on clean C0 EVALUATE codes gives q mean10.85747/min3 and28/95/143 of435 pairs at distance<=6/8/9, versus h mean16.02299/min7 and0/1/3. Uniform32-bit reference shares are.000267526/.003500183/.010030804. This dependent cohort concentration limits semantic specificity; it is not a population entropy estimate or transplant probability. No new descriptor is tested. [Exact split/cross table](../results/g2-c/summary.csv), [interpretation](../GATE2-SYNTHESIS.md#g2-c-q-is-concentrated-h-is-more-separated-on-these-sources).
+
+MEASURED/JUDGMENT: G2-B has Bi=B=2/480 versus C=0, both scales of544?1359, at strict PSNR/SSIM; decoder-only evidence is not sufficient for safe transplantation. Clean h separation supports keeping its information, not promoting the tested union. [Raw events](../results/g2-b-transfer/batch-0448-08.jsonl:7). No counted K08 journal bears on independent-encoder T3; the three journals are tamper-recovery evidence only (Gate-2 R1).
+
 ## F. Proposed verdict
 
-JUDGMENT ? PROPOSED IMPROVE. Confidence: Medium for joint diagnosis. Second carrier is useful but O_U fails T4; preserve it while testing interference and binding.
+JUDGMENT: PROPOSED IMPROVE. Confidence: Medium for joint diagnosis. Complementary physical signal and better clean h separation motivate diagnosis; O_U and fixed B fail T4. Preserve h/carrier while testing interference and binding, without claiming a safe reader improvement.
 
 JUDGMENT: Evidence that would change this verdict: Q-STAGE plus fresh safe joint-order/payload comparison; no reopened descriptor line. This is a proposal to Claude, not approval to replace the method or run a writer. The [joint verdict table](../VERDICTS.md), [interactions](../INTERACTIONS.md), [two integrated designs](../CANDIDATE-DESIGNS.md) and [server queue](../SERVER-QUEUE.md) state the combined assumptions and scope.

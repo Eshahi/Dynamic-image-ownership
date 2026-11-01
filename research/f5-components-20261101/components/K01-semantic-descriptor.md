@@ -1,6 +1,6 @@
 # K01 — Semantic descriptor
 
-JUDGMENT — PROPOSED WP1 dossier, not a ruling. Scope: structure, prior evidence and conditional ceilings only. No WP2 literature result or WP3–WP5 improvement verdict is implied. Source: [BRIEF](../BRIEF.md), WP1.
+SOURCE/JUDGMENT: Sections A/B preserve WP1 structure and historical evidence; C-F contain literature, options, tests and the current proposed verdict. Gate-2 corrections and fixed results are in [GATE2-SYNTHESIS](../GATE2-SYNTHESIS.md). Claude remains the judge.
 
 ## A. Structure
 
@@ -91,8 +91,10 @@ SOURCE: Commands, exact commits, input/output hashes, split/missingness, all num
 MEASURED: T0 gives only1/207 F5 foreign EVALUATE source-cell losses available to an already-read binding-only repair (.483%, studies overlapping), below the10% priority rule. K01-O1 is killed as the principal foreign repair; abstention remains a possible narrower claim/specificity policy, not a gain. T0 cannot bound a physically rewritten descriptor.
 JUDGMENT: O2/O3 have no saved alternate feature/payload marks and cannot run without new feature extraction/rewriting or training; their physical gain is UNKNOWN and any reference-free instance variant remains closed. No unexecuted representation is assigned a zero ceiling. The prior noiseless and r3-256 negatives in B still constrain enthusiasm.
 
+MEASURED/JUDGMENT: G2-C on clean C0 EVALUATE codes gives q mean10.85747/min3 and28/95/143 of435 pairs at distance<=6/8/9, versus h mean16.02299/min7 and0/1/3. Uniform32-bit reference shares are.000267526/.003500183/.010030804. This dependent cohort concentration limits semantic specificity; it is not a population entropy estimate or transplant probability. No new descriptor is tested. [Exact split/cross table](../results/g2-c/summary.csv), [interpretation](../GATE2-SYNTHESIS.md#g2-c-q-is-concentrated-h-is-more-separated-on-these-sources).
+
 ## F. Proposed verdict
 
-JUDGMENT ? PROPOSED KEEP. Confidence: Medium. Binding-only foreign headroom1/207 is too small for primary priority; class invariance can worsen T5.
+JUDGMENT: PROPOSED KEEP. Confidence: Medium. Binding-only foreign headroom1/207 is too small for primary priority; class invariance can worsen T5.
 
 JUDGMENT: Evidence that would change this verdict: New matched-code marks improve fixed-specificity T3/T5 jointly; no closed-line shortcut. This is a proposal to Claude, not approval to replace the method or run a writer. The [joint verdict table](../VERDICTS.md), [interactions](../INTERACTIONS.md), [two integrated designs](../CANDIDATE-DESIGNS.md) and [server queue](../SERVER-QUEUE.md) state the combined assumptions and scope.

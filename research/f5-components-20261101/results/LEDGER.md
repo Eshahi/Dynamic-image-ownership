@@ -48,7 +48,7 @@ SOURCE/MEASURED: When semantic evidence is absent its comparison is unchecked, n
 
 MEASURED: The saved T4 pixel panel falsifies safe F5 union promotion: **1/20 EVALUATE residual-transfer images** accepts O/O_U while C accepts0/20. Exact event `t4-residual-177015-25394-0.5`, donor177015 DESIGN, recipient25394 EVALUATE. Historical attack-row PSNR49.9810dB and SSIM.995024 pass those two checks; LPIPS and human visibility are MISSING, so no complete strict-quality attack claim is made. The old combined outcome was instance_only, semantic_found=false. The error-budget adjustment does not remove it. [Event and provenance](wp4-findings/summary.json).
 
-JUDGMENT — KILL: K08-O1/K09-O2/K10-O2 fail promotion under the fixed new-negative rule. Preserve complementarity as a physical/research observation. A veto that only rejects contradictions when semantic evidence is present cannot remove this semantic-absent attack; that logical counterexample kills K10-O3 as a sufficient repair. Rejecting every unchecked case would sacrifice exactly the foreign evidence N1 highlighted and is a different future policy, not a post-hoc rescue here.
+JUDGMENT — KILL: K08-O1/K09-O2/K10-O2 fail promotion under the fixed new-negative rule. Preserve complementarity as a physical/research observation. A cross-tier-only veto cannot remove this semantic-absent attack, so K10-O3 as specified is insufficient. Gate-2 N3 corrects the broader inference: an intra-tier decoded-word contradiction DOES exist (12 bits from h), ignored by the recomputed route just below the decoded cutoff. Rejecting every unchecked case would sacrifice exactly the foreign evidence N1 highlighted and is a different future policy, not a post-hoc rescue here.
 
 ## T2 — exact maximization adds little and exposes binding failure
 
@@ -56,7 +56,7 @@ DERIVED: Disjoint segments and a common denominator make the exact score the cen
 
 MEASURED: In the Stage2 EVALUATE pixel subset, F5 has0 extra calls/91 and0 extra source-cells over the corrected two-candidate bound. v5 has1 extra call/92 but0 extra source-cells, plus1 new T4 negative beyond the lower bound. F5 T4 r3 accepts1/20 images versus C=0/20 (that event was already accepted by the lower bound). v5 T4 r3 accepts29/40 versus C=1/40, including its residual/public-projection panels; sham0. Shared-owner marked images are not an unmarked null, so those counts specifically challenge binding interpretation.
 
-MEASURED: Reference-assisted different-content T5 EVALUATE gives F5 exact30/30 versus lower28/30; v5 exact30/30 versus lower30/30. Two F5 extra negative comparisons violate the fixed negative rule. These30 directions involve only six report-half images and are dependent. Same-semantic and uncertain cross-half pairs remain in the raw table, not filtered away. No native blind T5 forgery rate is inferred.
+MEASURED: Reference-assisted different-content T5 EVALUATE gives F5 exact30/30 versus lower28/30; v5 exact30/30 versus lower30/30. Two F5 extra negative comparisons violate the fixed negative rule. These30 directions involve only six report-half images and are dependent. Gate-2 verification extends the F5 wrong-content result to114/114 total directions:22 DESIGN,30 EVALUATE,62 CROSS. Same-semantic and uncertain cross-half pairs remain in the raw table, not filtered away. No native blind T5 forgery rate is inferred.
 
 MEASURED: No C0 or wrong-owner r3 event appears in the evaluated pixel calls. Across both halves1100 calls with saved comparable scores pass the predeclared replication tolerances (v5 absolute1e-3; F5 CPU.05);312 old-panel calls have no matched historical full-score reference and are labeled NO_MATCHED_REFERENCE. There are0 failed comparisons, not1412 validated comparisons. The exactness checks and raw projections remain available for audit.
 
@@ -97,3 +97,15 @@ MEASURED: TQ's fixed C0 texture masks give F5 EVALUATE median max-patch/global r
 MEASURED: TK2 on historical single-view v5 saved features fits DESIGN additive bias+.1448109 bits. EVALUATE source-weighted MAE falls1.5253129 to1.4595937, only4.3086%, below10%; kill this simple calibration priority. Five DESIGN planned feature rows are unavailable, retained; EVALUATE has65/65 across five planned T3 sources. The two clean-only sources determine parity but are not invented T3 attempts. This does not test F5 seven-view soft likelihood, an uncertainty interval or a new detector.
 
 JUDGMENT: K11's public-image entropy and self-signed-tuple counterexamples are logical tests of claimed guarantees; no experiment can make a deterministic public feature secret merely by hashing it. T1's null audit also blocks ungrounded e-value fusion. These are limits on claims, not measured attack rates. Every option is mapped to a run, logical falsifier or specifically unavailable intervention in [OPTIONS](../OPTIONS.md); no feasible writer execution is silently omitted because all such execution is forbidden here.
+
+## Gate-2 fixed follow-up tests
+
+SOURCE: Rules/code committed dde7280 before any B EVALUATE outcome; no threshold, radius, veto, pair list or scale changed. Commands use the same STD/SCI interpreters above. [Plan](../analysis/GATE2-TEST-PLAN.md), [complete interpretation](../GATE2-SYNTHESIS.md).
+
+| Test | Command (RD prefix) | Run HEAD / output commit | Outcome and provenance |
+|---|---|---|---|
+| G2-A | analysis/gate2_saved_tests.py G2-A (STD) | dde7280 / f37ca3b | KILL:19/120 foreign gains but3 distinct SD1.5 .2 losses, repeated in2 studies;4.63s. [provenance](g2-a/provenance.json), [22study/cells](g2-a/cells.csv), [diagnosis](g2-a/DIAGNOSIS.md) |
+| G2-B | analysis/gate2_transfer_panel.py --inventory; --start N --count8 (SCI); --summarize (STD) | f37ca3b / db98c6f; test code unchanged since dde7280 | KILL:2 B-not-C events/480, one donor-recipient pair at both scales.60 batches<=63.437s,4workers, no missing/error; all480 strict PSNR/SSIM, local LPIPS available. [summary/provenance](g2-b-transfer/summary.json), [donor](g2-b-transfer/by-donor.csv), [recipient](g2-b-transfer/by-recipient.csv) |
+| G2-C | analysis/gate2_saved_tests.py G2-C (STD) | db98c6f / a0bd31e | No kill.1,770 dependent clean-code pairs; q concentrated relative to uniform, h more separated.0.953s. [provenance](g2-c/provenance.json), [all split summaries](g2-c/summary.csv) |
+
+JUDGMENT: Gate-1 SDXL32/12 recomputed-inclusive content-ok values are withdrawn as gains; physical found52/30 remains. N3 is specifically a recomputed-route failure, while G2-B also demonstrates a decoded-route failure. Conditional-q is the primary PRF honest-null statement, O_Q sensitivity only; neither covers same-owner signal transplants or public adaptive images. C/J remain frozen. No soft rescue or new B policy follows.

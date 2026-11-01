@@ -1,6 +1,6 @@
 # K07 — Quality budget and allocation
 
-JUDGMENT — PROPOSED WP1 dossier, not a ruling. Scope: structure, prior evidence and conditional ceilings only. No WP2 literature result or WP3–WP5 improvement verdict is implied. Source: [BRIEF](../BRIEF.md), WP1.
+SOURCE/JUDGMENT: Sections A/B preserve WP1 structure and historical evidence; C-F contain literature, options, tests and the current proposed verdict. Gate-2 corrections and fixed results are in [GATE2-SYNTHESIS](../GATE2-SYNTHESIS.md). Claude remains the judge.
 
 ## A. Structure
 
@@ -103,6 +103,6 @@ JUDGMENT: O1/O3 are constrained by T4's predictive margin result but final-only 
 
 ## F. Proposed verdict
 
-JUDGMENT ? PROPOSED KEEP. Confidence: Medium. No measured spendable stage budget; F5 local concentration screen fails.
+JUDGMENT: PROPOSED KEEP. Confidence: Low pending Q-STAGE. No change is justified yet; this does not establish that the budget is right. No measured spendable stage budget exists, and the F5 local-concentration screen fails.
 
 JUDGMENT: Evidence that would change this verdict: Q-STAGE demonstrates real slack and an equal-quality improvement with flat-region/human checks. This is a proposal to Claude, not approval to replace the method or run a writer. The [joint verdict table](../VERDICTS.md), [interactions](../INTERACTIONS.md), [two integrated designs](../CANDIDATE-DESIGNS.md) and [server queue](../SERVER-QUEUE.md) state the combined assumptions and scope.
