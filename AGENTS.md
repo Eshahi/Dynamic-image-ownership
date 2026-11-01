@@ -2,7 +2,20 @@
 
 This file is already in your context; never re-read it. At the start of a thread, or right after a context compaction, read `thesis-runs/d916749c/STATE.md` once; the copy in the main checkout `W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5` is the only authoritative one, also when you work in a worktree.
 
-## Current mode: TIFS research, design and server-code session (user decision, 2026-10-28)
+## Current mode: F5 component research (user decision, 2026-11-01)
+
+The user asked, verbatim: "I want the core research to be more robust. I want you to follow this approach : first, the best solution we have for now ( I think it is F5) then separate it to the components it has. then proceed with this pipelines : based on the previous experiments, first analyze the current structure, then break it to the different system components. then, analyze each one and research the new Q1 Articles related to each component and then find out if we can improve each one for this purpose or not. I want you to be the judge and orchestrator and use the codex for the research and also find results." Claude set up this session on branch `codex/f5-components-20261101` and acts as judge. The brief is `research/f5-components-20261101/BRIEF.md`.
+
+For this session, the brief overrides every section below that asks you to run or build something else, or follow a session clock, including the TIFS mode section, the older Current-direction sections, Operating mode, Milestones, "Iterate fast", "Cheapest decisive test first", the interpreter and development-run permissions, and Execution and provenance. The threat-scope rule (T3/T4/T5 only) and the integrity rules below still apply in full.
+
+- **Compute and data follow the brief.** CPU only, on saved development data, each run under 10 minutes. No GPU, regeneration, writer optimization, training, installs, paid compute, vast.ai or SSH. No held-out pixels or journals.
+- **Write only in `research/f5-components-20261101/`,** never in its `judge/` folder or a `RULING` file. The approved F6 package stays unchanged.
+- **Claude judges.** Your verdicts are proposals. End your turn at each gate in the brief; Claude replies with a ruling file and resumes you.
+- **No clock.** The floors and rulings define when you are done. Never wait for time to pass, never stop early while a floor is unmet, and do not pad.
+- **Effort.** The thread may run at `ultra`, which lifts "Never use max or ultra" below for the thread only. Spawned agents stay on `gpt-6-astra` at `xhigh` or below.
+- **Guard.** Claude runs a guard that kills Codex-started experiment scripts, Python running longer than 15 minutes, vastai and SSH to the server. `CUDA_VISIBLE_DEVICES=-1` is set. Do not work around them.
+
+## Earlier mode, not active in this session: TIFS research, design and server-code session (user decision, 2026-10-28)
 
 The user asked, verbatim: "I have a full 100% session of codex pro 5x. Could you use it for the making the thesis acceptable for the TIFS journal? The research and experiment and also creativity. Then we run the code on vast ai with your observation. If you find it is possible or not." Claude set up this session on branch `codex/tifs-20261028`. The brief is `research/tifs-20261028/BRIEF.md`.
 
