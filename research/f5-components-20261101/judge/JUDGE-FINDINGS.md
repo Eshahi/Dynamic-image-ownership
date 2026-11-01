@@ -1,5 +1,7 @@
 # Judge's preliminary findings
 
+**Corrected at Gate 1. Read [the ruling](../gates/GATE-1-RULING.md) first.** Withdrawn or corrected below: "carrier gone" (Finding 1), the reader-ball code (Finding 2), "cannot survive regeneration" (Finding 3), the capacity label behind Finding 4, and "F5 and v5 share everything except the robust tier". The text below is kept as written.
+
 Claude (Opus 5.5), 2026-11-01. Written before any Codex research on this question. Exploratory, development data only (Stage 2 union, 60 sources, seeds 12-14). Scripts and JSON are beside this file. These are hypotheses to attack, not conclusions. A strong refutation is as useful as a confirmation.
 
 ## F5 is a defensible base, not the best method on every cell

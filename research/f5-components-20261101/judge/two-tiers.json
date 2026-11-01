@@ -1,0 +1,219 @@
+{
+ "f5-r2|R0-0.1": {
+  "sf": 60,
+  "if": 0,
+  "io": 0,
+  "any": 60,
+  "C": 60,
+  "CI": 60,
+  "outcomes": {
+   "semantic_only": 179
+  }
+ },
+ "f5-r2|R0-0.2": {
+  "sf": 59,
+  "if": 0,
+  "io": 0,
+  "any": 59,
+  "C": 57,
+  "CI": 57,
+  "outcomes": {
+   "semantic_only": 174,
+   "content_uncertain": 3
+  }
+ },
+ "f5-r2|R0-0.4": {
+  "sf": 58,
+  "if": 0,
+  "io": 0,
+  "any": 58,
+  "C": 39,
+  "CI": 39,
+  "outcomes": {
+   "semantic_only": 143,
+   "content_uncertain": 24,
+   "neither_match": 10,
+   "content_mismatch": 1
+  }
+ },
+ "f5-r2|R1-0.1": {
+  "sf": 7,
+  "if": 52,
+  "io": 32,
+  "any": 52,
+  "C": 0,
+  "CI": 32,
+  "outcomes": {
+   "instance_only": 79,
+   "neither_match": 25,
+   "content_uncertain": 50,
+   "both_match": 16,
+   "semantic_only": 1,
+   "content_mismatch": 9
+  }
+ },
+ "f5-r2|R1-0.2": {
+  "sf": 0,
+  "if": 30,
+  "io": 12,
+  "any": 30,
+  "C": 0,
+  "CI": 12,
+  "outcomes": {
+   "content_mismatch": 17,
+   "instance_only": 47,
+   "neither_match": 88,
+   "content_uncertain": 28
+  }
+ },
+ "f5-r2|R1-0.4": {
+  "sf": 0,
+  "if": 5,
+  "io": 3,
+  "any": 5,
+  "C": 0,
+  "CI": 3,
+  "outcomes": {
+   "neither_match": 163,
+   "instance_only": 13,
+   "content_uncertain": 1,
+   "content_mismatch": 3
+  }
+ },
+ "f5-r2|R3-0.2": {
+  "sf": 23,
+  "if": 16,
+  "io": 14,
+  "any": 29,
+  "C": 5,
+  "CI": 16,
+  "outcomes": {
+   "both_match": 25,
+   "semantic_only": 36,
+   "neither_match": 93,
+   "instance_only": 16,
+   "content_uncertain": 10
+  }
+ },
+ "f5-r2|negatives": {
+  "C0 calls": 1254,
+  "C0 robust found": 0,
+  "C0 fragile found": 0,
+  "C0 fragile found+content ok": 0,
+  "wrong-owner calls": 1254,
+  "wrong-owner robust found": 0,
+  "wrong-owner fragile found": 0,
+  "wrong-owner fragile found+content ok": 0
+ },
+ "v5-r3|R0-0.1": {
+  "sf": 58,
+  "if": 0,
+  "io": 0,
+  "any": 58,
+  "C": 47,
+  "CI": 47,
+  "outcomes": {
+   "semantic_only": 167,
+   "content_uncertain": 6,
+   "neither_match": 7
+  }
+ },
+ "v5-r3|R0-0.2": {
+  "sf": 47,
+  "if": 0,
+  "io": 0,
+  "any": 47,
+  "C": 27,
+  "CI": 27,
+  "outcomes": {
+   "semantic_only": 136,
+   "neither_match": 35,
+   "content_uncertain": 6,
+   "content_mismatch": 2
+  }
+ },
+ "v5-r3|R0-0.4": {
+  "sf": 12,
+  "if": 0,
+  "io": 0,
+  "any": 12,
+  "C": 3,
+  "CI": 3,
+  "outcomes": {
+   "neither_match": 140,
+   "semantic_only": 35,
+   "content_uncertain": 3
+  }
+ },
+ "v5-r3|R1-0.1": {
+  "sf": 59,
+  "if": 43,
+  "io": 25,
+  "any": 60,
+  "C": 50,
+  "CI": 55,
+  "outcomes": {
+   "content_uncertain": 58,
+   "both_match": 70,
+   "semantic_only": 44,
+   "content_mismatch": 6,
+   "instance_only": 2
+  }
+ },
+ "v5-r3|R1-0.2": {
+  "sf": 40,
+  "if": 28,
+  "io": 12,
+  "any": 52,
+  "C": 12,
+  "CI": 25,
+  "outcomes": {
+   "content_mismatch": 10,
+   "content_uncertain": 38,
+   "semantic_only": 58,
+   "neither_match": 32,
+   "instance_only": 19,
+   "both_match": 23
+  }
+ },
+ "v5-r3|R1-0.4": {
+  "sf": 2,
+  "if": 4,
+  "io": 1,
+  "any": 7,
+  "C": 0,
+  "CI": 1,
+  "outcomes": {
+   "neither_match": 156,
+   "semantic_only": 11,
+   "content_uncertain": 3,
+   "instance_only": 7,
+   "content_mismatch": 3
+  }
+ },
+ "v5-r3|R3-0.2": {
+  "sf": 60,
+  "if": 14,
+  "io": 11,
+  "any": 60,
+  "C": 57,
+  "CI": 57,
+  "outcomes": {
+   "semantic_only": 130,
+   "both_match": 37,
+   "content_uncertain": 11,
+   "neither_match": 1,
+   "content_mismatch": 1
+  }
+ },
+ "v5-r3|negatives": {
+  "C0 calls": 1254,
+  "C0 robust found": 0,
+  "C0 fragile found": 0,
+  "C0 fragile found+content ok": 0,
+  "wrong-owner calls": 1257,
+  "wrong-owner robust found": 0,
+  "wrong-owner fragile found": 0,
+  "wrong-owner fragile found+content ok": 0
+ }
+}
