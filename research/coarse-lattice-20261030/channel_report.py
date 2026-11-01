@@ -95,7 +95,7 @@ def main():
     print("  bands   " + " ".join(f"{labels[b]:>6}" for b in range(nb)))
 
     print("\n== dirty-paper capacity in bits, with reverse water-filling over all channels and bands")
-    print("   writer knows the image, not the regeneration noise; gain from the best available mark response")
+    print("   writer knows the image, not the regeneration noise; gain is the clipped host gain, not a measured mark gain, so this is not an achievable rate")
     budgets = [35, 38, 40, 42, 45, 48, 52]
     print("cell     " + " ".join(f"{b:>7}dB" for b in budgets))
     results = {}
