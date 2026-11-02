@@ -505,3 +505,4 @@
 - 2026-11-01 Claude: F6 deep analysis, CPU only on saved development images and journals; no server, no marks. Report research/tifs-20261028/lean/F6-DEEP-ANALYSIS.md. Pushed to claude/f6-lean-20261101.
 
 - 2026-11-01 Claude: lean F6 package on claude/f6-lean-20261101; no server run. Rule, flow and CPU writer tests pass.
+- 2026-11-02 Claude: lean F6 probe and Stage 1 on vast 58795791 (2.3 h): SCIENTIFIC_STOP; surrogate arms equal the budget control. Report research/tifs-20261028/lean/RESULTS-STAGE1.md.
