@@ -1,0 +1,23 @@
+544 12s
+1355 24s
+902 36s
+599 48s
+370 59s
+1779 71s
+1637 83s
+309 95s
+723 107s
+1180 119s
+693 130s
+508 143s
+1397 155s
+1670 167s
+1398 178s
+1323 190s
+cell | n | F5 alone | v5 alone | either alone | F5 in both | v5 in both | either in both   (seed 12, per image)
+('clean', 'None') 16 16 16 16 14 16 16 missing 0
+('R0', '0.2') 16 14 7 14 12 3 12 missing 0
+('R1', '0.1') 16 0 9 9 0 6 6 missing 0
+('R1', '0.2') 16 0 2 2 0 1 1 missing 0
+('R3', '0.2') 16 2 15 15 0 14 14 missing 0
+clean both-marked quality: PSNR median 35.66 min 33.90 | SSIM min 0.932 | LPIPS median 0.0601 max 0.1826 | strict pass 3/16
