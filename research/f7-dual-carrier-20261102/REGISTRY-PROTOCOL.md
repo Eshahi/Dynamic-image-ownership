@@ -62,7 +62,9 @@ All images come from the F7 screen run in the folder `/workspace/runs/f6l/f7/scr
 | N4 C0 accepts (any record) | 0 |
 | N5 queries with a beta record accepted | 0 |
 
-A seed blocked by the safety checker, or a missing image, counts as a miss for a positive. For a negative it is listed as unknown. An unknown negative in N1-N5 makes the verdict INCOMPLETE, not PASS.
+A seed blocked by the safety checker, or a missing image, counts as a miss for a positive. For a negative, a missing image or detect row is listed as unknown. An unknown negative in N1-N5 makes the verdict INCOMPLETE, not PASS.
+
+**Amendment, made before any score was computed.** A regeneration that the safety checker blocked produced no image, so there is nothing for the registry to accept. In N3-N5 such a unit is listed separately as "blocked" and is not unknown. The F7 run's journal shows two: `native:R0-0.2:459:2:unmarked` and `native:R0-0.4:853:2:f7`. For a positive, a blocked seed still counts as a miss.
 
 - **PASS:** every gate holds and no negative is unknown.
 - **SCIENTIFIC_KILL:** any F_R bar or any negative gate fails.
