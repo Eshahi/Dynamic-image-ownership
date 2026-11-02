@@ -379,6 +379,10 @@ class CommonRules(unittest.TestCase):
             if config["lean"]["arms"][arm]["kind"] == "lean":
                 self.assertEqual(estimates["detect_" + arm], estimates["detect_f5-r2"])
 
+    def test_offload_only_on_small_cards(self):
+        self.assertTrue(lean_common.needs_offload(24564 * 1024 ** 2))
+        self.assertFalse(lean_common.needs_offload(49140 * 1024 ** 2))
+
     def test_disk_floor(self):
         self.assertFalse(lean_common.disk_ok(self.lean, 9 * 10 ** 9))
         self.assertTrue(lean_common.disk_ok(self.lean, 10 ** 10))

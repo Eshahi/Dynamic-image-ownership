@@ -119,7 +119,9 @@ def load_policy(args):
 def build_writer(args, lean, config, base, policy):
     import et_final_phase_a_attacks as attacks
     from f6l_writer import LeanWriter
+    import torch
     frozen = common.load_json(BASE_CONFIG)
+    policy = dict(policy, offload=lean_common.needs_offload(torch.cuda.mem_get_info()[1]))
     return LeanWriter(args.assets, base, frozen, settings=lean["writer"], policy=policy, metric=attacks.Quality(args.assets),
                       within_cushion=lambda metrics: lean_common.within_cushion(lean, metrics))
 

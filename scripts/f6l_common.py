@@ -96,6 +96,11 @@ def stage_config(lean, base, phase, *, previous=None):
     return config
 
 
+def needs_offload(device_total_bytes):
+    """Under 40 GiB the writer moves its models off the card between steps, as the approved F6 did. Cost only."""
+    return device_total_bytes < 40 * 1024 ** 3
+
+
 def disk_ok(lean, free_bytes):
     return free_bytes >= lean["caps"]["min_free_disk_bytes"]
 

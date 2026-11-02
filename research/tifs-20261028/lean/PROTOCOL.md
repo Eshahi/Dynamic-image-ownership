@@ -17,7 +17,7 @@ Can an image-domain writer, with the F5 reader unchanged, make the semantic read
 | Momentum .9 if the probe finds disagreeing noise draws | Noisy gradients waste the budget | None |
 | SDXL .2 gets two of every three surrogate updates, instead of .1 and .2 | .1 is the easier cell | None |
 | Per-image residual scaling, at most down to .5, until a quality cushion holds | Larger budgets may exceed the strict bar on some images | None; a failure stays a failure |
-| No CPU offload; bf16 and no checkpointing only if the probe rule allows | Cost only | None |
+| No CPU offload on cards of 40 GiB or more (smaller cards offload, as the approved F6 did); bf16 and no checkpointing only if the probe rule allows | Cost only | None |
 
 All other writer settings are inherited: 150 robust and 50 refinement updates, margin 4, refinement at 58 dB, two second-tier writes, posterior mode. K3 stays out of the gradients but is seen by selection, so it is never called unseen. The approved package's `f6-codec` ablation and Stage P's noise-52 arm are dropped. Noise-52 is dropped because noise-46 against F5-budget-46 answers the same question at a usable budget.
 
