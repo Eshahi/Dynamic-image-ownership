@@ -362,6 +362,25 @@ def rule_counts(data, method, arm, cells, seeds, sources, name):
     return table
 
 
+def f7_fit(args):
+    """After the rehearsal: does the screen fit? Rehearsal unit times scaled from 2 to 16 sources, times the margin."""
+    lean = lean_common.load_lean()
+    rehearsal = load_phase(args.root / "f7" / "rehearsal")
+    total = 0.0
+    for name in ("clean", "native", "threats", "secondary"):
+        total += sum(r["seconds"] for r in rehearsal["producers"][name].values() if common._finite(r.get("seconds")))
+    total += sum(r["seconds"] for r in rehearsal["detections"].values() if common._finite(r.get("seconds"))) / 4
+    total += sum(r["seconds"] for r in rehearsal["qualities"].values() if common._finite(r.get("seconds")))
+    remaining = lean["fit"]["margin"] * total * 16 / 2
+    elapsed = time.time() - datetime.fromisoformat(args.instance_start_utc.replace("Z", "+00:00")).timestamp()
+    cap = lean_common.hours_cap(lean, args.hourly_usd) * 3600
+    required = elapsed + remaining + lean["caps"]["retrieval_reserve_seconds"]
+    report = dict(phase="f7", elapsed_seconds=elapsed, remaining_seconds=remaining, cap_seconds=cap,
+                  required_seconds=required, fits=required <= cap, rehearsal_unit_seconds=total)
+    common.atomic_json(args.root / "f7-fit.json", report)
+    return report
+
+
 def verdict_f7(summaries, threats, c0, config, data, resource_stop=False):
     """GO needs C at least 12/16 in the three core cells, at most 2 sources below the better single mark, and no false event."""
     rules = config["lean"]["gates"]["f7"]
@@ -532,7 +551,7 @@ def main(argv=None):
     parser.add_argument("--hourly-usd", type=float)
     args = parser.parse_args(argv)
     if args.action == "fit":
-        report = fit(args)
+        report = f7_fit(args) if args.phase == "f7" else fit(args)
         print(json.dumps(report, sort_keys=True))
         return 0 if report["fits"] else 3
     config = common.load_json(args.out / "config.json")
@@ -560,6 +579,10 @@ def main(argv=None):
         result = verdict_f7(summaries, threat_summary(data, "f7", "f7", pairs),
                             c0_events(data, "f7", cells, config["seeds"], data["sources"]), config, data, resource_stop=stopped)
         result["c0_by_reader"] = {method: c0_events(data, method, cells, config["seeds"], data["sources"]) for method in ("f5-r2", "v5-r3")}
+        clean_rows = [r for r in data["producers"]["clean"].values() if r.get("arm") == "f7" and r.get("status") == "ok"]
+        result["f7_writer"] = dict(rows=len(clean_rows),
+            same_q=sum(bool((r.get("embedding_report") or {}).get("same_q")) for r in clean_rows),
+            v5_scales=sorted((r.get("embedding_report") or {}).get("v5_scale") for r in clean_rows))
         result["threats_by_arm"] = {arm: threat_summary(data, arm, arm, pairs) for arm in summaries}
         result["secondary"] = secondary_table(config, data, list(summaries))
     else:

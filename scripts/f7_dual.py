@@ -19,9 +19,13 @@ def within_cushion(metrics):
     return common.quality_eligible(metrics, CUSHION["psnr_db_gt"], CUSHION["ssim_rgb_gt"], CUSHION["lpips_lt"])
 
 
-def embed(internal, rgb, base, owner_id, scales=SCALES, f5_overrides=None):
-    """v5 first, then F5 on top with the same features, so one q rides on both carriers."""
+def embed(internal, rgb, base, owner_id, scales=SCALES, f5_overrides=None, metric=None):
+    """v5 first, then F5 on top with the same features, so one q rides on both carriers.
+
+    metric should be the quality stage's own metric, so the cushion and the gate measure alike.
+    """
     import numpy as np
+    metric = metric or internal.metrics
     source = np.asarray(rgb, np.uint8)
     features = internal.features(source, 7)
     v5_list, v5_report = internal.v5.embed_rgb(source.tolist(), owner_id, profile=internal.profile,
@@ -33,7 +37,7 @@ def embed(internal, rgb, base, owner_id, scales=SCALES, f5_overrides=None):
     for scale in scales:
         start = np.clip(np.rint(source + scale * (v5_marked - source)), 0, 255).astype(np.uint8)
         marked, report = internal.f5.embed_rgb(start, owner_id, internal.profile, features, internal.reader, **params)
-        metrics = internal.metrics(source, marked)
+        metrics = metric(source, marked)
         attempts.append(dict(v5_scale=scale, metrics=metrics))
         if within_cushion(metrics):
             break
@@ -47,15 +51,25 @@ def embed(internal, rgb, base, owner_id, scales=SCALES, f5_overrides=None):
     return marked, payload, summary
 
 
+def _carriers(internal, owner_id):
+    """Keyed carrier tables depend only on profile and owner; build them once per reader and owner."""
+    cache = internal.__dict__.setdefault("_f7_carriers", {})
+    if owner_id not in cache:
+        v5, f5 = internal.v5, internal.f5
+        checked, key, config = v5._resolve(internal.profile, None)
+        owner = v5.canonical_owner(owner_id)
+        cache[owner_id] = (checked, key, config, owner, f5.Layout(checked, key, config, owner),
+                           v5._robust_carrier(key, config, owner, len(checked["robust_frequencies"])))
+    return cache[owner_id]
+
+
 def combined(internal, rgb, latent, owner_id, features):
     """Key test on the sum of the two unit-length chip vectors, normalized by its own length (exploratory)."""
     import numpy as np
     v5, f5 = internal.v5, internal.f5
-    checked, key, config = v5._resolve(internal.profile, None)
-    owner = v5.canonical_owner(owner_id)
+    checked, key, config, owner, layout, carrier = _carriers(internal, owner_id)
     luma = v5.luminance_from_rgb(np.asarray(rgb).tolist())
-    a = np.asarray(f5.Layout(checked, key, config, owner).projections(latent), np.float64)
-    carrier = v5._robust_carrier(key, config, owner, len(checked["robust_frequencies"]))
+    a = np.asarray(layout.projections(latent), np.float64)
     b = np.asarray(v5._Robust(v5._coarse(luma), luma, checked, carrier).projections, np.float64)
     if not (np.linalg.norm(a) > 0 and np.linalg.norm(b) > 0):
         return dict(read=False, found=False, decoded_score=0.0, content_match=False, status="zero projections")

@@ -329,12 +329,12 @@ class Flow(unittest.TestCase):
             raw = read_raw(rgb, "f7", owner, table=counts)
             raw["semantic"]["decoded_score"] = 9.0 if raw["semantic"]["read"] else 3.0
             return raw
-        f7_dual.embed = lambda internal, rgb, base, owner: (stamped(rgb, "f7"), dict(q="0000abcd", h="0000beef"), dict(v5_scale=1.0))
+        f7_dual.embed = lambda internal, rgb, base, owner, metric=None: (stamped(rgb, "f7"), dict(q="0000abcd", h="0000beef"), dict(v5_scale=1.0))
         f7_dual.read = lambda internal, rgb, owner, features=None, latent=None: dict(
             f5=carrier(rgb, owner, f5_carrier), v5=carrier(rgb, owner, v5_carrier), combined=dict(decoded_score=3.0, content_match=False))
         f7_dual.check_threshold = lambda v5: 8.341671
         try:
-            out = self.root / "f7" / "screen"
+            out = self.root / "f7" / "rehearsal"
             out.mkdir(parents=True)
             config = self.plan("f7", out)
             self.assertEqual(config["arms"], ["unmarked", "f5-r2", "v5-r3", "f7"])
@@ -344,6 +344,10 @@ class Flow(unittest.TestCase):
             self.prepare(out, donors, pairs, targets)
             self.execute(out, "f7", config, "clean", "native", "threats", "secondary", "detect", "quality")
             code, result = self.decide(out, "f7")
+            now = datetime.now(timezone.utc).isoformat()
+            fit_code = self.select.main(["--action", "fit", "--phase", "f7", "--root", str(self.root),
+                                         "--instance-start-utc", now, "--hourly-usd", ".5512"])
+            fit = self.common.load_json(self.root / "f7-fit.json")
         finally:
             f7_dual.embed, f7_dual.read, f7_dual.check_threshold = saved
         self.assertEqual(result["status"], "GO", [g for g in result.get("gates", []) if g["status"] != "pass"])
@@ -356,6 +360,9 @@ class Flow(unittest.TestCase):
         self.assertEqual(result["threats"]["unresolved"], 0)
         self.assertEqual(result["arms"]["f7"]["clean_f"]["lower"], 16)
         self.assertEqual(set(result["c0_by_reader"]), {"f5-r2", "v5-r3"})
+        self.assertEqual(result["f7_writer"]["rows"], 16)
+        self.assertEqual(fit_code, 0)
+        self.assertTrue(fit["fits"])
 
     def check_pack(self):
         import f6l_pack

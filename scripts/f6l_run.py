@@ -131,7 +131,7 @@ def clean(args, lean, config, base, specs, budget, rt, torch):
     p, donors, _ = stage.prepared(args)
     journal = common.Journal(args.out / "clean.jsonl")
     from encoder_transfer_test import message
-    writer = None
+    writer = internal = metric = None
     try:
         for arm in config["arms"]:
             spec = config["lean"]["arms"][arm]
@@ -144,9 +144,13 @@ def clean(args, lean, config, base, specs, budget, rt, torch):
             if kind == "lean":
                 adapter = None
             elif kind in ("retained", "dual"):
-                adapter = rt.Internal(args.assets, base)
+                # One Internal serves every retained and dual arm of this invocation.
+                internal = internal or rt.Internal(args.assets, base)
+                adapter = internal
                 if kind == "dual":
+                    import et_final_phase_a_attacks as attacks
                     f7_dual.check_threshold(adapter.v5)
+                    metric = metric or attacks.Quality(args.assets)
             elif kind == "vine-b":
                 from tifs_vine_b import VineB
                 adapter = VineB(args.assets, base, encoding=True)
@@ -170,7 +174,7 @@ def clean(args, lean, config, base, specs, budget, rt, torch):
                     elif kind == "retained":
                         marked, payload, report = adapter.embed(rgb, arm)
                     elif kind == "dual":
-                        marked, payload, report = f7_dual.embed(adapter, rgb, base, config["owners"]["positive"])
+                        marked, payload, report = f7_dual.embed(adapter, rgb, base, config["owners"]["positive"], metric=metric)
                     elif kind == "vine-b":
                         marked, payload, report = adapter.embed(rgb, config["owners"]["positive"])
                     else:
@@ -182,11 +186,12 @@ def clean(args, lean, config, base, specs, budget, rt, torch):
                     dict(id=uid, kind="clean", source=sid, source_id=sid, arm=arm, control="C0" if stage.c0(arm) else "C1"),
                     work, "clean_" + kind)
             adapter = None
-            rt.release()
+            if kind not in ("retained", "dual"):
+                rt.release()
     finally:
         if writer is not None:
             writer.close()
-        writer = None
+        writer = internal = metric = None
         rt.release()
 
 
@@ -257,10 +262,7 @@ def detect_dual(args, config, base, budget, rt, torch, method):
         finally:
             adapter = None
             rt.release()
-    unresolved = [uid for uid in expected if journal.latest.get(uid, {}).get("status") != "ok"]
-    common.atomic_json(read.shard_path(args, method).with_suffix(".snapshot.json"),
-                       dict(status="incomplete" if unresolved else "snapshot_complete", expected_available=len(expected),
-                            unresolved=unresolved, producer_may_still_be_active=True))
+    read.snapshot(args, journal, expected)
 
 
 def detect(args, lean, config, base, specs, budget, rt, torch):

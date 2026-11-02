@@ -48,6 +48,16 @@ Check `/workspace/runs/f6l/driver.log`, `probe/policy.json`, `probe/probe-measur
 
 A stop rule's exit is the end of the study. Do not resume with changed code in the same folder. A code repair needs a new folder and a note, and the paid clock keeps counting.
 
+## F7 dual-carrier test (2026-11-02)
+
+The F7 protocol is `research/f7-dual-carrier-20261102/PROTOCOL.md`. On a restarted instance the start time changes, so run setup again with the new START and price. It reuses the verified models and takes about 15 minutes. Then run the driver in f7 mode, from a code archive of branch `claude/f7-dual-20261102`:
+
+```bash
+bash scripts/f6l_driver.sh /workspace/assets /workspace/runs/f6l "$START" "$PRICE" f7
+```
+
+It runs the Stage S rehearsal, checks that the 16-source screen fits the cap, runs the screen, then writes `f7/screen/decision.json`.
+
 ## Finish
 
 Pack and fetch, then stop the instance by hand. Do this before the reserve runs out.

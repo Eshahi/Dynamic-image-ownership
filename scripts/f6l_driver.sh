@@ -101,7 +101,14 @@ if [ "$MODE" = f7 ]; then
     stage_run f7 "$OUT" threats
     stage_run f7 "$OUT" secondary
     read_all f7 "$OUT"
-    if [ "$mode" = rehearsal ] && [ "$INCOMPLETE" -ne 0 ]; then note 'f7 rehearsal incomplete'; exit 4; fi
+    if [ "$mode" = rehearsal ]; then
+      [ "$INCOMPLETE" -eq 0 ] || { note 'f7 rehearsal incomplete'; exit 4; }
+      rc=0
+      "$PY" scripts/f6l_select.py --action fit --phase f7 --root "$RUN_ROOT" --instance-start-utc "$START" \
+        --hourly-usd "$PRICE" >> "$RUN_ROOT/fit.log" 2>&1 || rc=$?
+      note "fit f7 exit=$rc"
+      [ "$rc" -eq 0 ] || exit "$rc"
+    fi
   done
   decide f7 "$OUT"
   note FINISHED
