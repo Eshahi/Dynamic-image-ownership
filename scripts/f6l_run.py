@@ -15,6 +15,7 @@ import traceback
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import f6l_common as lean_common
+import f7_dual
 import tifs_common as common
 import tifs_stage_s as stage
 import tifs_stage_s_read as read
@@ -28,7 +29,7 @@ CODE = ("f6l_common.py", "f6l_writer.py", "f6l_run.py", "f6l_select.py", "f6l_dr
         "encoder_transfer_runtime.py", "encoder_transfer_test.py", "et_final_pilot.py", "et_final_phase_a.py",
         "et_final_phase_a_attacks.py", "f5_latent_codec.py", "revised_watermark_v5.py", "f5_gate.py",
         "three_threat_models.py", "journal_vae_probe.py", "a6_clip_visual.py", "m1_latent_reconstruction.py",
-        "tifs_stage_p.py", "tifs_stage_s_analyze.py")
+        "tifs_stage_p.py", "tifs_stage_s_analyze.py", "f7_dual.py")
 
 
 def plan(args):
@@ -90,7 +91,7 @@ def start(args):
 
 
 def prepare(args, lean, config, base, specs, budget, rt, torch):
-    if config["lean"]["phase"] == "stage3":
+    if config["lean"]["phase"] in ("stage3", "f7"):
         return stage.prepare(args, config, base, specs, budget, rt, torch)
     import tifs_stage_p as stage_p
     manifest = stage_p.load_manifest(STAGE_P_MANIFEST)
@@ -142,8 +143,10 @@ def clean(args, lean, config, base, specs, budget, rt, torch):
             loaded = time.monotonic()
             if kind == "lean":
                 adapter = None
-            elif kind == "retained":
+            elif kind in ("retained", "dual"):
                 adapter = rt.Internal(args.assets, base)
+                if kind == "dual":
+                    f7_dual.check_threshold(adapter.v5)
             elif kind == "vine-b":
                 from tifs_vine_b import VineB
                 adapter = VineB(args.assets, base, encoding=True)
@@ -166,6 +169,8 @@ def clean(args, lean, config, base, specs, budget, rt, torch):
                         marked, payload, report = writer.embed_arm(rgb, spec, sid)
                     elif kind == "retained":
                         marked, payload, report = adapter.embed(rgb, arm)
+                    elif kind == "dual":
+                        marked, payload, report = f7_dual.embed(adapter, rgb, base, config["owners"]["positive"])
                     elif kind == "vine-b":
                         marked, payload, report = adapter.embed(rgb, config["owners"]["positive"])
                     else:
@@ -215,6 +220,49 @@ def secondary(args, lean, config, base, specs, budget, rt, torch):
     stage.secondary(args, active_config(args, config), base, specs, budget, rt, torch)
 
 
+def detect_dual(args, config, base, budget, rt, torch, method):
+    """F7 reads its own marks and the shared C0 with both unchanged readers; the union is F7's reader."""
+    from encoder_transfer_test import ALPHA, BETA
+    rows = [r for r in read.items(args) if (r["arm"] == method or stage.c0(r["arm"])) and read.partition(r["id"], args.worker)]
+    journal = common.Journal(read.shard_path(args, method))
+    expected = [f"det:{method}:{r['id']}" for r in rows]
+    pending = [r for r in rows if not journal.done(f"det:{method}:{r['id']}")]
+    if pending:
+        budget.require(stage.estimate(config, "load_reader", 300))
+        loaded = time.monotonic()
+        adapter = rt.Internal(args.assets, base)
+        f7_dual.check_threshold(adapter.v5)
+        stage.model_ready(args, "load_reader", loaded, torch)
+        try:
+            for item in pending:
+                def work(item=item):
+                    common.validate_output(item, args.out)
+                    rgb = rt.load_rgb(item["output"]["path"])
+                    payload = item.get("payload") if item["arm"] == method else None
+                    features, latent = adapter.features(rgb, 7), adapter.reader.latent(rgb)
+                    calls = {}
+                    for owner in (ALPHA, BETA):
+                        tick = time.monotonic()
+                        raw = f7_dual.read(adapter, rgb, owner, features, latent)
+                        calls[owner] = dict(status="ok", raw=f7_dual.summary_raw(raw), seconds=time.monotonic() - tick,
+                                            endpoints=f7_dual.endpoints(raw, payload if owner == ALPHA else None))
+                    modes = {"combined": calls[ALPHA]} if item["kind"] in ("T4", "T5") else {}
+                    return dict(calls=calls, modes=modes, dispatch="f7-dual", input_sha256=item["output"]["sha256"],
+                                artifact_required=False, payload_role="evaluator reference only")
+                stage.execute_unit(args, config, budget, rt, torch, journal,
+                    dict(id=f"det:{method}:{item['id']}", kind="detect", method=method, item=item["id"], arm=item["arm"],
+                         source=item["source"], control=item["control"], producer_kind=item["kind"],
+                         **{k: item[k] for k in ("cell", "family", "strength", "seed", "target", "condition", "transform") if k in item}),
+                    work, "detect_" + method)
+        finally:
+            adapter = None
+            rt.release()
+    unresolved = [uid for uid in expected if journal.latest.get(uid, {}).get("status") != "ok"]
+    common.atomic_json(read.shard_path(args, method).with_suffix(".snapshot.json"),
+                       dict(status="incomplete" if unresolved else "snapshot_complete", expected_available=len(expected),
+                            unresolved=unresolved, producer_may_still_be_active=True))
+
+
 def detect(args, lean, config, base, specs, budget, rt, torch):
     """Every lean arm uses the exact F5 dispatch. F5 r2 reads the shared C0 once for all of them."""
     effective = active_config(args, config)
@@ -224,6 +272,10 @@ def detect(args, lean, config, base, specs, budget, rt, torch):
     try:
         for method in [a for a in effective["arms"] if not stage.c0(a)]:
             args.method = method
+            if config["lean"]["arms"][method]["kind"] == "dual":
+                read.items = all_items
+                detect_dual(args, effective, base, budget, rt, torch, method)
+                continue
             read.items = (lambda a: [r for r in all_items(a) if not stage.c0(r["arm"])]) if method in lean_arms else all_items
             read.detect(args, effective, base, specs, budget, rt, torch)
     finally:

@@ -352,6 +352,52 @@ def verdict_stage3(summaries, threats, c0, config, resource_stop=False):
                               "human visual review missing", "K3 is selection-seen but excluded from gradients"])
 
 
+def rule_counts(data, method, arm, cells, seeds, sources, name):
+    """Lower and upper source-majority counts of one recorded endpoint, per cell."""
+    table = {}
+    for cell in cells:
+        bounds = [majority([rule(call(data["detections"], method, f"native:{cell}:{sid}:{seed}:{arm}"), name) for seed in seeds])
+                  for sid in sources]
+        table[cell] = dict(lower=sum(b[0] for b in bounds), upper=sum(b[1] for b in bounds))
+    return table
+
+
+def verdict_f7(summaries, threats, c0, config, data, resource_stop=False):
+    """GO needs C at least 12/16 in the three core cells, at most 2 sources below the better single mark, and no false event."""
+    rules = config["lean"]["gates"]["f7"]
+    f7, f5, v5 = (summaries.get(a) for a in ("f7", "f5-r2", "v5-r3"))
+    if f7 is None or f5 is None or v5 is None:
+        return dict(schema="f7-test-v1", status="INCOMPLETE", reason="an arm has no rows", arms=summaries)
+    gates = []
+    for cell in rules["core_cells"]:
+        mine = f7["cells"][cell]
+        best_upper = max(f5["cells"][cell]["c_upper"], v5["cells"][cell]["c_upper"])
+        best_lower = max(f5["cells"][cell]["c_lower"], v5["cells"][cell]["c_lower"])
+        gates.append(gate(f"C {cell}", mine["c_lower"], mine["c_upper"], rules["c_min"]))
+        gates.append(gate(f"loss to the better single mark {cell}, negated", mine["c_lower"] - best_upper,
+                          mine["c_upper"] - best_lower, -rules["loss_to_better_single_max"]))
+    gates += [gate("strict clean quality", f7["quality"]["strict_pass"], f7["n"] - f7["quality"]["strict_fail"], f7["n"]),
+              gate("clean F", f7["clean_f"]["lower"], f7["clean_f"]["upper"], rules["clean_f_min"]),
+              zero_gate("C0 events under the F7 reader", c0["events"], c0["unresolved"]),
+              zero_gate("wrong-owner events", f7["wrong_owner"]["events"], f7["wrong_owner"]["unresolved"]),
+              zero_gate("T4 and T5 C events", len(threats["events"]), threats["unresolved"])]
+    if any(g["status"] == "fail" for g in gates):
+        status = "SCIENTIFIC_KILL"
+    elif resource_stop:
+        status = "RESOURCE_STOP"
+    elif any(g["status"] == "unknown" for g in gates):
+        status = "INCOMPLETE"
+    else:
+        status = "GO"
+    cells, seeds, sources = [c["id"] for c in config["cells"]], config["seeds"], data["sources"]
+    carriers = {name: rule_counts(data, "f7", "f7", cells, seeds, sources, name)
+                for name in ("C_f5", "C_v5", "C_f5_alpha", "C_v5_alpha", "C_combined", "J")}
+    return dict(schema="f7-test-v1", status=status, gates=gates, arms=summaries, threats=threats, c0=c0,
+                f7_carriers=carriers, reported_cells=rules["reported_cells"], j_role="reported; takes part in no rule",
+                claim_limits=["development screen, not confirmation", "image-domain writer, not latent insertion",
+                              "two readers: heavier extraction", "human visual review missing"])
+
+
 def phase_summaries(config, data, arms=None):
     sources = data["sources"]
     seeds, cells = config["seeds"], [c["id"] for c in config["cells"]]
@@ -478,7 +524,7 @@ def fit(args):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--action", required=True, choices=("clean-gate", "decide", "fit"))
-    parser.add_argument("--phase", required=True, choices=("stage1", "stage2", "stage3"))
+    parser.add_argument("--phase", required=True, choices=("stage1", "stage2", "stage3", "f7"))
     parser.add_argument("--out", type=Path)
     parser.add_argument("--root", type=Path)
     parser.add_argument("--previous", type=Path)
@@ -509,6 +555,13 @@ def main(argv=None):
         result = decide_stage1(summaries, c0, config, gate_report.get("missing", {}))
     elif args.phase == "stage2":
         result = decide_stage2(summaries, c0, config)
+    elif args.phase == "f7":
+        pairs = prepared["pairs"]
+        result = verdict_f7(summaries, threat_summary(data, "f7", "f7", pairs),
+                            c0_events(data, "f7", cells, config["seeds"], data["sources"]), config, data, resource_stop=stopped)
+        result["c0_by_reader"] = {method: c0_events(data, method, cells, config["seeds"], data["sources"]) for method in ("f5-r2", "v5-r3")}
+        result["threats_by_arm"] = {arm: threat_summary(data, arm, arm, pairs) for arm in summaries}
+        result["secondary"] = secondary_table(config, data, list(summaries))
     else:
         pairs = prepared["pairs"]
         threats = threat_summary(data, config["lean"]["winner"], config["lean"]["winner"], pairs)
@@ -516,14 +569,14 @@ def main(argv=None):
         result["vine_r_presence"] = presence_table(config, data)
         result["threats_by_arm"] = {arm: threat_summary(data, arm, arm, pairs) for arm in summaries}
         result["secondary"] = secondary_table(config, data, list(summaries))
-    if args.phase != "stage3" and stopped and result["status"] in ("ADVANCE", "INCOMPLETE"):
+    if args.phase in ("stage1", "stage2") and stopped and result["status"] in ("ADVANCE", "INCOMPLETE"):
         result["status"] = "RESOURCE_STOP"
     result["removed_by_clean_gate"] = gate_report.get("removed", {})
     result["digest"] = digest({k: v for k, v in result.items() if k != "digest"})
     common.atomic_json(args.out / "decision.json", result)
     print(json.dumps({k: result.get(k) for k in ("status", "reason", "finalists", "winner", "ranking")}, sort_keys=True))
     status = result["status"]
-    if status in ("ADVANCE", "FULL_GO", "CORE_GO", "CORE_GO_FULL_UNRESOLVED"):
+    if status in ("ADVANCE", "FULL_GO", "CORE_GO", "CORE_GO_FULL_UNRESOLVED", "GO"):
         return 0
     if status in ("SCIENTIFIC_STOP", "SCIENTIFIC_KILL"):
         return 2

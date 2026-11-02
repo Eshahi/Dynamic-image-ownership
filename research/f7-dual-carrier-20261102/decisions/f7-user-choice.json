@@ -1,0 +1,15 @@
+{
+  "schema": "f7-user-choice-v1",
+  "recorded_by": "Claude",
+  "recorded_utc": "2026-11-02",
+  "before_server_outputs": true,
+  "decision": "build F7 and run its development test",
+  "primary_endpoint": "C, either carrier at 1e-6/2",
+  "j_role": "reported only",
+  "budget_usd_from_user": 20,
+  "planned_ceiling": {"max_usd": 18.7, "max_instance_hours": 34, "rule": "smaller of 34 h and 18.7 divided by the actual hourly price"},
+  "data": "development only: Stage S rehearsal 2+2 and screen 16+16",
+  "run_authorized": "yes, once the user restarts or rents an instance and sends the SSH line and hourly price",
+  "user_decision_reference": "User chat message in Claude Code session 98acc1f7-a88e-4b1d-b3b0-fd575faa6d6c on 2026-11-02: 'Yes, build and test', answering 'Should I build F7 and run its 2-hour test, about USD 1?'",
+  "server_outputs_before_recording": "none for F7"
+}

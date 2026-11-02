@@ -19,8 +19,8 @@ from PIL import Image
 
 ALPHA, BETA = "qim-pilot-owner-alpha", "qim-pilot-owner-beta"
 ARM_CODES = {name: i for i, name in enumerate(("unmarked", "f5-r2", "f5b-46", "f5b-42", "ren-38", "ren-36", "gen-46", "gen-42", "gen-38",
-                                               "noise-46", "noise-42", "noise-46-ren38", "x0-46", "v5-r3", "vine-r", "vine-b"), 1)}
-CELL_CODES = {("R0", .2): 1, ("R1", .1): 2, ("R1", .2): 3, ("K3", .2): 4}
+                                               "noise-46", "noise-42", "noise-46-ren38", "x0-46", "v5-r3", "vine-r", "vine-b", "f7"), 1)}
+CELL_CODES = {("R0", .2): 1, ("R1", .1): 2, ("R1", .2): 3, ("K3", .2): 4, ("R0", .4): 5}
 # How many of the sources read positive, per arm and cell, in R0 .2, R1 .1, R1 .2, K3 .2 order.
 POSITIVE = {"f5-r2": (16, 1, 0, 3), "noise-46": (16, 14, 12, 13), "noise-46-ren38": (16, 13, 12, 12), "f5b-46": (16, 5, 2, 7),
             "f5b-46-ren38": (16, 6, 3, 7), "v5-r3": (10, 12, 3, 14), "vine-b": (12, 14, 12, 14)}
@@ -81,14 +81,15 @@ def stamped(rgb, arm):
     return out
 
 
-def read_raw(rgb, method, owner, mode=None):
+def read_raw(rgb, method, owner, mode=None, table=None):
     arm_code, cell_code, index = int(rgb[0, 0, 0]), int(rgb[0, 0, 1]), int(rgb[0, 0, 2])
     names = {v: k for k, v in ARM_CODES.items()}
     arm = names.get(arm_code)
     marked = arm is not None and arm == method
     positive = False
-    if owner == ALPHA and marked and cell_code in (1, 2, 3, 4):
-        positive = index < POSITIVE.get(arm, (0, 0, 0, 0))[cell_code - 1]
+    if owner == ALPHA and marked and cell_code in (1, 2, 3, 4, 5):
+        counts = table if table is not None else POSITIVE.get(arm, ())
+        positive = index < (counts[cell_code - 1] if cell_code - 1 < len(counts) else 0)
     clean = owner == ALPHA and marked and cell_code == 0
     read = positive or clean
     # The stub's exact code never equals the payload outside clean images, so J stays false: J must not matter.
@@ -100,6 +101,8 @@ def read_raw(rgb, method, owner, mode=None):
 
 
 class Internal:
+    v5 = None  # F7's threshold check is stubbed in the flow test
+
     def __init__(self, assets, base):
         self.reader = SimpleNamespace(latent=lambda rgb: None)
         self.method = None
@@ -313,6 +316,48 @@ class Flow(unittest.TestCase):
         self.assertEqual(result["secondary"]["noise-46"]["jpeg90"]["reads"], 16)
         self.assertEqual(result["arms"]["vine-b"]["cells"]["R1-0.2"]["c_lower"], 12)
         self.assertEqual(set(result["threats_by_arm"]), {"f5-r2", "f5b-46", "noise-46", "v5-r3", "vine-b"})
+        self.check_pack()
+
+    def test_f7_dual_carrier_flow(self):
+        """F7 writes through Internal and reads with both carriers; the union decides."""
+        import f7_dual
+        saved = f7_dual.embed, f7_dual.read, f7_dual.check_threshold
+        # Carrier counts per cell in R0 .2, R1 .1, R1 .2, K3 .2, R0 .4 order: F5 carrier strong at home, v5 abroad.
+        f5_carrier, v5_carrier = (16, 0, 0, 0, 10), (6, 13, 3, 14, 0)
+        POSITIVE.update({"f5-r2": (16, 1, 0, 3, 11), "v5-r3": (10, 12, 3, 14, 1)})
+        def carrier(rgb, owner, counts):
+            raw = read_raw(rgb, "f7", owner, table=counts)
+            raw["semantic"]["decoded_score"] = 9.0 if raw["semantic"]["read"] else 3.0
+            return raw
+        f7_dual.embed = lambda internal, rgb, base, owner: (stamped(rgb, "f7"), dict(q="0000abcd", h="0000beef"), dict(v5_scale=1.0))
+        f7_dual.read = lambda internal, rgb, owner, features=None, latent=None: dict(
+            f5=carrier(rgb, owner, f5_carrier), v5=carrier(rgb, owner, v5_carrier), combined=dict(decoded_score=3.0, content_match=False))
+        f7_dual.check_threshold = lambda v5: 8.341671
+        try:
+            out = self.root / "f7" / "screen"
+            out.mkdir(parents=True)
+            config = self.plan("f7", out)
+            self.assertEqual(config["arms"], ["unmarked", "f5-r2", "v5-r3", "f7"])
+            donors = [str(i) for i in range(100, 116)]
+            targets = [str(i) for i in range(200, 216)]
+            pairs = [dict(donor=d, target=t, cosine=.5, distinctness="human_label_missing") for d, t in zip(donors, targets)]
+            self.prepare(out, donors, pairs, targets)
+            self.execute(out, "f7", config, "clean", "native", "threats", "secondary", "detect", "quality")
+            code, result = self.decide(out, "f7")
+        finally:
+            f7_dual.embed, f7_dual.read, f7_dual.check_threshold = saved
+        self.assertEqual(result["status"], "GO", [g for g in result.get("gates", []) if g["status"] != "pass"])
+        self.assertEqual(code, 0)
+        cells = result["arms"]["f7"]["cells"]
+        self.assertEqual([cells[c]["c_lower"] for c in ("R0-0.2", "R1-0.1", "R1-0.2", "K3-0.2", "R0-0.4")], [16, 13, 3, 14, 10])
+        self.assertEqual(result["f7_carriers"]["C_v5"]["R1-0.1"]["lower"], 13)
+        self.assertEqual(result["f7_carriers"]["C_f5"]["R0-0.2"]["lower"], 16)
+        self.assertEqual(result["c0"], dict(events=0, unresolved=0))
+        self.assertEqual(result["threats"]["unresolved"], 0)
+        self.assertEqual(result["arms"]["f7"]["clean_f"]["lower"], 16)
+        self.assertEqual(set(result["c0_by_reader"]), {"f5-r2", "v5-r3"})
+
+    def check_pack(self):
         import f6l_pack
         dest = self.root / "bundle.tgz"
         f6l_pack.main(["--root", str(self.root), "--dest", str(dest)])

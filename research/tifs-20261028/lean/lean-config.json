@@ -26,7 +26,8 @@
     "noise-46": {"kind": "lean", "variant": "f6-noise", "robust_psnr_db": 46, "render_db": null},
     "noise-42": {"kind": "lean", "variant": "f6-noise", "robust_psnr_db": 42, "render_db": null},
     "noise-46-ren38": {"kind": "lean", "variant": "f6-noise", "robust_psnr_db": 46, "render_db": 38},
-    "x0-46": {"kind": "lean", "variant": "f6-x0", "robust_psnr_db": 46, "render_db": null}
+    "x0-46": {"kind": "lean", "variant": "f6-x0", "robust_psnr_db": 46, "render_db": null},
+    "f7": {"kind": "dual"}
   },
   "phases": {
     "probe": {"sources": {"partition": "tune", "start": 0, "stop": 2}, "seeds": [0], "arms": ["unmarked"]},
@@ -36,7 +37,9 @@
       "arms": ["unmarked", "f5-r2", "f5b-46", "f5b-42", "ren-38", "ren-36", "gen-46", "gen-42", "gen-38", "noise-46", "noise-42", "noise-46-ren38", "x0-46"]
     },
     "stage2": {"sources": {"partition": "tune", "start": 4, "stop": 16}, "seeds": [0, 1, 2]},
-    "stage3": {"seeds": [0, 1, 2], "baselines": ["v5-r3", "vine-r", "vine-b"]}
+    "stage3": {"seeds": [0, 1, 2], "baselines": ["v5-r3", "vine-r", "vine-b"]},
+    "f7": {"seeds": [0, 1, 2], "arms": ["unmarked", "f5-r2", "v5-r3", "f7"],
+           "extra_cells": [{"family": "R0", "id": "R0-0.4", "strength": 0.4}]}
   },
   "cells": {"foreign": ["R1-0.1", "R1-0.2", "K3-0.2"], "core_foreign": ["R1-0.1", "K3-0.2"], "home": "R0-0.2"},
   "writer": {
@@ -60,6 +63,8 @@
     "decoded_threshold": 8.259326826136963,
     "stage1": {"advance_mean_decoded_on": ["R1-0.1", "K3-0.2"], "home_mean_decoded_min": 8.259326826136963, "finalists": 2},
     "stage2": {"n": 12, "c_min": 9, "core_cells": ["R1-0.1", "K3-0.2"], "home_c_min": 9, "home_loss_max": 1, "clean_f_min": 11},
+    "f7": {"n": 16, "c_min": 12, "core_cells": ["R0-0.2", "R1-0.1", "K3-0.2"], "loss_to_better_single_max": 2,
+           "clean_f_min": 15, "reported_cells": ["R1-0.2", "R0-0.4"]},
     "stage3": {
       "n": 16,
       "c_min": 12,
@@ -76,6 +81,9 @@
     "clean_unmarked": 5,
     "clean_retained": 180,
     "clean_lean": 1300,
+    "clean_dual": 150,
+    "load_dual": 120,
+    "detect_f7": 20,
     "clean_vine-r": 10,
     "clean_vine-b": 30,
     "native_K3": 15,

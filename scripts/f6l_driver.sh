@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 # SERVER ONLY. Setup (scripts/f6l_setup.py) runs first, as its own step.
-# Usage: bash scripts/f6l_driver.sh ASSETS RUN_ROOT INSTANCE_START_UTC HOURLY_USD
-# Runs probe, then stages 1 to 3, and stops as soon as a fixed rule says stop.
+# Usage: bash scripts/f6l_driver.sh ASSETS RUN_ROOT INSTANCE_START_UTC HOURLY_USD [lean|f7]
+# lean (default) runs probe, then stages 1 to 3, and stops as soon as a fixed rule says stop.
+# f7 runs the F7 dual-carrier test: Stage S rehearsal, then screen, then its fixed verdict.
 # Exit codes: 0 finished with a GO label, 2 scientific stop, 3 resource stop, 4 incomplete.
 # The instance keeps billing after this exits: fetch the results, then stop it by hand.
 set -euo pipefail
-[ "$#" -eq 4 ] || { echo 'Expected ASSETS RUN_ROOT INSTANCE_START_UTC HOURLY_USD' >&2; exit 1; }
+[ "$#" -eq 4 ] || [ "$#" -eq 5 ] || { echo 'Expected ASSETS RUN_ROOT INSTANCE_START_UTC HOURLY_USD [lean|f7]' >&2; exit 1; }
 cd "$(dirname "$0")/.."
 PY=${TIFS_PYTHON:-/workspace/venv/bin/python}
-ASSETS=$1; RUN_ROOT=$2; START=$3; PRICE=$4
+ASSETS=$1; RUN_ROOT=$2; START=$3; PRICE=$4; MODE=${5:-lean}
+case "$MODE" in lean|f7) ;; *) echo 'Mode must be lean or f7' >&2; exit 1 ;; esac
 mkdir -p "$RUN_ROOT"
 RUN_ROOT=$(cd "$RUN_ROOT" && pwd)
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
@@ -86,6 +88,25 @@ plan() {
   mkdir -p "$out"
   "$PY" scripts/f6l_run.py --phase "$phase" --stage plan --out "$out" "$@" >> "$out/plan.log" 2>&1
 }
+
+if [ "$MODE" = f7 ]; then
+  # The rehearsal must finish without implementation errors before the screen is paid for.
+  for mode in rehearsal screen; do
+    OUT="$RUN_ROOT/f7/$mode"
+    plan f7 "$OUT"
+    FLAG=(); if [ "$mode" = rehearsal ]; then FLAG=(--rehearsal); fi
+    stage_run f7 "$OUT" prepare "${FLAG[@]}"
+    stage_run f7 "$OUT" clean
+    stage_run f7 "$OUT" native "${FLAG[@]}"
+    stage_run f7 "$OUT" threats
+    stage_run f7 "$OUT" secondary
+    read_all f7 "$OUT"
+    if [ "$mode" = rehearsal ] && [ "$INCOMPLETE" -ne 0 ]; then note 'f7 rehearsal incomplete'; exit 4; fi
+  done
+  decide f7 "$OUT"
+  note FINISHED
+  exit 0
+fi
 
 # Probe: exact native replay on one source, then gradient and timing checks. No marks are read.
 P="$RUN_ROOT/probe"
