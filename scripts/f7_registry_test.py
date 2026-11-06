@@ -3,6 +3,7 @@
 Protocol: research/f7-dual-carrier-20261102/REGISTRY-PROTOCOL.md. CPU only, USD 0, no detector or model run.
   --mode proxy     section 5 early futility stop, from the laptop's unmarked seed-0 natives
   --mode manifest  the screen images still to fetch from the stopped instance
+  --mode rebuild   amendment 2: rebuild the F7 T4 and T5 images locally, byte-checked against the journal
   --mode score     sections 2-4, the gated test
 """
 import argparse
@@ -50,10 +51,12 @@ def sha256(path):
 
 
 class Images:
-    """Server paths resolve by file name to local copies whose SHA-256 must equal the journal row's."""
+    """Server paths resolve by file name to local copies whose SHA-256 must equal the journal row's, or, for a
+    rebuilt image (amendment 2), the SHA-256 that the rebuild recorded after its pixel check passed."""
 
-    def __init__(self, dirs):
+    def __init__(self, dirs, verified=None):
         self.index = {p.stem: p for d in dirs for p in Path(d).glob("*.png")}
+        self.verified = verified or {}
         self.checked, self.mismatch = {}, []
 
     def path(self, row):
@@ -62,7 +65,8 @@ class Images:
         if p is None:
             return None
         if p not in self.checked:
-            self.checked[p] = sha256(p) == out.get("sha256")
+            digest = sha256(p)
+            self.checked[p] = digest == out.get("sha256") or self.verified.get(p.name) == digest
             if not self.checked[p]:
                 self.mismatch.append(str(p))
         return p if self.checked[p] else None
@@ -100,7 +104,7 @@ def majority(flags):
 
 
 class Scorer:
-    def __init__(self, screen, image_dirs):
+    def __init__(self, screen, image_dirs, verified=None):
         self.screen = Path(screen)
         fr = json.loads(FROZEN.read_text())
         self.taus = (fr["tau1_d1"], fr["tau2_b1"], fr["tauF_b1_fallback"])
@@ -108,7 +112,7 @@ class Scorer:
         self.native = journal(self.screen / "native.jsonl")
         self.threat = journal(self.screen / "threats.jsonl")
         self.detect = journal(self.screen / "detect-f7-*-of-*.jsonl")
-        self.images = Images([self.screen / "images", *image_dirs])
+        self.images = Images([self.screen / "images", *image_dirs], verified)
         self.F = tf.Features([])
         self.sids = sorted({r["source"] for r in self.clean.values() if r.get("arm") == "f7"}, key=int)
         self.records = {}
@@ -326,8 +330,73 @@ def manifest(screen):
     return dict(files=[dict(path=k, sha256=v) for k, v in sorted(uniq.items())], count=len(uniq))
 
 
-def score(screen, image_dirs):
-    S = Scorer(screen, image_dirs)
+SOURCE_DIRS = (tf.BUILD / "assets/fresh-development-20261013", tf.BUILD / "assets/registry-fresh-20261016/canonical")
+
+
+def rebuild(screen, out):
+    """Amendment 2: rebuild the F7 arm's T4 and T5 images with tifs_stage_s.threats' own arithmetic, from the local
+    F7 clean marks and canonical sources. The laptop's PNG encoder writes other bytes than the server's, so a rebuilt
+    image is verified by pixels instead: its mean squared RGB difference to the recipient must equal the run's own
+    quality-journal value. verified.json lists the files that pass, by the SHA-256 written here."""
+    import numpy as np
+    from PIL import Image
+    S = Scorer(screen, [])
+    quality = journal(Path(screen) / "quality-*-of-*.jsonl")
+    prepared = json.loads((Path(screen) / "prepared.json").read_text())
+    by_sha = {}
+    for d in SOURCE_DIRS:
+        for p in Path(d).rglob("*.png"):
+            by_sha.setdefault(sha256(p), p)
+
+    def load(p):
+        with Image.open(p) as im:
+            if im.mode != "RGB" or im.size != (512, 512):
+                raise ValueError(f"not RGB8 512: {p}")
+            return np.asarray(im, dtype=np.uint8).copy()
+
+    rows, images = [], Path(out) / "images"
+    images.mkdir(parents=True)
+    for tid, row in sorted(S.threat.items()):
+        if row.get("arm") != "f7" or row.get("status") != "ok":
+            continue
+        donor, target, condition = row["donor"], row["target"], row["condition"]
+        dpath = S.images.path(S.clean.get(f"clean:{donor}:f7"))
+        opath = by_sha.get(prepared["sources"][donor]["canonical_png_sha256"])
+        rpath = by_sha.get(prepared["sources"][target]["canonical_png_sha256"])
+        if dpath is None or opath is None or rpath is None:
+            rows.append(dict(id=tid, rebuilt=False, reason="input missing"))
+            continue
+        donor_rgb, original, recipient = load(dpath), load(opath), load(rpath)
+        marked = recipient.copy()
+        if condition.startswith("patch"):
+            width = int(condition[5:8]); lo = (512 - width) // 2; hi = lo + width
+            marked[lo:hi, lo:hi] = (original if condition.endswith("-sham") else donor_rgb)[lo:hi, lo:hi]
+        elif condition.startswith("residual"):
+            scale = .5 if condition == "residual0.5" else 1.
+            marked = np.floor(np.clip(recipient.astype(np.float64) + scale * (donor_rgb.astype(np.float64) - original), 0, 255) + .5).astype(np.uint8)
+        elif condition != "unmodified":
+            raise ValueError(condition)
+        p = images / Path(row["output"]["path"]).name
+        Image.fromarray(marked).save(p)
+        if not np.array_equal(load(p), marked):
+            raise ValueError(f"PNG round trip changed pixels: {p}")
+        mse = float(np.mean((marked.astype(np.float64) - recipient.astype(np.float64)) ** 2))
+        logged = ((quality.get("quality:" + tid) or {}).get("recipient") or {}).get("mse_rgb8")
+        ok = isinstance(logged, (int, float)) and abs(mse - logged) <= 1e-7
+        rows.append(dict(id=tid, rebuilt=True, sha_match=sha256(p) == row["output"]["sha256"], mse=mse, logged_mse=logged,
+                         pixel_verified=ok, name=p.name, sha256=sha256(p)))
+    verified = {r["name"]: r["sha256"] for r in rows if r.get("pixel_verified")}
+    (Path(out) / "verified.json").write_text(json.dumps(verified, indent=1, sort_keys=True) + "\n")
+    return dict(rows=rows, rebuilt=sum(r["rebuilt"] for r in rows), sha_match=sum(r.get("sha_match", False) for r in rows),
+                pixel_verified=len(verified), max_abs_mse_error=max((abs(r["mse"] - r["logged_mse"]) for r in rows
+                                                                      if r.get("rebuilt") and isinstance(r.get("logged_mse"), (int, float))), default=None),
+                expected=sum(1 for r in S.threat.values() if r.get("arm") == "f7" and r.get("status") == "ok"))
+
+
+def score(screen, image_dirs, verified=None, stage="full"):
+    """stage a (amendment 2): only N1, N2 and the locally available N3 and N4 queries gate; F_R and N5 need the
+    regenerated F7 natives and are reported as not evaluable."""
+    S = Scorer(screen, image_dirs, verified)
     cells, rows, clean = S.positives()
     fam = S.negatives(rows)
     n5 = S.wrong_owner()
@@ -338,7 +407,12 @@ def score(screen, image_dirs):
     unknown = {k: v["unknown"] for k, v in fam.items() if v["unknown"]}
     unknown.update({f"N5 {c}": v["unknown"] for c, v in n5.items() if v["unknown"]})
     verdict = "SCIENTIFIC_KILL" if not all(gates.values()) else ("INCOMPLETE" if unknown else "PASS")
-    return dict(verdict=verdict, gates=gates, unknown_negatives=unknown, positives=cells, clean_F_R=clean, negatives=fam,
+    if stage == "a":
+        for k in [k for k in gates if k.startswith("F_R") or k.startswith("N5")]:
+            gates[k] = "not evaluable"
+        unknown = {k: v for k, v in unknown.items() if k in ("N1_T4", "N2_T5")}
+        verdict = ("SCIENTIFIC_KILL" if False in gates.values() else "INCOMPLETE" if unknown else "STAGE_A_PASS")
+    return dict(stage=stage, verdict=verdict, gates=gates, unknown_negatives=unknown, positives=cells, clean_F_R=clean, negatives=fam,
                 wrong_owner=n5, single_arm_pointer=S.single_arm_pointer(), positive_rows=rows,
                 frozen=dict(zip(("tau1_d1", "tau2_b1", "tauF_b1_fallback"), S.taus)), union_threshold=UNION_THRESHOLD,
                 sha_mismatch=S.images.mismatch, d1_computed=S.F.computed_d1)
@@ -346,9 +420,11 @@ def score(screen, image_dirs):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--mode", choices=("proxy", "manifest", "score"), required=True)
+    ap.add_argument("--mode", choices=("proxy", "manifest", "rebuild", "score"), required=True)
     ap.add_argument("--screen", type=Path, required=True, help="the F7 screen run folder (journals and images/)")
     ap.add_argument("--images", type=Path, action="append", default=[], help="extra folders of fetched screen images")
+    ap.add_argument("--verified", type=Path, help="verified.json from --mode rebuild")
+    ap.add_argument("--stage", choices=("full", "a"), default="full")
     ap.add_argument("--out", type=Path, required=True)
     a = ap.parse_args()
     a.out.mkdir(parents=True, exist_ok=False)
@@ -356,12 +432,14 @@ def main():
     res = dict(protocol=PROTOCOL, mode=a.mode, command=sys.argv, device="cpu", usd=0,
                commit=subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=tf.ROOT, text=True).strip(),
                started_at_utc=datetime.now(timezone.utc).isoformat())
-    res.update(proxy(a.screen) if a.mode == "proxy" else manifest(a.screen) if a.mode == "manifest" else score(a.screen, a.images))
+    res.update(proxy(a.screen) if a.mode == "proxy" else manifest(a.screen) if a.mode == "manifest"
+               else rebuild(a.screen, a.out) if a.mode == "rebuild"
+               else score(a.screen, a.images, json.loads(a.verified.read_text()) if a.verified else None, a.stage))
     res["duration_seconds"] = time.monotonic() - tick
     (a.out / "run.json").write_text(json.dumps(res, indent=1, default=str) + "\n")
     if a.mode == "manifest":
         (a.out / "fetch-list.txt").write_text("".join(f["path"] + "\n" for f in res["files"]))
-    shown = {k: v for k, v in res.items() if k not in ("positive_rows", "negatives", "wrong_owner", "files", "command")}
+    shown = {k: v for k, v in res.items() if k not in ("positive_rows", "negatives", "wrong_owner", "files", "command", "rows")}
     print(json.dumps(shown, indent=1, default=str)[:6000])
 
 

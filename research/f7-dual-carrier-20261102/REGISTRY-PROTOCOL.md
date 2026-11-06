@@ -97,3 +97,27 @@ The proxy is optimistic: the unmarked image carries no mark residual that regene
 - Scorer: `scripts/f7_registry_test.py` on `claude/f7-dual-20261102`.
 - Data and outputs: MAIN `.thesis-build/dev-runs/20261102-f7-registry/`.
 - Results: `research/f7-dual-carrier-20261102/RESULTS-REGISTRY.md`.
+
+## Amendment 2 (2026-11-06, before any registry score of an F7 threat or native image)
+
+The user destroyed instance 58795791 before the images were fetched. The F7 natives, and the server's copies of the T4 and T5 images, are lost. The laptop still holds the journals, every arm's clean images, and the seed-0 natives of the unmarked and F5 arms.
+
+**Rebuilt copy-paste images.** The 112 F7-arm T4 and T5 images are rebuilt on the laptop from the local F7 clean marks and canonical sources, with the run's own arithmetic (`tifs_stage_s.threats`).
+- The laptop's PNG encoder writes different bytes: a server image re-saved here gets a new SHA-256. So each rebuilt image is verified by pixels instead. Its mean squared RGB difference to the recipient must equal the run's quality-journal value to within 1e-7.
+- All 112 passed with zero error. They are listed in `20261102-f7-registry/rebuild/verified.json`.
+- A first rebuild attempt, checked by bytes only, was replaced before any score was computed.
+
+**Stage A, now (laptop, USD 0):**
+- **Full gates:** N1 and N2.
+- **Partial gates:** N3 for the 16 F7 clean queries only; N4 for the 96 local unmarked images (16 clean, 80 seed-0 natives).
+- **Reported, not gated:** pointer-only counts for the F7 positives, from the saved detect rows.
+- **Verdict:** SCIENTIFIC_KILL if any of these gates accepts; INCOMPLETE if an N1 or N2 image is unknown; otherwise STAGE_A_PASS. F_R and N5 are not evaluable.
+
+**Stage B, only if the user agrees:**
+- Regenerate the F7 and unmarked natives on a rented GPU with the same code (06545ee), sources and seeds, and read them with the F7 reader.
+- Then score the remaining gates under this protocol.
+- These would be new images, so stage B's pointer comes from the new detect rows.
+
+**Overlap, disclosed before scoring.** 10 of the 16 screen sources were round-3 calibration sources of the frozen rule: 853, 908, 960, 1359, 1464, 1596, 1639, 1647, 1712 and 1720. They were used there as F5-marked images, as their SD1.5 and SD2.1 regenerations, and as T4 transfers.
+- The marks, pairings and regenerators here are different. Still, the negatives may be somewhat optimistic for those donors.
+- The F7 run's three T4 events came from 1647→636 and 853→1536, both donors in that set.
