@@ -363,21 +363,24 @@ def rule_counts(data, method, arm, cells, seeds, sources, name):
 
 
 def f7_fit(args):
-    """After the rehearsal: does the screen fit? Rehearsal unit times scaled from 2 to 16 sources, times the margin."""
+    """After the rehearsal: does the screen fit? Rehearsal unit times scaled from 2 to the screen's sources, times the margin."""
     lean = lean_common.load_lean()
-    rehearsal = load_phase(args.root / "f7" / "rehearsal")
+    phase = args.phase
+    rehearsal = load_phase(args.root / phase / "rehearsal")
+    screen_donors = lean["phases"][phase].get("screen_donors", 16)
     total = 0.0
     for name in ("clean", "native", "threats", "secondary"):
         total += sum(r["seconds"] for r in rehearsal["producers"][name].values() if common._finite(r.get("seconds")))
     total += sum(r["seconds"] for r in rehearsal["detections"].values() if common._finite(r.get("seconds"))) / 4
     total += sum(r["seconds"] for r in rehearsal["qualities"].values() if common._finite(r.get("seconds")))
-    remaining = lean["fit"]["margin"] * total * 16 / 2
+    remaining = lean["fit"]["margin"] * total * screen_donors / 2
     elapsed = time.time() - datetime.fromisoformat(args.instance_start_utc.replace("Z", "+00:00")).timestamp()
     cap = lean_common.hours_cap(lean, args.hourly_usd) * 3600
     required = elapsed + remaining + lean["caps"]["retrieval_reserve_seconds"]
-    report = dict(phase="f7", elapsed_seconds=elapsed, remaining_seconds=remaining, cap_seconds=cap,
-                  required_seconds=required, fits=required <= cap, rehearsal_unit_seconds=total)
-    common.atomic_json(args.root / "f7-fit.json", report)
+    report = dict(phase=phase, elapsed_seconds=elapsed, remaining_seconds=remaining, cap_seconds=cap,
+                  required_seconds=required, fits=required <= cap, rehearsal_unit_seconds=total,
+                  screen_donors=screen_donors)
+    common.atomic_json(args.root / f"{phase}-fit.json", report)
     return report
 
 
@@ -543,7 +546,7 @@ def fit(args):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--action", required=True, choices=("clean-gate", "decide", "fit"))
-    parser.add_argument("--phase", required=True, choices=("stage1", "stage2", "stage3", "f7"))
+    parser.add_argument("--phase", required=True, choices=("stage1", "stage2", "stage3", "f7", "f7c"))
     parser.add_argument("--out", type=Path)
     parser.add_argument("--root", type=Path)
     parser.add_argument("--previous", type=Path)
@@ -551,7 +554,7 @@ def main(argv=None):
     parser.add_argument("--hourly-usd", type=float)
     args = parser.parse_args(argv)
     if args.action == "fit":
-        report = f7_fit(args) if args.phase == "f7" else fit(args)
+        report = f7_fit(args) if args.phase in ("f7", "f7c") else fit(args)
         print(json.dumps(report, sort_keys=True))
         return 0 if report["fits"] else 3
     config = common.load_json(args.out / "config.json")

@@ -129,7 +129,7 @@ def select(out):
     path = HERE / "fresh-selection.json"
     if path.exists():
         raise ValueError("Selection already fixed; refuse to overwrite")
-    path.write_text(json.dumps(doc, indent=1) + "\n", encoding="utf-8")
+    path.write_bytes((json.dumps(doc, indent=1) + "\n").encode())
     print(json.dumps(dict(selected=[r["source_id"] for r in selected], excluded_ids=len(ids), hashes=len(hashes))))
 
 
@@ -179,11 +179,11 @@ def acquire(out):
                                         rgb8_sha256=pixel_hash, canonicalization="m1b-canonical-rgb512-v2",
                                         canonical_receipt=canon, data_split="development", development_reserved=True)
                 receipts.append(event["receipt"])
-        with log.open("a", encoding="utf-8") as f:
-            f.write(json.dumps(event) + "\n")
+        with log.open("ab") as f:
+            f.write((json.dumps(event) + "\n").encode())
         print(event["kind"], row["source_id"], flush=True)
-    (out / "sources.json").write_text(json.dumps(dict(schema="f7c-fresh-acquired-v1",
-        selection_sha256=digest(HERE / "fresh-selection.json"), sources=receipts), indent=1) + "\n", encoding="utf-8")
+    (out / "sources.json").write_bytes((json.dumps(dict(schema="f7c-fresh-acquired-v1",
+        selection_sha256=digest(HERE / "fresh-selection.json"), sources=receipts), indent=1) + "\n").encode())
     print(len(receipts), "acquired of", len(sel["selected"]))
 
 
@@ -208,7 +208,7 @@ def manifest(out):
     path = HERE / "source-manifest.json"
     if path.exists():
         raise ValueError("Manifest already fixed; refuse to overwrite")
-    path.write_text(json.dumps(doc, indent=1) + "\n", encoding="utf-8")
+    path.write_bytes((json.dumps(doc, indent=1) + "\n").encode())
     print(path, digest(path))
 
 

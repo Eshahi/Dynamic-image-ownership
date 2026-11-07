@@ -12,7 +12,7 @@ import tifs_common as common
 
 LEAN = ROOT / "research/tifs-20261028/lean"
 LEAN_CONFIG = LEAN / "lean-config.json"
-PHASES = ("probe", "stage1", "stage2", "stage3", "f7")
+PHASES = ("probe", "stage1", "stage2", "stage3", "f7", "f7c")
 
 
 def load_lean():
@@ -39,7 +39,7 @@ def control_arm(arm, spec):
 def phase_arms(lean, phase, previous=None):
     """Arm specs for one phase. Stage 2 and 3 arms come only from the previous decision."""
     specs = lean["arms"]
-    if phase in ("probe", "stage1", "f7"):
+    if phase in ("probe", "stage1", "f7", "f7c"):
         names = list(lean["phases"][phase]["arms"])
         return names, {name: specs[name] for name in names}
     if previous is None:
@@ -84,6 +84,11 @@ def stage_config(lean, base, phase, *, previous=None):
                             unit_estimates_seconds=estimates)
     config["threats"] = dict(config["threats"], read_modes=lean["read_modes"])
     config["cells"] = list(config["cells"]) + list(lean["phases"][phase].get("extra_cells", []))
+    manifest = lean["phases"][phase].get("source_manifest")
+    if manifest:
+        # f7c: a fresh development cohort in the Stage S schema; its digest is taken from the file the run reads.
+        config["source_manifest"] = manifest
+        config["source_manifest_sha256"] = common.sha256_file(ROOT / manifest)
     config["lean"] = dict(phase=phase, arms=specs, writer=lean["writer"], cells=lean["cells"],
                           gates=lean["gates"], primary_endpoint=lean["primary_endpoint"],
                           previous_digest=previous.get("digest") if previous else None)

@@ -260,7 +260,7 @@ def secondary_ids(config, source_ids):
 
 
 def validate_sources(manifest, source_pool=None):
-    expected = (16, 16, 2, 2)
+    expected = tuple(manifest.get("group_counts", (16, 16, 2, 2)))
     records = []
     pool = {r["source_uid"]: r for r in source_pool["sources"]} if source_pool is not None else None
     for group, n in zip(SOURCE_GROUPS, expected):

@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 # SERVER ONLY. Setup (scripts/f6l_setup.py) runs first, as its own step.
-# Usage: bash scripts/f6l_driver.sh ASSETS RUN_ROOT INSTANCE_START_UTC HOURLY_USD [lean|f7]
+# Usage: bash scripts/f6l_driver.sh ASSETS RUN_ROOT INSTANCE_START_UTC HOURLY_USD [lean|f7|f7c]
 # lean (default) runs probe, then stages 1 to 3, and stops as soon as a fixed rule says stop.
 # f7 runs the F7 dual-carrier test: Stage S rehearsal, then screen, then its fixed verdict.
+# f7c runs the F7 registry replication: rehearsal, fit check, then the fresh 64-source screen (F7 and unmarked arms,
+# no distortion stage). It has no verdict here: the registry scorer decides on the laptop from the fetched outputs.
 # Exit codes: 0 finished with a GO label, 2 scientific stop, 3 resource stop, 4 incomplete.
 # The instance keeps billing after this exits: fetch the results, then stop it by hand.
 set -euo pipefail
-[ "$#" -eq 4 ] || [ "$#" -eq 5 ] || { echo 'Expected ASSETS RUN_ROOT INSTANCE_START_UTC HOURLY_USD [lean|f7]' >&2; exit 1; }
+[ "$#" -eq 4 ] || [ "$#" -eq 5 ] || { echo 'Expected ASSETS RUN_ROOT INSTANCE_START_UTC HOURLY_USD [lean|f7|f7c]' >&2; exit 1; }
 cd "$(dirname "$0")/.."
 PY=${TIFS_PYTHON:-/workspace/venv/bin/python}
 ASSETS=$1; RUN_ROOT=$2; START=$3; PRICE=$4; MODE=${5:-lean}
-case "$MODE" in lean|f7) ;; *) echo 'Mode must be lean or f7' >&2; exit 1 ;; esac
+case "$MODE" in lean|f7|f7c) ;; *) echo 'Mode must be lean, f7 or f7c' >&2; exit 1 ;; esac
 mkdir -p "$RUN_ROOT"
 RUN_ROOT=$(cd "$RUN_ROOT" && pwd)
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
@@ -89,6 +91,28 @@ plan() {
   "$PY" scripts/f6l_run.py --phase "$phase" --stage plan --out "$out" "$@" >> "$out/plan.log" 2>&1
 }
 
+if [ "$MODE" = f7c ]; then
+  for mode in rehearsal screen; do
+    OUT="$RUN_ROOT/f7c/$mode"
+    plan f7c "$OUT"
+    FLAG=(); if [ "$mode" = rehearsal ]; then FLAG=(--rehearsal); fi
+    stage_run f7c "$OUT" prepare "${FLAG[@]}"
+    stage_run f7c "$OUT" clean
+    stage_run f7c "$OUT" native "${FLAG[@]}"
+    stage_run f7c "$OUT" threats
+    read_all f7c "$OUT"
+    if [ "$mode" = rehearsal ]; then
+      [ "$INCOMPLETE" -eq 0 ] || { note 'f7c rehearsal incomplete'; exit 4; }
+      rc=0
+      "$PY" scripts/f6l_select.py --action fit --phase f7c --root "$RUN_ROOT" --instance-start-utc "$START"         --hourly-usd "$PRICE" >> "$RUN_ROOT/fit.log" 2>&1 || rc=$?
+      note "fit f7c exit=$rc"
+      [ "$rc" -eq 0 ] || exit "$rc"
+    fi
+  done
+  [ "$INCOMPLETE" -eq 0 ] || { note 'f7c screen incomplete'; exit 4; }
+  note FINISHED
+  exit 0
+fi
 if [ "$MODE" = f7 ]; then
   # The rehearsal must finish without implementation errors before the screen is paid for.
   for mode in rehearsal screen; do

@@ -364,6 +364,51 @@ class Flow(unittest.TestCase):
         self.assertEqual(fit_code, 0)
         self.assertTrue(fit["fits"])
 
+    def test_f7c_replication_flow(self):
+        """f7c: fresh manifest, F7 and unmarked arms only, no distortion stage; the fit scales to 64 donors."""
+        import f7_dual
+        saved = f7_dual.embed, f7_dual.read, f7_dual.check_threshold
+        def carrier(rgb, owner, counts):
+            raw = read_raw(rgb, "f7", owner, table=counts)
+            raw["semantic"]["decoded_score"] = 9.0 if raw["semantic"]["read"] else 3.0
+            return raw
+        f7_dual.embed = lambda internal, rgb, base, owner, metric=None: (stamped(rgb, "f7"), dict(q="0000abcd", h="0000beef"), dict(v5_scale=1.0))
+        f7_dual.read = lambda internal, rgb, owner, features=None, latent=None: dict(
+            f5=carrier(rgb, owner, (16, 0, 0, 0, 10)), v5=carrier(rgb, owner, (6, 13, 3, 14, 0)),
+            combined=dict(decoded_score=3.0, content_match=False, found=False))
+        f7_dual.check_threshold = lambda v5: 8.341671
+        try:
+            out = self.root / "f7c" / "rehearsal"
+            out.mkdir(parents=True)
+            config = self.plan("f7c", out)
+            self.assertEqual(config["arms"], ["unmarked", "f7"])
+            self.assertEqual(config["source_manifest"], "research/f7-dual-carrier-20261102/replication/source-manifest.json")
+            self.assertEqual(config["source_manifest_sha256"], self.common.sha256_file(self.stage.manifest_path(config)))
+            manifest = self.common.load_json(self.stage.manifest_path(config))
+            self.common.validate_sources(manifest)
+            self.assertEqual([len(manifest[g]) for g in ("screen_donors", "screen_targets")], [64, 64])
+            donors = [str(i) for i in range(100, 104)]
+            targets = [str(i) for i in range(200, 204)]
+            pairs = [dict(donor=d, target=t, cosine=.5, distinctness="human_label_missing") for d, t in zip(donors, targets)]
+            self.prepare(out, donors, pairs, targets)
+            self.execute(out, "f7c", config, "clean", "native", "threats", "detect", "quality")
+            now = datetime.now(timezone.utc).isoformat()
+            fit_code = self.select.main(["--action", "fit", "--phase", "f7c", "--root", str(self.root),
+                                         "--instance-start-utc", now, "--hourly-usd", ".5512"])
+            fit = self.common.load_json(self.root / "f7c-fit.json")
+            data = self.select.load_phase(out)
+        finally:
+            f7_dual.embed, f7_dual.read, f7_dual.check_threshold = saved
+        self.assertEqual(fit_code, 0)
+        self.assertEqual(fit["screen_donors"], 64)
+        self.assertEqual(data["producers"]["secondary"], {})
+        items = {r["item"] for r in data["detections"].values()}
+        self.assertIn("native:K3-0.2:100:2:f7", items)
+        self.assertIn("native:R1-0.2:103:0:unmarked", items)
+        self.assertTrue(any(i.startswith("threat:T4:100:200:f7:") for i in items))
+        self.assertTrue(any(i.startswith("threat:T5:") for i in items))
+        self.assertFalse(any(r.get("method") != "f7" for r in data["detections"].values()))
+
     def check_pack(self):
         import f6l_pack
         dest = self.root / "bundle.tgz"

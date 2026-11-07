@@ -73,7 +73,7 @@ def start(args):
     import encoder_transfer_runtime as rt
     import et_final_pilot as pilot
     base, specs = pilot.channel_specs()
-    identity = common.runtime_identity(args.out / "config.json", STAGE_S_MANIFEST,
+    identity = common.runtime_identity(args.out / "config.json", stage.manifest_path(config),
         [ROOT / "scripts" / name for name in CODE] + [lean_common.LEAN_CONFIG, ROOT / "research/encoder-transfer-20261019/stage2b-config.json"],
         [stage.resolve_repo(base["profile_file"])])
     identity.update(instance_start_utc=instant.astimezone(timezone.utc).isoformat(), hourly_usd=args.hourly_usd,
@@ -91,7 +91,7 @@ def start(args):
 
 
 def prepare(args, lean, config, base, specs, budget, rt, torch):
-    if config["lean"]["phase"] in ("stage3", "f7"):
+    if config["lean"]["phase"] in ("stage3", "f7", "f7c"):
         return stage.prepare(args, config, base, specs, budget, rt, torch)
     import tifs_stage_p as stage_p
     manifest = stage_p.load_manifest(STAGE_P_MANIFEST)
