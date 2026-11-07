@@ -58,6 +58,42 @@ bash scripts/f6l_driver.sh /workspace/assets /workspace/runs/f6l "$START" "$PRIC
 
 It runs the Stage S rehearsal, checks that the 16-source screen fits the cap, runs the screen, then writes `f7/screen/decision.json`.
 
+## F7 registry replication, f7c (frozen 2026-11-07)
+
+Protocol: `research/f7-dual-carrier-20261102/REPLICATION-PROTOCOL.md`. Branch `claude/f7-confirm-20261107`. Needs the user to rent an instance and give the SSH line and the hourly price. Turn Hotspot Shield off for SSH. Check the instance: GPU with at least 24 GB, at least 64 GB of RAM, at least 80 GB of free disk, and a fast desktop CPU (the readers are CPU bound).
+
+1. Build the code archive on the laptop from the branch head, and use the fixed sources archive, which is built already:
+
+```bash
+git -C "C:/Users/Soroush/.codex/worktrees/claude-f6-lean" -c core.autocrlf=false -c core.eol=lf archive -o "C:/Users/Soroush/AppData/Local/Temp/f7c-code.tar" HEAD scripts research/tifs-20261028 research/f7-dual-carrier-20261102 research/encoder-transfer-20261019/stage2b-config.json research/encoder-transfer-20261019/source-list.json research/claude-round3-frozen-20261017.json experiments/c4-v5-two-tier-regeneration-v1 AGENTS.md
+```
+
+   - `C:/Users/Soroush/AppData/Local/Temp/f7c-sources.tar`: 128 canonical PNGs as `sources/<id>.png`, SHA-256 8d53af22fe4cd3febfebca03891ed85084ec8b8b0dd96b4128b0dd6f908cd58a, 56 MB. If it is lost, rebuild it from MAIN `.thesis-build/assets/f7c-fresh-20261107/canonical`; `prepare` checks every PNG and pixel hash against the manifest.
+   - `C:/Users/Soroush/AppData/Local/Temp/f6l-sources.tar`: the 60 Stage S sources, which setup verifies and the rehearsal uses.
+2. Upload all three, check their hashes, unpack the code at `/workspace/f6l`, and both source archives into `/workspace/assets`. The upload runs at about 100 KB/s, so start it before setup and let the two overlap.
+3. Run setup as in the sections above, with the new START and PRICE.
+4. Run the driver, detached, with its output in a log:
+
+```bash
+cd /workspace/f6l && nohup bash scripts/f6l_driver.sh /workspace/assets /workspace/runs/f6l "$START" "$PRICE" f7c > /workspace/f7c-driver.out 2>&1 &
+```
+
+   It runs the rehearsal, writes `f7c-fit.json`, then runs the 64-source screen and notes FINISHED. Stop it if the fit forecasts more than 6 h in total.
+5. Fetch:
+
+```bash
+cd /workspace/runs/f6l/f7c && python3 /workspace/f6l/scripts/f7c_fetch_list.py && tar -cf /workspace/f7c-fetch.tar -T /workspace/f7c-fetch-list.txt
+```
+
+   Download it with a hash check into MAIN `.thesis-build/dev-runs/<date>-f7c-replication/`, unpack it, and write a `run.json`. Then stop the instance from inside (`vastai stop instance "$CONTAINER_ID" --api-key "$CONTAINER_API_KEY"`); never destroy it.
+6. Score it on the laptop:
+
+```bash
+"W:/Prrojects/image ownership/THESIS_GUIDE_OFFLINE_v5/.thesis-build/a6-science-venv/Scripts/python.exe" "C:/Users/Soroush/.codex/worktrees/claude-f6-lean/scripts/f7c_registry_score.py" --screen "<run>/unpacked/screen" --out "<run>/score"
+```
+
+   Write `RESULTS-REPLICATION.md` next to the protocol.
+
 ## Finish
 
 Pack and fetch, then stop the instance by hand. Do this before the reserve runs out.

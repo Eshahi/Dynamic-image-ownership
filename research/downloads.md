@@ -480,3 +480,12 @@ The CLIP package installed on the stage-2 server on 2026-10-24 also belongs here
 ## 2026-10-25: full Kandinsky 3 for stage 2b (Claude Code, Opus 5.5)
 
 Downloaded on the rented server only (vast container 57583551), never on the laptop, by `scripts/encoder_transfer_server_setup_2b.sh`, for approved proposal P4 (amendment 2b). Source: https://huggingface.co/kandinsky-community/kandinsky-3 at revision bf79e6c219da8a94abb50235fdc4567eb8fb4632, Apache-2.0, fp16 variant: model index, scheduler config, the five text-encoder shards and index, the tokenizer files, the UNet and the MoVQ, 28.4 GB in total. Every large file matched the LFS SHA-256 published at that revision (pinned in `scripts/encoder_transfer_amend_2b.py`, `K3_FILES`); small files are pinned by their measured SHA-256. All receipts are in `research/encoder-transfer-20261019/stage2b-asset-plan.json` (SHA-256 a21a53af09295673cbb7545224c22339170b22bd4f64944d988cc7924263f707). The server also installed sentencepiece 0.2.2 and protobuf 7.36.2 from PyPI for the T5 tokenizer, pinned in `stage2b-config.json`. The instance was stopped after the run; nothing was copied home except the run outputs.
+
+## 2026-11-07: fresh COCO cohort for the F7 registry replication (Claude Code, Opus 5.5)
+
+- **What:** 128 COCO train2017 photographs, IDs 4051-8074, downloaded on the laptop by `scripts/f7c_fresh_sources.py` from `https://s3.amazonaws.com/images.cocodataset.org/train2017/<id>.jpg`.
+- **Licence:** each image's own COCO licence is CC BY 2.0 (licence id 4); the Flickr attribution hooks are in the receipts.
+- **Size:** 22,093,913 raw bytes; 54 MB of canonical PNGs.
+- **Selection:** `research/f7-dual-carrier-20261102/replication/fresh-selection.json` (SHA-256 f97e4099…), committed before any download.
+- **Receipts:** per-image raw, canonical PNG and RGB8 SHA-256 values are in MAIN `.thesis-build/assets/f7c-fresh-20261107/acquisition.jsonl` and `sources.json`.
+- **Reservation:** development-reserved (see `research/development-sources.md`).
