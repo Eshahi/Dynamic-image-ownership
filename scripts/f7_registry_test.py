@@ -253,10 +253,11 @@ class Scorer:
                 for r in records:
                     if r["path"] is None or r["q"] is None:
                         continue
+                    label = f"{'alpha' if r['owner'] == ALPHA else 'beta'}:{r['sid']}"
                     if self.rule(self.pair(b["path"], r["path"])):
-                        fp.append(f"{r['owner'][-5:]}:{r['sid']}")
+                        fp.append(label)
                         if selects(codes[r["owner"]], r["q"]):
-                            matched.append(f"{r['owner'][-5:]}:{r['sid']}")
+                            matched.append(label)
                 entries.append(dict(source=sid, status="ok", matched=matched, fingerprint_matched=fp,
                                     beta_pointer=bool(codes[BETA]), wrong_owner=any(m.startswith("beta:") for m in matched)))
             ok = [e for e in entries if e["status"] == "ok"]
