@@ -91,7 +91,7 @@ def start(args):
 
 
 def prepare(args, lean, config, base, specs, budget, rt, torch):
-    if config["lean"]["phase"] in ("stage3", "f7", "f7c"):
+    if config["lean"]["phase"] in ("stage3", "f7", "f7c", "f7v"):
         return stage.prepare(args, config, base, specs, budget, rt, torch)
     import tifs_stage_p as stage_p
     manifest = stage_p.load_manifest(STAGE_P_MANIFEST)

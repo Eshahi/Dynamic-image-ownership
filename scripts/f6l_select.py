@@ -546,7 +546,7 @@ def fit(args):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--action", required=True, choices=("clean-gate", "decide", "fit"))
-    parser.add_argument("--phase", required=True, choices=("stage1", "stage2", "stage3", "f7", "f7c"))
+    parser.add_argument("--phase", required=True, choices=("stage1", "stage2", "stage3", "f7", "f7c", "f7v"))
     parser.add_argument("--out", type=Path)
     parser.add_argument("--root", type=Path)
     parser.add_argument("--previous", type=Path)
@@ -554,7 +554,7 @@ def main(argv=None):
     parser.add_argument("--hourly-usd", type=float)
     args = parser.parse_args(argv)
     if args.action == "fit":
-        report = f7_fit(args) if args.phase in ("f7", "f7c") else fit(args)
+        report = f7_fit(args) if args.phase in ("f7", "f7c", "f7v") else fit(args)
         print(json.dumps(report, sort_keys=True))
         return 0 if report["fits"] else 3
     config = common.load_json(args.out / "config.json")

@@ -43,6 +43,10 @@
     "f7c": {"seeds": [0, 1, 2], "arms": ["unmarked", "f7"],
             "extra_cells": [{"family": "R0", "id": "R0-0.4", "strength": 0.4}],
             "source_manifest": "research/f7-dual-carrier-20261102/replication/source-manifest.json",
+            "screen_donors": 64, "secondary": false},
+    "f7v": {"seeds": [0, 1, 2], "arms": ["unmarked", "vine-r"],
+            "extra_cells": [{"family": "R0", "id": "R0-0.4", "strength": 0.4}],
+            "source_manifest": "research/f7-dual-carrier-20261102/replication/source-manifest.json",
             "screen_donors": 64, "secondary": false}
   },
   "cells": {"foreign": ["R1-0.1", "R1-0.2", "K3-0.2"], "core_foreign": ["R1-0.1", "K3-0.2"], "home": "R0-0.2"},

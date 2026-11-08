@@ -409,6 +409,48 @@ class Flow(unittest.TestCase):
         self.assertTrue(any(i.startswith("threat:T5:") for i in items))
         self.assertFalse(any(r.get("method") != "f7" for r in data["detections"].values()))
 
+    def test_f7v_vine_baseline_flow(self):
+        """f7v: the same fresh manifest with VINE-R and unmarked arms; reads keep the 100-bit decoded message."""
+        saved = Vine.detect
+        def detect(self, rgb, bits):
+            mine = int(rgb[0, 0, 0]) == ARM_CODES["vine-r"]
+            decoded = list(bits) if mine else [1 - b for b in bits]
+            return dict(status="ok", presence=dict(present=mine), raw=dict(decoded_message=decoded))
+        Vine.detect = detect
+        try:
+            out = self.root / "f7v" / "rehearsal"
+            out.mkdir(parents=True)
+            config = self.plan("f7v", out)
+            self.assertEqual(config["arms"], ["unmarked", "vine-r"])
+            self.assertEqual(config["source_manifest"], "research/f7-dual-carrier-20261102/replication/source-manifest.json")
+            donors = [str(i) for i in range(100, 104)]
+            targets = [str(i) for i in range(200, 204)]
+            pairs = [dict(donor=d, target=t, cosine=.5, distinctness="human_label_missing") for d, t in zip(donors, targets)]
+            self.prepare(out, donors, pairs, targets)
+            base = dict(payload_bits={"vine-r": 100}, message_seed=20261019, wrong_message_seed=20261020)
+            budget = self.common.Budget(36000, reserve_seconds=0)
+            for name in ("clean", "native", "threats", "detect", "quality"):
+                getattr(self.run_mod, name)(self.args(out, "f7v", stage=name), self.lean, config, base,
+                                            dict(R0="R0", R1="R1", K3="K3"), budget, self.rt, self.torch)
+            now = datetime.now(timezone.utc).isoformat()
+            fit_code = self.select.main(["--action", "fit", "--phase", "f7v", "--root", str(self.root),
+                                         "--instance-start-utc", now, "--hourly-usd", ".5512"])
+            data = self.select.load_phase(out)
+        finally:
+            Vine.detect = saved
+        self.assertEqual(fit_code, 0)
+        rows = {r["item"]: r for r in data["detections"].values()}
+        own = rows["native:K3-0.2:100:2:vine-r"]["calls"]["qim-pilot-owner-alpha"]
+        clean = {r["source"]: r for r in data["producers"]["clean"].values() if r.get("arm") == "vine-r"}
+        # The stubbed message() is one bit long; the real one gives 100. The read keeps what the decoder returned.
+        self.assertEqual(own["raw"]["decoded_message"], clean["100"]["payload"]["bits"])
+        self.assertTrue(own["presence"]["present"])
+        self.assertIn("wrong_message_presence", own)
+        self.assertIn("native:R1-0.2:103:0:unmarked", rows)
+        self.assertTrue(any(i.startswith("threat:T4:100:200:vine-r:") for i in rows))
+        self.assertEqual({r["method"] for r in data["detections"].values()}, {"vine-r"})
+        self.assertEqual(len(clean), 4)
+
     def check_pack(self):
         import f6l_pack
         dest = self.root / "bundle.tgz"

@@ -12,7 +12,7 @@ import tifs_common as common
 
 LEAN = ROOT / "research/tifs-20261028/lean"
 LEAN_CONFIG = LEAN / "lean-config.json"
-PHASES = ("probe", "stage1", "stage2", "stage3", "f7", "f7c")
+PHASES = ("probe", "stage1", "stage2", "stage3", "f7", "f7c", "f7v")
 
 
 def load_lean():
@@ -39,7 +39,7 @@ def control_arm(arm, spec):
 def phase_arms(lean, phase, previous=None):
     """Arm specs for one phase. Stage 2 and 3 arms come only from the previous decision."""
     specs = lean["arms"]
-    if phase in ("probe", "stage1", "f7", "f7c"):
+    if phase in ("probe", "stage1", "f7", "f7c", "f7v"):
         names = list(lean["phases"][phase]["arms"])
         return names, {name: specs[name] for name in names}
     if previous is None:
